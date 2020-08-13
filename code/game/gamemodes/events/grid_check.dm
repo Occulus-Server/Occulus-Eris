@@ -15,7 +15,7 @@ So sometimes this event can result in people finding new and interesting things
 	event_type = /datum/event/grid_check
 	event_pools = list(EVENT_LEVEL_MUNDANE = POOL_THRESHOLD_MUNDANE,
 	EVENT_LEVEL_MODERATE = POOL_THRESHOLD_MODERATE)
-	weight = 0.5 //Make this less common since its very long lasting
+	weight = 0.4 //Make this less common since its very long lasting
 
 	tags = list(TAG_SCARY, TAG_COMMUNAL)
 
@@ -42,12 +42,12 @@ So sometimes this event can result in people finding new and interesting things
 
 	for(var/obj/machinery/power/smes/buildable/S in SSmachines.machinery)
 		if (is_valid_smes(S))
-			S.energy_fail(rand(30 * severity*severity,40 * severity*severity))
+			S.energy_fail(rand(30 * severity,40 * severity))
 
 
 	for(var/obj/machinery/power/apc/C in SSmachines.machinery)
 		if(is_valid_apc(C) && (!affected_z_levels || (C.z in affected_z_levels)))
-			C.energy_fail(rand(90 * severity*severity,200 * severity*severity))
+			C.energy_fail(rand(90 * severity,200 * severity))
 
 /proc/power_restore(var/announce = 1)
 	var/list/skipped_areas = list(/area/turret_protected/ai)

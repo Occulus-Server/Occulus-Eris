@@ -8,6 +8,7 @@
 	id = "spacevine"
 	name = "rampant flora"
 
+	enabled = FALSE
 
 	event_type = /datum/event/spacevine
 	event_pools = list(EVENT_LEVEL_MAJOR = POOL_THRESHOLD_MAJOR*0.6)

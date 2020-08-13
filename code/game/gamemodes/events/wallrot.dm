@@ -9,6 +9,7 @@
 	id = "wallrot"
 	name = "wallrot"
 
+	enabled = FALSE
 
 	event_type = /datum/event/wallrot
 	event_pools = list(EVENT_LEVEL_MUNDANE = POOL_THRESHOLD_MUNDANE *0.8)

@@ -47,18 +47,12 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 	var/list/chosen_mob_classification = list()
 	var/list/possible_mobs_mundane = list(
 		INFESTATION_MICE = 17,
-		INFESTATION_LIZARDS = 12,
 		INFESTATION_SPIDERLINGS = 8,
-		INFESTATION_YITHIAN = 6,
-		INFESTATION_TINDALOS = 6,
-		INFESTATION_DIYAAB = 6,
 		INFESTATION_SPACE_BATS = 7
 	)
 
 	var/possible_mobs_moderate = list(
 		INFESTATION_SPACE_BATS = 10,
-		INFESTATION_SAMAK = 5,
-		INFESTATION_SHANTAK = 7,
 		INFESTATION_SPIDERS = 7,//This is a combination of spiderlings and adult spiders
 		INFESTATION_ROACHES = 7
 	)
