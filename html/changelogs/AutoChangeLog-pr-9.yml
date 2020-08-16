@@ -1,0 +1,6 @@
+author: martinlyra
+delete-after: true
+changes:
+  - rscdel: Removed some unused code related to languages
+  - rscdel: 'Removed following languages that had definitions: `Birdsong` and `High
+      Skrellian`'
