@@ -1,0 +1,7 @@
+author: martinlyra
+delete-after: true
+changes:
+  - rscadd: Drones (maintenance, construction, and biltzshell) now have the ability
+      to ventcrawl.
+  - bugfix: Alt-clicking for robots; including cyborgs and drones, had incorrect flow.
+      It now will activate ventcrawl if they have the ability to.
