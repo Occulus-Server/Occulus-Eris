@@ -1,7 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - balance: Ghost -> Mob spawn delay changed from 5 to 2 minutes
-  - balance: Ghost -> Drone spawn delay changed from 10 to 3 minutes
-  - bugfix: The warning displayed when clicking on lobby's Observe button now show
-      the actual delay as set by the configuration

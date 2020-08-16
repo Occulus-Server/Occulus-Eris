@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - balance: Maintenance drones can now pull `ITEM_SIZE_HUGE` items, was `ITEM_SIZE_NORMAL`
-  - balance: Construction drones can now pull `ITEM_SIZE_COLOSSAL` items, was `ITEM_SIZE_HUGE`
