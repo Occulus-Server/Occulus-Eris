@@ -39,7 +39,7 @@ var/list/mob_hat_cache = list()
 	possession_candidate = 1
 	speed = -0.25
 
-	can_pull_size = ITEM_SIZE_NORMAL
+	can_pull_size = ITEM_SIZE_HUGE
 	can_pull_mobs = MOB_PULL_SMALLER
 
 	mob_bump_flag = SIMPLE_ANIMAL
@@ -105,7 +105,7 @@ var/list/mob_hat_cache = list()
 	module_type = /obj/item/weapon/robot_module/drone/construction
 	hat_x_offset = 1
 	hat_y_offset = -12
-	can_pull_size = ITEM_SIZE_HUGE
+	can_pull_size = ITEM_SIZE_COLOSSAL
 	can_pull_mobs = MOB_PULL_SAME
 
 /mob/living/silicon/robot/drone/is_allowed_vent_crawl_item()
