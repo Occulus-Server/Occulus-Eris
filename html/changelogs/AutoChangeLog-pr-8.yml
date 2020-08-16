@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - rscadd: Great-/overcoats now have pocket-like storage
+  - refactor: Great-/overcoats changed from `armor` subtypes to `storage`
