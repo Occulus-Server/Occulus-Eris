@@ -147,8 +147,8 @@
 #define ANIMAL	"animal"//Used for mice and any other simple animals
 #define MINISYNTH	"minisynth"//Used for drones and pAIs
 
-#define ANIMAL_SPAWN_DELAY 5 MINUTES
-#define DRONE_SPAWN_DELAY  10 MINUTES
+#define ANIMAL_SPAWN_DELAY 2 MINUTES
+#define DRONE_SPAWN_DELAY  3 MINUTES
 
 #define CRYOPOD_SPAWN_BONUS	20 MINUTES//Going to sleep in a cryopod takes this much off your respawn time in minutes
 #define CRYOPOD_SPAWN_BONUS_DESC	"20 minutes"	//Tells players how long they have until respawn.
