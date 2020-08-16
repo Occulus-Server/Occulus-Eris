@@ -180,20 +180,6 @@
 	flags = WHITELISTED
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix")
 
-/datum/language/skrellfar
-	name = LANGUAGE_SKRELLIANFAR
-	desc = "The most common language among the Skrellian Far Kingdoms. Has an even higher than usual concentration of inaudible phonemes."
-	speech_verb = "warbles"
-	ask_verb = "warbles"
-	exclaim_verb = "sings"
-	whisper_verb = "hums"
-	colour = "skrellfar"
-	key = "p"
-	space_chance = 30
-	flags = WHITELISTED
-	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix", "...", "oo", "q", "nq", "x", "xq", "ll", "...", "...", "...") //should sound like there's holes in it
-
-
 /datum/language/human
 	name = LANGUAGE_SOL_COMMON
 	desc = "A bastardized hybrid of many languages, including Chinese, English, French, and more; it is the common language of the Sol system."
@@ -233,14 +219,6 @@
 	"ist","ein","entch","zwichs","tut","mir","wo","bis","es","vor","nic","gro","lll","enem","zandt","tzch","noch", \
 	"hel","ischt","far","wa","baram","iereng","tech","lach","sam","mak","lich","gen","or","ag","eck","gec","stag","onn", \
 	"bin","ket","jarl","vulf","einech","cresthz","azunein","ghzth")
-
-/datum/language/birdsong
-	name = LANGUAGE_BIRDSONG
-	desc = "A language primarily spoken by Nevreans"
-	speech_verb = "chirps"
-	colour = "birdsongc"
-	key = "7"
-	syllables = list ("cheep", "peep", "tweet")
 
 /datum/language/sergal
 	name = LANGUAGE_SAGARU

@@ -44,28 +44,16 @@
 #define NO_STUTTER   256 // No stuttering, slurring, or other speech problems
 
 // Languages.
-#define LANGUAGE_GALCOM "Galactic Common"
-#define LANGUAGE_EAL "Encoded Audio Language"
 #define LANGUAGE_SOL_COMMON "Sol Common"
 #define LANGUAGE_UNATHI "Sinta'unathi"
 #define LANGUAGE_SIIK "Siik"
 #define LANGUAGE_SKRELLIAN "Common Skrellian"
-#define LANGUAGE_TRADEBAND "Tradeband"
-#define LANGUAGE_GUTTER "Gutter"
-#define LANGUAGE_SIGN "Sign Language"
 #define LANGUAGE_SCHECHI "Schechi"
 #define LANGUAGE_ROOTLOCAL "Local Rootspeak"
 #define LANGUAGE_ROOTGLOBAL "Global Rootspeak"
 #define LANGUAGE_YUELDISCH "Yueldisch"
 #define LANGUAGE_VOX "Vox-Pidgin"
-#define LANGUAGE_TERMINUS "Terminus"
-#define LANGUAGE_SKRELLIANFAR "High Skrellian"
-#define LANGUAGE_MINBUS "Minbus"
-#define LANGUAGE_EVENT1 "Occursus"
-#define LANGUAGE_LANIUS "Scraptalk"
 #define LANGUAGE_AKHANI "Akhani"
-#define LANGUAGE_ALAI "Alai"
-#define LANGUAGE_BIRDSONG "Birdsong"
 #define LANGUAGE_SAGARU "Sagaru"
 
 // Species flags.
