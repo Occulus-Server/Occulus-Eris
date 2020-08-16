@@ -62,37 +62,6 @@
 	)
 	price_tag = 150
 
-/obj/item/clothing/suit/armor/greatcoat
-	name = "armored coat"
-	desc = "A greatcoat enhanced with a special alloy for some protection and style."
-	icon_state = "greatcoat"
-	item_state = "hos"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	armor = list(
-		melee = 30,
-		bullet = 35,
-		energy = 30,
-		bomb = 15,
-		bio = 0,
-		rad = 0
-	)
-	price_tag = 600
-
-/obj/item/clothing/suit/armor/greatcoat/ironhammer
-	icon_state = "greatcoat_ironhammer"
-
-/obj/item/clothing/suit/armor/greatcoat/serbian_overcoat
-	name = "black serbian overcoat"
-	desc = "A black serbian overcoat with armor-weave and rank epaulettes"
-	icon_state = "overcoat_black"
-	item_state = "overcoat_black"
-
-/obj/item/clothing/suit/armor/greatcoat/serbian_overcoat_brown
-	name = "brown serbian overcoat"
-	desc = "A brown serbian overcoat with armor-weave and rank epaulettes"
-	icon_state = "overcoat_brown"
-	item_state = "overcoat_brown"
-
 // Serbian flak vests
 /obj/item/clothing/suit/armor/flak
 	name = "black flakvest"
@@ -333,6 +302,44 @@
 	siemens_coefficient = 0
 	price_tag = 600
 	//Used ablative gear armor values and technomancer helmet/voidsuit values.
+
+// Great-/overcoats retyped from armor to storage
+/obj/item/clothing/suit/storage/greatcoat
+	name = "armored coat"
+	desc = "A greatcoat enhanced with a special alloy for some protection and style."
+	icon_state = "greatcoat"
+	item_state = "hos"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	item_flags = THICKMATERIAL|DRAG_AND_DROP_UNEQUIP
+	cold_protection = UPPER_TORSO|LOWER_TORSO
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.6
+	armor = list(
+		melee = 30,
+		bullet = 35,
+		energy = 30,
+		bomb = 15,
+		bio = 0,
+		rad = 0
+	)
+	price_tag = 600
+
+/obj/item/clothing/suit/storage/greatcoat/ironhammer
+	icon_state = "greatcoat_ironhammer"
+
+/obj/item/clothing/suit/storage/greatcoat/serbian_overcoat
+	name = "black serbian overcoat"
+	desc = "A black serbian overcoat with armor-weave and rank epaulettes"
+	icon_state = "overcoat_black"
+	item_state = "overcoat_black"
+
+/obj/item/clothing/suit/storage/greatcoat/serbian_overcoat_brown
+	name = "brown serbian overcoat"
+	desc = "A brown serbian overcoat with armor-weave and rank epaulettes"
+	icon_state = "overcoat_brown"
+	item_state = "overcoat_brown"
 
 /*
  * Reactive Armor

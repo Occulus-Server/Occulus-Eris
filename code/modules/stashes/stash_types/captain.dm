@@ -31,7 +31,7 @@
 	/obj/item/weapon/hatton = 15,
 	/obj/item/weapon/rcd = 15,
 	/obj/item/weapon/melee/telebaton = 15,
-	/obj/item/clothing/suit/armor/greatcoat = 15)
+	/obj/item/clothing/suit/storage/greatcoat = 15)
 	weight = 0.2
 
 
