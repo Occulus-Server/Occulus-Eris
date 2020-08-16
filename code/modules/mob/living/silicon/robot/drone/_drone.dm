@@ -108,6 +108,9 @@ var/list/mob_hat_cache = list()
 	can_pull_size = ITEM_SIZE_HUGE
 	can_pull_mobs = MOB_PULL_SAME
 
+/mob/living/silicon/robot/drone/is_allowed_vent_crawl_item()
+	return TRUE
+
 /mob/living/silicon/robot/drone/New()
 
 	..()
@@ -116,6 +119,8 @@ var/list/mob_hat_cache = list()
 	if(!module) module = new module_type(src)
 
 	verbs += /mob/living/proc/hide
+	verbs += /mob/living/proc/ventcrawl
+
 	remove_language(LANGUAGE_ROBOT)
 	add_language(LANGUAGE_ROBOT, 0)
 	add_language(LANGUAGE_DRONE, 1)
