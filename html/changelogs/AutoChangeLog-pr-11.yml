@@ -1,7 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - rscadd: Added operative gloves to security equipment lockers
-  - rscadd: Added tactical gloves to warden equipment locker
-  - rscadd: Added security & operative gloves to loadout, available for all security
-      jobs only

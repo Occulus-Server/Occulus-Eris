@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - balance: Gloves now always will protect against cutting on scrap when rummaging
-      in them
