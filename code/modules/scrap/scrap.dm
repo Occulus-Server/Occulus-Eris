@@ -240,7 +240,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		var/mob/living/carbon/human/victim = user
 		if(victim.species.flags & NO_MINOR_CUT)
 			return FALSE
-		if(victim.gloves && prob(90))
+		if(victim.gloves)
 			return FALSE
 		if(victim.wear_suit && istype(victim.wear_suit, /obj/item/clothing/suit/space)) //Eclipse edit: if getting cut through the spacesuit doesn't somehow depressurize it, then it should not cut you at all
 			return
