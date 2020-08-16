@@ -1,0 +1,6 @@
+author: martinlyra
+delete-after: true
+changes:
+  - tweak: Gave the RD's headset access to the `AI Private` channel
+  - bugfix: The CMO's headset now have their own encryption key to differentiate from
+      RD's headset.
