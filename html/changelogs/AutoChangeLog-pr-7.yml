@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - tweak: Language limit increased from 2 to 3
