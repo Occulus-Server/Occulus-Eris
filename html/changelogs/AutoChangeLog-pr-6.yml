@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - rscdel: Movement is no longer affected by hunger
