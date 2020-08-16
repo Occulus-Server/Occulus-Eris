@@ -42,3 +42,13 @@
 		"Brown"			=	/obj/item/clothing/gloves/color/brown
 	)
 	gear_tweaks += new /datum/gear_tweak/path(gloves)
+
+/datum/gear/gloves/security_base
+	display_name = "gloves, security"
+	path = /obj/item/clothing/gloves/security
+	allowed_roles = list(JOBS_SECURITY)
+
+/datum/gear/gloves/security_ironhammer
+	display_name = "gloves, operative"
+	path = /obj/item/clothing/gloves/security/ironhammer
+	allowed_roles = list(JOBS_SECURITY)
