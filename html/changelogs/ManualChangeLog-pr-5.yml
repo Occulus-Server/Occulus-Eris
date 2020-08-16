@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: fix: Fix a layering issue related to holodecks not copying plane values properly
