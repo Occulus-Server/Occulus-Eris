@@ -925,16 +925,17 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 					var/list/mobs = new/list()
 					var/list/newmobs = new/list()
 
+					// Copy objects
 					for(var/obj/O in T)
 						objs += O
 
 					for(var/obj/O in objs)
 						newobjs += DuplicateObject(O , 1)
 
-
 					for(var/obj/O in newobjs)
-						O.loc = X
+						O.forceMove(X)
 
+					// Copy mobs
 					for(var/mob/M in T)
 
 						if(!istype(M,/mob) || isEye(M)) continue // If we need to check for more mobs, I'll add a variable
@@ -944,7 +945,7 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 						newmobs += DuplicateObject(M , 1)
 
 					for(var/mob/M in newmobs)
-						M.loc = X
+						M.forceMove(X)
 
 					copiedobjs += newobjs
 					copiedobjs += newmobs
