@@ -178,7 +178,7 @@
 
 /mob/living/silicon/robot/AltClickOn(var/atom/A)
 	if(ai_access)
-		return A.BorgAltClick(src)
+		A.BorgAltClick(src)
 	..()
 
 /atom/proc/BorgCtrlShiftClick(var/mob/living/silicon/robot/user) //forward to human click if not overriden
@@ -207,7 +207,6 @@
 
 /atom/proc/BorgAltClick(var/mob/living/silicon/robot/user)
 	AltClick(user)
-	return
 
 /obj/machinery/door/airlock/BorgAltClick(var/mob/living/silicon/robot/user) // Eletrifies doors. Forwards to AI code.
 	AIAltClick(user)
