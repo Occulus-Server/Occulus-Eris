@@ -1,0 +1,5 @@
+author: Luxspectra
+delete-after: true
+changes:
+  - rscadd: empty autoinjectors
+  - tweak: autoinjectors now hold/mostly come with 10 units of reagents.
