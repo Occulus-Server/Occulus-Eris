@@ -3,3 +3,5 @@ delete-after: true
 changes:
   - rscadd: empty autoinjectors
   - tweak: autoinjectors now hold/mostly come with 10 units of reagents.
+  - tweak: 'autoinjector/drugs' now displays as 'autoinjector (sedative)'
+  - tweak: 'autoinjector/drugs' now contains sedatives
