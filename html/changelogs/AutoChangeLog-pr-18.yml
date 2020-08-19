@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - tweak: Renamed "Chemist" to "Pharmacist"
