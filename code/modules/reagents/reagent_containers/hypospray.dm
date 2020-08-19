@@ -90,11 +90,11 @@
 	slot_flags = SLOT_EARS
 	icon_state = "autoinjector"
 	item_state = "autoinjector"
-	amount_per_transfer_from_this = 5
+	amount_per_transfer_from_this = 10
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1)
 	reagent_flags = REFILLABLE | DRAINABLE | AMOUNT_VISIBLE
-	volume = 5
-	preloaded_reagents = list("inaprovaline" = 5)
+	volume = 10
+	preloaded_reagents = list("inaprovaline" = 10)
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/on_reagent_change()
 	..()
@@ -112,22 +112,27 @@
 		icon_state = "[initial(icon_state)]0"
 
 
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/empty
+	name = "autoinjector"
+	preloaded_reagents = list("inaprovaline" = 0)
+//Yes I know this is stupid, but it's a lot easier than making the parent empty and fixing all the fallout from that for now.'
+
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin
 	name = "autoinjector (anti-toxin)"
-	preloaded_reagents = list("anti_toxin" = 5)
+	preloaded_reagents = list("anti_toxin" = 10)
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine
 	name = "autoinjector (tricordrazine)"
-	preloaded_reagents = list("tricordrazine" = 5)
+	preloaded_reagents = list("tricordrazine" = 10)
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin
 	name = "autoinjector (spaceacillin)"
-	preloaded_reagents = list("spaceacillin" = 5)
+	preloaded_reagents = list("spaceacillin" = 10)
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/hyperzine
 	name = "autoinjector (hyperzine)"
 	preloaded_reagents = list("hyperzine" = 5)
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/drugs
-	name = "autoinjector (drugs)"
-	preloaded_reagents = list("space_drugs" = 5)
+	name = "autoinjector (sedative)"
+	preloaded_reagents = list("tramadol" = 2.5, "mindwipe" = 1, "stoxin" = 5)
