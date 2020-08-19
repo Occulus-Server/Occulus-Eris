@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Aegis Medical Specialist now has access to the permabrig & holding cells
