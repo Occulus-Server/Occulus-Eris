@@ -1,8 +1,0 @@
-author: Luxspectra
-delete-after: true
-changes:
-  - rscadd: Box of tricord injectors in Aegis Medical Specialist's lockers
-  - rscadd: 2 boxes of empty injectors in chemistry locker
-  - rscadd: Extra vial pouch in chemistry locker
-  - rscadd: Sedative injector in CMO's locker
-  - rscdel: Redundant pill bottles in chemistry locker
