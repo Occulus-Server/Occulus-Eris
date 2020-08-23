@@ -1,0 +1,5 @@
+author: SirSiggles
+delete-after: true
+changes:
+  - bugfix: Hopefully fixed the colorsheeting of languages and fixed the date.
+  - tweak: Replaced an Eris mention on the overmap.
