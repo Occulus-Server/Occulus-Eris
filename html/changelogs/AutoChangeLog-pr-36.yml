@@ -1,0 +1,6 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Atoms no longer fall through catwalks when they are spawned ontop of catwalks
+  - bugfix: Catwalks no longer block falling from the z-level above them
+  - bugfix: Open spaces now properly update when catwalks have been removed
