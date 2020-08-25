@@ -48,8 +48,8 @@
 /obj/item/clothing/shoes/reinforced/medical
 	name = "reinforced medic's shoes"
 	desc = "Slightly reinforced shoes for medical personnel."
-	icon_state = "medshoes"
-	item_state = "medshoes"
+	icon_state = "reinforced_moebius"
+	item_state = "reinforced_moebius"
 
 /obj/item/clothing/shoes/workboots
 	name = "work boots"
