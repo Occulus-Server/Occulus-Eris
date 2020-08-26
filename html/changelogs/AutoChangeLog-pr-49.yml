@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - code_imp: MC is now verbose and will tell players at where MC has failed and SoftReset,
-      and what the states were.
