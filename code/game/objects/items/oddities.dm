@@ -99,7 +99,7 @@
 	)
 
 /obj/item/weapon/oddity/common/paper_crumpled
-	name = "turn-out page"
+	name = "torn-out page"
 	desc = "This ALMOST makes sense."
 	icon_state = "paper_crumpled"
 	oddity_stats = list(
@@ -130,7 +130,7 @@
 
 /obj/item/weapon/oddity/common/book_omega
 	name = "occult book"
-	desc = "Most of the stories in this book seem to be the writings of madmen, but at least the stories are interesting."
+	desc = "Most of the stories in this book seem to be the ramblings of a madman, but you can't help but keep reading."
 	icon_state = "book_omega"
 	oddity_stats = list(
 		STAT_BIO = 6,
@@ -158,7 +158,7 @@
 
 /obj/item/weapon/oddity/common/healthscanner
 	name = "odd health scanner"
-	desc = "It's broken and stuck on some really strange readings. Was this even human?"
+	desc = "It's broken and stuck on some really strange readings. Was this thing even remotely humanoid?"
 	icon_state = "healthscanner"
 	item_state = "electronic"
 	oddity_stats = list(
