@@ -125,13 +125,16 @@
 
 	var/obj/item/weapon/handcuffs/HC = handcuffed
 
-	//A default in case you are somehow handcuffed with something that isn't an obj/item/weapon/handcuffs type
-	var/breakouttime = 1200 - src.stats.getStat(STAT_ROB) * 10
-	var/displaytime = round(breakouttime / 600) //Minutes to display in the "this will take X minutes."
-	//If you are handcuffed with actual handcuffs... Well what do I know, maybe someone will want to handcuff you with toilet paper in the future...
-	if(istype(HC))
-		breakouttime = HC.breakouttime - src.stats.getStat(STAT_ROB) * 10
-		displaytime = round(breakouttime / 600) //Minutes
+	var/base_breakout
+	if(HC.breakouttime)
+		base_breakout = HC.breakouttime
+	else
+		base_breakout = 1200 //2 minute fallback timer for objects with no breakouttime
+		return
+	var/min_breakout = base_breakout / 5
+	var/rob_breakout = base_breakout - src.stats.getStat(STAT_ROB) * 10
+	var/breakouttime = max(rob_breakout, min_breakout) //reduces times by 1s*ROB, until it reaches 1/5 of the original breakouttime
+	var/displaytime = round(breakouttime / 10)
 
 	var/mob/living/carbon/human/H = src
 	if(istype(H) && H.gloves && istype(H.gloves,/obj/item/clothing/gloves/rig))
@@ -140,7 +143,7 @@
 
 	visible_message(
 		SPAN_DANGER("\The [src] attempts to remove \the [HC]!"),
-		SPAN_WARNING("You attempt to remove \the [HC]. (This will take around [displaytime] minutes and you need to stand still)")
+		SPAN_WARNING("You attempt to remove \the [HC]. (This will take around [displaytime] seconds and you need to stand still)")
 		)
 
 	if(do_after(src, breakouttime, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
@@ -267,5 +270,3 @@
 			visible_message(SPAN_DANGER("\The [usr] manages to unbuckle themself!"),
 							SPAN_NOTICE("You successfully unbuckle yourself."))
 			buckled.user_unbuckle_mob(src)
-
-
