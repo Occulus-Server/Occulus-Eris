@@ -1,6 +1,0 @@
-author: Ashturian
-delete-after: true
-changes:
-  - tweak: made handcuff timers read in seconds.
-  - balance: made handcuff resist timers floor at 0.2 of their original timer.
-  - balance: made handcuffing attempts visible to mobs in view
