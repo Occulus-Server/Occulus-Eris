@@ -1,0 +1,5 @@
+author: Ashturian
+delete-after: true
+changes:
+  - balance: reduced hivemind bomber health and speed, only explodes when attacking,
+      gives more warning of attack.
