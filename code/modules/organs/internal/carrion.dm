@@ -77,7 +77,7 @@
 /obj/item/organ/internal/carrion/core/Destroy()
 	owner = null //overrides removed() call
 	. = ..()
-	
+
 
 /obj/item/organ/internal/carrion/core/proc/make_spider()
 	set category = "Carrion"
@@ -88,7 +88,7 @@
 	if (!spiderlist.len)
 		to_chat(owner, SPAN_WARNING("You dont have any spiders evolved!"))
 		return
-	
+
 	for(var/item in spiderlist)
 		S = item
 		options["[initial(S.name)]([initial(S.spider_price)])"] = S
@@ -108,7 +108,7 @@
 
 /obj/item/organ/internal/carrion/core/ui_interact(mob/user, ui_key, datum/nanoui/ui, force_open, datum/nanoui/master_ui, datum/topic_state/state)
 	var/list/data = list()
-	
+
 	var/list/spiders_in_list = list()
 	for(var/item in active_spiders)
 		var/obj/item/weapon/implant/carrion_spider/S = item
@@ -122,7 +122,7 @@
 		)
 
 	data["list_of_spiders"] = spiders_in_list
-		
+
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "carrion_spiders.tmpl", "Carrion Spiders", 400, 400)
@@ -232,7 +232,7 @@
 	set category = "Carrion"
 	set name = "Regenerative Stasis (20)"
 
-	if(!owner.stat && alert("Are we sure we wish to fake our death?",,"Yes","No") == "No")
+	if(!owner.stat && alert("Are you sure? You will be unable to move or defend yourself.",,"Yes","No") == "No")
 		return
 
 	if(!(owner.check_ability(20)))
@@ -288,7 +288,7 @@
 	var/food = owner.get_active_hand()
 
 	if(!food)
-		to_chat(owner, SPAN_WARNING("You can't eat nothing."))
+		to_chat(owner, SPAN_WARNING("You have nothing to eat."))
 		return
 
 	if(istype(food, /obj/item/organ) || istype(food, /obj/item/weapon/reagent_containers/food/snacks/meat))
@@ -342,7 +342,7 @@
 		to_chat(owner, SPAN_NOTICE("You consume \the [food], [taste_description]."))
 		visible_message(SPAN_DANGER("[owner] devours \the [food]!"))
 		qdel(food)
-	
+
 	else
 		to_chat(owner, SPAN_WARNING("You can't eat this!"))
 
@@ -351,7 +351,7 @@
 	set name = "Spider call (30)"
 
 	if(last_call + 5 MINUTES > world.time)
-		to_chat(owner, SPAN_WARNING("Your maw is tired, you can only call for help every 5 minutes."))
+		to_chat(owner, SPAN_WARNING("Your maw is tired. You can only call for help every 5 minutes."))
 		return
 
 	if(owner.check_ability(30))
@@ -386,7 +386,7 @@
 /obj/effect/decal/cleanable/carrion_puddle
 	name = "toxic puddle"
 	icon = 'icons/effects/effects.dmi'
-	desc = "It emits an abhorrent smell, you shouldn't step anywhere near it."
+	desc = "It emits an abhorrent smell. You shouldn't stand anywhere near this."
 	icon_state = "toxic_puddle"
 	anchored = TRUE
 
@@ -439,6 +439,7 @@
 
 	if (owner.check_ability(30,TRUE))
 		new /obj/structure/spider_nest(owner.loc)
+		to_chat(owner, SPAN_NOTICE("You spin a nest underneath yourself."))
 
 /obj/structure/spider_nest
 	name = "spider nest"
