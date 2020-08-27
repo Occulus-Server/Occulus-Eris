@@ -418,7 +418,8 @@
 	organ_tag = BP_SPINNERET
 	owner_verbs = list(
 		/obj/item/organ/internal/carrion/spinneret/proc/make_nest,
-		/obj/item/organ/internal/carrion/spinneret/proc/bloodpurge
+		/obj/item/organ/internal/carrion/spinneret/proc/bloodpurge,
+		/obj/item/organ/internal/carrion/spinneret/proc/make_web
 	)
 
 /obj/item/organ/internal/carrion/spinneret/proc/bloodpurge()
@@ -480,6 +481,14 @@
 	spider_spawns--
 	if(spider_spawns)
 		addtimer(CALLBACK(src, .proc/spawn_spider), 1 MINUTES)
+
+/obj/item/organ/internal/carrion/spinneret/proc/make_web()
+	set category = "Carrion"
+	set name = "Spin Web (2)"
+
+	if (owner.check_ability(2,TRUE))
+		new /obj/effect/spider/stickyweb(owner.loc)
+		to_chat(owner, SPAN_NOTICE("You spin a web underneath yourself."))
 
 /mob/proc/make_carrion()
 	var/mob/living/carbon/human/user = src
