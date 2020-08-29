@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Patched a leak to the space in the Medical cloning room
