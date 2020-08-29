@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Breaking the gulp-down wind-up now will splash on the mob and fail the
+      act
