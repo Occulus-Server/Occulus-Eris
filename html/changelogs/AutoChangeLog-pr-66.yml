@@ -1,4 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed a runtime caused by saving character preferences when not in lobby

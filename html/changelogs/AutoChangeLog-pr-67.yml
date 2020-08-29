@@ -1,6 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed Alt-clicking being called twice for robot mobs; not showing users
-      any Turf-tabs
-  - refactor: Alt-clicking for vent-crawling is now handled by vents & scrubbers
