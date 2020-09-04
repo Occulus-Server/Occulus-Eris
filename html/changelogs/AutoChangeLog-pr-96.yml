@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - rscadd: Joint-locking is now visible to everyone in view
-  - bugfix: Fixed joint-locking not showing messages when it should
