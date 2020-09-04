@@ -1,0 +1,5 @@
+author: Toriate
+delete-after: true
+changes:
+  - bugfix: Traitor Uplinks should now display Exploitable Information properly, instead
+      of leaving a blank space.
