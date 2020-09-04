@@ -1,4 +1,0 @@
-author: Toriate
-delete-after: true
-changes:
-  - bugfix: Bandaid patch to make characters spawn (im)properly with Cruciforms
