@@ -1,0 +1,39 @@
+author: CEV-Eris Developers
+delete-after: true
+changes:
+  - rscadd: Blitzshells now have bluespace harpoons
+  - tweak: Name and description changes of blitzshell's harpoon
+  - imageadd: New sprites of bluespace harpoons made by INFRARED_BARON.
+  - rscadd: Exosuit-mounted hydraulic clamps can now compress scrap into cubes for
+      transport. These cubes can then be whacked with a decent amount of force (a
+      crowbar should do) to decompress them and release the scrap pile. They can also
+      be recycled directly for a reduced amount of materials compared to recycling
+      the contents individually - this amount can be increased with better microlasers,
+      from 25% to 45% with One Star parts.
+  - rscadd: The conveyors disk now has boards for the smelter and sorter. It's also
+      been renamed to logistics, and has license points. Conveyor and switch assemblies
+      still cost 0 LP, so don't worry.
+  - rscadd: Ask for new contract
+  - rscadd: Mindreader
+  - rscadd: Internal Energy Armblade Implant
+  - rscadd: Psychic laser cannon
+  - rscadd: Syndicate "Proffesional Killer" scope
+  - rscadd: Frozen Star "Watchman" scope
+  - rscadd: Syndicate "Self Desturct" trigger
+  - rscadd: Syndicate "Gauss Coil" barrel
+  - rscadd: Special donut delivery case
+  - rscadd: Unknown ship Announcement
+  - rscadd: 5 Random Stims Kit
+  - balance: Silencer now take slot of the muzzle
+  - code_imp: Returning an "Electrowarfare Suite and Voice Synthesiser" and "Portable
+      autodoc" back into traitor items list.
+  - imageadd: Sprites for scopes.
+  - imageadd: Sprites for Special donut delivery case
+  - imageadd: Sprites for Mindreader
+  - imageadd: Sprites for Syndicate "Gauss Coil" barrel
+  - imageadd: Crimson Hardsuit resprite
+  - bugfix: Fixed runtime related to human defense values
+  - bugfix: Fixed runtime related to bank accounts
+  - rscadd: The entreaty litany now calls out the area of the chanter.
+  - tweak: The power cost of Bounty has been reduced to 1/5 of the previous, unwieldy
+      cost.
