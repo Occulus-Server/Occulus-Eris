@@ -127,4 +127,4 @@
 
 #undef BIOMATTER_SHEETS_PER_TIME 
 #undef CONTAINER_PIXEL_OFFSET
-#undef BIOMATTER_PER_SHEET
+// #undef BIOMATTER_PER_SHEET // uncommented because it's used elsewhere (in modules/materials/material_sheet.dm), why are we still using macros?
