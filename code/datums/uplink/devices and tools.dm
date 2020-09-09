@@ -9,6 +9,7 @@
 	item_cost = 5
 	path = /obj/item/weapon/storage/toolbox/syndicate
 	desc = "Danger. Very robust. Filled with advanced tools."
+
 /datum/uplink_item/item/tools/shield_diffuser
 	name = "Shield Diffuser"
 	item_cost = 4
@@ -310,3 +311,24 @@
 		var/mob/living/silicon/robot/drone/blitzshell/BS = new /mob/living/silicon/robot/drone/blitzshell(loc)
 		BS.request_player()
 	return 1
+
+/datum/uplink_item/item/tools/blitz_harpoon
+	name = "Blitzshell Blue Space Harpoon"
+	desc = "Activates the embedded bluespace harpoon."
+	item_cost = 12
+	antag_roles = list(ROLE_BLITZ)
+
+/datum/uplink_item/item/tools/blitz_harpoon/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/living/user)
+	if(user && istype(user, /mob/living/silicon/robot/drone/blitzshell))
+		var/mob/living/silicon/robot/drone/blitzshell/BS = user
+		if(locate(/obj/item/weapon/bluespace_harpoon/mounted/blitz) in BS.module.modules)
+			to_chat(BS, SPAN_WARNING("You already have a bluespace harpoon installed."))
+			return
+		BS.module.modules += new /obj/item/weapon/bluespace_harpoon/mounted/blitz(BS.module)
+		return TRUE
+
+/datum/uplink_item/item/tools/mindreader
+	name = "Mindreader"
+	desc = "Place on your victim's head to extract memories from their brain after a mental breakdown."
+	item_cost = 20
+	path = /obj/item/clothing/head/mindreader
