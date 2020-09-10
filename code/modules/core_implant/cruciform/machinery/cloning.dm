@@ -243,6 +243,7 @@
 			occupant.UpdateAppearance()
 			occupant.sync_organ_dna()
 			occupant.flavor_text = R.host_flavor_text
+			occupant.stats = R.host_stats // Syzygy edit to copy stats from old mob to other
 			// occupant.stats = R.stats // commented out because it's a variable used by the cruciform, uncomment when we're back to using cruciforms
 
 		if(progress == CLONING_BODY || progress <= CLONING_BODY && progress > CLONING_BODY-10)
