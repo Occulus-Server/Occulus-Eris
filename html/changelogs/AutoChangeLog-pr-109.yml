@@ -1,0 +1,8 @@
+author: martinlyra
+delete-after: true
+changes:
+  - rscadd: Stats are now stored in soulcrypts
+  - rscadd: Stats are transferred to new clones via the soulcrypt
+  - rscdel: Removed the bluespace harpoon from random loot
+  - rscdel: Removed the integrated bluespace harpoon from biltzshell drones
+  - balance: Excelsior agents no longer have to find a bluespace harpoon
