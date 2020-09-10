@@ -1,0 +1,6 @@
+author: bearrrrrrrr
+delete-after: true
+changes:
+  - bugfix: fixed unathi/taj movespeed adjustments being too drastic
+  - tweak: tweaked taj resistances by removing 33% of their damage vuln (1.10 from
+      1.15) to adjust for movespeed not being Near Teshari Levels
