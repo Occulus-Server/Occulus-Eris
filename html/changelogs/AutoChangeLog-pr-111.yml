@@ -1,0 +1,6 @@
+author: Toriate
+delete-after: true
+changes:
+  - tweak: Biomatter sheet stacks can now stack up to 300 sheets
+  - balance: Bats now deal reduced damage
+  - balance: Simplemobs now take damage from agony damage
