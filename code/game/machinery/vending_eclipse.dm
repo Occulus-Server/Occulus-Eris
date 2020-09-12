@@ -19,6 +19,7 @@
 					/obj/item/ammo_magazine/ammobox/clrifle_small/rubber = 5,
 					/obj/item/ammo_casing/shotgun/beanbag/prespawned = 20,
 					/obj/item/weapon/storage/box/shotgunammo/beanbags = 5,
+					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 5,
 					/obj/item/weapon/cell/small/high = 10
 					)
 	prices = list(
@@ -35,6 +36,7 @@
 					/obj/item/ammo_magazine/ammobox/clrifle_small/rubber = 900,
 					/obj/item/ammo_casing/shotgun/beanbag/prespawned = 75,
 					/obj/item/weapon/storage/box/shotgunammo/beanbags = 575,
+					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 575,
 					/obj/item/weapon/cell/small/high = 500
 					)
 	idle_power_usage = 211

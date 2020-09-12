@@ -2704,5 +2704,8 @@
 #include "zzz_modular_eclipse\radio_squelch\radios.dm"
 #include "zzz_modular_eclipse\sawnoff\sawnoff.dm"
 #include "zzz_modular_eclipse\storytellers\tyrant.dm"
+#include "zzz_modular_syzygy\ammo.dm"
+#include "zzz_modular_syzygy\grenades.dm"
 #include "zzz_modular_syzygy\hugbox.dm"
+#include "zzz_modular_syzygy\projectiles.dm"
 // END_INCLUDE
