@@ -1,7 +1,0 @@
-author: ShadzFen
-delete-after: true
-changes:
-  - rscadd: AED Unit
-  - rscadd: Defib belt unit.
-  - rscadd: A lot of sprites related to the defibs. (Courtesy of Michiyamenotehifunana)
-  - bugfix: Medical and champion belt now have on-mob sprites.
