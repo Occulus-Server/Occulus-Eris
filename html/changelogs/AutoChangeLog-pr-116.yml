@@ -1,0 +1,5 @@
+author: Toriate
+delete-after: true
+changes:
+  - balance: Hivemind Core now has a longer cooldown between pulses, and their location
+      will be revealed on spawn.
