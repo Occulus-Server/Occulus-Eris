@@ -446,7 +446,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 				if("ipr_minimum_age")
 					config.ipr_minimum_age = text2num(value)
-			
+
 				if ("ipqualityscore_apikey")
 					config.ipqualityscore_apikey = value
 
@@ -819,7 +819,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	return runnable_storytellers
 
 
-
 /datum/configuration/proc/post_load()
 	//apply a default value to config.python_path, if needed
 	if (!config.python_path)
@@ -829,3 +828,4 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 			config.python_path = "python"
 
 	world.name = station_name()
+
