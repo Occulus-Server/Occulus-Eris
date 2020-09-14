@@ -1,9 +1,0 @@
-author: Michiyamenotehifunana
-delete-after: true
-changes:
-  - rscadd: Robotics research has been somewhat overhauled
-  - rscadd: New robotics parts have been added
-  - rscadd: Mechs can now strafe
-  - rscadd: Floor painters and mech painters can now be made in autolathes
-  - balance: Exosuits are now much tougher and clunkier
-  - balance: Exosuits no longer fumble
