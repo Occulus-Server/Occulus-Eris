@@ -108520,6 +108520,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
+"gJE" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/defibcabinet{
+	pixel_x = 28
+	},
+/turf/simulated/floor/tiled/white/brown_platform,
+/area/eris/medical/reception)
 "gPD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -108573,13 +108580,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep/cryo)
-"hUQ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/floor/plating/under,
-/area/eris/maintenance/section3deck2starboard)
 "iaf" = (
 /obj/structure/multiz/stairs/enter{
 	dir = 1
@@ -210130,7 +210130,7 @@ bSx
 bSV
 chM
 cYV
-crD
+gJE
 cWj
 dgo
 dAL
