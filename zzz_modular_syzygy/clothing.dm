@@ -8,3 +8,10 @@
 	item_state = "yogapants"
 	icon_override = 'zzz_modular_syzygy/icons/mob/uniform.dmi'
 	icon_override_female = 'zzz_modular_syzygy/icons/mob/uniform_fem.dmi'
+	sensor_mode = 3
+
+/obj/item/clothing/under/yogapants/topless
+	name = "yoga pants"
+	desc = "Perfect for showing off all your curves."
+	icon_state = "yogapantstrue"
+	item_state = "yogapantstrue"
