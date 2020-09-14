@@ -1,4 +1,3 @@
-
 // Big stompy robots.
 /mob/living/exosuit
 	name = "exosuit"
@@ -58,6 +57,9 @@
 
 	//Air!
 	var/use_air      = FALSE
+
+	// Strafing - Is the mech currently strafing?
+	var/strafing = FALSE
 
 /mob/living/exosuit/proc/occupant_message(msg as text)
 	for(var/mob/i in pilots)
