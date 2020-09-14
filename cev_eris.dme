@@ -2713,4 +2713,5 @@
 #include "zzz_modular_syzygy\hugbox.dm"
 #include "zzz_modular_syzygy\loadout.dm"
 #include "zzz_modular_syzygy\projectiles.dm"
+#include "zzz_modular_syzygy\storytellers\mentor.dm"
 // END_INCLUDE
