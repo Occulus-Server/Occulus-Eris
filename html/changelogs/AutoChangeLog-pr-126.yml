@@ -1,0 +1,7 @@
+author: Toriate
+delete-after: true
+changes:
+  - rscadd: Added true yoga pants to the loadout
+  - rscadd: Added Kulve Taroth horns and more
+  - balance: Stinger grenades now behave more like frag grenades and should lag less
+  - bugfix: fixed a few runtimes related to MATERIAL_PLASMA
