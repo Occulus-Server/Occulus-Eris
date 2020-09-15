@@ -9,3 +9,12 @@
 	range_step = 2
 	spread_step = 10
 	knockback = 1
+
+/obj/item/projectile/bullet/pellet/shotgun/rubber/stinger	//used for the stinger grenade
+	agony = 20
+	pellets = 4
+	base_spread = 0 //causes it to be treated as a shrapnel explosion instead of cone
+	spread_step = 20
+	silenced = 1 //embedding messages are still produced so it's kind of weird when enabled.
+	no_attack_log = 1
+	muzzle_type = null

@@ -257,7 +257,7 @@
 /datum/chemical_reaction/toxin
 	result = "toxin"
 	required_reagents = list("ammonia" = 1, "mercury" = 1, "ethanol" = 1)
-	catalysts = list("plasma" = 5)
+	catalysts = list("phoron" = 5)
 	result_amount = 3
 
 /datum/chemical_reaction/sterilizine

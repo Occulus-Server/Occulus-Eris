@@ -1,23 +1,23 @@
 // Syzygy-exclusive grenades go here
 
 /obj/item/weapon/grenade/frag/rubber
-	name = "stinger grenade"
+	name = "NT LLG \"Stinger\""
 	desc = "A crowd control weapon intended to surpress massive riots with ease."
 	icon = 'zzz_modular_syzygy/icons/grenades.dmi'
 	icon_state = "stinger"
 	item_state = "frggrenade"
 	loadable = TRUE
 
-	fragment_type = /obj/item/projectile/bullet/pellet/shotgun/rubber
-	num_fragments = 150  //total number of fragments produced by the grenade
+	fragment_type = /obj/item/projectile/bullet/pellet/shotgun/rubber/stinger
+	num_fragments = 100  //total number of fragments produced by the grenade
 	fragment_damage = 0
 
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_STEEL = 2)
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 
 /obj/item/weapon/storage/box/frag/rubber
-	name = "box of stinger grenades"
-	desc = "A box containing 4 stinger grenades. Designed for use on unruly crowds"
+	name = "box of Stinger grenades"
+	desc = "A box containing 4 Stinger grenades. Designed for use on unruly crowds"
 	icon_state = "box_security"
 	illustration = "flashbang"
 
