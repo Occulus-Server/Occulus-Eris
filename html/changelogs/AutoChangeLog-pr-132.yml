@@ -1,0 +1,4 @@
+author: Eris Contributors
+delete-after: true
+changes:
+  - admin: fixed admin issue regarding log spam
