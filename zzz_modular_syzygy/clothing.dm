@@ -71,3 +71,21 @@
 		rad = 50
 	)
 	siemens_coefficient = 0.7
+
+/obj/item/clothing/under/rank/captain
+	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
+	name = "captain's jumpsuit"
+	icon = 'zzz_modular_syzygy/icons/uniform_icons.dmi'
+	icon_state = "captain"
+	item_state = "captain"
+	icon_override = 'zzz_modular_syzygy/icons/mob/uniform.dmi'
+	icon_override_female = 'zzz_modular_syzygy/icons/mob/uniform_fem.dmi'
+
+/obj/item/clothing/under/rank/captain_jumpskirt
+	desc = "It's a blue jumpskirt with some gold markings denoting the rank of \"Captain\"."
+	name = "captain's jumpskirt"
+	icon = 'zzz_modular_syzygy/icons/uniform_icons.dmi'
+	icon_state = "captain_skirt"
+	item_state = "captain_skirt"
+	icon_override = 'zzz_modular_syzygy/icons/mob/uniform.dmi'
+	icon_override_female = 'zzz_modular_syzygy/icons/mob/uniform_fem.dmi'
