@@ -55,6 +55,7 @@
 	name = "strange coin"
 	desc = "It appears to be more of a collectible than any sort of actual currency. What metal it's made from seems to be a mystery."
 	icon_state = "coin"
+	w_class = ITEM_SIZE_TINY //Now you can fit them on your ear
 	oddity_stats = list(
 		STAT_ROB = 5,
 		STAT_TGH = 5,
@@ -151,6 +152,7 @@
 	name = "old money"
 	desc = "It's not like the organization that issued this exists anymore."
 	icon_state = "old_money"
+	w_class = ITEM_SIZE_TINY //So you cnan fit in on your ear slot too
 	oddity_stats = list(
 		STAT_ROB = 4,
 		STAT_TGH = 4,
