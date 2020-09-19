@@ -1,0 +1,5 @@
+author: Crosarius
+delete-after: true
+changes:
+  - tweak: Captain's voidsuit is now actually a voidsuit. i.e. you can attach its
+      helmet, jetpack, magboots, etc
