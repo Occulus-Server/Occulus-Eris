@@ -1,5 +1,0 @@
-author: Crosarius
-delete-after: true
-changes:
-  - balance: Restricts roach knockdown to Panzer, Fuhrer and Kaiser roaches. The probability
-      of roach knockdowns has been increased to 15%
