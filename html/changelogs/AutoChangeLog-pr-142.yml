@@ -1,0 +1,5 @@
+author: Crosarius
+delete-after: true
+changes:
+  - tweak: Stash notes now actually say what deck the stash is on, instead of which
+      z-level. It's ALWAYS the deck number now, even when it says floor or level.
