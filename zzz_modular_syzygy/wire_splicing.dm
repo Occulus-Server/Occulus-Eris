@@ -7,7 +7,6 @@
 	anchored = TRUE
 	flags = CONDUCT
 	layer = TURF_LAYER + 0.45
-	var/messiness = 0 // How bad the splicing was, determines the chance of shock
 	var/list/aware_mobs = list() //List of refs of mobs that examined this trap. Won't trigger it when walking. //Syzygy Edit.
 
 /obj/structure/wire_splicing/examine(mob/user)
