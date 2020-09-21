@@ -1,12 +1,6 @@
+///// MODULAR OVERRIDE TO ADD BEAR TRAP STYLE AWARENESS /////
+
 /obj/structure/wire_splicing
-	name = "wire splicing"
-	desc = "Looks like someone was very drunk when doing this, or just didn't care. This can be removed by wirecutters."
-	icon = 'icons/obj/traps.dmi'
-	icon_state = "wire_splicing1"
-	density = FALSE
-	anchored = TRUE
-	flags = CONDUCT
-	layer = TURF_LAYER + 0.45
 	var/list/aware_mobs = list() //List of refs of mobs that examined this trap. Won't trigger it when walking. //Syzygy Edit.
 
 /obj/structure/wire_splicing/examine(mob/user)
