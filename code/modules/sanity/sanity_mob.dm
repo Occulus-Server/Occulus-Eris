@@ -235,9 +235,9 @@
 
 /datum/sanity/proc/oddity_stat_up(multiplier)
 	var/list/inspiration_items = list()
-	for(var/O in owner.get_contents())
-		if(is_type_in_list(O, valid_inspirations))
-			inspiration_items += O
+	for(var/obj/item/I in owner.get_contents())
+		if(is_type_in_list(I, valid_inspirations) && I.GetComponent(/datum/component/inspiration))
+			inspiration_items += I
 	if(inspiration_items.len)
 		var/obj/item/O = inspiration_items.len > 1 ? owner.client ? input(owner, "Select something to use as inspiration", "Level up") in inspiration_items : pick(inspiration_items) : inspiration_items[1]
 		if(!O)
@@ -248,6 +248,11 @@
 			var/stat_up = L[stat] * multiplier
 			to_chat(owner, SPAN_NOTICE("Your [stat] stat goes up by [stat_up]"))
 			owner.stats.changeStat(stat, stat_up)
+		if(istype(O, /obj/item/weapon/oddity))
+			var/obj/item/weapon/oddity/OD = O
+			if(OD.perk)
+				owner.stats.addPerk(OD.perk)
+				// Copied over from Upstream Eris Sanity_Mob.DM
 
 /datum/sanity/proc/onDamage(amount)
 	changeLevel(-SANITY_DAMAGE_HURT(amount, owner.stats.getStat(STAT_VIG)))
@@ -337,7 +342,7 @@
 	for(var/obj/item/device/mind_fryer/M in GLOB.active_mind_fryers)
 		if(get_turf(M) in view(get_turf(owner)))
 			M.reg_break(owner)
-	
+
 	for(var/obj/item/weapon/implant/carrion_spider/mindboil/S in GLOB.active_mindboil_spiders)
 		if(get_turf(S) in view(get_turf(owner)))
 			S.reg_break(owner)
