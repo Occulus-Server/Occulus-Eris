@@ -1862,7 +1862,7 @@
 
 /datum/chemical_reaction/steady
 	result = "steady"
-	required_reagents = list("pararein" = 1, "carpotoxin" = 1, "copper" = 1, "hydrazine" = 1)
+	required_reagents = list("pararein" = 1, "seligitillin" = 1, "copper" = 1, "hydrazine" = 1)
 	result_amount = 4
 	maximum_temperature = 338
 	minimum_temperature = 323
