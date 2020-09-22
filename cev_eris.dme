@@ -2719,5 +2719,6 @@
 #include "zzz_modular_syzygy\projectiles.dm"
 #include "zzz_modular_syzygy\roach.dm"
 #include "zzz_modular_syzygy\stashes.dm"
+#include "zzz_modular_syzygy\wire_splicing.dm"
 #include "zzz_modular_syzygy\storytellers\mentor.dm"
 // END_INCLUDE
