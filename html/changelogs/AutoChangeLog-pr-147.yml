@@ -1,4 +1,0 @@
-author: Michiyamenotehifunana
-delete-after: true
-changes:
-  - tweak: Round-end phase now lasts 120 seconds, up from 60 seconds
