@@ -2707,6 +2707,7 @@
 #include "zzz_modular_eclipse\storytellers\tyrant.dm"
 #include "zzz_modular_syzygy\_helpers.dm"
 #include "zzz_modular_syzygy\ammo.dm"
+#include "zzz_modular_syzygy\cargoexports.dm"
 #include "zzz_modular_syzygy\clothing.dm"
 #include "zzz_modular_syzygy\defib.dm"
 #include "zzz_modular_syzygy\defiblocker.dm"
@@ -2715,5 +2716,7 @@
 #include "zzz_modular_syzygy\loadout.dm"
 #include "zzz_modular_syzygy\lockers.dm"
 #include "zzz_modular_syzygy\projectiles.dm"
+#include "zzz_modular_syzygy\roach.dm"
+#include "zzz_modular_syzygy\stashes.dm"
 #include "zzz_modular_syzygy\storytellers\mentor.dm"
 // END_INCLUDE
