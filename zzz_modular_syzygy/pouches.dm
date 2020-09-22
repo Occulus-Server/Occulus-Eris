@@ -1,3 +1,5 @@
+///// Additional items that can be fitted in the tubular pouch belt /////
+
 /obj/item/weapon/storage/pouch/tubular/New()
 	..()
 	can_hold += list(
