@@ -1,0 +1,5 @@
+author: Acryonic
+delete-after: true
+changes:
+  - bugfix: Fixed Oddity perks actually being applied during a inspiration trigger.
+  - refactor: Changed and added to Code relevant in Sanity_mob.dm
