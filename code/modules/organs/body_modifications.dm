@@ -125,37 +125,25 @@ var/global/list/modifications_types = list(
 /datum/body_modification/limb/prosthesis/get_mob_icon(organ, color, gender, species)
 	return new/icon(icon, "[organ][gender == FEMALE ? "_f" : "_m"]")
 
-/datum/body_modification/limb/prosthesis/bishop
-	id = "prosthesis_bishop"
-	replace_limb = /obj/item/organ/external/robotic
-	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_main.dmi'
-	name = "Bishop"
-	desc = "Prosthesis with white polymer casing with blue holo-displays."
-	prosthetic_model = "bishop"
+/datum/body_modification/limb/prosthesis/asters
+	id = "prosthesis_asters"
+	replace_limb = /obj/item/organ/external/robotic/asters
+	icon = 'icons/mob/human_races/cyberlimbs/asters.dmi'
 
-/datum/body_modification/limb/prosthesis/hesphaistos
-	id = "prosthesis_hesphaistos"
-	replace_limb = /obj/item/organ/external/robotic
-	icon = 'icons/mob/human_races/cyberlimbs/hephaestus/hephaestus_main.dmi'
-	name = "Hesphaistos"
-	desc = "Prosthesis with militaristic black and green casing with gold stripes."
-	prosthetic_model = "hesphaistos"
+/datum/body_modification/limb/prosthesis/serbian
+	id = "prosthesis_serbian"
+	replace_limb = /obj/item/organ/external/robotic/serbian
+	icon = 'icons/mob/human_races/cyberlimbs/serbian.dmi'
 
-/datum/body_modification/limb/prosthesis/zenghu
-	id = "prosthesis_zenghu"
-	replace_limb = /obj/item/organ/external/robotic
-	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_main.dmi'
-	name = "Zeng-Hu"
-	desc = "Prosthesis with rubbery fleshtone covering with visible seams."
-	prosthetic_model = "zenghu"
+/datum/body_modification/limb/prosthesis/frozen_star
+	id = "prosthesis_frozen_star"
+	replace_limb = /obj/item/organ/external/robotic/frozen_star
+	icon = 'icons/mob/human_races/cyberlimbs/frozen_star.dmi'
 
-/datum/body_modification/limb/prosthesis/xion
-	id = "prosthesis_xion"
-	replace_limb = /obj/item/organ/external/robotic
-	icon = 'icons/mob/human_races/cyberlimbs/xion/xion_main.dmi'
-	name = "Xion"
-	desc = "Prosthesis with minimalist black and red casing."
-	prosthetic_model = "xion"
+/datum/body_modification/limb/prosthesis/technomancer
+	id = "prosthesis_technomancer"
+	replace_limb = /obj/item/organ/external/robotic/technomancer
+	icon = 'icons/mob/human_races/cyberlimbs/technomancer.dmi'
 
 /datum/body_modification/limb/mutation/New()
 	short_name = "M: [name]"
