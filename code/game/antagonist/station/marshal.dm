@@ -1,7 +1,7 @@
 /datum/antagonist/marshal
 	id = ROLE_MARSHAL
-	role_text = "Aegis Marshal"
-	role_text_plural = "Aegis Marshals"
+	role_text = "Bounty Hunter"
+	role_text_plural = "Bounty Hunters"
 	bantype = ROLE_BANTYPE_CREW_SIDED
 	protected_jobs = list(JOBS_COMMAND, JOBS_SECURITY)
 	antaghud_indicator = "huddeathsquad"
