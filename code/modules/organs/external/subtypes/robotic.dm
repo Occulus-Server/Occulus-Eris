@@ -6,8 +6,7 @@
 	dislocated = -1
 	cannot_break = 1
 	nature = MODIFICATION_SILICON
-	brute_mod = 0.8
-	burn_mod = 0.8
+	armor = list(melee = 20, bullet = 20, energy = 20, bomb = 20, bio = 100, rad = 100)
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2) // Multiplied by w_class
 	var/min_malfunction_damage = 20 // Any more damage than that and you start getting nasty random malfunctions
 
@@ -15,17 +14,17 @@
 	return "Robotic[model]"
 
 /obj/item/organ/external/robotic/update_icon()
-    var/gender = "m"
-    if(owner)
-        gender = owner.gender == FEMALE ? "f" : "m"
-    if(gendered || force_icon == 'icons/mob/human_races/cyberlimbs/generic.dmi')
-
-        icon_state = "[organ_tag]_[gender]"
-    else
-        icon_state = "[organ_tag]"
-    mob_icon = icon(force_icon, icon_state)
-    icon = mob_icon
-    return mob_icon
+	var/gender = "m"
+	if(owner)
+		gender = owner.gender == FEMALE ? "f" : "m"
+	var/key = "[organ_tag]_[gender]"
+	if(key in icon_states(force_icon))
+		icon_state = key
+	else 
+		icon_state = "[organ_tag]"
+	mob_icon = icon(force_icon, icon_state)
+	icon = mob_icon
+	return mob_icon
 
 /obj/item/organ/external/robotic/is_malfunctioning()
 	return prob(brute_dam + burn_dam - min_malfunction_damage)
