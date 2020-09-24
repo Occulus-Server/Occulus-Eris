@@ -109,38 +109,18 @@ var/global/list/modifications_types = list(
 	name = "Unbranded prosthesis"
 	id = "prosthesis_basic"
 	desc = "Simple, brutal and reliable prosthesis"
-	body_parts = list(BP_HEAD, BP_CHEST, BP_GROIN, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, \
-		BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT) //
+	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG) //
 	replace_limb = /obj/item/organ/external/robotic
 	icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_alt1.dmi'
 	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
 	var/prosthetic_model
 
-/datum/body_modification/limb/prosthesis/create_organ(var/mob/living/carbon/holder, var/datum/organ_description/OD, var/color)
-	var/obj/item/organ/external/robotic/placeholder
-	if(replace_limb)
-		placeholder = new replace_limb(holder,OD)
-	else
-		placeholder = new OD.default_type(holder,OD)
-
-	placeholder.overlays.Cut()
-	placeholder.name = organ_tag_to_name[OD.organ_tag]
-	placeholder.force_icon = icon
-	placeholder.icon = icon
-	placeholder.desc = desc
-	placeholder.model = prosthetic_model
-	placeholder.mob_icon = null
-	placeholder.update_icon()
-	return placeholder
-
 /datum/body_modification/limb/prosthesis/New()
-	/*var/obj/item/organ/external/robotic/R = replace_limb
+	var/obj/item/organ/external/robotic/R = replace_limb
 	name = initial(R.name)
 	icon = initial(R.force_icon)
-	desc = initial(R.desc)*/
-	short_name = "P: [name]"
-	name = "Prosthesis: [name]"
+	desc = initial(R.desc)
 
 /datum/body_modification/limb/prosthesis/get_mob_icon(organ, color, gender, species)
 	return new/icon(icon, "[organ][gender == FEMALE ? "_f" : "_m"]")
@@ -285,15 +265,3 @@ var/global/list/modifications_types = list(
 	var/obj/item/organ/internal/eyes/heterohromia/E = new(holder,organ_type,color)
 	E.second_color = color
 	return E
-
-
-// Special heads
-/datum/body_modification/limb/prosthesis/tvhead
-	name = "Unbranded TV-head"
-	id = "tvhead"
-	desc = "A knock-off unbranded tv-shaped head."
-	body_parts = list(BP_HEAD)
-	replace_limb = /obj/item/organ/external/robotic
-	icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_monitor.dmi'
-	nature = MODIFICATION_SILICON
-	allow_nt = FALSE
