@@ -1,5 +1,0 @@
-author: Jamini
-delete-after: true
-changes:
-  - tweak: pulling an atom now plays a sound effect in the local area. Giving the
-      player feedback and alerting other players that something is being pulled.
