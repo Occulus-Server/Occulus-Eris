@@ -1,0 +1,4 @@
+author: Toriate
+delete-after: true
+changes:
+  - balance: Added a minimum crew requirement for Hivemind and Blob
