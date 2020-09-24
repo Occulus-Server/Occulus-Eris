@@ -1,7 +1,7 @@
 /datum/antagonist/marshal
 	id = ROLE_MARSHAL
-	role_text = "Bounty Hunter"
-	role_text_plural = "Bounty Hunters"
+	role_text = "Bounty Hunter" //syzygy edit
+	role_text_plural = "Bounty Hunters" //syzygy edit
 	bantype = ROLE_BANTYPE_CREW_SIDED
 	protected_jobs = list(JOBS_COMMAND, JOBS_SECURITY)
 	antaghud_indicator = "huddeathsquad"
@@ -19,7 +19,7 @@
 
 	welcome_text = "You are a freelance bounty hunter, contracted to bring in a wanted fugitive, dead or alive.\n\
 	You are NOT affiliated with the crew, and if you get caught, you will be prosecuted like any other criminal. Stay weary \
-	and you just might make it out of this with a sizeable paycheck."
+	and you just might make it out of this with a sizeable paycheck." //syzygy edit
 
 /datum/antagonist/marshal/can_become_antag(datum/mind/M)
 	if(!..())
