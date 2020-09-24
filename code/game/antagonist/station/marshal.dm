@@ -17,9 +17,9 @@
 		STAT_VIG = 15
 	)
 
-	welcome_text = "You are a freelance bounty hunter, contracted by Cobalt Aegis to bring in a wanted fugitive, dead or alive.\n\
-	Local Aegis forces may assist you if you introduce yourself and win their trust. Remember that you hold no official rank \
-	and they are under no obligation to help or listen to you."
+	welcome_text = "You are a freelance bounty hunter, contracted to bring in a wanted fugitive, dead or alive.\n\
+	You are NOT affiliated with the crew, and if you get caught, you will be prosecuted like any other criminal. Stay weary \
+	and you just might make it out of this with a sizeable paycheck."
 
 /datum/antagonist/marshal/can_become_antag(datum/mind/M)
 	if(!..())
