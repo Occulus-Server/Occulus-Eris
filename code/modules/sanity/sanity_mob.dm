@@ -1,8 +1,8 @@
-#define SANITY_PASSIVE_GAIN 0.2
+#define SANITY_PASSIVE_GAIN 0.3
 
 #define SANITY_DAMAGE_MOD 0.6
 
-#define SANITY_VIEW_DAMAGE_MOD 0.4
+#define SANITY_VIEW_DAMAGE_MOD 0.2
 
 // Damage received from unpleasant stuff in view
 #define SANITY_DAMAGE_VIEW(damage, vig, dist) ((damage) * SANITY_VIEW_DAMAGE_MOD * (1.2 - (vig) / STAT_LEVEL_MAX) * (1 - (dist)/15))
@@ -235,9 +235,9 @@
 
 /datum/sanity/proc/oddity_stat_up(multiplier)
 	var/list/inspiration_items = list()
-	for(var/O in owner.get_contents())
-		if(is_type_in_list(O, valid_inspirations))
-			inspiration_items += O
+	for(var/obj/item/I in owner.get_contents())
+		if(is_type_in_list(I, valid_inspirations) && I.GetComponent(/datum/component/inspiration))
+			inspiration_items += I
 	if(inspiration_items.len)
 		var/obj/item/O = inspiration_items.len > 1 ? owner.client ? input(owner, "Select something to use as inspiration", "Level up") in inspiration_items : pick(inspiration_items) : inspiration_items[1]
 		if(!O)
@@ -248,6 +248,11 @@
 			var/stat_up = L[stat] * multiplier
 			to_chat(owner, SPAN_NOTICE("Your [stat] stat goes up by [stat_up]"))
 			owner.stats.changeStat(stat, stat_up)
+		if(istype(O, /obj/item/weapon/oddity))
+			var/obj/item/weapon/oddity/OD = O
+			if(OD.perk)
+				owner.stats.addPerk(OD.perk)
+				// Copied over from Upstream Eris Sanity_Mob.DM
 
 /datum/sanity/proc/onDamage(amount)
 	changeLevel(-SANITY_DAMAGE_HURT(amount, owner.stats.getStat(STAT_VIG)))
@@ -290,7 +295,7 @@
 /datum/sanity/proc/onEat(obj/item/weapon/reagent_containers/food/snacks/snack, snack_sanity_gain, snack_sanity_message)
 	if(world.time > eat_time_message && snack_sanity_message)
 		eat_time_message = world.time + EAT_COOLDOWN_MESSAGE
-		to_chat(owner, SPAN_NOTICE("[snack_sanity_message]"))
+		to_chat(owner, "[snack_sanity_message]")
 	changeLevel(snack_sanity_gain)
 	if(snack.cooked && resting)
 		add_rest(snack.type, snack_sanity_gain * 45)
@@ -337,6 +342,10 @@
 	for(var/obj/item/device/mind_fryer/M in GLOB.active_mind_fryers)
 		if(get_turf(M) in view(get_turf(owner)))
 			M.reg_break(owner)
+
+	for(var/obj/item/weapon/implant/carrion_spider/mindboil/S in GLOB.active_mindboil_spiders)
+		if(get_turf(S) in view(get_turf(owner)))
+			S.reg_break(owner)
 
 	var/list/possible_results
 	if(prob(positive_prob) && positive_prob_multiplier > 0)

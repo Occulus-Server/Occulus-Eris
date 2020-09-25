@@ -7,7 +7,7 @@ The module base code is held in module.dm
 	name = "soulcrypt"
 	desc = "A small, immensely complex biocompatible computer. Basic functions include DNA sequence storage, neural engram backups, access transciever functions, and an internal fuel cell using the host's nutrients."
 	icon = 'icons/obj/soulcrypt.dmi'
-	icon_state = "frame"
+	icon_state = "crypt_off"
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_MATERIAL=2, TECH_BIO=7, TECH_DATA=5)
 
@@ -28,10 +28,11 @@ The module base code is held in module.dm
 
 	var/nutrition_usage_setting = NUTRITION_USAGE_LOW //These can be found in soulcrypt.dm, under DEFINES.
 
-	var/stat//Status.
+	var/stat // Status
 	//Host variables, stored for cloning.
 	var/datum/dna/host_dna
 	var/datum/mind/host_mind
+	var/datum/stat_holder/host_stats
 	var/host_age
 	var/host_flavor_text
 	var/list/host_languages = list()
@@ -47,9 +48,9 @@ The module base code is held in module.dm
 	var/list/modules = list()
 	var/list/access = list()
 
-	var/good_sound = 'sound/machines/synth_yes.ogg'
-	var/bad_sound = 'sound/machines/synth_no.ogg'
-	var/very_bad_sound = 'sound/machines/warning-buzzer.ogg'
+	var/good_sound = 'sound/machines/soul_good.ogg'
+	var/bad_sound = 'sound/machines/soul_bad.ogg'
+	var/very_bad_sound = 'sound/machines/soul_alarm.ogg'
 
 //Inherited procs
 
@@ -60,10 +61,10 @@ The module base code is held in module.dm
 
 /obj/item/weapon/implant/soulcrypt/update_icon()
 	overlays.Cut()
-	if(host_mind && host_dna)
-		overlays += image('icons/obj/soulcrypt.dmi', "soulcrypt_active")
+	if(host_mind || host_dna)
+		icon_state = "soulcrypt"
 	else
-		overlays += image('icons/obj/soulcrypt.dmi', "soulcrypt_inactive")
+		icon_state = "crypt_off"
 
 /obj/item/weapon/implant/soulcrypt/examine(mob/user)
 	. = ..()
@@ -83,6 +84,7 @@ The module base code is held in module.dm
 		host_mind = wearer.mind
 		host_dna = wearer.dna.Clone()
 		host_age = wearer.age
+		host_stats = wearer.stats
 		host_flavor_text = wearer.flavor_text
 		has_stored_info = TRUE
 		host_name = wearer.dna.real_name

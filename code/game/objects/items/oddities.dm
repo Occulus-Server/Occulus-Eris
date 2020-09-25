@@ -34,7 +34,7 @@
 	..()
 	if(perk)
 		var/datum/perk/oddity/OD = GLOB.all_perks[perk]
-		to_chat(user, SPAN_NOTICE("Strange words echo in your head: <span style='color:orange'>[OD]. [OD.desc]</span>."))
+		to_chat(user, SPAN_NOTICE("Strange words echo in your head: <span style='color:orange'>[OD]. [OD.desc]"))
 
 
 //Oddities are separated into categories depending on their origin. They are meant to be used both in maints and derelicts, so this is important
@@ -55,6 +55,7 @@
 	name = "strange coin"
 	desc = "It appears to be more of a collectible than any sort of actual currency. What metal it's made from seems to be a mystery."
 	icon_state = "coin"
+	w_class = ITEM_SIZE_TINY //Now you can fit them on your ear
 	oddity_stats = list(
 		STAT_ROB = 5,
 		STAT_TGH = 5,
@@ -99,7 +100,7 @@
 	)
 
 /obj/item/weapon/oddity/common/paper_crumpled
-	name = "turn-out page"
+	name = "torn-out page"
 	desc = "This ALMOST makes sense."
 	icon_state = "paper_crumpled"
 	oddity_stats = list(
@@ -130,7 +131,7 @@
 
 /obj/item/weapon/oddity/common/book_omega
 	name = "occult book"
-	desc = "Most of the stories in this book seem to be the writings of madmen, but at least the stories are interesting."
+	desc = "Most of the stories in this book seem to be the ramblings of a madman, but you can't help but keep reading."
 	icon_state = "book_omega"
 	oddity_stats = list(
 		STAT_BIO = 6,
@@ -151,6 +152,7 @@
 	name = "old money"
 	desc = "It's not like the organization that issued this exists anymore."
 	icon_state = "old_money"
+	w_class = ITEM_SIZE_TINY //So you cnan fit in on your ear slot too
 	oddity_stats = list(
 		STAT_ROB = 4,
 		STAT_TGH = 4,
@@ -158,7 +160,7 @@
 
 /obj/item/weapon/oddity/common/healthscanner
 	name = "odd health scanner"
-	desc = "It's broken and stuck on some really strange readings. Was this even human?"
+	desc = "It's broken and stuck on some really strange readings. Was this thing even remotely humanoid?"
 	icon_state = "healthscanner"
 	item_state = "electronic"
 	oddity_stats = list(
@@ -240,3 +242,12 @@
 		STAT_ROB = 6,
 		STAT_VIG = 6,
 	)
+
+/obj/item/weapon/oddity/techno
+	name = "Unknown technological part"
+	desc = "Technological part maded by Techno-Tribalism Enforcer."
+	icon_state = "techno_part1"
+
+/obj/item/weapon/oddity/techno/Initialize()
+	icon_state = "techno_part[rand(1,7)]"
+	.=..()

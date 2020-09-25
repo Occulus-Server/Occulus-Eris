@@ -21,7 +21,7 @@ var/const/GRAV_NEEDS_WRENCH = 3
 	icon = 'icons/obj/machines/gravity_generator.dmi'
 	anchored = TRUE
 	density = TRUE
-	use_power = 0
+	use_power = NO_POWER_USE
 	unacidable = 1
 	var/sprite_number = 0
 
@@ -104,7 +104,7 @@ var/const/GRAV_NEEDS_WRENCH = 3
 	active_power_usage = 3000
 	power_channel = ENVIRON
 	sprite_number = 8
-	use_power = 1
+	use_power = IDLE_POWER_USE
 	interact_offline = 1
 	var/on = TRUE
 	var/breaker = 1
@@ -393,7 +393,7 @@ var/const/GRAV_NEEDS_WRENCH = 3
 /obj/machinery/gravity_generator/main/proc/shake_everyone()
 	for(var/mob/M in SSmobs.mob_list)
 		var/turf/our_turf = get_turf(src.loc)
-		if(M.client)
+		if(M.client && !istype(M, /mob/new_player))
 			shake_camera(M, 15, 1)
 			M.playsound_local(our_turf, 'sound/effects/alert.ogg', 100, 1, 0.5)
 

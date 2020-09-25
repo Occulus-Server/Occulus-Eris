@@ -65,3 +65,15 @@
 /datum/design/autolathe/device/headset_church
 	name = "NeoTheology Radio Encryption Key"
 	build_path = /obj/item/device/encryptionkey/headset_church
+
+/datum/design/autolathe/device/excelsiormine
+	name = "excelsior mine"
+	build_path = /obj/item/weapon/mine
+
+/datum/design/autolathe/device/floorpainter
+	name = "floor painter"
+	build_path = /obj/item/device/floor_painter
+
+/datum/design/autolathe/device/mechpainter
+	name = "mech painter"
+	build_path = /obj/item/device/floor_painter/mech_painter

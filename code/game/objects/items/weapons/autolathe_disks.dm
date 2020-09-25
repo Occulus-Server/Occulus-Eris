@@ -89,6 +89,8 @@
 		/datum/design/autolathe/misc/floor_light,
 		/datum/design/autolathe/misc/tube,
 		/datum/design/autolathe/misc/bulb,
+		/datum/design/autolathe/device/floorpainter,
+		/datum/design/autolathe/device/mechpainter
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/devices
@@ -113,7 +115,8 @@
 		/datum/design/autolathe/device/export_scanner,
 		/datum/design/autolathe/device/implanter,
 		/datum/design/autolathe/device/hand_labeler,
-		/datum/design/research/item/light_replacer
+		/datum/design/research/item/light_replacer,
+		/datum/design/autolathe/sec/hailer,
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/robustcells
@@ -193,7 +196,7 @@
 		/datum/design/autolathe/circuit/powermodule,
 		/datum/design/autolathe/circuit/recharger,
 		/datum/design/research/circuit/autolathe,
-		/datum/design/autolathe/circuit/autolathe_disk_cloner,
+		/datum/design/autolathe/circuit/autolathe_disk_cloner = 3,
 		/datum/design/autolathe/circuit/vending,
 		/datum/design/research/circuit/arcade_battle,
 		/datum/design/research/circuit/arcade_orion_trail,
@@ -204,16 +207,19 @@
 		/datum/design/autolathe/circuit/centrifuge,
 		/datum/design/autolathe/circuit/electrolyzer,
 		/datum/design/autolathe/circuit/reagentgrinder,
+		/datum/design/autolathe/circuit/industrialgrinder = 2,
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors
-	disk_name = "Technomancers LAT-018 Conveyors"
+	disk_name = "Technomancers LAT-018 Logistics"
 	icon_state = "technomancers"
 
-	license = -1
+	license = 10
 	designs = list(
-		/datum/design/autolathe/conveyor,
-		/datum/design/autolathe/conveyor_switch
+		/datum/design/autolathe/conveyor = 0,
+		/datum/design/autolathe/conveyor_switch = 0,
+		/datum/design/autolathe/circuit/smelter = 4,
+		/datum/design/autolathe/circuit/sorter = 2
 	)
 
 
@@ -283,6 +289,8 @@
 		/datum/design/autolathe/computer_part/gps,
 		/datum/design/autolathe/computer_part/scanner/paper,
 		/datum/design/autolathe/computer_part/scanner/atmos,
+		/datum/design/autolathe/computer_part/scanner/reagent,
+		/datum/design/autolathe/computer_part/scanner/medical,
 	)
 
 
@@ -325,7 +333,8 @@
 		/datum/design/bioprinter/medical/advanced/bruise,
 		/datum/design/bioprinter/medical/advanced/ointment,
 
-		/datum/design/autolathe/gun/nt_sprayer
+		/datum/design/autolathe/gun/nt_sprayer,
+		/datum/design/autolathe/gun/plasma/martyr
 	)
 
 // Same as the other NT disk, minus the medical designs and encryption key. Should spawn in public access bioprinters if they get added by any chance.
@@ -404,6 +413,7 @@
 		/datum/design/autolathe/tool/tacknife,
 		/datum/design/autolathe/sec/beartrap,
 		/datum/design/autolathe/sec/silencer,
+		/datum/design/autolathe/sec/hailer
 	)
 
 // One Star
@@ -565,6 +575,10 @@
 		/datum/design/autolathe/cell/small/excelsior,
 		/datum/design/autolathe/device/excelsiormine,				//security
 		/datum/design/autolathe/sec/beartrap,
+		/datum/design/autolathe/prosthesis/excelsior/l_arm,         //prostheses
+		/datum/design/autolathe/prosthesis/excelsior/r_arm,
+		/datum/design/autolathe/prosthesis/excelsior/l_leg,
+		/datum/design/autolathe/prosthesis/excelsior/r_leg,
 		/datum/design/autolathe/device/implanter,					//misc
 		/datum/design/autolathe/device/propaganda_chip,
 		/datum/design/autolathe/clothing/excelsior_armor,
@@ -1015,6 +1029,16 @@
 	license = 12
 	designs = list(
 		/datum/design/autolathe/gun/taser = 3, // "NT SP \"Counselor\""
+		/datum/design/autolathe/cell/small/high,
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_svalinn
+	disk_name = "NeoTheology Armory - NT LP \"Svalinn\""
+	icon_state = "neotheology"
+
+	license = 12
+	designs = list(
+		/datum/design/autolathe/gun/nt_svalinn = 3,
 		/datum/design/autolathe/cell/small/high,
 	)
 

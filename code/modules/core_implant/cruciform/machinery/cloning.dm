@@ -9,8 +9,8 @@
 #define ANIM_CLOSE -1
 
 /obj/machinery/neotheology/cloner
-	name = "Lazarus clonepod"
-	desc = "The newest design from Lazarus, this automatic machine will return the flesh to the spirit in no time."
+	name = "SLT-73 Clonepod Prototype"
+	desc = "One of the more fruitful results of NT's investment in Lazarus, this baby puts a person back together from organic slurry just in a few minutes. Now with clear biomass fluids for all your gross anatomy viewing needs."
 	icon = 'icons/obj/neotheology_pod.dmi'
 	icon_state = "preview"
 	density = TRUE
@@ -243,6 +243,8 @@
 			occupant.UpdateAppearance()
 			occupant.sync_organ_dna()
 			occupant.flavor_text = R.host_flavor_text
+			occupant.stats = R.host_stats // Syzygy edit to copy stats from old mob to other
+			// occupant.stats = R.stats // commented out because it's a variable used by the cruciform, uncomment when we're back to using cruciforms
 
 		if(progress == CLONING_BODY || progress <= CLONING_BODY && progress > CLONING_BODY-10)
 			var/datum/effect/effect/system/spark_spread/s = new
@@ -416,7 +418,7 @@
 			if(sheets_amount_to_transphere)
 				var/total_transphere_from_stack = 0
 				var/i = 1
-				while(i <= sheets_amount_to_transphere)
+				while(i <= sheets_amount_to_transphere && i <= B.amount)
 					reagents.add_reagent("biomatter", B.biomatter_in_sheet)
 					total_transphere_from_stack += B.biomatter_in_sheet
 					i++
@@ -457,8 +459,8 @@
 /////////////////////
 
 /obj/machinery/neotheology/reader
-	name = "Lazarus' cruciform reader"
-	desc = "How can a soul fit inside of this?"
+	name = "SLT-73-B Core Implant Reader"
+	desc = "A neat-looking device capable of extracting DNA and conciousness imprints from a core implant."
 	icon_state = "reader_off"
 	density = TRUE
 	anchored = TRUE
@@ -517,7 +519,8 @@
 	icon_state = "reader_off"
 
 	if(reading)
-		icon_state = "reader_on"
+		var/image/S = image(icon, "screen")
+		overlays.Add(S)
 
 	if(implant)
 		var/image/I = image(icon, "reader_c_green")

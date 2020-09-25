@@ -388,7 +388,7 @@ var/global/list/damage_icon_parts = list()
 		var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[h_style]
 		if(hair_style && (src.species.get_bodytype() in hair_style.species_allowed))
 			var/icon/hair_s
-			if((hair_style.icon == 'icons/mob/human_face.dmi') || (hair_style.icon == 'icons/mob/human_face_vr.dmi'))
+			if((hair_style.icon == 'icons/mob/human_face.dmi') || (hair_style.icon == 'icons/mob/human_face_vr_add.dmi')) // swap around .dmi with _add.dmi because Virgo-code in Eris code
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
 			else
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]")
@@ -552,7 +552,12 @@ var/global/list/damage_icon_parts = list()
 			under_state += w_uniform.icon_state + WORN_UNDER + get_gender_icon_contained(gender)
 
 		else if(w_uniform.icon_override)
-			under_icon = w_uniform.icon_override
+			// SYZYGY EDIT START - Gendered icon_overrides
+			if(gender == MALE)
+				under_icon = w_uniform.icon_override
+			else
+				under_icon = w_uniform.icon_override_female
+			// SYZYGY EDIT END - Gendered icon_overrides
 		else
 			under_icon = get_gender_icon(gender, "uniform")
 
@@ -1167,7 +1172,7 @@ var/global/list/damage_icon_parts = list()
 	var/standing = null
 
 	var/image/vr_tail_image = get_tail_image()
-	if(vr_tail_image && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+	if(vr_tail_image)
 		standing = vr_tail_image
 	else
 		var/species_tail = species.get_tail(src)

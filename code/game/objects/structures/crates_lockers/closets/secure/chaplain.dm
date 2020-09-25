@@ -12,6 +12,7 @@
 		new /obj/item/weapon/storage/backpack/satchel/neotheology(src)
 	new /obj/item/clothing/under/rank/preacher(src)
 	new /obj/item/clothing/under/rank/preacher(src)
+	new /obj/item/weapon/storage/pouch/nt_sheath(src)
 	new /obj/item/device/radio/headset/church(src)
 	new /obj/item/weapon/storage/belt/tactical/neotheology(src)
 	new /obj/item/clothing/shoes/reinforced(src)
@@ -30,3 +31,5 @@
 	for (var/i in 1 to 10)
 		new /obj/item/weapon/implant/core_implant/cruciform(src)
 	new /obj/item/weapon/tool/knife/neotritual(src)
+	new /obj/item/weapon/gun/energy/nt_svalinn(src)
+	new /obj/item/weapon/cell/small(src)

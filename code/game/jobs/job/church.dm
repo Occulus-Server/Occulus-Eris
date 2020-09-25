@@ -4,10 +4,10 @@
 	head_position = 1
 	department = DEPARTMENT_CHURCH
 	department_flag = CHURCH | COMMAND
-	faction = "CEV Northern Light"
+	faction = "NEV  Northern Light"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Children of Mekhane Church"
+	supervisors = "The Mekhanite Council"
 	selection_color = "#ecd37d"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 25)
 
@@ -68,7 +68,7 @@
 	flag = ACOLYTE
 	department = DEPARTMENT_CHURCH
 	department_flag = CHURCH
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Mekhane Preacher"
@@ -98,6 +98,6 @@
 	setup_restricted = TRUE
 
 /obj/landmark/join/start/acolyte
-	name = "NOT FUCKING CANON Acolyte"
+	name = "Mekhane Acolyte"
 	icon_state = "player-black"
 	join_tag = /datum/job/acolyte

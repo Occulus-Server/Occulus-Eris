@@ -334,6 +334,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		else
 			subsystems_to_check = tickersubsystems
 		if (CheckQueue(subsystems_to_check) <= 0)
+			to_chat(world, "MC: Error! CheckQueue() didn't finish properly!")
 			if (!SoftReset(tickersubsystems, runlevel_sorted_subsystems))
 				to_chat(world, "MC: SoftReset() failed, crashing")
 				return
@@ -346,6 +347,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 
 		if (queue_head)
 			if (RunQueue() <= 0)
+				to_chat(world, "MC: Error! RunQueue() didn't finish properly!")
 				if (!SoftReset(tickersubsystems, runlevel_sorted_subsystems))
 					to_chat(world, "MC: SoftReset() failed, crashing")
 					return
@@ -539,6 +541,9 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	for(var/I in runlevel_SS)
 		subsystemstocheck |= I
 
+	var/L = length(subsystemstocheck)
+	if (L)
+		to_chat(world, "MC: Resetting queue states for [L] subsystems.")
 	for (var/thing in subsystemstocheck)
 		var/datum/controller/subsystem/SS = thing
 		if (!SS || !istype(SS))
@@ -560,9 +565,13 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		SS.state = SS_IDLE
 	if (queue_head && !istype(queue_head))
 		to_chat(world, "MC: SoftReset: Found bad data in subsystem queue, queue_head = '[queue_head]'")
+	else 
+		to_chat(world, "MC: Resetting queue_head, was '[queue_head]'")
 	queue_head = null
 	if (queue_tail && !istype(queue_tail))
 		to_chat(world, "MC: SoftReset: Found bad data in subsystem queue, queue_tail = '[queue_tail]'")
+	else
+		to_chat(world, "MC: Resetting queue_tail, was '[queue_tail]'")
 	queue_tail = null
 	queue_priority_count = 0
 	queue_priority_count_bg = 0

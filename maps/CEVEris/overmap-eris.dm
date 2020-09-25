@@ -1,9 +1,10 @@
 /obj/effect/overmap/ship/eris
-	name = "CEV Eris"
+	name = "NEV Northern Light"
 	fore_dir = NORTH
 	vessel_mass = 300
 	default_delay = 20 SECONDS
 	speed_mod = 5 SECONDS
+	base = 1
 
 	start_x = 9
 	start_y = 10

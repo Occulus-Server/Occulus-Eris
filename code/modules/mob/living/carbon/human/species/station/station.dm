@@ -32,10 +32,10 @@
 	darksight = 3
 //	ambiguous_genders = TRUE
 	gluttonous = 1
-	slowdown = 0.5
+	slowdown = 0.3
 	total_health = 125
-	brute_mod = 0.85
-	burn_mod = 0.85
+	brute_mod = 0.90	//syzygy edit
+	burn_mod = 0.90		//also edit
 	color_mult = 1
 //	metabolic_rate = 0.85
 //	item_slowdown_mod = 0.25
@@ -85,7 +85,7 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#34AF10"
-	blood_color = "#b3cbc3"
+	blood_color = "#f24b2e"		//syzygy edit
 	base_color = "#066000"
 
 //	reagent_tag = IS_UNATHI
@@ -149,10 +149,10 @@
 	tail_blend = ICON_MULTIPLY								//Eclipse edit.
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	darksight = 8
-	slowdown = -0.5
+	slowdown = -0.15
 //	snow_movement = -1		//Ignores half of light snow
-	brute_mod = 1.15
-	burn_mod =  1.15
+	brute_mod = 1.10
+	burn_mod =  1.10
 	flash_mod = 1.1
 //	metabolic_rate = 1.1
 	gluttonous = 1

@@ -42,7 +42,7 @@
 	var/permeability_coefficient = 1 // for chemicals/diseases
 	var/siemens_coefficient = 1 // for electrical admittance/conductance (electrocution checks and shit)
 	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
-	var/list/armor = list(melee = 0, bullet = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	var/datum/armor/armor // Ref to the armor datum
 	var/list/allowed = list() //suit storage stuff.
 	var/obj/item/device/uplink/hidden/hidden_uplink = null // All items can have an uplink hidden inside, just remember to add the triggers.
 	var/zoomdevicename = null //name used for message when binoculars/scope is used
@@ -51,6 +51,7 @@
 	var/contained_sprite = FALSE //TRUE if object icon and related mob overlays are all in one dmi
 
 	var/icon_override = null  //Used to override hardcoded clothing dmis in human clothing proc.
+	var/icon_override_female = null  //SYZYGY EDIT - gendered icon_overrides
 
 	//** These specify item/icon overrides for _slots_
 
@@ -72,6 +73,15 @@
 
 	var/list/item_upgrades = list()
 	var/max_upgrades = 3
+
+/obj/item/Initialize()
+	if (islist(armor))
+		armor = getArmor(arglist(armor))
+	else if (!armor)
+		armor = getArmor()
+	else if (!istype(armor, /datum/armor))
+		error("Invalid type [armor.type] found in .armor during /obj Initialize()")
+	. = ..()
 
 /obj/item/Destroy()
 	QDEL_NULL(hidden_uplink)
@@ -497,6 +507,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		user.client.screen |= action
 
 /obj/item/proc/remove_hud_actions(mob/user)
+	if(!user)
+		return
 	if(!hud_actions || !user.client)
 		return
 
@@ -509,7 +521,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	for(var/A in hud_actions)
 		var/obj/item/action = A
-		action.update_icon()
+		if(action)
+			action.update_icon()
 
 /obj/item/proc/refresh_upgrades()
 	return
