@@ -332,7 +332,7 @@
 	//self-defense protocol setting
 	var/list/possible_sdps = subtypesof(/datum/hivemind_sdp)
 	if(hive_mind_ai.evo_level > 3)
-		possible_sdps -= /datum/hivemind_sdp/emergency_jump
+		possible_sdps -= /datum/hivemind_sdp/champion //syzygy edit to replace emergency jump
 	var/picked_sdp = pick(possible_sdps)
 	SDP = new picked_sdp(src)
 	SDP.set_master(src)
