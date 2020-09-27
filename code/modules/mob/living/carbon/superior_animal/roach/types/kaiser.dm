@@ -9,7 +9,7 @@ Has ability of every roach.
 	icon = 'icons/mob/64x64.dmi'
 	icon_state = "kaiser_roach"
 	icon_living = "kaiser_roach"
-	icon_dead = "kiaser_roach_dead"
+	icon_dead = "kaiser_roach_dead"
 	density = TRUE
 
 	turns_per_move = 4
