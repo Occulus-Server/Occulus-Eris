@@ -1,0 +1,5 @@
+author: bearrrrrrrr
+delete-after: true
+changes:
+  - rscadd: Adds The Lookout, a storyteller that will spawn antagonists and then go
+      silent to let the crew make their own drama. Needs playtesting.
