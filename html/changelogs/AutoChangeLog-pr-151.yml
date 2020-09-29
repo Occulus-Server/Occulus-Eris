@@ -1,0 +1,5 @@
+author: Toriate
+delete-after: true
+changes:
+  - rscadd: Crew Transfer Votes! First one starts 4 hours into a round, then every
+      hour after that.
