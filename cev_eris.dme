@@ -2745,5 +2745,6 @@
 #include "zzz_modular_syzygy\prosthesis\prosthesis_brands.dm"
 #include "zzz_modular_syzygy\prosthesis\prosthesis_parts.dm"
 #include "zzz_modular_syzygy\storytellers\events.dm"
+#include "zzz_modular_syzygy\storytellers\lookout.dm"
 #include "zzz_modular_syzygy\storytellers\mentor.dm"
 // END_INCLUDE
