@@ -1,0 +1,5 @@
+author: Torque4607
+delete-after: true
+changes:
+  - code_imp: emergency disable of hivemind ability to teleport by commenting out
+      pending possible refactor
