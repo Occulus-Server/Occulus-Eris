@@ -1,6 +1,0 @@
-author: Crosarius
-delete-after: true
-changes:
-  - rscadd: Adds two NanoTrasen PP "Brigador" to the Command Armory.
-  - tweak: Gives the Brigador a stun firemode.
-  - tweak: Makes the Command Armory slightly bigger.
