@@ -1,0 +1,5 @@
+author: Jamini
+delete-after: true
+changes:
+  - imageadd: Ported a number of cit/skyrat/tg sprites here
+  - imageadd: added thedobe tail
