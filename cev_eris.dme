@@ -2725,6 +2725,8 @@
 #include "zzz_modular_eclipse\radio_squelch\radios.dm"
 #include "zzz_modular_eclipse\sawnoff\sawnoff.dm"
 #include "zzz_modular_eclipse\storytellers\tyrant.dm"
+#include "zzz_modular_syzygy\_accessories_sprite.dm"
+#include "zzz_modular_syzygy\_accessory_hair.dm"
 #include "zzz_modular_syzygy\_helpers.dm"
 #include "zzz_modular_syzygy\ammo.dm"
 #include "zzz_modular_syzygy\cargoexports.dm"
