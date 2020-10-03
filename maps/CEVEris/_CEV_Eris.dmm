@@ -50675,7 +50675,11 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
-	pixel_x = 11
+	icon_state = "pdoor0";
+	id = "SecondSectionLockdown";
+	layer = 2.6;
+	name = "Second Section Lockdown";
+	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/hallway/main/section2)
@@ -104884,11 +104888,11 @@
 	opacity = 0
 	},
 /obj/machinery/door/blast/shutters{
-	density = 0;
+	density = 1;
 	dir = 2;
 	id = "rnddesk";
 	name = "Research Desk Shutters";
-	opacity = 0
+	opacity = 1
 	},
 /obj/machinery/door/window/westleft{
 	name = "Research Desk";
