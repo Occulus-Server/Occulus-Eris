@@ -254,6 +254,7 @@
 							/datum/design/research/item/mechfab/prosthesis_moebius/groin
 							)
 
+/*	SYZYGY EDIT - no thanks
 /datum/technology/mind_biotech
 	name = "Mind Biotech"
 	desc = "Experimental biotechnology that explores the inner workings of sentient minds"
@@ -269,3 +270,4 @@
 	cost = 3000
 
 	unlocks_designs = list(	/datum/design/research/circuit/mindswapper)
+*/
