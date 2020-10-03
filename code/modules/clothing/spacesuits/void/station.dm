@@ -241,7 +241,7 @@
 /obj/item/clothing/suit/space/void/science
 	name = "Moebius combat voidsuit"
 	icon_state = "moebiussuit"
-	desc = "A heavy space suit designed by Moebius personnel for work in hazardous environment. Features several advanced layers of armor."
+	desc = "A heavy space suit designed for work in hazardous environment. Features several advanced layers of armor."	//SYZYGY EDIT - lore compliance
 	item_state = "moebiussuit"
 	matter = list(
 	MATERIAL_PLASTEEL = 15,
