@@ -5,7 +5,7 @@
 	description = "A quiet storyteller that lets the ship speak for itself."
 
 	gain_mult_mundane = 0.8
-	gain_mult_moderate = 0.8
+	gain_mult_moderate = 0.85
 	gain_mult_major = 0.6 //STFU MY SHIT IS ON WHAT'S NEW SCOOBY DOO
 	gain_mult_roleset = 0.9
 
@@ -16,7 +16,7 @@
 	//Generates few events after spawning antagonists.
 	points = list(
 	EVENT_LEVEL_MUNDANE = 0, //Mundane
-	EVENT_LEVEL_MODERATE = 0, //Moderate
+	EVENT_LEVEL_MODERATE = 10, //Moderate
 	EVENT_LEVEL_MAJOR = 0, //Major
 	EVENT_LEVEL_ROLESET = 220 //Roleset. Spawn one antag immediately, and another quickly.
 	)
