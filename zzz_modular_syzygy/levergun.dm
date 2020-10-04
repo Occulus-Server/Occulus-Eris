@@ -55,3 +55,21 @@
 			to_chat(user, SPAN_WARNING("You shorten the barrel of \the [src]!"))
 	else
 		..()
+
+/datum/design/autolathe/gun/leveraction
+	name = "lever-action shotgun"
+	build_path = /obj/item/weapon/gun/projectile/shotgun/leveraction
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_leveraction
+	disk_name = "Frozen Star - .50 Lever-Action Shotgun"
+	icon_state = "frozenstar"
+
+	license = 12
+	designs = list(
+		/datum/design/autolathe/gun/leveraction = 3,
+		/datum/design/autolathe/ammo/shotgun_pellet,
+		/datum/design/autolathe/ammo/shotgun,
+		/datum/design/autolathe/ammo/shotgun_beanbag,
+		/datum/design/autolathe/ammo/shotgun_blanks,
+		/datum/design/autolathe/ammo/shotgun_flash,
+		)
