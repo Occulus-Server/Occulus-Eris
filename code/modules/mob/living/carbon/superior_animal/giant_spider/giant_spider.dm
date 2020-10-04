@@ -1,6 +1,6 @@
 //basic spider mob, these generally guard nests
 /mob/living/carbon/superior_animal/giant_spider
-	//name = "giant spider" syz edit, name in modular folder
+	name = "giant spider"
 	desc = "Furry and black, it makes you shudder to look at it. This one has deep red eyes."
 	icon_state = "guard"
 	icon_living = "guard"
