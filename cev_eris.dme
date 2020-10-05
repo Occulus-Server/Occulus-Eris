@@ -2741,6 +2741,7 @@
 #include "zzz_modular_syzygy\hugbox.dm"
 #include "zzz_modular_syzygy\loadout.dm"
 #include "zzz_modular_syzygy\lockers.dm"
+#include "zzz_modular_syzygy\oddities.dm"
 #include "zzz_modular_syzygy\pixelshift.dm"
 #include "zzz_modular_syzygy\plasma.dm"
 #include "zzz_modular_syzygy\pouches.dm"
