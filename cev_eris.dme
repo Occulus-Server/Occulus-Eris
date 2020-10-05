@@ -2738,6 +2738,7 @@
 #include "zzz_modular_syzygy\crates.dm"
 #include "zzz_modular_syzygy\defib.dm"
 #include "zzz_modular_syzygy\defiblocker.dm"
+#include "zzz_modular_syzygy\giant_spider.dm"
 #include "zzz_modular_syzygy\grenades.dm"
 #include "zzz_modular_syzygy\hugbox.dm"
 #include "zzz_modular_syzygy\levergun.dm"
