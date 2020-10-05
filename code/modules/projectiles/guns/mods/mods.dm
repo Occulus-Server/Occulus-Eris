@@ -46,6 +46,7 @@
 	name = "NanoTrasen \"Penetrator\" magnetic accelerator barrel"
 	desc = "Uses sympathetic magnetic coiling to increase exit velocity of a metal projectile."
 	icon_state = "Penetrator"
+	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1)
 
 /obj/item/weapon/gun_upgrade/barrel/mag_accel/New()
 	..()
@@ -63,6 +64,7 @@
 	name = "NanoTrasen \"Caster\" magnetic overheat barrel"
 	desc = "Uses magnetic induction to heat the projectile of a weapon. Arguable combat effectiveness, but flashy nonetheless."
 	icon_state = "Caster"
+	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1)
 
 /obj/item/weapon/gun_upgrade/barrel/overheat/New()
 	..()
@@ -210,7 +212,7 @@
 
 // Double damage at the cost of more recoil and a tripled energy consumption
 /obj/item/weapon/gun_upgrade/mechanism/battery_shunt
-	name = "Moebius \"Thunder\" battery shunt"
+	name = "NanoTrasen \"Thunder\" battery shunt"
 	desc = "This experimental battery shunt is a cutting edge tool attachment which bypasses battery protection circuits to deliver the maximum amount of power in the shortest amount of time."
 	icon_state = "battery_shunt"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1, MATERIAL_URANIUM = 1)
@@ -227,7 +229,7 @@
 
 // Greatly increase firerate at the cost of lower damage
 /obj/item/weapon/gun_upgrade/mechanism/overdrive
-	name = "Moebius \"Tesla\" overdrive chip"
+	name = "NanoTrasen \"Tesla\" overdrive chip"
 	desc = "This experimental chip is a cutting edge tool attachment which bypasses power management protocols to dramatically increase the rate of fire at the cost of a reduced stopping power."
 	icon_state = "overdrive"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1, MATERIAL_URANIUM = 1)
@@ -244,7 +246,7 @@
 
 // HONK
 /obj/item/weapon/gun_upgrade/trigger/honker
-	name = "Moebius \"Banana Split\" emitter"
+	name = "NanoTrasen \"Banana Split\" emitter"
 	desc = "This experimental trigger mechanism taps directly into the bluespace dimension and refines its energy to produce the purest sounds possible."
 	icon_state = "honker"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1)
@@ -258,7 +260,7 @@
 
 // Add toxin damage to your weapon
 /obj/item/weapon/gun_upgrade/barrel/toxin_coater
-	name = "Moebius \"Black Mamba\" toxin coater"
+	name = "NanoTrasen \"Black Mamba\" toxin coater"
 	desc = "This experimental barrel coats bullets with a thin layer of toxins just before they leave the weapon. Do not lick it."
 	icon_state = "toxin_coater"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 2)
@@ -273,7 +275,7 @@
 
 // Add radiation damage to your weapon
 /obj/item/weapon/gun_upgrade/barrel/isotope_diffuser
-	name = "Moebius \"Atomik\" isotope diffuser"
+	name = "NanoTrasen \"Atomik\" isotope diffuser"
 	desc = "This experimental barrel constantly sprays a thin mist of radioactive isotopes to make projectiles leaving the weapons deadlier, whether bullets, lasers or energy bolts. Do not put it in your mouth."
 	icon_state = "isotope_diffuser"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_URANIUM = 2)
@@ -288,7 +290,7 @@
 
 // Add psy damage to your weapon
 /obj/item/weapon/gun_upgrade/mechanism/psionic_catalyst
-	name = "Moebius \"Mastermind\" psionic catalyst"
+	name = "NanoTrasen \"Mastermind\" psionic catalyst"
 	desc = "This controversial device greatly amplifies the natural psionic ability of the user and allows them to project their will into the world. Before the development of the Psi Amp, psionic disciplines were mostly detectable only in a lab environment."
 	icon_state = "psionic_catalyst"
 	matter = list(MATERIAL_SILVER = 3, MATERIAL_PLASTEEL = 3, MATERIAL_URANIUM = 3)
