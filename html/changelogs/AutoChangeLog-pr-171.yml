@@ -1,4 +1,0 @@
-author: cebutris
-delete-after: true
-changes:
-  - admin: De-admins now receive adminhelps, if there are no admins online
