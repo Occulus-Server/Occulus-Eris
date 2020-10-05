@@ -2735,6 +2735,7 @@
 #include "zzz_modular_syzygy\ammo.dm"
 #include "zzz_modular_syzygy\cargoexports.dm"
 #include "zzz_modular_syzygy\clothing.dm"
+#include "zzz_modular_syzygy\crates.dm"
 #include "zzz_modular_syzygy\defib.dm"
 #include "zzz_modular_syzygy\defiblocker.dm"
 #include "zzz_modular_syzygy\grenades.dm"
