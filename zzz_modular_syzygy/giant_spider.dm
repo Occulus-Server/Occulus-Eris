@@ -1,8 +1,8 @@
 /mob/living/carbon/superior_animal/giant_spider
-    name = "Senshi Spider"
+    name = "Bushi Spider"
 
 /mob/living/carbon/superior_animal/giant_spider/hunter
-    name = "Hantā Spider"
+    name = "Ryoshi Spider"
 
 /mob/living/carbon/superior_animal/giant_spider/nurse
-    name = "Josanpu Spider"
+    name = "Kango Spider"
