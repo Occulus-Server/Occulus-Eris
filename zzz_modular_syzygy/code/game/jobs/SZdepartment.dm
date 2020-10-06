@@ -23,3 +23,4 @@
 	/* The manager is not command, but is responsible for ensuring that his workers,
 	custodians, and botanists get paid
 	*/
+	
