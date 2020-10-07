@@ -1,5 +1,4 @@
 /datum/department/guild
-	..()
 	account_initial_balance = 12000
 	
 /datum/department/civilian
@@ -14,11 +13,9 @@
 	*/
 
 /datum/job/clubworker
-	..()
 	wage = WAGE_LABOUR_DUMB //Club workers make less than professional wages and are expected to make up the difference in tips.
 
 /datum/job/clubmanager
-	..()
 	department_account_access = TRUE
 	/* The manager is not command, but is responsible for ensuring that his workers,
 	custodians, and botanists get paid
