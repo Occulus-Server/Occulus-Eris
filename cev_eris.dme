@@ -2755,6 +2755,7 @@
 #include "zzz_modular_syzygy\vote.dm"
 #include "zzz_modular_syzygy\wire_splicing.dm"
 #include "zzz_modular_syzygy\code\game\jobs\SZdepartment.dm"
+#include "zzz_modular_syzygy\code\modules\economy\price_list_fixed.dm"
 #include "zzz_modular_syzygy\prosthesis\prosthesis_brands.dm"
 #include "zzz_modular_syzygy\prosthesis\prosthesis_parts.dm"
 #include "zzz_modular_syzygy\storytellers\events.dm"
