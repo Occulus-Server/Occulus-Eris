@@ -1078,10 +1078,11 @@
 
 /obj/item/weapon/reagent_containers/price_tag = 20
 /obj/item/weapon/reagent_containers/glass/beaker/bluespace/price_tag = 300
+/* SYZYGY Edit - This NEEDS to be commented out due to the way it's fucking coded. Because Eris coders hate us.
 /obj/item/weapon/reagent_containers/get_item_cost(export)
 	. = ..()
 	. += reagents.total_volume * .
-
+*/
 /obj/item/clothing/price_tag = 30
 /obj/item/solar_assembly/price_tag = 100
 /obj/item/weapon/tracker_electronics/price_tag = 150
