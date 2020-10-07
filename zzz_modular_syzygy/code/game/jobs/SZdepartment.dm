@@ -1,7 +1,7 @@
 /datum/department/guild
 	..()
 	account_initial_balance = 12000
-
+	
 /datum/department/civilian
 	name = "The Club"
 	id = DEPARTMENT_CIVILIAN
