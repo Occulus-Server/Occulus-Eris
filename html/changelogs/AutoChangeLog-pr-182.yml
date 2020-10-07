@@ -1,0 +1,5 @@
+author: CEV-Eris Developers
+delete-after: true
+changes:
+  - rscadd: More bluespace storage items for RnD
+  - balance: Tasers now no longer ignore armor
