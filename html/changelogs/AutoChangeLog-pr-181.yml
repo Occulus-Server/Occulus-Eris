@@ -1,6 +1,0 @@
-author: Toriate
-delete-after: true
-changes:
-  - rscadd: Soulcrypts now show up properly in medical scanner reports
-  - rscadd: Acolytes now get proper access on their IDs, and they also get the preacher's
-      cruciform upgrades as compensation for preacher being unselectable
