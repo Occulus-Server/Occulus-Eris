@@ -1,0 +1,4 @@
+author: Toriate
+delete-after: true
+changes:
+  - rscadd: medspecs can now select sunglasses in the loadout
