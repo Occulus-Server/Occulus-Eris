@@ -14943,6 +14943,10 @@
 /obj/structure/multiz/stairs/enter{
 	dir = 1
 	},
+/obj/item/device/radio/intercom{
+	dir = 4;
+	pixel_x = -22
+	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/eschangarb)
 "aKA" = (
@@ -18368,7 +18372,16 @@
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
-/obj/machinery/constructable_frame/machine_frame,
+/obj/structure/table/rack,
+/obj/item/stack/material/plasteel{
+	amount = 10
+	},
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/rnd/lab)
 "aSI" = (
@@ -18541,6 +18554,9 @@
 /obj/structure/table/standard,
 /obj/item/device/mmi,
 /obj/item/device/mmi,
+/obj/item/weapon/cell/large/high,
+/obj/item/weapon/cell/large/high,
+/obj/item/weapon/cell/large/high,
 /turf/simulated/floor/tiled/white/gray_perforated,
 /area/eris/rnd/robotics)
 "aTe" = (
@@ -21797,13 +21813,13 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck4central)
 "bag" = (
-/obj/machinery/autolathe/rnd/imprinter/loaded,
 /obj/machinery/button/remote/blast_door{
 	id = "maint_hatch_rnd";
 	name = "Maintenance Hatch Control";
 	pixel_x = -24;
 	req_access = null
 	},
+/obj/machinery/autolathe/loaded,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/rnd/lab)
 "bah" = (
@@ -21984,13 +22000,13 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/security/main)
 "baE" = (
-/obj/machinery/autolathe/rnd/protolathe/loaded,
 /obj/machinery/light{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/autolathe/rnd/imprinter/loaded,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/rnd/lab)
 "baF" = (
@@ -24380,12 +24396,10 @@
 /turf/simulated/open,
 /area/eris/maintenance/section2deck4port)
 "bfq" = (
-/obj/machinery/computer/rdconsole/core{
-	dir = 4
-	},
 /obj/machinery/status_display{
 	pixel_x = -32
 	},
+/obj/machinery/r_n_d/destructive_analyzer,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/rnd/lab)
 "bfr" = (
@@ -24686,9 +24700,14 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/rnd/chargebay)
 "bgc" = (
-/obj/machinery/r_n_d/destructive_analyzer,
 /obj/machinery/camera/network/research{
 	dir = 4
+	},
+/obj/machinery/autolathe/rnd/protolathe/loaded,
+/obj/machinery/button/remote/blast_door{
+	id = "rnddesk";
+	name = "Research Desk Shutter Control";
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/rnd/lab)
@@ -25865,12 +25884,8 @@
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/barracks)
 "biW" = (
-/obj/machinery/autolathe/loaded,
-/obj/machinery/button/remote/blast_door{
-	id = "rnddesk";
-	name = "Research Desk Shutter Control";
-	pixel_x = -22;
-	pixel_y = -4
+/obj/machinery/computer/rdconsole/core{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/rnd/lab)
@@ -26184,18 +26199,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section3deck1central)
 "bjA" = (
-/obj/structure/table/standard,
-/obj/item/stack/cable_coil{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/stack/cable_coil{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
+/obj/machinery/chemical_dispenser/industrial,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/rnd/lab)
 "bjB" = (
@@ -30298,13 +30302,6 @@
 /area/eris/maintenance/section3deck5starboard)
 "btc" = (
 /obj/structure/table/standard,
-/obj/item/stack/material/plasteel{
-	amount = 10
-	},
-/obj/item/stack/cable_coil,
-/obj/item/stack/cable_coil,
-/obj/item/stack/cable_coil,
-/obj/item/stack/cable_coil,
 /obj/machinery/button/remote/blast_door{
 	desc = "It controls the blast door to the main RND entrance.";
 	id = "RDDoorLockdown";
@@ -45530,6 +45527,7 @@
 /obj/machinery/alarm{
 	pixel_y = 26
 	},
+/obj/item/weapon/autopsy_scanner,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/rnd/mixing)
 "cbP" = (
@@ -45693,6 +45691,7 @@
 /area/eris/medical/medbay)
 "cck" = (
 /obj/structure/closet/secure_closet/personal/scientist,
+/obj/item/weapon/autopsy_scanner,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/rnd/mixing)
 "ccl" = (
@@ -45759,6 +45758,7 @@
 	dir = 8;
 	pixel_x = 22
 	},
+/obj/item/weapon/autopsy_scanner,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/rnd/mixing)
 "cct" = (
@@ -47754,6 +47754,7 @@
 /obj/machinery/alarm{
 	pixel_y = 26
 	},
+/obj/item/weapon/autopsy_scanner,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "cgG" = (
@@ -49558,6 +49559,7 @@
 /area/eris/storage/tech)
 "cll" = (
 /obj/structure/table/glass,
+/obj/item/weapon/autopsy_scanner,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "clm" = (
@@ -53818,6 +53820,7 @@
 	pixel_x = -24;
 	req_access = null
 	},
+/obj/item/weapon/paper/monitorkey,
 /turf/simulated/floor/carpet/purcarpet,
 /area/eris/command/meo)
 "cvZ" = (
@@ -69132,6 +69135,7 @@
 /obj/machinery/keycard_auth{
 	pixel_y = -24
 	},
+/obj/item/weapon/paper/monitorkey,
 /turf/simulated/floor/wood,
 /area/eris/command/captain)
 "dgc" = (
@@ -71856,10 +71860,6 @@
 /area/eris/command/tcommsat/chamber)
 "dlS" = (
 /obj/structure/bed/chair/comfy/teal{
-	dir = 4;
-	icon_state = "comfychair_teal"
-	},
-/obj/structure/bed/chair/comfy/brown{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -74439,6 +74439,7 @@
 "drJ" = (
 /obj/structure/table/standard,
 /obj/item/weapon/tool/saw/circular,
+/obj/item/weapon/autopsy_scanner,
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/eris/rnd/xenobiology)
 "drK" = (
@@ -77260,6 +77261,7 @@
 /area/eris/maintenance/oldbridge)
 "dyu" = (
 /obj/structure/closet/secure_closet/reinforced/CMO,
+/obj/item/weapon/autopsy_scanner,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/command/mbo)
 "dyv" = (
@@ -97918,9 +97920,10 @@
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/neotheology/bioreactor)
 "euR" = (
-/obj/machinery/chemical_dispenser/industrial,
-/turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/rnd/lab)
+/obj/structure/table/standard,
+/obj/item/weapon/paper/monitorkey,
+/turf/simulated/floor/bluegrid,
+/area/eris/command/tcommsat/computer)
 "euS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -103671,10 +103674,6 @@
 "iaf" = (
 /obj/structure/multiz/stairs/enter{
 	dir = 1
-	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/eschangarb)
@@ -167630,7 +167629,7 @@ bhb
 aXV
 bhb
 bhb
-bhb
+vkt
 vkt
 bhb
 bhb
@@ -168639,7 +168638,7 @@ bjw
 bjY
 bde
 bjA
-euR
+bde
 bgA
 bnG
 bne
@@ -241332,7 +241331,7 @@ bYo
 dhm
 dhm
 cZA
-diG
+euR
 diy
 diG
 diG
