@@ -24,3 +24,28 @@
 
 /datum/vote_choice/notransfer
 	text = "Remain here for the next hour"
+
+// Power to the people!
+/datum/poll/power
+	name = "Power the Ship"
+	question = "No engineers? Have no fear! Simply vote here and all your problems will go away (not really)."
+	time = 60
+	choice_types = list(/datum/vote_choice/power, /datum/vote_choice/nopower)
+	minimum_voters = 0
+	only_admin = FALSE
+
+	multiple_votes = FALSE
+	can_revote = TRUE
+	can_unvote = TRUE
+	cooldown = 30 MINUTES
+	next_vote = 5 MINUTES	//Have to wait 5 minutes after roundstart before doing it
+	see_votes = TRUE
+
+/datum/vote_choice/power
+	text = "Power to the people!"
+
+/datum/vote_choice/power/on_win()
+	power_restore()
+
+/datum/vote_choice/nopower
+	text = "Don't ruin my immersion."
