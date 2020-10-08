@@ -1,0 +1,4 @@
+author: Toriate
+delete-after: true
+changes:
+  - bugfix: All clothing items should now have their proper sprites.
