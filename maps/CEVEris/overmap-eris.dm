@@ -43,6 +43,11 @@
 		"nav_bridge_aquila"
 	)*/
 
+/obj/effect/overmap/ship/eris/Initialize()
+	.=..()
+	if(name == "NEV Northern Light")	//Syzygy edit - to make this work with our ship name
+		ships[eris] = src
+
 /obj/machinery/computer/shuttle_control/explore/exploration_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Vasiliy Dokuchaev"
