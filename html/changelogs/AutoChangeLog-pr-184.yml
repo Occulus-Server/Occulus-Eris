@@ -1,0 +1,6 @@
+author: Toriate
+delete-after: true
+changes:
+  - rscadd: You can now press M to open up a multiline Me textbox.
+  - tweak: Maximum message length has been doubled from 1024 characters to 2048 characters.
+  - admin: Admin PMs to players are now a multiline textbox.
