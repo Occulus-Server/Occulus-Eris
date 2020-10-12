@@ -160,7 +160,7 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 		if(INFESTATION_SLIMES)
 			event_name = "Slime Leak"
 			chosen_verb = "have leaked into"
-			chosen_mob_classification += /obj/random/slime/rainbow
+			chosen_mob_classification += /obj/spawner/mob/slime/rainbow
 		if(INFESTATION_SPIDERLINGS)
 			event_name = "Spiderling Infestation"
 			chosen_verb = "have burrowed into"
@@ -169,7 +169,7 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 		if(INFESTATION_SPIDERS)
 			event_name = "Spider Infestation"
 			chosen_verb = "have burrowed into"
-			chosen_mob_classification += /obj/random/mob/spiders
+			chosen_mob_classification += /obj/spawner/mob/spiders
 		if(INFESTATION_ROACHES)
 			event_name = "Giant Roach Infestation"
 			chosen_verb = "have burrowed into"

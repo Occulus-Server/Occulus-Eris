@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		/obj/item/stack/rods/random,
 		/obj/item/weapon/material/shard,
 		/obj/random/junk/nondense = 2,
-		/obj/random/pack/rare = 0.4
+		/obj/spawner/pack/rare = 0.4
 	)
 	var/dig_amount = 4
 	var/parts_icon = 'icons/obj/structures/scrap/trash.dmi'
@@ -345,7 +345,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		/obj/item/stack/rods/random,
 		/obj/item/weapon/material/shard,
 		/obj/random/junk/nondense,
-		/obj/random/pack/rare = 0.3
+		/obj/spawner/pack/rare = 0.3
 	)
 
 /obj/structure/scrap/vehicle
@@ -361,8 +361,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		/obj/item/weapon/material/shard,
 		/obj/random/junk/nondense,
 		/obj/random/material_ore,
-		/obj/random/pack/rare = 0.3,
-		/obj/random/tool_upgrade = 1,
+		/obj/spawner/pack/rare = 0.3,
+		/obj/spawner/tool_upgrade = 1,
 		/obj/random/exosuit_equipment = 2
 	)
 
@@ -378,7 +378,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		/obj/item/stack/rods/random,
 		/obj/item/weapon/material/shard,
 		/obj/random/junk/nondense,
-		/obj/random/pack/rare = 0.3
+		/obj/spawner/pack/rare = 0.3
 	)
 
 /obj/structure/scrap/guns
@@ -396,7 +396,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		/obj/item/weapon/material/shard,
 		/obj/item/stack/material/steel/random,
 		/obj/random/junk/nondense,
-		/obj/random/pack/rare = 0.3
+		/obj/spawner/pack/rare = 0.3
 	)
 
 /obj/structure/scrap/science
@@ -411,8 +411,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		/obj/random/science,
 		/obj/random/material_ore,
 		/obj/random/common_oddities = 0.5,
-		/obj/random/pack/rare,//No weight on this, rare loot is pretty likely to appear in scientific scrap
-		/obj/random/tool_upgrade,
+		/obj/spawner/pack/rare,//No weight on this, rare loot is pretty likely to appear in scientific scrap
+		/obj/spawner/tool_upgrade,
 		/obj/random/exosuit_equipment
 	)
 
@@ -421,7 +421,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	name = "cloth pile"
 	desc = "Pile of second hand clothing for charity."
 	parts_icon = 'icons/obj/structures/scrap/cloth.dmi'
-	loot_list = list(/obj/random/pack/cloth,/obj/random/pack/rare = 0.2)
+	loot_list = list(/obj/random/pack/cloth,/obj/spawner/pack/rare = 0.2)
 
 /obj/structure/scrap/poor
 	icontype = "poor"
@@ -429,13 +429,13 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	desc = "Pile of mixed rubbish. Useless and rotten, mostly."
 	parts_icon = 'icons/obj/structures/scrap/all_mixed.dmi'
 	loot_list = list(
-		/obj/random/lowkeyrandom = 5,
+		/obj/spawner/lowkeyrandom = 5,
 		/obj/random/junk/nondense = 4,
 		/obj/item/stack/rods/random = 3,
 		/obj/random/common_oddities = 0.5,
 		/obj/random/material_ore,
 		/obj/item/weapon/material/shard,
-		/obj/random/pack/rare = 0.3
+		/obj/spawner/pack/rare = 0.3
 	)
 
 /obj/structure/scrap/poor/large

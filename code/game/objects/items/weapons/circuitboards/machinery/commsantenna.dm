@@ -1,8 +1,9 @@
-/obj/item/weapon/circuitboard/bluespacerelay
+/obj/item/weapon/electronics/circuitboard/bluespacerelay
 	name = T_BOARD("bluespacerelay")
 	build_path = /obj/machinery/bluespacerelay
 	board_type = "machine"
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_DATA = 4)
+	rarity_value = 40
 	req_components = list(
 		/obj/item/stack/cable_coil = 30,
 		/obj/item/weapon/stock_parts/manipulator = 2,

@@ -7,11 +7,11 @@
 /datum/stash/booze/distillers
 	story_type = STORY_CRIME
 	directions = DIRECTION_IMAGE
-	contents_list_random = list(/obj/random/pack/rare = 30,
-	/obj/random/pack/rare = 30,
-	/obj/random/lowkeyrandom = 40,
-	/obj/random/lowkeyrandom = 40,
-	/obj/random/lowkeyrandom = 40,
+	contents_list_random = list(/obj/spawner/pack/rare = 30,
+	/obj/spawner/pack/rare = 30,
+	/obj/spawner/lowkeyrandom = 40,
+	/obj/spawner/lowkeyrandom = 40,
+	/obj/spawner/lowkeyrandom = 40,
 	/obj/random/credits/c1000 = 50,
 	/obj/random/credits/c1000 = 50)
 	lore = "My best swindle yet. After my boys got roaring drunk and tore up the bar for the\

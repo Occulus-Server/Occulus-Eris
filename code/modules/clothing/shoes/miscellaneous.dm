@@ -21,7 +21,7 @@
 	name = "mime shoes"
 	icon_state = "mime"
 
-/obj/item/clothing/shoes/black
+/obj/item/clothing/shoes/color/black
 	name = "black shoes"
 	icon_state = "black"
 	desc = "A pair of black shoes."
