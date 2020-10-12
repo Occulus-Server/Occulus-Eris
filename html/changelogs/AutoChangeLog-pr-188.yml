@@ -1,0 +1,9 @@
+author: CEV-Eris Developers
+delete-after: true
+changes:
+  - rscadd: Heads can now modify IDs with access for their department.
+  - bugfix: Hopefully fixed the E hotkey bagging all your items instead of properly
+      stowing them away
+  - rscadd: Eris will now randomly start at 1 of 3 locations.
+  - rscadd: Lines in config file to determine starting location.
+  - rscdel: Asteroid loses its default location.
