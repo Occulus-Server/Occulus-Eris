@@ -8,6 +8,7 @@
 	license = -1
 	spawn_tags = SPAWN_TAG_DESING
 	rarity_value = 25
+	spawn_frequency = 8.5
 	var/list/designs = list()
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/install_default_files()
@@ -640,7 +641,7 @@
 // .35 PISTOLS + REVOLVERS
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns
-	bad_types = /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns
+	bad_type = /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns
 	disk_name = "Frozen Star Basic - .35 Civilian Pack"

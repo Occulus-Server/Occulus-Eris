@@ -6,6 +6,7 @@
 	self_recharge = TRUE
 	matter = list(MATERIAL_PLASTIC = 6)
 	fire_sound = 'sound/weapons/Laser.ogg'
+	bad_type = /obj/item/weapon/gun/energy/lasertag
 	projectile_type = /obj/item/projectile/beam/lastertag/blue
 	var/required_vest
 

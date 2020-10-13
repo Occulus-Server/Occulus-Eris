@@ -22,7 +22,7 @@
 	spawn_frequency = 10 //as /obj/structure/computerframe
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_CONSTRUCTABLE_FRAME
-	bad_types = /obj/machinery/constructable_frame
+	bad_type = /obj/machinery/constructable_frame
 
 /obj/machinery/constructable_frame/machine_frame/examine(mob/user)
 	. = ..()
@@ -228,7 +228,7 @@
 	icon_state = "v2box_0"
 	base_state = "v2box"
 	frame_type = FRAME_VERTICAL
-	bad_types = /obj/machinery/constructable_frame/machine_frame/vertical
+	bad_type = /obj/machinery/constructable_frame/machine_frame/vertical
 
 /obj/machinery/constructable_frame/machine_frame/vertical/New()
 	..()

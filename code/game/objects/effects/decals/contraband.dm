@@ -16,7 +16,7 @@
 	var/ruined = 0
 	var/datum/poster/design
 	rarity_value = 10
-	bad_types = /obj/item/weapon/contraband/poster
+	bad_type = /obj/item/weapon/contraband/poster
 	spawn_tags = SPAWN_TAG_CONTRABAND
 
 /obj/item/weapon/contraband/poster/New(turf/loc, var/datum/poster/new_design = null)
@@ -29,6 +29,7 @@
 /obj/item/weapon/contraband/poster/placed
 	icon_state = "random"
 	anchored = TRUE
+	spawn_tags = null
 	New(turf/loc)
 		if(icon_state != "random")
 			for(var/datum/poster/new_design in poster_designs)

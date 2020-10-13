@@ -16,7 +16,7 @@
 	reload_sound = 'sound/weapons/guns/interact/smg_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/smg_cock.ogg'
 	zoom_factor = 0 //Default zoom factor you want on all automatic weapons.
-	bad_types = /obj/item/weapon/gun/projectile/automatic
+	bad_type = /obj/item/weapon/gun/projectile/automatic
 	gun_tags = list(GUN_PROJECTILE, GUN_INTERNAL_MAG)
 	init_firemodes = list(
 		FULL_AUTO_400,

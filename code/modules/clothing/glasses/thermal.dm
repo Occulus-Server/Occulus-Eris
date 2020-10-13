@@ -37,6 +37,7 @@
 	icon_state = "meson"
 	origin_tech = list(TECH_MAGNET = 3, TECH_COVERT = 4)
 	rarity_value = 50
+	spawn_blacklisted = TRUE
 
 /obj/item/clothing/glasses/powered/thermal/onestar
 	name = "OS Type - 73 \"Zhenchayuan\""
@@ -80,6 +81,7 @@
 	icon_state = "thermal_lens"
 	body_parts_covered = 0
 	slot_flags = 0
+	spawn_blacklisted = TRUE
 
 
 /obj/item/clothing/glasses/attackby(obj/item/Z, mob/user)

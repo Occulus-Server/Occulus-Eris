@@ -31,7 +31,7 @@
 	var/illustration = "writing"
 	contained_sprite = TRUE
 	health = 20
-	bad_types = /obj/item/weapon/storage/box
+	bad_type = /obj/item/weapon/storage/box
 	spawn_blacklisted = FALSE
 	spawn_tags = SPAWN_TAG_BOX
 	rarity_value = 20
@@ -236,6 +236,7 @@
 	name = "box of .60 Anti Material shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	illustration = "ammo"
+	rarity_value = 40
 
 /obj/item/weapon/storage/box/sniperammo/populate_contents()
 	new /obj/item/ammo_casing/antim/prespawned(src)
@@ -247,6 +248,7 @@
 	desc = "A box containing 7 antipersonnel flashbang grenades.<br> WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use."
 	icon_state = "box_security"
 	illustration = "flashbang"
+	rarity_value = 60
 
 /obj/item/weapon/storage/box/flashbangs/populate_contents()
 	for(var/i in 1 to 7)
@@ -257,6 +259,7 @@
 	desc = "A box containing 6 tear gas grenades. A gas mask is printed on the label.<br> WARNING: Exposure carries risk of serious injury or death. Keep away from persons with lung conditions."
 	icon_state = "box_security"
 	illustration = "flashbang"
+	rarity_value = 50
 
 /obj/item/weapon/storage/box/teargas/populate_contents()
 	for(var/i in 1 to 6)
@@ -269,6 +272,7 @@
 	desc = "A box containing 5 military grade EMP grenades.<br> WARNING: Do not use near unshielded electronics or biomechanical augmentations, death or permanent paralysis may occur."
 	icon_state = "box_security"
 	illustration = "flashbang"
+	rarity_value = 60
 
 /obj/item/weapon/storage/box/emps/populate_contents()
 	for(var/i in 1 to 5)
@@ -279,6 +283,7 @@
 	desc = "A box containing 4 fragmentation grenades. Designed for use on enemies in the open."
 	icon_state = "box_security"
 	illustration = "flashbang"
+	rarity_value = 60
 
 /obj/item/weapon/storage/box/frag/populate_contents()
 	for(var/i in 1 to 4)
@@ -289,6 +294,7 @@
 	desc = "A box containing 4 blast grenades. Designed for assaulting strongpoints."
 	icon_state = "box_security"
 	illustration = "flashbang"
+	rarity_value = 70
 
 /obj/item/weapon/storage/box/explosive/populate_contents()
 	for(var/i in 1 to 4)
@@ -299,6 +305,7 @@
 	name = "box of smoke bombs"
 	desc = "A box containing 5 smoke bombs."
 	illustration = "flashbang"
+	rarity_value = 40
 
 /obj/item/weapon/storage/box/smokes/populate_contents()
 	for(var/i in 1 to 5)
@@ -308,6 +315,7 @@
 	name = "box of anti-photon grenades"
 	desc = "A box containing 5 experimental photon disruption grenades."
 	illustration = "flashbang"
+	rarity_value = 60
 
 /obj/item/weapon/storage/box/anti_photons/populate_contents()
 	for(var/i in 1 to 5)
@@ -318,6 +326,7 @@
 	desc = "A box containing 5 incendiary grenades."
 	icon_state = "box_security"
 	illustration = "flashbang"
+	rarity_value = 60
 
 /obj/item/weapon/storage/box/incendiary/populate_contents()
 	for(var/i in 1 to 5)
@@ -327,6 +336,7 @@
 	name = "boxed tracking implant kit"
 	desc = "Box full of scum-bag tracking utensils."
 	illustration = "implant"
+	rarity_value = 60
 
 /obj/item/weapon/storage/box/trackimp/populate_contents()
 	new /obj/item/weapon/implantcase/tracking(src)
@@ -341,6 +351,7 @@
 	name = "boxed chemical implant kit"
 	desc = "Box of stuff used to implant chemicals."
 	illustration = "implant"
+	rarity_value = 60
 
 /obj/item/weapon/storage/box/chemimp/populate_contents()
 	new /obj/item/weapon/implantcase/chem(src)
@@ -376,6 +387,7 @@
 	desc = "Box of stuff used to implant death alarms."
 	illustration = "implant"
 	item_state = "syringe_kit"
+	rarity_value = 50
 
 /obj/item/weapon/storage/box/cdeathalarm_kit/populate_contents()
 	new /obj/item/weapon/implanter(src)

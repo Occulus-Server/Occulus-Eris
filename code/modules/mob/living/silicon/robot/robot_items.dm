@@ -4,7 +4,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "portable_analyzer"
 	desc = "Similar to the stationary version, this rather unwieldy device allows you to break down objects in the name of science."
-	bad_types = /obj/item/weapon/portable_destructive_analyzer
+	bad_type = /obj/item/weapon/portable_destructive_analyzer
 	var/min_reliability = 90 //Can't upgrade, call it laziness or a drawback
 
 	var/datum/research/files 	//The device uses the same datum structure as the R&D computer/server.
@@ -103,7 +103,7 @@
 	icon_state = "id-robot"
 	desc = "A circuit grafted onto the bottom of an ID card.  It is used to transmit access codes into other robot chassis, \
 	allowing you to lock and unlock other robots' panels."
-	bad_types = /obj/item/weapon/card/robot
+	bad_type = /obj/item/weapon/card/robot
 
 //A harvest item for serviceborgs.
 /obj/item/weapon/robot_harvester
@@ -111,7 +111,7 @@
 	desc = "A hand-held harvest tool that resembles a sickle.  It uses energy to cut plant matter very efficently."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "autoharvester"
-	bad_types = /obj/item/weapon/robot_harvester
+	bad_type = /obj/item/weapon/robot_harvester
 
 /obj/item/weapon/robot_harvester/afterattack(var/atom/target, var/mob/living/user, proximity)
 	if(!target)
@@ -134,7 +134,7 @@
 /obj/item/weapon/tray/robotray
 	name = "RoboTray"
 	desc = "An autoloading tray specialized for carrying refreshments."
-	bad_types = /obj/item/weapon/tray/robotray
+	bad_type = /obj/item/weapon/tray/robotray
 
 /obj/item/weapon/tray/robotray/afterattack(atom/target, mob/user, proximity)
 	if(!proximity)
@@ -225,7 +225,7 @@
 	desc = "A black ink printing attachment with a paper naming mode."
 	name = "Printing Pen"
 	var/mode = 1
-	bad_types = /obj/item/weapon/pen/robopen
+	bad_type = /obj/item/weapon/pen/robopen
 
 /obj/item/weapon/pen/robopen/attack_self(mob/user)
 
@@ -272,7 +272,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper_bin1"
 	item_state = "sheet-metal"
-	bad_types = /obj/item/weapon/form_printer
+	bad_type = /obj/item/weapon/form_printer
 
 /obj/item/weapon/form_printer/attack(mob/living/carbon/M, mob/living/carbon/user)
 	return
@@ -414,33 +414,33 @@
 /obj/item/weapon/tool/crowbar/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	tool_qualities = list(QUALITY_PRYING = 40, QUALITY_DIGGING = 35)
-	spawn_frequency = 0
+	spawn_tags = null
 
 /obj/item/weapon/tool/wrench/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	tool_qualities = list(QUALITY_BOLT_TURNING = 40)
-	spawn_frequency = 0
+	spawn_tags = null
 
 /obj/item/weapon/tool/screwdriver/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	//random_icon = FALSE
-	spawn_frequency = 0
+	spawn_tags = null
 
 /obj/item/weapon/tool/multitool/robotic
 	icon = 'icons/obj/robot_items.dmi'
-	spawn_frequency = 0
+	spawn_tags = null
 
 /obj/item/weapon/tool/wirecutters/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	tool_qualities = list(QUALITY_WIRE_CUTTING = 40, QUALITY_CUTTING = 30)
-	spawn_frequency = 0
+	spawn_tags = null
 
 /obj/item/weapon/tool/weldingtool/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	switched_on_qualities = list(QUALITY_WELDING = 40, QUALITY_CAUTERIZING = 15, QUALITY_WIRE_CUTTING = 15)
-	spawn_frequency = 0
+	spawn_tags = null
 
 /obj/item/weapon/tool/shovel/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	tool_qualities = list(QUALITY_SHOVELING = 40, QUALITY_DIGGING = 40, QUALITY_EXCAVATION = 20, QUALITY_HAMMERING = 20)
-	spawn_frequency = 0
+	spawn_tags = null

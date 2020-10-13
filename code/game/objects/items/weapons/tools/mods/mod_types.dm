@@ -6,8 +6,8 @@
 
 //This can be attached to basically any long tool
 //This includes most mechanical ones
-/obj/item/weapon/tool_upgrade
-	bad_types = /obj/item/weapon/tool_upgrade
+/obj/item/weapon/tool_upgrade/reinforcement
+	bad_type = /obj/item/weapon/tool_upgrade/reinforcement
 
 /obj/item/weapon/tool_upgrade/reinforcement/stick
 	name = "brace bar"
@@ -122,7 +122,7 @@
 // 	 PRODUCTIVITY: INCREASES WORKSPEED
 //------------------------------------------------
 /obj/item/weapon/tool_upgrade/productivity
-	bad_types = /obj/item/weapon/tool_upgrade/productivity
+	bad_type = /obj/item/weapon/tool_upgrade/productivity
 
 /obj/item/weapon/tool_upgrade/productivity/ergonomic_grip
 	name = "ergonomic grip"
@@ -365,7 +365,7 @@
 // 	 REFINEMENT: INCREASES PRECISION
 //------------------------------------------------
 /obj/item/weapon/tool_upgrade/refinement
-	bad_types = /obj/item/weapon/tool_upgrade/refinement
+	bad_type = /obj/item/weapon/tool_upgrade/refinement
 
 /obj/item/weapon/tool_upgrade/refinement/laserguide
 	name = "\"Guiding Light\" laser guide"
@@ -478,7 +478,7 @@
 
 //Allows the tool to use a cell one size category larger than it currently uses. Small to medium, medium to large, etc
 /obj/item/weapon/tool_upgrade/augment
-	bad_types = /obj/item/weapon/tool_upgrade/augment
+	bad_type = /obj/item/weapon/tool_upgrade/augment
 
 /obj/item/weapon/tool_upgrade/augment/cell_mount
 	name = "heavy cell mount"
@@ -523,6 +523,8 @@
 	desc = "Rare relic of OneStar uses the bluetech space to store additional 600 units of fuel at the cost of degradation."
 	icon_state = "canister_holding"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 4, MATERIAL_PLATINUM = 4)
+	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE_OS
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool_upgrade/augment/holding_tank/New()
 	..()
@@ -649,6 +651,8 @@
 	desc = "Very rare tool mod from OneStar powered by their nanomachines. It repairs the tool while in use and makes it near unbreakable."
 	icon_state = "repair_nano"
 	matter = list(MATERIAL_PLASTIC = 1, MATERIAL_PLASTEEL = 1, MATERIAL_PLATINUM = 1)
+	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE_OS
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool_upgrade/augment/repair_nano/New()
 	..()
@@ -664,6 +668,7 @@
 	desc = "A complex set of hydraulic circuits that can be installed on a tool to greatly improve its functions. It's loud as hell though so do not plan on being stealthy."
 	icon_state = "hydraulic"
 	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 3)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool_upgrade/augment/hydraulic/New()
 	..()
