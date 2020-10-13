@@ -1395,10 +1395,10 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/guns
 	num_contained = 4
-	contains = list(/obj/random/gun_cheap,
-                /obj/random/gun_normal,
-                /obj/random/gun_energy_cheap,
-                /obj/random/gun_shotgun)
+	contains = list(/obj/spawner/gun/cheap,
+                /obj/spawner/gun/normal,
+                /obj/spawner/gun/energy_cheap,
+                /obj/spawner/gun/shotgun)
 	name = "Surplus Weaponry"
 	cost = 5000
 	crate_name = "Surplus Weapons Crate"
@@ -1407,14 +1407,14 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/ammo
 	num_contained = 8
-	contains = list(/obj/random/ammo,
-				/obj/random/ammo,
-				/obj/random/ammo,
-				/obj/random/ammo,
-				/obj/random/ammo,
-				/obj/random/ammo,
-				/obj/random/ammo,
-				/obj/random/ammo)
+	contains = list(/obj/spawner/ammo,
+				/obj/spawner/ammo,
+				/obj/spawner/ammo,
+				/obj/spawner/ammo,
+				/obj/spawner/ammo,
+				/obj/spawner/ammo,
+				/obj/spawner/ammo,
+				/obj/spawner/ammo)
 	name = "Surplus Ammo"
 	cost = 1500
 	crate_name = "Surplus Ammo Crate"
@@ -1423,11 +1423,11 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/pouches
 	num_contained = 5
-	contains = list(/obj/random/pouch,
-				/obj/random/pouch,
-				/obj/random/pouch,
-				/obj/random/pouch,
-				/obj/random/pouch)
+	contains = list(/obj/spawner/pouch,
+				/obj/spawner/pouch,
+				/obj/spawner/pouch,
+				/obj/spawner/pouch,
+				/obj/spawner/pouch)
 	name = "Surplus Storage Pouches"
 	cost = 1500
 	crate_name = "Surplus Pouches Crate"
@@ -1437,10 +1437,10 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/holsters
 	num_contained = 4
-	contains = list(/obj/random/cloth/holster,
-					/obj/random/cloth/holster,
-					/obj/random/cloth/holster,
-					/obj/random/cloth/holster)
+	contains = list(/obj/spawner/cloth/holster,
+					/obj/spawner/cloth/holster,
+					/obj/spawner/cloth/holster,
+					/obj/spawner/cloth/holster)
 	name = "Surplus Unform Holsters"
 	cost = 1000
 	crate_name = "Surplus Uniform Holsters Crate"
@@ -1449,8 +1449,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/voidsuit
 	num_contained = 1
-	contains = list(/obj/random/voidsuit,
-					/obj/random/voidsuit/damaged)
+	contains = list(/obj/spawner/voidsuit,
+					/obj/spawner/voidsuit/damaged)
 	name = "Surplus Voidsuit"
 	cost = 1500
 	crate_name = "Surplus Voidsuit Crate"
@@ -1459,8 +1459,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/rig
 	num_contained = 1
-	contains = list(/obj/random/rig,
-					/obj/random/rig/damaged)
+	contains = list(/obj/spawner/rig,
+					/obj/spawner/rig/damaged)
 	name = "Surplus Rig Suit"
 	cost = 5000
 	crate_name = "Surplus Rig Crate"
@@ -1469,8 +1469,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/rigmods
 	num_contained = 2
-	contains = list(/obj/random/rig_module,
-				/obj/random/rig_module)
+	contains = list(/obj/spawner/rig_module,
+				/obj/spawner/rig_module)
 	name = "Surplus Rig Modules"
 	cost = 2500
 	crate_name = "Surplus Rig Modules"

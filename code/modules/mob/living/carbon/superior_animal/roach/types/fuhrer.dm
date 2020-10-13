@@ -22,7 +22,7 @@
 	meat_amount = 6
 
 	sanity_damage = 1
-
+	rarity_value = 90
 
 
 /mob/living/carbon/superior_animal/roach/fuhrer/bullet_act()

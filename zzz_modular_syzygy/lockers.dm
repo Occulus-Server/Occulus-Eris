@@ -19,7 +19,7 @@
 	new /obj/item/weapon/melee/telebaton(src)
 	new /obj/item/clothing/head/caphat/formal(src)
 	new /obj/item/clothing/under/captainformal(src)
-	new /obj/random/cloth/holster(src)
+	new /obj/spawner/cloth/holster(src)
 	new /obj/item/clothing/suit/storage/captains_coat(src)
 
 /obj/structure/closet/secure_closet/personal/miner/populate_contents()

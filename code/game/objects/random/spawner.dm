@@ -97,20 +97,20 @@
 					price_tag += AMAO.price_tag
 	return spawns
 
-/obj/randomcatcher
+/obj/spawnercatcher
 	name = "Random Catcher Object"
 	desc = "You should not see this."
 	icon = 'icons/misc/mark.dmi'
 	icon_state = "rup"
 
-/obj/randomcatcher/proc/get_item(type)
+/obj/spawnercatcher/proc/get_item(type)
 	new type(src)
 	if (contents.len)
 		. = pick(contents)
 	else
 		return null
 
-/obj/randomcatcher/proc/get_items(type)
+/obj/spawnercatcher/proc/get_items(type)
 	new type(src)
 	if (contents.len)
 		return contents

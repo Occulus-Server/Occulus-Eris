@@ -20,7 +20,8 @@
 	volume = 200
 	reagent_flags = OPENCONTAINER
 	filling_states = "-10;10;25;50;75;80;100"
-	var/blood_type = null
+	var/blood_type = null/obj/item/weapon/reagent_containers/blood/empty
+	rarity_value = 10
 
 /obj/item/weapon/reagent_containers/blood/Initialize()
 	. = ..()
@@ -71,3 +72,5 @@
 	bloodtypeandpackname("O-")
 
 /obj/item/weapon/reagent_containers/blood/empty
+	spawn_tags = SPAWN_TAG_JUNK
+	rarity_value = 20

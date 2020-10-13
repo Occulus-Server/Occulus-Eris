@@ -174,13 +174,15 @@
 	desc = "A simple, comfortable poncho."
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
+	spawn_tags = SPAWN_TAG_CLOTHING_SUIT_PONCHO
+	rarity_value = 5
 
 /obj/item/clothing/suit/poncho/tactical
 	name = "blue poncho"
 	desc = "A simple, comfortable poncho in blue colors."
 	icon_state = "tacticalponcho"
 	item_state = "tacticalponcho"
-
+	rarity_value = 80
 
 /obj/item/clothing/suit/storage/toggle/bomber
 	name = "bomber jacket"
@@ -199,6 +201,7 @@
 	desc = "A sturdy, synthetic leather jacket with a high collar. It is able to protect you from a knife slice or a bite, but don't expect too much. More importantly, it makes you look like a really bad boy or girl. And remember, Tunnel Snakes rule!"
 	icon_state = "leather_jacket"
 	item_state = "leather_jacket"
+	rarity_value = 5.55
 	armor = list(
 		melee = 10,
 		bullet = 10,
@@ -258,6 +261,7 @@
 	icon_closed = "grey_hoodie"
 	min_cold_protection_temperature = T0C - 20
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	rarity_value = 5
 
 /obj/item/clothing/suit/storage/toggle/hoodie/black
 	name = "black hoodie"
@@ -266,6 +270,7 @@
 	item_state = "black_hoodie"
 	icon_open = "black_hoodie_open"
 	icon_closed = "black_hoodie"
+	rarity_value = 6.25
 
 /obj/item/clothing/suit/storage/cyberpunksleek
 	name = "\improper Enforcer's Overcoat"
@@ -342,6 +347,7 @@
 	desc = "An old leather coat. Has probably seen things you wouldn't believe."
 	icon_state = "bladerunner_coat"
 	item_state = "bladerunner_coat"
+	rarity_value = 6.25
 	armor = list(
 		melee = 10,
 		bullet = 20,
@@ -358,6 +364,7 @@
 	icon_state = "drive_jacket"
 	item_state = "drive_jacket"
 	body_parts_covered = UPPER_TORSO|ARMS
+	rarity_value = 16.66
 
 /obj/item/clothing/suit/storage/violet_jacket
 	name = "violet jacket"
@@ -365,6 +372,7 @@
 	icon_state = "violet_jacket"
 	item_state = "violet_jacket"
 	body_parts_covered = UPPER_TORSO|ARMS
+	rarity_value = 16.66
 
 /obj/item/clothing/suit/storage/bomj
 	name = "bomj coat"

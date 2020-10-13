@@ -446,6 +446,17 @@
 	spawn_weight  =	45
 	var/mob_to_spawn
 	var/mob_amount = 3
+/* Syz change, porting a post Pr from when this stuff was added, placing it here for consistancy
+/obj/spawner/mob/assembled
+	name = "random hivemob"
+	tags_to_spawn = list(SPAWN_MOB_HIVEMIND)
+
+/obj/machinery/hivemind_machine/mob_spawner/Initialize()
+	..()
+	mob_to_spawn = /obj/spawner/mob/assembled //randomly chooses a mob from the list when spawning, instead of choosing a single mob and spawning only that one.
+	//TL;DR - Assembler can now spawn multiple types of mobs
+*/
+
 
 /obj/machinery/hivemind_machine/mob_spawner/Initialize()
 	..()

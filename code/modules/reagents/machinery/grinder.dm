@@ -263,6 +263,7 @@
 	board_type = "machine"
 	build_path = /obj/machinery/reagentgrinder/industrial
 	origin_tech = list(TECH_BIO = 1)
+	rarity_value = 10
 	req_components = list(
 		/obj/item/weapon/stock_parts/manipulator = 2,
 		/obj/item/weapon/stock_parts/scanning_module = 1,
@@ -332,6 +333,8 @@
 	icon_state = "mortar"
 	storage_slots = 3
 	unacidable = 1
+	rarity_value = 25
+	spawn_tags = SPAWN_TAG_ITEM_UTILITY
 	var/amount_per_transfer_from_this = 10
 	var/possible_transfer_amounts = list(5,10,30,60)
 	reagent_flags = REFILLABLE | DRAINABLE
