@@ -2,7 +2,8 @@
 	name = "Excelsior Mine"
 	desc = "It looks like ancient, and rather dangerous mine."
 	icon = 'icons/obj/machines/excelsior/objects.dmi'
-	icon_state = "mine	rarity_value = 10
+	icon_state = "mine"
+	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_ENCOUNTER_CRYOPOD
 	bad_types = /obj/structure/cryopod_spawner

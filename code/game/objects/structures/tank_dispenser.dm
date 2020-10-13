@@ -2,7 +2,7 @@
 	name = "tank storage unit"
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to ten oxygen tanks, and ten phoron tanks."
 	icon = 'icons/obj/objects.dmi'
-	icon_state = "dispenserR
+	icon_state = "dispenser"
 	spawn_tags = SPAWN_TAG_STRUCTURE_COMMON
 	rarity_value = 50
 	density = TRUE

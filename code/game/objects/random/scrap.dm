@@ -50,4 +50,4 @@
 
 /obj/spawner/scrap/beacon/dense
 	name = "Random dense beacon trash"
-tags_to_spawn = list(SPAWN_BEACON_SCRAP)
+	tags_to_spawn = list(SPAWN_BEACON_SCRAP)

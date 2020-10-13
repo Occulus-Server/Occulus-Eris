@@ -78,15 +78,15 @@
 	story_type = STORY_MUTINY
 	contents_list_base = list(/obj/spawner/gun/cheap = 3,
 	/obj/spawner/ammo = 8,
-	/obj/spawner/clotharmor = 1)
+	/obj/spawner/cloth/armor = 1)
 	contents_list_random = list(/obj/spawner/gun/normal = 70,
 	/obj/spawner/gun/energy_cheap = 50,
 	/obj/spawner/voidsuit = 70,
 	/obj/spawner/knife = 70,
 	/obj/spawner/knife = 50,
 	/obj/spawner/knife = 60,
-	/obj/spawner/clotharmor = 60,
-	/obj/spawner/clotharmor = 60)
+	/obj/spawner/cloth/armor = 60,
+	/obj/spawner/cloth/armor = 60)
 	lore = "Logbook:<br>\
 	 Half-rations unless we want roachmeat? What next, ship's biscuit and weevils? I'll choose the lesser of two weevils, black bloody mutiny.<br>\
  To hell with this half-assed aristocrat and his lording over us because he was born wearing a powdered wig. A millennium late, you poser.<br>\

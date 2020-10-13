@@ -33,7 +33,7 @@
 /obj/item/weapon/implanter/compressed
 	name = "implanter (C)"
 	icon_state = "cimplanter1"
-	implant = /obj/item/weapon/implant/compressed)
+	implant = /obj/item/weapon/implant/compressed
 	spawn_tags = null
 
 /obj/item/weapon/implanter/compressed/update_icon()

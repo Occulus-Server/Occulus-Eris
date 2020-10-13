@@ -31,7 +31,7 @@
 	icon_state = "b_hy"
 	origin_tech = list(TECH_POWER = 6)
 	maxcharge = 20000
-	rarity_value = 30
+	rarity_value = 22.5
 
 /obj/item/weapon/cell/large/moebius
 	name = "\"Power-Geyser 2000L\""
@@ -198,7 +198,6 @@
 	rarity_value = 30
 
 //SMALL CELLS - for small devices, such as flashlights, analyzers and HUDs.
-
 /obj/item/weapon/cell/small
 	name = "\"Robustcell 100S\""
 	desc = "A rechargeable S-standardized power cell. This one is the cheapest you can find."
@@ -290,6 +289,7 @@
 	autorecharge_rate = 0.0007
 	recharge_time = 1
 	spawn_blacklisted = TRUE
+	rarity_value = 40
 
 /obj/item/weapon/cell/small/excelsior
 	name = "\"Zarya 250S\""

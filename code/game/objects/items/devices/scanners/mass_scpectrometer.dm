@@ -8,7 +8,7 @@
 	reagent_flags = OPENCONTAINER
 
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 27
+	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 27)
 	rarity_value = 50
 	charge_per_use = 7
 
@@ -78,5 +78,5 @@
 	name = "advanced mass spectrometer"
 	icon_state = "adv_spectrometer"
 	details = 1
-	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 27
+	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 27)
 	rarity_value = 100

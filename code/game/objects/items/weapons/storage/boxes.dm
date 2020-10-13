@@ -496,7 +496,6 @@
 	item_state = "zippo"
 	illustration = null
 	w_class = ITEM_SIZE_TINY
-	slot_flags = SLOT_SLOT_BELT
 	rarity_value = 5
 	spawn_tags = SPAWN_TAG_BOX_TAG_JUNK
 

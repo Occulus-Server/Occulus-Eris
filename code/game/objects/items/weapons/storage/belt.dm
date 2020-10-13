@@ -157,7 +157,7 @@
 
 /obj/item/weapon/storage/belt/tactical/ironhammer
 	name = "aegis tactical belt"
-	icon_state = "tactical_ironhammer
+	icon_state = "tactical_ironhammer"
 	spawn_blacklisted = TRUE
 
 /obj/item/weapon/storage/belt/tactical/neotheology

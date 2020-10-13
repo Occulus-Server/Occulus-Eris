@@ -42,7 +42,7 @@
 	name = "OS Type - 73 \"Zhenchayuan\""
 	desc = "Chinese thermals in the shape of goggles."
 	icon_state = "onestar_thermal"
-	off_state = "onestar_thermal""
+	off_state = "onestar_thermal"
 	rarity_value = 100
 	spawn_blacklisted = TRUE
 

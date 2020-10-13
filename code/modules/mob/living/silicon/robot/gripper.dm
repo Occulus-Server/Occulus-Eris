@@ -5,7 +5,7 @@
 	desc = "A simple grasping tool specialized in construction and engineering work."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gripper"
-
+	bad_types = /obj/item/weapon/gripper
 	flags = NOBLUDGEON
 
 	//Has a list of items that it can hold.
@@ -55,7 +55,7 @@
 
 
 
-/obj/item/weapon/gripper/proc/grip_item(obj/item/I as obj, mob/user as mob, var/feedback = 1)
+/obj/item/weapon/gripper/proc/grip_item(obj/item/I, mob/user, var/feedback = 1)
 	//This function returns 1 if we successfully took the item, or 0 if it was invalid. This information is useful to the caller
 	if (!wrapped)
 		if(is_type_in_list(I,can_hold))
