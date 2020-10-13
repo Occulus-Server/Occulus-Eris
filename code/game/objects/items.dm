@@ -9,7 +9,7 @@
 	rarity_value = 10
 	spawn_frequency = 10 //MAX
 	bad_type = /obj/item
-
+	var/randpixel = 6
 	var/image/blood_overlay //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite	var/randpixel = 6
 	var/abstract = 0
 	var/r_speed = 1
