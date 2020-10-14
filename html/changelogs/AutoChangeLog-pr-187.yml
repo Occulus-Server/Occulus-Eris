@@ -1,8 +1,0 @@
-author: Trilbyspaceclone
-delete-after: true
-changes:
-  - rscadd: Telecom keys are now mapped into the game
-  - rscadd: Autopsy scanner are now mapped into the game - Yay RnD!
-  - tweak: Rnd has had a shuffle ruffle making it be less of a cluttered mess, even
-      got a new window!
-  - tweak: Cargo lobby floor has better use in space and such.
