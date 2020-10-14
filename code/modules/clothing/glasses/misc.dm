@@ -19,6 +19,7 @@
 	icon_state = "glasses"
 	item_state = "glasses"
 	body_parts_covered = 0
+	prescription = TRUE
 
 /obj/item/clothing/glasses/regular/scanners
 	name = "Scanning Goggles"

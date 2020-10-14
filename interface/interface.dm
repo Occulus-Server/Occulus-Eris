@@ -68,6 +68,8 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tq = drop
 \te = equip
 \tShift+e = belt-equip
+\tShift+q = suit-storage-equip
+\tShift+b = bag-equip
 \tr = throw
 \tt = say
 \t5 = emote
@@ -111,6 +113,7 @@ Any-Mode: (hotkey doesn't need to be on)
 \tPGUP = swap-hand
 \tPGDN = activate held object
 \tEND = throw
+\tm = multiline input menu for emotes
 </font>"}
 
 	var/robot_hotkey_mode = {"<font color='purple'>
