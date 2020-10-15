@@ -69970,22 +69970,6 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/turret_protected/ai)
-"dik" = (
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/command{
-	name = "Moebius Biolab Officer's Quarters";
-	req_access = list(40)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/steel/cargo,
-/area/eris/command/mbo/quarters)
 "dil" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -103286,6 +103270,22 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
+"eYN" = (
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/command{
+	name = "Moebius Biolab Officer's Quarters";
+	req_access = list(37)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/command/mbo/quarters)
 "eZV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/steel,
@@ -245041,7 +245041,7 @@ dbF
 cWD
 cwZ
 cCS
-dik
+eYN
 dkX
 dly
 dma
