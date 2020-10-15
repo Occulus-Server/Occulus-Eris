@@ -2762,6 +2762,7 @@
 #include "zzz_modular_syzygy\code\modules\economy\price_list_fixed.dm"
 #include "zzz_modular_syzygy\code\modules\mining\mineral_effect.dm"
 #include "zzz_modular_syzygy\code\modules\mob\living\carbon\human\species\station\station.dm"
+#include "zzz_modular_syzygy\code\modules\reagents\recipes.dm"
 #include "zzz_modular_syzygy\prosthesis\prosthesis_brands.dm"
 #include "zzz_modular_syzygy\prosthesis\prosthesis_parts.dm"
 #include "zzz_modular_syzygy\storytellers\events.dm"
