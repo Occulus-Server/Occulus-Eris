@@ -16,7 +16,7 @@
 
 
 /obj/structure/dispenser/oxygen
-	plasmatanks = 0
+	phorontanks = 0
 	rarity_value = 10
 
 /obj/structure/dispenser/phoron

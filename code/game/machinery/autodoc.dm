@@ -1,4 +1,4 @@
-/obj/machinery/autodoc
+/*/obj/machinery/autodoc
 	var/mob/living/carbon/occupant
 	var/datum/autodoc/autodoc_processor
 	var/locked
@@ -146,3 +146,4 @@
 		icon_state = "powered_on"
 	if(autodoc_processor.active)
 		icon_state = "active"
+*/
