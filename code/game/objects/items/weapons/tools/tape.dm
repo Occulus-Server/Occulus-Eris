@@ -122,8 +122,10 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape"
 	w_class = ITEM_SIZE_TINY
-	layer = 4
-	anchored = 1 //it's sticky, no you cant move it
+	layer = BELOW_MOB_LAYER
+	anchored = TRUE //it's sticky, no you cant move it
+	spawn_frequency = 0
+	bad_type = /obj/item/weapon/ducttape
 
 	var/obj/item/weapon/stuck
 

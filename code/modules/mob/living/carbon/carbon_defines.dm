@@ -30,6 +30,6 @@
 	var/obj/item/weapon/tank/internal = null//Human/Monkey
 
 
-	bad_types = /mob/living/carbon
+	bad_type = /mob/living/carbon
 	//TODO: move to brain
 
