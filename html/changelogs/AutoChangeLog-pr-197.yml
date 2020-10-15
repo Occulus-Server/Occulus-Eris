@@ -1,0 +1,5 @@
+author: Toriate
+delete-after: true
+changes:
+  - rscadd: Ported loot rework from upstream
+  - rscadd: Ported sanity rework from upstream
