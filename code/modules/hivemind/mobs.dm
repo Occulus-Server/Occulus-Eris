@@ -19,6 +19,9 @@
 	attacktext = "attacks"
 	universal_speak = TRUE
 	speak_chance = 5
+	bad_type = /mob/living/simple_animal/hostile/hivemind
+	spawn_tags = SPAWN_TAG_MOB_HIVEMIND
+	rarity_value = 20
 	var/malfunction_chance = 5
 	var/ability_cooldown = 30 SECONDS
 	var/list/target_speak = list()			//this is like speak list, but when we see our target
@@ -277,9 +280,9 @@
 	malfunction_chance = 15
 	mob_size = MOB_SMALL
 	pass_flags = PASSTABLE
-	speed = 6
+	speed = 2.5 //explosive, slow, don't ignore it. it can catch up to you
+	rarity_value = 25
 	move_to_delay = 10//Syzygy edit
-
 	speak = list(
 				"WE COME IN PEACE.",
 				"WE BRING GREETINGS FROM A FRIENDLY AI.",
@@ -348,6 +351,7 @@
 	speed = 12
 	malfunction_chance = 15
 	mob_size = MOB_MEDIUM
+	rarity_value = 100
 
 	speak = list("They grow up so fast.",
 				"Come out, come out, wherever you are.",

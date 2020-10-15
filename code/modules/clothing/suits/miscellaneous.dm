@@ -17,6 +17,7 @@
 	body_parts_covered = UPPER_TORSO
 	allowed = list (/obj/item/weapon/gun/energy/lasertag/blue)
 	siemens_coefficient = 3
+	style = 0
 
 /obj/item/clothing/suit/redtag
 	name = "red laser tag armour"
@@ -27,6 +28,7 @@
 	body_parts_covered = UPPER_TORSO
 	allowed = list (/obj/item/weapon/gun/energy/lasertag/red)
 	siemens_coefficient = 3
+	style = 0
 
 /*
  * Costume
@@ -37,6 +39,7 @@
 	icon_state = "pirate"
 	item_state = "pirate"
 	body_parts_covered = UPPER_TORSO|ARMS
+	style = 1
 
 
 /obj/item/clothing/suit/judgerobe
@@ -47,6 +50,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	allowed = list(/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/spacecash)
 	flags_inv = HIDEJUMPSUIT
+	style = 1
 
 
 /obj/item/clothing/suit/wcoat
@@ -56,6 +60,7 @@
 	item_state = "wcoat"
 	blood_overlay_type = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	style = 1
 
 
 /obj/item/clothing/suit/syndicatefake
@@ -68,6 +73,7 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	item_flags = COVER_PREVENT_MANIPULATION
+	style = 1
 
 
 /obj/item/clothing/suit/chickensuit
@@ -78,6 +84,7 @@
 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 2
+	style = 1
 
 
 /obj/item/clothing/suit/monkeysuit
@@ -174,12 +181,16 @@
 	desc = "A simple, comfortable poncho."
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
+	style = 1
+	spawn_tags = SPAWN_TAG_CLOTHING_SUIT_PONCHO
+	rarity_value = 5
 
 /obj/item/clothing/suit/poncho/tactical
 	name = "blue poncho"
 	desc = "A simple, comfortable poncho in blue colors."
 	icon_state = "tacticalponcho"
 	item_state = "tacticalponcho"
+	rarity_value = 80
 
 
 /obj/item/clothing/suit/storage/toggle/bomber
@@ -199,6 +210,7 @@
 	desc = "A sturdy, synthetic leather jacket with a high collar. It is able to protect you from a knife slice or a bite, but don't expect too much. More importantly, it makes you look like a really bad boy or girl. And remember, Tunnel Snakes rule!"
 	icon_state = "leather_jacket"
 	item_state = "leather_jacket"
+	rarity_value = 5.55
 	armor = list(
 		melee = 10,
 		bullet = 10,
@@ -258,6 +270,8 @@
 	icon_closed = "grey_hoodie"
 	min_cold_protection_temperature = T0C - 20
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	style = 1
+	rarity_value = 5
 
 /obj/item/clothing/suit/storage/toggle/hoodie/black
 	name = "black hoodie"
@@ -272,6 +286,7 @@
 	desc = "A sleek overcoat made of neo-laminated fabric. Has a reasonably sized pocket on the inside."
 	icon_state = "cyberpunksleek"
 	item_state = "brown_jacket"
+	rarity_value = 6.25
 	armor = list(
 		melee = 5,
 		bullet = 20,
@@ -316,6 +331,7 @@
 		rad = 0
 	)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	style = 2
 
 
 /obj/item/clothing/suit/storage/cyberpunksleek_long/green
@@ -342,6 +358,7 @@
 	desc = "An old leather coat. Has probably seen things you wouldn't believe."
 	icon_state = "bladerunner_coat"
 	item_state = "bladerunner_coat"
+	rarity_value = 6.25
 	armor = list(
 		melee = 10,
 		bullet = 20,
@@ -351,6 +368,7 @@
 		rad = 0
 	)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	style = 2
 
 /obj/item/clothing/suit/storage/drive_jacket
 	name = "white jacket"
@@ -358,6 +376,7 @@
 	icon_state = "drive_jacket"
 	item_state = "drive_jacket"
 	body_parts_covered = UPPER_TORSO|ARMS
+	rarity_value = 16.66
 
 /obj/item/clothing/suit/storage/violet_jacket
 	name = "violet jacket"
@@ -365,6 +384,7 @@
 	icon_state = "violet_jacket"
 	item_state = "violet_jacket"
 	body_parts_covered = UPPER_TORSO|ARMS
+	rarity_value = 16.66
 
 /obj/item/clothing/suit/storage/bomj
 	name = "bomj coat"

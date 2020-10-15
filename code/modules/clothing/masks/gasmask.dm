@@ -10,6 +10,7 @@
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
+	rarity_value = 10
 	var/gas_filter_strength = 1			//For gas mask filters
 	var/list/filtered_gases = list("phoron", "sleeping_agent")
 	armor = list(
@@ -21,6 +22,7 @@
 		rad = 0
 	)
 	price_tag = 20
+	style = 0
 
 /obj/item/clothing/mask/gas/filter_air(datum/gas_mixture/air)
 	var/datum/gas_mixture/filtered = new
@@ -50,6 +52,7 @@
 	siemens_coefficient = 0.7
 	body_parts_covered = FACE|EYES
 	price_tag = 50
+	rarity_value = 100
 
 /obj/item/clothing/mask/gas/ihs
 	name = "Aegis gasmask"
@@ -57,6 +60,7 @@
 	siemens_coefficient = 0.7
 	body_parts_covered = FACE|EYES
 	price_tag = 40
+	rarity_value = 20
 
 /obj/item/clothing/mask/gas/syndicate
 	name = "tactical mask"
@@ -64,12 +68,15 @@
 	icon_state = "swat"
 	siemens_coefficient = 0.7
 	price_tag = 50
+	rarity_value = 100
+	spawn_blacklisted = TRUE
 
 /obj/item/clothing/mask/gas/clown_hat
 	name = "clown wig and mask"
 	desc = "A true prankster's facial attire. A clown is incomplete without their wig and mask."
 	icon_state = "clown"
 	item_state = "clown_hat"
+	rarity_value = 20
 
 /obj/item/clothing/mask/gas/clown_hat/attack_self(mob/user)
 
@@ -117,19 +124,23 @@
 	icon_state = "death_commando_mask"
 	item_state = "death_commando_mask"
 	siemens_coefficient = 0.2
+	spawn_blacklisted = TRUE
 
 /obj/item/clothing/mask/gas/cyborg
 	name = "cyborg visor"
 	desc = "Beep boop"
 	icon_state = "death"
+	spawn_blacklisted = TRUE
 
 /obj/item/clothing/mask/gas/owl_mask
 	name = "owl mask"
 	desc = "Twoooo!"
 	icon_state = "owl"
 	body_parts_covered = HEAD|FACE|EYES
+	rarity_value = 100
 
 /obj/item/clothing/mask/gas/german
 	name = "Oberth Republic gas mask"
 	icon_state = "germangasmask"
+	rarity_value = 100
 

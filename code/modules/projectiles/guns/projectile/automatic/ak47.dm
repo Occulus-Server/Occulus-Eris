@@ -71,3 +71,4 @@
 
 	item_suffix = "_wood"
 	wielded_item_state = "_doble_wood"
+	rarity_value = 19.2

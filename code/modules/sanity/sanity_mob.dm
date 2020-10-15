@@ -126,15 +126,16 @@
 
 /datum/sanity/proc/handle_insight()
 	var/moralist_factor = 1
-	if(owner)
-		if(owner.stats.getPerk(PERK_MORALIST))
-			for(var/mob/living/carbon/human/H in view(owner))
-				if(H)
-					if(H.sanity.level > 60)
-						moralist_factor += 0.02
-	insight += INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier * moralist_factor
+	var/style_factor = owner.get_style_factor()
+	if(owner.stats.getPerk(PERK_MORALIST))
+		for(var/mob/living/carbon/human/H in view(owner))
+			if(H)
+				if(H.sanity.level > 60)
+					moralist_factor += 0.02
+	insight += INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier * moralist_factor * style_factor
 	while(insight >= 100)
 		to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? null : " Now you need to rest and rethink your life choices."]"))
+		owner.playsound_local(get_turf(owner), 'sound/sanity/psychochimes.ogg', 100)
 		++resting
 		pick_desires()
 		insight -= 100
@@ -172,47 +173,28 @@
 	)
 	for(var/i = 0; i < INSIGHT_DESIRE_COUNT; i++)
 		var/desire = pick_n_take(candidates)
+		var/list/potential_desires = list()
 		switch(desire)
 			if(INSIGHT_DESIRE_FOOD)
-				var/static/list/food_types = subtypesof(/obj/item/weapon/reagent_containers/food/snacks)
-				var/desire_count = 0
-				while(desire_count < 5)
-					var/obj/item/weapon/reagent_containers/food/snacks/candidate = pick(food_types)
-					if(!initial(candidate.cooked))
-						food_types -= candidate
-						continue
-					desires += candidate
-					++desire_count
+				potential_desires = all_types_food.Copy()
 			if(INSIGHT_DESIRE_ALCOHOL)
-				var/static/list/ethanol_types = subtypesof(/datum/reagent/ethanol)
-				var/desire_count = 0
-				while(desire_count < 5)
-					var/candidate = pick(ethanol_types)
-					var/list/categories = subtypesof(candidate)
-					if(categories.len) //Exclude categories
-						ethanol_types -= candidate
-						continue
-					desires += candidate
-					++desire_count
+				potential_desires = all_taste_drinks.Copy()
 			else
 				desires += desire
+				continue
+		if(potential_desires.len)
+			var/candidate = pick(potential_desires)
+			desires += candidate
 	print_desires()
 
 /datum/sanity/proc/print_desires()
 	if(!resting)
 		return
-	var/list/desire_names = list()
-	for(var/desire in desires)
-		if(ispath(desire))
-			var/atom/A = desire
-			desire_names += initial(A.name)
-		else
-			desire_names += desire
-	to_chat(owner, SPAN_NOTICE("You desire [english_list(desire_names)]."))
+	to_chat(owner, SPAN_NOTICE("You desire [english_list(desires)]."))
 
 /datum/sanity/proc/add_rest(type, amount)
 	if(!(type in desires))
-		amount /= 4
+		amount /= 16
 	insight_rest += amount
 	if(insight_rest >= 100)
 		insight_rest = 0
@@ -231,6 +213,7 @@
 	INVOKE_ASYNC(src, .proc/oddity_stat_up, resting)
 
 	to_chat(owner, SPAN_NOTICE("You have rested well and improved your stats."))
+	owner.playsound_local(get_turf(owner), 'sound/sanity/rest.ogg', 100)
 	resting = 0
 
 /datum/sanity/proc/oddity_stat_up(multiplier)
@@ -287,18 +270,23 @@
 /datum/sanity/proc/onToxin(datum/reagent/toxin/R, multiplier)
 	changeLevel(-R.sanityloss * multiplier)
 
-/datum/sanity/proc/onAlcohol(datum/reagent/ethanol/E, multiplier)
+/datum/sanity/proc/onReagent(datum/reagent/E, multiplier)
 	changeLevel(E.sanity_gain_ingest * multiplier)
-	if(resting)
-		add_rest(E.type, 3 * multiplier)
+	if(resting && E.taste_tag.len)
+		for(var/taste_tag in E.taste_tag)
+			if(multiplier <= 1 )
+				add_rest(taste_tag, 4 * 1/E.taste_tag.len)  //just so it got somme effect of things with small multipliers
+			else
+				add_rest(taste_tag, 4 * multiplier/E.taste_tag.len)
 
 /datum/sanity/proc/onEat(obj/item/weapon/reagent_containers/food/snacks/snack, snack_sanity_gain, snack_sanity_message)
 	if(world.time > eat_time_message && snack_sanity_message)
 		eat_time_message = world.time + EAT_COOLDOWN_MESSAGE
 		to_chat(owner, "[snack_sanity_message]")
 	changeLevel(snack_sanity_gain)
-	if(snack.cooked && resting)
-		add_rest(snack.type, snack_sanity_gain * 45)
+	if(snack.cooked && resting && snack.taste_tag.len)
+		for(var/taste in snack.taste_tag)
+			add_rest(taste, snack_sanity_gain * 50/snack.taste_tag.len)
 
 /datum/sanity/proc/onSmoke(obj/item/clothing/mask/smokable/S)
 	changeLevel(SANITY_GAIN_SMOKE * S.quality_multiplier)
