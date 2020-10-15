@@ -3,7 +3,7 @@
 	desc = "Used to control a linked teleportation Hub and Station."
 	icon_keyboard = "teleport_key"
 	icon_screen = "teleport"
-	circuit = /obj/item/weapon/circuitboard/teleporter
+	circuit = /obj/item/weapon/electronics/circuitboard/teleporter
 	var/obj/item/locked = null
 	var/id = null
 	var/one_time_use = 0 //Used for one-time-use teleport cards (such as clown planet coordinates.)
@@ -19,20 +19,20 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	active_power_usage = 2000
-	circuit = /obj/item/weapon/circuitboard/teleporterhub
+	circuit = /obj/item/weapon/electronics/circuitboard/teleporterhub
 	var/obj/machinery/computer/teleporter/mconsole
 	var/obj/machinery/teleport/station/mstation
 
 /obj/machinery/teleport/station
 	name = "Teleporter Station"
-	desc = "It's the teleporter engagement/testfire station." 
+	desc = "It's the teleporter engagement/testfire station."
 	icon_state = "controller"
 	var/active = 0
 	var/engaged = 0
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	active_power_usage = 2000
-	circuit = /obj/item/weapon/circuitboard/teleporterstation
+	circuit = /obj/item/weapon/electronics/circuitboard/teleporterstation
 	var/obj/machinery/teleport/hub/mhub
 	var/obj/machinery/computer/teleporter/mconsole
 
@@ -109,7 +109,7 @@
 		mconsole.mhub = null
 	underlays.Cut()
 	. = ..()
-	
+
 
 /obj/machinery/teleport/station/on_deconstruction()
 	if(engaged)
@@ -128,7 +128,7 @@
 	if(mhub)
 		mhub.mconsole = null
 	. = ..()
-		
+
 
 /obj/machinery/teleport/hub/attackby(obj/item/I, mob/user, params)
 	if(default_deconstruction(I, user))
@@ -428,7 +428,7 @@
 		for(var/mob/O in hearers(src, null))
 			O.show_message(SPAN_NOTICE("Teleporter engaged!"), 2)
 	src.add_fingerprint(usr)
-	
+
 	return
 
 /obj/machinery/teleport/station/proc/disengage()
@@ -444,7 +444,7 @@
 		for(var/mob/O in hearers(src, null))
 			O.show_message(SPAN_NOTICE("Teleporter disengaged!"), 2)
 	src.add_fingerprint(usr)
-	
+
 	return
 
 /obj/machinery/teleport/station/verb/testfire()

@@ -3,11 +3,12 @@
 	name = "S.E.U. \"Ripley\"" //Space Excavation Unit
 	desc = "A cheap utility exosuit. An old Nanotrasen design, now used just about everywhere due to post-Fall data leaks."
 
+	rarity_value  = 15
 	material = MATERIAL_STEEL
 	exosuit_color = "#ffbc37"
 	installed_software_boards = list(
-		/obj/item/weapon/circuitboard/exosystem/utility,
-		/obj/item/weapon/circuitboard/exosystem/engineering
+		/obj/item/weapon/electronics/circuitboard/exosystem/utility,
+		/obj/item/weapon/electronics/circuitboard/exosystem/engineering
 	)
 	installed_systems = list(
 		HARDPOINT_LEFT_HAND = /obj/item/mech_equipment/drill,

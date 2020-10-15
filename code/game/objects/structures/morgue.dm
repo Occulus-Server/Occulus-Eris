@@ -17,7 +17,7 @@
 	icon_state = "morgue1"
 	dir = EAST
 	density = TRUE
-	var/obj/structure/m_tray/connected = null
+	var/obj/structure/m_tray/connected
 	var/open = FALSE
 	anchored = TRUE
 	var/mob/living/occupant
@@ -148,7 +148,7 @@
 			return // we got this one already
 		//We send a message to the occupant's current mob - probably a ghost, but who knows.
 		to_chat(M, SPAN_NOTICE("Your remains have been collected and properly stored. Your crew respawn time is reduced by 10 minutes."))
-		
+
 		M << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever their respawn time gets reduced
 
 		M.set_respawn_bonus("CORPSE_HANDLING", 10 MINUTES)
@@ -252,7 +252,7 @@
 	icon_state = "morguet"
 	density = TRUE
 	layer = LOW_OBJ_LAYER
-	var/obj/structure/morgue/connected = null
+	var/obj/structure/morgue/connected
 	anchored = TRUE
 	throwpass = 1
 
@@ -291,7 +291,7 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "crema1"
 	density = TRUE
-	var/obj/structure/c_tray/connected = null
+	var/obj/structure/c_tray/connected
 	anchored = TRUE
 	var/cremating = 0
 	var/id = 1
@@ -476,7 +476,7 @@
 	icon_state = "cremat"
 	density = TRUE
 	layer = 2.0
-	var/obj/structure/crematorium/connected = null
+	var/obj/structure/crematorium/connected
 	anchored = TRUE
 	throwpass = 1
 

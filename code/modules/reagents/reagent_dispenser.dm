@@ -6,6 +6,11 @@
 	density = TRUE
 	anchored = FALSE
 	reagent_flags = DRAINABLE | AMOUNT_VISIBLE
+	//sapwn_values
+	bad_type = /obj/structure/reagent_dispensers
+	rarity_value = 10
+	spawn_frequency = 10
+	spawn_tags = SPAWN_TAG_REAGENT_DISPENSER
 	var/volume = 1500
 	var/starting_reagent = null
 	var/amount_per_transfer_from_this = 10
@@ -70,6 +75,7 @@
 
 /obj/structure/reagent_dispensers/watertank/derelict
 	icon_state = "watertank-derelict"
+	spawn_blacklisted = TRUE
 
 /obj/structure/reagent_dispensers/watertank/huge
 	name = "high-capacity water tank"
@@ -78,9 +84,11 @@
 	volume = 3000
 	price_tag = 100
 	contents_cost = 300
+	rarity_value = 30
 
 /obj/structure/reagent_dispensers/watertank/huge/derelict
 	icon_state = "hvwatertank-derelict"
+	spawn_blacklisted = TRUE
 
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
@@ -97,6 +105,7 @@
 
 /obj/structure/reagent_dispensers/fueltank/derelict
 	icon_state = "weldtank-derelict"
+	spawn_blacklisted = TRUE
 
 /obj/structure/reagent_dispensers/fueltank/huge
 	name = "high-capacity fuel tank"
@@ -105,9 +114,11 @@
 	volume = 1000
 	price_tag = 100
 	contents_cost = 1500
+	rarity_value = 30
 
 /obj/structure/reagent_dispensers/fueltank/huge/derelict
 	icon_state = "hvweldtank-derelict"
+	spawn_blacklisted = TRUE
 
 /obj/structure/reagent_dispensers/fueltank/examine(mob/user)
 	if(!..(user, 2))
@@ -220,6 +231,7 @@
 	amount_per_transfer_from_this = 45
 	volume = 1000
 	starting_reagent = "condensedcapsaicin"
+	spawn_blacklisted = TRUE
 
 
 /obj/structure/reagent_dispensers/water_cooler
@@ -232,6 +244,7 @@
 	anchored = TRUE
 	volume = 500
 	starting_reagent = "water"
+	spawn_blacklisted = TRUE
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/I, mob/user)
 	if(QUALITY_BOLT_TURNING in I.tool_qualities)
@@ -259,6 +272,7 @@
 	starting_reagent = "beer"
 	price_tag = 50
 	contents_cost = 700
+	spawn_blacklisted = TRUE
 
 /obj/structure/reagent_dispensers/cahorsbarrel
 	name = "NanoTrasen Cahors barrel"
@@ -268,6 +282,7 @@
 	starting_reagent = "ntcahors"
 	price_tag = 50
 	contents_cost = 950
+	spawn_blacklisted = TRUE
 
 /obj/structure/reagent_dispensers/virusfood
 	name = "virus food dispenser"
@@ -278,6 +293,7 @@
 	density = FALSE
 	volume = 1000
 	starting_reagent = "virusfood"
+	spawn_blacklisted = TRUE
 
 /obj/structure/reagent_dispensers/acid
 	name = "sulphuric acid dispenser"
@@ -288,6 +304,7 @@
 	density = FALSE
 	volume = 1000
 	starting_reagent = "sacid"
+	spawn_blacklisted = TRUE
 
 //this is big movable beaker
 /obj/structure/reagent_dispensers/bidon
@@ -295,6 +312,7 @@
 	desc = "Bulk Industrial Dispenser Omnitech-Nanochem. A canister with acid-resistant linings intended for handling big volumes of chemicals."
 	icon = 'icons/obj/machines/chemistry.dmi'
 	icon_state = "bidon"
+	rarity_value = 15
 	matter = list(MATERIAL_STEEL = 16, MATERIAL_GLASS = 8, MATERIAL_PLASTIC = 6)
 	reagent_flags = AMOUNT_VISIBLE
 	amount_per_transfer_from_this = 30
@@ -314,6 +332,7 @@
 	reagent_flags = TRANSPARENT
 	filling_states = list(20,40,60,80,100)
 	volume = 900
+	rarity_value = 60
 
 /obj/structure/reagent_dispensers/bidon/Initialize(mapload, ...)
 	. = ..()
