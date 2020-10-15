@@ -13,4 +13,3 @@
 
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/jager
 	meat_amount = 3
-	rarity_value = 11.25

@@ -3,8 +3,6 @@
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to ten oxygen tanks, and ten phoron tanks."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "dispenser"
-	spawn_tags = SPAWN_TAG_STRUCTURE_COMMON
-	rarity_value = 50
 	density = TRUE
 	anchored = TRUE
 	w_class = ITEM_SIZE_HUGE
@@ -16,12 +14,10 @@
 
 
 /obj/structure/dispenser/oxygen
-	phorontanks =  0
-	rarity_value = 10
+	phorontanks = 0
 
 /obj/structure/dispenser/phoron
-	oxygentanks =  0
-	rarity_value = 25
+	oxygentanks = 0
 
 
 /obj/structure/dispenser/Initialize()

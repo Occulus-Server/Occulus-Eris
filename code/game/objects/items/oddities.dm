@@ -12,17 +12,12 @@
 	item_state = "electronic"
 	w_class = ITEM_SIZE_SMALL
 
-	//spawn_values
-	spawn_blacklisted = TRUE
-	spawn_tags = SPAWN_TAG_ODDITY
-	rarity_value = 10
-	bad_type = /obj/item/weapon/oddity
-
 //You choose what stat can be increased, and a maximum value that will be added to this stat
 //The minimum is defined above. The value of change will be decided by random
 	var/list/oddity_stats
 	var/sanity_value = 1
 	var/datum/perk/oddity/perk
+
 
 /obj/item/weapon/oddity/Initialize()
 	. = ..()
@@ -47,10 +42,6 @@
 //They are meant to be put in appropriate random spawners
 
 //Common - you can find those everywhere
-/obj/item/weapon/oddity/common
-	bad_type = /obj/item/weapon/oddity/common
-	spawn_blacklisted = FALSE
-
 /obj/item/weapon/oddity/common/blueprint
 	name = "strange blueprint"
 	desc = "There's no telling what this design is supposed to be. Whatever could be built from this likely wouldn't work."
@@ -59,7 +50,6 @@
 		STAT_COG = 5,
 		STAT_MEC = 7,
 	)
-	rarity_value = 15
 
 /obj/item/weapon/oddity/common/coin
 	name = "strange coin"
@@ -70,7 +60,6 @@
 		STAT_ROB = 5,
 		STAT_TGH = 5,
 	)
-	rarity_value = 18
 
 /obj/item/weapon/oddity/common/photo_landscape
 	name = "alien landscape photo"
@@ -80,7 +69,6 @@
 		STAT_COG = 5,
 		STAT_TGH = 5,
 	)
-	rarity_value = 18
 
 /obj/item/weapon/oddity/common/photo_coridor
 	name = "surreal maint photo"
@@ -100,7 +88,6 @@
 		STAT_TGH = 6,
 		STAT_VIG = 6,
 	)
-	rarity_value = 23
 
 /obj/item/weapon/oddity/common/old_newspaper
 	name = "old newspaper"
@@ -111,7 +98,6 @@
 		STAT_COG = 4,
 		STAT_BIO = 4,
 	)
-	rarity_value = 18
 
 /obj/item/weapon/oddity/common/paper_crumpled
 	name = "torn-out page"
@@ -122,7 +108,6 @@
 		STAT_COG = 6,
 		STAT_BIO = 6,
 	)
-	rarity_value = 23
 
 /obj/item/weapon/oddity/common/paper_omega
 	name = "collection of obscure reports"
@@ -133,7 +118,6 @@
 		STAT_COG = 8,
 		STAT_BIO = 8,
 	)
-	rarity_value = 27
 
 /obj/item/weapon/oddity/common/book_eyes
 	name = "observer book"
@@ -144,7 +128,6 @@
 		STAT_TGH = 9,
 		STAT_VIG = 9,
 	)
-	rarity_value = 30
 
 /obj/item/weapon/oddity/common/book_omega
 	name = "occult book"
@@ -155,7 +138,6 @@
 		STAT_ROB = 6,
 		STAT_VIG = 6,
 	)
-	rarity_value = 18
 
 /obj/item/weapon/oddity/common/book_bible
 	name = "old bible"
@@ -165,7 +147,6 @@
 		STAT_ROB = 5,
 		STAT_VIG = 5,
 	)
-	rarity_value = 18
 
 /obj/item/weapon/oddity/common/old_money
 	name = "old money"
@@ -176,7 +157,6 @@
 		STAT_ROB = 4,
 		STAT_TGH = 4,
 	)
-	rarity_value = 18
 
 /obj/item/weapon/oddity/common/healthscanner
 	name = "odd health scanner"
@@ -187,7 +167,6 @@
 		STAT_COG = 8,
 		STAT_BIO = 8,
 	)
-	rarity_value = 18
 
 /obj/item/weapon/oddity/common/old_pda
 	name = "broken pda"
@@ -198,7 +177,6 @@
 		STAT_COG = 6,
 		STAT_MEC = 6,
 	)
-	rarity_value = 18
 
 /obj/item/weapon/oddity/common/towel
 	name = "trustworthy towel"
@@ -208,7 +186,6 @@
 		STAT_ROB = 6,
 		STAT_TGH = 6,
 	)
-	rarity_value = 15
 
 /obj/item/weapon/oddity/common/teddy
 	name = "teddy bear"
@@ -219,7 +196,6 @@
 		STAT_TGH = 7,
 		STAT_VIG = 7,
 	)
-	rarity_value = 20
 
 /obj/item/weapon/oddity/common/old_knife
 	name = "old knife"
@@ -239,8 +215,6 @@
 		STAT_TGH = 5,
 		STAT_VIG = 5,
 	)
-	spawn_tags = SPAWN_TAG_ODDITY_WEAPON
-	rarity_value = 22
 
 /obj/item/weapon/oddity/common/old_id
 	name = "old id"
@@ -249,7 +223,6 @@
 	oddity_stats = list(
 		STAT_VIG = 9,
 	)
-	rarity_value = 23
 
 /obj/item/weapon/oddity/common/old_radio
 	name = "old radio"
@@ -269,7 +242,6 @@
 		STAT_ROB = 6,
 		STAT_VIG = 6,
 	)
-	rarity_value = 16
 
 /obj/item/weapon/oddity/techno
 	name = "Unknown technological part"

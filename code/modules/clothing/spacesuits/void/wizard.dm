@@ -35,4 +35,3 @@
 	)
 	siemens_coefficient = 0.7
 	helmet = /obj/item/clothing/head/space/void/wizard
-	spawn_blacklisted = TRUE

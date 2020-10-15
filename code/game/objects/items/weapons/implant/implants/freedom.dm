@@ -81,4 +81,3 @@
 /obj/item/weapon/implanter/freedom
 	name = "implanter (freedom)"
 	implant = /obj/item/weapon/implant/freedom
-	spawn_tags = null

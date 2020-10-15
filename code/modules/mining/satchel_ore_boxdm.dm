@@ -7,12 +7,10 @@
 	name = "ore box"
 	desc = "A heavy box used for storing ore."
 	density = TRUE
-	rarity_value  = 10
-	spawn_tags = SPAWN_TAG_STRUCTURE_COMMON
 	var/last_update = 0
 	var/list/stored_ore = list()
 
-/obj/structure/ore_box/attackby(obj/item/weapon/W, mob/user)
+/obj/structure/ore_box/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/ore))
 		user.remove_from_mob(W)
 		src.contents += W

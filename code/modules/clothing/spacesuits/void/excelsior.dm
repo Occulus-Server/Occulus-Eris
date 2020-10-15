@@ -49,4 +49,3 @@
 		MATERIAL_PLASTEEL = 5
 	)
 	helmet = /obj/item/clothing/head/space/void/excelsior
-	spawn_blacklisted = TRUE

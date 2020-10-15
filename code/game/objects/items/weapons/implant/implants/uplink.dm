@@ -25,4 +25,3 @@
 /obj/item/weapon/implanter/uplink
 	name = "implanter (Uplink)"
 	implant = /obj/item/weapon/implant/uplink
-	spawn_tags = null

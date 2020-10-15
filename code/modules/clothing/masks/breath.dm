@@ -8,7 +8,6 @@
 	w_class = ITEM_SIZE_SMALL
 	gas_transfer_coefficient = 0.10
 	permeability_coefficient = 0.50
-	rarity_value = 10
 	var/hanging = 0
 
 /obj/item/clothing/mask/breath/proc/adjust_mask(mob/user)
@@ -43,5 +42,4 @@
 	name = "medical mask"
 	icon_state = "medical"
 	item_state = "medical"
-	rarity_value = 40
 	permeability_coefficient = 0.01

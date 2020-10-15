@@ -5,10 +5,7 @@
 	var/instant = TRUE
 	var/min_light_limit = 0.5
 	mouse_opacity = 0
-	rarity_value = 10
-	spawn_frequency = 10
-	spawn_tags = SPAWN_TAG_FLORA
-	bad_type = /obj/effect/spawner/maintshroom
+
 
 /obj/effect/spawner/maintshroom/proc/spawn_shroom()
 	// Skip the spawning if the burrow is in a well lit places.

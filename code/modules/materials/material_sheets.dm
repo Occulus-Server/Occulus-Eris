@@ -7,7 +7,6 @@
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 120
-	bad_type = /obj/item/stack/material
 
 	var/default_type = MATERIAL_STEEL
 	var/material/material
@@ -59,12 +58,12 @@
 		desc = "A [material.sheet_singular_name] of [material.use_name]."
 		gender = NEUTER
 
-/obj/item/stack/material/use(used)
+/obj/item/stack/material/use(var/used)
 	. = ..()
 	update_strings()
 	return
 
-/obj/item/stack/material/transfer_to(obj/item/stack/S, tamount=null, type_verified)
+/obj/item/stack/material/transfer_to(obj/item/stack/S, var/tamount=null, var/type_verified)
 	var/obj/item/stack/material/M = S
 	if(!istype(M) || material.name != M.material.name)
 		return 0
@@ -73,11 +72,11 @@
 	if(M) M.update_strings()
 	return transfer
 
-/obj/item/stack/material/attack_self(mob/user)
+/obj/item/stack/material/attack_self(var/mob/user)
 	if(!material.build_windows(user, src))
 		..()
 
-/obj/item/stack/material/attackby(obj/item/W, mob/user)
+/obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W,/obj/item/stack/cable_coil))
 		material.build_wired_product(user, W, src)
 		return
@@ -86,7 +85,7 @@
 		return
 	return ..()
 
-/obj/item/stack/material/add(extra)
+/obj/item/stack/material/add(var/extra)
 	..()
 	update_strings()
 
@@ -100,8 +99,6 @@
 /obj/item/stack/material/iron/random
 	rand_min = 3
 	rand_max = 30
-	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES
-	rarity_value  = 45
 
 /obj/item/stack/material/sandstone
 	name = "sandstone brick"
@@ -123,8 +120,6 @@
 /obj/item/stack/material/diamond/random
 	rand_min = 1
 	rand_max = 8
-	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
-	rarity_value  = 90
 
 /obj/item/stack/material/uranium
 	name = MATERIAL_URANIUM
@@ -135,8 +130,6 @@
 /obj/item/stack/material/uranium/random
 	rand_min = 2
 	rand_max = 15
-	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
-	rarity_value  = 90
 
 /obj/item/stack/material/phoron
 	name = "solid phoron"
@@ -147,8 +140,6 @@
 /obj/item/stack/material/phoron/random
 	rand_min = 3
 	rand_max = 20
-	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES
-	rarity_value  = 30
 
 /obj/item/stack/material/plastic
 	name = "plastic"
@@ -160,8 +151,6 @@
 /obj/item/stack/material/plastic/random
 	rand_min = 3
 	rand_max = 30
-	rarity_value  = 10
-	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
 
 /obj/item/stack/material/gold
 	name = "gold"
@@ -172,8 +161,6 @@
 /obj/item/stack/material/gold/random
 	rand_min = 2
 	rand_max = 15
-	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
-	rarity_value  = 45
 
 /obj/item/stack/material/silver
 	name = MATERIAL_SILVER
@@ -184,8 +171,6 @@
 /obj/item/stack/material/silver/random
 	rand_min = 3
 	rand_max = 30
-	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
-	rarity_value  = 45
 
 //Valuable resource, cargo can sell it.
 /obj/item/stack/material/platinum
@@ -197,8 +182,6 @@
 /obj/item/stack/material/platinum/random
 	rand_min = 1
 	rand_max = 10
-	//spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
-	//rarity_value = 45
 
 //Extremely valuable to Research.
 /obj/item/stack/material/mhydrogen
@@ -236,8 +219,6 @@
 /obj/item/stack/material/steel/random
 	rand_min = 3
 	rand_max = 30
-	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_BULDING
-	rarity_value  = 18
 
 /obj/item/stack/material/plasteel
 	name = "plasteel"
@@ -250,8 +231,6 @@
 /obj/item/stack/material/plasteel/random
 	rand_min = 3
 	rand_max = 20
-	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
-	rarity_value  = 10
 
 /obj/item/stack/material/wood
 	name = "wooden plank"
@@ -262,8 +241,6 @@
 /obj/item/stack/material/wood/random
 	rand_min = 3
 	rand_max = 30
-	rarity_value  = 10
-	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
 
 /obj/item/stack/material/cloth
 	name = "cloth"
@@ -276,8 +253,6 @@
 	icon_state = "sheet-card"
 	default_type = MATERIAL_CARDBOARD
 	price_tag = 5
-	rarity_value  = 6.66
-	spawn_tags = SPAWN_TAG_JUNK
 
 /obj/item/stack/material/cardboard/random
 	rand_min = 5
@@ -299,8 +274,6 @@
 /obj/item/stack/material/glass/random
 	rand_min = 3
 	rand_max = 30
-	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_BULDING
-	rarity_value  = 22.5
 
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
@@ -318,8 +291,6 @@
 /obj/item/stack/material/glass/phoronglass/random
 	rand_min = 3
 	rand_max = 30
-	//spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
-	//rarity_value = 45
 
 /obj/item/stack/material/glass/phoronrglass
 	name = "reinforced borosilicate glass"
@@ -342,8 +313,6 @@
 /obj/item/stack/material/biomatter/random
 	rand_min = 5
 	rand_max = 25
-	spawn_tags = SPAWN_TAG_MATERIAL
-	rarity_value  = 10
 
 /obj/item/stack/material/biomatter/full
 	amount = 60

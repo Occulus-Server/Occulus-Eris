@@ -141,7 +141,6 @@
 	name = "pirate bandana"
 	desc = "Yarr."
 	icon_state = "bandana"
-	rarity_value = 3.33
 
 /obj/item/clothing/head/bowler
 	name = "bowler-hat"
@@ -253,7 +252,6 @@
 	name = "Oberth Republic beret"
 	desc = "Brown beret with emblem. Material that it made of will protect against energy projectiles."
 	icon_state = "germanberet"
-	rarity_value = 12.5
 	armor = list(
 		melee = 5,
 		bullet = 5,

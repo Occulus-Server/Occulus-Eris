@@ -2,9 +2,6 @@
 	name = "clothing"
 	siemens_coefficient = 0.9
 	item_flags = DRAG_AND_DROP_UNEQUIP
-	bad_type = /obj/item/clothing
-	rarity_value = 10
-	spawn_tags = SPAWN_TAG_CLOTHING
 	var/flash_protection = FLASH_PROTECTION_NONE	// Sets the item's level of flash protection.
 	var/tint = TINT_NONE							// Sets the item's level of visual impairment tint.
 	var/list/species_restricted = null				// Only these species can wear this kit.
@@ -48,7 +45,7 @@
 
 
 //Delayed equipping
-/obj/item/clothing/pre_equip(mob/user, slot)
+/obj/item/clothing/pre_equip(var/mob/user, var/slot)
 	..(user, slot)
 	if (equip_delay > 0)
 		//If its currently worn, we must be taking it off
@@ -75,7 +72,7 @@
 	if(!pre_equip(usr, over_object))
 		..()
 
-/proc/body_part_coverage_to_string(body_parts)
+/proc/body_part_coverage_to_string(var/body_parts)
 	var/list/body_partsL = list()
 	if(body_parts & HEAD)
 		body_partsL.Add("head")
@@ -163,7 +160,7 @@
 	throwforce = 2
 	slot_flags = SLOT_EARS
 
-/obj/item/clothing/ears/attack_hand(mob/user)
+/obj/item/clothing/ears/attack_hand(mob/user as mob)
 	if (!user) return
 
 	if (src.loc != user || !ishuman(user))
@@ -205,7 +202,7 @@
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 	var/obj/item/master_item = null
 
-/obj/item/clothing/ears/offear/New(obj/O)
+/obj/item/clothing/ears/offear/New(var/obj/O)
 	name = O.name
 	desc = O.desc
 	icon = O.icon
@@ -259,8 +256,6 @@ BLIND     // can't see anything
 	w_class = ITEM_SIZE_SMALL
 	icon = 'icons/inventory/hands/icon.dmi'
 	siemens_coefficient = 0.75
-	bad_type = /obj/item/clothing/gloves
-	spawn_tags = SPAWN_TAG_GLOVES
 	var/wired = 0
 	var/clipped = 0
 	body_parts_covered = HANDS
@@ -269,7 +264,7 @@ BLIND     // can't see anything
 	attack_verb = list("challenged")
 
 // Called just before an attack_hand(), in mob/UnarmedAttack()
-/obj/item/clothing/gloves/proc/Touch(atom/A, proximity)
+/obj/item/clothing/gloves/proc/Touch(var/atom/A, var/proximity)
 	return 0 // return 1 to cancel attack_hand()
 
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
@@ -299,8 +294,6 @@ BLIND     // can't see anything
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
 	w_class = ITEM_SIZE_SMALL
-	bad_type = /obj/item/clothing/head
-	spawn_tags = SPAWN_TAG_CLOTHING_HEAD
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
@@ -318,7 +311,7 @@ BLIND     // can't see anything
 	else
 		return ..(user)
 
-/obj/item/clothing/head/proc/update_flashlight(mob/user = null)
+/obj/item/clothing/head/proc/update_flashlight(var/mob/user = null)
 	if(on && !light_applied)
 		set_light(brightness_on)
 		light_applied = 1
@@ -328,15 +321,15 @@ BLIND     // can't see anything
 	update_icon(user)
 	user.update_action_buttons()
 
-/obj/item/clothing/head/attack_ai(mob/user)
+/obj/item/clothing/head/attack_ai(var/mob/user)
 	if(!mob_wear_hat(user))
 		return ..()
 
-/obj/item/clothing/head/attack_generic(mob/user)
+/obj/item/clothing/head/attack_generic(var/mob/user)
 	if(!istype(user) || !mob_wear_hat(user))
 		return ..()
 
-/obj/item/clothing/head/proc/mob_wear_hat(mob/user)
+/obj/item/clothing/head/proc/mob_wear_hat(var/mob/user)
 	if(!Adjacent(user))
 		return 0
 	var/success
@@ -356,7 +349,7 @@ BLIND     // can't see anything
 		to_chat(user, SPAN_NOTICE("You crawl under \the [src]."))
 	return 1
 
-/obj/item/clothing/head/update_icon(mob/user)
+/obj/item/clothing/head/update_icon(var/mob/user)
 
 	overlays.Cut()
 	var/mob/living/carbon/human/H
@@ -386,8 +379,6 @@ BLIND     // can't see anything
 	body_parts_covered = HEAD
 	slot_flags = SLOT_MASK
 	body_parts_covered = FACE|EYES
-	bad_type = /obj/item/clothing/mask
-	spawn_tags = SPAWN_TAG_MASK
 
 	var/voicechange = 0
 	var/list/say_messages
@@ -406,8 +397,6 @@ BLIND     // can't see anything
 	siemens_coefficient = 0.9
 	body_parts_covered = FEET
 	slot_flags = SLOT_FEET
-	bad_type = /obj/item/clothing/mask
-	spawn_tags = SPAWN_TAG_MASK
 
 	var/can_hold_knife
 	var/obj/item/holding
@@ -459,7 +448,7 @@ BLIND     // can't see anything
 	else
 		..()
 
-/obj/item/clothing/shoes/attackby(obj/item/I, mob/user)
+/obj/item/clothing/shoes/attackby(var/obj/item/I, var/mob/user)
 	var/global/knifes
 	if(istype(I,/obj/item/noslipmodule))
 		if (item_flags != 0)
@@ -515,7 +504,7 @@ BLIND     // can't see anything
 		overlays += image(icon, "[icon_state]_knife")
 	return ..()
 
-/obj/item/clothing/shoes/proc/handle_movement(turf/walking, running)
+/obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)
 	return
 
 
@@ -549,8 +538,6 @@ BLIND     // can't see anything
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = ITEM_SIZE_NORMAL
-	spawn_tags = SPAWN_TAG_CLOTHING_UNDER
-	bad_type = /obj/item/clothing/under
 	var/list/extra_allowed = list()
 	equip_delay = 1 SECONDS
 
@@ -586,7 +573,7 @@ BLIND     // can't see anything
 	restricted_accessory_slots = list("utility", "armband")
 
 
-/obj/item/clothing/under/attack_hand(mob/user)
+/obj/item/clothing/under/attack_hand(var/mob/user)
 	if(accessories && accessories.len)
 		..()
 	if ((ishuman(usr) || issmall(usr)) && src.loc == user)
@@ -609,7 +596,7 @@ BLIND     // can't see anything
 		if(3)
 			to_chat(user, "Its vital tracker and tracking beacon appear to be enabled.")
 
-/obj/item/clothing/under/proc/set_sensors(mob/M)
+/obj/item/clothing/under/proc/set_sensors(var/mob/M)
 	if(has_sensor >= 2)
 		to_chat(usr, "The controls are locked.")
 		return 0
@@ -652,7 +639,7 @@ BLIND     // can't see anything
 	sensor_mode = 3
 	..()
 
-/obj/item/clothing/under/attackby(obj/item/I, mob/U)
+/obj/item/clothing/under/attackby(var/obj/item/I, var/mob/U)
 	if(I.get_tool_type(usr, list(QUALITY_SCREW_DRIVING), src) && ishuman(U))
 		set_sensors(U)
 	else

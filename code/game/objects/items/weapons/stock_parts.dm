@@ -4,9 +4,6 @@
 	gender = PLURAL
 	icon = 'icons/obj/stock_parts.dmi'
 	w_class = ITEM_SIZE_SMALL
-	rarity_value = 10
-	bad_type = /obj/item/weapon/stock_parts
-	spawn_tags = SPAWN_TAG_STOCK_PARTS
 	var/rating = 1
 
 /obj/item/weapon/stock_parts/New()
@@ -29,7 +26,6 @@
 	icon_state = "capacitor"
 	origin_tech = list(TECH_POWER = 1)
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_GLASS = 1)
-	rarity_value = 15
 
 /obj/item/weapon/stock_parts/scanning_module
 	name = "scanning module"
@@ -58,7 +54,6 @@
 	icon_state = "matter_bin"
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	rarity_value = 7.5
 
 //Rank 2
 
@@ -69,8 +64,6 @@
 	origin_tech = list(TECH_POWER = 3)
 	rating = 2
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_GLASS = 1)
-	rarity_value = 50
-	spawn_tags = SPAWN_TAG_STOCK_PARTS_TIER_2
 
 /obj/item/weapon/stock_parts/scanning_module/adv
 	name = "advanced scanning module"
@@ -79,8 +72,6 @@
 	origin_tech = list(TECH_MAGNET = 3)
 	rating = 2
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_GLASS = 1)
-	rarity_value = 30
-	spawn_tags = SPAWN_TAG_STOCK_PARTS_TIER_2
 
 /obj/item/weapon/stock_parts/manipulator/nano
 	name = "nano-manipulator"
@@ -89,8 +80,6 @@
 	origin_tech = list(TECH_MATERIAL = 3, TECH_DATA = 2)
 	rating = 2
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1)
-	rarity_value = 50
-	spawn_tags = SPAWN_TAG_STOCK_PARTS_TIER_2
 
 /obj/item/weapon/stock_parts/micro_laser/high
 	name = "high-power micro-laser"
@@ -99,8 +88,6 @@
 	origin_tech = list(TECH_MAGNET = 3)
 	rating = 2
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_GLASS = 1)
-	rarity_value = 50
-	spawn_tags = SPAWN_TAG_STOCK_PARTS_TIER_2
 
 /obj/item/weapon/stock_parts/matter_bin/adv
 	name = "advanced matter bin"
@@ -109,8 +96,6 @@
 	origin_tech = list(TECH_MATERIAL = 3)
 	rating = 2
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	rarity_value = 25
-	spawn_tags = SPAWN_TAG_STOCK_PARTS_TIER_2
 
 //Rating 3
 
@@ -121,7 +106,6 @@
 	origin_tech = list(TECH_POWER = 5, TECH_MATERIAL = 4)
 	rating = 3
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	rarity_value = 50
 
 /obj/item/weapon/stock_parts/scanning_module/phasic
 	name = "phasic scanning module"
@@ -130,7 +114,6 @@
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = 3
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	rarity_value = 50
 
 /obj/item/weapon/stock_parts/manipulator/pico
 	name = "pico-manipulator"
@@ -139,7 +122,6 @@
 	origin_tech = list(TECH_MATERIAL = 5, TECH_DATA = 2)
 	rating = 3
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2)
-	rarity_value = 50
 
 /obj/item/weapon/stock_parts/micro_laser/ultra
 	name = "ultra-high-power micro-laser"
@@ -148,7 +130,6 @@
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = 3
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	rarity_value = 50
 
 /obj/item/weapon/stock_parts/matter_bin/super
 	name = "super matter bin"
@@ -157,7 +138,6 @@
 	origin_tech = list(TECH_MATERIAL = 5)
 	rating = 3
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_GLASS = 1)
-	rarity_value = 45
 
 
 //excelsior stock parts (rating 4)
@@ -168,7 +148,6 @@
 	origin_tech = list(TECH_POWER = 5, TECH_MATERIAL = 4)
 	rating = 4
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/stock_parts/scanning_module/excelsior
 	name = "excelsior scanning module"
@@ -177,7 +156,6 @@
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = 4
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/stock_parts/manipulator/excelsior
 	name = "excelsior manipulator"
@@ -186,7 +164,6 @@
 	origin_tech = list(TECH_MATERIAL = 5, TECH_DATA = 2)
 	rating = 4
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2)
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/stock_parts/micro_laser/excelsior
 	name = "excelsior micro-laser"
@@ -195,7 +172,6 @@
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = 4
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/stock_parts/matter_bin/excelsior
 	name = "excelsior matter bin"
@@ -204,7 +180,6 @@
 	origin_tech = list(TECH_MATERIAL = 5)
 	rating = 4
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_GLASS = 1)
-	spawn_blacklisted = TRUE
 
 //one star stock parts (rating 5)
 
@@ -215,9 +190,6 @@
 	origin_tech = list(TECH_POWER = 5, TECH_MATERIAL = 4)
 	rating = 5
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	spawn_blacklisted = TRUE
-	rarity_value = 40
-	spawn_tags = SPAWN_TAG_STOCK_PARTS_OS
 
 /obj/item/weapon/stock_parts/scanning_module/one_star
 	name = "one star scanning module"
@@ -226,9 +198,6 @@
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = 5
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	spawn_blacklisted = TRUE
-	rarity_value = 40
-	spawn_tags = SPAWN_TAG_STOCK_PARTS_OS
 
 /obj/item/weapon/stock_parts/manipulator/one_star
 	name = "one star manipulator"
@@ -237,9 +206,6 @@
 	origin_tech = list(TECH_MATERIAL = 5, TECH_DATA = 2)
 	rating = 5
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2)
-	spawn_blacklisted = TRUE
-	rarity_value = 40
-	spawn_tags = SPAWN_TAG_STOCK_PARTS_OS
 
 /obj/item/weapon/stock_parts/micro_laser/one_star
 	name = "one star micro-laser"
@@ -248,9 +214,6 @@
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = 5
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	spawn_blacklisted = TRUE
-	rarity_value = 40
-	spawn_tags = SPAWN_TAG_STOCK_PARTS_OS
 
 /obj/item/weapon/stock_parts/matter_bin/one_star
 	name = "one star matter bin"
@@ -259,9 +222,7 @@
 	origin_tech = list(TECH_MATERIAL = 5)
 	rating = 5
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_GLASS = 1)
-	spawn_blacklisted = TRUE
-	rarity_value = 40
-	spawn_tags = SPAWN_TAG_STOCK_PARTS_OS
+
 
 //alien stock parts (rating 6)
 
@@ -272,7 +233,6 @@
 	origin_tech = list(TECH_POWER = 5, TECH_MATERIAL = 5)
 	rating = 6
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 1, MATERIAL_GLASS = 3)
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/stock_parts/scanning_module/alien
 	name = "Optical receptor"
@@ -281,7 +241,6 @@
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = 6
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/stock_parts/manipulator/alien
 	name = "Gripper"
@@ -290,7 +249,6 @@
 	origin_tech = list(TECH_MATERIAL = 5, TECH_DATA = 2)
 	rating = 6
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2)
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/stock_parts/micro_laser/alien
 	name = "Pico-emitter"
@@ -299,7 +257,6 @@
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = 6
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/stock_parts/matter_bin/alien
 	name = "Recepticle"
@@ -308,13 +265,9 @@
 	origin_tech = list(TECH_MATERIAL = 5)
 	rating = 6
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_GLASS = 1)
-	spawn_blacklisted = TRUE
 
 
 // Subspace stock parts
-/obj/item/weapon/stock_parts/subspace
-	rarity_value = 7.14
-	bad_type = /obj/item/weapon/stock_parts/subspace
 
 /obj/item/weapon/stock_parts/subspace/ansible
 	name = "subspace ansible"

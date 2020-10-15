@@ -9,7 +9,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	flash_protection = FLASH_PROTECTION_REDUCED
 	price_tag = 1000
-	rarity_value = 80
+
 	tick_cost = 0.5
 
 
@@ -36,16 +36,13 @@
 	desc = "Used for seeing walls, floors, and stuff through anything."
 	icon_state = "meson"
 	origin_tech = list(TECH_MAGNET = 3, TECH_COVERT = 4)
-	rarity_value = 50
-	spawn_blacklisted = TRUE
+
 
 /obj/item/clothing/glasses/powered/thermal/onestar
 	name = "OS Type - 73 \"Zhenchayuan\""
 	desc = "Chinese thermals in the shape of goggles."
 	icon_state = "onestar_thermal"
 	off_state = "onestar_thermal"
-	rarity_value = 100
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/glasses/powered/thermal/plain
 	toggleable = FALSE
@@ -57,7 +54,6 @@
 	desc = "A monocle thermal."
 	icon_state = "thermoncle"
 	flags = null //doesn't protect eyes because it's a monocle, duh
-	rarity_value = 10
 
 	body_parts_covered = 0
 
@@ -81,10 +77,9 @@
 	icon_state = "thermal_lens"
 	body_parts_covered = 0
 	slot_flags = 0
-	spawn_blacklisted = TRUE
 
 
-/obj/item/clothing/glasses/attackby(obj/item/Z, mob/user)
+/obj/item/clothing/glasses/attackby(var/obj/item/Z, var/mob/user)
 
 	if (istype(Z,/obj/item/clothing/glasses/powered/thermal/lens))
 		overlay = global_hud.thermal

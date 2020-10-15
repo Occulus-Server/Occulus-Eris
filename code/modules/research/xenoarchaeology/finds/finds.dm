@@ -31,8 +31,6 @@
 	var/obj/item/weapon/inside
 	var/method = 0// 0 = fire, 1 = brush, 2 = pick
 	origin_tech = list(TECH_MATERIAL = 5)
-	spawn_tags = SPAWN_TAG_XENOARCH_ITEM_FOSSIL
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/ore/strangerock/New(loc, var/inside_item_type = 0)
 	..(loc)
@@ -81,8 +79,6 @@
 	name = "object"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "ano01"
-	spawn_tags = SPAWN_TAG_XENOARCH_ITEM_FOSSIL
-	spawn_blacklisted = TRUE
 	var/find_type = 0
 
 /obj/item/weapon/archaeological_find/New(loc, var/new_item_type)
@@ -91,8 +87,8 @@
 	else
 		find_type = rand(1,34)	//update this when you add new find types
 
-	icon_state = "unknown[rand(1,4)]"
 	var/item_type = "object"
+	icon_state = "unknown[rand(1,4)]"
 	var/additional_desc = ""
 	var/obj/item/weapon/new_item
 	var/source_material = ""

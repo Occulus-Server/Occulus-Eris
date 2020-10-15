@@ -12,7 +12,6 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 8, MATERIAL_SILVER = 5)
 	price_tag = 2500
-	rarity_value = 12
 	projectile_type = /obj/item/projectile/beam/midlaser
 	gun_tags = list(GUN_LASER)
 	init_firemodes = list(
@@ -27,7 +26,6 @@
 	safety = FALSE
 	restrict_safety = TRUE
 	twohanded = FALSE
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/gun/energy/laser/mounted/blitz
 	name = "SDF LR \"Strahl\""
@@ -42,7 +40,7 @@
 	price_tag = 1000
 	projectile_type = /obj/item/projectile/beam/practice
 
-/obj/item/weapon/gun/energy/retro
+obj/item/weapon/gun/energy/retro
 	name = "OS LG \"Cog\""
 	icon = 'icons/obj/guns/energy/retro.dmi'
 	icon_state = "retro"
@@ -56,7 +54,6 @@
 	projectile_type = /obj/item/projectile/beam
 	fire_delay = 10 //old technology
 	price_tag = 2000
-	spawn_blacklisted = TRUE
 	init_firemodes = list(
 		WEAPON_NORMAL,
 		WEAPON_CHARGE
@@ -119,7 +116,6 @@
 	zoom_factor = 0
 	damage_multiplier = 1
 	charge_cost = 100
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/gun/energy/psychic
 	icon = 'icons/obj/guns/energy/psychiccannon.dmi'
@@ -127,7 +123,6 @@
 	item_state = "psychic_lasercannon"
 	projectile_type = /obj/item/projectile/beam/psychic
 	icon_contained = TRUE
-	spawn_blacklisted = TRUE
 	var/traitor = FALSE //Check if it's a traitor psychic weapon
 	var/datum/mind/owner
 	var/list/victims = list()

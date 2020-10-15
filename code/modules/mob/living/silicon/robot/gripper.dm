@@ -5,21 +5,21 @@
 	desc = "A simple grasping tool specialized in construction and engineering work."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gripper"
-	bad_type = /obj/item/weapon/gripper
+
 	flags = NOBLUDGEON
 
 	//Has a list of items that it can hold.
 	var/list/can_hold = list(
 		/obj/item/weapon/cell,
-		/obj/item/weapon/electronics/firealarm,
-		/obj/item/weapon/electronics/airalarm,
-		/obj/item/weapon/electronics/airlock,
-		/obj/item/weapon/electronics/tracker,
+		/obj/item/weapon/firealarm_electronics,
+		/obj/item/weapon/airalarm_electronics,
+		/obj/item/weapon/airlock_electronics,
+		/obj/item/weapon/tracker_electronics,
 		/obj/item/weapon/stock_parts,
 		/obj/item/frame,
 		/obj/item/weapon/camera_assembly,
 		/obj/item/weapon/tank,
-		/obj/item/weapon/electronics/circuitboard,
+		/obj/item/weapon/circuitboard,
 		/obj/item/device/assembly,//Primarily for making improved cameras, but opens many possibilities
 		/obj/item/weapon/computer_hardware,
 		/obj/item/stack/tile //Repair floors yay
@@ -55,7 +55,7 @@
 
 
 
-/obj/item/weapon/gripper/proc/grip_item(obj/item/I, mob/user, var/feedback = 1)
+/obj/item/weapon/gripper/proc/grip_item(obj/item/I as obj, mob/user as mob, var/feedback = 1)
 	//This function returns 1 if we successfully took the item, or 0 if it was invalid. This information is useful to the caller
 	if (!wrapped)
 		if(is_type_in_list(I,can_hold))
@@ -200,7 +200,7 @@
 	can_hold = list(
 		/obj/item/weapon/cell,
 		/obj/item/weapon/stock_parts,
-		/obj/item/weapon/electronics/circuitboard/miningdrill
+		/obj/item/weapon/circuitboard/miningdrill
 	)
 
 /obj/item/weapon/gripper/paperwork
@@ -230,7 +230,7 @@
 		/obj/item/device/flash, //to build borgs,
 		/obj/item/organ/internal/brain, //to insert into MMIs,
 		/obj/item/stack/cable_coil, //again, for borg building,
-		/obj/item/weapon/electronics/circuitboard,
+		/obj/item/weapon/circuitboard,
 		/obj/item/slime_extract,
 		/obj/item/weapon/reagent_containers/glass,
 		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
@@ -270,7 +270,7 @@
 		/obj/item/weapon/tool/broken_bottle,
 		/obj/item/weapon/paper,
 		/obj/item/weapon/newspaper,
-		/obj/item/weapon/electronics/circuitboard/broken,
+		/obj/item/weapon/circuitboard/broken,
 		/obj/item/clothing/mask/smokable/cigarette,
 		///obj/item/weapon/reagent_containers/cooking_container //PArt of cooking overhaul, not yet ported
 		)

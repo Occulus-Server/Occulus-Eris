@@ -6,7 +6,7 @@
 	icon_state = "electrolysis"
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 40
-	circuit = /obj/item/weapon/electronics/circuitboard/electrolyzer
+	circuit = /obj/item/weapon/circuitboard/electrolyzer
 	layer = BELOW_OBJ_LAYER
 	var/obj/item/weapon/reagent_containers/beaker
 	var/obj/item/weapon/reagent_containers/separation_beaker
@@ -141,7 +141,7 @@
 		separation_beaker.forceMove(get_turf(src))
 		separation_beaker = null
 	..()
-
+	
 
 /obj/machinery/electrolyzer/attack_hand(mob/user)
 	if(..())
@@ -212,7 +212,6 @@
 	name = "makeshift electrolyzer"
 	icon = 'icons/obj/machines/chemistry.dmi'
 	icon_state = "electrolysis_makeshift"
-	rarity_value = 50
 	var/on = FALSE
 	var/tick_cost = 3
 	var/obj/item/weapon/cell/cell
@@ -282,7 +281,7 @@
 			if(!state || state == -1)
 				turn_off()
 			SSnano.update_uis(src)
-
+			
 
 /obj/item/device/makeshift_electrolyser/attack_self(mob/user as mob)
 	user.set_machine(src)
