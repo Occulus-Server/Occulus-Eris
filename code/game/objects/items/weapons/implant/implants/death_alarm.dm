@@ -76,4 +76,3 @@
 /obj/item/weapon/implanter/death_alarm
 	name = "implanter (death alarm)"
 	implant = /obj/item/weapon/implant/death_alarm
-	spawn_tags = null

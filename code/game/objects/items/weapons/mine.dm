@@ -7,8 +7,6 @@
 	matter = list(MATERIAL_STEEL = 30)
 	matter_reagents = list("fuel" = 40)
 	layer = ABOVE_OBJ_LAYER //should fix all layering problems? or am i crazy stupid and understood it wrong
-	rarity_value = 10
-	spawn_tags = SPAWN_TAG_ITEM_MINE
 	var/prob_explode = 100
 
 	//var/obj/item/device/assembly_holder/detonator = null
@@ -80,7 +78,7 @@
 
 /obj/item/weapon/mine/attackby(obj/item/I, mob/user)
 	if(QUALITY_PULSING in I.tool_qualities)
-
+		
 		if (deployed)
 			user.visible_message(
 			SPAN_DANGER("[user] starts to carefully disarm \the [src]."),

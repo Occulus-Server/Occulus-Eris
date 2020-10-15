@@ -2,7 +2,7 @@
 //**Cham Jumpsuit**
 //*****************
 
-/obj/item/proc/disguise(newtype, mob/user)
+/obj/item/proc/disguise(var/newtype, var/mob/user)
 	if(!user || user.incapacitated())
 		return
 	//this is necessary, unfortunately, as initial() does not play well with list vars
@@ -22,7 +22,7 @@
 
 	return copy //for inheritance
 
-/proc/generate_chameleon_choices(basetype, blacklist=list())
+/proc/generate_chameleon_choices(var/basetype, var/blacklist=list())
 	. = list()
 
 	var/i = 1 //in case there is a collision with both name AND icon_state
@@ -39,12 +39,10 @@
 /obj/item/clothing/under/chameleon
 //starts off as black
 	name = "black jumpsuit"
-	desc = "It's a plain jumpsuit. It seems to have a small dial on the wrist."
 	icon_state = "black"
 	item_state = "bl_suit"
-	spawn_blacklisted = TRUE
-	spawn_tags = SPAWN_TAG_CLOTHING_UNDER_CHAMALEON
-	rarity_value = 50
+
+	desc = "It's a plain jumpsuit. It seems to have a small dial on the wrist."
 	origin_tech = list(TECH_COVERT = 3)
 	var/global/list/clothing_choices
 
@@ -93,9 +91,6 @@
 	name = "grey cap"
 	desc = "It's a baseball hat in a tasteful grey colour."
 	icon_state = "greysoft"
-	spawn_blacklisted = TRUE
-	spawn_tags = SPAWN_TAG_CLOTHING_HEAD_CHAMALEON
-	rarity_value = 50
 	update_icon()
 	update_wear_icon()
 
@@ -119,7 +114,6 @@
 	item_state = "armor"
 	desc = "It appears to be a vest of standard armor, except this is embedded with a hidden holographic cloaker, allowing it to change it's appearance, but offering no protection.. It seems to have a small dial inside."
 	origin_tech = list(TECH_COVERT = 3)
-	spawn_blacklisted = TRUE
 	var/global/list/clothing_choices
 
 /obj/item/clothing/suit/chameleon/New()
@@ -154,9 +148,6 @@
 	item_state = "black"
 	desc = "They're comfy black shoes, with clever cloaking technology built in. It seems to have a small dial on the back of each shoe."
 	origin_tech = list(TECH_COVERT = 3)
-	spawn_blacklisted = TRUE
-	spawn_tags = SPAWN_TAG_SHOES_CHAMALEON
-	rarity_value = 50
 	var/global/list/clothing_choices
 
 /obj/item/clothing/shoes/chameleon/New()
@@ -192,9 +183,6 @@
 	item_state = "backpack"
 	desc = "A backpack outfitted with cloaking tech. It seems to have a small dial inside, kept away from the storage."
 	origin_tech = list(TECH_COVERT = 3)
-	spawn_blacklisted = TRUE
-	spawn_tags = SPAWN_TAG_SHOES_CHAMALEON
-	rarity_value = 50
 	var/global/list/clothing_choices
 
 /obj/item/weapon/storage/backpack/chameleon/Initialize()
@@ -231,9 +219,6 @@
 	item_state = "bgloves"
 	desc = "It looks like a pair of gloves, but it seems to have a small dial inside."
 	origin_tech = list(TECH_COVERT = 3)
-	spawn_blacklisted = TRUE
-	spawn_tags = SPAWN_TAG_SHOES_CHAMALEON
-	rarity_value = 50
 	var/global/list/clothing_choices
 
 /obj/item/clothing/gloves/chameleon/New()
@@ -268,9 +253,6 @@
 	item_state = "gas_alt"
 	desc = "It looks like a plain gask mask, but on closer inspection, it seems to have a small dial inside."
 	origin_tech = list(TECH_COVERT = 3)
-	spawn_blacklisted = TRUE
-	spawn_tags = SPAWN_TAG_SHOES_CHAMALEON
-	rarity_value = 50
 	flags_inv = HIDEEYES|HIDEFACE
 	var/global/list/clothing_choices
 
@@ -306,9 +288,6 @@
 	item_state = "glasses"
 	desc = "It looks like a plain set of mesons, but on closer inspection, it seems to have a small dial inside."
 	origin_tech = list(TECH_COVERT = 3)
-	spawn_blacklisted = TRUE
-	spawn_tags = SPAWN_TAG_SHOES_CHAMALEON
-	rarity_value = 50
 	var/list/global/clothing_choices
 
 /obj/item/clothing/glasses/chameleon/New()
@@ -342,9 +321,6 @@
 	icon = 'icons/obj/guns/projectile/avasarala.dmi'
 	icon_state = "avasarala"
 	w_class = ITEM_SIZE_NORMAL
-	spawn_blacklisted = TRUE
-	spawn_tags = SPAWN_TAG_GUN_ENERGY_CHAMALEON
-	rarity_value = 25
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_COVERT = 2)
 	matter = list()
 
@@ -386,7 +362,7 @@
 	update_icon()
 	update_wear_icon()
 
-/obj/item/weapon/gun/energy/chameleon/disguise(ewtype)
+/obj/item/weapon/gun/energy/chameleon/disguise(var/newtype)
 	var/obj/item/weapon/gun/copy = ..()
 
 	flags_inv = copy.flags_inv

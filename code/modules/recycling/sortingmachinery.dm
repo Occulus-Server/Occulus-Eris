@@ -224,8 +224,6 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "deliveryPaper"
 	w_class = ITEM_SIZE_NORMAL
-	spawn_tags = SPAWN_TAG_ITEM_UTILITY
-	rarity_value = 50
 	var/amount = 25.0
 
 
@@ -334,7 +332,7 @@
 	icon_state = "dest_tagger"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
 	var/currTag = 0
-	rarity_value = 50
+
 	w_class = ITEM_SIZE_SMALL
 	item_state = "electronic"
 	flags = CONDUCT

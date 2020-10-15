@@ -2,8 +2,6 @@
 	name = "armory closet"
 	desc = "Why is this here?"
 	icon_state = "syndicate"
-	bad_type = /obj/structure/closet/syndicate
-	rarity_value = 100
 
 
 /obj/structure/closet/syndicate/personal

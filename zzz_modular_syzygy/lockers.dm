@@ -19,7 +19,7 @@
 	new /obj/item/weapon/melee/telebaton(src)
 	new /obj/item/clothing/head/caphat/formal(src)
 	new /obj/item/clothing/under/captainformal(src)
-	new /obj/spawner/cloth/holster(src)
+	new /obj/random/cloth/holster(src)
 	new /obj/item/clothing/suit/storage/captains_coat(src)
 
 /obj/structure/closet/secure_closet/personal/miner/populate_contents()
@@ -29,7 +29,7 @@
 	new /obj/item/clothing/under/rank/miner(src)
 	new /obj/item/clothing/gloves/thick(src)
 	new /obj/item/clothing/glasses/powered/meson(src)
-	new /obj/item/clothing/shoes/color/black(src)
+	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/weapon/cell/medium(src)
 	new /obj/item/weapon/cell/medium(src)
 	new /obj/item/weapon/cell/small(src)

@@ -4,9 +4,6 @@
 	icon = 'icons/obj/salvageable.dmi'
 	density = TRUE
 	anchored = TRUE
-	bad_type = /obj/structure/salvageable
-	spawn_frequency = 13
-	spawn_tags = SPAWN_TAG_SALVAGEABLE
 	var/salvageable_parts = list()
 
 /obj/structure/salvageable/proc/dismantle()
@@ -62,7 +59,6 @@
 /obj/structure/salvageable/computer
 	name = "broken computer"
 	icon_state = "computer"
-	rarity_value = 16
 	salvageable_parts = list(
 		/obj/item/weapon/stock_parts/console_screen = 80,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
@@ -81,14 +77,13 @@
 		/obj/item/weapon/computer_hardware/network_card/advanced = 20,
 		/obj/item/weapon/stock_parts/capacitor/super = 5
 	)
-/obj/structure/salvageable/computer/Initialize()
+obj/structure/salvageable/computer/Initialize()
 	. = ..()
 	icon_state = "computer[rand(0,7)]"
 
 /obj/structure/salvageable/autolathe
 	name = "broken autolathe"
 	icon_state = "autolathe"
-	spawn_tags = SPAWN_TAG_SALVAGEABLE_AUTOLATHE
 	salvageable_parts = list(
 		/obj/item/weapon/stock_parts/console_screen = 80,
 		/obj/item/stack/cable_coil{amount = 5} = 80,
@@ -109,7 +104,7 @@
 		/obj/item/weapon/stock_parts/micro_laser/high = 20,
 		/obj/item/weapon/stock_parts/matter_bin/adv = 20,
 		/obj/item/weapon/stock_parts/matter_bin/adv = 20,
-		/obj/item/weapon/electronics/circuitboard/autolathe = 5,
+		/obj/item/weapon/circuitboard/autolathe = 5,
 		/obj/item/stack/material/steel{amount = 20} = 40,
 		/obj/item/stack/material/glass{amount = 20} = 40,
 		/obj/item/stack/material/plastic{amount = 20} = 40,
@@ -124,7 +119,6 @@
 /obj/structure/salvageable/implant_container
 	name = "old container"
 	icon_state = "implant-container"
-	rarity_value = 33
 	salvageable_parts = list(
 		/obj/item/weapon/stock_parts/console_screen = 80,
 		/obj/item/stack/cable_coil{amount = 5} = 80,
@@ -154,7 +148,6 @@ obj/structure/salvageable/implant_container/Initialize()
 /obj/structure/salvageable/data
 	name = "broken data storage"
 	icon_state = "data"
-	rarity_value = 16
 	salvageable_parts = list(
 		/obj/item/weapon/stock_parts/console_screen = 80,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
@@ -183,7 +176,6 @@ obj/structure/salvageable/data/Initialize()
 /obj/structure/salvageable/server
 	name = "broken server"
 	icon_state = "server"
-	rarity_value = 16
 	salvageable_parts = list(
 		/obj/item/weapon/stock_parts/console_screen = 80,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
@@ -214,7 +206,6 @@ obj/structure/salvageable/server/Initialize()
 /obj/structure/salvageable/personal
 	name = "personal terminal"
 	icon_state = "personal"
-	rarity_value = 20
 	salvageable_parts = list(
 		/obj/item/weapon/stock_parts/console_screen = 90,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
@@ -233,8 +224,8 @@ obj/structure/salvageable/server/Initialize()
 		/obj/item/weapon/computer_hardware/processor_unit/adv/small = 30,
 		/obj/item/weapon/computer_hardware/hard_drive = 60,
 		/obj/item/weapon/computer_hardware/hard_drive/advanced = 40,
-		/obj/spawner/lathe_disk = 40,
-		/obj/spawner/lathe_disk/advanced = 10,
+		/obj/random/lathe_disk = 40,
+		/obj/random/lathe_disk/advanced = 10,
 	)
 
 obj/structure/salvageable/personal/Initialize()
@@ -245,7 +236,6 @@ obj/structure/salvageable/personal/Initialize()
 /obj/structure/salvageable/bliss
 	name = "strange terminal"
 	icon_state = "bliss"
-	rarity_value = 100
 	salvageable_parts = list(
 		/obj/item/weapon/stock_parts/console_screen = 90,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
@@ -275,13 +265,8 @@ obj/structure/salvageable/bliss/Initialize()
 //////////////////
 //// ONE STAR ////
 //////////////////
-/obj/structure/salvageable/os
-	spawn_tags = SPAWN_TAG_SALVAGEABLE_OS
-	rarity_value = 20
-	spawn_blacklisted = TRUE
-	bad_type = /obj/structure/salvageable/os
 
-/obj/structure/salvageable/os/machine
+/obj/structure/salvageable/machine_os
 	name = "broken machine"
 	icon_state = "os-machine"
 	salvageable_parts = list(
@@ -297,13 +282,12 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/weapon/stock_parts/micro_laser/one_star = 40,
 		/obj/item/weapon/stock_parts/matter_bin/one_star = 40,
 		/obj/item/weapon/stock_parts/matter_bin/one_star = 40,
-		/obj/spawner/prothesis_one_star = 20
+		/obj/random/prothesis/one_star = 20
 	)
 
-/obj/structure/salvageable/os/machine
+/obj/structure/salvageable/computer_os
 	name = "broken computer"
 	icon_state = "os-computer"
-	rarity_value = 33
 	salvageable_parts = list(
 		/obj/item/weapon/stock_parts/console_screen = 80,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
@@ -317,10 +301,9 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/weapon/computer_hardware/network_card/advanced = 40
 	)
 
-/obj/structure/salvageable/os/implant_container
+/obj/structure/salvageable/implant_container_os
 	name = "old container"
 	icon_state = "os-container"
-	rarity_value = 66
 	salvageable_parts = list(
 		/obj/item/weapon/stock_parts/console_screen = 80,
 		/obj/item/stack/cable_coil{amount = 5} = 80,
@@ -338,10 +321,9 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/weapon/implanter = 30
 	)
 
-/obj/structure/salvageable/os/data
+/obj/structure/salvageable/data_os
 	name = "broken data storage"
 	icon_state = "os-data"
-	rarity_value = 33
 	salvageable_parts = list(
 		/obj/item/weapon/stock_parts/console_screen = 90,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
@@ -354,10 +336,9 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/weapon/computer_hardware/network_card/wired = 40
 	)
 
-/obj/structure/salvageable/os/server
+/obj/structure/salvageable/server_os
 	name = "broken server"
 	icon_state = "os-server"
-	rarity_value = 33
 	salvageable_parts = list(
 		/obj/item/weapon/stock_parts/console_screen = 80,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
@@ -379,11 +360,10 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/weapon/computer_hardware/network_card/wired = 20
 	)
 
-/obj/structure/salvageable/os/console
+/obj/structure/salvageable/console_os
 	name = "pristine console"
 	desc = "Despite being in pristine condition this console doesn't respond to anything, but looks like you can still salvage something from this."
 	icon_state = "os_console"
-	rarity_value = 66
 	salvageable_parts = list(
 		/obj/item/weapon/computer_hardware/hard_drive/portable/research_points = 90,
 		/obj/item/weapon/computer_hardware/hard_drive/portable/research_points/rare = 45,
@@ -398,10 +378,9 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/weapon/computer_hardware/network_card/advanced = 40
 	)
 
-/obj/structure/salvageable/os/console_broken
+/obj/structure/salvageable/console_broken_os
 	name = "broken console"
 	icon_state = "os_console_broken"
-	rarity_value = 33
 	salvageable_parts = list(
 		/obj/item/weapon/computer_hardware/hard_drive/portable/research_points = 50,
 		/obj/item/weapon/computer_hardware/hard_drive/portable/research_points/rare = 25,

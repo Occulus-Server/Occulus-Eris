@@ -18,11 +18,10 @@
 	drain = 4
 	offline_slowdown = 3
 	offline_vision_restriction = 1
-	rarity_value = 20
+
 	helm_type = /obj/item/clothing/head/space/rig/combat
 
 /obj/item/weapon/rig/combat/equipped
-	rarity_value = 20
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
 		/obj/item/rig_module/vision/thermal,
@@ -55,10 +54,8 @@
 /obj/item/clothing/head/space/rig/hazard
 	light_overlay = "helmet_light_dual"
 	camera_networks = list(NETWORK_SECURITY)
-	rarity_value = 20
 
 /obj/item/weapon/rig/hazard
-	rarity_value = 40
 	name = "hazard hardsuit control module"
 	suit_type = "hazard hardsuit"
 	desc = "A Security hardsuit designed for prolonged EVA in dangerous environments."

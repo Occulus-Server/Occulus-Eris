@@ -2686,9 +2686,9 @@
 	pixel_x = 32
 	},
 /obj/structure/table/rack,
-/obj/spawner/lathe_disk/advanced,
-/obj/spawner/lathe_disk,
-/obj/spawner/lathe_disk/low_chance,
+/obj/random/lathe_disk/advanced,
+/obj/random/lathe_disk,
+/obj/random/lathe_disk/low_chance,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
 	},
@@ -2708,7 +2708,7 @@
 /obj/item/stack/material/plasteel{
 	amount = 60
 	},
-/obj/spawner/material,
+/obj/random/material,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
 	},

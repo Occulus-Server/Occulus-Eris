@@ -17,7 +17,7 @@
 	idle_power_usage = 5
 	active_power_usage = 300
 
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/solidifier
+	circuit = /obj/item/weapon/circuitboard/neotheology/solidifier
 	var/active = FALSE
 	var/port_dir = NORTH
 	var/obj/structure/reagent_dispensers/biomatter/container
@@ -125,6 +125,6 @@
 	ping()
 	update_icon()
 
-#undef BIOMATTER_SHEETS_PER_TIME
+#undef BIOMATTER_SHEETS_PER_TIME 
 #undef CONTAINER_PIXEL_OFFSET
 // #undef BIOMATTER_PER_SHEET // uncommented because it's used elsewhere (in modules/materials/material_sheet.dm), why are we still using macros?

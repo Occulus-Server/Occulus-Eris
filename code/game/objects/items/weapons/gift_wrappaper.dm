@@ -27,7 +27,7 @@
 	qdel(src)
 	return
 
-/obj/item/weapon/a_gift/attack_self(mob/M)
+/obj/item/weapon/a_gift/attack_self(mob/M as mob)
 	var/gift_type = pick(
 		/obj/item/weapon/storage/wallet,
 		/obj/item/weapon/storage/photo_album,
@@ -86,11 +86,11 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
 	var/size = 3.0
-	var/obj/item/gift
+	var/obj/item/gift = null
 	item_state = "gift"
 	w_class = ITEM_SIZE_BULKY
 
-/obj/item/weapon/gift/attack_self(mob/user)
+/obj/item/weapon/gift/attack_self(mob/user as mob)
 	user.drop_item()
 	if(src.gift && (src.gift in src.contents))
 		user.put_in_active_hand(gift)
@@ -104,7 +104,7 @@
 		return
 	to_chat(user, SPAN_WARNING("You can't move."))
 
-/obj/effect/spresent/attackby(obj/item/weapon/W, mob/user)
+/obj/effect/spresent/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 
 	if (!istype(W, /obj/item/weapon/tool/wirecutters))
@@ -129,8 +129,6 @@
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 4
 	throw_range = 5
-	rarity_value = 10
-	spawn_tags = SPAWN_TAG_JUNK
 
 /obj/item/weapon/wrapping_paper
 	name = "wrapping paper"
@@ -138,11 +136,9 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "wrap_paper"
 	matter = list(MATERIAL_BIOMATTER = 4)
-	rarity_value = 10
-	spawn_tags = SPAWN_TAG_JUNK
 	var/amount = 20.0
 
-/obj/item/weapon/wrapping_paper/attackby(obj/item/weapon/W, mob/user)
+/obj/item/weapon/wrapping_paper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	if (!( locate(/obj/structure/table, src.loc) ))
 		to_chat(user, SPAN_WARNING("You MUST put the paper on a table!"))
@@ -182,7 +178,7 @@
 	if(..(user, 1))
 		to_chat(user, text("There is about [] square units of paper left!", src.amount))
 
-/obj/item/weapon/wrapping_paper/attack(mob/target, mob/user)
+/obj/item/weapon/wrapping_paper/attack(mob/target as mob, mob/user as mob)
 	if (!ishuman(target))
 		return
 	var/mob/living/carbon/human/H = target

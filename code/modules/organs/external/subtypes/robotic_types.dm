@@ -59,7 +59,6 @@
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTEEL = 1, MATERIAL_PHORON = 0.5) //Plasma needed as a material that excelsiors can't teleport in
 	max_damage = 65
 	min_broken_damage = 45
-	spawn_blacklisted = TRUE
 
 /obj/item/organ/external/robotic/excelsior/l_arm
 	default_description = /datum/organ_description/arm/left
@@ -82,11 +81,6 @@
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 4, MATERIAL_GOLD = 2)
 	max_damage = 70
 	min_broken_damage = 45
-	spawn_blacklisted = TRUE
-	rarity_value = 10
-	spawn_frequency = 10
-	spawn_tags = SPAWN_TAG_OS_PROSTHETIC
-	bad_type = /obj/item/organ/external/robotic/one_star
 
 /obj/item/organ/external/robotic/one_star/l_arm
 	default_description = /datum/organ_description/arm/left
