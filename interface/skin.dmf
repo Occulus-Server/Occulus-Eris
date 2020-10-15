@@ -353,9 +353,6 @@ macro "macro"
 		name = "CTRL+SHIFT+G"
 		command = ".configure graphics-hwmode on"
 	elem 
-		name = "M"
-		command = "me-multiline-verb"
-	elem 
 		name = "CTRL+Q"
 		command = ".northwest"
 	elem 
@@ -424,6 +421,9 @@ macro "macro"
 	elem 
 		name = "F4"
 		command = "me-verb"
+	elem 
+		name = "CTRL+F4"
+		command = "me-multiline-verb"
 	elem 
 		name = "F5"
 		command = "asay"
@@ -696,6 +696,9 @@ macro "hotkeymode"
 	elem 
 		name = "F4"
 		command = "me-verb"
+	elem 
+		name = "CTRL+F4"
+		command = "me-multiline-verb"
 	elem 
 		name = "F5"
 		command = "asay"
