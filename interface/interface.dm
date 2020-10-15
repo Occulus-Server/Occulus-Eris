@@ -84,6 +84,7 @@ Hotkey-Mode: (hotkey-mode must be on)
 \t4 = harm-intent
 \tCtrl = drag
 \tShift = examine
+\tm = multiline input menu for emotes
 </font>"}
 
 	var/other = {"<font color='purple'>
@@ -113,7 +114,7 @@ Any-Mode: (hotkey doesn't need to be on)
 \tPGUP = swap-hand
 \tPGDN = activate held object
 \tEND = throw
-\tm = multiline input menu for emotes
+\tCtrl+F4 = multiline input menu for emotes
 </font>"}
 
 	var/robot_hotkey_mode = {"<font color='purple'>
