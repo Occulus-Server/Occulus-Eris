@@ -25,6 +25,8 @@
 	)
 	var/consume_cell = TRUE
 	price_tag = 2500
+	rarity_value = 20
+	spawn_tags = SPAWN_TAG_GUN_SHOTGUN_ENERGY
 
 /obj/item/weapon/gun/energy/shrapnel/consume_next_projectile()
 	.=..()
@@ -48,5 +50,6 @@
 	restrict_safety = TRUE
 	consume_cell = FALSE
 	cell_type = /obj/item/weapon/cell/small/high //Two shots
+	spawn_blacklisted = TRUE
 
 

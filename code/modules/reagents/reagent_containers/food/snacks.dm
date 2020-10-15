@@ -3,16 +3,16 @@
 	name = "snack"
 	desc = "yummy"
 	icon = 'icons/obj/food.dmi'
-	icon_state = null
+	icon_state
 	center_of_mass = list("x"=16, "y"=16)
 	w_class = ITEM_SIZE_SMALL
 	var/bitesize = 1
 	var/bitecount = 0
-	var/trash = null
+	var/trash
 	var/slice_path
 	var/slices_num
-	var/dried_type = null
-	var/dry = 0
+	var/dried_type
+	var/dry = FALSE
 	var/dryness = 0 //Used by drying rack. Represents progress towards Dry state
 	var/nutriment_amt = 0
 	var/list/nutriment_desc = list("food" = 1)
@@ -385,6 +385,8 @@
 	nutriment_desc = list("candy" = 1)
 	preloaded_reagents = list("sugar" = 3)
 	junk_food = TRUE
+	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
+	taste_tag = list(SWEET_FOOD)
 
 /obj/item/weapon/reagent_containers/food/snacks/candy/donor
 	name = "Donor Candy"
@@ -416,6 +418,8 @@
 	nutriment_amt = 3
 	nutriment_desc = list("salt" = 1, "chips" = 2)
 	junk_food = TRUE
+	spawn_tags = SPAWN_TAG_JUNKFOOD
+	rarity_value = 15
 
 /obj/item/weapon/reagent_containers/food/snacks/cookie
 	name = "cookie"
@@ -827,7 +831,10 @@
 	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
 	filling_color = "#6D6D00"
 	heated_reagents = list("doctorsdelight" = 5, "hyperzine" = 1)
+	rarity_value = 20
+	spawn_tags = SPAWN_TAG_RATIONS
 	var/has_been_heated = 0
+
 
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket/attack_self(mob/user)
 	if(has_been_heated)
@@ -1069,6 +1076,9 @@
 	preloaded_reagents = list("banana" = 5)
 	cooked = TRUE
 	junk_food = TRUE
+	spawn_tags = SPAWN_TAG_JUNKFOOD
+	rarity_value = 20
+	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/weapon/reagent_containers/food/snacks/pie/throw_impact(atom/hit_atom)
 	..()
@@ -1266,6 +1276,8 @@
 	nutriment_desc = list("popcorn" = 3)
 	nutriment_amt = 2
 	bitesize = 0.1 //this snack is supposed to be eating during looooong time. And this it not dinner food! --rastaf0
+	junk_food = TRUE
+	spawn_tags = SPAWN_TAG_JUNKFOOD
 	New()
 		..()
 		unpopped = rand(1,10)
@@ -1284,6 +1296,8 @@
 	bitesize = 2
 	center_of_mass = list("x"=15, "y"=9)
 	preloaded_reagents = list("protein" = 4, "ammonia" = 2)
+	junk_food = TRUE
+	spawn_tags = SPAWN_TAG_JUNKFOOD
 
 /obj/item/weapon/reagent_containers/food/snacks/no_raisin
 	name = "4no Raisins"
@@ -1295,6 +1309,7 @@
 	nutriment_desc = list("dried raisins" = 6)
 	nutriment_amt = 6
 	junk_food = TRUE
+	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
 
 /obj/item/weapon/reagent_containers/food/snacks/spacetwinkie
 	name = "Space Twinkie"
@@ -1305,6 +1320,7 @@
 	center_of_mass = list("x"=15, "y"=11)
 	preloaded_reagents = list("sugar" = 4)
 	junk_food = TRUE
+	spawn_tags = SPAWN_TAG_JUNKFOOD
 
 /obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers
 	name = "Cheesie Honkers"
@@ -1317,6 +1333,8 @@
 	nutriment_desc = list("cheese" = 5, "chips" = 2)
 	nutriment_amt = 4
 	junk_food = TRUE
+	spawn_tags = SPAWN_TAG_JUNKFOOD
+	taste_tag = list(CHEESE_FOOD)
 
 /obj/item/weapon/reagent_containers/food/snacks/syndicake
 	name = "Syndi-Cakes"
@@ -1740,6 +1758,9 @@
 	preloaded_reagents = list("protein" = 3)
 	cooked = TRUE
 	junk_food = TRUE
+	spawn_tags = SPAWN_TAG_JUNKFOOD
+	rarity_value = 20
+	taste_tag = list(CHEESE_FOOD,FLOURY_FOOD)
 
 /obj/item/weapon/reagent_containers/food/snacks/toastedsandwich
 	name = "Toasted Sandwich"
@@ -2683,6 +2704,9 @@
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza
 	slices_num = 6
 	filling_color = "#BAA14C"
+	taste_tag = list(CHEESE_FOOD)
+	spawn_tags = SPAWN_TAG_PIZZA
+	bad_types = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/margherita
 	name = "Margherita"
@@ -3090,6 +3114,9 @@
 	center_of_mass = list("x"=16, "y"=17)
 	preloaded_reagents = list("protein" = 6)
 	junk_food = TRUE
+	spawn_tags = SPAWN_TAG_JUNKFOOD
+	rarity_value = 20
+	taste_tag = list(MEAT_FOOD)
 
 /obj/item/weapon/reagent_containers/food/snacks/flatbread
 	name = "flatbread"
@@ -3133,6 +3160,9 @@
 	nutriment_amt = 20
 	preloaded_reagents = list("iron" = 3)
 	junk_food = TRUE
+	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
+	rarity_value = 5
+	taste_tag = list(BLAND_FOOD,UMAMI_FOOD)
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread
 	name = "bread tube"
@@ -3145,3 +3175,5 @@
 	nutriment_desc = list("bread" = 2, "sweetness" = 3)
 	nutriment_amt = 6
 	junk_food = TRUE
+	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
+	taste_tag = list(SWEET_FOOD)
