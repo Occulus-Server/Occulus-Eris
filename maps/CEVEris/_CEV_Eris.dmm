@@ -9170,7 +9170,7 @@
 /area/eris/hallway/side/section3starboard)
 "avK" = (
 /obj/structure/table/woodentable,
-/obj/random/common_oddities/low_chance,
+/obj/spawner/oddities/low_chance,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
 "avL" = (
@@ -11665,23 +11665,23 @@
 	dir = 8
 	},
 /obj/structure/closet/crate,
-/obj/random/pack/tech_loot,
-/obj/random/pack/tech_loot,
-/obj/random/pack/tech_loot,
-/obj/random/pack/tech_loot,
-/obj/random/pack/tech_loot,
-/obj/random/pack/tech_loot,
-/obj/random/pack/tech_loot,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/onestar,
+/obj/spawner/pack/tech_loot/onestar,
+/obj/spawner/pack/tech_loot/onestar,
+/obj/spawner/pack/tech_loot/onestar,
+/obj/spawner/pack/tech_loot/onestar,
+/obj/spawner/pack/tech_loot/onestar,
+/obj/spawner/pack/tech_loot/onestar,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -27369,16 +27369,16 @@
 "bmd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/closet/crate,
-/obj/random/pack/tech_loot,
-/obj/random/pack/tech_loot,
-/obj/random/pack/tech_loot,
-/obj/random/pack/tech_loot,
-/obj/random/pack/tech_loot,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
-/obj/random/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/onestar,
+/obj/spawner/pack/tech_loot/onestar,
+/obj/spawner/pack/tech_loot/onestar,
+/obj/spawner/pack/tech_loot/onestar,
+/obj/spawner/pack/tech_loot/onestar,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
@@ -29337,16 +29337,16 @@
 /obj/item/stack/material/plastic{
 	amount = 120
 	},
-/obj/random/material/low_chance,
-/obj/random/material/low_chance,
-/obj/random/material/low_chance,
-/obj/random/material/low_chance,
-/obj/random/material/low_chance,
-/obj/random/material/low_chance,
-/obj/random/material/low_chance,
-/obj/random/material_resources/low_chance,
-/obj/random/material_resources/low_chance,
-/obj/random/material_resources/low_chance,
+/obj/spawner/ammo/shotgun/low_chance,
+/obj/spawner/ammo/shotgun/low_chance,
+/obj/spawner/ammo/shotgun/low_chance,
+/obj/spawner/ammo/shotgun/low_chance,
+/obj/spawner/ammo/shotgun/low_chance,
+/obj/spawner/ammo/shotgun/low_chance,
+/obj/spawner/ammo/shotgun/low_chance,
+/obj/spawner/material/resources/low_chance,
+/obj/spawner/material/resources/low_chance,
+/obj/spawner/material/resources/low_chance,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/grey{
 	dir = 4
@@ -30202,7 +30202,7 @@
 /area/eris/hallway/side/section3port)
 "bsT" = (
 /obj/structure/closet/crate/internals,
-/obj/random/contraband/low_chance,
+/obj/spawner/contraband/low_chance,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/grey,
 /obj/structure/railing/grey{
@@ -30526,10 +30526,10 @@
 /area/eris/quartermaster/disposaldrop)
 "btG" = (
 /obj/structure/closet/crate/medical,
-/obj/random/firstaid,
-/obj/random/firstaid,
-/obj/random/firstaid/low_chance,
-/obj/random/firstaid/low_chance,
+/obj/spawner/firstaid,
+/obj/spawner/firstaid,
+/obj/spawner/firstaid/low_chance,
+/obj/spawner/firstaid/low_chance,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
@@ -45958,7 +45958,7 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4central)
 "ccY" = (
-/obj/random/scrap/sparse_weighted,
+/obj/spawner/scrap/sparse,
 /obj/structure/railing{
 	dir = 4
 	},
@@ -56282,7 +56282,7 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4central)
 "cBN" = (
-/obj/random/scrap/sparse_weighted,
+/obj/spawner/scrap/sparse,
 /obj/structure/railing{
 	dir = 1
 	},
@@ -57377,7 +57377,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
-/obj/random/scrap/sparse_weighted,
+/obj/spawner/scrap/sparse,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4central)
 "cEj" = (
@@ -58570,7 +58570,7 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
 "cGT" = (
-/obj/random/junk/low_chance,
+/obj/spawner/junk/low_chance,
 /obj/structure/railing,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4central)
@@ -58596,7 +58596,7 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/hallway/main/section3)
 "cGW" = (
-/obj/random/scrap/moderate_weighted,
+/obj/spawner/scrap,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4central)
 "cGX" = (
@@ -58752,7 +58752,7 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/drone_fabrication)
 "cHo" = (
-/obj/random/scrap/sparse_weighted,
+/obj/spawner/scrap/sparse,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4central)
@@ -104075,7 +104075,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/section3starboard)
 "msk" = (
-/obj/structure/closet/wardrobe/grey,
+/obj/structure/closet/wardrobe/color/grey,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/surgery)
 "msv" = (
@@ -104303,13 +104303,13 @@
 /obj/item/weapon/caution{
 	name = "Caution Sign"
 	},
-/obj/random/contraband/low_chance,
-/obj/random/boxes,
-/obj/random/boxes,
-/obj/random/boxes/low_chance,
-/obj/random/boxes/low_chance,
-/obj/random/boxes/low_chance,
-/obj/random/boxes/low_chance,
+/obj/spawner/contraband/low_chance,
+/obj/spawner/boxes,
+/obj/spawner/boxes,
+/obj/spawner/boxes/low_chance,
+/obj/spawner/boxes/low_chance,
+/obj/spawner/boxes/low_chance,
+/obj/spawner/boxes/low_chance,
 /obj/structure/railing/grey{
 	dir = 8
 	},
