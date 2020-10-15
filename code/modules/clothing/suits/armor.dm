@@ -223,6 +223,7 @@
 	)
 	equip_delay = 2 SECONDS
 	price_tag = 250
+	style = 0
 
 /obj/item/clothing/suit/armor/heavy/red
 	name = "Thunderdome suit (red)"
