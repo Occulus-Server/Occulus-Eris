@@ -200,10 +200,147 @@
 	color_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/tail/the_dobe
-	name = "Doberman tail"
+	name = "Stubby tail"
 	icon = 'zzz_modular_syzygy/icons/mob/jamini-tails.dmi'
 	icon_state = "thedobe"
 	extra_overlay = "thedobe_extra"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
+
+//Syzygy Markings
+
+/datum/sprite_accessory/marking/syzygy
+	icon = 'zzz_modular_syzygy/icons/mob/jamini-markings.dmi'
+
+
+
+/datum/sprite_accessory/marking/syzygy/skull
+	name = "Skull mask"
+	icon_state = "skull"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/syzygy/leaves
+	name = "Leaves"
+	icon_state = "diona_leaves"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST,BP_HEAD)
+
+/datum/sprite_accessory/marking/syzygy/thorns
+	name = "Thorns"
+	icon_state = "diona_thorns"
+	body_parts = list(BP_HEAD,BP_CHEST)
+
+/datum/sprite_accessory/marking/syzygy/flowers
+	name = "Flowers"
+	icon_state = "diona_flowers"
+	body_parts = list(BP_HEAD,BP_CHEST)
+
+/datum/sprite_accessory/marking/syzygy/moss
+	name = "Moss"
+	icon_state = "diona_moss"
+	body_parts = list(BP_HEAD,BP_CHEST)
+
+/datum/sprite_accessory/marking/syzygy/mushroom
+	name = "Mushroom"
+	icon_state = "diona_mushroom"
+	body_parts = list(BP_HEAD)
+
+//Old Polaris stuff
+
+/datum/sprite_accessory/marking/old
+	icon = 'icons/mob/human_races/markings.dmi'
+
+/datum/sprite_accessory/marking/old/tajpawsocks
+	name = "Socks Coloration (Taj)"
+	icon_state = "taj_pawsocks"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
+
+/datum/sprite_accessory/marking/old/una_paw_socks
+	name = "Socks Coloration (Una)"
+	icon_state = "una_pawsocks"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
+
+/datum/sprite_accessory/marking/old/paw_socks
+	name = "Socks Coloration (Generic)"
+	icon_state = "pawsocks"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
+
+/datum/sprite_accessory/marking/old/paw_socks_belly
+	name = "Socks,Belly Coloration (Generic)"
+	icon_state = "pawsocksbelly"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
+
+/datum/sprite_accessory/marking/old/belly_hands_feet
+	name = "Hands,Feet,Belly Color (Minor)"
+	icon_state = "bellyhandsfeetsmall"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
+
+/datum/sprite_accessory/marking/old/hands_feet_belly_full
+	name = "Hands,Feet,Belly Color (Major)"
+	icon_state = "bellyhandsfeet"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
+
+/datum/sprite_accessory/marking/old/hands_feet_belly_full_female
+	name = "Hands,Feet,Belly Color (Major, Female)"
+	icon_state = "bellyhandsfeet_female"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
+
+/datum/sprite_accessory/marking/old/patches
+	name = "Color Patches"
+	icon_state = "patches"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
+
+/datum/sprite_accessory/marking/old/patchesface
+	name = "Color Patches (Face)"
+	icon_state = "patchesface"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/old/bands
+	name = "Color Bands"
+	icon_state = "bands"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
+
+/datum/sprite_accessory/marking/old/bandsface
+	name = "Color Bands (Face)"
+	icon_state = "bandsface"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/old/tiger_stripes
+	name = "Tiger Stripes"
+	icon_state = "tiger"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN)
+
+/datum/sprite_accessory/marking/old/tigerhead
+	name = "Tiger Stripes (Head, Minor)"
+	icon_state = "tigerhead"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/old/tigerface
+	name = "Tiger Stripes (Head, Major)"
+	icon_state = "tigerface"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/old/backstripe
+	name = "Back Stripe"
+	icon_state = "backstripe"
+	body_parts = list(BP_CHEST)
+
+/datum/sprite_accessory/marking/old/taj_belly
+	name = "Belly Fur (Taj)"
+	icon_state = "taj_belly"
+	body_parts = list(BP_CHEST)
+
+/datum/sprite_accessory/marking/old/taj_bellyfull
+	name = "Belly Fur Wide (Taj)"
+	icon_state = "taj_bellyfull"
+	body_parts = list(BP_CHEST)
+
+/datum/sprite_accessory/marking/old/taj_crest
+	name = "Chest Fur Crest (Taj)"
+	icon_state = "taj_crest"
+	body_parts = list(BP_CHEST)
+
+/datum/sprite_accessory/marking/old/una_scutes
+	name = "Scutes (Una)"
+	icon_state = "una_scutes"
+	body_parts = list(BP_CHEST)
