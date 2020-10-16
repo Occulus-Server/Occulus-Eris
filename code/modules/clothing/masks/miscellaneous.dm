@@ -180,7 +180,7 @@
 /obj/item/clothing/mask/bandana
 	name = "black bandana"
 	desc = "A fine bandana with nanotech lining."	// SYZYGY EDIT - no more wearing your bandana on the face
-	flags_inv = BLOCKHEADHAIR
+	flags_inv = null	// SYZYGY EDIT - Now ears and hair show through it
 	slot_flags = SLOT_HEAD	// SYZYGY EDIT - no more wearing your bandana on the face
 	body_parts_covered = HEAD	// SYZYGY EDIT - no more wearing your bandana on the face
 	icon_state = "bandblack"
