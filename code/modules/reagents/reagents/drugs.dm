@@ -6,7 +6,7 @@
 	if(sanity_gain && ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.sanity.onDrug(src, effect_multiplier)
-	SEND_SIGNAL(M, COMSIG_CARBON_HAPPY, src, ON_MOB_DRUG)
+//	SEND_SIGNAL(M, COMSIG_CARBON_HAPPY, src, ON_MOB_DRUG)	//This is a Individual Objectives thing
 
 
 /datum/reagent/drug/space_drugs
