@@ -549,7 +549,7 @@ datum/projectile_data
 //Picks a single random landmark of a specified type
 /proc/pick_landmark(ltype)
 	var/list/L = list()
-	for(var/S in landmarks_list)
+	for(var/S in GLOB.landmarks_list)
 		if (istype(S, ltype))
 			L.Add(S)
 
