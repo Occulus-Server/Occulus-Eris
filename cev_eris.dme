@@ -2754,6 +2754,7 @@
 #include "zzz_modular_syzygy\projectiles.dm"
 #include "zzz_modular_syzygy\roach.dm"
 #include "zzz_modular_syzygy\sawnlevergun.dm"
+#include "zzz_modular_syzygy\stashes.dm"
 #include "zzz_modular_syzygy\vector.dm"
 #include "zzz_modular_syzygy\vote.dm"
 #include "zzz_modular_syzygy\wire_splicing.dm"
