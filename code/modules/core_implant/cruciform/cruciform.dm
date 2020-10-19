@@ -69,8 +69,8 @@ var/list/disciples = list()
 
 /obj/item/weapon/implant/core_implant/cruciform/Process()
 	..()
-	if(active && round(world.time) % 5 == 0)
-		remove_cyber()
+/*if(active && round(world.time) % 5 == 0)
+		remove_cyber()*/
 	if(wearer && wearer.stat == DEAD)
 		deactivate()
 
@@ -95,7 +95,7 @@ var/list/disciples = list()
 		if (activate())
 			return TRUE
 
-/obj/item/weapon/implant/core_implant/cruciform/proc/remove_cyber()
+/*/obj/item/weapon/implant/core_implant/cruciform/proc/remove_cyber()
 	if(!wearer)
 		return
 	for(var/obj/O in wearer)
@@ -124,7 +124,7 @@ var/list/disciples = list()
 			R.malfunction = MALFUNCTION_PERMANENT
 	if(ishuman(wearer))
 		var/mob/living/carbon/human/H = wearer
-		H.update_implants()
+		H.update_implants()*/
 
 /obj/item/weapon/implant/core_implant/cruciform/proc/update_data()
 	if(!wearer)
