@@ -75,7 +75,7 @@
 
 	var/list/chemicals = list()
 	for (var/re in dispensable_reagents)
-		var/datum/reagent/temp = chemical_reagents_list[re]
+		var/datum/reagent/temp = GLOB.chemical_reagents_list[re]
 		if(temp)
 			chemicals.Add(list(list("title" = temp.name, "id" = temp.id, "commands" = list("dispense" = temp.id)))) // list in a list because Byond merges the first list...
 	data["chemicals"] = chemicals
@@ -98,6 +98,21 @@
 		ui.set_initial_data(data)
 		// open the new ui window
 		ui.open()
+
+/obj/machinery/chemical_dispenser/proc/detach()
+	if(beaker)
+		var/obj/item/weapon/reagent_containers/B = beaker
+		B.loc = loc
+		beaker = null
+
+/obj/machinery/chemical_dispenser/AltClick(mob/living/user)
+	if(user.incapacitated())
+		to_chat(user, SPAN_WARNING("You can't do that right now!"))
+		return
+	if(!in_range(src, user))
+		return
+	src.detach()
+
 
 /obj/machinery/chemical_dispenser/Topic(href, href_list)
 	if(..())
@@ -171,6 +186,9 @@
 	desc = "A drink fabricating machine, capable of producing many sugary drinks with just one touch."
 	layer = OBJ_LAYER
 	ui_title = "Soda Dispens-o-matic"
+
+	circuit = /obj/item/weapon/electronics/circuitboard/chemical_dispenser/soda
+
 	accept_beaker = FALSE
 	density = FALSE
 	dispensable_reagents = list("water","ice","coffee","cream","tea","greentea","icetea","icegreentea","cola","spacemountainwind","dr_gibb","space_up","tonic","sodawater","lemon_lime","sugar","orangejuice","limejuice","watermelonjuice")
@@ -193,6 +211,9 @@
 	name = "booze dispenser"
 	layer = OBJ_LAYER
 	ui_title = "Booze Portal 9001"
+
+	circuit = /obj/item/weapon/electronics/circuitboard/chemical_dispenser/beer
+
 	accept_beaker = FALSE
 	density = FALSE
 	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
@@ -233,6 +254,9 @@
 	icon = 'icons/obj/machines/chemistry.dmi'
 	icon_state = "industrial_dispenser"
 	ui_title = "Industrial Dispenser 4835"
+
+	circuit = /obj/item/weapon/electronics/circuitboard/chemical_dispenser/industrial
+
 	dispensable_reagents = list(
 		"acetone","aluminum","ammonia",
 		"copper","ethanol","hydrazine",

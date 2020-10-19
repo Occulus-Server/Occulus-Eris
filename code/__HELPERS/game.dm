@@ -174,11 +174,9 @@
 			if (!mobs[M])
 				mobs[M] = TRUE
 
-	for(var/o in hearing_objects)
-		var/obj/O = o
-		if(O && O.loc && hearturfs[O.locs[1]])
-			if (!objs[O])
-				objs[O] = TRUE
+	for(var/obj in GLOB.hearing_objects)
+		if(get_turf(obj) in hearturfs)
+			objs |= obj
 
 
 /proc/get_mobs_in_radio_ranges(list/obj/item/device/radio/radios)
@@ -551,7 +549,7 @@ datum/projectile_data
 //Picks a single random landmark of a specified type
 /proc/pick_landmark(ltype)
 	var/list/L = list()
-	for(var/S in landmarks_list)
+	for(var/S in GLOB.landmarks_list)
 		if (istype(S, ltype))
 			L.Add(S)
 

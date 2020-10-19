@@ -206,7 +206,7 @@
 		to_chat(user, SPAN_WARNING("[src] flashes a message: Vendomat not registered to an account."))
 		return
 	if(vendor_department)
-		to_chat(user, SPAN_WARNING("[src] flashes a message: Vendomat not authorized to accept sales. Please contact a member of [all_departments[vendor_department]]."))
+		to_chat(user, SPAN_WARNING("[src] flashes a message: Vendomat not authorized to accept sales. Please contact a member of [GLOB.all_departments[vendor_department]]."))
 		return
 	if(buying_percentage <= 0)
 		to_chat(user, SPAN_WARNING("[src] flashes a message: Vendomat not accepting sales."))
@@ -871,8 +871,8 @@
 
 /obj/machinery/vending/proc/set_department()
 	var/list/possible_departments = list("Privately Owned" = null)
-	for(var/d in all_departments)
-		possible_departments[all_departments[d]] = department_accounts[d]
+	for(var/d in GLOB.all_departments)
+		possible_departments[GLOB.all_departments[d]] = department_accounts[d]
 	var/newdepartment = input("Which organization should be considered the owner of this Vendomat? This will also allow members to manage it.", "Vendomat Department", null) in possible_departments
 	if(!newdepartment)
 		return
@@ -1177,7 +1177,10 @@
 					/obj/item/device/hailer = 8,
 					/obj/item/taperoll/police = 8,
 					/obj/item/device/holowarrant = 8,
-					/obj/item/weapon/storage/box/evidence = 2)
+					/obj/item/weapon/storage/box/evidence = 2,
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/security = 2,
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih = 2,
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih/bulletproof = 1)
 	contraband = list(/obj/item/weapon/tool/knife/tacknife = 4,/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 12)
 	auto_price = FALSE
 
@@ -1374,6 +1377,7 @@
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/computer = 10,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/medical = 10,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/security = 5,
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic = 5,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns = 5,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo = 10,
 					/obj/item/weapon/electronics/circuitboard/autolathe = 3,
@@ -1391,6 +1395,7 @@
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/medical = 400,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/computer = 500,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/security = 600,
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic = 800,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns = 3000,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo = 700,
 					/obj/item/weapon/electronics/circuitboard/autolathe = 700,
