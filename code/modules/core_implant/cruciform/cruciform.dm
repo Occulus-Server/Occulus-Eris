@@ -69,8 +69,8 @@ var/list/disciples = list()
 
 /obj/item/weapon/implant/core_implant/cruciform/Process()
 	..()
-	if(active && round(world.time) % 5 == 0)
-		remove_cyber()
+//if(active && round(world.time) % 5 == 0)
+//		remove_cyber()
 	if(wearer && wearer.stat == DEAD)
 		deactivate()
 
@@ -95,36 +95,36 @@ var/list/disciples = list()
 		if (activate())
 			return TRUE
 
-/obj/item/weapon/implant/core_implant/cruciform/proc/remove_cyber()
-	if(!wearer)
-		return
-	for(var/obj/O in wearer)
-		if(istype(O, /obj/item/organ/external))
-			var/obj/item/organ/external/R = O
-			if(!BP_IS_ROBOTIC(R))
-				continue
+///obj/item/weapon/implant/core_implant/cruciform/proc/remove_cyber()
+//	if(!wearer)
+//		return
+//	for(var/obj/O in wearer)
+//		if(istype(O, /obj/item/organ/external))
+//			var/obj/item/organ/external/R = O
+//			if(!BP_IS_ROBOTIC(R))
+//				continue
 
-			if(R.owner != wearer)
-				continue
-			wearer.visible_message(SPAN_DANGER("[wearer]'s [R.name] tears off."),
-			SPAN_DANGER("Your [R.name] tears off."))
-			R.droplimb()
-		if(istype(O, /obj/item/weapon/implant))
-			if(O == src)
-				continue
-			var/obj/item/weapon/implant/R = O
-			if(R.wearer != wearer)
-				continue
-			if(R.cruciform_resist)
-				continue
-			wearer.visible_message(SPAN_DANGER("[R.name] rips through [wearer]'s [R.part]."),\
-			SPAN_DANGER("[R.name] rips through your [R.part]."))
-			R.part.take_damage(rand(20,40))
-			R.uninstall()
-			R.malfunction = MALFUNCTION_PERMANENT
-	if(ishuman(wearer))
-		var/mob/living/carbon/human/H = wearer
-		H.update_implants()
+//			if(R.owner != wearer)
+//				continue
+//			wearer.visible_message(SPAN_DANGER("[wearer]'s [R.name] tears off."),
+//			SPAN_DANGER("Your [R.name] tears off."))
+//			R.droplimb()
+//		if(istype(O, /obj/item/weapon/implant))
+//			if(O == src)
+//				continue
+//			var/obj/item/weapon/implant/R = O
+//			if(R.wearer != wearer)
+//				continue
+//			if(R.cruciform_resist)
+//				continue
+//			wearer.visible_message(SPAN_DANGER("[R.name] rips through [wearer]'s [R.part]."),\
+//			SPAN_DANGER("[R.name] rips through your [R.part]."))
+//			R.part.take_damage(rand(20,40))
+//			R.uninstall()
+//			R.malfunction = MALFUNCTION_PERMANENT
+//	if(ishuman(wearer))
+//		var/mob/living/carbon/human/H = wearer
+//		H.update_implants()
 
 /obj/item/weapon/implant/core_implant/cruciform/proc/update_data()
 	if(!wearer)
