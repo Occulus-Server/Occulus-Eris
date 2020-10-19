@@ -35,6 +35,7 @@
 		rad = 0
 	)
 	siemens_coefficient = 0.8
+	spawn_blacklisted = TRUE	//no random captain shit in maint
 
 /obj/item/clothing/head/space/capspace
 	name = "captain's voidsuit helmet"
@@ -72,6 +73,7 @@
 	)
 	siemens_coefficient = 0.7
 	helmet = /obj/item/clothing/head/space/capspace
+	spawn_blacklisted = TRUE	//no random captain shit in maint
 
 /obj/item/clothing/suit/space/void/captain/equipped
 	tank = /obj/item/weapon/tank/jetpack/oxygen
@@ -94,3 +96,6 @@
 	item_state = "captain_skirt"
 	icon_override = 'zzz_modular_syzygy/icons/mob/uniform.dmi'
 	icon_override_female = 'zzz_modular_syzygy/icons/mob/uniform_fem.dmi'
+
+/obj/item/clothing/suit/storage/toggle/labcoat/cmo
+	spawn_blacklisted = TRUE	//no random command shit in maint
