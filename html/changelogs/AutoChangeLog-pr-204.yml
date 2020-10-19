@@ -1,8 +1,0 @@
-author: Trilbyspaceclone
-delete-after: true
-changes:
-  - tweak: the path to cryo maints can now be accessed by anyone.
-  - tweak: the monitor key for telecoms will no longer spawn in maints
-  - balance: maints loot will now not spawn ninja, blood red and stealth rigs
-  - bugfix: Cargo chute has been corrected
-  - bugfix: Aloe drink can now be mixed 2x - Turned on file addition
