@@ -1,0 +1,7 @@
+author: Toriate
+delete-after: true
+changes:
+  - tweak: Captain's voidsuit and CMO's labcoat has been blacklisted from the loot
+      tables
+  - balance: Sawn off lever action shotgun has been nerfed further
+  - bugfix: Bandana now shows ears and hair through
