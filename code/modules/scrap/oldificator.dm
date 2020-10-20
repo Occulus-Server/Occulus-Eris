@@ -324,7 +324,7 @@
 			if(license > -1)
 				if(license < 2)
 					license = rand(3, (license - 3))
-				else if ()
+				else ()
 					license = rand(0, 2)
 //end szyzygy edit
 	/*
