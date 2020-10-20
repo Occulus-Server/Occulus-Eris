@@ -325,7 +325,7 @@
 				if(license < 2)
 					license = rand(3, (license - 3))
 				else if ()
-				 	license = rand(0, 2)
+					license = rand(0, 2)
 //end szyzygy edit
 	/*
 /obj/effect/decal/mecha_wreckage/make_old()
