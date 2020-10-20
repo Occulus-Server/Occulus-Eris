@@ -323,11 +323,6 @@
 		if(prob(80))
 			if(license > -1)
 				license = rand(3, (license / 2))
-		if(prob(90))
-			var/corrupted_item = pick(designs)
-			designs(corrupted_item) = /datum/design/autolathe/corrupted
-
-//			/datum/design/autolathe/corrupted
 	/*
 /obj/effect/decal/mecha_wreckage/make_old()
 	.=..()
