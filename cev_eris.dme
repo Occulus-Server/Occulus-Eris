@@ -2766,6 +2766,7 @@
 #include "zzz_modular_syzygy\code\modules\mining\mineral_effect.dm"
 #include "zzz_modular_syzygy\code\modules\mob\living\carbon\human\species\station\station.dm"
 #include "zzz_modular_syzygy\code\modules\reagents\recipes.dm"
+#include "zzz_modular_syzygy\code\modules\scrap\oldificator.dm"
 #include "zzz_modular_syzygy\code\modules\sprite_accessories\_accessories_sprite.dm"
 #include "zzz_modular_syzygy\code\modules\sprite_accessories\_accessory_hair.dm"
 #include "zzz_modular_syzygy\prosthesis\prosthesis_brands.dm"
