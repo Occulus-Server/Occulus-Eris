@@ -320,9 +320,9 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/make_old()
 	.=..()
 	if (.)
-		if(prob(80))
+		if(prob(90))
 			if(license > -1)
-				license = rand(3, (license - 2))
+				license = rand(3, (license - 3))
 	/*
 /obj/effect/decal/mecha_wreckage/make_old()
 	.=..()
