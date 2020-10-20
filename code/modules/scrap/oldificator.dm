@@ -322,7 +322,7 @@
 	if (.)
 		if(prob(80))
 			if(license > -1)
-				license = rand(3, (license / 2))
+				license = rand(3, (license - 2))
 	/*
 /obj/effect/decal/mecha_wreckage/make_old()
 	.=..()
