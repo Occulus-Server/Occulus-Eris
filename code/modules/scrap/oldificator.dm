@@ -322,10 +322,8 @@
 	if (.)
 		if(prob(90))
 			if(license > -1)
-				if(license < 2)
-					license = rand(3, (license - 3))
-				else ()
-					license = rand(0, 2)
+				license = rand(3, (license - 3))
+
 //end szyzygy edit
 	/*
 /obj/effect/decal/mecha_wreckage/make_old()
