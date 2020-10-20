@@ -21,7 +21,6 @@
 	damage_multiplier = 1.25
 	penetration_multiplier = 1.1
 	one_hand_penalty = 5 //bullpup rifle (this one is smaller and carbine, so it's 5)
-	gun_tags = list(GUN_PROJECTILE, GUN_INTERNAL_MAG, GUN_SOL)
 
 	init_firemodes = list(
 		SEMI_AUTO_NODELAY,
@@ -45,8 +44,6 @@
 	overlays.Cut()
 	update_charge()
 
-/obj/item/weapon/gun/projectile/automatic/sol/rds
-	desc = "A standard-issue weapon used by Aegis operatives. Compact and reliable. Uses .25 Caseless Rifle rounds. This one comes with red dot sight."
-	icon_state = "sol-eot"
-	price_tag = 2350
-	zoom_factor = 0.2
+/obj/item/weapon/gun/projectile/automatic/sol/generate_guntags()
+	..()
+	gun_tags |= GUN_SOL

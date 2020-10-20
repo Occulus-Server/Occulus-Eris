@@ -22,7 +22,7 @@
 	damage_multiplier = 1.35
 	penetration_multiplier = 0.8
 	recoil_buildup = 20
-	gun_tags = list(GUN_PROJECTILE, GUN_CALIBRE_35, GUN_SILENCABLE)
+	gun_tags = list(GUN_SILENCABLE)
 
 /obj/item/weapon/gun/projectile/paco/update_icon()
 	..()

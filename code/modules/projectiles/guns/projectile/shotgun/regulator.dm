@@ -15,4 +15,3 @@
 	recoil_buildup = 16
 	one_hand_penalty = 15 //full sized shotgun level
 	rarity_value = 20
-
