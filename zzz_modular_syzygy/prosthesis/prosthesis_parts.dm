@@ -51,6 +51,27 @@
 }
 // end CREATE_PROSTHESIS_VARIETIES_FULL
 
+// Copypasta of Irra's macro for hands and feet only.
+#define CREATE_PROSTHESIS_HANDSFEET(typename, string)\
+/obj/item/organ/external/robotic/typename/l_hand {\
+	name = string + " Left Hand";\
+	default_description = /datum/organ_description/hand/left;\
+}\
+/obj/item/organ/external/robotic/typename/r_hand {\
+	name = string + " Right Hand";\
+	default_description = /datum/organ_description/hand/right;\
+}\
+/obj/item/organ/external/robotic/typename/l_foot {\
+	name = string + " Left Foot";\
+	default_description = /datum/organ_description/foot/left;\
+}\
+/obj/item/organ/external/robotic/typename/r_foot {\
+	name = string + " Right Foot";\
+	default_description = /datum/organ_description/foot/right;\
+}
+// end CREATE_PROSTHESIS_HANDSFEET
+
+
 /obj/item/organ/external/robotic/tv_head/head
 	name = "Unbranded TV-head"
 	desc = "A knock-off unbranded tv-shaped head."
@@ -93,4 +114,42 @@ CREATE_PROSTHESIS_VARIETIES_FULL(zenghu, "Zeng-Hu")
 
 CREATE_PROSTHESIS_VARIETIES_FULL(xion, "Xion")
 
+//ERIS PROSTHESIS OVERRIDES GO HERE
+
+/obj/item/organ/external/robotic/asters
+	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/asters.dmi'
+
+CREATE_PROSTHESIS_HANDSFEET(asters, "Asters")
+
+/obj/item/organ/external/robotic/serbian
+	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/serbian.dmi'
+
+CREATE_PROSTHESIS_HANDSFEET(serbian, "Serbian")
+
+/obj/item/organ/external/robotic/frozen_star
+	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/frozen_star.dmi'
+
+CREATE_PROSTHESIS_HANDSFEET(frozen_star, "Frozen Star")
+
+/obj/item/organ/external/robotic/technomancer
+	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/technomancer.dmi'
+
+CREATE_PROSTHESIS_HANDSFEET(technomancer, "Technomancer")
+
+/obj/item/organ/external/robotic/moebius
+	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/moebius.dmi'
+
+CREATE_PROSTHESIS_HANDSFEET(moebius, "Moebius")
+
+/obj/item/organ/external/robotic/excelsior
+	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/excelsior.dmi'
+
+CREATE_PROSTHESIS_HANDSFEET(excelsior, "Excelsior")
+
+/obj/item/organ/external/robotic/one_star
+	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/one_star.dmi'
+
+CREATE_PROSTHESIS_HANDSFEET(one_star, "One Star")
+
 #undef CREATE_PROSTHESIS_VARIETIES_FULL
+#undef CREATE_PROSTHESIS_HANDSFEET

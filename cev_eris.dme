@@ -2768,6 +2768,7 @@
 #include "zzz_modular_syzygy\code\modules\reagents\recipes.dm"
 #include "zzz_modular_syzygy\code\modules\sprite_accessories\_accessories_sprite.dm"
 #include "zzz_modular_syzygy\code\modules\sprite_accessories\_accessory_hair.dm"
+#include "zzz_modular_syzygy\prosthesis\implementation.dm"
 #include "zzz_modular_syzygy\prosthesis\prosthesis_brands.dm"
 #include "zzz_modular_syzygy\prosthesis\prosthesis_parts.dm"
 #include "zzz_modular_syzygy\storytellers\events.dm"
