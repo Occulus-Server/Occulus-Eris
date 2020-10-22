@@ -54,19 +54,15 @@
 // Copypasta of Irra's macro for hands and feet only.
 #define CREATE_PROSTHESIS_HANDSFEET(typename, string)\
 /obj/item/organ/external/robotic/typename/l_hand {\
-	name = string + " Left Hand";\
 	default_description = /datum/organ_description/hand/left;\
 }\
 /obj/item/organ/external/robotic/typename/r_hand {\
-	name = string + " Right Hand";\
 	default_description = /datum/organ_description/hand/right;\
 }\
 /obj/item/organ/external/robotic/typename/l_foot {\
-	name = string + " Left Foot";\
 	default_description = /datum/organ_description/foot/left;\
 }\
 /obj/item/organ/external/robotic/typename/r_foot {\
-	name = string + " Right Foot";\
 	default_description = /datum/organ_description/foot/right;\
 }
 // end CREATE_PROSTHESIS_HANDSFEET

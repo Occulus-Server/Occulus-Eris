@@ -21,19 +21,15 @@
 	model = "frozen_star"
 
 /obj/item/organ/external/robotic/frozen_star/l_arm
-	name = "\"Frozen Star\" Left Arm"
 	default_description = /datum/organ_description/arm/left
 
 /obj/item/organ/external/robotic/frozen_star/r_arm
-	name = "\"Frozen Star\" Right Arm"
 	default_description = /datum/organ_description/arm/right
 
 /obj/item/organ/external/robotic/frozen_star/l_leg
-	name = "\"Frozen Star\" Left Leg"
 	default_description = /datum/organ_description/leg/left
 
 /obj/item/organ/external/robotic/frozen_star/r_leg
-	name = "\"Frozen Star\" Right Leg"
 	default_description = /datum/organ_description/leg/right
 
 /obj/item/organ/external/robotic/technomancer
@@ -43,19 +39,15 @@
 	model = "technomancer"
 
 /obj/item/organ/external/robotic/technomancer/l_arm
-	name = "Technomancer \"Homebrew\" Left Arm"
 	default_description = /datum/organ_description/arm/left
 
 /obj/item/organ/external/robotic/technomancer/r_arm
-	name = "Technomancer \"Homebrew\" Right Arm"
 	default_description = /datum/organ_description/arm/right
 
 /obj/item/organ/external/robotic/technomancer/l_leg
-	name = "Technomancer \"Homebrew\" Left Leg"
 	default_description = /datum/organ_description/leg/left
 
 /obj/item/organ/external/robotic/technomancer/r_leg
-	name = "Technomancer \"Homebrew\" Right Leg"
 	default_description = /datum/organ_description/leg/right
 
 /obj/item/organ/external/robotic/moebius
@@ -69,23 +61,18 @@
 	min_broken_damage = 40
 
 /obj/item/organ/external/robotic/moebius/l_arm
-	name = "\"Moebius\" Left Arm"
 	default_description = /datum/organ_description/arm/left
 
 /obj/item/organ/external/robotic/moebius/r_arm
-	name = "\"Moebius\" Right Arm"
 	default_description = /datum/organ_description/arm/right
 
 /obj/item/organ/external/robotic/moebius/l_leg
-	name = "\"Moebius\" Left Leg"
 	default_description = /datum/organ_description/leg/left
 
 /obj/item/organ/external/robotic/moebius/r_leg
-	name = "\"Moebius\" Right Leg"
 	default_description = /datum/organ_description/leg/right
 
 /obj/item/organ/external/robotic/moebius/groin
-	name = "\"Moebius\" Groin"
 	default_description = /datum/organ_description/groin
 
 /obj/item/organ/external/robotic/excelsior
