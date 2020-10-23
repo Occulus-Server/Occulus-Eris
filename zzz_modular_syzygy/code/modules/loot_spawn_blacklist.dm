@@ -74,13 +74,22 @@
 	spawn_blacklisted = TRUE //Excelsior .30 AKMS
 
 /obj/item/weapon/cell/large/moebius/hyper
-	spawn_blacklisted = TRUE //"Power-Geyser 18000L"
+	rarity_value = 32 //"Power-Geyser 18000L"
+
+/obj/item/weapon/cell/large/hyper
+	rarity_value = 40 // "Robustcell-X 20000L
+
+/obj/item/weapon/cell/medium/hyper
+	rarity_value = 38 // "Robustcell-X 1500M"
 
 /obj/item/weapon/cell/medium/moebius/hyper
-	spawn_blacklisted = TRUE //"Power-Geyser 1300M"
+	rarity_value = 30 // "Power-Geyser 1300M"
+
+/obj/item/weapon/cell/small/hyper
+	rarity_value = 32 // "Robustcell-X 500S"
 
 /obj/item/weapon/cell/small/moebius/hyper
-	spawn_blacklisted = TRUE //"Power-Geyser 400S"
+	rarity_value = 28 // "Power-Geyser 400S"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/advanced/shady
 	spawn_blacklisted = TRUE //"warez"
