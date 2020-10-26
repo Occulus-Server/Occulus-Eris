@@ -1,0 +1,7 @@
+author: Jamini
+delete-after: true
+changes:
+  - bugfix: EFTPOS no longer break when inputting a department account.
+  - rscadd: department account cards. Heads, The Club Manager, and Mekhane acolytes
+      spawn with them.
+  - tweak: slightly modified the club manager loadout. Added account cards to loadouts
