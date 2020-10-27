@@ -29,7 +29,7 @@
 	one_hand_penalty = 5 //smg level
 	rarity_value = 19.2
 
-	gun_tags = list(GUN_PROJECTILE,GUN_SILENCABLE)
+	gun_tags = list(GUN_SILENCABLE)
 
 	init_firemodes = list(
 		FULL_AUTO_400,

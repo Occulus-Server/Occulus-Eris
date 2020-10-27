@@ -14,7 +14,6 @@
 	price_tag = 2500
 	rarity_value = 12
 	projectile_type = /obj/item/projectile/beam/midlaser
-	gun_tags = list(GUN_LASER)
 	init_firemodes = list(
 		WEAPON_NORMAL,
 		WEAPON_CHARGE
