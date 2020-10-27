@@ -8886,6 +8886,7 @@
 /turf/space,
 /area/shuttle/escape_pod1/station)
 "auS" = (
+/obj/machinery/duct,
 /turf/simulated/floor/dirt,
 /area/eris/crew_quarters/hydroponics)
 "auT" = (
@@ -25687,6 +25688,7 @@
 "biy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "biz" = (
@@ -36418,6 +36420,7 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bHq" = (
@@ -41672,6 +41675,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bSL" = (
@@ -41687,6 +41691,7 @@
 	dir = 9
 	},
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bSM" = (
@@ -41712,6 +41717,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bSO" = (
@@ -41789,6 +41795,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bTa" = (
@@ -41802,6 +41809,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bTb" = (
@@ -41815,6 +41823,7 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bTd" = (
@@ -42588,6 +42597,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "bUR" = (
@@ -42665,6 +42675,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "bVe" = (
@@ -54278,6 +54289,7 @@
 /obj/item/weapon/reagent_containers/glass/bottle/mutagen,
 /obj/item/weapon/reagent_containers/dropper,
 /obj/structure/closet/crate/secure/hydrosec/prelocked,
+/obj/item/weapon/tool/wrench,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "cxl" = (
@@ -56583,6 +56595,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "cCu" = (
@@ -56800,6 +56813,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "cCQ" = (
@@ -74198,6 +74212,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
+/obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "drJ" = (
@@ -100721,6 +100736,7 @@
 /area/space)
 "eBl" = (
 /obj/structure/table/standard,
+/obj/item/weapon/tool/wrench,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/bioreactor)
 "eBm" = (
@@ -103485,6 +103501,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep/cryo)
+"hSm" = (
+/obj/machinery/duct,
+/turf/simulated/floor/wood,
+/area/eris/crew_quarters/hydroponics)
 "iaf" = (
 /obj/structure/multiz/stairs/enter{
 	dir = 1
@@ -104298,6 +104318,11 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"osm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/dark/golden,
+/area/eris/neotheology/bioreactor)
 "oup" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -105010,10 +105035,18 @@
 /obj/item/weapon/access_update_tool,
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/command/meeting_room)
+"wiv" = (
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/dark/golden,
+/area/eris/neotheology/bioreactor)
 "wja" = (
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/wall/r_wall,
 /area/eris/crew_quarters/kitchen)
+"wjf" = (
+/obj/machinery/duct,
+/turf/simulated/floor/grass,
+/area/eris/crew_quarters/hydroponics)
 "wjY" = (
 /obj/structure/cable/yellow,
 /obj/machinery/power/generator/anchored{
@@ -105157,6 +105190,13 @@
 	},
 /turf/simulated/open,
 /area/eris/quartermaster/storage)
+"xJt" = (
+/obj/machinery/atmospherics/pipe/simple/visible/blue{
+	dir = 4
+	},
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/neotheology/bioreactor)
 "xLv" = (
 /obj/effect/shuttle_landmark/merc/sec2west,
 /turf/space,
@@ -122090,7 +122130,7 @@ awR
 awR
 aCn
 btd
-byX
+osm
 bHp
 bSK
 bXZ
@@ -122699,7 +122739,7 @@ btg
 bts
 bGG
 bSZ
-bYO
+xJt
 bZM
 cci
 bts
@@ -124113,9 +124153,9 @@ btr
 bBX
 bRo
 bTc
-bts
-bts
-bts
+wiv
+wiv
+wiv
 bts
 bts
 bts
@@ -160682,7 +160722,7 @@ bQq
 bQq
 bQq
 bQq
-bQq
+hSm
 dHB
 cbF
 cbF
@@ -160884,7 +160924,7 @@ bUT
 bUT
 bUT
 bUT
-bQq
+hSm
 bOi
 bxH
 bQn
@@ -161080,13 +161120,13 @@ bRg
 bQZ
 bQn
 bQq
-bQn
+wjf
 auS
 auS
 auS
 auS
-bQn
-bQq
+wjf
+hSm
 bVu
 bxH
 bQS
@@ -161288,7 +161328,7 @@ bUT
 bUT
 bUT
 bUT
-bQq
+hSm
 bXk
 bIs
 bXn
@@ -161490,7 +161530,7 @@ bUT
 bUT
 bUT
 bUT
-bQq
+hSm
 bXi
 bxH
 bXC
@@ -161686,13 +161726,13 @@ bRi
 bRi
 bQn
 bQq
-bQn
+wjf
 auS
 auS
 auS
 auS
-bQn
-bQq
+wjf
+hSm
 bXi
 bxH
 bQn
