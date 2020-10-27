@@ -1,5 +1,0 @@
-author: Michiyamenotehifunana
-delete-after: true
-changes:
-  - bugfix: Gun tags have been fixed, meaning ergonomic grips and such should actually
-      fit on guns now.
