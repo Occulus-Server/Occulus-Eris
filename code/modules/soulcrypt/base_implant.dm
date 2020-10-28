@@ -265,7 +265,6 @@ The module base code is held in module.dm
 	integrity = CLAMP(integrity, 0, 100)
 
 /obj/item/weapon/implant/core_implant/soulcrypt/proc/send_host_message(var/message, var/message_type = MESSAGE_NOTICE)
-	var/turf/T = get_turf(wearer)
 	switch(message_type)
 		if(MESSAGE_NOTICE)
 			to_chat(wearer, SPAN_NOTICE("\icon[src] [src] transmits calmly, '[message]'"))

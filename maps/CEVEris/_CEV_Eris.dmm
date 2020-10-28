@@ -9170,8 +9170,7 @@
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/hallway/side/section3starboard)
 "avK" = (
-/obj/structure/table/woodentable,
-/obj/spawner/oddities/low_chance,
+/obj/machinery/neotheology/clone_vat,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
 "avL" = (
@@ -56067,6 +56066,7 @@
 /area/eris/quartermaster/storage)
 "cBo" = (
 /obj/structure/table/woodentable,
+/obj/item/weapon/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/neotheology/chapelritualroom)
 "cBp" = (
@@ -103449,11 +103449,11 @@
 /area/eris/quartermaster/hangarsupply)
 "heQ" = (
 /obj/structure/table/glass,
-/obj/item/weapon/implant/soulcrypt,
-/obj/item/weapon/implant/soulcrypt,
-/obj/item/weapon/implant/soulcrypt,
-/obj/item/weapon/implant/soulcrypt,
-/obj/item/weapon/implant/soulcrypt,
+/obj/item/weapon/implant/core_implant/soulcrypt,
+/obj/item/weapon/implant/core_implant/soulcrypt,
+/obj/item/weapon/implant/core_implant/soulcrypt,
+/obj/item/weapon/implant/core_implant/soulcrypt,
+/obj/item/weapon/implant/core_implant/soulcrypt,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "hgv" = (
@@ -103474,6 +103474,16 @@
 	},
 /turf/simulated/floor/hull,
 /area/space)
+"hAu" = (
+/obj/structure/table/woodentable,
+/obj/spawner/oddities/low_chance,
+/obj/spawner/oddities/low_chance,
+/obj/spawner/oddities/low_chance,
+/obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors{
+	pixel_y = 12
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/neotheology/chapelritualroom)
 "hHz" = (
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
@@ -104469,6 +104479,9 @@
 /obj/structure/closet/self_pacification,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
+"puB" = (
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/neotheology/chapelritualroom)
 "pvl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -159291,7 +159304,7 @@ cJp
 cIS
 aaa
 ccU
-avK
+puB
 byR
 byR
 bQx
@@ -159493,7 +159506,7 @@ cIS
 cIS
 aaa
 ccU
-avK
+hAu
 byR
 byR
 bQx

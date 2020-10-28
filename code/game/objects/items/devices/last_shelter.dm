@@ -21,11 +21,11 @@
 		if(soulcrypt)
 			scan = FALSE
 			if(istype(src.loc, /mob/living/carbon/human))
-				user.put_in_hands(cruciform)
+				user.put_in_hands(soulcrypt)
 				to_chat(user, SPAN_NOTICE("The [src] has found the lost cruciform in a deep space. Now this fate of the disciple rests in your hands."))
 			else
-				visible_message(SPAN_NOTICE("[src] drops [cruciform]."))
-				cruciform.forceMove(get_turf(src))
+				visible_message(SPAN_NOTICE("[src] drops [soulcrypt]."))
+				soulcrypt.forceMove(get_turf(src))
 		else
 			to_chat(user, SPAN_WARNING("The [src] can't find any working cruciforms in deep space. You can try to use [src] again later."))
 			scan = FALSE
@@ -49,7 +49,7 @@
 	var/obj/item/weapon/implant/core_implant/soulcrypt/soulcrypt = new /obj/item/weapon/implant/core_implant/soulcrypt(src)
 	soulcrypt.install(H)
 	qdel(H)
-	return cruciform
+	return soulcrypt
 
 /obj/item/device/last_shelter/proc/request_player()
 	var/agree_time_out = FALSE
