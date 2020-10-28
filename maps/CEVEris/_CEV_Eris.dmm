@@ -103482,6 +103482,12 @@
 /obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors{
 	pixel_y = 12
 	},
+/obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors{
+	pixel_y = 12
+	},
+/obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors{
+	pixel_y = 12
+	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
 "hHz" = (
