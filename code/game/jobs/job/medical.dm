@@ -71,6 +71,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	wage = WAGE_PROFESSIONAL
+	alt_titles = list("Surgeon", "Nurse", "Medical Intern")
 	outfit_type = /decl/hierarchy/outfit/job/medical/doctor
 
 	access = list(

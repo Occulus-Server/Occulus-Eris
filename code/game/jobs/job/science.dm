@@ -68,7 +68,7 @@ As a scientist, your first loyalty is to knowledge and Discovery, the ultimate g
 	supervisors = "the Chief Science Officer"
 	selection_color = "#bdb1bb"
 	wage = WAGE_PROFESSIONAL
-	//alt_titles = list("Xenobiologist")
+	alt_titles = list("Xenobiologist", "Xenoflorist", "Research Intern", "Anomalist")
 	outfit_type = /decl/hierarchy/outfit/job/science/scientist
 
 	software_on_spawn = list(/datum/computer_file/program/signaller, /datum/computer_file/program/chem_catalog)
