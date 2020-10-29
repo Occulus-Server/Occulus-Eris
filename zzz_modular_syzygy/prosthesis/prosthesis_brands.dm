@@ -36,4 +36,7 @@
 	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
 
+/datum/body_modification/limb/prosthesis
+	body_parts = list(BP_L_ARM, BP_L_HAND, BP_R_ARM, BP_R_HAND, BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT)
+
 #undef PROSTHESIS_FULL

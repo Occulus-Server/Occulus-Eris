@@ -12,11 +12,25 @@
 	force_icon = 'icons/mob/human_races/cyberlimbs/serbian.dmi'
 	model = "serbian"
 
+//In game prostheses
+
 /obj/item/organ/external/robotic/frozen_star
 	name = "\"Frozen Star\""
 	desc = "Tactical \"Frozen Star\" blue and gray prosthesis for dangerous enviroment."
 	force_icon = 'icons/mob/human_races/cyberlimbs/frozen_star.dmi'
 	model = "frozen_star"
+
+/obj/item/organ/external/robotic/frozen_star/l_arm
+	default_description = /datum/organ_description/arm/left
+
+/obj/item/organ/external/robotic/frozen_star/r_arm
+	default_description = /datum/organ_description/arm/right
+
+/obj/item/organ/external/robotic/frozen_star/l_leg
+	default_description = /datum/organ_description/leg/left
+
+/obj/item/organ/external/robotic/frozen_star/r_leg
+	default_description = /datum/organ_description/leg/right
 
 /obj/item/organ/external/robotic/technomancer
 	name = "Technomancer \"Homebrew\""
@@ -24,7 +38,18 @@
 	force_icon = 'icons/mob/human_races/cyberlimbs/technomancer.dmi'
 	model = "technomancer"
 
-//In game prostheses
+/obj/item/organ/external/robotic/technomancer/l_arm
+	default_description = /datum/organ_description/arm/left
+
+/obj/item/organ/external/robotic/technomancer/r_arm
+	default_description = /datum/organ_description/arm/right
+
+/obj/item/organ/external/robotic/technomancer/l_leg
+	default_description = /datum/organ_description/leg/left
+
+/obj/item/organ/external/robotic/technomancer/r_leg
+	default_description = /datum/organ_description/leg/right
+
 /obj/item/organ/external/robotic/moebius
 	name = "\"Moebius\""
 	desc = "Reinforced purple and white prosthesis designed for space exploration and light combat."
