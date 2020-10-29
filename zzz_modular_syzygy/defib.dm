@@ -1,6 +1,7 @@
 #define DEFIB_TIME_LIMIT (10 MINUTES) //past this many seconds, defib is useless.
 #define DEFIB_TIME_LOSS  (2 MINUTES) //past this many seconds, brain damage occurs.
 
+/*	brain tickers broke
 // Adds defib timers to brain, and ensures it ticks down when its owner is dead
 /obj/item/organ/internal/brain
 	var/defib_timer = -1
@@ -22,7 +23,7 @@
 		defib_timer = max(--defib_timer, 0)
 	else
 		defib_timer = min(++defib_timer, (15) / 2)
-
+*/
 
 //backpack item
 /obj/item/device/defib_kit
@@ -44,6 +45,8 @@
 	var/obj/item/weapon/cell/bcell = null
 	var/cooldown = 45 SECONDS
 	var/cooldown_timer
+
+	var/oxygain = 50 //How much oxyloss should this thing heal?
 
 	item_icons = list(
 		slot_l_hand_str = 'zzz_modular_syzygy/icons/mob/left_hand.dmi',
@@ -426,8 +429,8 @@
 	return null
 
 /obj/item/weapon/shockpaddles/proc/can_revive(mob/living/carbon/human/H) //This is checked right before attempting to revive
-	var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
-	if(H.should_have_organ(BP_BRAIN) && (!brain || brain.defib_timer <= 0 ) )
+	var/deadtime = world.time - H.timeofdeath
+	if (deadtime > DEFIB_TIME_LIMIT && !H.isSynthetic())
 		return "buzzes, \"Resuscitation failed - Excessive neural degeneration. Further attempts futile.\""
 
 	H.updatehealth()
@@ -510,6 +513,9 @@
 
 /obj/item/weapon/shockpaddles/proc/checked_use(var/charge_amt)
 	return 0
+
+/obj/item/weapon/shockpaddles/proc/defib_oxygain()
+	return 10
 
 /obj/item/weapon/shockpaddles/examine(mob/user)
 	..()
@@ -654,10 +660,8 @@
 
 	H.apply_damage(burn_damage_amt, BURN, UPPER_TORSO)
 
-	//set oxyloss so that the patient is just barely in crit, if possible
-	var/barely_in_crit = 0 - 1
-	var/adjust_health = barely_in_crit - H.health //need to increase health by this much
-	H.adjustOxyLoss(-adjust_health)
+	//Whatever Polaris used to set oxyless to crit-level, it's not working here. So here's Eclipse's solution.
+	H.adjustOxyLoss(-defib_oxygain())
 
 	if(H.isSynthetic())
 		H.adjustToxLoss(-H.getToxLoss())
@@ -666,6 +670,12 @@
 	playsound(src, 'sound/machines/defib_success.ogg', 50, 0)
 
 	make_alive(H)
+
+	//Reactivate the patient's cruciform, if they have one
+	var/obj/item/weapon/implant/core_implant/cruciform/CI = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform, FALSE)
+	if(CI)
+		to_chat(CI.wearer, "<span class='info'>Your Core Implant vibrates and warms up.</span>")
+		CI.activate()
 
 	log_and_message_admins("used \a [src] to revive [key_name(H)].")
 
@@ -710,6 +720,8 @@
 	msg_admin_attack("[key_name(user)] shocked [key_name(H)]")
 
 /obj/item/weapon/shockpaddles/proc/make_alive(mob/living/carbon/human/M) //This revives the mob
+	var/deadtime = world.time - M.timeofdeath
+
 	GLOB.dead_mob_list.Remove(M)
 	if((M in GLOB.living_mob_list) || (M in GLOB.dead_mob_list))
 		WARNING("Mob [M] was defibbed but already in the living or dead list still!")
@@ -725,32 +737,17 @@
 	M.emote("gasp")
 	M.Weaken(rand(10,25))
 	M.updatehealth()
-	apply_brain_damage(M)
+	apply_brain_damage(M, deadtime)
 
-/obj/item/weapon/shockpaddles/proc/apply_brain_damage(mob/living/carbon/human/H)
-	if(!H.should_have_organ(BP_BRAIN))
-		return // No brain.
+/obj/item/weapon/shockpaddles/proc/apply_brain_damage(mob/living/carbon/human/H, var/deadtime)
+	if(deadtime < DEFIB_TIME_LOSS) return
+
+	if(!H.should_have_organ(BP_BRAIN)) return //no brain
 
 	var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
-	if(!brain)
-		return // Still no brain.
+	if(!brain) return //no brain
 
-	// If the brain'd `defib_timer` var gets below this number, brain damage will happen at a linear rate.
-	// This is measures in `Life()` ticks. E.g. 10 minute defib timer = 6000 world.time units = 3000 `Life()` ticks.
-	var/brain_damage_timer = ((10) / 2) - ((2) / 2)
-
-	if(brain.defib_timer > brain_damage_timer)
-		return // They got revived before brain damage got a chance to set in.
-
-	// As the brain decays, this will be between 0 and 1, with 1 being the most fresh.
-	var/brain_death_scale = brain.defib_timer / brain_damage_timer
-
-	// This is backwards from what you might expect, since 1 = fresh and 0 = rip.
-	var/damage_calc = LERP(brain.max_damage, H.getBrainLoss(), brain_death_scale)
-
-	// A bit of sanity.
-	var/brain_damage = between(H.getBrainLoss(), damage_calc, brain.max_damage)
-
+	var/brain_damage = CLAMP((deadtime - DEFIB_TIME_LOSS)/(DEFIB_TIME_LIMIT - DEFIB_TIME_LOSS)*brain.max_damage, H.getBrainLoss(), brain.max_damage)
 	H.setBrainLoss(brain_damage)
 
 /obj/item/weapon/shockpaddles/proc/make_announcement(var/message, var/msg_class)
@@ -837,6 +834,11 @@
 
 /obj/item/weapon/shockpaddles/linked/checked_use(var/charge_amt)
 	return (base_unit.bcell && base_unit.bcell.checked_use(charge_amt))
+
+/obj/item/weapon/shockpaddles/linked/defib_oxygain()
+	if(base_unit)
+		return base_unit.oxygain
+	. = ..()
 
 /obj/item/weapon/shockpaddles/linked/make_announcement(var/message, var/msg_class)
 	base_unit.audible_message("<b>\The [base_unit]</b> [message]", "\The [base_unit] vibrates slightly.")
