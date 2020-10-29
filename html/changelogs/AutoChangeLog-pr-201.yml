@@ -1,0 +1,6 @@
+author: Toriate
+delete-after: true
+changes:
+  - tweak: cruciforms now reactivated by defibs
+  - bugfix: defib timers now function, no more defibbing 5 hour old rotting corpses
+  - balance: defibs will now heal oxyloss
