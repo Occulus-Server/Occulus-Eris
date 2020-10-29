@@ -1,0 +1,4 @@
+author: Toriate
+delete-after: true
+changes:
+  - rscadd: Ported the Church Update from Eclipse
