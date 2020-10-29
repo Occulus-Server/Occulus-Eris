@@ -1,7 +1,7 @@
 /datum/category_item/setup_option/core_implant/cruciform
 	name = "Mekhanite Cruciform"
 	desc = "Deus Ex Anima. A marvelous confection of modern technology, the Cruciform <br>\
-	allows a faithful acolyte to retain their mind in soul even in death.<br>\
+	allows a faithful acolyte to retain their mind and soul even in death.<br>\
 	Signifies your dedication and loyalty to Children of The Mekhane."
 	implant_type = /obj/item/weapon/implant/core_implant/cruciform
 	restricted_depts = IRONHAMMER | COMMAND
@@ -31,6 +31,6 @@
 	name = "Core Implant"
 	desc = "DEBUG OPTION: This is to prevent a glitch where characters saved with cruciforms selected before the church rework update get permanently stuck with a non-existant implant. <br>\
 	Deus Ex Anima. A marvelous confection of modern technology, the Cruciform <br>\
-	allows a faithful acolyte to retain their mind in soul even in death.<br>\
+	allows a faithful acolyte to retain their mind and soul even in death.<br>\
 	Signifies your dedication and loyalty to Children of The Mekhane."
 // SYZYGY SPAGHETTI END

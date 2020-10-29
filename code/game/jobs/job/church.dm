@@ -27,7 +27,7 @@
 
 	stat_modifiers = list(
 		STAT_TGH = 10,
-		STAT_BIO = 35,
+		STAT_BIO = 20,
 		STAT_VIG = 15,
 		STAT_COG = 10,
 	)
@@ -83,7 +83,7 @@
 
 	stat_modifiers = list(
 	STAT_MEC = 25,
-	STAT_BIO = 25,
+	STAT_BIO = 15,
 	STAT_VIG = 10,
 	STAT_TGH = 5,
 	)

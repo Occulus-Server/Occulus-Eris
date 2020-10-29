@@ -13,8 +13,8 @@
 
 /datum/perk/selfmedicated
 	name = "Medication Expertise"
-	desc = "Your carreer made you very intimate with different consumable substances. \
-			You total NSA is increased and chance to gain an addiction decreased."
+	desc = "Your career has made you very intimate with many different consumable substances. \
+			Your total NSA is increased and your chance to gain an addiction is decreased."
 	icon_state = "selfmedicated" // https://game-icons.net/1x1/lorc/overdose.html
 
 /datum/perk/selfmedicated/assign(mob/living/carbon/human/H)
@@ -29,7 +29,7 @@
 
 /datum/perk/vagabond
 	name = "Drifter"
-	desc = "You're used to see the worst sight the world has to offer. Your mind feels more resistant. \
+	desc = "You're used to seeing the worst sights the world has to offer. Your mind feels more resistant. \
 			This perk reduces the total sanity damage you can take from what is happening around you."
 	icon_state = "vagabond" // https://game-icons.net/1x1/lorc/eye-shield.html
 
