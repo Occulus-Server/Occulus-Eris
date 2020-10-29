@@ -1,0 +1,5 @@
+author: Jamini
+delete-after: true
+changes:
+  - bugfix: Cleaner reactions work properly
+  - bugfix: Gibs should no longer be invisible
