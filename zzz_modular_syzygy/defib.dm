@@ -671,10 +671,11 @@
 
 	make_alive(H)
 
-	//Reactivate the patient's cruciform
-	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(H, /obj/item/weapon/implant/core_implant/cruciform, FALSE)
-	to_chat(CI.wearer, "<span class='info'>Your Core Implant vibrates and warms up.</span>")
-	CI.activate()
+	//Reactivate the patient's cruciform, if they have one
+	var/obj/item/weapon/implant/core_implant/cruciform/CI = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform, FALSE)
+	if(CI)
+		to_chat(CI.wearer, "<span class='info'>Your Core Implant vibrates and warms up.</span>")
+		CI.activate()
 
 	log_and_message_admins("used \a [src] to revive [key_name(H)].")
 
