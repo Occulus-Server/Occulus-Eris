@@ -146,7 +146,7 @@
 		/obj/item/weapon/implant/tracking,
 		/obj/item/weapon/implant/core_implant/cruciform,
 		/obj/item/weapon/implant/excelsior,
-		/obj/item/weapon/implant/soulcrypt		//SYZYGY EDIT - Makes soulcrypts show up properly on scanners
+		/obj/item/weapon/implant/core_implant/soulcrypt		//SYZYGY EDIT - Makes soulcrypts show up properly on scanners
 	)
 	var/delete
 	var/temphtml

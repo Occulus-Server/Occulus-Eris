@@ -1352,9 +1352,9 @@
 	taste_tag = list(TASTE_SWEET, TASTE_BITTER)
 
 /datum/reagent/ethanol/ntcahors
-	name = "NanoTrasen Cahors Wine"
+	name = "Saint's Wing Cahors"
 	id = "ntcahors"
-	description = "Fortified dessert wine made from cabernet sauvignon, saperavi and other grapes."
+	description = "Fortified dessert wine made from a variety of natural ingredients. Or so Children of the Mekhane claim."
 	taste_description = "sweet charcoal"
 	color = "#7E4043" // rgb: 126, 64, 67
 	strength = 30
@@ -1369,6 +1369,24 @@
 	..()
 	M.adjust_hallucination(-0.9 * effect_multiplier)
 	M.adjustToxLoss(-0.5 * effect_multiplier)
+
+/datum/reagent/ethanol/ntcahors/activated
+	name = "Saint's Wing Cahors"
+	id = "ntcahors_active"
+	description = "Sweet church wine, that seems to bubble and move around by itself, as if alive."
+	taste_description = "sweet activated charcoal"
+	color = "#4d292a" // rgb: 77, 41, 42
+	strength = 45 //Oh no
+
+	glass_desc = "It looks like wine, but more dark. The liquid seems to move around by itself."
+
+/datum/reagent/ethanol/ntcahors/activated/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
+	..()
+	M.adjust_hallucination(-0.9 * effect_multiplier)
+	M.adjustToxLoss(-0.5 * effect_multiplier)
+	M.adjustFireLoss(-0.3 * effect_multiplier)
+	M.adjustOxyLoss(- 2 * effect_multiplier)
+	M.adjustBruteLoss(- 1 * effect_multiplier)
 
 // Cocktails
 /datum/reagent/ethanol/acid_spit

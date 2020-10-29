@@ -411,6 +411,8 @@
 
 	new_character.name = real_name
 	new_character.dna.ready_dna(new_character)
+	new_character.dna.flavor_text = client.prefs.flavor_text
+	new_character.dna.age = client.prefs.age
 	new_character.dna.b_type = client.prefs.b_type
 	new_character.sync_organ_dna()
 	if(client.prefs.disabilities)
@@ -426,19 +428,9 @@
 	new_character.update_eyes()
 	new_character.regenerate_icons()
 	new_character.key = key//Manually transfer the key to log them in
-	if(new_character.client && new_character.client.prefs.has_soulcrypt)
+/*	if(new_character.client && new_character.client.prefs.has_soulcrypt)
 		new_character.create_soulcrypt()
-
-	//REEEEE GIMME A CRUCIFORM	-	Syzygy edit
-	var/datum/category_item/setup_option/core_implant/I = new_character.client.prefs.get_option("Core implant")	// gets the core implant selected in the character creator, which can either be the cruciform, or nothing.
-	if(I.implant_type)	//Checks if an implant is selected. If there is none selected, do nothing.
-		var/obj/item/weapon/implant/core_implant/C = new I.implant_type	//spawns the implant
-		C.install(new_character) //installs it inside you
-		C.activate() //turns it on
-		C.install_default_modules_by_job(new_character.mind.assigned_job)
-		C.access.Add(new_character.mind.assigned_job.cruciform_access)
-	//Best to fix the missing cruciform issue instead of relying on this crutch
-
+*/
 	return new_character
 
 /mob/new_player/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, var/glide_size_override = 0)
