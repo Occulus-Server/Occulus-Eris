@@ -959,7 +959,7 @@ var/global/list/damage_icon_parts = list()
 		else if(wear_mask.icon_override)
 			standing = image(icon = wear_mask.icon_override, icon_state = wear_mask.icon_state)
 //SYZYGY EDIT
-		else if(wear_mask.item_icons && slot_wear_mask_str in wear_mask.item_icons)
+		else if((wear_mask.item_icons && slot_wear_mask_str) in wear_mask.item_icons)
 			standing = image(wear_mask.item_icons[slot_wear_mask_str], icon_state = wear_mask.icon_state)
 //END SYZYGY EDIT
 		else
