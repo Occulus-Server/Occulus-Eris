@@ -179,18 +179,22 @@
 // Bandanas below
 /obj/item/clothing/mask/bandana
 	name = "black bandana"
-	desc = "A fine bandana with nanotech lining."	// SYZYGY EDIT - no more wearing your bandana on the face
-	flags_inv = null	// SYZYGY EDIT - Now ears and hair show through it
-	slot_flags = SLOT_HEAD	// SYZYGY EDIT - no more wearing your bandana on the face
-	body_parts_covered = HEAD	// SYZYGY EDIT - no more wearing your bandana on the face
+	//SYZYGY Edit Start
+	desc = "A fine bandana with nanotech lining."
+	flags_inv = null	//Now ears and hair show through it
+	slot_flags = SLOT_HEAD | SLOT_MASK
+	body_parts_covered = HEAD|FACE
+	item_icons = list(
+		slot_head_str = 'icons/mob/head.dmi',
+		slot_wear_mask_str = 'icons/mob/mask.dmi'		)
+	//SYZYGY Edit end
 	icon_state = "bandblack"
 	item_state = "bandblack"
 	item_flags = FLEXIBLEMATERIAL
 	w_class = ITEM_SIZE_SMALL
 	price_tag = 20
 	rarity_value = 18.2
-
-/*		SYZYGY EDIT - really pointless thing
+//SYZYGY Edit - Renabling this
 /obj/item/clothing/mask/bandana/equipped(var/mob/user, var/slot)
 	switch(slot)
 		if(slot_wear_mask) //Mask is the default for all the settings
@@ -203,7 +207,7 @@
 			icon_state = "[initial(icon_state)]_up"
 
 	return ..()
-*/
+//SYZYG Edit end
 
 /obj/item/clothing/mask/bandana/red
 	name = "red bandana"

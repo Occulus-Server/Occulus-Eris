@@ -121,6 +121,9 @@
 #define slot_head_str		"slot_head"
 #define slot_wear_suit_str	"slot_suit"
 #define slot_s_store_str    "slot_s_store"
+//Syzygy Edit
+#define slot_wear_mask_str	"slot_wear_mask"
+//End Syzygy Edit
 
 // Bitflags for clothing parts.
 #define HEAD        0x1
