@@ -23,3 +23,4 @@
 /datum/gear/uniform/turtleneck
 	display_name = "black turtleneck"
 	path = /obj/item/clothing/under/syndicate/civilian
+	
