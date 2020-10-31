@@ -455,3 +455,5 @@
 	. = ..()
 	for(var/datum/reagent/R in reagents.reagent_list)
 		. += R.volume * R.price_tag
+/obj/item/weapon/tool/price_tag = 5 //THIS IS MULTIPLIED BY (TOTAL TOOL_QUALITIES/5+1)
+/obj/item/ammo_casing/price_tag = 2
