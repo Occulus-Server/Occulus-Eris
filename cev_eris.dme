@@ -2772,6 +2772,7 @@
 #include "zzz_modular_syzygy\code\game\jobs\SZdepartment.dm"
 #include "zzz_modular_syzygy\code\game\objects\effects\decals\Cleanable\humans.dm"
 #include "zzz_modular_syzygy\code\game\objects\items\tools\_tools.dm"
+#include "zzz_modular_syzygy\code\game\objects\items\weapons\autolathe_disks.dm"
 #include "zzz_modular_syzygy\code\modules\loot_spawn_blacklist.dm"
 #include "zzz_modular_syzygy\code\modules\economy\ATM.dm"
 #include "zzz_modular_syzygy\code\modules\economy\price_list_fixed.dm"
