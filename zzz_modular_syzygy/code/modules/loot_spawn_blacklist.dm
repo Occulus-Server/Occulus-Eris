@@ -130,3 +130,5 @@
 /obj/item/weapon/storage/deferred/crate/sidearm
 	spawn_blacklisted = TRUE //grenadier crate
 
+/obj/item/weapon/computer_hardware/hard_drive/portable/design
+	spawn_frequency = 7
