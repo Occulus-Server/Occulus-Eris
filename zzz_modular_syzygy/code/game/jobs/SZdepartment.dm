@@ -55,7 +55,7 @@
 
 /obj/item/weapon/card/id/account/medical
 	name = "Medical Department banking card"
-	desc = "A card that holds account information for the Nanotrasen Medical Divsion account."
+	desc = "A card that holds account information for the Nanotrasen Medical Divsion bank account."
 	item_state = "id_cmo"
 	registered_name = "Nanotrasen: Medical Division"
 	department = DEPARTMENT_MEDICAL
@@ -63,28 +63,28 @@
 
 /obj/item/weapon/card/id/account/research
 	name = "Research Department banking card"
-	desc = "A card that holds account information for the Northern Light command account."
+	desc = "A card that holds account information for the Nanotrasen Research Division bank account."
 	item_state = "id_rd"
 	registered_name = "Nanotrasen: Research Division"
 	department = DEPARTMENT_SCIENCE
 
 /obj/item/weapon/card/id/account/church
 	name = "Church of the Mekhane banking card"
-	desc = "A card that holds account information for the Northern Light command account."
+	desc = "A card that holds account information for the Church of Mekhane bank account."
 	item_state = "id_chaplain"
 	registered_name = "Church of Mekhane"
 	department = DEPARTMENT_CHURCH
 
 /obj/item/weapon/card/id/account/guild
 	name = "Free Trade Union banking card"
-	desc = "A card that holds account information for the Northern Light command account."
+	desc = "A card that holds account information for the Free Trade Union bank account."
 	item_state = "gold_id"
 	registered_name = "Free Trade Union"
 	department = DEPARTMENT_GUILD
 
 /obj/item/weapon/card/id/account/club
 	name = "The Club banking card"
-	desc = "A card that holds account information for the Northern Light command account."
+	desc = "A card that holds account information for The Club bank account."
 	item_state = "id_hop"
 	registered_name = "NEV Northern Light Civic"
 	department = DEPARTMENT_CIVILIAN
@@ -104,8 +104,6 @@
 /decl/hierarchy/outfit/job/science/rd
 	backpack_contents = list(/obj/item/weapon/oddity/secdocs = 1, /obj/item/weapon/card/id/account/research = 1)
 /decl/hierarchy/outfit/job/church/chaplain
-	backpack_contents = list(/obj/item/weapon/card/id/account/church = 1)
-/decl/hierarchy/outfit/job/church/acolyte //THIS IS A TEMPORARY FIX UNTIL PREACHERS ARE RE-ENABLED
 	backpack_contents = list(/obj/item/weapon/card/id/account/church = 1)
 /decl/hierarchy/outfit/job/service/manager
 	name = OUTFIT_JOB_NAME("Manager")
