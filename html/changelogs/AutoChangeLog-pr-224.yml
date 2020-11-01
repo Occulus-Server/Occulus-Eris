@@ -1,6 +1,0 @@
-author: Jamini
-delete-after: true
-changes:
-  - balance: autolathes can no longer recycle anything at 100% efficiency
-  - balance: buffed smelter recycling rate when upgraded from 5% per tier to 15% per
-      tier.
