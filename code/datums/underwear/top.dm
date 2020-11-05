@@ -106,3 +106,9 @@
 	name = "Striped Bra"
 	icon_state = "striped_bra"
 	has_color = TRUE
+
+// Syzygy stuff
+/datum/category_item/underwear/top/tighttank
+	name = "Tight Tank Top"
+	icon_state = "tighttank"
+	has_color = TRUE
