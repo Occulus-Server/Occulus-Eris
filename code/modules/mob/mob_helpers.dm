@@ -658,3 +658,19 @@ proc/is_blind(A)
 		vol *= L.noise_coeff
 		extrarange *= L.noise_coeff
 	playsound(source, soundin, vol, vary, extrarange, falloff, is_global, frequency, is_ambiance,  ignore_walls, zrange, override_env, envdry, envwet, use_pressure)
+
+/mob/proc/weight_coeff()
+	return get_max_w_class()/(ITEM_SIZE_TITANIC)
+
+/mob/proc/get_accumulated_vision_handlers()
+	var/result[2]
+	var/asight = 0
+	var/ainvis = 0
+	for(var/atom/vision_handler in additional_vision_handlers)
+		//Grab their flags
+		asight |= vision_handler.additional_sight_flags()
+		ainvis = max(ainvis, vision_handler.additional_see_invisible())
+	result[1] = asight
+	result[2] = ainvis
+
+	return result
