@@ -2765,6 +2765,7 @@
 #include "zzz_modular_syzygy\projectiles.dm"
 #include "zzz_modular_syzygy\roach.dm"
 #include "zzz_modular_syzygy\sawnlevergun.dm"
+#include "zzz_modular_syzygy\sofas.dm"
 #include "zzz_modular_syzygy\stashes.dm"
 #include "zzz_modular_syzygy\translators.dm"
 #include "zzz_modular_syzygy\vector.dm"
