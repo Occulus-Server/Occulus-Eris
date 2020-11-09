@@ -1,0 +1,5 @@
+author: Jamini
+delete-after: true
+changes:
+  - rscadd: Added disk compartmentalizer
+  - bugfix: open panel overlay on smartfridges now goes away when you close the panel!
