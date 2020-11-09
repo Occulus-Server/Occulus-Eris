@@ -1,0 +1,13 @@
+author: Toriate
+delete-after: true
+changes:
+  - rscadd: Ported a ton more patches from upstream
+  - rscadd: You can now throw grenades up/down ladders, as well as look up and down
+      them with alt click
+  - rscadd: Helmets will keep you from being stunned by small items falling from a
+      higher Z level
+  - rscadd: Having a high MEC stat will allow you to determine whether a battery is
+      rigged to explode or not when examined.
+  - tweak: All .35 pistols aside from the Giskard can now use high capacity magazines
+  - bugfix: Fixed some minor bugs regarding the Brigador and Svallin slot flags.
+  - bugfix: Fixed a bug that allowed duplicating stacks of money.
