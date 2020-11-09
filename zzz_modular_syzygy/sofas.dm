@@ -7,78 +7,44 @@
 	base_icon = "sofamiddle"
 	icon_state = "sofamiddle"
 	applies_material_colour = TRUE
-	var/sofa_material = "carpet"
-	matter = list(MATERIAL_STEEL = 5)
 
-/obj/structure/bed/chair/sofa/update_icon()
-	overlays.Cut()
-
-	if(applies_material_colour && sofa_material)
-		material = get_material_by_name(sofa_material)
-		color = material.icon_colour
-
-		if(sofa_material == "carpet")
-			name = "red [initial(name)]"
-		else
-			name = "[sofa_material] [initial(name)]"
-
-	if(buckled_mob && sofa_material && applies_material_colour)
-		var/cache_key = "[base_icon]-armrest-[sofa_material]"
-		if(isnull(stool_cache[cache_key]))
-			var/image/I = image(icon, "[base_icon]_armrest")
-			I.layer = ABOVE_MOB_LAYER
-			material = get_material_by_name(sofa_material)
-			I.color = material.icon_colour
-			stool_cache[cache_key] = I
-		overlays |= stool_cache[cache_key]
-
+/*	Seems like this bit of code never worked to begin with
 /obj/structure/bed/chair/sofa/update_layer()
 	// Corner east/west should be on top of mobs, any other state's north should be.
-	if((icon_state == "sofacorner" && ((src.dir == EAST) || (src.dir == WEST))) || (icon_state != "sofacorner" && (src.dir == NORTH)))
+	if((base_icon == "sofacorner" && ((src.dir == EAST) || (src.dir == WEST))) || (base_icon != "sofacorner" && (src.dir == NORTH)))
 		layer = ABOVE_MOB_LAYER
 	else
 		layer = OBJ_LAYER
-
-/obj/structure/bed/chair/sofa/left
-	icon_state = "sofaend_left"
-	base_icon = "sofaend_left"
-
-/obj/structure/bed/chair/sofa/right
-	icon_state = "sofaend_right"
-	base_icon = "sofaend_right"
-
-/obj/structure/bed/chair/sofa/corner
-	icon_state = "sofacorner"
-	base_icon = "sofacorner"
+*/
 
 //color variations
 
-/obj/structure/bed/chair/sofa
-	sofa_material = "carpet"
+/obj/structure/bed/chair/sofa/red/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","carpet")
 
-/obj/structure/bed/chair/sofa/brown
-	sofa_material = "leather"
+/obj/structure/bed/chair/sofa/brown/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","leather")
 
-/obj/structure/bed/chair/sofa/teal
-	sofa_material = "teal"
+/obj/structure/bed/chair/sofa/teal/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","teal")
 
-/obj/structure/bed/chair/sofa/black
-	sofa_material = "black"
+/obj/structure/bed/chair/sofa/black/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","black")
 
-/obj/structure/bed/chair/sofa/green
-	sofa_material = "green"
+/obj/structure/bed/chair/sofa/green/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","green")
 
-/obj/structure/bed/chair/sofa/purp
-	sofa_material = "purple"
+/obj/structure/bed/chair/sofa/purp/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","purple")
 
-/obj/structure/bed/chair/sofa/blue
-	sofa_material = "blue"
+/obj/structure/bed/chair/sofa/blue/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","blue")
 
-/obj/structure/bed/chair/sofa/beige
-	sofa_material = "beige"
+/obj/structure/bed/chair/sofa/beige/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","beige")
 
-/obj/structure/bed/chair/sofa/lime
-	sofa_material = "lime"
+/obj/structure/bed/chair/sofa/lime/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","lime")
 
 //sofa directions
 
@@ -190,6 +156,18 @@
 	icon_state = "sofacorner"
 	base_icon = "sofacorner"
 
+/obj/structure/bed/chair/sofa/red/left
+	icon_state = "sofaend_left"
+	base_icon = "sofaend_left"
+
+/obj/structure/bed/chair/sofa/red/right
+	icon_state = "sofaend_right"
+	base_icon = "sofaend_right"
+
+/obj/structure/bed/chair/sofa/red/corner
+	icon_state = "sofacorner"
+	base_icon = "sofacorner"
+
 // Crafting datums:
 
 ////////////////////////
@@ -227,7 +205,7 @@
 
 /datum/craft_recipe/furniture/sofa/red
 	name = "red sofa"
-	result = /obj/structure/bed/chair/sofa
+	result = /obj/structure/bed/chair/sofa/red
 	variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofa/blue
@@ -280,7 +258,7 @@
 
 /datum/craft_recipe/furniture/sofacorner/red
 	name = "red sofa"
-	result = /obj/structure/bed/chair/sofa/corner
+	result = /obj/structure/bed/chair/sofa/red/corner
 	variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofacorner/blue
@@ -333,7 +311,7 @@
 
 /datum/craft_recipe/furniture/sofaleft/red
 	name = "red sofa"
-	result = /obj/structure/bed/chair/sofa/left
+	result = /obj/structure/bed/chair/sofa/red/left
 	variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaleft/blue
@@ -386,7 +364,7 @@
 
 /datum/craft_recipe/furniture/sofaright/red
 	name = "red sofa"
-	result = /obj/structure/bed/chair/sofa/right
+	result = /obj/structure/bed/chair/sofa/red/right
 	variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaright/blue
