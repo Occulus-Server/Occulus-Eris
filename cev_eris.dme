@@ -2771,6 +2771,7 @@
 #include "zzz_modular_syzygy\vote.dm"
 #include "zzz_modular_syzygy\wire_splicing.dm"
 #include "zzz_modular_syzygy\code\game\jobs\SZdepartment.dm"
+#include "zzz_modular_syzygy\code\game\machinery\smartfridge.dm"
 #include "zzz_modular_syzygy\code\game\objects\effects\decals\Cleanable\humans.dm"
 #include "zzz_modular_syzygy\code\game\objects\items\tools\_tools.dm"
 #include "zzz_modular_syzygy\code\game\objects\items\toys\balls.dm"
