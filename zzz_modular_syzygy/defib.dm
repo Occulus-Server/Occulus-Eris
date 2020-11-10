@@ -1,4 +1,4 @@
-#define DEFIB_TIME_LIMIT (10 MINUTES) //past this many seconds, defib is useless.
+#define DEFIB_TIME_LIMIT (15 MINUTES) //past this many seconds, defib is useless.
 #define DEFIB_TIME_LOSS  (2 MINUTES) //past this many seconds, brain damage occurs.
 
 /*	brain tickers broke
