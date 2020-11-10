@@ -1,6 +1,0 @@
-author: Jamini
-delete-after: true
-changes:
-  - bugfix: fixed pipe dispenser UI
-  - bugfix: fixed disposal dispenser UI
-  - bugfix: fixed custom tables being unable to be deconstructed
