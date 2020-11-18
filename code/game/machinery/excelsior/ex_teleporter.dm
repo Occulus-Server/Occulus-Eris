@@ -18,7 +18,7 @@ var/global/excelsior_max_energy //Maximaum combined energy of all teleporters
 	var/energy_gain = 1
 	var/processing_order = FALSE
 	var/nanoui_menu = 0 	// Based on Uplink
-	var/mob/current_user 
+	var/mob/current_user
 	var/time_until_scan
 
 	var/list/nanoui_data = list()			// Additional data for NanoUI use
@@ -46,7 +46,7 @@ var/global/excelsior_max_energy //Maximaum combined energy of all teleporters
 		/obj/item/weapon/stock_parts/manipulator/excelsior = 350,
 		/obj/item/weapon/stock_parts/micro_laser/excelsior = 350,
 		/obj/item/weapon/stock_parts/matter_bin/excelsior = 350,
-		/obj/item/clothing/under/excelsior = 100,
+		/obj/item/clothing/under/excelsior = 50,
 		/obj/item/weapon/electronics/circuitboard/excelsior_teleporter = 500,
 		/obj/item/weapon/electronics/circuitboard/excelsiorautolathe = 150,
 		/obj/item/weapon/electronics/circuitboard/excelsiorreconstructor = 150,
@@ -179,7 +179,7 @@ var/global/excelsior_max_energy //Maximaum combined energy of all teleporters
 			) // list in a list because Byond merges the first list...
 
 	data["materials_list"] = order_list_m
-	
+
 	var/list/order_list_p = list()
 	for(var/item in parts_list)
 		var/obj/item/I = item
