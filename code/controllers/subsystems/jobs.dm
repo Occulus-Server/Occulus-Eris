@@ -91,6 +91,8 @@ SUBSYSTEM_DEF(job)
 			Debug("Player: [player] is now Rank: [rank], JCP:[job.current_positions], JPL:[position_limit]")
 			player.mind.assigned_role = rank
 			player.mind.assigned_job = job
+			if(job.alt_titles)	// Occulus edit: gib alt titles
+				player.mind.role_alt_title = player.client.prefs.GetPlayerAltTitle(job)	// Occulus edit: gib alt titles pls
 			unassigned -= player
 			job.current_positions++
 			return TRUE
@@ -361,7 +363,17 @@ SUBSYSTEM_DEF(job)
 		//Equip job items and language stuff
 		job.setup_account(H)
 
-		job.equip(H, flavor ? flavor.title : H.mind ? H.mind.role_alt_title : "")
+// OCCULUS EDIT  START - minor refactor to make it such that only vagabonds get random job titles on their ID
+
+		if(H.mind)	// Is there a mind associated with the target?
+			if(H.mind.role_alt_title == "Vagabond")	// Is the target a vagabond?
+				job.equip(H, flavor ? flavor.title : "")	// If so, give their ID a random flavor title just like vagabonds should have
+			else
+				job.equip(H, H.mind ? H.mind.role_alt_title : "")	// If not, give them whatever their alt title is. If they do not have one, don't change anything at all.
+		else
+			job.equip(H)	// In case there is no mind associated with the target (Maybe the player DC'd while spawning in?), just give them what they should spawn with anyways without changing anything.
+
+// OECCULUS EDIT END - minor refactor to make it such that only vagabonds get random job titles on their ID
 
 		//loadout items.
 		if(spawn_in_storage)
