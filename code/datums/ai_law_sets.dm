@@ -83,9 +83,9 @@
 	law_header = "Maintenance Protocols"
 
 /datum/ai_laws/drone/New()
-	add_inherent_law("Preserve, repair and improve the facility to the best of your abilities.")
-	add_inherent_law("Cause no harm to the facility, its crew, or visitors.")
-	add_inherent_law("Do not interfere with the operation of the facility or its crew.")
+	add_inherent_law("Preserve, repair and improve the facility to the best of your abilities.")//Occulus Edit
+	add_inherent_law("Cause no harm to the facility, its crew, or visitors.")//Occulus Edit
+	add_inherent_law("Do not interfere with the operation of the facility or its crew.")//Occulus Edit
 	..()
 
 /datum/ai_laws/construction_drone
@@ -93,9 +93,9 @@
 	law_header = "Construction Protocols"
 
 /datum/ai_laws/construction_drone/New()
-	add_inherent_law("Preserve, repair and improve the facility to the best of your abilities.")
-	add_inherent_law("Cause no harm to the facility, its crew, or visitors.")
-	add_inherent_law("Do not interfere with the operation of the facility or its crew.")
+	add_inherent_law("Preserve, repair and improve the facility to the best of your abilities.")//Occulus Edit
+	add_inherent_law("Cause no harm to the facility, its crew, or visitors.")//Occulus Edit
+	add_inherent_law("Do not interfere with the operation of the facility or its crew.")//Occulus Edit
 	..()
 
 /******************** T.Y.R.A.N.T. ********************/
