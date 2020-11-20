@@ -1035,11 +1035,11 @@ var/list/rank_prefix = list(\
 	data["style"] = get_total_style()
 	data["min_style"] = MIN_HUMAN_SYLE
 	data["max_style"] = MAX_HUMAN_STYLE
-	data["rest"] = sanity.resting
-	data["insight_rest"] = sanity.insight_rest
 	data["sanity"] = sanity.level
 	data["insight"] = sanity.insight
 	data["desires"] = sanity.desires
+	data["rest"] = sanity.resting
+	data["insight_rest"] = sanity.insight_rest
 	return data
 
 /mob/living/carbon/human/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)

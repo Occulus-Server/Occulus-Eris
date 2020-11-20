@@ -2910,7 +2910,7 @@
 	nutriment_amt = 10
 	bitesize = 2
 	preloaded_reagents = list("protein" = 34, "tomatojuice" = 6)
-	taste_tag = list(MEAT_FOOD)
+	taste_tag = list(MEAT_FOOD, CHEESE_FOOD)
 
 /obj/item/weapon/reagent_containers/food/snacks/meatpizzaslice
 	name = "Meatpizza slice"
@@ -2921,7 +2921,7 @@
 	center_of_mass = list("x"=18, "y"=13)
 	preloaded_reagents = list("protein" = 7, "tomatojuice" = 1)
 	cooked = TRUE
-	taste_tag = list(MEAT_FOOD)
+	taste_tag = list(MEAT_FOOD, CHEESE_FOOD)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/mushroompizza
 	name = "Mushroompizza"
@@ -2959,7 +2959,7 @@
 	nutriment_amt = 25
 	bitesize = 2
 	preloaded_reagents = list("protein" = 5, "tomatojuice" = 6, "imidazoline" = 12)
-	taste_tag = list(VEGETARIAN_FOOD)
+	taste_tag = list(VEGETARIAN_FOOD, CHEESE_FOOD)
 
 /obj/item/weapon/reagent_containers/food/snacks/vegetablepizzaslice
 	name = "Vegetable pizza slice"
@@ -2970,7 +2970,7 @@
 	center_of_mass = list("x"=18, "y"=13)
 	preloaded_reagents = list("nutriment" = 4, "protein" = 1, "tomatojuice" = 1, "imidazoline" = 2)
 	cooked = TRUE
-	taste_tag = list(VEGETARIAN_FOOD)
+	taste_tag = list(VEGETARIAN_FOOD, CHEESE_FOOD)
 
 /obj/item/pizzabox
 	name = "pizza box"
