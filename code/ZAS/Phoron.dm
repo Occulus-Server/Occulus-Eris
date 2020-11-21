@@ -120,7 +120,7 @@ obj/var/contaminated = 0
 	if(!species.has_process[OP_EYES])
 		return
 
-		var/obj/item/organ/internal/eyes/E = random_organ_by_process(OP_EYES)
+	var/obj/item/organ/internal/eyes/E = random_organ_by_process(OP_EYES)
 	if(E)
 		if(prob(20)) to_chat(src, SPAN_DANGER("Your eyes burn!"))
 		E.damage += 2.5

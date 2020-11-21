@@ -62,6 +62,8 @@
 #define BP_B_L_HAND "left carpals"
 #define BP_B_L_LEG  "left femur"
 #define BP_B_R_LEG  "right femur"
+#define BP_B_L_FOOT "left tibia"
+#define BP_B_R_FOOT "right tibia"
 
 // Unique carrion Organs.
 #define BP_SPCORE   "spider core"

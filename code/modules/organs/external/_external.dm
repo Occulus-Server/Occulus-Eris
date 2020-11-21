@@ -258,7 +258,7 @@
 
 	if(internal_organs)
 		for(var/obj/item/organ/internal/int_organ in internal_organs)
-			int_organ.parent_organ = new_organ.organ_tag
+			int_organ.parent_organ_base = new_organ.organ_tag
 
 			src.internal_organs -= int_organ
 			new_organ.internal_organs += int_organ

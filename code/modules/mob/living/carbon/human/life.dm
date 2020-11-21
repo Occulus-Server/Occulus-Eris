@@ -145,7 +145,7 @@
 	//Vision
 	var/obj/item/organ/vision
 	if(species.vision_organ)
-		vision = random_organ_by_process(species.vision_organ)	//You can't really have 2 vision organs that see at the same time, so this is emulated by switching between the eyes. 
+		vision = random_organ_by_process(species.vision_organ)	//You can't really have 2 vision organs that see at the same time, so this is emulated by switching between the eyes.
 
 	if(!species.vision_organ) // Presumably if a species has no vision organs, they see via some other means.
 		eye_blind =  0
@@ -348,7 +348,7 @@
 /mob/living/carbon/human/proc/handle_breath_lungs(datum/gas_mixture/breath)
 	if(!breath)
 		return FALSE
-	//vars - feel free to modulate if you want more effects that are not gained with efficiency 
+	//vars - feel free to modulate if you want more effects that are not gained with efficiency
 	var/breath_type = species.breath_type ? species.breath_type : "oxygen"
 	var/poison_type = species.poison_type ? species.poison_type : "plasma"
 	var/exhale_type = species.exhale_type ? species.exhale_type : 0
@@ -435,9 +435,9 @@
 		var/ratio = (poison/safe_toxins_max) * 10
 		reagents.add_reagent("toxin", CLAMP(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 		breath.adjust_gas(poison_type, -poison/6, update = 0) //update after
-		plasma_alert = 1
+		phoron_alert = 1
 	else
-		plasma_alert = 0
+		phoron_alert = 0
 
 	// If there's some other shit in the air lets deal with it here.
 	if(breath.gas["sleeping_agent"])

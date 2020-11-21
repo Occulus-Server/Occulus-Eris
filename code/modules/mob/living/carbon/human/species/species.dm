@@ -473,7 +473,7 @@
 				dat += "</br><b>Often present among humans.</b>"
 			if(spawn_flags & SPECIES_IS_WHITELISTED)
 				dat += "</br><b>Whitelist restricted.</b>"
-			if(!has_organ[BP_HEART])
+			if(!has_process[OP_HEART])
 				dat += "</br><b>Does not have blood.</b>"
 		/*	if(!has_organ[breathing_organ])
 				dat += "</br><b>Does not breathe.</b>"*/

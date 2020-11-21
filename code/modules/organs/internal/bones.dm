@@ -73,13 +73,13 @@
 	name = "right carpals"
 	icon_state = "right_arm"
 	organ_tag = BP_B_R_HAND
-	parent_organ = BP_R_HAND
+	parent_organ_base = BP_R_HAND
 
 /obj/item/organ/internal/bone/l_hand
 	name = "left carpals"
 	icon_state = "left_arm"
 	organ_tag = BP_B_L_HAND
-	parent_organ = BP_L_HAND
+	parent_organ_base = BP_L_HAND
 
 /obj/item/organ/internal/bone/r_leg
 	name = "right femur"
@@ -97,13 +97,13 @@
 	name = "right tibia"
 	icon_state = "right_leg"
 	organ_tag = BP_B_R_FOOT
-	parent_organ = BP_R_FOOT
+	parent_organ_base = BP_R_FOOT
 
 /obj/item/organ/internal/bone/l_foot
 	name = "left tibia"
 	icon_state = "left_leg"
 	organ_tag = BP_B_L_FOOT
-	parent_organ = BP_L_FOOT
+	parent_organ_base = BP_L_FOOT
 
 //Robotic limb variants
 /obj/item/organ/internal/bone/chest/robotic

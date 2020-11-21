@@ -82,11 +82,11 @@
 				stat("Internal Atmosphere Info", internal.name)
 				stat("Tank Pressure", internal.air_contents.return_pressure())
 				stat("Distribution Pressure", internal.distribute_pressure)
-
+/* OCCULUS EDIT - wtf is this bullshit
 		var/obj/item/organ/internal/xenos/phoronvessel/P = internal_organs_by_name[BP_PHORON]
 		if(P)
 			stat(null, "Phoron Stored: [P.stored_phoron]/[P.max_phoron]")
-
+*/
 		if(back && istype(back,/obj/item/weapon/rig))
 			var/obj/item/weapon/rig/suit = back
 			var/cell_status = "ERROR"

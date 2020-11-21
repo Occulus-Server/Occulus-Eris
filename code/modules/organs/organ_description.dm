@@ -169,7 +169,7 @@
 	organ_tag = BP_L_HAND
 	name = "left hand"
 	body_part = HAND_LEFT
-	parent_organ = BP_L_ARM
+	parent_organ_base  = BP_L_ARM
 	joint = "left wrist"
 	amputation_point = "left wrist"
 	default_bone_type = /obj/item/organ/internal/bone/l_hand
@@ -178,7 +178,7 @@
 	organ_tag = BP_R_HAND
 	name = "right hand"
 	body_part = HAND_RIGHT
-	parent_organ = BP_R_ARM
+	parent_organ_base  = BP_R_ARM
 	joint = "right wrist"
 	amputation_point = "right wrist"
 	default_bone_type = /obj/item/organ/internal/bone/r_hand
@@ -192,7 +192,7 @@
 	name = "left foot"
 	body_part = FOOT_LEFT
 	icon_position = LEFT
-	parent_organ = BP_L_LEG
+	parent_organ_base  = BP_L_LEG
 	joint = "left ankle"
 	amputation_point = "left ankle"
 	default_bone_type = /obj/item/organ/internal/bone/l_foot
@@ -202,7 +202,7 @@
 	name = "right foot"
 	body_part = FOOT_RIGHT
 	icon_position = RIGHT
-	parent_organ = BP_R_LEG
+	parent_organ_base  = BP_R_LEG
 	joint = "right ankle"
 	amputation_point = "right ankle"
 	default_bone_type = /obj/item/organ/internal/bone/r_foot

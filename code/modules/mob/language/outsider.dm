@@ -9,7 +9,7 @@
 	flags = RESTRICTED
 	syllables = list("sss","sSs","SSS")
 	shorthand = "Xeno"
-
+/* OCCULUS EDIT - reeee xenos
 /datum/language/xenos
 	name = LANGUAGE_HIVEMIND
 	desc = "Xenomorphs have the strange ability to commune over a psychic hivemind."
@@ -30,7 +30,7 @@
 		return 1
 
 	return 0
-
+*/
 /datum/language/corticalborer
 	name = LANGUAGE_CORTICAL
 	desc = "Cortical borers possess a strange link between their tiny minds."
