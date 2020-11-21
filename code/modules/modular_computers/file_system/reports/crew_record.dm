@@ -24,7 +24,7 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 
 /datum/computer_file/report/crew_record/proc/load_from_mob(var/mob/living/carbon/human/H)
 	if(istype(H))
-		if(H.job == "Vagabond") // As stowaways, Vagabond do not show up on the crew manifest.
+		if(H.mind.role_alt_title == "Vagabond") // As stowaways, Vagabond do not show up on the crew manifest.	// OCCULUS EDIT - vagabond fix
 			GLOB.all_crew_records.Remove(src)
 			return
 	if(istype(H))
@@ -61,9 +61,9 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 	set_account((H && H.mind) ? H.mind.initial_account.account_number : "000000")
 
 	// TODO: enable after baymed
-	//set_species(H ? H.get_species() : SPECIES_HUMAN)
+	set_species(H ? H.get_species() : SPECIES_HUMAN)	//OCCULUS EDIT: ENABLED
 
-	set_species("Human")
+	//set_species("Human")	//OCCULUS EDIT: DISABLED
 	//set_branch(H ? (H.char_branch && H.char_branch.name) : "None")
 	//set_rank(H ? (H.char_rank && H.char_rank.name) : "None")
 
