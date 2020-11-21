@@ -308,6 +308,8 @@
 	for(var/options_name in setup_options)
 		get_option(options_name).apply(character)
 
+	character.post_prefinit()
+
 
 /datum/preferences/proc/open_load_dialog(mob/user)
 	var/dat  = list()

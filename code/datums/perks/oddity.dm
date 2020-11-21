@@ -43,12 +43,14 @@
 
 /datum/perk/oddity/space_asshole/assign(mob/living/carbon/human/H)
 	..()
-	holder.mob_bomb_defense += 25
-	holder.falls_mod -= 0.4
+	if(holder)
+		holder.mob_bomb_defense += 25
+		holder.falls_mod -= 0.4
 
 /datum/perk/oddity/space_asshole/remove()
-	holder.mob_bomb_defense -= 25
-	holder.falls_mod += 0.4
+	if(holder)
+		holder.mob_bomb_defense -= 25
+		holder.falls_mod += 0.4
 	..()
 
 /datum/perk/oddity/parkour
@@ -58,10 +60,12 @@
 
 /datum/perk/oddity/parkour/assign(mob/living/carbon/human/H)
 	..()
-	holder.mod_climb_delay -= -0.5
+	if(holder)
+		holder.mod_climb_delay -= 0.5
 
 /datum/perk/oddity/parkour/remove()
-	holder.mod_climb_delay += 0.5
+	if(holder)
+		holder.mod_climb_delay += 0.5
 	..()
 
 /datum/perk/oddity/charming_personality
@@ -71,10 +75,12 @@
 
 /datum/perk/oddity/charming_personality/assign(mob/living/carbon/human/H)
 	..()
-	holder.sanity_damage -= 2
+	if(holder)
+		holder.sanity_damage -= 2
 
 /datum/perk/oddity/charming_personality/remove()
-	holder.sanity_damage += 2
+	if(holder)
+		holder.sanity_damage += 2
 	..()
 
 /datum/perk/oddity/horrible_deeds
@@ -84,10 +90,12 @@
 
 /datum/perk/oddity/horrible_deeds/assign(mob/living/carbon/human/H)
 	..()
-	holder.sanity_damage += 2
+	if(holder)
+		holder.sanity_damage += 2
 
 /datum/perk/oddity/horrible_deeds/remove()
-	holder.sanity_damage -= 2
+	if(holder)
+		holder.sanity_damage -= 2
 	..()
 
 /datum/perk/oddity/chaingun_smoker
@@ -112,10 +120,12 @@
 
 /datum/perk/oddity/quiet_as_mouse/assign(mob/living/carbon/human/H)
 	..()
-	holder.noise_coeff -= 0.5
+	if(holder)
+		holder.noise_coeff -= 0.5
 
 /datum/perk/oddity/quiet_as_mouse/remove()
-	holder.noise_coeff += 0.5
+	if(holder)
+		holder.noise_coeff += 0.5
 	..()
 
 /datum/perk/oddity/balls_of_plasteel
@@ -135,10 +145,12 @@
 
 /datum/perk/oddity/ass_of_concrete/assign(mob/living/carbon/human/H)
 	..()
-	holder.mob_bump_flag = HEAVY
+	if(holder)
+		holder.mob_bump_flag = HEAVY
 
 /datum/perk/oddity/ass_of_concrete/remove()
-	holder.mob_bump_flag = ~HEAVY
+	if(holder)
+		holder.mob_bump_flag = ~HEAVY
 	..()
 
 /datum/perk/oddity/toxic_revenger
