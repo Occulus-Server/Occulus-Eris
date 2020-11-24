@@ -439,7 +439,7 @@
 		active_view = TRUE
 		time = world.time + time_view
 
-/datum/breakdown/common/herald
+/* /datum/breakdown/common/herald //Occulus edit; disabled
 	name = "Herald"
 	restore_sanity_pre = 5
 	restore_sanity_post = 45
@@ -457,7 +457,7 @@
 	if(world.time >= message_time)
 		message_time = world.time + cooldown_message
 		var/chance = rand(1, 100)
-		holder.owner.say(chance <= 50 ? "[holder.pick_quote_20()]" : "[holder.pick_quote_40()]")
+		holder.owner.say(chance <= 50 ? "[holder.pick_quote_20()]" : "[holder.pick_quote_40()]") */
 
 /datum/breakdown/common/desire_for_chrome
 	name = "Desire for Chrome"
