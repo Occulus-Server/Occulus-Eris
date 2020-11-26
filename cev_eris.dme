@@ -2802,5 +2802,6 @@
 #include "zzz_modular_syzygy\storytellers\mentor.dm"
 #include "zzzz_modular_occulus\code\modules\loot_spawn_blacklist.dm"
 #include "zzzz_modular_occulus\code\modules\economy\price_list_reagents.dm"
+#include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\pistol\olivaw.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\recipes.dm"
 // END_INCLUDE
