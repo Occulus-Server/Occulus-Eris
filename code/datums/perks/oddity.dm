@@ -157,7 +157,7 @@
 	name = "Toxic Revenger"
 	desc = "A heart of gold does not matter when blood is toxic. Those who breathe your air, share your fate."
 	icon_state = "Hazmat" // https://game-icons.net
-	var/cooldown = 1 MINUTES
+	var/cooldown = 10 MINUTES //Occulus edit: Reducing the spam
 	var/initial_time
 
 /datum/perk/oddity/toxic_revenger/assign(mob/living/carbon/human/H)
@@ -172,14 +172,14 @@
 	if(world.time < initial_time + cooldown)
 		return
 	initial_time = world.time
-	for(var/mob/living/L in viewers(holder, 5))
+	for(var/mob/living/L in viewers(holder, 2)) //Occulus Edit: Nerfing the radius
 		if(!L)
 			continue
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
 			if(H.stat == DEAD || H.internal || H.stats.getPerk(PERK_TOXIC_REVENGER) || (H.species.flags & NO_BREATHE))
 				continue
-		L.reagents?.add_reagent("toxin", 5)
+		//L.reagents?.add_reagent("toxin", 5) Occulus Edit: removing the damage
 		L.emote("cough")
 		to_chat(L, SPAN_WARNING("[holder] emits a strange smell."))
 
