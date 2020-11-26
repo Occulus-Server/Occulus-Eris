@@ -116,14 +116,14 @@
 		)
 */
 
-	heat_discomfort_level = 295
+	//heat_discomfort_level = 295		// Occulus edit - Temperature message spam removal
 	heat_discomfort_strings = list(
 		"You feel soothingly warm.",
 		"You feel the heat sink into your bones.",
 		"You feel warm enough to take a nap."
 		)
 
-	cold_discomfort_level = 292
+	//cold_discomfort_level = 292		// Occulus edit - Temperature message spam removal
 	cold_discomfort_strings = list(
 		"You feel chilly.",
 		"You feel sluggish and cold.",
@@ -204,14 +204,14 @@
 
 //	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
-	heat_discomfort_level = 292
+	//heat_discomfort_level = 292		// Occulus edit - Temperature message spam removal
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
 		"You feel uncomfortably warm.",
 		"Your overheated skin itches."
 		)
 
-	cold_discomfort_level = 275
+	//cold_discomfort_level = 275		// Occulus edit - Temperature message spam removal
 /*
 	has_organ = list(    //No appendix.
 		O_HEART =    /obj/item/organ/internal/heart,
