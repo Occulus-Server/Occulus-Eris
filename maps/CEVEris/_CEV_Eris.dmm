@@ -1315,13 +1315,6 @@
 /obj/item/weapon/cell/small/high,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
-"adk" = (
-/obj/structure/table/rack,
-/obj/spawner/rig_module,
-/obj/spawner/rig_module,
-/obj/item/weapon/rig/combat/ironhammer/equipped,
-/turf/simulated/floor/tiled/dark/cargo,
-/area/eris/security/armory)
 "adl" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "security_access_console";
@@ -1482,9 +1475,6 @@
 /obj/structure/table/rack,
 /obj/spawner/rig_module,
 /obj/spawner/rig_module,
-/obj/spawner/rig_module,
-/obj/spawner/rig_module,
-/obj/item/weapon/rig/combat/ironhammer/equipped,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "adJ" = (
@@ -103642,6 +103632,21 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
+"iYz" = (
+/obj/structure/table/rack,
+/obj/item/weapon/rig/combat/ironhammer/equipped{
+	pixel_x = -8
+	},
+/obj/item/weapon/rig/combat/ironhammer/equipped,
+/obj/item/weapon/rig/combat/ironhammer/equipped{
+	pixel_x = 8
+	},
+/obj/machinery/door/blast/shutters/glass{
+	id = "Armoury";
+	name = "Armoury showcase"
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/security/warden)
 "jak" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/structure/cable/yellow{
@@ -127135,7 +127140,7 @@ abC
 abU
 acn
 abd
-adk
+adI
 adS
 aet
 aaL
@@ -127337,7 +127342,7 @@ abB
 abV
 aco
 abd
-adk
+adI
 adS
 aeu
 aaR
@@ -167332,7 +167337,7 @@ aQC
 aaJ
 aTa
 aSy
-aTa
+iYz
 aTx
 aVa
 aSS
