@@ -103766,6 +103766,13 @@
 /obj/item/weapon/storage/box,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"kPm" = (
+/obj/structure/sink/kitchen{
+	pixel_y = 26
+	},
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/hallway/main/section2)
 "lcL" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white/brown_platform,
@@ -104228,13 +104235,6 @@
 /obj/machinery/neotheology/biomass_container,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/surgery)
-"nJq" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/pack/gun_loot/low_chance,
-/obj/spawner/pack/rare/low_chance,
-/obj/spawner/pack/tech_loot,
-/turf/simulated/floor/tiled/white/brown_perforated,
-/area/eris/hallway/main/section2)
 "nQQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -104399,13 +104399,6 @@
 /obj/item/weapon/storage/freezer/medical,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
-"oVc" = (
-/obj/structure/curtain/open/shower,
-/obj/structure/toilet,
-/obj/spawner/junk/low_chance,
-/obj/spawner/toy/plushie,
-/turf/simulated/floor/tiled/white/brown_perforated,
-/area/eris/hallway/main/section2)
 "oYt" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "Moebius Biolab Officer";
@@ -104497,6 +104490,15 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep/cryo)
+"qok" = (
+/obj/structure/table/rack/shelf,
+/obj/spawner/pack/gun_loot/low_chance,
+/obj/spawner/pack/rare/low_chance,
+/obj/spawner/pack/rare/low_chance,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/oddities/low_chance,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/hallway/main/section2)
 "qor" = (
 /obj/effect/shuttle_landmark/merc/engieva,
 /turf/space,
@@ -105061,6 +105063,12 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section3)
+"vNe" = (
+/obj/structure/mopbucket,
+/obj/item/weapon/mop,
+/obj/item/weapon/reagent_containers/glass/bucket,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/hallway/main/section2)
 "wgG" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -105242,6 +105250,12 @@
 	},
 /turf/simulated/open,
 /area/eris/quartermaster/storage)
+"xEZ" = (
+/obj/structure/curtain/open/shower,
+/obj/structure/toilet,
+/obj/spawner/toy/plushie,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/hallway/main/section2)
 "xJt" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 4
@@ -247436,8 +247450,8 @@ cUW
 cXo
 ixv
 caE
-oVc
-xhL
+xEZ
+vNe
 btI
 aAn
 dqP
@@ -247638,7 +247652,7 @@ cUZ
 cXv
 cYl
 caE
-nJq
+kPm
 xhL
 btI
 aAo
@@ -247840,7 +247854,7 @@ cVd
 bxP
 bxP
 caE
-nJq
+qok
 ova
 btI
 aAp
