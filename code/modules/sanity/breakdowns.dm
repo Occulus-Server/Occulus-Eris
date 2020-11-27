@@ -443,11 +443,11 @@
 	name = "Herald"
 	restore_sanity_pre = 5
 	restore_sanity_post = 45
-	duration = 5 MINUTES
+	duration = 3 MINUTES	// SYZYGY EDIT - Nerfs its duration from 5 to 3 minutes
 	start_messages = list("You've seen the abyss too long, and now forbidden knowledge haunts you.")
 	end_messages = list("You feel like you've forgotten something important. But this comforts you.")
 	var/message_time = 0
-	var/cooldown_message = 10 SECONDS
+	var/cooldown_message = 15 SECONDS	// SYZYGY EDIT - Nerfs its cooldown to 15 seconds from 10
 
 
 /datum/breakdown/common/herald/update()

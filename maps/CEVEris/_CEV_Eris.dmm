@@ -10888,11 +10888,10 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5starboard)
 "azT" = (
-/obj/structure/catwalk,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "azU" = (
 /obj/structure/catwalk,
@@ -36143,8 +36142,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bGH" = (
 /obj/machinery/firealarm{
@@ -36418,9 +36416,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/catwalk,
 /obj/machinery/duct,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bHq" = (
 /obj/structure/cable{
@@ -36432,8 +36429,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bHr" = (
 /obj/machinery/atmospherics/pipe/tank/air{
@@ -40577,8 +40573,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bQc" = (
 /obj/structure/cable{
@@ -40619,8 +40614,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bQh" = (
 /obj/structure/railing{
@@ -40764,8 +40758,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bQB" = (
 /obj/machinery/door/firedoor,
@@ -40781,8 +40774,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bQD" = (
 /turf/simulated/floor/dirt,
@@ -40793,8 +40785,7 @@
 /area/eris/neotheology/chapelritualroom)
 "bQF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bQG" = (
 /obj/machinery/firealarm{
@@ -41072,12 +41063,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
-/area/eris/neotheology/bioreactor)
-"bRo" = (
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bRp" = (
 /obj/structure/closet/emcloset,
@@ -41657,8 +41643,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bSJ" = (
 /turf/simulated/floor/tiled/techmaint,
@@ -41673,9 +41658,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/catwalk,
 /obj/machinery/duct,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bSL" = (
 /obj/structure/cable/yellow{
@@ -41689,9 +41673,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/structure/catwalk,
 /obj/machinery/duct,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bSM" = (
 /obj/structure/disposalpipe/segment,
@@ -41715,9 +41698,8 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/obj/structure/catwalk,
 /obj/machinery/duct,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bSO" = (
 /obj/machinery/door/airlock/maintenance_common{
@@ -41793,9 +41775,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/catwalk,
 /obj/machinery/duct,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bTa" = (
 /obj/structure/cable/yellow{
@@ -41807,9 +41788,8 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/structure/catwalk,
 /obj/machinery/duct,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bTb" = (
 /obj/structure/bed/chair/office/dark{
@@ -41821,9 +41801,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/catwalk,
 /obj/machinery/duct,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bTd" = (
 /obj/structure/disposalpipe/sortjunction{
@@ -123968,7 +123947,7 @@ aCg
 aCn
 ayJ
 bBW
-bRo
+bts
 bTc
 bZb
 cbc
@@ -124170,7 +124149,7 @@ apn
 aCn
 btr
 bBX
-bRo
+bts
 bTc
 wiv
 wiv
@@ -124372,7 +124351,7 @@ avQ
 aCn
 bts
 bts
-bRo
+bts
 azT
 aBG
 bts
