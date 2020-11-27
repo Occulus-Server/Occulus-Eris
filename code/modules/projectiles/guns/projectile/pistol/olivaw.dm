@@ -25,6 +25,6 @@
 /obj/item/weapon/gun/projectile/olivaw/update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
-		icon_state = "olivawcivil"
+		icon_state = "[initial(icon_state)]"	// OCCULUS EDIT - Now this is no longer hardcoded to use olivawcivil
 	else
-		icon_state = "olivawcivil_empty"
+		icon_state = "[initial(icon_state)]_empty"	// OCCULUS EDIT - Now this is no longer hardcoded to use olivawcivil
