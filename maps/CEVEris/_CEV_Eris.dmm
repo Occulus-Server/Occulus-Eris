@@ -50550,19 +50550,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbay)
-"cnS" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "SecondSectionLockdown";
-	layer = 2.6;
-	name = "Second Section Lockdown";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled/steel/cargo,
-/area/eris/hallway/main/section2)
 "cnT" = (
 /obj/machinery/power/supermatter{
 	layer = 4
@@ -105151,6 +105138,20 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/medical/chemstor)
+"xdv" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "SecondSectionLockdown";
+	layer = 2.6;
+	name = "Second Section Lockdown";
+	opacity = 0;
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/hallway/main/section2)
 "xld" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -206351,7 +206352,7 @@ ccf
 ceh
 dup
 bZj
-cnS
+xdv
 dux
 cgs
 cgs
