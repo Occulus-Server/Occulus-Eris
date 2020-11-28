@@ -13,7 +13,7 @@
 	set src in oview(1)
 	if(usr.incapacitated() || !Adjacent(usr) || !isturf(loc))
 		return
-	
+
 	for(var/obj/item/device/propaganda_chip/C in get_area(src))
 		if (C.active)
 			to_chat(usr, SPAN_WARNING("Another chip in the area prevents activation."))
@@ -29,7 +29,7 @@
 obj/item/device/propaganda_chip/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	return ..()
-	
+
 /obj/item/device/propaganda_chip/attack_hand(mob/user)
 	if (active)
 		switch(alert("Do I want to disturb the chip, it looks delicate","You think...","Yes","No"))
@@ -65,7 +65,7 @@ obj/item/device/propaganda_chip/Destroy()
 		if(candidate_mind.assigned_role in list(JOBS_SECURITY))
 			continue
 
-		else 
+		else
 			crew_target_mind = candidate_mind
 
 		if (crew_target_mind)
@@ -79,19 +79,22 @@ obj/item/device/propaganda_chip/Destroy()
 		crew_name = crew_target_mind.current.real_name
 
 	var/list/messages = list( // Idealy should be extremely long with lots of lines
-		"Fucking Aegis just searched me and took all my shit",
-		"Haha, Aegis just killed a vag for breaking a window",
+		"Aegis just searched me and took all my stuff.",
+		"Bet this Command staff would beat your ass dead for breaking a window.",
 		"With my paycheck I can't even afford 3 bread tubes...",
-		"You know what we should do... unionize",
-		"I hate Aegis so much",
-		"Cheers ye Aegis just broke my fucking leg in personal",
-		"A clown could beat Aegis, lets get them",
-		"Command cares more about roaches than us",
-		"Ian has more liberty than any of us",
-		"Aegis gets more money than anyone and all they do is sit around",
-		"Medical just sits around all day in the fucking break room",
-		"NanoTrasen is unfair. The Captain is in there, standing at the concession, plotting our oppression.",
-		"Monopoly is Anti-Meritocratic"
+		"I know what we should do...we should unionize.",
+		"A clown could beat Aegis in a fistfight, man.",
+		"Command cares more about roaches than us.",
+		"They care more about Ian than any of us. It's bullshit.",
+		"Aegis gets more stuff than all of us, and all they do is sit around.",
+		"Medical just fucks around all day. I'm better off trying to fix myself.",
+		"Command is unfair. The Captain is in there, standing at the concession, plotting our oppression.",
+		"Funny, I never see the rich kids down in the tunnels working for their own damn selves.",
+		"I bet Aegis would care about what we think if we had the guns to back us up.",
+		"How's it fair that the merchant gets paid a few thousand dolars every hour to sit on his ass?",
+		"They aren't going to stop fucking us over until someone stands up to them.",
+		"I tried to argue that we should get paid more and command called over some Aegis brute with a rifle. Classy.",
+		"I'm dirty and sick and tired and hungry. We need to do something before the guys in charge kill us."
 	)
 	var/message_text = pick(messages)
 	var/message = " <b>[crew_name]</b> says,<FONT SIZE =-2>  \"[message_text]\"</FONT>"
