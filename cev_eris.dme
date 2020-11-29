@@ -2806,6 +2806,8 @@
 #include "zzzz_modular_occulus\code\modules\loot_spawn_blacklist.dm"
 #include "zzzz_modular_occulus\code\modules\economy\price_list_reagents.dm"
 #include "zzzz_modular_occulus\code\modules\economy\vending.dm"
+#include "zzzz_modular_occulus\code\modules\game\Objects\Items\oddities.dm"
+#include "zzzz_modular_occulus\code\modules\game\Objects\Items\Devices\artifacts.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\pistol\olivaw.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\food-Drinks.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\recipes.dm"
