@@ -3206,7 +3206,14 @@
 /area/eris/security/exerooms)
 "ahN" = (
 /obj/structure/table/standard,
-/obj/item/device/taperecorder,
+/obj/item/device/taperecorder{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/obj/item/device/universal_translator{
+	pixel_x = 5;
+	pixel_y = -10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/exerooms)
 "ahO" = (
@@ -29989,6 +29996,7 @@
 "bss" = (
 /obj/structure/table/woodentable,
 /obj/spawner/booze/low_chance,
+/obj/item/device/universal_translator,
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/crew_quarters/librarybackroom)
 "bst" = (
@@ -77098,7 +77106,14 @@
 /area/eris/medical/medbreak)
 "dyV" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/drinks/britcup,
+/obj/item/device/universal_translator{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/obj/item/weapon/reagent_containers/food/drinks/britcup{
+	pixel_x = 5;
+	pixel_y = -2
+	},
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/medical/medbreak)
 "dyW" = (
