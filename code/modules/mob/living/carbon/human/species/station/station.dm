@@ -116,14 +116,14 @@
 		)
 */
 
-	heat_discomfort_level = 295
+	heat_discomfort_level = 300 // Occulus edit - Temperature message spam removal
 	heat_discomfort_strings = list(
 		"You feel soothingly warm.",
 		"You feel the heat sink into your bones.",
 		"You feel warm enough to take a nap."
 		)
 
-	cold_discomfort_level = 292
+	cold_discomfort_level = 287 // Occulus edit - Temperature message spam removal
 	cold_discomfort_strings = list(
 		"You feel chilly.",
 		"You feel sluggish and cold.",
@@ -204,7 +204,7 @@
 
 //	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
-	heat_discomfort_level = 320		// Occulus edit - Temperature message spam removal
+	heat_discomfort_level = 303		// Occulus edit - Temperature message spam removal
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
 		"You feel uncomfortably warm.",
