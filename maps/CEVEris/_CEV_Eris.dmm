@@ -1317,9 +1317,9 @@
 /area/eris/security/armory)
 "adk" = (
 /obj/structure/table/rack,
-/obj/spawner/rig_module,
-/obj/spawner/rig_module,
-/obj/item/weapon/rig/combat/ironhammer/equipped,
+/obj/spawner/oddities/low_chance,
+/obj/spawner/oddities/low_chance,
+/obj/spawner/oddities/low_chance,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "adl" = (
@@ -2196,6 +2196,7 @@
 "afv" = (
 /obj/structure/closet/secure_closet/reinforced/hos,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/weapon/rig/combat/ironhammer/equipped,
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "afw" = (
@@ -104409,6 +104410,13 @@
 /obj/structure/reagent_dispensers/fueltank/huge,
 /turf/simulated/floor,
 /area/shuttle/mining/station)
+"odL" = (
+/obj/structure/table/rack,
+/obj/spawner/gun_upgrade/low_chance,
+/obj/spawner/gun_upgrade/low_chance,
+/obj/spawner/gun_upgrade/low_chance,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/security/armory)
 "ofp" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -127628,7 +127636,7 @@ abB
 abV
 aco
 abd
-adk
+odL
 adS
 aeu
 aaR
