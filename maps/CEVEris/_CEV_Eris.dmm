@@ -44922,7 +44922,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock{
-	name = "Changing Room"
+	name = "Showers"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -50432,7 +50432,7 @@
 	id = "SecondSectionLockdown";
 	layer = 2.6;
 	name = "Second Section Lockdown";
-	pixel_x = 0
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/hallway/main/section2)
@@ -99221,7 +99221,7 @@
 "eyr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	name = "Showers"
+	name = "Auxiliary Closet"
 	},
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/hallway/main/section2)
