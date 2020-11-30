@@ -1,7 +1,7 @@
 // Syzygy's overrides for storyteller events go here
 
 /datum/storyevent/hivemind
-	req_crew = 12
+	req_crew = 9
 
 /datum/storyevent/blob
 	req_crew = 6
