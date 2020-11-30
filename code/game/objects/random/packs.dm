@@ -39,6 +39,7 @@ They generally give more random result and can provide more divercity in spawn.
 					/obj/spawner/techpart = 10,
 					/obj/spawner/tool = 20,
 					/obj/spawner/tool_upgrade = 30,
+					/obj/spawner/cloth/belt = 20, //Occulus Edit. Can't directly add utility belts
 					/obj/spawner/toolbox = 5,
 					/obj/spawner/voidsuit = 3,
 					/obj/spawner/gun_upgrade = 2
