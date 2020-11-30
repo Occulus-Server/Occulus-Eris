@@ -1,5 +1,5 @@
 /datum/trade_station/fs_factory
-	name_pool = list("FSMS 'Kaida'" = "Frozen Star Manufacturing Station 'Kaida'. It ")
+	name_pool = list("FSMS 'Kaida'" = "Frozen Star Manufacturing Station 'Kaida'. They're sending a message. \"Your translocator signal has been recieved. We are currently in full stocks and willing to trade. Prices are non-negotiable.\" ")
 	markup = 0.5
 	assortiment = list(
 		"Projectiles" = list(
