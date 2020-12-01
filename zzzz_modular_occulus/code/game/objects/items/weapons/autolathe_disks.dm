@@ -27,3 +27,14 @@
 
 /obj/item/weapon/tool/tape_roll/fiber
 	matter = list(MATERIAL_PLASTEEL = 1, MATERIAL_PLASTIC = 20)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic
+	disk_name = "Generic - Alternate Civilian Pack"
+	designs = list(
+		/datum/design/autolathe/gun/mk4 = 3,
+		/datum/design/autolathe/gun/ec9 = 3,
+		/datum/design/autolathe/gun/rx8 = 3,
+		/datum/design/autolathe/ammo/magazine_pistol/rubber,
+		/datum/design/autolathe/ammo/smg/rubber,
+		/datum/design/autolathe/ammo/pistol_ammobox/rubber
+		)

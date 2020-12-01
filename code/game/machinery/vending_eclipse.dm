@@ -20,7 +20,8 @@
 					/obj/item/ammo_casing/shotgun/beanbag/prespawned = 20,
 					/obj/item/weapon/storage/box/shotgunammo/beanbags = 5,
 					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 5,
-					/obj/item/weapon/cell/small/high = 10
+					/obj/item/weapon/cell/small/high = 10,
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 5	// OCCULUS EDIT - pew pew
 					)
 	prices = list(
 					/obj/item/ammo_magazine/slpistol/rubber = 90,
@@ -37,7 +38,8 @@
 					/obj/item/ammo_casing/shotgun/beanbag/prespawned = 75,
 					/obj/item/weapon/storage/box/shotgunammo/beanbags = 575,
 					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 575,
-					/obj/item/weapon/cell/small/high = 500
+					/obj/item/weapon/cell/small/high = 500,
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2500	// OCCULUS EDIT - pew pew
 					)
 	idle_power_usage = 211
 	auto_price = FALSE
