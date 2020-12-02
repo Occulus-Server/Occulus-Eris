@@ -1,8 +1,8 @@
 /obj/item/weapon/paper/roaches
 	name = "paper- 'Lost Journal Page'"
-	info = {"It's been a few days since *illegible* and those roaches broke containment. Quartermaster *illegible* knew that Solgov shipping contract was more than we were told. Especially with all the secrecy and biohazard warnings slapped on. Security says they'll commit a full team to rounding them up but they're probably already nested deep into the ship.<br>"}
+	info = {"It's been a few days since *illegible* and those roaches broke containment. Quartermaster *illegible* knew that Solgov shipping contract was more than we were told. Especially with all the secrecy and biohazard warnings slapped on. Security says they'll commit a full team to rounding them up but they're probably already nested deep into the ship.<br>
 	<br>
-	Techie Daniels, 2---
+	Techie Daniels, 2---"}
 
 /obj/item/weapon/paper/godhead
 	name = "paper- 'Lost Letter'"
