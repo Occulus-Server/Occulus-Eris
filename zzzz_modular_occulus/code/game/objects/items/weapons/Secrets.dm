@@ -1,38 +1,38 @@
 /obj/item/weapon/paper/roaches
 	name = "paper- 'Lost Journal Page'"
-	info = It's been a few days since *illegible* and those roaches broke containment. Quartermaster *illegible* knew that Solgov shipping contract was more than we were told. Especially with all the secrecy and biohazard warnings slapped on. Security says they'll commit a full team to rounding them up but they're probably already nested deep into the ship.<br>
+	info = {"It's been a few days since *illegible* and those roaches broke containment. Quartermaster *illegible* knew that Solgov shipping contract was more than we were told. Especially with all the secrecy and biohazard warnings slapped on. Security says they'll commit a full team to rounding them up but they're probably already nested deep into the ship.<br>"}
 	<br>
 	Techie Daniels, 2---
 
 /obj/item/weapon/paper/godhead
 	name = "paper- 'Lost Letter'"
-	info = Father *illegible*, I'm not so sure how long we can keep hiding. Ever since the Church declared seccession and our new God's divinity other faithful have been dragged to the brig and aren't seen from again. I don't know what some brutish ship security want from us, but I think they're afraid of us or blindly loyal to their governments. We should leave this ship at next port and flee with the other faithful to Deus Capitis.<br>
+	info = {"Father *illegible*, I'm not so sure how long we can keep hiding. Ever since the Church declared seccession and our new God's divinity other faithful have been dragged to the brig and aren't seen from again. I don't know what some brutish ship security want from us, but I think they're afraid of us or blindly loyal to their governments. We should leave this ship at next port and flee with the other faithful to Deus Capitis.<br>
 	<br>
-	Yours Faithfully, Acolyte *illegible*
+	Yours Faithfully, Acolyte *illegible*"}
 
 /obj/item/weapon/paper/runtimes
 	name = "paper- 'Runtime Errors'"
-	info = Boss, the rest of the team's getting kind of worried, the *illegible* is tossing runtimes when we spool it up for test *illegible*. They're also starting to talk about the engineering section 'getting switched around' when they're not looking. Should we maybe see *illegible* about this thing they gave us?<br>
+	info = {"Boss, the rest of the team's getting kind of worried, the *illegible* is tossing runtimes when we spool it up for test *illegible*. They're also starting to talk about the engineering section 'getting switched around' when they're not looking. Should we maybe see *illegible* about this thing they gave us?<br>
 	<br>
-	-*illegible* Tech Wilkins.
+	-*illegible* Tech Wilkins."}
 
 /obj/item/weapon/paper/spiders
 	name = "paper- 'Really?'"
-	info = Spiders? That's R&D's great plan to handle what the supply team let loose? All because one guy in security went missing? I swear they put drugs in the air because only someone high or stupid would think two giant bugs aboard is a good idea.
+	info = {"Spiders? That's R&D's great plan to handle what the supply team let loose? All because one guy in security went missing? I swear they put drugs in the air because only someone high or stupid would think two giant bugs aboard is a good idea."}
 	
 /obj/item/weapon/paper/skies
 	name = "paper- 'The Skies are Buried Deep?'"
-	info = I see it wherever I look. Etched into the walls in maint. Written in roach guts on the floor. Muttered between crewmen when no one's looking. What does it mean!? What are they hiding!?
+	info = {"I see it wherever I look. Etched into the walls in maint. Written in roach guts on the floor. Muttered between crewmen when no one's looking. What does it mean!? What are they hiding!?"}
 	
 /obj/item/weapon/paper/email
 	name = "paper- 'RE: Drive Issues'"
-	info = Rest assured Captain *illegible*, your engineering team is either sharing around some very good drugs, or needs more rest. The *illegible* design is safe and under all tests the lab enviroment stayed at a constant one hume, if this is an attempt at a refund or a joke it's in very poor taste either way.<br>
+	info = {"Rest assured Captain *illegible*, your engineering team is either sharing around some very good drugs, or needs more rest. The *illegible* design is safe and under all tests the lab enviroment stayed at a constant one hume, if this is an attempt at a refund or a joke it's in very poor taste either way.<br>
 	<br>
-	Director of Marketing, *illegible*
+	Director of Marketing, *illegible*"}
 	
 /obj/item/weapon/paper/gospel
 	name = "paper- 'Excerpt from The Cockroach King’s gospel: Martin 2:13'"
-	info = ...and I feel the roaches surrounding me,<br>
+	info = {"...and I feel the roaches surrounding me,<br>
 	crawling all over my body,<br>
 	asking me if I’d like something to drink,<br>
 	or if I am already dead.
@@ -50,25 +50,25 @@
 	on the world beneath,<br>
 	where skies are buried deep.<br>
 	<br>
-	The skies are buried deep.
+	The skies are buried deep."}
 	
 /obj/item/weapon/paper/solgov
 	name = "paper- 'RE: Our Cargo'"
-	info = Captain *illegible* you have no idea what you've just done. If you want to keep your vessel and freedom you will submit to a full search and inspection by a biohazard team at next jump. I do not need to tell you what happens if you don't comply.<br>
+	info = {"Captain *illegible* you have no idea what you've just done. If you want to keep your vessel and freedom you will submit to a full search and inspection by a biohazard team at next jump. I do not need to tell you what happens if you don't comply.<br>
 	<br>
-	-Defense Minister *illegible*
+	-Defense Minister *illegible*"}
 	
 /obj/item/weapon/paper/bioweapon
     name = "paper- 'Experiment Log Conclusion'"
-    info = As the above tests suggest, the bioweapon is still roughly as potent as *illegible* claimed it would be when we recieved it. The fact that it's difficult to contain makes it both terrifying to work with and extremely fascinating. Thank God these windows are reinforced; I think if they weren't, the more dangerous strains would claw right through them. Maybe we should consider setting up electric grilles...?
+    info = {"As the above tests suggest, the bioweapon is still roughly as potent as *illegible* claimed it would be when we recieved it. The fact that it's difficult to contain makes it both terrifying to work with and extremely fascinating. Thank God these windows are reinforced; I think if they weren't, the more dangerous strains would claw right through them. Maybe we should consider setting up electric grilles...?"}
 	
 /obj/item/weapon/paper/forensic
 	name = "paper- 'Forensic Report'"
-	info = From what we found left of officer *illegible* I think we can safelty assume this wasn't murder, at least by another crewmember. The state we found his remains and soulcrypt in the pile of *illegible* suggest that they ate him, these things are much more dangeruos than we were clearly told, and a security team trying to capture them - alive no less is unviable.
+	info = {"From what we found left of officer *illegible* I think we can safelty assume this wasn't murder, at least by another crewmember. The state we found his remains and soulcrypt in the pile of *illegible* suggest that they ate him, these things are much more dangeruos than we were clearly told, and a security team trying to capture them - alive no less is unviable."}
 	
 /obj/item/weapon/paper/hivemind
 	name = "paper- 'Unsent Letter'"
-	info = NanoTrasen Science Division<br>
+	info = {"NanoTrasen Science Division<br>
 	4/12/*illegible*<br>
 	<br>
 	I trust you’ve had ample time to review and compile my earlier reports about the bio-mechanical threat known as the “Hivemind”. I’ve taken it upon myself to dedicate most of our resources and personnel to thorough study of the Hivemind. We’ve worked with the Union to establish communication with every trade station and vessel we have passed- None of them claim to have ever encountered such a thing in their time in the Null Sector. This led me to believe that whatever it’s origin, it is unique to the Northern Light, like so many of the anomalies we encounter here.<br>
@@ -87,4 +87,4 @@
 	<br>
 	Dr. Zaqel Qarxik<br>
 	NanoTrasen Chief Science Officer<br>
-	CEV Northern Light
+	CEV Northern Light"}
