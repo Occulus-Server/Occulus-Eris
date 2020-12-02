@@ -9919,7 +9919,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	name = "Church";
-	req_access = list(27)
+	req_one_access = list(27,70)
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/storage)
@@ -10008,7 +10008,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock{
 	name = "Church";
-	req_access = list(27)
+	req_one_access = list(27,70)
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/storage)
@@ -10202,7 +10202,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	name = "Church";
-	req_access = list(27)
+	req_one_access = list(27,70)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -11748,7 +11748,7 @@
 	},
 /obj/machinery/door/airlock{
 	name = "Church";
-	req_access = list(27)
+	req_one_access = list(27,70)
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/storage)
@@ -32727,7 +32727,7 @@
 "byQ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_common{
-	req_access = list(27)
+	req_one_access = list(27,70)
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/chapelritualroom)
@@ -47824,7 +47824,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	name = "Church";
-	req_access = list(27)
+	req_one_access = list(27,70)
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/chapelritualroom)
@@ -51432,7 +51432,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	name = "Church";
-	req_access = list(27)
+	req_one_access = list(27,70)
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/chapel)
