@@ -49717,7 +49717,7 @@
 	id = "Enricher";
 	name = "Molitor-Riedel Enricher id lock";
 	pixel_y = -28;
-	req_access = list(40)
+	req_access = list(37)
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/command/mbo)
