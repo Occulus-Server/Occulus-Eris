@@ -50611,7 +50611,7 @@
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/neotheology/chapel)
 "cos" = (
-/obj/structure/closet/chefcloset,
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
 "cot" = (
@@ -103333,7 +103333,7 @@
 /area/eris/quartermaster/hangarsupply)
 "hnS" = (
 /obj/machinery/light/small,
-/obj/structure/closet/chefcloset,
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
 "hoL" = (
@@ -103415,6 +103415,10 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 28
+	},
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
 "hNy" = (
@@ -104434,6 +104438,9 @@
 /obj/structure/bed/padded,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/weapon/bedsheet/blue,
+/obj/machinery/firealarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
 "osm" = (
@@ -104796,6 +104803,9 @@
 	dir = 4
 	},
 /obj/item/weapon/bedsheet/blue,
+/obj/machinery/alarm{
+	pixel_y = 26
+	},
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
 "rNq" = (
@@ -104996,7 +105006,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/table/rack,
+/obj/structure/closet/chefcloset,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
 "tGj" = (
@@ -105042,6 +105052,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 28
+	},
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
 "ubu" = (
@@ -105146,6 +105160,9 @@
 "uOJ" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/blue,
+/obj/machinery/alarm{
+	pixel_y = 26
+	},
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
 "uYg" = (
