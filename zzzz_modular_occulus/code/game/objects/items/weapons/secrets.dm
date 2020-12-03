@@ -6,7 +6,7 @@
 
 /obj/item/weapon/paper/godhead
 	name = "paper- 'Lost Letter'"
-	info = {"Father *illegible*, I'm not so sure how long we can keep hiding. Ever since the Church declared seccession and our new God's divinity other faithful have been dragged to the brig and aren't seen from again. I don't know what some brutish ship security want from us, but I think they're afraid of us or blindly loyal to their governments. We should leave this ship at next port and flee with the other faithful to Deus Capitis.
+	info = {"Father *illegible*, I'm not so sure how long we can keep hiding. Ever since the Church declared secession and our new God's divinity other faithful have been dragged to the brig and aren't seen from again. I don't know what some brutish ship security want from us, but I think they're afraid of us or blindly loyal to their governments. We should leave this ship at next port and flee with the other faithful to Deus Capitis.
 	<br>
 	Yours Faithfully, Acolyte *illegible*"}
 
@@ -26,7 +26,7 @@
 	
 /obj/item/weapon/paper/email
 	name = "paper- 'RE: Drive Issues'"
-	info = {"Rest assured Captain *illegible*, your engineering team is either sharing around some very good drugs, or needs more rest. The *illegible* design is safe and under all tests the lab enviroment stayed at a constant one hume, if this is an attempt at a refund or a joke it's in very poor taste either way.
+	info = {"Rest assured Captain *illegible*, your engineering team is either sharing around some very good drugs or needs more rest. The *illegible* design is safe and under all tests the lab environment stayed at a constant one hume, if this is an attempt at a refund or a joke it's in very poor taste either way.
 	<br>
 	Director of Marketing, *illegible*"}
 	
@@ -60,18 +60,18 @@
 	
 /obj/item/weapon/paper/bioweapon
     name = "paper- 'Experiment Log Conclusion'"
-    info = {"As the above tests suggest, the bioweapon is still roughly as potent as *illegible* claimed it would be when we recieved it. The fact that it's difficult to contain makes it both terrifying to work with and extremely fascinating. Thank God these windows are reinforced; I think if they weren't, the more dangerous strains would claw right through them. Maybe we should consider setting up electric grilles...?"}
+    info = {"As the above tests suggest, the bioweapon is still roughly as potent as *illegible* claimed it would be when we received it. The fact that it's difficult to contain makes it both terrifying to work with and extremely fascinating. Thank God these windows are reinforced; I think if they weren't, the more dangerous strains would claw right through them. Maybe we should consider setting up electric grilles...?"}
 	
 /obj/item/weapon/paper/forensic
 	name = "paper- 'Forensic Report'"
-	info = {"From what we found left of officer *illegible* I think we can safelty assume this wasn't murder, at least by another crewmember. The state we found his remains and soulcrypt in the pile of *illegible* suggest that they ate him, these things are much more dangeruos than we were clearly told, and a security team trying to capture them - alive no less is unviable."}
+	info = {"From what we found left of officer *illegible* I think we can safely assume this wasn't murder, at least by another crewmember. The state we found his remains and soulcrypt in the pile of *illegible* suggest that they ate him, these things are much more dangerous than we were clearly told, and a security team trying to capture them - alive no less is unviable."}
 	
 /obj/item/weapon/paper/hivemind
 	name = "paper- 'Unsent Letter'"
 	info = {"NanoTrasen Science Division
 	4/12/*illegible*
 	<br>
-	I trust you’ve had ample time to review and compile my earlier reports about the bio-mechanical threat known as the “Hivemind”. I’ve taken it upon myself to dedicate most of our resources and personnel to thorough study of the Hivemind. We’ve worked with the Union to establish communication with every trade station and vessel we have passed- None of them claim to have ever encountered such a thing in their time in the Null Sector. This led me to believe that whatever it’s origin, it is unique to the Northern Light, like so many of the anomalies we encounter here.
+	I trust you’ve had ample time to review and compile my earlier reports about the bio-mechanical threat known as the “Hivemind”. I’ve taken it upon myself to dedicate most of our resources and personnel to thorough study of the Hivemind. We’ve worked with the Union to establish communication with every trade station and vessel we have passed- None of them claim to have ever encountered such a thing in their time in the Null Sector. This led me to believe that whatever its origin, it is unique to the Northern Light, like so many of the anomalies we encounter here.
 	<br>
 	Despite the valiant efforts of our security contractors and intensive eradication efforts, we’ve as of yet not been able to fully rid the ship of it. Though it can be fought back and seemingly temporarily destroyed, it has shown the capability to emerge after some time and begin it’s attempted conquest once again.
 	<br>
@@ -79,7 +79,7 @@
 	<br>
 	Our team has been able to extract a significant amount of data from the sample, and much of it suggests that we will be able to extract exponentially more if we were to obtain a larger sample. The most curious aspect of what we have discovered is that much of the code that we have been able to decrypt points towards the Church of Mekhane. 
 	<br>
-	While we do not know how the Church is involved or related to the Hivemind, Father *illegible* has been more than helpful and cooperative, providing texts and samples of their own software for comparison. As far as our analysis can tell, while the code of the Hivemind refers to Mekhane, it is unlikely that the Church had a hand in it’s creation, given the limited scope of their equipment on the ship. I have asked EES to pay close attention and notify me of any anomalous power readings from the Church. Better safe than sorry.
+	While we do not know how the Church is involved or related to the Hivemind, Father *illegible* has been more than helpful and cooperative, providing texts and samples of their own software for comparison. As far as our analysis can tell, while the code of the Hivemind refers to Mekhane, it is unlikely that the Church had a hand in its creation, given the limited scope of their equipment on the ship. I have asked EES to pay close attention and notify me of any anomalous power readings from the Church. Better safe than sorry.
 	<br>
 	As always, we will continue to work hard to unlock the secrets of this ship.
 	<br>
