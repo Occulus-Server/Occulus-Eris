@@ -78,8 +78,10 @@ GLOBAL_DATUM(storyteller, /datum/storyteller)
 
 	var/engineer = FALSE
 	var/command = FALSE
+	var/readyplayer = FALSE//SYZ edit, make sure that the round doesn't start if nobody is ready
 	for(var/mob/new_player/player in GLOB.player_list)
 		if(player.ready && player.mind)
+			readyplayer = TRUE //SYZ edit
 			if(player.mind.assigned_role in list(JOBS_COMMAND))
 				command = TRUE
 			if(player.mind.assigned_role in list(JOBS_ENGINEERING))
@@ -92,14 +94,16 @@ GLOBAL_DATUM(storyteller, /datum/storyteller)
 		tcol = "black"
 
 	if(announce)
-		if(!engineer && (!command && !config.sr_bypass_command_requirement))		//Eclipse edit: config-based command requirement
+		if(!readyplayer) //SYZ edit
+			to_chat(world, "<b><font color='[tcol]'>No players are ready to start the round.</font></b>")//SYZ edit
+		else if(!engineer && (!command && !config.sr_bypass_command_requirement))		//Eclipse edit: config-based command requirement
 			to_chat(world, "<b><font color='[tcol]'>A command officer and engineer are required to start round.</font></b>")
 		else if(!engineer)
 			to_chat(world, "<b><font color='[tcol]'>An engineer is required to start round.</font></b>")
 		else if(!command && !config.sr_bypass_command_requirement)		//Eclipse edit: Config-based command requirement
 			to_chat(world, "<b><font color='[tcol]'>A command officer is required to start round.</font></b>")
 
-	if(GLOB.player_list.len <= config.sr_lowpop_threshold)		//Eclipse edit: Config-based lowpop thresholds.
+	if(GLOB.player_list.len <= config.sr_lowpop_threshold && readyplayer)		//Eclipse edit: Config-based lowpop thresholds. Also SYZ edit to add readyplayer check
 		to_chat(world, "<i>But there's less than [config.sr_lowpop_threshold] players, so this requirement will be ignored.</i>")
 		return TRUE
 
