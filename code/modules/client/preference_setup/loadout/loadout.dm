@@ -316,6 +316,8 @@ var/list/gear_datums = list()
 	if(!description)
 		var/obj/O = path
 		description = initial(O.desc)
+	gear_tweaks += gear_tweak_free_name
+	gear_tweaks += gear_tweak_free_desc
 	if(flags & GEAR_HAS_COLOR_SELECTION)
 		gear_tweaks += gear_tweak_free_color_choice()
 	if(flags & GEAR_HAS_TYPE_SELECTION)
