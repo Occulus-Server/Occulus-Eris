@@ -300,7 +300,7 @@
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
 	min_age = 18
 
-/*
+/* OCCULUS EDIT - Disabled VR Tesh vars. Completely re-made them in our modular folder
 /datum/species/teshari
 //	mob_size = MOB_MEDIUM
 	spawn_flags = SPECIES_CAN_JOIN
@@ -324,7 +324,7 @@
 		/mob/living/proc/shred_limb,
 		/mob/living/proc/toggle_pass_table
 		)*/
-*/
+ End Occulus Edit */
 /datum/species/shapeshifter/promethean
 	spawn_flags = SPECIES_CAN_JOIN
 
