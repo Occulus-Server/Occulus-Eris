@@ -228,7 +228,7 @@
 #define SPECIES_XENOCHIMERA		"Xenochimera"
 #define SPECIES_XENOHYBRID		"Xenomorph Hybrid"
 #define SPECIES_ZORREN_FLAT		"Flatland Zorren"
-#define SPECIES_ZORREN_HIGH		"Highlander Zorren"
+#define SPECIES_ZORREN_HIGH		"Zorren" //Occulus Edit - Removing Flatlander Zorren, making Highlander the default sprite.
 #define SPECIES_CUSTOM			"Custom Species"
 #define SPECIES_PHORONMAN		"Phoronoid"
 #define SPECIES_MOTH			"Mothperson"
