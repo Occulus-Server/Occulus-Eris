@@ -269,7 +269,7 @@
 
 /obj/item/weapon/oddity/techno
 	name = "Unknown technological part"
-	desc = "Technological part maded by Techno-Tribalism Enforcer."
+	desc = "Technological part forged in the Cube's image. Its purpose is buried beneath the flakes of rust on its surface."
 	icon_state = "techno_part1"
 
 /obj/item/weapon/oddity/techno/Initialize()
@@ -288,7 +288,7 @@
 
 /obj/item/weapon/oddity/common/book_unholy
 	name = "unholy book"
-	desc = "The skies are buried underneath these illegible rituals. The diagrams in this book don't make any sense, and the number '"
+	desc = "A tome of odd liturgies and rituals. The diagrams in this book don't make any sense. Circles enclose an impossibly detailed mosaic of chrome motifs smeared against the ancient pages."
 	icon_state = "book_skull"
 	oddity_stats = list(
 		STAT_COG = 7,
