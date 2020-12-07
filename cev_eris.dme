@@ -2802,6 +2802,7 @@
 #include "zzz_modular_syzygy\storytellers\mentor.dm"
 #include "zzzz_modular_occulus\code\game\jobs\job\job.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\autolathe_disks.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\manuals.dm"
 #include "zzzz_modular_occulus\code\game\objects\random\utility.dm"
 #include "zzzz_modular_occulus\code\modules\loot_spawn_blacklist.dm"
 #include "zzzz_modular_occulus\code\modules\economy\price_list_reagents.dm"

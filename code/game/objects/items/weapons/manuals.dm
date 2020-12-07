@@ -197,57 +197,57 @@
 				<h1>Overview</h1>
 				The Northern Light's regulations exist as a guideline for what is and isn't allowed aboard the vessel. While none of this is legally binding within Sol or other space. Command and by extension, Aegis is free to enforce these regulations as they see fit to maintain a functioning vessel.
 				
-				<h2>Minor Violations:</h2>
+				<h1>Minor Violations:</h1>
 				
 				<b>Minor trespassing into areas not granted by ID access</b> - 600cr paid to the trespassed department in question.<br>
 				<br>
-				Theft of property belonging to another employee or company - 600cr paid to offended department/item returned.<br>
+				<b>Theft of property belonging to another employee or company</b> - 600cr paid to offended department/item returned.<br>
 				<br>
-				Possession of a Contraband Item - confiscation with re-compensation within reason.<br>
+				<b>Possession of a Contraband Item</b> - confiscation with re-compensation within reason.<br>
 				<br>
-				Possession of lethal munitions without registration/reason - confiscation with re-compensation within reason.<br>
+				<b>Possession of lethal munitions without registration/reason</b> - confiscation with re-compensation within reason.<br>
 				<br>
-				Vandalism - 600cr fine<br>
+				<b>Vandalism</b> - 600cr fine<br>
 				<br>
-				Animal cruelty - 800cr fine<br>
+				<b>Animal cruelty</b> - 800cr fine<br>
 				
-				<h2>Moderate Violations:</h2>
+				<h1>Moderate Violations:</h1>
 				
-				Major tresspass into areas of high security - Detainment followed by questioning pending command orders.<br>
+				<b>Major tresspass into areas of high security</b> - Detainment followed by questioning pending command orders.<br>
 				<br>
-				Minor neglect of Duty - 1000cr fine, command notified.<br>
+				<b>Minor neglect of Duty</b> - 1000cr fine, command notified.<br>
 				<br>
-				Assault with capability - Detainment followed by questioning + 2000cr fine.<br>
+				<b>Assault with capability</b> - Detainment followed by questioning + 2000cr fine.<br>
 				<br>
-				Battery - Detainment followed by questioning, command notified for further resolution if needed.<br>
+				<b>Battery</b> - Detainment followed by questioning, command notified for further resolution if needed.<br>
 				
-				<h2>Major Violations:</h2>
+				<h1>Major Violations:</h1>
 
-				Aggravated battery - Detainment pending command orders.<br>
+				<b>Aggravated battery</b> - Detainment pending command orders.<br>
 				<br>
-				Battery of command staff - Detainment pending command orders<br>
+				<b>Battery of command staff</b> - Detainment pending command orders<br>
 				<br>
-				Major Neglect of Duty(Resulting in major injury/damage) - Detainment pending command orders.<br>
+				<b>Major Neglect of Duty(Resulting in major injury/damage)</b> - Detainment pending command orders.<br>
 				<br>
-				Manslaughter(death without intent) - Detainment pending command orders.<br>
+				<b>Manslaughter(death without intent)</b> - Detainment pending command orders.<br>
 				<br>
-				Major theft of dangerous property - Detainment pending command orders.<br>
+				<b>Major theft of dangerous property</b> - Detainment pending command orders.<br>
 				<br>
-				Murder</ol> - Detainment pending command orders.<br>
+				<b>Murder</b> - Detainment pending command orders.<br>
 				<br>
-				Sabotage of ship synthetics - Detainment with crew rights waived, pending command orders.<br>
+				<b>Sabotage of ship synthetics</b> - Detainment with crew rights waived, pending command orders.<br>
 				
-				<h2>Omega Violations:</h2>		
+				<h1>Omega Violations:</h1>		
 
-				Sabotage of the ship - Immediate crew status revocation.<br>
+				<b>Sabotage of the ship</b> - Immediate crew status revocation.<br>
 				<br>
-				Neglect of Duty during Code Delta - Immediate crew status revocation, immediate detainment up to including lethal force.<br>
+				<b>Neglect of Duty during Code Delta</b> - Immediate crew status revocation, immediate detainment up to including lethal force.<br>
 				<br>
-				Mass Murder(2+ victims) - Immediate crew status revocation, lethal force recommended.<br>
+				<b>Mass Murder(2+ victims)</b> - Immediate crew status revocation, lethal force recommended.<br>
 				<br>
-				Allegiance to a hostile collective(Known Terrorists, political extremists, etc) - Immediate crew status revocation.<br>
+				<b>Allegiance to a hostile collective(Known Terrorists, political extremists, etc)</b> - Immediate crew status revocation.<br>
 				<br>
-				Inability or refusal to remain detained - Immediate crew status revocation, detainment by most extreme methods, including lethal force.<br>
+				<b>Inability or refusal to remain detained</b> - Immediate crew status revocation, detainment by most extreme methods, including lethal force.<br>
 
 
 				</body>
