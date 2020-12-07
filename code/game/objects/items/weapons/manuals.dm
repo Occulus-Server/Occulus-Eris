@@ -199,37 +199,37 @@
 				
 				<h2>Minor Violations:</h2>
 				
-				<ol>* Minor trespassing into areas not granted by ID access</ol> - 600cr paid to the trespassed department in question.
-				<ol>* Theft of property belonging to another employee or company</ol> - 600cr paid to offended department/item returned.
-				<ol>* Possession of a Contraband Item</ol> - confiscation with re-compensation within reason.
-				<ol>* Possession of lethal munitions without registration/reason</ol> - confiscation with re-compensation within reason.
-				<ol>* Vandalism - 600cr fine
-				<ol>* Animal cruelty</ol> - 800cr fine
+				<b>Minor trespassing into areas not granted by ID access</b> - 600cr paid to the trespassed department in question.
+				Theft of property belonging to another employee or company - 600cr paid to offended department/item returned.
+				Possession of a Contraband Item - confiscation with re-compensation within reason.
+				Possession of lethal munitions without registration/reason - confiscation with re-compensation within reason.
+				Vandalism - 600cr fine
+				Animal cruelty - 800cr fine
 				
 				<h2>Moderate Violations:</h2>
 				
-				<ol>* Major tresspass into areas of high security</ol> - Detainment followed by questioning pending command orders.
-				<ol>* Minor neglect of Duty</ol> - 1000cr fine, command notified.
-				<ol>* Assault with capability</ol> - Detainment followed by questioning + 2000cr fine.
-				<ol>* Battery</ol> - Detainment followed by questioning, command notified for further resolution if needed.
+				Major tresspass into areas of high security - Detainment followed by questioning pending command orders.
+				Minor neglect of Duty - 1000cr fine, command notified.
+				Assault with capability - Detainment followed by questioning + 2000cr fine.
+				Battery - Detainment followed by questioning, command notified for further resolution if needed.
 				
 				<h2>Major Violations:</h2>
 
-				<ol>* Aggravated battery</ol> - Detainment pending command orders.
-				<ol>* Battery of command staff</ol> - Detainment pending command orders
-				<ol>* Major Neglect of Duty(Resulting in major injury/damage)</ol> - Detainment pending command orders.
-				<ol>* Manslaughter(death without intent)</ol> - Detainment pending command orders.
-				<ol>* Major theft of dangerous property</ol> - Detainment pending command orders.
-				<ol>* Murder</ol> - Detainment pending command orders.
-				<ol>* Sabotage of ship synthetics</ol> - Detainment with crew rights waived, pending command orders.
+				Aggravated battery - Detainment pending command orders.
+				Battery of command staff - Detainment pending command orders
+				Major Neglect of Duty(Resulting in major injury/damage) - Detainment pending command orders.
+				Manslaughter(death without intent) - Detainment pending command orders.
+				Major theft of dangerous property - Detainment pending command orders.
+				Murder</ol> - Detainment pending command orders.
+				Sabotage of ship synthetics - Detainment with crew rights waived, pending command orders.
 				
 				<h2>Omega Violations:</h2>		
 
-				<ol>* Sabotage of the ship</ol> - Immediate crew status revocation.
-				<ol>* Neglect of Duty during Code Delta</ol> - Immediate crew status revocation, immediate detainment up to including lethal force.
-				<ol>* Mass Murder(2+ victims)</ol> - Immediate crew status revocation, lethal force recommended.
-				<ol>* Allegiance to a hostile collective(Known Terrorists, political extremists, etc)</ol> - Immediate crew status revocation.
-				<ol>* Inability or refusal to remain detained</ol> - Immediate crew status revocation, detainment by most extreme methods, including lethal force.
+				Sabotage of the ship - Immediate crew status revocation.
+				Neglect of Duty during Code Delta - Immediate crew status revocation, immediate detainment up to including lethal force.
+				Mass Murder(2+ victims) - Immediate crew status revocation, lethal force recommended.
+				Allegiance to a hostile collective(Known Terrorists, political extremists, etc) - Immediate crew status revocation.
+				Inability or refusal to remain detained - Immediate crew status revocation, detainment by most extreme methods, including lethal force.
 
 
 				</body>
