@@ -199,37 +199,37 @@
 				
 				<h2>Minor Violations:</h2>
 				
-				<b>Minor trespassing into areas not granted by ID access</b> - 600cr paid to the trespassed department in question.
-				Theft of property belonging to another employee or company - 600cr paid to offended department/item returned.
-				Possession of a Contraband Item - confiscation with re-compensation within reason.
-				Possession of lethal munitions without registration/reason - confiscation with re-compensation within reason.
-				Vandalism - 600cr fine
-				Animal cruelty - 800cr fine
+				<b>Minor trespassing into areas not granted by ID access</b> - 600cr paid to the trespassed department in question.<br>
+				Theft of property belonging to another employee or company - 600cr paid to offended department/item returned.<br>
+				Possession of a Contraband Item - confiscation with re-compensation within reason.<br>
+				Possession of lethal munitions without registration/reason - confiscation with re-compensation within reason.<br>
+				Vandalism - 600cr fine<br>
+				Animal cruelty - 800cr fine<br>
 				
 				<h2>Moderate Violations:</h2>
 				
-				Major tresspass into areas of high security - Detainment followed by questioning pending command orders.
-				Minor neglect of Duty - 1000cr fine, command notified.
-				Assault with capability - Detainment followed by questioning + 2000cr fine.
-				Battery - Detainment followed by questioning, command notified for further resolution if needed.
+				Major tresspass into areas of high security - Detainment followed by questioning pending command orders.<br>
+				Minor neglect of Duty - 1000cr fine, command notified.<br>
+				Assault with capability - Detainment followed by questioning + 2000cr fine.<br>
+				Battery - Detainment followed by questioning, command notified for further resolution if needed.<br>
 				
 				<h2>Major Violations:</h2>
 
-				Aggravated battery - Detainment pending command orders.
-				Battery of command staff - Detainment pending command orders
-				Major Neglect of Duty(Resulting in major injury/damage) - Detainment pending command orders.
-				Manslaughter(death without intent) - Detainment pending command orders.
-				Major theft of dangerous property - Detainment pending command orders.
-				Murder</ol> - Detainment pending command orders.
-				Sabotage of ship synthetics - Detainment with crew rights waived, pending command orders.
+				Aggravated battery - Detainment pending command orders.<br>
+				Battery of command staff - Detainment pending command orders<br>
+				Major Neglect of Duty(Resulting in major injury/damage) - Detainment pending command orders.<br>
+				Manslaughter(death without intent) - Detainment pending command orders.<br>
+				Major theft of dangerous property - Detainment pending command orders.<br>
+				Murder</ol> - Detainment pending command orders.<br>
+				Sabotage of ship synthetics - Detainment with crew rights waived, pending command orders.<br>
 				
 				<h2>Omega Violations:</h2>		
 
-				Sabotage of the ship - Immediate crew status revocation.
-				Neglect of Duty during Code Delta - Immediate crew status revocation, immediate detainment up to including lethal force.
-				Mass Murder(2+ victims) - Immediate crew status revocation, lethal force recommended.
-				Allegiance to a hostile collective(Known Terrorists, political extremists, etc) - Immediate crew status revocation.
-				Inability or refusal to remain detained - Immediate crew status revocation, detainment by most extreme methods, including lethal force.
+				Sabotage of the ship - Immediate crew status revocation.<br>
+				Neglect of Duty during Code Delta - Immediate crew status revocation, immediate detainment up to including lethal force.<br>
+				Mass Murder(2+ victims) - Immediate crew status revocation, lethal force recommended.<br>
+				Allegiance to a hostile collective(Known Terrorists, political extremists, etc) - Immediate crew status revocation.<br>
+				Inability or refusal to remain detained - Immediate crew status revocation, detainment by most extreme methods, including lethal force.<br>
 
 
 				</body>
