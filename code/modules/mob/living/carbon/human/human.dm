@@ -268,7 +268,7 @@ var/list/rank_prefix = list(\
 		if(findtext(name, " "))
 			name = copytext(name, findtext(name, " "))
 			no_space = FALSE
-		
+
 		if(!no_space)		//if the name had a space (forename and surname), we don't need to do anything special
 			name = get_id_rank() + name
 		else				//If the name did not have a space (single-barrel name), we need to add a space
@@ -1174,18 +1174,18 @@ var/list/rank_prefix = list(\
 	status_flags |= REBUILDING_ORGANS
 
 	var/obj/item/organ/internal/carrion/core = internal_organs_by_name[BP_SPCORE]
-	var/list/organs_to_readd = list() 
+	var/list/organs_to_readd = list()
 	if(core) //kinda wack, this whole proc should be remade
 		for(var/obj/item/organ/internal/carrion/C in internal_organs)
 			C.removed_mob()
 			organs_to_readd += C
-
+/*	OCCULUS EDIT - Remove now redundant core implant spawning bits, these are now handled in core_implants.dm with the apply proc
 	var/obj/item/weapon/implant/core_implant/CI = get_core_implant()
 	var/checkprefcruciform = FALSE	// To reset the cruciform to original form
 	if(CI)
 		checkprefcruciform = TRUE
 		qdel(CI)
-
+*/
 
 	if(from_preference)
 		for(var/obj/item/organ/organ in (organs|internal_organs))
@@ -1228,7 +1228,7 @@ var/list/rank_prefix = list(\
 			else
 				var/organ_type = species.has_organ[tag]
 				new organ_type(src)
-
+/*	OCCULUS EDIT - Remove now redundant core implant spawning bits, these are now handled in core_implants.dm with the apply proc
 		var/datum/category_item/setup_option/core_implant/I = Pref.get_option("Core implant")
 		if(I.implant_type && (!mind || mind.assigned_role != "Robot"))
 			var/obj/item/weapon/implant/core_implant/C = new I.implant_type
@@ -1236,7 +1236,7 @@ var/list/rank_prefix = list(\
 			C.activate()
 			if(mind)
 				C.install_default_modules_by_job(mind.assigned_job)
-				C.access.Add(mind.assigned_job.cruciform_access)
+				C.access.Add(mind.assigned_job.cruciform_access)	*/
 	else
 		var/organ_type
 
@@ -1253,7 +1253,7 @@ var/list/rank_prefix = list(\
 			if(I && I.type == organ_type)
 				continue
 			new organ_type(src)
-
+/*	OCCULUS EDIT - Remove now redundant core implant spawning bits, these are now handled in core_implants.dm with the apply proc
 		if(checkprefcruciform)
 			var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
 			if(I.implant_type)
@@ -1262,7 +1262,7 @@ var/list/rank_prefix = list(\
 				C.activate()
 				C.install_default_modules_by_job(mind.assigned_job)
 				C.access.Add(mind.assigned_job.cruciform_access)
-
+*/
 	for(var/obj/item/organ/internal/carrion/C in organs_to_readd)
 		C.replaced(get_organ(C.parent_organ))
 

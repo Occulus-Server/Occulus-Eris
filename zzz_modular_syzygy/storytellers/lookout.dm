@@ -2,7 +2,7 @@
 	config_tag = "lookout"
 	name = "The Lookout"
 	welcome = "A foghorn in the distance. It's quiet, for now. Huddle close. Don't let the cold in."
-	description = "A quiet storyteller that lets the ship speak for itself."
+	description = "A quiet storyteller that generates few destructive events, but spawns antagonists. Stay weary."
 
 	gain_mult_mundane = 0.8
 	gain_mult_moderate = 0.85
