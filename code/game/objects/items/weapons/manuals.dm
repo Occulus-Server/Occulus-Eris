@@ -200,35 +200,53 @@
 				<h2>Minor Violations:</h2>
 				
 				<b>Minor trespassing into areas not granted by ID access</b> - 600cr paid to the trespassed department in question.<br>
+				<br>
 				Theft of property belonging to another employee or company - 600cr paid to offended department/item returned.<br>
+				<br>
 				Possession of a Contraband Item - confiscation with re-compensation within reason.<br>
+				<br>
 				Possession of lethal munitions without registration/reason - confiscation with re-compensation within reason.<br>
+				<br>
 				Vandalism - 600cr fine<br>
+				<br>
 				Animal cruelty - 800cr fine<br>
 				
 				<h2>Moderate Violations:</h2>
 				
 				Major tresspass into areas of high security - Detainment followed by questioning pending command orders.<br>
+				<br>
 				Minor neglect of Duty - 1000cr fine, command notified.<br>
+				<br>
 				Assault with capability - Detainment followed by questioning + 2000cr fine.<br>
+				<br>
 				Battery - Detainment followed by questioning, command notified for further resolution if needed.<br>
 				
 				<h2>Major Violations:</h2>
 
 				Aggravated battery - Detainment pending command orders.<br>
+				<br>
 				Battery of command staff - Detainment pending command orders<br>
+				<br>
 				Major Neglect of Duty(Resulting in major injury/damage) - Detainment pending command orders.<br>
+				<br>
 				Manslaughter(death without intent) - Detainment pending command orders.<br>
+				<br>
 				Major theft of dangerous property - Detainment pending command orders.<br>
+				<br>
 				Murder</ol> - Detainment pending command orders.<br>
+				<br>
 				Sabotage of ship synthetics - Detainment with crew rights waived, pending command orders.<br>
 				
 				<h2>Omega Violations:</h2>		
 
 				Sabotage of the ship - Immediate crew status revocation.<br>
+				<br>
 				Neglect of Duty during Code Delta - Immediate crew status revocation, immediate detainment up to including lethal force.<br>
+				<br>
 				Mass Murder(2+ victims) - Immediate crew status revocation, lethal force recommended.<br>
+				<br>
 				Allegiance to a hostile collective(Known Terrorists, political extremists, etc) - Immediate crew status revocation.<br>
+				<br>
 				Inability or refusal to remain detained - Immediate crew status revocation, detainment by most extreme methods, including lethal force.<br>
 
 
