@@ -1,93 +1,60 @@
-/obj/item/weapon/book/manual/wiki
-	var/page_link = ""
-	window_size = "970x710"
+/obj/item/weapon/book/manual/chef_recipes
+	name = "Chef Recipes"
+	icon_state = "cooked_book"
+	author = "Victoria Ponsonby"
+	title = "Chef Recipes"
 
-/obj/item/weapon/book/manual/wiki/attack_self()
-	if(!dat)
-		initialize_wikibook()
-	return ..()
+	dat = {"<html>
+				<head>
+				<style>
+				h1 {font-size: 18px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				h3 {font-size: 13px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
 
-/obj/item/weapon/book/manual/wiki/proc/initialize_wikibook()
-	if(config.wikiurl)
-		dat = {"
-			<html><head>
-			<style>
-				iframe {
-					display: none;
-				}
-			</style>
-			</head>
-			<body>
-			<script type="text/javascript">
-				function pageloaded(myframe) {
-					document.getElementById("loading").style.display = "none";
-					myframe.style.display = "inline";
-    			}
-			</script>
-			<p id='loading'>You start skimming through the manual...</p>
-			<iframe width='100%' height='97%' onload="pageloaded(this)" src="[config.wikiurl]/[page_link]_Eris[config.language]?printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
-			</body>
+				<h1>Food for Dummies</h1>
+				Here is a guide on basic food recipes and also how to not poison your customers accidentally.
+
+				<h3>Basics:</h3>
+				Knead an egg and some flour to make dough. Bake that to make a bun or flatten and cut it.
+
+				<h3>Burger:</h3>
+				Put a bun and some meat into the microwave and turn it on. Then wait.
+
+				<h3>Bread:</h3>
+				Put some dough and an egg into the microwave and then wait.
+
+				<h3>Waffles:</h3>
+				Add two lumps of dough and 10 units of sugar to the microwave and then wait.
+
+				<h3>Popcorn:</h3>
+				Add 1 corn to the microwave and wait.
+
+				<h3>Meat Steak:</h3>
+				Put a slice of meat, 1 unit of salt, and 1 unit of pepper into the microwave and wait.
+
+				<h3>Meat Pie:</h3>
+				Put a flattened piece of dough and some meat into the microwave and wait.
+
+				<h3>Boiled Spaghetti:</h3>
+				Put the spaghetti (processed flour) and 5 units of water into the microwave and wait.
+
+				<h3>Donuts:</h3>
+				Add some dough and 5 units of sugar to the microwave and wait.
+
+				<h3>Fries:</h3>
+				Add one potato to the processor, then bake them in the microwave.
+
+
+				</body>
 			</html>
 			"}
-
-//engineering
-/obj/item/weapon/book/manual/wiki/engineering_guide
-	name = "Engineering Textbook"
-	icon_state = "book_engineering"
-	author = "Engineering Encyclopedia"
-	title = "Engineering Textbook"
-	page_link = "Guide_to_Engineering"
-
-/obj/item/weapon/book/manual/wiki/engineering_construction
-	name = "Station Repairs and Construction"
-	icon_state = "book_construction"
-	author = "Engineering Encyclopedia"
-	title = "Station Repairs and Construction"
-	page_link = "Guide_to_Construction"
-
-/obj/item/weapon/book/manual/wiki/engineering_atmos
-	name = "Pipes and You: Getting To Know Your Scary Tools"
-	icon_state = "book_atmos"
-	author = "Maria Crash, Senior Atmospherics Technician"
-	title = "Pipes and You: Getting To Know Your Scary Tools"
-	page_link = "Guide_to_Atmospherics"
-
-/obj/item/weapon/book/manual/wiki/engineering_hacking
-	name = "Hacking"
-	icon_state = "book_hacking"
-	author = "Engineering Encyclopedia"
-	title = "Hacking"
-	page_link = "Guide_to_Hacking"
-
-/obj/item/weapon/book/manual/wiki/engineering_singularity
-	name = "Singularity Safety in Special Circumstances"
-	icon_state = "book_singularity"
-	author = "Engineering Encyclopedia"
-	title = "Singularity Safety in Special Circumstances"
-	page_link = "Guide_to_Singularity"
-
-/obj/item/weapon/book/manual/wiki/engineering_supermatter
-	name = "Supermatter Engine Operating Manual"
-	icon_state = "book_supermatter"
-	author = "Central Engineering Division"
-	title = "Supermatter Engine Operating Manual"
-	page_link = "Guide_to_Supermatter"
-
-//science
-/obj/item/weapon/book/manual/wiki/science_research
-	name = "Research and Development 101"
-	icon_state = "book_rnd"
-	author = "Dr. L. Ight"
-	title = "Research and Development 101"
-	page_link = "Guide_to_Research_and_Development"
-
-/obj/item/weapon/book/manual/wiki/science_robotics
-	name = "Cyborgs for Dummies"
-	icon_state = "book_borg"
-	author = "XISC"
-	title = "Cyborgs for Dummies"
-	page_link = "Guide_to_Robotics"
-
 //security
 /obj/item/weapon/book/manual/wiki/security_ironparagraphs
 	name = "Cobalt Aegis Paragraphs"
@@ -95,50 +62,63 @@
 	icon_state = "book_ironparagraphs"
 	author = "Cobalt Aegis Security"
 	title = "Cobalt Aegis Paragraphs"
-	page_link = "Agreement"
+	
+	dat = {"<html>
+				<head>
+				<style>
+				h1 {font-size: 18px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				h3 {font-size: 13px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+				
+				<h1>Overview</h1>
+				The Northern Light's regulations exist as a guideline for what is and isn't allowed aboard the vessel. While none of this is legally binding within Sol or other space. Command and by extension, Aegis is free to enforce these regulations as they see fit to maintain a functioning vessel.
+				
+				<h2>Minor Violations:</h2>
+				
+				<ol>* Minor trespassing into areas not granted by ID access</ol> - 600cr paid to the trespassed department in question.
+				<ol>* Theft of property belonging to another employee or company</ol> - 600cr paid to offended department/item returned.
+				<ol>* Possession of a Contraband Item</ol> - confiscation with re-compensation within reason.
+				<ol>* Possession of lethal munitions without registration/reason</ol> - confiscation with re-compensation within reason.
+				<ol>* Vandalism - 600cr fine
+				<ol>* Animal cruelty</ol> - 800cr fine
+				
+				<h2>Moderate Violations:</h2>
+				
+				<ol>* Major tresspass into areas of high security</ol> - Detainment followed by questioning pending command orders.
+				<ol>* Minor neglect of Duty</ol> - 1000cr fine, command notified.
+				<ol>* Assault with capability</ol> - Detainment followed by questioning + 2000cr fine.
+				<ol>* Battery</ol> - Detainment followed by questioning, command notified for further resolution if needed.
+				
+				<h2>Major Violations:</h2>
 
-/obj/item/weapon/book/manual/wiki/security_detective
-	name = "The Film Noir: Proper Procedures for Investigations"
-	icon_state = "book_forensics"
-	author = "The Company"
-	title = "The Film Noir: Proper Procedures for Investigations"
-	page_link = "Guide_to_Forensics"
+				<ol>* Aggravated battery</ol> - Detainment pending command orders.
+				<ol>* Battery of command staff</ol> - Detainment pending command orders
+				<ol>* Major Neglect of Duty(Resulting in major injury/damage)</ol> - Detainment pending command orders.
+				<ol>* Manslaughter(death without intent)</ol> - Detainment pending command orders.
+				<ol>* Major theft of dangerous property</ol> - Detainment pending command orders.
+				<ol>* Murder</ol> - Detainment pending command orders.
+				<ol>* Sabotage of ship synthetics</ol> - Detainment with crew rights waived, pending command orders.
+				
+				<h2>Omega Violations:</h2>		
 
-//medical
-/obj/item/weapon/book/manual/wiki/medical_guide
-	name = "Medical Diagnostics Manual"
-	desc = "First, do no harm. A detailed medical practitioner's guide."
-	icon_state = "book_medical"
-	author = "Medical Journal, volume 1"
-	title = "Medical Diagnostics Manual"
-	page_link = "Guide_to_Medical"
+				<ol>* Sabotage of the ship</ol> - Immediate crew status revocation.
+				<ol>* Neglect of Duty during Code Delta</ol> - Immediate crew status revocation, immediate detainment up to including lethal force.
+				<ol>* Mass Murder(2+ victims)</ol> - Immediate crew status revocation, lethal force recommended.
+				<ol>* Allegiance to a hostile collective(Known Terrorists, political extremists, etc)</ol> - Immediate crew status revocation.
+				<ol>* Inability or refusal to remain detained</ol> - Immediate crew status revocation, detainment by most extreme methods, including lethal force.
 
-/obj/item/weapon/book/manual/wiki/medical_chemistry
-	name = "Chemistry Textbook"
-	icon_state = "book"//TODO: Add icon
-	author = "Medical Journal, volume 2"
-	title = "Chemistry"
-	page_link = "Guide_to_Chemistry"
 
-//neotheology
-/obj/item/weapon/book/manual/wiki/neotheology_cloning //TODO: Completely change this to be NT-oriented.
-	name = "Cloning Rituals"
-	icon_state = "book"//TODO: Add icon
-	author = "The Church"
-	title = "Cloning Rituals"
-	page_link = "Guide_to_Cloning"
+				</body>
+			</html>
+			"}
 
-//service
-/obj/item/weapon/book/manual/wiki/barman_recipes
-	name = "Barman Recipes"
-	icon_state = "book"
-	author = "Sir John Rose"
-	title = "Barman Recipes"
-	page_link = "Guide_to_Food_and_Drinks"
 
-/obj/item/weapon/book/manual/wiki/chef_recipes
-	name = "Chef Recipes"
-	icon_state = "chefbook"
-	author = "Victoria Ponsonby"
-	title = "Chef Recipes"
-	page_link = "Guide_to_Food_and_Drinks"
+
+				
