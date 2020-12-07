@@ -55,8 +55,9 @@
 				</body>
 			</html>
 			"}
-//security
-/obj/item/weapon/book/manual/wiki/security_ironparagraphs
+
+
+/obj/item/weapon/book/manual/security_ironparagraphs
 	name = "Cobalt Aegis Paragraphs"
 	desc = "A set of corporate guidelines for keeping order on privately-owned space assets."
 	icon_state = "book_ironparagraphs"
