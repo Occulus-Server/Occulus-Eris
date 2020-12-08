@@ -3,14 +3,15 @@
 	desc = "A hostile nanoswarm hive in the shape of a cute blob."
 	icon = 'icons/mob/nanoblob.dmi'
 	icon_state = "nanoblob"
+	icon_gib = "nanoblob_dead"
 	speak_chance = 3
 	turns_per_move = 3
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	speed = 4
-	maxHealth = 100
-	health = 100
+	maxHealth = 50
+	health = 50
 	speak = list(
 				"Rwesitance is fwutile."
 				)
@@ -21,26 +22,6 @@
 	attacktext = "glomps"
 	attack_sound = 'sound/weapons/bite.ogg'
 	
-	/mob/living/simple_animal/hostile/nanoblob/emp_act(severity)
-		(severity)
-		if(1)
-			adjustBruteLoss(75,emp=1)
-			Stun(rand(5,10))
-		if(2)
-			adjustBruteLoss(100,emp=1)
-			return TRUE
-
-/mob/living/simple_animal/hostile/hivebot/death()
-	..()
-	visible_message("<b>[src]</b> blows apart!")
-	new /obj/effect/decal/cleanable/blood/gibs/robot(src.loc)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, src)
-	s.start()
-	qdel(src)
-	return
-
-
 	//Space carp aren't affected by atmos.
 	min_oxy = 0
 	max_oxy = 0
