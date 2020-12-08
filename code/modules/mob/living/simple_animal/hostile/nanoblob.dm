@@ -22,7 +22,7 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 	
 	/mob/living/simple_animal/hostile/nanoblob/emp_act(severity)
-		switch(severity)
+		(severity)
 		if(1)
 			adjustBruteLoss(75,emp=1)
 			Stun(rand(5,10))
