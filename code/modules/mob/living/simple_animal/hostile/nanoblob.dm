@@ -3,7 +3,6 @@
 	desc = "A hostile nanoswarm hive in the shape of a cute blob."
 	icon = 'icons/mob/nanoblob.dmi'
 	icon_state = "nanoblob"
-	icon_gib = "nanoblob_dead"
 	speak_chance = 3
 	turns_per_move = 3
 	response_help = "pets the"
@@ -23,9 +22,21 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 	
 	/mob/living/simple_animal/hostile/nanoblob/emp_act(severity)
-		if(severity)
-			adjustBruteLoss(75)
+		switch(severity)
+		if(1)
+			adjustBruteLoss(75,emp=1)
+			Stun(rand(5,10))
+		if(2)
+			adjustBruteLoss(100,emp=1)
 			return TRUE
+
+	/mob/living/simple_animal/hostile/nanoblob/death()
+	..()
+	visible_message("<b>[src]</b> implodes!")
+	new /obj/effect/decal/cleanable/blood/gibs/robot(src.loc)
+	qdel(src)
+	return
+
 
 	//Space carp aren't affected by atmos.
 	min_oxy = 0

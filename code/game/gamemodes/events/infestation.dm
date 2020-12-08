@@ -21,7 +21,7 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 
 #define INFESTATION_MICE "mice"
 #define INFESTATION_LIZARDS "lizards"
-#define INFESTATION_NANOBLOB "nanoswarm" //Oculus edit, going to edit the var to reflect the mob, if it doesn't work changing it back to SPACE_BATS
+#define INFESTATION_NANOBLOB "nanoswarms" //Oculus edit, going to edit the var to reflect the mob, if it doesn't work changing it back to SPACE_BATS
 #define INFESTATION_SPIDERLINGS "spiderlings"
 #define INFESTATION_SPIDERS "spider"
 #define INFESTATION_ROACHES "large insects"
