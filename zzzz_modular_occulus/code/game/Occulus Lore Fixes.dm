@@ -156,9 +156,10 @@
 	desc = "A cheap utility exosuit. An old Union design, now used just about everywhere due to internal data leaks."
 
 //Radio, God help me do this right
-var/list/department_radio_keys = list( //Say Code
+var/list/department_radio_keys = list( 
 	"t" = "MeK Voice",    "T" = "Mek Voice",
 	"е" = "Mek Voice",    "Е" = "Mek Voice",
+	)//Say Code
 	
 /obj/item/device/encryptionkey/headset_church //Radio keys
 	channels = list("MeK Voice" = 1)
