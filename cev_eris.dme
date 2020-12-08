@@ -2798,6 +2798,7 @@
 #include "zzz_modular_syzygy\storytellers\lookout.dm"
 #include "zzz_modular_syzygy\storytellers\mentor.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\guns.dm"
+#include "zzzz_modular_occulus\code\game\occulus-lore-fixes.dm"
 #include "zzzz_modular_occulus\code\game\jobs\job\job.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\autolathe_disks.dm"
 #include "zzzz_modular_occulus\code\game\objects\random\utility.dm"
