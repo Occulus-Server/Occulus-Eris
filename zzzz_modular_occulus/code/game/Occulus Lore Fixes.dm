@@ -183,4 +183,4 @@
 //Roaches
 /mob/living/carbon/superior_animal/roach
 	name = "Kampfer Roach"
-	desc = "A monstrous, dog-sized cockroach. These huge mutants can be everywhere on the ship."
+	desc = "A monstrous, dog-sized cockroach. These huge mutants can be found everywhere on the ship."
