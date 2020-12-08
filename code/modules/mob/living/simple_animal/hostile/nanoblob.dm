@@ -23,8 +23,9 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 	
 	/mob/living/simple_animal/hostile/nanoblob/emp_act(severity)
-			if(severity)
-				adjustBruteLoss(75)
+		if(severity)
+			adjustBruteLoss(75)
+			return TRUE
 
 	//Space carp aren't affected by atmos.
 	min_oxy = 0
