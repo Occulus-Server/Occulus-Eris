@@ -20,10 +20,6 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_heavysniper
 	disk_name = "Serbian Arms - .60 Penetrator AMR"
 	icon_state = "serbian"
-	designs = list(
-		/datum/design/autolathe/gun/heavysniper = 3, // "SA AMR .60 \"Penetrator\""
-		/datum/design/autolathe/ammo/antim,
-		/datum/design/autolathe/ammo/box_antim,
 	
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_protector
 	disk_name = "Frozen Star - Protector Grenade Launcher"
