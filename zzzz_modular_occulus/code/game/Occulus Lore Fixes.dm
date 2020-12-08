@@ -173,8 +173,15 @@
 	
 /obj/item/device/encryptionkey/heads/admin
 	channels = list("Command" = 1, "Security" = 1, "Engineering" = 1, "MeK Voice" = 1, "Science" = 1, "Medical" = 1, "Supply" = 1, "Service" = 1, "AI Private" = 1, "Mercenary" = 1)
-	
-/obj/machinery/telecomms/server/presets/nt //Telecomms preset
+
+/obj/machinery/telecomms/hub/preset //Telecomms preset
+	id = "Hub"
+	network = "eris"
+	autolinkers = list("hub", "relay", "c_relay", "s_relay", "m_relay", "r_relay", "science", "medical",
+	"supply", "service", "common", "command", "engineering", "security", "mek", "unused",
+	"receiverA", "broadcasterA")
+
+/obj/machinery/telecomms/server/presets/mek 
 	id = "MeK Voice Server"
 	
 /obj/item/device/radio/random_radio //Radios
