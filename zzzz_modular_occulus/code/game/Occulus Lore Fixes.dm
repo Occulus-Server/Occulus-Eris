@@ -157,9 +157,39 @@
 
 //Radio, God help me do this right
 var/list/department_radio_keys = list( 
+	"r" = "right ear",   "R" = "right ear",
+	"l" = "left ear",    "L" = "left ear",
+	"i" = "intercom",    "I" = "intercom",
+	"h" = "department",  "H" = "department",
+	"+" = "special",	 //activate radio-specific special functions
+	"c" = "Command",     "C" = "Command",
+	"n" = "Science",     "N" = "Science",
+	"m" = "Medical",     "M" = "Medical",
+	"e" = "Engineering", "E" = "Engineering",
+	"s" = "Security",    "S" = "Security",
+	"w" = "whisper",     "W" = "whisper",
+	"y" = "Mercenary",   "Y" = "Mercenary",
+	"u" = "Supply",      "U" = "Supply",
+	"v" = "Service",     "V" = "Service",
+	"p" = "AI Private",  "P" = "AI Private",
 	"t" = "MeK Voice",    "T" = "Mek Voice",
+	
+	"?" = "right ear",   "?" = "right ear",
+	"?" = "left ear",    "?" = "left ear",
+	"?" = "intercom",    "?" = "intercom",
+	"?" = "department",  "?" = "department",
+	"?" = "Command",     "?" = "Command",
+	"?" = "Science",     "?" = "Science",
+	"?" = "Medical",     "?" = "Medical",
+	"?" = "Engineering", "?" = "Engineering",
+	"?" = "Security",    "?" = "Security",
+	"?" = "whisper",     "?" = "whisper",
+	"?" = "Mercenary",   "?" = "Mercenary",
+	"?" = "Supply",      "?" = "Supply",
+	"?" = "Service",     "?" = "Service",
+	"?" = "AI Private",  "?" = "AI Private",
 	"е" = "Mek Voice",    "Е" = "Mek Voice",
-	)//Say Code
+)//Say Code
 	
 /obj/item/device/encryptionkey/headset_church //Radio keys
 	channels = list("MeK Voice" = 1)
