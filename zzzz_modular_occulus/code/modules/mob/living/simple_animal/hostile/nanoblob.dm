@@ -1,9 +1,9 @@
 /mob/living/simple_animal/hostile/nanoblob //Occulus edit
 	name = "nanoblob"
 	desc = "A hostile nanoswarm hive in the shape of a cute blob."
-	icon = 'icons/mob/nanoblob.dmi'
+	icon = 'zzzz_modular_occulus/icons/mob/nanoblob.dmi'
 	icon_state = "nanoblob"
-	speak_chance = 3
+	speak_chance = 5
 	turns_per_move = 3
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
@@ -12,7 +12,11 @@
 	maxHealth = 50
 	health = 50
 	speak = list(
-				"Rwesitance is fwutile."
+				"Rwesitance is fwutile.",
+				"Assimiwait. Assimiwait.",
+				"Youw biowogical uniwiss will soonw addew to ouws.",
+				"OwO, I nowticed youw biomattaw!",
+				"Stwuggle ownly makes you tiwed"
 				)
 
 	harm_intent_damage = 8
@@ -45,7 +49,7 @@
 /obj/effect/decal/cleanable/nanoblob_remains
 	name = "nanobot puddle"
 	desc = "a puddle of dead nanobots."
-	icon = 'icons/effects/effects.dmi'
+	icon = 'zzzz_modular_occulus/icons/mob/nanoblob.dmi'
 	icon_state = "nanopuddle"
 
 /mob/living/simple_animal/hostile/nanoblob/New(loc, mob/living/L as mob)
