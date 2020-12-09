@@ -20,23 +20,6 @@
 	melee_damage_upper = 10
 	attacktext = "glomps"
 	attack_sound = 'sound/weapons/bite.ogg'
-	
-/mob/living/simple_animal/hostile/nanoblob/die()
-	visible_message("<span class='alert'>[src] dies!</span>")
-	new /obj/effect/decal/cleanable/nanoblob_remains(loc)
-	qdel(src)
-
-/mob/living/simple_animal/hostile/nanoblob/healthcheck()
-	if(health <= 0)
-		die()
-		
-/obj/effect/decal/cleanable/nanoblob_remains
-	name = "nanobot puddle"
-	desc = "a puddle of dead nanobots."
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "nanopuddle"
-	return
-	
 	//Space carp aren't affected by atmos.
 	min_oxy = 0
 	max_oxy = 0
@@ -52,6 +35,18 @@
 
 	faction = "nanoblob"
 	var/mob/living/owner
+
+/mob/living/simple_animal/hostile/nanoblob/death()
+	visible_message("<span class='alert'>[src] dies!</span>")
+	new /obj/effect/decal/cleanable/nanoblob_remains(src.loc)
+	qdel(src)
+	return
+
+/obj/effect/decal/cleanable/nanoblob_remains
+	name = "nanobot puddle"
+	desc = "a puddle of dead nanobots."
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "nanopuddle"
 
 /mob/living/simple_animal/hostile/nanoblob/New(loc, mob/living/L as mob)
 	..()
