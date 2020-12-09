@@ -64,6 +64,9 @@
 		inserted_disk_file.size += 0.2 * harvest_speed//200 points per tick per tier of laser
 		if(prob(1))
 			src.spawn_monsters("Spiders",2)
+	else
+		if(prob(10))
+			src.spawn_monsters("Roaches",1)//On the station is just calls groups of roaches!
 			return
 
 /obj/machinery/exploration/ADMS/proc/spawn_monsters(var/tag, var/number)
