@@ -5,8 +5,8 @@
 	density = TRUE
 
 /obj/machinery/exploration/ADMS
-	name = "Anomolous Data Measurement System"
-	desc = "A large piece of equipment for gathering data from anomolous regions."
+	name = "Anomalous Data Measurement System"
+	desc = "A large piece of equipment for gathering data from anomalous regions."
 	icon_state = "ADMS"
 
 	circuit = /obj/item/weapon/electronics/circuitboard/ADMS
@@ -127,7 +127,7 @@
 	return FALSE
 
 /obj/item/weapon/electronics/circuitboard/ADMS
-	name = T_BOARD("Anomolous Data Measurement System")
+	name = T_BOARD("Anomalous Data Measurement System")
 	build_path = /obj/machinery/exploration/ADMS
 	board_type = "machine"
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
