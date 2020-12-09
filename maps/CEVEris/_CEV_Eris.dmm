@@ -26161,6 +26161,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/exploration/ADMS,
 /turf/simulated/floor/tiled/dark,
 /area/eris/rnd/lab)
 "bjz" = (
@@ -47250,6 +47251,7 @@
 /obj/item/weapon/electronics/circuitboard/message_monitor{
 	pixel_y = -5
 	},
+/obj/item/weapon/electronics/circuitboard/ADMS,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "cga" = (
@@ -95054,6 +95056,7 @@
 	},
 /area/shuttle/research/station)
 "epv" = (
+/obj/machinery/exploration/ADMS,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "12,2"
 	},
