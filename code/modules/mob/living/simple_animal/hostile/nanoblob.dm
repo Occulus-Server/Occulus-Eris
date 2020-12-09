@@ -3,7 +3,6 @@
 	desc = "A hostile nanoswarm hive in the shape of a cute blob."
 	icon = 'icons/mob/nanoblob.dmi'
 	icon_state = "nanoblob"
-	icon_gib = "nanoblob_dead"
 	speak_chance = 3
 	turns_per_move = 3
 	response_help = "pets the"
@@ -21,6 +20,21 @@
 	melee_damage_upper = 10
 	attacktext = "glomps"
 	attack_sound = 'sound/weapons/bite.ogg'
+	
+/mob/living/simple_animal/hostile/nanoblob/die()
+	visible_message("<span class='alert'>[src] dies!</span>")
+	new /obj/effect/decal/cleanable/nanoblob_remains(loc)
+	qdel(src)
+
+/mob/living/simple_animal/hostile/nanoblob/healthcheck()
+	if(health <= 0)
+		die()
+		
+/obj/effect/decal/cleanable/nanoblob_remains
+	name = "nanobot puddle"
+	desc = "a puddle of dead nanobots."
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "nanopuddle"
 	
 	//Space carp aren't affected by atmos.
 	min_oxy = 0
