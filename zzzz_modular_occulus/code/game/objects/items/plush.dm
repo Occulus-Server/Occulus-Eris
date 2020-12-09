@@ -4,3 +4,4 @@
 	icon = 'zzzz_modular_occulus/icons/obj/plush.dmi'
 	icon_state = "soygel"
 	item_state = "inflatable"
+
