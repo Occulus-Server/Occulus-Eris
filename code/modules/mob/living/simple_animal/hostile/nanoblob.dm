@@ -35,6 +35,7 @@
 	desc = "a puddle of dead nanobots."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "nanopuddle"
+	return
 	
 	//Space carp aren't affected by atmos.
 	min_oxy = 0
