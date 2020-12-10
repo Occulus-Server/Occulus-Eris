@@ -14,7 +14,7 @@ var/list/department_radio_keys = list(
 	"u" = "Supply",      "U" = "Supply",
 	"v" = "Service",     "V" = "Service",
 	"p" = "AI Private",  "P" = "AI Private",
-	"t" = "NT Voice",    "T" = "NT Voice",
+	"t" = "MeK Voice",    "T" = "MeK Voice", //Occulus change
 
 	"к" = "right ear",   "К" = "right ear",
 	"д" = "left ear",    "Д" = "left ear",
@@ -30,7 +30,7 @@ var/list/department_radio_keys = list(
 	"г" = "Supply",      "Г" = "Supply",
 	"м" = "Service",     "М" = "Service",
 	"з" = "AI Private",  "З" = "AI Private",
-	"е" = "NT Voice",    "Е" = "NT Voice",
+	"е" = "MeK Voice",    "Е" = "MeK Voice",
 )
 
 
