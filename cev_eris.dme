@@ -2810,6 +2810,7 @@
 #include "zzzz_modular_occulus\code\modules\economy\vending.dm"
 #include "zzzz_modular_occulus\code\modules\game\Objects\Items\oddities.dm"
 #include "zzzz_modular_occulus\code\modules\game\Objects\Items\Devices\artifacts.dm"
+#include "zzzz_modular_occulus\code\modules\loadout\lists\uniforms.dm"
 #include "zzzz_modular_occulus\code\modules\maint_expeditions\ADMS.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\human\species\station.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\automatic\rx8.dm"
@@ -2823,4 +2824,5 @@
 #include "zzzz_modular_occulus\code\modules\sprite_accessories\_accessory_hair.dm"
 #include "zzzz_modular_occulus\code\modules\sprite_accessories\_accessory_tesh.dm"
 #include "zzzz_modular_occulus\maps\submaps\deepmaint_rooms\normal\normal_rooms.dm"
+#include "zzzz_modular_occulus\modules\clothing\under\medsci.dm"
 // END_INCLUDE

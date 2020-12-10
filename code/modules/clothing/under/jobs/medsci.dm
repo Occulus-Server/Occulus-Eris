@@ -120,8 +120,8 @@
 
 
 /obj/item/clothing/under/rank/paramedic
-	desc = "Jumpsuit of Moebius Medical paramedics. It's made with reinforced fiber to offer more protection for recovery operators."
-	name = "moebius paramedic's jumpsuit"
+	desc = "Jumpsuit of NanoTrasen medical paramedics. It's made with reinforced fiber to offer more protection for recovery operators."
+	name = "NanoTrasen paramedic's jumpsuit"
 	icon_state = "paramedic"
 	item_state = "paramedic"
 	permeability_coefficient = 0.50
@@ -133,4 +133,3 @@
 		bio = 10,
 		rad = 0
 	)
-
