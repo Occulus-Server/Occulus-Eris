@@ -342,6 +342,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			server_processed = TRUE
 		if(!istype(S, /obj/machinery/r_n_d/server/centcom) && server_processed)
 			S.produce_heat(100)
+	files.research_points = 0 //Occulus edit. Fixes exploit
 	reset_screen()
 
 
