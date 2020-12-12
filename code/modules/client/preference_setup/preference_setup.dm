@@ -287,6 +287,7 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 				pref.client = C
 				break
 
+/*	Occulus edit - experimental optimization
 	//lets try again after 1 second
 	//for some reason it doesnt find client on login
 	spawn(10)
@@ -295,6 +296,8 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 				if(C.ckey == pref.client_ckey)
 					pref.client = C
 					break
+*/
+
 	if(pref.client)
 		return pref.client.mob
 
