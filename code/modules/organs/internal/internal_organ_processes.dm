@@ -25,8 +25,13 @@
 	if(process_list && process_list.len)
 		for(var/organ in process_list)
 			var/obj/item/organ/internal/I = organ
-			effective_efficiency += I.get_process_eficiency(process_define)
-		
+			//OCCULUS EDIT START - get ready for some mindnumbingly stupid spaghetti
+			if(!istype(I, /obj/item/organ/internal))	//If we did not actually get an organ...
+				internal_organs_by_efficiency[process_define] -= I	//Remove it from the organ list.
+			else	//Otherwise proceed as usual.
+				effective_efficiency += I.get_process_eficiency(process_define)
+			//OCCULUS EDIT END
+
 	return effective_efficiency
 
 /mob/living/carbon/human/get_specific_organ_efficiency(process_define, parent_organ_tag)
@@ -41,7 +46,7 @@
 			var/obj/item/organ/internal/I = organ
 			if(process_define in I.organ_efficiency)
 				effective_efficiency += I.get_process_eficiency(process_define)
-	
+
 	return effective_efficiency
 
 /mob/living/carbon/human/proc/eye_process()
