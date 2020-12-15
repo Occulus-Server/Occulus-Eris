@@ -5,8 +5,8 @@
 		regenerate_icons()
 
 /mob/living/carbon/var/list/internal_organs = list()
-/mob/living/carbon/human/var/list/organs = list()
-/mob/living/carbon/human/var/list/organs_by_name = list() // map organ names to organs
+/mob/living/carbon/human/var/list/obj/item/organ/organs = list()	//OCCULUS EDIT - Type annotation for our wonky body markings
+/mob/living/carbon/human/var/list/obj/item/organ/external/organs_by_name = list() // map organ names to organs	//OCCULUS EDIT - Type annotation for our wonky body markings
 /mob/living/carbon/human/var/list/internal_organs_by_efficiency = list()
 
 // Takes care of organ related updates, such as broken and missing limbs
