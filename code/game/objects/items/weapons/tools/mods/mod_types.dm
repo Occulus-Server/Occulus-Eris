@@ -692,7 +692,7 @@
 	UPGRADE_ITEMFLAGPLUS = LOUD
 	)
 	I.prefix = "hydraulic"
-	
+
 // Randomizes a bunch of weapon stats on application - stats are set on creation of the item to prevent people from re-rolling until they get what they want
 /obj/item/weapon/tool_upgrade/augment/randomizer
 	name = "BSL \"Randomizer\" tool polish"
@@ -700,7 +700,7 @@
 	icon_state = "randomizer"
 	matter = list(MATERIAL_PLASMA = 4, MATERIAL_URANIUM = 4)
 	rarity_value = 80
-	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
+	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE
 
 /obj/item/weapon/tool_upgrade/augment/randomizer/New()
 	..()
