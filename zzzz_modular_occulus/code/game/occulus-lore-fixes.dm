@@ -184,3 +184,7 @@
 /mob/living/carbon/superior_animal/roach
 	name = "Kampfer Roach"
 	desc = "A monstrous, dog-sized cockroach. These huge mutants can be found everywhere on the ship."
+	
+//Drones
+/mob/living/silicon/robot/drone/init()
+		flavor_text = "It's a tiny little repair drone. The casing is stamped with a faded logo and the subscript: 'Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
