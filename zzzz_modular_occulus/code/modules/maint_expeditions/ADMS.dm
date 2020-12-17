@@ -51,17 +51,17 @@
 	else
 		soundcooldown--
 	if(istype(get_area(src), /area/deepmaint))
-		inserted_disk_file.size += 0.3 * harvest_speed//1000 research points PER size. 300 points per tick per tier of laser. ~1,000-5,000 before mobs spawn.
+		inserted_disk_file.size += 1.2 * harvest_speed//1000 research points PER size. 300 points per tick per tier of laser. ~1,000-5,000 before mobs spawn.
 		if(prob(3))//SET BACK TO prob(3) after test!
 			src.spawn_monsters("Roaches",4)//Full Furher retinue
 			return
 	if(istype(get_area(src), /area/asteroid) || istype(get_area(src), /area/mine/unexplored))
-		inserted_disk_file.size += 0.1 * harvest_speed//100 points per tick per tier of laser
+		inserted_disk_file.size += 0.4 * harvest_speed//100 points per tick per tier of laser
 		if(prob(2))
 			src.spawn_monsters("Space",2)//Fewer than deepmaint, since this area is not as dangerous. Need to make a new spacemob spawner!
 			return
 	if(istype(get_area(src), /area/awaymission))//Spooders because no Nothern Light
-		inserted_disk_file.size += 0.2 * harvest_speed//200 points per tick per tier of laser
+		inserted_disk_file.size += 0.8 * harvest_speed//200 points per tick per tier of laser
 		if(prob(1))
 			src.spawn_monsters("Spiders",2)
 	else

@@ -3,15 +3,16 @@
 /obj/item/projectile/bullet/pellet/shotgun/rubber
 	name = "rubber pellet"
 	icon_state = "birdshot-1"
-	damage_types = list(BRUTE = 0)	// proooobably wanna add a teeny weeny bit of damage here to be consistent
-	agony = 15
+	damage_types = list(BRUTE = 1) //No more crew skeeting without medkits!
+	agony = 9 //Whoever the hell had this at 15 is going to suffer multiple shots to the groin.
 	pellets = 8
 	range_step = 2
 	spread_step = 10
 	knockback = 1
 
 /obj/item/projectile/bullet/pellet/shotgun/rubber/stinger	//used for the stinger grenade
-	agony = 20
+	damage_types = list(BRUTE = 2)
+	agony = 18
 	pellets = 4
 	base_spread = 0 //causes it to be treated as a shrapnel explosion instead of cone
 	spread_step = 20
