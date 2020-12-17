@@ -38,3 +38,12 @@
 		/datum/design/autolathe/ammo/smg/rubber,
 		/datum/design/autolathe/ammo/pistol_ammobox/rubber
 		)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_melee
+	disk_name = "Mekhane's Armory - Melee Weapons"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_grenades
+	disk_name = "Mekhane's Armory - Grenades"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/crusader
+	disk_name = "Mekhane's Armory - Armor"
