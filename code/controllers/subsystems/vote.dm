@@ -19,9 +19,14 @@ SUBSYSTEM_DEF(vote)
 		interface_client(C)
 
 /datum/controller/subsystem/vote/proc/interface_client(client/C)
+// OCCULUS EDIT START - Experimental revert to plain html to attempt to mitigate the whole unable to reliably close window thing
+	C << browse(interface(C),"window=vote;size=500x700;can_close=0;can_resize=0;can_minimize=0")
+/*
 	var/datum/browser/panel = new(C.mob, "Vote","Vote", 500, 650)
 	panel.set_content(interface(C))
 	panel.open()
+*/
+// OCCULUS EDIT END - Experimental revert to plain html to attempt to mitigate the whole unable to reliably close window thing
 
 /datum/controller/subsystem/vote/fire()
 	if(active_vote)
