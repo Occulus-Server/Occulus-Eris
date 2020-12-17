@@ -6,17 +6,17 @@
 	var/about
 
 /datum/corporation/nt
-	name = "Nanotrasen Corporation"
+	name = "Nanotrasen Medical Corporation" //Oops all Occulus edits!
 	textcolor = "blue"
 	icon_state = "nt"
-	about = "Nanotrasen is a powerful corporation having a monopoly on phoron production, experimental bluespace technologies and ANGEL, an extensive network of cloning stations. This corporation has the highest net income among all known organizations in the whole universe; however, they are corrupted, spying on their employees and enganging in shady business practices."
+	about = "Nanotrasen is a two century old success story, what once began as a small medical research company has expanded into a medical service and technology giant with a side gig of phoron mining. While the company owns many habitats and outposts in the galaxy, much of that space is contracted out to other services, like security contractors, maintenance companies and mining firms."
 
 /datum/corporation/ironhammer
-	name = "Ironhammer Security"
+	name = "Colbalt Aegis"
 	textcolor = "#505050"
 	icon_state = "ironhammer"
-	about = "This is a private military company which provides security services to clients across the Universe. One of the five members of Hansa trade union. This company conducts police functions on Hansa planets and numerous space stations and ships."
-
+	about = "Cobalt Aegis was founded by a small clique of comrades who made their own careers in ‘private security’. In the small time Aegis has been founded, it’s seen its share in high risk contracts such as cargo transport, hostage negotiation and recovery, hostile combat zone and environment rescue and private home security. It’s current net worth is around 40b credits while it’s stocks go for about 500c a share."
+	
 /datum/corporation/frozenstar
 	name = "Frozen Star"
 	textcolor = "#008585"
