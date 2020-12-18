@@ -15,16 +15,6 @@
 
 	*/
 
-/datum/job/clubworker
-	wage = WAGE_LABOUR_DUMB //Club workers make less than professional wages and are expected to make up the difference in tips.
-
-/datum/job/clubmanager
-	department_account_access = TRUE
-	outfit_type = /decl/hierarchy/outfit/job/service/manager
-	/* The manager is not command, but is responsible for ensuring that his workers,
-	custodians, and botanists get paid
-	*/
-
 /obj/item/weapon/card/id/account/
 	var/department
 
@@ -60,7 +50,6 @@
 	registered_name = "Nanotrasen: Medical Division"
 	department = DEPARTMENT_MEDICAL
 
-
 /obj/item/weapon/card/id/account/research
 	name = "Research Department banking card"
 	desc = "A card that holds account information for the Nanotrasen Research Division bank account."
@@ -91,20 +80,28 @@
 
 /decl/hierarchy/outfit/job/captain
 	backpack_contents = list(/obj/item/weapon/storage/box/ids = 1, /obj/item/weapon/tool/knife/dagger/ceremonial = 1, /obj/item/weapon/card/id/account/command = 1)
+
 /decl/hierarchy/outfit/job/hop
 	backpack_contents = list(/obj/item/weapon/storage/box/ids = 1, /obj/item/weapon/tool/knife/dagger/ceremonial = 1, /obj/item/weapon/card/id/account/club = 1)
+
 /decl/hierarchy/outfit/job/engineering/exultant
 	backpack_contents = list(/obj/item/weapon/card/id/account/technomancers = 1)
+
 /decl/hierarchy/outfit/job/cargo/merchant
 	backpack_contents = list(/obj/item/weapon/card/id/account/guild =1)
+
 /decl/hierarchy/outfit/job/security/ihc
 	backpack_contents = list(/obj/item/weapon/handcuffs = 1,/obj/item/ammo_magazine/magnum/rubber = 1,/obj/item/device/lighting/toggleable/flashlight/seclite = 1, /obj/item/weapon/cell/small/high = 2, /obj/item/weapon/gun/energy/gun/martin = 1, /obj/item/weapon/card/id/account/aegis = 1)
+
 /decl/hierarchy/outfit/job/medical/cmo
 	backpack_contents = list(/obj/item/weapon/card/id/account/medical = 1)
+
 /decl/hierarchy/outfit/job/science/rd
 	backpack_contents = list(/obj/item/weapon/oddity/secdocs = 1, /obj/item/weapon/card/id/account/research = 1)
+
 /decl/hierarchy/outfit/job/church/chaplain
 	backpack_contents = list(/obj/item/weapon/card/id/account/church = 1)
+
 /decl/hierarchy/outfit/job/service/manager
 	name = OUTFIT_JOB_NAME("Manager")
 	uniform = /obj/item/clothing/under/rank/bartender

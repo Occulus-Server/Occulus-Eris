@@ -2,8 +2,8 @@
 	name = "Sword of Truth"
 	desc = "Sword out of unknown alloy, humming from unknown power source."
 	icon = 'icons/obj/faction_item.dmi'
-	icon_state = "nt_sword"
-	item_state = "nt_sword"
+	icon_state = "nt_sword_truth"
+	item_state = "nt_sword_truth"
 	slot_flags = FALSE
 	origin_tech = list(TECH_COMBAT = 5, TECH_POWER = 4, TECH_MATERIAL = 8)
 	price_tag = 20000

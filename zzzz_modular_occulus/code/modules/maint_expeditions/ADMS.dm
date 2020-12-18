@@ -18,6 +18,20 @@
 	//Upgrades
 	var/harvest_speed //Modified by internal scanner and laser
 	var/charge_use //modified by capacitor. Better capacitor = slower cell drain
+	emagged = FALSE
+
+/obj/machinery/exploration/ADMS/examine(mob/user)
+	. = ..()
+	if(inserted_disk)
+		to_chat(user, SPAN_NOTICE("It has a disk inserted."))
+	else
+		to_chat(user, SPAN_NOTICE("The disk drive is empty!"))
+
+/obj/machinery/exploration/ADMS/emag_act(mob/user)
+	if(!emagged)
+		emagged = TRUE
+		playsound(loc, "sparks", 75, 1, -1)
+		to_chat(user, SPAN_NOTICE("You use the cryptographic sequencer on the [name]."))
 
 /obj/machinery/exploration/ADMS/Destroy()
 	if(inserted_disk)
@@ -46,7 +60,7 @@
 		return
 	set_light(2,1)
 	if(soundcooldown == 0)
-		playsound(src.loc, 'sound/ambience/sonar.ogg', 100, 1, 8, 8)
+		playsound(src.loc, 'sound/ambience/sonar.ogg', 60, 1, 8, 8)
 		soundcooldown = 5
 	else
 		soundcooldown--
@@ -74,14 +88,18 @@
 	system_error("hostiles detected")
 	playsound(loc, "robot_talk_heavy", 100, 0, 0)
 	var/list/turf/candidatetiles = list()
-	sleep(6)
+	sleep(9)
 	playsound(src.loc, 'sound/voice/shriek1.ogg', 20, 1, 8, 8)
-	sleep(3)
+	sleep(9)
 	playsound(src.loc, 'sound/voice/shriek1.ogg', 60, 1, 8, 8)
-	sleep(3)
+	sleep(9)
 	playsound(src.loc, 'sound/voice/shriek1.ogg', 80, 1, 8, 8)
-	sleep(3)
+	sleep(9)
 	playsound(src.loc, 'sound/voice/shriek1.ogg', 100, 1, 8, 8)
+	if(emagged)
+		new /mob/living/carbon/superior_animal/roach/kaiser(src.loc)
+		qdel(src)
+		return
 	for(var/turf/simulated/floor/F in orange(src.loc, 5))
 		if(F.is_wall)
 			continue
@@ -104,7 +122,7 @@
 		if(tag == "Spiders")
 			new /obj/spawner/mob/spiders/cluster(burstup)
 		if(tag == "Space")
-			new /obj/spawner/mob/roaches/cluster/beacon(burstup)
+			new /mob/living/simple_animal/hostile/retaliate/malf_drone(burstup)
 		number--
 	return
 
@@ -210,9 +228,8 @@
 			active = !active
 			if(active)
 				visible_message(SPAN_NOTICE("\The [src] pings loudly, the sound echoing in the distance."))
-				playsound(src.loc, 'sound/ambience/sonar.ogg', 100, 1, 8, 8)
 			else
-				visible_message(SPAN_NOTICE("\The [src] goes suddenly silent."))
+				visible_message(SPAN_NOTICE("\The [src] falls silent."))
 		else
 			system_error("charge error")
 	else
@@ -235,3 +252,8 @@
 		icon_state = "ADMS"
 	return
 
+/datum/design/research/circuit/adms
+	name = "Anomalous Data Measurement System"
+	build_path = /obj/item/weapon/electronics/circuitboard/ADMS
+	sort_string = "HAAAG"
+	category = CAT_COMP

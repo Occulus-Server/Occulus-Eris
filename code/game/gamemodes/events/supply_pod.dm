@@ -97,7 +97,7 @@
 //Some mobs too!
 /datum/event/supply_pod/proc/add_guardians()
 	var/list/possible_mobs = list(/mob/living/simple_animal/hostile/hivebot,
-	/mob/living/simple_animal/hostile/scarybat,
+	/mob/living/simple_animal/hostile/nanoblob, //Occulus edit
 	/mob/living/simple_animal/mouse,
 	/obj/spawner/mob/slime/rainbow,
 	/obj/spawner/mob/spiders,
