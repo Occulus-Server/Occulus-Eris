@@ -10612,6 +10612,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/up{
 	dir = 4
 	},
+/obj/spawner/pack/gun_loot/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5port)
 "aze" = (
@@ -26855,12 +26856,11 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck4starboard)
 "bkH" = (
-/obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/yellow,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -26
 	},
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/wood,
 /area/eris/neotheology/storage)
 "bkI" = (
@@ -26923,12 +26923,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/eris/rnd/lab)
 "bkR" = (
-/obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/yellow,
 /obj/item/device/radio/intercom{
 	dir = 8;
 	pixel_x = 22
 	},
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/wood,
 /area/eris/neotheology/storage)
 "bkS" = (
@@ -28920,11 +28919,14 @@
 /turf/simulated/floor/tiled/white/panels,
 /area/eris/maintenance/section3deck1central)
 "bpo" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/power/nt_obelisk,
 /turf/simulated/floor/wood,
 /area/eris/neotheology/storage)
 "bpp" = (
@@ -44361,7 +44363,11 @@
 /obj/structure/sign/faction/neotheology_cross/gold{
 	pixel_y = 32
 	},
-/obj/structure/closet/secure_closet/personal,
+/obj/machinery/microwave{
+	pixel_x = -3;
+	pixel_y = 6
+	},
+/obj/structure/table/woodentable,
 /turf/simulated/floor/wood,
 /area/eris/neotheology/storage)
 "bZn" = (
@@ -54447,7 +54453,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock{
-	req_access = list(25)
+	name = "Club Office";
+	req_access = list(28)
 	},
 /turf/simulated/floor/bluegrid,
 /area/eris/crew_quarters/barbackroom)
@@ -55116,7 +55123,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass{
 	name = "Hydroponics";
-	req_one_access = list(24,11,66,35)
+	req_one_access = list(28,24,11,66,35)
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/chapel)
@@ -55250,7 +55257,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
 	name = "Hydroponics";
-	req_one_access = list(24,11,66,35)
+	req_one_access = list(28,24,11,66,35)
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/chapel)
@@ -55969,6 +55976,7 @@
 "cBo" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/storage/firstaid/surgery,
+/obj/item/device/scanner/health,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/neotheology/chapelritualroom)
 "cBp" = (
@@ -89140,6 +89148,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_melee,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_grenades,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/office)
 "eaP" = (
@@ -103417,6 +103427,16 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
+"hee" = (
+/obj/structure/sign/faction/neotheology_cross/gold{
+	pixel_y = 32
+	},
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/eris/neotheology/storage)
 "heQ" = (
 /obj/structure/table/glass,
 /obj/item/weapon/implant/core_implant/soulcrypt,
@@ -104231,6 +104251,10 @@
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+"lyk" = (
+/obj/spawner/mob/roaches/low_chance,
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section3deck5port)
 "lBQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -104920,6 +104944,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
+"oNU" = (
+/obj/structure/closet/secure_closet/personal,
+/turf/simulated/floor/wood,
+/area/eris/neotheology/storage)
 "oTl" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/freezer/medical,
@@ -121038,7 +121066,7 @@ avN
 bWK
 bhI
 bkH
-bWK
+oNU
 avN
 awP
 btM
@@ -121843,7 +121871,7 @@ alg
 aua
 apC
 avN
-bZm
+hee
 bZP
 bZP
 cbR
@@ -122048,7 +122076,7 @@ avN
 bWK
 bWK
 bkR
-bWK
+oNU
 avN
 avk
 azh
@@ -123055,7 +123083,7 @@ arB
 apC
 apC
 avL
-awR
+lyk
 awR
 aCn
 aSV
@@ -123258,7 +123286,7 @@ apC
 apC
 alg
 awR
-awR
+bBQ
 aCn
 btd
 osm
