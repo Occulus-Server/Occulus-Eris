@@ -15,7 +15,7 @@
 	name = "Colbalt Aegis"
 	textcolor = "#505050"
 	icon_state = "ironhammer"
-	about = "Cobalt Aegis was founded by a small clique of comrades who made their own careers in ‘private security’. In the small time Aegis has been founded, it’s seen its share in high risk contracts such as cargo transport, hostage negotiation and recovery, hostile combat zone and environment rescue and private home security. It’s current net worth is around 40b credits while it’s stocks go for about 500c a share."
+	about = "Cobalt Aegis was founded by a small clique of comrades who made their own careers in ‘private security’. In the small time Aegis has been founded, it’s seen its share in high risk contracts such as cargo transport, hostage negotiation and recovery, hostile combat zone and environment rescue and private home security. It’s current net worth is around 40b credits while it’s stocks go for about 500c a share." //The Occulus edits end here
 	
 /datum/corporation/frozenstar
 	name = "Frozen Star"
