@@ -2817,6 +2817,8 @@
 #include "zzzz_modular_occulus\code\modules\loot_spawn_blacklist.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\mekhanearmor.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\under\jobs\medsci.dm"
+#include "zzzz_modular_occulus\code\modules\core_implant\cruciform\rituals\base.dm"
+#include "zzzz_modular_occulus\code\modules\core_implant\cruciform\rituals\priest.dm"
 #include "zzzz_modular_occulus\code\modules\economy\power_cells.dm"
 #include "zzzz_modular_occulus\code\modules\economy\price_list_reagents.dm"
 #include "zzzz_modular_occulus\code\modules\economy\vending.dm"

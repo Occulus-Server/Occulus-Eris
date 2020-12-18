@@ -128,5 +128,11 @@
 	var/sanity_lost = rand(0,5)	//OCCULUS EDIT - Makes it so that it won't tank someone's sanity, but isn't as powerful
 	T.druggy = max(T.druggy, 10)
 	T.sanity.changeLevel(sanity_lost)
+//OCCULUS EDIT START - Add some feedback for the target
+	if(sanity_lost > 0)
+		to_chat(T, "<span class='info'>A sensation of dizziness washes over you, relieving you of your woes ever so slightly</span>")
+	else
+		to_chat(T, "<span class='info'>A sensation of dizziness washes over you.</span>")
+//OCCULUS EDIT END - Add some feedback for the target
 	//SEND_SIGNAL(H, COMSIG_RITUAL, src, T)	//OCCULUS EDIT - We don't have individual objectives here
 	return TRUE
