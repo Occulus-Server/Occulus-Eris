@@ -10536,11 +10536,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	id = "BarFore";
+	id = "bar_ privacy_shutter_fore";
 	layer = 3.3;
 	name = "Maintenance Hatch"
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/eris/crew_quarters/bar)
 "ayX" = (
 /obj/machinery/door/firedoor,
@@ -10577,12 +10577,12 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	id = "BarFore";
+	id = "bar_ privacy_shutter_fore";
 	layer = 3.3;
 	name = "Maintenance Hatch"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/eris/crew_quarters/bar)
 "azb" = (
 /obj/machinery/light{
@@ -10855,8 +10855,16 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck2starboard)
 "azH" = (
-/obj/machinery/floor_light/prebuilt,
 /obj/structure/bed/chair/custom/bar_special,
+/obj/machinery/floor_light/prebuilt{
+	color = "#8F00FF";
+	default_light_colour = "#8F00FF";
+	icon_state = "on";
+	light_color = "#8F00FF";
+	light_power = 2;
+	light_range = 4;
+	on = 1
+	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "azI" = (
@@ -10897,10 +10905,11 @@
 "azL" = (
 /obj/structure/curtain/open/bed{
 	anchored = 1;
+	color = "#18273B";
 	name = "curtain"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/steel/bar_light,
+/turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "azM" = (
 /obj/structure/table/reinforced,
@@ -48198,7 +48207,15 @@
 "cim" = (
 /obj/structure/bed/chair/sofa/red/right,
 /obj/machinery/firealarm{
-	pixel_y = 28
+	pixel_x = 6;
+	pixel_y = 26
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "maint_hatch_bar_fore";
+	name = "Maintenance Hatch Control";
+	pixel_x = -6;
+	pixel_y = 26;
+	req_access = null
 	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
@@ -48251,6 +48268,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/item/weapon/material/ashtray,
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "cit" = (
@@ -48524,22 +48542,31 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "maint_hatch_bar_middle";
+	name = "Maintenance Hatch Control";
+	pixel_y = 26;
+	req_access = null
+	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "cjd" = (
 /obj/structure/bed/chair/sofa/red/left,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 19
+	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "cje" = (
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -26
+/obj/structure/bed/chair/custom/bar_special{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/steel/gray_perforated,
+/turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/bar)
 "cjf" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/dark/golden,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/crew_quarters/bar)
 "cjg" = (
 /obj/machinery/portable_atmospherics/powered/pump,
@@ -48638,6 +48665,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/item/weapon/material/ashtray,
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "cjr" = (
@@ -49010,9 +49038,13 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/server)
 "ckn" = (
-/obj/structure/table/bar_special,
-/obj/structure/synthesized_instrument/synthesizer/piano,
-/turf/simulated/floor/tiled/steel/bar_flat,
+/obj/structure/table/rack/shelf,
+/obj/spawner/pack/cloth,
+/obj/spawner/pack/cloth,
+/obj/spawner/pack/cloth,
+/obj/item/weapon/haircomb,
+/obj/item/weapon/tool/wrench,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/crew_quarters/bar)
 "cko" = (
 /obj/structure/table/rack/shelf,
@@ -49183,10 +49215,12 @@
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "ckL" = (
+/obj/structure/bed/chair/custom/bar_special{
+	dir = 1
+	},
 /obj/structure/bed/chair/sofa/red/left{
 	dir = 1
 	},
-/obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -49220,6 +49254,9 @@
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/rnd/mixing)
 "ckQ" = (
+/obj/structure/bed/chair/custom/bar_special{
+	dir = 1
+	},
 /obj/structure/bed/chair/sofa/red/right{
 	dir = 1
 	},
@@ -49319,13 +49356,14 @@
 "clf" = (
 /obj/structure/curtain/open/bed{
 	anchored = 1;
+	color = "#18273B";
 	name = "curtain"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/steel/bar_light,
+/turf/simulated/floor/tiled/steel/bar_flat,
 /area/eris/crew_quarters/bar)
 "clg" = (
 /obj/structure/catwalk,
@@ -49679,6 +49717,12 @@
 /area/eris/crew_quarters/bar)
 "clW" = (
 /obj/structure/table/bar_special,
+/obj/structure/curtain/open/bed{
+	anchored = 1;
+	color = "#18273B";
+	name = "curtain"
+	},
+/obj/structure/synthesized_instrument/synthesizer/piano,
 /obj/item/weapon/stool/custom/bar_special,
 /turf/simulated/floor/tiled/steel/bar_flat,
 /area/eris/crew_quarters/bar)
@@ -49694,16 +49738,10 @@
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/chapelritualroom)
 "clZ" = (
-/obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "BarAft";
-	name = "Maintenance Hatch Control";
-	pixel_y = -24;
-	req_access = null
-	},
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "cma" = (
@@ -59682,7 +59720,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/dark/golden,
+/obj/structure/table/bar_special,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/crew_quarters/bar)
 "cJR" = (
 /obj/machinery/vending/cola,
@@ -59737,9 +59776,9 @@
 /area/eris/crew_quarters/bar)
 "cJX" = (
 /obj/structure/bed/chair/sofa/red/corner,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 19
 	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
@@ -59965,7 +60004,6 @@
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/medbay)
 "cKw" = (
-/obj/machinery/floor_light/prebuilt,
 /obj/structure/bed/chair/custom/bar_special{
 	dir = 8
 	},
@@ -59974,6 +60012,15 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/floor_light/prebuilt{
+	color = "#8F00FF";
+	default_light_colour = "#8F00FF";
+	icon_state = "on";
+	light_color = "#8F00FF";
+	light_power = 2;
+	light_range = 4;
+	on = 1
 	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
@@ -61932,10 +61979,12 @@
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/techstorage)
 "cPv" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/pack/cloth,
-/obj/spawner/pack/cloth,
-/turf/simulated/floor/tiled/steel/gray_perforated,
+/obj/structure/table/bar_special,
+/obj/structure/mirror{
+	pixel_y = 25
+	},
+/obj/item/weapon/mirror,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/crew_quarters/bar)
 "cPw" = (
 /obj/spawner/mob/roaches/cluster/low_chance,
@@ -62019,6 +62068,7 @@
 "cPH" = (
 /obj/structure/curtain/open/bed{
 	anchored = 1;
+	color = "#18273B";
 	name = "curtain"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -62027,7 +62077,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/golden,
+/obj/structure/table/bar_special,
+/turf/simulated/floor/tiled/steel/bar_flat,
 /area/eris/crew_quarters/bar)
 "cPI" = (
 /turf/simulated/shuttle/wall/mining{
@@ -62170,9 +62221,18 @@
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/engineering/techstorage)
 "cQe" = (
-/obj/machinery/floor_light/prebuilt,
 /obj/structure/cyberplant{
-	emagged = 1
+	emagged = 1;
+	possible_plants = list("emagged2-orange", "emagged2-blue")
+	},
+/obj/machinery/floor_light/prebuilt{
+	color = "#8F00FF";
+	default_light_colour = "#8F00FF";
+	icon_state = "on";
+	light_color = "#8F00FF";
+	light_power = 2;
+	light_range = 4;
+	on = 1
 	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
@@ -64748,9 +64808,9 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "BarFore";
+	id = "bar_ privacy_shutter_fore";
 	name = "Maintenance Hatch Control";
-	pixel_y = 24;
+	pixel_y = 26;
 	req_access = null
 	},
 /turf/simulated/floor/tiled/steel/bar_dance,
@@ -65268,6 +65328,7 @@
 "cXK" = (
 /obj/structure/curtain/open/bed{
 	anchored = 1;
+	color = "#18273B";
 	name = "curtain"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -65791,14 +65852,14 @@
 /turf/simulated/open,
 /area/eris/maintenance/section3deck3starboard)
 "cYO" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
@@ -81881,6 +81942,7 @@
 "dJD" = (
 /obj/structure/curtain/open/bed{
 	anchored = 1;
+	color = "#18273B";
 	name = "curtain"
 	},
 /obj/structure/cyberplant,
@@ -83098,6 +83160,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/item/weapon/material/ashtray,
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "dMm" = (
@@ -85176,7 +85239,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/golden,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/crew_quarters/bar)
 "dRs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -85187,8 +85250,12 @@
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/maintenance/section3deck3starboard)
 "dRu" = (
-/obj/structure/table/bar_special,
-/obj/machinery/media/jukebox,
+/obj/structure/curtain/open/bed{
+	anchored = 1;
+	color = "#18273B";
+	name = "curtain"
+	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/steel/bar_flat,
 /area/eris/crew_quarters/bar)
 "dRv" = (
@@ -86027,7 +86094,7 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "BarAft";
+	id = "bar_ privacy_shutter_aft";
 	name = "Maintenance Hatch Control";
 	pixel_y = -24;
 	req_access = null
@@ -95022,13 +95089,14 @@
 "epd" = (
 /obj/structure/curtain/open/bed{
 	anchored = 1;
+	color = "#18273B";
 	name = "curtain"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/steel/bar_light,
+/turf/simulated/floor/tiled/steel/bar_flat,
 /area/eris/crew_quarters/bar)
 "epe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -95283,6 +95351,9 @@
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/kitchen)
 "epI" = (
+/obj/structure/bed/chair/custom/bar_special{
+	dir = 1
+	},
 /obj/structure/bed/chair/sofa/red/left{
 	dir = 1
 	},
@@ -102553,9 +102624,17 @@
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/library)
 "eFz" = (
-/obj/machinery/floor_light/prebuilt,
 /obj/structure/bed/chair/custom/bar_special{
 	dir = 1
+	},
+/obj/machinery/floor_light/prebuilt{
+	color = "#8F00FF";
+	default_light_colour = "#8F00FF";
+	icon_state = "on";
+	light_color = "#8F00FF";
+	light_power = 2;
+	light_range = 4;
+	on = 1
 	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
@@ -103167,13 +103246,10 @@
 /turf/simulated/open,
 /area/eris/crew_quarters/bar)
 "flM" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -22
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "fmL" = (
@@ -103291,10 +103367,6 @@
 "gbg" = (
 /obj/structure/bed/chair/sofa/red/right{
 	dir = 1
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
@@ -103797,11 +103869,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	id = "BarAft";
+	id = "bar_ privacy_shutter_aft";
 	layer = 3.3;
 	name = "Maintenance Hatch"
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/eris/crew_quarters/bar)
 "jqq" = (
 /obj/structure/cable/green{
@@ -103965,7 +104037,15 @@
 /turf/space,
 /area/space)
 "kcK" = (
-/obj/machinery/floor_light/prebuilt,
+/obj/machinery/floor_light/prebuilt{
+	color = "#8F00FF";
+	default_light_colour = "#8F00FF";
+	icon_state = "on";
+	light_color = "#8F00FF";
+	light_power = 2;
+	light_range = 4;
+	on = 1
+	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "kdi" = (
@@ -104453,6 +104533,21 @@
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
+"mKE" = (
+/obj/structure/curtain/open/bed{
+	anchored = 1;
+	color = "#18273B";
+	name = "curtain"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/steel/bar_dance,
+/area/eris/crew_quarters/bar)
 "mNb" = (
 /obj/machinery/atmospherics/unary/heat_exchanger,
 /turf/simulated/floor/tiled/steel/danger,
@@ -104987,6 +105082,16 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
+"oXJ" = (
+/obj/structure/table/bar_special,
+/obj/item/weapon/reagent_containers/food/condiment/saltshaker{
+	pixel_x = -3
+	},
+/obj/item/weapon/reagent_containers/food/condiment/peppermill{
+	pixel_x = 3
+	},
+/turf/simulated/floor/tiled/steel/bar_dance,
+/area/eris/crew_quarters/bar)
 "oYt" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "Moebius Biolab Officer";
@@ -105039,6 +105144,16 @@
 "psl" = (
 /turf/simulated/wall,
 /area/eris/crew_quarters/library)
+"psB" = (
+/obj/structure/table/bar_special,
+/obj/structure/curtain/open/bed{
+	anchored = 1;
+	color = "#18273B";
+	name = "curtain"
+	},
+/obj/machinery/media/jukebox,
+/turf/simulated/floor/tiled/steel/bar_flat,
+/area/eris/crew_quarters/bar)
 "ptg" = (
 /obj/structure/bed/padded,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -105182,6 +105297,14 @@
 /obj/machinery/atmospherics/pipe/zpipe/up,
 /turf/simulated/floor/plating/under,
 /area/eris/quartermaster/office)
+"qxl" = (
+/obj/structure/table/rack/shelf,
+/obj/spawner/pack/cloth,
+/obj/spawner/pack/cloth,
+/obj/spawner/pack/cloth,
+/obj/item/weapon/lipstick/random,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/crew_quarters/bar)
 "qCH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -105851,12 +105974,12 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	id = "BarAft";
+	id = "bar_ privacy_shutter_aft";
 	layer = 3.3;
 	name = "Maintenance Hatch"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/plating,
 /area/eris/crew_quarters/bar)
 "uOJ" = (
 /obj/structure/bed/padded,
@@ -106264,6 +106387,18 @@
 /obj/machinery/door/window/eastright,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/library)
+"xjW" = (
+/obj/structure/curtain/open/bed{
+	anchored = 1;
+	color = "#18273B";
+	name = "curtain"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/eris/crew_quarters/bar)
 "xld" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -106402,6 +106537,12 @@
 /obj/structure/bed/chair/sofa/red/right,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "maint_hatch_bar_aft";
+	name = "Maintenance Hatch Control";
+	pixel_y = 26;
+	req_access = null
 	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
@@ -163694,11 +163835,11 @@ bQU
 bQU
 bQU
 cpP
-cPv
+ckn
 cjf
 cJQ
 dRr
-cPv
+qxl
 anJ
 dmg
 cHG
@@ -163897,9 +164038,9 @@ bRH
 bRH
 cpP
 aqa
-aqa
+clW
 cPH
-aqa
+psB
 aqa
 anJ
 dnb
@@ -164099,9 +164240,9 @@ cij
 com
 cpP
 cQe
-ckn
+cDj
 dbp
-dRu
+cDj
 cQe
 anJ
 sJQ
@@ -164301,7 +164442,7 @@ cpP
 cpP
 cpP
 csD
-clW
+cDj
 dbp
 cDj
 exp
@@ -165110,12 +165251,12 @@ dJD
 aqa
 azL
 azL
-cXK
+mKE
 azL
 azL
 aqa
 dJD
-epd
+xjW
 anJ
 cii
 anJ
@@ -165917,14 +166058,14 @@ ctE
 ayz
 aqa
 epd
-azL
+dRu
 clf
 aqa
 clq
 ckJ
 aqa
 clf
-azL
+dRu
 epd
 aqV
 aaa
@@ -166119,14 +166260,14 @@ ctE
 cjA
 aqa
 cjc
-cCO
+oXJ
 ckL
 aqa
 ijn
 wGg
 aqa
 yaG
-cCO
+oXJ
 epI
 aqV
 aaa
