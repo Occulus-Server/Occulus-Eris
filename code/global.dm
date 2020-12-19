@@ -33,13 +33,13 @@ var/runtime_diary
 var/diary              
 var/world_qdel_log
 var/href_logfile       
-var/station_name        = "NEV Northern Light"
+var/station_name        = "CEV Northern Light" //Occulus edits
 var/station_short       = "Northern Light"
 var/const/dock_name     = "N.A.S. Crescent"
-var/const/boss_name     = "Central Command"
-var/const/boss_short    = "Centcomm"
-var/const/company_name  = "NanoTrasen"
-var/const/company_short = "NanoTrasen"
+var/const/boss_name     = "NL Command Board"
+var/const/boss_short    = "The Board"
+var/const/company_name  = "Northern Light"
+var/const/company_short = "Northern Light" //Occulus Edits end here
 var/game_version        = "Discordia"
 var/changelog_hash      = ""
 var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + 400)
