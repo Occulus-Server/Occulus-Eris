@@ -32,6 +32,7 @@ var/global/obj/machinery/power/eotp/eotp
 							/obj/item/stack/material/plasteel = 120,
 							/obj/item/stack/material/silver = 60)
 	var/list/disk_types = list()
+	var/list/unneeded_disk_types = list(/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/melee)
 
 	var/list/mob/living/carbon/human/scanned = list()
 	var/max_power = 100
@@ -51,7 +52,6 @@ var/global/obj/machinery/power/eotp/eotp
 /obj/machinery/power/eotp/New()
 	..()
 	eotp = src
-	disk_types =  subtypesof(/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt)
 
 /obj/machinery/power/eotp/examine(user)
 	..()
@@ -112,11 +112,17 @@ var/global/obj/machinery/power/eotp/eotp
 		power -= max_power
 		power_release()
 
+/obj/machinery/power/eotp/proc/disk_reward_update()
+	disk_types =  subtypesof(/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt) - unneeded_disk_types
+
 /obj/machinery/power/eotp/proc/power_release()
 	var/type_release = pick(rewards)
 
 	if(type_release == ARMAMENTS)
+		if(!length(disk_types))
+			disk_reward_update()
 		var/reward_disk = pick(disk_types)
+		disk_types -= reward_disk
 		var/obj/item/_item = new reward_disk(get_turf(src))
 		visible_message(SPAN_NOTICE("The [_item.name] appears in a flash of light near the [src]!"))	//OCCULUS EDIT - Typo fix, and some lore changing
 
