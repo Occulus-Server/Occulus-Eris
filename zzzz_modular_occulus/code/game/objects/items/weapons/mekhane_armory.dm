@@ -1,3 +1,5 @@
+// STUFF ADDED IN THE CHURCH EQUIPMENT PORT
+
 /datum/design/autolathe/sword/nt_sword/name = "Mekhane Shortsword"
 /datum/design/autolathe/sword/nt_longsword/name = "Mekhane Longsword"
 /datum/design/autolathe/sword/nt_dagger/name = "Mekhane Dagger"
@@ -18,3 +20,17 @@
 /obj/item/weapon/grenade/flashbang/nt/name = "MEK FBG \"Pulsar\""
 /obj/item/weapon/grenade/smokebomb/nt/name = "MEK SG \"Nebula\""
 /obj/item/weapon/grenade/frag/nt/name = "MEK DFG \"Flare\""
+
+// CLOTHING
+/datum/design/bioprinter/nt_clothes/acolyte_armor/name = "MEK Acolyte Armor"
+/datum/design/bioprinter/nt_clothes/agrolyte_armor/name = "MEK Agrolyte Armor"
+/datum/design/bioprinter/nt_clothes/custodian_armor/name = "MEK Custodian Armor"
+/datum/design/bioprinter/nt_clothes/preacher_coat/name = "MEK Preacher Longcoat"
+/datum/design/bioprinter/nt_clothes/acolyte_jacket/name = "MEK Acolyte Jacket"
+/datum/design/bioprinter/nt_clothes/sports_jacket/name = "MEK Sports Jacket"
+/datum/design/bioprinter/nt_clothes/acolyte_uniform/name = "MEK Acolyte Garment"
+/datum/design/bioprinter/nt_clothes/sports_uniform/name = "MEK Sport Clothes"
+/datum/design/bioprinter/nt_clothes/church_uniform/name = "MEK Church Garment"
+
+/datum/design/bioprinter/belt/utility/neotheology/name = "Mekhanite utility belt"
+/datum/design/bioprinter/belt/security/neotheology/name = "Mekhanite tactical belt"

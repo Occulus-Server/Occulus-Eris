@@ -47,3 +47,9 @@
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/crusader
 	disk_name = "Mekhane's Armory - Armor"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter
+	disk_name = "Mekhanite Bioprinter Products and Utilities"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes
+	disk_name = "Mekhanite Bio-Fabric Designs"

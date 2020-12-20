@@ -2812,6 +2812,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\autolathe_disks.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\mekhane_armory.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\secrets.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\grenades\chem_grenade.dm"
 #include "zzzz_modular_occulus\code\game\objects\random\utility.dm"
 #include "zzzz_modular_occulus\code\modules\loot_spawn_blacklist.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\mekhanearmor.dm"
