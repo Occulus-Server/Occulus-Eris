@@ -46,10 +46,6 @@
 	name = "hand labeler"
 	build_path = /obj/item/weapon/hand_labeler
 
-/datum/design/autolathe/device/excelsiormine
-	name = "excelsior mine"
-	build_path = /obj/item/weapon/mine
-
 /datum/design/autolathe/device/propaganda_chip
 	name = "propaganda chip"
 	build_path = /obj/item/device/propaganda_chip
@@ -69,6 +65,14 @@
 /datum/design/autolathe/device/excelsiormine
 	name = "excelsior mine"
 	build_path = /obj/item/weapon/mine
+
+/datum/design/autolathe/device/grenade/nt_cleaner
+	name = "NT \"Cleanse Capsule\""
+	build_path = /obj/item/weapon/grenade/chem_grenade/cleaner/nt_cleaner
+
+/datum/design/autolathe/device/grenade/nt_weedkiller
+	name = "NT \"Kudzu Killer\""
+	build_path = /obj/item/weapon/grenade/chem_grenade/antiweed/nt_antiweed
 
 /datum/design/autolathe/device/floorpainter
 	name = "floor painter"
