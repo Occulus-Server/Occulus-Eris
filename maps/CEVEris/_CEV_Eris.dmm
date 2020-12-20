@@ -26263,6 +26263,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/exploration/ADMS,
 /turf/simulated/floor/tiled/dark,
 /area/eris/rnd/lab)
 "bjz" = (
@@ -94460,6 +94461,7 @@
 /area/shuttle/research/station)
 "eny" = (
 /obj/machinery/camera/network/research_outpost,
+/obj/machinery/exploration/ADMS,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "12,5"
 	},
