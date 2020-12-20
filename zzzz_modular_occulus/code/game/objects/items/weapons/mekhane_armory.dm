@@ -27,6 +27,8 @@ AUTOLATHE DATUMS
 /datum/design/bioprinter/belt/utility/neotheology/name = "Mekhanite utility belt"
 /datum/design/bioprinter/belt/security/neotheology/name = "Mekhanite tactical belt"
 
+// OTHER STUFF
+/datum/design/autolathe/firstaid/nt/name = "Mekhanite Medkit"
 
 /*
 THIS IS WHERE THE ACTUAL TWEAKING OF STUFF GOES
@@ -86,3 +88,15 @@ ARMOR_PEN_MASSIVE			30
 /obj/item/weapon/grenade/flashbang/nt/name = "MEK FBG \"Pulsar\""
 /obj/item/weapon/grenade/smokebomb/nt/name = "MEK SG \"Nebula\""
 /obj/item/weapon/grenade/frag/nt/name = "MEK DFG \"Flare\""
+
+// HEALING ITEMS
+
+/obj/item/stack/medical/advanced/bruise_pack/nt
+	name = "Mekhanite Bruisepack"
+	singular_name = "Mekhanite Bruisepack"
+	desc = "An advanced bruisepack for severe injuries."
+
+/obj/item/stack/medical/advanced/ointment/nt
+	name = "Mekhanite Burnpack"
+	singular_name = "Mekhanite Burnpack"
+	desc = "An advanced treatment kit for severe burns."
