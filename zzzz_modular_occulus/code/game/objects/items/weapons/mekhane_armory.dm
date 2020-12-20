@@ -27,6 +27,11 @@ AUTOLATHE DATUMS
 /datum/design/bioprinter/belt/utility/neotheology/name = "Mekhanite utility belt"
 /datum/design/bioprinter/belt/security/neotheology/name = "Mekhanite tactical belt"
 
+// UTILITIES
+/datum/design/autolathe/device/grenade/nt_cleaner/name = "MEK \"Cleansing Tide\" Pod"
+/datum/design/autolathe/device/grenade/nt_weedkiller/name = "MEK \"Kudzu Killer\" Pod"
+/datum/design/autolathe/device/headset_church/name = "Mekhane Radio Encryption Key"
+
 // OTHER STUFF
 /datum/design/autolathe/firstaid/nt/name = "Mekhanite Medkit"
 
