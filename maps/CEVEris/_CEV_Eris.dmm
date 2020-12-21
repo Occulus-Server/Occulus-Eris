@@ -10043,7 +10043,9 @@
 /area/eris/hallway/side/eschangara)
 "axW" = (
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "axY" = (
 /obj/structure/sign/faction/neotheology_cross/gold{
 	pixel_y = 32
@@ -10112,7 +10114,9 @@
 /area/eris/maintenance/section3deck2starboard)
 "ayg" = (
 /turf/simulated/wall/r_wall,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "ayh" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -10179,7 +10183,9 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "ayn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10196,7 +10202,9 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "ayq" = (
 /obj/structure/table/standard,
 /obj/item/device/destTagger{
@@ -26255,6 +26263,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/exploration/ADMS,
 /turf/simulated/floor/tiled/dark,
 /area/eris/rnd/lab)
 "bjz" = (
@@ -80744,7 +80753,9 @@
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "dHl" = (
 /obj/spawner/mob/roaches/cluster,
 /obj/effect/floor_decal/rust,
@@ -80834,7 +80845,9 @@
 "dHu" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/steel/cargo,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "dHv" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/steel/gray_platform,
@@ -81068,7 +81081,9 @@
 	name = "Library"
 	},
 /turf/simulated/floor/tiled/steel/cargo,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "dHQ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_common{
@@ -94446,6 +94461,7 @@
 /area/shuttle/research/station)
 "eny" = (
 /obj/machinery/camera/network/research_outpost,
+/obj/machinery/exploration/ADMS,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "12,5"
 	},
@@ -95679,7 +95695,9 @@
 "eqH" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eqI" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/door/firedoor,
@@ -95703,26 +95721,14 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/fitness)
 "eqK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/fitness)
 "eqL" = (
@@ -95740,12 +95746,29 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eqM" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc{
 	name = "South APC";
 	pixel_y = -28
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/fitness)
@@ -95774,7 +95797,9 @@
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eqP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -99550,7 +99575,9 @@
 	pixel_x = 22
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eyS" = (
 /obj/landmark/join/start/assistant,
 /turf/simulated/floor/tiled/techmaint,
@@ -102557,7 +102584,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eFs" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -102565,13 +102594,17 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eFt" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eFu" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_common{
@@ -102584,7 +102617,9 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/techmaint_cargo,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eFv" = (
 /obj/machinery/alarm{
 	pixel_y = 26
@@ -102595,7 +102630,9 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/turcarpet,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eFw" = (
 /obj/machinery/camera/network/third_section,
 /obj/structure/cable/green{
@@ -102604,7 +102641,9 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/carpet/turcarpet,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eFx" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -102612,7 +102651,9 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/carpet/sblucarpet,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eFy" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -102620,7 +102661,9 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/sblucarpet,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eFz" = (
 /obj/structure/bed/chair/custom/bar_special{
 	dir = 1
@@ -102639,7 +102682,9 @@
 "eFA" = (
 /obj/structure/bed/chair/comfy/brown,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eFB" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/hull,
@@ -102651,7 +102696,9 @@
 /area/space)
 "eFE" = (
 /turf/simulated/floor/carpet/bcarpet,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "eFF" = (
 /obj/machinery/power/sensor{
 	long_range = 1;
@@ -103230,7 +103277,9 @@
 "fgo" = (
 /obj/structure/multiz/ladder,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "fgZ" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -103415,7 +103464,9 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "gFu" = (
 /obj/machinery/shower{
 	dir = 8
@@ -103531,7 +103582,9 @@
 "hmo" = (
 /obj/structure/table/woodentable,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "hnS" = (
 /obj/machinery/light/small,
 /obj/structure/closet/secure_closet/personal,
@@ -103565,10 +103618,29 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section3)
+"hxa" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/fitness)
 "hEH" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "hHz" = (
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
@@ -103942,7 +104014,9 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "jvY" = (
 /obj/machinery/door/airlock{
 	name = "Club dormitories";
@@ -104156,7 +104230,9 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/sblucarpet,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "kDP" = (
 /obj/machinery/door/airlock{
 	name = "Kitchen Freezer";
@@ -104225,7 +104301,9 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "lcL" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white/brown_platform,
@@ -104383,7 +104461,9 @@
 /obj/structure/table/woodentable,
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "lSU" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -104422,7 +104502,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "mjg" = (
 /obj/structure/table/standard,
 /obj/spawner/lowkeyrandom/low_chance,
@@ -104575,7 +104657,9 @@
 	pixel_y = -22
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "mQQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/hull{
@@ -104709,7 +104793,9 @@
 	},
 /obj/structure/cyberplant,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "nkL" = (
 /obj/machinery/camera/network/third_section{
 	dir = 8
@@ -105141,7 +105227,9 @@
 /area/eris/medical/surgery)
 "psl" = (
 /turf/simulated/wall,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "psB" = (
 /obj/structure/table/bar_special,
 /obj/structure/curtain/open/bed{
@@ -105181,7 +105269,9 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/carpet/turcarpet,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "pyy" = (
 /obj/structure/table/woodentable,
 /turf/simulated/floor/carpet/bcarpet,
@@ -105227,7 +105317,9 @@
 /area/eris/crew_quarters/kitchen)
 "pYo" = (
 /turf/simulated/floor/carpet/turcarpet,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "qaP" = (
 /obj/machinery/atmospherics/omni/filter{
 	tag_east = 2;
@@ -105342,7 +105434,9 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "qLU" = (
 /obj/structure/railing{
 	dir = 8
@@ -105439,7 +105533,9 @@
 	dir = 5
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "ruq" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
@@ -105515,7 +105611,9 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "rOY" = (
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/maintenance/section4deck4central)
@@ -105530,7 +105628,9 @@
 /obj/structure/table/woodentable,
 /obj/machinery/chemical_dispenser/soda,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "snm" = (
 /obj/structure/curtain/black,
 /turf/simulated/floor/wood,
@@ -105719,7 +105819,9 @@
 /obj/structure/bed/chair/comfy/brown,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "tqZ" = (
 /obj/spawner/junk/low_chance,
 /obj/machinery/light/small,
@@ -105873,7 +105975,9 @@
 	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/steel/gray_perforated,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "ukG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating/under,
@@ -105889,7 +105993,9 @@
 	},
 /obj/structure/table/woodentable,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "uoV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -106141,7 +106247,9 @@
 "vyV" = (
 /obj/structure/cyberplant,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "vIB" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
@@ -106189,7 +106297,9 @@
 	},
 /obj/machinery/vending/dinnerware,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "wgg" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -106203,7 +106313,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "wgG" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -106380,11 +106492,15 @@
 /area/eris/hallway/main/section3)
 "xjj" = (
 /turf/simulated/floor/carpet/sblucarpet,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "xjM" = (
 /obj/machinery/door/window/eastright,
 /turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
+/area/eris/crew_quarters/library{
+	name = "\improper Cafe"
+	})
 "xjW" = (
 /obj/structure/curtain/open/bed{
 	anchored = 1;
@@ -245046,8 +245162,8 @@ euq
 awr
 gjx
 cDi
-eqJ
 cDi
+hxa
 awr
 abF
 abF
