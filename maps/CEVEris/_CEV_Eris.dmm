@@ -87303,7 +87303,9 @@
 /turf/simulated/open,
 /area/eris/neotheology/chapel)
 "dWx" = (
-/obj/structure/closet/wall_mounted/emcloset/escape_pods,
+/obj/structure/closet/wall_mounted/emcloset/escape_pods{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "dWy" = (
@@ -99363,7 +99365,7 @@
 	name = "Maintenance Hatch"
 	},
 /obj/machinery/door/firedoor,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/eris/crew_quarters/fitness)
 "eyp" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -103359,6 +103361,13 @@
 /obj/item/weapon/stool,
 /turf/simulated/floor/carpet,
 /area/eris/maintenance/section4deck4central)
+"ftf" = (
+/obj/machinery/door/airlock/maintenance_common{
+	name = "Service Maintenance";
+	req_access = list(12)
+	},
+/turf/space,
+/area/space)
 "fun" = (
 /obj/structure/catwalk,
 /obj/spawner/mob/roaches/cluster,
@@ -103524,6 +103533,7 @@
 /obj/structure/sign/derelict1{
 	pixel_x = -32
 	},
+/obj/spawner/scrap/sparse,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "gEE" = (
@@ -103640,6 +103650,14 @@
 /obj/item/weapon/implanter,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
+"hgL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/maintenance_common{
+	name = "Service Maintenance";
+	req_access = list(12)
+	},
+/turf/simulated/floor/plating,
+/area/eris/maintenance/section2deck1port)
 "hgZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -104180,9 +104198,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
 "jKG" = (
@@ -104591,7 +104607,9 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/storage)
 "lFi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "lHg" = (
@@ -105093,7 +105111,7 @@
 /area/eris/crew_quarters/clothingstorage)
 "nDp" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/spawner/pack/machine,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "nEp" = (
@@ -106053,8 +106071,11 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "tlK" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor/tiled/steel/techfloor_grid,
+/obj/spawner/junk/low_chance,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "tmi" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -106507,12 +106528,10 @@
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/maintenance/section4deck4central)
 "vvr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/maintenance_common{
-	name = "Service Maintenance";
-	req_access = list(12)
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "vxl" = (
 /obj/effect/decal/cleanable/dirt,
@@ -279187,7 +279206,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+ftf
 aaa
 aaa
 aaa
@@ -281608,9 +281627,9 @@ dNZ
 iTf
 qbW
 lFi
-lFi
-vvr
-tlK
+dPQ
+alb
+dVh
 mVq
 alb
 abF
@@ -281809,7 +281828,7 @@ dNZ
 dPK
 dMn
 pTW
-aof
+tlK
 pSx
 alb
 dVh
@@ -282011,9 +282030,9 @@ alb
 alb
 alb
 nZZ
-amc
+vvr
 nDp
-alb
+hgL
 jIq
 dVz
 alb
@@ -282616,7 +282635,7 @@ enG
 alb
 alb
 alb
-alb
+amc
 dLA
 dUS
 apq
