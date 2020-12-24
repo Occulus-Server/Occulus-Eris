@@ -100736,14 +100736,11 @@
 	pixel_y = -8
 	},
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes{
-	pixel_x = -12;
+	pixel_x = -6;
 	pixel_y = 8
 	},
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/melee{
-	pixel_y = 8
-	},
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_boards{
-	pixel_x = 12;
+	pixel_x = 6;
 	pixel_y = 8
 	},
 /obj/machinery/smartfridge/disks,
@@ -103636,10 +103633,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section3)
-"hyd" = (
-/obj/spawner/pack/machine,
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section3deck4port)
 "hxa" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -103657,6 +103650,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/fitness)
+"hyd" = (
+/obj/spawner/pack/machine,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section3deck4port)
 "hEH" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
