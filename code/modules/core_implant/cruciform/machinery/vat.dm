@@ -83,6 +83,9 @@
 		O.loc = loc
 	add_fingerprint(user)
 	buckle_mob(C)
+	var/mob/living/carbon/human/H = C	// OCCULUS EDIT - Needed for the bloody procs below. Very spaghetti, I know.
+	H.bloody_body()	// OCCULUS EDIT - Stains your clothes with red stuff that's TOOOOTALLY wine. Resulting blood should have no DNA.
+	H.visible_message("[H]'s clothes are soaked in \the [src]'s fluids!","Your clothes are soaked in \the [src]'s fluids!")	// OCCULUS EDIT - Feedback for the above
 
 /obj/machinery/neotheology/clone_vat/post_buckle_mob(mob/living/M as mob)
 	if(M == buckled_mob)
@@ -183,11 +186,22 @@
 					adjust_fluid_level(-15)
 					make_alive(victim)
 
-		victim.adjustBruteLoss(- 2.5 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
-		victim.adjustFireLoss(- 2  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+	// OCCULUS EDIT START - Nerfs the amount of damage the winebath can heal. Toxloss is left alone because wine is literally supposed to deal with that.
+		if(victim.getBruteLoss() >= 50)
+			victim.adjustBruteLoss(- 2 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+		if(victim.getFireLoss() >= 50)
+			victim.adjustFireLoss(- 2  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+	// OCCULUS EDIT END
 		victim.adjustOxyLoss(- 2  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
 		victim.adjustToxLoss(- 1 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
 		adjust_fluid_level(- 1)
+
+	// OCCULUS EDIT START - Drunk Effects
+		victim.druggy = max(victim.druggy, 10)	// Makes it so that it should not set druggy above 10
+		victim.slurring = max(victim.slurring, 30)	// Makes it so that it should not set slurring above 30
+	// OCCULUS EDIT END
+
+		victim.add_chemical_effect(CE_BLOODCLOT, 0.3)	//OCCULUS EDIT -  meralyne level bleedstopping since it can no longer stop bleeding by getting rid of all bruteloss
 
 		if(prob(10) && victim.UnHusk())
 			adjust_fluid_level(- 5)
@@ -198,7 +212,7 @@
 			victim.reagents.add_reagent(reagent_injected, 1)
 			if(prob(30))
 				victim.reagents.add_reagent("kyphotorin", 1)
-				victim.reagents.add_reagent("quickclot", 1)
+				victim.reagents.add_reagent("quickclot", 1)	// OCCULUS NOTE: Not made redundant by the bloodclotting effect above due to it also healing internal bleeding
 		update_icon()
 
 /obj/machinery/neotheology/clone_vat/proc/adjust_fluid_level(var/amount)
