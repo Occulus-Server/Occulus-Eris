@@ -83,3 +83,53 @@
 				for(var/thing in pilots)
 					var/mob/pilot = thing
 					pilot.emp_act(severity)
+
+// Occulus Edit: Exosuit falling Borrowed from robot_damage!
+
+/mob/living/exosuit/get_fall_damage(turf/from, turf/dest)
+	//Exosuits should not be falling! Their bulky inarticulate frames lack shock absorbers, and gravity turns their armor plating against them
+	//Falling down a floor is extremely painful for robots, and for anything under them, including the floor
+
+	var/damage = maxHealth*0.66 //Two-thirds of their health.
+	//A percentage is used here to simulate different robots having different masses. The bigger they are, the harder they fall
+
+	//Mechs falling two floors will be wreaked
+	if (from && dest)
+		damage *= abs(from.z - dest.z)
+
+	return damage
+
+/mob/living/exosuit/fall_impact(turf/from, turf/dest)
+	apply_damage(get_fall_damage(from, dest), BRUTE)
+	Stun(5)
+	updatehealth()
+	//Wreck the contents of the tile
+	for (var/atom/movable/AM in dest)
+		if (AM != src)
+			AM.ex_act(3)
+
+	//Damage the tile itself
+	dest.ex_act(2)
+
+	//Damage surrounding tiles
+	for (var/turf/T in range(1, src))
+		if (T == dest)
+			continue
+
+		T.ex_act(3)
+
+	//And do some screenshake for everyone in the vicinity
+	for (var/mob/M in range(20, src))
+		var/dist = get_dist(M, src)
+		dist *= 0.5
+		if (dist <= 1)
+			dist = 1 //Prevent runtime errors
+
+		shake_camera(M, 10/dist, 2.5/dist, 0.12)
+
+	playsound(src, 'sound/weapons/heavysmash.ogg', 100, 1, 20,20)
+	spawn(1)
+		playsound(src, 'sound/weapons/heavysmash.ogg', 100, 1, 20,20)
+	spawn(2)
+		playsound(src, 'sound/weapons/heavysmash.ogg', 100, 1, 20,20)
+	playsound(src, pick(robot_talk_heavy_sound), 100, 1, 5,5)

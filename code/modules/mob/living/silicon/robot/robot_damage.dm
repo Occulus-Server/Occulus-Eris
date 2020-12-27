@@ -156,7 +156,7 @@
 	//Robots should not be falling! Their bulky inarticulate frames lack shock absorbers, and gravity turns their armor plating against them
 	//Falling down a floor is extremely painful for robots, and for anything under them, including the floor
 
-	var/damage = maxHealth*0.49 //Just under half of their health
+	var/damage = maxHealth*0.33 //Just under half of their health. Occulus Edit: Nerfed to 33%
 	//A percentage is used here to simulate different robots having different masses. The bigger they are, the harder they fall
 
 	//Falling two floors is not an instakill, but it almost is
