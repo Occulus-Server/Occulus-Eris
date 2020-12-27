@@ -2795,6 +2795,7 @@
 #include "zzzz_modular_occulus\code\game\jobs\job\medical.dm"
 #include "zzzz_modular_occulus\code\game\jobs\job\science.dm"
 #include "zzzz_modular_occulus\code\game\jobs\job\security.dm"
+#include "zzzz_modular_occulus\code\game\machinery\jukebox.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\plush.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\autolathe_disks.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\mekhane_armory.dm"
