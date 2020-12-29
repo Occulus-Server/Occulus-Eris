@@ -487,7 +487,7 @@
 		blood_volume *= 0.7
 	else if(heart.damage > 1)
 		blood_volume *= 0.8
-	return blood_volume < H.species.blood_volume * BLOOD_VOLUME_SURVIVE / 100
+	return blood_volume < H.species.blood_volume * H.total_blood_req / 100
 
 /obj/item/weapon/shockpaddles/linked/check_overchargecell() // Check if the cell is large enough to allow overcharge.
 	return(base_unit.bcell.maxcharge >= overchargecost)
