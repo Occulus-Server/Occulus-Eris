@@ -23,14 +23,16 @@
 
 /obj/item/weapon/reagent_containers/bonsai/New()
 	..()
-	GLOB.all_faction_items[src] = GLOB.department_civilian
+	//GLOB.all_faction_items[src] = GLOB.department_civilian // Occulus edit - No individual objectives here
 	START_PROCESSING(SSobj, src)
 
 /obj/item/weapon/reagent_containers/bonsai/Destroy()
 	STOP_PROCESSING(SSobj, src)
+	/*	Occulus edit - No individual objectives here
 	for(var/mob/living/carbon/human/H in viewers(get_turf(src)))
 		SEND_SIGNAL(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
 	GLOB.all_faction_items -= src
+	*/
 	..()
 
 /obj/item/weapon/reagent_containers/bonsai/Process()

@@ -15,3 +15,7 @@
 		STAT_TGH = 10,
 		STAT_VIG = 10
 	)
+	perks = list(/datum/perk/deep_connection, /datum/perk/oddity/market_prof)
+
+/datum/job/mining
+	perks = list(/datum/perk/deep_connection, /datum/perk/oddity/market_prof)

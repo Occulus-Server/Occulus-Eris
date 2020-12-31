@@ -16,6 +16,7 @@
 
 /obj/item/device/techno_tribalism/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(items_count < max_count)
+	/* Occulus edit - No individual objectives here
 		if(W in GLOB.all_faction_items)
 			if(GLOB.all_faction_items[W] == GLOB.department_moebius)
 				oddity_stats[STAT_COG] += 3
@@ -53,8 +54,9 @@
 				oddity_stats[STAT_COG] += 2
 			else
 				crash_with("[W], incompatible department")
+		*/
 
-		else if(istool(W))
+		if(istool(W))	// Occulus edit - No individual objectives here, removed the else from this if statement
 			var/useful = FALSE
 			if(W.tool_qualities)
 
