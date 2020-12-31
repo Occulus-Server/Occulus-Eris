@@ -48444,6 +48444,8 @@
 "ciP" = (
 /obj/item/weapon/reagent_containers/spray/cleaner,
 /obj/structure/closet/custodial,
+/obj/item/weapon/tool/sword/nt,
+/obj/item/weapon/storage/sheath,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/crew_quarters/janitor)
 "ciQ" = (
@@ -50986,6 +50988,8 @@
 	},
 /obj/item/weapon/reagent_containers/spray/cleaner,
 /obj/structure/closet/custodial,
+/obj/item/weapon/tool/sword/nt,
+/obj/item/weapon/storage/sheath,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/crew_quarters/janitor)
 "coX" = (
@@ -54364,7 +54368,7 @@
 /turf/simulated/wall,
 /area/eris/crew_quarters/barbackroom)
 "cxB" = (
-/obj/machinery/power/nt_obelisk,
+/obj/machinery/power/eotp,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/chapelritualroom)
 "cxC" = (
@@ -100730,7 +100734,18 @@
 /area/space)
 "eBl" = (
 /obj/structure/table/standard,
-/obj/item/weapon/tool/wrench,
+/obj/item/weapon/tool/wrench{
+	pixel_y = -8
+	},
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/melee{
+	pixel_x = 6;
+	pixel_y = 8
+	},
+/obj/machinery/smartfridge/disks,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/bioreactor)
 "eBm" = (
@@ -103720,6 +103735,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/fitness)
+"hyd" = (
+/obj/spawner/pack/machine,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section3deck4port)
 "hEH" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
@@ -106260,6 +106279,13 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating/under,
 /area/eris/quartermaster/office)
+"uly" = (
+/obj/machinery/power/nt_obelisk,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/neotheology/chapelritualroom)
 "ulJ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -160439,14 +160465,14 @@ cIS
 cIS
 aaa
 bUG
-bWh
+hyd
 ccO
 bWh
 ccU
 ccU
 ccU
 ccU
-crv
+ccU
 crv
 cFv
 cFv
@@ -160647,7 +160673,7 @@ byQ
 ccU
 cBm
 cxB
-ccU
+uly
 ccU
 ccU
 cFv
@@ -160849,7 +160875,7 @@ byR
 cqc
 bQx
 bQx
-cqc
+bQx
 cCe
 bTE
 bGD
