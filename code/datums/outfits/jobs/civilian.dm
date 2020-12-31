@@ -43,7 +43,8 @@
 	backpack_overrides[/decl/backpack_outfit/backpack] = /obj/item/weapon/storage/backpack/clown
 	backpack_overrides[/decl/backpack_outfit/satchel] = /obj/item/weapon/storage/backpack/satchel/leather
 
-
+/*	OCCULUS EDIT - No clumsiness for actors
 /decl/hierarchy/outfit/job/service/actor/clown/post_equip(var/mob/living/carbon/human/H)
 	..()
 	H.mutations.Add(CLUMSY)
+*/
