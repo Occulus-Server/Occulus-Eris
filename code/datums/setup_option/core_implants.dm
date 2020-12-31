@@ -4,7 +4,7 @@
 	allows a faithful acolyte to retain their mind and soul even in death.<br>\
 	Signifies your dedication and loyalty to Children of The Mekhane."
 	implant_type = /obj/item/weapon/implant/core_implant/cruciform
-	restricted_depts = IRONHAMMER | COMMAND
+//	restricted_depts = IRONHAMMER | COMMAND	// OCCULUS EDIT - no more restrictions for cruciforms!
 	allowed_depts = CHURCH
 	allow_modifications = TRUE
 
