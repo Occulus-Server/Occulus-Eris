@@ -6,7 +6,7 @@ A copypasta of Convalescence, but with half the effects and no pain removal. Als
 /datum/ritual/cruciform/priest/selfheal
 	name = "Recuperation"
 	phrase = "In tempore necessitatis illius, quae consolantur me quaeso mihi dolet"
-	desc = "Recover from minor wounds."
+	desc = "Recover from minor wounds. Consumes a considerable amount of nutrition."
 	cooldown = TRUE
 	cooldown_time = 120
 	power = 35
@@ -14,6 +14,7 @@ A copypasta of Convalescence, but with half the effects and no pain removal. Als
 /datum/ritual/cruciform/priest/selfheal/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C,list/targets)
 	to_chat(H, "<span class='info'>A sensation of relief bathes you, washing away your pain.</span>")
 	log_and_message_admins("healed himself with the Recuperation litany.")
+	H.nutrition -= 100
 	H.adjustBruteLoss(-10)
 	H.adjustFireLoss(-10)
 	H.adjustOxyLoss(-20)
@@ -28,7 +29,7 @@ Ditto but for Succour
 /datum/ritual/cruciform/priest/heal_other
 	name = "Invigorate"
 	phrase = "Et inclinaveris cor tuum in capite sunt in caelo, et suscipe benedictionem"
-	desc = "Heal a nearby disciple's wounds."
+	desc = "Heal a nearby disciple's wounds. Can also repair malfunctioning Cruciforms. Consumes a considerable amount of nutrition."
 	cooldown = TRUE
 	cooldown_time = 120
 	power = 45
@@ -59,11 +60,21 @@ Ditto but for Succour
 			to_chat(user, SPAN_DANGER("[H] is beyond your reach.."))
 			return
 		log_and_message_admins("healed [CI.wearer] with Invigorate litany")
-		to_chat(H, "<span class='info'>A sensation of relief bathes you, soothing your wounds a little</span>")
+		to_chat(H, "<span class='info'>A sensation of relief bathes you, soothing your wounds a little.</span>")
+		user.nutrition -= 100
 		H.adjustBruteLoss(-10)
 		H.adjustFireLoss(-10)
 		H.adjustOxyLoss(-20)
 		H.updatehealth()
+
+		if(CI.max_power < 50)	// Is our target's cruciform EMP'd?
+			to_chat(H, "<span class='info'>You feel a warm tingling sensation around your chest. Your cruciform's function has been restored.</span>")
+			if(CI.get_module(CRUCIFORM_REDLIGHT))	// Did they get the high-cap upgrade?
+				CI.max_power = 80
+			else
+				CI.max_power = 50
+			// Inquisitor's extra high capacity is not dealt with here since they should be immune to EMPs to begin with.
+
 		set_personal_cooldown(user)
 		return TRUE
 
