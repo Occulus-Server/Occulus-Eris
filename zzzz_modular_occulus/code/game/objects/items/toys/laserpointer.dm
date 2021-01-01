@@ -1,7 +1,7 @@
 /obj/item/laser_pointer
 	name = "laser pointer"
 	desc = "Don't shine it in your eyes!"
-	icon = 'zzz_modular_syzygy/icons/obj/toys.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/toys.dmi'
 	icon_state = "pointer"
 	item_state = "pen"
 	var/pointer_icon_state
@@ -155,7 +155,7 @@
 
 	//laser pointer image
 	icon_state = "pointer_[pointer_icon_state]"
-	var/image/I = image('zzz_modular_syzygy/icons/obj/toys.dmi',targloc,pointer_icon_state,10)
+	var/image/I = image('zzzz_modular_occulus/icons/obj/toys.dmi',targloc,pointer_icon_state,10)
 	var/list/click_params = params2list(params)
 	if(click_params)
 		if(click_params["icon-x"])
