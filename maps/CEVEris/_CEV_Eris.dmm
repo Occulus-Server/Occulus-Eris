@@ -17984,14 +17984,6 @@
 /obj/item/weapon/bedsheet/blue,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/barracks)
-"aRG" = (
-/obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/blue,
-/obj/machinery/light_switch{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/security/barracks)
 "aRH" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/projectile/shotgun/bull,
@@ -18939,6 +18931,9 @@
 	dir = 6
 	},
 /obj/structure/cyberplant,
+/obj/machinery/light_switch{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/barracks)
 "aTO" = (
@@ -171110,7 +171105,7 @@ aag
 aaf
 aaa
 aaf
-aRG
+aRP
 aSE
 aSQ
 aTn
