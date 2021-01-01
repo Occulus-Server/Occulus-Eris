@@ -2,3 +2,9 @@
 	changeLevel(SANITY_GAIN_MUSIC)
 	if(resting)
 		add_rest(INSIGHT_DESIRE_MUSIC, 0.4)
+
+/datum/sanity/proc/onExcercise(var/rate)
+	changeLevel(rate)
+	if(resting)
+		add_rest(INSIGHT_DESIRE_EXCERCISE, rate)
+

@@ -10,18 +10,23 @@
 /obj/item/toy/tennis
 	name = "tennis ball"
 	desc = "A classical tennis ball. It appears to have faint bite marks scattered all over its surface."
-	icon = 'zzz_modular_syzygy/icons/obj/toys.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/toys.dmi'
 	icon_state = "tennis_classic"
 	item_icons = list(
-		slot_l_hand_str = 'zzz_modular_syzygy/icons/mob/toys_l.dmi',
-		slot_r_hand_str = 'zzz_modular_syzygy/icons/mob/toys_r.dmi',
-		slot_head_str = 'zzz_modular_syzygy/icons/mob/toys_mouth.dmi',
-		slot_wear_mask_str = 'zzz_modular_syzygy/icons/mob/toys_mouth.dmi'		)
+		slot_l_hand_str = 'zzzz_modular_occulus/icons/mob/toys_l.dmi',
+		slot_r_hand_str = 'zzzz_modular_occulus/icons/mob/toys_r.dmi',
+		slot_head_str = 'zzzz_modular_occulus/icons/mob/toys_mouth.dmi',
+		slot_wear_mask_str = 'zzzz_modular_occulus/icons/mob/toys_mouth.dmi'		)
 	item_state = "tennis_classic"
 	slot_flags = SLOT_HEAD | SLOT_MASK
 	throw_range = 14
 	w_class = ITEM_SIZE_SMALL
 	var/spam_flag = 0
+
+/obj/item/toy/tennis/throw_impact()
+	if(istype(thrower, /mob/living/carbon/human))
+		var/mob/living/carbon/human/tosser = thrower
+		tosser.sanity.onExcercise(0.4)
 
 /obj/item/toy/tennis/attack_self(mob/user as mob) //Hjonk
 	if (spam_flag == 0)
