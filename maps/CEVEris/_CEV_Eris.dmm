@@ -49226,9 +49226,6 @@
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "ckL" = (
-/obj/structure/bed/chair/custom/bar_special{
-	dir = 1
-	},
 /obj/structure/bed/chair/sofa/red/left{
 	dir = 1
 	},
@@ -49264,15 +49261,6 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/rnd/mixing)
-"ckQ" = (
-/obj/structure/bed/chair/custom/bar_special{
-	dir = 1
-	},
-/obj/structure/bed/chair/sofa/red/right{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel/bar_dance,
-/area/eris/crew_quarters/bar)
 "ckR" = (
 /obj/item/weapon/storage/belt/utility,
 /obj/item/weapon/storage/belt/utility,
@@ -95371,9 +95359,6 @@
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/kitchen)
 "epI" = (
-/obj/structure/bed/chair/custom/bar_special{
-	dir = 1
-	},
 /obj/structure/bed/chair/sofa/red/left{
 	dir = 1
 	},
@@ -105055,6 +105040,7 @@
 /obj/machinery/camera/network/fist_section{
 	dir = 8
 	},
+/obj/item/weapon/soap,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/crew_quarters/clothingstorage)
 "nse" = (
@@ -106375,7 +106361,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/weapon/soap,
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/crew_quarters/clothingstorage)
 "uOo" = (
@@ -166943,7 +166929,7 @@ ayA
 aqa
 cjd
 cCO
-ckQ
+gbg
 aqa
 dqw
 fpR
