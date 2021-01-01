@@ -41,7 +41,7 @@
 #define EAT_COOLDOWN_MESSAGE 15 SECONDS
 
 #define INSIGHT_DESIRE_MUSIC "music" //Occulus edit
-#define INSIGHT_DESIRE_EXCERCISE "excercise" //Occulus edit
+#define INSIGHT_DESIRE_EXERCISE "exercise" //Occulus edit
 #define SANITY_GAIN_MUSIC 0.05//Occulus edit - same rate as smoking
 
 /datum/sanity
@@ -176,7 +176,7 @@
 		INSIGHT_DESIRE_SMOKING,
 		INSIGHT_DESIRE_DRUGS,
 		INSIGHT_DESIRE_MUSIC, //Occulus Edit
-		INSIGHT_DESIRE_EXCERCISE //Occulus Edit
+		INSIGHT_DESIRE_EXERCISE //Occulus Edit
 	)
 	for(var/i = 0; i < INSIGHT_DESIRE_COUNT; i++)
 		var/desire = pick_n_take(candidates)

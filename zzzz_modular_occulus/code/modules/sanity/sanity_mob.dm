@@ -3,8 +3,8 @@
 	if(resting)
 		add_rest(INSIGHT_DESIRE_MUSIC, 0.4)
 
-/datum/sanity/proc/onExcercise(var/rate)
+/datum/sanity/proc/onExercise(var/rate)
 	changeLevel(rate)
 	if(resting)
-		add_rest(INSIGHT_DESIRE_EXCERCISE, rate)
+		add_rest(INSIGHT_DESIRE_EXERCISE, rate)
 
