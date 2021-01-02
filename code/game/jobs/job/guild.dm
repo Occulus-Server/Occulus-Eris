@@ -23,6 +23,7 @@
 		STAT_MEC = 15,
 		STAT_VIG = 10
 	)
+
 	description = "You are the head of the local branch of Free Trade Union, and Northern Light's Union representative<br>\
 A staunch entrepreneur, you are motivated by profit, for the Union and especially for yourself. You are here firstly to make as much money as you can, and secondly to keep the crew supplied. You can order things at cargo using the local Union funds, these will not magically replenish so you will run out of money quickly if you don't charge. Take payments by card or cash, and deposit them into the Union account to enable more purchases.<br>\
 <br>\
@@ -35,7 +36,8 @@ Things to bear in mind:<br>\
 	-NEV Northern Light has few laws on contraband. If someone wants something and they can afford it, you get it for them. Don't try to play moral guardian and don't ask questions. You are not responsible for whatever they do with your products.<br>\
 	-Loyalty is a priceless resource, yet cheap to maintain. Don't screw over the miners and technicians working under you. <br>\
 	-Charity is a weapon. Used correctly, it can do wonders for your public image.  A few gifts spread around makes for good returning customers"
-	perks = list(/datum/perk/merchant, /datum/perk/deep_connection)
+
+	perks = list(/datum/perk/merchant, /datum/perk/deep_connection, /datum/perk/oddity/market_prof)
 
 	duties = "Keep the crew supplied with anything they might need, at a healthy profit to you of course<br>\
 Buy up valueable items from scavengers, and make a profit reselling them<br>\
