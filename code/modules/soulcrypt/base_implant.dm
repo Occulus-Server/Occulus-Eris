@@ -10,6 +10,7 @@ The module base code is held in module.dm
 	icon_state = "crypt_off"
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_MATERIAL=2, TECH_BIO=7, TECH_DATA=5)
+	price_tag = 8000	// These things aren't cheap.
 
 
 	var/host_dead = FALSE //Our host is dead. Or not? Binary doesn't care for philosphy.
