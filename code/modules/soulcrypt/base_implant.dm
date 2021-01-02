@@ -137,6 +137,8 @@ The module base code is held in module.dm
 	return access
 
 /obj/item/weapon/implant/core_implant/soulcrypt/emp_act()
+	for(var/datum/soulcrypt_module/M in modules)
+		M.on_emp()
 	was_emp = TRUE
 	deactivate_modules()
 
@@ -155,6 +157,8 @@ The module base code is held in module.dm
 	if(wearer.stat == DEAD && !host_dead)
 		host_death_time = world.time
 		host_dead = TRUE
+		for(var/datum/soulcrypt_module/M in modules)
+			M.on_death()
 		send_death_message()
 
 	if(wearer.stat != DEAD && host_dead)
@@ -314,7 +318,22 @@ The module base code is held in module.dm
 		SC.find_filemanager()
 */
 
+/obj/item/weapon/implant/core_implant/soulcrypt/attackby(obj/item/I, mob/user)
+	..()
 
+	if(istype(I, /obj/item/stack/nanopaste))	//lmao copypasting tcomms repair code works seamlessly. Absolutely amazing.
+		var/obj/item/stack/nanopaste/T = I
+		if(integrity < max_integrity) //Damaged, let's repair!
+			if(T.use(1))
+				integrity = between(0, integrity + rand(10,20), 100)
+				to_chat(usr, SPAN_WARNING("You apply some nanopaste to [src], restoring some of its integrity."))
+		if(was_emp)
+			if(T.use(1))
+				was_emp = FALSE
+				to_chat(usr, SPAN_WARNING("You apply some nanopaste to [src], repairing its previous EMP damage."))
+		else
+			to_chat(usr, SPAN_WARNING("[src] is already in perfect condition!"))
+		return
 
 
 

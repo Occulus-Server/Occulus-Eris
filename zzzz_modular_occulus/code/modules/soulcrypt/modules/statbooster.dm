@@ -7,12 +7,11 @@
 	uses_energy = TRUE
 	has_energy_upkeep = TRUE
 	energy_cost = 5 //all of your standard energy generation
-	causes_wear = TRUE	// Discourages casual usage
+	causes_wear = FALSE	// Enable when we flesh out repair mechanics!
 	wear_cause_amount = 0.01
 	var/list/stats_to_boost = list()
 
-/datum/soulcrypt_module/statboost/activate()
-	..()
+/datum/soulcrypt_module/statboost/perform()
 	for(var/stat in stats_to_boost)
 		var/amount = stats_to_boost[stat]
 		owner.wearer.stats.changeStat(stat, amount)
