@@ -103505,12 +103505,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2port)
-"gzc" = (
-/obj/item/modular_computer/console/preset/medical/monitor{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/panels,
-/area/eris/maintenance/section3deck3port)
 "gBc" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -103637,9 +103631,6 @@
 /obj/item/weapon/implant/core_implant/soulcrypt,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
-"hfE" = (
-/turf/simulated/floor/tiled/steel,
-/area/eris/maintenance/section3deck3port)
 "hgv" = (
 /obj/structure/table/glass,
 /obj/item/weapon/reagent_containers/spray/cleaner,
@@ -103851,12 +103842,6 @@
 /obj/machinery/vending/serbomat,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/hallway/side/cryo)
-"ihd" = (
-/obj/item/modular_computer/console/preset/research/sysadmin{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/panels,
-/area/eris/maintenance/section3deck3port)
 "ihw" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/steel/gray_platform,
@@ -104661,11 +104646,6 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
-"lWV" = (
-/obj/effect/window_lwall_spawn/smartspawn,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/eris/maintenance/section3deck3port)
 "lXR" = (
 /obj/machinery/chem_master,
 /obj/machinery/light{
@@ -104819,10 +104799,6 @@
 /obj/spawner/mob/roaches/cluster,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/maintenance/section2deck3port)
-"mGu" = (
-/obj/structure/table/woodentable,
-/turf/simulated/floor/tiled/steel,
-/area/eris/maintenance/section3deck3port)
 "mKE" = (
 /obj/structure/curtain/open/bed{
 	anchored = 1;
@@ -105162,12 +105138,6 @@
 /obj/spawner/booze/low_chance,
 /turf/simulated/floor/wood,
 /area/eris/maintenance/section4deck4central)
-"nFi" = (
-/obj/item/device/radio/intercom{
-	pixel_y = 24
-	},
-/turf/simulated/floor/tiled/dark,
-/area/eris/maintenance/section3deck3port)
 "nGz" = (
 /obj/structure/sink{
 	dir = 4;
@@ -105365,12 +105335,6 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
-"oIK" = (
-/obj/item/modular_computer/console/preset/security/camera{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/panels,
-/area/eris/maintenance/section3deck3port)
 "oKO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/catwalk,
@@ -105561,9 +105525,6 @@
 /obj/landmark/join/start/clubworker,
 /turf/simulated/open,
 /area/eris/neotheology/chapel)
-"pFe" = (
-/turf/simulated/floor/tiled/dark,
-/area/eris/maintenance/section3deck3port)
 "pGF" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/carbon/superior_animal/roach/fuhrer,
@@ -106209,12 +106170,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
-"trJ" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/eris/maintenance/section3deck3port)
 "tss" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/standard{
@@ -198773,11 +198728,11 @@ aaa
 aaa
 aaa
 aaa
-duu
-lWV
-lWV
-lWV
-duu
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -198975,11 +198930,11 @@ aaa
 aaa
 aaa
 aaa
-duu
-ihd
-gzc
-oIK
-duu
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -199177,11 +199132,11 @@ aaa
 aaa
 aaa
 aaa
-duu
-hfE
-trJ
-hfE
-duu
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -199379,11 +199334,11 @@ aaa
 aaa
 aaa
 aaa
-duu
-nFi
-hfE
-pFe
-duu
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -199581,11 +199536,11 @@ aaa
 aaa
 aaa
 aaa
-duu
-mGu
-pFe
-hfE
-duu
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
