@@ -228,6 +228,9 @@ The module base code is held in module.dm
 		if(M.active && M.has_energy_upkeep)
 			active_module_drain += M.energy_cost
 
+	if((energy == max_energy) && (!active_module_drain) && (!emergency_charge))
+		return
+
 	if(wearer.nutrition < (wearer.max_nutrition / 2))
 		if(next_energy_warning < world.time + ENERGY_WARNING_DELAY)
 			send_host_message(low_nutrition_message, MESSAGE_WARNING)
