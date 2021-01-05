@@ -3130,6 +3130,7 @@
 /obj/structure/table/woodentable,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/stamp/hos,
+/obj/item/weapon/holochip/security/warrant,
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "ahD" = (
@@ -3141,6 +3142,7 @@
 "ahE" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/reagent_containers/food/drinks/flask/barflask,
+/obj/item/weapon/holochip/security/combat,
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "ahF" = (
@@ -3284,6 +3286,7 @@
 	pixel_x = 0;
 	pixel_y = 4
 	},
+/obj/item/weapon/holochip/security/tough,
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "ahZ" = (
@@ -18979,6 +18982,9 @@
 "aTU" = (
 /obj/structure/table/standard,
 /obj/item/weapon/deck/cards,
+/obj/item/weapon/holochip/security/warrant,
+/obj/item/weapon/holochip/security/warrant,
+/obj/item/weapon/holochip/security/warrant,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/barracks)
 "aTV" = (
@@ -25963,6 +25969,8 @@
 "biY" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
+/obj/item/weapon/holochip/science/smart,
+/obj/item/weapon/holochip/science/smart,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/rnd/lab)
 "biZ" = (
@@ -50129,6 +50137,7 @@
 /obj/structure/table/glass,
 /obj/item/stack/medical/advanced/bruise_pack,
 /obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/weapon/holochip/medical/surgery,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "cnd" = (
@@ -53474,6 +53483,9 @@
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/weapon/paper_bin,
+/obj/item/weapon/holochip/cargo/marketpro,
+/obj/item/weapon/holochip/cargo/marketpro,
+/obj/item/weapon/holochip/cargo/marketpro,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/quartermaster/office)
 "cvw" = (
@@ -60277,6 +60289,9 @@
 "cLf" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/cdeathalarm_kit,
+/obj/item/weapon/holochip/command/deathalarm,
+/obj/item/weapon/holochip/command/deathalarm,
+/obj/item/weapon/holochip/command/deathalarm,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
 "cLg" = (
@@ -68802,6 +68817,11 @@
 /area/eris/crew_quarters/janitor)
 "dfG" = (
 /obj/structure/table/reinforced,
+/obj/item/weapon/holochip/command/helpmaint,
+/obj/item/weapon/holochip/command/helpmaint,
+/obj/item/weapon/holochip/command/helpmaint,
+/obj/item/weapon/holochip/command/helpmaint,
+/obj/item/weapon/holochip/command/helpmaint,
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/command/meeting_room)
 "dfH" = (
@@ -73190,6 +73210,7 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
+/obj/item/weapon/storage/box/holochip,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
 "dpq" = (
@@ -73255,6 +73276,7 @@
 "dpx" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/weapon/holochip/medical/celerity,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/medeva)
 "dpy" = (
@@ -94797,6 +94819,9 @@
 /obj/structure/table/rack,
 /obj/item/weapon/storage/box/cdeathalarm_kit,
 /obj/item/weapon/storage/box/cdeathalarm_kit,
+/obj/item/weapon/holochip/command/deathalarm,
+/obj/item/weapon/holochip/command/deathalarm,
+/obj/item/weapon/holochip/command/deathalarm,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "eor" = (
@@ -94806,6 +94831,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/weapon/tool/tape_roll,
+/obj/item/weapon/holochip/security/warrant,
+/obj/item/weapon/holochip/security/warrant,
+/obj/item/weapon/holochip/security/warrant,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "eos" = (
@@ -103632,10 +103660,6 @@
 "heQ" = (
 /obj/structure/table/glass,
 /obj/item/weapon/implant/core_implant/soulcrypt,
-/obj/item/weapon/implant/core_implant/soulcrypt,
-/obj/item/weapon/implant/core_implant/soulcrypt,
-/obj/item/weapon/implant/core_implant/soulcrypt,
-/obj/item/weapon/implant/core_implant/soulcrypt,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "hgv" = (
@@ -103902,6 +103926,15 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
+"ivn" = (
+/obj/structure/table/rack,
+/obj/item/weapon/holochip/security/tough,
+/obj/item/weapon/holochip/security/tough,
+/obj/item/weapon/holochip/security/tough,
+/obj/item/weapon/holochip/security/tough,
+/obj/item/weapon/holochip/security/tough,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/security/armory)
 "ivC" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -128590,7 +128623,7 @@ abS
 abS
 aer
 aeU
-abS
+ivn
 aaR
 aaa
 aaa
