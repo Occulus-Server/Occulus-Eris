@@ -18920,6 +18920,9 @@
 	dir = 6
 	},
 /obj/structure/cyberplant,
+/obj/machinery/light_switch{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/barracks)
 "aTO" = (
