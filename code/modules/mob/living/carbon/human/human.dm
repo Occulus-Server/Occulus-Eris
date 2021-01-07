@@ -1189,10 +1189,10 @@ var/list/rank_prefix = list(\
 		checkprefcruciform = TRUE
 		qdel(CI)
 */
+	for(var/obj/item/organ/organ in (organs|internal_organs))//Occulus Edit - Moving this out so the cloner stops breaking
+		qdel(organ)//Occulus Edit
 
 	if(from_preference)
-		for(var/obj/item/organ/organ in (organs|internal_organs))
-			qdel(organ)
 
 		if(organs.len)
 			organs.Cut()

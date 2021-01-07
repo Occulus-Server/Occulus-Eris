@@ -38,11 +38,11 @@
 		CRASH("Gender datum was null; key was '[(skipjumpsuit && skipface) ? PLURAL : gender]'")
 
 	msg += "<EM>[src.name]</EM>"
-	if(species.name != "Human")
-		if(custom_species)
-			msg += ", a <b><font color='[species.flesh_color]'>[custom_species]</font></b>"
-		else
-			msg += ", a <b><font color='[species.flesh_color]'>[species.name]</font></b>"
+//	if(species.name != "Human") Occulus Edit, Show human species too!
+	if(custom_species)
+		msg += ", a <b><font color='[species.flesh_color]'>[custom_species]</font></b>"
+	else
+		msg += ", a <b><font color='[species.flesh_color]'>[species.name]</font></b>"
 	msg += "!\n"
 
 	//uniform

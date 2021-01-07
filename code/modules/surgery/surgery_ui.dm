@@ -33,8 +33,12 @@
 	data["limb_efficiency"] = limb_efficiency
 	data["occupied_volume"] = get_total_occupied_volume()
 	data["max_volume"] = max_volume
-	data["owner_oxyloss"] = owner.getOxyLoss()
-	data["owner_oxymax"] = 100 - owner.total_oxygen_req
+
+	//OCCULUS EDIT START - RUNTIME FIX
+	if(owner)
+		data["owner_oxyloss"] = owner.getOxyLoss()
+		data["owner_oxymax"] = 100 - owner.total_oxygen_req
+	//OCCULUS EDIT END
 
 	data["conditions"] = get_conditions()
 	data["diagnosed"] = diagnosed

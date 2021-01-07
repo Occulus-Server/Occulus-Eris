@@ -35,6 +35,7 @@
 		/datum/design/autolathe/gun/ec9 = 3,
 		/datum/design/autolathe/gun/rx8 = 3,
 		/datum/design/autolathe/ammo/magazine_pistol/rubber,
+		/datum/design/autolathe/ammo/magazine_hpistol/rubber,
 		/datum/design/autolathe/ammo/smg/rubber,
 		/datum/design/autolathe/ammo/pistol_ammobox/rubber
 		)
