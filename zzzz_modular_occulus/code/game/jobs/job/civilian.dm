@@ -24,7 +24,16 @@
 	*/
 
 /datum/job/actor
+	outfit_type = /decl/hierarchy/outfit/job/service/actor/actor
 	stat_modifiers = list(
 		STAT_TGH = 30,
 		STAT_VIG = 10
 	)
+
+/decl/hierarchy/outfit/job/service/actor/actor
+	name = OUTFIT_JOB_NAME("Actor")
+	uniform = /obj/item/clothing/under/waiter
+	id_type = /obj/item/weapon/card/id/white
+	pda_type = /obj/item/modular_computer/pda/club_worker
+	backpack_contents = list(/obj/item/weapon/bananapeel = 1, /obj/item/weapon/storage/fancy/crayons = 1, /obj/item/toy/waterflower = 1, /obj/item/weapon/stamp/clown = 1, /obj/item/weapon/handcuffs/fake = 1)
+
