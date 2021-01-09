@@ -1441,42 +1441,23 @@
 	dir = 4
 	},
 /obj/spawner/junk/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor_grid,
+/turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/prison)
 "adC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/security/prison)
+"adD" = (
+/obj/structure/closet/emcloset,
 /obj/machinery/camera/network/prison,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
-"adD" = (
-/obj/machinery/alarm{
-	pixel_y = 26
-	},
-/turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/security/prison)
-"adE" = (
-/obj/structure/bed,
-/turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/security/prison)
-"adF" = (
-/obj/structure/bed,
-/obj/machinery/light_switch{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/security/prison)
-"adG" = (
-/obj/structure/bed,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/security/prison)
 "adH" = (
-/obj/machinery/seed_extractor,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/steel,
+/obj/structure/bedsheetbin,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
 "adI" = (
 /obj/structure/table/rack,
@@ -1504,19 +1485,14 @@
 /turf/simulated/floor/plating,
 /area/eris/security/exerooms)
 "adK" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
 /obj/machinery/alarm{
 	pixel_y = 26
 	},
-/obj/spawner/junkfood/rotten/low_chance,
-/mob/living/simple_animal/mouse/brown/Tom,
-/turf/simulated/floor/tiled/dark,
+/obj/item/modular_computer/console,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
 "adL" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/machinery/camera/network/prison,
+/obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
 "adM" = (
@@ -1527,7 +1503,7 @@
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/disposal)
 "adN" = (
-/obj/structure/closet/emcloset,
+/obj/machinery/computer/arcade,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
 "adO" = (
@@ -1634,6 +1610,9 @@
 /area/eris/security/prison)
 "aeb" = (
 /obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
 "aec" = (
@@ -1663,12 +1642,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
 "aef" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Prison Hydroponics";
-	req_access = newlist()
-	},
-/turf/simulated/floor/tiled/dark/cargo,
+/obj/machinery/camera/network/prison,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
 "aeg" = (
 /obj/machinery/door/firedoor,
@@ -1695,7 +1670,7 @@
 	id = "air_in";
 	use_power = 1
 	},
-/turf/simulated/floor/tiled/dark/techfloor_grid,
+/turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/prison)
 "aek" = (
 /obj/structure/multiz/stairs/enter/bottom{
@@ -1704,11 +1679,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
 "ael" = (
-/turf/simulated/floor/tiled/dark/brown_perforated,
+/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/prison)
 "aem" = (
 /obj/spawner/junk/low_chance,
-/turf/simulated/floor/tiled/dark/brown_perforated,
+/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/prison)
 "aen" = (
 /obj/spawner/junk/low_chance,
@@ -1795,11 +1770,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/armory)
 "aev" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light/small{
-	dir = 4
+/obj/machinery/light{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
 "aew" = (
 /obj/structure/multiz/ladder/up,
@@ -1851,10 +1825,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/armory)
 "aeD" = (
-/obj/machinery/vending/hydroseeds{
-	slogan_delay = 700
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
 "aeE" = (
 /obj/machinery/camera/network/security{
@@ -1873,18 +1845,17 @@
 /area/eris/security/armory)
 "aeG" = (
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/dark/brown_perforated,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
 "aeH" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
 /area/eris/security/exerooms)
 "aeI" = (
-/obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/tool/shovel/spade,
-/obj/item/weapon/tool/minihoe,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
 "aeJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
@@ -1907,7 +1878,7 @@
 "aeL" = (
 /obj/spawner/traps/low_chance,
 /obj/spawner/scrap/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor_grid,
+/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/prison)
 "aeM" = (
 /obj/structure/railing{
@@ -1985,11 +1956,8 @@
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/armory)
 "aeV" = (
-/obj/machinery/shower{
-	dir = 4
-	},
-/obj/machinery/camera/network/prison,
-/turf/simulated/floor/tiled/dark/gray_platform,
+/obj/structure/cryofeed,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
 "aeW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2132,7 +2100,7 @@
 	dir = 8
 	},
 /obj/spawner/junk/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor_grid,
+/turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/prison)
 "afn" = (
 /obj/structure/toilet{
@@ -2147,7 +2115,6 @@
 /area/eris/security/prison)
 "afo" = (
 /obj/machinery/light/small,
-/obj/machinery/camera/network/prison,
 /obj/machinery/alarm{
 	pixel_y = 26
 	},
@@ -2218,7 +2185,10 @@
 /area/eris/security/prison)
 "afA" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/dark/techfloor_grid,
+/obj/machinery/light_switch{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/prison)
 "afC" = (
 /obj/structure/disposalpipe/segment,
@@ -2483,7 +2453,7 @@
 /area/space)
 "agm" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/dark/techfloor_grid,
+/turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/prison)
 "agn" = (
 /obj/structure/cable/green{
@@ -3225,8 +3195,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/exerooms)
 "ahQ" = (
-/obj/structure/bed,
 /obj/machinery/light/small,
+/obj/item/weapon/bedsheet/red,
+/obj/structure/bed,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
 "ahR" = (
@@ -6366,8 +6337,7 @@
 /turf/simulated/wall,
 /area/eris/quartermaster/hangarsupply)
 "apc" = (
-/obj/spawner/junkfood/rotten,
-/obj/spawner/junkfood/rotten/low_chance,
+/obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
 "apd" = (
@@ -6402,11 +6372,6 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck5port)
-"aph" = (
-/obj/spawner/junk/low_chance,
-/obj/spawner/scrap/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/security/prison)
 "api" = (
 /obj/landmark/storyevent/midgame_stash_spawn{
 	navigation = "Section 2, floor 1. Air storage south of maint airlock 2. Its near fueltank storage and medbay toilet."
@@ -6445,8 +6410,7 @@
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section3deck5port)
 "app" = (
-/obj/spawner/scrap/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor_grid,
+/turf/simulated/wall,
 /area/eris/security/prison)
 "apq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -8579,7 +8543,7 @@
 /turf/simulated/floor/tiled/techmaint_panels,
 /area/eris/maintenance/section3deck5port)
 "atZ" = (
-/obj/spawner/junkfood/rotten/low_chance,
+/obj/spawner/junkfood/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
 "aua" = (
@@ -9281,7 +9245,13 @@
 /turf/simulated/open,
 /area/eris/maintenance/section2deck4starboard)
 "awa" = (
-/obj/spawner/junkfood/low_chance,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/alarm{
+	pixel_y = 26
+	},
+/obj/spawner/junkfood/rotten/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
 "awb" = (
@@ -102888,6 +102858,13 @@
 /obj/effect/shuttle_landmark/merc/southwest,
 /turf/space,
 /area/space)
+"eGO" = (
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/weapon/tool/shovel/spade,
+/obj/item/weapon/tool/minihoe,
+/turf/simulated/floor/tiled/dark,
+/area/eris/security/prison)
 "eHb" = (
 /obj/machinery/firealarm{
 	pixel_y = 28
@@ -103395,6 +103372,10 @@
 /obj/spawner/mob/roaches/cluster,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2port)
+"fuA" = (
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/security/prison)
 "fyF" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -103999,6 +103980,13 @@
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/crew_quarters/clothingstorage)
+"iGR" = (
+/obj/machinery/vending/cigarette,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/security/prison)
 "iIc" = (
 /obj/effect/shuttle_landmark/merc/sec3east5,
 /turf/space,
@@ -104237,6 +104225,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
+"jJd" = (
+/obj/item/weapon/bedsheet/yellow,
+/obj/structure/bed,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/security/prison)
 "jKG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -104275,6 +104269,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
+"jTQ" = (
+/obj/spawner/junkfood/rotten/low_chance,
+/turf/simulated/floor/tiled/dark,
+/area/eris/security/prison)
 "jUO" = (
 /obj/effect/shuttle_landmark/merc/atmos,
 /turf/space,
@@ -104350,6 +104348,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/fitness)
+"ktG" = (
+/obj/spawner/scrap/low_chance,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/security/prison)
 "kug" = (
 /obj/machinery/door/blast/shutters/glass{
 	id = "BridgeArmoury";
@@ -104453,6 +104455,11 @@
 /obj/item/weapon/storage/box,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"kGS" = (
+/obj/spawner/junkfood/rotten,
+/obj/spawner/junkfood/rotten/low_chance,
+/turf/simulated/floor/tiled/dark,
+/area/eris/security/prison)
 "kIX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -104593,6 +104600,10 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
+"lwl" = (
+/obj/machinery/vending/snack,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/security/prison)
 "lwv" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -104663,6 +104674,9 @@
 /obj/spawner/mob/roaches/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck3port)
+"lHr" = (
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/security/prison)
 "lIn" = (
 /obj/effect/shuttle_landmark/merc/junk,
 /turf/space,
@@ -104751,6 +104765,10 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
+"mnI" = (
+/obj/structure/curtain/open/privacy,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/security/prison)
 "mpj" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -105090,9 +105108,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/camera/network/fist_section{
-	dir = 8
-	},
 /obj/item/weapon/soap,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/crew_quarters/clothingstorage)
@@ -105216,6 +105231,12 @@
 /obj/structure/catwalk,
 /turf/simulated/open,
 /area/eris/quartermaster/storage)
+"nSi" = (
+/obj/machinery/vending/hydroseeds{
+	slogan_delay = 700
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/security/prison)
 "nXh" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet,
@@ -105411,6 +105432,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
+"oQR" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/security/prison)
 "oTl" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/freezer/medical,
@@ -105531,8 +105558,9 @@
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
 "ptL" = (
-/obj/structure/closet/self_pacification,
-/turf/simulated/floor/tiled/dark/techfloor_grid,
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/camera/network/prison,
+/turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
 "pux" = (
 /obj/spawner/scrap/low_chance,
@@ -105801,6 +105829,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
+"reg" = (
+/obj/spawner/scrap/low_chance,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/security/prison)
 "reo" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
@@ -107087,6 +107119,14 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
+"xPq" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass{
+	name = "Prison Hydroponics";
+	req_access = newlist()
+	},
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/security/prison)
 "xPv" = (
 /obj/machinery/holomap{
 	dir = 8;
@@ -124376,7 +124416,7 @@ aaa
 aaa
 aad
 aaa
-aaa
+abH
 abH
 adA
 aea
@@ -124578,11 +124618,11 @@ aaa
 aaa
 aad
 aaa
-aaa
 abH
+iGR
 adB
-aei
-aei
+lHr
+reg
 afm
 afA
 afy
@@ -124780,12 +124820,12 @@ aaa
 aaa
 aad
 aaa
-aaa
 abH
+lwl
 adC
 aej
-aen
-aei
+fuA
+lHr
 agm
 afz
 afU
@@ -124981,14 +125021,14 @@ aaa
 aaa
 aaa
 aad
-aaa
-aaa
+abH
+abH
 abH
 adD
-ael
-ael
-ael
-aph
+aei
+aei
+app
+app
 abH
 abF
 abF
@@ -125183,14 +125223,14 @@ aaa
 aaa
 aaa
 aad
-aaa
-aaa
 abH
-adE
-aem
-ael
-aem
-adE
+adH
+oQR
+aei
+aen
+aei
+app
+jJd
 abH
 aad
 aae
@@ -125385,14 +125425,14 @@ aaa
 aaa
 aaa
 aad
-aaa
-aaa
 abH
-adF
+adK
+aei
+aem
 ael
 aeG
-ael
-adE
+mnI
+ktG
 abH
 aaa
 aaa
@@ -125587,14 +125627,14 @@ aaG
 aaG
 aaG
 aaG
-aaG
-aad
 abH
-adE
+adN
+aen
 ael
 ael
-aem
-adE
+aei
+app
+app
 abH
 aad
 aae
@@ -125789,13 +125829,13 @@ aaG
 aar
 aax
 aar
-aaG
-aaa
 abH
-adG
-aem
+aef
+aen
 ael
 aem
+aei
+mnI
 ahQ
 abH
 aaa
@@ -125991,13 +126031,13 @@ aaG
 aar
 aaC
 aar
-aaG
-aaa
 abH
+aev
+aei
 aeL
 ael
-ael
-ael
+aei
+app
 app
 abH
 abH
@@ -126193,12 +126233,12 @@ aaG
 aar
 aar
 aar
-aaG
-aaa
 abH
-adN
-aen
+aeD
 aei
+aei
+aen
+aen
 aei
 aen
 ahy
@@ -126395,13 +126435,13 @@ aaG
 abz
 aar
 enY
-aaG
-aaa
 abH
-ptL
+aeV
 aei
+aen
 aei
-aei
+ktG
+aeI
 aum
 ahy
 abH
@@ -126597,14 +126637,14 @@ aaG
 aat
 aar
 aat
-aaG
-aaa
 abH
 aaF
 aaF
-aef
+xPq
 aaF
 aaF
+abH
+aei
 abH
 abH
 afp
@@ -126799,16 +126839,16 @@ aaG
 aat
 aar
 aat
-aaG
-aaa
 abH
-adH
-atZ
+apc
+jTQ
 acC
-awa
-aeD
+atZ
+nSi
 abH
-aeV
+aei
+abH
+afQ
 afq
 afQ
 abH
@@ -127001,14 +127041,14 @@ aaG
 aau
 aaO
 aaP
-aaG
-aaa
 abH
-adK
-apc
+awa
+kGS
 acC
 acC
 acC
+abH
+aei
 aeT
 aeX
 afq
@@ -127203,13 +127243,13 @@ aap
 aaw
 abx
 aaQ
-aaG
-aaa
 abH
+ptL
+adL
 adL
 aeb
-aeb
-aev
+eGO
+abH
 aeI
 abH
 afk
@@ -127405,8 +127445,8 @@ aaV
 aaV
 abx
 aaV
-aaq
-aaa
+aaG
+aae
 abH
 abH
 abH
