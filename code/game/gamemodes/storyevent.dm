@@ -70,7 +70,7 @@
 	if (!enabled)
 		if (report) to_chat(report, SPAN_NOTICE("Failure: The event is disabled"))
 		return FALSE
-		
+
 	if (ocurrences_max > 0 && ocurrences >= ocurrences_max)
 		if (report) to_chat(report, SPAN_NOTICE("Failure: The event has already triggered the maximum number of times for a single round"))
 		return FALSE
