@@ -2,7 +2,7 @@
 
 //Jobs depatment lists for use in constant expressions
 #define JOBS_SECURITY "Aegis Commander","Aegis Gunnery Sergeant","Aegis Inspector","Aegis Operative","Aegis Medical Specialist"
-#define JOBS_COMMAND "Captain","First Officer","Aegis Commander","Free Trade Union Merchant","Chief Engineer","Chief Medical Officer","Chief Science Officer","Chaplain"
+#define JOBS_COMMAND "Captain","First Officer","Ensign","Aegis Commander","Free Trade Union Merchant","Chief Engineer","Chief Medical Officer","Chief Science Officer","Chaplain" //Occulus Edit
 #define JOBS_ENGINEERING "Chief Engineer","Ship Engineer","Engineering Apprentice","Atmospherics Technician","Electrician","Maintenance Technician"
 #define JOBS_MEDICAL "Chief Medical Officer","Medical Doctor","Psychiatrist","Pharmacist","Paramedic","Surgeon","Nurse","Medical Intern"
 #define JOBS_SCIENCE "Chief Science Officer","Scientist","Roboticist","Xenobiologist","Xenoflorist","Research Intern","Anomalist"

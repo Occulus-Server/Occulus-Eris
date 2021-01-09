@@ -16639,6 +16639,8 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
+/obj/spawner/exosuit_equipment,
+/obj/spawner/exosuit_equipment,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/rnd/chargebay)
 "aOL" = (
@@ -16719,6 +16721,8 @@
 	name = "plastic table frame"
 	},
 /obj/item/weapon/storage/toolbox/mechanical,
+/obj/spawner/exosuit_equipment,
+/obj/spawner/exosuit_equipment,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/rnd/chargebay)
 "aOW" = (
@@ -24749,6 +24753,7 @@
 	pixel_y = 26
 	},
 /obj/machinery/camera/network/research,
+/obj/spawner/exosuit,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/rnd/chargebay)
 "bfY" = (
@@ -62287,6 +62292,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/landmark/join/start/ensign,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/meeting_room)
 "cQj" = (
@@ -62366,12 +62372,14 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/landmark/join/start/ensign,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/meeting_room)
 "cQp" = (
 /obj/machinery/camera/network/command{
 	dir = 1
 	},
+/obj/landmark/join/start/ensign,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/meeting_room)
 "cQq" = (
@@ -62601,6 +62609,7 @@
 	name = "Bridge RC";
 	pixel_y = -30
 	},
+/obj/landmark/join/start/ensign,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/meeting_room)
 "cQW" = (
@@ -96141,6 +96150,9 @@
 /obj/item/clothing/suit/monkeysuit,
 /obj/item/clothing/mask/gas/monkeymask,
 /obj/item/clothing/mask/gas/monkeymask,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/clownoffice)
 "erx" = (
@@ -99788,6 +99800,7 @@
 	dir = 1;
 	pixel_y = -23
 	},
+/obj/machinery/light/small,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/clownoffice)
 "ezr" = (
@@ -244238,7 +244251,7 @@ awt
 awt
 awt
 awt
-dxq
+awr
 aym
 hEH
 tpD
@@ -245046,7 +245059,7 @@ awt
 awt
 awt
 awt
-dxq
+awr
 rNF
 eFE
 eFE
