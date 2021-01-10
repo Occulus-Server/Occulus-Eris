@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/ec9
 	name = "SMG .35 Auto \"EC9\""
 	desc = "The EC9 is a generic replica of an old and infamous SMG. An extremely cheap design made to look more intimidating than it actually is. \
-			It is incapable of firing in full auto due to its excessively simplified trigger mechanism. Uses .35 Auto rounds."
+			It is incapable of firing in full auto due to its excessively simplified trigger mechanism. Uses .35 Auto Hi-Cap Magazines."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/ec9.dmi'
 	icon_state = "ec9"
 	item_state = "ec9"
@@ -9,11 +9,11 @@
 	can_dual = 1
 	caliber = CAL_PISTOL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	slot_flags = SLOT_BELT
 	ammo_type = "/obj/item/ammo_casing/pistol"
 	load_method = MAGAZINE
-	mag_well = MAG_WELL_H_PISTOL|MAG_WELL_SMG
-	magazine_type = /obj/item/ammo_magazine/smg
+	mag_well = MAG_WELL_H_PISTOL
+	magazine_type = /obj/item/ammo_magazine/hpistol
 	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_STEEL = 5, MATERIAL_WOOD = 2)
 	price_tag = 800
 	rarity_value = 10.1

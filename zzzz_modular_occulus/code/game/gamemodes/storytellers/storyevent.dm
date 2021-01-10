@@ -18,8 +18,5 @@
 	req_crew = 12	//Makes it so that at least 9 players must be playing in order to spawn
 	max_crew_diff_lower = 3
 
-/datum/storyevent/spacevine
-	enabled = TRUE
-
 /datum/storyevent/wallrot
 	enabled = TRUE

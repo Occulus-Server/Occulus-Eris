@@ -103,7 +103,7 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 						/datum/job/chaplain, /datum/job/acolyte, /datum/job/janitor, /datum/job/hydro,
 						/datum/job/scientist, /datum/job/roboticist,
 						/datum/job/ai, /datum/job/cyborg,
-						/datum/job/assistant
+						/datum/job/assistant, /datum/job/ensign //Occulus Edit
 
 						)
 
@@ -130,11 +130,11 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 		ACCESS_REGION_RESEARCH = list(access_rd, access_change_ids, access_change_research),
 		ACCESS_REGION_ENGINEERING = list(access_ce, access_change_ids, access_change_engineering),
 		ACCESS_REGION_COMMAND = list(access_change_ids),
-		ACCESS_REGION_GENERAL = list(access_change_ids, 
-										access_change_cargo, 
-										access_change_club, 
-										access_change_engineering, 
-										access_change_medbay, 
+		ACCESS_REGION_GENERAL = list(access_change_ids,
+										access_change_cargo,
+										access_change_club,
+										access_change_engineering,
+										access_change_medbay,
 										access_change_nt,
 										access_change_research,
 										access_change_sec),
