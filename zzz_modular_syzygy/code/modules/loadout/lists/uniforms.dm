@@ -6,11 +6,11 @@
 /datum/gear/uniform/shorts/color_presets/New()
 	..()
 	var/shorts = list(
-		"Black"			=	/obj/item/clothing/under/color/black,
-		"Blue"			=	/obj/item/clothing/under/color/blue,
-		"Green"			=	/obj/item/clothing/under/color/green,
-		"Grey"			=	/obj/item/clothing/under/color/grey,
-		"Red"			=	/obj/item/clothing/under/color/red
+		"Black"			=	/obj/item/clothing/under/shorts/black,
+		"Blue"			=	/obj/item/clothing/under/shorts/blue,
+		"Green"			=	/obj/item/clothing/under/shorts/green,
+		"Grey"			=	/obj/item/clothing/under/shorts/grey,
+		"Red"			=	/obj/item/clothing/under/shorts/red
 	)
 	gear_tweaks += new /datum/gear_tweak/path(shorts)
 
@@ -23,4 +23,4 @@
 /datum/gear/uniform/turtleneck
 	display_name = "black turtleneck"
 	path = /obj/item/clothing/under/syndicate/civilian
-	
+
