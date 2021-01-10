@@ -2,7 +2,7 @@
 
 /obj/item/weapon/oddity/nt/seal
 	name = "Mekhanite Seal"
-	desc = "An honorary badge given to the most devout of the Children of Mekhane.
+	desc = "An honorary badge given to the most devout of the Children of Mekhane."
 	oddity_stats = list(
 		STAT_COG = 6,
 		STAT_VIG = 6,
