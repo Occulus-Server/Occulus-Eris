@@ -1,3 +1,11 @@
+GLOBAL_LIST_INIT(department_command, list(DEPARTMENT_COMMAND))
+GLOBAL_LIST_INIT(department_security, list(DEPARTMENT_SECURITY))
+GLOBAL_LIST_INIT(department_moebius, list(DEPARTMENT_SCIENCE, DEPARTMENT_MEDICAL))
+GLOBAL_LIST_INIT(department_engineering, list(DEPARTMENT_ENGINEERING))
+GLOBAL_LIST_INIT(department_guild, list(DEPARTMENT_GUILD))
+GLOBAL_LIST_INIT(department_church, list(DEPARTMENT_CHURCH))
+GLOBAL_LIST_INIT(department_civilian, list(DEPARTMENT_CIVILIAN))
+
 var/const/ENGINEERING       =(1<<0)
 var/const/IRONHAMMER        =(1<<1)
 var/const/MEDICAL           =(1<<2)
@@ -34,15 +42,17 @@ var/const/PSYCHIATRIST		=(1<<5)
 var/const/ROBOTICIST		=(1<<6)
 var/const/PARAMEDIC			=(1<<7)
 
-
+//Occulus Edit Start
 var/const/FIRSTOFFICER		=(1<<0)
-var/const/CLUBMANAGER		=(1<<1)
-var/const/CLUBWORKER		=(1<<2)
-var/const/MERCHANT			=(1<<3)
-var/const/GUILDTECH			=(1<<4)
-var/const/MINER				=(1<<5)
-var/const/ACTOR				=(1<<6)
-var/const/ASSISTANT			=(1<<7)
+var/const/ENSIGN			=(1<<1)
+var/const/CLUBMANAGER		=(1<<2)
+var/const/CLUBWORKER		=(1<<3)
+var/const/MERCHANT			=(1<<4)
+var/const/GUILDTECH			=(1<<5)
+var/const/MINER				=(1<<6)
+var/const/ACTOR				=(1<<7)
+var/const/ASSISTANT			=(1<<8)
+//Occulus Edit End
 
 
 var/const/CHAPLAIN			=(1<<0)

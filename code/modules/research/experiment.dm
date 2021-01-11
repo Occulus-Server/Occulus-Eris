@@ -1,5 +1,5 @@
 // Contains everything related to earning research points
-#define AUTOPSY_WEAPON_PAMT rand(5,10) * 200 // 1000-2000 points for random weapon
+#define AUTOPSY_WEAPON_PAMT rand(5,10) * 100 // 500-1000 points for random weapon Occulus Edit
 #define ARTIFACT_PAMT rand(5,10) * 1000 // 5000-10000 points for random artifact
 
 GLOBAL_LIST_EMPTY(explosion_watcher_list)
@@ -48,13 +48,13 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 	// Points for each symptom level, from 1 to 5
 	var/static/list/level_to_points = list(200,500,1000,2500,10000)
 	// Points for special slime cores
-	var/static/list/core_points = list(
-		/obj/item/slime_extract/grey = 100,
-		/obj/item/slime_extract/gold = 2000,
-		/obj/item/slime_extract/adamantine = 3000,
-		/obj/item/slime_extract/bluespace = 5000,
-		/obj/item/slime_extract/rainbow = 10000
-	)
+	var/static/list/core_points = list( //Occulus Edit Start
+		/obj/item/slime_extract/grey = 200,
+		/obj/item/slime_extract/gold = 4000,
+		/obj/item/slime_extract/adamantine = 6000,
+		/obj/item/slime_extract/bluespace = 10000,
+		/obj/item/slime_extract/rainbow = 20000
+	) //Occulus Edit End
 
 /*
 /datum/experiment_data/proc/ConvertReqString2List(list/source_list)
@@ -140,7 +140,7 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 		if(core in saved_slimecores)
 			continue
 
-		var/reward = 1000
+		var/reward = 2000 //Occulus Edit
 		if(core in core_points)
 			reward = core_points[core]
 		points += reward

@@ -18,8 +18,9 @@
 	rarity_value = 10
 	bad_type = /obj/item/weapon/oddity
 
-//You choose what stat can be increased, and a maximum value that will be added to this stat
-//The minimum is defined above. The value of change will be decided by random
+	//You choose what stat can be increased, and a maximum value that will be added to this stat
+	//The minimum is defined above. The value of change will be decided by random
+	var/random_stats = TRUE
 	var/list/oddity_stats
 	var/sanity_value = 1
 	var/datum/perk/oddity/perk
@@ -29,11 +30,14 @@
 	AddComponent(/datum/component/atom_sanity, sanity_value, "")
 
 	if(oddity_stats)
-		for(var/stat in oddity_stats)
-			oddity_stats[stat] = rand(1, oddity_stats[stat])
-		AddComponent(/datum/component/inspiration, oddity_stats)
+		if(random_stats)
+			for(var/stat in oddity_stats)
+				oddity_stats[stat] = rand(1, oddity_stats[stat])
+		AddComponent(/datum/component/inspiration, oddity_stats, perk)
+	//OCCULUS EDIT START - REEE GIMME PERKS
 	if(!perk)
 		perk = pick(subtypesof(/datum/perk/oddity))
+	//OCCULUS EDIT END
 
 /obj/item/weapon/oddity/examine(user)
 	..()
@@ -331,3 +335,30 @@
 		STAT_COG = 8,
 	)
 	rarity_value = 19
+
+/obj/item/weapon/oddity/artwork/get_item_cost(export)
+	. = ..()
+	GET_COMPONENT(comp_sanity, /datum/component/atom_sanity)
+	. += comp_sanity.affect * 100
+	GET_COMPONENT(comp_insp, /datum/component/inspiration)
+	var/list/true_stats = comp_insp.calculate_statistics()
+	for(var/stat in true_stats)
+		. += true_stats[stat] * 50
+
+//NT Oddities
+/obj/item/weapon/oddity/nt
+	bad_type = /obj/item/weapon/oddity/nt
+	spawn_blacklisted = TRUE
+	random_stats = FALSE
+
+/obj/item/weapon/oddity/nt/seal
+	name = "High Inquisitor's Seal"
+	desc = "An honorary badge given to the most devout of NeoTheologian preachers by the High Inquisitor. Such a badge is a rare sight indeed - rumor has it that the badge imbues the holder with the power of the Angels themselves."
+	icon_state = "nt_seal"
+	oddity_stats = list(
+		STAT_COG = 12,
+		STAT_VIG = 12,
+		STAT_ROB = 8
+	)
+	price_tag = 8000
+	perk = /datum/perk/nt_oddity/holy_light

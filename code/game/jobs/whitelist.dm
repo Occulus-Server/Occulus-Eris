@@ -88,7 +88,7 @@ var/list/blacklist = list()
 	return 0
 
 /mob/new_player/proc/discord_redirect(var/mob/u)
-	to_chat(src, "<span class='notice'>You are not whitelisted! Join our forum at https://consonantstation.boards.net/ to get whitelisted.</span>")
+	to_chat(src, "<span class='notice'>You are not whitelisted! Please contact an administrator on our discord to get whitelisted!</span>") //Occulus Edit
 
 ADMIN_VERB_ADD(/client/proc/add_to_whitelist, R_ADMIN, FALSE)
 

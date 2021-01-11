@@ -243,3 +243,5 @@
 			gases = gas
 	log_admin("[usr] ([usr.ckey]) opened '[src.name]' containing [gases].")
 	message_admins("[usr] ([usr.ckey]) opened '[src.name]' containing [gases].")
+/obj/machinery/portable_atmospherics/proc/dropped()//Occulus Edit: Kills a runtime from mecha
+	return

@@ -21,7 +21,7 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 
 #define INFESTATION_MICE "mice"
 #define INFESTATION_LIZARDS "lizards"
-#define INFESTATION_SPACE_BATS "bats"
+#define INFESTATION_NANOBLOB "nanoswarms" //Oculus edit, going to edit the var to reflect the mob, if it doesn't work changing it back to SPACE_BATS
 #define INFESTATION_SPIDERLINGS "spiderlings"
 #define INFESTATION_SPIDERS "spider"
 #define INFESTATION_ROACHES "large insects"
@@ -48,11 +48,11 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 	var/list/possible_mobs_mundane = list(
 		INFESTATION_MICE = 17,
 		INFESTATION_SPIDERLINGS = 8,
-		INFESTATION_SPACE_BATS = 7
+		INFESTATION_NANOBLOB = 7
 	)
 
 	var/possible_mobs_moderate = list(
-		INFESTATION_SPACE_BATS = 10,
+		INFESTATION_NANOBLOB = 10,
 		INFESTATION_SPIDERS = 7,//This is a combination of spiderlings and adult spiders
 		INFESTATION_ROACHES = 7
 	)
@@ -145,10 +145,10 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 			chosen_verb = "have invaded"
 			chosen_mob_classification += /mob/living/simple_animal/hostile/hivebot
 			chosen_mob_classification += /mob/living/simple_animal/hostile/hivebot/range
-		if(INFESTATION_SPACE_BATS)
-			event_name = "Bat Roost"
-			chosen_verb = "have been roosting in"
-			chosen_mob_classification += /mob/living/simple_animal/hostile/scarybat
+		if(INFESTATION_NANOBLOB)
+			event_name = "Hostile Nanohives"
+			chosen_verb = "have been awakened in"
+			chosen_mob_classification += /mob/living/simple_animal/hostile/nanoblob
 		if(INFESTATION_LIZARDS)
 			event_name = "Lizard Nest"
 			chosen_verb = "have been breeding in"

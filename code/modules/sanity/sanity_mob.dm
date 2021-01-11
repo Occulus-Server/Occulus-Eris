@@ -41,6 +41,7 @@
 #define EAT_COOLDOWN_MESSAGE 15 SECONDS
 
 #define INSIGHT_DESIRE_MUSIC "music" //Occulus edit
+#define INSIGHT_DESIRE_EXERCISE "exercise" //Occulus edit
 #define SANITY_GAIN_MUSIC 0.05//Occulus edit - same rate as smoking
 
 /datum/sanity
@@ -174,7 +175,8 @@
 		INSIGHT_DESIRE_ALCOHOL,
 		INSIGHT_DESIRE_SMOKING,
 		INSIGHT_DESIRE_DRUGS,
-		INSIGHT_DESIRE_MUSIC //Occulus Edit
+		INSIGHT_DESIRE_MUSIC, //Occulus Edit
+		INSIGHT_DESIRE_EXERCISE //Occulus Edit
 	)
 	for(var/i = 0; i < INSIGHT_DESIRE_COUNT; i++)
 		var/desire = pick_n_take(candidates)
@@ -329,7 +331,7 @@
 	var/obj/screen/sanity/hud = owner.HUDneed["sanity"]
 	hud?.update_icon()
 
-/datum/sanity/proc/breakdown()
+/datum/sanity/proc/breakdown(var/positive_breakdown = FALSE)
 	breakdown_time = world.time + SANITY_COOLDOWN_BREAKDOWN
 
 	for(var/obj/item/device/mind_fryer/M in GLOB.active_mind_fryers)
@@ -341,7 +343,7 @@
 			S.reg_break(owner)
 
 	var/list/possible_results
-	if(prob(positive_prob) && positive_prob_multiplier > 0)
+	if((prob(positive_prob) && positive_prob_multiplier > 0) || positive_breakdown)
 		possible_results = subtypesof(/datum/breakdown/positive)
 	else if(prob(negative_prob))
 		possible_results = subtypesof(/datum/breakdown/negative)

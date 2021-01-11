@@ -258,7 +258,7 @@
 	total = rand() * total
 	for (item in L)
 		total -= L[item]
-		if (total <= 0)
+		if (total <= 0 && L[item] > 0)//Occulus Edit: If we have a weight of zero or lower, do not pick that option.
 			return item
 
 //Picks a number of elements from a list based on weight.

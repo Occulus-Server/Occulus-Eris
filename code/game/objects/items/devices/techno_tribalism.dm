@@ -16,7 +16,47 @@
 
 /obj/item/device/techno_tribalism/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(items_count < max_count)
-		if(istype(W, /obj/item/weapon/tool))
+	/* Occulus edit - No individual objectives here
+		if(W in GLOB.all_faction_items)
+			if(GLOB.all_faction_items[W] == GLOB.department_moebius)
+				oddity_stats[STAT_COG] += 3
+				oddity_stats[STAT_BIO] += 3
+				oddity_stats[STAT_MEC] += 3
+			else if(GLOB.all_faction_items[W] == GLOB.department_security)
+				oddity_stats[STAT_VIG] += 3
+				oddity_stats[STAT_TGH] += 3
+				oddity_stats[STAT_ROB] += 3
+			else if(GLOB.all_faction_items[W] == GLOB.department_church)
+				oddity_stats[STAT_BIO] += 3
+				oddity_stats[STAT_COG] += 2
+				oddity_stats[STAT_VIG] += 2
+				oddity_stats[STAT_TGH] += 2
+			else if(GLOB.all_faction_items[W] == GLOB.department_guild)
+				oddity_stats[STAT_COG] += 3
+				oddity_stats[STAT_MEC] += 3
+				oddity_stats[STAT_ROB] += 1
+				oddity_stats[STAT_VIG] += 2
+			else if(GLOB.all_faction_items[W] == GLOB.department_engineering)
+				oddity_stats[STAT_MEC] += 5
+				oddity_stats[STAT_COG] += 2
+				oddity_stats[STAT_TGH] += 1
+				oddity_stats[STAT_VIG] += 1
+			else if(GLOB.all_faction_items[W] == GLOB.department_command)
+				oddity_stats[STAT_ROB] += 2
+				oddity_stats[STAT_TGH] += 1
+				oddity_stats[STAT_BIO] += 1
+				oddity_stats[STAT_MEC] += 1
+				oddity_stats[STAT_VIG] += 3
+				oddity_stats[STAT_COG] += 1
+			else if(GLOB.all_faction_items[W] == GLOB.department_civilian)
+				oddity_stats[STAT_BIO] += 3
+				oddity_stats[STAT_VIG] += 2
+				oddity_stats[STAT_COG] += 2
+			else
+				crash_with("[W], incompatible department")
+		*/
+
+		if(istool(W))	// Occulus edit - No individual objectives here, removed the else from this if statement
 			var/useful = FALSE
 			if(W.tool_qualities)
 

@@ -2,8 +2,8 @@
 	name = "Sword of Truth"
 	desc = "Sword out of unknown alloy, humming from unknown power source."
 	icon = 'icons/obj/faction_item.dmi'
-	icon_state = "nt_sword"
-	item_state = "nt_sword"
+	icon_state = "nt_sword_truth"
+	item_state = "nt_sword_truth"
 	slot_flags = FALSE
 	origin_tech = list(TECH_COMBAT = 5, TECH_POWER = 4, TECH_MATERIAL = 8)
 	price_tag = 20000
@@ -114,7 +114,7 @@
 	//This really should be in mob not every check
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/internal/eyes/E = H.internal_organs_by_name[BP_EYES]
+		var/obj/item/organ/internal/eyes/E = H.random_organ_by_process(OP_EYES)
 		if (E && E.damage >= E.min_bruised_damage)
 			to_chat(M, SPAN_DANGER("Your eyes start to burn badly!"))
 	if (M.ear_damage >= 15)

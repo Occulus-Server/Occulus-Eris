@@ -14,7 +14,9 @@
 	var/nutrition_usage_text
 	switch(crypt.stat)
 		if(SOULCRYPT_ONLINE)
-			if(crypt.integrity < 20)
+			if(crypt.emergency_charge)
+				crypt_status = "Emergency Charging"
+			else if((crypt.integrity < (crypt.max_integrity * 0.25)) || crypt.was_emp)
 				crypt_status = "Service Needed Soon"
 			else
 				crypt_status = "Operating Normally"
@@ -37,7 +39,7 @@
 	stat("Soulcrypt Status", crypt_status)
 
 	if(crypt.stat == SOULCRYPT_ONLINE)
-		stat("- Modules -", "LMB: Toggle, Shift+LMB: Info/Uninstall")
+		stat("- Modules -", "LMB: Toggle, Alt+LMB: Info/Uninstall")
 		for(var/module in crypt.modules)
 			if(!module) continue
 			var/datum/soulcrypt_module/mod = module
@@ -69,7 +71,7 @@
 	if(usr != module.owner.wearer) return
 
 	var/list/clickprops = params2list(params)
-	var/opts = clickprops["shift"]
+	var/opts = clickprops["alt"]
 
 	if(opts)
 		var/choice = alert("Select an option","[module_name]","Display Info","Cancel","Uninstall")
