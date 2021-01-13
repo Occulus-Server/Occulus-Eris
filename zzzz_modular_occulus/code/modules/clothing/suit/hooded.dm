@@ -62,7 +62,7 @@ obj/item/clothing/suit/storage/hooded
 /* For anyone adding hooded clothes, take note.
 You need 2 versions of the sprite, one with the normal icon and one with icon name and '_t' at the end of it,
 for both Item and mob sprited versions.   EX: sleeveless_red & sleeveless_red_t
-Else, it won't work properly.**//
+Else, it won't work properly.*/
 
 
 /obj/item/clothing/suit/storage/hooded/sleeveless
