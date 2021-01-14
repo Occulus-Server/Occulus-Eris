@@ -2836,6 +2836,7 @@
 #include "zzzz_modular_occulus\code\modules\projectiles\projectile\bullettypes.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\food-Drinks.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\recipes.dm"
+#include "zzzz_modular_occulus\code\modules\reagents\reagent_containers\glass\beaker.dm"
 #include "zzzz_modular_occulus\code\modules\sanity\sanity_mob.dm"
 #include "zzzz_modular_occulus\code\modules\shield_generators\shield_generator.dm"
 #include "zzzz_modular_occulus\code\modules\soulcrypt\holochip.dm"
