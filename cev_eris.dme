@@ -2851,4 +2851,5 @@
 #include "zzzz_modular_occulus\code\modules\sprite_accessories\_accessory_tesh.dm"
 #include "zzzz_modular_occulus\maps\submaps\deepmaint_rooms\core\core_rooms.dm"
 #include "zzzz_modular_occulus\maps\submaps\deepmaint_rooms\normal\normal_rooms.dm"
+#include "zzzz_modular_occulus\code\modules\client\preference_setup\loadout\gear_tweaks.dm"
 // END_INCLUDE
