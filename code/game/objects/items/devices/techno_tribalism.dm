@@ -163,4 +163,5 @@
 
 /obj/item/device/techno_tribalism/examine(user)
 	..()
-	to_chat(user, SPAN_NOTICE("The [src] is feeded by [items_count]/[max_count]."))
+	to_chat(user, SPAN_NOTICE("[src] has been fed [items_count]/[max_count] times.")) //Occulus Edit
+	// to_chat(user, SPAN_NOTICE("The [src] is feeded by [items_count]/[max_count].")) Original text
