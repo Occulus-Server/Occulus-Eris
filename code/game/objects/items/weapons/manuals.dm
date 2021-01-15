@@ -173,6 +173,87 @@
 			"}
 
 
+/obj/item/weapon/book/manual/security_aegisparagraphs //Occulus edit
+	name = "Cobalt Aegis Paragraphs"
+	desc = "A set of corporate guidelines for keeping order on privately-owned space assets."
+	icon_state = "book_ironparagraphs"
+	author = "Cobalt Aegis Security"
+	title = "Cobalt Aegis Paragraphs"
+	
+	dat = {"<html>
+				<head>
+				<style>
+				h1 {font-size: 18px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				h3 {font-size: 13px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+				
+				<h1>Overview</h1>
+				The Northern Light's regulations exist as a guideline for what is and isn't allowed aboard the vessel. While none of this is legally binding within Sol or other space. Command and by extension, Aegis is free to enforce these regulations as they see fit to maintain a functioning vessel.
+				
+				<h1>Minor Violations:</h1>
+				
+				<b>Minor trespassing into areas not granted by ID access</b> - 600cr paid to the trespassed department in question.<br>
+				<br>
+				<b>Theft of property belonging to another employee or company</b> - 600cr paid to offended department/item returned.<br>
+				<br>
+				<b>Possession of a Contraband Item</b> - confiscation with re-compensation within reason.<br>
+				<br>
+				<b>Possession of lethal munitions without registration/reason</b> - confiscation with re-compensation within reason.<br>
+				<br>
+				<b>Vandalism</b> - 600cr fine<br>
+				<br>
+				<b>Animal cruelty</b> - 800cr fine<br>
+				
+				<h1>Moderate Violations:</h1>
+				
+				<b>Major tresspass into areas of high security</b> - Detainment followed by questioning pending command orders.<br>
+				<br>
+				<b>Minor neglect of Duty</b> - 1000cr fine, command notified.<br>
+				<br>
+				<b>Assault with capability</b> - Detainment followed by questioning + 2000cr fine.<br>
+				<br>
+				<b>Battery</b> - Detainment followed by questioning, command notified for further resolution if needed.<br>
+				
+				<h1>Major Violations:</h1>
+
+				<b>Aggravated battery</b> - Detainment pending command orders.<br>
+				<br>
+				<b>Battery of command staff</b> - Detainment pending command orders<br>
+				<br>
+				<b>Major Neglect of Duty(Resulting in major injury/damage)</b> - Detainment pending command orders.<br>
+				<br>
+				<b>Manslaughter(death without intent)</b> - Detainment pending command orders.<br>
+				<br>
+				<b>Major theft of dangerous property</b> - Detainment pending command orders.<br>
+				<br>
+				<b>Murder</b> - Detainment pending command orders.<br>
+				<br>
+				<b>Sabotage of ship synthetics</b> - Detainment with crew rights waived, pending command orders.<br>
+				
+				<h1>Omega Violations:</h1>		
+
+				<b>Sabotage of the ship</b> - Immediate crew status revocation.<br>
+				<br>
+				<b>Neglect of Duty during Code Delta</b> - Immediate crew status revocation, immediate detainment up to including lethal force.<br>
+				<br>
+				<b>Mass Murder(2+ victims)</b> - Immediate crew status revocation, lethal force recommended.<br>
+				<br>
+				<b>Allegiance to a hostile collective(Known Terrorists, political extremists, etc)</b> - Immediate crew status revocation.<br>
+				<br>
+				<b>Inability or refusal to remain detained</b> - Immediate crew status revocation, detainment by most extreme methods, including lethal force.<br>
+
+
+				</body>
+			</html>
+			"}
+
 /obj/item/weapon/book/manual/wiki
 	var/page_link = ""
 	window_size = "970x710"

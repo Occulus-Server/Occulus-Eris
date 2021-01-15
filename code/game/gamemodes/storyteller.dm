@@ -280,7 +280,7 @@ GLOBAL_DATUM(storyteller, /datum/storyteller)
 	//We pick an event from the pool at random, and check if it's allowed to run
 	while (choice == null)
 		choice = pickweight(temp_pool)
-		if (!choice.can_trigger(event_type))
+		if (!choice.can_trigger(event_type) || calculate_event_weight(choice) == 0)//Occulus Edit
 			//If its not, we'll remove it from the temp pool and then pick another
 			temp_pool -= choice
 			choice = null

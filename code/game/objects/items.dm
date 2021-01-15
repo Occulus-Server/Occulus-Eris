@@ -43,6 +43,7 @@
 	var/body_parts_covered = 0 //see setup.dm for appropriate bit flags
 
 	var/list/tool_qualities// List of item qualities for tools system. See qualities.dm.
+	var/list/aspects = list()
 
 	//var/heat_transfer_coefficient = 1 //0 prevents all transfers, 1 is invisible
 	var/gas_transfer_coefficient = 1 // for leaking gas from turf to mask and vice-versa (for masks right now, but at some point, i'd like to include space helmets)
@@ -163,6 +164,11 @@
 
 	for(var/Q in tool_qualities)
 		message += "\n<blue>It possesses [tool_qualities[Q]] tier of [Q] quality.<blue>"
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.stats.getPerk(PERK_MARKET_PROF))
+			message += SPAN_NOTICE("\nThis item cost: [price_tag == null ? 0 : price_tag][CREDITS]")
 
 	return ..(user, distance, "", message)
 
@@ -321,7 +327,7 @@
 
 	if(istype(H))
 
-		var/obj/item/organ/internal/eyes/eyes = H.internal_organs_by_name[BP_EYES]
+		var/obj/item/organ/internal/eyes/eyes = H.random_organ_by_process(OP_EYES)
 
 		if(!eyes)
 			return

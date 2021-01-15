@@ -18,8 +18,9 @@
 	rarity_value = 10
 	bad_type = /obj/item/weapon/oddity
 
-//You choose what stat can be increased, and a maximum value that will be added to this stat
-//The minimum is defined above. The value of change will be decided by random
+	//You choose what stat can be increased, and a maximum value that will be added to this stat
+	//The minimum is defined above. The value of change will be decided by random
+	var/random_stats = TRUE
 	var/list/oddity_stats
 	var/sanity_value = 1
 	var/datum/perk/oddity/perk
@@ -29,11 +30,14 @@
 	AddComponent(/datum/component/atom_sanity, sanity_value, "")
 
 	if(oddity_stats)
-		for(var/stat in oddity_stats)
-			oddity_stats[stat] = rand(1, oddity_stats[stat])
-		AddComponent(/datum/component/inspiration, oddity_stats)
+		if(random_stats)
+			for(var/stat in oddity_stats)
+				oddity_stats[stat] = rand(1, oddity_stats[stat])
+		AddComponent(/datum/component/inspiration, oddity_stats, perk)
+	//OCCULUS EDIT START - REEE GIMME PERKS
 	if(!perk)
 		perk = pick(subtypesof(/datum/perk/oddity))
+	//OCCULUS EDIT END
 
 /obj/item/weapon/oddity/examine(user)
 	..()
@@ -269,9 +273,92 @@
 
 /obj/item/weapon/oddity/techno
 	name = "Unknown technological part"
-	desc = "Technological part maded by Techno-Tribalism Enforcer."
+	desc = "Technological part forged in the Cube's image. Its purpose is buried beneath the flakes of rust on its surface."
 	icon_state = "techno_part1"
 
 /obj/item/weapon/oddity/techno/Initialize()
 	icon_state = "techno_part[rand(1,7)]"
 	.=..()
+
+/obj/item/weapon/oddity/common/photo_crime
+	name = "crime scene photo"
+	desc = "It is unclear whether this is a victim of suicide or murder. His face is frozen in a look of agony and terror, and you shudder to think at what his last moments might have been."
+	icon_state = "photo_crime"
+	oddity_stats = list(
+		STAT_COG = 7,
+		STAT_VIG = 7,
+	)
+	rarity_value = 23
+
+/obj/item/weapon/oddity/common/book_unholy
+	name = "unholy book"
+	desc = "A tome of odd liturgies and rituals. The diagrams in this book don't make any sense. Circles enclose an impossibly detailed mosaic of chrome motifs smeared against the ancient pages."
+	icon_state = "book_skull"
+	oddity_stats = list(
+		STAT_COG = 7,
+		STAT_MEC = 7,
+	)
+	rarity_value = 24
+
+/obj/item/weapon/oddity/common/disk
+	name = "broken design disk"
+	desc = "This disk is corrupted and completely unusable. It has a hand-drawn picture of some strange mechanism on it - looking at it for too long makes your head hurt."
+	icon_state = "disc"
+	oddity_stats = list(
+		STAT_MEC = 9,
+	)
+
+/obj/item/weapon/oddity/common/mirror
+	name = "cracked mirror"
+	desc = "Luminescent streaks of color wander across this thousand-cracked speculum's surface as it's tilted, obscuring your look of scrutiny."
+	icon_state = "mirror"
+	oddity_stats = list(
+		STAT_COG = 4,
+		STAT_VIG = 4,
+	)
+	rarity_value = 8
+
+/obj/item/weapon/oddity/common/lighter
+	name = "rusted lighter"
+	desc = "This zippo ligher has been rusted shut. It smells faintly of sulphur and blood."
+	icon_state = "syndicate_lighter"
+	oddity_stats = list(
+		STAT_TGH = 9,
+	)
+
+/obj/item/weapon/oddity/common/device
+	name = "odd device"
+	desc = "Something about this gadget both disturbs and interests you. It's manufacturer's name has been mostly smudged away, but you can see a strange mechanism as their logo."
+	icon_state = "device"
+	oddity_stats = list(
+		STAT_MEC = 8,
+		STAT_COG = 8,
+	)
+	rarity_value = 19
+
+/obj/item/weapon/oddity/artwork/get_item_cost(export)
+	. = ..()
+	GET_COMPONENT(comp_sanity, /datum/component/atom_sanity)
+	. += comp_sanity.affect * 100
+	GET_COMPONENT(comp_insp, /datum/component/inspiration)
+	var/list/true_stats = comp_insp.calculate_statistics()
+	for(var/stat in true_stats)
+		. += true_stats[stat] * 50
+
+//NT Oddities
+/obj/item/weapon/oddity/nt
+	bad_type = /obj/item/weapon/oddity/nt
+	spawn_blacklisted = TRUE
+	random_stats = FALSE
+
+/obj/item/weapon/oddity/nt/seal
+	name = "High Inquisitor's Seal"
+	desc = "An honorary badge given to the most devout of NeoTheologian preachers by the High Inquisitor. Such a badge is a rare sight indeed - rumor has it that the badge imbues the holder with the power of the Angels themselves."
+	icon_state = "nt_seal"
+	oddity_stats = list(
+		STAT_COG = 12,
+		STAT_VIG = 12,
+		STAT_ROB = 8
+	)
+	price_tag = 8000
+	perk = /datum/perk/nt_oddity/holy_light

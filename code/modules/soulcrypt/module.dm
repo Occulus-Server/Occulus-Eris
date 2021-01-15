@@ -15,6 +15,7 @@
 	var/causes_wear = FALSE //Does this cause wear on the soulcrypt's systems?
 	var/activates = FALSE //Do we toggle on and off?
 	var/has_nanomodule = FALSE //We don't have a nanomodule for UI stuff.
+	var/can_activate_while_incapacitated = FALSE
 
 	var/deactivation_message = "Module deactivated."
 	var/activation_message = "Module activated."
@@ -40,18 +41,28 @@
 
 /datum/soulcrypt_module/proc/check_can_activate() //Can we activate? Do we have enough energy, is our cooldown over, and does our user have access to this?
 
-	if(has_cooldown && (cooldown_time > world.time + cooldown_delay))
+	if(has_cooldown && (cooldown_time > world.time))
+		owner.send_host_message("<b>[name]:</b> Cooldown in progress.", MESSAGE_NOTICE)
 		return FALSE
 
 	if(req_access.len)
 		if(!has_access(req_access, req_one_access, owner.wearer.GetAccess()))
+			owner.send_host_message("<b>[name]:</b> Insufficient access.", MESSAGE_NOTICE)
 			return FALSE
 
 	if(uses_energy && (owner.energy < energy_cost))
+		owner.send_host_message("<b>[name]:</b> Insufficient energy.", MESSAGE_NOTICE)
+		return FALSE
+
+	if(owner.emergency_charge)
+		owner.send_host_message("<b>[name]:</b> Emergency charge in progress!", MESSAGE_NOTICE)
 		return FALSE
 
 	if(owner.wearer.incapacitated())
-		return FALSE
+		if(can_activate_while_incapacitated)
+			return TRUE
+		else
+			return FALSE
 
 	return TRUE
 
@@ -61,6 +72,8 @@
 	active = TRUE
 	var/_activation_msg = "<b>[name]:</b> [activation_message]"
 	owner.send_host_message(_activation_msg, MESSAGE_NOTICE)
+	if(uses_energy && !has_energy_upkeep)	// Are we supposed to use energy but not constantly?
+		owner.energy -= energy_cost	// Deduct the energy here!
 	if(has_nanomodule)
 		if(!NMmodule)
 			NMmodule = new nanomodule_type
@@ -69,6 +82,12 @@
 		if(NMmodule)
 			NMmodule.ui_interact(user)
 		NMmodule.using_access = owner.wearer.GetAccess()
+	if(has_cooldown)
+		cooldown_time = world.time + cooldown_delay
+	perform()
+
+/datum/soulcrypt_module/proc/perform()	// Put your actual effects under here so you don't accidentally bypass the checks and cooldown stuff!
+	return
 
 /datum/soulcrypt_module/proc/deactivate(var/force_close = FALSE)
 	active = FALSE
@@ -90,10 +109,29 @@
 
 	return "Always On"
 
+/datum/soulcrypt_module/proc/on_install() //What do we do after we are installed?
+	return
+
+/datum/soulcrypt_module/proc/on_uninstall()	//What do we do before we are uninstalled?
+	if(active)
+		deactivate()
+	return
+
 /datum/soulcrypt_module/proc/uninstall()
+	on_uninstall()
+	owner.send_host_message("<b>[name]</b> has been succesfully uninstalled.", MESSAGE_NOTICE)
+	owner.modules -= src
 	qdel(stat_line)
 	stat_line = null
+	owner = null
 	qdel(src)
+
+/datum/soulcrypt_module/proc/on_emp()	// What do we do when our host gets EMP'd?
+	return
+
+/datum/soulcrypt_module/proc/on_death()	// What do we do when our host dies?
+	if(active)
+		deactivate()
 
 /datum/soulcrypt_module/nano_host()
 	return owner.wearer

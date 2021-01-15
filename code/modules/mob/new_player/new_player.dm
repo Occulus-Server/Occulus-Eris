@@ -146,7 +146,14 @@
 
 		if(alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] before being able join the crew! But you can play as a mouse or drone immediately.","Player Setup","Yes","No") == "Yes")
 			if(!client)	return 1
-			var/mob/observer/ghost/observer = new()
+			// OCCULUS EDIT START - Copypasta some virgo jank so ghostjoiners get their character sprite
+			//Make a new mannequin quickly, and allow the observer to take the appearance
+			var/mob/living/carbon/human/dummy/mannequin = new()
+			client.prefs.dress_preview_mob(mannequin)
+			var/mob/observer/ghost/observer = new(mannequin)
+			observer.forceMove(null) //Let's not stay in our doomed mannequin
+			qdel(mannequin)
+			// OCCULUS EDIT END - Copypasta some virgo jank so ghostjoiners get their character sprite
 
 			spawning = 1
 			sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = GLOB.lobby_sound_channel))
@@ -162,8 +169,8 @@
 			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
 			announce_ghost_joinleave(src)
-			observer.icon = client.prefs.update_preview_icon()
-			observer.alpha = 127
+			//observer.icon = client.prefs.update_preview_icon()	// OCCULUS EDIT - No longer needed due to virgo jank above
+			//observer.alpha = 127	// OCCULUS EDIT - No longer needed due to virgo jank above
 
 			if(client.prefs.be_random_name)
 				client.prefs.real_name = random_name(client.prefs.gender)

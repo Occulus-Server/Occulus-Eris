@@ -35,6 +35,44 @@
 		/datum/design/autolathe/gun/ec9 = 3,
 		/datum/design/autolathe/gun/rx8 = 3,
 		/datum/design/autolathe/ammo/magazine_pistol/rubber,
+		/datum/design/autolathe/ammo/magazine_hpistol/rubber,
 		/datum/design/autolathe/ammo/smg/rubber,
 		/datum/design/autolathe/ammo/pistol_ammobox/rubber
 		)
+
+/*
+CHURCH DISKS
+*/
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt
+	disk_name = "Mekhane's Armory - Blank"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/melee
+	disk_name = "Mekhane's Armory - Basic Melee Weapons"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/longsword
+	disk_name = "Mekhane's Armory - Longsword"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/scourge
+	disk_name = "Mekhane's Armory - Scourge"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/halberd
+	disk_name = "Mekhane's Armory - Halberd"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/shield
+	disk_name = "Mekhane's Armory - Shield"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/firstaid
+	disk_name = "Mekhane's Armory - Mekhanite Medkit"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_grenades
+	disk_name = "Mekhane's Armory - Grenades"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/crusader
+	disk_name = "Mekhane's Armory - Armor"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter
+	disk_name = "Mekhanite Bioprinter Products and Utilities"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes
+	disk_name = "Mekhanite Bio-Fabric Designs"

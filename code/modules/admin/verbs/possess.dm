@@ -20,6 +20,7 @@ ADMIN_VERB_ADD(/proc/possess, R_FUN, FALSE)
 	usr.control_object = O
 	usr.ReplaceMovementHandler(/datum/movement_handler/mob/admin_possess)
 
+ADMIN_VERB_ADD(/proc/release, R_FUN, FALSE)	//OCCULUS EDIT - Enables depossession
 /proc/release(obj/O)
 	set name = "Release Obj"
 	set category = "Object"

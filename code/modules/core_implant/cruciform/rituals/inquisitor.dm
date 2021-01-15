@@ -204,7 +204,7 @@
 	if(user == M)
 		fail("You feel stupid.",user,C,targets)
 		return FALSE
-	log_and_message_admins("looks through the eyes of [C] with scrying litany")
+	log_and_message_admins("looks through the eyes of [C.wearer] with scrying litany")	//OCCULUS EDIT - Makes it so that it actually tells you whose eyes are being looked through, rather than just saying THE CORE IMPLANT
 	to_chat(M, SPAN_NOTICE("You feel an odd presence in the back of your mind. A lingering sense that someone is watching you..."))
 
 	var/mob/observer/eye/god/eye = new/mob/observer/eye/god(M)

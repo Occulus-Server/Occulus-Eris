@@ -8,6 +8,8 @@
 	var/used = FALSE
 	var/list/contained_modules = list()
 
+	price_tag = 1000
+
 /obj/item/weapon/holochip/examine(mob/user)
 	. = ..()
 
