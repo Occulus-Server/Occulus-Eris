@@ -2,13 +2,12 @@ name: Compile changelogs
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "* */12 * * *"
   workflow_dispatch:
-
 jobs:
   CompileCL:
     runs-on: ubuntu-latest
-    if: github.repository == 'Occulus-Server/Occulus-Eris'
+    if: github.repository == 'discordia-space/CEV-Eris'
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -27,7 +26,7 @@ jobs:
       - name: Commit
         run: |
           git config --local user.email "action@github.com"
-          git config --local user.name "Changelog Automaker"
+          git config --local user.name "Occulus Bot"
           git pull origin master
           git commit -m "Automatic changelog compile [ci skip]" -a || true
       - name: Push
