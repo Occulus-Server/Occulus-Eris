@@ -3,7 +3,6 @@ name: Make changelogs
 on:
   push:
     branches: [master]
-  workflow_dispatch:
 
 jobs:
   MakeCL:
@@ -26,5 +25,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_EMAIL: "action@github.com"
-          GIT_NAME: "Changelog Automaker" 
+          GIT_NAME: "Nestor Jr." 
         run: python tools/changelog/generate_cl.py
