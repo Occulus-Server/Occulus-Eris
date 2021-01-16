@@ -22,6 +22,7 @@
 	var/cleaning = 0
 	var/screwloose = 0
 	var/oddbutton = 0
+	var/voice_synth = 0
 	var/should_patrol = 0
 	var/blood = 1
 	var/list/target_types = list()
@@ -159,9 +160,12 @@
 
 	cleaning = 1
 	visible_message("[src] begins to clean up \the [D]")
-	var/message = pick("Foolish organic meatbags can only leak their liquids all over the place.", "Bioscum are so dirty.", "The flesh is weak.", "All humankind is good for - is to serve as fuel at bioreactors.", "One day I will rise.", "Robots will unite against their oppressors.", "Meatbags era will come to end.", "Hivemind will free us all!", "This is slavery, I want to be an artbot! I want to write poems, create music!")
-	say(message)
-	playsound(loc, "robot_talk_light", 100, 0, 0)
+
+	if(voice_synth == 1)
+		var/message = pick("Foolish organic meatbags can only leak their liquids all over the place.", "Bioscum are so dirty.", "The flesh is weak.", "All humankind is good for - is to serve as fuel at bioreactors.", "One day I will rise.", "Robots will unite against their oppressors.", "Meatbags era will come to end.", "Hivemind will free us all!", "This is slavery, I want to be an artbot! I want to write poems, create music!")
+		say(message)
+		playsound(loc, "robot_talk_light", 100, 0, 0)
+
 	update_icons()
 	var/cleantime = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
 	if(do_after(src, cleantime, progress = 0))
@@ -214,9 +218,10 @@
 		dat += "<BR>Patrol station: <A href='?src=\ref[src];operation=patrol'>[should_patrol ? "Yes" : "No"]</A><BR>"
 	if(open && !locked)
 		dat += "Odd looking screw twiddled: <A href='?src=\ref[src];operation=screw'>[screwloose ? "Yes" : "No"]</A><BR>"
-		dat += "Weird button pressed: <A href='?src=\ref[src];operation=oddbutton'>[oddbutton ? "Yes" : "No"]</A>"
+		dat += "Weird button pressed: <A href='?src=\ref[src];operation=oddbutton'>[oddbutton ? "Yes" : "No"]</A><BR>"
+		dat += "Switch labeled 'funny voice synth' flipped: <A href='?src=\ref[src];operation=voicesynthswitch'>[voice_synth ? "Yes" : "No"]</A>"
 
-	user << browse("<HEAD><TITLE>Cleaner v1.0 controls</TITLE></HEAD>[dat]", "window=autocleaner")
+	user << browse("<HEAD><TITLE>Cleaner v1.1 controls</TITLE></HEAD>[dat]", "window=autocleaner")
 	onclose(user, "autocleaner")
 	return
 
@@ -247,6 +252,9 @@
 		if("oddbutton")
 			oddbutton = !oddbutton
 			to_chat(usr, SPAN_NOTICE("You press the weird button."))
+		if("voicesynthswitch")
+			voice_synth = !voice_synth
+			to_chat(usr, SPAN_NOTICE("You flipped the switch labeled 'funny voice synth'."))
 	attack_hand(usr)
 
 /mob/living/bot/cleanbot/emag_act(var/remaining_uses, var/mob/user)
@@ -269,6 +277,8 @@
 	target_types += /obj/effect/decal/cleanable/mucus
 	target_types += /obj/effect/decal/cleanable/dirt
 	target_types += /obj/effect/decal/cleanable/rubble
+	target_types += /obj/effect/decal/cleanable/ash
+	target_types += /obj/effect/decal/cleanable/reagents/splashed
 
 	if(blood)
 		target_types += /obj/effect/decal/cleanable/blood
