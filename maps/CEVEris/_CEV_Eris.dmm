@@ -19,12 +19,16 @@
 /area/space)
 "aaf" = (
 /turf/simulated/wall/r_wall,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aag" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aah" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -112,7 +116,9 @@
 /area/eris/security/range)
 "aas" = (
 /turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aat" = (
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/security/range)
@@ -145,7 +151,9 @@
 "aay" = (
 /obj/structure/multiz/ladder/up,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aaz" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -172,7 +180,9 @@
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aaE" = (
 /obj/item/device/radio/intercom{
 	pixel_y = 24
@@ -7911,7 +7921,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_cargo{
 	name = "Cargo Maintenance";
-	req_access = list(50)
+	req_access = list(31)
 	},
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/quartermaster/disposaldrop)
@@ -8122,7 +8132,7 @@
 	},
 /obj/machinery/door/airlock/mining{
 	name = "Delivery and Disposal";
-	req_access = list(50)
+	req_access = list(31)
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/quartermaster/disposaldrop)
@@ -8144,7 +8154,7 @@
 	},
 /obj/machinery/door/airlock/mining{
 	name = "Delivery and Disposal";
-	req_access = list(50)
+	req_access = list(31)
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/quartermaster/disposaldrop)
@@ -8882,10 +8892,6 @@
 /area/eris/hallway/side/eschangara)
 "auZ" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/mining{
-	name = "Delivery and Disposal";
-	req_access = list(50)
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -8896,6 +8902,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/door/airlock/mining{
+	name = "Delivery and Disposal";
+	req_access = list(31)
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/quartermaster/disposaldrop)
@@ -17583,13 +17593,17 @@
 "aQL" = (
 /obj/structure/catwalk,
 /turf/simulated/open,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aQM" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /obj/structure/catwalk,
 /turf/simulated/open,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aQN" = (
 /obj/structure/catwalk,
 /obj/machinery/camera/network/security{
@@ -17615,14 +17629,18 @@
 /obj/structure/multiz/ladder,
 /obj/structure/catwalk,
 /turf/simulated/open,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aQR" = (
 /obj/structure/catwalk,
 /obj/machinery/camera/network/security{
 	dir = 8
 	},
 /turf/simulated/open,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aQS" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -17662,7 +17680,9 @@
 	dir = 10
 	},
 /turf/simulated/open,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aQX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
@@ -17755,7 +17775,9 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aRj" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 27
@@ -17822,7 +17844,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aRr" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -17933,7 +17957,9 @@
 	},
 /obj/structure/closet/secure_closet/personal/security,
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aRF" = (
 /obj/machinery/alarm{
 	pixel_y = 26
@@ -17941,7 +17967,9 @@
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/blue,
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aRG" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/blue,
@@ -17949,7 +17977,9 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aRH" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/projectile/shotgun/bull,
@@ -18032,7 +18062,9 @@
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/blue,
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aRQ" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -18133,7 +18165,9 @@
 	},
 /obj/structure/closet/secure_closet/personal/security,
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aSc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
@@ -18296,7 +18330,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aSs" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -18402,7 +18438,9 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aSD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -18411,10 +18449,14 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aSE" = (
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aSF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -18505,18 +18547,24 @@
 "aSO" = (
 /obj/structure/closet/secure_closet/personal/security,
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aSP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aSQ" = (
 /obj/item/weapon/stool,
 /obj/landmark/join/start/ihoper,
 /turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aSR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/gray_perforated,
@@ -18529,7 +18577,9 @@
 /area/eris/security/warden)
 "aST" = (
 /turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aSU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -18594,7 +18644,9 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aTa" = (
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
@@ -18615,7 +18667,9 @@
 "aTc" = (
 /obj/item/weapon/stool,
 /turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aTd" = (
 /obj/structure/table/standard,
 /obj/item/device/mmi,
@@ -18696,7 +18750,9 @@
 /obj/structure/table/standard,
 /obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aTo" = (
 /obj/machinery/atmospherics/pipe/zpipe/up,
 /obj/structure/cable{
@@ -18722,7 +18778,9 @@
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/donut,
 /turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aTs" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/steel/cargo,
@@ -18773,7 +18831,9 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aTx" = (
 /obj/machinery/autolathe,
 /turf/simulated/floor/tiled/dark/gray_perforated,
@@ -18901,7 +18961,9 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aTO" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -18912,7 +18974,9 @@
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aTP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -18940,7 +19004,9 @@
 	},
 /obj/item/weapon/stool,
 /turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aTT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -18952,7 +19018,9 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aTU" = (
 /obj/structure/table/standard,
 /obj/item/weapon/deck/cards,
@@ -18960,7 +19028,9 @@
 /obj/item/weapon/holochip/security/warrant,
 /obj/item/weapon/holochip/security/warrant,
 /turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aTV" = (
 /obj/machinery/light{
 	dir = 4
@@ -19072,12 +19142,16 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aUg" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
 /turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aUh" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark/gray_perforated,
@@ -19194,7 +19268,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aUx" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -19209,7 +19285,9 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aUy" = (
 /obj/structure/mopbucket,
 /obj/item/weapon/reagent_containers/glass/bucket,
@@ -19218,7 +19296,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aUz" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/box/chemimp{
@@ -19416,7 +19496,9 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aUW" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -19487,12 +19569,16 @@
 "aVe" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aVf" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aVg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -19624,7 +19710,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aVv" = (
 /turf/simulated/floor/tiled/steel,
 /area/eris/engineering/telecommonitor)
@@ -19721,7 +19809,9 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aVG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -20103,7 +20193,9 @@
 /area/eris/maintenance/section1deck4central)
 "aWt" = (
 /turf/simulated/wall,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aWu" = (
 /obj/structure/disposalpipe/junction{
 	dir = 8;
@@ -20474,7 +20566,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aXo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -20514,7 +20608,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aXs" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -20922,7 +21018,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aYp" = (
 /obj/structure/closet/secure_closet/brig{
 	id = "Cell 4";
@@ -21489,7 +21587,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "aZy" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -22258,7 +22358,9 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "bbd" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
@@ -22273,7 +22375,9 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/cargo,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "bbe" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -25629,7 +25733,9 @@
 /obj/item/weapon/pen,
 /obj/item/weapon/storage/box/holobadge,
 /turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "bij" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
@@ -25927,7 +26033,9 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/cargo,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "biW" = (
 /obj/machinery/computer/rdconsole/core{
 	dir = 4
@@ -33112,7 +33220,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
-	req_access = list(50)
+	req_access = list(31)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -34479,7 +34587,7 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
-	id = "maint_hatch_bar_lower_room";
+	id = "maint_hatch_bar_fore";
 	layer = 3.3;
 	name = "Maintenance Hatch"
 	},
@@ -39366,7 +39474,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "bNw" = (
 /obj/structure/railing{
 	dir = 8
@@ -39439,7 +39549,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/security/barracks)
+/area/eris/security/barracks{
+	name = "Aegis Barracks"
+	})
 "bNC" = (
 /obj/structure/railing{
 	dir = 1
@@ -42410,7 +42522,7 @@
 /area/eris/security/lobby)
 "bUy" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/wiki/security_ironparagraphs,
+/obj/item/weapon/book/manual/security_aegisparagraphs,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/security/main)
 "bUz" = (
@@ -53526,6 +53638,12 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "maint_hatch_cargo_lathe";
+	layer = 3.3;
+	name = "Maintenance Hatch"
+	},
 /turf/simulated/floor/plating,
 /area/eris/quartermaster/storage)
 "cvF" = (
@@ -53644,6 +53762,12 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "maint_hatch_cargo_lathe";
+	layer = 3.3;
+	name = "Maintenance Hatch"
+	},
 /turf/simulated/floor/plating,
 /area/eris/quartermaster/storage)
 "cwa" = (
@@ -53815,7 +53939,7 @@
 	},
 /obj/machinery/door/airlock/maintenance_cargo{
 	name = "Cargo Maintenance";
-	req_access = list(50)
+	req_access = list(31)
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/quartermaster/office)
@@ -54872,10 +54996,6 @@
 /area/eris/command/meeting_room)
 "cyR" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_mining{
-	name = "Cargo Office";
-	req_access = list(50)
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -54883,6 +55003,10 @@
 	layer = 2.6;
 	name = "Cargo Total Lockdown";
 	opacity = 0
+	},
+/obj/machinery/door/airlock/glass_mining{
+	name = "Cargo Office";
+	req_access = list(31)
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/office)
@@ -55175,7 +55299,7 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Office";
-	req_access = list(50)
+	req_access = list(31)
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -64121,7 +64245,7 @@
 /area/eris/crew_quarters/fitness)
 "cUV" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/book/manual/wiki/security_ironparagraphs,
+/obj/item/weapon/book/manual/security_aegisparagraphs,
 /turf/simulated/floor/wood,
 /area/eris/command/courtroom)
 "cUW" = (
@@ -64427,8 +64551,8 @@
 /area/eris/hallway/side/cryo)
 "cVF" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/wiki/security_ironparagraphs,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/weapon/book/manual/security_aegisparagraphs,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/security/lobby)
 "cVG" = (
@@ -64854,7 +64978,7 @@
 /area/eris/hallway/side/bridgehallway)
 "cWE" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/book/manual/wiki/security_ironparagraphs,
+/obj/item/weapon/book/manual/security_aegisparagraphs,
 /turf/simulated/floor/carpet,
 /area/eris/security/inspectors_office)
 "cWF" = (
@@ -76777,8 +76901,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_mining{
-	name = "Cargo Bay";
-	req_access = list(50)
+	name = "Cargo Barracks";
+	req_access = list(31)
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/misc)
@@ -78214,7 +78338,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/mining{
 	name = "Cargo Recreation";
-	req_access = list(50)
+	req_access = list(31)
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/misc)
@@ -78859,7 +78983,7 @@
 	},
 /obj/machinery/door/airlock/mining{
 	name = "Cargo Recreation";
-	req_access = list(50)
+	req_access = list(31)
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/misc)
@@ -79491,7 +79615,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining{
 	name = "Cargo Recreation";
-	req_access = list(50)
+	req_access = list(31)
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/misc)
@@ -84079,7 +84203,7 @@
 /area/eris/maintenance/section4deck2starboard)
 "dOy" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/wiki/security_ironparagraphs,
+/obj/item/weapon/book/manual/security_aegisparagraphs,
 /turf/simulated/floor/tiled/techmaint_panels,
 /area/eris/maintenance/section1deck2central)
 "dOz" = (
@@ -95110,7 +95234,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining{
 	name = "Cargo Recreation";
-	req_access = list(50)
+	req_access = list(31)
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/misc)
@@ -96768,7 +96892,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/table/bar_special,
+/obj/machinery/vending/boozeomat/public,
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "esO" = (
@@ -103363,12 +103487,6 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "maint_hatch_bar_lower_room";
-	name = "Maintenance Hatch Control";
-	pixel_y = -24;
-	req_access = null
-	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "frq" = (
@@ -103523,6 +103641,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/medical/chemstor)
+"gvP" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance_common{
+	name = "Service Maintenance";
+	req_access = list(12)
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/disposaldrop)
 "gxk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing{
@@ -104188,6 +104314,15 @@
 	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/kitchen)
+"jwa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/disposaldrop)
 "jzP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -104790,6 +104925,10 @@
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/crew_quarters/clothingstorage)
+"mrk" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/disposaldrop)
 "msk" = (
 /obj/structure/closet/wardrobe/color/grey,
 /turf/simulated/floor/tiled/white/gray_platform,
@@ -104822,6 +104961,15 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5port)
+"mvT" = (
+/obj/machinery/firealarm{
+	pixel_y = 28
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/disposaldrop)
 "mxJ" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/firstaid/adv{
@@ -105549,6 +105697,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/surgery)
+"psi" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/shutters{
+	dir = 8;
+	id = "maint_hatch_bar_middle";
+	layer = 3.3;
+	name = "Maintenance Hatch"
+	},
+/turf/simulated/floor/plating,
+/area/eris/crew_quarters/bar)
 "psl" = (
 /turf/simulated/wall,
 /area/eris/crew_quarters/library{
@@ -105883,6 +106042,15 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/hangarsupply)
+"rph" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/disposaldrop)
 "rrO" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
@@ -106002,6 +106170,16 @@
 "rYg" = (
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/breakroom)
+"sgb" = (
+/obj/machinery/button/remote/blast_door{
+	id = "maint_hatch_cargo_lathe";
+	name = "Maintenance Hatch Control";
+	pixel_x = -6;
+	pixel_y = 26;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/quartermaster/storage)
 "sgk" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel,
@@ -107062,6 +107240,20 @@
 	},
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
+"xmD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/disposaldrop)
 "xnG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -107132,6 +107324,13 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
+"xNH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/disposaldrop)
 "xPq" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
@@ -107205,6 +107404,17 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled/steel/bar_dance,
+/area/eris/crew_quarters/bar)
+"yhx" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/shutters{
+	dir = 8;
+	id = "maint_hatch_bar_aft";
+	layer = 3.3;
+	name = "Maintenance Hatch"
+	},
+/turf/simulated/floor/plating,
 /area/eris/crew_quarters/bar)
 "yjs" = (
 /obj/structure/railing/grey{
@@ -130144,8 +130354,8 @@ aaa
 apn
 atR
 apV
-azP
-awn
+mvT
+jwa
 auV
 auV
 auV
@@ -130346,8 +130556,8 @@ aaa
 aqU
 atR
 apV
-avF
-awn
+xNH
+mrk
 auV
 ata
 ssB
@@ -130547,7 +130757,7 @@ aaa
 aaa
 aqU
 atR
-apV
+gvP
 avF
 aEc
 auV
@@ -133578,8 +133788,8 @@ aaa
 aaa
 aaa
 avz
-avF
-awq
+avI
+xmD
 avn
 biI
 aBM
@@ -133780,8 +133990,8 @@ aaa
 aaa
 aaa
 avz
-avF
-awq
+xNH
+rph
 avn
 bjO
 aBM
@@ -167323,15 +167533,15 @@ bCV
 bCV
 anJ
 anJ
-bCV
-bCV
-bCV
+psi
+psi
+psi
 anJ
 anJ
 tOE
 anJ
-bCV
-bCV
+yhx
+yhx
 anJ
 aae
 aaa
@@ -206307,7 +206517,7 @@ evC
 anJ
 ctG
 aqV
-cCq
+cil
 cCq
 cCq
 cil
@@ -212969,7 +213179,7 @@ cEE
 evt
 cFE
 cgO
-cwP
+sgb
 fKd
 fKd
 cie
@@ -251505,8 +251715,8 @@ cWD
 cWD
 cWD
 cWD
-ddt
-aae
+cWD
+bXj
 diM
 dha
 dig
