@@ -17,7 +17,7 @@
 	icon = 'icons/mob/screen1.dmi'
 	screen_loc = ui_entire_screen
 
-//Occulus changes start, stole all this from baycode just to make credits work.
+///// Occulus changes start, stole all this from baycode just to make credits work. /////
 
 /mob
 	var/list/screens = list()
@@ -92,4 +92,4 @@
 
 /obj/screen/fullscreen/fishbed
 	icon_state = "fishbed"
-//Occulus changes end
+///// Occulus changes end /////
