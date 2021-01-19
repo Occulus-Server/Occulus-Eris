@@ -2792,6 +2792,7 @@
 #include "zzzz_modular_occulus\code\game\jobs\job\science.dm"
 #include "zzzz_modular_occulus\code\game\jobs\job\security.dm"
 #include "zzzz_modular_occulus\code\game\machinery\jukebox.dm"
+#include "zzzz_modular_occulus\code\game\machinery\telecomms\presets.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\oddities.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\plush.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\toys\balls.dm"
