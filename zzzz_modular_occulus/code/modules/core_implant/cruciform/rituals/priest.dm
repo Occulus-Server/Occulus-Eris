@@ -14,7 +14,7 @@ A copypasta of Convalescence, but with half the effects and no pain removal. Als
 /datum/ritual/cruciform/priest/selfheal/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C,list/targets)
 	to_chat(H, "<span class='info'>A sensation of relief bathes you, washing away your pain.</span>")
 	log_and_message_admins("healed himself with the Recuperation litany.")
-	H.nutrition -= 100
+	H.nutrition -= 50
 	H.adjustBruteLoss(-10)
 	H.adjustFireLoss(-10)
 	H.adjustOxyLoss(-20)
@@ -61,7 +61,7 @@ Ditto but for Succour
 			return
 		log_and_message_admins("healed [CI.wearer] with Invigorate litany")
 		to_chat(H, "<span class='info'>A sensation of relief bathes you, soothing your wounds a little.</span>")
-		user.nutrition -= 100
+		user.nutrition -= 50
 		H.adjustBruteLoss(-10)
 		H.adjustFireLoss(-10)
 		H.adjustOxyLoss(-20)
@@ -94,7 +94,7 @@ A big universal AOE heal
 		if(people_around.len > 0)
 			to_chat(user, SPAN_DANGER("You collapse to the ground, exhausted."))
 			user.Weaken(10)
-			user.nutrition -= 200
+			user.nutrition -= 100
 			user.adjustToxLoss(10)
 			playsound(user.loc, 'sound/machines/signal.ogg', 50, 1)
 			for(var/mob/living/carbon/human/participant in people_around)

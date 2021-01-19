@@ -41,7 +41,7 @@
 			return
 		log_and_message_admins("soothed [H]'s pain with the Reprieve litany")
 		to_chat(H, "<span class='info'>A numbing sensation bathes you, soothing your agony a little.</span>")
-		user.nutrition -= 100
+		user.nutrition -= 50
 		H.add_chemical_effect(CE_PAINKILLER, 20)	// Just a bit more than the base effect, so you can more effectively treat others than yourself.
 		return TRUE
 
@@ -98,7 +98,7 @@ Let there be light! Makes you glow for 5 minutes at a time.
 /datum/ritual/cruciform/base/enkindle/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/list/glowy_doods = list()	// Initialize a list of who's getting affected!
 	glowy_doods.Add(user)	// Add the caster to the list
-	user.nutrition -= 100
+	user.nutrition -= 50
 	user.adjustToxLoss(5)
 
 	var/mob/living/carbon/human/H = get_victim(user)	// See if we have a lucky victim (someone who's being grabbed or is directly in front of the caster)
