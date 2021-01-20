@@ -23,9 +23,9 @@
 		force = force_unwielded
 	else
 		force = (force / 1.3)
-	var/sf = findtext(name,"Wielded ")
+	var/sf = findtext(name,"Wielded ") //Occulus Edit.
 	if(sf)
-		name = copytext(name,9)
+		name = copytext(name,9) //Occulus Edit.
 	else //something went wrong
 		name = "[initial(name)]"
 	update_unwield_icon()
@@ -55,7 +55,7 @@
 		force = force_wielded
 	else //This will give items wielded 30% more damage. This is balanced by the fact you cannot use your other hand.
 		force = (force * 1.3) //Items that do 0 damage will still do 0 damage though.
-	name = "Wielded [name]"
+	name = "Wielded [name]" //Occulus Edit.
 	update_wield_icon()
 	update_icon()//Legacy
 	if(user)
