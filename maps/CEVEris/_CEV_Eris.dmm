@@ -95135,6 +95135,7 @@
 /obj/structure/fuel_port{
 	pixel_y = -32
 	},
+/obj/machinery/telecomms/relay/preset/science,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "6,3"
 	},
