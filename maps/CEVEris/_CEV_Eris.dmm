@@ -103417,6 +103417,10 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/command/mbo/quarters)
+"eZk" = (
+/obj/machinery/slotmachine,
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/eris/crew_quarters/bar)
 "eZV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/steel,
@@ -103436,8 +103440,8 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/cyberplant,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/slotmachine,
 /turf/simulated/floor/wood,
 /area/eris/maintenance/section4deck4central)
 "fht" = (
@@ -103809,6 +103813,10 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
+"hnw" = (
+/obj/structure/cyberplant,
+/turf/simulated/floor/wood,
+/area/eris/maintenance/section4deck4central)
 "hnS" = (
 /obj/machinery/light/small,
 /obj/structure/closet/secure_closet/personal,
@@ -104629,6 +104637,10 @@
 /obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2port)
+"kJA" = (
+/obj/item/weapon/stool/custom/bar_special,
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/eris/crew_quarters/bar)
 "kOq" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/portable_atmospherics/powered/pump,
@@ -169369,7 +169381,7 @@ bsY
 vrm
 fbf
 nse
-nse
+hnw
 bFN
 bGt
 bGT
@@ -205910,8 +205922,8 @@ dGo
 dGX
 dJu
 anJ
-ctE
-ctE
+eZk
+kJA
 ctE
 ewf
 cil
