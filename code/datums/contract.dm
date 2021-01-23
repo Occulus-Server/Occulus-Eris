@@ -210,7 +210,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 
 /datum/antag_contract/item/assasinate
 	name = "Assasinate"
-	reward = 12
+	reward = 25	//OCCULUS EDIT - Only nobles get targeted now, so might as well just up the base reward
 	var/obj/item/target
 	var/datum/mind/target_mind
 
@@ -222,15 +222,15 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 	while(candidates.len)
 		target_mind = pick(candidates)
 		var/mob/living/carbon/human/H = target_mind.current
-		if(!istype(H) || H.stat == DEAD || !isOnStationLevel(H))
+		if(!istype(H) || H.stat == DEAD || !isOnStationLevel(H) || !H.stats.getPerk(PERK_NOBLE)) //OCCULUS EDIT - If the target is not a human, is dead, is not on the ship, or is not a noble, keep looking.
 			candidates -= target_mind
 			continue
 		target = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 		if(!target)
 			target = H.organs_by_name[BP_HEAD]
 		desc = "Assasinate [target_mind.current.real_name] and send [gender_datums[target_mind.current.gender].his] [target.name] via BSDM as a proof."
-		if(H.stats.getPerk(PERK_NOBLE))
-			reward *= 1.5
+		//if(H.stats.getPerk(PERK_NOBLE))	//OCCULUS EDIT - Only nobles get targeted now, so might as well just up the base reward
+		//	reward *= 1.5					//OCCULUS EDIT - Only nobles get targeted now, so might as well just up the base reward
 		break
 
 /datum/antag_contract/item/assasinate/can_place()
@@ -369,7 +369,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 	excelsior_energy += reward
 	for (var/obj/machinery/complant_teleporter/t in excelsior_teleporters)
 		t.update_nano_data()
-	
+
 /datum/antag_contract/excel/appropriate
 	name = "Appropriate"
 	reward = 400
@@ -406,27 +406,27 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 	var/targets_command = prob(command_bias)
 	for(var/datum/antag_contract/excel/targeted/M in GLOB.excel_antag_contracts)
 		candidates -= M.target_mind
-	
+
 	while(candidates.len)
 		var/datum/mind/candidate_mind = pick(candidates)
 		candidates -= candidate_mind
-		
+
 		if(player_is_antag_id(candidate_mind, ROLE_EXCELSIOR_REV))
 			continue
 
 		var/mob/living/carbon/human/H = candidate_mind.current
 		if(!istype(H) || H.stat == DEAD || !isOnStationLevel(H))
 			continue
-		
+
 		if (targets_command)
 			if(!(candidate_mind.assigned_role in list(JOBS_COMMAND + JOBS_SECURITY)))
 				continue
-		
+
 		if (cruciform_check)
 			var/cruciform = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 			if(cruciform)
 				continue
-		
+
 		target_mind = candidate_mind
 		desc = "[name] [target_mind.current.real_name] [desc_text]"
 		if(H.stats.getPerk(PERK_NOBLE))
@@ -457,7 +457,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 	name = "Propaganda"
 	reward = 600
 	var/list/area/targets = list()
-	
+
 /datum/antag_contract/excel/propaganda/New()
 	var/list/candidates = ship_areas.Copy()
 	for(var/datum/antag_contract/excel/propaganda/M in GLOB.excel_antag_contracts)

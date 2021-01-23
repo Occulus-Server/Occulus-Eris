@@ -19,9 +19,9 @@
 	rarity_value = 24
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
-	damage_multiplier = 1.35
-	penetration_multiplier = 0.8
-	recoil_buildup = 20
+	damage_multiplier = 1.5
+	penetration_multiplier = 0.9
+	recoil_buildup = 10
 	gun_tags = list(GUN_SILENCABLE)
 
 /obj/item/weapon/gun/projectile/paco/update_icon()

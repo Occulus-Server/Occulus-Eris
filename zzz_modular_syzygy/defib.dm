@@ -460,12 +460,12 @@
 	return TRUE
 
 /obj/item/weapon/shockpaddles/proc/check_vital_organs(mob/living/carbon/human/H)
-	for(var/organ_tag in H.species.has_organ)
-		var/obj/item/organ/O = H.species.has_organ[organ_tag]
+	for(var/organ_tag in H.species.has_process)
+		var/obj/item/organ/O = H.species.has_process[organ_tag]
 		var/name = initial(O.name)
 		var/vital = initial(O.vital) //check for vital organs
 		if(vital)
-			O = H.internal_organs_by_name[organ_tag]
+			O = H.random_organ_by_process(organ_tag)
 			if(!O)
 				return "buzzes, \"Resuscitation failed - Patient is missing vital organ ([name]). Further attempts futile.\""
 			if(O.damage > O.max_damage)
@@ -473,10 +473,10 @@
 	return null
 
 /obj/item/weapon/shockpaddles/proc/check_blood_level(mob/living/carbon/human/H)
-	if(!H.should_have_organ(BP_HEART))
+	if(!H.should_have_process(OP_HEART))
 		return FALSE
 
-	var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
+	var/obj/item/organ/internal/heart/heart = H.random_organ_by_process(OP_HEART)
 	if(!heart)
 		return TRUE
 
@@ -487,7 +487,7 @@
 		blood_volume *= 0.7
 	else if(heart.damage > 1)
 		blood_volume *= 0.8
-	return blood_volume < H.species.blood_volume * BLOOD_VOLUME_SURVIVE / 100
+	return blood_volume < H.species.blood_volume * H.total_blood_req / 100
 
 /obj/item/weapon/shockpaddles/linked/check_overchargecell() // Check if the cell is large enough to allow overcharge.
 	return(base_unit.bcell.maxcharge >= overchargecost)
@@ -524,7 +524,7 @@
 
 /obj/item/weapon/shockpaddles/attack(mob/living/M, mob/living/user, var/target_zone)
 	var/mob/living/carbon/human/H = M
-	var/obj/item/organ/internal/heart/L = H.internal_organs_by_name[BP_HEART]
+	var/obj/item/organ/internal/heart/L = H.random_organ_by_process(OP_HEART)
 
 	if(istype(H) && !safety)    //Did you target a human, and is the safety off?
 		if(overcharge)  // If the paddles are set to overcharge
@@ -742,9 +742,9 @@
 /obj/item/weapon/shockpaddles/proc/apply_brain_damage(mob/living/carbon/human/H, var/deadtime)
 	if(deadtime < DEFIB_TIME_LOSS) return
 
-	if(!H.should_have_organ(BP_BRAIN)) return //no brain
+	if(!H.should_have_process(BP_BRAIN)) return //no brain
 
-	var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
+	var/obj/item/organ/internal/brain/brain = H.random_organ_by_process(BP_BRAIN)
 	if(!brain) return //no brain
 
 	var/brain_damage = CLAMP((deadtime - DEFIB_TIME_LOSS)/(DEFIB_TIME_LIMIT - DEFIB_TIME_LOSS)*brain.max_damage, H.getBrainLoss(), brain.max_damage)

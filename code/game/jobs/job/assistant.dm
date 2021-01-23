@@ -38,9 +38,8 @@ As an drifter, you should strive to help out anyone you can. Or at least, anyone
 	name = ASSISTANT_TITLE
 	icon_state = "player-grey"
 	join_tag = /datum/job/assistant
-/* None for now - Eclipse Edit
+
 /datum/job/assistant/New()
 	..()
 	for(var/alt in subtypesof(/datum/job_flavor/assistant))
 		random_flavors += new alt
-*/

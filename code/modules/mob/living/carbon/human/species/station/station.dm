@@ -204,7 +204,7 @@
 
 //	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
-	heat_discomfort_level = 292
+	heat_discomfort_level = 303		// Occulus edit - Temperature message spam removal
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
 		"You feel uncomfortably warm.",

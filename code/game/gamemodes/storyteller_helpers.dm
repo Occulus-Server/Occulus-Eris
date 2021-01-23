@@ -70,6 +70,10 @@
 
 /datum/storyteller/proc/calculate_event_weight(var/datum/storyevent/R)
 	var/new_weight = R.weight
+	//Occulus Edit - Disables events with crew below a certain threshold
+	if(crew < (R.req_crew - R.max_crew_diff_lower))
+		return 0
+	// End occulus edit
 
 	new_weight *= weight_mult(crew,R.req_crew)
 	new_weight *= weight_mult(heads,R.req_heads)

@@ -28,8 +28,8 @@
 
 	if(status_flags & GODMODE)	return 0	//godmode
 
-	if(species && species.has_organ[BP_BRAIN])
-		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
+	if(species && species.has_process[BP_BRAIN])
+		var/obj/item/organ/internal/brain/sponge = random_organ_by_process(BP_BRAIN)
 		if(sponge)
 			sponge.take_damage(amount)
 			brainloss = sponge.damage
@@ -42,8 +42,8 @@
 
 	if(status_flags & GODMODE)	return 0	//godmode
 
-	if(species && species.has_organ[BP_BRAIN])
-		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
+	if(species && species.has_process[BP_BRAIN])
+		var/obj/item/organ/internal/brain/sponge = random_organ_by_process(BP_BRAIN)
 		if(sponge)
 			sponge.damage = min(max(amount, 0),(maxHealth*2))
 			brainloss = sponge.damage
@@ -56,8 +56,8 @@
 
 	if(status_flags & GODMODE)	return 0	//godmode
 
-	if(species && species.has_organ[BP_BRAIN])
-		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
+	if(species && species.has_process[BP_BRAIN])
+		var/obj/item/organ/internal/brain/sponge = random_organ_by_process(BP_BRAIN)
 		if(sponge)
 			brainloss = min(sponge.damage,maxHealth*2)
 		else
@@ -70,16 +70,12 @@
 /mob/living/carbon/human/getBruteLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/O in organs)
-		if(BP_IS_ROBOTIC(O))
-			continue //robot limbs don't count towards shock and crit
 		amount += O.brute_dam
 	return amount
 
 /mob/living/carbon/human/getFireLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/O in organs)
-		if(BP_IS_ROBOTIC(O))
-			continue //robot limbs don't count towards shock and crit
 		amount += O.burn_dam
 	return amount
 

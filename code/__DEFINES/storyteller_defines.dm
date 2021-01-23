@@ -63,3 +63,6 @@
 //Examples: Meteors, carp, rogue drones, mercenaries, raiders
 #define TAG_EXTERNAL "external"
 
+//Occulus Edit. This event requires an immediate response from the crew and can potentially end a round if not
+// accounted for. Not for use with roleset events! This is purely for major events!
+#define TAG_ROUNDENDING "roundend"

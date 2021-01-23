@@ -54,6 +54,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/id     = 0			//ID of the computer (for server restrictions).
 	var/sync   = 1		//If sync = 0, it doesn't show up on Server Control Console
 	var/can_research = TRUE   //Is this console capable of researching
+	var/hacked = 0 // If this console has had its access requirements hacked or not.
 
 	req_access = list(access_research_equipment) //Data and setting manipulation requires scientist access.
 
@@ -341,6 +342,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			server_processed = TRUE
 		if(!istype(S, /obj/machinery/r_n_d/server/centcom) && server_processed)
 			S.produce_heat(100)
+	files.research_points = 0 //Occulus edit. Fixes exploit
 	reset_screen()
 
 

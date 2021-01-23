@@ -1,5 +1,5 @@
 /datum/trade_station/suit_up
-	name_pool = list("GTB 'Suit Up!'" = "Guild Trade Beacon 'Suit Up!'. They're sending a message. \"Suits, voidsuits and more for you, travaler!\"")
+	name_pool = list("GTB 'Suit Up!'" = "Guild Trade Beacon 'Suit Up!'. They're sending a message. \"Suits, voidsuits, costumes, whatever you need! We don't judge!\"")
 	assortiment = list(
 		"Voidsuits" = list(
 			/obj/item/clothing/suit/space/void,

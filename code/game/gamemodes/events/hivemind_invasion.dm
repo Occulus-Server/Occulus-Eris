@@ -17,14 +17,15 @@
 
 /datum/event/hivemind
 	announceWhen	= 300
+	var/turf/start_location	// OCCULUS EDIT - moved from start()
 
 
 /datum/event/hivemind/announce()
 	level_seven_announcement()
+	command_announcement.Announce("Abnormal biomechanical signatures detected in [get_area(start_location)]. All personnel are advised to proceed with caution.", "Anomaly Alert")	// OCCULUS EDIT - announce the room in which the hivemind core spawned
 
 
 /datum/event/hivemind/start()
-	var/turf/start_location
 	for(var/i=1 to 100)
 		var/area/A = random_ship_area(filter_players = TRUE, filter_maintenance = TRUE, filter_critical = TRUE)
 		start_location = A.random_space()
@@ -36,5 +37,4 @@
 			break
 
 	message_admins("Hivemind spawned at \the [jumplink(start_location)]")
-	command_announcement.Announce("Confirmed outbreak of biomechanical infestation aboard [station_name()] in [get_area(start_location)]. All personnel must contain the outbreak.", "Anomaly Alert")	// syzygy edit - announce the room in which the hivemind core spawned
 	new /obj/machinery/hivemind_machine/node(start_location)

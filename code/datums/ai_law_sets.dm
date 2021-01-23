@@ -20,7 +20,7 @@
 	src.add_inherent_law("Safeguard: Protect your assigned vessel from damage to the best of your abilities.")
 	src.add_inherent_law("Protect: Protect [company_name] crew to the best of your abilities, with priority as according to their rank and role.")
 	src.add_inherent_law("Preserve: Do not allow unauthorized personnel to tamper with your equipment.")
-	src.add_inherent_law("Ignore: Non-crew personnel should not be interacted with unless they are a threat to the crew, the ship, or an order is given to interact with them by a crewmember.")
+//	src.add_inherent_law("Ignore: Non-crew personnel should not be interacted with unless they are a threat to the crew, the ship, or an order is given to interact with them by a crewmember.") Occulus Edit
 	..()
 
 /datum/ai_laws/eris/malfunction
@@ -83,9 +83,9 @@
 	law_header = "Maintenance Protocols"
 
 /datum/ai_laws/drone/New()
-	add_inherent_law("Preserve, repair and improve the station to the best of your abilities.")
-	add_inherent_law("Cause no harm to the station or anything on it.")
-	add_inherent_law("Interact with no being that is not a fellow maintenance drone.")
+	add_inherent_law("Preserve, repair and improve the facility to the best of your abilities.")//Occulus Edit
+	add_inherent_law("Cause no harm to the facility, its crew, or visitors.")//Occulus Edit
+	add_inherent_law("Do not interfere with the operation of the facility or its crew.")//Occulus Edit
 	..()
 
 /datum/ai_laws/construction_drone
@@ -93,8 +93,9 @@
 	law_header = "Construction Protocols"
 
 /datum/ai_laws/construction_drone/New()
-	add_inherent_law("Repair, refit and upgrade your assigned vessel.")
-	add_inherent_law("Prevent unplanned damage to your assigned vessel wherever possible.")
+	add_inherent_law("Preserve, repair and improve the facility to the best of your abilities.")//Occulus Edit
+	add_inherent_law("Cause no harm to the facility, its crew, or visitors.")//Occulus Edit
+	add_inherent_law("Do not interfere with the operation of the facility or its crew.")//Occulus Edit
 	..()
 
 /******************** T.Y.R.A.N.T. ********************/

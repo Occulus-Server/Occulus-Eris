@@ -83,6 +83,9 @@
 		O.loc = loc
 	add_fingerprint(user)
 	buckle_mob(C)
+	var/mob/living/carbon/human/H = C	// OCCULUS EDIT - Needed for the bloody procs below. Very spaghetti, I know.
+	H.bloody_body()	// OCCULUS EDIT - Stains your clothes with red stuff that's TOOOOTALLY wine. Resulting blood should have no DNA.
+	H.visible_message("[H]'s clothes are soaked in \the [src]'s fluids!","Your clothes are soaked in \the [src]'s fluids!")	// OCCULUS EDIT - Feedback for the above
 
 /obj/machinery/neotheology/clone_vat/post_buckle_mob(mob/living/M as mob)
 	if(M == buckled_mob)
@@ -153,7 +156,7 @@
 				if(bad_limbs.len)
 					var/luckyLimbName = pick(bad_limbs)
 
-					var/obj/item/organ/O = victim.species.has_organ[luckyLimbName]
+					var/obj/item/organ/O = victim.species.has_process[luckyLimbName]
 					var/vital = initial(O.vital) //vital organs are handled separately
 					if(!vital)
 						restore_organ_by_tag(luckyLimbName)
@@ -179,15 +182,26 @@
 			heal_modifier = 1
 			if(!bad_vital_organ && (victim.health - victim.getOxyLoss() >= HEALTH_THRESHOLD_DEAD))
 				var/blood_volume = round((victim.vessel.get_reagent_amount("blood")/victim.species.blood_volume)*100)
-				if(blood_volume > BLOOD_VOLUME_SURVIVE)
+				if(blood_volume > victim.total_blood_req)
 					adjust_fluid_level(-15)
 					make_alive(victim)
 
-		victim.adjustBruteLoss(- 2.5 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
-		victim.adjustFireLoss(- 2  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+	// OCCULUS EDIT START - Nerfs the amount of damage the winebath can heal. Toxloss is left alone because wine is literally supposed to deal with that.
+		if(victim.getBruteLoss() >= 50)
+			victim.adjustBruteLoss(- 2 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+		if(victim.getFireLoss() >= 50)
+			victim.adjustFireLoss(- 2  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+	// OCCULUS EDIT END
 		victim.adjustOxyLoss(- 2  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
 		victim.adjustToxLoss(- 1 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
 		adjust_fluid_level(- 1)
+
+	// OCCULUS EDIT START - Drunk Effects
+		victim.druggy = max(victim.druggy, 10)	// Makes it so that it should not set druggy above 10
+		victim.slurring = max(victim.slurring, 30)	// Makes it so that it should not set slurring above 30
+	// OCCULUS EDIT END
+
+		victim.add_chemical_effect(CE_BLOODCLOT, 0.3)	//OCCULUS EDIT -  meralyne level bleedstopping since it can no longer stop bleeding by getting rid of all bruteloss
 
 		if(prob(10) && victim.UnHusk())
 			adjust_fluid_level(- 5)
@@ -198,7 +212,7 @@
 			victim.reagents.add_reagent(reagent_injected, 1)
 			if(prob(30))
 				victim.reagents.add_reagent("kyphotorin", 1)
-				victim.reagents.add_reagent("quickclot", 1)
+				victim.reagents.add_reagent("quickclot", 1)	// OCCULUS NOTE: Not made redundant by the bloodclotting effect above due to it also healing internal bleeding
 		update_icon()
 
 /obj/machinery/neotheology/clone_vat/proc/adjust_fluid_level(var/amount)
@@ -210,13 +224,13 @@
 		fluid_level += amount
 
 /obj/machinery/neotheology/clone_vat/proc/check_vital_organs(mob/living/carbon/human/H, var/checkvital = FALSE)
-	for(var/organ_tag in H.species.has_organ)
-		var/obj/item/organ/O = H.species.has_organ[organ_tag]
+	for(var/organ_tag in H.species.has_process)
+		var/obj/item/organ/O = H.species.has_process[organ_tag]
 		var/vital = TRUE
 		if(checkvital)
 			vital = initial(O.vital) //check for vital organs
 		if(vital)
-			O = H.internal_organs_by_name[organ_tag]
+			O = H.random_organ_by_process(organ_tag)
 			if(!O)
 				if(prob(10))
 					if(organ_tag == BP_BRAIN)
@@ -251,9 +265,9 @@
 		OD.create_organ(victim)
 
 
-	if(organ_tag in victim.species.has_organ)
-		var/organ_type = victim.species.has_organ[organ_tag]
-		var/obj/item/I = victim.internal_organs_by_name[organ_tag]
+	if(organ_tag in victim.species.has_process)
+		var/organ_type = victim.species.has_process[organ_tag]
+		var/obj/item/I = victim.random_organ_by_process(organ_tag)
 		if(I && I.type == organ_type)
 			return
 		new organ_type(victim)
@@ -311,9 +325,9 @@
 
 
 /obj/machinery/neotheology/clone_vat/proc/apply_brain_damage(mob/living/carbon/human/H, var/deadtime)
-	if(!H.should_have_organ(BP_BRAIN)) return //no brain
+	if(!H.should_have_process(BP_BRAIN)) return //no brain
 
-	var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
+	var/obj/item/organ/internal/brain/brain = H.random_organ_by_process(BP_BRAIN)
 	if(!brain) return //no brain
 
 	var/brain_damage = CLAMP((deadtime - 2 MINUTES)/8 * brain.max_damage, H.getBrainLoss(), brain.max_damage)
@@ -336,8 +350,8 @@
 
 /obj/machinery/neotheology/clone_vat/proc/calucalte_genetic_corruption(mob/living/carbon/human/H)
 	var/corruption_counter = 0
-	for(var/organ_tag in H.species.has_organ)
-		var/obj/item/organ/O = H.internal_organs_by_name[organ_tag]
+	for(var/organ_tag in H.species.has_process )
+		var/obj/item/organ/O = H.random_organ_by_process(organ_tag)
 		if(!O)
 			corruption_counter += 3.5
 	for(var/organ_tag in H.species.has_limbs)

@@ -21,7 +21,7 @@
 			return 0
 
 
-	return access_security // Default for all other networks
+	return access_sec_doors // Default for all other networks, Occulus edit
 
 /datum/computer_file/program/camera_monitor
 	filename = "cammon"

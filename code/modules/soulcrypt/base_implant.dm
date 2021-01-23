@@ -10,6 +10,7 @@ The module base code is held in module.dm
 	icon_state = "crypt_off"
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_MATERIAL=2, TECH_BIO=7, TECH_DATA=5)
+	price_tag = 10000	// These things aren't cheap.
 
 
 	var/host_dead = FALSE //Our host is dead. Or not? Binary doesn't care for philosphy.
@@ -19,6 +20,7 @@ The module base code is held in module.dm
 
 	var/energy = 100 //How much energy do we have stored up from user nutrition?
 	var/max_energy = 100 //The maximum amount of energy we can have stored.
+	var/emergency_charge = FALSE	// Did we deplete our energy and engage our cool can't-use-abilities state?
 	var/integrity = 100 //How much integrity we have - this is used pretty rarely, but certain modules might use it.
 	var/max_integrity = 100 //Maximum integrity.
 	var/next_energy_warning //In deciseconds.
@@ -135,6 +137,8 @@ The module base code is held in module.dm
 	return access
 
 /obj/item/weapon/implant/core_implant/soulcrypt/emp_act()
+	for(var/datum/soulcrypt_module/M in modules)
+		M.on_emp()
 	was_emp = TRUE
 	deactivate_modules()
 
@@ -153,6 +157,8 @@ The module base code is held in module.dm
 	if(wearer.stat == DEAD && !host_dead)
 		host_death_time = world.time
 		host_dead = TRUE
+		for(var/datum/soulcrypt_module/M in modules)
+			M.on_death()
 		send_death_message()
 
 	if(wearer.stat != DEAD && host_dead)
@@ -195,10 +201,10 @@ The module base code is held in module.dm
 	var/datum/soulcrypt_module/module = new module_path
 	modules += module
 	module.owner = src
+	module.on_install()
 
 /obj/item/weapon/implant/core_implant/soulcrypt/remove_module(var/datum/soulcrypt_module/module) //Removes a module from the implant.
-	module.owner = null
-	qdel(module)
+	module.uninstall()
 
 /obj/item/weapon/implant/core_implant/soulcrypt/proc/deactivate_modules() //Deactivates all active modules.
 	for(var/datum/soulcrypt_module/M in modules)
@@ -211,8 +217,8 @@ The module base code is held in module.dm
 	var/nutrition_to_remove = 0
 	var/user_starving = FALSE
 
-	if(energy >= max_energy)
-		return
+	//if(energy >= max_energy)	// Whyyyyyyy. I mean I get the idea but this just makes it not process energy at all once it hits 100
+	//	return
 
 	if(wearer.stat == DEAD)
 		deactivate_modules()
@@ -222,9 +228,12 @@ The module base code is held in module.dm
 		if(M.active && M.has_energy_upkeep)
 			active_module_drain += M.energy_cost
 
+	if((energy == max_energy) && (!active_module_drain) && (!emergency_charge))
+		return
+
 	if(wearer.nutrition < (wearer.max_nutrition / 2))
-		if(next_energy_warning < world.time + ENERGY_WARNING_DELAY)
-			send_host_message(low_nutrition_message, MESSAGE_DANGER)
+		if(next_energy_warning < world.time)
+			send_host_message(low_nutrition_message, MESSAGE_WARNING)
 			next_energy_warning = world.time + ENERGY_WARNING_DELAY
 		user_starving = TRUE
 
@@ -236,17 +245,32 @@ The module base code is held in module.dm
 		if(NUTRITION_USAGE_HIGH)
 			nutrition_to_remove = 3
 
+	if(emergency_charge && !user_starving)
+		nutrition_to_remove += 1
+
 	if(!user_starving)
 		energy_to_add = nutrition_to_remove * SOULCRYPT_ENERGY_PER_NUTRITION //Simple maths to figure out what our energy budget is.
 
-	energy_to_add -= active_module_drain
-
-	if(active_module_drain > energy_to_add && (next_energy_warning < world.time + ENERGY_WARNING_DELAY) && !user_starving)
+	if(active_module_drain > energy_to_add && (next_energy_warning < world.time) && !user_starving)
 		send_host_message(low_energy_input_message, MESSAGE_WARNING)
 		next_energy_warning = world.time + ENERGY_WARNING_DELAY
 
+	energy_to_add -= active_module_drain
+
 	energy += energy_to_add
-	energy = CLAMP(energy, 0, 100)
+	energy = CLAMP(energy, 0, max_energy)
+
+	if(emergency_charge && user_starving)
+		send_host_message("Emergency charge canceled due to starvation! Active modules are now available.", MESSAGE_WARNING)
+		emergency_charge = FALSE
+
+	else if(energy <= 0 && !emergency_charge && !user_starving)
+		send_host_message("ERROR: Energy reserves depleted! Initiating emergency charge. All active modules are now unavailable.", MESSAGE_DANGER)
+		emergency_charge = TRUE
+
+	else if(energy >= max_energy && emergency_charge)
+		send_host_message("Emergency charge complete! Active modules are now available.", MESSAGE_NOTICE)
+		emergency_charge = FALSE
 
 	wearer.adjustNutrition(nutrition_to_remove)
 
@@ -257,7 +281,7 @@ The module base code is held in module.dm
 		if(M.active && M.causes_wear)
 			integrity_loss += M.wear_cause_amount
 
-	if(integrity < (max_integrity / 2) && (next_integrity_warning < world.time + INTEGRITY_WARNING_DELAY))
+	if(integrity < (max_integrity * 0.25) && (next_integrity_warning < world.time))
 		send_host_message(integrity_warning_message, MESSAGE_WARNING)
 		next_integrity_warning = world.time + INTEGRITY_WARNING_DELAY
 
@@ -301,7 +325,22 @@ The module base code is held in module.dm
 		SC.find_filemanager()
 */
 
+/obj/item/weapon/implant/core_implant/soulcrypt/attackby(obj/item/I, mob/user)
+	..()
 
+	if(istype(I, /obj/item/stack/nanopaste))	//lmao copypasting tcomms repair code works seamlessly. Absolutely amazing.
+		var/obj/item/stack/nanopaste/T = I
+		if(integrity < max_integrity) //Damaged, let's repair!
+			if(T.use(1))
+				integrity = between(0, integrity + rand(10,20), 100)
+				to_chat(usr, SPAN_WARNING("You apply some nanopaste to [src], restoring some of its integrity."))
+		if(was_emp)
+			if(T.use(1))
+				was_emp = FALSE
+				to_chat(usr, SPAN_WARNING("You apply some nanopaste to [src], repairing its previous EMP damage."))
+		else
+			to_chat(usr, SPAN_WARNING("[src] is already in perfect condition!"))
+		return
 
 
 

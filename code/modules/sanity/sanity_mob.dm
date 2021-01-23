@@ -40,6 +40,10 @@
 
 #define EAT_COOLDOWN_MESSAGE 15 SECONDS
 
+#define INSIGHT_DESIRE_MUSIC "music" //Occulus edit
+#define INSIGHT_DESIRE_EXERCISE "exercise" //Occulus edit
+#define SANITY_GAIN_MUSIC 0.05//Occulus edit - same rate as smoking
+
 /datum/sanity
 	var/flags
 	var/mob/living/carbon/human/owner
@@ -171,6 +175,8 @@
 		INSIGHT_DESIRE_ALCOHOL,
 		INSIGHT_DESIRE_SMOKING,
 		INSIGHT_DESIRE_DRUGS,
+		INSIGHT_DESIRE_MUSIC, //Occulus Edit
+		INSIGHT_DESIRE_EXERCISE //Occulus Edit
 	)
 	for(var/i = 0; i < INSIGHT_DESIRE_COUNT; i++)
 		var/desire = pick_n_take(candidates)
@@ -276,9 +282,9 @@
 	if(resting && E.taste_tag.len)
 		for(var/taste_tag in E.taste_tag)
 			if(multiplier <= 1 )
-				add_rest(taste_tag, 4 * 1/E.taste_tag.len)  //just so it got somme effect of things with small multipliers
+				add_rest(taste_tag, 9 * 1/E.taste_tag.len)  //just so it got somme effect of things with small multipliers      //occulus edit
 			else
-				add_rest(taste_tag, 4 * multiplier/E.taste_tag.len)
+				add_rest(taste_tag, 9 * multiplier/E.taste_tag.len) //occulus edit
 
 /datum/sanity/proc/onEat(obj/item/weapon/reagent_containers/food/snacks/snack, snack_sanity_gain, snack_sanity_message)
 	if(world.time > eat_time_message && snack_sanity_message)
@@ -287,7 +293,7 @@
 	changeLevel(snack_sanity_gain)
 	if(snack.cooked && resting && snack.taste_tag.len)
 		for(var/taste in snack.taste_tag)
-			add_rest(taste, snack_sanity_gain * 50/snack.taste_tag.len)
+			add_rest(taste, snack_sanity_gain * 90/snack.taste_tag.len) //occulus edit
 
 /datum/sanity/proc/onSmoke(obj/item/clothing/mask/smokable/S)
 	changeLevel(SANITY_GAIN_SMOKE * S.quality_multiplier)
@@ -325,7 +331,7 @@
 	var/obj/screen/sanity/hud = owner.HUDneed["sanity"]
 	hud?.update_icon()
 
-/datum/sanity/proc/breakdown()
+/datum/sanity/proc/breakdown(var/positive_breakdown = FALSE)
 	breakdown_time = world.time + SANITY_COOLDOWN_BREAKDOWN
 
 	for(var/obj/item/device/mind_fryer/M in GLOB.active_mind_fryers)
@@ -337,7 +343,7 @@
 			S.reg_break(owner)
 
 	var/list/possible_results
-	if(prob(positive_prob) && positive_prob_multiplier > 0)
+	if((prob(positive_prob) && positive_prob_multiplier > 0) || positive_breakdown)
 		possible_results = subtypesof(/datum/breakdown/positive)
 	else if(prob(negative_prob))
 		possible_results = subtypesof(/datum/breakdown/negative)

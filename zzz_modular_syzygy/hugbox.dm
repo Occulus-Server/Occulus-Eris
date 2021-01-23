@@ -4,7 +4,7 @@
 //											//
 //////////////////////////////////////////////
 
-/mob/living/simple_animal/hostile/scarybat	//modular override to nerf bats a bit
+/mob/living/simple_animal/hostile/nanoblob	//modular override to nerf bats a bit //Now it's nanoblobs!
 	melee_damage_lower = 5
 	melee_damage_upper = 8
 

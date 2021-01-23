@@ -56,7 +56,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
 	var/allow_ai = 0					// allow ai job
 	var/hostedby
-	var/respawn_delay = 30
+	var/respawn_delay = 10				// OCCULUS EDIT - thanks eris for not actually putting this in the config file
 	var/guest_jobban = 1
 	var/usewhitelist = 0
 	var/kick_inactive = 0				//force disconnect for inactive players after this many minutes, if non-0

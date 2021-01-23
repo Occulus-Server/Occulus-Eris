@@ -11,6 +11,7 @@
 #define LEAPING     0x10
 #define REBUILDING_ORGANS     0x20
 #define PASSEMOTES  0x40    // Mob has a cortical borer or holders inside of it that need to see emotes.
+#define BLEEDOUT    0x80
 #define GODMODE     0x1000
 #define FAKEDEATH   0x2000  // Replaces stuff like carrion.carrion_fakedeath.
 #define DISFIGURED  0x4000  // Set but never checked. Remove this sometime and replace occurences with the appropriate organ code
@@ -140,6 +141,7 @@
 #define FLASH_PROTECTION_MODERATE 1
 #define FLASH_PROTECTION_MAJOR 2
 
+#define MOB_BASE_MAX_HUNGER 400
 
 //Time of Death constants
 //Used with a list in preference datums to track times of death
@@ -228,7 +230,7 @@
 #define SPECIES_XENOCHIMERA		"Xenochimera"
 #define SPECIES_XENOHYBRID		"Xenomorph Hybrid"
 #define SPECIES_ZORREN_FLAT		"Flatland Zorren"
-#define SPECIES_ZORREN_HIGH		"Highlander Zorren"
+#define SPECIES_ZORREN_HIGH		"Zorren" //Occulus Edit - Removing Flatlander Zorren, making Highlander the default sprite.
 #define SPECIES_CUSTOM			"Custom Species"
 #define SPECIES_PHORONMAN		"Phoronoid"
 #define SPECIES_MOTH			"Mothperson"
