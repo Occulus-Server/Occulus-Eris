@@ -91511,6 +91511,8 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
+/obj/item/roller/adv,
+/obj/item/roller/adv,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/paramedic)
 "egl" = (
