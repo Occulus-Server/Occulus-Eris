@@ -45,8 +45,10 @@
 
 	if(standard_pour_into(user, target))
 		return
+	/* OCCULUS EDIT - NO MORE REVERSE POURING
 	if(standard_dispenser_refill(user, target))
 		return
+	*/
 	return ..()
 
 /obj/item/weapon/reagent_containers/food/drinks/is_closed_message(mob/user)

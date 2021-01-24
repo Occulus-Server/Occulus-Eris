@@ -121,8 +121,10 @@
 			return
 	if(standard_pour_into(user, target))
 		return 1
+	/* OCCULUS EDIT - NO MORE REVERSE POURING
 	if(standard_dispenser_refill(user, target))
 		return 1
+	*/
 
 /obj/item/weapon/reagent_containers/glass/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/weapon/pen) || istype(I, /obj/item/device/lighting/toggleable/flashlight/pen))
