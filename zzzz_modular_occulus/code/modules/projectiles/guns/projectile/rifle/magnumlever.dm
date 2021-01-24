@@ -1,9 +1,9 @@
 /obj/item/weapon/gun/projectile/shotgun/leveraction/magnum
-	name = "lever-action rifle"
-	desc = "A vintage USARC design. Old, yet reliable."
+	name = ".40 lever-action rifle"
+	desc = "A vintage USARC design. Old, yet reliable. Uses .40 Magnum Ammo."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/magnumlever.dmi'
 	icon_state = "leveraction"
-	max_shells = 5
+	max_shells = 9
 	caliber = CAL_MAGNUM
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	load_method = SINGLE_CASING
@@ -11,6 +11,8 @@
 	fire_sound = 'sound/weapons/guns/fire/batrifle_fire.ogg'
 	matter = list(MATERIAL_PLASTIC = 6, MATERIAL_STEEL = 18)
 	price_tag = 600
+	damage_multiplier = 1.2 //34 x 1.2 ~ 40 damage. Revolvers still beat it out, but this holds more rounds and is easier to reload.
+	armor_penetration = 1.35 //A hair over 20 armor pen.
 	recoil_buildup = 20
 	one_hand_penalty = 15 //full sized shotgun level
 
