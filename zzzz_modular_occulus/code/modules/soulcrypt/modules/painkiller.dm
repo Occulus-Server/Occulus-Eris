@@ -10,7 +10,7 @@
 	can_activate_while_incapacitated = TRUE
 	has_cooldown = TRUE
 	cooldown_delay = 180 SECONDS
-	var/pain_reduction = 30
+	var/pain_reduction = 100
 
 /datum/soulcrypt_module/painkiller/perform()
 	owner.wearer.add_chemical_effect(CE_PAINKILLER, pain_reduction)
