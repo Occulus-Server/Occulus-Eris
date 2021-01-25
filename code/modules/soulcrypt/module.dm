@@ -54,6 +54,10 @@
 		owner.send_host_message("<b>[name]:</b> Insufficient energy.", MESSAGE_NOTICE)
 		return FALSE
 
+	if(owner.integrity < wear_cause_amount)
+		owner.send_host_message("<b>[name]:</b> Soulcrypt integrity compromised. Unable to activate.", MESSAGE_NOTICE)
+		return FALSE
+
 	if(owner.emergency_charge)
 		owner.send_host_message("<b>[name]:</b> Emergency charge in progress!", MESSAGE_NOTICE)
 		return FALSE
@@ -74,6 +78,8 @@
 	owner.send_host_message(_activation_msg, MESSAGE_NOTICE)
 	if(uses_energy && !has_energy_upkeep)	// Are we supposed to use energy but not constantly?
 		owner.energy -= energy_cost	// Deduct the energy here!
+		if(causes_wear)	// Lazy way to make non-constant modules also drain integrity
+			owner.integrity -= wear_cause_amount
 	if(has_nanomodule)
 		if(!NMmodule)
 			NMmodule = new nanomodule_type
