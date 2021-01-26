@@ -125,6 +125,7 @@ Your main duties are to keep the local Union branch operational and profitable. 
 	supervisors = "the Free Trade Union Merchant"
 	selection_color = "#c3b9a6"
 	wage = WAGE_LABOUR_HAZARD //The miners union is stubborn
+	alt_titles = list("Union Salvage Technician")	// OCCULUS EDIT
 	outfit_type = /decl/hierarchy/outfit/job/cargo/mining
 
 	description = "You are an asteroid miner, working in resource Procurement for the local branch of the Free Trade Union.<br>\
