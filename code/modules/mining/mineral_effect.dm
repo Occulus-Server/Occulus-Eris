@@ -15,7 +15,7 @@
 	ore_key = M.name
 	icon_state = "rock_[ore_key]"
 	var/turf/T = get_turf(src)
-	T.overlays += image('icons/obj/mining.dmi', "rock_[ore_key]", dir = 1)
+	T.overlays += image('icons/obj/mining.dmi', "rock_[ore_key]", dir = 1)	// OCCULUS EDIT: Show ores through walls when using mesons
 	if(T.color)
 		color = T.color
 
