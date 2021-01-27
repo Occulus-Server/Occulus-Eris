@@ -66,13 +66,18 @@ Else, it won't work properly.*/
 
 
 /obj/item/clothing/suit/storage/hooded/sleeveless
-	name = "sleeveless jacket"
+	name = "red sleeveless jacket"
 	desc = "A red hooded jacket with no sleeves. Stylized with a white paw print on the back."
 	icon = 'zzzz_modular_occulus/icons/inventory/suit/jacket.dmi'
 	icon_state = "sleeveless_red"
 	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/jacketmob.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/inventory/suit/jacketmob_fem.dmi'
 	hoodtype =	/obj/item/clothing/head/hood/sleeveless
+	min_cold_protection_temperature = T0C - 20	// The other hoodies seem to have this, so might as well!
+	cold_protection = UPPER_TORSO|LOWER_TORSO
 
-
-
-
+/obj/item/clothing/suit/storage/hooded/sleeveless/black
+	name = "black sleeveless jacket"
+	desc = "A black hooded jacket with no sleeves. Stylized with a white paw print on the back."
+	icon_state = "sleeveless_black"
+	hoodtype =	/obj/item/clothing/head/hood/sleeveless/black
