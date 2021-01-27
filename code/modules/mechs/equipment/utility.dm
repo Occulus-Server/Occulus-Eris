@@ -204,13 +204,24 @@
 
 /obj/item/weapon/material/drill_head/Initialize()
 	. = ..()
-	durability = 2 * (material ? material.integrity : 1)
+	// OCCULUS EDIT -- durability was not being properly applied because material during this proc is null
+	//durability = 2 * (material ? material.integrity : 1)
+
+/obj/item/weapon/material/drill_head/steel/New(var/newloc)
+	..(newloc,MATERIAL_STEEL)
+	src.ApplyDurability()	// OCCULUS EDIT -- apply durability to drills properly
 
 /obj/item/weapon/material/drill_head/plasteel/New(var/newloc)
 	..(newloc,MATERIAL_PLASTEEL)
+	src.ApplyDurability()	// OCCULUS EDIT -- apply durability to drills properly
 
 /obj/item/weapon/material/drill_head/diamond/New(var/newloc)
 	..(newloc,MATERIAL_DIAMOND)
+	src.ApplyDurability()	// OCCULUS EDIT -- apply durability to drills properly
+
+///// OCCULUS EDIT -- handy verb to prevent copy/pasting durability in each New proc
+/obj/item/weapon/material/drill_head/verb/ApplyDurability()
+	durability = 2 * (material ? material.integrity : 1)
 
 /obj/item/mech_equipment/drill
 	name = "drill"
@@ -229,6 +240,7 @@
 /obj/item/mech_equipment/drill/Initialize()
 	. = ..()
 	drill_head = new /obj/item/weapon/material/drill_head(src, "steel")//You start with a basic steel head
+	drill_head.ApplyDurability()	// OCCULUS EDIT -- apply durability to drills properly
 
 /obj/item/mech_equipment/drill/attack_self(var/mob/user)
 	. = ..()
@@ -262,6 +274,7 @@
 		var/obj/item/weapon/cell/C = owner.get_cell()
 		if(istype(C))
 			C.use(active_power_use * CELLRATE)
+		playsound(src, 'sound/weapons/circsawhit.ogg', 50, 1)	// OCCULUS EDIT: More feedback for drilling
 		owner.visible_message("<span class='danger'>\The [owner] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
 
 		var/T = target.loc
@@ -311,7 +324,7 @@
 								if(get_dir(owner,ore)&owner.dir)
 									ore.Move(ore_box)
 
-				playsound(src, 'sound/weapons/circsawhit.ogg', 50, 1)
+				playsound(src, 'sound/weapons/rapidslice.ogg', 50, 1) // OCCULUS EDIT: more impactful noise
 
 		else
 			to_chat(user, "You must stay still while the drill is engaged!")
