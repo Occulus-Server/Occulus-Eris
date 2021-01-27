@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/automatic/rx8
 	name = "PCC .35 Auto \"RX8\""
-	desc = "An experimental Pistol Caliber Carbine, designed as a low cost and easy to deploy alternative to full size rifles. \
+	desc = "An experimental Pistol Caliber Carbine, designed as a low cost and easy to deploy alternative to full sized rifles. \
 			Primarily employed in CQC scenarios or as a self defence tool. \
 			Takes both highcap pistol and smg mags. Uses .35 Auto rounds."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/rx8.dmi'
@@ -15,12 +15,12 @@
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_H_PISTOL|MAG_WELL_SMG
 	magazine_type = /obj/item/ammo_magazine/smg
-	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_STEEL = 5, MATERIAL_WOOD = 2)
+	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_STEEL = 10, MATERIAL_WOOD = 2)
 	price_tag = 1400
 	rarity_value = 12
 
-	damage_multiplier = 1.2
-	penetration_multiplier = 1
+	damage_multiplier = 0.85
+	penetration_multiplier = 0.9
 	recoil_buildup = 3
 	one_hand_penalty = 5 //SMG level.
 

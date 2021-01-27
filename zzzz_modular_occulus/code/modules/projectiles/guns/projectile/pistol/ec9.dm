@@ -14,11 +14,11 @@
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_H_PISTOL|MAG_WELL_SMG
 	magazine_type = /obj/item/ammo_magazine/smg
-	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_STEEL = 5, MATERIAL_WOOD = 2)
+	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_STEEL = 10, MATERIAL_WOOD = 2)
 	price_tag = 800
 	rarity_value = 18.5
-	damage_multiplier = 1
-	penetration_multiplier = 1
+	damage_multiplier = 0.9	// Sliiiightly higher than the atreides since this can't go full auto
+	penetration_multiplier = 0.8
 	recoil_buildup = 4
 	one_hand_penalty = 4
 
