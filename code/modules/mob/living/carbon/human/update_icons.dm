@@ -301,7 +301,7 @@ var/global/list/damage_icon_parts = list()
 	//tail
 	update_tail_showing(0)
 	update_wing_showing()
-	//update_markings_showing(0)	// RIP old laggy system
+	update_markings_showing(0)
 
 	appearance_test.Log("EXIT update_body()")
 	if(update_icons)

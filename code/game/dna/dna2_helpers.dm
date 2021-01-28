@@ -173,14 +173,6 @@
 		//Body markings
 		H.body_markings = dna.body_markings.Copy()
 
-		// OCCULUS EDIT IN AN ECLIPSE EDIT - HONK
-		for(var/tag in dna.body_markings)
-			var/obj/item/organ/external/E = H.organs_by_name[tag]
-			if(E)
-				var/list/marklist = dna.body_markings[tag]
-				E.markings = marklist.Copy()
-		// OCCULUS EDIT END
-
 		// Ears
 		var/ears = dna.GetUIValueRange(DNA_UI_EAR_STYLE, ear_styles_list.len + 1) - 1
 		if(ears <= 1)
