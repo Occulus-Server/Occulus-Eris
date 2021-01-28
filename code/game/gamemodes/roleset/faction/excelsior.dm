@@ -1,3 +1,4 @@
+/* Occulus Edit - Disables Excelsior
 /datum/storyevent/roleset/faction/excelsior
 	id = "excelsior"
 	name = "excelsior"
@@ -12,3 +13,4 @@
 
 	req_crew = 6
 	leaders = -1 //Every excelsior spawned directly is a leader. Non leaders are those recruited during gameplay
+*/
