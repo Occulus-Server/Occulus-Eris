@@ -190,11 +190,12 @@
 	var/Me = pickweight(meteortypes)
 	var/obj/effect/meteor/M = new Me(pickedstart)
 	M.dest = pickedgoal
-	if (Master.current_runlevel >= 3)	// OCCULUS EDIT: 3 is the actual number for RUNLEVEL_GAME -- adjusting the Runlevel code
-										// to change it to 4 was met with unforeseen consequences
+	///// OCCULUS EDIT BEGIN
+	// 3 is the actual number for RUNLEVEL_GAME -- adjusting the Runlevel code
+	// to change it to 4 was met with unforeseen consequences
+	if (Master.current_runlevel >= 3)
 		spawn(0)
 			walk_towards(M, M.dest, 1)
-	///// OCCULUS EDIT BEGIN
 	else
 		message_admins("A meteor attempted to spawn, but the round has not started.")
 	///// OCCULUS EDIT END
