@@ -1,4 +1,4 @@
-/obj/item/weapon/ore/Crossed(atom/movable/AM) //TGCode for QoL walk over and pick up ore!
+/obj/item/weapon/ore/Crossed(atom/movable/AM) //TGCode for QoL walk over and pick up ore! Adjusted for Eris code in variety of places.
 	var/obj/item/weapon/storage/bag/ore/OB
 	var/turf/simulated/floor/F = get_turf(src)
 	if(loc != F)
@@ -16,5 +16,5 @@
 				OB = thing
 				break
 	if(OB && istype(F, /turf/simulated/floor/asteroid))
-		OB.collectItems(F, AM)
+		OB.collectItems(F, AM)	//Attackby wouldn't work here to pick up the ore from the turf when I did it originally. Using collect items instead.
 	return ..()

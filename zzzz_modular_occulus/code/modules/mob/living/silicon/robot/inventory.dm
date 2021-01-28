@@ -1,2 +1,2 @@
-/mob/living/silicon/robot/proc/get_all_slots()
+/mob/living/silicon/robot/proc/get_all_slots()  //Proc for robots to search their slots for stuff. Useful particularly for mining robot ore bags.
 	return list(module_state_1, module_state_2, module_state_3)
