@@ -30,6 +30,7 @@
 /datum/job/paramedic
 	access = list(
 		access_moebius, access_medical_equip, access_morgue, access_surgery, access_paramedic,
-		access_eva, access_maint_tunnels, access_external_airlocks, access_chemistry
+		access_eva, access_maint_tunnels, access_external_airlocks, access_chemistry,
+		access_sec_doors, access_engine, access_mailsorting
 	)
 

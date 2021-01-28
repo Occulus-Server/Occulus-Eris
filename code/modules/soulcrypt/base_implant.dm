@@ -232,7 +232,7 @@ The module base code is held in module.dm
 		return
 
 	if(wearer.nutrition < (wearer.max_nutrition / 2))
-		if(next_energy_warning < world.time + ENERGY_WARNING_DELAY)
+		if(next_energy_warning < world.time)
 			send_host_message(low_nutrition_message, MESSAGE_WARNING)
 			next_energy_warning = world.time + ENERGY_WARNING_DELAY
 		user_starving = TRUE
@@ -245,7 +245,7 @@ The module base code is held in module.dm
 		if(NUTRITION_USAGE_HIGH)
 			nutrition_to_remove = 3
 
-	if(emergency_charge)
+	if(emergency_charge && !user_starving)
 		nutrition_to_remove += 1
 
 	if(!user_starving)
@@ -260,12 +260,16 @@ The module base code is held in module.dm
 	energy += energy_to_add
 	energy = CLAMP(energy, 0, max_energy)
 
-	if(energy <= 0 && !emergency_charge)
+	if(emergency_charge && user_starving)
+		send_host_message("Emergency charge canceled due to starvation! Active modules are now available.", MESSAGE_WARNING)
+		emergency_charge = FALSE
+
+	else if(energy <= 0 && !emergency_charge && !user_starving)
 		send_host_message("ERROR: Energy reserves depleted! Initiating emergency charge. All active modules are now unavailable.", MESSAGE_DANGER)
 		emergency_charge = TRUE
 
-	if(energy >= max_energy && emergency_charge)
-		send_host_message("Emergency charge complete! Active modules are now available.", MESSAGE_WARNING)
+	else if(energy >= max_energy && emergency_charge)
+		send_host_message("Emergency charge complete! Active modules are now available.", MESSAGE_NOTICE)
 		emergency_charge = FALSE
 
 	wearer.adjustNutrition(nutrition_to_remove)

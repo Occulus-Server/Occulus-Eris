@@ -9,6 +9,9 @@
 	range_step = 2
 	spread_step = 10
 	knockback = 1
+	armor_penetration = 0
+	embed = FALSE
+	sharp = FALSE
 
 /obj/item/projectile/bullet/pellet/shotgun/rubber/stinger	//used for the stinger grenade
 	damage_types = list(BRUTE = 2)

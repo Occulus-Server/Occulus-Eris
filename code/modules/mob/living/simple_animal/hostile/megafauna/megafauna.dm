@@ -117,7 +117,7 @@
 	for(var/mob/M in range(10,src))
 		if(M.client)
 			shake_camera(M, 4, 3)
-	visible_message(SPAN_DANGER(pick("Prepare to die!", "JUSTICE", "Run!")))
+	visible_message(SPAN_DANGER(pick("JUDGING...", "THE HAND OF FATE DECIDES", "THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES THE SKIES "))) //occ modular edit
 	sleep(rand(megafauna_min_cooldown, megafauna_max_cooldown))
 
 /mob/living/simple_animal/hostile/megafauna/proc/spiral_shoot(negative = pick(TRUE, FALSE), counter_start = 8)

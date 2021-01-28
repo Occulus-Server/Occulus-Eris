@@ -16,7 +16,7 @@
 		if(SOULCRYPT_ONLINE)
 			if(crypt.emergency_charge)
 				crypt_status = "Emergency Charging"
-			else if(crypt.integrity < (crypt.max_integrity * 0.25))
+			else if((crypt.integrity < (crypt.max_integrity * 0.25)) || crypt.was_emp)
 				crypt_status = "Service Needed Soon"
 			else
 				crypt_status = "Operating Normally"

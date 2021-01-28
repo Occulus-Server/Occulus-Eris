@@ -7,6 +7,7 @@
 
 /datum/ritual/cruciform/base/soul_hunger
 	power = 35
+	desc = "Litany of piligrims, helps stave off hunger at the cost of generating considerable amounts of toxins in the user's bloodstream."
 
 //NEW STUFF: New shiny litanies! (haha who am i kidding its just going to be copypasta)
 
@@ -15,7 +16,7 @@
 /datum/ritual/cruciform/base/relief_other
 	name = "Reprieve"
 	phrase = "Domine, da mihi potestatem iis doloribus"
-	desc = "Relief an adjacent person of their agony, even if they are not a disciple."
+	desc = "Relief an adjacent person of their agony, even if they are not a disciple. Consumes nutrition when performed."
 	power = 50
 
 /datum/ritual/cruciform/base/relief_other/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
@@ -40,7 +41,8 @@
 			return
 		log_and_message_admins("soothed [H]'s pain with the Reprieve litany")
 		to_chat(H, "<span class='info'>A numbing sensation bathes you, soothing your agony a little.</span>")
-		H.add_chemical_effect(CE_PAINKILLER, 15)	// Just a bit more than the base effect, so you can more effectively treat others than yourself.
+		user.nutrition -= 50
+		H.add_chemical_effect(CE_PAINKILLER, 20)	// Just a bit more than the base effect, so you can more effectively treat others than yourself.
 		return TRUE
 
 /*
@@ -50,7 +52,7 @@ Soul hunger except it works on anyone!
 /datum/ritual/cruciform/base/saturation
 	name = "Saturation"
 	phrase = "Honoribus eos persequi, quod panem et vinum fides nostra"
-	desc = "Stave off the hunger of an adjacent person, even if they are not a disciple."
+	desc = "Stave off the hunger of an adjacent person, even if they are not a disciple. The user will experience some mild toxicity."
 	power = 50
 
 /datum/ritual/cruciform/base/saturation/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
@@ -76,7 +78,7 @@ Soul hunger except it works on anyone!
 		log_and_message_admins("soothed [H]'s pain with the Reprieve litany")
 		to_chat(H, "<span class='info'>A warm sensation washes over you, and you feel less malnourished!</span>")
 		H.nutrition += 125	//Sliiightly more gain than regular soul hunger
-		user.adjustToxLoss(5) //Toxloss is borne by the caster!
+		user.adjustToxLoss(10) //Toxloss is borne by the caster!
 		return TRUE
 
 /*
@@ -86,7 +88,7 @@ Let there be light! Makes you glow for 5 minutes at a time.
 /datum/ritual/cruciform/base/enkindle
 	name = "Enkindle"
 	phrase = "Domine salva nos de tenebris lucem in perditis rebus fiat"
-	desc = "Causes you, and if present, someone grabbed by you, to start profusely glowing. Lasts five minutes."	//Contact a doctor if glow persists for more than 4 hours.
+	desc = "Causes you, and if present, someone grabbed by you, to start profusely glowing. Lasts five minutes. Consumes nutrition and is mildly toxic to the user."	//Contact a doctor if glow persists for more than 4 hours.
 	cooldown = TRUE
 	cooldown_time = 5 MINUTES
 	effect_time = 5 MINUTES
@@ -96,6 +98,8 @@ Let there be light! Makes you glow for 5 minutes at a time.
 /datum/ritual/cruciform/base/enkindle/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/list/glowy_doods = list()	// Initialize a list of who's getting affected!
 	glowy_doods.Add(user)	// Add the caster to the list
+	user.nutrition -= 50
+	user.adjustToxLoss(5)
 
 	var/mob/living/carbon/human/H = get_victim(user)	// See if we have a lucky victim (someone who's being grabbed or is directly in front of the caster)
 

@@ -23,7 +23,7 @@
 			user.do_attack_animation(src)
 			user.nutrition = user.nutrition - 5
 			to_chat(user, "<span class='warning'>You [pick(hit_message)] \the [src].</span>")
-			user.sanity.onExercise(0.1)
+			user.sanity.onExercise(0.4)
 
 /obj/structure/fitness/weightlifter
 	name = "weightlifting machine"
@@ -60,7 +60,7 @@
 			playsound(src, 'sound/effects/weightdrop.ogg', 25, 1)
 			to_chat(user, "<span class='notice'>You lift the weights [qualifiers[weight]].</span>")
 			being_used = 0
-			user.sanity.onExercise(1)
+			user.sanity.onExercise(4)
 		else
 			to_chat(user, "<span class='notice'>Against your previous judgement, perhaps working out is not for you.</span>")
 			being_used = 0

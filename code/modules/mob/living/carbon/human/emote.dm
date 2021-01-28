@@ -560,6 +560,64 @@
 					m_type = 2
 			cloud_emote = "cloud-scream"
 
+///////////// OCCULUS EDIT START - Fun emotes!
+
+		if("snap")
+			m_type = 2
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/L = H.get_organ("l_hand")
+			var/obj/item/organ/external/R = H.get_organ("r_hand")
+			var/left_hand_good = 0
+			var/right_hand_good = 0
+			if(L && (!(L.status & ORGAN_DESTROYED)) && (!(L.status & ORGAN_SPLINTED)) && (!(L.status & ORGAN_BROKEN)))
+				left_hand_good = 1
+			if(R && (!(R.status & ORGAN_DESTROYED)) && (!(R.status & ORGAN_SPLINTED)) && (!(R.status & ORGAN_BROKEN)))
+				right_hand_good = 1
+
+			if(!left_hand_good && !right_hand_good)
+				to_chat(usr, "You need at least one hand in good working order to snap your fingers.")
+				return
+
+			message = "snaps [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] fingers."
+			playsound(src, 'zzzz_modular_occulus/sound/effects/fingersnap.ogg', 50, 1, -3)
+
+		// Animal noises
+
+		if("bark")
+			message = "lets out a bark."
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/bark2.ogg', 50, 1, -1)
+		if("bork")
+			m_type = 2
+			message = "lets out a bork."
+			playsound(src, 'zzzz_modular_occulus/sound/voice/bork.ogg', 50, 1, -1)
+		if ("mrow")
+			m_type = 2
+			message = "lets out a mrow."
+			playsound(src, 'zzzz_modular_occulus/sound/voice/mrow.ogg', 50, 1, -1)
+		if("hiss")
+			message = "lets out a hiss."
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/hiss.ogg', 50, 1, -1)
+		if("rattle")
+			message = "rattles!"
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/rattle.ogg', 50, 1, -1)
+		if("squeak")
+			message = "lets out a squeak."
+			m_type = 2
+			playsound(src, 'sound/effects/mousesqueek.ogg', 50, 1, -1)
+		if("baa")
+			message = "lets out a baa."
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/baa.ogg', 50, 1, -1)
+		if("bleat")
+			message = "bleats."
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/baa2.ogg', 50, 1, -1)
+
+///////////// OCCULUS EDIT END - Fun emotes!
+
 		if ("help")
 			to_chat(src, {"blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, collapse, cough,
 cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob,

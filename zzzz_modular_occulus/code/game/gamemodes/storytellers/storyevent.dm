@@ -17,9 +17,21 @@
 /datum/storyevent/roleset/faction/excelsior
 	req_crew = 12	//Makes it so that at least 9 players must be playing in order to spawn
 	max_crew_diff_lower = 3
-
-/datum/storyevent/spacevine
-	enabled = TRUE
+	base_quantity = 2 //They're a group antag, we want a few of em
+	scaling_threshold = 15
 
 /datum/storyevent/wallrot
 	enabled = TRUE
+
+/datum/storyevent/roleset/borer
+	base_quantity = 1
+
+/datum/storyevent/roleset/traitor
+	scaling_threshold = 15
+
+/datum/storyevent/roleset/carrion
+	base_quantity = 1
+
+/datum/storyevent/roleset/faction/mercenary
+	base_quantity = 2
+	scaling_threshold = 10
