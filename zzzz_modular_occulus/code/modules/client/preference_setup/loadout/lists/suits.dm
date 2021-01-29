@@ -8,5 +8,13 @@
 	cost = 1
 	*/
 /datum/gear/suit/sleevelessjacket
-	display_name = "sleeveless jacket"
+	display_name = "sleeveless jacket selection"
 	path = /obj/item/clothing/suit/storage/hooded/sleeveless
+
+/datum/gear/suit/sleevelessjacket/New()
+	..()
+	var/jacket = list(
+		"Red"		=	/obj/item/clothing/suit/storage/hooded/sleeveless,
+		"Black"		=	/obj/item/clothing/suit/storage/hooded/sleeveless/black
+	)
+	gear_tweaks += new /datum/gear_tweak/path(jacket)
