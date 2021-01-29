@@ -7,8 +7,8 @@
     . = ..()
     fire_delay+= rand(0,3)
     recoil_buildup+= rand(0,20)
-    damage_multiplier = damage_multiplier*(rand(5,10)/10)
-    penetration_multiplier = penetration_multiplier*(rand(5,10)/10)
+    damage_multiplier = damage_multiplier*(rand(1,10)/10)
+    penetration_multiplier = penetration_multiplier*(rand(1,10)/10)
     init_offset += rand(0,10)
 
 /obj/item/weapon/tool/make_old()
