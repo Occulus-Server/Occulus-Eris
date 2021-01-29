@@ -21,7 +21,7 @@
 			flick("[icon_state]_hit", src)
 			playsound(src, 'sound/effects/woodhit.ogg', 25, 1, -1)
 			user.do_attack_animation(src)
-			user.nutrition = user.nutrition - 5
+			// user.nutrition = user.nutrition - 5
 			to_chat(user, "<span class='warning'>You [pick(hit_message)] \the [src].</span>")
 			user.sanity.onExercise(0.4)
 
