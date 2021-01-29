@@ -9,6 +9,12 @@ It is set as storyteller base in __defines/gamemode.dm
 	name = "The Guide"
 	welcome = "Let me share with you the terrible wonders I have come to know."
 	description = "Offers a well balanced experience that has a little of everything. Considered the default experience"
+	points = list(
+		EVENT_LEVEL_MUNDANE = 0, //Mundane
+		EVENT_LEVEL_MODERATE = 0, //Moderate
+		EVENT_LEVEL_MAJOR = 0, //Major
+		EVENT_LEVEL_ROLESET = 90 //Roleset - Spawns antagonists at 30minutes and 150 minutes roughly
+	)
 
 /datum/storyteller/sentinel
 	config_tag = "sentinel"

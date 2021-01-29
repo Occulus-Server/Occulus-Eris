@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/ec9
 	name = "SMG .35 Auto \"EC9\""
 	desc = "The EC9 is a generic replica of an old and infamous SMG. An extremely cheap design made to look more intimidating than it actually is. \
-			It is incapable of firing in full auto due to its excessively simplified trigger mechanism. Uses .35 Auto Hi-Cap Magazines."
+			It is incapable of firing in full auto due to its excessively simplified trigger mechanism. Uses .35 Auto Hi-Cap and SMG magazines."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/ec9.dmi'
 	icon_state = "ec9"
 	item_state = "ec9"
@@ -12,15 +12,15 @@
 	slot_flags = SLOT_BELT
 	ammo_type = "/obj/item/ammo_casing/pistol"
 	load_method = MAGAZINE
-	mag_well = MAG_WELL_H_PISTOL
-	magazine_type = /obj/item/ammo_magazine/hpistol
-	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_STEEL = 5, MATERIAL_WOOD = 2)
+	mag_well = MAG_WELL_H_PISTOL|MAG_WELL_SMG
+	magazine_type = /obj/item/ammo_magazine/smg
+	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_STEEL = 10, MATERIAL_WOOD = 2)
 	price_tag = 800
-	rarity_value = 10.1
-	damage_multiplier = 1
-	penetration_multiplier = 1
+	rarity_value = 18.5
+	damage_multiplier = 0.9	// Sliiiightly higher than the atreides since this can't go full auto
+	penetration_multiplier = 0.8
 	recoil_buildup = 4
-	one_hand_penalty = 3
+	one_hand_penalty = 4
 
 	init_firemodes = list(
 		BURST_5_ROUND,

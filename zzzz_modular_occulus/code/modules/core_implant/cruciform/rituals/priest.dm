@@ -6,7 +6,7 @@ A copypasta of Convalescence, but with half the effects and no pain removal. Als
 /datum/ritual/cruciform/priest/selfheal
 	name = "Recuperation"
 	phrase = "In tempore necessitatis illius, quae consolantur me quaeso mihi dolet"
-	desc = "Recover from minor wounds."
+	desc = "Recover from minor wounds. Consumes a considerable amount of nutrition."
 	cooldown = TRUE
 	cooldown_time = 120
 	power = 35
@@ -14,6 +14,7 @@ A copypasta of Convalescence, but with half the effects and no pain removal. Als
 /datum/ritual/cruciform/priest/selfheal/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C,list/targets)
 	to_chat(H, "<span class='info'>A sensation of relief bathes you, washing away your pain.</span>")
 	log_and_message_admins("healed himself with the Recuperation litany.")
+	H.nutrition -= 50
 	H.adjustBruteLoss(-10)
 	H.adjustFireLoss(-10)
 	H.adjustOxyLoss(-20)
@@ -28,7 +29,7 @@ Ditto but for Succour
 /datum/ritual/cruciform/priest/heal_other
 	name = "Invigorate"
 	phrase = "Et inclinaveris cor tuum in capite sunt in caelo, et suscipe benedictionem"
-	desc = "Heal a nearby disciple's wounds."
+	desc = "Heal a nearby disciple's wounds. Consumes a considerable amount of nutrition."
 	cooldown = TRUE
 	cooldown_time = 120
 	power = 45
@@ -59,11 +60,13 @@ Ditto but for Succour
 			to_chat(user, SPAN_DANGER("[H] is beyond your reach.."))
 			return
 		log_and_message_admins("healed [CI.wearer] with Invigorate litany")
-		to_chat(H, "<span class='info'>A sensation of relief bathes you, soothing your wounds a little</span>")
+		to_chat(H, "<span class='info'>A sensation of relief bathes you, soothing your wounds a little.</span>")
+		user.nutrition -= 50
 		H.adjustBruteLoss(-10)
 		H.adjustFireLoss(-10)
 		H.adjustOxyLoss(-20)
 		H.updatehealth()
+
 		set_personal_cooldown(user)
 		return TRUE
 
@@ -91,7 +94,7 @@ A big universal AOE heal
 		if(people_around.len > 0)
 			to_chat(user, SPAN_DANGER("You collapse to the ground, exhausted."))
 			user.Weaken(10)
-			user.nutrition -= 200
+			user.nutrition -= 100
 			user.adjustToxLoss(10)
 			playsound(user.loc, 'sound/machines/signal.ogg', 50, 1)
 			for(var/mob/living/carbon/human/participant in people_around)

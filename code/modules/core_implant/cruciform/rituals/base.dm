@@ -33,7 +33,7 @@
 
 /datum/ritual/cruciform/base/soul_hunger/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)
 	H.nutrition += 100
-	H.adjustToxLoss(5)
+	H.adjustToxLoss(10)	// OCCULUS EDIT - NERF THE FREE NUTRITION
 	return TRUE
 
 
