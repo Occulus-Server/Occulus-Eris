@@ -2774,6 +2774,7 @@
 #include "zzz_modular_syzygy\code\modules\loadout\lists\uniforms.dm"
 #include "zzz_modular_syzygy\code\modules\mining\mineral_effect.dm"
 #include "zzz_modular_syzygy\code\modules\reagents\recipes.dm"
+#include "zzz_modular_syzygy\code\modules\scrap\oldificator.dm"
 #include "zzz_modular_syzygy\prosthesis\implementation.dm"
 #include "zzz_modular_syzygy\prosthesis\prosthesis_brands.dm"
 #include "zzz_modular_syzygy\prosthesis\prosthesis_parts.dm"
