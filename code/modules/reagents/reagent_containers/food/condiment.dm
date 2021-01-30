@@ -30,10 +30,11 @@
 
 		if(standard_pour_into(user, target))
 			return
-		/* OCCULUS EDIT - NO MORE REVERSE POURING
-		if(standard_dispenser_refill(user, target))
-			return
-		*/
+		// OCCULUS EDIT START - NO MORE REVERSE POURING
+		if(istype(target, /obj/structure/reagent_dispensers))
+			if(standard_dispenser_refill(user, target))
+				return
+		// OCCULUS EDIT END
 
 		if(istype(target, /obj/item/weapon/reagent_containers/food/snacks)) // These are not opencontainers but we can transfer to them
 			if(!reagents || !reagents.total_volume)
