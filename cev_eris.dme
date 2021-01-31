@@ -2845,6 +2845,7 @@
 #include "zzzz_modular_occulus\code\modules\reagents\reagent_containers\glass\beaker.dm"
 #include "zzzz_modular_occulus\code\modules\sanity\sanity_mob.dm"
 #include "zzzz_modular_occulus\code\modules\shield_generators\shield_generator.dm"
+#include "zzzz_modular_occulus\code\modules\soulcrypt\extractor.dm"
 #include "zzzz_modular_occulus\code\modules\soulcrypt\holochip.dm"
 #include "zzzz_modular_occulus\code\modules\soulcrypt\repair_tool.dm"
 #include "zzzz_modular_occulus\code\modules\soulcrypt\modules\language.dm"

@@ -40,6 +40,7 @@
 		crypt.access.Cut()
 		crypt.access = card.access
 		to_chat(user, SPAN_NOTICE("Access upload completed!"))
+		playsound(loc, 'sound/machines/chime.ogg', 50, 1)
 		crypt.send_host_message("Access transponder code upload completed.")
 
 /obj/item/weapon/access_update_tool/update_icon()

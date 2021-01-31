@@ -26999,7 +26999,7 @@
 /obj/item/weapon/storage/box/masks{
 	pixel_x = 12
 	},
-/obj/item/weapon/soulmanip,
+/obj/item/weapon/soulextract,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/lab)
 "bkN" = (
@@ -47664,7 +47664,7 @@
 	pixel_y = 26
 	},
 /obj/item/weapon/autopsy_scanner,
-/obj/item/weapon/soulmanip,
+/obj/item/weapon/soulextract,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "cgG" = (
@@ -49491,7 +49491,7 @@
 "cll" = (
 /obj/structure/table/glass,
 /obj/item/weapon/autopsy_scanner,
-/obj/item/weapon/soulmanip,
+/obj/item/weapon/soulextract,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "clm" = (
@@ -73256,7 +73256,7 @@
 	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
-/obj/item/weapon/soulmanip,
+/obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
 "dpg" = (
@@ -77723,6 +77723,7 @@
 /area/eris/medical/reception)
 "dzG" = (
 /obj/structure/table/standard,
+/obj/item/weapon/soulmanip,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/command/mbo)
 "dzH" = (

@@ -1,6 +1,8 @@
 /obj/item/weapon/soulmanip
 	name = "soulcrypt manipulation tool"
-	desc = "A device used to repair Soulcrypts, or extract them from cadavers."
+	desc = "An experimental device used to repair Soulcrypts, or extract them from cadavers. \
+			Automatically switches between repair and extraction modes depending on the state of the target. \
+			Will bypass standard anti-forking checks in extraction mode."
 	icon = 'zzzz_modular_occulus/icons/obj/soultools.dmi'
 	icon_state = "repair"
 	var/emagged = FALSE
@@ -57,4 +59,4 @@
 	if(!emagged)
 		emagged = TRUE
 		playsound(loc, "sparks", 75, 1, -1)
-		to_chat(user, SPAN_NOTICE("You use the cryptographic sequencer on the [name]. It will now forcibly extract soulcrypts."))
+		to_chat(user, SPAN_NOTICE("You use the cryptographic sequencer on the [name]. It will now forcibly extract soulcrypts from living persons."))
