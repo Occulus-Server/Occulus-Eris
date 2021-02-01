@@ -213,10 +213,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		old_runlevel = "NULL"
 
 	report_progress("MC: Runlevel changed from [old_runlevel] to [new_runlevel]")
-	// current_runlevel = log(2, new_runlevel) + 1
-	current_runlevel = new_runlevel	// OCCULUS EDIT: The previous logarithmic function did not actually adjust runlevel properly
-									// eg. when RUNLEVEL_GAME was active, current_runlevel was actually returning 3 rather than 4
-									// and current_runlevel during RUNLEVEL_POSTGAME was returning 4 rather than 8.
+	current_runlevel = log(2, new_runlevel) + 1
 	if(current_runlevel < 1)
 		CRASH("Attempted to set invalid runlevel: [new_runlevel]")
 
@@ -568,7 +565,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		SS.state = SS_IDLE
 	if (queue_head && !istype(queue_head))
 		to_chat(world, "MC: SoftReset: Found bad data in subsystem queue, queue_head = '[queue_head]'")
-	else
+	else 
 		to_chat(world, "MC: Resetting queue_head, was '[queue_head]'")
 	queue_head = null
 	if (queue_tail && !istype(queue_tail))

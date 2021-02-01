@@ -175,17 +175,14 @@
 ///////////////////////////////
 
 /proc/spawn_meteors(var/number = 1, var/list/meteortypes, var/startSide, var/zlevel)
-	if (Master.current_runlevel >= RUNLEVEL_GAME)	// OCCULUS EDIT -- Prevent meteors from spawning before the game
-		for(var/i = 0; i < number; i++)
-			//If no target zlevel is specified, then we'll throw each meteor at an individually randomly selected ship zlevel
-			var/target_level
-			if (zlevel)
-				target_level = zlevel
-			else
-				target_level = pick(GLOB.maps_data.station_levels)
-			spawn_meteor(meteortypes, startSide, target_level)
-	else
-		message_admins("A meteor attempted to spawn, but runlevel is [Master.current_runlevel] (must be 4 or higher)")	// OCCULUS EDIT
+	for(var/i = 0; i < number; i++)
+		//If no target zlevel is specified, then we'll throw each meteor at an individually randomly selected ship zlevel
+		var/target_level
+		if (zlevel)
+			target_level = zlevel
+		else
+			target_level = pick(GLOB.maps_data.station_levels)
+		spawn_meteor(meteortypes, startSide, target_level)
 
 /proc/spawn_meteor(var/list/meteortypes, var/startSide, var/zlevel)
 	var/turf/pickedstart = spaceDebrisStartLoc(startSide, zlevel)
@@ -193,8 +190,15 @@
 	var/Me = pickweight(meteortypes)
 	var/obj/effect/meteor/M = new Me(pickedstart)
 	M.dest = pickedgoal
-	spawn(0)
-		walk_towards(M, M.dest, 1)
+	///// OCCULUS EDIT BEGIN
+	// 3 is the actual number for RUNLEVEL_GAME -- adjusting the Runlevel code
+	// to change it to 4 was met with unforeseen consequences
+	if (Master.current_runlevel >= 3)
+		spawn(0)
+			walk_towards(M, M.dest, 1)
+	else
+		message_admins("A meteor attempted to spawn, but the round has not started.")
+	///// OCCULUS EDIT END
 	return
 
 /proc/spaceDebrisStartLoc(startSide, Z)
