@@ -2845,6 +2845,7 @@
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\rifle\magnumlever.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\rifle\magnumleversawn.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\projectile\bullettypes.dm"
+#include "zzzz_modular_occulus\code\modules\projectiles\projectile\projectile.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\food-Drinks.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\recipes.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\reagent_containers\glass\beaker.dm"
