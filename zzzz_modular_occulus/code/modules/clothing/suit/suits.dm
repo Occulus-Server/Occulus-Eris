@@ -46,3 +46,44 @@
 
 /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	spawn_blacklisted = TRUE	//no random command shit in maint
+
+/obj/item/clothing/suit/storage/cyberjacket
+	name = "crystaljacket"
+	desc = "A stylish jacket featuring a proprietary liquid crystal liner that absorbs physical impacts exceptionally well. The liquid crystal layer also serves to provide a neat glow around the collar."
+	icon = 'zzzz_modular_occulus/icons/inventory/suit/jacket.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/jacketmob.dmi'
+	icon_state = "cyber"
+	rarity_value = 6
+	armor = list(
+		melee = 25,
+		bullet = 5,
+		energy = 0,
+		bomb = 5,
+		bio = 0,
+		rad = 0
+	)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = T0C - 20
+	style = STYLE_HIGH
+
+/obj/item/clothing/suit/storage/cyberjacket/red
+	icon_state = "cyber_red"
+
+/obj/item/clothing/suit/storage/cyberjacket/blue
+	icon_state = "cyber_blue"
+
+/obj/item/clothing/suit/storage/cyberjacket/green
+	icon_state = "cyber_green"
+
+/obj/item/clothing/suit/storage/cyberjacket/black
+	icon_state = "cyber_black"
+
+/obj/item/clothing/suit/storage/cyberjacket/white
+	icon_state = "cyber_white"
+
+/obj/item/clothing/suit/storage/cyberjacket/punk
+	icon_state = "cyber_punk"
+
+/obj/item/clothing/suit/storage/cyberjacket/copper
+	icon_state = "cyber_copper"

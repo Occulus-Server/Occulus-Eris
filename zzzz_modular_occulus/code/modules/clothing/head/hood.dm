@@ -8,7 +8,7 @@
 	min_cold_protection_temperature = T0C - 20
 	cold_protection = HEAD
 	flags_inv = HIDEEARS | BLOCKHAIR
-	style = 1
+	style = STYLE_HIGH
 
 
 /obj/item/clothing/head/hood/sleeveless

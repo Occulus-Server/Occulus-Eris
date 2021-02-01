@@ -75,7 +75,7 @@ Else, it won't work properly.*/
 	hoodtype =	/obj/item/clothing/head/hood/sleeveless
 	min_cold_protection_temperature = T0C - 20	// The other hoodies seem to have this, so might as well!
 	cold_protection = UPPER_TORSO|LOWER_TORSO
-	style = 1
+	style = STYLE_HIGH
 
 /obj/item/clothing/suit/storage/hooded/sleeveless/black
 	name = "black sleeveless jacket"
