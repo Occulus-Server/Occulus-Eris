@@ -42,7 +42,6 @@
 	desc = "rainbow"
 	icon_state = "rainbow"
 	item_state = "rainbow"
-	style = 2
 
 
 /obj/item/clothing/under/rank/fo_suit
@@ -105,7 +104,6 @@
 	desc = "Includes shoes and plaid"
 	icon_state = "kilt"
 	item_state = "kilt"
-	style = 2
 
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
@@ -151,7 +149,6 @@
 	desc = "A bold but yet conservative outfit, red corduroys, navy blazer and a tie."
 	icon_state = "blue_blazer"
 	item_state = "blue_blazer"
-	style = 2
 
 /obj/item/clothing/under/dress
 	name = "gray summerdress"
