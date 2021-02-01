@@ -15,6 +15,9 @@
 	..()
 	var/jacket = list(
 		"Red"		=	/obj/item/clothing/suit/storage/hooded/sleeveless,
-		"Black"		=	/obj/item/clothing/suit/storage/hooded/sleeveless/black
+		"Black"		=	/obj/item/clothing/suit/storage/hooded/sleeveless/black,
+		"Blue"		=	/obj/item/clothing/suit/storage/hooded/sleeveless/blue,
+		"Yellow"	=	/obj/item/clothing/suit/storage/hooded/sleeveless/yellow,
+		"White"		=	/obj/item/clothing/suit/storage/hooded/sleeveless/white
 	)
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
