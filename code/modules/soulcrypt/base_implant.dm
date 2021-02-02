@@ -140,6 +140,7 @@ The module base code is held in module.dm
 	for(var/datum/soulcrypt_module/M in modules)
 		M.on_emp()
 	was_emp = TRUE
+	integrity -= rand(5,20)
 	deactivate_modules()
 
 /obj/item/weapon/implant/core_implant/soulcrypt/Process()
@@ -185,7 +186,7 @@ The module base code is held in module.dm
 /obj/item/weapon/implant/core_implant/soulcrypt/proc/handle_modules() //Loops through the modules in the modules list, and handles their effects.
 	for(var/datum/soulcrypt_module/M in modules)
 		if(M.active)
-			if(energy <= 0) //No energy, just deactivate all the modules.
+			if(energy <= 0 || integrity <= 0) //No energy/integrity, just deactivate all the modules.
 				M.deactivate()
 				continue
 			M.handle_effects()
@@ -228,7 +229,7 @@ The module base code is held in module.dm
 		if(M.active && M.has_energy_upkeep)
 			active_module_drain += M.energy_cost
 
-	if((energy == max_energy) && (!active_module_drain) && (!emergency_charge))
+	if(((energy == max_energy) && (!active_module_drain) && (!emergency_charge)) || integrity <= 0)
 		return
 
 	if(wearer.nutrition < (wearer.max_nutrition / 2))
@@ -281,12 +282,14 @@ The module base code is held in module.dm
 		if(M.active && M.causes_wear)
 			integrity_loss += M.wear_cause_amount
 
-	if(integrity < (max_integrity * 0.25) && (next_integrity_warning < world.time))
+	if(integrity < (max_integrity * 0.15) && (next_integrity_warning < world.time))
 		send_host_message(integrity_warning_message, MESSAGE_WARNING)
+		if(integrity <= 0)
+			send_host_message("WARNING: SOULCRYPT INTEGRITY COMPROMISED. ", MESSAGE_DANGER)
 		next_integrity_warning = world.time + INTEGRITY_WARNING_DELAY
 
 	integrity -= integrity_loss
-	integrity = CLAMP(integrity, 0, 100)
+	integrity = CLAMP(integrity, 0, max_integrity)
 
 /obj/item/weapon/implant/core_implant/soulcrypt/proc/send_host_message(var/message, var/message_type = MESSAGE_NOTICE)
 	switch(message_type)
@@ -332,7 +335,7 @@ The module base code is held in module.dm
 		var/obj/item/stack/nanopaste/T = I
 		if(integrity < max_integrity) //Damaged, let's repair!
 			if(T.use(1))
-				integrity = between(0, integrity + rand(10,20), 100)
+				integrity = between(0, integrity + rand(10,20), max_integrity)
 				to_chat(usr, SPAN_WARNING("You apply some nanopaste to [src], restoring some of its integrity."))
 		if(was_emp)
 			if(T.use(1))

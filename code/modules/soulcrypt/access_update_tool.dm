@@ -1,8 +1,8 @@
 /obj/item/weapon/access_update_tool
 	name = "soulcrypt access updater"
 	desc = "A device used to update access for someone's soulcrypt."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "adv_spectrometer"
+	icon = 'zzzz_modular_occulus/icons/obj/soultools.dmi'
+	icon_state = "updater"
 
 	var/obj/item/weapon/card/id/card //Our current ID card. We copy access from this.
 
@@ -18,12 +18,16 @@
 		user.drop_item()
 		I.forceMove(src)
 		card = I
+		playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
+		update_icon()
 
 /obj/item/weapon/access_update_tool/attack_self(mob/user)
 	if(card)
 		to_chat(user, SPAN_NOTICE("You remove the ID card from [src]'s ID card port."))
-		card.forceMove(get_turf(user))
+		user.put_in_hands(card)
 		card = null
+		playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
+		update_icon()
 
 /obj/item/weapon/access_update_tool/afterattack(atom/A, mob/living/user)
 	if(istype(A, /mob/living/carbon/human))
@@ -36,5 +40,12 @@
 		crypt.access.Cut()
 		crypt.access = card.access
 		to_chat(user, SPAN_NOTICE("Access upload completed!"))
+		playsound(loc, 'sound/machines/chime.ogg', 50, 1)
 		crypt.send_host_message("Access transponder code upload completed.")
 
+/obj/item/weapon/access_update_tool/update_icon()
+	..()
+	if(card)
+		icon_state = "updater-card"
+	else
+		icon_state = "updater"
