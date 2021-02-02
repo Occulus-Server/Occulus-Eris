@@ -12166,11 +12166,11 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck4central)
 "aCO" = (
-/obj/structure/multiz/stairs/enter/bottom{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/orangecorner,
-/area/eris/hallway/side/atmosphericshallway)
+/obj/spawner/techpart/low_chance,
+/obj/structure/table/rack/shelf,
+/obj/spawner/material/building,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck4port)
 "aCP" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -15824,12 +15824,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/hull,
 /area/eris/maintenance/junk)
-"aMN" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel/orangecorner,
-/area/eris/hallway/side/atmosphericshallway)
 "aMO" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16322,10 +16316,9 @@
 /area/eris/engineering/atmos/storage)
 "aNY" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/atmos{
-	name = "Atmospherics";
-	req_access = newlist();
-	req_one_access = list(24,10)
+/obj/machinery/door/airlock/maintenance_engineering{
+	name = "Engineering Maintenance";
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/engineering/atmos)
@@ -36235,9 +36228,11 @@
 /turf/simulated/floor/plating,
 /area/eris/command/tcommsat/chamber)
 "bGF" = (
-/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/closet/oldstyle,
+/obj/spawner/junk/low_chance,
+/obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/steel/gray_platform,
-/area/eris/hallway/side/atmosphericshallway)
+/area/eris/maintenance/section4deck4port)
 "bGG" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -36250,11 +36245,11 @@
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bGH" = (
-/obj/machinery/firealarm{
-	pixel_y = 28
+/obj/machinery/light/small{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/steel/orangecorner,
-/area/eris/hallway/side/atmosphericshallway)
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck4port)
 "bGI" = (
 /obj/machinery/camera/network/engineering{
 	dir = 1
@@ -36421,8 +36416,9 @@
 /area/eris/rnd/xenobiology/xenoflora)
 "bHd" = (
 /obj/machinery/light,
-/turf/simulated/floor/tiled/steel/orangecorner,
-/area/eris/hallway/side/atmosphericshallway)
+/obj/spawner/mob/roaches/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck4port)
 "bHe" = (
 /obj/structure/disposaloutlet{
 	dir = 8
@@ -39637,11 +39633,9 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/drone_fabrication)
 "bNK" = (
-/obj/machinery/camera/network/engineering{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/orangecorner,
-/area/eris/hallway/side/atmosphericshallway)
+/obj/spawner/scrap/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck4port)
 "bNL" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -42537,12 +42531,9 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/security/main)
 "bUz" = (
-/obj/machinery/door/airlock/maintenance_engineering{
-	name = "Engineering Maintenance";
-	req_access = list(10)
-	},
-/turf/simulated/floor/tiled/techmaint_cargo,
-/area/eris/hallway/side/atmosphericshallway)
+/obj/spawner/pack/machine,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck4port)
 "bUA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -44178,12 +44169,9 @@
 	},
 /area/eris/command/tcommsat/chamber)
 "bYy" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -22
-	},
-/turf/simulated/floor/tiled/steel/orangecorner,
-/area/eris/hallway/side/atmosphericshallway)
+/obj/spawner/mob/roaches/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck3port)
 "bYz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/camera/network/fist_section{
@@ -51434,11 +51422,9 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "cpO" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel/orangecorner,
-/area/eris/hallway/side/atmosphericshallway)
+/obj/spawner/mob/roaches/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck4port)
 "cpP" = (
 /turf/simulated/wall,
 /area/eris/crew_quarters/hydroponics/garden)
@@ -54818,18 +54804,10 @@
 	},
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/hallway/side/bridgehallway)
-"cyn" = (
-/obj/structure/multiz/stairs/enter/bottom{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel/orangecorner,
-/area/eris/hallway/side/atmosphericshallway)
 "cyp" = (
-/obj/structure/multiz/stairs/active/bottom{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel/orangecorner,
-/area/eris/hallway/side/atmosphericshallway)
+/obj/spawner/scrap/dense,
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section4deck4port)
 "cyq" = (
 /obj/item/device/lighting/glowstick/flare,
 /obj/structure/cable{
@@ -55025,11 +55003,10 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/office)
 "cyS" = (
-/obj/structure/multiz/stairs/enter{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/orangecorner,
-/area/eris/hallway/side/atmosphericshallway)
+/obj/structure/multiz/ladder,
+/obj/structure/catwalk,
+/turf/simulated/open,
+/area/eris/maintenance/section4deck4port)
 "cyT" = (
 /obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/steel/bar_light,
@@ -56640,14 +56617,13 @@
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "cCr" = (
-/obj/machinery/door/airlock/atmos{
-	name = "Atmospherics";
-	req_access = newlist();
-	req_one_access = list(24,10)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance_engineering{
+	name = "Engineering Maintenance";
+	req_access = list(10)
+	},
 /turf/simulated/floor/tiled/steel,
-/area/eris/hallway/side/atmosphericshallway)
+/area/eris/maintenance/section4deck4port)
 "cCs" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -121683,7 +121659,7 @@ azn
 alg
 aaa
 aaa
-aCM
+aCW
 aCW
 aCW
 aFd
@@ -121885,8 +121861,8 @@ awR
 alg
 aaa
 aaa
-aCM
-aCC
+bqj
+bqj
 aCW
 aFf
 aFL
@@ -122087,8 +122063,8 @@ awR
 alg
 aad
 aad
-aCM
-aCO
+bqj
+bsW
 aCW
 aFg
 aFM
@@ -122289,8 +122265,8 @@ awR
 alg
 aaa
 aaa
-aCM
-aDb
+bqj
+bum
 aCW
 aFh
 aFP
@@ -122491,8 +122467,8 @@ awR
 alg
 aaa
 aaa
-aCM
-aDc
+bqj
+bum
 aCW
 aFi
 aFQ
@@ -122693,8 +122669,8 @@ awR
 alg
 aaa
 aaa
-aCM
-aMN
+bqj
+bGH
 aDn
 aFj
 aFR
@@ -122895,8 +122871,8 @@ aDe
 alg
 aaa
 aaa
-aCM
-aMP
+bqj
+bum
 aNY
 aFj
 aFV
@@ -123097,8 +123073,8 @@ awR
 alg
 aaa
 aaa
-aCM
-aCM
+bqj
+bqj
 aCW
 aFq
 aFW
@@ -199857,7 +199833,7 @@ aaa
 aaa
 cwU
 ckZ
-cxw
+bYy
 cIT
 cIT
 cIT
@@ -200059,7 +200035,7 @@ aaa
 aaa
 cwU
 ckY
-cxw
+bum
 cIT
 cJi
 cxV
@@ -200256,9 +200232,9 @@ efU
 efU
 efU
 efU
-aCM
-aCM
-aCM
+bqj
+bqj
+bqj
 cwU
 cxo
 cxw
@@ -200458,12 +200434,12 @@ efR
 ely
 ely
 ely
-aCM
+bqj
 bGF
 bGF
-aCM
-aCM
-bUz
+bqj
+bqj
+bqK
 cIT
 cIT
 cyc
@@ -200660,12 +200636,12 @@ cxx
 enH
 enH
 eyk
-aCM
+bqj
 bGH
-aDb
+bum
 cCr
-bNK
-aDb
+bqt
+bqt
 cIT
 cwF
 cxW
@@ -200862,12 +200838,12 @@ duu
 duu
 duu
 apm
-cAO
-aDb
-aDb
-cCr
-aDb
-bHd
+bRt
+bum
+bum
+bqj
+bqt
+bqt
 cIT
 cIT
 cyc
@@ -201064,12 +201040,12 @@ dSH
 dSH
 duu
 apm
-cAO
-aDb
-bGI
-aCM
+bRt
+bum
+bum
+bqj
 cyS
-cyS
+bqt
 cIT
 cwV
 cxW
@@ -201266,12 +201242,12 @@ dUo
 dVW
 duu
 apm
-cAO
-aDb
+bRt
+bum
 bHd
-aCM
-bFl
-bFl
+bqj
+bqt
+bqt
 cIT
 cxU
 cyd
@@ -201468,12 +201444,12 @@ duu
 duu
 duu
 apm
-cAO
-aDb
-aDb
-aCM
-aCM
-aCM
+bRt
+aCO
+bum
+bqj
+bqj
+bqj
 cIT
 cIT
 cIT
@@ -201670,17 +201646,17 @@ duu
 duY
 duu
 apm
-cAO
-aDb
-aDb
-aDb
-aDb
-bYy
+bRt
+aCO
+bum
+bum
+bum
+bum
+bum
 cpO
-aDb
-bNK
-aDb
-aCM
+bum
+bum
+bqj
 abF
 abF
 aaa
@@ -201872,17 +201848,17 @@ duu
 duI
 cAh
 apm
-aCM
-aMP
-aDb
-aDb
-aDb
-aDb
-aDb
-aDb
-aDb
-aDb
-aCM
+bqj
+bNK
+bum
+bUz
+bUz
+bUz
+bum
+bEL
+bum
+bum
+bqj
 abF
 abF
 bIP
@@ -202074,17 +202050,17 @@ dUp
 dVX
 cAh
 apm
-aCM
-aCM
-cAO
-cAO
-cAO
-cAO
-aCM
-aCM
-cyn
-cyn
-aCM
+bqj
+bqj
+bRt
+bRt
+bRt
+bRt
+bqj
+bqj
+cyp
+cyp
+bqj
 abF
 abF
 bIP
@@ -202283,10 +202259,10 @@ eFC
 eFC
 eFC
 avh
-aCM
+bqj
 cyp
 cyp
-aCM
+bqj
 abF
 abF
 bIP
@@ -202485,10 +202461,10 @@ aaa
 aaa
 aaa
 avi
-aCM
-aCM
-aCM
-aCM
+bqj
+bqj
+bqj
+bqj
 abF
 abF
 bIP
