@@ -8730,15 +8730,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/blast/shutters{
-	dir = 4;
-	id = "maint_hatch_atmos";
-	layer = 3.3;
-	name = "Maintenance Hatch"
-	},
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
-/area/eris/engineering/atmos)
+/area/eris/hallway/side/atmosphericshallway)
 "auz" = (
 /obj/machinery/door/airlock{
 	name = "Unisex Restrooms"
@@ -11992,7 +11986,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck5port)
+/area/eris/hallway/side/atmosphericshallway)
 "aCq" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -12040,7 +12034,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck5port)
+/area/eris/hallway/side/atmosphericshallway)
 "aCx" = (
 /obj/landmark/event/lightsout,
 /turf/simulated/floor/tiled/steel/bluecorner,
@@ -12053,7 +12047,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck5port)
+/area/eris/hallway/side/atmosphericshallway)
 "aCz" = (
 /obj/structure/multiz/ladder,
 /turf/simulated/floor/tiled/techmaint_panels,
@@ -12094,8 +12088,11 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck5port)
+/area/eris/hallway/side/atmosphericshallway)
 "aCG" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -12119,7 +12116,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck5port)
+/area/eris/hallway/side/atmosphericshallway)
 "aCI" = (
 /obj/machinery/atmospherics/pipe/zpipe/up{
 	dir = 8
@@ -12137,7 +12134,7 @@
 	icon_state = "16-0"
 	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck5port)
+/area/eris/hallway/side/atmosphericshallway)
 "aCJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
@@ -12288,9 +12285,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/spawner/traps/wire_splicing/low_chance,
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck5port)
+/area/eris/hallway/side/atmosphericshallway)
 "aDh" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -12314,8 +12314,12 @@
 "aDj" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/structure/railing,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck5port)
+/area/eris/hallway/side/atmosphericshallway)
 "aDk" = (
 /obj/spawner/electronics,
 /obj/spawner/electronics,
@@ -12352,14 +12356,13 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/catwalk,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck5port)
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/hallway/side/atmosphericshallway)
 "aDr" = (
 /obj/structure/disposalpipe/sortjunction{
 	sortType = list("Atmospherics")
@@ -12372,9 +12375,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/spawner/flora/low_chance,
-/turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck5port)
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/hallway/side/atmosphericshallway)
 "aDs" = (
 /obj/structure/multiz/stairs/active/bottom,
 /turf/simulated/floor/tiled/steel,
@@ -12393,8 +12395,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck5port)
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/hallway/side/atmosphericshallway)
 "aDv" = (
 /obj/structure/multiz/stairs/enter{
 	dir = 1
@@ -12509,15 +12511,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "maint_hatch_atmos";
-	layer = 3.3;
-	name = "Maintenance Hatch"
-	},
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/floor/plating,
-/area/eris/maintenance/section4deck5port)
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/hallway/side/atmosphericshallway)
 "aDN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -12526,30 +12521,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "maint_hatch_atmos";
-	layer = 3.3;
-	name = "Maintenance Hatch"
-	},
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/floor/plating,
-/area/eris/maintenance/section4deck5port)
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/hallway/side/atmosphericshallway)
 "aDO" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "maint_hatch_atmos";
-	layer = 3.3;
-	name = "Maintenance Hatch"
-	},
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/floor/plating,
-/area/eris/maintenance/section4deck5port)
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/hallway/side/atmosphericshallway)
 "aDP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
@@ -13480,7 +13462,13 @@
 /area/eris/engineering/atmos)
 "aGu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
-/turf/simulated/floor/plating/under,
+/obj/machinery/door/airlock/atmos{
+	name = "Atmospherics";
+	req_access = newlist();
+	req_one_access = list(24,10)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "aGv" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -18045,21 +18033,17 @@
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/security/prisoncells)
 "aRO" = (
-/obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance_engineering{
-	name = "Engineering Maintenance";
-	req_access = list(10)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/maintenance/section4deck5port)
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/hallway/side/atmosphericshallway)
 "aRP" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/blue,
@@ -99634,10 +99618,8 @@
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section3deck2starboard)
 "eyK" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/simulated/open,
+/obj/structure/multiz/stairs/active/bottom,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/hallway/side/atmosphericshallway)
 "eyL" = (
 /turf/simulated/open,
@@ -103379,6 +103361,10 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
+"eRs" = (
+/obj/structure/multiz/stairs/enter/bottom,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/hallway/side/atmosphericshallway)
 "eRD" = (
 /obj/machinery/portable_atmospherics/canister,
 /obj/machinery/light/small{
@@ -103599,6 +103585,10 @@
 /obj/landmark/storyevent/hidden_vent_antag,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/clothingstorage)
+"fVl" = (
+/obj/spawner/scrap/dense,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck1central)
 "fZr" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/shower{
@@ -103660,6 +103650,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/medical/chemstor)
+"guK" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/engineering/atmos)
 "gvP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_common{
@@ -103675,6 +103674,10 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
+"gxo" = (
+/obj/spawner/scrap,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck1central)
 "gyw" = (
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/plating/under,
@@ -104354,6 +104357,10 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/disposaldrop)
+"jwY" = (
+/obj/spawner/scrap/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck1central)
 "jzP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -104644,6 +104651,12 @@
 /obj/item/weapon/storage/box,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"kGQ" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/eris/hallway/side/atmosphericshallway)
 "kGS" = (
 /obj/spawner/junkfood/rotten,
 /obj/spawner/junkfood/rotten/low_chance,
@@ -106271,9 +106284,6 @@
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/maintenance/section4deck4central)
 "rXW" = (
-/obj/structure/multiz/stairs/enter{
-	dir = 8
-	},
 /obj/structure/multiz/stairs/enter{
 	dir = 4
 	},
@@ -123279,9 +123289,9 @@ aaa
 aaa
 aCW
 aCj
-aCW
+aGr
 aCm
-aCW
+aGr
 aGt
 aHA
 aIH
@@ -123478,12 +123488,12 @@ alg
 aaa
 aaa
 aad
-aai
-aCW
-aCW
-aCW
+aCM
+aCM
+aCM
+aCM
 aRO
-aCW
+aCM
 aCW
 aHb
 aIk
@@ -123680,10 +123690,10 @@ alg
 aaa
 aaa
 aaa
-aai
-avr
-avu
-aCY
+aCM
+aCM
+eyK
+eRs
 aDq
 aDM
 aGu
@@ -123882,14 +123892,14 @@ alg
 alg
 alg
 aaa
-aai
+aCM
 aCp
 aCF
 aDg
 aDr
 aDN
-aFc
-aHz
+aCW
+guK
 aIJ
 aJo
 aJX
@@ -124084,7 +124094,7 @@ asn
 apC
 alg
 aaa
-aai
+aCM
 aCw
 aCH
 aDj
@@ -124286,12 +124296,12 @@ alg
 bUm
 alg
 aaa
-aai
+aCM
 aCy
 aCI
-aCW
+aCM
 auy
-aCW
+aCM
 aCW
 aHd
 aIL
@@ -124488,10 +124498,10 @@ alg
 alg
 alg
 aaa
-aCW
-aCW
-aCW
-aCW
+aCM
+aCM
+aCM
+aCM
 aFp
 aGU
 aHx
@@ -284073,8 +284083,8 @@ dXi
 aaa
 aCM
 aCM
-eyK
-eyK
+dPi
+dPi
 eyM
 eyM
 erS
@@ -284275,8 +284285,8 @@ dXi
 abF
 aaa
 aCM
-eyL
-eyL
+dPi
+dPi
 eyM
 xVV
 cLY
@@ -284477,8 +284487,8 @@ dXi
 abF
 aaa
 aCM
-eyL
-eyL
+kGQ
+kGQ
 eyM
 cLM
 cMr
@@ -284627,8 +284637,8 @@ abF
 abF
 abF
 aaa
-aaa
-aaa
+abF
+abF
 alb
 dNZ
 dPK
@@ -285688,7 +285698,7 @@ bAU
 dXi
 abF
 aaa
-abF
+aae
 eyM
 eyY
 eyY
@@ -285890,8 +285900,8 @@ bAV
 dXi
 abF
 aaa
-abF
-ehk
+aae
+ehl
 eho
 erT
 ehN
@@ -286092,7 +286102,7 @@ cNH
 dXi
 abF
 aaa
-abF
+aae
 ehk
 eho
 ehk
@@ -287304,9 +287314,9 @@ eEN
 dXi
 aaa
 ehk
-ehl
-eho
-eho
+fVl
+gxo
+jwY
 ehs
 eht
 eht
