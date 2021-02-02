@@ -60,5 +60,7 @@
 		return
 	if(standard_pour_into(user, target))
 		return TRUE
+	/* OCCULUS EDIT - NO MORE REVERSE POURING
 	if(standard_dispenser_refill(user, target))
 		return TRUE
+	*/
