@@ -64,7 +64,9 @@
 	desc = "You are of a prestigious family or lineage. Maybe you're self-made. Maybe you're the heir to a fortune.\
 			Either way, you, like everyone else, are stuck aboard the NEV Northern Light. This is not the luxury you are used to. \
 			You're far more likely to be targeted for abduction by... unsavory types. \
-			Stay safe, star-child."
+			Stay safe, star-child. \
+			((Clarification: By abduction the game strictly and exclusively refers to ASSASSINATE objectives, \
+			not the serbian/merc kidnap objectives))"
 
 	perks = list(PERK_NOBLE)
 
