@@ -64,6 +64,12 @@ var/global/list/limb_icon_cache = list()
 	if(!appearance_test.special_update)
 		for(var/obj/item/organ/internal/eyes/I in internal_organs)
 			part_key += I.get_cache_key()
+
+///// OCCULUS EDIT START - delete the laggy old markings system, this is the actual icon caching bit
+	for(var/M in markings)
+		part_key += "[M][markings[M]["color"]]"
+///// OCCULUS EDIT END /////
+
 	return part_key
 
 /obj/item/organ/external/head/sync_colour_to_human(var/mob/living/carbon/human/human)
@@ -110,10 +116,22 @@ var/global/list/limb_icon_cache = list()
 					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair), ICON_MULTIPLY)	//Eclipse edit.
 				overlays |= hair
 
+///// OCCULUS EDIT START - delete the laggy old markings system
+	for(var/M in markings)
+		var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
+		var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
+		mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
+		add_overlay(mark_s) //So when it's not on your body, it has icons
+		mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
+		//icon_cache_key += "[M][markings[M]["color"]]"	//This is implemented in get_cache_keys() instead
+///// OCCULUS EDIT END /////
+
 	return mob_icon
 
 /obj/item/organ/external/update_icon(regenerate = 0)
 	var/gender = "_m"
+
+	overlays.Cut()	// OCCULUS EDIT - Make sure we're not stacking up redundant overlays
 
 	if(appearance_test.simple_setup)
 		gender = owner.gender == FEMALE ? "_f" : "_m"
@@ -161,6 +179,16 @@ var/global/list/limb_icon_cache = list()
 			if(s_col)
 				mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_MULTIPLY)
 
+	///// OCCULUS EDIT START - Delete the laggy body marking system /////
+	if(!istype(src,/obj/item/organ/external/head))
+		for(var/M in markings)
+			var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
+			var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
+			mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
+			add_overlay(mark_s) //So when it's not on your body, it has icons
+			mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
+			//icon_cache_key += "[M][markings[M]["color"]]"	//This is implemented in get_cache_keys() instead
+	///// OCCULUS EDIT END /////
 
 	dir = EAST
 	icon = mob_icon

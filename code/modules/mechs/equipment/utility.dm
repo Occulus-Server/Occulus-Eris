@@ -207,6 +207,15 @@
 	// OCCULUS EDIT -- durability was not being properly applied because material during this proc is null
 	//durability = 2 * (material ? material.integrity : 1)
 
+///// OCCULUS EDIT BEGIN
+// Drills crafted from the crafting menu actually call Created().
+// var/creator is a dummy var to avoid any issues with the call.
+
+/obj/item/weapon/material/drill_head/Created(var/creator)
+	src.ApplyDurability()
+
+///// OCCULUS EDIT END
+
 /obj/item/weapon/material/drill_head/steel/New(var/newloc)
 	..(newloc,MATERIAL_STEEL)
 	src.ApplyDurability()	// OCCULUS EDIT -- apply durability to drills properly

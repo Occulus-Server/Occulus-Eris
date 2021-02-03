@@ -6,7 +6,7 @@
 	uses_energy = FALSE
 	has_energy_upkeep = FALSE
 	energy_cost = 0
-	causes_wear = FALSE	// Enable when we flesh out repair mechanics!
+	causes_wear = TRUE
 	wear_cause_amount = 10
 	can_activate_while_incapacitated = TRUE
 	var/squawk_message = "is at"
