@@ -492,9 +492,9 @@
 /area/outpost/abandoned_fortress)
 "ch" = (
 /obj/structure/closet/emcloset,
-/obj/spawner/ammo_lowcost/low_chance,
-/obj/spawner/ammo_lowcost/low_chance,
-/obj/spawner/ammo_lowcost/low_chance,
+/obj/spawner/ammo/lowcost/low_chance,
+/obj/spawner/ammo/lowcost/low_chance,
+/obj/spawner/ammo/lowcost/low_chance,
 /obj/spawner/junk,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)

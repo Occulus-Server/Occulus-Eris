@@ -22,7 +22,6 @@
 	icon_state = "armor"
 	item_state = "armor"
 	blood_overlay_type = "armor"
-	rarity_value = 3.46
 	armor = list(
 		melee = 30,
 		bullet = 30,
@@ -68,6 +67,7 @@
 	icon_state = "warden_jacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	price_tag = 350
+	rarity_value = 35
 
 /obj/item/clothing/suit/armor/vest/ironhammer
 	name = "operator armor"
@@ -198,6 +198,7 @@
 		rad = 0
 	)
 	price_tag = 400
+	rarity_value = 40
 
 /obj/item/clothing/suit/armor/bulletproof/serbian/green
 	name = "green platecarrier vest"
@@ -240,6 +241,7 @@
 	)
 	siemens_coefficient = 0
 	price_tag = 650
+	rarity_value = 65
 	matter = list(
 		MATERIAL_STEEL = 6, // slightly less steel cost to make room for reflective glass
 		MATERIAL_PLASTEEL = 1,
@@ -343,6 +345,7 @@
 		rad = 0
 	)
 	price_tag = 500
+	rarity_value = 50
 
 /obj/item/clothing/suit/armor/heavy/riot/ironhammer
 	icon_state = "riot_ironhammer"
@@ -421,6 +424,7 @@
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0
 	price_tag = 600
+	rarity_value = 60
 	//Used ablative gear armor values and technomancer helmet/voidsuit values.
 
 // Great-/overcoats retyped from armor to storage

@@ -5,12 +5,16 @@
 	desc = "Generic gray prostesis for everyday use."
 	force_icon = 'icons/mob/human_races/cyberlimbs/asters.dmi'
 	model = "asters"
+	price_tag = 300
+	bad_type = /obj/item/organ/external/robotic/asters
 
 /obj/item/organ/external/robotic/serbian
 	name = "\"Serbain Arms\""
 	desc = "Battle hardened green and brown prostesis rebranded several times."
 	force_icon = 'icons/mob/human_races/cyberlimbs/serbian.dmi'
 	model = "serbian"
+	price_tag = 600
+	bad_type = /obj/item/organ/external/robotic/serbian
 
 //In game prostheses
 
@@ -19,6 +23,8 @@
 	desc = "Tactical \"Frozen Star\" blue and gray prosthesis for dangerous enviroment."
 	force_icon = 'icons/mob/human_races/cyberlimbs/frozen_star.dmi'
 	model = "frozen_star"
+	price_tag = 450
+	bad_type = /obj/item/organ/external/robotic/frozen_star
 
 /obj/item/organ/external/robotic/frozen_star/l_arm
 	default_description = /datum/organ_description/arm/left
@@ -37,6 +43,8 @@
 	desc = "Technomancer \"branded\" \"functional\" prosthesis."
 	force_icon = 'icons/mob/human_races/cyberlimbs/technomancer.dmi'
 	model = "technomancer"
+	price_tag = 700
+	bad_type = /obj/item/organ/external/robotic/technomancer
 
 /obj/item/organ/external/robotic/technomancer/l_arm
 	default_description = /datum/organ_description/arm/left
@@ -59,6 +67,8 @@
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1)
 	max_damage = 60
 	min_broken_damage = 40
+	price_tag = 300
+	bad_type = /obj/item/organ/external/robotic/moebius
 
 /obj/item/organ/external/robotic/moebius/l_arm
 	default_description = /datum/organ_description/arm/left
@@ -86,6 +96,7 @@
 	min_broken_damage = 45
 	price_tag = 600
 	spawn_blacklisted = TRUE
+	bad_type = /obj/item/organ/external/robotic/excelsior
 
 /obj/item/organ/external/robotic/excelsior/l_arm
 	default_description = /datum/organ_description/arm/left

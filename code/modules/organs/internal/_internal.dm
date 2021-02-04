@@ -1,4 +1,7 @@
 /obj/item/organ/internal
+	layer = ABOVE_LYING_MOB_LAYER
+	origin_tech = list(TECH_BIO = 2)
+	bad_type = /obj/item/organ/internal
 	var/list/owner_verbs = list()
 	var/list/organ_efficiency = list()	//Efficency of an organ, should become the most important variable
 	var/unique_tag	//If an organ is unique and doesn't scale off of organ processes
