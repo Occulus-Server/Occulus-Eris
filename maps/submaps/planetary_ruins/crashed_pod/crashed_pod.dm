@@ -4,7 +4,7 @@ GLOBAL_LIST_INIT(crashed_pod_areas, new)
 	name = "crashed survival pod"
 	id = "crashed_pod"
 	description = "A crashed survival pod from a destroyed ship."
-	suffixes = list("crashed_pod/crashed_pod.dmm")
+	suffix = "crashed_pod/crashed_pod.dmm"
 	cost = 2
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_NO_RUINS | TEMPLATE_FLAG_NO_RADS
 	ruin_tags = RUIN_HUMAN|RUIN_WRECK
@@ -12,7 +12,7 @@ GLOBAL_LIST_INIT(crashed_pod_areas, new)
 /area/map_template/crashed_pod
 	name = "\improper Crashed Survival Pod"
 	icon_state = "blue"
-
+/* Occulus Edit: Making this map function
 /decl/submap_archetype/crashed_pod
 	descriptor = "crashed survival pod"
 	crew_jobs = list(/datum/job/submap/pod)
@@ -45,7 +45,7 @@ GLOBAL_LIST_INIT(crashed_pod_areas, new)
 	name = "Crashed Survival Pod"
 	archetype = /decl/submap_archetype/crashed_pod
 	submap_datum_type = /datum/submap/crashed_pod
-
+*/
 /obj/effect/submap_landmark/joinable_submap/crashed_pod/New()
 	var/list/possible_ship_names = list(
 		"Hornet",		"Witchmoth",	"Planthopper",
