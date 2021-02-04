@@ -253,7 +253,7 @@
 	caliber = CAL_ANTIM
 	ammo_type = /obj/item/ammo_casing/antim
 	max_ammo = 30
-	spawn_blacklisted = TRUE
+	spawn_blacklisted = TRUE // occulus modular, kill after loot rework
 
 /obj/item/ammo_magazine/ammobox/antim/scrap
 	name = "ammunition box (old .60 Anti Material)"
@@ -261,4 +261,4 @@
 	ammo_type = /obj/item/ammo_casing/antim/scrap
 	max_ammo = 30
 	rarity_value = 1
-	spawn_blacklisted = TRUE
+	spawn_blacklisted = TRUE // occulus modular, kill after loot rework
