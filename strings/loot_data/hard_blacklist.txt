@@ -314,10 +314,14 @@
 /obj/item/clothing/ears
 /obj/item/clothing
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /obj/item/frame
 /obj/item/remains
 >>>>>>> e41367c... Loot rework part 2. (#5664)
+=======
+/obj/item/remains
+>>>>>>> 92de965... Make devices have cell support as inherent behavior (#5667)
 /obj/item/device/last_shelter
 /obj/item/device/lighting/toggleable/drone
 /obj/item/device/radio/headset/heads
@@ -339,6 +343,7 @@
 /obj/item/device/radio/exosuit
 /obj/item/device/techno_tribalism
 /obj/item/device/von_krabin
+/obj/item/device/scanner
 /obj/item/device/assembly
 /obj/item/device/electronic_assembly/implant
 /obj/item/device/nanite_container
@@ -350,10 +355,13 @@
 /obj/item/device/camera/siliconcam
 /obj/item/device
 <<<<<<< HEAD
+<<<<<<< HEAD
 /obj/item/remains
 =======
 /obj/item/toy/prize
 >>>>>>> e41367c... Loot rework part 2. (#5664)
+=======
+>>>>>>> 92de965... Make devices have cell support as inherent behavior (#5667)
 /obj/item/toy/figure
 /obj/item/toy/plushie
 /obj/item/toy
@@ -899,7 +907,9 @@
 /obj/machinery/teleport/hub
 /obj/machinery/teleport/station
 /obj/machinery/teleport
-/obj/machinery/dna_scannernew
+/obj/machinery/computer/rdconsole/robotics
+/obj/machinery/computer/rdconsole/core
+/obj/machinery/computer/rdconsole
 /obj/machinery/computer/scan_consolenew
 /obj/machinery/computer/general_air_control/large_tank_control
 /obj/machinery/computer/general_air_control/supermatter_core
@@ -969,15 +979,13 @@
 /obj/machinery/computer/shuttle_control
 /obj/machinery/computer/turbine_computer
 /obj/machinery/computer/power_monitor
-/obj/machinery/computer/rdconsole/robotics
-/obj/machinery/computer/rdconsole/core
-/obj/machinery/computer/rdconsole
 /obj/machinery/computer/rdservercontrol
 /obj/machinery/computer/telescience
 /obj/machinery/computer/centrifuge
 /obj/machinery/computer/curer
 /obj/machinery/computer/diseasesplicer
 /obj/machinery/computer
+/obj/machinery/dna_scannernew
 /obj/machinery/bodyscanner
 /obj/machinery/body_scanconsole
 /obj/machinery/ai_slipper
