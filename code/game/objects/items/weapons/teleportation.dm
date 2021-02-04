@@ -96,7 +96,7 @@
 	portal_type = /obj/effect/portal/unstable
 	portal_fail_chance = 50
 	cell_charge_per_attempt = 50
-	entropy_value = 4 //for bluespace entropy
+	//entropy_value = 4 //for bluespace entropy
 	spawn_blacklisted = FALSE
 	var/calibration_required = TRUE
 

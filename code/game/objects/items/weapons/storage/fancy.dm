@@ -21,6 +21,7 @@
 	max_storage_space = 8
 	bad_type = /obj/item/weapon/storage/fancy
 	var/icon_type = "donut"
+	var/item_obj
 
 /obj/item/weapon/storage/fancy/update_icon(var/itemremoved = 0)
 	var/total_contents = src.contents.len - itemremoved

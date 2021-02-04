@@ -278,8 +278,6 @@ BLIND     // can't see anything
 	siemens_coefficient = 0.75
 	bad_type = /obj/item/clothing/gloves
 	spawn_tags = SPAWN_TAG_GLOVES
-	var/wired = 0
-	var/clipped = 0
 	body_parts_covered = HANDS
 	armor = list(melee = 10, bullet = 0, energy = 15, bomb = 0, bio = 0, rad = 0)
 	slot_flags = SLOT_GLOVES
