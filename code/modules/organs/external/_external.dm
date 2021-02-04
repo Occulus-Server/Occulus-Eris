@@ -14,8 +14,6 @@
 	dir = SOUTH
 	layer = BELOW_MOB_LAYER
 	organ_tag = "limb"
-	bad_type = /obj/item/organ/external
-	spawn_tags = SPAWN_TAG_ORGAN_EXTERNAL
 	var/tally = 0
 
 	var/list/s_col                     // skin colour

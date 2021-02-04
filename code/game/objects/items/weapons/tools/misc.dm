@@ -51,6 +51,7 @@
 
 	max_upgrades = 1
 	spawn_tags = null
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/engimplant
 	name = "Engineering Omnitool"
@@ -67,7 +68,7 @@
 	suitable_cell = /obj/item/weapon/cell/medium
 
 	max_upgrades = 1
-	spawn_tags = null
+	spawn_blacklisted = TRUE
 
 	var/buffer_name
 	var/atom/buffer_object

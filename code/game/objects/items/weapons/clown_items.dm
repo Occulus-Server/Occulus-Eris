@@ -26,7 +26,6 @@
 	throw_speed = 4
 	throw_range = 20
 	matter = list(MATERIAL_BIOMATTER = 12)
-	spawn_tags = SPAWN_TAG_ITEM_CLOWN
 
 /obj/item/weapon/soap/New()
 	..()
@@ -122,7 +121,6 @@
 	throw_speed = 3
 	throw_range = 15
 	attack_verb = list("HONKED")
-	spawn_tags = SPAWN_TAG_ITEM_CLOWN
 	var/spam_flag = 0
 
 /obj/item/weapon/bikehorn/New()
@@ -142,7 +140,7 @@
 	)
 	I.gun_loc_tag = GUN_MECHANISM
 
-/obj/item/weapon/bikehorn/attack_self(mob/user)
+/obj/item/weapon/bikehorn/attack_self(mob/user as mob)
 	if (spam_flag == 0)
 		spam_flag = 1
 		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)

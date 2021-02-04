@@ -10,7 +10,6 @@
 	heat_protection =    HEAD|FACE|EYES
 	cold_protection =    HEAD|FACE|EYES
 	brightness_on = 4
-	spawn_tags = null
 
 /obj/item/clothing/gloves/rig
 	name = "gauntlets"
@@ -21,7 +20,6 @@
 	cold_protection =    ARMS|HANDS		//Eclipse edit
 	species_restricted = null
 	gender = PLURAL
-	spawn_tags = null
 
 /obj/item/clothing/shoes/magboots/rig
 	name = "boots"
@@ -32,7 +30,6 @@
 	species_restricted = null
 	gender = PLURAL
 	icon_base = null
-	spawn_tags = null
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
@@ -48,7 +45,6 @@
 	can_breach = 1
 	supporting_limbs = list()
 	retract_while_active = FALSE
-	spawn_tags = null
 
 //TODO: move this to modules
 /obj/item/clothing/head/space/rig/proc/prevent_track()
@@ -82,7 +78,6 @@
 	heat_protection =    HEAD|FACE|EYES
 	cold_protection =    HEAD|FACE|EYES
 	flags =              THICKMATERIAL|AIRTIGHT|COVER_PREVENT_MANIPULATION
-	spawn_tags = null
 
 /obj/item/clothing/suit/lightrig
 	name = "suit"
@@ -92,7 +87,6 @@
 	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv =          HIDEJUMPSUIT
 	flags =              THICKMATERIAL|COVER_PREVENT_MANIPULATION
-	spawn_tags = null
 
 /obj/item/clothing/shoes/lightrig
 	name = "boots"
@@ -101,7 +95,6 @@
 	heat_protection = LEGS
 	species_restricted = null
 	gender = PLURAL
-	spawn_tags = null
 
 /obj/item/clothing/gloves/lightrig
 	name = "gloves"
@@ -111,4 +104,3 @@
 	cold_protection =    LEGS
 	species_restricted = null
 	gender = PLURAL
-	spawn_tags = null

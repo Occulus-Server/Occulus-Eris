@@ -5,7 +5,6 @@
 /obj/item/weapon/grown // Grown weapons
 	name = "grown_weapon"
 	icon = 'icons/obj/weapons.dmi'
-	spawn_tags = null
 	var/plantname
 	var/potency = 1
 
@@ -42,7 +41,6 @@
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
-	spawn_tags = SPAWN_TAG_JUNK
 
 /obj/item/weapon/corncob/attackby(obj/item/I, mob/user)
 	..()
@@ -62,4 +60,3 @@
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
-	spawn_tags = SPAWN_TAG_JUNK_CLOWN

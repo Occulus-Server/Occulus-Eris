@@ -107,7 +107,6 @@
 	name = "nanorepair system"
 	icon_state = "nanorepair_tank"
 	desc = "Contains several capsules of nanites programmed to repair mechanical and electronic systems."
-	spawn_tags = null
 	var/charges = 3
 	var/cooldown
 
@@ -140,7 +139,6 @@
 	name = "smoke deployment system"
 	icon_state = "smokescreen"
 	desc = "Contains several capsules filled with smoking agent. Whem used creates a small smoke cloud."
-	spawn_tags = null
 	var/charges = 3
 
 /obj/item/device/smokescreen/examine(mob/user)
@@ -165,7 +163,7 @@
 /obj/item/device/drone_uplink
 	name = "Drone Bounty Uplink"
 	icon_state = "uplink_access"
-	spawn_tags = null
+	spawn_blacklisted = TRUE
 
 /obj/item/device/drone_uplink/New()
 	..()

@@ -17,26 +17,23 @@
 #define SPAWN_TAG_ITEM "obj,item"
 #define SPAWN_TAG_WEAPON "obj,item,weapon"
 
-
-#define SPAWN_TAG_DICE "obj,item,dice"
-#define SPAWN_TAG_ITEM_BOTANICAL "obj,item,botanical"
-#define SPAWN_TAG_ITEM_CLOWN "obj,item,clown"
-
-
 #define SPAWN_RARE_ITEM "rare_item"
 
 #define SPAWN_TAG_RARE_ITEM "obj,item,rare_item"
 
+#define SPAWN_SPACECASH "spacecash"
+
+#define SPAWN_TAG_SPACECASH "obj,item,spacecash"
+
 //Items - tools
 #define SPAWN_TOOL "tool"
-#define SPAWN_JUNK_TOOL "junk_tool"
 #define SPAWN_ADVANCED_TOOL "advanced_tool"
 #define SPAWN_OS_TOOL "os_tool"
 
 #define SPAWN_TAG_TOOL "obj,item,tool"
 #define SPAWN_TAG_TOOL_ADVANCED "obj,item,tool,advanced_tool"
 #define SPAWN_TAG_OS_TOOL "obj,item,tool,os_tool,onestar"
-#define SPAWN_TAG_TOOL_TAG_JUNK "obj,item,tool,junk_tool,junk"
+#define SPAWN_TAG_TOOL_TAG_JUNK "obj,item,tool,junk"
 
 //	Items - tools - knife
 #define SPAWN_KNIFE "knife"
@@ -66,22 +63,16 @@
 
 #define SPAWN_TAG_ITEM_TECH_OS "obj,item,item_tech_os,onestar"
 
-// organ- PROSTHESIS
-#define SPAWN_ORGAN "organ"
-#define SPAWN_ORGAN_ORGANIC "organ_organic"
-#define SPAWN_PROSTHETIC "organ_prosthetic"
-#define SPAWN_PROSTHETIC_OS "organ_prosthetic_os"
+// ITEMS - organ- PROSTHESIS
+#define SPAWN_OS_PROSTHETIC "prosthetic_os"
 
-#define SPAWN_TAG_ORGAN "obj,item,organ,organ_organic"
-#define SPAWN_TAG_ORGAN_INTERNAL "obj,item,organ,organ_internal,organ_organic"
-#define SPAWN_TAG_ORGAN_EXTERNAL "obj,item,organ,organ_external,organ_organic"
-#define SPAWN_TAG_PROSTHETIC "obj,item,organ,organ_external,organ_prosthetic"
-#define SPAWN_TAG_PROSTHETIC_OS "obj,item,organ,organ_external,organ_prosthetic,organ_prosthetic_os,item_tech_os,onestar"
+#define SPAWN_TAG_OS_PROSTHETIC "obj,item,organ,external,prosthetic,prosthetic_os,item_tech_os,onestar"
 
 //	Items - Oddities
 #define SPAWN_ODDITY "oddity"
 
 #define SPAWN_TAG_ODDITY "obj,item,oddity"
+#define SPAWN_TAG_ODDITY_WEAPON "obj,item,oddity,weapon"
 
 //	Items - Tanks
 #define SPAWN_TANK_GAS "tank_gas"
@@ -245,7 +236,7 @@
 #define SPAWN_TAG_CLOTHING_SUIT_PONCHO "obj,item,clothing,suit,suit_poncho"
 
 //	Items - storage
-#define SPAWN_STORAGE "storage"
+#define SPAWN_storage "storage"
 #define SPAWN_TOOLBOX "toolbox"
 #define SPAWN_POUCH "pouch"
 #define SPAWN_BELT "belt"
@@ -253,7 +244,6 @@
 #define SPAWN_FIRSTAID "firstaid"
 #define SPAWN_BACKPACK "backpack"
 
-#define SPAWN_TAG_STORAGE "obj,item,storage"
 #define SPAWN_TAG_TOOLBOX "obj,item,storage,toolbox"
 #define SPAWN_TAG_POUCH "obj,item,storage,pouch,clothing"
 #define SPAWN_TAG_BELT "obj,item,storage,belt,clothing"
@@ -311,15 +301,15 @@
 #define SPAWN_TAG_RESEARCH_POINTS "obj,item,science"
 #define SPAWN_TAG_COMPUTER_HARDWERE "obj,item,computer_hardware"
 
-// ITEMS - RIG
-#define SPAWN_RIG "rig_suit"
-#define SPAWN_RIG_MODULE "rig_module"
-#define SPAWN_RIG_MODULE_COMMON "rig_module_common"
+// ITEMS - RING
+#define SPAWN_RING "ring_suit"
+#define SPAWN_RING_MODULE "ring_module"
+#define SPAWN_RING_MODULE_COMMON "ring_module_common"
 
-#define SPAWN_TAG_RIG "obj,item,space_suit,rig_suit"
-#define SPAWN_TAG_RIG_HAZMAT "obj,item,space_suit,rig_suit,science"
-#define SPAWN_TAG_RIG_MODULE "obj,item,rig_module"
-#define SPAWN_TAG_RIG_MODULE_COMMON "rig_module_common"
+#define SPAWN_TAG_RING "obj,item,space_suit,ring_suit"
+#define SPAWN_TAG_RING_HAZMAT "obj,item,space_suit,ring_suit,science"
+#define SPAWN_TAG_RING_MODULE "obj,item,ring_module"
+#define SPAWN_TAG_RING_MODULE_COMMON "ring_module_common"
 
 // ITEM - DRIKS
 #define SPAWN_BOOZE "bottle_alcohol"
@@ -471,7 +461,6 @@
 
 #define SPAWN_TAG_REMAINS "obj,item,remains"
 #define SPAWN_TAG_JUNK "obj,item,junk"
-#define SPAWN_TAG_JUNK_CLOWN "obj,item,junk,clown"
 #define SPAWN_TAG_CLEANABLE "effect,cleanable"
 
 //  SPAWNERS
