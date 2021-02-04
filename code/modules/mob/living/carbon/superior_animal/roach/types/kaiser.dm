@@ -26,18 +26,18 @@ Has ability of every roach.
 	move_to_delay = 8
 	mob_size = MOB_HUGE
 
-	var/distress_call_stage = 3
-
-	var/health_marker_1 = 1500
-	var/health_marker_2 = 1000
-	var/health_marker_3 = 500
-
 	blattedin_revives_left = 0
 
 	// TODO: Add a special type of meat for Kaiser
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/fuhrer
 	meat_amount = 15
 	sanity_damage = 3
+
+	var/distress_call_stage = 3
+
+	var/health_marker_1 = 1500
+	var/health_marker_2 = 1000
+	var/health_marker_3 = 500
 
 /mob/living/carbon/superior_animal/roach/kaiser/New()
 	..()

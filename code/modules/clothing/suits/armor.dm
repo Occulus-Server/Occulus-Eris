@@ -247,6 +247,7 @@
 		MATERIAL_PLASTEEL = 1,
 		MATERIAL_GLASS = 15 // reflective material, lots of it
 	)
+	//spawn_blacklisted = TRUE//antag_item_targets-crafteable?
 
 /obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack") //TODO: Refactor this all into humandefense
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
@@ -320,6 +321,7 @@
 	icon_state = "tdred"
 	item_state = "tdred"
 	siemens_coefficient = 1
+	spawn_frequency = 0//Thunderdome
 
 /obj/item/clothing/suit/armor/heavy/green
 	name = "Thunderdome suit (green)"
@@ -327,6 +329,7 @@
 	icon_state = "tdgreen"
 	item_state = "tdgreen"
 	siemens_coefficient = 1
+	spawn_frequency = 0//Thunderdome
 
 // Riot suit
 /obj/item/clothing/suit/armor/heavy/riot
@@ -472,7 +475,6 @@
 /obj/item/clothing/suit/armor/reactive
 	name = "reactive teleport armor"
 	desc = "Someone separated our Research Director's head from their body!"
-	var/active = FALSE
 	icon_state = "reactiveoff"
 	item_state = "reactiveoff"
 	blood_overlay_type = "armor"

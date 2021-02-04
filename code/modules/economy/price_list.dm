@@ -1025,6 +1025,7 @@
 
 /obj/item/weapon/stock_parts
 	price_tag = 100
+
 /obj/item/weapon/stock_parts/get_item_cost(export)
 	. = ..() * rating
 
@@ -1054,6 +1055,7 @@
 	. += (. / 25 * reagents?.total_volume)
 
 /obj/item/ammo_magazine/price_tag = 60
+
 /obj/item/ammo_magazine/ammobox/price_tag = 40
 
 /obj/item/ammo_magazine/get_item_cost(export)

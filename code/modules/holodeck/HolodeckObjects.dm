@@ -221,8 +221,10 @@
 		return 1
 	return 0
 
-/obj/item/weapon/holo/esword/New()
-	item_color = pick("red","blue","green","purple")
+/obj/item/weapon/holo/esword/Initialize(mapload)
+	. = ..()
+	if(!item_color)
+		item_color = pick("red","blue","green","purple")
 
 /obj/item/weapon/holo/esword/attack_self(mob/living/user as mob)
 	active = !active

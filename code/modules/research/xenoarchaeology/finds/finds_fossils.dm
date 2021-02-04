@@ -12,7 +12,8 @@
 	bad_type = /obj/item/weapon/fossil
 	var/animal = 1
 
-/obj/item/weapon/fossil/base/New()
+/obj/item/weapon/fossil/base/Initialize(mapload)
+	. = ..()
 	var/list/l = list("/obj/item/weapon/fossil/bone"=9,"/obj/item/weapon/fossil/skull"=3,
 	"/obj/item/weapon/fossil/skull/horned"=2)
 	var/t = pickweight(l)
@@ -105,3 +106,4 @@
 
 /obj/item/weapon/fossil/plant/New()
 	icon_state = "plant[rand(1,4)]"
+	update_icon()

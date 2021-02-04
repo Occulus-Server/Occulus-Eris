@@ -35,7 +35,6 @@
 	action_button_name = "Flip Welding Mask"
 	siemens_coefficient = 0.9
 	w_class = ITEM_SIZE_NORMAL
-	var/base_state
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	style = STYLE_NEG_LOW

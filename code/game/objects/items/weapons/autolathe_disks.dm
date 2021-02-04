@@ -37,7 +37,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/tools
 	disk_name = "Basic Tool Pack"
 	icon_state = "guild"
-	rarity_value = 5
+	rarity_value = 5.5
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = -1
 	designs = list(
@@ -68,7 +68,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/misc
 	disk_name = "Miscellaneous Pack"
 	icon_state = "guild"
-	rarity_value = 3
+	rarity_value = 3.5
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = -1
 	designs = list(
@@ -101,7 +101,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/devices
 	disk_name = "Devices and Instruments"
 	icon_state = "guild"
-	rarity_value = 2.5
+	rarity_value = 3
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = 10
 	designs = list(
@@ -128,7 +128,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/robustcells
 	disk_name = "Robustcells"
 	icon_state = "guild"
-	rarity_value = 2.5
+	rarity_value = 3
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = 10
 	designs = list(
@@ -145,7 +145,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/components
 	disk_name = "Technomancers ARK-034 Components"
 	icon_state = "technomancers"
-	rarity_value = 3.5
+	rarity_value = 4
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = 20
 	designs = list(
@@ -170,7 +170,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools
 	disk_name = "Technomancers IJIRO-451 Advanced Tools"
 	icon_state = "technomancers"
-	rarity_value = 5
+	rarity_value = 11
 	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
 	license = 10
 	designs = list(
@@ -198,7 +198,7 @@
 	disk_name = "Technomancers ESPO-830 Circuits"
 	icon_state = "technomancers"
 	spawn_tags = SPAWN_TAG_DESING_COMMON
-	rarity_value = 5
+	rarity_value = 5.5
 	license = 10
 	designs = list(
 		/datum/design/autolathe/circuit/airlockmodule,
@@ -224,7 +224,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors
 	disk_name = "Technomancers LAT-018 Logistics"
 	icon_state = "technomancers"
-	rarity_value = 3.5
+	rarity_value = 4
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = 10
 	designs = list(
@@ -239,7 +239,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/medical
 	disk_name = "NanoTrasen Medical Designs"
 	icon_state = "moebius"
-	rarity_value = 4
+	rarity_value = 4.5
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = 20
 	designs = list(
@@ -275,7 +275,7 @@
 	disk_name = "NanoTrasen Computer Parts"
 	icon_state = "moebius"
 	spawn_tags = SPAWN_TAG_DESING_COMMON
-	rarity_value = 4
+	rarity_value = 4.5
 	license = 20
 	designs = list(
 		/datum/design/autolathe/computer_part/frame_pda,
@@ -1307,6 +1307,8 @@
 	)
 
 // ARMOR
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor
+	bad_type = /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/crusader
 	disk_name = "NeoTheology Armory - Crusader Armor"
