@@ -1,4 +1,9 @@
-// Bluespace crystals, used in telescience and when crushed it will blink you to a random turf.
+/obj/item/bluespace_dust
+	name = "bluespace dust"
+	desc = "Some blue dust"
+	icon = 'icons/obj/bluespace_crystal_structure.dmi'
+	icon_state = "dust"
+	spawn_tags = null
 
 /obj/item/bluespace_crystal
 	name = "bluespace crystal"
