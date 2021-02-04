@@ -1,12 +1,13 @@
 /obj/machinery/smartfridge/disks
 	name = "disk compartmentalizer"
 	desc = "A machine capable of storing a variety of disks. Denoted by most as the DSU (disk storage unit)."
-	icon = 'zzz_modular_syzygy/icons/obj/vending.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/vending.dmi'
 	icon_state = "disktoaster"
 	icon_on = "disktoaster"
 	icon_off = "disktoaster-off"
 	icon_panel = "disktoaster-panel"
 	pass_flags = PASSTABLE
+	anchored = FALSE
 
 /obj/machinery/smartfridge/disks/accept_check(var/obj/item/O as obj)
 	if(istype(O, /obj/item/weapon/computer_hardware/hard_drive/portable/))
@@ -27,7 +28,7 @@
 	name = "disc compartmentalizer"
 	result = /obj/machinery/smartfridge/disks
 	time = 200
-	flags = CRAFT_ON_FLOOR|CRAFT_ONE_PER_TURF
+	flags = CRAFT_ON_FLOOR
 	steps = list(
 		list(CRAFT_MATERIAL, 10, MATERIAL_PLASTIC),
 		list(QUALITY_CUTTING, 10, 20),

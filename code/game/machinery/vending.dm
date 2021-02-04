@@ -1404,7 +1404,7 @@
 					/obj/item/weapon/electronics/circuitboard/vending = 500,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/lethal_ammo = 1200,)
 
-/* //Eclipse removal - moved to vending_eclipse.dm
+/* //Occulus Edit - moved to modular occulus vending file FROM eclipse edits. - We may just flat revert this later!
 /obj/machinery/vending/serbomat
 	name = "From Serbia with love"
 	desc = "How did this end up here?"
