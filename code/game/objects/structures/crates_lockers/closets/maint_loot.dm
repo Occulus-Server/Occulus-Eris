@@ -59,7 +59,6 @@
 	icon_door = "eng_tool" //OCCULUS EDIT. FUCKING ERIS!
 	old_chance = 10
 	rarity_value = 50
-	bad_type = /obj/structure/closet/random/spareparts//bad icon
 
 /obj/structure/closet/random/spareparts/populate_contents() //OCCULUS EDIT. FUCKING ERIS
 	new /obj/spawner/lowkeyrandom/low_chance(src)
@@ -79,6 +78,7 @@
 	new /obj/spawner/lathe_disk/low_chance(src)
 	new /obj/spawner/pack/tech_loot/low_chance(src)
 	new /obj/spawner/pack/tech_loot/low_chance(src)
+
 
 
 
