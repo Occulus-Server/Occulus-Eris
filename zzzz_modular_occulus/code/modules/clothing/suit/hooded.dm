@@ -4,6 +4,7 @@ obj/item/clothing/suit/storage/hooded
 	var/hood_up = FALSE
 	var/toggleicon
 	action_button_name = "Toggle Hood"
+	bad_type = /obj/item/clothing/suit/storage/hooded	// so it does not spawn this cursed prototype item
 
 /obj/item/clothing/suit/storage/hooded/New()
 	toggleicon = "[initial(icon_state)]"
