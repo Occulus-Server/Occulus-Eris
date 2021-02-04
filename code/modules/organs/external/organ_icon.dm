@@ -64,6 +64,12 @@ var/global/list/limb_icon_cache = list()
 	if(!appearance_test.special_update)
 		for(var/obj/item/organ/internal/eyes/I in internal_organs)
 			part_key += I.get_cache_key()
+
+///// OCCULUS EDIT START - delete the laggy old markings system, this is the actual icon caching bit
+	for(var/M in markings)
+		part_key += "[M][markings[M]["color"]]"
+///// OCCULUS EDIT END /////
+
 	return part_key
 
 /obj/item/organ/external/head/sync_colour_to_human(var/mob/living/carbon/human/human)
@@ -117,7 +123,7 @@ var/global/list/limb_icon_cache = list()
 		mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
 		add_overlay(mark_s) //So when it's not on your body, it has icons
 		mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
-		//icon_cache_key += "[M][markings[M]["color"]]"
+		//icon_cache_key += "[M][markings[M]["color"]]"	//This is implemented in get_cache_keys() instead
 ///// OCCULUS EDIT END /////
 
 	return mob_icon
@@ -181,7 +187,7 @@ var/global/list/limb_icon_cache = list()
 			mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
 			add_overlay(mark_s) //So when it's not on your body, it has icons
 			mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
-			//icon_cache_key += "[M][markings[M]["color"]]"
+			//icon_cache_key += "[M][markings[M]["color"]]"	//This is implemented in get_cache_keys() instead
 	///// OCCULUS EDIT END /////
 
 	dir = EAST

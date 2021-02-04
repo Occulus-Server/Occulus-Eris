@@ -26978,7 +26978,14 @@
 /area/eris/rnd/lab)
 "bkM" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/bodybags,
+/obj/item/weapon/storage/box/bodybags{
+	pixel_x = -12
+	},
+/obj/item/weapon/storage/box/gloves,
+/obj/item/weapon/storage/box/masks{
+	pixel_x = 12
+	},
+/obj/item/weapon/soulextract,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/lab)
 "bkN" = (
@@ -27327,13 +27334,12 @@
 /area/eris/rnd/lab)
 "blz" = (
 /obj/structure/table/standard,
-/obj/item/weapon/tool/scalpel,
-/obj/item/weapon/tool/saw/circular,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/item/weapon/tool/hemostat,
+/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/weapon/reagent_containers/spray/sterilizine,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/lab)
 "blA" = (
@@ -46248,6 +46254,7 @@
 "cdQ" = (
 /obj/structure/table/woodentable,
 /obj/item/device/megaphone,
+/obj/item/weapon/access_update_tool,
 /turf/simulated/floor/wood,
 /area/eris/command/fo)
 "cdR" = (
@@ -47634,6 +47641,7 @@
 	pixel_y = 26
 	},
 /obj/item/weapon/autopsy_scanner,
+/obj/item/weapon/soulextract,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "cgG" = (
@@ -49460,6 +49468,7 @@
 "cll" = (
 /obj/structure/table/glass,
 /obj/item/weapon/autopsy_scanner,
+/obj/item/weapon/soulextract,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "clm" = (
@@ -73227,6 +73236,7 @@
 	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
+/obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
 "dpg" = (
@@ -77693,6 +77703,7 @@
 /area/eris/medical/reception)
 "dzG" = (
 /obj/structure/table/standard,
+/obj/item/weapon/soulmanip,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/command/mbo)
 "dzH" = (
@@ -79586,6 +79597,7 @@
 /obj/structure/table/standard,
 /obj/spawner/medical,
 /obj/machinery/light,
+/obj/item/weapon/access_update_tool,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dEa" = (
@@ -84032,7 +84044,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/weapon/bluespace_harpoon,
-/obj/item/weapon/access_update_tool,
 /turf/simulated/floor/wood,
 /area/eris/command/meo/quarters)
 "dOj" = (
@@ -103392,6 +103403,10 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/command/mbo/quarters)
+"eZk" = (
+/obj/machinery/slotmachine,
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/eris/crew_quarters/bar)
 "eZV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/steel,
@@ -103411,8 +103426,8 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/cyberplant,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/slotmachine,
 /turf/simulated/floor/wood,
 /area/eris/maintenance/section4deck4central)
 "fht" = (
@@ -103815,6 +103830,10 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
+"hnw" = (
+/obj/structure/cyberplant,
+/turf/simulated/floor/wood,
+/area/eris/maintenance/section4deck4central)
 "hnS" = (
 /obj/machinery/light/small,
 /obj/structure/closet/secure_closet/personal,
@@ -104663,6 +104682,10 @@
 /obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2port)
+"kJA" = (
+/obj/item/weapon/stool/custom/bar_special,
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/eris/crew_quarters/bar)
 "kOq" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/portable_atmospherics/powered/pump,
@@ -169527,7 +169550,7 @@ bsY
 vrm
 fbf
 nse
-nse
+hnw
 bFN
 bGt
 bGT
@@ -206068,8 +206091,8 @@ dGo
 dGX
 dJu
 anJ
-ctE
-ctE
+eZk
+kJA
 ctE
 ewf
 cil

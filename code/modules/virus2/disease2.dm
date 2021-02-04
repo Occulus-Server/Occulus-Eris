@@ -75,6 +75,29 @@
 		cure(mob)
 		return
 
+	///// OCCULUS EDIT START
+	// Grant disease immunity to those with a robotic liver and robotic lungs.
+	// TODO: Later on, introduce computer viruses for people with prosthetics instead of regular viruses.
+	// This is also a QoL fix for FBPs since they cannot use spaceacillin easily, nor does it make sense
+	// for them to need medicine.
+
+	if(istype(H) && H.internal_organs)
+
+		if(H.isSynthetic())
+
+			src.cure(mob)
+			return
+
+		var/obj/item/organ/internal/lungs/lungs = H.random_organ_by_process(OP_LUNGS)
+		var/obj/item/organ/internal/liver/liver = H.random_organ_by_process(OP_LIVER)
+
+		if ((BP_IS_ROBOTIC(lungs) && BP_IS_ROBOTIC(liver)))
+
+			src.cure(mob)
+			return
+
+	///// OCCULUS EDIT END
+
 	if(mob.radiation > 50)
 		if(prob(1))
 			majormutate()

@@ -13,13 +13,13 @@
 /datum/storyevent/roleset/blitz
 	weight = 0
 	enabled = FALSE
-
+/*
 /datum/storyevent/roleset/faction/excelsior
 	req_crew = 12	//Makes it so that at least 9 players must be playing in order to spawn
 	max_crew_diff_lower = 3
 	base_quantity = 2 //They're a group antag, we want a few of em
 	scaling_threshold = 15
-
+*/
 /datum/storyevent/wallrot
 	enabled = TRUE
 

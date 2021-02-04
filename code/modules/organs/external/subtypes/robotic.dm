@@ -10,18 +10,33 @@
 	var/min_malfunction_damage = 20 // Any more damage than that and you start getting nasty random malfunctions
 
 /obj/item/organ/external/robotic/get_cache_key()
-	return "Robotic[model]"
+///// OCCULUS EDIT START - delete the laggy old markings system
+	var/part_key = "Robotic[model]"
+	for(var/M in markings)
+		part_key += "[M][markings[M]["color"]]"
+	return part_key
+///// OCCULUS EDIT END /////
 
 /obj/item/organ/external/robotic/update_icon()
 	var/gender = "m"
+	overlays.Cut()	// OCCULUS EDIT - Make sure we're not stacking up redundant overlays
 	if(owner)
 		gender = owner.gender == FEMALE ? "f" : "m"
 	var/key = "[organ_tag]_[gender]"
 	if(key in icon_states(force_icon))
 		icon_state = key
-	else 
+	else
 		icon_state = "[organ_tag]"
 	mob_icon = icon(force_icon, icon_state)
+///// OCCULUS EDIT START - delete the laggy old markings system
+	for(var/M in markings)
+		var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
+		var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
+		mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
+		add_overlay(mark_s) //So when it's not on your body, it has icons
+		mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
+		//icon_cache_key += "[M][markings[M]["color"]]"	//This is implemented in get_cache_keys() instead
+///// OCCULUS EDIT END /////
 	icon = mob_icon
 	return mob_icon
 

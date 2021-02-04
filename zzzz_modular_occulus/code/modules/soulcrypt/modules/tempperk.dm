@@ -7,8 +7,8 @@
 	uses_energy = TRUE
 	has_energy_upkeep = TRUE
 	energy_cost = 5
-	causes_wear = FALSE	// Enable when we flesh out repair mechanics!
-	wear_cause_amount = 0.01
+	causes_wear = TRUE
+	wear_cause_amount = 0.005
 	var/list/perks_to_add = list()
 
 /datum/soulcrypt_module/perkadder/on_install()

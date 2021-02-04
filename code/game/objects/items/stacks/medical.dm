@@ -196,8 +196,8 @@
 						to_chat(user, SPAN_WARNING("\The [src] is used up, but there are more wounds to treat on \the [affecting.name]."))
 				use(used)
 		else
-			if (can_operate(H, user))        //Checks if mob is lying down on table for surgery
-				if (do_surgery(H,user,src))
+			if (can_operate(H, user) == CAN_OPERATE_ALL)        //Checks if mob is lying down on table for surgery
+				if (do_surgery(H,user,src, TRUE))
 					return
 			else
 				to_chat(user, SPAN_NOTICE("The [affecting.name] is cut open, you'll need more than a bandage!"))
@@ -265,8 +265,8 @@
 						else
 							to_chat(user, "<span class='[pain > 50 ? "danger" : "warning"]'>Your amateur actions caused you [pain > 50 ? "a lot of " : ""]pain.</span>")
 		else
-			if (can_operate(H, user))        //Checks if mob is lying down on table for surgery
-				if (do_surgery(H,user,src))
+			if (can_operate(H, user) == CAN_OPERATE_ALL)        //Checks if mob is lying down on table for surgery
+				if (do_surgery(H,user,src, TRUE))
 					return
 			else
 				to_chat(user, SPAN_NOTICE("The [affecting.name] is cut open, you'll need more than a [src]!"))
@@ -363,8 +363,8 @@
 			use(used)
 			update_icon()
 	else
-		if (can_operate(H, user))        //Checks if mob is lying down on table for surgery
-			if (do_surgery(H,user,src))
+		if (can_operate(H, user) == CAN_OPERATE_ALL)        //Checks if mob is lying down on table for surgery
+			if (do_surgery(H,user,src, TRUE))
 				return
 		else
 			to_chat(user, SPAN_NOTICE("The [affecting.name] is cut open, you'll need more than a bandage!"))
@@ -431,8 +431,8 @@
 						else
 							to_chat(user, "<span class='[pain > 50 ? "danger" : "warning"]'>Your amateur actions caused you [pain > 50 ? "a lot of " : ""]pain.</span>")
 		else
-			if (can_operate(H, user))        //Checks if mob is lying down on table for surgery
-				if (do_surgery(H,user,src))
+			if (can_operate(H, user) == CAN_OPERATE_ALL)        //Checks if mob is lying down on table for surgery
+				if (do_surgery(H,user,src, TRUE))
 					return
 			else
 				to_chat(user, SPAN_NOTICE("The [affecting.name] is cut open, you'll need more than a bandage!"))
