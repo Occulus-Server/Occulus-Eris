@@ -16,6 +16,7 @@
 	var/list/tags_to_spawn = list(SPAWN_ITEM, SPAWN_MOB, SPAWN_MACHINERY, SPAWN_STRUCTURE)
 	var/allow_blacklist = FALSE
 	var/list/aditional_object = list()
+	var/allow_aditional_object = TRUE
 	var/list/exclusion_paths = list()
 	var/list/restricted_tags = list()
 	var/list/include_paths = list()
@@ -33,7 +34,7 @@
 	var/use_biome_range = FALSE
 
 // creates a new object and deletes itself
-/obj/spawner/Initialize()
+/obj/spawner/Initialize(mapload, with_aditional_object=TRUE)
 	..()
 	lsd = GLOB.all_spawn_data["loot_s_data"]
 	allow_aditional_object = with_aditional_object
@@ -47,7 +48,7 @@
 				biome.price_tag += price_tag
 			post_spawn(spawns)
 
-	return latejoin ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_QDEL 
+	return latejoin ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_QDEL
 
 /obj/spawner/LateInitialize()
 	..()
@@ -230,15 +231,15 @@
 	icon = 'icons/misc/mark.dmi'
 	icon_state = "rup"
 
-/obj/randomcatcher/proc/get_item(type)
-	new type(src)
+/obj/randomcatcher/proc/get_item(type, with_aditional_object=FALSE)
+	new type(src, with_aditional_object)
 	if (contents.len)
 		. = pick(contents)
 	else
 		return null
 
-/obj/randomcatcher/proc/get_items(type)
-	new type(src)
+/obj/randomcatcher/proc/get_items(type, with_aditional_object=FALSE)
+	new type(src, with_aditional_object)
 	if (contents.len)
 		return contents
 	else
