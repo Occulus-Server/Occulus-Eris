@@ -21,7 +21,7 @@
 	var/turf/T = get_turf(src)
 	if(istype(T, /turf/simulated/mineral))
 		T:last_find = W
-	qdel(src)
+	return INITIALIZE_HINT_QDEL
 
 /obj/item/weapon/fossil/bone
 	name = "Fossilised bone"
@@ -60,6 +60,7 @@
 /obj/skeleton/New()
 	src.breq = rand(6)+3
 	src.desc = "An incomplete skeleton, looks like it could use [src.breq-src.bnum] more bones."
+	..()
 
 /obj/skeleton/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/fossil/bone))
@@ -105,5 +106,6 @@
 	animal = 0
 
 /obj/item/weapon/fossil/plant/New()
+	..()
 	icon_state = "plant[rand(1,4)]"
 	update_icon()

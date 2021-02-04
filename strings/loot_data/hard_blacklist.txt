@@ -626,6 +626,7 @@
 /obj/item/weapon/spacecash/ewallet
 /obj/item/weapon/spacecash
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /obj/item/weapon/virusdish/random
 /obj/item/weapon/virusdish
@@ -646,6 +647,9 @@
 /obj/item/weapon/holo/esword
 /obj/item/weapon/holo
 >>>>>>> 7d47de9... loot rework optimization. (#5709)
+=======
+/obj/item/weapon/holo
+>>>>>>> 171348a... fix: badly initialized atoms. (#5669)
 /obj/item/weapon/grown
 /obj/item/weapon/plantspray
 /obj/item/weapon/barcodescanner
@@ -789,6 +793,7 @@
 /obj/item/weapon
 /obj/item/tk_grab
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /obj/item/modular_computer/console/preset
 /obj/item/modular_computer/laptop/preset/custom_loadout/cheap/elbrus4kk
@@ -844,6 +849,10 @@
 /obj/item/rocket_engine
 /obj/item/craft
 >>>>>>> e41367c... Loot rework part 2. (#5664)
+=======
+/obj/item/modular_computer/console/preset
+/obj/item/modular_computer
+>>>>>>> 171348a... fix: badly initialized atoms. (#5669)
 /obj/item/stack/cable_coil/cyborg
 /obj/item/stack/medical/advanced
 /obj/item/stack/medical
@@ -1551,6 +1560,7 @@
 /obj/item/slime_extract/rainbow
 /obj/item/slime_extract
 <<<<<<< HEAD
+<<<<<<< HEAD
 /obj/item/modular_computer/console/preset
 /obj/item/modular_computer
 =======
@@ -1561,6 +1571,8 @@
 /obj/item/smallDelivery
 /obj/item/stash_spawner
 >>>>>>> 7d47de9... loot rework optimization. (#5709)
+=======
+>>>>>>> 171348a... fix: badly initialized atoms. (#5669)
 /obj/item/bluespace_dust
 /mob/living/carbon/human/bst
 /mob/living/carbon/human/appearance_test

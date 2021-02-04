@@ -194,18 +194,18 @@
 	throwing = 0
 	var/atom/old_loc = loc
 	if(target.put_in_active_hand(src) && old_loc )
-		if ((target != old_loc) && (target != old_loc.get_holding_mob()))
+		if((target != old_loc) && (target != old_loc.get_holding_mob()))
 			do_pickup_animation(target,old_loc)
 	add_hud_actions(target)
 
 /obj/item/attack_ai(mob/user as mob)
-	if (istype(loc, /obj/item/weapon/robot_module))
+	if(istype(loc, /obj/item/weapon/robot_module))
 		//If the item is part of a cyborg module, equip it
 		if(!isrobot(user))
 			return
 		var/mob/living/silicon/robot/R = user
 		R.activate_module(src)
-//		R.hud_used.update_robot_modules_display()
+	//R.hud_used.update_robot_modules_display()
 
 /obj/item/proc/talk_into(mob/living/M, message, channel, var/verb = "says", var/datum/language/speaking = null, var/speech_volume)
 	return
@@ -219,7 +219,7 @@
 /obj/item/proc/on_slotmove(var/mob/user)
 	if(wielded)
 		unwield(user)
-	if (zoom)
+	if(zoom)
 		zoom(user)
 
 
@@ -352,7 +352,7 @@
 				M.eye_blurry += 10
 				M.Paralyse(1)
 				M.Weaken(4)
-			if (eyes.damage >= eyes.min_broken_damage)
+			if(eyes.damage >= eyes.min_broken_damage)
 				if(M.stat != 2)
 					to_chat(M, SPAN_WARNING("You go blind!"))
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
@@ -379,7 +379,7 @@
 		update_icon()
 
 /obj/item/add_blood(mob/living/carbon/human/M as mob)
-	if (!..())
+	if(!..())
 		return 0
 
 	if(istype(src, /obj/item/weapon/melee/energy))
@@ -469,16 +469,16 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		var/viewoffset = tilesize * tileoffset
 
 		switch(usr.dir)
-			if (NORTH)
+			if(NORTH)
 				usr.client.pixel_x = 0
 				usr.client.pixel_y = viewoffset
-			if (SOUTH)
+			if(SOUTH)
 				usr.client.pixel_x = 0
 				usr.client.pixel_y = -viewoffset
-			if (EAST)
+			if(EAST)
 				usr.client.pixel_x = viewoffset
 				usr.client.pixel_y = 0
-			if (WEST)
+			if(WEST)
 				usr.client.pixel_x = -viewoffset
 				usr.client.pixel_y = 0
 

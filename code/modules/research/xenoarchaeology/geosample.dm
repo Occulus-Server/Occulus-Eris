@@ -21,6 +21,7 @@
 	icon_state = "sliver1"	//0-4
 	w_class = ITEM_SIZE_TINY
 	sharp = TRUE
+	preloaded_reagents = list("ground_rock" = 50)
 	//item_state = "electronic"
 	var/source_rock = "/turf/simulated/mineral/"
 	var/datum/geosample/geological_data
