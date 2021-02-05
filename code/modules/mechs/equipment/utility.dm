@@ -16,11 +16,10 @@
 	if(. && !carrying)
 
 		// OCCULUS EDIT: Range wasn't being checked...
+		// A clause has been inserted and the following code tabbed as a result.
 		if(!inrange)
 			to_chat(user, "You need to be adjacent to \the [target] to use the hydraulic clamp.")
 		else
-		// OCCULUS EDIT END
-
 			if(istype(target, /obj))
 				var/obj/O = target
 				if(O.buckled_mob)
@@ -49,7 +48,6 @@
 					carrying = O
 					owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [O] into its cargo compartment."))
 
-
 			//attacking - Cannot be carrying something, cause then your clamp would be full
 			else if(istype(target,/mob/living))
 				var/mob/living/M = target
@@ -67,6 +65,7 @@
 					step_away(M, owner)
 					to_chat(user, "You push [target] out of the way.")
 					owner.visible_message("[owner] pushes [target] out of the way.")
+			// OCCULUS EDIT END
 
 /obj/item/mech_equipment/clamp/attack_self(var/mob/user)
 	. = ..()
@@ -268,11 +267,13 @@
 	. = ..()
 	if(.)
 
+
 		// OCCULUS EDIT: Range wasn't being checked...
+		// The following codeblock has been tabbed after this conditional.
+
 		if(!inrange)
 			to_chat(user, "You need to be adjacent to \the [target] to drill.")
 		else
-		// OCCULUS EDIT END
 
 			if(isobj(target))
 				var/obj/target_obj = target
@@ -350,8 +351,8 @@
 			else
 				to_chat(user, "You must stay still while the drill is engaged!")
 
-
 		return 1
+		// OCCULUS EDIT END
 
 /obj/item/mech_equipment/mounted_system/extinguisher
 	icon_state = "mech_exting"
