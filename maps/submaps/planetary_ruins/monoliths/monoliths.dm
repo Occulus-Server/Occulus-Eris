@@ -2,7 +2,7 @@
 	name = "Monolith Ring"
 	id = "planetsite_monoliths"
 	description = "Bunch of monoliths surrounding an artifact."
-	suffixes = list("monoliths/monoliths.dmm")
+	suffixes = "monoliths/monoliths.dmm"
 	cost = 1
 	template_flags = TEMPLATE_FLAG_NO_RUINS
 	ruin_tags = RUIN_ALIEN

@@ -20,7 +20,8 @@
 
 /obj/item/weapon/card/id/account/New()
 	var/datum/money_account/department_account = department_accounts[department]
-	associated_account_number = department_account.account_number
+	if(department_account)
+		associated_account_number = department_account.account_number //This only fails during setup!
 
 /obj/item/weapon/card/id/account/command
 	name = "NEV Northern Light banking card"
@@ -91,7 +92,7 @@
 	backpack_contents = list(/obj/item/weapon/card/id/account/guild =1)
 
 /decl/hierarchy/outfit/job/security/ihc
-	backpack_contents = list(/obj/item/weapon/handcuffs = 1,/obj/item/ammo_magazine/magnum/rubber = 1,/obj/item/device/lighting/toggleable/flashlight/seclite = 1, /obj/item/weapon/cell/small/high = 2, /obj/item/weapon/gun/energy/gun/martin = 1, /obj/item/weapon/card/id/account/aegis = 1)
+	backpack_contents = list(/obj/item/weapon/handcuffs = 1,/obj/item/ammo_magazine/magnum/rubber = 1,/obj/item/device/lighting/toggleable/flashlight/seclite = 1, /obj/item/weapon/cell/small/high = 2,  /obj/item/weapon/card/id/account/aegis = 1)
 
 /decl/hierarchy/outfit/job/medical/cmo
 	backpack_contents = list(/obj/item/weapon/card/id/account/medical = 1)
@@ -108,4 +109,17 @@
 	id_type = /obj/item/weapon/card/id/white
 	pda_type = /obj/item/modular_computer/pda/club_worker
 	backpack_contents = list(/obj/item/ammo_casing/shotgun/beanbag = 4, /obj/item/weapon/card/id/account/club = 1)
+
+/obj/structure/closet/secure_closet/reinforced/manager
+	name = "club manager's closet"
+	req_access = list(access_change_club)
+	icon_state = "cabinet"
+	icon_lock = "cabinet"
+
+/obj/structure/closet/secure_closet/reinforced/manager/populate_contents()
+	new /obj/item/clothing/under/rank/bartender(src)
+	new /obj/item/clothing/shoes/color/black(src)
+	new /obj/item/device/radio/headset/headset_service(src)
+	new /obj/item/device/scanner/price(src)
+	new /obj/item/weapon/storage/box/shotgunammo/beanbags(src)
 

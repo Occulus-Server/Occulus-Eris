@@ -46,6 +46,4 @@
 
 	minimum_breath_pressure = 13	//Smaller, means they need less air. Also bubgs.
 */
-	blurb = "An experiment of growing vast amounts of organic silk gone awry! These insectoid creatures were created by Lazarus Foundation \
-	for commercial profit, but turned out to be sapient. Quickly adopted by the shrewd HR department of NanoTrasen, these arthropods \
-	are educated and assigned mostly as menial workers on NanoTrasen ships and stations."
+	blurb = "Not an offical species, however it is here so it's sprite can be used for custom species." //Occulus edit
