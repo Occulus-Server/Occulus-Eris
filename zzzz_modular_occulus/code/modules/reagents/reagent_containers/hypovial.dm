@@ -108,7 +108,7 @@
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/CMO
 	name = "deluxe hypovial"
 	icon_state = "hypoviallarge-cmos"
-	preloaded_reagents = list("nanosymbiotes" = 40, "oxyrush" = 40, "trauma_control_system" = 40)
+	preloaded_reagents = list("nanosymbiotes" = 20, "oxyrush" = 20, "trauma_control_system" = 20)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/bicaridine
 	name = "large red hypovial (bicaridine)"
@@ -139,4 +139,4 @@
 	name = "combat hypovial"
 	icon_state = "hypoviallarge-t"
 	rarity_value = 100
-	preloaded_reagents = list("synaptizine" = 20, "hyperzine" = 20, "oxycodone" = 20, "trauma_control_system" = 20, "nanosymbiotes" = 20)
+	preloaded_reagents = list("synaptizine" = 10, "hyperzine" = 10, "oxycodone" = 10, "trauma_control_system" = 10, "nanosymbiotes" = 10)
