@@ -77,7 +77,7 @@
 
 /obj/item/weapon/storage/hypospraykit/tactical
 	name = "combat hypospray kit"
-	desc = "A hypospray kit best suited for combat situations."
+	desc = "A hypospray kit best suited for combat situations. Contains combat drugs, caution reccomended."
 	icon_state = "tactical-mini"
 	rarity_value = 100
 
@@ -90,7 +90,7 @@
 
 /obj/item/weapon/storage/hypospraykit/cmo
 	name = "deluxe hypospray kit"
-	desc = "A kit containing a Deluxe hypospray and Vials."
+	desc = "A kit containing a Deluxe hypospray MKII and Vials."
 	icon_state = "tactical-mini"
 
 /obj/item/weapon/storage/hypospraykit/cmo/populate_contents()

@@ -11,7 +11,7 @@
 
 //A vial-loaded hypospray. Cartridge-based!
 /obj/item/hypospray/mkii
-	name = "hypospray mk.I"
+	name = "hypospray mk.II"
 	icon_state = "hypo2"
 	icon = 'zzzz_modular_occulus/icons/obj/syringe.dmi'
 	desc = "A new development from a newly acquired Nanotrasen subsidiary, this hypospray takes 30-unit vial cartridges as the drug supply for easy swapping."
@@ -43,7 +43,7 @@
 	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/tricord
 
 /obj/item/hypospray/mkii/CMO
-	name = "hypospray mk.II Prototype"
+	name = "hypospray mk.II deluxe prototype"
 	allowed_containers = list(/obj/item/weapon/reagent_containers/glass/beaker/hypovial/tiny, /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small, /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large)
 	icon_state = "cmo2"
 	desc = "The Mk.II Prototype hypospray can take larger-size vials. It also acts faster and delivers more reagents per spray.Official patent pending."
@@ -53,7 +53,7 @@
 	inject_self = DELUXE_SELF_INJECT
 
 /obj/item/hypospray/mkii/CMO/combat
-	name = "combat hypospray mk.III"
+	name = " hypospray mk.II combat prototype"
 	desc = "A combat-ready deluxe hypospray that acts almost instantly. It can be tactically reloaded by using a vial on it. Designed for military engagements. Official patent pending."
 	icon_state = "combat2"
 	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/combat

@@ -2780,6 +2780,7 @@
 #include "zzzz_modular_occulus\code\controllers\pixelshift.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\guns.dm"
 #include "zzzz_modular_occulus\code\datums\perks\oddity.dm"
+#include "zzzz_modular_occulus\code\datums\uplink\medical.dm"
 #include "zzzz_modular_occulus\code\game\occulus-lore-fixes.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\storytellers\storyevent.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\storytellers\storytellers.dm"
