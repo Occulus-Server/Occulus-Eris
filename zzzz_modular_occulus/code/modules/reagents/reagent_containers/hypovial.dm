@@ -47,21 +47,21 @@
 	name = "hypovial"
 	volume = 60
 	rarity_value = 30
-	possible_transfer_amounts = list(1,2,5,10,20)
+	possible_transfer_amounts = list(1,2,5,10,15)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/bluespace
 	name = "bluespace hypovial"
 	icon_state = "hypovialbs"
 	rarity_value = 90
 	volume = 120
-	possible_transfer_amounts = list(1,2,5,10,20)
+	possible_transfer_amounts = list(1,2,5,10,15,20)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large
 	name = "large hypovial"
 	desc = "A large hypovial, for deluxe hypospray models."
 	icon_state = "hypoviallarge"
 	volume = 120
-	possible_transfer_amounts = list(1,2,5,10,20)
+	possible_transfer_amounts = list(1,2,5,10,15,20)
 /*	unique_reskin = list("large hypovial" = "hypoviallarge",		//Saving for icon reference purely.
 						"large red hypovial" = "hypoviallarge-b",
 						"large blue hypovial" = "hypoviallarge-d",

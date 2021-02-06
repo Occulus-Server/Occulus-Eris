@@ -14,6 +14,7 @@
 	name = "hypospray mk.II"
 	icon_state = "hypo2"
 	icon = 'zzzz_modular_occulus/icons/obj/syringe.dmi'
+	item_icons = list(slot_l_hand_str = 'zzzz_modular_occulus/icons/mob/left_hand.dmi', slot_r_hand_str = 'zzzz_modular_occulus/icons/mob/right_hand.dmi')
 	desc = "A new development from a newly acquired Nanotrasen subsidiary, this hypospray takes 30-unit vial cartridges as the drug supply for easy swapping."
 	w_class = ITEM_SIZE_TINY
 	var/amount_per_transfer_from_this
