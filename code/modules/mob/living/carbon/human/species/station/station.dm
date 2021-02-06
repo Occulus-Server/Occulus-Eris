@@ -1,13 +1,13 @@
+////This page is now an Occulus Edit////
 /datum/species/human
 	name = "Human"
 	name_plural = "Humans"
 	primitive_form = "Monkey"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
-	blurb = "Humanity originated in the Sol system, and over the last two centuries has spread \
-	colonies across a wide swathe of space. They hold a wide range of forms and creeds.<br/><br/> \
-	While the central Sol government acts as a United Front for humanity, powerful corporate \
-	interests, rampant cyber and bio-augmentation and secretive factions make life on most human \
-	worlds tumultous at best."
+	blurb = "Humanity originated in the Sol system, and over the last three centuries has spread \
+	colonies across a wide swathe of the Orion Spur. Humanity is one of the two most genetically and culturally divergent species \
+	with genetic splicing and bio-augmentation being so common among groups of them. While the United Terran Terran Systems - \
+	nicknamed Solgov, does it's best to provide a federal backbone to the species, it's secular nature still thrives today."
 	num_alternate_languages = 2
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
 	min_age = 17
@@ -56,8 +56,8 @@
 	blurb = "A reptilian species from the Uuosa-Eso system that speaks the hissing Sinta'Unathi language. \
 	Most Unathi are guided by a complex Ethnoreligion called the Unity,\
 	which stresses honesty, bravery, and the perfection of one's craft. \
-	Discovered less then a generation ago by SolGov,\
-	an ensuring war against SolGov by the Unathi over the colony of Abel’s Rest has led to cross-migration between the two powers."
+	Discovered a handful of generations ago by the Skrell, they're an independent power with loyal ties to the \
+	Skrellian people."
 
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 220 //Default 200
@@ -167,13 +167,10 @@
 
 //	economic_modifier = 7
 
-	blurb = "The Tajaran are a feliform species from Meralar in the Rarkajar system. \
-	They have a rich cultural history influenced by three predominant ethnic groups. \
-	the Hharar who are the most populous and with noble lineages, The great explorers of the Njarir'Akhan, and the barbarians of the Zhan-Khazan. \
-	Unlike many other species, the Tajaran homeworld is still not fully united and  \
-	even now Tajara speak a variety of languages, including Siik and Akhani."
-
-	body_temperature = 320.15	//Even more cold resistant, even more flammable
+	blurb = "Hailing from the world of Merelar in the Mecati-Stendarr binary star system. Tajaran are a hardy species of feline-like \
+	bipedal sapients that easily stand below-freezing temperatures and adapt quickly to humid ones. The Tajaran species shares a joint republic \
+	with the Teshari on the far edge of the Orion spur, formally known as the Tajaran-Teshari Alliance."
+	body_temperature = 293.15	//this actualy fixes itchy fur spam
 
 	cold_level_1 = 200 //Default 260
 	cold_level_2 = 140 //Default 200
@@ -204,7 +201,7 @@
 
 //	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
-	heat_discomfort_level = 303		// Occulus edit - Temperature message spam removal
+	heat_discomfort_level = 303		// Occulus edit - this does nothing for itchy fur spam, see body temp above
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
 		"You feel uncomfortably warm.",
@@ -234,12 +231,13 @@
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
 	primitive_form = SPECIES_MONKEY_SKRELL
 	unarmed_types = list(/datum/unarmed_attack/punch)
-	blurb = "n amphibious herbivore species, Skrell come from the Qerr'Vallis system, Skrell Society is very rigid and regimental \
-	with a focus on knowlege and defined by an all encompassing caste system, with rulers, builders, scientists, artists and warriors. \
-	The Skrell city-states are also close allies with humantiy and the Sol Central Government \
-	though there remains a great tension over the regimented nature of Skrell society \
-	and the refusal of the Skrell to reveal their secrets."
-	num_alternate_languages = 3
+	blurb = "The Skrell are a race of amphibious, cold-blooded humanoid aliens. They are one of the major players in \
+	galactic politics, and although they are considered relatively on a similar level of political and military power to SolGov,\
+	 their exact capabilities are kept secret and unclear. Their society follows a caste system and generally tries to project the \
+	 Skrell as rational, dependable, and careful. It is their overt caution that borders on paranoia in their interactions, however, \
+	 that most hinders them. A remainder from a harsh period of history and potential bad actors. Skrell are, in short, hard to trust, \
+	 and choose their words and truths carefully."
+	num_alternate_languages = 4 //Let's give the smart frogs some love
 	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_SCHECHI)
 	name_language = LANGUAGE_SKRELLIAN
 //	species_language = LANGUAGE_SKRELLIAN

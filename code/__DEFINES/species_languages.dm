@@ -48,6 +48,7 @@
 #define LANGUAGE_SIIK "Siik"
 #define LANGUAGE_SKRELLIAN "Common Skrellian"
 #define LANGUAGE_SCHECHI "Schechi"
+#define LANGUAGE_BIRDSONG "Nevari"
 #define LANGUAGE_ROOTLOCAL "Local Rootspeak"
 #define LANGUAGE_ROOTGLOBAL "Global Rootspeak"
 #define LANGUAGE_YUELDISCH "Yueldisch"
