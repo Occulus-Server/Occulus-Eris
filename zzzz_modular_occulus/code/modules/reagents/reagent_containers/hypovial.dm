@@ -11,30 +11,24 @@
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/Initialize()
 	. = ..()
-//	update_icon()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/update_icon()
 	cut_overlays()
 
 	if(reagents.total_volume)
-//		var/ratio = 0
-//		ratio = volume / reagents.total_volume
-//		ratio = min(max(round(ratio,0.25) * 100, 25), 100)
 		var/mutable_appearance/filling = mutable_appearance('zzzz_modular_occulus/icons/obj/reagentfillings.dmi', "hypovial[get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/Initialize()
 	. = ..()
-//	update_icon()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/update_icon()
 	cut_overlays()
 
 	if(reagents.total_volume)
-//		var/ratio = 0
-//		ratio = volume / reagents.total_volume
-//		ratio = min(max(round(ratio,0.25) * 100, 25), 100)
 		var/mutable_appearance/filling = mutable_appearance('zzzz_modular_occulus/icons/obj/reagentfillings.dmi', "hypoviallarge[get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)

@@ -204,10 +204,6 @@
 	playsound(loc, long_sound ? 'zzzz_modular_occulus/sound/items/hypospray_long.ogg' : pick('zzzz_modular_occulus/sound/items/hypospray.ogg','zzzz_modular_occulus/sound/items/hypospray2.ogg'), 50, 1, -1)
 	to_chat(user, "<span class='notice'>You inject [vial.amount_per_transfer_from_this] units of the solution. The hypospray's cartridge now contains [vial.reagents.total_volume] units.</span>")
 
-/*	var/contained = reagents.log_list()
-	var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BLOOD)
-	admin_inject_log(user, M, src, contained, trans)
-	to_chat(user, SPAN_NOTICE("[trans] units injected. [reagents.total_volume] units remaining in \the [src].")) */
 	return
 
 
@@ -223,26 +219,3 @@
 		else
 			unload_hypo(vial,user)
 
-
-
-/*var/fraction = min(vial.amount_per_transfer_from_this/vial.reagents.total_volume, 1)
-				vial.reagents.reaction(L, method, fraction)
-				vial.reagents.trans_to(target, vial.amount_per_transfer_from_this)
-				var/long_sound = vial.amount_per_transfer_from_this >= 15
-				playsound(loc, long_sound ? 'sound/items/hypospray_long.ogg' : pick('sound/items/hypospray.ogg','sound/items/hypospray2.ogg'), 50, 1, -1)
-				to_chat(user, "<span class='notice'>You inject [vial.amount_per_transfer_from_this] units of the solution. The hypospray's cartridge now contains [vial.reagents.total_volume] units.</span>") */
-
-#undef HYPO_SPRAY
-#undef HYPO_INJECT
-#undef WAIT_SPRAY
-#undef WAIT_INJECT
-#undef SELF_SPRAY
-#undef SELF_INJECT
-#undef DELUXE_WAIT_SPRAY
-#undef DELUXE_WAIT_INJECT
-#undef DELUXE_SELF_SPRAY
-#undef DELUXE_SELF_INJECT
-#undef COMBAT_WAIT_SPRAY
-#undef COMBAT_WAIT_INJECT
-#undef COMBAT_SELF_SPRAY
-#undef COMBAT_SELF_INJECT
