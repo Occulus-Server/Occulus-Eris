@@ -2,7 +2,7 @@
 
 //First, let's start out by defining the radio sprite to use the new sprite.
 /obj/item/device/radio
-	icon = 'zzz_modular_eclipse/radio_sprites/xpr.dmi'		//This is overridden for borg radios and encryption keys don't inherit; the rest are reset below.
+	icon = 'zzzz_modular_occulus/icons/obj/xpr.dmi'		//This is overridden for borg radios and encryption keys don't inherit; the rest are reset below.
 	icon_state = "xprgrey"
 	desc = "A basic two-way radio."
 
@@ -63,15 +63,15 @@
 	desc = "An emergency radio for quick, one-way contact with the medbay. This radio has been programmed with a frequency lock, which prevents it from changing channels."		//Short of admin intervention, anyway...
 	frequency = MED_I_FREQ
 	freqlock = TRUE
-	
+
 /obj/item/device/radio/color/lightblue/emergency/update_icon()
-	icon_state = initial(icon_state)		//No 'off' sprite. 
+	icon_state = initial(icon_state)		//No 'off' sprite.
 
 /obj/item/device/radio/color/purple		//Research
 	icon_state = "xprviolet"
 	desc = "A basic two-way radio. This one in particular is an experimental purple."
 
-	
+
 ///////////////// END OF FUNCTIONAL CODE /////////////////
 
 // These are not redefined elsewhere, so we need to stick these here to prevent from breaking the sprites.
@@ -80,11 +80,42 @@
 
 /obj/item/device/radio/electropack
 	icon = 'icons/obj/radio.dmi'
-	
+
 /obj/item/device/radio/headset
 	icon = 'icons/obj/radio.dmi'
-	
+
 /obj/item/device/radio/intercom
 	icon = 'icons/obj/radio.dmi'
 
 //We don't touch the base update_icon() proc so there's no need to redefine that.
+
+var/global/list/all_radio_squelch_sounds = list('sound/effects/radio_squelch/squelch1.ogg', 'sound/effects/radio_squelch/squelch2.ogg', 'sound/effects/radio_squelch/squelch3.ogg', 'sound/effects/radio_squelch/squelch4.ogg')
+
+/obj/item/device/radio
+	var/audible_squelch_enabled = TRUE
+	var/audible_squelch_type = 'sound/misc/null.ogg'		//should be overwritten on New()
+
+/obj/item/device/radio/proc/play_squelch_sound(var/audiofile)
+	if(audible_squelch_enabled)
+		playsound(loc, audiofile, 25, 1, 1)
+
+/obj/item/device/radio/beacon
+	audible_squelch_enabled = FALSE
+
+/obj/item/device/radio/borg
+	audible_squelch_enabled = FALSE
+
+/obj/item/device/radio/exosuit
+	audible_squelch_enabled = FALSE
+
+/obj/item/device/radio/electropack
+	audible_squelch_enabled = FALSE
+
+/obj/item/device/radio/intercom		//we don't want intercoms to do this.
+	audible_squelch_enabled = FALSE
+
+/obj/item/device/radio/phone
+	audible_squelch_enabled = FALSE
+
+/obj/item/device/radio/spy
+	audible_squelch_enabled = FALSE

@@ -1,117 +1,117 @@
 //BIG CELLS - for APC, borgs and machinery.
 /obj/item/weapon/cell/large
-	price_tag = 1000
+	price_tag = 500
 
 /obj/item/weapon/cell/large/high
-	price_tag = 2000
+	price_tag = 700
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 3, MATERIAL_SILVER = 4)
 
 /obj/item/weapon/cell/large/super
-	price_tag = 4000
+	price_tag = 1200
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 3, MATERIAL_GOLD = 2)
 
 /obj/item/weapon/cell/large/hyper
-	price_tag = 4500
+	price_tag = 2000
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 2, MATERIAL_GOLD = 2, MATERIAL_PLATINUM = 1)
 
 /obj/item/weapon/cell/large/moebius
-	price_tag = 1000
+	price_tag = 500
 
 /obj/item/weapon/cell/large/moebius/high
-	price_tag = 1500
+	price_tag = 700
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 3, MATERIAL_SILVER = 4)
 
 /obj/item/weapon/cell/large/moebius/super
-	price_tag = 2000
+	price_tag = 1200
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 3, MATERIAL_GOLD = 2)
 
 /obj/item/weapon/cell/large/moebius/hyper
-	price_tag = 3000
+	price_tag = 2000
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 2, MATERIAL_GOLD = 2, MATERIAL_PLATINUM = 1)
 
 /obj/item/weapon/cell/large/moebius/nuclear
-	price_tag = 4000
+	price_tag = 3000
 
 /obj/item/weapon/cell/large/excelsior
-	price_tag = 1000
+	price_tag = 800
 
 //Meme cells - for fun and cancer
 
 /obj/item/weapon/cell/large/potato
-	name = "potato battery"
-	desc = "A rechargable starch based power cell."
-	origin_tech = list(TECH_POWER = 1)
-	icon = 'icons/obj/power.dmi'
-	icon_state = "potato_cell"
-	charge = 100
-	maxcharge = 300
-	minor_fault = 1
-	spawn_blacklisted = TRUE
+	price_tag = 100
 
 /obj/item/weapon/cell/large/slime
-	name = "charged slime core"
-	desc = "A yellow slime core infused with phoron, it crackles with power."
-	origin_tech = list(TECH_POWER = 2, TECH_BIO = 4)
-	icon = 'icons/mob/slimes.dmi'
-	icon_state = "yellow slime extract"
-	maxcharge = 10000
-	matter = null
-	spawn_blacklisted = TRUE
+	price_tag = 1500
 
 //MEDIUM CELLS - for energy weapons and large devices
 
 /obj/item/weapon/cell/medium
-	price_tag = 200
+	price_tag = 300
 
 /obj/item/weapon/cell/medium/high
-	price_tag = 300
+	price_tag = 400
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 3)
 
 /obj/item/weapon/cell/medium/super
-	price_tag = 300
+	price_tag = 700
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_SILVER = 2, MATERIAL_GOLD = 2)
 
 /obj/item/weapon/cell/medium/hyper
-	price_tag = 700
+	price_tag = 1000
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_SILVER = 1, MATERIAL_GOLD = 2, MATERIAL_PLATINUM = 1)
 
 /obj/item/weapon/cell/medium/moebius
-	price_tag = 200
+	price_tag = 300
 
 /obj/item/weapon/cell/medium/moebius/high
-	price_tag = 250
-
+	price_tag = 400
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 3)
 
 /obj/item/weapon/cell/medium/moebius/super
-	price_tag = 300
+	price_tag = 700
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_SILVER = 2, MATERIAL_GOLD = 2)
 
 /obj/item/weapon/cell/medium/moebius/hyper
-	price_tag = 350
+	price_tag = 1000
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_SILVER = 1, MATERIAL_GOLD = 2, MATERIAL_PLATINUM = 1)
 
 /obj/item/weapon/cell/medium/moebius/nuclear
-	price_tag = 400
+	price_tag = 1500
 
 /obj/item/weapon/cell/medium/excelsior
-	price_tag = 300
+	price_tag = 400
 
 //SMALL CELLS - for small devices, such as flashlights, analyzers and HUDs.
 /obj/item/weapon/cell/small
 	price_tag = 100
 
 /obj/item/weapon/cell/small/high
-	price_tag = 150
-
-/obj/item/weapon/cell/small/super
 	price_tag = 200
 
+/obj/item/weapon/cell/small/super
+	price_tag = 350
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_GOLD = 1)
+
 /obj/item/weapon/cell/small/hyper
-	price_tag = 400
+	price_tag = 500
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_PLATINUM = 1)
 
 /obj/item/weapon/cell/small/moebius
-	price_tag = 50
+	price_tag = 100
 
 /obj/item/weapon/cell/small/moebius/high
 	price_tag = 200
 
 /obj/item/weapon/cell/small/moebius/super
-	price_tag = 200
+	price_tag =	350
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_GOLD = 1)
 
 /obj/item/weapon/cell/small/moebius/hyper
-	price_tag = 300
+	price_tag = 500
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_PLATINUM = 1)
 
 /obj/item/weapon/cell/small/moebius/nuclear
-	price_tag = 400
+	price_tag = 700
 
 /obj/item/weapon/cell/small/moebius/pda
 	price_tag = 50

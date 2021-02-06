@@ -460,7 +460,7 @@
 	price_tag = 5 //THIS IS MULTIPLIED BY (TOTAL TOOL_QUALITIES/5+1)
 /obj/item/ammo_casing/
 	price_tag = 2
-	
+
 /obj/item/clothing/head/space
 	price_tag = 100
 /obj/item/clothing/head/space/void/medical
@@ -489,6 +489,8 @@
 	price_tag = 2500
 /obj/item/clothing/head/space/void/excelsior
 	price_tag = 50
+/obj/item/clothing/head/space/capspace
+	price_tag = 1000
 
 /obj/item/clothing/suit/space
 	price_tag = 600
@@ -510,6 +512,8 @@
 	price_tag = 1500
 /obj/item/clothing/suit/space/void/science
 	price_tag = 1500
+/obj/item/clothing/suit/space/void/captain
+	price_tag = 1500
 /obj/item/clothing/suit/space/void/merc
 	price_tag = 1800
 /obj/item/clothing/suit/space/void/SCAF
@@ -518,6 +522,6 @@
 	price_tag = 12000 //Basically won't spawn and super rare. Also covered in gems
 /obj/item/clothing/suit/space/void/excelsior
 	price_tag = 300
-	
+
 /obj/item/weapon/rig
 	price_tag = 3000
