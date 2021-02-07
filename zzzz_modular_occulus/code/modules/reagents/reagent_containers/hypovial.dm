@@ -129,8 +129,8 @@
 	icon_state = "hypoviallarge"
 	preloaded_reagents = list("tricordrazine" = 60)
 
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/combat //Add in combat druggos later.
+/obj/item/weapon/reagent_containers/glass/beaker/hypovial/combat //Add in combat druggos later.
 	name = "combat hypovial"
-	icon_state = "hypoviallarge-t"
+	icon_state = "hypovial-t"
 	rarity_value = 100
 	preloaded_reagents = list("synaptizine" = 10, "hyperzine" = 10, "oxycodone" = 10, "trauma_control_system" = 10, "nanosymbiotes" = 10)

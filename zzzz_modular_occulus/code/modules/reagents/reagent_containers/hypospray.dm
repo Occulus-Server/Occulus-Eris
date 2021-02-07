@@ -44,20 +44,20 @@
 	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/tricord
 
 /obj/item/hypospray/mkii/CMO
-	name = "hypospray mk.II deluxe prototype"
+	name = "original mk I hypospray"
 	allowed_containers = list(/obj/item/weapon/reagent_containers/glass/beaker/hypovial/tiny, /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small, /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large)
 	icon_state = "cmo2"
-	desc = "The Mk.II Prototype hypospray can take larger-size vials. It also acts faster and delivers more reagents per spray.Official patent pending."
+	desc = "The  original Mk.I hypospray was found onboard the Northern light by Nanotrasen. It can take larger-size vials, acts faster and delivers more reagents per spray then it's generic counterpart. It seems to have anomalous properties."
 	unacidable = 1
 	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/CMO
 	inject_wait = DELUXE_WAIT_INJECT
 	inject_self = DELUXE_SELF_INJECT
 
-/obj/item/hypospray/mkii/CMO/combat
+/obj/item/hypospray/mkii/combat
 	name = " hypospray mk.II combat prototype"
-	desc = "A combat-ready deluxe hypospray that acts almost instantly. It can be tactically reloaded by using a vial on it. Designed for military engagements. Official patent pending."
+	desc = "A combat-ready deluxe hypospray that acts almost instantly. It can be tactically reloaded by using a vial on it. Designed for military engagements, patent pending."
 	icon_state = "combat2"
-	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/combat
+	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/combat
 	inject_wait = COMBAT_WAIT_INJECT
 	inject_self = COMBAT_SELF_INJECT
 	quickload = TRUE
@@ -186,11 +186,11 @@
 	if(M != user)
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		user.do_attack_animation(M)
-		if(injtime) //checks for rig from prior check above, overrides inject wait for RIG inject because rig.
+		if(!penetrates && injtime) //checks for rig and for penetration var.
 			user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [M]'s suit!"), SPAN_WARNING("You begins hunting for an injection port on [M]'s suit!"))
 			if(do_mob(user, M, RIG_WAIT_INJECT))
 				user.visible_message(SPAN_WARNING("[user] injects [M] with [src]!"), SPAN_WARNING("You inject [M] with [src]."))
-		else //Check for what type of injectwait if not rig
+		else //Check for what type of injectwait if not rig or if penetrates.
 			if(do_mob(user, M, inject_wait))
 				user.visible_message(SPAN_WARNING("[user] injects [M] with [src]!"), SPAN_WARNING("You inject [M] with [src]."))
 			else

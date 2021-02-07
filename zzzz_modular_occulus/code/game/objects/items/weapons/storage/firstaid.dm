@@ -84,9 +84,9 @@
 /obj/item/weapon/storage/hypospraykit/tactical/populate_contents()
 	if(empty)
 		return
-	new /obj/item/hypospray/mkii/CMO/combat(src)
-	new /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/combat(src)
-	new /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/combat(src)
+	new /obj/item/hypospray/mkii/combat(src)
+	new /obj/item/weapon/reagent_containers/glass/beaker/hypovial/combat(src)
+	new /obj/item/weapon/reagent_containers/glass/beaker/hypovial/combat(src)
 
 /obj/item/weapon/storage/hypospraykit/cmo
 	name = "deluxe hypospray kit"
