@@ -495,9 +495,9 @@
 /area/outpost/abandoned_fortress)
 "ch" = (
 /obj/structure/closet/emcloset,
-/obj/spawner/ammo_lowcost/low_chance,
-/obj/spawner/ammo_lowcost/low_chance,
-/obj/spawner/ammo_lowcost/low_chance,
+/obj/spawner/ammo/lowcost/low_chance,
+/obj/spawner/ammo/lowcost/low_chance,
+/obj/spawner/ammo/lowcost/low_chance,
 /obj/spawner/junk,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
@@ -1647,7 +1647,7 @@
 /area/outpost/abandoned_fortress)
 "uQ" = (
 /obj/structure/closet/crate,
-/obj/spawner/ammo_lowcost/low_chance,
+/obj/spawner/ammo/lowcost/low_chance,
 /turf/simulated/floor/tiled/derelict,
 /area/outpost/abandoned_fortress)
 "uW" = (
@@ -3448,7 +3448,7 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/outpost/abandoned_fortress)
 "YH" = (
-/obj/spawner/mech_equipment/low_chance,
+/obj/spawner/exosuit_equipment/low_chance,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/outpost/abandoned_fortress)
 "YS" = (
