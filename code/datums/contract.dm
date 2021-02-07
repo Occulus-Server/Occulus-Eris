@@ -16,7 +16,7 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"a Chief Medical OFficer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
 		"a Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
 		"a First Officer's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
-		"the hypospray" = /obj/item/hypospray/mkii/CMO,
+		"the hypospray" = /obj/item/hypospray/mkii/CMO, //Occulus edit
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
 		"an Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
