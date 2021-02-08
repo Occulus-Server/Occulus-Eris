@@ -202,11 +202,11 @@
 /datum/reagent/adrenaline/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.SetParalysis(0)
 	M.SetWeakened(0)
+	M.add_chemical_effect(CE_PULSE, 1)
+	M.add_chemical_effect(CE_PAINKILLER, 40)
 	M.stats.addTempStat(STAT_TGH, STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "adrenaline")
-	M.adjustToxLoss(rand(3))
 
-/datum/reagent/adrenaline/withdrawal_act(mob/living/carbon/M)
-	M.adjustOxyLoss(15)
+
 
 /datum/reagent/water/holywater/touch_turf(turf/T)
 	if(volume >= 5)
