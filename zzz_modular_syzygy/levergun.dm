@@ -48,7 +48,7 @@
 	update_icon()
 
 /obj/item/weapon/gun/projectile/shotgun/leveraction/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(QUALITY_SAWING in A.tool_qualities)
+	if(QUALITY_SAWING in A.tool_qualities && sawn_result)
 		to_chat(user, SPAN_NOTICE("You begin to shorten the barrel of \the [src]."))
 		if(A.use_tool(user, src, WORKTIME_FAST, QUALITY_SAWING, FAILCHANCE_NORMAL, required_stat = STAT_COG))
 			qdel(src)

@@ -16,3 +16,4 @@
 	recoil_buildup = 1.4 //The sawn-off at least keeps the shoulder stock. This insane thing has a pistol grip!
 	one_hand_penalty = 10 //compact shotgun level
 	max_shells = 3	//one less shot due to shortened mag tube to go with the shortened barrel
+	sawn_result = null
