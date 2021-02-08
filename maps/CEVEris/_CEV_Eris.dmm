@@ -104692,7 +104692,7 @@
 	})
 "kDK" = (
 /obj/machinery/power/nt_obelisk,
-/turf/simulated/floor/tiled/dark/cargo,
+/turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/office)
 "kDP" = (
 /obj/machinery/door/airlock{
