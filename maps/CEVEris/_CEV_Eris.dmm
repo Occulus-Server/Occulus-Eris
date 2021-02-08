@@ -71376,7 +71376,6 @@
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/command/mbo/quarters)
 "dkZ" = (
-/obj/structure/closet/secure_closet/reinforced/CMO,
 /obj/item/weapon/stamp/cmo,
 /obj/structure/cable/green{
 	d1 = 4;
@@ -71386,6 +71385,7 @@
 /obj/machinery/keycard_auth{
 	pixel_y = 24
 	},
+/obj/structure/closet/secure_closet/reinforced/CMOcculus,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/command/mbo/quarters)
 "dla" = (

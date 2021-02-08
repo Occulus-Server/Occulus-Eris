@@ -57,6 +57,7 @@
 	name = " hypospray mk.II combat prototype"
 	desc = "A combat-ready deluxe hypospray that acts almost instantly. It can be tactically reloaded by using a vial on it. Designed for military engagements, patent pending."
 	icon_state = "combat2"
+	allowed_containers = list(/obj/item/weapon/reagent_containers/glass/beaker/hypovial/tiny, /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small,/obj/item/weapon/reagent_containers/glass/beaker/hypovial/combat)
 	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/combat
 	inject_wait = COMBAT_WAIT_INJECT
 	inject_self = COMBAT_SELF_INJECT
