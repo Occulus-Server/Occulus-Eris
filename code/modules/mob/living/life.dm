@@ -25,7 +25,7 @@
 		if(!loc)
 			return
 		var/datum/gas_mixture/environment = loc.return_air()
-
+		handle_chemicals_in_body() //Occulus edit - Allowing some chems to process on dead things.
 		if(stat != DEAD)
 			//Breathing, if applicable
 			handle_breathing()
@@ -34,7 +34,7 @@
 			handle_mutations_and_radiation()
 
 			//Chemicals in the body
-			handle_chemicals_in_body()
+			//handle_chemicals_in_body()Occulus edit - Allowing some chems to process on dead things. on_mob_life already checks if the target is dead and there is a flag for chems that work on dead things!
 
 			//Blood
 			handle_blood()

@@ -9,7 +9,7 @@
 	cold_protection = HEAD
 	flags_inv = HIDEEARS | BLOCKHAIR
 	style = STYLE_HIGH
-
+	spawn_blacklisted = TRUE	// These things are not meant to spawn on their own
 
 /obj/item/clothing/head/hood/sleeveless
 	name = "red hood"

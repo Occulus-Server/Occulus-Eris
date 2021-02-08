@@ -22,7 +22,6 @@
 	icon_state = "armor"
 	item_state = "armor"
 	blood_overlay_type = "armor"
-	rarity_value = 3.46
 	armor = list(
 		melee = 30,
 		bullet = 30,
@@ -47,7 +46,7 @@
 		MATERIAL_STEEL = 10, // contains a lil bit more steel because of arm+leg prot
 		MATERIAL_PLASTEEL = 1,
 	)
-	
+
 /obj/item/clothing/suit/armor/vest/full/security
 	name = "full security armor"
 	desc = "A tactical armor vest, but with shoulderpads and knee pads included to cover all parts of the body. Not designed for serious operations."
@@ -68,12 +67,13 @@
 	icon_state = "warden_jacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	price_tag = 350
+	rarity_value = 35
 
 /obj/item/clothing/suit/armor/vest/ironhammer
 	name = "operator armor"
 	desc = "An armored vest that protects against some damage. This one has been done in Aegis Security colors. Not designed for serious operations."
 	icon_state = "armor_ironhammer"
-	
+
 /obj/item/clothing/suit/armor/vest/full/ironhammer
 	name = "full operator armor"
 	desc = "An armored vest painted in Ironhammer Security colors. This one has shoulderpads and knee pads included to protect all parts of the body."
@@ -93,7 +93,7 @@
 	)
 	price_tag = 150
 	rarity_value = 15
-	
+
 /obj/item/clothing/suit/armor/vest/handmade/full
 	name = "full handmade armor vest"
 	desc = "An armored vest of dubious quality. This one has had metal sheets attached to the shoulders and knees to be used as makeshift shoulderpads and kneepads."
@@ -155,7 +155,7 @@
 		MATERIAL_PLASTEEL = 3, // costs lots more plasteel than standard vest
 	)
 	rarity_value = 50
-	
+
 /obj/item/clothing/suit/armor/bulletproof/full
 	name = "full bulletproof vest"
 	desc = "A vest built for protection against bullets and other high-velocity projectiles. This one has shoulderpads and kneepads for extra coverage."
@@ -198,6 +198,7 @@
 		rad = 0
 	)
 	price_tag = 400
+	rarity_value = 40
 
 /obj/item/clothing/suit/armor/bulletproof/serbian/green
 	name = "green platecarrier vest"
@@ -206,18 +207,18 @@
 /obj/item/clothing/suit/armor/bulletproof/serbian/tan
 	name = "tan platecarrier vest"
 	icon_state = "platecarrier_tan"
-	
+
 /obj/item/clothing/suit/armor/bulletproof/serbian/full
 	name = "full black platecarrier vest"
 	desc = "A vest built for protection against bullets and other high-velocity projectiles. This one has shoulderpads and kneepads for extra coverage."
 	icon_state = "platecarrier_fullbody"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	rarity_value = 45
-	
+
 /obj/item/clothing/suit/armor/bulletproof/serbian/full/green
 	name = "full green platecarrier vest"
 	icon_state = "platecarrier_green_fullbody"
-	
+
 /obj/item/clothing/suit/armor/bulletproof/serbian/full/tan
 	name = "full tan platecarrier vest"
 	icon_state = "platecarrier_tan_fullbody"
@@ -240,11 +241,13 @@
 	)
 	siemens_coefficient = 0
 	price_tag = 650
+	rarity_value = 65
 	matter = list(
 		MATERIAL_STEEL = 6, // slightly less steel cost to make room for reflective glass
 		MATERIAL_PLASTEEL = 1,
 		MATERIAL_GLASS = 15 // reflective material, lots of it
 	)
+	//spawn_blacklisted = TRUE//antag_item_targets-crafteable?
 
 /obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack") //TODO: Refactor this all into humandefense
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
@@ -318,6 +321,7 @@
 	icon_state = "tdred"
 	item_state = "tdred"
 	siemens_coefficient = 1
+	spawn_frequency = 0//Thunderdome
 
 /obj/item/clothing/suit/armor/heavy/green
 	name = "Thunderdome suit (green)"
@@ -325,6 +329,7 @@
 	icon_state = "tdgreen"
 	item_state = "tdgreen"
 	siemens_coefficient = 1
+	spawn_frequency = 0//Thunderdome
 
 // Riot suit
 /obj/item/clothing/suit/armor/heavy/riot
@@ -343,6 +348,7 @@
 		rad = 0
 	)
 	price_tag = 500
+	rarity_value = 50
 
 /obj/item/clothing/suit/armor/heavy/riot/ironhammer
 	icon_state = "riot_ironhammer"
@@ -421,6 +427,7 @@
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0
 	price_tag = 600
+	rarity_value = 60
 	//Used ablative gear armor values and technomancer helmet/voidsuit values.
 
 // Great-/overcoats retyped from armor to storage
@@ -468,7 +475,6 @@
 /obj/item/clothing/suit/armor/reactive
 	name = "reactive teleport armor"
 	desc = "Someone separated our Research Director's head from their body!"
-	var/active = FALSE
 	icon_state = "reactiveoff"
 	item_state = "reactiveoff"
 	blood_overlay_type = "armor"
@@ -480,6 +486,7 @@
 		bio = 0,
 		rad = 0
 	)
+	var/active = 0
 
 /obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(prob(50))

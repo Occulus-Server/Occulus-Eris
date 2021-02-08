@@ -42,6 +42,7 @@
 /obj/item/weapon/gun/energy/shrapnel
 	name = "NZR SDF \"Shellshock\" energy shotgun"
 	desc = "An Novozyme Republic Self Defence Force design, this mat-fab shotgun tends to burn through cells with use."
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/bluespace_harpoon/mounted/blitz
 	name = "NZR BSD \"Trident\""
