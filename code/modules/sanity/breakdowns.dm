@@ -203,11 +203,11 @@
 
 /datum/breakdown/negative/selfharm/occur()
 	spawn(delay)
-		++holder.owner.suppress_communication
+		holder.owner.suppress_communication = TRUE	// OCCULUS EDIT: was ++holder.owner.suppress_communication
 	return ..()
 
 /datum/breakdown/negative/selfharm/conclude()
-	--holder.owner.suppress_communication
+	holder.owner.suppress_communication = FALSE	// OCCULUS EDIT: was --holder.owner.suppress_communication
 	..()
 
 
