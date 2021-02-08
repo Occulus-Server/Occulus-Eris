@@ -10,8 +10,8 @@
 /turf/simulated/wall,
 /area/deepmaint)
 "d" = (
-/obj/machinery/door/airlock/maintenance_common,
-/turf/simulated/floor/tiled/techmaint,
+/obj/effect/window_lwall_spawn,
+/turf/simulated/floor/plating,
 /area/deepmaint)
 "e" = (
 /obj/effect/decal/cleanable/dirt,
@@ -21,141 +21,173 @@
 /obj/effect/window_lwall_spawn,
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
-"g" = (
-/obj/random/traps/low_chance,
-/obj/random/junk/low_chance,
-/obj/random/scrap/sparse_weighted/low_chance,
-/turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
 "h" = (
-/obj/random/traps,
-/obj/random/junk/low_chance,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/maintenance_common,
+/obj/spawner/traps,
+/obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "i" = (
-/obj/random/traps/low_chance,
-/obj/random/junk/low_chance,
-/obj/random/scrap/sparse_weighted/low_chance,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/spawner/traps/low_chance,
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"l" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/catwalk,
+/obj/spawner/traps,
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/plating/under,
+/area/deepmaint)
+"m" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/catwalk,
+/obj/item/clothing/accessory/medal/gold/captain,
+/turf/simulated/floor/plating/under,
+/area/deepmaint)
+"n" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/catwalk,
+/obj/item/remains/human,
+/obj/item/clothing/gloves/captain,
+/obj/item/clothing/under/captainformal,
+/turf/simulated/floor/plating/under,
+/area/deepmaint)
+"o" = (
+/obj/spawner/traps/low_chance,
+/obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
-"j" = (
-/obj/random/traps/low_chance,
-/obj/random/junk/low_chance,
-/obj/random/scrap/sparse_weighted/low_chance,
+"p" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/traps/low_chance,
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"q" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/catwalk,
+/obj/item/modular_computer/pda/captain,
+/turf/simulated/floor/plating/under,
+/area/deepmaint)
+"r" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/traps/low_chance,
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"s" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/scrap,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"t" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/scrap/dense/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"u" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/scrap/dense/low_chance,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"v" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/spawner/scrap/dense,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"w" = (
+/obj/machinery/door/airlock/maintenance_common,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"x" = (
+/obj/machinery/door/airlock/maintenance_common,
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/traps,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"y" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/junk,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"z" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/scrap,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"A" = (
+/obj/structure/catwalk,
+/obj/item/weapon/gun/energy/plasma/brigador,
+/turf/simulated/floor/plating/under,
+/area/deepmaint)
+"B" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/mob/roaches/cluster,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"C" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/traps,
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"D" = (
+/obj/spawner/traps/low_chance,
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"L" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/traps/low_chance,
+/obj/spawner/junk,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"N" = (
+/obj/spawner/junk,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"O" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/scrap/dense,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"Q" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/scrap/dense,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"R" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/junk,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"T" = (
+/obj/structure/catwalk,
+/obj/structure/table/rack/shelf,
+/turf/simulated/floor/plating/under,
+/area/deepmaint)
+"W" = (
 /obj/machinery/light/small{
 	dir = 4;
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
-"k" = (
-/obj/random/traps/low_chance,
-/obj/random/junk/low_chance,
-/obj/random/scrap/sparse_weighted/low_chance,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
-"l" = (
-/obj/random/traps/low_chance,
-/obj/random/junk/low_chance,
-/obj/random/scrap/sparse_weighted/low_chance,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
-"m" = (
-/obj/random/traps/low_chance,
-/obj/random/junk/low_chance,
-/obj/random/junk/low_chance,
-/obj/random/scrap/sparse_weighted/low_chance,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
-"n" = (
-/obj/random/junk/low_chance,
-/turf/simulated/floor/tiled/dark/gray_perforated,
-/area/deepmaint)
-"o" = (
-/obj/random/traps/low_chance,
-/obj/random/junk/low_chance,
-/obj/random/scrap/sparse_weighted/low_chance,
-/obj/random/junk/low_chance,
-/turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
-"p" = (
-/obj/random/traps/low_chance,
-/obj/random/junk/low_chance,
-/obj/random/scrap/sparse_weighted/low_chance,
-/obj/effect/decal/cleanable/dirt,
-/obj/random/junk/low_chance,
-/turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
-"q" = (
-/obj/random/traps/low_chance,
-/turf/simulated/floor/tiled/dark/gray_perforated,
-/area/deepmaint)
-"r" = (
-/obj/random/traps,
-/obj/random/junk/low_chance,
-/obj/random/scrap/sparse_weighted/low_chance,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
-"s" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/random/traps/low_chance,
-/turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
-"t" = (
-/obj/random/traps/low_chance,
-/obj/random/scrap/sparse_weighted/low_chance,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
-"u" = (
-/obj/random/traps/low_chance,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/gray_perforated,
-/area/deepmaint)
-"v" = (
-/obj/random/traps/low_chance,
-/obj/random/junk/low_chance,
+"Z" = (
 /obj/machinery/door/airlock/maintenance_common,
-/turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
-"w" = (
-/obj/random/traps,
-/obj/random/junk/low_chance,
-/obj/machinery/door/airlock/maintenance_common,
-/turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
-"x" = (
-/obj/machinery/door/airlock/maintenance_common,
-/obj/random/traps,
-/obj/random/junk/low_chance,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/light,
-/area/deepmaint)
-"y" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
-"z" = (
-/obj/random/traps/low_chance,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/techmaint,
-/area/deepmaint)
-"A" = (
-/obj/random/traps,
-/obj/random/traps/low_chance,
-/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/deepmaint)
 
 (1,1,1) = {"
@@ -163,18 +195,18 @@ a
 e
 a
 a
-n
-e
 a
 e
+N
+e
 a
-n
+a
 a
 "}
 (2,1,1) = {"
 a
 c
-f
+d
 c
 c
 c
@@ -188,32 +220,32 @@ e
 e
 c
 i
-j
-k
-k
-g
-k
-k
+r
+Q
+r
+D
+C
+Q
 x
 a
 "}
 (4,1,1) = {"
 a
 c
-k
-c
-i
-g
-k
-k
 r
-x
-e
+v
+L
+D
+Q
+r
+r
+Z
+R
 "}
 (5,1,1) = {"
 a
 c
-i
+h
 c
 w
 c
@@ -225,55 +257,55 @@ a
 "}
 (6,1,1) = {"
 a
-d
-k
 c
-g
-k
-g
+l
+c
+o
+p
+o
 c
 s
-s
+O
 a
 "}
 (7,1,1) = {"
 b
 c
 m
-v
-k
+c
+c
 o
 p
 c
 t
 y
-q
+a
 "}
 (8,1,1) = {"
 e
 c
-i
+n
+A
 c
-k
 o
 o
 c
-t
+O
 z
 a
 "}
 (9,1,1) = {"
 a
-h
-k
-f
-l
-g
-g
+c
+q
+T
+c
+W
+c
 c
 u
-q
-q
+a
+a
 "}
 (10,1,1) = {"
 a
@@ -283,21 +315,21 @@ c
 c
 c
 c
-c
 u
-q
+B
 a
+N
 "}
 (11,1,1) = {"
 a
 a
-n
 a
 a
 a
 a
 a
-u
 a
-A
+e
+a
+a
 "}
