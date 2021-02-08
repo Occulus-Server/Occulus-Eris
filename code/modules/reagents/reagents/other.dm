@@ -208,7 +208,7 @@
 	M.add_chemical_effect(CE_PAINKILLER, 40)
 	M.stats.addTempStat(STAT_TGH, STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "adrenaline")
 
-
+/////OCCULUS EDIT END
 
 /datum/reagent/water/holywater/touch_turf(turf/T)
 	if(volume >= 5)
