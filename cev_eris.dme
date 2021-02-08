@@ -2870,6 +2870,7 @@
 #include "zzzz_modular_occulus\code\modules\reagents\reagent_containers\hypospray.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\reagent_containers\hypovial.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\reagent_containers\glass\beaker.dm"
+#include "zzzz_modular_occulus\code\modules\reagents\reagents\other.dm"
 #include "zzzz_modular_occulus\code\modules\sanity\sanity_mob.dm"
 #include "zzzz_modular_occulus\code\modules\scrap\oldificator.dm"
 #include "zzzz_modular_occulus\code\modules\shield_generators\shield_generator.dm"
