@@ -199,10 +199,12 @@
 	color = "#C8A5DC"
 	reagent_type = "Organic/Stimulator"
 
+/////OCCULUS EDIT: oxy loss on withdrawal removed, random toxin damage removed, added mild painkilling and increased heart rate effects
+
 /datum/reagent/adrenaline/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.SetParalysis(0)
 	M.SetWeakened(0)
-	M.add_chemical_effect(CE_PULSE, 1)
+	M.add_chemical_effect(CE_PULSE, 2)
 	M.add_chemical_effect(CE_PAINKILLER, 40)
 	M.stats.addTempStat(STAT_TGH, STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "adrenaline")
 
