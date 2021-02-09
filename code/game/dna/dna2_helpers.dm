@@ -173,12 +173,15 @@
 		//Body markings
 		H.body_markings = dna.body_markings.Copy()
 
-		// OCCULUS EDIT IN AN ECLIPSE EDIT - HONK
-		for(var/tag in dna.body_markings)
-			var/obj/item/organ/external/E = H.organs_by_name[tag]
-			if(E)
-				var/list/marklist = dna.body_markings[tag]
-				E.markings = marklist.Copy()
+		// OCCULUS EDIT IN AN ECLIPSE EDIT - HONK - This makes sure that UpdateAppearance updates our body markings as well
+		for(var/M in H.body_markings)
+			var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
+			var/mark_color = "[H.body_markings[M]]"
+
+			for(var/BP in mark_datum.body_parts)
+				var/obj/item/organ/external/O = H.organs_by_name[BP]
+				if(O)
+					O.markings[M] = list("color" = mark_color, "datum" = mark_datum)
 		// OCCULUS EDIT END
 
 		// Ears
