@@ -56542,6 +56542,7 @@
 	dir = 1;
 	pixel_y = -22
 	},
+/obj/machinery/icecream_vat,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/crew_quarters/kitchen)
 "cCn" = (
