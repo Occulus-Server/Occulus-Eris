@@ -2826,6 +2826,7 @@
 #include "zzzz_modular_occulus\code\modules\client\preference_setup\loadout\lists\headwear.dm"
 #include "zzzz_modular_occulus\code\modules\client\preference_setup\loadout\lists\suits.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\mekhanearmor.dm"
+#include "zzzz_modular_occulus\code\modules\clothing\gloves\stungloves.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\head\head.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\head\hood.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\masks\masks.dm"
