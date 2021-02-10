@@ -69,61 +69,43 @@ var/global/list/image/splatter_cache=list()
 /obj/effect/decal/cleanable/blood/Crossed(mob/living/carbon/human/perp)
 	if (!istype(perp))
 		return
-
-	///// OCCULUS EDIT: Don't track blood if the source has a catwalk or stairs, since it is
-	//                  difficult to spot and clean.
-
-	var/do_not_track = FALSE
-
-	if (perp.loc.contents)
-		for(var/content in perp.loc.contents)
-			if(istype(content,/obj/structure/catwalk) || istype(content,/obj/structure/multiz/stairs))
-				do_not_track = TRUE
-				amount = 0
-				break
-
 	if(amount < 1)
 		return
 
-	if (!do_not_track)
+	var/obj/item/organ/external/l_foot = perp.get_organ(BP_L_FOOT)
+	var/obj/item/organ/external/r_foot = perp.get_organ(BP_R_FOOT)
+	var/hasfeet = 1
+	if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
+		hasfeet = 0
+	if(perp.shoes && !perp.buckled)//Adding blood to shoes
+		var/obj/item/clothing/shoes/S = perp.shoes
+		if(istype(S))
+			S.blood_color = basecolor
+			S.track_blood = max(amount,S.track_blood)
+			if(!S.blood_overlay)
+				S.generate_blood_overlay()
+			if(!S.blood_DNA)
+				S.blood_DNA = list()
+				S.blood_overlay.color = basecolor
+				S.overlays += S.blood_overlay
+			if(S.blood_overlay && S.blood_overlay.color != basecolor)
+				S.blood_overlay.color = basecolor
+				S.overlays.Cut()
+				S.overlays += S.blood_overlay
+			S.blood_DNA |= blood_DNA.Copy()
 
-		var/obj/item/organ/external/l_foot = perp.get_organ(BP_L_FOOT)
-		var/obj/item/organ/external/r_foot = perp.get_organ(BP_R_FOOT)
-		var/hasfeet = 1
-		if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
-			hasfeet = 0
-		if(perp.shoes && !perp.buckled)//Adding blood to shoes
-			var/obj/item/clothing/shoes/S = perp.shoes
-			if(istype(S))
-				S.blood_color = basecolor
-				S.track_blood = max(amount,S.track_blood)
-				if(!S.blood_overlay)
-					S.generate_blood_overlay()
-				if(!S.blood_DNA)
-					S.blood_DNA = list()
-					S.blood_overlay.color = basecolor
-					S.overlays += S.blood_overlay
-				if(S.blood_overlay && S.blood_overlay.color != basecolor)
-					S.blood_overlay.color = basecolor
-					S.overlays.Cut()
-					S.overlays += S.blood_overlay
-				S.blood_DNA |= blood_DNA.Copy()
+	else if (hasfeet)//Or feet
+		perp.feet_blood_color = basecolor
+		perp.track_blood = max(amount,perp.track_blood)
+		if(!perp.feet_blood_DNA)
+			perp.feet_blood_DNA = list()
+		perp.feet_blood_DNA |= blood_DNA.Copy()
+	else if (perp.buckled && istype(perp.buckled, /obj/structure/bed/chair/wheelchair))
+		var/obj/structure/bed/chair/wheelchair/W = perp.buckled
+		W.bloodiness = 4
 
-		else if (hasfeet)//Or feet
-			perp.feet_blood_color = basecolor
-			perp.track_blood = max(amount,perp.track_blood)
-			if(!perp.feet_blood_DNA)
-				perp.feet_blood_DNA = list()
-			perp.feet_blood_DNA |= blood_DNA.Copy()
-		else if (perp.buckled && istype(perp.buckled, /obj/structure/bed/chair/wheelchair))
-			var/obj/structure/bed/chair/wheelchair/W = perp.buckled
-			W.bloodiness = 4
-
-		perp.update_inv_shoes(1)
-
-		amount--
-
-	///// OCCULUS EDIT END
+	perp.update_inv_shoes(1)
+	amount--
 
 /obj/effect/decal/cleanable/blood/proc/dry()
 	name = dryname
