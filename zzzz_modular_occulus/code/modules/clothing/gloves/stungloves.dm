@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/stunglovemakeshift //STUNGLOVES RETURN! MUAAHAHAHAHAHAHA!
 	name = "Modified Insulated Gloves"
-	desc = "These gloves will protect the wearer from electric shock. This pair appears to have been modified beyond repair with a set of wires, and a cell port."
+	desc = "These type of gloves will normally protect the wearer from electric shock. This pair appears to have been modified beyond repair with a set of wires, and a cell port."
 	icon = 'zzzz_modular_occulus/icons/inventory/hands/gloves.dmi'
 	icon_state = "stunglove"
 	item_state = "stunglove"
@@ -13,7 +13,7 @@
 	var/obj/item/weapon/cell/cell
 	var/suitable_cell = /obj/item/weapon/cell/medium
 	var/status = FALSE		//whether the thing is on or not
-	var/hitcost = 80		//power cost. Makeshift uses less power, due to shoddy craftsmanship.
+	var/hitcost = 85		//power cost. Makeshift uses less power, due to shoddy craftsmanship.
 	var/icon_state_active = "stunglove_active"
 
 
