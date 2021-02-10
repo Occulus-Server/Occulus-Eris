@@ -272,7 +272,8 @@
 			return
 		new organ_type(victim)
 
-	victim.update_body()
+	victim.UpdateAppearance()	// OCCULUS EDIT - Make sure we sync up our body markings before...
+	victim.update_body()	// ...we update our sprite.
 	if(OD)
 		victim.pain(OD.name, 100, TRUE)
 	else

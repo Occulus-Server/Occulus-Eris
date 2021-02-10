@@ -15,16 +15,7 @@
 	armor_penetration = 1.35 //A hair over 20 armor pen.
 	recoil_buildup = 20
 	one_hand_penalty = 15 //full sized shotgun level
-
-/obj/item/weapon/gun/projectile/shotgun/leveraction/magnum/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(QUALITY_SAWING in A.tool_qualities)
-		to_chat(user, SPAN_NOTICE("You begin to shorten the barrel of \the [src]."))
-		if(A.use_tool(user, src, WORKTIME_FAST, QUALITY_SAWING, FAILCHANCE_NORMAL, required_stat = STAT_COG))
-			qdel(src)
-			new /obj/item/weapon/gun/projectile/shotgun/leveraction/sawn/magnum(usr.loc)
-			to_chat(user, SPAN_WARNING("You shorten the barrel of \the [src]!"))
-	else
-		..()
+	sawn_result = /obj/item/weapon/gun/projectile/shotgun/leveraction/sawn/magnum
 
 /datum/design/autolathe/gun/leveraction/magnum
 	name = "lever-action rifle"

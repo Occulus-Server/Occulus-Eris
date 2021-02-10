@@ -118,7 +118,7 @@
 		src.cell = C
 
 /obj/item/weapon/bluespace_harpoon/mounted
-	spawn_blacklisted = TRUE
+	spawn_tags = null
 	var/charge_cost = 100
 	var/charge_tick = 0
 	var/recharge_time = 4
@@ -154,6 +154,7 @@
 	name = "OR BSD \"Blauerraumharpune\""
 	desc = "Reverse engineered version of harpoon developed by old Nanotrasen, remounted for robotic use only by Oberth Republic."
 	icon_state = "harpoon-mounted-blitz-1"
+	spawn_tags = null
 
 /obj/item/weapon/bluespace_harpoon/mounted/blitz/update_icon()
 	icon_state = "harpoon-mounted-blitz-[mode]"

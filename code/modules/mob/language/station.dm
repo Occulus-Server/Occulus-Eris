@@ -224,7 +224,7 @@
 
 /datum/language/sergal
 	name = LANGUAGE_SAGARU
-	desc = "The dominant language of the Sergal homeworld, Vilous. It consists of aggressive low-pitched hissing and throaty growling."
+	desc = "The dominant language of the Sergal homeworld, Tal. It consists of aggressive low-pitched hissing and throaty growling."
 	speech_verb = "snarls"
 	colour = "sergal"
 	key = "z"
@@ -271,3 +271,10 @@
 					 "suda", "huyar", "odin", "dva", "tri", "holod", "granata", "ne", "re", "ru", "korabl")
 	shorthand = "RU"
 
+/datum/language/birdsong
+	name = LANGUAGE_BIRDSONG
+	desc = "A language primarily spoken by Narvians"
+	speech_verb = "chirps"
+	colour = "birdsongc"
+	key = "G"
+	syllables = list ("cheep", "peep", "tweet")
