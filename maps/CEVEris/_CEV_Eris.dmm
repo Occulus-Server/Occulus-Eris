@@ -69233,6 +69233,24 @@
 	pixel_x = 24
 	},
 /obj/structure/table/standard,
+/obj/item/weapon/storage/hypospraykit/fire{
+	pixel_x = -1;
+	pixel_y = -1
+	},
+/obj/item/weapon/storage/hypospraykit/o2,
+/obj/item/weapon/storage/hypospraykit/toxin{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/weapon/storage/hypospraykit{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/hypospray/mkii,
+/obj/item/hypospray/mkii{
+	pixel_x = 2;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
 "dgt" = (
