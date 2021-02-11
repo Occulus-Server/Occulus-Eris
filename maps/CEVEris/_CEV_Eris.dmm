@@ -49742,10 +49742,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/medical{
-	name = "Psychology Cabinet";
-	req_one_access = list(5)
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -49753,6 +49749,19 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "Medical_Psych";
+	name = "Privacy Shutters";
+	opacity = 0
+	},
+/obj/machinery/door/airlock/glass_medical{
+	id_tag = "MedbayFoyer";
+	name = "Autodoc Bay";
+	req_access = newlist()
+	},
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/medical/psych)
 "clT" = (
@@ -50556,7 +50565,14 @@
 	},
 /area/eris/engineering/engine_room)
 "cnN" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "Medical_Psych";
+	name = "Privacy Shutters";
+	opacity = 0
+	},
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
 /area/eris/medical/psych)
@@ -70133,7 +70149,16 @@
 	name = "AI Upload Foyer"
 	})
 "dih" = (
-/turf/simulated/floor/wood,
+/obj/structure/table/standard,
+/obj/spawner/medical,
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -28
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/psych)
 "dii" = (
 /obj/structure/cable/green{
@@ -70232,9 +70257,11 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
 "dis" = (
-/obj/structure/closet/secure_closet/personal/patient,
-/turf/simulated/floor/wood,
-/area/eris/medical/psych)
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/medical/medbreak)
 "dit" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -70275,7 +70302,12 @@
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/hallway/side/atmosphericshallway)
 "diA" = (
-/turf/simulated/floor/carpet,
+/obj/structure/table/standard,
+/obj/spawner/medical,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/psych)
 "diB" = (
 /obj/structure/sign/faction/moebius{
@@ -74520,10 +74552,17 @@
 	desc = "A remote control switch.";
 	id = "MedbayExam";
 	name = "Examination Door Control";
+	pixel_x = -6;
 	pixel_y = -24
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/paper_bin,
+/obj/machinery/button/remote/blast_door{
+	id = "Medical_Psych";
+	name = "Autodoc Shutters";
+	pixel_x = 6;
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
 "dse" = (
@@ -75396,10 +75435,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/turret_protected/ai)
-"dun" = (
-/obj/structure/table/woodentable,
-/turf/simulated/floor/carpet,
-/area/eris/medical/psych)
 "duo" = (
 /turf/simulated/open,
 /area/eris/medical/morgue)
@@ -76496,10 +76531,9 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "dwC" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 1
-	},
-/turf/simulated/floor/carpet,
+/obj/structure/bed/padded,
+/obj/item/weapon/bedsheet/medical,
+/turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/psych)
 "dwD" = (
 /obj/structure/table/standard,
@@ -76788,14 +76822,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck3port)
-"dxo" = (
-/obj/machinery/button/remote/blast_door{
-	id = "Medical_Psych";
-	name = "Privacy Shutters";
-	pixel_y = -25
-	},
-/turf/simulated/floor/wood,
-/area/eris/medical/psych)
 "dxp" = (
 /obj/machinery/camera/network/third_section{
 	dir = 4
@@ -78190,10 +78216,6 @@
 /obj/spawner/scrap/dense/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
-"dAK" = (
-/obj/structure/bed/chair/comfy/brown,
-/turf/simulated/floor/wood,
-/area/eris/medical/psych)
 "dAL" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/requests_console{
@@ -78211,12 +78233,6 @@
 	},
 /turf/simulated/floor/hull,
 /area/space)
-"dAN" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/turf/simulated/floor/carpet,
-/area/eris/medical/psych)
 "dAO" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -78782,7 +78798,6 @@
 	pixel_y = 26
 	},
 /obj/machinery/camera/network/medbay,
-/obj/machinery/autodoc,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dCd" = (
@@ -79613,7 +79628,6 @@
 /area/eris/command/bridge)
 "dDZ" = (
 /obj/structure/table/standard,
-/obj/spawner/medical,
 /obj/machinery/light,
 /obj/item/weapon/access_update_tool,
 /turf/simulated/floor/tiled/white,
@@ -79707,21 +79721,31 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "West APC";
+	pixel_x = -28
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/medical_stand,
+/turf/simulated/floor/tiled/white,
 /area/eris/medical/psych)
 "dEl" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/wood,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/white,
 /area/eris/medical/psych)
 "dEm" = (
 /obj/structure/disposalpipe/segment{
@@ -79748,14 +79772,16 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/white,
 /area/eris/medical/psych)
 "dEp" = (
-/obj/structure/bed/psych,
 /obj/machinery/alarm{
 	pixel_y = 26
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/camera/network/medbay{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
 /area/eris/medical/psych)
 "dEq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -79790,24 +79816,6 @@
 	},
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/engineering/foyer)
-"dEv" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white/brown_perforated,
-/area/eris/medical/medbreak)
-"dEw" = (
-/obj/structure/closet/cabinet,
-/obj/spawner/booze,
-/obj/spawner/booze,
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -28
-	},
-/turf/simulated/floor/wood,
-/area/eris/medical/psych)
 "dEx" = (
 /obj/structure/multiz/ladder/up,
 /obj/machinery/camera/network/engineering{
@@ -79819,12 +79827,8 @@
 /turf/simulated/wall/r_wall,
 /area/eris/maintenance/section4deck2port)
 "dEz" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/carpet,
+/obj/machinery/autodoc,
+/turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/psych)
 "dEA" = (
 /obj/structure/multiz/ladder/up,
@@ -79838,27 +79842,9 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck2port)
-"dEC" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "West APC";
-	pixel_x = -28
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/wood,
-/area/eris/medical/psych)
 "dED" = (
-/obj/structure/table/woodentable,
-/obj/item/device/lighting/toggleable/lamp/green,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/carpet,
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating,
 /area/eris/medical/psych)
 "dEE" = (
 /obj/machinery/atmospherics/pipe/zpipe/up,
@@ -79876,12 +79862,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck2port)
-"dEF" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/eris/medical/psych)
 "dEG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -79944,12 +79924,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/medical/morgue)
-"dEO" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/eris/medical/psych)
 "dEP" = (
 /obj/machinery/light{
 	dir = 1
@@ -86581,7 +86555,6 @@
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
-/obj/structure/closet/secure_closet/personal/agrolyte,
 /obj/item/seeds/random,
 /obj/item/weapon/paper{
 	name = "Seed Alien1 Growth Stage Value:"
@@ -100926,12 +100899,6 @@
 	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/patients_rooms)
-"eBs" = (
-/obj/machinery/camera/network/medbay{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/eris/medical/psych)
 "eBt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
@@ -103603,7 +103570,6 @@
 /area/eris/engineering/atmos)
 "fJM" = (
 /obj/structure/table/standard,
-/obj/spawner/medical,
 /obj/machinery/vending/wallmed/lobby{
 	pixel_y = -28
 	},
@@ -104349,34 +104315,8 @@
 	pixel_x = -24;
 	req_access = list(38)
 	},
-/obj/item/weapon/caution{
-	name = "Caution Sign"
-	},
-/obj/item/weapon/caution{
-	name = "Caution Sign"
-	},
-/obj/item/weapon/caution{
-	name = "Caution Sign"
-	},
-/obj/item/weapon/caution{
-	name = "Caution Sign"
-	},
-/obj/item/weapon/caution{
-	name = "Caution Sign"
-	},
-/obj/spawner/contraband/low_chance,
-/obj/spawner/boxes,
-/obj/spawner/boxes,
-/obj/spawner/boxes/low_chance,
-/obj/spawner/boxes/low_chance,
-/obj/spawner/boxes/low_chance,
-/obj/spawner/boxes/low_chance,
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel/cargo,
-/area/eris/quartermaster/hangarsupply)
+/turf/simulated/floor/tiled/dark,
+/area/eris/hallway/side/morguehallway)
 "jtf" = (
 /obj/structure/table/standard,
 /obj/machinery/chem_heater,
@@ -205683,7 +205623,7 @@ dDD
 eBr
 cgB
 dAD
-dEv
+dAx
 dDO
 duo
 duo
@@ -205884,8 +205824,8 @@ dCZ
 cGk
 cKs
 cgB
-cgB
-cgB
+dAD
+dis
 cgB
 duo
 bmx
@@ -206086,11 +206026,11 @@ cjx
 chG
 csm
 csh
-dis
-dEw
 csh
 csh
-csg
+csh
+bnl
+bmx
 abF
 aaa
 aaa
@@ -206287,12 +206227,12 @@ cqJ
 cpR
 dCo
 dDW
-csh
+cnN
 dEk
 dih
-dEC
-dEO
-csg
+dED
+abF
+abF
 abF
 abF
 aaa
@@ -206493,8 +206433,8 @@ clS
 dEl
 dEz
 dED
-diA
-cnN
+abF
+abF
 abF
 abF
 aaa
@@ -206694,9 +206634,9 @@ coS
 clR
 dEo
 diA
-dAN
-dwC
-cnN
+dED
+abF
+abF
 abF
 abF
 aaa
@@ -206895,10 +206835,10 @@ coS
 dDZ
 csh
 dEp
-diA
-dun
-diA
-cnN
+dwC
+dED
+abF
+abF
 abF
 abF
 aaa
@@ -207096,11 +207036,11 @@ cpR
 coS
 fJM
 csh
-dAK
-eBs
-dEF
-dxo
 csg
+csg
+csg
+abF
+abF
 abF
 abF
 aaa
@@ -207301,9 +207241,9 @@ csg
 csg
 csg
 csg
-csg
-csg
 aae
+aae
+abF
 abF
 duu
 duu
