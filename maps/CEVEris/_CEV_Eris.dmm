@@ -78782,6 +78782,7 @@
 	pixel_y = 26
 	},
 /obj/machinery/camera/network/medbay,
+/obj/machinery/autodoc,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dCd" = (
