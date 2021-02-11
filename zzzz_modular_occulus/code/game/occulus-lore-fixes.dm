@@ -1,5 +1,13 @@
 //Disks
 
+/obj/machinery/autolathe/bioprinter
+	name = "Mekhane Bioprinter"
+	desc = "Mekhane machine for printing things using biomass."
+
+/obj/item/weapon/grenade/frag
+	name = "FS DFG \"Pomme\""
+	desc = "A military-grade defensive fragmentation grenade, designed to be thrown from cover."
+
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter
 	disk_name = "Mekhane Bioprinter Production"
 
