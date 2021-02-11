@@ -69,6 +69,16 @@ var/global/list/image/splatter_cache=list()
 /obj/effect/decal/cleanable/blood/Crossed(mob/living/carbon/human/perp)
 	if (!istype(perp))
 		return
+
+	///// OCCULUS EDIT: Don't track blood if the source has a catwalk or stairs, since it is
+	//                  difficult to spot and clean.
+
+	for (var/obj/structure/S in get_turf(perp))
+		if (istype(S, /obj/structure/catwalk) || istype(S, /obj/structure/multiz/stairs))
+			return
+
+	///// OCCULUS EDIT END
+
 	if(amount < 1)
 		return
 
@@ -105,6 +115,7 @@ var/global/list/image/splatter_cache=list()
 		W.bloodiness = 4
 
 	perp.update_inv_shoes(1)
+
 	amount--
 
 /obj/effect/decal/cleanable/blood/proc/dry()
@@ -132,8 +143,8 @@ var/global/list/image/splatter_cache=list()
 		user.verbs += /mob/living/carbon/human/proc/bloody_doodle
 
 /obj/effect/decal/cleanable/blood/splatter
-        random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
-        amount = 2
+    random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
+    amount = 2
 
 /obj/effect/decal/cleanable/blood/drip
 	name = "drips of blood"

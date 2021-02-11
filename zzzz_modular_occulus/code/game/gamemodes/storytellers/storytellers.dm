@@ -94,6 +94,7 @@ It generates half again as many events as default, as well as more antagonists.
 /* The Tyrant is designed for rounds with moderate to high population.
 It generates a large number of events, but doesn't generate antagonists.
 */
+
 /datum/storyteller/tyrant
 	config_tag = "tyrant"
 	name = "The Tyrant"

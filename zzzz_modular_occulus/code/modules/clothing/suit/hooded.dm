@@ -4,6 +4,7 @@ obj/item/clothing/suit/storage/hooded
 	var/hood_up = FALSE
 	var/toggleicon
 	action_button_name = "Toggle Hood"
+	bad_type = /obj/item/clothing/suit/storage/hooded	// so it does not spawn this cursed prototype item
 
 /obj/item/clothing/suit/storage/hooded/New()
 	toggleicon = "[initial(icon_state)]"
@@ -75,9 +76,28 @@ Else, it won't work properly.*/
 	hoodtype =	/obj/item/clothing/head/hood/sleeveless
 	min_cold_protection_temperature = T0C - 20	// The other hoodies seem to have this, so might as well!
 	cold_protection = UPPER_TORSO|LOWER_TORSO
+	style = STYLE_HIGH
 
 /obj/item/clothing/suit/storage/hooded/sleeveless/black
 	name = "black sleeveless jacket"
 	desc = "A black hooded jacket with no sleeves. Stylized with a white paw print on the back."
 	icon_state = "sleeveless_black"
 	hoodtype =	/obj/item/clothing/head/hood/sleeveless/black
+
+/obj/item/clothing/suit/storage/hooded/sleeveless/blue
+	name = "blue sleeveless jacket"
+	desc = "A blue hooded jacket with no sleeves. Stylized with a white paw print on the back."
+	icon_state = "sleeveless_blue"
+	hoodtype =	/obj/item/clothing/head/hood/sleeveless/blue
+
+/obj/item/clothing/suit/storage/hooded/sleeveless/yellow
+	name = "yellow sleeveless jacket"
+	desc = "A yellow hooded jacket with no sleeves. Stylized with a white paw print on the back."
+	icon_state = "sleeveless_yellow"
+	hoodtype =	/obj/item/clothing/head/hood/sleeveless/yellow
+
+/obj/item/clothing/suit/storage/hooded/sleeveless/white
+	name = "white sleeveless jacket"
+	desc = "A white hooded jacket with no sleeves. Stylized with a red paw print on the back."
+	icon_state = "sleeveless_white"
+	hoodtype =	/obj/item/clothing/head/hood/sleeveless/white

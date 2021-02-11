@@ -15,6 +15,7 @@
 	reagent_flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	preloaded_reagents = list("bicaridine" = 40)
+	//spawn_blacklisted = TRUE//antag_item_targets?
 
 /obj/item/weapon/reagent_containers/hypospray/attack(mob/living/M as mob, mob/user as mob)
 	if(!reagents.total_volume)
@@ -103,7 +104,7 @@
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/update_icon()
 	cut_overlays()
-	if(reagents.total_volume > 0)
+	if(reagents && reagents.total_volume > 0)
 		icon_state = initial(icon_state)
 		var/image/filling_overlay = mutable_appearance('icons/obj/reagentfillings.dmi', "autoinjector")
 		filling_overlay.color = reagents.get_color()

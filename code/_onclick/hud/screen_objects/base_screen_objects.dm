@@ -251,7 +251,7 @@
 
 /obj/screen/zone_sel/proc/set_selected_zone(bodypart)
 	var/old_selecting = parentmob.targeted_organ
-	testing("[bodypart] - - [old_selecting]")
+	//testing("[bodypart] - - [old_selecting]") Occulus edit, commenting out log spam
 
 	if(old_selecting != bodypart)
 		parentmob.targeted_organ = bodypart

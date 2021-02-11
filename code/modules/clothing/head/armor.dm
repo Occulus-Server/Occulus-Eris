@@ -16,7 +16,7 @@
 	spawn_tags = SPAWN_TAG_CLOTHING_HEAD_HELMET
 	bad_type = /obj/item/clothing/head/armor
 	rarity_value = 10
-	style = 0
+	style = STYLE_NEG_HIGH
 
 /*
  * Helmets
@@ -124,6 +124,7 @@
 	icon_state = "thunderdome"
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 1
+	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/armor/bulletproof
 	name = "bulletproof helmet"

@@ -58,12 +58,12 @@
 				res |= picked.primitive_form
 	return res
 
-/datum/disease2/disease/proc/activate(var/mob/living/carbon/mob)
+/datum/disease2/disease/proc/activate(mob/living/carbon/mob)
 	if(dead)
 		cure(mob)
 		return
 
-	if(mob.stat == 2)
+	if(mob.stat == DEAD)
 		return
 	if(stage <= 1 && clicks == 0) 	// with a certain chance, the mob may become immune to the disease before it starts properly
 		if(prob(5))
@@ -74,6 +74,29 @@
 	if(istype(H) && H.species.virus_immune)
 		cure(mob)
 		return
+
+	///// OCCULUS EDIT START
+	// Grant disease immunity to those with a robotic liver and robotic lungs.
+	// TODO: Later on, introduce computer viruses for people with prosthetics instead of regular viruses.
+	// This is also a QoL fix for FBPs since they cannot use spaceacillin easily, nor does it make sense
+	// for them to need medicine.
+
+	if(istype(H) && H.internal_organs)
+
+		if(H.isSynthetic())
+
+			src.cure(mob)
+			return
+
+		var/obj/item/organ/internal/lungs/lungs = H.random_organ_by_process(OP_LUNGS)
+		var/obj/item/organ/internal/liver/liver = H.random_organ_by_process(OP_LIVER)
+
+		if ((BP_IS_ROBOTIC(lungs) && BP_IS_ROBOTIC(liver)))
+
+			src.cure(mob)
+			return
+
+	///// OCCULUS EDIT END
 
 	if(mob.radiation > 50)
 		if(prob(1))

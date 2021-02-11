@@ -30,7 +30,7 @@
 	var/max_energy = 0					// Maximal stored energy. In joules. Depends on the type of used SMES coil when constructing this generator.
 	var/current_energy = 0				// Current stored energy.
 	var/field_radius = 200				// Current field radius. //200 is default for hull shield
-	var/running = SHIELD_OFF			// Whether the generator is enabled or not.
+	var/running = SHIELD_RUNNING		// Whether the generator is enabled or not.	OCCULUS EDIT: Start with shields on (originally SHIELD_OFF)
 	var/input_cap = 1 MEGAWATTS			// Currently set input limit. Set to 0 to disable limits altogether. The shield will try to input this value per tick at most
 	var/upkeep_power_usage = 0			// Upkeep power usage last tick.
 	var/upkeep_multiplier = 1			// Multiplier of upkeep values.
@@ -138,6 +138,16 @@
 	mitigation_physical = between(0, mitigation_physical, mitigation_max)
 	mitigation_heat = between(0, mitigation_heat, mitigation_max)
 
+///// OCCULUS EDIT START
+// A proc to boost the shield as part of a 'Power the Ship' vote.
+
+/obj/machinery/power/shield_generator/proc/boost_field()
+	max_energy = 0
+	for(var/obj/item/weapon/stock_parts/smes_coil/S in component_parts)
+		max_energy += (S.ChargeCapacity / CELLRATE)
+	current_energy = max_energy
+
+///// OCCULUS EDIT END
 
 // Shuts down the shield, removing all shield segments and unlocking generator settings.
 /obj/machinery/power/shield_generator/proc/shutdown_field()
@@ -756,7 +766,7 @@
 	if(generator)
 		generator.toggle_tendrils(FALSE)
 		if(generator.running != SHIELD_OFF && !generator.emergency_shutdown)
-			generator.offline_for += 300 
+			generator.offline_for += 300
 			generator.shutdown_field()
 			generator.emergency_shutdown = TRUE
 			generator.log_event(EVENT_DISABLED, generator)
@@ -843,7 +853,7 @@
 		allowed_modes.Remove(MODEFLAG_HULL)
 		to_chat(usr, SPAN_NOTICE("You retracted [src] conduits."))
 		return FALSE
-	
+
 	mode_list = list()
 	for(var/st in subtypesof(/datum/shield_mode/))
 		var/datum/shield_mode/SM = new st()

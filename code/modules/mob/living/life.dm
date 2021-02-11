@@ -2,6 +2,7 @@
 	set invisibility = 0
 	set background = BACKGROUND_ENABLED
 
+	. = FALSE
 	..()
 	if(config.enable_mob_sleep)
 		if(life_cycles_before_scan > 0)
@@ -24,7 +25,7 @@
 		if(!loc)
 			return
 		var/datum/gas_mixture/environment = loc.return_air()
-
+		handle_chemicals_in_body() //Occulus edit - Allowing some chems to process on dead things.
 		if(stat != DEAD)
 			//Breathing, if applicable
 			handle_breathing()
@@ -33,7 +34,7 @@
 			handle_mutations_and_radiation()
 
 			//Chemicals in the body
-			handle_chemicals_in_body()
+			//handle_chemicals_in_body()Occulus edit - Allowing some chems to process on dead things. on_mob_life already checks if the target is dead and there is a flag for chems that work on dead things!
 
 			//Blood
 			handle_blood()
@@ -41,7 +42,7 @@
 			//Random events (vomiting etc)
 			handle_random_events()
 
-			. = 1
+			. = TRUE
 
 		//Handle temperature/pressure differences between body and environment
 		if(environment)

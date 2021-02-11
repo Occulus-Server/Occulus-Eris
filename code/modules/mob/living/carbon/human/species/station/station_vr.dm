@@ -78,11 +78,7 @@
 	min_age = 18
 	max_age = 80
 
-	blurb = "What used to be a primitive, sub-sapient aquatic species crippled by genetic deformities, the Akula were discovered by \
-	NZR exploration teams and uplifted by advanced genetic engineering using the sequences of the closest candidate available - Terran sharks. \
-	Within a generation or two Akula had become a servitor species for the NZR's underwater colonies on their home maintaining it's mining, agriculture \
-	and construction efforts until strikes and riots had forced the NZR to grant them sapient rights. Akula find themselves in a unique place in the galaxy, \
-	having no significant history or culture, but a strong sense of unity to each other. "
+	blurb = "Not an offical species, however it is here so it's sprite can be used for custom species." //Occulus edit
 
 	primitive_form = "Sobaka"
 
@@ -136,7 +132,7 @@
 //	reagent_tag = IS_SERGAL
 
 	heat_discomfort_strings = list(
-		"Your fur prickles in the heat.",
+		"Your plumage prickles in the heat.",
 		"You feel uncomfortably warm.",
 		"Your overheated skin itches."
 		)
@@ -240,11 +236,9 @@
 	color_mult = 1
 	//inherent_verbs = list(/mob/living/proc/shred_limb)
 
-	blurb = "Vulpkanin are a race of Canid-likes from the Vazzend system with a long history of \
-	religious and philosophical conflicts ended by the current unifying body, the Vulpkanin Nation. \
-	Their nation is an isolationist and totalitarian state led by ideas similar to Utilitarianism and with harsh criminal policies,\
-	including the generational exile of criminals and dissidents. Meaning there is a large exodus of Vulpkanins to foreign space \
-	though there remains a small community of temporary expats, still loyal to their home."
+	blurb = "Vulpkanin is the Galactic Common name for a species of canine-genus upright humanoids that hail from the Vazzend system, \
+	before contact from the Skrell the Vulpkanin were a heavily industrial pre-FTL species that had colonized and exploited most of their \
+	home system, now a protectorate under the Skrellian Diplomatic Fleets with a corruption-heavy government." //Occulus edit
 
 	primitive_form = "Wolpin"
 

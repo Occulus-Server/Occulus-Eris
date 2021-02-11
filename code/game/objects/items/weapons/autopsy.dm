@@ -181,7 +181,7 @@
 	if(!istype(M))
 		return
 
-	if(!can_operate(M, user))
+	if(!can_operate(M, user) == CAN_OPERATE_ALL)
 		to_chat(user, SPAN_WARNING("You need to lay the cadaver down on a table first!"))
 		return
 
