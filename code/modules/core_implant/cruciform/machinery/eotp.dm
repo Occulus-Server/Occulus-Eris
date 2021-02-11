@@ -23,7 +23,7 @@ var/global/obj/machinery/power/eotp/eotp
 	idle_power_usage = 30
 	active_power_usage = 2500
 
-	var/list/rewards = list(ARMAMENTS, ODDITY, STAT_BUFF, MATERIAL_REWARD)	// OCCULUS EDIT - Disable the antag radar and positive breakdown rewards (ALERT and INSPIRATION deleted)
+	var/list/rewards = list(ARMAMENTS, ODDITY, STAT_BUFF, STAT_BUFF, STAT_BUFF, MATERIAL_REWARD)	// OCCULUS EDIT - Disable the antag radar and positive breakdown rewards (ALERT and INSPIRATION deleted)
 
 	var/list/materials = list(/obj/item/stack/material/gold = 60,
 							/obj/item/stack/material/uranium = 30,
@@ -180,12 +180,15 @@ var/global/obj/machinery/power/eotp/eotp
 					H.stats.addTempStat(random_stat, stat_buff_power, 20 MINUTES, "Eye_of_the_Protector")
 
 	else if(type_release == MATERIAL_REWARD)
+	//Occulus Edit - Nerfing material rewards
 		var/materials_reward = pick(materials)
-		var/reward_min_amount = materials[materials_reward]
+		var/materials_reward2 = pick(materials)
 		var/obj/item/stack/material/_item = new materials_reward(get_turf(src))
-		_item.amount = rand(reward_min_amount, _item.max_amount)
-		visible_message(SPAN_NOTICE("The [_item.name] appears in a flash of light near the [src]!"))	//OCCULUS EDIT - Typo fix, and some lore changing
-
+		var/obj/item/stack/material/_item2 = new materials_reward2(get_turf(src))
+		_item.amount = materials[materials_reward]
+		_item2.amount = materials[materials_reward2]
+		visible_message(SPAN_NOTICE("The [_item.name] appears in a flash of light near the [src]!"))
+	//Occulus Edit End
 	for(var/disciple in disciples)
 		to_chat(disciple, SPAN_NOTICE("A faint tingling sensation washes over you. Mekhane has bestowed a blessing upon his children. Check the [src] if you don't actually notice anything."))	//OCCULUS EDIT - Lore compliance change
 
