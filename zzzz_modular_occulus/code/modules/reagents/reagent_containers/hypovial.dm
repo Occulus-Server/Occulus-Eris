@@ -106,22 +106,22 @@
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/bicaridine
 	name = "large red hypovial (bicaridine)"
-	icon_state = "hypoviallarge-b"
+	icon_state = "hypoviallarge"
 	preloaded_reagents = list("bicaridine" = 60)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/antitoxin
 	name = "large green hypovial (anti-tox)"
-	icon_state = "hypoviallarge-a"
+	icon_state = "hypoviallarge"
 	preloaded_reagents = list("anti_toxin" = 60)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/kelotane
 	name = "large orange hypovial (kelotane)"
-	icon_state = "hypoviallarge-k"
+	icon_state = "hypoviallarge"
 	preloaded_reagents = list("kelotane" = 60)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/dexalin
 	name = "large blue hypovial (dexalin)"
-	icon_state = "hypoviallarge-d"
+	icon_state = "hypoviallarge"
 	preloaded_reagents = list("dexalin" = 60)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/tricord
