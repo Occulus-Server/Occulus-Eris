@@ -19,10 +19,11 @@
 	name = "Mekhanite Seal"
 	desc = "An honorary badge given to the most devout of the Children of Mekhane."
 	oddity_stats = list(
-		STAT_COG = 6,
+		STAT_BIO = 6,
 		STAT_VIG = 6,
 		STAT_ROB = 4
-	)	// Nerf its stats to the ground
+	)// Nerf its stats to the ground
+	price_tag = 5000//price tag brought inline with secret doc value
 
 /obj/item/weapon/oddity/common/isometrics_lost
 	name = "greatest hits album"
