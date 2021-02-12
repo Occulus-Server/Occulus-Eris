@@ -103441,7 +103441,7 @@
 /obj/structure/catwalk,
 /obj/spawner/traps,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "fgo" = (
 /obj/structure/multiz/ladder,
 /turf/simulated/floor/wood,
@@ -103850,7 +103850,7 @@
 	},
 /obj/spawner/junk,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "gUI" = (
 /obj/structure/railing{
 	dir = 1
@@ -103882,7 +103882,7 @@
 /obj/structure/railing,
 /obj/structure/closet/crate/internals,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "hee" = (
 /obj/structure/sign/faction/neotheology_cross/gold{
 	pixel_y = 32
@@ -104010,7 +104010,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "hHz" = (
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
@@ -104561,7 +104561,7 @@
 /obj/structure/catwalk,
 /obj/structure/multiz/ladder/up,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "jKG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -104990,10 +104990,6 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
-"luN" = (
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
 "lwl" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark/techfloor,
@@ -105216,7 +105212,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "mrk" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/techfloor,
@@ -105269,7 +105265,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "mzy" = (
 /obj/structure/railing,
 /obj/machinery/disposal/deliveryChute{
@@ -105974,7 +105970,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "oOH" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -106086,7 +106082,7 @@
 	},
 /obj/spawner/traps,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "pdH" = (
 /obj/structure/table/bar_special,
 /obj/item/weapon/paper_bin,
@@ -106547,7 +106543,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "rjC" = (
 /obj/structure/closet/wall_mounted/firecloset{
 	pixel_y = 32
@@ -106719,7 +106715,7 @@
 "rWu" = (
 /obj/structure/railing,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "rXW" = (
 /obj/structure/multiz/stairs/enter{
 	dir = 4
@@ -106780,7 +106776,7 @@
 /obj/structure/railing,
 /obj/spawner/junk,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "snm" = (
 /obj/structure/curtain/black,
 /turf/simulated/floor/wood,
@@ -107339,7 +107335,7 @@
 /obj/structure/railing,
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "uvI" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -107435,7 +107431,7 @@
 	},
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "uWd" = (
 /obj/spawner/scrap/dense,
 /turf/simulated/floor/carpet/bcarpet,
@@ -107620,7 +107616,7 @@
 	},
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "vAn" = (
 /obj/machinery/door/blast/shutters{
 	dir = 2;
@@ -108045,7 +108041,7 @@
 /obj/structure/railing,
 /obj/spawner/traps/low_chance,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "xxr" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/steel/gray_platform,
@@ -108102,7 +108098,7 @@
 /obj/structure/railing,
 /obj/spawner/traps,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section2deck5port)
+/area/eris/maintenance/section1deck5central)
 "xLB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -118791,14 +118787,14 @@ aaa
 aaa
 aaa
 aaa
-dLB
-dLB
-dLB
-dLB
-dLB
-dLB
-dLB
-dLB
+dzi
+dzi
+dzi
+dzi
+dzi
+dzi
+dzi
+dzi
 aaa
 aaa
 aaa
@@ -118993,14 +118989,14 @@ aaa
 aaa
 aaa
 aaa
-dLB
+dzi
 xLv
-luN
+akZ
 hGU
 rWu
 myH
 jKd
-dLB
+dzi
 aaa
 aaa
 aaa
@@ -119195,14 +119191,14 @@ aaa
 aaa
 aaa
 aaa
-dLB
+dzi
 uSN
-luN
+akZ
 hGU
 smt
-luN
+akZ
 mqg
-dLB
+dzi
 aaa
 aaa
 aaa
@@ -119397,14 +119393,14 @@ aaa
 aaa
 aaa
 aaa
-dLB
+dzi
 xLv
-luN
+akZ
 pcE
 xLv
-luN
+akZ
 pcE
-dNO
+dzq
 aaa
 aaa
 aaa
@@ -119599,14 +119595,14 @@ aaa
 aaa
 aaa
 aaa
-dLB
+dzi
 xLv
-luN
+akZ
 vAe
 xvF
-luN
+akZ
 pcE
-dNO
+dzq
 aaa
 aaa
 aaa
@@ -119801,14 +119797,14 @@ aaa
 aaa
 aaa
 aaa
-dLB
+dzi
 xLv
-luN
+akZ
 vAe
 xLv
-luN
+akZ
 gTM
-dNO
+dzq
 aaa
 aaa
 aaa
@@ -120003,14 +119999,14 @@ aaa
 aaa
 aaa
 aaa
-dLB
+dzi
 hcY
-luN
+akZ
 pcE
 uuk
-luN
+akZ
 pcE
-dLB
+dzi
 aaa
 aaa
 aaa
@@ -120205,14 +120201,14 @@ aaa
 aaa
 aaa
 aaa
-dLB
+dzi
 xLv
-luN
+akZ
 vAe
 rWu
-luN
+akZ
 gTM
-dLB
+dzi
 aaa
 aaa
 aaa
@@ -120407,14 +120403,14 @@ aaa
 aaa
 aaa
 aaa
-dLB
+dzi
 hcY
-luN
+akZ
 rjs
 rWu
-luN
+akZ
 rjs
-dLB
+dzi
 aaa
 aaa
 aaa
@@ -120609,14 +120605,14 @@ aaa
 aaa
 aaa
 aaa
-dLB
+dzi
 oOh
 fcw
 pcE
 uuk
-luN
+akZ
 vAe
-dLB
+dzi
 aaa
 aaa
 aaa
@@ -120811,14 +120807,14 @@ aaa
 aaa
 aaa
 aaa
-dLB
+dzi
 rWu
 jKd
 vAe
 hcY
 jKd
 rjs
-dLB
+dzi
 aad
 aad
 aad
@@ -121013,14 +121009,14 @@ aaa
 aaa
 aaa
 aaa
-dLB
-dLB
-dLB
-dLB
-dLB
-dLB
-dLB
-dLB
+dzi
+dzi
+dzi
+dzi
+dzi
+dzi
+dzi
+dzi
 aaa
 aaa
 aaa
