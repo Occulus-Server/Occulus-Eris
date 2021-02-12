@@ -20,7 +20,7 @@
 
 /datum/gear/suit/mekhanejacket
 	display_name = "Mekhane jacket"
-	path = /obj/item/clothing/suit/neotheology_jacket
+	path = /obj/item/clothing/suit/storage/neotheology_jacket
 	cost = 1
 	allowed_roles = list("Chaplain","Mekhane Acolyte","Mekhane Agrolyte","Mekhane Custodian")
 
