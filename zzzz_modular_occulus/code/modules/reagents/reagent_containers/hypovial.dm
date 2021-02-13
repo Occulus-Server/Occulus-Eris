@@ -142,7 +142,7 @@
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/tricord
 	preloaded_reagents = list("tricordrazine" = 60)
 
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/combat .
+/obj/item/weapon/reagent_containers/glass/beaker/hypovial/combat
 	name = "combat hypovial"
 	icon_state = "hypovial-t"
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/combat
