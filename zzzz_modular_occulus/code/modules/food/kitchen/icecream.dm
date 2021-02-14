@@ -98,7 +98,7 @@
 			//	if(beaker)
 			//		beaker.reagents.trans_to(I, 10)
 				if(I.reagents.total_volume < 10)
-					I.reagents.add_reagent("sugar", 10 - I.reagents.total_volume)
+					I.reagents.add_reagent("nutriment", 10 - I.reagents.total_volume,  list("[flavour_name]" = 7, "[I.cone_type]" = 3))
 			else
 				user << "<span class='warning'>There is not enough icecream left!</span>"
 		else
