@@ -49732,7 +49732,9 @@
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "clS" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -49763,7 +49765,9 @@
 	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/white/cargo,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "clT" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
@@ -50575,7 +50579,9 @@
 	},
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "cnO" = (
 /obj/machinery/sleeper{
 	dir = 4
@@ -52390,10 +52396,14 @@
 /area/eris/medical/medbay/uppercor)
 "csg" = (
 /turf/simulated/wall/r_wall,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "csh" = (
 /turf/simulated/wall,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "csi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -70159,7 +70169,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/gray_platform,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "dii" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -70308,7 +70320,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/gray_platform,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "diB" = (
 /obj/structure/sign/faction/moebius{
 	pixel_x = -32
@@ -76534,7 +76548,9 @@
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/medical,
 /turf/simulated/floor/tiled/white/gray_platform,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "dwD" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/firstaid/o2{
@@ -78968,6 +78984,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/landmark/join/start/psychiatrist,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patients_rooms)
 "dCw" = (
@@ -79732,7 +79749,9 @@
 	},
 /obj/structure/medical_stand,
 /turf/simulated/floor/tiled/white,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "dEl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -79746,7 +79765,9 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "dEm" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -79773,7 +79794,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "dEp" = (
 /obj/machinery/alarm{
 	pixel_y = 26
@@ -79782,7 +79805,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "dEq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -79829,7 +79854,9 @@
 "dEz" = (
 /obj/machinery/autodoc,
 /turf/simulated/floor/tiled/white/gray_platform,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "dEA" = (
 /obj/structure/multiz/ladder/up,
 /turf/simulated/floor/tiled/techmaint,
@@ -79845,7 +79872,9 @@
 "dED" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
-/area/eris/medical/psych)
+/area/eris/medical/psych{
+	name = "\improper Autodoc Room"
+	})
 "dEE" = (
 /obj/machinery/atmospherics/pipe/zpipe/up,
 /obj/structure/disposalpipe/up{
@@ -86555,10 +86584,10 @@
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
-/obj/item/seeds/random,
 /obj/item/weapon/paper{
 	name = "Seed Alien1 Growth Stage Value:"
 	},
+/obj/structure/closet/secure_closet/personal/agrolyte,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "dUE" = (

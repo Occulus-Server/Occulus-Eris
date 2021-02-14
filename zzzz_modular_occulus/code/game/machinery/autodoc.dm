@@ -18,11 +18,12 @@
 	autodoc_processor.holder = src
 	autodoc_processor.damage_heal_amount = 20
 
-
 /obj/machinery/autodoc/relaymove(mob/user)
 	if (user.stat)
 		return
 	src.go_out()
+	add_fingerprint(usr)
+	autodoc_processor.login()
 	return
 
 /obj/machinery/autodoc/attackby(obj/item/I, mob/living/user)
@@ -78,6 +79,9 @@
 	update_icon()
 
 /obj/machinery/autodoc/proc/set_occupant(var/mob/living/L)
+	autodoc_processor = new/datum/autodoc/capitalist_autodoc()
+	autodoc_processor.holder = src
+	autodoc_processor.damage_heal_amount = 20
 	L.forceMove(src)
 	src.occupant = L
 	src.add_fingerprint(usr)
@@ -125,7 +129,7 @@
 	update_icon()
 	return
 
-/obj/machinery/autodoc/verb/ativate_autodoc() //Allows the user to bring up the UI
+/obj/machinery/autodoc/verb/activate_autodoc() //Allows the user to bring up the UI
 	set name = "Activate Autodoc"
 	set category = "Object"
 	set src in view(0)
