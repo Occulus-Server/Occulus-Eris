@@ -4,6 +4,7 @@
 	icon = 'zzzz_modular_occulus/icons/inventory/hands/gloves.dmi'
 	icon_state = "stunglove"
 	item_state = "stunglove"
+	icon_override = 'zzzz_modular_occulus/icons/mob/gloves.dmi'
 	action_button_name = "Toggle Stun Glove"
 	price_tag = 100
 	rarity_value = 30
