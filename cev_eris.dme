@@ -2813,6 +2813,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\grenades\chem_grenade.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\belt.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\firstaid.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\pouches.dm"
 #include "zzzz_modular_occulus\code\game\objects\random\utility.dm"
 #include "zzzz_modular_occulus\code\game\objects\structures\evacsign.dm"
 #include "zzzz_modular_occulus\code\game\objects\structures\fitness.dm"

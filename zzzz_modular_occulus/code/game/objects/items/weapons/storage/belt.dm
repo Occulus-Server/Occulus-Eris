@@ -1,4 +1,4 @@
-//Makes the medical belt able to fit the advanced rollerbed in it!
+//Makes the medical belt able to fit the advanced rollerbed in it! And the hyposprays too now!
 
 /obj/item/weapon/storage/belt/medical
 	can_hold = list(
@@ -23,5 +23,6 @@
 		/obj/item/weapon/tool/crowbar,
 		/obj/item/device/lighting/toggleable/flashlight,
 		/obj/item/weapon/extinguisher/mini,
-		/obj/item/roller/adv
+		/obj/item/roller/adv,
+		/obj/item/hypospray,
 	)
