@@ -50862,7 +50862,7 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbay)
 "coC" = (
-/obj/machinery/vending/medical/occulus,
+/obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
 "coD" = (
@@ -77216,7 +77216,7 @@
 /area/eris/maintenance/oldbridge)
 "dyu" = (
 /obj/item/weapon/autopsy_scanner,
-/obj/structure/closet/secure_closet/reinforced/CMOcculus,
+/obj/structure/closet/secure_closet/reinforced/CMO,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/command/mbo)
 "dyv" = (
@@ -79793,7 +79793,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/vending/medical/occulus,
+/obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbreak)
 "dEr" = (
@@ -103335,8 +103335,13 @@
 /turf/simulated/open,
 /area/eris/medical/genetics)
 "eOC" = (
-/obj/spawner/pack/machine,
-/turf/simulated/floor/plating/under,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/open,
 /area/eris/maintenance/section2deck1port)
 "ePQ" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
@@ -103739,11 +103744,11 @@
 /turf/simulated/floor/plating,
 /area/eris/quartermaster/office)
 "gxk" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/railing{
-	dir = 8
+	dir = 4
 	},
-/turf/simulated/floor/tiled/techmaint,
+/obj/structure/railing,
+/turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1port)
 "gxo" = (
 /obj/spawner/scrap,
@@ -103761,9 +103766,6 @@
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "gDZ" = (
-/obj/structure/railing{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/derelict1{
 	pixel_x = -32
@@ -103906,7 +103908,7 @@
 	name = "Service Maintenance";
 	req_access = list(12)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "hgZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -104196,13 +104198,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/eris/neotheology/office)
-"irX" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section2deck1port)
 "ivn" = (
 /obj/structure/table/rack,
 /obj/item/weapon/holochip/security/tough,
@@ -104289,6 +104284,9 @@
 /area/space)
 "iKO" = (
 /obj/machinery/atmospherics/valve{
+	dir = 4
+	},
+/obj/structure/railing{
 	dir = 4
 	},
 /turf/simulated/floor/plating/under,
@@ -105297,9 +105295,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/structure/railing{
-	dir = 8
-	},
+/obj/spawner/pack/machine,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "mLO" = (
@@ -282197,7 +282193,7 @@ dNZ
 dNZ
 dNZ
 kuJ
-eOC
+eDD
 gDZ
 alb
 dVh
@@ -282399,8 +282395,8 @@ dNZ
 dNZ
 dNZ
 iKO
-dAF
-irX
+gxk
+aof
 alb
 dVi
 dVy
@@ -282601,7 +282597,7 @@ dNZ
 dNZ
 dPK
 mLx
-gxk
+dQw
 tec
 alb
 dVh
@@ -282798,9 +282794,9 @@ jBq
 oMQ
 alb
 rcr
-dQZ
-dNZ
-dNZ
+eOC
+dOn
+dOn
 iTf
 qbW
 lFi
@@ -283000,9 +282996,9 @@ oMQ
 maq
 alb
 oQc
-dQZ
-dNZ
-dPK
+dQr
+dQr
+dQr
 dMn
 pTW
 tlK
@@ -284427,9 +284423,9 @@ apf
 amQ
 alb
 aqk
-dQZ
-dNZ
-dNZ
+eOC
+dOn
+dOn
 dNZ
 dNZ
 dNZ
@@ -284629,10 +284625,10 @@ aof
 amc
 amO
 amc
-dQZ
-dNZ
-dOn
-dOn
+dQr
+dQr
+dQr
+dRk
 dNZ
 dNZ
 alb
