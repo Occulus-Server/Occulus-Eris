@@ -31,5 +31,4 @@
 		/obj/item/ammo_casing/rocket,
 		/obj/item/ammo_casing/grenade,
 		/obj/item/hypospray,
-		/obj/item/weapon/reagent_containers/glass/beaker/hypovial/,
 		)
