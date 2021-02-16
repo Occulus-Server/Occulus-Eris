@@ -37,4 +37,3 @@
 #define PERK_MARKET_PROF /datum/perk/oddity/market_prof
 
 //job perks
-#define PERK_CLUB /datum/perk/job/club
