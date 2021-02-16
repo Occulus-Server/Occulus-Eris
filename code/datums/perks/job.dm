@@ -167,7 +167,7 @@
 	name = "Neat"
 	desc = "You're used to see blood and filth in all its forms. Your motto: a clean ship is the first step to enlightenment. \
 			This perk reduces the total sanity damage you can take from what is happening around you. \
-			You can regain sanity by cleaning."
+			You can regain sanity by cleaning with your broom."
 	icon_state = "neat" // https://game-icons.net/1x1/delapouite/broom.html
 
 /datum/perk/neat/assign(mob/living/carbon/human/H)
@@ -191,18 +191,3 @@
 /datum/perk/greenthumb/assign(mob/living/carbon/human/H)
 	..()
 	virtual_scanner.is_virtual = TRUE
-
-/datum/perk/job/club
-	name = "Raising the bar"
-	desc = "You know how to mix drinks and change lives. People near you recover sanity."
-	icon_state = "inspiration"
-
-/datum/perk/job/club/assign(mob/living/carbon/human/H)
-	..()
-	if(holder)
-		holder.sanity_damage -= 2
-
-/datum/perk/job/club/remove()
-	if(holder)
-		holder.sanity_damage += 2
-	..()
