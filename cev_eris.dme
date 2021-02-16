@@ -2797,6 +2797,7 @@
 #include "zzzz_modular_occulus\code\game\jobs\job\medical.dm"
 #include "zzzz_modular_occulus\code\game\jobs\job\science.dm"
 #include "zzzz_modular_occulus\code\game\jobs\job\security.dm"
+#include "zzzz_modular_occulus\code\game\machinery\autodoc.dm"
 #include "zzzz_modular_occulus\code\game\machinery\jukebox.dm"
 #include "zzzz_modular_occulus\code\game\machinery\smartfridge.dm"
 #include "zzzz_modular_occulus\code\game\machinery\vending.dm"
