@@ -28,12 +28,8 @@
 
 	var/datum/gas_mixture/env = src.loc.return_air()
 	if(env)
-		if (reagents.total_volume > 750)
-			env.temperature = 0
-		else if (reagents.total_volume > 500)
-			env.temperature -= 100
-		else
-			env.temperature -= 50
+		var/removed_heat = (reagents.total_volume * 6000)
+		env.add_thermal_energy(-removed_heat)
 
 	sleep(10)
 	if(src)
