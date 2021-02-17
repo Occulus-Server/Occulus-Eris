@@ -37,3 +37,4 @@
 #define PERK_MARKET_PROF /datum/perk/oddity/market_prof
 
 //job perks
+#define PERK_ARTIST /datum/perk/job/artist

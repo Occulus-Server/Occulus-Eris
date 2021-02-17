@@ -16,7 +16,6 @@
 	name = OUTFIT_JOB_NAME("Chief Engineer")
 	head = /obj/item/clothing/head/hardhat/white
 	uniform = /obj/item/clothing/under/rank/exultant
-	head = /obj/item/clothing/head/hardhat/white
 	suit = /obj/item/clothing/suit/storage/te_coat
 	l_ear = /obj/item/device/radio/headset/heads/ce
 	id_type = /obj/item/weapon/card/id/ce

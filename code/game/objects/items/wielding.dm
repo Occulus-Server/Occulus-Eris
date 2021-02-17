@@ -27,7 +27,7 @@
 	if(sf)
 		name = copytext(name,9) //Occulus Edit.
 	else //something went wrong
-		name = "[initial(name)]"
+		name = "[initial(name)]"//Returns name from compile-time instead of name with changes that've happened since
 	update_unwield_icon()
 	update_icon()
 	if(user)
@@ -61,7 +61,7 @@
 	if(user)
 		user.update_inv_r_hand()
 		user.update_inv_l_hand()
-	user.visible_message(SPAN_WARNING("[user] grabs \the [initial(name)] with both hands."))
+	user.visible_message(SPAN_WARNING("[user] grabs \the [original_name] with both hands."))
 	if(wieldsound)
 		playsound(loc, wieldsound, 50, 1)
 	var/obj/item/weapon/twohanded/offhand/O = new(user) ////Let's reserve his other hand~
