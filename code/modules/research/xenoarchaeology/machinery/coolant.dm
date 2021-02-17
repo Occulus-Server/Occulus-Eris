@@ -27,10 +27,10 @@
 		S.start()
 
 	var/datum/gas_mixture/env = src.loc.return_air()
-	if(env)
+	if(env)//Occulus Edit start
 		var/removed_heat = (reagents.total_volume * 6000)
 		env.add_thermal_energy(-removed_heat)
-
+//Occulus Edit end
 	sleep(10)
 	if(src)
 		qdel(src)
