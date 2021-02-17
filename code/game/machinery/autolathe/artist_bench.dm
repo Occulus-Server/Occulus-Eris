@@ -9,7 +9,8 @@
 
 /obj/machinery/autolathe/artist_bench
 	name = "artist's bench"
-	desc = "Insert wood, steel, glass, plasteel, plastic and a bit of your soul to create a beautiful work of art."
+	desc = "Insert wood, steel, glass, plasteel, plastic and a bit of your soul to create a beautiful work of art. \
+			Requires a stock of at least 5 sheets of each of the aforementioned materials before you begin sacrificing your soul."	// OCCULUS EDIT - Makes its requirements clear
 	icon = 'icons/obj/machines/autolathe.dmi'
 	icon_state = "bench"
 	circuit = /obj/item/weapon/electronics/circuitboard/artist_bench
@@ -20,7 +21,7 @@
 	categories = list("Artwork")
 
 	suitable_materials = list(MATERIAL_WOOD, MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_PLASTEEL, MATERIAL_PLASTIC)
-	var/min_mat = 20
+	var/min_mat = 5 // OCCULUS EDIT - Makes its requirements less dumb
 	var/min_insight = 40
 	var/datum/component/inspiration/inspiration
 	var/obj/item/oddity
@@ -161,7 +162,7 @@
 		weight_artwork_statue += 12
 
 	return pickweight(list(
-		"artwork_revolver" = weight_artwork_revolver,
+		//"artwork_revolver" = weight_artwork_revolver,	// OCCULUS EDIT - no meme guns
 		"artwork_oddity" = weight_artwork_oddity,
 		"artwork_toolmod" = weight_artwork_toolmod,
 		"artwork_statue" = weight_artwork_statue
@@ -391,3 +392,14 @@
 #undef ERR_PAUSED
 #undef ERR_NOINSIGHT
 #undef MAX_STAT_VALUE
+
+// OCCULUS STUFF
+
+/obj/machinery/autolathe/artist_bench/loaded
+	stored_material = list(
+		MATERIAL_STEEL = 5,
+		MATERIAL_PLASTIC = 5,
+		MATERIAL_GLASS = 5,
+		MATERIAL_PLASTEEL = 5,
+		MATERIAL_WOOD = 5
+		)

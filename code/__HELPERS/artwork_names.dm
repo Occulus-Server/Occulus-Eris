@@ -59,7 +59,7 @@ GLOBAL_LIST_INIT(art_types, file2list("strings/artist_strings/descriptors/art_ty
 
 /proc/get_art_secret_name()
 	var/list/adjectives = list("big", "terrifying", "mysterious", "fantastic", "secret", "haunting", "mysteriouss")
-	return "the [pick(adjectives)] secret of [get_artwork_crew_name(pick(TRUE, FALSE), pick(TRUE, FALSE))]"
+	return "\the [pick(adjectives)] secret of [get_artwork_crew_name(pick(TRUE, FALSE), pick(TRUE, FALSE))]"
 
 /proc/get_travel_actios()
 	var/location
@@ -67,15 +67,15 @@ GLOBAL_LIST_INIT(art_types, file2list("strings/artist_strings/descriptors/art_ty
 		location = get_art_mob_places()
 	else
 		location = pick(GLOB.art_locations)
-	return "the [get_artwork_crew_name(pick(TRUE, FALSE), pick(TRUE, FALSE))]s [pick("trip","journey")] to the [location]"
+	return "\the [get_artwork_crew_name(pick(TRUE, FALSE), pick(TRUE, FALSE))]s [pick("trip","journey")] to the [location]"
 
 /proc/get_art_mob_places()
 	var/list/mobs_places = list("cave", "hideout", "nest")
-	return "the [pick(GLOB.art_names_of_creatures_plural)] [pick(mobs_places)]"
+	return "\the [pick(GLOB.art_names_of_creatures_plural)] [pick(mobs_places)]"
 
 /proc/get_art_of_name()
 	var/list/nouns = list("heart", "soul", "honor", "beauty", "feet", "true face", "true form")
-	return "the [pick(nouns)] of [get_artwork_crew_name(pick(TRUE, FALSE), pick(TRUE, FALSE))]"
+	return "\the [pick(nouns)] of [get_artwork_crew_name(pick(TRUE, FALSE), pick(TRUE, FALSE))]"
 
 /obj/proc/get_random_material()
 	var/list/nmatter = get_matter()
@@ -86,7 +86,7 @@ GLOBAL_LIST_INIT(art_types, file2list("strings/artist_strings/descriptors/art_ty
 
 /obj/proc/make_art_review()
 	var/list/emotions = list("fear", "joy", "laughter", "sadness", "respect", "terror", "vigor", "encourages")
-	desc += " A [pick(GLOB.art_styles)] [pick(GLOB.art_types)] [get_sculpting_method()]. [pick("Inspires", "Infuses")] [pick(emotions)] to those who look at it."
+	desc += " \A [pick(GLOB.art_styles)] [pick(GLOB.art_types)] [get_sculpting_method()]. [pick("Inspires", "Infuses")] [pick(emotions)] to those who look at it."
 
 /obj/item/weapon/gun/projectile/make_art_review()
 	desc += " [get_art_gun_desc(src)]"

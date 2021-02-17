@@ -30,15 +30,16 @@
 	. = ..()
 	AddComponent(/datum/component/atom_sanity, sanity_value, "")
 
+	//OCCULUS EDIT START - REEE GIMME PERKS
+	if(!perk)
+		perk = pick(subtypesof(/datum/perk/oddity))
+	//OCCULUS EDIT END
+
 	if(oddity_stats)
 		if(random_stats)
 			for(var/stat in oddity_stats)
 				oddity_stats[stat] = rand(1, oddity_stats[stat])
 		AddComponent(/datum/component/inspiration, oddity_stats, perk)
-	//OCCULUS EDIT START - REEE GIMME PERKS
-	if(!perk)
-		perk = pick(subtypesof(/datum/perk/oddity))
-	//OCCULUS EDIT END
 
 /obj/item/weapon/oddity/examine(user)
 	..()
