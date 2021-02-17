@@ -457,7 +457,7 @@
 	if(world.time >= message_time)
 		message_time = world.time + cooldown_message
 		var/chance = rand(1, 100)
-		holder.owner.say(chance <= 50 ? "[holder.pick_quote_20()]" : "[holder.pick_quote_40()]")
+		holder.owner.whisper_say(chance <= 50 ? "[holder.pick_quote_20()]" : "[holder.pick_quote_40()]") //Occulus edit, so you mutter to yourself
 
 /datum/breakdown/common/desire_for_chrome
 	name = "Desire for Chrome"
@@ -554,7 +554,7 @@
 	restore_sanity_post = 70
 	var/mob/living/carbon/human/target
 	var/message_time = 0
-	var/obsession_time = 3 MINUTES
+	var/obsession_time = 5 SECONDS //Occulus edit, so other breakdowns aren't so common but it's not 3 minutes of spam
 	var/last_time
 	var/delta_time
 
