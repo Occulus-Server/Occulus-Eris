@@ -454,6 +454,7 @@
 	name = "altyn helmet"
 	desc = "A titanium helmet of serbian origin. Still widely used despite being discontinued."
 	icon_state = "altyn"
+	armor = list(melee = 20, bullet = 15, energy = 0, bomb = 15, bio = 0, rad = 0) //Fixing a runtime.
 	var/list/armor_up = list(melee = 20, bullet = 15, energy = 0, bomb = 15, bio = 0, rad = 0)
 	var/list/armor_down = list(melee = 40, bullet = 40, energy = 0, bomb = 35, bio = 0, rad = 0) // slightly better than usual due to mask
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHEADHAIR

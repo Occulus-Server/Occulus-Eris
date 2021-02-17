@@ -52,7 +52,7 @@ var/global/list/default_medbay_channels = list(
 	var/syndie = 0//Holder to see if it's a syndicate encrypted radio
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
-	
+
 	//Eclipse-added vars
 	var/freqlock = FALSE		//Eclipse Edit: Should we lock the frequency to prevent people from changing the channel?
 
@@ -72,7 +72,7 @@ var/global/list/default_medbay_channels = list(
 	if(syndie)
 		internal_channels += unique_internal_channels.Copy()
 	add_hearing()
-	
+
 	//eclipse addition
 	if(audible_squelch_enabled)		//if it's disabled, should stay as null.ogg. Prevents it from playing squelch in the event another if-check fails.
 		audible_squelch_type = pick(all_radio_squelch_sounds)		//radios get a semi-unique radio squelch sound. granted, there's four sounds total, but if one radio receives it should maintain the same squelch sound all the time.
