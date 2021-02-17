@@ -29,8 +29,6 @@
 /obj/item/weapon/oddity/Initialize()
 	. = ..()
 	AddComponent(/datum/component/atom_sanity, sanity_value, "")
-	if(!perk)
-		perk = get_oddity_perk(prob_perk)
 
 	if(oddity_stats)
 		if(random_stats)

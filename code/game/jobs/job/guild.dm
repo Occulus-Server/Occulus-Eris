@@ -14,7 +14,7 @@
 	access = list(
 		access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_merchant, access_mining,
 		access_heads, access_mining_station, access_RC_announce, access_keycard_auth, access_sec_doors,
-		access_eva, access_external_airlocks, access_change_cargo, access_artist
+		access_eva, access_external_airlocks, access_change_cargo
 	)
 	ideal_character_age = 40
 	stat_modifiers = list(
@@ -173,7 +173,7 @@ Character Expectations:<br>\
 	name = "Union Miner"
 	icon_state = "player-beige"
 	join_tag = /datum/job/mining
-
+/*
 /datum/job/artist
 	title = "Guild Artist"
 	flag = ARTIST
@@ -216,3 +216,4 @@ Character Expectations:<br>\
 	name = "Guild Artist"
 	icon_state = "player-grey"
 	join_tag = /datum/job/artist
+*/

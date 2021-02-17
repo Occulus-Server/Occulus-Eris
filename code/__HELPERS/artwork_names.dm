@@ -29,9 +29,10 @@ GLOBAL_LIST_INIT(art_style, file2list("strings/artist_strings/descriptors/art_st
 		if(!isOnStationLevel(H))
 			continue
 		if(only_first_name)
-			names.Add(H.first_name && H.first_name)
-		else if(only_last_name && H.last_name)
-			names.Add(H.last_name)
+			//names.Add(H.first_name && H.first_name)
+			names.Add(H.real_name) // OCCULUS EDIT - reeee whatever this family name thing is
+		else if(only_last_name && H.family_name)
+			names.Add(H.family_name)
 		else
 			names.Add(H.real_name)
 	if(names.len)
