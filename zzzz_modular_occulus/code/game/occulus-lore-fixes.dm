@@ -1,9 +1,5 @@
 //Disks
 
-/obj/machinery/autolathe/bioprinter
-	name = "Mekhane Bioprinter"
-	desc = "Mekhane's machine for printing things using biomass."
-
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter
 	disk_name = "Mekhane Bioprinter Production"
 
@@ -76,10 +72,6 @@
 	disk_name = "Aegis Combat Equipment - Bulletproof Operator Armor"
 
 //Guns&Armor
-
-/obj/item/weapon/grenade/frag
-	name = "FS DFG \"Pomme\""
-
 /obj/item/weapon/gun/projectile/mk58
 	name = "FS HG .35 Auto \"Mk58\""
 	desc = "The FS Mk58 is a cheap, ubiquitous sidearm, that was produced by Frozen Star. Uses standard .35 and high capacity magazines."
@@ -193,6 +185,15 @@
 	name = "Kampfer Roach"
 	desc = "A monstrous, dog-sized cockroach. These huge mutants can be found everywhere on the ship."
 
-//Drones
-/mob/living/silicon/robot/drone/init()
-		flavor_text = "It's a tiny little repair drone. The casing is stamped with a faded logo and the subscript: 'Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
+/obj/item/weapon/tool_upgrade/augment/randomizer
+	name = "Anomolous liquid metal"
+	desc = "This unidentified tar-like liquid warps and bends reality around it. Applying it to a tool may have unexpected results."
+	matter = list(MATERIAL_PHORON = 4, MATERIAL_URANIUM = 4)
+	rarity_value = 100
+
+/obj/machinery/autolathe/bioprinter
+	name = "Mekhane Bioprinter"
+	desc = "Mekhane's machine for printing things using biomass."
+
+/obj/item/weapon/grenade/frag
+	name = "FS DFG \"Pomme\""
