@@ -162,7 +162,7 @@
 		weight_artwork_statue += 12
 
 	return pickweight(list(
-		//"artwork_revolver" = weight_artwork_revolver,	// OCCULUS EDIT - no meme guns
+		"artwork_revolver" = weight_artwork_revolver,
 		"artwork_oddity" = weight_artwork_oddity,
 		"artwork_toolmod" = weight_artwork_toolmod,
 		"artwork_statue" = weight_artwork_statue
