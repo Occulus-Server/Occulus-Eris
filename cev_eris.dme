@@ -2783,6 +2783,7 @@
 #include "zzzz_modular_occulus\code\controllers\multiline_me.dm"
 #include "zzzz_modular_occulus\code\controllers\pixelshift.dm"
 #include "zzzz_modular_occulus\code\controllers\subsystems\vote.dm"
+#include "zzzz_modular_occulus\code\datum\craft\recipes\weapon.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\guns.dm"
 #include "zzzz_modular_occulus\code\datums\perks\oddity.dm"
 #include "zzzz_modular_occulus\code\datums\uplink\medical.dm"
