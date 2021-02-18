@@ -48,8 +48,8 @@
 		dat += "Error: Watertank not found"
 	dat += "<br>Behaviour controls are [locked ? "locked" : "unlocked"]<hr>"
 	if(!locked)
-		dat += "Voice Synthesizer: <A href='?src=\ref[src];water=1'>[voice_synth ? "On" : "Off"]</A><BR>"
-		dat += "<TT>Watering controls:<br>"
+		dat += "<TT>Voice Synthesizer: <A href='?src=\ref[src];synth=1'>[voice_synth ? "On" : "Off"]</A><BR><BR>"
+		dat += "Watering controls:<br>"
 		dat += "Water plants : <A href='?src=\ref[src];water=1'>[waters_trays ? "Yes" : "No"]</A><BR>"
 		dat += "Refill watertank : <A href='?src=\ref[src];refill=1'>[refills_water ? "Yes" : "No"]</A><BR>"
 		dat += "<br>Weeding controls:<br>"
@@ -102,7 +102,7 @@
 		collects_produce = !collects_produce
 	else if(href_list["removedead"])
 		removes_dead = !removes_dead
-	else if(href_list["voice_synth"])
+	else if(href_list["synth"])
 		voice_synth = !voice_synth
 
 	attack_hand(usr)
