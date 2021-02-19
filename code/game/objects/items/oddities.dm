@@ -40,13 +40,13 @@
 			for(var/stat in oddity_stats)
 				oddity_stats[stat] = rand(1, oddity_stats[stat])
 		AddComponent(/datum/component/inspiration, oddity_stats, perk)
-
+/* Occulus Edit - This exists in the inspiration component examine code
 /obj/item/weapon/oddity/examine(user)
 	..()
 	if(perk)
 		var/datum/perk/oddity/OD = GLOB.all_perks[perk]
 		to_chat(user, SPAN_NOTICE("Strange words echo in your head: <span style='color:orange'>[OD]. [OD.desc]"))
-
+End Occulus Edit */
 
 //Oddities are separated into categories depending on their origin. They are meant to be used both in maints and derelicts, so this is important
 //This is done by subtypes, because this way even densiest code monkey will not able to misuse them
