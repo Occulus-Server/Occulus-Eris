@@ -25,7 +25,18 @@
 		/obj/item/weapon/computer_hardware/hard_drive/portable,
 		/obj/item/weapon/reagent_containers/syringe,
 		/obj/item/weapon/stamp,
-		/obj/item/weapon/oddity/old_money)
+		/obj/item/weapon/oddity/common/coin,
+		/obj/item/weapon/oddity/common/disk,
+		/obj/item/weapon/oddity/common/lighter,
+		/obj/item/weapon/oddity/common/old_id,
+		/obj/item/weapon/oddity/common/old_money,
+		/obj/item/weapon/oddity/common/paper_crumpled,
+		/obj/item/weapon/oddity/common/photo_coridor,	// not a typo!
+		/obj/item/weapon/oddity/common/photo_crime,
+		/obj/item/weapon/oddity/common/photo_eyes,
+		/obj/item/weapon/oddity/common/photo_landscape
+	)
+
 	slot_flags = SLOT_ID
 
 	matter = list(MATERIAL_BIOMATTER = 4)
@@ -87,8 +98,7 @@
 		/obj/item/weapon/spacecash/bundle/c20,
 		/obj/item/weapon/spacecash/bundle/c200,
 		/obj/item/weapon/spacecash/bundle/c50,
-		/obj/item/weapon/spacecash/bundle/c500
-		)
+		/obj/item/weapon/spacecash/bundle/c500)
 
 	var/item2_type
 	if(prob(50))
@@ -99,14 +109,29 @@
 			/obj/item/weapon/spacecash/bundle/c20,
 			/obj/item/weapon/spacecash/bundle/c200,
 			/obj/item/weapon/spacecash/bundle/c50,
-			/obj/item/weapon/spacecash/bundle/c500
-			)
+			/obj/item/weapon/spacecash/bundle/c500)
 
 	var/item3_type
 	if(prob(5))
-		item3_type = /obj/item/weapon/oddity/old_money
+		item3_type = pick(
+			/obj/item/weapon/oddity/common/coin,
+			/obj/item/weapon/oddity/common/disk,
+			/obj/item/weapon/oddity/common/lighter,
+			/obj/item/weapon/oddity/common/old_id,
+			/obj/item/weapon/oddity/common/old_money,
+			/obj/item/weapon/oddity/common/paper_crumpled,
+			/obj/item/weapon/oddity/common/photo_coridor,	// not a typo!
+			/obj/item/weapon/oddity/common/photo_crime,
+			/obj/item/weapon/oddity/common/photo_eyes,
+			/obj/item/weapon/oddity/common/photo_landscape)
 	else	// Always spawn a coin if we can't spawn an oddity
-		item3_type = pick(/obj/item/weapon/coin/silver, /obj/item/weapon/coin/silver, /obj/item/weapon/coin/gold, /obj/item/weapon/coin/iron, /obj/item/weapon/coin/iron, /obj/item/weapon/coin/iron)
+		item3_type = pick(
+			/obj/item/weapon/coin/silver,
+			/obj/item/weapon/coin/silver,
+			/obj/item/weapon/coin/gold,
+			/obj/item/weapon/coin/iron,
+			/obj/item/weapon/coin/iron,
+			/obj/item/weapon/coin/iron)
 
 	if(item1_type)
 		new item1_type(src)
