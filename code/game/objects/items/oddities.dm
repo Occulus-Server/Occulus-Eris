@@ -24,20 +24,22 @@
 	var/list/oddity_stats
 	var/sanity_value = 1
 	var/datum/perk/oddity/perk
+	var/prob_perk = 100
 
 /obj/item/weapon/oddity/Initialize()
 	. = ..()
 	AddComponent(/datum/component/atom_sanity, sanity_value, "")
+
+	//OCCULUS EDIT START - REEE GIMME PERKS
+	if(!perk)
+		perk = pick(subtypesof(/datum/perk/oddity))
+	//OCCULUS EDIT END
 
 	if(oddity_stats)
 		if(random_stats)
 			for(var/stat in oddity_stats)
 				oddity_stats[stat] = rand(1, oddity_stats[stat])
 		AddComponent(/datum/component/inspiration, oddity_stats, perk)
-	//OCCULUS EDIT START - REEE GIMME PERKS
-	if(!perk)
-		perk = pick(subtypesof(/datum/perk/oddity))
-	//OCCULUS EDIT END
 
 /obj/item/weapon/oddity/examine(user)
 	..()
@@ -104,6 +106,16 @@
 	)
 	rarity_value = 18
 
+/obj/item/weapon/oddity/common/photo_crime
+	name = "crime scene photo"
+	desc = "It is unclear whether this is a victim of suicide or murder. His face is frozen in a look of agony and terror, and you shudder to think at what his last moments might have been."
+	icon_state = "photo_crime"
+	oddity_stats = list(
+		STAT_COG = 7,
+		STAT_VIG = 7,
+	)
+	rarity_value = 23
+
 /obj/item/weapon/oddity/common/old_newspaper
 	name = "old newspaper"
 	desc = "It contains a report on some old and strange phenomenon. Maybe it's lies, maybe it's corporate experiments gone wrong."
@@ -166,6 +178,16 @@
 		STAT_ROB = 5,
 		STAT_VIG = 5,
 	)
+
+/obj/item/weapon/oddity/common/book_unholy
+	name = "unholy book"
+	desc = "The writings inside entail some strange ritual. Pages have been torn out or smudged to illegibility."
+	icon_state = "book_skull"
+	oddity_stats = list(
+		STAT_COG = 7,
+		STAT_MEC = 7,
+	)
+	rarity_value = 24
 
 /obj/item/weapon/oddity/common/old_money
 	name = "old money"
@@ -249,6 +271,24 @@
 		STAT_VIG = 9,
 	)
 
+/obj/item/weapon/oddity/common/disk
+	name = "broken design disk"
+	desc = "This disk is corrupted and completely unusable. It has a hand-drawn picture of some strange mechanism on it - looking at it for too long makes your head hurt."
+	icon_state = "disc"
+	oddity_stats = list(
+		STAT_MEC = 9,
+	)
+
+/obj/item/weapon/oddity/common/mirror
+	name = "cracked mirror"
+	desc = "A thousand mirror images stare back at you as you examine the trinket. What if you're the reflection, staring back out at the real world? At the real you?"
+	icon_state = "mirror"
+	oddity_stats = list(
+		STAT_COG = 4,
+		STAT_VIG = 4,
+	)
+	rarity_value = 8
+
 /obj/item/weapon/oddity/common/old_radio
 	name = "old radio"
 	desc = "Close your eyes, bring it closer and listen. You can almost hear it, in the edge of your consciousness. The World is ticking."
@@ -324,6 +364,14 @@
 	oddity_stats = list(
 		STAT_TGH = 9,
 	)
+//A randomized oddity with random stats, meant for artist job project
+/obj/item/weapon/oddity/artwork
+	name = "Strange Device"
+	desc = "You can't find out how to turn it on. Maybe it's already working?"
+	icon_state = "artwork_1"
+	price_tag = 200
+	prob_perk = 0//no perks for artwork oddities
+	spawn_frequency = 0
 
 /obj/item/weapon/oddity/common/device
 	name = "odd device"

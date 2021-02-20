@@ -90014,10 +90014,10 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck2port)
 "ecN" = (
-/obj/structure/cyberplant,
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
+/obj/machinery/autolathe/artist_bench/loaded,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/storage/primary)
 "ecO" = (
@@ -94698,6 +94698,7 @@
 	dir = 1;
 	pixel_y = -23
 	},
+/obj/structure/cyberplant,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/storage/primary)
 "enR" = (
