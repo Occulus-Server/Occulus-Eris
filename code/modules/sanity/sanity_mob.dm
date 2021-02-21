@@ -240,8 +240,7 @@
 	for(var/stat in stat_change)
 		owner.stats.changeStat(stat, stat_change[stat])
 
-	if(!owner.stats.getPerk(PERK_ARTIST))
-		INVOKE_ASYNC(src, .proc/oddity_stat_up, resting)
+	INVOKE_ASYNC(src, .proc/oddity_stat_up, resting)//Occulus Edit. Artists should still gain stats from perks. 
 
 	if(owner.stats.getPerk(PERK_ARTIST))
 		to_chat(owner, SPAN_NOTICE("You have created art and improved your stats."))

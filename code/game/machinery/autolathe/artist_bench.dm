@@ -10,7 +10,7 @@
 /obj/machinery/autolathe/artist_bench
 	name = "artist's bench"
 	desc = "Insert wood, steel, glass, plasteel, plastic and a bit of your soul to create a beautiful work of art. \
-			Requires a stock of at least 5 sheets of each of the aforementioned materials before you begin sacrificing your soul."	// OCCULUS EDIT - Makes its requirements clear
+			Requires a stock of at least 20 sheets of each of the aforementioned materials before you begin sacrificing your soul."	// OCCULUS EDIT - Makes its requirements clear
 	icon = 'icons/obj/machines/autolathe.dmi'
 	icon_state = "bench"
 	circuit = /obj/item/weapon/electronics/circuitboard/artist_bench
@@ -21,7 +21,7 @@
 	categories = list("Artwork")
 
 	suitable_materials = list(MATERIAL_WOOD, MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_PLASTEEL, MATERIAL_PLASTIC)
-	var/min_mat = 5 // OCCULUS EDIT - Makes its requirements less dumb
+	var/min_mat = 20
 	var/min_insight = 40
 	var/datum/component/inspiration/inspiration
 	var/obj/item/oddity
@@ -281,7 +281,7 @@
 			stats_amt += 3//max = 3*4*2+6 = 30 points, min 3*4+6 = 18
 		for(var/i in 1 to stats_amt)
 			var/stat = pick(ALL_STATS)
-			oddity_stats[stat] = min(MAX_STAT_VALUE, oddity_stats[stat]+rand(1,2))
+			oddity_stats[stat] = min(MAX_STAT_VALUE, oddity_stats[stat]+ 1) //Occulus Edit - Nerfing Artist oddity stats a bit!
 
 		O.oddity_stats = oddity_stats
 		O.AddComponent(/datum/component/inspiration, O.oddity_stats, O.perk)
@@ -397,9 +397,9 @@
 
 /obj/machinery/autolathe/artist_bench/loaded
 	stored_material = list(
-		MATERIAL_STEEL = 5,
-		MATERIAL_PLASTIC = 5,
-		MATERIAL_GLASS = 5,
-		MATERIAL_PLASTEEL = 5,
-		MATERIAL_WOOD = 5
+		MATERIAL_STEEL = 20,
+		MATERIAL_PLASTIC = 20,
+		MATERIAL_GLASS = 20,
+		MATERIAL_PLASTEEL = 20,
+		MATERIAL_WOOD = 20
 		)
