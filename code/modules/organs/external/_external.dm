@@ -944,8 +944,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(W.internal && !open) continue // can't see internal wounds
 		var/this_wound_desc = W.desc
 
-		if(W.damage_type == BURN && W.salved)
-			this_wound_desc = "<font color='AE9C45'>salved</font> [this_wound_desc]" // OCCULUS EDIT: This is a golden yellow
+		if(W.salved)	// Always show salved wounds -- this is important for Jamini's incoming injury clearing PR
+		//if(W.damage_type == BURN && W.salved)
+			this_wound_desc = "<font color='F5793A'>salved</font> [this_wound_desc]" // OCCULUS EDIT: This is orange
 
 		if(W.bleeding())
 			this_wound_desc = "<b>bleeding</b> [this_wound_desc]"	// OCCULUS EDIT: bold 'bleeding'
