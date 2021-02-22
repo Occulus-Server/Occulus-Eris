@@ -2865,6 +2865,8 @@
 #include "zzzz_modular_occulus\code\modules\organs\external\subtypes\robotic _types.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\gun.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\gun_hud_actions.dm"
+#include "zzzz_modular_occulus\code\modules\projectiles\ammunition\bullets.dm"
+#include "zzzz_modular_occulus\code\modules\projectiles\ammunition\magazines.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\energy\egun.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\matter\launcher\nt_sprayer.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\automatic\rx8.dm"

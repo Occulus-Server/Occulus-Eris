@@ -41,13 +41,12 @@
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small
 	name = "hypovial"
 	volume = 60
-	rarity_value = 50
 	possible_transfer_amounts = list(1,2,5,10,15)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/bluespace
 	name = "bluespace hypovial"
 	icon_state = "hypovialbs"
-	rarity_value = 100
+	rarity_value = 150
 	volume = 120
 	possible_transfer_amounts = list(1,2,5,10,15,20)
 
@@ -72,7 +71,7 @@
 	possible_transfer_amounts = list(1,2,5,10,20)
 	name = "bluespace large hypovial"
 	volume = 240
-	rarity_value = 100
+	rarity_value = 150
 	icon_state = "hypoviallargebs"
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/bicaridine
@@ -80,6 +79,7 @@
 	icon_state = "hypovial-b"
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/bicaridine
 	preloaded_reagents = list("bicaridine" = 30)
+	rarity_value = 45
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/antitoxin
 	name = "green hypovial (Anti-Tox)"
@@ -105,12 +105,12 @@
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/tricord
 	preloaded_reagents = list("tricordrazine" = 30)
 
-
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/CMO
 	name = "deluxe hypovial"
 	icon_state = "hypoviallarge-cmos"
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/CMO
 	preloaded_reagents = list("nanosymbiotes" = 20, "oxyrush" = 20, "trauma_control_system" = 20)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/bicaridine
 	name = "large red hypovial (bicaridine)"
@@ -148,3 +148,4 @@
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/combat
 	rarity_value = 100
 	preloaded_reagents = list("synaptizine" = 10, "hyperzine" = 10, "oxycodone" = 10, "trauma_control_system" = 10, "nanosymbiotes" = 10)
+	spawn_blacklisted = TRUE
