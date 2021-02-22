@@ -274,12 +274,12 @@
 
 /datum/wound/cut/deep
 	max_bleeding_stage = 3
-	stages = list("ugly deep ripped cut" = 25, "deep ripped cut" = 20, "deep cut" = 15, "clotted cut" = 8, "scab" = 2, "shrinking scab" = 0) // OCCULUS EDIT: was 'fresh skin' for 0
+	stages = list("ugly deep ripped cut" = 25, "deep ripped cut" = 20, "deep cut" = 15, "clotted cut" = 8, "scab" = 2, "healing scab" = 0) // OCCULUS EDIT: was 'fresh skin' for 0
 	damage_type = CUT
 
 /datum/wound/cut/flesh
 	max_bleeding_stage = 4
-	stages = list("ugly ripped flesh wound" = 35, "ugly flesh wound" = 30, "flesh wound" = 25, "blood soaked clot" = 15, "large scab" = 5, "shrinking large scab" = 0) // OCCULUS EDIT: was 'fresh skin' for 0
+	stages = list("ugly ripped flesh wound" = 35, "ugly flesh wound" = 30, "flesh wound" = 25, "blood soaked clot" = 15, "large scab" = 5, "healing large scab" = 0) // OCCULUS EDIT: was 'fresh skin' for 0
 	damage_type = CUT
 
 /datum/wound/cut/gaping
