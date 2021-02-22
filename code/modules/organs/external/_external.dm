@@ -945,12 +945,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 		var/this_wound_desc = W.desc
 
 		if(W.damage_type == BURN && W.salved)
-			this_wound_desc = "salved [this_wound_desc]"
+			this_wound_desc = "<font color='AE9C45'>salved</font> [this_wound_desc]" // OCCULUS EDIT: This is a golden yellow
 
 		if(W.bleeding())
-			this_wound_desc = "<b><i>bleeding</i></b> [this_wound_desc]"	// OCCULUS EDIT: bold and italicize 'bleeding'
+			this_wound_desc = "<b>bleeding</b> [this_wound_desc]"	// OCCULUS EDIT: bold 'bleeding'
 		else if(W.bandaged)
-			this_wound_desc = "bandaged [this_wound_desc]"
+			this_wound_desc = "<font color='6073B1'>bandaged</font> [this_wound_desc]" // OCCULUS EDIT: This is a somewhat light blue
 
 		if(W.germ_level > 600)
 			this_wound_desc = "badly infected [this_wound_desc]"
