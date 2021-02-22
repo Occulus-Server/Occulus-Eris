@@ -258,9 +258,9 @@
 	limb_efficiency += owner.get_specific_organ_efficiency(OP_NERVE, organ_tag) + owner.get_specific_organ_efficiency(OP_MUSCLE, organ_tag)
 	if(BP_IS_ROBOTIC(src))
 		limb_efficiency = limb_efficiency / 2
-		return 
+		return
 	limb_efficiency = (limb_efficiency + owner.get_specific_organ_efficiency(OP_BLOOD_VESSEL, organ_tag)) / 3
-	
+
 /obj/item/organ/external/proc/update_bionics_hud()
 	switch(organ_tag)
 		if(BP_L_ARM)
@@ -948,7 +948,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			this_wound_desc = "salved [this_wound_desc]"
 
 		if(W.bleeding())
-			this_wound_desc = "bleeding [this_wound_desc]"
+			this_wound_desc = "<b><i>bleeding</i></b> [this_wound_desc]"	// OCCULUS EDIT: bold and italicize 'bleeding'
 		else if(W.bandaged)
 			this_wound_desc = "bandaged [this_wound_desc]"
 
