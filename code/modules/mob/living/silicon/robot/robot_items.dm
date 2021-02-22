@@ -440,6 +440,7 @@
 	icon = 'icons/obj/robot_items.dmi'
 	switched_on_qualities = list(QUALITY_WELDING = 40, QUALITY_CAUTERIZING = 15, QUALITY_WIRE_CUTTING = 15)
 	spawn_tags = null
+	max_fuel = 50	// OCCULUS EDIT - More welding fuel for borgs
 
 /obj/item/weapon/tool/shovel/robotic
 	icon = 'icons/obj/robot_items.dmi'

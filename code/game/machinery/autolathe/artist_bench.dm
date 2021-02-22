@@ -10,7 +10,7 @@
 /obj/machinery/autolathe/artist_bench
 	name = "artist's bench"
 	desc = "Insert wood, steel, glass, plasteel, plastic and a bit of your soul to create a beautiful work of art. \
-			Requires a stock of at least 5 sheets of each of the aforementioned materials before you begin sacrificing your soul."	// OCCULUS EDIT - Makes its requirements clear
+			Requires a stock of at least 20 sheets of each of the aforementioned materials before you begin sacrificing your soul."	// OCCULUS EDIT - Makes its requirements clear
 	icon = 'icons/obj/machines/autolathe.dmi'
 	icon_state = "bench"
 	circuit = /obj/item/weapon/electronics/circuitboard/artist_bench
@@ -21,7 +21,7 @@
 	categories = list("Artwork")
 
 	suitable_materials = list(MATERIAL_WOOD, MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_PLASTEEL, MATERIAL_PLASTIC)
-	var/min_mat = 5 // OCCULUS EDIT - Makes its requirements less dumb
+	var/min_mat = 20
 	var/min_insight = 40
 	var/datum/component/inspiration/inspiration
 	var/obj/item/oddity
@@ -175,11 +175,11 @@
 	if(inspiration && user.stats.getPerk(PERK_ARTIST))
 		LStats = inspiration.calculate_statistics()
 
-	var/weight_mechanical = 0 + LStats[STAT_MEC]
-	var/weight_cognition = 0 + LStats[STAT_COG]
+//	var/weight_mechanical = 0 + LStats[STAT_MEC]
+//	var/weight_cognition = 0 + LStats[STAT_COG]
 	var/weight_biology = 0 + LStats[STAT_BIO]
 	var/weight_robustness = 0 + LStats[STAT_ROB]
-	var/weight_toughness = 0 + LStats[STAT_TGH]
+//	var/weight_toughness = 0 + LStats[STAT_TGH]
 	var/weight_vigilance = 0 + LStats[STAT_VIG]
 
 	//var/list/LWeights = list(weight_mechanical, weight_cognition, weight_biology, weight_robustness, weight_toughness, weight_vigilance)
@@ -192,11 +192,7 @@
 			"magnum" = 8 + weight_vigilance,
 			"shotgun" = 8 + weight_robustness,
 			"rifle" = 8 + weight_vigilance,
-			"sniper" = 8 + max(weight_vigilance + weight_cognition),
-			"gyro" = 1 + weight_mechanical,
 			"cap" = 16 + weight_biology,
-			"rocket" = 8 + weight_toughness,
-			"grenade" = 8 + weight_toughness
 		))
 
 		switch(gun_pattern)
@@ -230,33 +226,8 @@
 			//	if("revolver")
 			//		caliber = pick(CAL_357)
 
-			if("sniper")//From sniper.dm, Arbitrary values
-				R.caliber = CAL_ANTIM
-				R.bulletinsert_sound = 'sound/weapons/guns/interact/rifle_load.ogg'
-				R.fire_sound = 'sound/weapons/guns/fire/sniper_fire.ogg'
-				R.one_hand_penalty = 15 + rand(-3,5) //From sniper.dm, Temporary values
-				R.recoil_buildup = 90 + rand(-10,10)
-
-			if("gyro")//From gyropistol.dm, Arbitrary values
-				R.caliber = CAL_70
-				R.recoil_buildup = 0.1 * rand(1,20)
-
 			if("cap")
 				R.caliber = CAL_CAP
-
-			if("rocket")//From RPG.dm, Arbitrary values
-				R.caliber = CAL_ROCKET
-				R.fire_sound = 'sound/effects/bang.ogg'
-				R.bulletinsert_sound = 'sound/weapons/guns/interact/batrifle_magin.ogg'
-				R.one_hand_penalty = 15 + rand(-3,5)//From ak47.dm, temporary values
-				R.recoil_buildup = 15 + rand(-3,3)
-
-			if("grenade")
-				R.caliber = CAL_GRENADE
-				R.fire_sound = 'sound/weapons/guns/fire/grenadelauncher_fire.ogg'
-				R.bulletinsert_sound = 'sound/weapons/guns/interact/batrifle_magin.ogg'
-				R.one_hand_penalty = 15 + rand(-2,3)//from sniper.dm, Temporary values
-				R.recoil_buildup = 20 + rand(-5,5) //from projectile_grenade_launcher.dm
 
 		if(R.max_shells == 3 && (gun_pattern == "shotgun"||"rocket"))//From Timesplitters triple-firing RPG far as I know
 			R.init_firemodes = list(
@@ -281,7 +252,7 @@
 			stats_amt += 3//max = 3*4*2+6 = 30 points, min 3*4+6 = 18
 		for(var/i in 1 to stats_amt)
 			var/stat = pick(ALL_STATS)
-			oddity_stats[stat] = min(MAX_STAT_VALUE, oddity_stats[stat]+rand(1,2))
+			oddity_stats[stat] = min(MAX_STAT_VALUE, oddity_stats[stat]+ 1) //Occulus Edit - Nerfing Artist oddity stats a bit!
 
 		O.oddity_stats = oddity_stats
 		O.AddComponent(/datum/component/inspiration, O.oddity_stats, O.perk)
@@ -397,9 +368,9 @@
 
 /obj/machinery/autolathe/artist_bench/loaded
 	stored_material = list(
-		MATERIAL_STEEL = 5,
-		MATERIAL_PLASTIC = 5,
-		MATERIAL_GLASS = 5,
-		MATERIAL_PLASTEEL = 5,
-		MATERIAL_WOOD = 5
+		MATERIAL_STEEL = 20,
+		MATERIAL_PLASTIC = 20,
+		MATERIAL_GLASS = 20,
+		MATERIAL_PLASTEEL = 20,
+		MATERIAL_WOOD = 20
 		)

@@ -44,7 +44,7 @@
 	var/skin_tone			// Skin tone.
 
 	// Wound and structural data.
-	var/wound_update_accuracy = 1		// how often wounds should be updated, a higher number means less often
+	var/wound_update_accuracy = 3		// how often wounds should be updated, a higher number means less often Occulus Edit: only update wounds every 3 ticks (potential lag reduction)
 	var/list/wounds = list()			// wound datum list.
 	var/number_wounds = 0				// number of wounds, which is NOT wounds.len!
 	var/list/children = list()			// Sub-limbs.
@@ -258,9 +258,9 @@
 	limb_efficiency += owner.get_specific_organ_efficiency(OP_NERVE, organ_tag) + owner.get_specific_organ_efficiency(OP_MUSCLE, organ_tag)
 	if(BP_IS_ROBOTIC(src))
 		limb_efficiency = limb_efficiency / 2
-		return 
+		return
 	limb_efficiency = (limb_efficiency + owner.get_specific_organ_efficiency(OP_BLOOD_VESSEL, organ_tag)) / 3
-	
+
 /obj/item/organ/external/proc/update_bionics_hud()
 	switch(organ_tag)
 		if(BP_L_ARM)
@@ -484,6 +484,8 @@ This function completely restores a damaged organ to perfect condition.
 		last_dam = brute_dam + burn_dam
 	if(germ_level)
 		return 1
+	if(wounds)//Occulus Edit - Need this to process wound healing over time!
+		return 1//Occulus Edit - Need this to process wound healing over time!
 	return 0
 
 /obj/item/organ/external/Process()
@@ -632,7 +634,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	for(var/datum/wound/W in wounds)
 		// wounds can disappear after 10 minutes at the earliest
-		if(W.damage <= 0 && W.created + 10 * 10 * 60 <= world.time)
+		if(W.damage <= 0 && W.salved == 1 && W.bandaged == 1)//Occulus Edit: Wounds that have no damage, are salved, and are bandaged will disappear
 			wounds -= W
 			continue
 			// let the GC handle the deletion of the wound
@@ -944,13 +946,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(W.internal && !open) continue // can't see internal wounds
 		var/this_wound_desc = W.desc
 
-		if(W.damage_type == BURN && W.salved)
-			this_wound_desc = "salved [this_wound_desc]"
+		if(W.salved)	// Always show salved wounds -- this is important for Jamini's incoming injury clearing PR
+		//if(W.damage_type == BURN && W.salved)
+			this_wound_desc = "<font color='F5793A'>salved</font> [this_wound_desc]" // OCCULUS EDIT: This is orange
 
 		if(W.bleeding())
-			this_wound_desc = "bleeding [this_wound_desc]"
+			this_wound_desc = "<b>bleeding</b> [this_wound_desc]"	// OCCULUS EDIT: bold 'bleeding'
 		else if(W.bandaged)
-			this_wound_desc = "bandaged [this_wound_desc]"
+			this_wound_desc = "<font color='6073B1'>bandaged</font> [this_wound_desc]" // OCCULUS EDIT: This is a somewhat light blue
 
 		if(W.germ_level > 600)
 			this_wound_desc = "badly infected [this_wound_desc]"

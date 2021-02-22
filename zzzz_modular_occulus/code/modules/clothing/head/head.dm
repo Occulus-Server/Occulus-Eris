@@ -22,3 +22,9 @@
 	icon_override = 'zzzz_modular_occulus/icons/inventory/head/christmashatmob.dmi'
 	icon_state = "christmashat"
 	item_state = "christmashat"
+
+/obj/item/clothing/head/space/void/medical
+	icon = 'zzzz_modular_occulus/icons/inventory/head/icon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/head/mob.dmi'
+	icon_state = "medical_helm"
+	item_state = "medical_helm"
