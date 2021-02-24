@@ -36,11 +36,13 @@ var/list/datum/power/carrion/powerinstances = list()
 	genomecost = 4
 	spiderpath = /obj/item/weapon/implant/carrion_spider/healing
 
+//Occulus Edit Start, Replaces regen stasis until fixed
 /datum/power/carrion/rejuv_spider
 	name = "Rejuvenation spider"
-	desc = "Evolves a spider capable of forcing limb regeneration."
-	genomecost = 8
+	desc = "Evolves a spider that puts the host in a rejuvenating sleep."
+	genomecost = 0
 	spiderpath = /obj/item/weapon/implant/carrion_spider/rejuv
+//Occulus Edit End
 
 /datum/power/carrion/breeding_spider
 	name = "Breeding spider"

@@ -58,7 +58,7 @@
 	owner_verbs = list(
 		/obj/item/organ/internal/carrion/core/proc/carrion_transform,
 		/obj/item/organ/internal/carrion/core/proc/EvolutionMenu,
-		/obj/item/organ/internal/carrion/core/proc/carrion_fakedeath,
+		// /obj/item/organ/internal/carrion/core/proc/carrion_fakedeath, //Occulus Edit
 		/obj/item/organ/internal/carrion/core/proc/detatch,
 		/obj/item/organ/internal/carrion/core/proc/make_spider,
 		/obj/item/organ/internal/carrion/core/proc/spider_menu
@@ -218,6 +218,7 @@
 
 	return 1
 
+/*  Occulus Edit Start, Moved function to Rejuvenation Spider until fixed.
 /obj/item/organ/internal/carrion/core/proc/carrion_fakedeath()
 	set category = "Carrion"
 	set name = "Regenerative Stasis (20)"
@@ -250,6 +251,7 @@
 			owner.update_lying_buckled_and_verb_status()
 			owner.update_icons()
 			to_chat(owner, SPAN_NOTICE("You have regenerated."))
+*/ //Occulus Edit End
 
 /obj/item/organ/internal/carrion/maw
 	name = "carrion maw"
