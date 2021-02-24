@@ -36,6 +36,12 @@ var/list/datum/power/carrion/powerinstances = list()
 	genomecost = 4
 	spiderpath = /obj/item/weapon/implant/carrion_spider/healing
 
+/datum/power/carrion/rejuv_spider
+	name = "Rejuvenation spider"
+	desc = "Evolves a spider capable of forcing limb regeneration."
+	genomecost = 8
+	spiderpath = /obj/item/weapon/implant/carrion_spider/rejuv
+
 /datum/power/carrion/breeding_spider
 	name = "Breeding spider"
 	desc = "Creates a spider carrying eggs, when it will be put inside a dead host and activated, the eggs will give birth to many lesser ones of your kin."

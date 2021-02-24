@@ -1023,6 +1023,7 @@
 #include "code\game\objects\items\weapons\implant\implants\carrion\explosive_spider.dm"
 #include "code\game\objects\items\weapons\implant\implants\carrion\flashbang_spider.dm"
 #include "code\game\objects\items\weapons\implant\implants\carrion\healing_spider.dm"
+#include "code\game\objects\items\weapons\implant\implants\carrion\rejuv_spider.dm"
 #include "code\game\objects\items\weapons\implant\implants\carrion\identity_spider.dm"
 #include "code\game\objects\items\weapons\implant\implants\carrion\infection_spider.dm"
 #include "code\game\objects\items\weapons\implant\implants\carrion\mindboil_spider.dm"
