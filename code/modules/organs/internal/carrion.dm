@@ -218,7 +218,7 @@
 
 	return 1
 
-/*  Occulus Edit Start, Moved function to Rejuvenation Spider until fixed.
+/*  //Occulus Edit Start, Moved function to Rejuvenation Spider until fixed.
 /obj/item/organ/internal/carrion/core/proc/carrion_fakedeath()
 	set category = "Carrion"
 	set name = "Regenerative Stasis (20)"
