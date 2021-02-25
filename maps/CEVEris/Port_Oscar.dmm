@@ -333,7 +333,7 @@
 "hU" = (/obj/machinery/cryopod{dir = 4; icon_state = "cryopod_0"},/turf/simulated/shuttle/floor{icon_state = "cargofloor7"},/area/eris/crew_quarters/sleep/cryo)
 "hV" = (/turf/simulated/floor/tiled/white/panels,/area/eris/crew_quarters/locker)
 "hW" = (/turf/simulated/shuttle/wall/science{icon_state = "13,1"},/area/shuttle/research/station)
-"hY" = (/obj/structure/multiz/stairs/active{dir = 4},/obj/structure/railing/grey,/obj/machinery/light/small{dir = 4},/turf/simulated/open,/area/eris/crew_quarters/cafeteria)
+"hY" = (/obj/structure/multiz/stairs/active{dir = 4},/obj/structure/railing/grey,/obj/machinery/light/small{dir = 4},/turf/simulated/floor/plating,/area/eris/crew_quarters/cafeteria)
 "hZ" = (/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/turf/simulated/shuttle/floor/mining{icon_state = "8,15"},/area/shuttle/mining/station)
 "ia" = (/obj/machinery/atmospherics/pipe/simple/hidden/universal,/turf/simulated/shuttle/floor/mining{icon_state = "13,20"},/area/shuttle/mining/station)
 "ib" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 6},/turf/simulated/floor/wood,/area/eris/crew_quarters/library)
@@ -1129,7 +1129,7 @@
 "BB" = (/turf/simulated/shuttle/wall/science{icon_state = "12,6"},/area/shuttle/research/station)
 "BD" = (/obj/structure/toilet{pixel_y = 15},/obj/machinery/light/small{dir = 1; pixel_y = 19},/turf/simulated/floor/tiled/cafe,/area/eris/crew_quarters/cafeteria)
 "BF" = (/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{frequency = 1380; id_tag = "escape_pod_1"; pixel_x = -25; tag = "escape_pod_1_controller"; tag_door = "escape_pod_1_hatch"},/obj/structure/bed/chair/shuttle,/turf/simulated/shuttle/floor{icon_state = "cargofloor1"},/area/shuttle/escape_pod1/station)
-"BG" = (/obj/structure/multiz/stairs/active/bottom{dir = 4},/obj/structure/railing/grey,/turf/space,/area/eris/crew_quarters/cafeteria)
+"BG" = (/obj/structure/multiz/stairs/active/bottom{dir = 4},/obj/structure/railing/grey,/turf/simulated/floor/plating,/area/eris/crew_quarters/cafeteria)
 "BH" = (/obj/item/device/radio/beacon,/turf/simulated/shuttle/floor/mining{icon_state = "9,7"},/area/shuttle/mining/station)
 "BJ" = (/obj/structure/reagent_dispensers/watertank,/turf/simulated/floor/tiled/white,/area/eris/rnd/xenobiology)
 "BK" = (/obj/machinery/vending/cola,/turf/simulated/floor/tiled,/area/eris/neotheology/chapel)
@@ -1994,7 +1994,7 @@
 "Xi" = (/turf/simulated/shuttle/wall/mining{icon_state = "6,14"},/area/shuttle/mining/station)
 "Xj" = (/turf/simulated/wall/r_wall,/area/eris/command/tcommsat/chamber)
 "Xk" = (/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,/turf/simulated/shuttle/floor/science{icon_state = "8,8"},/area/shuttle/research/station)
-"Xl" = (/obj/structure/multiz/stairs/enter{dir = 4},/obj/structure/railing/grey,/turf/simulated/open,/area/eris/crew_quarters/cafeteria)
+"Xl" = (/obj/structure/multiz/stairs/enter{dir = 4},/obj/structure/railing/grey,/turf/simulated/floor/plating,/area/eris/crew_quarters/cafeteria)
 "Xm" = (/obj/structure/table/standard,/obj/item/modular_computer/tablet/lease/preset/medical,/obj/item/weapon/reagent_containers/glass/bottle/toxin{pixel_x = 4; pixel_y = 2},/obj/item/weapon/reagent_containers/glass/bottle/stoxin,/obj/machinery/light{dir = 1},/turf/simulated/floor/carpet/sblucarpet,/area/eris/medical/medbreak)
 "Xn" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible{dir = 10},/obj/machinery/disposal,/obj/structure/disposalpipe/trunk,/turf/simulated/floor/plating/under,/area/eris/medical/medbay)
 "Xo" = (/obj/machinery/telecomms/server/presets/command,/turf/simulated/floor/bluegrid{name = "Server Base"; nitrogen = 180; oxygen = 0; temperature = 200},/area/eris/command/tcommsat/chamber)
@@ -2034,7 +2034,7 @@
 "Yf" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/glass,/turf/simulated/floor/tiled/dark/cargo,/area/eris/hallway/main/section1)
 "Yg" = (/obj/structure/multiz/stairs/enter/bottom{dir = 8},/obj/machinery/light,/turf/simulated/floor/tiled,/area/eris/hallway/main/section1)
 "Yi" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/turf/simulated/shuttle/floor/mining{icon_state = "6,15"},/area/shuttle/mining/station)
-"Yj" = (/obj/structure/multiz/stairs/enter/bottom{dir = 4},/obj/structure/railing/grey,/obj/machinery/light/small{dir = 1; pixel_y = 19},/turf/space,/area/eris/crew_quarters/cafeteria)
+"Yj" = (/obj/structure/multiz/stairs/enter/bottom{dir = 4},/obj/structure/railing/grey,/obj/machinery/light/small{dir = 1; pixel_y = 19},/turf/simulated/floor/plating,/area/eris/crew_quarters/cafeteria)
 "Yk" = (/obj/structure/shuttle_part/science{icon_state = "15,6"},/turf/space,/area/shuttle/research/station)
 "Yl" = (/obj/structure/table/standard,/obj/item/weapon/hand_labeler,/turf/simulated/floor/carpet/sblucarpet,/area/eris/medical/medbreak)
 "Ym" = (/obj/structure/bed/chair/wood,/turf/simulated/floor/tiled,/area/eris/crew_quarters/cafeteria)
@@ -2366,7 +2366,6 @@ wiEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKZmZmZmZmZm
 wiEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkgagagaIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkVQLNLNLNVQVQIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkIkEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKEKwi
 zVwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwi
 "}
-
 (1,1,2) = {"
 wiwiwiwiwiwiwiwiiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiH
 wiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwiwi
