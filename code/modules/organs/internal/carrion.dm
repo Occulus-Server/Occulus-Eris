@@ -240,14 +240,14 @@
 	spawn(rand(1 MINUTES, 3 MINUTES))
 		if(last_owner == owner)
 			owner.rejuvenate()
-		/* Occulus Edit start, Removed in favour for kyphotorin injection
+		/* //Occulus Edit start, Removed in favour for kyphotorin injection
 			for(var/limb_tag in owner.species.has_limbs)
 				var/obj/item/organ/external/E = owner.get_organ(limb_tag)
 				if(E.is_stump())
 					qdel(E)
 					var/datum/organ_description/OD = owner.species.has_limbs[limb_tag]
 					OD.create_organ(owner)
-		*/
+		*/ //Occulus Edit end.
 			owner.status_flags &= ~(FAKEDEATH)
 			owner.update_lying_buckled_and_verb_status()
 			owner.update_icons()
