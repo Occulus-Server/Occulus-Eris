@@ -293,3 +293,17 @@
 /obj/item/weapon/storage/pouch/holding/New()
 	..()
 	bluespace_entropy(3, get_turf(src))
+
+/*/obj/item/weapon/storage/pouch/gun_part Occulus Edit: We haven't ported this stuff
+	name = "part pouch"
+	desc = "Can hold gun parts and armor parts."
+	icon_state = "part_pouch"
+	item_state = "part_pouch"
+	rarity_value = 33
+
+	storage_slots = 10
+	max_w_class = ITEM_SIZE_NORMAL
+
+	can_hold = list(
+		/obj/item/part, /obj/item/weapon/stock_parts, /obj/item/weapon/electronics
+		)*/
