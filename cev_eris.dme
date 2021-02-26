@@ -2879,6 +2879,7 @@
 #include "zzzz_modular_occulus\code\modules\clothing\chameleon.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\mekhanearmor.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\gloves\stungloves.dm"
+#include "zzzz_modular_occulus\code\modules\clothing\head\armor.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\head\head.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\head\hood.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\masks\masks.dm"

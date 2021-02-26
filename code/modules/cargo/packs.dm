@@ -246,7 +246,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Security"
 */
 /datum/supply_pack/ballisticarmor
-	name = "AC Ballistic Armor"
+	name = "IH Ballistic Armor"
 	contains = list(/obj/item/clothing/suit/armor/bulletproof/ironhammer,
 					/obj/item/clothing/suit/armor/bulletproof/ironhammer,
 					/obj/item/clothing/head/armor/bulletproof/ironhammer_nvg,
@@ -293,7 +293,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 
 /datum/supply_pack/energyarmor
-	name = "AC Ablative Armor"
+	name = "IH Ablative Armor"
 	contains = list(/obj/item/clothing/suit/armor/laserproof/full,
 					/obj/item/clothing/suit/armor/laserproof/full,
 					/obj/item/clothing/head/armor/laserproof,
