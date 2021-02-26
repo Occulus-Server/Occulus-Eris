@@ -204,13 +204,16 @@
 			var/show_ssd
 			var/target_organ_exists = FALSE
 			var/mob/living/carbon/human/H = src
+			var/playsound = TRUE	// OCCULUS EDIT: Just to skip the shaky noise while doing surgery
+
 			if(istype(H))
 				show_ssd = H.species.show_ssd
 				var/obj/item/organ/external/O = H.get_organ(M.targeted_organ)
 				target_organ_exists = (O && O.is_usable())
 			// OCCULUS EDIT START: Open the surgery UI if the organ is open by clicking the organ.
-			if (target_organ_exists and H.get_organ(M.targeted_organ).open)
-				H.get_organ(M.targeted_organ).ui_interact(H)
+			if (target_organ_exists && H.get_organ(M.targeted_organ).open)
+				H.get_organ(M.targeted_organ).ui_interact(M)
+				playsound = FALSE
 			// OCCULUS EDIT END
 			else if(show_ssd && !client && !teleop)
 				M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [t_him] up!"), \
@@ -247,7 +250,10 @@
 			AdjustStunned(-3)
 			AdjustWeakened(-3)
 
-			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+			// OCCULUS EDIT: playsound exists so it doesn't play the noise when you open surgeryh UI
+			if (playsound)
+				playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+			// OCCULUS EDIT END
 
 /mob/living/carbon/proc/eyecheck()
 	return 0
