@@ -33,9 +33,10 @@
 
 	if (loaded.len)
 		iconstring += "-he"
-//		itemstring += "-he"         disabled until mag fix
+		//itemstring += "-he"         disabled until mag fix
 	icon_state = iconstring
 	set_item_state(itemstring)
+
 /obj/item/weapon/gun/projectile/rpg/Initialize()
 	. = ..()
 	update_icon()

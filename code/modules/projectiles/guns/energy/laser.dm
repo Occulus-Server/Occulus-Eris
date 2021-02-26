@@ -236,11 +236,11 @@ Occulus Edit End */
 	one_hand_penalty = 5
 	twohanded = TRUE
 
-/*/obj/item/weapon/gun/energy/laser/makeshift Occulus Edit: we never ported this
+/obj/item/weapon/gun/energy/laser/makeshift
 	name = "makeshift laser carbine"
 	desc = "A makeshift laser carbine, rather wastefull on its chage, but nonetheless reliable"
 	icon = 'icons/obj/guns/energy/makeshift_carbine.dmi'
-	icon_state = "makeshift"
+	icon_state = "makeshift"//evan, TODO
 	item_state = "makeshift"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 1)
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_PLASTIC = 15)
@@ -255,4 +255,4 @@ Occulus Edit End */
 	init_firemodes = list(
 		WEAPON_NORMAL
 	)
-	spawn_blacklisted = TRUE*/
+	spawn_blacklisted = TRUE

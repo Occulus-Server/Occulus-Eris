@@ -223,7 +223,6 @@
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = T0C - 20
 	siemens_coefficient = 0.7
-
 /obj/item/clothing/suit/storage/leather_jacket/tunnelsnake
 	name = "Sleek leather Jacket"
 	desc = "A sturdy, synthetic leather jacket with a high collar. It is able to protect you from a knife slice or a bite, but don't expect too much. More importantly, it makes you look like a really bad boy or girl."
@@ -403,3 +402,66 @@
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	min_cold_protection_temperature = T0C - 20
 	siemens_coefficient = 0.7
+
+/obj/item/clothing/suit/punkvest
+	name = "punk vest"
+	desc = "A dark vest made out of light, breathable fabric. Feeling lucky, punk?"
+	icon_state = "punkvest"
+	item_state = "punkvest"
+	armor = list(
+		melee = 10,
+		bullet = 10,
+		energy = 0,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
+	body_parts_covered = UPPER_TORSO
+
+/obj/item/clothing/suit/storage/toggle/windbreaker
+	name = "windbreaker"
+	desc = "A dark blue jacket with black highlights. You can't think of any reason why someone would need a windbreaker in space, but the jacket looks cool either way. As an added bonus, it looks fairly resistant to stains and caustic chemicals."
+	icon_state = "windbreaker_open"
+	item_state = "windbreaker" //Is this even used for anything?
+	icon_open = "windbreaker_open"
+	icon_closed = "windbreaker"
+	armor = list(
+		melee = 10,
+		bullet = 10,
+		energy = 0,
+		bomb = 0,
+		bio = 30,
+		rad = 0
+	)
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/punkvest/cyber
+	name = "cyberpunk vest"
+	desc = "A red vest with golden streaks. It's made out of tough materials, and can protect fairly well against bullets. Wake the fuck up, Samurai."
+	icon_state = "cyberpunk"
+	item_state = "cyberpunk"
+	armor = list(
+		melee = 10,
+		bullet = 20,
+		energy = 10,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
+
+/obj/item/clothing/suit/storage/scavengerarmor
+	name = "Scavenger armor"
+	desc = "A sturdy, rigged Scavenger armor. strong and sturdy as most vests. made fully from junk."
+	icon_state = "scav_armor"
+	item_state = "scav_armor"
+	armor = list(
+		melee = 30,
+		bullet = 30,
+		energy = 30,
+		bomb = 10,
+		bio = 0,
+		rad = 0
+	)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	siemens_coefficient = 0.7
+	spawn_blacklisted = TRUE
