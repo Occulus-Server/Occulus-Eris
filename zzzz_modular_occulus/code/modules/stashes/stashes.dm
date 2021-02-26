@@ -90,7 +90,7 @@
 	Is the tale of Jayme Dawson and his crew <br>\
 	Yes, the tale of Dawson's Christian and her crew.<br>\
 	<br>\
-	D%"
+	%D"
 
 
 /datum/stash/valueable/pirate/song2
@@ -115,7 +115,7 @@
 	Never fearing guns or numbers, like a tiger to its meat <br>\
 	The stranger then attacked the pirate fleet. <br>\
 	<br>\
-	D%"
+	%D"
 
 
 /datum/stash/valueable/pirate/song3
@@ -147,4 +147,4 @@
 	Is the tale of Jayme Dawson and his crew <br>\
 	Yes, the tale of Dawson's Christian and her crew. <br>\
 	<br>\
-	D%"
+	%D"
