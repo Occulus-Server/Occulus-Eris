@@ -208,7 +208,11 @@
 				show_ssd = H.species.show_ssd
 				var/obj/item/organ/external/O = H.get_organ(M.targeted_organ)
 				target_organ_exists = (O && O.is_usable())
-			if(show_ssd && !client && !teleop)
+			// OCCULUS EDIT START: Open the surgery UI if the organ is open by clicking the organ.
+			if (target_organ_exists and H.get_organ(M.targeted_organ).open)
+				H.get_organ(M.targeted_organ).ui_interact(H)
+			// OCCULUS EDIT END
+			else if(show_ssd && !client && !teleop)
 				M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [t_him] up!"), \
 				SPAN_NOTICE("You shake [src], but they do not respond... Maybe they have S.S.D?"))
 			else if(lying || src.sleeping)
