@@ -158,7 +158,7 @@ ARMOR_PEN_MASSIVE			30
 	disk_name = "Mekhane Armory - Crusader Armor"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/excruciator
-	disk_name = "Mekhane Armory - NT \"EXCRUCIATOR\" giga lens"
+	disk_name = "Mekhane Armory - MEK \"EXCRUCIATOR\" giga lens"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt
 	disk_name = "Mekhane Armory - Blank"
@@ -167,25 +167,25 @@ ARMOR_PEN_MASSIVE			30
 	disk_name = "Mekhane Armory - Basic Melee Weapons"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/longsword
-	disk_name = "Mekhane Armory - NT Longsword"
+	disk_name = "Mekhane Armory - Mekhane Longsword"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/scourge
-	disk_name = "Mekhane Armory - NT Scourge"
+	disk_name = "Mekhane Armory - Mekhane Scourge"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/halberd
-	disk_name = "Mekhane Armory - NT Halberd"
+	disk_name = "Mekhane Armory - Mekhane Halberd"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/shield
-	disk_name = "Mekhane Armory - NT Shield"
+	disk_name = "Mekhane Armory - Mekhane Shield"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/firstaid
-	disk_name = "Mekhane Armory - NeoTheologian Medkit"
+	disk_name = "Mekhane Armory - Advanced Medkit"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_dominion
-	disk_name = "Mekhane Armory - Dominion Plasma Rifle"
+	disk_name = "Mekhane Armory - MEK PL \"Dominion\""
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_purger
-	disk_name = "Mekhane Armory - Purger Plasma Rifle"
+	disk_name = "Mekhane Armory - MEK PL \"Purger\""
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/grenades
 	disk_name = "Mekhane Armory - Grenades Pack"
@@ -210,3 +210,6 @@ ARMOR_PEN_MASSIVE			30
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_regulator
 	disk_name = "Frozen Star - .50 Regulator Shotgun"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/cruciform_upgrade
+	disk_name = "Mekhane Armory - Cruciform Upgrades"
