@@ -96,6 +96,11 @@
 	pixel_x = RAND_DECIMAL(-randpixel, randpixel)
 	pixel_y = RAND_DECIMAL(-randpixel, randpixel)
 
+	// OCCULUS EDIT: Insert code for random roach sizes
+	if (istype(src, /mob/living/carbon/superior_animal/roach))
+		var/mob/living/carbon/superior_animal/roach/this_roach = src
+		this_roach.randomize_scale()
+	// OCCULUS EDIT END
 
 /mob/living/carbon/superior_animal/Initialize(var/mapload)
 	.=..()
