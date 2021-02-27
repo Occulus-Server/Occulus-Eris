@@ -100,6 +100,7 @@
 	if (istype(src, /mob/living/carbon/superior_animal/roach))
 		var/mob/living/carbon/superior_animal/roach/this_roach = src
 		this_roach.randomize_scale()
+		this_roach.update_icons()
 	// OCCULUS EDIT END
 
 /mob/living/carbon/superior_animal/Initialize(var/mapload)
@@ -124,6 +125,12 @@
 /mob/living/carbon/superior_animal/update_icons()
 	. = ..()
 	transform = null
+	// OCCULUS EDIT: update_icons wasn't updating their scale until the first move.
+	var/matrix/scale_M = matrix()
+	scale_M.Scale(size_multiplier)
+	scale_M.Translate(0, 16*(size_multiplier-1))
+	transform = scale_M
+	// OCCULUS EDIT END
 	if (stat == DEAD)
 		icon_state = icon_dead
 	else if ((stat == UNCONSCIOUS) || resting || lying)
