@@ -42,7 +42,7 @@
 	name = "Heavy Armor Vest"
 	item_cost = 6
 	path = /obj/item/clothing/suit/storage/vest/merc
-	
+
 /datum/uplink_item/item/tools/full_heavy_vest
 	name = "Fullbody Heavy Armor Vest"
 	item_cost = 8
@@ -216,6 +216,7 @@
 		return 1
 	return 0
 
+/*Occulus Edit: Removal
 /datum/uplink_item/item/tools/blitz_speed_upgrade
 	name = "Blitzshell Speed Upgrade"
 	desc = "Remove limiting factors on your motors, allowing you to move faster."
@@ -246,7 +247,7 @@
 		BS.module.modules += new /obj/item/weapon/gun/energy/laser/mounted/blitz(BS.module)
 		return 1
 	return 0
-
+End Occulus Edit*/
 /datum/uplink_item/item/tools/blitz_nanorepair
 	name = "Blitzshell Nanorepair Capsule"
 	desc = "Reload your nanorepair system, gaining extra charges."
@@ -317,6 +318,7 @@
 		BS.request_player()
 	return 1
 
+/* Occulus Edit: Disabled
 /datum/uplink_item/item/tools/blitz_harpoon
 	name = "Blitzshell Blue Space Harpoon"
 	desc = "Activates the embedded bluespace harpoon."
@@ -331,7 +333,7 @@
 			return
 		BS.module.modules += new /obj/item/weapon/bluespace_harpoon/mounted/blitz(BS.module)
 		return TRUE
-
+*/
 /datum/uplink_item/item/tools/mindreader
 	name = "Mindreader"
 	desc = "Place on your victim's head to extract memories from their brain after a mental breakdown."

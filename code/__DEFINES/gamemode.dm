@@ -70,7 +70,7 @@
 #define FACTION_XENOMORPHS "xenomorphs"
 #define FACTION_SERBS	"serbians"
 
-#define ROLES_CONTRACT list(ROLE_TRAITOR,ROLE_CARRION,ROLE_BLITZ)
+#define ROLES_CONTRACT list(ROLE_TRAITOR,ROLE_CARRION)//Occulus Edit: Blitzshell is no longer a contract role
 #define ROLES_UPLINK_BASE list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY)
 
 #define ROLESET_TRAITOR "traitor"
