@@ -2820,6 +2820,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\mekhane_armory.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\secrets.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\grenades\chem_grenade.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\injector_spider.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\mending_spider.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\sleep_spider.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\belt.dm"

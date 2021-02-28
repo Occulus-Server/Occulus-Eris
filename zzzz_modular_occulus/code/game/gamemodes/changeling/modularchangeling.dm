@@ -9,3 +9,9 @@
 	desc = "Creates a miniature spider carrying sacks of potent sedatives, specialized for harmless captures."
 	genomecost = 3
 	spiderpath = /obj/item/weapon/implant/carrion_spider/sleeping
+
+/datum/power/carrion/injector
+	name = "Injector spider"
+	desc = "Creates a miniature spider, its abdomen clear an empty, waiting for a payload."
+	genomecost = 0
+	spiderpath = /obj/item/weapon/implant/carrion_spider/injector
