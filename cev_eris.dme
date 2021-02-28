@@ -2861,6 +2861,7 @@
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\human\inventory.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\human\species\station.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\superior_animal\roach\blattedin.dm"
+#include "zzzz_modular_occulus\code\modules\mob\living\carbon\superior_animal\roach\roach.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\silicon\robot\inventory.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\nanoblob.dm"
 #include "zzzz_modular_occulus\code\modules\organs\external\subtypes\robotic _types.dm"
