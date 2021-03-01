@@ -12,6 +12,18 @@
 
 /datum/power/carrion/injector
 	name = "Injector spider"
-	desc = "Creates a miniature spider, its abdomen clear an empty, waiting for a payload."
+	desc = "Creates a miniature spider, its abdomen clear and empty, waiting for a payload."
 	genomecost = 0
 	spiderpath = /obj/item/weapon/implant/carrion_spider/injector
+
+/datum/power/carrion/cleaner
+	name = "Cleaner spider"
+	desc = "Creates a small spider, its abdomen is riddled with bubbles. Best for cleaning or causing slips."
+	genomecost = 0
+	spiderpath = /obj/item/weapon/implant/carrion_spider/cleaner
+
+/datum/power/carrion/cleaner
+	name = "Smoker spider"
+	desc = "Creates a small spider with a cloudy abdomen. Best for obscuring views."
+	genomecost = 0
+	spiderpath = /obj/item/weapon/implant/carrion_spider/smoker
