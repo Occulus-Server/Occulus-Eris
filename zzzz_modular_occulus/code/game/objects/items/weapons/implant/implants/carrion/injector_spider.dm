@@ -2,10 +2,10 @@
 	name = "injector spider"
 	desc = "A tiny spider with a clear abdomen. Its maw is not but a sharp hypodermic needle."
 	icon = 'zzzz_modular_occulus/icons/obj/carrion_spiders.dmi'
-	icon_state = "spiderling_mending"
+	icon_state = "spiderling_injector"
 	allow_reagents = TRUE
 	reagent_flags = REFILLABLE
-	spider_price = 10
+	spider_price = 30
 	var/volume = 30
 
 /obj/item/weapon/implant/carrion_spider/injector/Initialize()

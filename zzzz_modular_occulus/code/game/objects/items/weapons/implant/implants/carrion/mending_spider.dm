@@ -4,6 +4,7 @@
 	icon = 'zzzz_modular_occulus/icons/obj/carrion_spiders.dmi'
 	icon_state = "spiderling_mending"
 	spider_price = 50
+	gene_price = 1
 
 /obj/item/weapon/implant/carrion_spider/mending/activate()
 	..()

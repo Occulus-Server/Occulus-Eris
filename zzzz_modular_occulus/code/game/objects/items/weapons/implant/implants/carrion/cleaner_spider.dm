@@ -2,9 +2,9 @@
 	name = "cleaner spider"
 	desc = "A tiny spider with a pearl-white abdomen covered in smooth bubbles."
 	icon = 'zzzz_modular_occulus/icons/obj/carrion_spiders.dmi'
-	icon_state = "spiderling_mending"
+	icon_state = "spiderling_cleaner"
 	allow_reagents = TRUE
-	spider_price = 10
+	spider_price = 25
 	var/volume = 90
 
 /obj/item/weapon/implant/carrion_spider/cleaner/Initialize()
