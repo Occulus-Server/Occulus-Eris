@@ -107,7 +107,6 @@
 
 /obj/machinery/smelter/proc/smelt_item(obj/smelting)
 	var/list/materials = result_materials(smelting)
-
 	if(materials)
 		if(!are_valid_materials(materials))
 			eject(smelting, refuse_output_side)
@@ -128,6 +127,20 @@
 	for(var/obj/O in smelting.contents)
 		smelt_item(O)
 
+	//Occulus Edit Start: Smelting Mobs
+	for(var/mob/oopsalltori in smelting.contents)
+		for(var/obj/item/W in oopsalltori)
+			if(W.is_equipped())
+				oopsalltori.drop_from_inventory(W)
+				smelt_item(W)
+		to_chat(oopsalltori, SPAN_DANGER("You feel a horrific crunch and a burning sensation as the blades and lasers in [src] tear apart your flesh!"))
+		eject(oopsalltori, refuse_output_side)
+		oopsalltori.take_overall_damage(80,0,used_weapon = "tiny blades")
+		oopsalltori.take_overall_damage(0,20,used_weapon = "micro-laser burns")
+		for(var/obj/item/organ/external/oopsallzack in oopsalltori.contents)
+			if(BP_IS_ROBOTIC(oopsallzack))
+				oopsallzack.droplimb(TRUE, DROPLIMB_EDGE)
+	//Occulus Edit End
 	qdel(smelting)
 
 /obj/machinery/smelter/proc/smelt_scrap(obj/smelting)
@@ -154,8 +167,22 @@
 
 	for(var/obj/O in smelting.contents)
 		smelt_scrap(O)
-
+	//Occulus Edit Start: Smelting Mobs
+	for(var/mob/oopsalltori in smelting.contents)
+		for(var/obj/item/W in oopsalltori)
+			if(W.is_equipped())
+				oopsalltori.drop_from_inventory(W)
+				smelt_item(W)
+		to_chat(oopsalltori, SPAN_DANGER("You feel a horrific crunch and a burning sensation as the blades and lasers in [src] tear apart your flesh!"))
+		eject(oopsalltori, refuse_output_side)
+		oopsalltori.take_overall_damage(80,0,used_weapon = "tiny blades")
+		oopsalltori.take_overall_damage(0,20,used_weapon = "micro-laser burns")
+		for(var/obj/item/organ/external/oopsallzack in oopsalltori.contents)
+			if(BP_IS_ROBOTIC(oopsallzack))
+				oopsallzack.droplimb(TRUE, DROPLIMB_EDGE)
+	//Occulus Edit End
 	qdel(smelting)
+
 
 /obj/machinery/smelter/proc/are_valid_materials(list/materials)
 	for(var/material in forbidden_materials)
