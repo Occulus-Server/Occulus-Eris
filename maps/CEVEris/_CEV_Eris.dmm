@@ -45767,10 +45767,10 @@
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/rnd/mixing)
 "ccJ" = (
-/obj/structure/reagent_dispensers/cahorsbarrel,
 /obj/structure/sign/faction/neotheology_cross/gold{
 	pixel_y = 32
 	},
+/obj/structure/reagent_dispensers/cahorsbarrel,
 /turf/simulated/floor/wood,
 /area/eris/neotheology/storage)
 "ccK" = (
@@ -46496,10 +46496,10 @@
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/mixing)
 "cem" = (
-/obj/structure/reagent_dispensers/cahorsbarrel,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/reagent_dispensers/bidon,
 /turf/simulated/floor/wood,
 /area/eris/neotheology/storage)
 "cen" = (
@@ -46858,10 +46858,10 @@
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/mixing)
 "ceU" = (
-/obj/structure/reagent_dispensers/cahorsbarrel,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/structure/reagent_dispensers/bidon,
 /turf/simulated/floor/wood,
 /area/eris/neotheology/storage)
 "ceV" = (
@@ -50862,7 +50862,7 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbay)
 "coC" = (
-/obj/machinery/vending/medical/occulus,
+/obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
 "coD" = (
@@ -56102,7 +56102,9 @@
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/quartermaster/storage)
 "cBm" = (
-/obj/structure/reagent_dispensers/cahorsbarrel,
+/obj/structure/table/woodentable,
+/obj/spawner/oddities/low_chance,
+/obj/spawner/oddities/low_chance,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/chapelritualroom)
 "cBn" = (
@@ -77216,7 +77218,7 @@
 /area/eris/maintenance/oldbridge)
 "dyu" = (
 /obj/item/weapon/autopsy_scanner,
-/obj/structure/closet/secure_closet/reinforced/CMOcculus,
+/obj/structure/closet/secure_closet/reinforced/CMO,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/command/mbo)
 "dyv" = (
@@ -79793,7 +79795,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/vending/medical/occulus,
+/obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbreak)
 "dEr" = (
@@ -105498,9 +105500,6 @@
 /area/eris/medical/chemstor)
 "nfk" = (
 /obj/structure/table/woodentable,
-/obj/spawner/oddities/low_chance,
-/obj/spawner/oddities/low_chance,
-/obj/spawner/oddities/low_chance,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors{
 	pixel_x = 9;
 	pixel_y = 6
