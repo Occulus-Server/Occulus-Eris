@@ -11,6 +11,12 @@
 	smoke = new
 	smoke.attach(src)
 
+/ob	j/item/weapon/implant/carrion_spider/smoker/Destroy()
+	qdel(smoke)
+	smoke = null
+	return ..()
+
+
 /obj/item/weapon/implant/carrion_spider/smoker/activate()
 	playsound(loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 	smoke.set_up(10, 0, usr.loc)
