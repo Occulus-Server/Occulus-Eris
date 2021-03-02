@@ -16,7 +16,7 @@
 	max_size = 1.2
 
 /mob/living/carbon/superior_animal/roach/fuhrer
-
+	density = TRUE
 	min_size = 1
 	max_size = 1.3
 
