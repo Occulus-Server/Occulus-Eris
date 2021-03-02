@@ -11,7 +11,7 @@
 	smoke = new
 	smoke.attach(src)
 
-/ob	j/item/weapon/implant/carrion_spider/smoker/Destroy()
+/obj/item/weapon/implant/carrion_spider/smoker/Destroy()
 	qdel(smoke)
 	smoke = null
 	return ..()
