@@ -234,7 +234,7 @@
 		nerve = new /obj/item/organ/internal/nerve
 	else
 		nerve = new /obj/item/organ/internal/nerve/robotic
-
+	nerve.name += ", " + name//Occulus Edit, naming eris organs by BP
 	nerve?.replaced(src)
 
 /obj/item/organ/external/proc/make_muscles()
@@ -244,13 +244,14 @@
 	else
 		muscle = new /obj/item/organ/internal/muscle/robotic
 
+	muscle.name += ", " + name//Occulus Edit, naming eris organs by BP
 	muscle?.replaced(src)
 
 /obj/item/organ/external/proc/make_blood_vessels()
 	var/obj/item/organ/internal/blood_vessel/blood_vessel
 	if(nature < MODIFICATION_SILICON)	//No robotic blood vesseles
 		blood_vessel = new /obj/item/organ/internal/blood_vessel
-
+		blood_vessel.name += ", " + name//Occulus Edit, naming eris organs by BP
 	blood_vessel?.replaced(src)
 
 /obj/item/organ/external/proc/update_limb_efficiency()
