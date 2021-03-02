@@ -1,7 +1,7 @@
 /mob/living/silicon/robot/drone/blitzshell
 	icon_state = "blitzshell"
 	law_type = /datum/ai_laws/blitzshell
-	module_type = /obj/item/weapon/robot_module/blitzshell
+	module_type = /obj/item/weapon/robot_module/drone/rogue //Occulus Edit
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_size = ITEM_SIZE_HUGE
@@ -12,7 +12,7 @@
 	ai_access = FALSE
 
 /mob/living/silicon/robot/drone/blitzshell/updatename()
-	real_name = "\"Blitzshell\" assault drone ([rand(100,999)])"
+	real_name = "Malfunctioning drone ([rand(100,999)])"//Occulus Edit: Blitzshell fixes
 	name = real_name
 
 /mob/living/silicon/robot/drone/blitzshell/is_allowed_vent_crawl_item()
@@ -24,8 +24,8 @@
 	verbs -= /mob/living/silicon/robot/drone/verb/choose_armguard
 	verbs -= /mob/living/silicon/robot/drone/verb/choose_eyecolor
 
-	remove_language(LANGUAGE_ROBOT)
-	remove_language(LANGUAGE_DRONE)
+	//remove_language(LANGUAGE_ROBOT) Occulus Edit: These drones are NTL drones that are malfunctioning. They can listen in on other synthetics
+	//remove_language(LANGUAGE_DRONE) Occulus Edit: These drones are NL drones that are malunctioning. They can listen in on other synthetics
 	add_language(LANGUAGE_BLITZ, 1)
 	UnlinkSelf()
 
@@ -35,7 +35,7 @@
 
 /mob/living/silicon/robot/drone/blitzshell/request_player()
 	var/datum/ghosttrap/G = get_ghost_trap("blitzshell drone")
-	G.request_player(src, "A new Blitzshell drone has become active, and is requesting a pilot.", MINISYNTH, 30 SECONDS)
+	G.request_player(src, "A new rogue drone has become active, and is requesting a pilot.", MINISYNTH, 30 SECONDS)//Occulus Edit: Namechange
 
 /mob/living/silicon/robot/drone/blitzshell/get_scooped()
 	return
@@ -43,6 +43,22 @@
 /mob/living/silicon/robot/drone/blitzshell/allowed()
 	return FALSE
 
+//Occulus Edit - Completely changing the loadout for rogue drones
+
+/obj/item/weapon/robot_module/drone/rogue
+	networks = list()
+	health = 90 //Able to take 3-4 bullets
+	speed_factor = 1.2
+	hide_on_manifest = TRUE
+
+/obj/item/weapon/robot_module/drone/rogue/New(var/mob/living/silicon/robot/R)
+	modules += new /obj/item/device/nanite_container(src)
+	modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src)
+	modules += new /obj/item/weapon/hatton/robot(src)
+	modules += new /obj/item/device/drone_uplink(src)
+	..(R)
+
+/*
 /obj/item/weapon/robot_module/blitzshell
 	networks = list()
 	health = 90 //Able to take 3-4 bullets
@@ -51,18 +67,20 @@
 
 
 /obj/item/weapon/robot_module/blitzshell/New()
-	//modules += new /obj/item/weapon/gun/energy/laser/mounted/blitz(src) //Deemed too strong for initial loadout
+	modules += new /obj/item/weapon/gun/energy/laser/mounted/blitz(src) //Deemed too strong for initial loadout
 	modules += new /obj/item/weapon/gun/energy/plasma/mounted/blitz(src)
 	modules += new /obj/item/weapon/tool/knife/tacknife(src) //For claiming heads for assassination missions
-	//Objective stuff
+	Objective stuff
 	modules += new /obj/item/weapon/storage/bsdm/permanent(src) //for sending off item contracts
 	modules += new /obj/item/weapon/gripper/antag(src) //For picking up item contracts
 	modules += new /obj/item/weapon/reagent_containers/syringe/blitzshell(src) //Blood extraction
 	modules += new /obj/item/device/drone_uplink(src)
-	//Misc equipment
+	Misc equipment
 	modules += new /obj/item/weapon/card/id/syndicate(src) //This is our access. Scan cards to get better access
 	modules += new /obj/item/device/nanite_container(src) //For self repair. Get more charges via the contract system
 	..()
+	Occulus Edit End
+	*/
 
 /obj/item/weapon/gripper/antag
 	name = "Objective Gripper"
