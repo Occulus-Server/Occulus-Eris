@@ -1,3 +1,6 @@
+/obj/item/stash_spawner
+	rarity_value = 45 //Occulus Edit: Whoever set this to 3.5 caused basically all of them to spawn at roundstart. No beuno. Now they are about as rare as an atomcell
+
 /datum/stash/valueable/eridian
 	contents_list_extra = list(/obj/item/clothing/suit/space/void/mining = 1,
 	/obj/item/weapon/holochip/science/jive = 1,
