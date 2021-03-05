@@ -9,6 +9,28 @@
 #define COMBAT_SELF_INJECT 0
 
 
+/obj/item/weapon/reagent_containers/hypospray
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+
+/obj/item/weapon/storage/pouch/medical_supply
+	can_hold = list(
+		/obj/item/device/scanner/health,
+		/obj/item/weapon/dnainjector,
+		/obj/item/weapon/reagent_containers/dropper,
+		/obj/item/weapon/reagent_containers/glass/beaker,
+		/obj/item/weapon/reagent_containers/glass/bottle,
+		/obj/item/weapon/reagent_containers/pill,
+		/obj/item/weapon/reagent_containers/syringe,
+		/obj/item/weapon/storage/pill_bottle,
+		/obj/item/stack/medical,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/clothing/head/surgery,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/weapon/reagent_containers/hypospray,
+		/obj/item/clothing/glasses/hud/health,
+		/obj/item/hypospray/mkii,
+		)
+
 //A vial-loaded hypospray. Cartridge-based!
 /obj/item/hypospray/mkii
 	name = "hypospray mk.II"
@@ -16,7 +38,6 @@
 	icon = 'zzzz_modular_occulus/icons/obj/syringe.dmi'
 	item_icons = list(slot_l_hand_str = 'zzzz_modular_occulus/icons/mob/left_hand.dmi', slot_r_hand_str = 'zzzz_modular_occulus/icons/mob/right_hand.dmi')
 	desc = "A new development from a newly acquired Nanotrasen subsidiary, this hypospray takes 30-unit vial cartridges as the drug supply for easy swapping."
-	w_class = ITEM_SIZE_TINY
 	var/amount_per_transfer_from_this
 	var/emagged = FALSE
 	var/list/allowed_containers = list(/obj/item/weapon/reagent_containers/glass/beaker/hypovial/tiny, /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small)
@@ -27,6 +48,7 @@
 	var/inject_self = SELF_INJECT
 	var/quickload = FALSE
 	var/penetrates = FALSE
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
 
 /obj/item/hypospray/mkii/brute
 	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/bicaridine
