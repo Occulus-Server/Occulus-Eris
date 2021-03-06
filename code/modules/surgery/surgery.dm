@@ -110,12 +110,17 @@
 
 	// Self-surgery increases failure chance
 	if(owner && user == owner)
-		difficulty_adjust = 20
+		// OCCULUS EDIT START: More severe difficulty for self-surgery
+		if (BP_IS_ROBOTIC(src))	// Prosthetics are not as difficult to operate on
+			difficulty_adjust = 30 + max((STAT_LEVEL_PROF - (user.stats.getStat(STAT_MEC) * 1.16)), 0)
+		else
+			difficulty_adjust = 30 + max(STAT_LEVEL_GODLIKE - (user.stats.getStat(STAT_BIO) * 0.7), 0)
 
 		// ...unless you are a carrion
 		// It makes sense that lings have a way of making their flesh cooperate
 		if(is_carrion(user))
-			difficulty_adjust = -50
+			difficulty_adjust = -100	// OCCULUS EDIT: To accomodate for skill requirement changes
+		// OCCULUS EDIT END
 
 	var/atom/surgery_target = get_surgery_target()
 	if(S.required_tool_quality && (S.required_tool_quality in tool.tool_qualities))
