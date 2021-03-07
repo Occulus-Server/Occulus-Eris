@@ -320,7 +320,7 @@
 /obj/item/stack/material/glass/phoronglass/random
 	rand_min = 3
 	rand_max = 30
-	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE //Occulus edit: Re-adding phoron glass to spawn pools
+	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING //Occulus edit: Re-adding phoron glass to spawn pools
 	rarity_value = 50 //Occulus edit: Re-adding phoron glass to spawn pools
 
 /obj/item/stack/material/glass/phoronrglass
