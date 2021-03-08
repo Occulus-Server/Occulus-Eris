@@ -36,7 +36,7 @@ GLOBAL_LIST_EMPTY(active_mind_fryers)
 
 /obj/item/device/mind_fryer/Process()
 	for(var/mob/living/carbon/human/H in view(src))
-		if(H.get_species() != "Human" || (H in victims) || (owner && H.mind == owner))
+		if((H in victims) || (owner && H.mind == owner)) //Occulus edit
 			continue
 		icon_state = "mind_fryer_running"
 		H.sanity.onPsyDamage(2)
@@ -54,9 +54,10 @@ GLOBAL_LIST_EMPTY(active_mind_fryers)
 		break
 
 /obj/item/device/mind_fryer/proc/reg_break(mob/living/carbon/human/victim)
+/*  Occulus Edit Start
 	if(victim.get_species() != "Human")
 		return
-
+Occulus Edit End */
 	if(owner && owner.current)
 		if(victim == owner.current)
 			return

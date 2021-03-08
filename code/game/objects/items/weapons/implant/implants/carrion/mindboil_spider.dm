@@ -53,10 +53,10 @@ GLOBAL_LIST_EMPTY(active_mindboil_spiders)
 		break
 
 /obj/item/weapon/implant/carrion_spider/mindboil/proc/reg_break(mob/living/carbon/human/victim)
-/* Occulus Edit Start
+/*  Occulus Edit Start
 	if(victim.get_species() != "Human")
 		return
- Occulus Edit End */
+Occulus Edit End */
 	if(victim == owner_mob)
 		return
 
