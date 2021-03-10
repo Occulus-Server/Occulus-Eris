@@ -49,6 +49,7 @@
 	var/quickload = FALSE
 	var/penetrates = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	w_class = ITEM_SIZE_SMALL
 
 /obj/item/hypospray/mkii/brute
 	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/bicaridine
