@@ -36,7 +36,7 @@ GLOBAL_LIST_EMPTY(active_mind_fryers)
 
 /obj/item/device/mind_fryer/Process()
 	for(var/mob/living/carbon/human/H in view(src))
-		if((H in victims) || (owner && H.mind == owner)) //Occulus edit
+		if((H.get_species() != "Monkey" || (H in victims) || (owner && H.mind == owner)) //Occulus edit
 			continue
 		icon_state = "mind_fryer_running"
 		H.sanity.onPsyDamage(2)
