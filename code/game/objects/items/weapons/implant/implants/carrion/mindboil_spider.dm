@@ -31,7 +31,7 @@ GLOBAL_LIST_EMPTY(active_mindboil_spiders)
 		else
 			attack_from = src
 		for(var/mob/living/carbon/human/H in view(5, attack_from))
-			if(H.get_species() != "Human" || (H in victims) || (H == owner_mob))
+			if((H in victims) || (H == owner_mob)) //Occulus Edit
 				continue
 			H.sanity.onPsyDamage(1) //Half the ammount of mind fryer, can be mass produced
 
@@ -53,9 +53,10 @@ GLOBAL_LIST_EMPTY(active_mindboil_spiders)
 		break
 
 /obj/item/weapon/implant/carrion_spider/mindboil/proc/reg_break(mob/living/carbon/human/victim)
+/*  Occulus Edit Start
 	if(victim.get_species() != "Human")
 		return
-
+Occulus Edit End */
 	if(victim == owner_mob)
 		return
 
