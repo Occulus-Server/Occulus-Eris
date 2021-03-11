@@ -67,10 +67,6 @@ hivebots
 mimics
 drones
 pirates
-russians
-ukrainians
-englishmen
-americans
 creatures
 men
 gods
@@ -89,9 +85,6 @@ wizards
 witches
 druids
 cyborgs
-germans
-dutchmen
-frenchmen
 mummies
 vampires
 elves

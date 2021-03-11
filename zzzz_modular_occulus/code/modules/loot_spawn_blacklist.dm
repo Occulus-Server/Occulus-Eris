@@ -120,3 +120,12 @@
 
 /obj/item/mech_equipment/sleeper
 	spawn_blacklisted = FALSE
+
+/obj/item/clothing/glasses/hud/security/jensenshades
+	spawn_blacklisted = TRUE
+
+/obj/item/weapon/tool/armblade
+	spawn_blacklisted = TRUE
+
+/obj/item/weapon/tool/armblade/claws
+	spawn_blacklisted = TRUE
