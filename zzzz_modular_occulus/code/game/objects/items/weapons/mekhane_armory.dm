@@ -61,6 +61,7 @@ ARMOR_PEN_MASSIVE			30
 	name = "Mekhane Shortsword"
 	force = WEAPON_FORCE_ROBUST	// Buffed one notch up
 	armor_penetration = ARMOR_PEN_GRAZING	// Nerfed down two notches
+	w_class = ITEM_SIZE_NORMAL // These specifically fit on toolbelts
 
 /obj/item/weapon/tool/sword/nt/longsword
 	name = "Mekhane Longsword"

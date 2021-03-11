@@ -2831,6 +2831,8 @@
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\smoker_spider.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\belt.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\firstaid.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\pouches.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\storage.dm"
 #include "zzzz_modular_occulus\code\game\objects\random\utility.dm"
 #include "zzzz_modular_occulus\code\game\objects\structures\curtains.dm"
 #include "zzzz_modular_occulus\code\game\objects\structures\evacsign.dm"
