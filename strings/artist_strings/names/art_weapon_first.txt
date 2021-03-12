@@ -55,11 +55,6 @@ Reloaded
 Reworked
 Broken
 Low
-Stupid
-Idiotic
-Garbage
-Useless
-Mentally Challenged
 Dead
 Punished
 Solid
@@ -81,3 +76,10 @@ Capitalist
 United
 Federated
 Republican
+Modded
+Transformed
+Arcing
+Synthetic
+Valiant
+Stern
+Loyal

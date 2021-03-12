@@ -8,10 +8,6 @@ Leg
 Lower
 Body
 Mother
-Fucker
-Mc Fucker
-Asshole
-Ass
 Idiot
 Turd
 Waffeler
@@ -38,11 +34,7 @@ Blow
 Kick
 Punch
 Wound
-Collywobbler
-Cockgoblin
-Penisgremlin
 Gamer
-Fart
 Sting
 Ray
 Foundation
@@ -62,9 +54,6 @@ Leader
 Captain
 Vagabond
 Soldier
-Serbian
-Russian
-German
 Carpenter
 Snake
 Crusader
@@ -90,3 +79,12 @@ Warrior
 Wrangler
 Traitor
 Commissar
+Tajaran
+Human
+Skrell
+Vulpkanin
+Zorren
+Akula
+Covid
+Sergal
+Akula

@@ -349,7 +349,7 @@
 /obj/machinery/autolathe/artist_bench/proc/randomize_materialas(obj/O)
 	var/material_num = pick(0, suitable_materials.len)
 	var/list/new_materials = list()
-	LAZYAPLUS(new_materials, pick(suitable_materials), rand(3,5))
+	LAZYAPLUS(new_materials, pick(suitable_materials), rand(5,15))//Occulus Edit - Art is more expensive.
 	for(var/i in 1 to material_num)
 		LAZYAPLUS(new_materials, pick(suitable_materials), rand(0,2))
 	O.matter = new_materials
