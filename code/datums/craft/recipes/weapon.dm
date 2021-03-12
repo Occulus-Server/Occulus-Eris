@@ -246,7 +246,7 @@
 		list(QUALITY_ADHESIVE, 15, 70)
 	)
 
-/*/datum/craft_recipe/weapon/armgun Occulus Edit: We don't have this
+/*/datum/craft_recipe/weapon/armgun Occulus Edit Start - This will be aquired in other ways.
 	name = "embedded SMG"
 	result = /obj/item/organ_module/active/simple/armsmg
 	steps = list(
@@ -259,4 +259,4 @@
 		list(/obj/item/trash/material/circuit, 1),
 		list(CRAFT_MATERIAL, 5, MATERIAL_PLASTIC, "time" = 10),
 		list(QUALITY_ADHESIVE, 15, 70)
-	)*/
+	) Occulus Edit End*/
