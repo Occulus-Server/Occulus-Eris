@@ -2867,6 +2867,7 @@
 #include "zzzz_modular_occulus\code\modules\food\kitchen\icecream.dm"
 #include "zzzz_modular_occulus\code\modules\game\Objects\Items\oddities.dm"
 #include "zzzz_modular_occulus\code\modules\game\Objects\Items\Devices\artifacts.dm"
+#include "zzzz_modular_occulus\code\modules\hydroponics\trays\tray_soil.dm"
 #include "zzzz_modular_occulus\code\modules\loadout\lists\uniforms.dm"
 #include "zzzz_modular_occulus\code\modules\maint_expeditions\ADMS.dm"
 #include "zzzz_modular_occulus\code\modules\mining\ore.dm"

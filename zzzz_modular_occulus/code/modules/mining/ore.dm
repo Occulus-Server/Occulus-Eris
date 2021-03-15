@@ -18,3 +18,15 @@
 	if(OB && istype(F, /turf/simulated/floor/asteroid))
 		OB.collectItems(F, AM)	//Attackby wouldn't work here to pick up the ore from the turf when I did it originally. Using collect items instead.
 	return ..()
+
+/datum/craft_recipe/furniture/ore_box
+	name = "ore box"
+	result = /obj/structure/ore_box
+	time = 200
+	flags = CRAFT_ON_FLOOR
+	steps = list(
+		list(CRAFT_MATERIAL, 20, MATERIAL_WOOD),
+		list(QUALITY_SAWING, 15, 20),
+		list(QUALITY_HAMMERING, 15, 20)
+	)
+
