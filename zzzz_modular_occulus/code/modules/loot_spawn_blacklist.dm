@@ -129,3 +129,9 @@
 
 /obj/item/weapon/tool/armblade/claws
 	spawn_blacklisted = TRUE
+
+/obj/item/weapon/gun/projectile/automatic/maxim		// Excelsior machine gun
+	spawn_blacklisted = TRUE
+
+/obj/item/ammo_magazine/maxim						// pan magazine (.30)
+	spawn_blacklisted = TRUE
