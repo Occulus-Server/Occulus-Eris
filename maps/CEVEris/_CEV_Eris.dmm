@@ -103521,12 +103521,10 @@
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "fmD" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/spawner/scrap/sparse,
+/obj/structure/catwalk,
+/obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/plating/under,
-/area/eris/maintenance/section1deck4central)
+/area/eris/maintenance/section1deck5central)
 "fmL" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -104252,6 +104250,13 @@
 /obj/structure/railing,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2port)
+"ika" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/maintenance/section1deck4central)
 "ikb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/railing{
@@ -104295,6 +104300,10 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engine_room)
+"iwP" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/maintenance/section1deck4central)
 "ixv" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -104576,8 +104585,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/spawner/scrap/sparse,
-/turf/simulated/floor/plating/under,
+/obj/structure/bed/padded,
+/obj/item/weapon/bedsheet,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "jDU" = (
 /obj/machinery/door/firedoor,
@@ -104964,8 +104974,14 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
-/obj/spawner/scrap/sparse,
-/turf/simulated/floor/plating/under,
+/obj/spawner/pouch,
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/light/small,
+/obj/item/clothing/mask/gas/sexyclown,
+/obj/item/clothing/mask/gas/sexymime,
+/obj/item/clothing/mask/muzzle,
+/obj/item/weapon/handcuffs/zipties,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "lcL" = (
 /obj/structure/table/standard,
@@ -105388,14 +105404,10 @@
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/quartermaster/storage)
 "mAW" = (
-/obj/structure/railing{
+/obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "mCf" = (
 /obj/machinery/access_button{
@@ -105672,7 +105684,11 @@
 /turf/simulated/open,
 /area/eris/crew_quarters/bar)
 "nlp" = (
-/obj/spawner/pouch,
+/obj/structure/curtain/open/bed{
+	anchored = 1;
+	color = "#18273B";
+	name = "curtain"
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "nlx" = (
@@ -105720,6 +105736,12 @@
 /area/eris/maintenance/section4deck4central)
 "nsy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/curtain/open/bed{
+	anchored = 1;
+	color = "#18273B";
+	name = "curtain"
+	},
+/obj/structure/low_wall,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "ntp" = (
@@ -106174,8 +106196,7 @@
 /obj/structure/sign/atmos_air{
 	pixel_y = -32
 	},
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/plating/under,
+/turf/simulated/wall,
 /area/eris/maintenance/section1deck4central)
 "pbX" = (
 /obj/structure/table/standard,
@@ -106298,9 +106319,9 @@
 /turf/simulated/open,
 /area/eris/quartermaster/storage)
 "pxq" = (
-/obj/structure/catwalk,
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/plating/under,
+/obj/structure/table/steel,
+/obj/machinery/microwave,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "pyy" = (
 /obj/structure/table/woodentable,
@@ -106326,13 +106347,10 @@
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section1deck4central)
 "pCO" = (
-/obj/structure/railing{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "pGF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -106344,7 +106362,10 @@
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/maintenance/section4deck4central)
 "pJu" = (
-/obj/structure/bed/chair,
+/obj/structure/table/steel,
+/obj/item/stack/medical/bruise_pack/handmade,
+/obj/item/stack/medical/ointment,
+/obj/spawner/booze/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "pJI" = (
@@ -106546,7 +106567,9 @@
 /obj/machinery/door/airlock/maintenance_common{
 	name = "Central Maintenance"
 	},
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/techmaint{
+	name = "fucking tile"
+	},
 /area/eris/maintenance/section1deck4central)
 "qFD" = (
 /obj/structure/closet/cabinet,
@@ -106629,6 +106652,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko{
 	pixel_x = 5
 	},
+/obj/spawner/booze/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "rcr" = (
@@ -107179,8 +107203,13 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "tfd" = (
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor,
+/obj/structure/curtain/open/bed{
+	anchored = 1;
+	color = "#18273B";
+	name = "curtain"
+	},
+/obj/structure/low_wall,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "tin" = (
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -107281,6 +107310,13 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/office)
+"tAK" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/maintenance/section1deck4central)
 "tGj" = (
 /obj/machinery/light,
 /obj/structure/table/glass,
@@ -107409,12 +107445,8 @@
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/main)
 "ueE" = (
-/obj/structure/railing{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "uie" = (
 /obj/structure/railing{
@@ -107551,11 +107583,14 @@
 /turf/simulated/floor/bluegrid,
 /area/eris/hallway/main/section3)
 "uyJ" = (
-/obj/structure/railing{
-	dir = 1
+/obj/structure/low_wall,
+/obj/structure/curtain/open/bed{
+	anchored = 1;
+	color = "#18273B";
+	name = "curtain"
 	},
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/plating/under,
+/obj/spawner/booze/low_chance,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "uCf" = (
 /obj/structure/disposalpipe/segment,
@@ -107716,6 +107751,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/maintenance/section2deck1port)
+"vhf" = (
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/maintenance/section1deck4central)
 "vhC" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/hull,
@@ -108266,8 +108305,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/spawner/scrap/sparse,
-/turf/simulated/floor/plating/under,
+/obj/structure/bed/padded,
+/obj/item/weapon/bedsheet,
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#FFFFFF";
+	dryname = "dried fluid";
+	name = "fluid"
+	},
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "xue" = (
 /obj/structure/railing{
@@ -119660,7 +119705,7 @@ xLv
 akZ
 pcE
 xLv
-akZ
+fmD
 pcE
 dzq
 aaa
@@ -120064,7 +120109,7 @@ xLv
 akZ
 vAe
 xLv
-akZ
+fmD
 gTM
 dzq
 aaa
@@ -120266,7 +120311,7 @@ hcY
 akZ
 pcE
 uuk
-akZ
+fmD
 pcE
 dzi
 aaa
@@ -120468,7 +120513,7 @@ xLv
 akZ
 vAe
 rWu
-akZ
+fmD
 gTM
 dzi
 aaa
@@ -120670,7 +120715,7 @@ hcY
 akZ
 rjs
 rWu
-akZ
+fmD
 rjs
 dzi
 aaa
@@ -120872,7 +120917,7 @@ oOh
 fcw
 pcE
 uuk
-akZ
+fmD
 vAe
 dzi
 aaa
@@ -159649,7 +159694,7 @@ aaa
 aaa
 csS
 eLF
-pxq
+eLF
 eLF
 eLF
 kSN
@@ -160055,7 +160100,7 @@ csS
 mZS
 qnY
 cvH
-pJu
+hsA
 pCM
 kAo
 hLb
@@ -160255,15 +160300,15 @@ aaa
 aaa
 csS
 cvH
-cyw
+cvH
 cvH
 pJu
 csU
 uYv
 iaa
+ika
 iaa
-iaa
-iaa
+tAK
 tqo
 csS
 aaa
@@ -160458,13 +160503,13 @@ aaa
 csS
 rzU
 cvH
-cyw
-aLc
+cvH
+mAW
 csU
 eJJ
 pze
-tfd
 pze
+iwP
 pze
 gUI
 csS
@@ -160658,16 +160703,16 @@ aaa
 aaa
 aaa
 csS
-cyw
 cvH
+pxq
 mAW
 pCO
 xlB
 lmn
+iwP
 pze
 pze
-tfd
-pze
+vhf
 rKC
 csS
 aaa
@@ -160861,12 +160906,12 @@ aaa
 aaa
 csS
 mZS
-cvH
+xlB
 uyJ
 paB
 xlB
 eJJ
-tfd
+pze
 wZK
 wZK
 pze
@@ -161063,8 +161108,8 @@ aaa
 aaa
 csS
 cvH
+tfd
 cvH
-fmD
 jBw
 xlB
 eJJ
@@ -161266,14 +161311,14 @@ aaa
 xFf
 cvH
 nlp
-uyJ
+cvH
 kYr
 xlB
 eJJ
 pze
 rKC
 eJJ
-tfd
+pze
 rKC
 csS
 aaa
