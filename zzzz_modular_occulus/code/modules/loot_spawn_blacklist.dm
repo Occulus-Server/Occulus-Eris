@@ -135,3 +135,9 @@
 
 /obj/item/ammo_magazine/maxim						// pan magazine (.30)
 	spawn_blacklisted = TRUE
+
+/obj/item/weapon/reagent_containers/glass/beaker/bowl	// no sprite
+	spawn_blacklisted = TRUE
+
+/obj/item/device/onetankbomb	// no sprite
+	spawn_blacklisted = TRUE
