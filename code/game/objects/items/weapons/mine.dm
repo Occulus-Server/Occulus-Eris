@@ -36,11 +36,11 @@
 //	fragment_explosion(T, spread_radius, fragment_type, num_fragments, null, damage_step,50) Occulus Edit - Even tremendously nerfing this doesn't fix the problems with it. I'm axing the fragments
 	qdel(src)
 
-/obj/item/weapon/mine/update_icon()
-	overlays.Cut()
+/obj/item/weapon/mine/on_update_icon()
+	cut_overlays()
 
 	if(armed)
-		overlays.Add(image(icon,"mine_light"))
+		add_overlays(image(icon,"mine_light"))
 
 /obj/item/weapon/mine/attack_self(mob/user)
 	if(!armed)

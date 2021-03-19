@@ -21,7 +21,7 @@
 	reload_sound 	= 'sound/weapons/guns/interact/hpistol_magin.ogg'
 	cocked_sound 	= 'sound/weapons/guns/interact/hpistol_cock.ogg'
 
-/obj/item/weapon/gun/projectile/gyropistol/update_icon()
+/obj/item/weapon/gun/projectile/gyropistol/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "gyropistolloaded"
