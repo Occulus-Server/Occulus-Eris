@@ -50,7 +50,7 @@
 
 	var/STEEL_REQ = 10
 	var/PLASTEEL_REQ = 3
-	var/NANITE_REQ = 2
+	var/NANITE_REQ = 9
 	var/ROUND_FRACTION = 0.1
 
 /obj/machinery/nanite_reconstitution_apparatus/Initialize() //initializing
@@ -134,7 +134,7 @@
 	var/nanites_needed = round(0 - (NANITE_REQ / mat_efficiency), ROUND_FRACTION)
 
 	if (container)
-		nanites_needed = round(container.reagents.get_reagent_amount("uncapped nanites") - (NANITE_REQ / mat_efficiency), ROUND_FRACTION)
+		nanites_needed = round(container.reagents.get_reagent_amount("nanites") - (NANITE_REQ / mat_efficiency), ROUND_FRACTION)
 
 	var/steel_needed = round((stored_material["steel"] || 0) - (STEEL_REQ / mat_efficiency), ROUND_FRACTION)
 	var/plasteel_needed = round((stored_material["plasteel"] || 0) - (PLASTEEL_REQ / mat_efficiency), ROUND_FRACTION)
@@ -145,7 +145,7 @@
 	if (plasteel_needed < 0)
 		to_chat(user, SPAN_WARNING("[abs(plasteel_needed)] plasteel"))
 	if (nanites_needed < 0)
-		to_chat(user, SPAN_WARNING("[abs(nanites_needed)] uncapped nanites"))
+		to_chat(user, SPAN_WARNING("[abs(nanites_needed)] industrial nanites"))
 
 /obj/machinery/nanite_reconstitution_apparatus/power_change() //Autolathe had this. Dunno why it's important tbh.
 	..()
@@ -185,10 +185,10 @@
 	var/plasteel_cost = round((PLASTEEL_REQ / mat_efficiency), ROUND_FRACTION)
 	var/nanite_cost = round((NANITE_REQ / mat_efficiency), ROUND_FRACTION)
 
-	if((stored_material[MATERIAL_STEEL] >= steel_cost) && (stored_material[MATERIAL_PLASTEEL] >= plasteel_cost) && (container.reagents.get_reagent_amount("uncap nanites") >= nanite_cost))
+	if((stored_material[MATERIAL_STEEL] >= steel_cost) && (stored_material[MATERIAL_PLASTEEL] >= plasteel_cost) && (container.reagents.get_reagent_amount("nanites") >= nanite_cost))
 		stored_material[MATERIAL_STEEL] -= steel_cost
 		stored_material[MATERIAL_PLASTEEL] -= plasteel_cost
-		container.reagents.remove_reagent("uncap nanites", nanite_cost, TRUE)
+		container.reagents.remove_reagent("nanites", nanite_cost, TRUE)
 		return TRUE
 
 	return FALSE
@@ -597,7 +597,7 @@
 /obj/machinery/nanite_reconstitution_apparatus/loaded/Initialize()
 	. = ..()
 	container = new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	container.reagents.add_reagent("uncap nanites", 6)
+	container.reagents.add_reagent("nanites", 30)
 
 // You (still) can't flicker overlays in BYOND, and this is a vis_contents hack to provide the same functionality.
 // Used for materials loading animation.

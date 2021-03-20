@@ -27528,9 +27528,7 @@
 /area/eris/hallway/side/eschangarb)
 "bmc" = (
 /obj/structure/table/rack,
-/obj/item/stack/material/plasteel{
-	amount = 10
-	},
+/obj/spawner/tool_upgrade/low_chance,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bmd" = (
@@ -29863,13 +29861,9 @@
 /area/eris/crew_quarters/librarybackroom)
 "brz" = (
 /obj/structure/table/rack,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/devices,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/components,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/circuits,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools,
+/obj/spawner/material/resources,
+/obj/spawner/material/resources/low_chance,
+/obj/spawner/material/resources,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "brA" = (
@@ -40178,7 +40172,6 @@
 	pixel_x = 28
 	},
 /obj/structure/cable/green,
-/obj/machinery/nanite_reconstitution_apparatus/loaded,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bPa" = (
@@ -59641,11 +59634,10 @@
 /area/eris/maintenance/substation/section3)
 "cJx" = (
 /obj/structure/catwalk,
-/obj/structure/table/rack,
-/obj/spawner/tool_upgrade/rare/low_chance,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/autolathe/loaded,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/breakroom)
 "cJy" = (
@@ -60216,9 +60208,16 @@
 	},
 /area/space)
 "cKI" = (
-/obj/structure/catwalk,
 /obj/structure/table/rack,
-/obj/spawner/tool_upgrade/low_chance,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/devices,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/components,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/circuits,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools,
+/obj/item/stack/material/plasteel,
+/obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/breakroom)
 "cKJ" = (
@@ -79700,7 +79699,10 @@
 /obj/machinery/camera/network/engineering{
 	dir = 8
 	},
-/obj/machinery/autolathe/loaded,
+/obj/structure/table/rack,
+/obj/spawner/tool_upgrade/rare/low_chance,
+/obj/spawner/tool_upgrade/low_chance,
+/obj/spawner/tool_upgrade/low_chance,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "dEj" = (
@@ -96906,9 +96908,10 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/engineering/techstorage)
 "esQ" = (
-/obj/effect/window_lwall_spawn/smartspawn,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/structure/catwalk,
+/obj/structure/table/rack,
+/obj/spawner/tool_upgrade/low_chance,
+/turf/simulated/floor/plating/under,
 /area/eris/engineering/breakroom)
 "esR" = (
 /obj/structure/table/rack,
@@ -103858,6 +103861,11 @@
 /obj/machinery/light/small,
 /turf/simulated/open,
 /area/eris/maintenance/section1deck4central)
+"gWy" = (
+/obj/structure/catwalk,
+/obj/machinery/nanite_reconstitution_apparatus/loaded,
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/breakroom)
 "gYC" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -104831,6 +104839,12 @@
 /obj/machinery/portable_atmospherics/powered/pump,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section4deck4central)
+"kPl" = (
+/obj/structure/catwalk,
+/obj/structure/table/rack,
+/obj/spawner/tool_upgrade/rare/low_chance,
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/breakroom)
 "kPm" = (
 /obj/structure/sink/kitchen{
 	pixel_y = 26
@@ -108024,6 +108038,11 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
+"xCI" = (
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/eris/engineering/breakroom)
 "xCU" = (
 /obj/structure/catwalk,
 /obj/structure/catwalk,
@@ -284877,8 +284896,8 @@ cJq
 cMc
 dVj
 esQ
-abF
-abF
+esQ
+xCI
 abF
 abF
 abF
@@ -285078,9 +285097,9 @@ eyM
 cJx
 cMe
 dVj
-esQ
-abF
-abF
+cMe
+cMe
+xCI
 abF
 abF
 abF
@@ -285278,11 +285297,11 @@ rYg
 cND
 eyM
 cKI
-cKI
+cMe
 dVj
-esQ
-abF
-abF
+gWy
+kPl
+xCI
 abF
 abF
 abF
