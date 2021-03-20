@@ -416,7 +416,10 @@
 	required_tech_levels = list()
 	cost = 1500
 
-	unlocks_designs = list(/datum/design/research/item/part/RPED, /datum/design/research/circuit/secure_airlock, /datum/design/research/item/part/rocket)
+	unlocks_designs = list(	/datum/design/research/item/part/RPED,
+							/datum/design/research/circuit/secure_airlock,
+							/datum/design/research/item/part/rocket,
+							/datum/design/research/circuit/nanite_reconstitution_apparatus))
 
 /*
 /datum/technology/bluespace_parts

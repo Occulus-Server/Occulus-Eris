@@ -8,7 +8,7 @@
 
 
 /obj/machinery/nanite_reconstitution_apparatus //machine itself
-	name = "Nanite Reconstitution Apparatus"
+	name = "nanite reconstitution apparatus"
 	desc = "Machine used for restoring old equipment and items."
 	icon = 'zzzz_modular_occulus/icons/obj/machine.dmi'
 	icon_state = "nra"
@@ -36,7 +36,8 @@
 	var/have_reagents = TRUE
 	var/have_materials = TRUE
 	var/obj/item/weapon/reagent_containers/glass/container = null
-	var/forbidden_materials = list(MATERIAL_CARDBOARD,MATERIAL_WOOD,MATERIAL_BIOMATTER)
+	//var/forbidden_materials = list(MATERIAL_CARDBOARD, MATERIAL_WOOD, MATERIAL_BIOMATTER)
+	var/allowed_materials = list(MATERIAL_STEEL, MATERIAL_PLASTEEL)
 	var/can_fix = FALSE
 	var/working = FALSE
 
@@ -47,19 +48,18 @@
 	var/show_rconfig = FALSE
 	var/activated = FALSE
 
+	var/STEEL_REQ = 10
+	var/PLASTEEL_REQ = 3
+	var/NANITE_REQ = 2
+	var/ROUND_FRACTION = 0.1
+
 /obj/machinery/nanite_reconstitution_apparatus/Initialize() //initializing
 	. = ..()
 
 
 /obj/machinery/nanite_reconstitution_apparatus/proc/reconstitute() //Proc called to de-oldify objects
 	if(loaded_item)
-		loaded_item.make_young()	//deoldifies
-		working = FALSE				//Sets working to False
-		loaded_item.forceMove(drop_location())			//Ejects item. Or is supposed to, atleast.
-		loaded_item = null
-		progress = 0				//Stops progress.
-	return ..()
-
+		loaded_item.make_young()
 
 /obj/machinery/nanite_reconstitution_apparatus/update_icon() //Icon updater. code may need to be updated, not sure.
 	..()
@@ -106,6 +106,7 @@
 	data["progress"] = progress
 	data["have_reagents"] = have_reagents
 	data["have_materials"] = have_materials
+	data["activated"] = activated
 
 	data |= materials_data()
 
@@ -126,6 +127,26 @@
 		ui.open()
 		ui.set_auto_update(1)
 
+/obj/machinery/nanite_reconstitution_apparatus/proc/report_missing(mob/user)
+
+	// Report what materials are missing.
+
+	var/nanites_needed = round(0 - (NANITE_REQ / mat_efficiency), ROUND_FRACTION)
+
+	if (container)
+		nanites_needed = round(container.reagents.get_reagent_amount("uncapped nanites") - (NANITE_REQ / mat_efficiency), ROUND_FRACTION)
+
+	var/steel_needed = round((stored_material["steel"] || 0) - (STEEL_REQ / mat_efficiency), ROUND_FRACTION)
+	var/plasteel_needed = round((stored_material["plasteel"] || 0) - (PLASTEEL_REQ / mat_efficiency), ROUND_FRACTION)
+
+	to_chat(user, SPAN_WARNING("There are not enough materials to use \the [src.name]! You need:"))
+	if (steel_needed < 0)
+		to_chat(user, SPAN_WARNING("[abs(steel_needed)] steel"))
+	if (plasteel_needed < 0)
+		to_chat(user, SPAN_WARNING("[abs(plasteel_needed)] plasteel"))
+	if (nanites_needed < 0)
+		to_chat(user, SPAN_WARNING("[abs(nanites_needed)] uncapped nanites"))
+
 /obj/machinery/nanite_reconstitution_apparatus/power_change() //Autolathe had this. Dunno why it's important tbh.
 	..()
 	if(stat & NOPOWER)
@@ -138,38 +159,41 @@
 	if(stat & NOPOWER)
 		return
 
-	if(activated)	//activated in Nanite_reconstitutiona_apparatus.tmpl button
-		if(loaded_item) //Item is infact, inserted into machine.
-			consume_materials()			//Supposed to remove materials from MRA
-		if(can_fix)		//Has enough materials in consume materials.
-			use_power(2)	//power use increase
-			working = TRUE	//machine is working- Used for icons
-			update_icon()	//updates icon to working sprite
-			progress += speed //starts progress bar
-			if(progress >= 100)	// If progress reachs 100
-				reconstitute()	//Deoldifies!
-				activated = FALSE
+	if(activated)
+		use_power(2)
+		working = TRUE	//machine is working- Used for icons
+		update_icon()
+		progress += speed
+
+		if(progress >= 100)
+			reconstitute()
+			eject_loaded_item_auto()
+			progress = 0
+			activated = FALSE
+			working = FALSE
+
 	else
 		working = FALSE
 
-	use_power = working ? ACTIVE_POWER_USE : IDLE_POWER_USE	//No idea what this does -RF
+	use_power = working ? ACTIVE_POWER_USE : IDLE_POWER_USE
 	update_icon()
 	SSnano.update_uis(src)
 
-/obj/machinery/nanite_reconstitution_apparatus/proc/consume_materials()	//Figure out way to make this work for me.
-	if((stored_material[MATERIAL_STEEL]>=10) && (stored_material[MATERIAL_PLASTEEL]>=3) && (container.reagents.has_reagent("uncap nanites",20)))
-		stored_material[MATERIAL_STEEL] -= 10
-		stored_material[MATERIAL_PLASTEEL] -=3
-		container.reagents["uncap nanites"] -= 20
-		can_fix = TRUE
-	else
-		can_fix = FALSE
-		return FALSE
+/obj/machinery/nanite_reconstitution_apparatus/proc/consume_materials()
 
+	var/steel_cost = round((STEEL_REQ / mat_efficiency), ROUND_FRACTION)
+	var/plasteel_cost = round((PLASTEEL_REQ / mat_efficiency), ROUND_FRACTION)
+	var/nanite_cost = round((NANITE_REQ / mat_efficiency), ROUND_FRACTION)
 
+	if((stored_material[MATERIAL_STEEL] >= steel_cost) && (stored_material[MATERIAL_PLASTEEL] >= plasteel_cost) && (container.reagents.get_reagent_amount("uncap nanites") >= nanite_cost))
+		stored_material[MATERIAL_STEEL] -= steel_cost
+		stored_material[MATERIAL_PLASTEEL] -= plasteel_cost
+		container.reagents.remove_reagent("uncap nanites", nanite_cost, TRUE)
+		return TRUE
 
+	return FALSE
 
-/obj/machinery/nanite_reconstitution_apparatus/proc/eject(obj/O)		//This iwas intended to drop the object on it's location similar to autolathes. However, when grabbing the object,
+/obj/machinery/nanite_reconstitution_apparatus/proc/eject_target_item(obj/O)	//This iwas intended to drop the object on it's location similar to autolathes. However, when grabbing the object,
 	O.forceMove(drop_location())									//It teleports the object to the NRA. Poss. issue with eject proc being called repeatedly.
 
 //Autolathes can eject decimal quantities of material as a shard
@@ -230,21 +254,27 @@
 
 	speed = initial(speed)*(manipulator_rating/manipulator_count)
 
+	var/scanner_rating = 0
+	for(var/obj/item/weapon/stock_parts/scanning_module/SM in component_parts)
+		scanner_rating = SM.rating
+
+	if (scanner_rating > 1)
+		mat_efficiency = 1 + ((scanner_rating * 2) / 10)
+	else
+		mat_efficiency = 1
+
 	var/mb_rating = 0
 	var/mb_count = 0
 	for(var/obj/item/weapon/stock_parts/matter_bin/MB in component_parts)
 		mb_rating += MB.rating
 		++mb_count
+
 	storage_capacity = round(initial(storage_capacity)*(mb_rating/mb_count))
 
+/obj/machinery/nanite_reconstitution_apparatus/attackby(var/obj/item/I, var/mob/user)
 
-/obj/machinery/nanite_reconstitution_apparatus/attackby(var/obj/item/I, var/mob/user)		//Clicking on NRA!
-	message_admins("attackby")
 	if(busy)
-		to_chat(user, SPAN_NOTICE("\The [src] is busy right now."))							//Is currently running.
-		return
-	if(loaded_item)
-		to_chat(user, SPAN_NOTICE("There is something already loaded into \the [src]."))	//NRA is full.
+		to_chat(user, SPAN_NOTICE("\The [src] is busy right now."))
 		return
 
 	if(default_deconstruction(I, user))														//deconstructs NRA
@@ -262,27 +292,31 @@
 		insert_beaker(user, I)
 		return
 
+	if(loaded_item)
+		to_chat(user, SPAN_NOTICE("There is something already loaded into \the [src]."))
+		return
+
 	if(!loaded_item && istype(I))															//If no loaded item and it's an item, Remove obj from user, set to busy,
 		if(I.is_old())
 			if(user.unEquip(I, src))
 				busy = TRUE
 				loaded_item = I
-				to_chat(user, SPAN_NOTICE("You add \the [I] to \the [src]."))					//add loaded item to the NRA, 'flick' inserting obj to machine icon,
+				to_chat(user, SPAN_NOTICE("You add \the [I] to \the [src]."))
 				flick("d_analyzer_la", src)
-				addtimer(CALLBACK(src, .proc/reset_busy), 1 SECONDS)							//add timer, make machinbe busy briefly due to inserting obj.
-				user.set_machine(src)																	//Actually bring up ui for user.
+				addtimer(CALLBACK(src, .proc/reset_busy), 1 SECONDS)
+				user.set_machine(src)
 				ui_interact(user)
 		else
 			to_chat(user, SPAN_NOTICE("\the [I] does not need reconstitution!"))
 
-/obj/machinery/nanite_reconstitution_apparatus/attack_hand(mob/user)							//This may be unnessicary, Attackby should handle this. Why am I duplicating it?
+/obj/machinery/nanite_reconstitution_apparatus/attack_hand(mob/user)
 	if(..())
 		return TRUE
 
 	user.set_machine(src)
 	ui_interact(user)
 
-/obj/machinery/nanite_reconstitution_apparatus/proc/insert_beaker(mob/living/user, obj/item/weapon/reagent_containers/glass/beaker) //Beaker insertion proc. called during attackby
+/obj/machinery/nanite_reconstitution_apparatus/proc/insert_beaker(mob/living/user, obj/item/weapon/reagent_containers/glass/beaker)
 	if(!beaker && istype(user))
 		beaker = user.get_active_hand()
 
@@ -308,6 +342,8 @@
 	to_chat(user, SPAN_NOTICE("You put \the [beaker] into [src]."))
 	SSnano.update_uis(src)
 
+
+
 /obj/machinery/nanite_reconstitution_apparatus/proc/eject_beaker(mob/living/user)	//Beaker removal proc. Called during button click in interface.
 	if(!container)
 		return
@@ -320,17 +356,36 @@
 
 	container = null
 
-/obj/machinery/nanite_reconstitution_apparatus/proc/eject_loaded_item(mob/living/user)	//remove obj from NRA. Places into hand.
-	if(!loaded_item)
+/obj/machinery/nanite_reconstitution_apparatus/proc/eject_beaker_to_floor()
+
+	if (!container)
 		return
 
-	loaded_item.forceMove(drop_location())
-	to_chat(usr, SPAN_NOTICE("You remove \the [loaded_item] from \the [src]."))
+	container.forceMove(drop_location())
 
-	if(istype(user) && Adjacent(user))
-		user.put_in_active_hand(loaded_item)
+	container = null
 
-	loaded_item = null
+/obj/machinery/nanite_reconstitution_apparatus/proc/eject_loaded_item_auto()	// auto-eject when finished
+
+	if(!loaded_item)
+		return
+	else
+		loaded_item.forceMove(drop_location())
+		visible_message("<span class='info'>The [src.name] outputs \the [loaded_item.name].</span>")
+		loaded_item = null
+
+/obj/machinery/nanite_reconstitution_apparatus/proc/eject_loaded_item(mob/living/user)	//remove obj from NRA. Places into hand.
+	if(!loaded_item)
+		to_chat(usr, SPAN_NOTICE("There is nothing to eject."))
+		return
+	else
+		loaded_item.forceMove(drop_location())
+		to_chat(usr, SPAN_NOTICE("You remove \the [loaded_item] from \the [src]."))
+
+		if(istype(user) && Adjacent(user))
+			user.put_in_active_hand(loaded_item)
+
+		loaded_item = null
 
 /obj/machinery/nanite_reconstitution_apparatus/proc/eat(mob/living/user, obj/item/eating) // materialstack 'eating'.
 	if(!eating && istype(user))
@@ -359,34 +414,33 @@
 		var/list/_matter = O.get_matter()
 		if(_matter)
 			for(var/material in _matter)
-				if(material in forbidden_materials)
-					continue
+				if(material in allowed_materials)
 
-				if(!(material in stored_material))
-					stored_material[material] = 0
+					if(!(material in stored_material))
+						stored_material[material] = 0
 
-				if(!(material in total_material_gained))
-					total_material_gained[material] = 0
+					if(!(material in total_material_gained))
+						total_material_gained[material] = 0
 
-				if(stored_material[material] + total_material_gained[material] >= storage_capacity)
-					continue
+					if(stored_material[material] + total_material_gained[material] >= storage_capacity)
+						continue
 
-				var/total_material = _matter[material]
+					var/total_material = _matter[material]
 
-				//If it's a stack, we eat multiple sheets.
-				if(istype(O, /obj/item/stack))
-					var/obj/item/stack/material/stack = O
-					total_material *= stack.get_amount()
+					//If it's a stack, we eat multiple sheets.
+					if(istype(O, /obj/item/stack))
+						var/obj/item/stack/material/stack = O
+						total_material *= stack.get_amount()
 
-				if(stored_material[material] + total_material > storage_capacity)
-					total_material = storage_capacity - stored_material[material]
-					filltype = 1
-				else
-					filltype = 2
+					if(stored_material[material] + total_material > storage_capacity)
+						total_material = storage_capacity - stored_material[material]
+						filltype = 1
+					else
+						filltype = 2
 
-				total_material_gained[material] += total_material
-				total_used += total_material
-				mass_per_sheet += O.matter[material]
+					total_material_gained[material] += total_material
+					total_used += total_material
+					mass_per_sheet += O.matter[material]
 
 		if(O.matter_reagents)
 			if(container)
@@ -434,7 +488,7 @@
 		to_chat(user, SPAN_NOTICE("Some liquid flowed to the floor from \the [src]."))
 
 /obj/machinery/nanite_reconstitution_apparatus/proc/check_craftable_amount_by_material(datum/design/design, material)
-	return stored_material[material] / max(1, SANITIZE_LATHE_COST(design.materials[material])) // loaded material / required material
+	return stored_material[material] / max(1, SANITIZE_LATHE_COST(design.materials[material]))
 
 /obj/machinery/nanite_reconstitution_apparatus/proc/check_craftable_amount_by_chemical(datum/design/design, reagent)
 	if(!container || !container.reagents)
@@ -444,8 +498,11 @@
 
 
 /obj/machinery/nanite_reconstitution_apparatus/on_deconstruction()
+
 	for(var/mat in stored_material)
 		eject_material(mat, stored_material[mat])
+	if (container)
+		eject_beaker_to_floor()
 
 	..()
 
@@ -453,8 +510,7 @@
 	busy = FALSE
 	update_icon()
 
-
-obj/machinery/nanite_reconstitution_apparatus/Topic(href, href_list) //UI BUTTONS! I THINK! OR SOMETHING!
+/obj/machinery/nanite_reconstitution_apparatus/Topic(href, href_list)
 	if(..())
 		return
 
@@ -464,10 +520,16 @@ obj/machinery/nanite_reconstitution_apparatus/Topic(href, href_list) //UI BUTTON
 		if(istype(usr.get_active_hand(), /obj/item/stack))
 			eat(usr)
 			return 1
+
 	if(href_list["eject"])
-		if(loaded_item)
+		if (activated && loaded_item)
+			to_chat(usr, SPAN_NOTICE("\The [loaded_item] can't be ejected yet!"))
+		else if(!activated && loaded_item)
 			eject_loaded_item(usr)
+		else
+			to_chat(usr, SPAN_NOTICE("There is nothing to eject."))
 		return 1
+
 	if(href_list["container"])
 		if(container)
 			eject_beaker(usr)
@@ -497,9 +559,16 @@ obj/machinery/nanite_reconstitution_apparatus/Topic(href, href_list) //UI BUTTON
 
 		eject_material(material, num)
 		return 1
-	if(href_list["activate"]) //Needs to be added to templ.
+
+	if(href_list["activate"])
 		if(loaded_item)
-			activated = TRUE
+			if (activated)
+				to_chat(usr, SPAN_NOTICE("\The [src.name] is already active!"))
+			else if (consume_materials())
+				to_chat(usr, SPAN_NOTICE("You activate \the [src.name]."))
+				activated = TRUE
+			else
+				report_missing(usr)
 
 		return 1
 
@@ -510,25 +579,25 @@ obj/machinery/nanite_reconstitution_apparatus/Topic(href, href_list) //UI BUTTON
 	origin_tech = list(TECH_ENGINEERING = 6, TECH_DATA = 6, TECH_MATERIAL = 6)
 	req_components = list(
 		/obj/item/weapon/stock_parts/scanning_module = 1,
-		/obj/item/weapon/stock_parts/micro_laser = 2,
 		/obj/item/weapon/stock_parts/manipulator = 2,
 		/obj/item/weapon/stock_parts/matter_bin = 2,
 		/obj/item/weapon/stock_parts/console_screen = 1
 	)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-// A version with some materials already loaded, to be used on map spawn
+// A version with some materials already loaded, to be used on map spawn.
+// Good for three uses.
+
 /obj/machinery/nanite_reconstitution_apparatus/loaded
 	stored_material = list(
-		MATERIAL_STEEL = 60,
-		MATERIAL_PLASTEEL = 20,
-		MATERIAL_GLASS = 60,	//Make nanite
+		MATERIAL_STEEL = 30,
+		MATERIAL_PLASTEEL = 9,
 		)
 
 /obj/machinery/nanite_reconstitution_apparatus/loaded/Initialize()
 	. = ..()
 	container = new /obj/item/weapon/reagent_containers/glass/beaker(src)
-
+	container.reagents.add_reagent("uncap nanites", 6)
 
 // You (still) can't flicker overlays in BYOND, and this is a vis_contents hack to provide the same functionality.
 // Used for materials loading animation.

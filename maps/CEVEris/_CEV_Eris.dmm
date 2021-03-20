@@ -40178,6 +40178,7 @@
 	pixel_x = 28
 	},
 /obj/structure/cable/green,
+/obj/machinery/nanite_reconstitution_apparatus/loaded,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bPa" = (

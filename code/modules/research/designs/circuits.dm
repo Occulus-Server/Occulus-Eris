@@ -191,6 +191,12 @@
 	sort_string = "HABAD"
 	category = CAT_MACHINE
 
+/datum/design/research/circuit/nanite_reconstitution_apparatus
+	name = "nanite reconstitution apparatus"
+	build_path = /obj/item/weapon/electronics/circuitboard/nanite_reconstitution_apparatus
+	sort_strong = "HABAE"
+	category = CAT_MACHINE
+
 /datum/design/research/circuit/rdservercontrol
 	name = "R&D server control console"
 	build_path = /obj/item/weapon/electronics/circuitboard/rdservercontrol
