@@ -8,7 +8,7 @@
 		STAT_TGH = 10,
 		STAT_VIG = 5
 	)
-	alt_titles = list("Chef", "Cook", "Bartender", "Bouncer", "Clown", "Mime", "Musician", "Entertainer")
+	alt_titles = list("Actor", "Bartender", "Bouncer", "Chef", "Clown", "Cook", "Entertainer", "Mime", "Musician")
 
 /datum/job/clubmanager
 	department_account_access = TRUE
