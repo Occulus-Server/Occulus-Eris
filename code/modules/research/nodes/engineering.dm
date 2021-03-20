@@ -419,7 +419,7 @@
 	unlocks_designs = list(	/datum/design/research/item/part/RPED,
 							/datum/design/research/circuit/secure_airlock,
 							/datum/design/research/item/part/rocket,
-							/datum/design/research/circuit/nanite_reconstitution_apparatus))
+							/datum/design/research/circuit/nanite_reconstitution_apparatus)
 
 /*
 /datum/technology/bluespace_parts

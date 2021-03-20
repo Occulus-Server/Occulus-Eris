@@ -194,7 +194,7 @@
 /datum/design/research/circuit/nanite_reconstitution_apparatus
 	name = "nanite reconstitution apparatus"
 	build_path = /obj/item/weapon/electronics/circuitboard/nanite_reconstitution_apparatus
-	sort_strong = "HABAE"
+	sort_string = "HABAE"
 	category = CAT_MACHINE
 
 /datum/design/research/circuit/rdservercontrol
