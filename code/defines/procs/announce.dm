@@ -113,4 +113,7 @@ datum/announcement/proc/Log(message as text, message_title as text)
 		if(issilicon(character))
 			global_announcer.autosay("A new [rank] [join_message].", ANNOUNSER_NAME)
 		else
+			if (character.mind)
+				if (character.mind.role_alt_title)
+					rank = role_alt_title
 			global_announcer.autosay("[character.real_name], [rank], [join_message].", ANNOUNSER_NAME)
