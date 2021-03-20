@@ -30,7 +30,11 @@ Used In File(s): zzzz_occulus\code\game\machinery\nanite_reconstitution_apparatu
 
 <div class='statusDisplay'>
 	{{if data.currentItem}}
-		<center><b><h2>NANITE TARGET IDENTIFIED...</h2></b>
+		{{if !data.activated}}
+			<center><b><h2>NANITE TARGET IDENTIFIED...</h2></b>
+		{{else data.activated}}
+			<center><b><h2>RECONSTITUTING...</h2></b>
+		{{/if}}
 		<hr></hr>
 		<h3>Loaded item: {{:data.currentItem}}</h3></center><br>
 		<div class="itemLabel">
