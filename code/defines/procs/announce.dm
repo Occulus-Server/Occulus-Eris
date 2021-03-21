@@ -113,7 +113,9 @@ datum/announcement/proc/Log(message as text, message_title as text)
 		if(issilicon(character))
 			global_announcer.autosay("A new [rank] [join_message].", ANNOUNSER_NAME)
 		else
+			// OCCULUS EDIT: Announce the alt. title
 			if (character.mind)
 				if (character.mind.role_alt_title)
 					rank = character.mind.role_alt_title
+			// OCCULIS EDIT END
 			global_announcer.autosay("[character.real_name], [rank], [join_message].", ANNOUNSER_NAME)
