@@ -103626,7 +103626,9 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "fFc" = (
-/obj/structure/closet/boxinggloves,
+/obj/structure/closet,
+/obj/spawner/powercell,
+/obj/spawner/lowkeyrandom/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "fFH" = (
@@ -104960,6 +104962,20 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
+"kSN" = (
+/obj/structure/closet/crate,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/electronics/low_chance,
+/obj/spawner/electronics/low_chance,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section1deck4central)
 "kYr" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -105265,9 +105281,6 @@
 "mee" = (
 /obj/structure/catwalk,
 /obj/structure/multiz/ladder,
-/obj/machinery/light/small{
-	dir = 8
-	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck4central)
 "meP" = (
@@ -105682,6 +105695,7 @@
 	color = "#18273B";
 	name = "curtain"
 	},
+/obj/spawner/traps/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "nlx" = (
@@ -106658,6 +106672,10 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/hallway/main/section3)
+"rhM" = (
+/obj/structure/closet/boxinggloves,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section1deck4central)
 "rhQ" = (
 /obj/machinery/camera/network/engineering{
 	dir = 8
@@ -107900,13 +107918,13 @@
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/hallway/side/atmosphericshallway)
 "vUj" = (
-/obj/structure/railing{
-	dir = 8
+/obj/structure/bed/chair{
+	dir = 4
 	},
 /obj/machinery/light/small{
-	dir = 1
+	dir = 8
 	},
-/turf/simulated/open,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "wan" = (
 /obj/machinery/vending/printomat,
@@ -159463,12 +159481,12 @@ aaa
 aaa
 csS
 csS
-cvH
-bay
+fFc
+kSN
 csS
 csS
 csS
-hsA
+vUj
 hsA
 qZD
 hsA
@@ -159871,7 +159889,7 @@ csU
 csU
 xlB
 xlB
-vUj
+iTP
 mco
 iTP
 iTP
@@ -160070,7 +160088,7 @@ aaa
 csS
 mZS
 qnY
-fFc
+rhM
 hsA
 pCM
 kAo
