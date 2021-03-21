@@ -107203,6 +107203,11 @@
 /area/eris/maintenance/section2deck1port)
 "tfd" = (
 /obj/structure/low_wall,
+/obj/structure/curtain/open/bed{
+	anchored = 1;
+	color = "#18273B";
+	name = "curtain"
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "tin" = (
