@@ -103626,11 +103626,8 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "fFc" = (
-/obj/structure/catwalk,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/plating/under,
+/obj/structure/closet/boxinggloves,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "fFH" = (
 /obj/machinery/vending/powermat,
@@ -104126,9 +104123,6 @@
 /area/eris/crew_quarters/janitor)
 "hLb" = (
 /obj/structure/lattice,
-/obj/structure/railing{
-	dir = 4
-	},
 /turf/simulated/open,
 /area/eris/maintenance/section1deck4central)
 "hMo" = (
@@ -104582,11 +104576,11 @@
 /turf/space,
 /area/space)
 "jBw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet,
+/obj/machinery/atmospherics/valve{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "jDU" = (
@@ -104966,10 +104960,6 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
-"kSN" = (
-/obj/machinery/door/airlock/maintenance_common,
-/turf/simulated/floor/plating/under,
-/area/eris/maintenance/section1deck4central)
 "kYr" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -105275,6 +105265,9 @@
 "mee" = (
 /obj/structure/catwalk,
 /obj/structure/multiz/ladder,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck4central)
 "meP" = (
@@ -106190,11 +106183,11 @@
 /turf/simulated/floor/carpet/purcarpet,
 /area/eris/command/meo)
 "paB" = (
-/obj/machinery/atmospherics/valve{
-	dir = 4
-	},
 /obj/structure/sign/atmos_air{
 	pixel_y = -32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/wall,
 /area/eris/maintenance/section1deck4central)
@@ -106505,12 +106498,8 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep/cryo)
 "qnY" = (
-/obj/item/clothing/gloves/boxing,
-/obj/item/clothing/gloves/boxing/blue{
-	pixel_x = 5;
-	pixel_y = -4
-	},
 /obj/structure/table/steel,
+/obj/item/weapon/storage/firstaid,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "qok" = (
@@ -106567,9 +106556,7 @@
 /obj/machinery/door/airlock/maintenance_common{
 	name = "Central Maintenance"
 	},
-/turf/simulated/floor/tiled/techmaint{
-	name = "fucking tile"
-	},
+/turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/maintenance/section1deck4central)
 "qFD" = (
 /obj/structure/closet/cabinet,
@@ -106671,12 +106658,6 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/hallway/main/section3)
-"rhM" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/eris/maintenance/section1deck4central)
 "rhQ" = (
 /obj/machinery/camera/network/engineering{
 	dir = 8
@@ -107203,11 +107184,6 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "tfd" = (
-/obj/structure/curtain/open/bed{
-	anchored = 1;
-	color = "#18273B";
-	name = "curtain"
-	},
 /obj/structure/low_wall,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
@@ -107383,7 +107359,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/maintenance/section1deck4central)
 "tWY" = (
 /obj/structure/railing{
@@ -108307,11 +108283,6 @@
 	},
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet,
-/obj/effect/decal/cleanable/blood{
-	basecolor = "#FFFFFF";
-	dryname = "dried fluid";
-	name = "fluid"
-	},
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "xue" = (
@@ -159289,17 +159260,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+csS
+csS
+csS
+aae
 aaa
 csS
 csS
 csS
 csS
 csS
-aaa
+csS
 aaa
 aaa
 aaa
@@ -159492,15 +159463,15 @@ aaa
 aaa
 csS
 csS
-csS
-csS
+cvH
+bay
 csS
 csS
 csS
 hsA
 hsA
 qZD
-csS
+hsA
 csS
 csS
 aaa
@@ -159697,12 +159668,12 @@ eLF
 eLF
 eLF
 eLF
-kSN
+baB
 eLF
 eLF
 eLF
 eLF
-fFc
+eLF
 mee
 csS
 aaa
@@ -160099,13 +160070,13 @@ aaa
 csS
 mZS
 qnY
-cvH
+fFc
 hsA
 pCM
 kAo
 hLb
-rhM
-rhM
+kAo
+kAo
 hLb
 kAo
 csS
@@ -199690,17 +199661,17 @@ aaa
 aaa
 aaa
 aaa
+abF
+abF
+abF
+abF
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+abF
+abF
+abF
+abF
+abF
+abF
 aaa
 aaa
 aaa
