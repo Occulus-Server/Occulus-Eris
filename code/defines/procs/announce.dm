@@ -123,9 +123,8 @@ datum/announcement/proc/Log(message as text, message_title as text)
 					if (rank == "Vagabond" && character.client.get_preference_value(/datum/client_preference/spawn_silent_vagabond) == GLOB.PREF_YES)
 						message_admins("A vagabond, [character.real_name], has joined the round silently.")
 					else if (character.client.prefs.spawnpoint == "Dormitory" && character.client.get_preference_value(/datum/client_preference/spawn_silent_dormitory) == GLOB.PREF_YES)
-						message_admins("[character.real_name] has joined the round silently.")
+						message_admins("[character.real_name], [rank], has joined the round silently.")
 					else
-						message_admins("Did not join silently")
 						global_announcer.autosay("[character.real_name], [rank], [join_message].", ANNOUNSER_NAME)
 			else
 				global_announcer.autosay("[character.real_name], [rank], [join_message].", ANNOUNSER_NAME)	// This should not trigger -- but it's here as an emergency fallback
