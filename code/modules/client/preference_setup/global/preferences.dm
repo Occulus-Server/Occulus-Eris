@@ -217,6 +217,20 @@ var/list/_client_preferences_by_type
 	description = "Enable gun crosshair"
 	key = "GUN_CURSOR"
 
+// OCCULUS EDIT START: For compatibility with downstreams, these preferences are not in a modular file
+
+/datum/client_preference/spawn_silent_vagabond
+	description = "Spawn silently as vagabond"
+	key = "SPAWN_SILENT_VAGABOND"
+	default_value = GLOB.PREF_YES
+
+/datum/client_preference/spawn_silent_dormitory
+	description = "Spawn silently in dormitory"
+	key = "SPAWN_SILENT_DORMITORY"
+	default_value = GLOB.PREF_NO
+
+// OCCULUS EDIT END
+
 /********************
 * General Staff Preferences *
 ********************/
