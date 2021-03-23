@@ -74,6 +74,7 @@
 	icon_state = "player-grey"
 	join_tag = /datum/job/clubworker
 
+/*	OCCULUS EDIT: Actor has been merged with Club Worker.
 /datum/job/actor
 	title = "Actor"
 	flag = ACTOR
@@ -94,11 +95,12 @@
 	)
 
 	loyalties = LOYALTY_CIVILIAN
+*/
 
 /obj/landmark/join/start/actor
 	name = "Actor"
 	icon_state = "player-grey"
-	join_tag = /datum/job/actor
+	// join_tag = /datum/job/actor // OCCULUS EDIT: Comment out the datum so the spawn can stay on the map if it's ever separated again
 /*
 /datum/job/hydro
 	title = "Botanist"
