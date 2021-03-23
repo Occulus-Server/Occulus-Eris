@@ -30,6 +30,15 @@
 		return TRUE
 	return FALSE
 
+// OCCULUS EDIT: Required check for nanite reconstitution apparatus; checks if old without youngifying it
+/obj/proc/is_old()
+	SHOULD_CALL_PARENT(TRUE)
+	GET_COMPONENT(oldified, /datum/component/oldficator)
+	if(oldified)
+		return TRUE
+	return FALSE
+// OCCULUS EDIT END
+
 /obj/proc/make_old()
 	GET_COMPONENT(oldified, /datum/component/oldficator)
 	if(oldified)
