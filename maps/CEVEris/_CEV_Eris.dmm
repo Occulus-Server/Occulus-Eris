@@ -105013,11 +105013,11 @@
 /obj/machinery/disposal/deliveryChute{
 	dir = 1
 	},
-/obj/structure/disposalpipe/up,
 /obj/structure/railing{
 	dir = 4
 	},
 /obj/structure/railing,
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/storage)
 "leS" = (
@@ -107143,11 +107143,11 @@
 /obj/machinery/disposal/deliveryChute{
 	dir = 1
 	},
-/obj/structure/disposalpipe/up,
 /obj/structure/railing{
 	dir = 8
 	},
 /obj/structure/railing,
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/storage)
 "sZg" = (
