@@ -270,7 +270,7 @@
 						return W.afterattack(target,src)
 
 			var/randn = rand(1, 100)
-			randn = max(1, randn - H.stats.getStat(STAT_ROB))
+			randn = max(1, randn - H.stats.getStat(STAT_ROB) + src.stats.getStat(STAT_TGH))//Occulus Edit: TGH makes you harder to shove
 			if(!(species.flags & NO_SLIP) && randn <= 20)
 				apply_effect(3, WEAKEN, getarmor(affecting, ARMOR_MELEE))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)

@@ -31,7 +31,7 @@ GLOBAL_LIST_EMPTY(active_mindboil_spiders)
 		else
 			attack_from = src
 		for(var/mob/living/carbon/human/H in view(5, attack_from))
-			if((H in victims) || (H == owner_mob)) //Occulus Edit
+			if(!H.mind || (H in victims) || (H == owner_mob)) //Occulus Edit
 				continue
 			H.sanity.onPsyDamage(1) //Half the ammount of mind fryer, can be mass produced
 

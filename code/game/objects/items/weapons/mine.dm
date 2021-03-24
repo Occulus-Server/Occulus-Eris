@@ -33,9 +33,8 @@
 /obj/item/weapon/mine/proc/explode()
 	var/turf/T = get_turf(src)
 	explosion(T,explosion_d_size,explosion_h_size,explosion_l_size,explosion_f_size)
-	fragment_explosion(T, spread_radius, fragment_type, num_fragments, null, damage_step)
-	if(src)
-		qdel(src)
+//	fragment_explosion(T, spread_radius, fragment_type, num_fragments, null, damage_step,50) Occulus Edit - Even tremendously nerfing this doesn't fix the problems with it. I'm axing the fragments
+	qdel(src)
 
 /obj/item/weapon/mine/update_icon()
 	overlays.Cut()
@@ -73,14 +72,15 @@
 		if (do_after(user, 5))
 			user.visible_message(
 				SPAN_DANGER("[user] attempts to pick up the [src] only to hear a beep as it explodes in your hands!"),
-				SPAN_DANGER("you attempts to pick up the [src] only to hear a beep as it explodes in your hands!")
+				SPAN_DANGER("you attempt to pick up the [src] only to hear a beep as it explodes in your hands!")//Occulus Edit: Russian grammar
 				)
 			explode()
+			return
 	.=..()
 
 /obj/item/weapon/mine/attackby(obj/item/I, mob/user)
 	if(QUALITY_PULSING in I.tool_qualities)
-		
+
 		if (deployed)
 			user.visible_message(
 			SPAN_DANGER("[user] starts to carefully disarm \the [src]."),

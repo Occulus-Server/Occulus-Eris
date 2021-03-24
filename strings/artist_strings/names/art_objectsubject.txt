@@ -74,10 +74,6 @@ hivebot
 mimic
 drone
 pirate
-russian
-ukrainian
-english person
-american
 creature
 human
 god
@@ -97,12 +93,7 @@ wizard
 witch
 druid
 cyborg
-german
-serbian
-serb
 soldier
-dutch person
-french person
 mummy
 vampire
 elf
@@ -116,5 +107,5 @@ rock
 stele
 lamp
 moth
-CEV Eris
+CEV Northern Light
 ship

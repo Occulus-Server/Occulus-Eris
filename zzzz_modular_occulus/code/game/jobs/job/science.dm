@@ -9,7 +9,6 @@
 		access_genetics, access_maint_tunnels
 	)
 
-
 /datum/job/roboticist
 	stat_modifiers = list(
 		STAT_MEC = 25,
@@ -19,6 +18,7 @@
 	access = list(
 		access_robotics, access_tox, access_tox_storage, access_morgue, access_moebius, access_research_equipment, access_maint_tunnels
 	)
+	alt_titles = list("Cyberneticist", "Exosuit Technician", "Machinist")
 
 /datum/job/rd
 	access = list(
