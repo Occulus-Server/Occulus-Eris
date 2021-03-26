@@ -17,6 +17,23 @@
 	penetration_multiplier = 1.35
 	recoil_buildup = 33
 	fire_sound = 'sound/weapons/guns/fire/hpistol_fire.ogg'
-	unload_sound 	= 'sound/weapons/guns/interact/hpistol_magout.ogg'
-	reload_sound 	= 'sound/weapons/guns/interact/hpistol_magin.ogg'
-	cocked_sound 	= 'sound/weapons/guns/interact/hpistol_cock.ogg'
+	unload_sound = 'sound/weapons/guns/interact/hpistol_magout.ogg'
+	reload_sound = 'sound/weapons/guns/interact/hpistol_magin.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/hpistol_cock.ogg'
+
+	price_tag = 1600
+//	spawn_tags = SPAWN_TAG_FS_PROJECTILE We don't have this yet Occulus Edit
+
+/obj/item/weapon/gun/projectile/avasarala/on_update_icon()
+	..()
+
+	var/iconstring = initial(icon_state)
+
+	if (!ammo_magazine || !length(ammo_magazine.stored_ammo))
+		iconstring += "_slide"
+
+	SetIconState(iconstring)
+
+/obj/item/weapon/gun/projectile/avasarala/Initialize()
+	. = ..()
+	update_icon()
