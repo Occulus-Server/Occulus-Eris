@@ -18186,6 +18186,10 @@
 	pixel_x = 36;
 	pixel_y = 6
 	},
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/obj/landmark/join/start/ensign,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "aSf" = (
@@ -57781,8 +57785,8 @@
 /turf/simulated/wall,
 /area/eris/maintenance/section1deck2central)
 "cEQ" = (
-/obj/machinery/computer/robotics,
-/turf/simulated/floor/tiled/dark/gray_perforated,
+/obj/item/modular_computer/console/preset/medical/monitor,
+/turf/simulated/floor/plating,
 /area/eris/command/bridge)
 "cER" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -58837,6 +58841,7 @@
 /obj/structure/bed/chair/comfy/black{
 	dir = 1
 	},
+/obj/landmark/join/start/ensign,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "cHl" = (
@@ -59184,7 +59189,7 @@
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/crew_quarters/janitor)
 "cIg" = (
-/obj/machinery/computer/supplycomp,
+/obj/item/modular_computer/console/preset/engineering/shield,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "cIh" = (
@@ -59257,9 +59262,6 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/storage/primary)
 "cIn" = (
-/obj/machinery/computer/rdconsole/core{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -59270,14 +59272,13 @@
 /turf/simulated/floor/tiled/steel/panels,
 /area/eris/engineering/post)
 "cIp" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
-	},
+/obj/machinery/power/long_range_scanner/hull,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "cIq" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 4
+/obj/landmark/join/start/chief_engineer,
+/obj/structure/bed/chair/office/dark{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
@@ -59329,9 +59330,8 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck4starboard)
 "cIC" = (
-/obj/item/modular_computer/console/preset/research/sysadmin{
-	dir = 8
-	},
+/obj/structure/table/reinforced,
+/obj/machinery/recharger,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "cID" = (
@@ -62441,7 +62441,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/landmark/join/start/ensign,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/meeting_room)
 "cQj" = (
@@ -62521,14 +62520,12 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/landmark/join/start/ensign,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/meeting_room)
 "cQp" = (
 /obj/machinery/camera/network/command{
 	dir = 1
 	},
-/obj/landmark/join/start/ensign,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/meeting_room)
 "cQq" = (
@@ -62758,7 +62755,6 @@
 	name = "Bridge RC";
 	pixel_y = -30
 	},
-/obj/landmark/join/start/ensign,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/meeting_room)
 "cQW" = (
@@ -66415,9 +66411,10 @@
 	},
 /area/shuttle/mining/station)
 "cZG" = (
-/obj/item/modular_computer/console/preset/security/records{
-	dir = 4
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
 	},
+/obj/landmark/join/start/ihc,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "cZH" = (
@@ -68333,7 +68330,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/landmark/join/start/captain,
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/command/meeting_room)
 "dej" = (
@@ -68406,7 +68402,6 @@
 /obj/structure/bed/chair/comfy/black{
 	dir = 4
 	},
-/obj/landmark/join/start/hop,
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/command/meeting_room)
 "deu" = (
@@ -68423,6 +68418,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/item/weapon/card/id/captains_spare,
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/command/meeting_room)
 "dew" = (
@@ -68431,12 +68427,9 @@
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/command/meeting_room)
 "dex" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
-	},
-/obj/landmark/join/start/ihc,
-/turf/simulated/floor/carpet/bcarpet,
-/area/eris/command/meeting_room)
+/obj/item/modular_computer/console/preset/security/records,
+/turf/simulated/floor/plating,
+/area/eris/command/bridge)
 "dey" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -68590,7 +68583,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/landmark/join/start/cmo,
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/command/meeting_room)
 "deQ" = (
@@ -68625,12 +68617,9 @@
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/command/meeting_room)
 "deT" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
-	},
-/obj/landmark/join/start/chief_engineer,
-/turf/simulated/floor/carpet/bcarpet,
-/area/eris/command/meeting_room)
+/obj/item/modular_computer/console/preset/medical/records,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "deU" = (
 /obj/item/weapon/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -68826,12 +68815,9 @@
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
 "dfp" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
-	},
-/obj/landmark/join/start/rd,
-/turf/simulated/floor/carpet/bcarpet,
-/area/eris/command/meeting_room)
+/obj/item/modular_computer/console/preset/engineering/alarms,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "dfq" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
@@ -76002,15 +75988,15 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dvw" = (
-/obj/item/modular_computer/console/preset/medical/records{
-	dir = 8
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
 	},
+/obj/landmark/join/start/cmo,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dvx" = (
-/obj/item/modular_computer/console/preset/engineering/shield{
-	dir = 4
-	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/firstaid/regular,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dvy" = (
@@ -76021,7 +76007,7 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/item/modular_computer/console/preset/engineering/alarms{
+/obj/item/modular_computer/console/preset/engineering/rcon{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
@@ -76058,11 +76044,12 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/research)
 "dvF" = (
-/obj/machinery/camera/network/command{
-	dir = 8
+/obj/structure/bed/chair/office/dark{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/command/meeting_room)
+/obj/landmark/join/start/ensign,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "dvG" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/reagent_containers/food/drinks/coffee{
@@ -76073,7 +76060,7 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "dvH" = (
-/obj/item/modular_computer/console/preset/engineering,
+/obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "dvI" = (
@@ -76198,9 +76185,7 @@
 	pixel_y = 6;
 	req_access = list(11)
 	},
-/obj/structure/bed/chair/office/dark{
-	dir = 1
-	},
+/obj/machinery/computer/telecomms/monitor,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "dvR" = (
@@ -76403,6 +76388,7 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 8
 	},
+/obj/landmark/join/start/ensign,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "dwj" = (
@@ -76605,8 +76591,7 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
 "dwE" = (
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled/dark/techfloor,
+/turf/simulated/floor/tiled/dark,
 /area/eris/command/meeting_room)
 "dwF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -76646,7 +76631,9 @@
 	pixel_x = 24;
 	pixel_y = 6
 	},
-/obj/structure/bed/chair/office/dark,
+/obj/item/modular_computer/console/preset/command{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "dwJ" = (
@@ -76764,9 +76751,7 @@
 /area/eris/maintenance/oldbridge)
 "dxa" = (
 /obj/machinery/light,
-/obj/item/modular_computer/console/preset/civilian/professional{
-	dir = 1
-	},
+/obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "dxb" = (
@@ -76974,10 +76959,10 @@
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/engineering/foyer)
 "dxB" = (
-/obj/structure/fireaxecabinet{
-	pixel_x = -32
+/obj/machinery/computer/rdconsole/core{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dxC" = (
 /obj/machinery/power/apc{
@@ -76989,7 +76974,10 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/item/modular_computer/console/preset/engineering/atmos{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dxD" = (
 /obj/machinery/door/firedoor,
@@ -77147,7 +77135,10 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/computer/robotics{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dyb" = (
 /obj/structure/closet/firecloset,
@@ -77246,18 +77237,11 @@
 /turf/simulated/wall/r_wall,
 /area/eris/security/checkpoint/medical)
 "dyr" = (
-/obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -22
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/landmark/join/start/rd,
+/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dys" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -78447,9 +78431,10 @@
 /turf/simulated/floor/plating/under,
 /area/eris/medical/medbay)
 "dBh" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/storage/toolbox/mechanical,
-/obj/item/weapon/tool/multitool,
+/obj/landmark/join/start/merchant,
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "dBi" = (
@@ -78591,9 +78576,10 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/foyer)
 "dBB" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/storage/firstaid/regular,
-/obj/item/weapon/access_update_tool,
+/obj/landmark/join/start/hop,
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "dBC" = (
@@ -79420,6 +79406,9 @@
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "dDt" = (
@@ -79567,13 +79556,15 @@
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/engineering/starboardhallway)
 "dDL" = (
-/obj/machinery/light{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/weapon/tool/multitool,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "dDM" = (
@@ -79672,12 +79663,6 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dDX" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -27
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
@@ -86848,12 +86833,14 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/maintenance/section2deck1port)
 "dVg" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_command{
-	name = "Bridge";
-	req_access = list(19)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/cargo,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "dVh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -87250,7 +87237,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dWi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -87941,6 +87928,9 @@
 /turf/simulated/open,
 /area/eris/command/meeting_room)
 "dXC" = (
+/obj/structure/railing{
+	dir = 4
+	},
 /obj/structure/railing{
 	dir = 4
 	},
@@ -101854,11 +101844,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/camera/network/command{
-	dir = 1
-	},
-/obj/machinery/newscaster{
-	pixel_y = -30
+/obj/structure/table/reinforced,
+/obj/machinery/requests_console{
+	announcementConsole = 1;
+	department = "Bridge";
+	departmentType = 3;
+	name = "Bridge RC"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
@@ -102319,13 +102310,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/requests_console{
-	announcementConsole = 1;
-	department = "Bridge";
-	departmentType = 3;
-	name = "Bridge RC";
-	pixel_y = -30
-	},
+/obj/structure/table/reinforced,
+/obj/item/device/radio/intercom,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "eEz" = (
@@ -103554,6 +103540,12 @@
 /obj/spawner/traps,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck5central)
+"feG" = (
+/obj/machinery/camera/network/command{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/meeting_room)
 "fgo" = (
 /obj/structure/multiz/ladder,
 /turf/simulated/floor/wood,
@@ -104254,6 +104246,15 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/crew_quarters/janitor)
+"hKn" = (
+/obj/machinery/camera/network/command{
+	dir = 1
+	},
+/obj/item/modular_computer/console/preset/command/access{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "hLb" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -104343,6 +104344,14 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/maintenance/section1deck4central)
+"ieT" = (
+/obj/machinery/light,
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/obj/landmark/join/start/captain,
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "ifz" = (
 /obj/machinery/vending/serbomat,
 /turf/simulated/floor/tiled/steel/gray_perforated,
@@ -104566,6 +104575,12 @@
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
+"iVC" = (
+/obj/item/modular_computer/console/preset/command/access{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "iXv" = (
 /obj/effect/shuttle_landmark/merc/engine,
 /turf/space,
@@ -104595,6 +104610,16 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/office)
+"jmk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/fireaxecabinet{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "jnT" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/railing{
@@ -104683,6 +104708,13 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/disposaldrop)
+"jwt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "jwY" = (
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/techmaint,
@@ -105385,6 +105417,12 @@
 /obj/item/clothing/head/hairflower,
 /turf/simulated/floor/wood,
 /area/eris/hallway/side/bridgehallway)
+"lRG" = (
+/obj/item/modular_computer/console/preset/security/records{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "lSU" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -106243,6 +106281,12 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/command/exultant)
+"oxr" = (
+/obj/machinery/computer/supplycomp{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "oxP" = (
 /obj/machinery/atmospherics/binary/pump{
 	name = "Port to Waste Cooling Loop"
@@ -106513,6 +106557,20 @@
 	},
 /turf/simulated/open,
 /area/eris/engineering/engine_room)
+"pqd" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/eris/command/meeting_room)
+"pqh" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_command{
+	name = "Bridge";
+	req_access = list(19)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/meeting_room)
 "psi" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -106587,6 +106645,10 @@
 /obj/machinery/microwave,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
+"pxT" = (
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "pyy" = (
 /obj/structure/table/woodentable,
 /turf/simulated/floor/carpet/bcarpet,
@@ -106728,6 +106790,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
+"qiG" = (
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/eris/command/meeting_room)
 "qkn" = (
 /obj/spawner/junk/low_chance,
 /obj/machinery/light/small{
@@ -106936,6 +107003,12 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/hallway/main/section3)
+"rgB" = (
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "rhM" = (
 /obj/structure/closet/boxinggloves,
 /turf/simulated/floor/tiled/techmaint,
@@ -107002,6 +107075,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/quartermaster/office)
+"rsu" = (
+/obj/item/modular_computer/console/preset/trade{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "rsz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -107120,6 +107199,18 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
+"rNT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/keycard_auth,
+/obj/item/weapon/access_update_tool,
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "rOY" = (
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/maintenance/section4deck4central)
@@ -107365,6 +107456,12 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/hallway/main/section3)
+"sPB" = (
+/obj/item/modular_computer/console/preset/security/records{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "sRq" = (
 /obj/landmark/join/start/paramedic,
 /turf/simulated/floor/carpet/sblucarpet,
@@ -108479,6 +108576,13 @@
 /obj/spawner/pack/gun_loot/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
+"wTu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/bridge)
 "wUu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -249456,9 +249560,9 @@ ddm
 cgc
 ddN
 deh
-dex
-deT
-dfp
+dfH
+dfH
+dfH
 dfH
 ddw
 cQV
@@ -288036,15 +288140,15 @@ dya
 dyK
 oLk
 dVT
-dWb
-dWb
+wTu
+jmk
 dyK
 dWb
 dFp
 dVP
 dVP
 dVP
-dVP
+pxT
 dVw
 abF
 abF
@@ -288233,13 +288337,13 @@ aad
 dUv
 cHg
 cIp
-dVP
+dyr
 dWh
 dWd
 dDn
 dVF
 dDq
-dDL
+dWd
 dWd
 dWd
 dEU
@@ -288433,15 +288537,15 @@ aaa
 abq
 aad
 dUv
-cEQ
-cIq
+dUv
+cHg
 dVP
 dWi
-eEz
+rgB
 dcW
 dWN
 dcW
-dcW
+pqh
 daA
 daA
 daA
@@ -288635,22 +288739,22 @@ aaa
 abq
 aad
 dUv
-dUv
+cEQ
 cIC
 dVP
 dWi
-dVP
-dVg
-dWO
+oxr
 dcW
-dvB
-dvB
-dWG
-dWG
-dXx
+dWO
 dwE
-dXG
-dXG
+dwE
+dwE
+dwE
+dwE
+dwE
+dwE
+dwE
+dwE
 dcW
 abF
 abF
@@ -288837,19 +288941,19 @@ aad
 aad
 aad
 dUv
-dUv
+dex
 cZG
 dVP
 dWi
 dBh
-daA
+dcW
 dWQ
 cgc
-dWG
-dWG
-dWG
-dWG
-dWG
+dXB
+dXB
+dXB
+dXB
+dXB
 dXB
 dXH
 dXG
@@ -289040,10 +289144,10 @@ abF
 dUv
 dUv
 cHf
-cIp
+cHg
 dVP
-dWi
-daA
+dDL
+rsu
 daA
 dWP
 cgc
@@ -289245,8 +289349,8 @@ cHg
 dvu
 dWb
 eDr
-dcW
-dWG
+hKn
+qiG
 dWG
 dWG
 dWG
@@ -289446,9 +289550,9 @@ cEt
 cHk
 cHg
 dNH
-dyr
-dcW
-dWG
+dWi
+ieT
+daA
 dWG
 dWG
 dWG
@@ -289649,8 +289753,8 @@ cHg
 dvv
 dWd
 eEy
-dcW
-dWG
+lRG
+qiG
 dWG
 dWG
 dWG
@@ -289848,10 +289952,10 @@ abF
 dUv
 dUv
 cHH
-cIq
+cHg
 dVP
-dWi
-daA
+dVg
+sPB
 daA
 dWR
 cgc
@@ -290049,7 +290153,7 @@ aad
 aad
 aad
 dUv
-dUv
+deT
 dvw
 dVP
 dWi
@@ -290057,11 +290161,11 @@ dBB
 daA
 dWS
 cgc
-dWG
-dWG
-dWG
-dWG
-dWG
+pqd
+pqd
+pqd
+pqd
+pqd
 dXC
 dXI
 dXG
@@ -290251,20 +290355,20 @@ aaa
 abq
 aad
 dUv
-dUv
+dfp
 dvx
 dVP
-dWi
-dVP
-dVg
+rNT
+iVC
+daA
 dWT
-dcW
-dvF
+feG
 dvB
-dWG
-dWG
-dXx
-dwE
+dvB
+dvB
+dvB
+dvB
+dvB
 dXG
 dXG
 dcW
@@ -290454,14 +290558,14 @@ abq
 aad
 dUv
 cIg
-cIp
+dvF
 dVP
 dWi
 eEz
 dcW
 dWN
 dcW
-dcW
+pqh
 daA
 daA
 daA
@@ -290657,7 +290761,7 @@ aad
 dUv
 cIh
 cIq
-dVP
+cHg
 dWp
 dWd
 eEA
@@ -290864,7 +290968,7 @@ dyJ
 dCX
 dDp
 dVT
-dWb
+jwt
 dEb
 dEn
 dWb
@@ -290872,7 +290976,7 @@ dFp
 dVP
 dVP
 dVP
-dVP
+pxT
 dVw
 abF
 abF

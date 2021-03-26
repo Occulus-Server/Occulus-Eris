@@ -5,7 +5,7 @@
 /datum/trade_station
 	var/name
 	var/desc
-	var/list/icon_states = "station"
+	var/list/icon_states = "htu_station"
 	var/offer_type
 	var/offer_price
 	var/offer_amount
@@ -17,7 +17,7 @@
 	var/list/linked_with //trade 'stations' or 'station' that must spawn with //list or path
 
 	var/list/forced_overmap_zone //list(list(minx, maxx), list(miny, maxy))
-	var/ovemap_opacity = 0
+	var/overmap_opacity = 0
 
 	var/list/name_pool = list()
 
@@ -122,10 +122,11 @@
 	overmap_location = locate(x, y, z)
 
 	overmap_object = new(overmap_location)
-	overmap_object.name = name
-	overmap_object.icon_state = pick(icon_states)
-	overmap_object.opacity = ovemap_opacity
+	overmap_object.opacity = overmap_opacity
 	overmap_object.dir = pick(rand(1,2), 4, 8)
+
+	overmap_object.name_stages = list(name, "unknown station", "unknown spatial phenomenon")
+	overmap_object.icon_stages = list(pick(icon_states), "station", "poi")
 
 	if(!start_discovered)
 		GLOB.entered_event.register(overmap_location, src, .proc/discovered)
