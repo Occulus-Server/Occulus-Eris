@@ -1040,6 +1040,12 @@ var/list/rank_prefix = list(\
 	data["desires"] = sanity.desires
 	data["rest"] = sanity.resting
 	data["insight_rest"] = sanity.insight_rest
+
+//	var/obj/item/weapon/implant/core_implant/cruciform/C = get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)Occulus Edit: Simple way to get rid of this part of the UI
+//	if(C)
+//		data["cruciform"] = TRUE
+//		data["righteous_life"] = C.righteous_life Occulus Edit: Simple way to get rid of this part of the UI
+
 	return data
 
 /mob/living/carbon/human/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)

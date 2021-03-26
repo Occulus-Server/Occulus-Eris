@@ -119,7 +119,7 @@
 /datum/reagent/ethanol/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.adjustToxLoss(0.2 * toxicity * (issmall(M) ? effect_multiplier * 2 : effect_multiplier))
 	M.add_chemical_effect(CE_PAINKILLER, max(55-strength, 1))
-	return
+	return//Occulus Edit Yote rightous life
 
 /datum/reagent/ethanol/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	M.adjustNutrition(nutriment_factor * (issmall(M) ? effect_multiplier * 2 : effect_multiplier))
@@ -166,6 +166,7 @@
 		M.adjust_hallucination(halluci, halluci)
 
 	apply_sanity_effect(M, effect_multiplier)
+//	SEND_SIGNAL(M, COMSIG_CARBON_HAPPY, src, ON_MOB_DRUG) Occulus Nobody likes Neotheo
 
 /datum/reagent/ethanol/touch_obj(obj/O)
 	if(istype(O, /obj/item/weapon/paper))
