@@ -36,4 +36,9 @@
 #define SLOT_MUZZLE "muzzle"
 #define SLOT_SCOPE "scope"
 #define SLOT_UNDERBARREL "underbarrel"
+<<<<<<< HEAD
 #define SLOT_MECHANICS "mechanics"
+=======
+#define SLOT_MECHANICS "mechanics"
+#define SLOT_BAYONET "bayonet slot"
+>>>>>>> e86aef6f5... Bayonets and other attachment changes (#5858)
