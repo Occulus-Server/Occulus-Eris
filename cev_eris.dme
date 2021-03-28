@@ -2823,6 +2823,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\autolathe_disks.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\mekhane_armory.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\mine.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\nt_melee.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\secrets.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\wire_splicing.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\grenades\chem_grenade.dm"
