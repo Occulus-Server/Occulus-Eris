@@ -62368,13 +62368,7 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/quartermaster/office)
 "cQd" = (
-/obj/structure/table/standard,
-/obj/spawner/pack/tech_loot,
-/obj/spawner/lathe_disk/low_chance,
-/obj/spawner/lathe_disk/low_chance,
-/obj/spawner/pack/tech_loot/low_chance,
-/obj/spawner/pack/tech_loot/low_chance,
-/obj/spawner/pack/tech_loot/low_chance,
+/obj/machinery/vending/assist,
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/engineering/techstorage)
 "cQe" = (
@@ -81809,9 +81803,10 @@
 /area/eris/command/exultant)
 "dJa" = (
 /obj/structure/table/reinforced,
-/obj/spawner/powercell,
-/obj/spawner/powercell,
-/obj/spawner/powercell,
+/obj/item/weapon/cell/large/high,
+/obj/item/weapon/cell/large/high,
+/obj/item/weapon/cell/large/high,
+/obj/item/weapon/cell/large/high,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
 "dJb" = (
@@ -102381,11 +102376,13 @@
 "eEH" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/clipboard,
-/obj/item/clothing/glasses/powered/meson,
 /obj/item/clothing/glasses/welding/superior,
+/obj/item/clothing/glasses/powered/meson,
 /obj/item/weapon/storage/fancy/cigarettes,
 /obj/item/weapon/book/manual/wiki/engineering_supermatter,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/weapon/cell/large/high,
+/obj/item/weapon/cell/large/high,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/command/exultant)
 "eEI" = (
