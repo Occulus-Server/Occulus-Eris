@@ -22583,7 +22583,7 @@
 /area/eris/maintenance/section3deck1central)
 "bbz" = (
 /obj/structure/table/standard,
-/obj/item/modular_computer/laptop/preset/records,
+/obj/machinery/centrifuge,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/virology)
 "bbA" = (
@@ -26095,7 +26095,10 @@
 /area/eris/medical/virology)
 "bjc" = (
 /obj/structure/table/standard,
-/obj/item/weapon/virusdish/random,
+/obj/item/weapon/virusdish/random{
+	pixel_x = -8;
+	pixel_y = 4
+	},
 /obj/item/weapon/virusdish/random{
 	pixel_x = -2;
 	pixel_y = 10
@@ -60058,8 +60061,9 @@
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section4deck3port)
 "cKq" = (
-/obj/structure/table/standard,
-/obj/machinery/centrifuge,
+/obj/machinery/disease2/isolator{
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/virology)
 "cKr" = (
@@ -60251,7 +60255,9 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/circuits,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools,
-/obj/item/stack/material/plasteel,
+/obj/item/stack/material/plasteel{
+	amount = 20
+	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/breakroom)
@@ -61378,8 +61384,8 @@
 /obj/structure/table/standard,
 /obj/item/weapon/folder/yellow,
 /obj/item/weapon/folder/yellow,
-/obj/item/weapon/reagent_containers/food/snacks/fishburger,
 /obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko,
+/obj/spawner/pizza,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/breakroom)
 "cND" = (
@@ -62365,7 +62371,13 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/quartermaster/office)
 "cQd" = (
-/obj/machinery/vending/assist,
+/obj/structure/table/standard,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/lathe_disk/low_chance,
+/obj/spawner/lathe_disk/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/engineering/techstorage)
 "cQe" = (
@@ -81800,8 +81812,8 @@
 /area/eris/command/exultant)
 "dJa" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
+/obj/spawner/powercell,
+/obj/spawner/powercell,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
 "dJb" = (
@@ -100816,6 +100828,12 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
 /turf/simulated/open,
 /area/eris/engineering/engine_room)
 "eBd" = (
@@ -101932,6 +101950,9 @@
 /obj/structure/sign/faction/technomancers{
 	pixel_x = -32
 	},
+/obj/structure/railing{
+	dir = 1
+	},
 /turf/simulated/open,
 /area/eris/engineering/engine_room)
 "eDG" = (
@@ -102363,8 +102384,6 @@
 /obj/structure/table/reinforced,
 /obj/item/weapon/clipboard,
 /obj/item/clothing/glasses/powered/meson,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
 /obj/item/clothing/glasses/welding/superior,
 /obj/item/weapon/storage/fancy/cigarettes,
 /obj/item/weapon/book/manual/wiki/engineering_supermatter,
@@ -103843,6 +103862,15 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
+"gEK" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "gFu" = (
 /obj/machinery/shower{
 	dir = 8
@@ -104468,6 +104496,15 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/office)
+"jmB" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "jnT" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/railing{
@@ -104567,6 +104604,15 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/quartermaster/misc)
+"jyu" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "jzP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -105253,6 +105299,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/maintenance/section2deck1port)
+"maz" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "maO" = (
 /obj/effect/shuttle_landmark/merc/sec2west,
 /turf/space,
@@ -105821,6 +105876,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
+"nDu" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "nEp" = (
 /obj/structure/table/woodentable,
 /obj/spawner/junk/nondense,
@@ -107424,6 +107488,13 @@
 /obj/structure/railing,
 /turf/simulated/open,
 /area/eris/hallway/main/section3)
+"uaK" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing,
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "ubu" = (
 /obj/machinery/holomap{
 	pixel_y = 32
@@ -107710,6 +107781,16 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"uZR" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing,
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "vbR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -107930,6 +108011,16 @@
 /obj/item/weapon/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/hallway/main/section3)
+"vQx" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "vTT" = (
 /obj/structure/multiz/stairs/active/bottom{
 	dir = 4
@@ -282798,11 +282889,11 @@ abF
 abF
 bIP
 bIP
-cPh
-eBS
-eBS
+eBX
+jmB
+uZR
 eDd
-eBS
+gEK
 eBS
 cPh
 bNn
@@ -283808,11 +283899,11 @@ abF
 abF
 abF
 bNn
-cPh
-eBX
-eBX
+eBS
+jyu
+vQx
 eDd
-eBX
+maz
 eBX
 cPh
 bNn
@@ -284014,7 +284105,7 @@ eBb
 cPi
 cPi
 eDd
-cPh
+cOl
 cPh
 cPh
 bNn
@@ -284213,10 +284304,10 @@ bIP
 cMC
 cNB
 cPi
-cPh
-cPh
+maz
+uaK
 eDd
-cPh
+cOl
 cPh
 cPh
 bNn
@@ -284415,12 +284506,12 @@ bIP
 bIP
 bIP
 eBc
-cPh
-cPh
+eBS
+cPW
 eDd
-cPh
-cPh
-cPh
+nDu
+eBS
+eBS
 bNn
 abF
 abF
@@ -284819,11 +284910,11 @@ abF
 abF
 bIP
 cPi
-cPh
-cPh
+maz
+uaK
 dVd
-cPh
-cPh
+maz
+uaK
 cMI
 cMJ
 dcR
