@@ -22582,8 +22582,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section3deck1central)
 "bbz" = (
-/obj/structure/table/standard,
-/obj/machinery/centrifuge,
+/obj/machinery/computer/centrifuge,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/virology)
 "bbA" = (
@@ -26740,8 +26739,6 @@
 /area/eris/medical/virology)
 "bkp" = (
 /obj/structure/table/standard,
-/obj/item/clothing/gloves/latex,
-/obj/item/clothing/gloves/latex,
 /obj/item/device/antibody_scanner,
 /obj/machinery/alarm{
 	dir = 8;
@@ -61384,8 +61381,8 @@
 /obj/structure/table/standard,
 /obj/item/weapon/folder/yellow,
 /obj/item/weapon/folder/yellow,
-/obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko,
 /obj/spawner/pizza,
+/obj/spawner/soda,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/breakroom)
 "cND" = (
@@ -81812,6 +81809,7 @@
 /area/eris/command/exultant)
 "dJa" = (
 /obj/structure/table/reinforced,
+/obj/spawner/powercell,
 /obj/spawner/powercell,
 /obj/spawner/powercell,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
@@ -102956,6 +102954,15 @@
 "eFP" = (
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
+"eFR" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "eFW" = (
 /obj/machinery/atmospherics/pipe/zpipe/down{
 	dir = 8
@@ -103126,6 +103133,15 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/right)
+"eJe" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "eJu" = (
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/right)
@@ -103862,15 +103878,6 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
-"gEK" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/simulated/open,
-/area/eris/engineering/engine_room)
 "gFu" = (
 /obj/machinery/shower{
 	dir = 8
@@ -104496,15 +104503,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/office)
-"jmB" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/eris/engineering/engine_room)
 "jnT" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/railing{
@@ -104604,15 +104602,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/quartermaster/misc)
-"jyu" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/eris/engineering/engine_room)
 "jzP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -104621,6 +104610,16 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
+"jAp" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing,
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "jBq" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
@@ -104761,6 +104760,16 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/section3starboard)
+"kdR" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "kfX" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -105299,15 +105308,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/maintenance/section2deck1port)
-"maz" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/simulated/open,
-/area/eris/engineering/engine_room)
 "maO" = (
 /obj/effect/shuttle_landmark/merc/sec2west,
 /turf/space,
@@ -105504,6 +105504,15 @@
 /obj/spawner/mob/roaches/cluster,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/maintenance/section2deck3port)
+"mJW" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "mKE" = (
 /obj/structure/curtain/open/bed{
 	anchored = 1;
@@ -105876,15 +105885,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
-"nDu" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/eris/engineering/engine_room)
 "nEp" = (
 /obj/structure/table/woodentable,
 /obj/spawner/junk/nondense,
@@ -106335,6 +106335,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/surgery)
+"ppr" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "psi" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -107488,13 +107497,6 @@
 /obj/structure/railing,
 /turf/simulated/open,
 /area/eris/hallway/main/section3)
-"uaK" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/structure/railing,
-/turf/simulated/open,
-/area/eris/engineering/engine_room)
 "ubu" = (
 /obj/machinery/holomap{
 	pixel_y = 32
@@ -107587,6 +107589,13 @@
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/chapelritualroom)
+"ulB" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing,
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "ulJ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -107780,16 +107789,6 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/eris/engineering/engine_room)
-"uZR" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/structure/railing,
-/turf/simulated/open,
 /area/eris/engineering/engine_room)
 "vbR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -108011,16 +108010,6 @@
 /obj/item/weapon/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/hallway/main/section3)
-"vQx" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/structure/railing,
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/eris/engineering/engine_room)
 "vTT" = (
 /obj/structure/multiz/stairs/active/bottom{
 	dir = 4
@@ -108517,6 +108506,15 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
+"xNA" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "xNH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -282890,10 +282888,10 @@ abF
 bIP
 bIP
 eBX
-jmB
-uZR
+eFR
+jAp
 eDd
-gEK
+xNA
 eBS
 cPh
 bNn
@@ -283900,10 +283898,10 @@ abF
 abF
 bNn
 eBS
-jyu
-vQx
+ppr
+kdR
 eDd
-maz
+mJW
 eBX
 cPh
 bNn
@@ -284304,8 +284302,8 @@ bIP
 cMC
 cNB
 cPi
-maz
-uaK
+mJW
+ulB
 eDd
 cOl
 cPh
@@ -284509,7 +284507,7 @@ eBc
 eBS
 cPW
 eDd
-nDu
+eJe
 eBS
 eBS
 bNn
@@ -284910,11 +284908,11 @@ abF
 abF
 bIP
 cPi
-maz
-uaK
+mJW
+ulB
 dVd
-maz
-uaK
+mJW
+ulB
 cMI
 cMJ
 dcR
