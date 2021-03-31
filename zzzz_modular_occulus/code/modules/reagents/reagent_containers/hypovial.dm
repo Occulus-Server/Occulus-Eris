@@ -80,11 +80,11 @@
 	rarity_value = 100
 	icon_state = "hypoviallargebs"
 */
-/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/lacertidam
-	name = "red mid cartridge (lacertidam)"
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/polystem
+	name = "red mid cartridge (polystem)"
 	icon_state = "hypovial-b"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/lacertidam
-	preloaded_reagents = list("lacertidam" = 45)
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/polystem
+	preloaded_reagents = list("polystem" = 45)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/paracetamol
 	name = "grey mid cartridge (paracetamol)"
@@ -98,11 +98,11 @@
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/antitoxin
 	preloaded_reagents = list("anti_toxin" = 45)
 
-/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/ambursidol
-	name = "orange mid cartridge (ambursidol)"
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/kelotane
+	name = "orange mid cartridge (kelotane)"
 	icon_state = "hypovial-k"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/ambursidol
-	preloaded_reagents = list("ambursidol" = 45)
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/kelotane
+	preloaded_reagents = list("kelotane" = 45)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/dexalin
 	name = "blue mid cartridge (dexalin)"
@@ -123,11 +123,11 @@
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/CMO
 	preloaded_reagents = list("nanosymbiotes" = 15, "oxyrush" = 15, "trauma_control_system" = 15)
 
-/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/lacertidam
-	name = "mid 'hecate' cartridge (lacertidam)"
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/polystem
+	name = "mid 'hecate' cartridge (polystem)"
 	icon_state = "hypoviallarge"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/lacertidam
-	preloaded_reagents = list("lacertidam" = 45)
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/polystem
+	preloaded_reagents = list("polystem" = 45)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/antitoxin
 	name = "mid 'hecate' cartridge (anti-tox)"
@@ -135,11 +135,11 @@
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/antitoxin
 	preloaded_reagents = list("anti_toxin" = 45)
 
-/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/ambursidol
-	name = "mid 'hecate' cartridge (ambursidol)"
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/kelotane
+	name = "mid 'hecate' cartridge (kelotane)"
 	icon_state = "hypoviallarge"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/ambursidol
-	preloaded_reagents = list("ambursidol" = 45)
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/kelotane
+	preloaded_reagents = list("kelotane" = 45)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/dexalin
 	name = "mid 'hecate' cartridge (dexalin)"

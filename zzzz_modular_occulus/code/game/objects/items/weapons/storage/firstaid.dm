@@ -35,7 +35,7 @@
 	if(empty)
 		return
 	new /obj/item/hypospray/mkii/burn(src)
-	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/ambursidol(src)
+	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/kelotane(src)
 	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/paracetamol(src)
 
 /obj/item/weapon/storage/hypospraykit/toxin
@@ -72,7 +72,7 @@
 	if(empty)
 		return
 	new /obj/item/hypospray/mkii/brute(src)
-	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/lacertidam(src)
+	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/kelotane(src)
 	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/paracetamol(src)
 
 /obj/item/weapon/storage/hypospraykit/tactical
@@ -99,6 +99,6 @@
 	new /obj/item/hypospray/mkii/CMO(src)
 	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/tricord(src)
 	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/antitoxin(src)
-	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/lacertidam(src)
+	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/polystem(src)
 	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/dexalin(src)
-	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/ambursidol(src)
+	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/kelotane(src)

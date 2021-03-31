@@ -34,7 +34,7 @@
 	icon = 'zzzz_modular_occulus/icons/obj/syringe.dmi'
 	item_icons = list(slot_l_hand_str = 'zzzz_modular_occulus/icons/mob/left_hand.dmi', slot_r_hand_str = 'zzzz_modular_occulus/icons/mob/right_hand.dmi')
 	desc = "The Medical Injection Device 'Apollo' is Nanotrasens best copy of the MID 'Hecate'. It takes 45-unit cartridges as the drug supply for easy swapping and has a built in scanner to check patients current reagents and prevent overdoses."
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	var/amount_per_transfer_from_this
 	var/emagged = FALSE
@@ -53,7 +53,7 @@
 	var/scan_data
 
 /obj/item/hypospray/mkii/brute
-	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/lacertidam
+	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/polystem
 
 /obj/item/hypospray/mkii/toxin
 	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/antitoxin
@@ -62,7 +62,7 @@
 	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/dexalin
 
 /obj/item/hypospray/mkii/burn
-	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/ambursidol
+	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/kelotane
 
 /obj/item/hypospray/mkii/tricord
 	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/tricord
