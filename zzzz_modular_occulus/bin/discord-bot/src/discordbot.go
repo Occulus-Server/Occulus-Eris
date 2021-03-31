@@ -135,40 +135,16 @@ func (b *Bot) StatusChange(j string, r *bool) error {
 	return nil
 }
 
-/*
-func searchRoles(r []*discordgo.Role, id, name string) string {
-	if id != "" && name != "" {
-		log.Println("You can only call either id or name with searchRoles.")
-		return ""
-	}
-
-	switch {
-	case id != "":
-		for _, v := range r {
-			if v.ID == id {
-				return v.Name
-			}
-		}
-	case name != "":
-		for _, v := range r {
-			if v.Name == name {
-				return v.ID
-			}
-		}
-	}
-
-	return ""
-}
-*/
-
 type botCommand struct {
-	name string
-
+	name string // command name
+	priv bool // display it in !help or not
+	off bool // can this be run if the server is offline?
 	// bot, the args, and the raw message sent
 	cmd func(*Bot, []string, *discordgo.MessageCreate) error
 }
 
 var botCommands map[string]*botCommand
+var botCommandList []string
 
 func addCommand(c *botCommand) {
 	if botCommands == nil {
@@ -176,6 +152,10 @@ func addCommand(c *botCommand) {
 	}
 
 	botCommands[c.name] = c
+
+	if !c.priv {
+		botCommandList = append(botCommandList, c.name)
+	}
 }
 
 func (b *Bot) handleMessage(s *discordgo.Session, m *discordgo.MessageCreate) {
@@ -186,7 +166,12 @@ func (b *Bot) handleMessage(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if len(m.Content) >= len(b.BotName) + 1 {
 		if m.Content[0:len(b.BotName) + 1] == b.BotName + `!` {
 			c := strings.Split(m.Content[len(b.BotName) + 1:], " ")
-			if f, e := botCommands[c[0]] ; e {
+			if c[0] == "help" {
+				s.ChannelMessageSend(m.ChannelID, fmt.Sprintf(
+					"Available commands: %s",
+					strings.Join(botCommandList, ", "),
+				))
+			} else if f, e := botCommands[c[0]] ; e {
 				err := b.getState()
 				if err != nil {
 					log.Println(err)

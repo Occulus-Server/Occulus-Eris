@@ -6,6 +6,7 @@ import (
 	"log"
 	// "strings" Required by the crew manifest constructor, do not remove yet
 	// "text/tabwriter" Required by the crew manifest constructor, do not remove yet
+	"strconv"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -24,6 +25,18 @@ const (
 	CrewTransfer
 	Restarting
 )
+
+func (s *RoundStatus) UnmarshallJSON(b []byte) error {
+	i, err := strconv.Atoi(string(b))
+	if err != nil {
+		return err
+	}
+
+	v := RoundStatus(i)
+	s = &v
+
+	return nil
+}
 
 /* Disabled until a consensus can be reached about player visiblity.
 // thanks, /proc/nano_crew_manifest()
@@ -59,7 +72,7 @@ type State struct {
 	// CrewTransfer, and Restarting. This allows enough information
 	// so that a requesting player knows that the round is either
 	// starting, is in crew transfer, or is restarting.
-	Status      RoundStatus `json:"status"`
+	Status RoundStatus `json:"status"`
 
 	// Players      int `json:"players"` requested to be disabled by RadiantFlash
 	// Admins       int `json:"admins"`  perhaps this, too?
@@ -73,14 +86,14 @@ type State struct {
 	// CrewManifest CrewManifest `json:"crewManifest"`
 
 	// Storyteller represents the current storyteller used by the round.
-	Storyteller string `json:"roundtype"`
+	Storyteller string `json:"storyteller"`
 
 	// Duration represents the current round duration.
 	// It is taken from time2text(get_game_time(), "hh:mm").
-	Duration    string `json:"duration"`
+	Duration string `json:"duration"`
 
 	// roach count, thanks mr. fox for the idea
-	Roaches     int `json:"roaches"`
+	Roaches int `json:"roaches"`
 }
 
 // TODO: learn Go code generation
@@ -91,7 +104,7 @@ func getRoundStatus(s RoundStatus) string {
 	case Lobby:
 		r = "The server is currently in the lobby."
 	case InRound:
-		r = "The server is currently in a round, or a round has just started."
+		r = "The server is currently in a round."
 	case CrewTransfer:
 		r = "The ship is undergoing a crew transfer."
 	case Restarting:
@@ -233,6 +246,8 @@ func init() {
 	})
 	addCommand(&botCommand{
 		name: "setnotif",
+		priv: true,
+		off: true,
 		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
 			var r string
 			if o, err := b.session.Guild(m.GuildID); err == nil {
@@ -255,6 +270,8 @@ func init() {
 	})
 	addCommand(&botCommand{
 		name: "setnotifgroup",
+		priv: true,
+		off: true,
 		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
 			var r string
 			if g, err := b.session.Guild(m.GuildID); err == nil {
@@ -280,13 +297,13 @@ func init() {
 		},
 	})
 	/*
-	addCommand(&botCommand{
-		name: "spola",
-		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
-			b.Session.ChannelMessageSend(m.ChannelID, Spola())
+		addCommand(&botCommand{
+			name: "spola",
+			cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
+				b.Session.ChannelMessageSend(m.ChannelID, Spola())
 
-			return nil
-		}
-	})
+				return nil
+			}
+		})
 	*/
 }
