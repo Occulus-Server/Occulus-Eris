@@ -144,7 +144,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	name = "FS Handgun Pack"
 	contains = list(/obj/item/weapon/gun/projectile/colt,
 			/obj/item/weapon/gun/projectile/paco,
-			/obj/item/weapon/gun/projectile/clarissa,
+			/obj/item/weapon/gun/projectile/selfload,
 			/obj/item/weapon/gun/projectile/olivaw)
 	cost = 3000
 	containertype = /obj/structure/closet/crate/secure/weapon
@@ -1307,7 +1307,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 /datum/supply_pack/warmcarpet
 	contains = list(/obj/item/stack/tile/carpet/cpack,
 				/obj/item/stack/tile/carpet/oracarpet/cpack,
-				/obj/item/stack/tile/carpet/gaycarpet/cpack,				
+				/obj/item/stack/tile/carpet/gaycarpet/cpack,
 				/obj/item/stack/tile/carpet/sblucarpet/cpack
 				)
 	name = "Warm Carpet Crate"
