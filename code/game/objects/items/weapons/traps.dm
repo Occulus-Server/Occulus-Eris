@@ -132,9 +132,18 @@ Freeing yourself is much harder than freeing someone else. Calling for help is a
 
 //Using a crowbar allows you to lever the trap open, better success rate
 /obj/item/weapon/beartrap/attackby(obj/item/C, mob/living/user)
-	if (C.has_quality(QUALITY_PRYING))
+	if (C.has_quality(QUALITY_PRYING) && buckled_mob)
 		attempt_release(user, C)
 		return
+	if (deployed && C.w_class > ITEM_SIZE_SMALL)//Occulus Edit Start - Triggering traps with medium items!
+		user.visible_message(
+			SPAN_DANGER("[user] trips \the [src] with [C.name]!"),
+			SPAN_DANGER("You trip the \the [src] with [C.name]!")
+		)
+		deployed = FALSE
+		anchored = FALSE
+		update_icon()
+		playsound(src, 'sound/effects/impacts/beartrap_shut.ogg', 100, 1,10,10)//Occulus Edit End
 	.=..()
 
 /obj/item/weapon/beartrap/attack_hand(mob/user as mob)
@@ -271,7 +280,7 @@ Freeing yourself is much harder than freeing someone else. Calling for help is a
 	playsound(src, 'sound/effects/impacts/beartrap_shut.ogg', 100, 1,10,10)//Really loud snapping sound
 
 	//armour
-	if( L.damage_through_armor(fail_damage, BRUTE, target_zone, ARMOR_MELEE, used_weapon = src) )
+	if( L.damage_through_armor(base_damage, BRUTE, target_zone, ARMOR_MELEE, used_weapon = src) )//Occulus Edit, this should have been base damage to begin with!
 	//No damage - no stun
 		L.Stun(4) //A short stun prevents spamming failure attempts
 		shake_camera(L, 2, 1)

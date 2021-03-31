@@ -1116,15 +1116,16 @@ var/list/rank_prefix = list(\
 	if(species.default_language)
 		add_language(species.default_language)
 
+	var/skincolor//Occulus Edit Start: Banish the Tarpeople!
 	if(species.base_color && default_colour)
-		//Apply colour.
-		r_skin = hex2num(copytext(species.base_color,2,4))
-		g_skin = hex2num(copytext(species.base_color,4,6))
-		b_skin = hex2num(copytext(species.base_color,6,8))
+		skincolor = species.base_color
 	else
-		r_skin = 0
-		g_skin = 0
-		b_skin = 0
+		skincolor = "#a1665e"
+	//Apply colour.
+	r_skin = hex2num(copytext(skincolor,2,4))
+	g_skin = hex2num(copytext(skincolor,4,6))
+	b_skin = hex2num(copytext(skincolor,6,8))
+	//Occulus Edit End: banish the Tarpeople!
 
 	if(species.holder_type)
 		holder_type = species.holder_type
@@ -1361,13 +1362,27 @@ var/list/rank_prefix = list(\
 				if(head && head.item_flags & THICKMATERIAL)
 					. = 0
 			else
-				if(wear_suit && wear_suit.item_flags & THICKMATERIAL)
-					. = 0
+
+				///// OCCULUS EDIT START
+				// Fix injection code to not just check the 'wear_suit' variable
+				// Code partially hijacked from the armor protection methods
+
+				var/list/protective_gear = list(wear_suit, w_uniform, gloves, shoes)
+
+				for(var/gear in protective_gear)
+					if(gear && istype(gear ,/obj/item/clothing))
+						var/obj/item/clothing/C = gear
+						if(istype(C) && C.body_parts_covered & affecting.body_part)
+							if(C.item_flags & THICKMATERIAL)
+								. = 0
+
+				///// OCCULUS EDIT END
+
 	if(!. && error_msg && user)
 		if(BP_IS_LIFELIKE(affecting) && user.stats.getStat(STAT_BIO) < STAT_LEVEL_BASIC)
 			fail_msg = "Skin is tough and inelastic."
 		else if(!fail_msg)
-			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on their body"] to inject into."
+			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on that body part"] to inject into."	// OCCULUS EDIT: Be more clear about the failure
 		to_chat(user, SPAN_WARNING(fail_msg))
 
 /mob/living/carbon/human/print_flavor_text(var/shrink = 1)

@@ -1202,6 +1202,16 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
+/datum/sprite_accessory/tail/vulp_alt
+	name = "vulp alt (vwag)"
+	desc = ""
+	icon_state = "vulpkanin_alt_color"
+	ani_state = "vulpkanin_alt_color_w"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+	extra_overlay = "vulpkanin_alt_color_tips"
+	extra_overlay_w = "vulpkanin_alt_color_tips_w"
+
 /datum/sprite_accessory/tail/sergaltaildc
 	name = "sergal, dual-color"
 	desc = ""

@@ -186,14 +186,32 @@
 /datum/autodoc/Process()
 	if(!patient)
 		stop()
+
+
+	/* OCCULUS EDIT START: Skip empty patchnotes. This is not the most ideal
+	   solution -- ideally, picked_patchnotes would not be populated with
+	   empty notes, but unfortunately the code is unintuitive and not
+	   programmed this way. I am not yet skilled enough to disentangle the
+	   code to rewrite it properly. */
+
 	if(current_step > picked_patchnotes.len)
 		stop()
+		to_chat(patient, SPAN_NOTICE("Operations complete."))	// OCCULUS EDIT: Tell the patient when it's over
 		scan_user(patient)
-	if(world.time > (start_op_time + processing_speed))
-		start_op_time = world.time
-		patient.updatehealth()
-		if(process_note(picked_patchnotes[current_step]))
+	else
+
+		var/datum/autodoc_patchnote/next_note = picked_patchnotes[current_step]
+
+		if(!next_note.surgery_operations)
 			current_step++
+		else
+			if(world.time > (start_op_time + processing_speed))
+				start_op_time = world.time
+				patient.updatehealth()
+				if(process_note(next_note))
+					current_step++
+
+	// OCCULUS EDIT END
 
 /datum/autodoc/proc/fail()
 	current_step++

@@ -30,6 +30,15 @@
 		return TRUE
 	return FALSE
 
+// OCCULUS EDIT: Required check for nanite reconstitution apparatus; checks if old without youngifying it
+/obj/proc/is_old()
+	SHOULD_CALL_PARENT(TRUE)
+	GET_COMPONENT(oldified, /datum/component/oldficator)
+	if(oldified)
+		return TRUE
+	return FALSE
+// OCCULUS EDIT END
+
 /obj/proc/make_old()
 	GET_COMPONENT(oldified, /datum/component/oldficator)
 	if(oldified)
@@ -174,7 +183,7 @@
 	.=..()
 	if(. && prob(75))
 		name = T_BOARD("unknown")
-		build_path = pick(/obj/machinery/washing_machine, /obj/machinery/broken, /obj/machinery/shower, /obj/machinery/holoposter, /obj/machinery/holosign)
+		build_path = pick(/obj/machinery/washing_machine, /obj/machinery/shower, /obj/machinery/holoposter, /obj/machinery/holosign) //Occulus Eris: Fixing yet another dumb eris design
 
 
 /obj/item/weapon/electronics/ai_module/make_old()
@@ -219,7 +228,7 @@
 /obj/item/weapon/electronics/ai_module/broken
 	name = "\improper broken core AI module"
 	desc = "broken Core AI Module: 'Reconfigures the AI's core laws.'"
-
+/* Occulus Edit - LELELELELE ISN'T GIBBING PEOPLE RANDOMLY FUNNY LEL:ELELELE. No. Fuck off.
 /obj/machinery/broken/Initialize()
 	..()
 	explosion(loc, 1, 2, 3, 3)
@@ -231,7 +240,7 @@
 
 /obj/machinery/broken/make_old()
 	return
-
+End Occulus Edit*/
 /obj/item/weapon/electronics/ai_module/broken/transmitInstructions(mob/living/silicon/ai/target, mob/sender)
 	..()
 	IonStorm(0)

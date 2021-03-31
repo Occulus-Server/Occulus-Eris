@@ -17,6 +17,7 @@
 /obj/item/weapon/storage/hypospraykit/regular
 	icon_state = "firstaid-mini"
 	desc = "A hypospray kit with general use vials."
+	rarity_value = 30
 
 /obj/item/weapon/storage/hypospraykit/regular/populate_contents()
 	if(empty)
@@ -30,6 +31,7 @@
 	desc = "A specialized hypospray kit for burn treatments. Apply with sass."
 	icon_state = "burn-mini"
 	item_state = "firstaid-ointment"
+	rarity_value = 45
 
 /obj/item/weapon/storage/hypospraykit/fire/populate_contents()
 	if(empty)
@@ -42,6 +44,7 @@
 	name = "toxin treatment hypospray kit"
 	icon_state = "toxin-mini"
 	item_state = "firstaid-toxin"
+	rarity_value = 45
 
 /obj/item/weapon/storage/hypospraykit/toxin/populate_contents()
 	if(empty)
@@ -54,6 +57,7 @@
 	name = "oxygen deprivation hypospray kit"
 	icon_state = "oxy-mini"
 	item_state = "firstaid-o2"
+	rarity_value = 45
 
 /obj/item/weapon/storage/hypospraykit/o2/populate_contents()
 	if(empty)
@@ -67,6 +71,7 @@
 	name = "brute trauma hypospray kit"
 	icon_state = "brute-mini"
 	item_state = "firstaid-brute"
+	rarity_value = 75
 
 /obj/item/weapon/storage/hypospraykit/brute/populate_contents()
 	if(empty)
@@ -92,6 +97,7 @@
 	name = "deluxe hypospray kit"
 	desc = "A kit containing a Deluxe hypospray MKII and Vials."
 	icon_state = "tactical-mini"
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/storage/hypospraykit/cmo/populate_contents()
 	if(empty)

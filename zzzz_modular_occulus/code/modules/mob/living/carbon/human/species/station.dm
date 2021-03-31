@@ -1,3 +1,6 @@
+/datum/species/human
+	base_color = "#a1665e"
+
 /datum/species/tajaran
 	icobase = 'zzzz_modular_occulus/icons/mob/human_races/r_tajaran_white.dmi'
 

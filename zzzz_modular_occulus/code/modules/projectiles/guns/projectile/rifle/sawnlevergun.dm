@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/shotgun/leveraction/sawn
 	name = "sawn-off lever-action shotgun"
 	desc = "A favourite of bootleggers everywhere."
-	icon = 'zzz_modular_syzygy/icons/sawnlevergun.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/sawnlevergun.dmi'
 	icon_state = "sawnlevergun"
 	item_state = "sawnlevergun"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -17,3 +17,4 @@
 	one_hand_penalty = 10 //compact shotgun level
 	max_shells = 3	//one less shot due to shortened mag tube to go with the shortened barrel
 	sawn_result = null
+	cansaw = FALSE

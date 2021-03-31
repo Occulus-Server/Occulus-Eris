@@ -7,7 +7,7 @@
 #define JOBS_MEDICAL "Chief Medical Officer","Medical Doctor","Psychiatrist","Pharmacist","Paramedic","Surgeon","Nurse","Medical Intern"
 #define JOBS_SCIENCE "Chief Science Officer","Scientist","Roboticist","Xenobiologist","Xenoflorist","Research Intern","Anomalist"
 #define JOBS_CARGO "Free Trade Union Merchant","Union Cargo Technician","Union Miner"
-#define JOBS_CIVILIAN "Club Manager","Club Worker","Actor",ASSISTANT_TITLE,"Intern","Assistant"
+#define JOBS_CIVILIAN "Club Manager","Club Worker",ASSISTANT_TITLE,"Intern","Assistant"
 #define JOBS_CHURCH "Chaplain","Mekhane Acolyte","Mekhane Custodian","Mekhane Agrolyte"
 #define JOBS_NONHUMAN "AI","Robot","pAI"
 
