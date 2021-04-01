@@ -1,5 +1,5 @@
 /obj/item/weapon/storage/hypospraykit
-	name = "miu 'apollo' kit"
+	name = "mid 'apollo' kit"
 	desc = "It's a kit containing a miu 'apollo' and specific treatment chemical-filled vials."
 	icon = 'zzzz_modular_occulus/icons/obj/storage.dmi'
 	icon_state = "firstaid-mini"
@@ -26,7 +26,7 @@
 	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/tricord(src)
 
 /obj/item/weapon/storage/hypospraykit/fire
-	name = "burn treatment m.i.u. 'apollo' kit"
+	name = "burn treatment mid 'apollo' kit"
 	desc = "A specialized Medical Injection Device 'Apollo' kit for burn treatments. Apply with sass."
 	icon_state = "burn-mini"
 	item_state = "firstaid-ointment"
@@ -40,7 +40,7 @@
 	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/paracetamol(src)
 
 /obj/item/weapon/storage/hypospraykit/toxin
-	name = "toxin treatment m.i.u. 'apollo' kit"
+	name = "toxin treatment mid 'apollo' kit"
 	icon_state = "toxin-mini"
 	item_state = "firstaid-toxin"
 	rarity_value = 45
@@ -53,7 +53,7 @@
 	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/antitoxin(src)
 
 /obj/item/weapon/storage/hypospraykit/o2
-	name = "oxygen deprivation m.i.u. 'apollo' kit"
+	name = "oxygen deprivation mid. 'apollo' kit"
 	icon_state = "oxy-mini"
 	item_state = "firstaid-o2"
 	rarity_value = 45
@@ -67,7 +67,7 @@
 
 
 /obj/item/weapon/storage/hypospraykit/brute
-	name = "brute trauma miu 'apollo' kit"
+	name = "brute trauma mid 'apollo' kit"
 	icon_state = "brute-mini"
 	item_state = "firstaid-brute"
 	rarity_value = 75
@@ -80,7 +80,7 @@
 	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/paracetamol(src)
 
 /obj/item/weapon/storage/hypospraykit/tactical
-	name = "combat m.i.u. 'ares' kit"
+	name = "combat mid 'ares' kit"
 	desc = "A Medical Injection Device 'Ares' kit best suited for combat situations. Contains combat drugs, caution reccomended."
 	icon_state = "tactical-mini"
 	rarity_value = 100
@@ -93,7 +93,7 @@
 	new /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/combat(src)
 
 /obj/item/weapon/storage/hypospraykit/cmo
-	name = "miu 'hecate' kit"
+	name = "mid 'hecate' kit"
 	desc = "A kit containing a Medical Injection Device 'Hecate' and cartridges."
 	icon_state = "tactical-mini"
 	spawn_blacklisted = TRUE

@@ -30,25 +30,6 @@
 /obj/item/weapon/reagent_containers/hypospray
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 
-/obj/item/weapon/storage/pouch/medical_supply
-	can_hold = list(
-		/obj/item/device/scanner/health,
-		/obj/item/weapon/dnainjector,
-		/obj/item/weapon/reagent_containers/dropper,
-		/obj/item/weapon/reagent_containers/glass/beaker,
-		/obj/item/weapon/reagent_containers/glass/bottle,
-		/obj/item/weapon/reagent_containers/pill,
-		/obj/item/weapon/reagent_containers/syringe,
-		/obj/item/weapon/storage/pill_bottle,
-		/obj/item/stack/medical,
-		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/head/surgery,
-		/obj/item/clothing/gloves/latex,
-		/obj/item/weapon/reagent_containers/hypospray,
-		/obj/item/clothing/glasses/hud/health,
-		/obj/item/hypospray/mkii,
-		)
-
 //A vial-loaded hypospray. Cartridge-based!
 /obj/item/hypospray/mkii
 	name = "MID 'Apollo'"
@@ -434,20 +415,6 @@ obj/item/hypospray/mkii/proc/check_overdose(mob/living/carbon/human/patient, mob
 			if(unknown)
 				dat += SPAN_WARNING("Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.")
 	. = jointext(dat, "<br>")
-/*
-/obj/machinery/sleeper/proc/inject_chemical(var/mob/living/user, var/chemical, var/amount) //Use this code block with injection code to check if overdosey.
-	if(stat & (BROKEN|NOPOWER))
-		return
-
-	if(occupant && occupant.reagents)
-		if(occupant.reagents.get_reagent_amount(chemical) + amount <= 20)
-			use_power(amount * CHEM_SYNTH_ENERGY)
-			occupant.reagents.add_reagent(chemical, amount)
-			to_chat(user, "Occupant now has [occupant.reagents.get_reagent_amount(chemical)] units of [available_chemicals[chemical]] in their bloodstream.")
-		else
-			to_chat(user, "The subject has too many chemicals.")
-	else
-		to_chat(user, "There's no suitable occupant in \the [src].") */
 
 /obj/item/hypospray/mkii/attack_self(mob/living/user)
 	if(user)

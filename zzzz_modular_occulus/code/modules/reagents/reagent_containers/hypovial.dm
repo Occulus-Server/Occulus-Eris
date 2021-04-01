@@ -38,12 +38,12 @@
 		add_overlay(filling)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/tiny
-	name = "small hypovial"
+	name = "small mid apollo cartridge"
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/tiny
 	//Shouldn't be possible to get this without adminbuse
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small
-	name = "hypovial"
+	name = "mid apollo cartridge"
 	volume = 45
 	rarity_value = 50
 	possible_transfer_amounts = list(5,10,15)
@@ -56,7 +56,7 @@
 	possible_transfer_amounts = list(5,10,15)
 */
 /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large
-	name = "large hypovial"
+	name = "mid 'hecate' cartridge"
 	desc = "A large MID Cartridge, for the MID 'Hecate'."
 	icon_state = "hypoviallarge"
 	rarity_value = 90
@@ -90,7 +90,7 @@
 	name = "grey mid cartridge (paracetamol)"
 	icon_state = "hypovial-t"
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/paracetamol
-	preloaded_reagents = list("lacertidam" = 45)
+	preloaded_reagents = list("paracetamol" = 45)
 
 /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/antitoxin
 	name = "green mid cartridge (anti-Tox)"
