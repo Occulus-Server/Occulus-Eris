@@ -1033,7 +1033,8 @@ var/global/list/robot_modules = list(
 	channels = list("Engineering" = 1, "Common" = 1)
 	stat_modifiers = list(
 		STAT_COG = 15,
-		STAT_MEC = 40
+		STAT_MEC = 50,	// OCCULUS EDIT - Slight buff
+		STAT_ROB = 10	// OCCULUS EDIT - To help with collapsing burrows
 	)
 
 /obj/item/weapon/robot_module/drone/New(var/mob/living/silicon/robot/R)
@@ -1054,6 +1055,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/floor_painter(src)
 	src.modules += new /obj/item/weapon/rpd/borg(src)
 	src.modules += new /obj/item/borg/sight/meson(src)
+	src.emag += new /obj/item/weapon/hatton/robot(src)	// OCCULUS EDIT - Gives the drone some fun stuff when emagged
 
 	//src.emag = new /obj/item/weapon/gun/energy/phoroncutter/mounted(src)
 	//src.emag.name = "Phoron Cutter"

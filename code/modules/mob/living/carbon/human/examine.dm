@@ -249,9 +249,15 @@
 			continue
 		else if(temp.wounds.len > 0 || temp.open)
 			if(temp.is_stump() && temp.parent)
-				wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [temp.parent.name].</span><br>"
+				// OCCULUS EDIT START: Better clarity for injuries.
+				// OLD: 'He has a pair of tiny bruises, a massive salved burn, and a large bruise on his right arm'
+				// NEW: 'His right arm has a pair of tiny buises, a massive salved burn, and a large bruise.'
+				// old code: wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [temp.parent.name].</span><br>"
+				wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.His] <b>[temp.parent.name]</b> [T.has] [temp.get_wounds_desc()].</span><br>"
 			else
-				wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [temp.name].</span><br>"
+				// old code: wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [temp.name].</span><br>"
+				wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.His] <b>[temp.name]</b> [T.has] [temp.get_wounds_desc()].</span><br>"
+				// OCCULUS EDIT END
 			if(temp.status & ORGAN_BLEEDING)
 				is_bleeding["[temp.name]"] = "<span class='danger'>[T.His] [temp.name] is bleeding!</span><br>"
 		else
@@ -260,6 +266,10 @@
 			wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.joint] is dislocated!</span><br>"
 		if(((temp.status & ORGAN_BROKEN) && temp.brute_dam > temp.min_broken_damage) || (temp.status & ORGAN_MUTATED))
 			wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.name] is dented and swollen!</span><br>"
+		for(var/obj/item/organ/internal/blood_vessel/BV in temp.internal_organs)//Occulus Edit: Ruptured Blood Vessel
+			if(BV.damage > 0)//occulus Edit: Ruptured blood vessel
+				wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.name] swollen and discolored!</span><br>"//Occulus Edit: Ruptured Blood vessel
+
 
 	//Handles the text strings being added to the actual description.
 	//If they have something that covers the limb, and it is not missing, put flavortext.  If it is covered but bleeding, add other flavortext.

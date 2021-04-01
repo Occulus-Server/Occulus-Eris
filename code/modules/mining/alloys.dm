@@ -15,7 +15,7 @@
 		"carbon" = 2,
 		"hematite" = 2
 		)
-	product_mod = 0.3
+	product_mod = 0.4 //Occulus Edit: Slightly bumping up Plasteel production to 2 sheets per tick.
 	product = /obj/item/stack/material/plasteel
 
 /datum/alloy/steel

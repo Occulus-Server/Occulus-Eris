@@ -77,7 +77,7 @@
 	possible_transfer_amounts = list(5,10,15)
 	name = "bluespace large hypovial"
 	volume = 240
-	rarity_value = 100
+	rarity_value = 150
 	icon_state = "hypoviallargebs"
 */
 /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/polystem

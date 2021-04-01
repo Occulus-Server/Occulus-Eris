@@ -158,6 +158,7 @@
 
 	//Process our stored ores and spit out sheets.
 	var/sheets = 0
+	var/currently_alloying = FALSE
 	for(var/metal in ores_stored)
 
 		if(sheets >= sheets_per_tick) break
@@ -174,7 +175,8 @@
 
 					if(A.metaltag in tick_alloys)
 						continue
-
+					if(currently_alloying) //Occulus Edit
+						break //Occulus Edit
 					tick_alloys += A.metaltag
 					var/enough_metal
 
@@ -195,11 +197,12 @@
 						for(var/needs_metal in A.requires)
 							ores_stored[needs_metal] -= A.requires[needs_metal]
 							total += A.requires[needs_metal]
-							total = max(1,round(total*A.product_mod)) //Always get at least one sheet.
-							sheets += total-1
+						total = max(1,round(total*A.product_mod)) //Always get at least one sheet.
+						sheets += total //Occulus edit: For some reason alloys were counting as one less sheet per tick? Dumb
 
 						for(var/i=0,i<total,i++)
 							new A.product(get_step(src, output_dir))
+						currently_alloying = TRUE//Occulus Edit
 
 			else if(ores_processing[metal] == 2 && O.compresses_to) //Compressing.
 

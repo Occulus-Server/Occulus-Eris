@@ -27,6 +27,28 @@
 		/obj/item/hypospray/mkii,
 		)
 
+/obj/item/weapon/reagent_containers/hypospray
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+
+/obj/item/weapon/storage/pouch/medical_supply
+	can_hold = list(
+		/obj/item/device/scanner/health,
+		/obj/item/weapon/dnainjector,
+		/obj/item/weapon/reagent_containers/dropper,
+		/obj/item/weapon/reagent_containers/glass/beaker,
+		/obj/item/weapon/reagent_containers/glass/bottle,
+		/obj/item/weapon/reagent_containers/pill,
+		/obj/item/weapon/reagent_containers/syringe,
+		/obj/item/weapon/storage/pill_bottle,
+		/obj/item/stack/medical,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/clothing/head/surgery,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/weapon/reagent_containers/hypospray,
+		/obj/item/clothing/glasses/hud/health,
+		/obj/item/hypospray/mkii,
+		)
+
 //A vial-loaded hypospray. Cartridge-based!
 /obj/item/hypospray/mkii
 	name = "MID 'Apollo'"
@@ -436,4 +458,3 @@ obj/item/hypospray/mkii/proc/check_overdose(mob/living/carbon/human/patient, mob
 			return
 		else
 			unload_hypo(vial,user)
-

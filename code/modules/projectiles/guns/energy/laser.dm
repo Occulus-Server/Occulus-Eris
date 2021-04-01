@@ -182,9 +182,10 @@
 		break
 
 /obj/item/weapon/gun/energy/psychic/proc/reg_break(mob/living/carbon/human/victim)
+/*  Occulus Edit Start
 	if(victim.get_species() != "Human")
 		return
-
+Occulus Edit End */
 	if(!contract)
 		return
 
