@@ -24,10 +24,10 @@
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
 		UPGRADE_DEGRADATION_MULT = 0.65,
-		UPGRADE_FORCE_MOD = 1,
+		UPGRADE_FORCE_MULT = 1.10,//Occulus
 		)
 
-	I.required_qualities = list(QUALITY_BOLT_TURNING,QUALITY_PRYING, QUALITY_SAWING,QUALITY_SHOVELING,QUALITY_DIGGING,QUALITY_EXCAVATION)
+	I.required_qualities = list(QUALITY_BOLT_TURNING,QUALITY_PRYING,QUALITY_SHOVELING,QUALITY_DIGGING,QUALITY_EXCAVATION,QUALITY_HAMMERING)//Occulus Edit : Added Hammering
 	I.prefix = "braced"
 
 //Heatsink can be attached to any tool that uses fuel or power
@@ -58,7 +58,7 @@
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
 	UPGRADE_DEGRADATION_MULT = 0.55,
-	UPGRADE_FORCE_MOD = 1,
+	UPGRADE_FORCE_MOD = 2,//Occulus Edit
 	UPGRADE_PRECISION = -5,
 	UPGRADE_BULK = 1,
 	UPGRADE_HEALTH_THRESHOLD = 10)
@@ -590,6 +590,7 @@
 	UPGRADE_SANCTIFY = TRUE
 	)
 	I.prefix = "sanctified"
+	matter = list(MATERIAL_BIOMATTER = 5)
 
 /obj/item/weapon/tool_upgrade/augment/hammer_addon
 	name = "Flat surface"
@@ -598,15 +599,17 @@
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_STEEL = 2)
 	rarity_value = 20
 
+
 /obj/item/weapon/tool_upgrade/augment/hammer_addon/New()
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
-	UPGRADE_WORKSPEED = -0.1,
+	UPGRADE_BULK = 1,// Occulus Edit: Buffs
 	UPGRADE_HEALTH_THRESHOLD = 5,
-	tool_qualities = list(QUALITY_HAMMERING = 10)
+	UPGRADE_QUALITIES = list(QUALITY_HAMMERING = 10)//Occulus Edit
 	)
 	I.prefix = "flattened"
+	I.negative_qualities = list(QUALITY_HAMMERING)
 
 //Vastly reduces tool sounds, for stealthy hacking
 /obj/item/weapon/tool_upgrade/augment/dampener
@@ -709,8 +712,8 @@
 	UPGRADE_DEGRADATION_MULT = rand(-1,10),
 	UPGRADE_HEALTH_THRESHOLD = rand(-10,10),
 	UPGRADE_WORKSPEED = rand(-1,3),
-	UPGRADE_PRECISION = rand(-20,20),
-	UPGRADE_FORCE_MOD = rand(-20,20),
+	UPGRADE_PRECISION = rand(-15,15),//Occulus Edit: Nerftime
+	UPGRADE_FORCE_MOD = rand(-10,10),//Occulus Edit: Nerftime
 	UPGRADE_BULK = rand(-1,2),
 	UPGRADE_COLOR = "#3366ff"
 	)
@@ -746,3 +749,4 @@
 	. = ..()
 	GET_COMPONENT(comp_sanity, /datum/component/atom_sanity)
 	. += comp_sanity.affect * 100
+
