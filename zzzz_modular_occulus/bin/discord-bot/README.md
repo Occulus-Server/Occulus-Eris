@@ -4,6 +4,8 @@ Occulus Discord Bot
 Compiling
 ---------
 
+This requires the latest version of [Go](https://golang.org)
+
 Run go build -o discord-bot.exe in the src/ folder.
 
 Using
@@ -16,7 +18,7 @@ will attempt to connect to this server's RPC port otherwise.
 
 Set these enviromental variables:
 
-- `BYOND_REST_RPC_PORT` - The intended port you want to use for remote calls. The default is 33621.
+- `BYOND_GATEWAY_RPC_PORT` - The intended port you want to use for remote calls. The default is 33621.
 - `DISCORD_KEY` - Your bot user's discord key.
 
   OR
