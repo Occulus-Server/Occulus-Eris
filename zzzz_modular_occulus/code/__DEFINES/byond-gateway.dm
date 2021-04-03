@@ -14,7 +14,7 @@
 #define GATEWAY_UP 1
 
 // both of these are hardcoded specifically to Occulus
-#define GATEWAY_EXEC (world.system_type == MS_WINDOWS ? "byond-gateway.exe" : "zzzz_modular_occulus/bin/byond-gateway")
+#define GATEWAY_EXEC (world.system_type == MS_WINDOWS ? "zzzz_modular_occulus/bin/byond-gateway.exe" : "zzzz_modular_occulus/bin/byond-gateway")
 #define CONN_LIBRARY (world.system_type == MS_WINDOWS ? "zzzz_modular_occulus/bin/byond-socks.dll" : "zzzz_modular_occulus/bin/byond-socks.so")
 #define CONN_SUCCESS "SUCCESS"
 #define CONN_ERROR "ERROR"
