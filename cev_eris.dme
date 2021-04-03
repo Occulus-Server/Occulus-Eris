@@ -2780,7 +2780,7 @@
 #include "zzz_modular_syzygy\prosthesis\implementation.dm"
 #include "zzz_modular_syzygy\prosthesis\prosthesis_brands.dm"
 #include "zzz_modular_syzygy\prosthesis\prosthesis_parts.dm"
-#include "zzzz_modular_occulus\code\__DEFINES\byond-rest.dm"
+#include "zzzz_modular_occulus\code\__DEFINES\byond-gateway.dm"
 #include "zzzz_modular_occulus\code\controllers\multiline_me.dm"
 #include "zzzz_modular_occulus\code\controllers\pixelshift.dm"
 #include "zzzz_modular_occulus\code\controllers\subsystems\vote.dm"

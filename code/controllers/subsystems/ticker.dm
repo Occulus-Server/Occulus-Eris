@@ -81,7 +81,7 @@ SUBSYSTEM_DEF(ticker)
 		if(GAME_STATE_STARTUP)
 			if(first_start_trying)
 				/// OCCULUS
-				rest_server.send_state()
+				gateway_server.send_state()
 				/// OCCULUS_END
 				pregame_timeleft = initial(pregame_timeleft)
 				to_chat(world, "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>")
@@ -141,7 +141,7 @@ SUBSYSTEM_DEF(ticker)
 
 				spawn(50)
 					/// OCCULUS
-					rest_server.send_state()
+					gateway_server.send_state()
 					/// OCCULUS_END
 					callHook("roundend")
 
@@ -239,7 +239,7 @@ SUBSYSTEM_DEF(ticker)
 
 	callHook("roundstart")
 	/// OCCULUS
-	rest_server.send_state()
+	gateway_server.send_state()
 	/// OCCULUS_END
 
 	spawn(0)//Forking here so we dont have to wait for this to finish

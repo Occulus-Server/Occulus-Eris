@@ -14,8 +14,8 @@ var discordKeyFile string
 func init() {
 	var err error
 
-	rpcPort, err = strconv.Atoi(os.Getenv("BYOND_REST_RPC_PORT"))
-	if err != nil { log.Fatal("you need to specify a RPC port using BYOND_REST_RPC_PORT, or you put something invalid here") }
+	rpcPort, err = strconv.Atoi(os.Getenv("BYOND_GATEWAY_RPC_PORT"))
+	if err != nil { log.Fatal("you need to specify a RPC port using BYOND_GATEWAY_RPC_PORT, or you put something invalid here") }
 	discordKey = os.Getenv("DISCORD_KEY")
 	discordKeyFile = os.Getenv("DISCORD_KEY_FILE")
 }
