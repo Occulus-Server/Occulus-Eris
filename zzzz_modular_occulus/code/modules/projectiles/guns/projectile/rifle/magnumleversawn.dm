@@ -12,3 +12,4 @@
 	damage_multiplier = 1 //34 damage, 6 or so less than the unsawn version.
 	armor_penetration = 1.05 //Around 15 armor penetration, less punchthrough because of the shorter barrel.
 	sawn_result = null
+	cansaw = FALSE

@@ -1116,15 +1116,16 @@ var/list/rank_prefix = list(\
 	if(species.default_language)
 		add_language(species.default_language)
 
+	var/skincolor//Occulus Edit Start: Banish the Tarpeople!
 	if(species.base_color && default_colour)
-		//Apply colour.
-		r_skin = hex2num(copytext(species.base_color,2,4))
-		g_skin = hex2num(copytext(species.base_color,4,6))
-		b_skin = hex2num(copytext(species.base_color,6,8))
+		skincolor = species.base_color
 	else
-		r_skin = 0
-		g_skin = 0
-		b_skin = 0
+		skincolor = "#a1665e"
+	//Apply colour.
+	r_skin = hex2num(copytext(skincolor,2,4))
+	g_skin = hex2num(copytext(skincolor,4,6))
+	b_skin = hex2num(copytext(skincolor,6,8))
+	//Occulus Edit End: banish the Tarpeople!
 
 	if(species.holder_type)
 		holder_type = species.holder_type

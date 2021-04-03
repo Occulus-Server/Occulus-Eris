@@ -16,6 +16,7 @@
 	recoil_buildup = 20
 	one_hand_penalty = 15 //full sized shotgun level
 	sawn_result = /obj/item/weapon/gun/projectile/shotgun/leveraction/sawn/magnum
+	cansaw = TRUE
 
 /datum/design/autolathe/gun/leveraction/magnum
 	name = "lever-action rifle"

@@ -36,6 +36,7 @@
 					continue
 				install(L)
 				to_chat(owner_mob, SPAN_NOTICE("[src] infested [L]"))
+				ready_to_attack = FALSE //Occulus Edit: once a spider jumps on someone it will stop trying to jump on them again.
 				break
 
 /obj/item/weapon/implant/carrion_spider/attackby(obj/item/I, mob/living/user, params) //Overrides implanter behaviour

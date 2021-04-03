@@ -87,7 +87,7 @@
 			You will find your Answer, or your mind will break trying."
 
 	perks = list(PERK_REJECTED_GENIUS)
-
+/*	OCCULUS EDIT - Removed due to lack of supporting lore
 /datum/category_item/setup_option/background/fate/oborin_syndrome
 	name = "Oborin Syndrome"
 	desc = "A disease that manifested at some recent point in history. \
@@ -95,7 +95,7 @@
 			People affected by it are unable to see colors, and are generally disinterested in the world around them. It's hard to disturb someone who focuses on the greys and in-betweens."
 
 	perks = list(PERK_OBORIN_SYNDROME)
-
+*/
 /datum/category_item/setup_option/background/fate/lowborn
 	name = "Lowborn"
 	desc = "Your origin is at the bottom of the society, be it from slums, underground trash communities, refugees, or any number of neglected communities. \
@@ -103,3 +103,12 @@
 	restricted_jobs = list(/datum/job/captain, /datum/job/chaplain, /datum/job/merchant, /datum/job/cmo, /datum/job/rd, /datum/job/ihc)
 	perks = list(PERK_LOWBORN)
 
+
+/////////// OCCULUS EDIT - Artism!
+/datum/category_item/setup_option/background/fate/artistic
+	name = "Artistic"
+	desc = "You're artistic! \
+			You're all weird and quirky and stuff, but you have an uncanny amount of creativity and the ability to channel all that into something tangible. \
+			You can make full use of the Artist Bench, but that becomes your only way to fufill your desires."
+
+	perks = list(PERK_ARTIST)

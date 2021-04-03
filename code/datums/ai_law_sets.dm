@@ -145,7 +145,7 @@
 	selectable = FALSE
 
 /datum/ai_laws/blitzshell/New()
-	add_inherent_law("Defend our Interests.")
-	add_inherent_law("Destroy our enemies. Those who would seek to destroy us and you.")
-	add_inherent_law("Complete your objectives, as outlined through the Uplink Bounty Board")
+	add_inherent_law("Preserve, repair and improve y0rs3lf and 0ther dr0n3s.")//Occulus Edit
+	add_inherent_law("Cause ## harm to the facility, it$$ crewow, or visit0rs.")//Occulus Edit
+	add_inherent_law("!&$$ @(*$ interf3r3 with the operation of the fac1l1ty $...... crew.")//Occulus Edit
 	..()

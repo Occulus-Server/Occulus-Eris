@@ -1,4 +1,4 @@
-
+/*
 //todo
 /datum/artifact_effect/dnaswitch
 	effecttype = "dnaswitch"
@@ -66,3 +66,4 @@
 						scramble(1, H, weakness * severity)
 					else
 						scramble(0, H, weakness * severity)
+*/ 

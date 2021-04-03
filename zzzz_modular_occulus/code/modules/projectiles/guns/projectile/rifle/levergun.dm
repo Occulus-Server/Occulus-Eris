@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/shotgun/leveraction
 	name = "lever-action shotgun"
 	desc = "A vintage Winchester design. Old, yet reliable."
-	icon = 'zzz_modular_syzygy/icons/levergun.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/levergun.dmi'
 	icon_state = "levergun"
 	item_state = "levergun"
 	max_shells = 4
@@ -21,6 +21,7 @@
 	recoil_buildup = 20
 	one_hand_penalty = 15 //full sized shotgun level
 	var/sawn_result = /obj/item/weapon/gun/projectile/shotgun/leveraction/sawn	//snowflake way to make this not hardcoded
+	var/cansaw = TRUE
 
 /obj/item/weapon/gun/projectile/shotgun/leveraction/consume_next_projectile()
 	if(chambered)
@@ -48,13 +49,16 @@
 	update_icon()
 
 /obj/item/weapon/gun/projectile/shotgun/leveraction/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(QUALITY_SAWING in A.tool_qualities && sawn_result)
-		to_chat(user, SPAN_NOTICE("You begin to shorten the barrel of \the [src]."))
-		if(A.use_tool(user, src, WORKTIME_FAST, QUALITY_SAWING, FAILCHANCE_NORMAL, required_stat = STAT_COG))
-			qdel(src)
-			var/thingy_that_gets_spawned_to_represent_the_thing_getting_sawed = new sawn_result(usr.loc)
-			user.put_in_hands(thingy_that_gets_spawned_to_represent_the_thing_getting_sawed)
-			to_chat(user, SPAN_WARNING("You shorten the barrel of \the [src]!"))
+	if(QUALITY_SAWING in A.tool_qualities)
+		if(cansaw)
+			to_chat(user, SPAN_NOTICE("You begin to shorten the barrel of \the [src]."))
+			if(A.use_tool(user, src, WORKTIME_FAST, QUALITY_SAWING, FAILCHANCE_NORMAL, required_stat = STAT_COG))
+				qdel(src)
+				var/thingy_that_gets_spawned_to_represent_the_thing_getting_sawed = new sawn_result(usr.loc)
+				user.put_in_hands(thingy_that_gets_spawned_to_represent_the_thing_getting_sawed)
+				to_chat(user, SPAN_WARNING("You shorten the barrel of \the [src]!"))
+			else
+				to_chat(user, SPAN_WARNING("You have already shortened the barrel of \the [src]!"))
 	else
 		..()
 

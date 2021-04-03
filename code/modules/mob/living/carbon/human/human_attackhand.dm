@@ -58,6 +58,11 @@
 			if(can_operate(src, M) == CAN_OPERATE_ALL && do_surgery(src, M, null, TRUE))
 				return 1
 			else if(istype(H) && health < HEALTH_THRESHOLD_CRIT && health > HEALTH_THRESHOLD_DEAD)
+				// OCCULUS EDIT: Prevent self-CPR.
+				if(H == src)
+					to_chat(H, SPAN_NOTICE("You cannot perform CPR on yourself."))
+					return
+				// OCCULUS EDIT END
 				if(!H.check_has_mouth())
 					to_chat(H, SPAN_DANGER("You don't have a mouth, you cannot perform CPR!"))
 					return
@@ -265,7 +270,7 @@
 						return W.afterattack(target,src)
 
 			var/randn = rand(1, 100)
-			randn = max(1, randn - H.stats.getStat(STAT_ROB))
+			randn = max(1, randn - H.stats.getStat(STAT_ROB) + src.stats.getStat(STAT_TGH))//Occulus Edit: TGH makes you harder to shove
 			if(!(species.flags & NO_SLIP) && randn <= 20)
 				apply_effect(3, WEAKEN, getarmor(affecting, ARMOR_MELEE))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)

@@ -33,7 +33,7 @@
 	)
 
 /obj/item/weapon/electronics/circuitboard/chemical_dispenser/industrial
-	name = T_BOARD("Industeral Chemical Dispenser")
+	name = T_BOARD("Industrial Chemical Dispenser")//Occulus Edit: Spelling Fix
 	build_path = /obj/machinery/chemical_dispenser/industrial
 
 /obj/item/weapon/electronics/circuitboard/chemical_dispenser/soda

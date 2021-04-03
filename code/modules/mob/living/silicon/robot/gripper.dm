@@ -23,7 +23,8 @@
 		/obj/item/weapon/electronics/circuitboard,
 		/obj/item/device/assembly,//Primarily for making improved cameras, but opens many possibilities
 		/obj/item/weapon/computer_hardware,
-		/obj/item/stack/tile //Repair floors yay
+		/obj/item/stack/tile, //Repair floors yay
+		/obj/item/weapon/tool_upgrade	// OCCULUS EDIT - Make cyborgs be able to grab upgrades
 		)
 
 	var/obj/item/wrapped // Item currently being held.

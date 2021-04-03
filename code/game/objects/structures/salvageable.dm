@@ -118,6 +118,7 @@
 		/obj/item/stack/material/silver{amount = 10} = 20,
 		/obj/item/stack/material/gold{amount = 10} = 20,
 		/obj/item/stack/material/phoron{amount = 10} = 20,
+		/obj/item/stack/material/platinum{amount = 10} = 20,//Occulus Edit: Added platinum to the drop list
 		/obj/item/stack/material/uranium{amount = 3} = 5,
 		/obj/item/stack/material/diamond{amount = 1} = 1
 	)

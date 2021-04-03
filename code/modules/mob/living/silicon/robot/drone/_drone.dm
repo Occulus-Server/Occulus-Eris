@@ -57,7 +57,7 @@ var/list/mob_hat_cache = list()
 	var/module_type = /obj/item/weapon/robot_module/drone
 	var/obj/item/hat
 	var/hat_x_offset = 0
-	var/hat_y_offset = -13
+	var/hat_y_offset = -9	// OCCULUS EDIT - Fixes hat offsets for drones
 	var/eyecolor = "blue"
 	var/armguard = ""
 	var/communication_channel = LANGUAGE_DRONE
