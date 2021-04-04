@@ -118,7 +118,8 @@ var/list/channel_to_radio_key = new
 
 // returns message
 /mob/living/proc/getSpeechVolume(var/message)
-	var/volume = chem_effects[CE_SPEECH_VOLUME] ? round(chem_effects[CE_SPEECH_VOLUME]) : 2	// 2 is default text size in byond chat
+	//Occulus Edit - Make volume scale correctly.
+	var/volume = chem_effects[CE_SPEECH_VOLUME] ? round(chem_effects[CE_SPEECH_VOLUME]) : 1	// 2 is default text size in byond chat
 	var/ending = copytext(message, length(message))
 	if(ending == "!")
 		volume ++
