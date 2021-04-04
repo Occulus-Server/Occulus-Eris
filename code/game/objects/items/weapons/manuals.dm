@@ -287,7 +287,7 @@
 			</body>
 			</html>
 			"}
-/*
+
 //engineering
 /obj/item/weapon/book/manual/wiki/engineering_guide
 	name = "Engineering Textbook"
@@ -399,9 +399,9 @@
 	icon_state = "chefbook"
 	author = "Victoria Ponsonby"
 	title = "Chef Recipes"
-	page_link = "Guide_to_Food_and_Drinks" *\ //Depreciated books that we have no wiki to work with and hardly work on Eris.
+	page_link = "Guide_to_Food_and_Drinks"
 
-/obj/item/weapon/paper/crumpled/enginenotes
+/obj/item/weapon/paper/enginenotes
 	name = "paper- 'Engine Setup Guide'"
 	icon_state = "paper_words_crumpled"
 	info = {"Quick reminder if you're setting up the engine, follow these steps.
@@ -418,7 +418,7 @@
 	<br>
 	6. DON'T FORGET TO TWEAK THE RCON SETTINGS!"}
 
-/obj/item/weapon/paper/crumpled/forensicguide
+/obj/item/weapon/paper/forensicguide
 	name = "paper- 'CSI Basics'"
 	icon_state = "paper_words_crumpled"
 	info = {"Small refresher for our newer forensics contractors and how not to fuck up an investigation scene.
