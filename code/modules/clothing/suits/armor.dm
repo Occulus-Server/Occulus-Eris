@@ -57,9 +57,10 @@
 	icon_state = "armor_security"
 
 /obj/item/clothing/suit/armor/vest/detective
-	name = "armor"
+	name = "detective's armor vest"	// OCCULUS EDIT: more clarification
 	desc = "An armored vest with a detective's badge on it."
 	icon_state = "armor_detective"
+	no_fibers = TRUE	// OCCULUS EDIT
 
 /obj/item/clothing/suit/armor/vest/warden
 	name = "Warden's jacket"
