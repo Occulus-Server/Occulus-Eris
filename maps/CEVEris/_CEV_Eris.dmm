@@ -19560,6 +19560,10 @@
 "aVf" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
+/obj/item/device/magnetic_lock/security,
+/obj/item/device/magnetic_lock/security,
+/obj/item/device/magnetic_lock/security,
+/obj/item/device/magnetic_lock/security,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/barracks{
 	name = "Aegis Barracks"
