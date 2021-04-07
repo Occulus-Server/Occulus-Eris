@@ -22582,8 +22582,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section3deck1central)
 "bbz" = (
-/obj/structure/table/standard,
-/obj/item/modular_computer/laptop/preset/records,
+/obj/machinery/computer/centrifuge,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/virology)
 "bbA" = (
@@ -26095,7 +26094,10 @@
 /area/eris/medical/virology)
 "bjc" = (
 /obj/structure/table/standard,
-/obj/item/weapon/virusdish/random,
+/obj/item/weapon/virusdish/random{
+	pixel_x = -8;
+	pixel_y = 4
+	},
 /obj/item/weapon/virusdish/random{
 	pixel_x = -2;
 	pixel_y = 10
@@ -26737,8 +26739,6 @@
 /area/eris/medical/virology)
 "bkp" = (
 /obj/structure/table/standard,
-/obj/item/clothing/gloves/latex,
-/obj/item/clothing/gloves/latex,
 /obj/item/device/antibody_scanner,
 /obj/machinery/alarm{
 	dir = 8;
@@ -60058,8 +60058,9 @@
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section4deck3port)
 "cKq" = (
-/obj/structure/table/standard,
-/obj/machinery/centrifuge,
+/obj/machinery/disease2/isolator{
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/virology)
 "cKr" = (
@@ -60251,7 +60252,9 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/circuits,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools,
-/obj/item/stack/material/plasteel,
+/obj/item/stack/material/plasteel{
+	amount = 20
+	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/breakroom)
@@ -61378,8 +61381,8 @@
 /obj/structure/table/standard,
 /obj/item/weapon/folder/yellow,
 /obj/item/weapon/folder/yellow,
-/obj/item/weapon/reagent_containers/food/snacks/fishburger,
-/obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko,
+/obj/spawner/pizza,
+/obj/spawner/soda,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/breakroom)
 "cND" = (
@@ -81802,6 +81805,8 @@
 /obj/structure/table/reinforced,
 /obj/item/weapon/cell/large/high,
 /obj/item/weapon/cell/large/high,
+/obj/item/weapon/cell/large/high,
+/obj/item/weapon/cell/large/high,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
 "dJb" = (
@@ -100816,6 +100821,12 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
 /turf/simulated/open,
 /area/eris/engineering/engine_room)
 "eBd" = (
@@ -101932,6 +101943,9 @@
 /obj/structure/sign/faction/technomancers{
 	pixel_x = -32
 	},
+/obj/structure/railing{
+	dir = 1
+	},
 /turf/simulated/open,
 /area/eris/engineering/engine_room)
 "eDG" = (
@@ -102362,13 +102376,13 @@
 "eEH" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/clipboard,
-/obj/item/clothing/glasses/powered/meson,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
 /obj/item/clothing/glasses/welding/superior,
+/obj/item/clothing/glasses/powered/meson,
 /obj/item/weapon/storage/fancy/cigarettes,
 /obj/item/weapon/book/manual/wiki/engineering_supermatter,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/weapon/cell/large/high,
+/obj/item/weapon/cell/large/high,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/command/exultant)
 "eEI" = (
@@ -102937,6 +102951,15 @@
 "eFP" = (
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
+"eFR" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "eFW" = (
 /obj/machinery/atmospherics/pipe/zpipe/down{
 	dir = 8
@@ -103107,6 +103130,15 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/right)
+"eJe" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "eJu" = (
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/right)
@@ -104575,6 +104607,16 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
+"jAp" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing,
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "jBq" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
@@ -104715,6 +104757,16 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/section3starboard)
+"kdR" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "kfX" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -105449,6 +105501,15 @@
 /obj/spawner/mob/roaches/cluster,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/maintenance/section2deck3port)
+"mJW" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "mKE" = (
 /obj/structure/curtain/open/bed{
 	anchored = 1;
@@ -106271,6 +106332,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/surgery)
+"ppr" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "psi" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -107516,6 +107586,13 @@
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/chapelritualroom)
+"ulB" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing,
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "ulJ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -108426,6 +108503,15 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
+"xNA" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "xNH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -282798,11 +282884,11 @@ abF
 abF
 bIP
 bIP
-cPh
-eBS
-eBS
+eBX
+eFR
+jAp
 eDd
-eBS
+xNA
 eBS
 cPh
 bNn
@@ -283808,11 +283894,11 @@ abF
 abF
 abF
 bNn
-cPh
-eBX
-eBX
+eBS
+ppr
+kdR
 eDd
-eBX
+mJW
 eBX
 cPh
 bNn
@@ -284014,7 +284100,7 @@ eBb
 cPi
 cPi
 eDd
-cPh
+cOl
 cPh
 cPh
 bNn
@@ -284213,10 +284299,10 @@ bIP
 cMC
 cNB
 cPi
-cPh
-cPh
+mJW
+ulB
 eDd
-cPh
+cOl
 cPh
 cPh
 bNn
@@ -284415,12 +284501,12 @@ bIP
 bIP
 bIP
 eBc
-cPh
-cPh
+eBS
+cPW
 eDd
-cPh
-cPh
-cPh
+eJe
+eBS
+eBS
 bNn
 abF
 abF
@@ -284819,11 +284905,11 @@ abF
 abF
 bIP
 cPi
-cPh
-cPh
+mJW
+ulB
 dVd
-cPh
-cPh
+mJW
+ulB
 cMI
 cMJ
 dcR
