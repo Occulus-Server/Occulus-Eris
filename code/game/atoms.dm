@@ -284,7 +284,8 @@ its easier to just keep the beam vertical.
 	if(isobserver(user))
 		to_chat(user, "\icon[src] This is [full_name] [suffix]")
 	else
-		user.visible_message("<font size=1>[user.name] looks at [src].</font>", "\icon[src] This is [full_name] [suffix]")
+		//Occulus Edit. Now scales properly.
+		user.visible_message("<span style='font-size:0.8em'>[user.name] looks at [src].</span>", "\icon[src] This is [full_name] [suffix]")
 
 	to_chat(user, show_stat_verbs()) //rewrite to show_stat_verbs(user)?
 

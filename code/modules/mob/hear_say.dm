@@ -10,7 +10,8 @@
 		speaker_name = H.rank_prefix_name(H.GetVoice())
 
 	if(speech_volume)
-		message = "<FONT size='[speech_volume]'>[message]</FONT>"
+		//Occulus Edit - Speech now scales correctly.
+		message = "<span style='font-size:[speech_volume]em'>[message]</span>"
 	if(italics)
 		message = "<i>[message]</i>"
 
