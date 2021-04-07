@@ -150,6 +150,14 @@
 /obj/item/weapon/tool/knife/neotritual
 	name = "Mekhane ritual knife"
 
+
+/obj/item/clothing/head/armor/bulletproof/ironhammer_full
+	desc = "Standard-issue Aegis ballistic helmet with a basic HUD included, covers the operator's entire face."
+
+/obj/item/weapon/emp_mine
+	name = "SDF EMP Mine"
+	desc = "Self-rechargeable EMP Skrellian mine. Not just a small holoplant."
+
 //Mech
 /mob/living/exosuit/premade/powerloader
 	name = "S.E.U. \"Ripley\"" //Space Excavation Unit

@@ -24,3 +24,7 @@
 	display_name = "black turtleneck"
 	path = /obj/item/clothing/under/syndicate/civilian
 
+/datum/gear/uniform/tacticalturtleneck
+	display_name = "military turtleneck"
+	path = /obj/item/clothing/under/turtleneck //Coinflip between a green and black one!
+

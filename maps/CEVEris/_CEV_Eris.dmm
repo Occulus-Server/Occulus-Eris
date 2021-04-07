@@ -4710,6 +4710,7 @@
 /obj/item/weapon/storage/box/swabs,
 /obj/item/weapon/storage/box/evidence,
 /obj/item/weapon/storage/box/evidence,
+/obj/item/weapon/paper/forensicguide,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
 "alf" = (
@@ -32087,6 +32088,7 @@
 /area/eris/crew_quarters/clothingstorage)
 "bwP" = (
 /obj/landmark/event/lightsout,
+/obj/item/weapon/paper/enginenotes,
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section1)
 "bwQ" = (
@@ -43346,11 +43348,7 @@
 "bWE" = (
 /obj/structure/table/woodentable,
 /obj/item/device/lighting/toggleable/lamp/green,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
+/obj/item/weapon/paper/forensicguide,
 /turf/simulated/floor/carpet,
 /area/eris/security/inspectors_office)
 "bWF" = (
@@ -101832,7 +101830,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/book/manual/wiki/engineering_supermatter,
+/obj/item/weapon/paper/enginenotes,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/foyer)
 "eDr" = (

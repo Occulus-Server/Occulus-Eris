@@ -6,7 +6,7 @@
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
 	blurb = "Humanity originated in the Sol system, and over the last three centuries has spread \
 	colonies across a wide swathe of the Orion Spur. Humanity is one of the two most genetically and culturally divergent species \
-	with genetic splicing and bio-augmentation being so common among groups of them. While the United Terran Terran Systems - \
+	with genetic splicing and bio-augmentation being so common among groups of them. While the United Terran Systems - \
 	nicknamed Solgov, does it's best to provide a federal backbone to the species, it's secular nature still thrives today."
 	num_alternate_languages = 2
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
