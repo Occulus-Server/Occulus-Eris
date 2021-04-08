@@ -106,6 +106,7 @@
 	new /obj/item/ammo_magazine/slmagnum/rubber(src)
 	new /obj/item/weapon/storage/pouch/pistol_holster(src)
 	new /obj/item/weapon/gun/energy/gun/martin(src)
+	new /obj/item/weapon/storage/box/gloves(src)
 
 /obj/structure/closet/secure_closet/warden/populate_contents()
 	if(prob(50))
