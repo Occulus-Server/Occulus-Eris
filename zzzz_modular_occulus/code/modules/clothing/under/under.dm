@@ -1,11 +1,11 @@
 /obj/item/clothing/under/yogapants
 	name = "form-fitting athletic outfit"
 	desc = "It's got skintight yoga pants and a fashionable, yet lightweight tank top."
-	icon = 'zzz_modular_syzygy/icons/uniform_icons.dmi'
+	icon = 'zzzz_modular_occulus/icons/uniform_icons.dmi'
 	icon_state = "yogapants"
 	item_state = "yogapants"
-	icon_override = 'zzz_modular_syzygy/icons/mob/uniform.dmi'
-	icon_override_female = 'zzz_modular_syzygy/icons/mob/uniform_fem.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/mob/uniform.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/mob/uniform_fem.dmi'
 	sensor_mode = 3
 
 /obj/item/clothing/under/yogapants/topless
@@ -17,18 +17,35 @@
 /obj/item/clothing/under/rank/captain
 	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
 	name = "captain's jumpsuit"
-	icon = 'zzz_modular_syzygy/icons/uniform_icons.dmi'
+	icon = 'zzzz_modular_occulus/icons/uniform_icons.dmi'
 	icon_state = "captain"
 	item_state = "captain"
-	icon_override = 'zzz_modular_syzygy/icons/mob/uniform.dmi'
-	icon_override_female = 'zzz_modular_syzygy/icons/mob/uniform_fem.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/mob/uniform.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/mob/uniform_fem.dmi'
 
 /obj/item/clothing/under/rank/captain_jumpskirt
 	desc = "It's a blue jumpskirt with some gold markings denoting the rank of \"Captain\"."
 	name = "captain's jumpskirt"
-	icon = 'zzz_modular_syzygy/icons/uniform_icons.dmi'
+	icon = 'zzzz_modular_occulus/icons/uniform_icons.dmi'
 	icon_state = "captain_skirt"
 	item_state = "captain_skirt"
-	icon_override = 'zzz_modular_syzygy/icons/mob/uniform.dmi'
-	icon_override_female = 'zzz_modular_syzygy/icons/mob/uniform_fem.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/mob/uniform.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/mob/uniform_fem.dmi'
 
+
+/obj/item/clothing/under/rank/solgov
+	icon = 'zzzz_modular_occulus/icons/inventory/uniform/solgovicon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/solgovmob.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/solgovmobfem.dmi'
+
+/obj/item/clothing/under/rank/solgov/blackdress
+	icon_state = "blackdress"
+	item_state = "blackdress"
+
+/obj/item/clothing/under/rank/solgov/whiteservice
+	icon_state = "whiteservice"
+	item_state = "whiteservice"
+
+/obj/item/clothing/under/rank/solgov/whiteserviceskirt
+	icon_state = "whiteservice_skirt"
+	item_state = "whiteservice_skirt"
