@@ -27,25 +27,25 @@ mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0
 		src:drop_item()
 	var/msg
 	if(burning)
-		switch(amount) //Occulus Edits - Messages now scale with chat size.
+		switch(amount)
 			if(1 to 10)
-				msg = "\red <b><span style=`font-size:1em'>Your [partname] burns.</span></b>"
+				msg = "\red <b>Your [partname] burns.</b>"
 			if(11 to 90)
 				flash_weak_pain()
-				msg = "\red <b><span style='font-size:1.5em'>Your [partname] burns badly!</span></b>"
+				msg = "\red <b><font size=2>Your [partname] burns badly!</font></b>"
 			if(91 to 10000)
 				flash_pain()
-				msg = "\red <span style='font-size:2em'>OH GOD! Your [partname] is on fire!</span></b>"
+				msg = "\red <b><font size=3>OH GOD! Your [partname] is on fire!</font></b>"
 	else
-		switch(amount) //Occulus Edits - Messages now scale with chat size.
+		switch(amount)
 			if(1 to 10)
-				msg = "<b><span style='font-size:1em'>Your [partname] hurts.</span></b>"
+				msg = "<b>Your [partname] hurts.</b>"
 			if(11 to 90)
 				flash_weak_pain()
-				msg = "<b><span style='font-size:1.5em'>Your [partname] hurts badly.</span></b>"
+				msg = "<b><font size=2>Your [partname] hurts badly.</font></b>"
 			if(91 to 10000)
 				flash_pain()
-				msg = "<b><span style='font-size:2em'>OH GOD! Your [partname] is hurting terribly!</span></b>"
+				msg = "<b><font size=3>OH GOD! Your [partname] is hurting terribly!</font></b>"
 	if(msg && (msg != last_pain_message || prob(10)))
 		last_pain_message = msg
 		to_chat(src, msg)
