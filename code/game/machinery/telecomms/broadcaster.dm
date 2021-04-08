@@ -321,7 +321,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
   /* ###### Begin formatting and sending the message ###### */
 	if (length(heard_masked) || length(heard_normal) || length(heard_voice) || length(heard_garbled) || length(heard_gibberish))
 		if(text_size)
-			message = "<FONT size='[max(text_size, 1)]'>[message]</FONT>"
+			//Occulus Edit: This now scales properly.
+			message = "<span style='font-size:[max(text_size, 1)]em'>[message]</span>"
 
 	  /* --- Some miscellaneous variables to format the string output --- */
 		var/freq_text = get_frequency_name(display_freq)
