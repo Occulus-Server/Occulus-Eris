@@ -949,7 +949,7 @@
 	color = "#102000"
 	adj_drowsy = -6
 	adj_temp = -5
-	taste_tag = list(TASTE_SOUR,TASTE_BITTER,TASTE_SWEET,TASTE_STRONG, TASTE_LIGHT, TASTE_BUBBLY, TASTE_SPICY, TASTE_SALTY)
+	taste_tag = list(TASTE_SWEET)//Occulus Edit: Fixed that
 
 	glass_icon_state = "dr_gibb_glass"
 	glass_name = "Dr. Gibb"

@@ -387,7 +387,7 @@
 	taste_tag = list(VEGETARIAN_FOOD,VEGAN_FOOD)
 
 /obj/item/weapon/reagent_containers/food/snacks/candy
-	name = "candy"
+	name = "chocolate bar" //Occulus Edit
 	desc = "Nougat, love it or hate it."
 	icon_state = "candy"
 	trash = /obj/item/trash/candy
@@ -395,11 +395,11 @@
 	bitesize = 2
 	center_of_mass = list("x"=15, "y"=15)
 	nutriment_amt = 1
-	nutriment_desc = list("candy" = 1)
-	preloaded_reagents = list("sugar" = 3)
+	nutriment_desc = list("candy" = 1, "chocolate" = 1) //Occulus Edit
+	preloaded_reagents = list("sugar" = 2, "coco" = 2) //Occulus Edit
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
-	taste_tag = list(SWEET_FOOD)
+	taste_tag = list(SWEET_FOOD, COCO_FOOD) //Occulus Edit
 
 /obj/item/weapon/reagent_containers/food/snacks/candy/donor
 	name = "Donor Candy"
@@ -433,6 +433,7 @@
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 	rarity_value = 15
+	taste_tag = list(SALTY_FOOD) //Occulus Edit
 
 /obj/item/weapon/reagent_containers/food/snacks/cookie
 	name = "cookie"
@@ -1351,6 +1352,7 @@
 	bitesize = 0.1 //this snack is supposed to be eating during looooong time. And this it not dinner food! --rastaf0
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD
+	taste_tag = list(SALTY_FOOD) //Occulus Edit
 	New()
 		..()
 		unpopped = rand(1,10)
@@ -1368,9 +1370,10 @@
 	filling_color = "#631212"
 	bitesize = 2
 	center_of_mass = list("x"=15, "y"=9)
-	preloaded_reagents = list("protein" = 4, "ammonia" = 2)
+	preloaded_reagents = list("protein" = 4)//Occulus Edit
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD
+	taste_tag = list(MEAT_FOOD)//Occulus Edit
 
 /obj/item/weapon/reagent_containers/food/snacks/no_raisin
 	name = "4no Raisins"
@@ -1383,6 +1386,7 @@
 	nutriment_amt = 6
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
+	taste_tag = list(VEGAN_FOOD) //Occulus Edit
 
 /obj/item/weapon/reagent_containers/food/snacks/spacetwinkie
 	name = "Space Twinkie"
@@ -1394,6 +1398,7 @@
 	preloaded_reagents = list("sugar" = 4)
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD
+	taste_tag = list(SWEET_FOOD)//Occulus Edit
 
 /obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers
 	name = "Cheesie Honkers"
@@ -2451,7 +2456,7 @@
 	nutriment_desc = list("bread" = 2)
 	preloaded_reagents = list("protein" = 4)
 	taste_tag = list(MEAT_FOOD,FLOURY_FOOD)
-	
+
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/bananabread
 	name = "Banana-nut bread"

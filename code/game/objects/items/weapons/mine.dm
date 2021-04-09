@@ -71,7 +71,7 @@
 				)
 		if (do_after(user, 5))
 			user.visible_message(
-				SPAN_DANGER("[user] attempts to pick up the [src] only to hear a beep as it explodes in your hands!"),
+				SPAN_DANGER("[user] attempts to pick up the [src] only to hear a beep as it explodes in thier hands!"),//Occulus Edit: Russian grammar
 				SPAN_DANGER("you attempt to pick up the [src] only to hear a beep as it explodes in your hands!")//Occulus Edit: Russian grammar
 				)
 			explode()
