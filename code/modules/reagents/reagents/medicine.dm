@@ -33,9 +33,9 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 
-/datum/reagent/medicine/bicaridine/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.heal_organ_damage(0.6 * effect_multiplier, 0, 5 * effect_multiplier)
-	M.add_chemical_effect(CE_BLOODCLOT, 0.15)
+///datum/reagent/medicine/bicaridine/affect_blood(mob/living/carbon/M, alien, effect_multiplier) Occulus Edit
+//	M.heal_organ_damage(0.6 * effect_multiplier, 0, 5 * effect_multiplier) Occulus Edit
+//	M.add_chemical_effect(CE_BLOODCLOT, 0.15) Occulus Edit
 
 /datum/reagent/medicine/meralyne
 	name = "Meralyne"
@@ -47,9 +47,9 @@
 	color = "#E6666C"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-/datum/reagent/medicine/meralyne/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.heal_organ_damage(1.2 * effect_multiplier, 0, 5 * effect_multiplier)
-	M.add_chemical_effect(CE_BLOODCLOT, 0.30)
+///datum/reagent/medicine/meralyne/affect_blood(mob/living/carbon/M, alien, effect_multiplier) Occulus Edit
+//	M.heal_organ_damage(1.2 * effect_multiplier, 0, 5 * effect_multiplier) Occulus Edit
+//	M.add_chemical_effect(CE_BLOODCLOT, 0.30) Occulus Edit
 
 /datum/reagent/medicine/kelotane
 	name = "Kelotane"
@@ -61,8 +61,8 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 
-/datum/reagent/medicine/kelotane/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.heal_organ_damage(0, 0.6 * effect_multiplier, 0, 3 * effect_multiplier)
+///datum/reagent/medicine/kelotane/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
+//	M.heal_organ_damage(0, 0.6 * effect_multiplier, 0, 3 * effect_multiplier)
 
 /datum/reagent/medicine/dermaline
 	name = "Dermaline"
@@ -75,8 +75,8 @@
 	overdose = REAGENTS_OVERDOSE * 0.5
 	scannable = 1
 
-/datum/reagent/medicine/dermaline/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.heal_organ_damage(0, 1.2 * effect_multiplier, 0, 5 * effect_multiplier)
+///datum/reagent/medicine/dermaline/affect_blood(mob/living/carbon/M, alien, effect_multiplier) Occulus Edit
+//	M.heal_organ_damage(0, 1.2 * effect_multiplier, 0, 5 * effect_multiplier) Occulus Edit
 
 /datum/reagent/medicine/dylovene
 	name = "Dylovene"
@@ -134,11 +134,11 @@
 	color = "#8040FF"
 	scannable = 1
 
-/datum/reagent/medicine/tricordrazine/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.adjustOxyLoss(-0.6 * effect_multiplier)
-	M.heal_organ_damage(0.3 * effect_multiplier, 0.3 * effect_multiplier)
-	M.adjustToxLoss(-0.3 * effect_multiplier)
-	M.add_chemical_effect(CE_BLOODCLOT, 0.1)
+///datum/reagent/medicine/tricordrazine/affect_blood(mob/living/carbon/M, alien, effect_multiplier) Occulus Edit
+//	M.adjustOxyLoss(-0.6 * effect_multiplier) Occulus Edit
+//	M.heal_organ_damage(0.3 * effect_multiplier, 0.3 * effect_multiplier) Occulus Edit
+//	M.adjustToxLoss(-0.3 * effect_multiplier) Occulus Edit
+//	M.add_chemical_effect(CE_BLOODCLOT, 0.1) Occulus Edit
 
 /datum/reagent/medicine/cryoxadone
 	name = "Cryoxadone"
@@ -655,9 +655,9 @@
 	metabolism = REM/2
 	overdose = REAGENTS_OVERDOSE - 10
 
-/datum/reagent/medicine/polystem/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.heal_organ_damage(0.2 * effect_multiplier, 0, 3 * effect_multiplier)
-	M.add_chemical_effect(CE_BLOODCLOT, min(1,0.1 * effect_multiplier))
+///datum/reagent/medicine/polystem/affect_blood(mob/living/carbon/M, alien, effect_multiplier) Occulus Edit
+//	M.heal_organ_damage(0.2 * effect_multiplier, 0, 3 * effect_multiplier) Occulus Edit
+//	M.add_chemical_effect(CE_BLOODCLOT, min(1,0.1 * effect_multiplier)) Occulus Edit
 
 /datum/reagent/medicine/polystem/overdose(mob/living/carbon/M, alien)
 	M.add_chemical_effect(CE_BLOODCLOT, min(1,0.1))
