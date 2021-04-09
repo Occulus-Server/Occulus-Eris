@@ -30,6 +30,12 @@
 	)
 	organ.take_damage(rand(5,10), 0)
 
+/datum/surgery_step/fix_brute/require_tool_message(mob/living/user)
+	to_chat(user, SPAN_WARNING("You need an advanced trauma kit, or at least some bandages, to complete this step."))
+
+/datum/surgery_step/fix_burn/require_tool_message(mob/living/user)
+	to_chat(user, SPAN_WARNING("You need an advanced burn kit, or at least some ointment, to complete this step."))
+
 /datum/surgery_step/fix_burn
 	allowed_tools = list(
 	/obj/item/stack/medical/advanced/ointment = 100,
