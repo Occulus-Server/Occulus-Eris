@@ -1,5 +1,5 @@
 /obj/item/weapon/gun/projectile/selfload
-	name = "FS HG .35 Auto \"Clarissa\""
+	name = "S HG .35 Auto \"Clarissa\""
 	desc = "A small, easily concealable, but somewhat underpowered gun. Uses both standard and highcap .35 Auto mags."
 	icon = 'icons/obj/guns/projectile/clarissa.dmi'
 	icon_state = "clarissa"
@@ -22,7 +22,7 @@
 
 	init_firemodes = list(
 		SEMI_AUTO_NODELAY,
-		BURST_3_ROUND
+		FULL_AUTO_800
 		)
 
 	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
