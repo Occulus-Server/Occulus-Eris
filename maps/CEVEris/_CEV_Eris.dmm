@@ -50887,7 +50887,7 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbay)
 "coC" = (
-/obj/machinery/vending/medical,
+/obj/machinery/vending/medical/occulus,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
 "coD" = (
@@ -77261,7 +77261,7 @@
 /area/eris/maintenance/oldbridge)
 "dyu" = (
 /obj/item/weapon/autopsy_scanner,
-/obj/structure/closet/secure_closet/reinforced/CMO,
+/obj/structure/closet/secure_closet/reinforced/CMOcculus,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/command/mbo)
 "dyv" = (
@@ -79841,7 +79841,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/vending/medical,
+/obj/machinery/vending/medical/occulus,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbreak)
 "dEr" = (
