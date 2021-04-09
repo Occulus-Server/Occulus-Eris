@@ -126,7 +126,7 @@
 	M.add_chemical_effect(CE_ALCOHOL, 1)
 
 //Tough people can drink a lot
-	var/tolerance = max(10, strength + M.stats.getStat(STAT_TGH))
+	var/tolerance = max(10, strength + (M.stats.getStat(STAT_TGH)/2))//Halved toughness impact on tolerence
 
 	if(M.stats.getPerk(/datum/perk/sommelier))
 		tolerance *= 10
