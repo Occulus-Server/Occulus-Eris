@@ -116,7 +116,7 @@
 	name = "adze head"
 	icon = 'zzzz_modular_occulus/icons/obj/tool_upgrades.dmi'
 	icon_state = "digging"
-	desc = "An adaz head. This attaches to any long tool to make it suitable for digging."
+	desc = "An adze head. This attaches to any long tool to make it suitable for digging."
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_STEEL = 2)
 	rarity_value = 20
 
