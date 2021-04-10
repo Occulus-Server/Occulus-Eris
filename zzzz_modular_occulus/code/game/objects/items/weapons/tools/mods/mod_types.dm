@@ -13,7 +13,7 @@
 	UPGRADE_DEGRADATION_MULT = 2,
 	UPGRADE_BULK = -1
 	)
-	I.prefix = "Collapsible"
+	I.prefix = "collapsible"
 
 
 /obj/item/weapon/tool_upgrade/augment/blade_addon
