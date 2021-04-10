@@ -2759,6 +2759,7 @@
 #include "zzz_modular_syzygy\grenades.dm"
 #include "zzz_modular_syzygy\hugbox.dm"
 #include "zzz_modular_syzygy\lockers.dm"
+#include "zzz_modular_syzygy\loot_spawn_blacklist.dm"
 #include "zzz_modular_syzygy\plasma.dm"
 #include "zzz_modular_syzygy\sofas.dm"
 #include "zzz_modular_syzygy\stashes.dm"
