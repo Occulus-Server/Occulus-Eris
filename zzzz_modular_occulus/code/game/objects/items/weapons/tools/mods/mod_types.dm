@@ -113,7 +113,7 @@
 	I.negative_qualities = list(QUALITY_SCREW_DRIVING)
 
 /obj/item/weapon/tool_upgrade/augment/digging_addon
-	name = "adaz head"
+	name = "adze head"
 	icon = 'zzzz_modular_occulus/icons/obj/tool_upgrades.dmi'
 	icon_state = "digging"
 	desc = "An adaz head. This attaches to any long tool to make it suitable for digging."
