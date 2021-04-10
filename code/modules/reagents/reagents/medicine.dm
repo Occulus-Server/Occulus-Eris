@@ -653,14 +653,11 @@
 	color = "#ded890"
 	scannable = 1
 	metabolism = REM/2
-	overdose = REAGENTS_OVERDOSE - 10
+	overdose = REAGENTS_OVERDOSE
 
 ///datum/reagent/medicine/polystem/affect_blood(mob/living/carbon/M, alien, effect_multiplier) Occulus Edit
 //	M.heal_organ_damage(0.2 * effect_multiplier, 0, 3 * effect_multiplier) Occulus Edit
 //	M.add_chemical_effect(CE_BLOODCLOT, min(1,0.1 * effect_multiplier)) Occulus Edit
-
-/datum/reagent/medicine/polystem/overdose(mob/living/carbon/M, alien)
-	M.add_chemical_effect(CE_BLOODCLOT, min(1,0.1))
 
 /datum/reagent/medicine/detox
 	name = "Detox"
