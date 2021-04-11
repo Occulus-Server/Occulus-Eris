@@ -6,7 +6,7 @@
 	max_crew_diff_lower = 3
 
 /datum/storyevent/blob
-	tags = list(TAG_COMBAT, TAG_DESTRUCTIVE, TAG_NEGATIVE)
+	tags = list(TAG_COMBAT, TAG_DESTRUCTIVE, TAG_NEGATIVE, TAG_ROUNDENDING)
 	req_crew = 9
 	max_crew_diff_lower = 3
 
