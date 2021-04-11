@@ -43349,6 +43349,11 @@
 /obj/structure/table/woodentable,
 /obj/item/device/lighting/toggleable/lamp/green,
 /obj/item/weapon/paper/forensicguide,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/carpet,
 /area/eris/security/inspectors_office)
 "bWF" = (
