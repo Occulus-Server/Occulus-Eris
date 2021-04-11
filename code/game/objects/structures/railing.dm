@@ -15,6 +15,8 @@
 	var/maxhealth=70
 	var/check = 0
 	var/icon_modifier = ""	//adds string to icon path for color variations
+	can_buckle = TRUE //Occulus Addition
+	buckle_require_restraints = 1 //Occulus Addition
 
 /obj/structure/railing/grey
 	name = "grey railing"
