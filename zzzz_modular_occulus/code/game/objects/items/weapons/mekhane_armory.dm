@@ -106,3 +106,37 @@ ARMOR_PEN_MASSIVE			30
 	name = "Mekhanite Burnpack"
 	singular_name = "Mekhanite Burnpack"
 	desc = "An advanced treatment kit for severe burns."
+
+/obj/item/weapon/tool/hammer/mek
+	name = "Mekhane Electro-Mace"
+	desc = "A carefully crafted, beautiful blunt instrument of destruction."
+	icon_state = "electromace0"
+	item_state = "electromace"
+	wielded_icon = "electromace1"
+	force = WEAPON_FORCE_ROBUST
+	structure_damage_factor = STRUCTURE_DAMAGE_HEAVY
+	armor_penetration = ARMOR_PEN_EXTREME
+	aspects = list(SANCTIFIED)
+	slot_flags = SLOT_BELT|SLOT_BACK
+	w_class = ITEM_SIZE_HUGE
+	tool_qualities = list(QUALITY_HAMMERING = 30)
+	matter = list(MATERIAL_BIOMATTER = 75, MATERIAL_STEEL = 20, MATERIAL_PLASTEEL = 5, MATERIAL_PLATINUM = 5)
+	suitable_cell = /obj/item/weapon/cell/medium
+	degradation = 0.7
+	use_power_cost = 2
+	icon = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi'
+	icon_state = "mek_mace"
+	item_state = "chargehammer"
+
+/datum/design/autolathe/sword/mek_hammer
+	name = "Mekhane Electro-Mace"
+	build_path = /obj/item/weapon/tool/hammer/mek
+
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/hammer
+	disk_name = "Mekhane Armory - Mekhane Electro-Mace"
+	icon_state = "neotheology"
+	designs = list(
+		/datum/design/autolathe/sword/mek_hammer,
+		/datum/design/autolathe/tool_upgrade/sanctifier
+	)

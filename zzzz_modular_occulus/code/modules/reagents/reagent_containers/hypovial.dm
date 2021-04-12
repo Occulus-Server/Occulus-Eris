@@ -1,19 +1,23 @@
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial // these have literally no fucking right to just be better beakers that you can shit out of a chemmaster
-	name = "broken hypovial"
-	desc = "A specialized capsule compatible with most hyposprays."
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge // these have literally no fucking right to just be better beakers that you can shit out of a chemmaster
+	name = "broken apollo cartridge"
+	desc = "A specialized cartridge compatible with the MID 'Apollo'."
 	icon = 'zzzz_modular_occulus/icons/obj/chemical.dmi'
 	icon_state = "hypovial"
 	w_class = ITEM_SIZE_SMALL
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge
 	volume = 10
 	rarity_value = 30
-	possible_transfer_amounts = list(1,2,5,10)
+	possible_transfer_amounts = list(5,10,15)
 
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/Initialize()
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/weapon/reagent_containers))
+		return 	..()
+
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/Initialize()
 	. = ..()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/update_icon()
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/update_icon()
 	cut_overlays()
 
 	if(reagents.total_volume)
@@ -21,11 +25,11 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/Initialize()
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/Initialize()
 	. = ..()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/update_icon()
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/update_icon()
 	cut_overlays()
 
 	if(reagents.total_volume)
@@ -33,30 +37,31 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/tiny
-	name = "small hypovial"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/tiny
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/tiny
+	name = "small mid apollo cartridge"
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/tiny
 	//Shouldn't be possible to get this without adminbuse
 
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/small
-	name = "hypovial"
-	volume = 60
-	possible_transfer_amounts = list(1,2,5,10,15)
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/bluespace
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small
+	name = "mid apollo cartridge"
+	volume = 45
+	rarity_value = 50
+	possible_transfer_amounts = list(5,10,15)
+/*
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/bluespace
 	name = "bluespace hypovial"
 	icon_state = "hypovialbs"
-	rarity_value = 150
-	volume = 120
-	possible_transfer_amounts = list(1,2,5,10,15,20)
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/large
-	name = "large hypovial"
-	desc = "A large hypovial, for deluxe hypospray models."
+	rarity_value = 100
+	volume = 90
+	possible_transfer_amounts = list(5,10,15)
+*/
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large
+	name = "mid 'hecate' cartridge"
+	desc = "A large MID Cartridge, for the MID 'Hecate'."
 	icon_state = "hypoviallarge"
 	rarity_value = 90
-	volume = 120
-	possible_transfer_amounts = list(1,2,5,10,15,20)
+	volume = 90
+	possible_transfer_amounts = list(5,10,15)
 /*	unique_reskin = list("large hypovial" = "hypoviallarge",		//Saving for icon reference purely.
 						"large red hypovial" = "hypoviallarge-b",
 						"large blue hypovial" = "hypoviallarge-d",
@@ -67,85 +72,90 @@
 						)
 	cached_icon = "hypoviallarge"
 */
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/bluespace
-	possible_transfer_amounts = list(1,2,5,10,20)
+/*
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/bluespace
+	possible_transfer_amounts = list(5,10,15)
 	name = "bluespace large hypovial"
 	volume = 240
 	rarity_value = 150
 	icon_state = "hypoviallargebs"
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/bicaridine
-	name = "red hypovial (bicaridine)"
+*/
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/polystem
+	name = "red mid cartridge (polystem)"
 	icon_state = "hypovial-b"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/bicaridine
-	preloaded_reagents = list("bicaridine" = 30)
-	rarity_value = 45
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/polystem
+	preloaded_reagents = list("polystem" = 45)
 
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/antitoxin
-	name = "green hypovial (Anti-Tox)"
-	icon_state = "hypovial-a"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/antitoxin
-	preloaded_reagents = list("anti_toxin" = 30)
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/kelotane
-	name = "orange hypovial (kelotane)"
-	icon_state = "hypovial-k"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/kelotane
-	preloaded_reagents = list("kelotane" = 30)
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/dexalin
-	name = "blue hypovial (dexalin)"
-	icon_state = "hypovial-d"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/dexalin
-	preloaded_reagents = list("dexalin" = 30)
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/tricord
-	name = "hypovial (tricordrazine)"
-	icon_state = "hypovial"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/small/tricord
-	preloaded_reagents = list("tricordrazine" = 30)
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/CMO
-	name = "deluxe hypovial"
-	icon_state = "hypoviallarge-cmos"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/CMO
-	preloaded_reagents = list("nanosymbiotes" = 20, "oxyrush" = 20, "trauma_control_system" = 20)
-	spawn_blacklisted = TRUE
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/bicaridine
-	name = "large red hypovial (bicaridine)"
-	icon_state = "hypoviallarge"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/bicaridine
-	preloaded_reagents = list("bicaridine" = 60)
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/antitoxin
-	name = "large green hypovial (anti-tox)"
-	icon_state = "hypoviallarge"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/antitoxin
-	preloaded_reagents = list("anti_toxin" = 60)
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/kelotane
-	name = "large orange hypovial (kelotane)"
-	icon_state = "hypoviallarge"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/kelotane
-	preloaded_reagents = list("kelotane" = 60)
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/dexalin
-	name = "large blue hypovial (dexalin)"
-	icon_state = "hypoviallarge"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/dexalin
-	preloaded_reagents = list("dexalin" = 60)
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/tricord
-	name = "large hypovial (tricord)"
-	icon_state = "hypoviallarge"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/large/tricord
-	preloaded_reagents = list("tricordrazine" = 60)
-
-/obj/item/weapon/reagent_containers/glass/beaker/hypovial/combat
-	name = "combat hypovial"
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/paracetamol
+	name = "grey mid cartridge (paracetamol)"
 	icon_state = "hypovial-t"
-	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypovial/combat
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/paracetamol
+	preloaded_reagents = list("paracetamol" = 45)
+
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/antitoxin
+	name = "green mid cartridge (anti-Tox)"
+	icon_state = "hypovial-a"
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/antitoxin
+	preloaded_reagents = list("anti_toxin" = 45)
+
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/kelotane
+	name = "orange mid cartridge (kelotane)"
+	icon_state = "hypovial-k"
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/kelotane
+	preloaded_reagents = list("kelotane" = 45)
+
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/dexalin
+	name = "blue mid cartridge (dexalin)"
+	icon_state = "hypovial-d"
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/dexalin
+	preloaded_reagents = list("dexalin" = 45)
+
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/tricord
+	name = "mid cartridge (tricordrazine)"
+	icon_state = "hypovial"
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/tricord
+	preloaded_reagents = list("tricordrazine" = 45)
+
+
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/CMO
+	name = "mid 'hecate' cartridge"
+	icon_state = "hypoviallarge"
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/CMO
+	preloaded_reagents = list("nanosymbiotes" = 15, "oxyrush" = 15, "trauma_control_system" = 15)
+
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/polystem
+	name = "mid 'hecate' cartridge (polystem)"
+	icon_state = "hypoviallarge"
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/polystem
+	preloaded_reagents = list("polystem" = 45)
+
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/antitoxin
+	name = "mid 'hecate' cartridge (anti-tox)"
+	icon_state = "hypoviallarge"
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/antitoxin
+	preloaded_reagents = list("anti_toxin" = 45)
+
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/kelotane
+	name = "mid 'hecate' cartridge (kelotane)"
+	icon_state = "hypoviallarge"
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/kelotane
+	preloaded_reagents = list("kelotane" = 45)
+
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/dexalin
+	name = "mid 'hecate' cartridge (dexalin)"
+	icon_state = "hypoviallarge"
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/dexalin
+	preloaded_reagents = list("dexalin" = 45)
+
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/tricord
+	name = "mid 'hecate' cartridge (tricord)"
+	icon_state = "hypoviallarge"
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/tricord
+	preloaded_reagents = list("tricordrazine" = 45)
+
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/combat
+	name = "combat mid 'ares' cartridge"
+	icon_state = "hypovial-t"
+	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/combat
 	rarity_value = 100
-	preloaded_reagents = list("synaptizine" = 10, "hyperzine" = 10, "oxycodone" = 10, "trauma_control_system" = 10, "nanosymbiotes" = 10)
-	spawn_blacklisted = TRUE
+	preloaded_reagents = list("synaptizine" = 5, "hyperzine" = 10, "oxycodone" = 10, "trauma_control_system" = 10, "nanosymbiotes" = 10)
