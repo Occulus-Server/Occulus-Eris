@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	// "math" used by Spola()
 	"log"
@@ -205,10 +206,23 @@ func Spola() string {
 }
 */
 
+var (
+	ErrServerOffline = errors.New("server offline or state unobtainable")
+	ErrServerLog = errors.New("see server log for details")
+)
+
 func init() {
 	addCommand(&botCommand{
 		name: "status",
+		help: "Returns the current status of the server, if it's up.",
 		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
+			err := b.getState()
+			if err != nil {
+				log.Println(err)
+				// b.session.ChannelMessageSend(m.ChannelID, "An error occurred while getting the server state. Maybe it isn't up?")
+				return ErrServerOffline
+			}
+
 			b.session.ChannelMessageSend(
 				m.ChannelID,
 				fmt.Sprintf("%s\n%s\n%s\n%s",
@@ -224,7 +238,15 @@ func init() {
 	})
 	addCommand(&botCommand{
 		name: "time",
+		help: "Returns the current round duration.",
 		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
+			err := b.getState()
+			if err != nil {
+				log.Println(err)
+				// b.session.ChannelMessageSend(m.ChannelID, "An error occurred while getting the server state. Maybe it isn't up?")
+				return ErrServerOffline
+			}
+
 			b.session.ChannelMessageSend(
 				m.ChannelID,
 				fmt.Sprintf("The round duration is currently %s.", b.State.Duration),
@@ -235,7 +257,15 @@ func init() {
 	})
 	addCommand(&botCommand{
 		name: "roaches",
+		help: "Returns the number of roaches on the ship.",
 		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
+			err := b.getState()
+			if err != nil {
+				log.Println(err)
+				// b.session.ChannelMessageSend(m.ChannelID, "An error occurred while getting the server state. Maybe it isn't up?")
+				return ErrServerOffline
+			}
+
 			b.session.ChannelMessageSend(
 				m.ChannelID,
 				fmt.Sprintf("There have been %d roaches active onboard the ship.", b.State.Roaches),
@@ -247,7 +277,6 @@ func init() {
 	addCommand(&botCommand{
 		name: "setnotif",
 		priv: true,
-		off: true,
 		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
 			var r string
 			if o, err := b.session.Guild(m.GuildID); err == nil {
@@ -256,11 +285,11 @@ func init() {
 					r = "Set the notifications channel to the current channel."
 				} else {
 					log.Println("Owner ID mismatch - ", m.ID, o.OwnerID)
-					return nil
+					return nil // silently do this
 				}
 			} else {
 				log.Println(err)
-				r = "An error occurred while attempting to change the notification channel."
+				return fmt.Errorf("setnotif: %s", ErrServerLog)
 			}
 
 			b.session.ChannelMessageSend(m.ChannelID, r)
@@ -271,7 +300,6 @@ func init() {
 	addCommand(&botCommand{
 		name: "setnotifgroup",
 		priv: true,
-		off: true,
 		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
 			var r string
 			if g, err := b.session.Guild(m.GuildID); err == nil {
@@ -288,7 +316,7 @@ func init() {
 				}
 			} else {
 				log.Println(err)
-				r = "An error occurred while attempting to change the notification channel."
+				return fmt.Errorf("setnotifgroup: %s", ErrServerLog)
 			}
 
 			b.session.ChannelMessageSend(m.ChannelID, r)

@@ -26,6 +26,8 @@ type Bot struct {
 }
 
 func startBot(t string, r int) error {
+	// in case we're reading from a keyfile and the file ends with a newline
+	t = strings.TrimRight(t, "\n")
 	var err error
 
 	b := new(Bot)
@@ -137,8 +139,8 @@ func (b *Bot) StatusChange(j string, r *bool) error {
 
 type botCommand struct {
 	name string // command name
+	help string // help message
 	priv bool // display it in !help or not
-	off bool // can this be run if the server is offline?
 	// bot, the args, and the raw message sent
 	cmd func(*Bot, []string, *discordgo.MessageCreate) error
 }
@@ -159,7 +161,8 @@ func addCommand(c *botCommand) {
 }
 
 func (b *Bot) handleMessage(s *discordgo.Session, m *discordgo.MessageCreate) {
-	if m.Author.ID == s.State.User.ID {
+	// don't listen to messages made outside of guilds it's in
+	if m.Author.ID == s.State.User.ID || m.GuildID == "" {
 		return
 	}
 
@@ -167,21 +170,26 @@ func (b *Bot) handleMessage(s *discordgo.Session, m *discordgo.MessageCreate) {
 		if m.Content[0:len(b.BotName) + 1] == b.BotName + `!` {
 			c := strings.Split(m.Content[len(b.BotName) + 1:], " ")
 			if c[0] == "help" {
-				s.ChannelMessageSend(m.ChannelID, fmt.Sprintf(
-					"Available commands: %s",
-					strings.Join(botCommandList, ", "),
-				))
+				if len(c) == 1 {
+					s.ChannelMessageSend(m.ChannelID, fmt.Sprintf(
+						"Available commands (add the command name for more details): %s",
+						strings.Join(botCommandList, ", "),
+					))
+				} else if f, e := botCommands[c[1]] ; e && !f.priv {
+					s.ChannelMessageSend(m.ChannelID, fmt.Sprintf(
+						"Command `%s`: %s",
+						c[1], f.help,
+					))
+				} else {
+					s.ChannelMessageSend(m.ChannelID, fmt.Sprintf(
+						"Command not found.",
+					))
+				}
 			} else if f, e := botCommands[c[0]] ; e {
-				err := b.getState()
+				err := f.cmd(b, c, m)
 				if err != nil {
 					log.Println(err)
-					s.ChannelMessageSend(m.ChannelID, "An error occurred while getting the server state. Maybe it isn't up?")
-				} else {
-					err = f.cmd(b, c, m)
-					if err != nil {
-						log.Println(err)
-						s.ChannelMessageSend(m.ChannelID, "An error occurred while running the command.")
-					}
+					s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("An error occurred while running command `%s`: %s", c[0], err))
 				}
 			} else {
 				s.ChannelMessageSend(m.ChannelID, "Command not found.")
@@ -189,91 +197,3 @@ func (b *Bot) handleMessage(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 	}
 }
-
-/*
-func (b *Bot) handleMessage(s *discordgo.Session, m *discordgo.MessageCreate) {
-	if m.Author.ID == s.State.User.ID {
-		return
-	}
-
-	if len(m.Content) > len(b.BotName) + 1 {
-		if m.Content[0:len(b.BotName) + 1] == b.BotName + "!" {
-			var r string
-			e := strings.Split(m.Content, " ")
-
-			switch e[0][len(b.BotName) + 1:] {
-			case "status":
-
-			case "players":
-				err := b.getState()
-				if err != nil {
-					log.Println(err)
-					r = "An error occurred while getting the current server state."
-				} else {
-					r = fmt.Sprintf("Current players online: %d", b.State.Players)
-				}
-
-				s.ChannelMessageSend(m.ChannelID, r)
-			case "admins":
-				err := b.getState()
-				if err != nil {
-					log.Println(err)
-					r = "An error occurred while getting the current server state."
-				} else {
-					r = fmt.Sprintf("Current admins online: %d", b.State.Admins)
-				}
-
-				s.ChannelMessageSend(m.ChannelID, r)
-			case "crew":
-				err := b.getState()
-				if err != nil {
-					log.Println(err)
-					r = "An error occurred while getting the current server state."
-				} else {
-					r = "```\n" + writeCrewManifest(b.State.CrewManifest) + "\n```"
-				}
-
-				u, err := s.UserChannelCreate(m.Author.ID)
-				if err != nil { log.Println("An error occurred when trying to DM a user.") }
-				s.ChannelMessageSend(u.ID, r)
-			case "setnotif":
-				var r string
-				if o, err := s.Guild(m.GuildID); err == nil {
-					if m.Author.ID == o.OwnerID {
-						b.NotificationChannel = m.ChannelID
-						r = "Set the notifications channel to the current channel."
-					} else {
-						log.Println("Owner ID mismatch - ", m.ID, o.OwnerID)
-						return
-					}
-				} else {
-					log.Println(err)
-					r = "An error occurred while attempting to change the notification channel."
-				}
-
-				s.ChannelMessageSend(m.ChannelID, r)
-			case "setnotifgroup":
-				var r string
-				if g, err := s.Guild(m.GuildID); err == nil {
-					if m.Author.ID == g.OwnerID {
-						if len(m.MentionRoles) > 0 {
-							b.NotificationGroup = m.MentionRoles[0]
-							r = "Set the notifications channel to the first mentioned group."
-						} else {
-							r = "You must mention a group in your message to set the notification group."
-						}
-					} else {
-						log.Println("Owner ID mismatch - ", m.ID, g.OwnerID)
-						return
-					}
-				} else {
-					log.Println(err)
-					r = "An error occurred while attempting to change the notification channel."
-				}
-
-				s.ChannelMessageSend(m.ChannelID, r)
-			}
-		}
-	}
-}
-*/
