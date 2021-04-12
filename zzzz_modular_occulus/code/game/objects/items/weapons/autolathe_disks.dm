@@ -40,6 +40,16 @@
 		/datum/design/autolathe/ammo/pistol_ammobox/rubber
 		)
 
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/fabkits
+	disk_name = "EES FabKit Designs"
+	icon_state = "technomancers"
+	rarity_value = 182
+	designs = list(
+		/datum/design/autolathe/fabkit
+		
+		)
+
+
 /*
 CHURCH DISKS
 */
