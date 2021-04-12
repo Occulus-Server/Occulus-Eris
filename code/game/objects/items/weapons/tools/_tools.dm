@@ -814,6 +814,7 @@
 	sharp = initial(sharp)
 	prefixes = list()
 
+
 	//Now lets have each upgrade reapply its modifications
 	SEND_SIGNAL(src, COMSIG_APPVAL, src)
 
