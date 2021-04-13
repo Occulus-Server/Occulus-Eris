@@ -45,8 +45,10 @@
 	icon_state = "technomancers"
 	rarity_value = 182
 	designs = list(
-		/datum/design/autolathe/fabkit
-		
+		/datum/design/autolathe/fabkit,
+		/datum/design/autolathe/fabkit/bench,
+		/datum/design/autolathe/fabkit/bag,
+		/datum/design/autolathe/fabkit/psych
 		)
 
 
