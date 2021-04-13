@@ -1528,7 +1528,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/closet/crate
 	group = "Operations"
 
-/datum/supply_pack/randomised/rig
+//Occulus addition start
+/datum/supply_pack/randomised/carpet
 	num_contained = 4
 	contains = list(/obj/item/stack/tile/carpet/cpack,
 					/obj/item/stack/tile/carpet/bcarpet/cpack,
@@ -1543,6 +1544,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	cost = 2500
 	crate_name = "Surplus Carpet Crate"
 	group = "Miscellaneous"
+//Occulus Addition end
 
 /datum/supply_pack/nanites
 	name = "Raw Nanites"
