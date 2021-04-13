@@ -111,7 +111,7 @@ var/datum/gateway_server/gateway_server = new
 	if (up)
 		var/C
 
-        C = call(CONN_LIBRARY, "SendAndClose")("127.0.0.1", "[port]", json_encode(D))
+		C = call(CONN_LIBRARY, "SendAndClose")("127.0.0.1", "[port]", json_encode(D))
 
 		if (C == CONN_SUCCESS)
 			log_debug("State successfully transferred to gateway server.")

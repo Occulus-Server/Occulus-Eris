@@ -21,8 +21,8 @@
 
 /datum/vote_choice/transfer/on_win()
 	evacuation_controller.call_evacuation(null, FALSE, TRUE, FALSE, TRUE)
-    spawn(0)
-        gateway_server.send_state()
+	spawn(0)
+		gateway_server.send_state()
 
 /datum/vote_choice/notransfer
 	text = "Remain here for the next hour"
