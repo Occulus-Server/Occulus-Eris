@@ -25,7 +25,7 @@
 
 //boolean
 #define UPGRADE_SHARP "sharp"
-
+#define UPGRADE_QUALITIES "extra_qualities"
 #define UPGRADE_CELLPLUS "cell_hold_upgrade"
 
 //flags

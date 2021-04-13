@@ -1,7 +1,7 @@
 /obj/item/weapon/mine/
 	name = "landmine"
-	explosion_d_size = -1
-	explosion_h_size = -1
+	explosion_d_size = 0
+	explosion_h_size = 0
 	explosion_l_size = 2
 	explosion_f_size = 15
 	num_fragments = 8

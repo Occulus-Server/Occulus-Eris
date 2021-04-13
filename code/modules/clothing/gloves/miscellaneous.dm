@@ -89,6 +89,7 @@
 	germ_level = 0
 	price_tag = 50
 	rarity_value = 11
+	no_fibers = TRUE	// OCCULUS EDIT
 
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
