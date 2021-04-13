@@ -206,7 +206,7 @@
 /datum/design/bioprinter/carpet
 	name = "red carpet"
 	build_path = /obj/item/stack/tile/carpet
-	materials = list(MATERIAL_BIOMATTER = 1)
+	materials = list(MATERIAL_BIOMATTER = 3)
 
 /datum/design/bioprinter/carpet/bcarpet
 	name = "black carpet"

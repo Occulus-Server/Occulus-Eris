@@ -1300,6 +1300,57 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	cost = 1000
 	crate_name ="Empty disks crate"
 	group = "Miscellaneous"
+//Occulus Addition
+/datum/supply_pack/warmcarpet
+	contains = list(/obj/item/stack/tile/carpet/cpack,
+				/obj/item/stack/tile/carpet/oracarpet/cpack,
+				/obj/item/stack/tile/carpet/gaycarpet/cpack,				
+				/obj/item/stack/tile/carpet/sblucarpet/cpack
+				)
+	name = "Warm Carpet Crate"
+	cost = 3500
+	crate_name = "warm carpet crate"
+	group = "Miscellaneous"
+
+/datum/supply_pack/coldcarpet
+	contains = list(/obj/item/stack/tile/carpet/blucarpet/cpack,
+					/obj/item/stack/tile/carpet/turcarpet/cpack,
+					/obj/item/stack/tile/carpet/bcarpet/cpack,
+					/obj/item/stack/tile/carpet/purcarpet/cpack
+					)
+	name = "Cool Carpet Crate"
+	cost = 3500
+	crate_name = "cool carpet crate"
+	group = "Miscellaneous"
+
+/datum/supply_pack/cottonbed
+	contains = list(/obj/item/fabkit,
+					/obj/item/fabkit,
+					/obj/item/fabkit,
+					/obj/item/fabkit,
+					/obj/item/fabkit
+					)
+	name = "Cotton Bed Multi-kit Crate"
+	cost = 1500
+	crate_name = "cotton bed crate"
+	group = "Miscellaneous"
+
+/datum/supply_pack/psychbed
+	contains = list(/obj/item/fabkit/psych
+					)
+	name = "Psych Couch Fabkit Crate"
+	cost = 600
+	crate_name = "psych bed crate"
+	group = "Miscellaneous"
+
+/datum/supply_pack/gymkit
+	contains = list(/obj/item/fabkit/bench,
+					/obj/item/fabkit/bag)
+	name = "At Dorm Gym Crate"
+	cost = 3000
+	crate_name = "gym kit crate"
+	group = "Miscellaneous"
+	//Occulus Addition End
 
 //----------------------------------------------
 //-----------------RANDOMISED-------------------
@@ -1476,6 +1527,22 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	crate_name = "Surplus Rig Modules"
 	containertype = /obj/structure/closet/crate
 	group = "Operations"
+
+/datum/supply_pack/randomised/rig
+	num_contained = 4
+	contains = list(/obj/item/stack/tile/carpet/cpack,
+					/obj/item/stack/tile/carpet/bcarpet/cpack,
+					/obj/item/stack/tile/carpet/blucarpet/cpack,
+					/obj/item/stack/tile/carpet/turcarpet/cpack,
+					/obj/item/stack/tile/carpet/sblucarpet/cpack,
+					/obj/item/stack/tile/carpet/gaycarpet/cpack,
+					/obj/item/stack/tile/carpet/purcarpet/cpack,
+					/obj/item/stack/tile/carpet/oracarpet/cpack
+					)
+	name = "Surplus Carpet Crate"
+	cost = 2500
+	crate_name = "Surplus Carpet Crate"
+	group = "Miscellaneous"
 
 /datum/supply_pack/nanites
 	name = "Raw Nanites"

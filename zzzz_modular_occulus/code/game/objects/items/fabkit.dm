@@ -6,6 +6,7 @@
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 5)
 	w_class = ITEM_SIZE_NORMAL
 	rarity_value = 123
+	price_tag = 300
 	var/structure_form_type = /obj/structure/bed/padded	
 
 /obj/item/fabkit/attack_self(mob/user)
@@ -25,20 +26,23 @@
 	matter = list(MATERIAL_STEEL = 30, MATERIAL_PLASTEEL = 10)
 	w_class = ITEM_SIZE_HUGE
 	rarity_value = 223
+	price_tag = 1500
 	structure_form_type = /obj/structure/fitness/weightlifter
 
 /obj/item/fabkit/bag
 	name = "EES Punchingbag FabKit"
 	icon_state = "fabkit_bag"
-	matter = list(MATERIAL_STEEL = 10, MATERIAL_PLASTIC = 30)
+	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 30)
 	w_class = ITEM_SIZE_HUGE
 	rarity_value = 223
+	price_tag = 1500
 	structure_form_type = /obj/structure/fitness/punchingbag
 
 /obj/item/fabkit/psych
 	name = "EES Psych Bed FabKit"
 	icon_state = "fabkit_psych"
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_WOOD = 5, MATERIAL_PLASTIC = 2)
-	w_class = ITEM_SIZE_HUGE
+	w_class = ITEM_SIZE_NORMAL
 	rarity_value = 223
+	price_tag = 600
 	structure_form_type = /obj/structure/bed/psych
