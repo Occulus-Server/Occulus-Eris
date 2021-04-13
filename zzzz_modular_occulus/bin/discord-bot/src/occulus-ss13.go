@@ -7,7 +7,7 @@ import (
 	"log"
 	// "strings" Required by the crew manifest constructor, do not remove yet
 	// "text/tabwriter" Required by the crew manifest constructor, do not remove yet
-	"strconv"
+	// "strconv"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -27,6 +27,7 @@ const (
 	Restarting
 )
 
+/*
 func (s *RoundStatus) UnmarshallJSON(b []byte) error {
 	i, err := strconv.Atoi(string(b))
 	if err != nil {
@@ -38,6 +39,7 @@ func (s *RoundStatus) UnmarshallJSON(b []byte) error {
 
 	return nil
 }
+*/
 
 /* Disabled until a consensus can be reached about player visiblity.
 // thanks, /proc/nano_crew_manifest()
@@ -222,14 +224,15 @@ func init() {
 				// b.session.ChannelMessageSend(m.ChannelID, "An error occurred while getting the server state. Maybe it isn't up?")
 				return ErrServerOffline
 			}
+			log.Println(b.state)
 
 			b.session.ChannelMessageSend(
 				m.ChannelID,
 				fmt.Sprintf("%s\n%s\n%s\n%s",
-					getRoundStatus(b.State.Status),
-					fmt.Sprintf("The round duration is currently %s.", b.State.Duration),
-					fmt.Sprintf("The storyteller is currently %s.", b.State.Storyteller),
-					fmt.Sprintf("There have been %d roaches active onboard the ship.", b.State.Roaches),
+					getRoundStatus(b.state.Status),
+					fmt.Sprintf("The round duration is currently %s.", b.state.Duration),
+					fmt.Sprintf("The storyteller is currently %s.", b.state.Storyteller),
+					fmt.Sprintf("There have been %d roaches active onboard the ship.", b.state.Roaches),
 				),
 			)
 
@@ -249,7 +252,7 @@ func init() {
 
 			b.session.ChannelMessageSend(
 				m.ChannelID,
-				fmt.Sprintf("The round duration is currently %s.", b.State.Duration),
+				fmt.Sprintf("The round duration is currently %s.", b.state.Duration),
 			)
 
 			return nil
@@ -268,7 +271,7 @@ func init() {
 
 			b.session.ChannelMessageSend(
 				m.ChannelID,
-				fmt.Sprintf("There have been %d roaches active onboard the ship.", b.State.Roaches),
+				fmt.Sprintf("There have been %d roaches active onboard the ship.", b.state.Roaches),
 			)
 
 			return nil

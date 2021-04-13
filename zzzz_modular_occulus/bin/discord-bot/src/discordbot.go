@@ -21,7 +21,7 @@ type Bot struct {
 	BotName               string `json:"botName"`
 	NotificationChannel   string `json:"notificationChannel"`
 	NotificationGroup     string `json:"notificationGroup"`
-	State                 *State
+	state                 State
 	session               *discordgo.Session
 }
 
@@ -68,7 +68,7 @@ func startBot(t string, r int) error {
 
 	// close the session, write the current config
 	b.session.Close()
-	b.State = nil
+	b.state = State{}
 	f, _ = os.Create("config.json")
 	j, _ = json.MarshalIndent(b, "", "\t")
 	f.Write(j)
@@ -105,7 +105,8 @@ func (b *Bot) getState() error {
 
 	j, err := io.ReadAll(resp.Body)
 	if err != nil { return err }
-	json.Unmarshal(j, b.State)
+	err = json.Unmarshal(j, &b.state)
+	if err != nil { return err }
 
 	return nil
 }
@@ -118,8 +119,12 @@ func (b *Bot) getState() error {
 func (b *Bot) StatusChange(j string, r *bool) error {
 	log.Println("status changed")
 	log.Println(string(j))
-	json.Unmarshal([]byte(j), b.State)
-	if s := getRoundStatus(b.State.Status) ; s != "" {
+	err := json.Unmarshal([]byte(j), &b.state)
+	if err != nil {
+		return err
+	}
+
+	if s := getRoundStatus(b.state.Status) ; s != "" {
 		b.session.ChannelMessageSendComplex(
 			b.NotificationChannel,
 			&discordgo.MessageSend{
@@ -132,7 +137,7 @@ func (b *Bot) StatusChange(j string, r *bool) error {
 				},
 			})
 	}
-	log.Println(b.State)
+	log.Println(b.state)
 
 	return nil
 }

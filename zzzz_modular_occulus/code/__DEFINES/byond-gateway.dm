@@ -42,11 +42,6 @@ var/datum/gateway_server/gateway_server = new
 	if (!up)
 		var/retry_attempts = 0
 
-		// this is broken on linux, sad
-		if (world.system_type != UNIX)
-			// so we don't lock up the server
-			tffi_initialize() 
-
 		spawn()
 			while (1)
 				port = rand(30000, 40000)
@@ -59,7 +54,7 @@ var/datum/gateway_server/gateway_server = new
 				var/c = shell("[GATEWAY_EXEC] [port] [world.port] [bot_port] [bot_call]")
 
 				up = FALSE
-				if (c != 0 || c == null)
+				if (c != 0 || c == null || Master.current_runlevel != 4) // if it exits ungracefully, or we're not restarting yet
 					if (retry_attempts < 5)
 						log_debug("Gateway server exited with non-zero code, attempting to restart.")
 
@@ -116,11 +111,7 @@ var/datum/gateway_server/gateway_server = new
 	if (up)
 		var/C
 
-		if (world.system_type != UNIX)
-			C = call_wait("byond-socks.dll", "SendAndClose", "127.0.0.1", "[port]", json_encode(D))
-		else
-			// welp, let's hope the library doesn't lock up
-			C = call("byond-socks.so", "SendAndClose")("127.0.0.1", "[port]", json_encode(D))
+        C = call(CONN_LIBRARY, "SendAndClose")("127.0.0.1", "[port]", json_encode(D))
 
 		if (C == CONN_SUCCESS)
 			log_debug("State successfully transferred to gateway server.")
@@ -154,7 +145,7 @@ ADMIN_VERB_ADD(/client/proc/Update_Gateway_Server, R_ADMIN|R_DEBUG, FALSE)
 /// Hook, Topic ///
 
 /datum/world_topic/update_gateway_state
-	keyword = "update_state"
+	keyword = "update_rest"
 	log = FALSE
 
 /datum/world_topic/update_gateway_state/Run(list/input)
