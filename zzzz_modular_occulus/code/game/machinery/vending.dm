@@ -1,3 +1,6 @@
+/obj/machinery/vending
+	shut_up = 1//Shush. We don't need these
+
 /obj/machinery/vending/medical/occulus
 	name = "MiniPharma Plus"
 	desc = "Medical drug dispenser."
