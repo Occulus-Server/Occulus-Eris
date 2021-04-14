@@ -57,6 +57,7 @@ Has ability of every roach.
 		return
 
 	if(can_call_reinforcements())
+		var/obj/spawner/mob/roaches/cluster/babies = new /obj/spawner/mob/roaches/cluster/babies(get_turf(sec)) //Occulus Edit: More. More. More
 		distress_call()
 
 	gas_sac.add_reagent("blattedin", 1)
