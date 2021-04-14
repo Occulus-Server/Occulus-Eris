@@ -333,7 +333,7 @@
 	var/turf/hit_location //used for reporting hit locations. The meteor may be deleted and its location nulled by report time
 
 /obj/effect/meteor/proc/get_shield_damage()
-	return max(((max(hits, 2)) * (heavy + 1) * rand(100, 140)) / hitpwr , 0)
+	return max(((max(hits, 2)) * (heavy + 1) * rand(20, 28)) / hitpwr , 0)//Occulus edit
 
 /obj/effect/meteor/New()
 	..()
