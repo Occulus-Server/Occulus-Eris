@@ -60255,6 +60255,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/circuits,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/fabkits,
 /obj/item/stack/material/plasteel{
 	amount = 20
 	},
