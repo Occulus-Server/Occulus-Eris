@@ -60,6 +60,13 @@
 		stat &= ~BROKEN
 		update_icon()
 		return
+	//Occulus Addition start
+	if(W.has_quality(QUALITY_BOLT_TURNING))
+		anchored = !anchored
+		to_chat(user, "You [anchored ? "attached" : "detached"] [src].")
+		playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
+		return
+	//Occulus Addition end
 
 /obj/machinery/holoposter/attack_ai(mob/user as mob)
 	return attack_hand(user)

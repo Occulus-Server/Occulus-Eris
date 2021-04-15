@@ -386,7 +386,17 @@
 		/datum/design/bioprinter/tubular/vial,
 
    		/datum/design/autolathe/device/headset_church,
-		/datum/design/bioprinter/leather/cash_bag
+		/datum/design/bioprinter/leather/cash_bag,
+		//Occulus Addition start
+		/datum/design/bioprinter/carpet,
+		/datum/design/bioprinter/carpet/bcarpet,
+		/datum/design/bioprinter/carpet/blucarpet,
+		/datum/design/bioprinter/carpet/turcarpet,
+		/datum/design/bioprinter/carpet/sblucarpet,
+		/datum/design/bioprinter/carpet/gaycarpet,
+		/datum/design/bioprinter/carpet/purcarpet,
+		/datum/design/bioprinter/carpet/oracarpet
+		//Occulus Addition end
 	)
 
 // Kinda like the regular product NT disk, minus the grenades, soap and the cleaner carbine. Should spawn in public access bioprinters if they get added by any chance.

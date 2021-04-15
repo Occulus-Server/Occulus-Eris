@@ -196,6 +196,7 @@
 	)
 	siemens_coefficient = 0.8
 	price_tag = 250
+	no_fibers = TRUE	// OCCULUS EDIT
 
 /obj/item/clothing/suit/storage/detective/ironhammer
 	name = "Inspector's armored trenchcoat"

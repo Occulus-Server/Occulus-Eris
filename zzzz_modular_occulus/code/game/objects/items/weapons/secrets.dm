@@ -19,17 +19,17 @@
 /obj/item/weapon/paper/spiders
 	name = "paper- 'Really?'"
 	info = {"Spiders? That's R&D's great plan to handle what the supply team let loose? All because one guy in security went missing? I swear they put drugs in the air because only someone high or stupid would think two giant bugs aboard is a good idea."}
-	
+
 /obj/item/weapon/paper/skies
 	name = "paper- 'The Skies are Buried Deep?'"
 	info = {"I see it wherever I look. Etched into the walls in maint. Written in roach guts on the floor. Muttered between crewmen when no one's looking. What does it mean!? What are they hiding!?"}
-	
+
 /obj/item/weapon/paper/email
 	name = "paper- 'RE: Drive Issues'"
 	info = {"Rest assured Captain *illegible*, your engineering team is either sharing around some very good drugs or needs more rest. The *illegible* design is safe and under all tests the lab environment stayed at a constant one hume, if this is an attempt at a refund or a joke it's in very poor taste either way.
 	<br>
 	Director of Marketing, *illegible*"}
-	
+
 /obj/item/weapon/paper/gospel
 	name = "paper- 'Excerpt from The Cockroach King’s gospel: Martin 2:13'"
 	info = {"...and I feel the roaches surrounding me,
@@ -51,21 +51,21 @@
 	where skies are buried deep.
 	<br>
 	The skies are buried deep."}
-	
+
 /obj/item/weapon/paper/solgov
 	name = "paper- 'RE: Our Cargo'"
 	info = {"Captain *illegible* you have no idea what you've just done. If you want to keep your vessel and freedom you will submit to a full search and inspection by a biohazard team at next jump. I do not need to tell you what happens if you don't comply.
 	<br>
 	-Defense Minister *illegible*"}
-	
+
 /obj/item/weapon/paper/bioweapon
     name = "paper- 'Experiment Log Conclusion'"
     info = {"As the above tests suggest, the bioweapon is still roughly as potent as *illegible* claimed it would be when we received it. The fact that it's difficult to contain makes it both terrifying to work with and extremely fascinating. Thank God these windows are reinforced; I think if they weren't, the more dangerous strains would claw right through them. Maybe we should consider setting up electric grilles...?"}
-	
+
 /obj/item/weapon/paper/forensic
 	name = "paper- 'Forensic Report'"
 	info = {"From what we found left of officer *illegible* I think we can safely assume this wasn't murder, at least by another crewmember. The state we found his remains and soulcrypt in the pile of *illegible* suggest that they ate him, these things are much more dangerous than we were clearly told, and a security team trying to capture them - alive no less is unviable."}
-	
+
 /obj/item/weapon/paper/hivemind
 	name = "paper- 'Unsent Letter'"
 	info = {"NanoTrasen Science Division
@@ -77,13 +77,28 @@
 	<br>
 	Through the noble sacrifice of one of our Junior Research Assistants, we have been able to contain a small amount of material sourced from the Hivemind. Captain Lovelace is preparing a brief obituary and letters to the assistant’s immediate family, which will be included with this report.
 	<br>
-	Our team has been able to extract a significant amount of data from the sample, and much of it suggests that we will be able to extract exponentially more if we were to obtain a larger sample. The most curious aspect of what we have discovered is that much of the code that we have been able to decrypt points towards the Church of Mekhane. 
+	Our team has been able to extract a significant amount of data from the sample, and much of it suggests that we will be able to extract exponentially more if we were to obtain a larger sample. The most curious aspect of what we have discovered is that much of the code that we have been able to decrypt points towards the Church of Mekhane.
 	<br>
 	While we do not know how the Church is involved or related to the Hivemind, Father *illegible* has been more than helpful and cooperative, providing texts and samples of their own software for comparison. As far as our analysis can tell, while the code of the Hivemind refers to Mekhane, it is unlikely that the Church had a hand in its creation, given the limited scope of their equipment on the ship. I have asked EES to pay close attention and notify me of any anomalous power readings from the Church. Better safe than sorry.
 	<br>
 	As always, we will continue to work hard to unlock the secrets of this ship.
 	<br>
 	Regards,
+	<br>
+	Dr. Zaqel Qarxik
+	NanoTrasen Chief Science Officer
+	CEV Northern Light"}
+
+/obj/item/weapon/paper/oscarreport
+	name = "paper- 'Exterminator Report'"
+	info = {"<b>Maudy & Martin's Extermination Services</b>
+	1/19/21
+	<br>
+	    Mister Cooper,
+	<br>
+	I have no idea what you're expecting out of our lads. You haven't paid us for our last go at a spraydown. I don't think the fumigation is even working; I think the damn critters are getting stronger from it. They're vicious, too, and our Service Tech swears they're getting bigger. Don't know if I believe her, but this is all to say that we aren't liking our prospects at clearing this out with the fare that we usually have. We can try using less dilute stuff, but I don't think that'll cut the hole you're looking for.
+	<br>
+	I'll tell you what; we have some old stuff that we bought before the Solarian Government passed a regulation bill a couple years back. We aren't allowed to buy any more, and we're supposed to get rid of all of it by the end of 2425. Just to warn you, it's strong stuff. It's a more dilute version of the crud
 	<br>
 	Dr. Zaqel Qarxik
 	NanoTrasen Chief Science Officer

@@ -1,11 +1,21 @@
+#define STATE_DORMANT (1<<0)
+#define STATE_ACTIVE  (1<<1)
+
 /mob/living/bot/cleanbot
+
 	name = "Cleanbot"
+	var/active_name = "Cleanbot"
+	var/dormant_name = "dormant Cleanbot"
+
 	desc = "A little cleaning robot, he looks so excited!"
+	var/active_desc = "A little cleaning robot, it looks so excited!"
+	var/dormant_desc = "A little cleaning robot. Its LEDs are pulsing in a low-power mode."
+
 	icon_state = "cleanbot0"
 	req_one_access = list(access_janitor, access_robotics)
 	botcard_access = list(access_janitor, access_maint_tunnels)
 
-	locked = 0 // Start unlocked so roboticist can set them to patrol.
+	locked = 1
 
 	var/obj/effect/decal/cleanable/target
 	var/list/path = list()
@@ -29,6 +39,13 @@
 
 	var/maximum_search_range = 7
 	var/give_up_cooldown = 0
+
+	var/state = STATE_DORMANT
+
+	var/last_scan = 0
+	var/active_cooldown = 3	// in ms
+	var/dormant_cooldown = 300	// in ms
+	var/manual_override = FALSE
 
 /mob/living/bot/cleanbot/New()
 	..()
@@ -67,9 +84,6 @@
 	if(cleaning)
 		return
 
-	if(!screwloose && !oddbutton && prob(5))
-		visible_message("[src] makes an excited beeping booping sound!")
-
 	if(screwloose && prob(5)) // Make a mess
 		if(istype(loc, /turf/simulated))
 			var/turf/simulated/T = loc
@@ -88,32 +102,58 @@
 		patrol_path = list()
 		return
 
+	scan_for_cleanables()
+
+/mob/living/bot/cleanbot/proc/scan_for_cleanables()
+
 	var/found_spot
 	var/target_in_view = FALSE
-	search_loop:
-		for(var/i=0, i <= maximum_search_range, i++)
-			for(var/obj/effect/decal/cleanable/D in view(i, src))
+	var/scan_cooldown = (state == STATE_ACTIVE) ? active_cooldown : dormant_cooldown
 
-				if(D in ignorelist)
-					continue
+	if (world.time > last_scan + scan_cooldown || manual_override)
+		if (manual_override)
+			manual_override = FALSE
 
-				if((istype(D, /obj/effect/decal/cleanable/blood) && !blood))
-					continue
+		search_loop:
+			for(var/i=0, i <= maximum_search_range, i++)
+				for(var/obj/effect/decal/cleanable/D in view(i, src))
 
-				patrol_path = list()
-				target = D
-				found_spot = handle_target()
-				if (found_spot)
-					break search_loop
-				else
-					target_in_view = TRUE
-					target = null
-					continue // no need to check the other types
+					if(D in ignorelist)
+						continue
 
-	if(!found_spot && target_in_view && world.time > give_up_cooldown)
-		visible_message("[src] can't reach the target and is giving up.")
-		give_up_cooldown = world.time + 300
+					if((istype(D, /obj/effect/decal/cleanable/blood) && !blood))
+						continue
 
+					patrol_path = list()
+					target = D
+					found_spot = handle_target()
+					if (found_spot)
+
+						if (state != STATE_ACTIVE)
+							state = STATE_ACTIVE
+							visible_message("[src]'s LEDs light up and it makes an excited beeping booping sound!")
+							name = active_name
+							desc = active_desc
+
+						break search_loop
+					else
+						target_in_view = TRUE
+						target = null
+						continue // no need to check the other types
+
+			if (state != STATE_DORMANT)
+				visible_message("[src]'s LEDs light up for a moment, but then fade into dormancy.")
+				name = dormant_name
+				desc = dormant_desc
+				state = STATE_DORMANT
+
+		last_scan = world.time
+
+		if(!found_spot && target_in_view && world.time > give_up_cooldown)
+			visible_message("[src] can't reach the target and is giving up.")
+			ignorelist += target
+			target = null
+			give_up_cooldown = world.time + 30
 
 	if(!found_spot && !target) // No targets in range
 		if(!patrol_path || !patrol_path.len)
@@ -147,7 +187,6 @@
 			var/moved = step_towards(src, patrol_path[1])
 			if(moved)
 				patrol_path -= patrol_path[1]
-
 
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
@@ -217,6 +256,7 @@
 	var/dat
 	dat += "<TT><B>Automatic Station Cleaner v1.0</B></TT><BR><BR>"
 	dat += "Status: <A href='?src=\ref[src];operation=start'>[on ? "On" : "Off"]</A><BR>"
+	dat += "<A href='?src=\ref[src];operation=manual_scan'>["Perform manual scan"]</A><BR><BR>"
 	dat += "Behaviour controls are [locked ? "locked" : "unlocked"]<BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]"
 	if(!locked || issilicon(user))
@@ -263,6 +303,13 @@
 		if("voicesynthswitch")
 			voice_synth = !voice_synth
 			to_chat(usr, SPAN_NOTICE("You flipped the switch labeled 'funny voice synth'."))
+
+		if("manual_scan")
+			to_chat(usr, SPAN_NOTICE("You press the manual scan button."))
+			playsound(src.loc, 'sound/effects/compbeep1.ogg', 50, 1)
+			manual_override = TRUE
+			ignorelist = list()	// manually scanning resets the ignore list, in case the bot is ignoring something accesible now
+			scan_for_cleanables()
 
 		// Occulus edit end
 
@@ -319,6 +366,8 @@
 		var/turf/T = get_turf(loc)
 		var/mob/living/bot/cleanbot/A = new /mob/living/bot/cleanbot(T)
 		A.name = created_name
+		A.active_name = created_name
+		A.dormant_name = "dormant [created_name]"
 		to_chat(user, SPAN_NOTICE("You add the robot arm to the bucket and sensor assembly. Beep boop!"))
 		playsound(src.loc, 'sound/effects/insert.ogg', 50, 1)
 		user.drop_from_inventory(src)
