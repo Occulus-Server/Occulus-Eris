@@ -1,5 +1,3 @@
-// Syzygy exclusive projectiles go here
-
 /obj/item/projectile/bullet/pellet/shotgun/rubber
 	name = "rubber pellet"
 	icon_state = "birdshot-1"
@@ -8,8 +6,8 @@
 	pellets = 8
 	range_step = 2
 	spread_step = 10
-	knockback = 1
 	armor_penetration = 0
+	knockback = 0
 	embed = FALSE
 	sharp = FALSE
 
