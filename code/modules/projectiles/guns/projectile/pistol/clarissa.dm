@@ -18,8 +18,9 @@
 	magazine_type = /obj/item/ammo_magazine/pistol
 	gun_tags = list(GUN_SILENCABLE)
 	damage_multiplier = 1
-	recoil_buildup = 19
-
+	recoil_buildup = 2
+	silenced = 0
+	can_dual = 1
 	init_firemodes = list(
 		SEMI_AUTO_NODELAY,
 		FULL_AUTO_800
@@ -59,7 +60,7 @@
 	icon = 'icons/obj/guns/projectile/makarov.dmi'
 	icon_state = "makarov"
 	damage_multiplier = 1.2
-	recoil_buildup = 21
+	recoil_buildup = 3
 	price_tag = 1400
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_COVERT = 3)
 	init_firemodes = list(

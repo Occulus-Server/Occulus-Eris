@@ -20,7 +20,7 @@
 	magazine_type = /obj/item/ammo_magazine/cspistol
 	damage_multiplier = 1.2
 	penetration_multiplier = 1.7
-	recoil_buildup = 19
+	recoil_buildup = 2
 
 
 /obj/item/weapon/gun/projectile/mandella/on_update_icon()
