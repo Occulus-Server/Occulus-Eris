@@ -107,15 +107,6 @@
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.ear_deaf += 20
 
-/datum/disease2/effect/monkey
-	name = "Monkism Syndrome"
-	stage = 4
-	badness = 3
-	activate(var/mob/living/carbon/mob,var/multiplier)
-		if(ishuman(mob))
-			var/mob/living/carbon/human/h = mob
-			h.monkeyize()
-
 /datum/disease2/effect/killertoxins
 	name = "Toxification Syndrome"
 	stage = 4
