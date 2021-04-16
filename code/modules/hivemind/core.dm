@@ -27,7 +27,7 @@ var/datum/hivemind/hive_mind_ai
 											/obj/machinery/floor_light,				/obj/machinery/flasher,
 											/obj/machinery/filler_object,			/obj/machinery/hivemind_machine,
 											/obj/machinery/cryopod, 				/obj/machinery/portable_atmospherics,//Occulus Edit: Restrict Canisters, Pumps, and Portable trays from being converted
-											/obj/machinery/conveyor//Occulus edit: Blacklisted Conveyor objects
+											/obj/machinery/conveyor,				/obj/machinery/power/supermatter//Occulus edit: Blacklisted Conveyor objects
 											)
 	//internals
 	var/list/global_abilities_cooldown = list()
