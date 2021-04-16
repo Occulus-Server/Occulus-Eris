@@ -83,7 +83,7 @@
 	)
 
 	price_tag = 3000
-	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	//spawn_tags = SPAWN_TAG_FS_PROJECTILE
 	spawn_blacklisted = FALSE
 
 /obj/item/weapon/gun/projectile/automatic/ak47/sa
