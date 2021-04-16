@@ -81895,6 +81895,10 @@
 /obj/structure/table/standard,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/breakroom)
 "dJh" = (
