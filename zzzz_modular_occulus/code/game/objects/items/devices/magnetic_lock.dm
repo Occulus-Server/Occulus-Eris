@@ -115,8 +115,12 @@
 		..()
 
 /obj/item/device/magnetic_lock/bullet_act(var/obj/item/projectile/Proj)
-	takedamage(Proj.damage_types)
-	..()
+  for(var/I in Proj.damage_types)
+    if(I == BRUTE)
+      take_damage(Proj.damage_types[I])
+    if(I == BURN)
+      take_damage(Proj.damage_types[I])
+  ..()
 
 /obj/item/device/magnetic_lock/attackby(var/obj/item/I, var/mob/user)
 	if (status == STATUS_BROKEN)
@@ -144,7 +148,7 @@
 	if (istype(I, /obj/item) && user.a_intent == "harm")
 		if (I.force >= 20)
 			user.visible_message("<span class='danger'>[user] bashes [src] with [I]!</span>", "<span class='danger'>You strike [src] with [I], damaging it!</span>")
-			takedamage(I.force)
+			take_damage(I.force)
 			playsound(loc, "sound/weapons/genhit[rand(1,3)].ogg", I.force*3, 1)
 			addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, loc, "sound/effects/sparks[rand(1,4)].ogg", 30, 1), 3, TIMER_CLIENT_TIME)
 			return
@@ -244,7 +248,7 @@
 				setconstructionstate(3)
 				return
 
-/obj/item/device/magnetic_lock/proc/process()
+/obj/item/device/magnetic_lock/Process()
 	if(!processpower)
 		return
 	var/obj/item/weapon/cell/C = powercell // both of these are for viewing ease
@@ -310,7 +314,7 @@
 
 		if (!check_target(newtarget, user)) return
 
-		if(!internal_cell.charge)
+		if((!internal_cell.charge) && (!powercell.charge))
 			to_chat(user, "<span class='warning'>\The [src] looks dead and out of power.</span>")
 			return
 
@@ -380,7 +384,7 @@
 			target_node2 = null
 		anchored = 0
 
-		STOP_PROCESSING(SSprocessing, src)
+		STOP_PROCESSING(SSobj, src)
 		last_process_time = 0
 
 /obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
@@ -390,7 +394,7 @@
 	target = newtarget
 
 	last_process_time = world.time
-	START_PROCESSING(SSprocessing, src)
+	START_PROCESSING(SSobj, src)
 	anchored = 1
 
 	spawn(-15)
@@ -443,7 +447,7 @@
 				if (1 to 4)
 					add_overlay("overlay_deconstruct_[constructionstate]")
 
-/obj/item/device/magnetic_lock/proc/takedamage(var/damage)
+/obj/item/device/magnetic_lock/proc/take_damage(var/damage)
 	if(invincible)
 		return
 	health -= rand(damage/2, damage)
