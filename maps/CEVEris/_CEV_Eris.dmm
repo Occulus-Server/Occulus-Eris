@@ -104073,6 +104073,18 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section3)
+"hwD" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/lrifle/pk,
+/obj/item/ammo_magazine/lrifle/pk,
+/obj/item/weapon/gun/projectile/automatic/lmg/tk,
+/obj/item/weapon/gun/projectile/automatic/lmg/tk,
+/obj/machinery/door/blast/shutters/glass{
+	id = "Armoury";
+	name = "Armoury showcase"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/security/warden)
 "hxa" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -169670,7 +169682,7 @@ abF
 abF
 abF
 aaB
-aaB
+hwD
 aSp
 aSW
 aaB
