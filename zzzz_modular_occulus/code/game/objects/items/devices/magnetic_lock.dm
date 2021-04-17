@@ -6,16 +6,16 @@
 #define LAYER_NORMAL 3
 
 /obj/item/device/magnetic_lock
-	name = "magnetic door lock"
+	name = "magnetic door brace"
 	desc = "A large, ID locked device used for completely locking down airlocks."
 	icon = 'zzzz_modular_occulus/icons/obj/magnetic_locks.dmi'
 	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
 	w_class = ITEM_SIZE_NORMAL
-	req_access = list(access_cent_specops)
+	req_access = list()
 	health = 150
-
-	var/department = "CENTCOM"
+	price_tag = 1400
+	var/department = "null"
 	var/status = 0
 	var/locked = 1
 	var/hacked = 0
@@ -30,17 +30,20 @@
 	var/obj/item/weapon/cell/powercell
 	var/obj/item/weapon/cell/internal_cell
 	var/datum/effect/effect/system/spark_spread/spark_system
+	spawn_blacklisted = TRUE
 
 /obj/item/device/magnetic_lock/security
 	department = "Security"
 	icon_state = "inactive_Security"
 	req_access = list(access_security)
+	spawn_blacklisted = FALSE
 
 /obj/item/device/magnetic_lock/engineering
 	department = "Engineering"
 	icon_state = "inactive_Engineering"
 	req_access = null
 	req_one_access = list(access_engine_equip, access_atmospherics)
+	spawn_blacklisted = FALSE
 /*
 /obj/item/device/magnetic_lock/security/legion
 	name = "legion magnetic door lock"
@@ -55,7 +58,7 @@
 	. = ..()
 
 	powercell = new /obj/item/weapon/cell/large/high()
-	internal_cell = new /obj/item/weapon/cell/large()
+	internal_cell = new /obj/item/weapon/cell/medium()
 
 	if (istext(department))
 		desc += " It is painted with [department] colors."
@@ -106,7 +109,7 @@
 		setconstructionstate(2)
 		return TRUE
 	else if (anchored)
-		if (!locked)
+		if ((!locked) && (!hacked))
 			detach()
 			return TRUE
 		else
@@ -170,9 +173,8 @@
 					update_icon()
 				return
 
-			if (istype(I, /obj/item/weapon/tool/weldingtool))
-				var/obj/item/weapon/tool/weldingtool/WT = I
-				if (WT)
+			if(QUALITY_WELDING in I.tool_qualities)
+				if(I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_WELDING, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
 					user.visible_message(SPAN_NOTICE("[user] starts welding the metal shell of [src]."), SPAN_NOTICE("You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
 					playsound(loc, 'sound/items/welder.ogg', 50, 1)
 					add_overlay("overlay_welding")
@@ -187,11 +189,12 @@
 					update_icon()
 					return
 
-			if 	(istype(I, /obj/item/weapon/tool/crowbar))
+			if(QUALITY_PRYING in I.tool_qualities)
 				if (!locked)
-					to_chat(user, SPAN_NOTICE("You pry the cover off [src]."))
-					playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
-					setconstructionstate(1)
+					if(I.use_tool(user, src, WORKTIME_FAST, QUALITY_PRYING, FAILCHANCE_VERY_EASY,  required_stat = STAT_ROB))
+						to_chat(user, SPAN_NOTICE("You pry the cover off [src]."))
+						playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+						setconstructionstate(1)
 				else
 					to_chat(user, SPAN_NOTICE("You try to pry the cover off [src] but it doesn't budge."))
 				return
@@ -202,24 +205,27 @@
 					to_chat(user, SPAN_NOTICE("There's already a powercell in \the [src]."))
 				return
 
-			if (istype(I, /obj/item/weapon/tool/crowbar))
-				to_chat(user, SPAN_NOTICE("You wedge the cover back in place."))
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
-				setconstructionstate(0)
-				return
+			if(QUALITY_PRYING in I.tool_qualities)
+				if(I.use_tool(user, src, WORKTIME_FAST, QUALITY_PRYING, FAILCHANCE_VERY_EASY,  required_stat = STAT_ROB))
+					to_chat(user, SPAN_NOTICE("You wedge the cover back in place."))
+					playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+					setconstructionstate(0)
+					return
 
 		if (2)
-			if (istype(I, /obj/item/weapon/tool/screwdriver))
-				to_chat(user, SPAN_NOTICE("You unscrew and remove the wiring cover from \the [src]."))
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
-				setconstructionstate(3)
-				return
+			if(QUALITY_SCREW_DRIVING in I.tool_qualities)
+				if(I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SCREW_DRIVING, FAILCHANCE_EASY,  required_stat = STAT_ROB))
+					to_chat(user, SPAN_NOTICE("You unscrew and remove the wiring cover from \the [src]."))
+					playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					setconstructionstate(3)
+					return
 
-			if (istype(I, /obj/item/weapon/tool/crowbar))
-				to_chat(user, SPAN_NOTICE("You wedge the cover back in place."))
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
-				setconstructionstate(0)
-				return
+			if(QUALITY_PRYING in I.tool_qualities)
+				if(I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_PRYING, FAILCHANCE_VERY_EASY,  required_stat = STAT_ROB))
+					to_chat(user, SPAN_NOTICE("You wedge the cover back in place."))
+					playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+					setconstructionstate(0)
+					return
 
 			if (istype(I, /obj/item/weapon/cell/large))
 				if (!powercell)
@@ -230,23 +236,26 @@
 				return
 
 		if (3)
-			if (istype(I, /obj/item/weapon/tool/wirecutters))
-				to_chat(user, SPAN_NOTICE("You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]"))
-				playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
-				setconstructionstate(4)
-				return
+			if(QUALITY_WIRE_CUTTING in I.tool_qualities)
+				if(I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_WIRE_CUTTING, FAILCHANCE_HARD,  required_stat = STAT_COG))
+					to_chat(user, SPAN_NOTICE("You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]"))
+					playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
+					setconstructionstate(4)
+					return
 
-			if (istype(I, /obj/item/weapon/tool/screwdriver))
-				to_chat(user, SPAN_NOTICE("You replace and screw tight the wiring cover from \the [src]."))
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
-				setconstructionstate(2)
-				return
+			if(QUALITY_SCREW_DRIVING in I.tool_qualities)
+				if(I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SCREW_DRIVING, FAILCHANCE_EASY,  required_stat = STAT_MEC))
+					to_chat(user, SPAN_NOTICE("You replace and screw tight the wiring cover from \the [src]."))
+					playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					setconstructionstate(2)
+					return
 
 		if (4)
-			if (istype(I, /obj/item/weapon/tool/wirecutters))
-				to_chat(user, SPAN_NOTICE("You repair the wires connecting the [src]'s magnets to their internal powersupply"))
-				setconstructionstate(3)
-				return
+			if(QUALITY_WIRE_CUTTING in I.tool_qualities)
+				if(I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_WIRE_CUTTING, FAILCHANCE_NORMAL,  required_stat = STAT_COG))
+					to_chat(user, SPAN_NOTICE("You repair the wires connecting the [src]'s magnets to their internal powersupply"))
+					setconstructionstate(3)
+					return
 
 /obj/item/device/magnetic_lock/Process()
 	if(!processpower)
