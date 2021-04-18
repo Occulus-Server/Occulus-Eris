@@ -2752,7 +2752,6 @@
 #include "maps\submaps\planetary_ruins\spider_nest\spider_nest.dm"
 #include "maps\submaps\planetary_ruins\tar_anomaly\tar_anomaly.dm"
 #include "zzz_modular_syzygy\_helpers.dm"
-#include "zzz_modular_syzygy\ammo.dm"
 #include "zzz_modular_syzygy\crates.dm"
 #include "zzz_modular_syzygy\defib.dm"
 #include "zzz_modular_syzygy\defiblocker.dm"
@@ -2939,6 +2938,7 @@
 #include "zzzz_modular_occulus\code\modules\sprite_accessories\_accessory_tesh.dm"
 #include "zzzz_modular_occulus\code\modules\stashes\stashes.dm"
 #include "zzzz_modular_occulus\code\modules\surgery\organic_damage.dm"
+#include "zzzz_modular_occulus\code\modules\tables\tables.dm"
 #include "zzzz_modular_occulus\maps\submaps\deepmaint_rooms\core\core_rooms.dm"
 #include "zzzz_modular_occulus\maps\submaps\deepmaint_rooms\normal\normal_rooms.dm"
 // END_INCLUDE

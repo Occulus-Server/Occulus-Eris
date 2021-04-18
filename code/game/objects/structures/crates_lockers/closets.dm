@@ -606,11 +606,14 @@
 				add_overlay("[icon_lock]_off")
 				add_overlay(icon_sparking)
 
-/obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "destroys", var/wallbreaker)
+/obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "smashes", var/wallbreaker)//Occulus Edit
+	if(damage)//Occulus edit
+		damage(damage)//Occulus Edit
+		attack_animation(user)
+		visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))
+		return 1
 	if(!damage || !wallbreaker)
 		return
-	attack_animation(user)
-	visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))
 	dump_contents()
 	spawn(1) qdel(src)
 	return 1
