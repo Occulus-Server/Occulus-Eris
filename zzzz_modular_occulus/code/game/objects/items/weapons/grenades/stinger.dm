@@ -1,9 +1,9 @@
-// Syzygy-exclusive grenades go here
+// Occulus-exclusive grenades go here
 
 /obj/item/weapon/grenade/frag/rubber
 	name = "NT LLG \"Stinger\""
 	desc = "A crowd control weapon intended to surpress massive riots with ease."
-	icon = 'zzz_modular_syzygy/icons/grenades.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/stinger.dmi'
 	icon_state = "stinger"
 	item_state = "frggrenade"
 	loadable = TRUE

@@ -4,7 +4,7 @@
 /obj/item/device/universal_translator
 	name = "handheld translator"
 	desc = "This handy device appears to translate the languages it hears into onscreen text for a user."
-	icon = 'zzz_modular_syzygy/icons/obj/translators.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/translators.dmi'
 	icon_state = "translator"
 	w_class = ITEM_SIZE_TINY
 	matter = list(MATERIAL_PLASTIC = 1, MATERIAL_GLASS = 1, MATERIAL_STEEL = 1)
