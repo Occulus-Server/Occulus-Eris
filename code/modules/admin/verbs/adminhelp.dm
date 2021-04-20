@@ -32,11 +32,9 @@
 
 	//show it to the person adminhelping too
 	to_chat(src, "<font color='blue'>PM to-<b>Staff </b>: [msg]</font>")
-	log_admin("HELP: [key_name(src)]: [msg]")
 
 	// Mentors won't see coloring of names on people with special_roles (Antags, etc.)
 	// var/mentor_msg = "\blue <b><font color=red>Request for Help: </font>[get_options_bar(mob, 4, 1, 1, 0)]:</b> [msg]"
-	msg = "\blue <b><font color=red>Request for Help:: </font>[get_options_bar(mob, 2, 1, 1)]:</b> [msg]"
 
 	// Send adminhelp message to Discord chat
 	send2adminchat(key_name(src), original_msg)
