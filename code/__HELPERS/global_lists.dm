@@ -84,9 +84,9 @@ GLOBAL_DATUM_INIT(underwear, /datum/category_collection/underwear, new())
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
 
 var/global/list/organ_structure = list(
-	torso = list(name= "Torso", children=list(BP_GROIN, BP_HEAD, BP_R_ARM, BP_L_ARM)),
-	groin = list(name= "Groin",     parent=BP_CHEST, children=list(BP_L_LEG, BP_R_LEG)),
-	head  = list(name= "Head",      parent=BP_CHEST, children=list()),
+	torso = list(name= "Torso", children=list(BP_GROIN, BP_HEAD, BP_R_ARM, BP_L_ARM, OP_HEART, OP_LUNGS, OP_STOMACH)),
+	groin = list(name= "Groin",     parent=BP_CHEST, children=list(BP_L_LEG, BP_R_LEG, OP_KIDNEY_LEFT, OP_KIDNEY_RIGHT, OP_LIVER)),
+	head  = list(name= "Head",      parent=BP_CHEST, children=list(BP_BRAIN, BP_EYES)),
 	r_arm = list(name= "Right arm", parent=BP_CHEST, children=list(BP_R_HAND)),
 	l_arm = list(name= "Left arm",  parent=BP_CHEST, children=list(BP_L_HAND)),
 	r_leg = list(name= "Right leg", parent=BP_GROIN, children=list(BP_R_FOOT)),
