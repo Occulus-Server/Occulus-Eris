@@ -11125,6 +11125,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/item/device/magnetic_lock/security,
+/obj/item/device/magnetic_lock/security,
+/obj/item/device/magnetic_lock/security,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aAm" = (
@@ -19560,10 +19563,6 @@
 "aVf" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
-/obj/item/device/magnetic_lock/security,
-/obj/item/device/magnetic_lock/security,
-/obj/item/device/magnetic_lock/security,
-/obj/item/device/magnetic_lock/security,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/barracks{
 	name = "Aegis Barracks"
@@ -70481,6 +70480,9 @@
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/toolbox/mechanical,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/command/exultant)
 "diR" = (
@@ -81895,10 +81897,6 @@
 /obj/structure/table/standard,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
-/obj/item/device/magnetic_lock/engineering,
-/obj/item/device/magnetic_lock/engineering,
-/obj/item/device/magnetic_lock/engineering,
-/obj/item/device/magnetic_lock/engineering,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/breakroom)
 "dJh" = (
