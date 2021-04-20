@@ -24,7 +24,7 @@
 	if(!msg)
 		return
 
-	var/original_msg = msg
+// 	var/original_msg = msg (this is used for sending ahelps to discord atm)
 
 
 	if(!mob) //this doesn't happen
@@ -37,16 +37,16 @@
 	// var/mentor_msg = "\blue <b><font color=red>Request for Help: </font>[get_options_bar(mob, 4, 1, 1, 0)]:</b> [msg]"
 
 	// Send adminhelp message to Discord chat
-	send2adminchat(key_name(src), original_msg)
+//	send2adminchat(key_name(src), original_msg)
 
-	if(admins.len <= 0) //START SYZ EDIT - If there are no admins, send ahelps to deadmins
+/*	if(admins.len <= 0) //START SYZ EDIT - If there are no admins, send ahelps to deadmins
 		for(var/client/X in deadmins)
 			if(X.deadmin_holder)
 				if(X.get_preference_value(/datum/client_preference/staff/play_adminhelp_ping) == GLOB.PREF_HEAR)
 					X << 'sound/effects/adminhelp.ogg'
 //				to_chat(X, mentor_msg)		// Generally assume deadmins don't want to know antag status (won't compile with this uncommented lol)
 	else for(var/client/X in admins) //END SYZ EDIT
-		if((R_ADMIN|R_MOD|R_MENTOR) & X.holder.rights)
+		if((R_ADMIN|R_MOD|R_MENTOR) & X.holder.rights) */
 
 	// Assuming it is an an admin help and not a mentor help
 	SStickets.newHelpRequest(src, msg) // Ahelp
