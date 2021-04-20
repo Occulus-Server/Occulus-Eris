@@ -105,7 +105,9 @@ var/global/list/organ_tag_to_name = list(
 	eyes  = "eyes", l_arm = "left arm",
 	groin = "groin",l_leg = "left leg",
 	chest2= "back", heart = "heart",
-	lungs  = "lungs", liver = "liver"
+	lungs  = "lungs", liver = "liver",
+	"left kidney" = "left kidney", "right kidney" = "right kidney",
+	stomach = "stomach", brain = "brain"
 	)
 */
 var/global/list/organ_tag_to_name = list(

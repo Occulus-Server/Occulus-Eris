@@ -23,7 +23,7 @@ var/global/list/modifications_types = list(
 		if(MODIFICATION_ORGANIC)
 			return body_modifications["nothing"]
 		if(MODIFICATION_SILICON)
-			return body_modifications["prosthesis_basic"]
+			return body_modifications["robotize_organ"]
 		if(MODIFICATION_REMOVED)
 			return body_modifications["amputated"]
 
@@ -99,8 +99,8 @@ var/global/list/modifications_types = list(
 		return new OD.default_type(holder,OD)
 
 /datum/body_modification/limb/amputation
-	name = "Amputated"
-	short_name = "Amputated"
+	name = "Removed"
+	short_name = "Removed"
 	id = "amputated"
 	desc = "Organ was removed."
 	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
@@ -179,7 +179,7 @@ var/global/list/modifications_types = list(
 	short_name = "P: assisted"
 	id = "assisted"
 	desc = "Assisted organ."
-	body_parts = list(OP_HEART, OP_LUNGS, OP_LIVER, OP_EYES)
+	body_parts = list(OP_HEART, OP_LUNGS, OP_KIDNEY_LEFT, OP_KIDNEY_RIGHT, OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES)
 	allow_nt = FALSE
 
 /datum/body_modification/organ/assisted/create_organ(var/mob/living/carbon/holder, var/O, var/color)
@@ -195,7 +195,8 @@ var/global/list/modifications_types = list(
 	short_name = "P: prosthesis"
 	id = "robotize_organ"
 	desc = "Robotic organ."
-	body_parts = list(OP_HEART, OP_LUNGS, OP_LIVER, OP_EYES)
+	body_parts = list(OP_HEART, OP_LUNGS, OP_KIDNEY_LEFT, OP_KIDNEY_RIGHT, OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES)
+	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
 
 /datum/body_modification/organ/robotize_organ/create_organ(var/mob/living/carbon/holder, O, color)

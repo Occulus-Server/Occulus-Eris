@@ -44,11 +44,11 @@
 			if(X.deadmin_holder)
 				if(X.get_preference_value(/datum/client_preference/staff/play_adminhelp_ping) == GLOB.PREF_HEAR)
 					X << 'sound/effects/adminhelp.ogg'
-				to_chat(X, mentor_msg)		// Generally assume deadmins don't want to know antag status
+//				to_chat(X, mentor_msg)		// Generally assume deadmins don't want to know antag status (won't compile with this uncommented lol)
 	else for(var/client/X in admins) //END SYZ EDIT
 		if((R_ADMIN|R_MOD|R_MENTOR) & X.holder.rights)
 
-	// Assuming it is an an admin help and not a mentor help	
+	// Assuming it is an an admin help and not a mentor help
 	SStickets.newHelpRequest(src, msg) // Ahelp
 
 	// SSmentor_tickets.newHelpRequest(src, mentormsg) // Mhelp (for mentors if they ever get implemented)
