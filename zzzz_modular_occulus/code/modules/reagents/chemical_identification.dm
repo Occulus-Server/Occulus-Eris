@@ -4,17 +4,23 @@
 
 	minimum_identification = 0
 
+/datum/reagent/toxin
+
+	// Cyanide, etc
+
+	minimum_identification = STAT_LEVEL_PROF
+
 /datum/reagent/medicine
 
 	// Reagents combined into a medicine
 
-	minimum_identification = 50
+	minimum_identification = STAT_LEVEL_EXPERT
 
 /datum/reagent/ethanol
 
 	// Alcohol
 
-	minimum_identification = 20
+	minimum_identification = STAT_LEVEL_BASIC
 
 /datum/reagent/water
 

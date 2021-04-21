@@ -40,7 +40,7 @@
 	var/sanity_gain = 0
 	var/list/taste_tag = list()
 	var/sanity_gain_ingest = 0
-	var/minimum_identification = 100	// OCCULUS EDIT: Minimum BIO level to identify the reagent without a scanner
+	var/minimum_identification = STAT_LEVEL_GODLIKE	// OCCULUS EDIT: Minimum BIO level to identify the reagent without a scanner
 
 	var/chilling_point
 	var/chilling_message = "crackles and freezes!"
@@ -239,7 +239,7 @@
 
 /datum/reagent/proc/identify_reagent(mob/user)
 
-	var/minimum_cog = 15
+	var/minimum_cog = STAT_LEVEL_BASIC
 	var/is_silicon = istype(user, /mob/living/silicon)	// Silicons can always identify it
 
 	// Can they see the amount? Low level COG check
@@ -254,15 +254,15 @@
 	if (!exact_amount)
 		switch(volume)
 			if (0 to 1)
-				desc_amount = "a tiny bit"
+				desc_amount = "A tiny bit"
 			if (1 to 5)
-				desc_amount = "a sip"
+				desc_amount = "A sip"
 			if (5 to 15)
-				desc_amount = "a few drinks"
+				desc_amount = "A few drinks"
 			if (15 to 30)
-				desc_amount = "a good amount"
+				desc_amount = "A good amount"
 			if (30 to INFINITY)
-				desc_amount = "a lot"
+				desc_amount = "A lot"
 
 	// Next, see if the user's BIO is greater than or equal to the reagent's minimum identification.
 
