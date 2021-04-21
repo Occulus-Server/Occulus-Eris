@@ -1,4 +1,15 @@
 // Station voidsuits
+
+/obj/item/clothing/head/space/void
+	body_parts_covered = HEAD|FACE|EYES
+	heat_protection =    HEAD|FACE|EYES
+	cold_protection =    HEAD|FACE|EYES
+
+/obj/item/clothing/suit/space/void
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+	heat_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+
 //Engineering rig
 /obj/item/clothing/head/space/void/engineering
 	name = "EES voidsuit helmet"
