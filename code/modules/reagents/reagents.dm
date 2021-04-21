@@ -40,6 +40,7 @@
 	var/sanity_gain = 0
 	var/list/taste_tag = list()
 	var/sanity_gain_ingest = 0
+	var/minimum_identification = 100	// OCCULUS EDIT: Minimum BIO level to identify the reagent without a scanner
 
 	var/chilling_point
 	var/chilling_message = "crackles and freezes!"
@@ -159,7 +160,6 @@
 
 /datum/reagent/proc/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	affect_blood(M, alien, effect_multiplier * 0.8)	// some of chemicals lost in digestive process
-	
 	apply_sanity_effect(M, effect_multiplier)
 
 /datum/reagent/proc/affect_touch(mob/living/carbon/M, alien, effect_multiplier)
@@ -233,3 +233,52 @@
 
 /datum/reagent/proc/custom_temperature_effects(temperature)
 	return
+
+// OCCULUS EDIT
+// Code for reagent identification.
+
+/datum/reagent/proc/identify_reagent(mob/user)
+
+	var/minimum_cog = 15
+	var/is_silicon = istype(user, /mob/living/silicon)	// Silicons can always identify it
+
+	// Can they see the amount? Low level COG check
+
+	var/exact_amount = FALSE
+
+	if (user.stats.getStat(STAT_COG) >= minimum_cog || is_silicon)
+		exact_amount = TRUE
+
+	var/desc_amount = "a lot"
+
+	if (!exact_amount)
+		switch(volume)
+			if (0 to 1)
+				desc_amount = "a tiny bit"
+			if (1 to 5)
+				desc_amount = "a sip"
+			if (5 to 15)
+				desc_amount = "a few drinks"
+			if (15 to 30)
+				desc_amount = "a good amount"
+			if (30 to INFINITY)
+				desc_amount = "a lot"
+
+	// Next, see if the user's BIO is greater than or equal to the reagent's minimum identification.
+
+	message_admins("min ID for [name] is [minimum_identification] and examiner's BIO is [user.stats.getStat(STAT_BIO)]")
+
+	if (user.stats.getStat(STAT_BIO) >= minimum_identification || is_silicon)
+		if (exact_amount)
+			message_admins("Best case scenario reached")
+			to_chat(user, "<span class='notice'>[volume] units of [name]</span>")
+		else
+			to_chat(user, "<span class='notice'>[desc_amount] of [name]</span>")
+	else
+		// don't know what it be
+		if (exact_amount)
+			to_chat(user, "<span class='notice'>[volume] units of something.</span>")
+		else
+			to_chat(user, "<span class='notice'>[desc_amount] of something.</span>")
+
+// OCCULUS EDIT END
