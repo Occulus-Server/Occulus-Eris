@@ -40,7 +40,7 @@
 	var/sanity_gain = 0
 	var/list/taste_tag = list()
 	var/sanity_gain_ingest = 0
-	var/minimum_identification = STAT_LEVEL_GODLIKE	// OCCULUS EDIT: Minimum BIO level to identify the reagent without a scanner
+	var/minimum_identification = STAT_LEVEL_NONE	// OCCULUS EDIT: Minimum BIO level to identify the reagent without a scanner
 
 	var/chilling_point
 	var/chilling_message = "crackles and freezes!"
