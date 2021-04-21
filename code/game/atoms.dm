@@ -298,7 +298,7 @@ its easier to just keep the beam vertical.
 			if(reagents.reagent_list.len)
 				for(var/I in reagents.reagent_list)
 					var/datum/reagent/R = I
-					R.identify_reagent(user)
+					R.identify_reagent(user)	// OCCULUS EDIT: Use new reagent identification
 					//to_chat(user, "<span class='notice'>[R.volume] units of [R.name]</span>")
 
 				// TODO: reagent vision googles? code below:
