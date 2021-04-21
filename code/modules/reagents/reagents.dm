@@ -266,11 +266,8 @@
 
 	// Next, see if the user's BIO is greater than or equal to the reagent's minimum identification.
 
-	message_admins("min ID for [name] is [minimum_identification] and examiner's BIO is [user.stats.getStat(STAT_BIO)]")
-
 	if (user.stats.getStat(STAT_BIO) >= minimum_identification || is_silicon)
 		if (exact_amount)
-			message_admins("Best case scenario reached")
 			to_chat(user, "<span class='notice'>[volume] units of [name]</span>")
 		else
 			to_chat(user, "<span class='notice'>[desc_amount] of [name]</span>")
