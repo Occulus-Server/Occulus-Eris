@@ -1,3 +1,27 @@
+// Radsuits - cramming this In here since it's a tiny fix
+/obj/item/clothing/head/radiation
+	body_parts_covered = HEAD|FACE|EYES
+	heat_protection =    HEAD|FACE|EYES
+	cold_protection =    HEAD|FACE|EYES
+
+/obj/item/clothing/suit/radiation
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+	heat_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+// Firesuits - Cramming this varedit here for now
+
+/obj/item/clothing/suit/fire
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+	heat_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+
+// Engie Armor
+
+/obj/item/clothing/suit/storage/vest/insulated
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+	heat_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+
 // Station voidsuits
 
 /obj/item/clothing/head/space/void
