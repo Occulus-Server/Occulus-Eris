@@ -3,9 +3,12 @@ package main
 import (
 	"errors"
 	"fmt"
-	// "math" used by Spola()
+	"io"
 	"log"
-	// "strings" Required by the crew manifest constructor, do not remove yet
+	"math/rand"
+	"os"
+	"strings"
+
 	// "text/tabwriter" Required by the crew manifest constructor, do not remove yet
 	// "strconv"
 
@@ -182,8 +185,6 @@ func writeCrewManifest(m CrewManifest) string {
 }
 */
 
-/*
-
 // Spola outputs a portmanteau of various Space Station 13 items.
 // As per the terms of the NEV Northern Light command board,
 // most, if not all of these terms, are banned from normal use.
@@ -204,13 +205,27 @@ func Spola() string {
 		"spleaner",
 	}
 
-	return l[math.Rand(0, len(l)-1)]
+	return l[rand.Intn(len(l)-1)]
 }
-*/
+
+func sanity_message() string {
+	f, err := os.Open("sanity_messages")
+	if err != nil {
+		return "You try to peek into your mind, but it returns incomprehensible imagery. (An error occurred while trying to get a sanity message!)"
+	}
+
+	b, err := io.ReadAll(f)
+	if err != nil {
+		return "You try to peek into your mind, but it returns incomprehensible imagery. (An error occurred while trying to get a sanity message!)"
+	}
+
+	m := strings.Split(string(b), "\n")
+	return m[rand.Intn(len(m)-1)]
+}
 
 var (
 	ErrServerOffline = errors.New("server offline or state unobtainable")
-	ErrServerLog = errors.New("see server log for details")
+	ErrServerLog     = errors.New("see server log for details")
 )
 
 func init() {
@@ -225,6 +240,9 @@ func init() {
 				return ErrServerOffline
 			}
 			log.Println(b.state)
+			if b.state.Storyteller == "" {
+				b.state.Storyteller = "unset"
+			}
 
 			b.session.ChannelMessageSend(
 				m.ChannelID,
@@ -327,14 +345,23 @@ func init() {
 			return nil
 		},
 	})
-	/*
-		addCommand(&botCommand{
-			name: "spola",
-			cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
-				b.Session.ChannelMessageSend(m.ChannelID, Spola())
+	addCommand(&botCommand{
+		name: "spola",
+		help: "Words banned by the Northern Light command board. Do you dare?",
+		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
+			b.session.ChannelMessageSend(m.ChannelID, Spola())
 
-				return nil
-			}
-		})
-	*/
+			return nil
+		},
+	})
+	addCommand(&botCommand{
+		name: "sanity",
+		help: "Peek into the void. Hope it does not stare back.",
+		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
+			b.session.ChannelMessageSend(m.ChannelID, sanity_message())
+
+			return nil
+		},
+	})
+
 }
