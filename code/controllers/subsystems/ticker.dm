@@ -82,6 +82,7 @@ SUBSYSTEM_DEF(ticker)
 			if(first_start_trying)
 				pregame_timeleft = initial(pregame_timeleft)
 				to_chat(world, "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>")
+				send_assets()
 				/// OCCULUS
 				spawn(0)
 					discord_bot.update_bot()
@@ -92,7 +93,7 @@ SUBSYSTEM_DEF(ticker)
 			if(!start_immediately)
 				to_chat(world, "Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
 			current_state = GAME_STATE_PREGAME
-			send_assets()
+
 
 		if(GAME_STATE_PREGAME)
 			if(start_immediately)
@@ -460,11 +461,11 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	to_chat(world, "<br><br><br><H1>A round has ended!</H1>")
-	
+
 	for(var/client/C)
 		if(!C.credits)
 			C.RollCredits()
-	
+
 	for(var/mob/Player in GLOB.player_list)
 		if(Player.mind && !isnewplayer(Player))
 			if(Player.stat != DEAD)

@@ -11126,6 +11126,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/item/device/magnetic_lock/security,
+/obj/item/device/magnetic_lock/security,
+/obj/item/device/magnetic_lock/security,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aAm" = (
@@ -32088,7 +32091,6 @@
 /area/eris/crew_quarters/clothingstorage)
 "bwP" = (
 /obj/landmark/event/lightsout,
-/obj/item/weapon/paper/enginenotes,
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section1)
 "bwQ" = (
@@ -60255,6 +60257,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/circuits,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/fabkits,
 /obj/item/stack/material/plasteel{
 	amount = 20
 	},
@@ -70483,6 +70486,9 @@
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/toolbox/mechanical,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/command/exultant)
 "diR" = (
@@ -104073,6 +104079,18 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section3)
+"hwD" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/lrifle/pk,
+/obj/item/ammo_magazine/lrifle/pk,
+/obj/item/weapon/gun/projectile/automatic/lmg/tk,
+/obj/item/weapon/gun/projectile/automatic/lmg/tk,
+/obj/machinery/door/blast/shutters/glass{
+	id = "Armoury";
+	name = "Armoury showcase"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/security/warden)
 "hxa" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -107928,7 +107946,7 @@
 /area/eris/maintenance/section2deck3port)
 "vuX" = (
 /obj/machinery/light/small{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/maintenance/section4deck4central)
@@ -169670,7 +169688,7 @@ abF
 abF
 abF
 aaB
-aaB
+hwD
 aSp
 aSW
 aaB
@@ -170978,7 +170996,7 @@ snm
 uWd
 uqZ
 rOY
-rOY
+vuX
 rOY
 wtQ
 aDf
@@ -171181,7 +171199,7 @@ bJY
 bJY
 pHG
 rOY
-vuX
+rOY
 pyy
 aDf
 bLq
@@ -171381,17 +171399,17 @@ pTZ
 ieC
 pPE
 bsY
-bsY
-bsY
-bsY
-bsY
+bJV
+bJV
+bJV
+bJV
 aDf
 aDf
 aDf
 aDf
 aDf
 aDf
-aaa
+abF
 aaa
 aaa
 aaa
@@ -171588,12 +171606,12 @@ abF
 abF
 abF
 abF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+abF
+abF
+abF
+abF
+abF
+abF
 aaa
 aaa
 aaa
@@ -171790,12 +171808,12 @@ abF
 abF
 abF
 abF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+abF
+abF
+abF
+abF
+abF
+abF
 aaa
 aaa
 aaa
@@ -171992,12 +172010,12 @@ abF
 abF
 abF
 abF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+abF
+abF
+abF
+abF
+abF
+abF
 aaa
 aaa
 aaa
@@ -172194,12 +172212,12 @@ abF
 abF
 abF
 abF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+abF
+abF
+abF
+abF
+abF
+abF
 aaa
 aaa
 aaa
@@ -172396,12 +172414,12 @@ abF
 abF
 abF
 abF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+abF
+abF
+abF
+abF
+abF
+abF
 aaa
 aaa
 aaa
@@ -172598,12 +172616,12 @@ abF
 abF
 abF
 abF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+abF
+abF
+abF
+abF
+abF
+abF
 aaa
 aaa
 aaa
@@ -172800,12 +172818,12 @@ abF
 abF
 abF
 abF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+abF
+abF
+abF
+abF
+abF
+abF
 aaa
 aaa
 aaa
@@ -173002,12 +173020,12 @@ abF
 abF
 abF
 abF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+abF
+abF
+abF
+abF
+abF
+abF
 aaa
 aaa
 aaa
@@ -173204,12 +173222,12 @@ abF
 abF
 abF
 abF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+abF
+abF
+abF
+abF
+abF
+abF
 aaa
 aaa
 aaa
@@ -173406,12 +173424,12 @@ abF
 abF
 abF
 abF
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+abF
+abF
+abF
+abF
+abF
+abF
 aaa
 aaa
 aaa
