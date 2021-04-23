@@ -146,10 +146,7 @@ SUBSYSTEM_DEF(ticker)
 					else
 						if(!delay_end)
 							to_chat(world, SPAN_NOTICE("<b>Restarting in [restart_timeout/10] seconds</b>"))
-					/// OCCULUS
-					spawn(0)
-						discord_bot.update_bot()
-					/// OCCULUS_END
+					
 					if(!delay_end)
 						sleep(restart_timeout)
 						if(!delay_end)
