@@ -12,6 +12,7 @@
 #define CONN_SUCCESS "SUCCESS"
 #define CONN_ERROR "ERROR"
 
+#define STATUS_SETUP 0
 #define STATUS_LOBBY 1
 #define STATUS_INGAME 2
 #define STATUS_TRANSFER 3
@@ -27,6 +28,8 @@ var/datum/discord_bot/discord_bot = new
 	var/s
 
 	switch (Master.current_runlevel) // got lazy trying to convert from base 10 to 2
+		if(0)
+			s = STATUS_SETUP
 		if(1 || 2)
 			s = STATUS_LOBBY
 		if(3)
@@ -78,3 +81,17 @@ var/datum/discord_bot/discord_bot = new
 
 /datum/world_topic/update_bot/Run(list/input)
 	return discord_bot.send_state()
+
+/// Hooks ///
+
+/hook/startup/proc/update_status()
+	spawn(0)
+		discord_bot.update_bot()
+
+/hook/roundstart/proc/update_status()
+	spawn(0)
+		discord_bot.update_bot()
+
+/hook/roundend/proc/update_status()
+	spawn(0)
+		discord_bot.update_bot()

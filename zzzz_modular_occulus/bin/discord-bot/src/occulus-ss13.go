@@ -20,11 +20,8 @@ import (
 type RoundStatus int
 
 const (
-	// set this to start at 1, so that the bot doesn't
-	// send a message when the server is starting,
-	// *and* it's reached lobby state
-
-	Lobby RoundStatus = iota + 1
+	Setup RoundStatus = iota
+	Lobby
 	InRound
 	CrewTransfer
 	Restarting
@@ -107,8 +104,8 @@ func getRoundStatus(s RoundStatus) string {
 	var r string
 
 	switch s {
-	case Lobby:
-		r = "The server is currently in the lobby."
+	case Setup, Lobby:
+		r = "The server is about to start a new round."
 	case InRound:
 		r = "The server is currently in a round."
 	case CrewTransfer:
@@ -233,6 +230,7 @@ func init() {
 		name: "status",
 		help: "Returns the current status of the server, if it's up.",
 		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
+			var s string
 			err := b.getState()
 			if err != nil {
 				log.Println(err)
@@ -244,15 +242,18 @@ func init() {
 				b.state.Storyteller = "unset"
 			}
 
-			b.session.ChannelMessageSend(
-				m.ChannelID,
-				fmt.Sprintf("%s\n%s\n%s\n%s",
+			if b.state.Status == Setup || b.state.Status == Lobby {
+				s = fmt.Sprintf("%s", getRoundStatus(b.state.Status))
+			} else {
+				s = fmt.Sprintf("%s\n%s\n%s\n%s",
 					getRoundStatus(b.state.Status),
 					fmt.Sprintf("The round duration is currently %s.", b.state.Duration),
 					fmt.Sprintf("The storyteller is currently %s.", b.state.Storyteller),
 					fmt.Sprintf("There have been %d roaches active onboard the ship.", b.state.Roaches),
-				),
-			)
+				)
+			}
+
+			b.session.ChannelMessageSend(m.ChannelID, s)
 
 			return nil
 		},

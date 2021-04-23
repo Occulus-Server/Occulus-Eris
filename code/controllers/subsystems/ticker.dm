@@ -83,10 +83,6 @@ SUBSYSTEM_DEF(ticker)
 				pregame_timeleft = initial(pregame_timeleft)
 				to_chat(world, "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>")
 				send_assets()
-				/// OCCULUS
-				spawn(0)
-					discord_bot.update_bot()
-				/// OCCULUS_END
 			else
 				pregame_timeleft = 40
 
@@ -239,10 +235,6 @@ SUBSYSTEM_DEF(ticker)
 	data_core.manifest()
 
 	callHook("roundstart")
-	/// OCCULUS
-	spawn(0)
-		discord_bot.update_bot()
-	/// OCCULUS_END
 
 	spawn(0)//Forking here so we dont have to wait for this to finish
 		GLOB.storyteller.set_up()
