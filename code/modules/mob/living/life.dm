@@ -48,6 +48,9 @@
 		if(environment)
 			handle_environment(environment)
 
+		//Chemicals in the body
+		handle_chemicals_in_body()
+
 		//Check if we're on fire
 		handle_fire()
 
