@@ -2919,6 +2919,7 @@
 #include "zzzz_modular_occulus\code\modules\projectiles\projectile\bullettypes.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\projectile\projectile.dm"
 #include "zzzz_modular_occulus\code\modules\radio\radios.dm"
+#include "zzzz_modular_occulus\code\modules\reagents\chemical_identification.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\food-Drinks.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\recipes.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\reagent_containers\hypospray.dm"
