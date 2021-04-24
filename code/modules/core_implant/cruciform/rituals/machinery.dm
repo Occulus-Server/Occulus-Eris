@@ -30,9 +30,6 @@
 		fail("Cloner is off.", user, C)
 		return FALSE
 
-<<<<<<< HEAD
-	pod.start()
-=======
 	if(pod.start())
 		var/damage_modifier = 1
 		var/obj/item/weapon/implant/core_implant/cruciform/C_user = user.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
@@ -41,7 +38,6 @@
 		else if(C_user.get_module(CRUCIFORM_PRIEST))
 			damage_modifier = 0.5
 		pod.clone_damage = clone_damage * damage_modifier
->>>>>>> f79716f7f... Changes to cruciform energy regeneration and rituals. (#5975)
 	return TRUE
 
 
