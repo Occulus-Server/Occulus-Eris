@@ -36,3 +36,18 @@
 
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	auto_price = FALSE
+
+/obj/machinery/vending/wallmed/lobby
+	products = list(
+		/obj/item/device/scanner/health = 5,
+		/obj/item/stack/medical/bruise_pack = 5,
+		/obj/item/stack/medical/ointment = 5,
+		/obj/item/stack/medical/advanced/bruise_pack = 2,
+		/obj/item/stack/medical/advanced/ointment = 2,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin = 10,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine = 5,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin = 5,
+		/obj/item/weapon/implantcase/death_alarm = 2,
+		/obj/item/weapon/implanter = 2,
+		/obj/item/stack/nanopaste = 1
+		)

@@ -6,6 +6,7 @@
 	w_class = ITEM_SIZE_SMALL
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge
 	volume = 10
+	filling_states = "-10;10;25;50;75;80;100"
 	rarity_value = 30
 	possible_transfer_amounts = list(5,10,15)
 

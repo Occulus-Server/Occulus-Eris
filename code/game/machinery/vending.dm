@@ -1023,7 +1023,8 @@
 					/obj/item/clothing/accessory/holster/waist = 200,
 					/obj/item/weapon/tool/knife/tacknife = 400,
 					/obj/item/clothing/head/armor/helmet = 1000,
-					/obj/item/clothing/suit/armor/vest = 1500
+					/obj/item/clothing/suit/armor/vest = 1500,
+					/obj/item/weapon/gun/projectile/automatic/slaught_o_matic = 90,
 					)
 
 //This one's from bay12
@@ -1138,14 +1139,16 @@
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector/drugs = 2,
 		)
 	prices = list(
-		/obj/item/device/scanner/health = 150,
-		/obj/item/stack/medical/bruise_pack = 100,
-		/obj/item/stack/medical/ointment = 100,
-		/obj/item/stack/medical/advanced/bruise_pack = 250,
-		/obj/item/stack/medical/advanced/ointment = 250,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin = 75,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine = 150,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin = 150,
+		/obj/item/device/scanner/health = 50,
+
+		/obj/item/stack/medical/bruise_pack = 100, /obj/item/stack/medical/ointment = 100,
+		/obj/item/stack/medical/advanced/bruise_pack = 200, /obj/item/stack/medical/advanced/ointment = 200,
+		/obj/item/stack/nanopaste = 1000,
+
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin = 100, /obj/item/weapon/reagent_containers/syringe/antitoxin = 200,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine = 150, /obj/item/weapon/reagent_containers/syringe/tricordrazine = 300,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin = 100, /obj/item/weapon/reagent_containers/syringe/spaceacillin = 200,
+
 		/obj/item/weapon/implantcase/death_alarm = 500,
 		/obj/item/weapon/implanter = 50,
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector/hyperzine = 500,

@@ -116,7 +116,7 @@
 		victims_to_teleport += E
 
 	for(var/mob/living/M in victims_to_teleport)
-		M.forceMove(get_turf(target))
+		go_to_bluespace(get_turf(src), 3, FALSE, M, get_turf(target))
 
 	new /obj/structure/scrap_spawner/science/large(src.loc)
 
@@ -218,7 +218,7 @@
 
 
 
-/obj/rogue/telebeacon/attack_hand(var/mob/user as mob)
+/obj/rogue/telebeacon/attack_hand(mob/user)
 	if(!target)
 		target = locate(/obj/crawler/teleport_marker)
 	if(!active)
@@ -236,11 +236,10 @@
 
 		for(var/mob/living/silicon/robot/R in range(8, src))//Borgs too
 			victims_to_teleport += R
-
-		for(var/mob/living/M in victims_to_teleport)
-			M.x = target.x
-			M.y = target.y
-			M.z = target.z
+		for(var/obj/structure/closet/C in range(8, src))//Clostes as well, for transport and storage
+			victims_to_teleport += C
+		for(var/atom/movable/M in victims_to_teleport)
+			go_to_bluespace(get_turf(src), 3, FALSE, M, get_turf(target))
 			sleep(1)
 			var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
 			sparks.set_up(3, 0, get_turf(loc))
@@ -252,7 +251,7 @@
 	desc = "A metallic pylon, covered in rust. It seems still operational. Barely."
 
 
-/obj/rogue/telebeacon/return_beacon/attack_hand(var/mob/user as mob)
+/obj/rogue/telebeacon/return_beacon/attack_hand(mob/user)
 	if(!target)
 		target = locate(/obj/crawler/teleport_marker)
 	if(!active)
@@ -264,7 +263,7 @@
 			to_chat(user, "The beacon has no destination, Ahelp this.")
 	else if(active)
 		to_chat(user, "You reach out and touch the beacon. A strange feeling envelops you.")
-		user.forceMove(get_turf(target))
+		go_to_bluespace(get_turf(src), 3, FALSE, user, get_turf(target))
 		sleep(1)
 		var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
 		sparks.set_up(3, 0, get_turf(user))
