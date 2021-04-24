@@ -182,50 +182,47 @@ func writeCrewManifest(m CrewManifest) string {
 }
 */
 
-// Spola outputs a portmanteau of various Space Station 13 items.
-// As per the terms of the NEV Northern Light command board,
-// most, if not all of these terms, are banned from normal use.
-func Spola() string {
-	l := []string{
-		"spola",
-		"churger",
-		"soupersalad",
-		"churgenspola",
-		"burgenspola",
-		"tacoritto",
-		"pizalad",
-		"spup",
-		"dibb",
-		"lotgun",
-		"lactiotgun",
-		"spountaind",
-		"spleaner",
+func randomPhrase(phrases []string, d string) string {
+	if len(phrases) == 0 {
+		return d
 	}
 
-	return l[rand.Intn(len(l)-1)]
+	return phrases[rand.Intn(len(phrases)-1)]
 }
 
-func sanity_message() string {
-	f, err := os.Open("sanity_messages")
-	if err != nil {
-		return "You try to peek into your mind, but it returns incomprehensible imagery. (An error occurred while trying to get a sanity message!)"
-	}
-
-	b, err := io.ReadAll(f)
-	if err != nil {
-		return "You try to peek into your mind, but it returns incomprehensible imagery. (An error occurred while trying to get a sanity message!)"
-	}
-
-	m := strings.Split(string(b), "\n")
-	return m[rand.Intn(len(m)-1)]
-}
-
+// Errors
 var (
 	ErrServerOffline = errors.New("server offline or state unobtainable")
 	ErrServerLog     = errors.New("see server log for details")
 )
 
+// Phrase lists
+var (
+	sanityMessages []string
+	spolaWords     []string
+)
+
 func init() {
+	loadPhrases := func(loc string) []string {
+		if f, err := os.Open(loc); err != nil {
+			f.Close()
+			log.Println("could not open " + loc)
+		} else {
+			defer f.Close()
+			if b, err := io.ReadAll(f); err != nil {
+				log.Println("could not open " + loc)
+			} else {
+				log.Println("loaded " + loc)
+				return strings.Split(string(b), "\n")
+			}
+		}
+
+		return []string{}
+	}
+
+	sanityMessages = loadPhrases("sanity_messages")
+	spolaWords = loadPhrases("spola_words")
+
 	addCommand(&botCommand{
 		name: "status",
 		help: "Returns the current status of the server, if it's up.",
@@ -350,7 +347,7 @@ func init() {
 		name: "spola",
 		help: "Words banned by the Northern Light command board. Do you dare?",
 		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
-			b.session.ChannelMessageSend(m.ChannelID, Spola())
+			b.session.ChannelMessageSend(m.ChannelID, randomPhrase(spolaWords, "emspolan"))
 
 			return nil
 		},
@@ -359,7 +356,7 @@ func init() {
 		name: "sanity",
 		help: "Peek into the void. Hope it does not stare back.",
 		cmd: func(b *Bot, c []string, m *discordgo.MessageCreate) error {
-			b.session.ChannelMessageSend(m.ChannelID, sanity_message())
+			b.session.ChannelMessageSend(m.ChannelID, randomPhrase(sanityMessages, "You try to peek into your mind, but it returns nothing."))
 
 			return nil
 		},
