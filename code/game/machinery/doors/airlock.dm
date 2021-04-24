@@ -43,7 +43,7 @@ GLOBAL_LIST_EMPTY(wedge_icon_cache)
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
 	var/obj/item/wedged_item
-
+	var/obj/item/device/magnetic_lock/bracer = null //Occulus edit
 	damage_smoke = TRUE
 
 /obj/machinery/door/airlock/attack_generic(var/mob/user, var/damage)
@@ -972,7 +972,16 @@ There are 9 wires.
 	if(src.density && user.a_intent == I_HURT && !I.GetIdCard())
 		hit(user, I)
 		return
+	//occulus edit start
+	if (istype(I, /obj/item/device/magnetic_lock))
+		if (bracer)
+			user << "<span class='notice'>There is already a [bracer] on [src]!</span>"
+			return
 
+		var/obj/item/device/magnetic_lock/newbracer = I
+		newbracer.attachto(src, user)
+		return
+	//occulus edit end
 	var/tool_type = I.get_tool_type(user, list(QUALITY_PRYING, QUALITY_SCREW_DRIVING, QUALITY_WELDING), src)
 	switch(tool_type)
 		if(QUALITY_PRYING)
@@ -1088,6 +1097,9 @@ There are 9 wires.
 
 /obj/machinery/door/airlock/open(forced=0)
 	if(!can_open(forced))
+		return 0
+	if (bracer)
+		visible_message("<span class='notice'>[src]'s actuators whirr, but the door does not open.</span>")
 		return 0
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 

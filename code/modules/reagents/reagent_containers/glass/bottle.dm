@@ -9,7 +9,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	volume = 60
-	filling_states = "20;60;100"
+	filling_states = "20;40;60;80;100"
 	label_icon_state = "label_bottle"
 	lid_icon_state = "lid_bottle"
 
@@ -115,3 +115,10 @@
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "holyflask"
 	preloaded_reagents = list("adminordrazine" = 60)
+
+/obj/item/weapon/reagent_containers/glass/bottle/resuscitator
+	name = "resuscitator bottle"
+	desc = "A small bottle. Contains your last hope to survive."
+	icon_state = "bottle"
+	spawn_blacklisted = TRUE
+	preloaded_reagents = list("resuscitator" = 60)

@@ -1023,7 +1023,8 @@
 					/obj/item/clothing/accessory/holster/waist = 200,
 					/obj/item/weapon/tool/knife/tacknife = 400,
 					/obj/item/clothing/head/armor/helmet = 1000,
-					/obj/item/clothing/suit/armor/vest = 1500
+					/obj/item/clothing/suit/armor/vest = 1500,
+					/obj/item/weapon/gun/projectile/automatic/slaught_o_matic = 90,
 					)
 
 //This one's from bay12
