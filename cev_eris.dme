@@ -2820,6 +2820,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\plush.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\devices\magnetic_lock.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\devices\traitor_devices.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\tools\_tools.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\toys\balls.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\toys\costume.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\toys\laserpointer.dm"
