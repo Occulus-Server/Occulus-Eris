@@ -1,11 +1,9 @@
-//haha gunbloat
-
 /obj/item/weapon/gun/projectile/automatic/vector
 	name = "VK-00b"
 	desc = "The VK-00b is an innovative SMG that features a unique recoil reduction mechanism. \
 			Its low stopping power is offset by its blistering firerate and ability to be held on target easily. \
 			Takes both highcap pistol and SMG mags. Uses .35 Auto rounds."
-	icon = 'zzz_modular_syzygy/icons/vector.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/vector.dmi'
 	icon_state = "vector"
 	item_state = "vector"
 	w_class = ITEM_SIZE_NORMAL
