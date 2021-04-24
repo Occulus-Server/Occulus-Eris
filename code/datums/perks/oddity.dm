@@ -109,8 +109,9 @@
 	icon_state = "night" // https://game-icons.net/1x1/lorc/night-sky.html
 
 /datum/perk/oddity/fast_fingers
-	name = "Fast fingers"
-	desc = "Pockets, ears, hands...just not the clothes! My legerdemain is legendary!"
+	name = "Fast Fingers"
+	desc = "Nothing is safe around your hands. You are a true kleptomaniac. \
+			Taking items off others is without sound and prompts, it's also quicker, and you can slip pills into drinks unnoticed."
 	icon_state = "robber_hand" // https://game-icons.net/1x1/darkzaitzev/robber-hand.html
 
 /datum/perk/oddity/quiet_as_mouse
