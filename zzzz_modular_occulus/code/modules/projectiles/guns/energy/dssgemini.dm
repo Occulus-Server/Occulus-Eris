@@ -7,6 +7,7 @@
 	charge_meter = FALSE
 	w_class = ITEM_SIZE_NORMAL
 	damage_multiplier = 0.7
+	rarity_value = 8
 	init_firemodes = list(
 		list(mode_name="stun", burst=2, projectile_type=/obj/item/projectile/beam/stun, modifystate="energystun", item_modifystate="stun", fire_sound='sound/weapons/Taser.ogg', icon="stun"),
 		list(mode_name="kill", burst=2, projectile_type=/obj/item/projectile/beam, modifystate="energykill", item_modifystate="kill", fire_sound='sound/weapons/Laser.ogg', icon="kill"),
