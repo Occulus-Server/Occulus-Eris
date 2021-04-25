@@ -249,6 +249,7 @@
 
 /datum/ritual/cruciform/priest/short_boost/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/list/people_around = list()
+	people_around.Add(user)//Occulus edit
 	for(var/mob/living/carbon/human/H in view(user))
 		if(H != user && !isdeaf(H))
 			people_around.Add(H)
@@ -276,7 +277,7 @@
 
 
 /datum/ritual/cruciform/priest/short_boost/proc/take_boost(mob/living/carbon/human/participant, stat, amount)
-	// take_boost is automatically triggered by a callback function when the boost ends but the participant 
+	// take_boost is automatically triggered by a callback function when the boost ends but the participant
 	// may have been deleted during the duration of the boost
 	if (participant) // check if participant still exists otherwise we cannot read null.stats
 		to_chat(participant, SPAN_WARNING("Your knowledge of [get_stats_to_text()] feels lessened."))
