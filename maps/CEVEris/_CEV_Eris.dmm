@@ -627,7 +627,7 @@
 "abL" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	name = "Ironhammer Commander";
+	name = "Aegis Commander";
 	req_access = list(58)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -759,7 +759,7 @@
 "abZ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
-	name = "Ironhammer Commander";
+	name = "Aegis Commander";
 	req_access = list(58)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -50139,7 +50139,7 @@
 "cmO" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
-	name = "Moebius Expedition Overseer";
+	name = "NT RND Overseer";
 	req_access = list(30)
 	},
 /obj/structure/cable/green{
@@ -65458,7 +65458,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/command{
-	name = "Moebius Expedition Overseer's Quarters";
+	name = "NT RND Overseer's Quarters";
 	req_access = list(30)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -70226,7 +70226,7 @@
 "dim" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	name = "Technomancer Exultant's Quarters";
+	name = "EES Supervisor's Quarters";
 	req_access = list(56)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -77397,7 +77397,7 @@
 /area/eris/rnd/docking)
 "dyI" = (
 /obj/machinery/door/airlock/command{
-	name = "Guild Merchant's Quarters";
+	name = "FTU Merchant's Quarters";
 	req_access = list(41)
 	},
 /obj/machinery/door/firedoor,
@@ -77574,7 +77574,7 @@
 /area/eris/maintenance/section2deck2port)
 "dzb" = (
 /obj/machinery/door/airlock/command{
-	name = "Guild Merchant's Quarters";
+	name = "FTU Merchant's Quarters";
 	req_access = list(41)
 	},
 /obj/machinery/door/firedoor,
@@ -78931,7 +78931,7 @@
 /area/eris/medical/patients_rooms)
 "dCn" = (
 /obj/machinery/door/airlock/command{
-	name = "Guild Merchant's Quarters";
+	name = "FTU Merchant's Quarters";
 	req_access = list(41)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -79632,7 +79632,7 @@
 /area/eris/hallway/main/section2)
 "dDT" = (
 /obj/machinery/door/airlock/command{
-	name = "Guild Merchant's Quarters";
+	name = "FTU Merchant's Quarters";
 	req_access = list(41)
 	},
 /obj/structure/disposalpipe/segment{
@@ -97073,7 +97073,7 @@
 "ete" = (
 /obj/machinery/door/airlock/command{
 	id_tag = "cedoor";
-	name = "Technomancer Exultant";
+	name = "EES Supervisor";
 	req_access = list(56)
 	},
 /obj/machinery/door/firedoor,
@@ -101830,7 +101830,6 @@
 "eDp" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/structure/table/reinforced,
-/obj/item/weapon/book/manual/wiki/engineering_supermatter,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -103507,7 +103506,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/command{
-	name = "Moebius Biolab Officer's Quarters";
+	name = "NT Biolab Officer's Quarters";
 	req_access = list(37)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -105395,6 +105394,14 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/section3starboard)
+"mka" = (
+/obj/machinery/door/airlock/glass_command{
+	name = "NT Biolab Officer";
+	req_access = list(37)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/white/cargo,
+/area/eris/command/mbo)
 "mkL" = (
 /obj/structure/table/woodentable,
 /obj/spawner/pizza/low_chance,
@@ -107162,7 +107169,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/maintenance_medical{
-	name = "MBO Maintenance";
+	name = "NTO Maintenance";
 	req_access = list(37)
 	},
 /obj/structure/disposalpipe/segment,
@@ -248913,7 +248920,7 @@ aaa
 aaa
 chl
 dxw
-oYt
+mka
 dzu
 dzI
 dzP
