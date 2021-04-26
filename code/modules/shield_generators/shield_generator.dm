@@ -128,7 +128,7 @@
 /obj/machinery/power/shield_generator/RefreshParts()
 	max_energy = 0
 	for(var/obj/item/weapon/stock_parts/smes_coil/S in component_parts)
-		max_energy += (S.ChargeCapacity / CELLRATE)
+		max_energy += (S.ChargeCapacity / (CELLRATE * 5))//Occulus Edit
 	current_energy = between(0, current_energy, max_energy)
 
 	mitigation_max = MAX_MITIGATION_BASE
@@ -144,8 +144,8 @@
 /obj/machinery/power/shield_generator/proc/boost_field()
 	max_energy = 0
 	for(var/obj/item/weapon/stock_parts/smes_coil/S in component_parts)
-		max_energy += (S.ChargeCapacity / CELLRATE)
-	current_energy = max_energy
+		max_energy += (S.ChargeCapacity / (CELLRATE * 5))
+	current_energy = min(current_energy + (max_energy/3), max_energy)
 
 ///// OCCULUS EDIT END
 

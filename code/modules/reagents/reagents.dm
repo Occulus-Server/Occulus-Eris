@@ -40,6 +40,7 @@
 	var/sanity_gain = 0
 	var/list/taste_tag = list()
 	var/sanity_gain_ingest = 0
+	var/minimum_identification = STAT_LEVEL_NONE	// OCCULUS EDIT: Minimum BIO level to identify the reagent without a scanner
 
 	var/chilling_point
 	var/chilling_message = "crackles and freezes!"
@@ -127,9 +128,9 @@
 // Currently, on_mob_life is only called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
 /datum/reagent/proc/on_mob_life(mob/living/carbon/M, alien, location)
 	if(!istype(M))
-		return
+		return FALSE
 	if(!affects_dead && M.stat == DEAD)
-		return
+		return FALSE
 
 	var/removed = consumed_amount(M, alien, location)
 
@@ -148,6 +149,7 @@
 	// At this point, the reagent might have removed itself entirely - safety check
 	if(volume && holder)
 		remove_self(removed)
+	return TRUE
 
 /datum/reagent/proc/apply_sanity_effect(mob/living/carbon/human/H, effect_multiplier)
 	if(!ishuman(H))
@@ -159,7 +161,6 @@
 
 /datum/reagent/proc/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	affect_blood(M, alien, effect_multiplier * 0.8)	// some of chemicals lost in digestive process
-	
 	apply_sanity_effect(M, effect_multiplier)
 
 /datum/reagent/proc/affect_touch(mob/living/carbon/M, alien, effect_multiplier)
@@ -233,3 +234,49 @@
 
 /datum/reagent/proc/custom_temperature_effects(temperature)
 	return
+
+// OCCULUS EDIT
+// Code for reagent identification.
+
+/datum/reagent/proc/identify_reagent(mob/user)
+
+	var/minimum_cog = STAT_LEVEL_BASIC
+	var/is_silicon = istype(user, /mob/living/silicon)	// Silicons can always identify it
+
+	// Can they see the amount? Low level COG check
+
+	var/exact_amount = FALSE
+
+	if (user.stats.getStat(STAT_COG) >= minimum_cog || is_silicon)
+		exact_amount = TRUE
+
+	var/desc_amount = "a lot"
+
+	if (!exact_amount)
+		switch(volume)
+			if (0 to 1)
+				desc_amount = "A tiny bit"
+			if (1 to 5)
+				desc_amount = "A sip"
+			if (5 to 15)
+				desc_amount = "A few drinks"
+			if (15 to 30)
+				desc_amount = "A good amount"
+			if (30 to INFINITY)
+				desc_amount = "A lot"
+
+	// Next, see if the user's BIO is greater than or equal to the reagent's minimum identification.
+
+	if (user.stats.getStat(STAT_BIO) >= minimum_identification || is_silicon)
+		if (exact_amount)
+			to_chat(user, "<span class='notice'>[volume] units of [name]</span>")
+		else
+			to_chat(user, "<span class='notice'>[desc_amount] of [name]</span>")
+	else
+		// don't know what it be
+		if (exact_amount)
+			to_chat(user, "<span class='notice'>[volume] units of something.</span>")
+		else
+			to_chat(user, "<span class='notice'>[desc_amount] of something.</span>")
+
+// OCCULUS EDIT END

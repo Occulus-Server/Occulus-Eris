@@ -62,6 +62,7 @@
 	icon_state = "insp_under"
 	item_state = "insp_under"
 	siemens_coefficient = 0.8
+	no_fibers = TRUE	// OCCULUS EDIT
 
 /obj/item/clothing/under/rank/det
 	name = "inspector's suit"
@@ -69,6 +70,7 @@
 	icon_state = "detective"
 	item_state = "det"
 	siemens_coefficient = 0.8
+	no_fibers = TRUE	// OCCULUS EDIT
 
 /obj/item/clothing/under/rank/det/black
 	icon_state = "detective3"

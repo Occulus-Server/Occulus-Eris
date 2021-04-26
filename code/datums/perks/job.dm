@@ -217,3 +217,18 @@
 /datum/perk/greenthumb/assign(mob/living/carbon/human/H)
 	..()
 	virtual_scanner.is_virtual = TRUE
+
+/datum/perk/job/club
+	name = "Raising the bar"
+	desc = "You know how to mix drinks and change lives. People near you recover sanity."
+	icon_state = "inspiration"
+
+/datum/perk/job/club/assign(mob/living/carbon/human/H)
+	..()
+	if(holder)
+		holder.sanity_damage -= 2
+
+/datum/perk/job/club/remove()
+	if(holder)
+		holder.sanity_damage += 2
+	..()

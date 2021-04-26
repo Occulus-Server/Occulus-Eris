@@ -54,12 +54,15 @@
 
 #define SEMI_AUTO_NODELAY	list(mode_name="semiauto", burst=1, fire_delay=0, move_delay=null, icon="semi")
 
-#define BURST_3_ROUND		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4, icon="burst")
-#define BURST_5_ROUND		list(mode_name="5-round bursts", burst=5, fire_delay=null, move_delay=6, icon="burst")
-#define BURST_8_ROUND		list(mode_name="8-round bursts", burst=8, fire_delay=null, move_delay=8, icon="burst")
+//Cog firemode
+#define BURST_2_ROUND		list(mode_name="2-beam bursts", mode_desc = "Short, controlled bursts", burst=2, fire_delay=null, move_delay=2, icon="burst", damage_mult_add = -0.1)
 
-#define WEAPON_NORMAL		list(mode_name="standard", icon="semi")
-#define WEAPON_CHARGE		list(mode_name="charge mode", mode_type = /datum/firemode/charge, icon="charge")
+#define BURST_3_ROUND		list(mode_name="3-round bursts", mode_desc = "Short, controlled bursts", burst=3, fire_delay=null, move_delay=4, icon="burst", damage_mult_add = -0.1)
+#define BURST_5_ROUND		list(mode_name="5-round bursts", mode_desc = "Short, controlled bursts", burst=5, fire_delay=null, move_delay=6, icon="burst", damage_mult_add = -0.1)
+#define BURST_8_ROUND		list(mode_name="8-round bursts", mode_desc = "Short, uncontrolled bursts", burst=8, fire_delay=null, move_delay=8, icon="burst", damage_mult_add = -0.1)
+
+#define WEAPON_NORMAL		list(mode_name="standard", burst =1, icon="semi")
+#define WEAPON_CHARGE		list(mode_name="charge mode", mode_desc="Hold down the trigger, and let loose a more powerful shot", mode_type = /datum/firemode/charge, icon="charge")
 
 #define BASE_ACCURACY_REGEN 0.75 //Recoil reduction per ds with 0 VIG
 #define VIG_ACCURACY_REGEN  0.015 //Recoil reduction per ds per VIG

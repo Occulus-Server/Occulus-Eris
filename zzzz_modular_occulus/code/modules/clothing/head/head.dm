@@ -1,9 +1,9 @@
 /obj/item/clothing/head/space/capspace
 	name = "captain's voidsuit helmet"
-	icon = 'zzz_modular_syzygy/icons/head_icons.dmi'
+	icon = 'zzzz_modular_occulus/icons/inventory/head/icon.dmi'
 	icon_state = "captains_voidhelmet"
 	item_state = "captains_voidhelmet"
-	icon_override = 'zzz_modular_syzygy/icons/mob/head.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/mob/head.dmi'
 	desc = "A special helmet designed for hazardous, low-pressure environments. Only for the most fashionable of corporate figureheads."
 	armor = list(
 		melee = 50,
@@ -24,7 +24,27 @@
 	item_state = "christmashat"
 
 /obj/item/clothing/head/space/void/medical
+	name = "medical voidsuit helmet"
 	icon = 'zzzz_modular_occulus/icons/inventory/head/icon.dmi'
 	icon_override = 'zzzz_modular_occulus/icons/inventory/head/mob.dmi'
 	icon_state = "medical_helm"
 	item_state = "medical_helm"
+
+/obj/item/clothing/head/solgov
+	icon = 'zzzz_modular_occulus/icons/inventory/head/solgovicon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/head/solgovmob.dmi'
+
+/obj/item/clothing/head/solgov/wheelcap
+	name = "solgov dress uniform cap"
+	icon_state = "whitewheelcap"
+	item_state = "whitewheelcap"
+
+/obj/item/clothing/head/solgov/wheelcapcomm
+	name = "solgov officer's dress uniform cap"
+	icon_state = "whitewheelcap_com"
+	item_state = "whitewheelcap_com"
+
+/obj/item/clothing/head/solgov/blueberet
+	name = "blue beret"
+	icon_state = "beret_blue"
+	item_state = "beret_blue"

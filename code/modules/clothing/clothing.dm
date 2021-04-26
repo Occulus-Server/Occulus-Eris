@@ -26,6 +26,7 @@
 	var/retract_while_active = TRUE
 
 	var/style = STYLE_NONE
+	var/no_fibers = FALSE	// OCCULUS EDIT: For clothing that should not leave fibers, like detective's gear
 
 /obj/item/clothing/Initialize(mapload, ...)
 	. = ..()

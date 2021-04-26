@@ -57,9 +57,10 @@
 	icon_state = "armor_security"
 
 /obj/item/clothing/suit/armor/vest/detective
-	name = "armor"
+	name = "detective's armor vest"	// OCCULUS EDIT: more clarification
 	desc = "An armored vest with a detective's badge on it."
 	icon_state = "armor_detective"
+	no_fibers = TRUE	// OCCULUS EDIT
 
 /obj/item/clothing/suit/armor/vest/warden
 	name = "Warden's jacket"
@@ -249,7 +250,7 @@
 	)
 	//spawn_blacklisted = TRUE//antag_item_targets-crafteable?
 
-/obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack") //TODO: Refactor this all into humandefense
+/obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack") //TODO: Refactor this all into humandefense
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
 		var/obj/item/projectile/P = damage_source
 
@@ -487,32 +488,22 @@
 		rad = 0
 	)
 	var/active = 0
+	var/entropy_value = 2
 
-/obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	if(prob(50))
 		user.visible_message(SPAN_DANGER("The reactive teleport system flings [user] clear of the attack!"))
-		var/list/turfs = new/list()
 		var/turf/TLoc = get_turf(user)
-		for(var/turf/T in trange(6, TLoc))
-			if(istype(T,/turf/space)) continue
-			if(T.density) continue
-			if(T.x>world.maxx-6 || T.x<6)	continue
-			if(T.y>world.maxy-6 || T.y<6)	continue
-			turfs += T
-		if(!turfs.len) turfs += pick(/turf in orange(6))
-		var/turf/picked = pick(turfs)
-		if(!isturf(picked)) return
-
+		var/turf/picked = get_random_secure_turf_in_range(src, 7, 1)
+		if(!picked) return
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, user.loc)
 		spark_system.start()
-		playsound(user.loc, "sparks", 50, 1)
-
-		user.loc = picked
+		go_to_bluespace(TLoc, entropy_value, TRUE, user, picked)
 		return PROJECTILE_FORCE_MISS
-	return 0
+	return FALSE
 
-/obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
+/obj/item/clothing/suit/armor/reactive/attack_self(mob/user)
 	src.active = !( src.active )
 	if (src.active)
 		to_chat(user, "\blue The reactive armor is now active.")
@@ -546,5 +537,6 @@
 		bio = 0,
 		rad = 0
 	)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	unacidable = TRUE
 	spawn_blacklisted = TRUE

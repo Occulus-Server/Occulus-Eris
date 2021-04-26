@@ -229,6 +229,9 @@
 		T.color = tool_upgrades[UPGRADE_COLOR]
 	if(tool_upgrades[UPGRADE_ITEMFLAGPLUS])
 		T.item_flags |= tool_upgrades[UPGRADE_ITEMFLAGPLUS]
+	if(tool_upgrades[UPGRADE_QUALITIES])//Occulus Edit
+		T.tool_qualities -= tool_upgrades[UPGRADE_QUALITIES]//Occulus Edit: If this works I may shoot myself
+		T.tool_qualities += tool_upgrades[UPGRADE_QUALITIES]//Occulus Edit
 	if(tool_upgrades[UPGRADE_CELLPLUS])
 		switch(T.suitable_cell)
 			if(/obj/item/weapon/cell/medium)
@@ -544,6 +547,8 @@
 		if(C.use_tool(user = user, target =  upgrade_loc, base_time = IU.removal_time, required_quality = QUALITY_SCREW_DRIVING, fail_chance = FAILCHANCE_CHALLENGING, required_stat = STAT_MEC))
 			//If you pass the check, then you manage to remove the upgrade intact
 			to_chat(user, SPAN_NOTICE("You successfully remove \the [toremove] while leaving it intact."))
+			if(IU.tool_upgrades[UPGRADE_QUALITIES])
+				T.tool_qualities -= IU.tool_upgrades[UPGRADE_QUALITIES]
 			SEND_SIGNAL(toremove, COMSIG_REMOVE, upgrade_loc)
 			upgrade_loc.refresh_upgrades()
 			return 1

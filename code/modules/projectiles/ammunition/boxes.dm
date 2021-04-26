@@ -8,6 +8,7 @@
 	reload_delay = 30
 	ammo_mag = "box"
 	matter = list(MATERIAL_CARDBOARD = 1)
+	bad_type = /obj/item/ammo_magazine/ammobox
 
 /obj/item/ammo_magazine/ammobox/resolve_attackby(atom/A, mob/user)
 	if(isturf(A) && locate(/obj/item/ammo_casing) in A || istype(A, /obj/item/ammo_casing))
@@ -210,6 +211,11 @@
 	ammo_type = /obj/item/ammo_casing/lrifle
 	mag_type = SPEEDLOADER | MAGAZINE
 	max_ammo = 240
+
+/obj/item/ammo_magazine/ammobox/lrifle/rubber
+	name = "ammunition box (.30 Rifle rubber)"
+	icon_state = "box_lrifle_r"
+	ammo_type = /obj/item/ammo_casing/lrifle/rubber
 
 /obj/item/ammo_magazine/ammobox/lrifle_small
 	name = "ammunition packet (.30 Rifle lethal)"

@@ -1028,6 +1028,20 @@ Note that amputating the affected organ does in fact remove the infection from t
 			conditions_list.Add(list(condition))
 
 	else if(BP_IS_ORGANIC(src))
+		if(brute_dam > 15)//Occulus Edit Start
+			condition = list(
+				"name" = "Blunt trauma",
+				"fix_name" = "Mend",
+				"step" = /datum/surgery_step/fix_brute
+			)
+			conditions_list.Add(list(condition))
+		if(burn_dam > 15)
+			condition = list(
+				"name" = "Charred flesh",
+				"fix_name" = "Mend",
+				"step" = /datum/surgery_step/fix_burn
+			)
+			conditions_list.Add(list(condition))//Occulus Edit End
 		if(status & ORGAN_BLEEDING)
 			condition = list(
 				"name" = "Bleeding",

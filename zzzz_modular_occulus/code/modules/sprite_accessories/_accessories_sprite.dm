@@ -214,6 +214,13 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
+/datum/sprite_accessory/tail/jackal
+	name = "Jackal tail"
+	icon = 'zzzz_modular_occulus/icons/mob/jamini-tails.dmi'
+	icon_state = "jackal_bicolor"
+	extra_overlay = "jackal_bicolor_extra"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
 
 //Syzygy Markings
 
@@ -251,6 +258,18 @@
 	name = "Mushroom"
 	icon_state = "diona_mushroom"
 	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/syzygy/jackal
+	name = "Jackal Bare Back"
+	icon_state = "jackal_bareback"
+	body_parts = list(BP_CHEST, BP_GROIN, BP_L_ARM, BP_R_ARM)
+	color_blend_mode = ICON_MULTIPLY
+
+/datum/sprite_accessory/marking/syzygy/jackalspotted
+	name = "Jackal Back Markings"
+	icon_state = "jackal_backpattern"
+	body_parts = list(BP_CHEST, BP_L_ARM, BP_R_ARM)
+	color_blend_mode = ICON_MULTIPLY
 
 //Old Polaris stuff
 

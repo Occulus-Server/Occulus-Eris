@@ -35,6 +35,9 @@ proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impa
 				if(M_turf && M_turf.z == epicenter.z)
 					var/dist = get_dist(M_turf, epicenter)
 					// If inside the blast radius + world.view - 2
+					if(dist <= round(flash_range))//Occulus Edit: Explosion Flashes
+						if (M.HUDtech.Find("flash"))//Occulus Edit: Explosion Flashes
+							flick("e_flash", M.HUDtech["flash"])//Occulus Edit: Explosion Flashes
 					if(dist <= round(max_range + world.view - 2, 1))
 						M.playsound_local(epicenter, get_sfx("explosion"), 100, 1, frequency, falloff = 5) // get_sfx() is so that everyone gets the same sound
 
@@ -52,8 +55,8 @@ proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impa
 			if(M.ear_deaf <= 0 || !M.ear_deaf) if(!istype(M.loc,/turf/space))
 				M << 'sound/effects/explosionfar.ogg'
 		if(adminlog)
-			message_admins("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")
-			log_game("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ")
+			message_admins("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range], [flash_range]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")
+			log_game("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range], [flash_range]) in area [epicenter.loc.name] ")
 
 		var/approximate_intensity = (devastation_range * 3) + (heavy_impact_range * 2) + light_impact_range
 		var/powernet_rebuild_was_deferred_already = defer_powernet_rebuild

@@ -15,12 +15,12 @@
 	addiction_chance = 20
 	nerve_system_accumulations = 15
 
-/datum/reagent/stim/stim/mbr/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
+/datum/reagent/stim/mbr/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.stats.addTempStat(STAT_MEC, STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "mbr")
 	M.stats.addTempStat(STAT_BIO, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "mbr")
 	sanity_gain = 1
 
-/datum/reagent/stim/stim/mbr/withdrawal_act(mob/living/carbon/M)
+/datum/reagent/stim/mbr/withdrawal_act(mob/living/carbon/M)
 	M.stats.addTempStat(STAT_MEC, -STAT_LEVEL_BASIC, STIM_TIME, "mbr_w")
 	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC, STIM_TIME, "mbr_w")
 
@@ -102,7 +102,7 @@
 	M.stats.addTempStat(STAT_ROB, STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "violence")
 	M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "violence")
 	M.add_chemical_effect(CE_PULSE, 1)
-	M.add_chemical_effect(CE_SPEECH_VOLUME, rand(3,4))
+	M.add_chemical_effect(CE_SPEECH_VOLUME, rand(1,2)) //Occulus Edit - Was originally rand(3,4)
 
 /datum/reagent/stim/violence/withdrawal_act(mob/living/carbon/M)
 	M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_BASIC, STIM_TIME, "violence_w")
@@ -399,7 +399,7 @@
 	M.stats.addTempStat(STAT_BIO, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "menace")
 	M.stats.addTempStat(STAT_COG, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "menace")
 	M.slurring = max(M.slurring, 30)
-	M.add_chemical_effect(CE_SPEECH_VOLUME, 4)
+	M.add_chemical_effect(CE_SPEECH_VOLUME, 2) //Occulus Edit - Originally 4.
 
 /datum/reagent/stim/menace/withdrawal_act(mob/living/carbon/M)
 	M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_ADEPT, STIM_TIME, "menace_w")

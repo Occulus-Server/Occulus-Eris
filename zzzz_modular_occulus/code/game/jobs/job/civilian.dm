@@ -39,3 +39,6 @@
 	id_type = /obj/item/weapon/card/id/white
 	pda_type = /obj/item/modular_computer/pda/club_worker
 	backpack_contents = list(/obj/item/weapon/bananapeel = 1, /obj/item/weapon/storage/fancy/crayons = 1, /obj/item/toy/waterflower = 1, /obj/item/weapon/stamp/clown = 1, /obj/item/weapon/handcuffs/fake = 1)
+
+/obj/item/modular_computer/pda/club_worker
+	scanner_type = /obj/item/weapon/computer_hardware/scanner/reagent

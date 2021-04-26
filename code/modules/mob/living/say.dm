@@ -118,10 +118,12 @@ var/list/channel_to_radio_key = new
 
 // returns message
 /mob/living/proc/getSpeechVolume(var/message)
-	var/volume = chem_effects[CE_SPEECH_VOLUME] ? round(chem_effects[CE_SPEECH_VOLUME]) : 2	// 2 is default text size in byond chat
+	//Occulus Edit - Make volume scale correctly.
+	var/volume = chem_effects[CE_SPEECH_VOLUME] ? round(chem_effects[CE_SPEECH_VOLUME]) : 1	// 2 is default text size in byond chat
 	var/ending = copytext(message, length(message))
 	if(ending == "!")
-		volume ++
+		//occulus Edit - Can't just ++ anymore because 2em is fooking huge.
+		volume = volume * 1.5
 	return volume
 
 /mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="")
@@ -154,7 +156,7 @@ var/list/channel_to_radio_key = new
 		if (message_mode == "headset")
 			message = copytext(message,2)//parse ;
 		else
-			message = copytext_char(message,3)//parse :s 
+			message = copytext_char(message,3)//parse :s
 
 	message = trim_left(message)
 
@@ -176,7 +178,7 @@ var/list/channel_to_radio_key = new
 	verb = say_quote(message, speaking)
 
 	message = trim_left(message)
-
+	var/message_pre_stutter = message
 	if(!(speaking && speaking.flags&NO_STUTTER))
 
 		var/list/handle_s = handle_speech_problems(message, verb)
@@ -287,8 +289,8 @@ var/list/channel_to_radio_key = new
 
 	for(var/obj/O in listening_obj)
 		spawn(0)
-			if(O) //It's possible that it could be deleted in the meantime.
-				O.hear_talk(src, message, verb, speaking, getSpeechVolume(message))
+			if(!QDELETED(O)) //It's possible that it could be deleted in the meantime.
+				O.hear_talk(src, message, verb, speaking, getSpeechVolume(message), message_pre_stutter)
 
 
 	log_say("[name]/[key] : [message]")

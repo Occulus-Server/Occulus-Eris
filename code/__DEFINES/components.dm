@@ -36,6 +36,10 @@
 #define COMSIG_PARENT_QDELETING "parent_qdeleting"              // just before a datum's Destroy() is called: (force), at this point none of the other components chose to interrupt qdel and Destroy will be called
 #define COMSIG_PARENT_QDELETED "parent_qdeleted"				//after a datum's Destroy() is called: (force, qdel_hint), at this point none of the other components chose to interrupt qdel and Destroy has been called
 
+#define COMSIG_SHUTTLE_SUPPLY "shuttle_supply"  //form sell()
+//#define COMSIG_RITUAL_REVELATION "revelation_ritual" Occulus Edit: not used here
+//#define COMSIG_GROUP_RITUAL "grup_ritual" Occulus Edit: Not used here
+#define COMSIG_TRANSATION "transation"          //from transfer_funds()
 
 // /atom signals
 #define COMSIG_EXAMINE "examine"								//from atom/examine(): (mob/user, distance)
