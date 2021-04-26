@@ -61,12 +61,9 @@
 #define GUN_UPGRADE_DAMAGE_CLONE "clone_damage"
 #define GUN_UPGRADE_DAMAGE_HALLOSS "hallucination_damage"
 #define GUN_UPGRADE_DAMAGE_RADIATION "radiation_damage"
-<<<<<<< HEAD
-=======
 #define GUN_UPGRADE_DAMAGE_PSY "psy_damage"
 #define GUN_UPGRADE_MELEEDAMAGE "melee_damage"
 #define GUN_UPGRADE_MELEEPENETRATION "melee_penetration"
->>>>>>> e86aef6f5... Bayonets and other attachment changes (#5858)
 
 #define GUN_UPGRADE_OFFSET "offset" //Constant offset, in degrees
 #define GUN_UPGRADE_ZOOM "zoom"

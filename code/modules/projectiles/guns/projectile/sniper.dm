@@ -19,12 +19,9 @@
 	matter = list(MATERIAL_PLASTEEL = 40, MATERIAL_PLASTIC = 20)
 	price_tag = 5000
 	one_hand_penalty = 10
-<<<<<<< HEAD
-=======
 	zoom_factor = 2
 	twohanded = TRUE
 	no_internal_mag = TRUE
->>>>>>> e86aef6f5... Bayonets and other attachment changes (#5858)
 	var/bolt_open = 0
 	var/item_suffix = ""
 	zoom_factor = 2.0

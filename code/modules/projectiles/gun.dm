@@ -77,10 +77,7 @@
 	var/proj_step_multiplier = 1
 	var/proj_agony_multiplier = 1
 	var/list/proj_damage_adjust = list() //What additional damage do we give to the bullet. Type(string) -> Amount(int)
-<<<<<<< HEAD
-=======
 	var/noricochet = FALSE // wether or not bullets fired from this gun can ricochet off of walls
->>>>>>> e86aef6f5... Bayonets and other attachment changes (#5858)
 
 /obj/item/weapon/gun/get_item_cost(export)
 	if(export)

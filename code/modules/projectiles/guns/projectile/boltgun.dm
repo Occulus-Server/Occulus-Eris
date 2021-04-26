@@ -97,10 +97,7 @@
 			This copy, in fact, is a reverse-engineered poor-quality copy of a more perfect copy of an ancient rifle"
 	icon_state = "boltgun_wood"
 	item_suffix  = "_wood"
-<<<<<<< HEAD
-=======
 	force = 23
->>>>>>> e86aef6f5... Bayonets and other attachment changes (#5858)
 	recoil_buildup = 0.4 // Double the excel variant
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_WOOD = 10)
 	wielded_item_state = "_doble_wood"

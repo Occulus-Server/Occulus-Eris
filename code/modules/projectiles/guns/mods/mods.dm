@@ -240,9 +240,6 @@
 		)
 	I.gun_loc_tag = GUN_SCOPE
 	I.req_gun_tags = list(GUN_SCOPE)
-<<<<<<< HEAD
-=======
-
 
 /obj/item/weapon/gun_upgrade/mechanism/gravcharger
 	name = "makeshift bullet time generator"
@@ -359,5 +356,3 @@
 #define TRASH_GUNMODS list(/obj/item/weapon/gun_upgrade/trigger/faulty, /obj/item/weapon/gun_upgrade/barrel/faulty, \
 		/obj/item/weapon/gun_upgrade/muzzle/faulty, /obj/item/weapon/gun_upgrade/mechanism/faulty, \
 		/obj/item/weapon/gun_upgrade/scope/faulty)
-
->>>>>>> e86aef6f5... Bayonets and other attachment changes (#5858)
