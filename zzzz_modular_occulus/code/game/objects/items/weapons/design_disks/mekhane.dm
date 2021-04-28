@@ -140,3 +140,69 @@ ARMOR_PEN_MASSIVE			30
 		/datum/design/autolathe/sword/mek_hammer,
 		/datum/design/autolathe/tool_upgrade/sanctifier
 	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter
+	disk_name = "Mekhane Bioprinter Products and Utilities"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes
+	disk_name = "Mekhane Bio-Fabric Designs"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_public
+	disk_name = "Mekhane Bioprinter Pack"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/crusader
+	disk_name = "Mekhane Armory - Crusader Armor"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/excruciator
+	disk_name = "Mekhane Armory - NT \"EXCRUCIATOR\" giga lens"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt
+	disk_name = "Mekhane Armory - Blank"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/melee
+	disk_name = "Mekhane Armory - Basic Melee Weapons"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/longsword
+	disk_name = "Mekhane Armory - NT Longsword"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/scourge
+	disk_name = "Mekhane Armory - NT Scourge"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/halberd
+	disk_name = "Mekhane Armory - NT Halberd"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/shield
+	disk_name = "Mekhane Armory - NT Shield"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/firstaid
+	disk_name = "Mekhane Armory - NeoTheologian Medkit"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_dominion
+	disk_name = "Mekhane Armory - Dominion Plasma Rifle"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_purger
+	disk_name = "Mekhane Armory - Purger Plasma Rifle"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/grenades
+	disk_name = "Mekhane Armory - Grenades Pack"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_nemesis
+	disk_name = "EC01 - Nemesis"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_themis
+	disk_name = "EC02 - Themis"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_svalinn
+	disk_name = "Mekhane Armory - MEK LP \"Svalinn\""
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_protector
+	disk_name = "GL01 - Protector Grenade Launcher"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_heavysniper
+	disk_name = "60 Penetrator AMR"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_mk58
+	disk_name = "MK58 Handgun Pack"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_regulator
+	disk_name = "Frozen Star - .50 Regulator Shotgun"
