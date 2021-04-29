@@ -281,11 +281,11 @@
 /obj/machinery/hivemind_machine/emp_act(severity)
 	switch(severity)
 		if(1)
-			take_damage(30)
-			stun(10)
+			take_damage(60)
+			stun(20)
 		if(2)
-			take_damage(10)
-			stun(5)
+			take_damage(30)
+			stun(8)
 	..()
 
 
@@ -564,8 +564,8 @@
 	desc = "A head impaled on a metal tendril. Still twitching, still living, still screaming."
 	icon_state = "head"
 	max_health = 100
-	evo_level_required = 2
-	cooldown_time = 30 SECONDS
+	evo_level_required = 3
+	cooldown_time = 25 SECONDS
 	spawn_weight  =	35
 
 
@@ -594,13 +594,13 @@
 
 	var/mob/living/carbon/human/H = target
 	if(istype(H))
-		if(prob(100 - H.stats.getStat(STAT_VIG)))
-			H.Weaken(8)
+		if(prob(90 - H.stats.getStat(STAT_VIG)))
+			H.Weaken(6)
 			to_chat(H, SPAN_WARNING("A terrible howl tears through your mind, the voice senseless, soulless."))
 		else
 			to_chat(H, SPAN_NOTICE("A terrible howl tears through your mind, but you refuse to listen to it!"))
 	else
-		target.Weaken(8)
+		target.Weaken(6)
 		to_chat(target, SPAN_WARNING("A terrible howl tears through your mind, the voice senseless, soulless."))
 
 

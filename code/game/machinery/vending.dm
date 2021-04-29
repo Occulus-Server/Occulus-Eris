@@ -1003,10 +1003,11 @@
 					/obj/item/weapon/gun/energy/gun/martin = 5,
 					/obj/item/clothing/accessory/holster = 5,
 					/obj/item/clothing/accessory/holster/waist = 5,
-					/obj/item/weapon/tool/knife/tacknife = 5,
-					/obj/item/clothing/head/armor/helmet = 2,
-					/obj/item/clothing/suit/armor/vest = 2
-					)
+					/obj/item/clothing/accessory/holster/hip = 5,//Occulus Edit: We have a bullet vendor
+					/obj/item/weapon/tool/knife/tacknife = 5,//Occulus Edit: We have a bullet vendor
+					/obj/item/weapon/storage/box/smokes = 3,//Occulus Edit: We have a bullet vendor
+					/obj/item/clothing/head/armor/helmet = 2,//Occulus Edit: We have a bullet vendor
+					/obj/item/clothing/suit/armor/vest = 2)//Occulus Edit: We have a bullet vendor
 
 	prices = list(
 					/obj/item/weapon/reagent_containers/spray/pepper = 200,
@@ -1018,11 +1019,14 @@
 					/obj/item/weapon/gun/energy/gun/martin = 600,
 					/obj/item/clothing/accessory/holster/armpit = 200,
 					/obj/item/clothing/accessory/holster/waist = 200,
+					/obj/item/clothing/accessory/holster/hip = 200,//Occulus Edit: This was missing
 					/obj/item/weapon/tool/knife/tacknife = 400,
 					/obj/item/clothing/head/armor/helmet = 1000,
 					/obj/item/clothing/suit/armor/vest = 1500,
-					/obj/item/weapon/gun/projectile/automatic/slaught_o_matic = 90,
-					)
+					/obj/item/weapon/gun/projectile/automatic/slaught_o_matic = 300,//Occulus Edit: Ahahaha what? No
+					/obj/item/weapon/tool/knife/tacknife = 600,//Occulus Edit: We have a bullet vendor
+					/obj/item/weapon/storage/box/smokes = 200)
+
 
 //This one's from bay12
 /obj/machinery/vending/cart
@@ -1165,6 +1169,7 @@
 					/obj/item/weapon/handcuffs/zipties = 8,
 					/obj/item/weapon/grenade/flashbang = 8,
 					/obj/item/weapon/grenade/chem_grenade/teargas = 8,
+					/obj/item/weapon/grenade/smokebomb = 8,
 					/obj/item/device/flash = 8,
 					/obj/item/weapon/reagent_containers/spray/pepper = 8,
 					/obj/item/ammo_magazine/ihclrifle/rubber = 8,
