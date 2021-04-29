@@ -33,7 +33,7 @@
 
 
 /obj/item/weapon/emp_mine/Crossed(mob/AM)
-	if(world.time - cooldown_timer > cooldown)
+	if(world.time - cooldown_timer > cooldown && isliving(AM) && armed == TRUE)
 		cooldown_timer = world.time
 		empulse(get_turf(src), emp_range, emp_range, TRUE)
 
@@ -61,6 +61,11 @@
 				SPAN_DANGER("You have disarmed \the [src]!")
 				)
 			disarm()
+		else
+			if(prob(5))
+				user.visible_message(
+					SPAN_DANGER("the [src] trggers!"),
+					SPAN_DANGER("You fail to disarm the [src] and it triggers!"))
 		return
 	else
 		if (armed)   //now touching it with stuff that don't pulse will also be a bad idea
