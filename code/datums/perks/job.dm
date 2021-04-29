@@ -193,7 +193,7 @@
 	name = "Neat"
 	desc = "You're used to see blood and filth in all its forms. Your motto: a clean ship is the first step to enlightenment. \
 			This perk reduces the total sanity damage you can take from what is happening around you. \
-			You can regain sanity by cleaning with your broom."
+			You can regain sanity by cleaning."
 	icon_state = "neat" // https://game-icons.net/1x1/delapouite/broom.html
 
 /datum/perk/neat/assign(mob/living/carbon/human/H)

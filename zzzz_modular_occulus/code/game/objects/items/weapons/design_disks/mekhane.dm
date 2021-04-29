@@ -57,6 +57,10 @@ ARMOR_PEN_MASSIVE			30
 */
 
 // A lot of the church weapons seem very focused on ignoring armor and fighting against other people. We really shouldn't be expecting that to happen here.
+/obj/item/weapon/gun/matter/launcher/nt_sprayer
+	name = "MEK BCR \"Street Sprayer\""
+	desc = "\"Mekhane\" brand cleansing carbine. Uses solid biomass as ammo and dispense cleansing liquid on hit."
+
 /obj/item/weapon/tool/sword/nt
 	name = "Mekhane Shortsword"
 	force = WEAPON_FORCE_ROBUST	// Buffed one notch up
