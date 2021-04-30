@@ -38,7 +38,7 @@
 			/obj/item/clothing/head/welding,
 			/obj/item/weapon/tool/omnitool,
 			/obj/structure/reagent_dispensers/fueltank,
-			/obj/machinery/floodlight
+			/obj/machinery/floodlight,
 		)
 	)
 
