@@ -3,7 +3,7 @@
 	icon_state = "device"
 	spawn_tags = null
 	var/datum/craft_recipe/recipe
-	var/step = 1
+	var/step = 0//Try and edit this first
 
 
 /obj/item/craft/New(loc, new_recipe)
