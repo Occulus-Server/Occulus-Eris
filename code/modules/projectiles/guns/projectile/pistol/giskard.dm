@@ -22,7 +22,7 @@
 	recoil_buildup = 2
 	rarity_value = 8
 
-/obj/item/weapon/gun/projectile/giskard/update_icon()
+/obj/item/weapon/gun/projectile/giskard/on_update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)

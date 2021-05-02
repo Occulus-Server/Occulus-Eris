@@ -60,7 +60,7 @@
 		to_chat(usr, SPAN_NOTICE("You deactivate the [src]."))
 		var/obj/effect/overlay/T = new(get_turf(src))
 		T.icon = 'icons/effects/effects.dmi'
-		flick("emppulse",T)
+		FLICK("emppulse",T)
 		STOP_PROCESSING(SSobj, src)
 		spawn(8) qdel(T)
 	else
@@ -73,7 +73,7 @@
 		to_chat(usr, SPAN_NOTICE("You activate the [src]."))
 		var/obj/effect/overlay/T = new/obj/effect/overlay(get_turf(src))
 		T.icon = 'icons/effects/effects.dmi'
-		flick("emppulse",T)
+		FLICK("emppulse",T)
 		START_PROCESSING(SSobj, src)
 		spawn(8) qdel(T)
 
@@ -109,7 +109,7 @@
 	desc = O.desc
 	icon = new_icon
 	icon_state = new_iconstate
-	overlays = new_overlays
+	set_overlays(new_overlays)
 	set_dir(O.dir)
 	M.loc = src
 	master = C

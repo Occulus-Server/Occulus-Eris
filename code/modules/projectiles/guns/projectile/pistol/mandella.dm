@@ -23,7 +23,7 @@
 	recoil_buildup = 19
 
 
-/obj/item/weapon/gun/projectile/mandella/update_icon()
+/obj/item/weapon/gun/projectile/mandella/on_update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
