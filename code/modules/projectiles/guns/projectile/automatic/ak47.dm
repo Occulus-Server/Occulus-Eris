@@ -31,7 +31,7 @@
 		BURST_5_ROUND
 		)
 
-/obj/item/weapon/gun/projectile/automatic/ak47/update_icon()
+/obj/item/weapon/gun/projectile/automatic/ak47/on_update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)

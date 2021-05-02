@@ -29,14 +29,14 @@
 	update_icon()
 
 
-/obj/structure/dispenser/update_icon()
-	overlays.Cut()
+/obj/structure/dispenser/on_update_icon()
+	cut_overlays()
 	switch(oxygentanks)
-		if(1 to 3)	overlays += "oxygen-[oxygentanks]"
+		if(1 to 3)	add_overlays("oxygen-[oxygentanks]")
 		if(4 to INFINITY) overlays += "oxygen-4"
-	switch(phorontanks)
-		if(1 to 4)	overlays += "phoron-[phorontanks]"
-		if(5 to INFINITY) overlays += "phoron-5"
+	switch(phorontanks)//Occulus Edit
+		if(1 to 4)	add_overlays("plasma-[phorontanks]")//Occulus Edit
+		if(5 to INFINITY) overlays += "plasma-5"//Occulus Edit
 
 /obj/structure/dispenser/attack_ai(mob/user)
 	if(user.Adjacent(src))

@@ -31,7 +31,19 @@
 		SEMI_AUTO_NODELAY,
 		)
 
-/obj/item/weapon/gun/projectile/automatic/molly/update_icon()
+	can_dual = 1
+	auto_eject = 1
+	damage_multiplier = 0.7 //good for rubber takedowns or self-defence, not so good to kill someone, you might want to use better smg
+	recoil_buildup = 1
+	one_hand_penalty = 5 //despine it being handgun, it's better to hold in two hands while shooting. SMG level.
+
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
+	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_PLASTIC = 3)
+
+	price_tag = 1700
+//	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+
+/obj/item/weapon/gun/projectile/automatic/molly/on_update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)

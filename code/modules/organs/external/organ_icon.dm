@@ -4,13 +4,13 @@ var/global/list/limb_icon_cache = list()
 	return
 
 /obj/item/organ/external/proc/compile_icon()
-	overlays.Cut()
+	cut_overlays()
 	 // This is a kludge, only one icon has more than one generation of children though.
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
-				overlays += child.mob_icon
-		overlays += organ.mob_icon
+				add_overlays(child.mob_icon)
+		add_overlays(organ.mob_icon)
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	skin_tone = null
@@ -81,13 +81,13 @@ var/global/list/limb_icon_cache = list()
 	update_icon(1)
 	..()
 
-/obj/item/organ/external/head/update_icon()
+/obj/item/organ/external/head/on_update_icon()
 
 	..()
 	if(!appearance_test.special_update)
 		return mob_icon
 
-	overlays.Cut()
+	cut_overlays()
 	if(!owner || !owner.species)
 		return
 
@@ -106,7 +106,7 @@ var/global/list/limb_icon_cache = list()
 				var/icon/facial = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 				if(facial_hair_style.do_colouration)
 					facial.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)
-				overlays |= facial
+				associate_with_overlays(facial)
 
 		if(owner.h_style && !(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR)))
 			var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[owner.h_style]
@@ -114,7 +114,7 @@ var/global/list/limb_icon_cache = list()
 				var/icon/hair = new/icon(hair_style.icon, hair_style.icon_state)
 				if(hair_style.do_colouration)
 					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair), ICON_MULTIPLY)	//Eclipse edit.
-				overlays |= hair
+				associate_with_overlays(hair)
 
 ///// OCCULUS EDIT START - delete the laggy old markings system
 	for(var/M in markings)
@@ -128,7 +128,7 @@ var/global/list/limb_icon_cache = list()
 
 	return mob_icon
 
-/obj/item/organ/external/update_icon(regenerate = 0)
+/obj/item/organ/external/on_update_icon(regenerate = 0)
 	var/gender = "_m"
 
 	overlays.Cut()	// OCCULUS EDIT - Make sure we're not stacking up redundant overlays

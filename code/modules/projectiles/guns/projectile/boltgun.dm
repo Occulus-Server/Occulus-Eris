@@ -29,7 +29,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut") // Considering attached bayonet
 	sharp = TRUE
 
-/obj/item/weapon/gun/projectile/boltgun/update_icon()
+/obj/item/weapon/gun/projectile/boltgun/on_update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)

@@ -75,7 +75,9 @@
 		list(mode_name="melt", projectile_type=/obj/item/projectile/plasma, fire_sound='sound/weapons/Laser.ogg', fire_delay=null, charge_cost=null, icon="kill", projectile_color = "#00AAFF"),
 	)
 
-/obj/item/weapon/gun/energy/plasma/cassad/update_icon()
+//	spawn_tags = SPAWN_TAG_FS_ENERGY
+
+/obj/item/weapon/gun/energy/plasma/cassad/on_update_icon()
 	..()
 	set_item_state(null, back = TRUE)
 
@@ -108,6 +110,11 @@
 	if(cell)
 		overlays += image(icon, "cell_guild")
 */
+/obj/item/weapon/gun/energy/plasma/brigador/on_update_icon()
+	cut_overlays()
+	..()
+	if(cell)
+		add_overlays(image(icon, "cell_guild"))
 
 /obj/item/weapon/gun/energy/plasma/martyr // or should it be  Zealot
 	name = "NT PR \"Martyr\""

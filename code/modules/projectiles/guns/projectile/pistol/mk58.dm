@@ -19,7 +19,7 @@
 	rarity_value = 9.6
 
 
-/obj/item/weapon/gun/projectile/mk58/update_icon()
+/obj/item/weapon/gun/projectile/mk58/on_update_icon()
 	..()
 
 	if(!ammo_magazine)
