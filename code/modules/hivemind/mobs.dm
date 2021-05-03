@@ -71,7 +71,7 @@
 //It's second proc, result of our malfunction
 /mob/living/simple_animal/hostile/hivemind/proc/malfunction_result()
 	if(prob(malfunction_chance))
-		apply_damage(rand(10, 25), BURN)
+		apply_damage(rand(5, 30), BURN)
 
 
 //sometimes, players use closets, to staff mobs into it
@@ -135,12 +135,12 @@
 /mob/living/simple_animal/hostile/hivemind/emp_act(severity)
 	switch(severity)
 		if(1)
-			if(malfunction_chance < 20)
-				malfunction_chance = 20
+			if(malfunction_chance < 15)
+				malfunction_chance = 25
 		if(2)
-			if(malfunction_chance < 30)
-				malfunction_chance = 30
-	health -= 20*severity
+			if(malfunction_chance < 25)
+				malfunction_chance = 45
+	health -= 30*severity
 
 
 /mob/living/simple_animal/hostile/hivemind/death()
@@ -159,6 +159,7 @@
 /mob/living/simple_animal/hostile/hivemind/resurrected
 	name = "marionette"
 	malfunction_chance = 10
+	bad_type = /mob/living/simple_animal/hostile/hivemind/resurrected
 
 
 //careful with this proc, it's used to 'transform' corpses into our mobs.
@@ -188,7 +189,7 @@
 	var/icon/infested = new /icon(icon, icon_state)
 	var/icon/covering_mask = new /icon('icons/mob/hivemind.dmi', "covering[rand(1, 3)]")
 	infested.Blend(covering_mask, ICON_MULTIPLY)
-	overlays += infested
+	add_overlays(infested)
 
 	maxHealth = victim.maxHealth * 2 + 10
 	health = maxHealth
@@ -276,11 +277,13 @@
 	desc = "This hovering cyborg emits a faint smell of welding fuel."
 	icon_state = "bomber"
 	density = FALSE
-	speak_chance = 3
-	malfunction_chance = 15
+	speak_chance = 4
+	health = 1
+	maxHealth = 1 //extremely fucking fragile, don't try fighting it in melee though
+	malfunction_chance = 1 //1% chance of it exploding, for no reason at all
 	mob_size = MOB_SMALL
 	pass_flags = PASSTABLE
-	speed = 2.5 //explosive, slow, don't ignore it. it can catch up to you
+	speed = 2 //explosive, slow, don't ignore it. it can catch up to you
 	rarity_value = 25
 	move_to_delay = 10//Syzygy edit
 	speak = list(
@@ -740,26 +743,26 @@
 
 //animations
 //updates every life tick
-/mob/living/simple_animal/hostile/hivemind/mechiver/update_icon()
+/mob/living/simple_animal/hostile/hivemind/mechiver/on_update_icon()
 	if(target_mob && !passenger && (get_dist(target_mob, src) <= 4) && !is_on_cooldown())
 		if(!hatch_closed)
 			return
-		overlays.Cut()
+		cut_overlays()
 		if(pilot)
-			flick("mechiver-opening", src)
+			FLICK("mechiver-opening", src)
 			icon_state = "mechiver-chief"
-			overlays += "mechiver-hands"
+			add_overlays("mechiver-hands")
 		else
-			flick("mechiver-opening_wires", src)
+			FLICK("mechiver-opening_wires", src)
 			icon_state = "mechiver-welcome"
-			overlays += "mechiver-wires"
+			add_overlays("mechiver-wires")
 		hatch_closed = FALSE
 	else
-		overlays.Cut()
+		cut_overlays()
 		hatch_closed = TRUE
 		icon_state = "mechiver-closed"
 		if(passenger)
-			overlays += "mechiver-process"
+			add_overlays("mechiver-process")
 
 
 /mob/living/simple_animal/hostile/hivemind/mechiver/AttackingTarget()
@@ -776,9 +779,9 @@
 /mob/living/simple_animal/hostile/hivemind/mechiver/special_ability(mob/living/target)
 	if(!target_mob && hatch_closed) //when we picking up corpses
 		if(pilot)
-			flick("mechiver-opening", src)
+			FLICK("mechiver-opening", src)
 		else
-			flick("mechiver-opening_wires", src)
+			FLICK("mechiver-opening_wires", src)
 	passenger = target
 	target.loc = src
 	target.canmove = FALSE
@@ -791,9 +794,9 @@
 /mob/living/simple_animal/hostile/hivemind/mechiver/proc/release_passenger(var/safely = FALSE)
 	if(passenger)
 		if(pilot)
-			flick("mechiver-opening", src)
+			FLICK("mechiver-opening", src)
 		else
-			flick("mechiver-opening_wires", src)
+			FLICK("mechiver-opening_wires", src)
 
 		if(istype(passenger, /mob/living/carbon/human))
 			if(!safely) //that was stressful

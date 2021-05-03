@@ -202,7 +202,7 @@
 		hud.forceMove(src)
 		update_icon()
 
-/obj/item/clothing/head/armor/bulletproof/ironhammer_nvg/update_icon()
+/obj/item/clothing/head/armor/bulletproof/ironhammer_nvg/on_update_icon()
 	if(hud in src)
 		icon_state = "bulletproof_ironhammer"
 		set_light(0, 0)
@@ -276,7 +276,7 @@
 		hud.forceMove(src)
 		update_icon()
 
-/obj/item/clothing/head/armor/bulletproof/ironhammer_full/update_icon()
+/obj/item/clothing/head/armor/bulletproof/ironhammer_full/on_update_icon()
 	if(hud in src)
 		icon_state = "ironhammer_full"
 		set_light(0, 0)
@@ -309,6 +309,76 @@
 		MATERIAL_GLASS = 10 // glass is reflective yo, make it cost a lot of it - also, visor
 	)
 
+// toggleable face guard
+/obj/item/clothing/head/armor/faceshield
+	//We cant just use the armor var to store the original since initial(armor) will return a null pointer
+	var/list/armor_up = list(melee = 0, bullet = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	var/list/armor_down = list(melee = 0, bullet = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+
+	var/tint_down = TINT_MODERATE
+	flags_inv = HIDEEARS
+	var/flags_inv_down = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHEADHAIR
+	body_parts_covered = HEAD|EARS
+	var/body_parts_covered_down = HEAD|EARS|EYES|FACE
+	flash_protection = FLASH_PROTECTION_NONE
+	var/flash_protection_down = FLASH_PROTECTION_MAJOR
+	action_button_name = "Flip Face Shield"
+	var/up = FALSE
+	bad_type = /obj/item/clothing/head/armor/faceshield
+
+/obj/item/clothing/head/armor/faceshield/riot
+	name = "riot helmet"
+	desc = "It's a helmet specifically designed to protect against close range attacks."
+	icon_state = "riot"
+	armor_up = list(melee = 35, bullet = 25, energy = 25, bomb = 20, bio = 0, rad = 0)
+	armor_down = list(melee = 40, bullet = 40, energy = 30, bomb = 35, bio = 0, rad = 0)
+	item_flags = THICKMATERIAL | COVER_PREVENT_MANIPULATION
+	price_tag = 150
+
+/obj/item/clothing/head/armor/faceshield/Initialize()
+	. = ..()
+	set_is_up(up)
+
+/obj/item/clothing/head/armor/faceshield/attack_self()
+	toggle()
+
+/obj/item/clothing/head/armor/faceshield/on_update_icon()
+	icon_state = up ? "[initial(icon_state)]_up" : initial(icon_state)
+
+//I wanted to name it set_up() but some how I thought that would be misleading
+/obj/item/clothing/head/armor/faceshield/proc/set_is_up(is_up)
+	up = is_up
+	if(up)
+		armor = getArmor(arglist(armor_up))
+		flash_protection = initial(flash_protection)
+		tint = initial(tint)
+		flags_inv = initial(flags_inv)
+		body_parts_covered = initial(body_parts_covered)
+	else
+		armor = getArmor(arglist(armor_down))
+		flash_protection = flash_protection_down
+		tint = tint_down
+		flags_inv = flags_inv_down
+		body_parts_covered = body_parts_covered_down
+
+	update_icon()
+	update_wear_icon()	//update our mob overlays
+
+/obj/item/clothing/head/armor/faceshield/verb/toggle()
+	set category = "Object"
+	set name = "Adjust face shield"
+	set src in usr
+
+	if(!usr.incapacitated())
+		src.set_is_up(!src.up)
+
+		if(src.up)
+			to_chat(usr, "You push the [src] up out of your face.")
+		else
+			to_chat(usr, "You flip the [src] down to protect your face.")
+
+		usr.update_action_buttons()
+
 // Riot helmet
 /obj/item/clothing/head/armor/riot
 	name = "riot helmet"
@@ -332,9 +402,6 @@
 
 /obj/item/clothing/head/armor/riot/attack_self()
 	toggle()
-
-/obj/item/clothing/head/armor/riot/update_icon()
-	icon_state = up ? "[initial(icon_state)]_up" : initial(icon_state)
 
 /obj/item/clothing/head/armor/riot/verb/toggle()
 	set category = "Object"
@@ -429,7 +496,7 @@
 		hud.forceMove(src)
 		update_icon()
 
-/obj/item/clothing/head/armor/riot_hud/update_icon()
+/obj/item/clothing/head/armor/riot_hud/on_update_icon()
 	if(hud in src)
 		icon_state = "light_riot"
 		set_light(0, 0)

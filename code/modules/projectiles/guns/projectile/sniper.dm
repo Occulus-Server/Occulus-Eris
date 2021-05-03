@@ -19,12 +19,15 @@
 	matter = list(MATERIAL_PLASTEEL = 40, MATERIAL_PLASTIC = 20)
 	price_tag = 5000
 	one_hand_penalty = 10
+	zoom_factor = 2
+	twohanded = TRUE
+	no_internal_mag = TRUE
 	var/bolt_open = 0
 	var/item_suffix = ""
 	zoom_factor = 2.0
 	twohanded = TRUE
 
-/obj/item/weapon/gun/projectile/heavysniper/update_icon()
+/obj/item/weapon/gun/projectile/heavysniper/on_update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)

@@ -54,7 +54,7 @@
 	var/other_dangerlevel = 0
 
 	var/report_danger_level = 1
-	
+
 	// Eclipse added vars
 	var/alarm_audible_cooldown = 1000		//Audible cooldown time, in ticks (1/10sec)
 	var/last_sound_time = 0			//When did the audible last fire?
@@ -273,7 +273,7 @@
 		return 1
 	return 0
 
-/obj/machinery/alarm/update_icon()
+/obj/machinery/alarm/on_update_icon()
 	if(wiresexposed)
 		switch(buildstage)
 			if(2)
@@ -944,13 +944,11 @@ FIRE ALARM
 	var/last_process = 0
 	var/wiresexposed = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
+	var/alarm_audible_cooldown = 1000		//Audible cooldown time, in ticks (1/10sec) Occulus Edit
+	var/last_sound_time = 0			//When did the audible last fire? Occulus Edit
 
-	//eclipse added vars
-	var/alarm_audible_cooldown = 1000		//Audible cooldown time, in ticks (1/10sec)
-	var/last_sound_time = 0			//When did the audible last fire?
-
-/obj/machinery/firealarm/update_icon()
-	overlays.Cut()
+/obj/machinery/firealarm/on_update_icon()
+	cut_overlays()
 
 	if(wiresexposed)
 		switch(buildstage)
@@ -980,7 +978,7 @@ FIRE ALARM
 			var/decl/security_level/sl = security_state.current_security_level
 
 			set_light(sl.light_max_bright, sl.light_inner_range, sl.light_outer_range, 2, sl.light_color_alarm)
-			src.overlays += image('icons/obj/monitors.dmi', sl.overlay_firealarm)
+			src.add_overlays(image('icons/obj/monitors.dmi', sl.overlay_firealarm))
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)

@@ -114,3 +114,6 @@ CHURCH DISKS
 /datum/design/bioprinter/cahor
 	build_path = /obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors
 	materials = list(MATERIAL_BIOMATTER = 10, MATERIAL_GLASS = 1)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/retro
+	disk_name = "FS LG \"Cog\""

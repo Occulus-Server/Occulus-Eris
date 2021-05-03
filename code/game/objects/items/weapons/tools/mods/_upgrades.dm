@@ -13,8 +13,10 @@
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 	can_transfer = TRUE
 	var/prefix = "upgraded" //Added to the tool's name
-	var/removal_time = WORKTIME_SLOW
 
+	var/removal_time = WORKTIME_SLOW
+	var/removal_difficulty = FAILCHANCE_CHALLENGING
+	var/destroy_on_removal = FALSE
 	//The upgrade can be applied to a tool that has any of these qualities
 	var/list/required_qualities = list()
 
@@ -177,6 +179,11 @@
 /datum/component/item_upgrade/proc/uninstall(obj/item/I)
 	var/obj/item/P = parent
 	I.item_upgrades -= P
+	if(destroy_on_removal)
+		UnregisterSignal(I, COMSIG_ADDVAL)
+		UnregisterSignal(I, COMSIG_APPVAL)
+		qdel(P)
+		return
 	P.forceMove(get_turf(I))
 	UnregisterSignal(I, COMSIG_ADDVAL)
 	UnregisterSignal(I, COMSIG_APPVAL)
@@ -290,6 +297,15 @@
 		if(istype(G.loc, /mob))
 			var/mob/user = G.loc
 			user.update_action_buttons()
+	if(weapon_upgrades[GUN_UPGRADE_BAYONET])
+		G.attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+		G.sharp = TRUE
+	if(weapon_upgrades[GUN_UPGRADE_MELEEDAMAGE])
+		G.force += weapon_upgrades[GUN_UPGRADE_MELEEDAMAGE]
+	if(weapon_upgrades[GUN_UPGRADE_MELEEPENETRATION])
+		G.armor_penetration += weapon_upgrades[GUN_UPGRADE_MELEEPENETRATION]
+	if(weapon_upgrades[GUN_UPGRADE_ONEHANDPENALTY])
+		G.one_hand_penalty *= weapon_upgrades[GUN_UPGRADE_ONEHANDPENALTY]
 
 	if(!isnull(weapon_upgrades[GUN_UPGRADE_FORCESAFETY]))
 		G.restrict_safety = TRUE
@@ -302,6 +318,8 @@
 			E.overcharge_rate *= weapon_upgrades[GUN_UPGRADE_OVERCHARGE_MAX]
 		if(weapon_upgrades[GUN_UPGRADE_OVERCHARGE_MAX])
 			E.overcharge_max *= weapon_upgrades[GUN_UPGRADE_OVERCHARGE_MAX]
+		if(weapon_upgrades[GUN_UPGRADE_AGONY_MULT])
+			E.proj_agony_multiplier *= weapon_upgrades[GUN_UPGRADE_AGONY_MULT]
 
 	if(istype(G, /obj/item/weapon/gun/projectile))
 		var/obj/item/weapon/gun/projectile/P = G
@@ -546,7 +564,8 @@
 		var/datum/component/item_upgrade/IU = toremove.GetComponent(/datum/component/item_upgrade)
 		if(C.use_tool(user = user, target =  upgrade_loc, base_time = IU.removal_time, required_quality = QUALITY_SCREW_DRIVING, fail_chance = FAILCHANCE_CHALLENGING, required_stat = STAT_MEC))
 			//If you pass the check, then you manage to remove the upgrade intact
-			to_chat(user, SPAN_NOTICE("You successfully remove \the [toremove] while leaving it intact."))
+			if(!IU.destroy_on_removal && user)
+				to_chat(user, SPAN_NOTICE("You successfully remove \the [toremove] while leaving it intact."))
 			if(IU.tool_upgrades[UPGRADE_QUALITIES])
 				T.tool_qualities -= IU.tool_upgrades[UPGRADE_QUALITIES]
 			SEND_SIGNAL(toremove, COMSIG_REMOVE, upgrade_loc)

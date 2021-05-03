@@ -328,9 +328,9 @@
 			if(I.use_tool(user, src, WORKTIME_NEAR_INSTANT, tool_type, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC, instant_finish_tier = 30, forced_sound = used_sound))
 				panel_open = !panel_open
 				to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
-				overlays.Cut()
+				cut_overlays()
 				if(panel_open)
-					overlays += image(icon, "[icon_type]-panel")
+					add_overlays(image(icon, "[icon_type]-panel"))
 				SSnano.update_uis(src)
 			return
 
@@ -660,7 +660,7 @@
 		if((href_list["vend"]) && (vend_ready) && (!currently_vending))
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 				to_chat(usr, SPAN_WARNING("Access denied."))	//Unless emagged of course
-				flick(icon_deny,src)
+				FLICK(icon_deny,src)
 				return
 
 			var/key = text2num(href_list["vend"])
@@ -749,7 +749,7 @@
 /obj/machinery/vending/proc/vend(datum/data/vending_product/R, mob/user)
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 		to_chat(usr, SPAN_WARNING("Access denied."))	//Unless emagged of course
-		flick(icon_deny,src)
+		FLICK(icon_deny,src)
 		return
 	vend_ready = 0 //One thing at a time!!
 	status_message = "Vending..."
@@ -778,7 +778,7 @@
 
 	use_power(vend_power_usage)	//actuators and stuff
 	if(icon_vend) //Show the vending animation if needed
-		flick(icon_vend,src)
+		FLICK(icon_vend,src)
 	spawn(vend_delay)
 		if(R.get_product(get_turf(src)))
 			playsound(loc, 'sound/machines/vending_drop.ogg', 100, 1)
@@ -1003,10 +1003,11 @@
 					/obj/item/weapon/gun/energy/gun/martin = 5,
 					/obj/item/clothing/accessory/holster = 5,
 					/obj/item/clothing/accessory/holster/waist = 5,
-					/obj/item/weapon/tool/knife/tacknife = 5,
-					/obj/item/clothing/head/armor/helmet = 2,
-					/obj/item/clothing/suit/armor/vest = 2
-					)
+					/obj/item/clothing/accessory/holster/hip = 5,//Occulus Edit: We have a bullet vendor
+					/obj/item/weapon/tool/knife/tacknife = 5,//Occulus Edit: We have a bullet vendor
+					/obj/item/weapon/storage/box/smokes = 3,//Occulus Edit: We have a bullet vendor
+					/obj/item/clothing/head/armor/helmet = 2,//Occulus Edit: We have a bullet vendor
+					/obj/item/clothing/suit/armor/vest = 2)//Occulus Edit: We have a bullet vendor
 
 	prices = list(
 					/obj/item/weapon/reagent_containers/spray/pepper = 200,
@@ -1018,11 +1019,14 @@
 					/obj/item/weapon/gun/energy/gun/martin = 600,
 					/obj/item/clothing/accessory/holster/armpit = 200,
 					/obj/item/clothing/accessory/holster/waist = 200,
+					/obj/item/clothing/accessory/holster/hip = 200,//Occulus Edit: This was missing
 					/obj/item/weapon/tool/knife/tacknife = 400,
 					/obj/item/clothing/head/armor/helmet = 1000,
 					/obj/item/clothing/suit/armor/vest = 1500,
-					/obj/item/weapon/gun/projectile/automatic/slaught_o_matic = 90,
-					)
+					/obj/item/weapon/gun/projectile/automatic/slaught_o_matic = 300,//Occulus Edit: Ahahaha what? No
+					/obj/item/weapon/tool/knife/tacknife = 600,//Occulus Edit: We have a bullet vendor
+					/obj/item/weapon/storage/box/smokes = 200)
+
 
 //This one's from bay12
 /obj/machinery/vending/cart
@@ -1165,6 +1169,7 @@
 					/obj/item/weapon/handcuffs/zipties = 8,
 					/obj/item/weapon/grenade/flashbang = 8,
 					/obj/item/weapon/grenade/chem_grenade/teargas = 8,
+					/obj/item/weapon/grenade/smokebomb = 8,
 					/obj/item/device/flash = 8,
 					/obj/item/weapon/reagent_containers/spray/pepper = 8,
 					/obj/item/ammo_magazine/ihclrifle/rubber = 8,

@@ -51,7 +51,7 @@
 //Flashing everyone
 	if(eye_safety < FLASH_PROTECTION_MODERATE)
 		if (M.HUDtech.Find("flash"))
-			flick("e_flash", M.HUDtech["flash"])
+			FLICK("e_flash", M.HUDtech["flash"])
 		M.Stun(2)
 		M.Weaken(10)
 
@@ -100,4 +100,4 @@
 	desc = "An old \"NanoTrasen\" flashbang grenade, modified to spread the light of god."
 	icon_state = "flashbang_nt"
 	item_state = "flashbang_nt"
-	matter = list(MATERIAL_BIOMATTER = 75)
+	matter = list(MATERIAL_BIOMATTER = 15)

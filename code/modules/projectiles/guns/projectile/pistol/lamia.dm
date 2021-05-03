@@ -24,7 +24,9 @@
 	penetration_multiplier = 1.4
 	recoil_buildup = 21
 
-/obj/item/weapon/gun/projectile/lamia/update_icon()
+//	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+
+/obj/item/weapon/gun/projectile/lamia/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "lamia-[round(ammo_magazine.stored_ammo.len,2)]"

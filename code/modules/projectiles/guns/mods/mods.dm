@@ -27,7 +27,8 @@
 	I.weapon_upgrades = list(
 		GUN_UPGRADE_SILENCER = TRUE,
 		GUN_UPGRADE_MUZZLEFLASH = 0.8,
-		GUN_UPGRADE_DAMAGE_PLUS = -0.1
+		GUN_UPGRADE_DAMAGE_PLUS = -0.1,
+		GUN_UPGRADE_RECOIL = 0.9
 		)
 	I.gun_loc_tag = GUN_MUZZLE
 	I.req_gun_tags = list(GUN_SILENCABLE)
@@ -47,7 +48,6 @@
 		)
 	I.gun_loc_tag = GUN_BARREL
 	I.req_gun_tags = list(GUN_PROJECTILE)
-
 
 //For energy weapons, increases the damage output, but also the charge cost. Acquired through loot spawns or Eye of the Protector.
 /obj/item/weapon/gun_upgrade/barrel/excruciator
@@ -83,7 +83,7 @@
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
 		GUN_UPGRADE_FIRE_DELAY_MULT = 0.8,
-		GUN_UPGRADE_FORCESAFETY = FALSE,
+		GUN_UPGRADE_FORCESAFETY = FALSE
 		)
 	I.gun_loc_tag = GUN_TRIGGER
 
@@ -98,7 +98,7 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
-		GUN_UPGRADE_FORCESAFETY = TRUE,
+		GUN_UPGRADE_FORCESAFETY = TRUE
 		)
 	I.removal_time *= 10
 	I.gun_loc_tag = GUN_TRIGGER
@@ -134,8 +134,8 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
-		GUN_UPGRADE_DAMAGE_RADIATION = 5
-		)
+		GUN_UPGRADE_DAMAGE_RADIATION = 100
+	)
 	I.req_gun_tags = list(GUN_PROJECTILE, GUN_CALIBRE_35)
 	I.gun_loc_tag = GUN_MECHANISM
 
@@ -201,7 +201,7 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
-		GUN_UPGRADE_EXPLODE = TRUE,
+		GUN_UPGRADE_EXPLODE = TRUE
 		)
 	I.removal_time *= 10
 	I.gun_loc_tag = GUN_TRIGGER
@@ -219,7 +219,6 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
-		GUN_UPGRADE_OFFSET = 0.9,
 		GUN_UPGRADE_RECOIL = 1.1,
 		GUN_UPGRADE_ZOOM = 1.2
 		)
@@ -236,9 +235,124 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
-		GUN_UPGRADE_OFFSET = 0.7,
 		GUN_UPGRADE_RECOIL = 1.3,
 		GUN_UPGRADE_ZOOM = 2
 		)
 	I.gun_loc_tag = GUN_SCOPE
 	I.req_gun_tags = list(GUN_SCOPE)
+
+/obj/item/weapon/gun_upgrade/mechanism/gravcharger
+	name = "makeshift bullet time generator"
+	desc = "When attached to a gun, this device bends time and space to create a localized microgravity field around each bullet, with peculiar results"
+	icon_state = "gravbarrel"
+	rarity_value = 20
+
+/obj/item/weapon/gun_upgrade/mechanism/gravcharger/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_STEPDELAY_MULT = 10, // bullets fly 10 times slower than a regular bullet. this is intended.
+		GUN_UPGRADE_FIRE_DELAY_MULT = 0.5
+		)
+	I.gun_loc_tag = GUN_MECHANISM
+	I.req_gun_tags = list(GUN_PROJECTILE)
+
+//Trash mods, for putting on old guns
+
+/obj/item/weapon/gun_upgrade/trigger/faulty
+	name = "Faulty Trigger"
+	desc = "Weirdly sticky, and none of your fingers seem to fit to it comfortably. This causes more recoil and increases delay between shots as you try to compensate for it."
+	icon_state = "Cop_Block"
+	spawn_blacklisted = TRUE
+	price_tag = 0
+
+/obj/item/weapon/gun_upgrade/trigger/faulty/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_RECOIL = rand(12,30)/10,
+		GUN_UPGRADE_FIRE_DELAY_MULT = rand(11,18)/10
+	)
+	I.destroy_on_removal = TRUE
+	I.removal_time *= rand(10.14)/10
+	I.removal_difficulty *= rand(5, 15)/10
+	I.gun_loc_tag = GUN_TRIGGER
+
+/obj/item/weapon/gun_upgrade/barrel/faulty
+	name = "Warped Barrel"
+	desc = "Extreme heat has warped this barrel off-target. This decreases the impact force of bullets fired through it and makes it more difficult to correctly aim the weapon it's attached to."
+	icon_state = "Forged_barrel"
+	spawn_blacklisted = TRUE
+	price_tag = 0
+
+/obj/item/weapon/gun_upgrade/barrel/faulty/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_OFFSET = rand(5,15),
+		GUN_UPGRADE_PEN_MULT = rand(4,9)/10,
+		GUN_UPGRADE_DAMAGE_MULT = rand(4,9)/10
+	)
+	I.destroy_on_removal = TRUE
+	I.removal_time *= rand(10.14)/10
+	I.removal_difficulty *= rand(5, 15)/10
+	I.gun_loc_tag = GUN_BARREL
+
+/obj/item/weapon/gun_upgrade/muzzle/faulty
+	name = "Failed Makeshift Silencer"
+	desc = "Inspired by cheesy action movies, somebody has left trash on the end of this weapon. This causes the attached weapon to suffer from weaker armor penetration."
+	icon_state = "silencer"
+	spawn_blacklisted = TRUE
+	price_tag = 0
+
+/obj/item/weapon/gun_upgrade/muzzle/faulty/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_PEN_MULT = rand(4,9)/10,
+		GUN_UPGRADE_STEPDELAY_MULT = rand(12,18)/10
+	)
+	I.destroy_on_removal = TRUE
+	I.removal_time *= rand(10.14)/10
+	I.removal_difficulty *= rand(5, 15)/10
+	I.gun_loc_tag = GUN_MUZZLE
+
+/obj/item/weapon/gun_upgrade/mechanism/faulty
+	name = "Unknown Clockwork Mechanism"
+	desc = "It's really not clear what this modification actually does. It appears to effect the attached weapon's recoil, but if it actually helps or hinders the weapon is unclear."
+	icon_state = "Weintraub"
+	spawn_blacklisted = TRUE
+	price_tag = 0
+
+/obj/item/weapon/gun_upgrade/mechanism/faulty/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_RECOIL = rand(5, 50)/10
+	)
+	I.destroy_on_removal = TRUE
+	I.removal_time *= rand(10.14)/10
+	I.removal_difficulty *= rand(5, 15)/10
+	I.gun_loc_tag = GUN_MECHANISM
+
+/obj/item/weapon/gun_upgrade/scope/faulty
+	name = "Misaligned sights"
+	desc = "Some bad knocks have changed the angling on the sights of this weapon. This causes the attached weapon to suffer from decreased accuracy."
+	icon_state = "Watchman"
+	spawn_blacklisted = TRUE
+	price_tag = 0
+
+/obj/item/weapon/gun_upgrade/scope/faulty/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_OFFSET = rand(3,6)
+	)
+	I.destroy_on_removal = TRUE
+	I.removal_time *= rand(10.14)/10
+	I.removal_difficulty *= rand(5, 15)/10
+	I.gun_loc_tag = GUN_SCOPE
+
+#define TRASH_GUNMODS list(/obj/item/weapon/gun_upgrade/trigger/faulty, /obj/item/weapon/gun_upgrade/barrel/faulty, \
+		/obj/item/weapon/gun_upgrade/muzzle/faulty, /obj/item/weapon/gun_upgrade/mechanism/faulty, \
+		/obj/item/weapon/gun_upgrade/scope/faulty)
