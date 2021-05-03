@@ -224,7 +224,8 @@
 /////////////////////////////////////STINGER//////////////////////////////////
 //Special ability: none
 //Just another boring mob without any cool abilities
-//High chance of malfunction
+//Low chance of malfunction
+//Faster than average, to the point it could possibly catch up to someone
 //Default speaking chance
 //Appears from dead small mobs or from hive spawner
 //////////////////////////////////////////////////////////////////////////////
@@ -239,7 +240,7 @@
 	malfunction_chance = 15
 	mob_size = MOB_SMALL
 	pass_flags = PASSTABLE
-	speed = 4
+	move_to_delay = 2
 
 	speak = list(
 				"A stitch in time saves nine!",
@@ -267,7 +268,8 @@
 /////////////////////////////////////BOMBER///////////////////////////////////
 //Special ability: none
 //Explode in contact with target
-//High chance of malfunction
+//Extremely low chance of malfunction
+//Very slow
 //Default speaking chance
 //Appears from dead small mobs or from hive spawner
 //////////////////////////////////////////////////////////////////////////////
@@ -283,7 +285,7 @@
 	malfunction_chance = 1 //1% chance of it exploding, for no reason at all
 	mob_size = MOB_SMALL
 	pass_flags = PASSTABLE
-	speed = 2 //explosive, slow, don't ignore it. it can catch up to you
+	move_to_delay = 10 //explosive, slow, don't ignore it. it can catch up to you
 	rarity_value = 25
 	move_to_delay = 10//Syzygy edit
 	speak = list(
@@ -328,7 +330,6 @@
 //Special ability: Can fire 3 projectiles at once for 10 seconds, then overheats
 //Deals no melee damage, but fires projectiles
 //Starts with 10 malfunction chance, malfunction also triggered when overheating
-//Higher speed than normal
 //Slighly higher speaking chance
 //Appears from hive spawner and Mechiver
 //Appears rarely than bomber or stinger
@@ -356,7 +357,6 @@
 	rarity_value = 50
 	mob_size = MOB_SMALL
 	pass_flags = PASSTABLE
-	speed = 8
 	ability_cooldown = 60 SECONDS
 	speak = list(
 				"No more leaks, no more pain!",
@@ -422,7 +422,8 @@
 //							  Splash attack, that slash everything around!
 //High chance of malfunction
 //Default speaking chance
-//Appears from dead cyborgs
+//Slower than average
+//Appears from dead cyborgs and assemblers
 //////////////////////////////////////////////////////////////////////////////
 
 /mob/living/simple_animal/hostile/hivemind/hiborg
@@ -430,13 +431,13 @@
 	desc = "A cyborg covered with something... something alive."
 	icon_state = "hiborg"
 	icon_dead = "hiborg-dead"
-	health = 220
-	maxHealth = 220
-	melee_damage_lower = 10
-	melee_damage_upper = 15
-	attacktext = "claws"
-	speed = 12
-	malfunction_chance = 15
+	health = 350
+	maxHealth = 350 //can take a lot of hits before being obliterated
+	melee_damage_lower = 25
+	melee_damage_upper = 30 //Claws man, they hurt
+	attacktext = "clawed"
+	move_to_delay = 6
+	malfunction_chance = 10 //although it is a complex machine, it is all metal and wires rather than a combination of machinery and flesh
 	mob_size = MOB_MEDIUM
 	rarity_value = 100
 
@@ -494,7 +495,8 @@
 //Hive + Man
 //Special ability: Shriek, that stuns victims
 //Can fool his enemies and pretend to be dead
-//A little bit higher chance of malfunction
+//A little bit higher chance of malfunction than others
+//Slower than average, faster than Hiborg
 //Default speaking chance
 //Appears from dead human corpses
 //////////////////////////////////////////////////////////////////////////////
@@ -511,8 +513,9 @@
 	attacktext = "slashes with claws"
 	malfunction_chance = 10
 	mob_size = MOB_MEDIUM
-	speed = 8
-	ability_cooldown = 30 SECONDS
+	move_to_delay = 5
+	ability_cooldown = 20 SECONDS
+	rarity_value = 75
 	//internals
 	var/fake_dead = FALSE
 	var/fake_dead_wait_time = 0
@@ -635,8 +638,9 @@
 //Special ability: Picking up a victim. Sends hallucinations and harm sometimes, then release
 //Can picking up corpses too, rebuild them to living hive mobs, like it wires do
 //Default malfunction chance
-//Default speaking chance, can take pilot and speak with him
-//Very rarely can appears from infested machinery
+//Increased speaking chance, can take pilot and speak with him
+//Dummy thick, slow as fuck
+//Rarely can appear from infested machinery (with a circuit board, like an Autholate)
 //////////////////////////////////////////////////////////////////////////////
 
 /mob/living/simple_animal/hostile/hivemind/mechiver
@@ -645,15 +649,17 @@
 	icon = 'icons/mob/hivemind.dmi'
 	icon_state = "mechiver-closed"
 	icon_dead = "mechiver-dead"
-	health = 450
-	maxHealth = 450
-	melee_damage_lower = 10
-	melee_damage_upper = 15
+	health = 600
+	maxHealth = 600
+	resistance = RESISTANCE_ARMOURED 
+	melee_damage_lower = 25
+	melee_damage_upper = 35
 	mob_size = MOB_LARGE
 	attacktext = "crushes"
 	ability_cooldown = 1 MINUTES
-	speak_chance = 5
-	speed = 16
+	speak_chance = 8
+	move_to_delay = 10
+	rarity_value = 125
 	//internals
 	var/pilot						//Yes, there's no pilot, so we just use var
 	var/mob/living/passenger
