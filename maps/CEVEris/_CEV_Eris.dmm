@@ -59262,17 +59262,23 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/storage/primary)
 "cIn" = (
-/obj/machinery/light{
-	dir = 8
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark/gray_perforated,
+/turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "cIo" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/steel/panels,
 /area/eris/engineering/post)
 "cIp" = (
-/obj/machinery/power/long_range_scanner/hull,
+/obj/machinery/power/long_range_scanner/hull/installed,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "cIq" = (
@@ -76025,7 +76031,14 @@
 /turf/simulated/floor/tiled/techmaint_panels,
 /area/eris/neotheology/chapel)
 "dvB" = (
-/turf/simulated/floor/tiled/dark/techfloor,
+/obj/machinery/camera/network/command{
+	dir = 8
+	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 28
+	},
+/turf/simulated/floor/tiled/dark,
 /area/eris/command/meeting_room)
 "dvC" = (
 /obj/structure/multiz/stairs/active{
@@ -76962,6 +76975,9 @@
 /obj/machinery/computer/rdconsole/core{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dxC" = (
@@ -77241,6 +77257,11 @@
 	dir = 1
 	},
 /obj/landmark/join/start/rd,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dys" = (
@@ -77407,6 +77428,11 @@
 	name = "Maintenance Hatch Control";
 	pixel_x = 26
 	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "dyK" = (
@@ -77503,10 +77529,6 @@
 /obj/machinery/door/blast/shutters/glass{
 	id = "BridgeArmoury";
 	name = "Armoury showcase"
-	},
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -79382,14 +79404,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
-"dDq" = (
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 24
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/eris/command/bridge)
 "dDr" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -79401,15 +79415,13 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/engine_room)
 "dDs" = (
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -28
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/door/airlock/glass_command{
+	name = "Bridge";
+	req_access = list(19)
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark/cargo,
 /area/eris/command/bridge)
 "dDt" = (
 /obj/structure/sign/atmos_waste{
@@ -83917,6 +83929,11 @@
 "dNH" = (
 /obj/item/device/radio/beacon,
 /obj/machinery/hologram/holopad,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "dNI" = (
@@ -87015,13 +87032,13 @@
 /turf/simulated/floor/plating/under,
 /area/eris/medical/chemstor)
 "dVF" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_command{
-	name = "Bridge";
-	req_access = list(19)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark/cargo,
+/turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "dVG" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -87106,13 +87123,12 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1starboard)
 "dVT" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_command{
-	name = "Bridge";
-	req_access = list(19)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark/cargo,
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -28
+	},
+/turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "dVU" = (
 /obj/structure/disposalpipe/segment,
@@ -87366,6 +87382,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "dWq" = (
@@ -87584,15 +87605,21 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1starboard)
 "dWN" = (
-/obj/structure/sign/department/bridge,
-/turf/simulated/wall/r_wall,
+/obj/machinery/door/airlock/glass_command{
+	name = "Bridge";
+	req_access = list(19)
+	},
+/turf/simulated/floor/tiled/dark/cargo,
 /area/eris/command/meeting_room)
 "dWO" = (
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/command/meeting_room)
+/area/eris/command/bridge)
 "dWP" = (
 /obj/structure/multiz/stairs/active{
 	dir = 4
@@ -87618,11 +87645,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/meeting_room)
 "dWT" = (
-/obj/machinery/light{
-	dir = 4
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/eris/command/meeting_room)
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "dWU" = (
 /obj/effect/shuttle_landmark/skipjack/northwest,
 /turf/space,
@@ -103541,8 +103570,9 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck5central)
 "feG" = (
-/obj/machinery/camera/network/command{
-	dir = 8
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/meeting_room)
@@ -104259,6 +104289,10 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/eris/maintenance/section1deck4central)
+"hLo" = (
+/obj/structure/sign/department/bridge,
+/turf/simulated/wall/r_wall,
+/area/eris/command/meeting_room)
 "hMo" = (
 /obj/machinery/holomap{
 	dir = 8;
@@ -104713,7 +104747,12 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/airlock/glass_command{
+	name = "Bridge";
+	req_access = list(19)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark/cargo,
 /area/eris/command/bridge)
 "jwY" = (
 /obj/spawner/scrap/low_chance,
@@ -104790,10 +104829,24 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
+"jIj" = (
+/obj/machinery/door/airlock/glass_command{
+	name = "Bridge";
+	req_access = list(19)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/command/meeting_room)
 "jIq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
+"jJc" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/meeting_room)
 "jJd" = (
 /obj/item/weapon/bedsheet/yellow,
 /obj/structure/bed,
@@ -106565,12 +106618,9 @@
 /area/eris/command/meeting_room)
 "pqh" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_command{
-	name = "Bridge";
-	req_access = list(19)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/eris/command/meeting_room)
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating,
+/area/eris/maintenance/section1deck1central)
 "psi" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -108251,6 +108301,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/eris/engineering/atmos)
+"vGe" = (
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -28
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/command/meeting_room)
 "vGh" = (
 /obj/structure/railing{
 	dir = 1
@@ -108581,7 +108638,12 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -27
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/airlock/glass_command{
+	name = "Bridge";
+	req_access = list(19)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark/cargo,
 /area/eris/command/bridge)
 "wUu" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -287931,8 +287993,8 @@ aaa
 aaa
 aad
 aad
-dVw
-dVw
+dUv
+dUv
 dVw
 dVw
 dVw
@@ -288134,7 +288196,7 @@ abq
 aad
 dUv
 dUv
-cIn
+cHg
 dxB
 dya
 dyK
@@ -288341,8 +288403,8 @@ dyr
 dWh
 dWd
 dDn
-dVF
-dDq
+dWd
+dDs
 dWd
 dWd
 dWd
@@ -288539,13 +288601,13 @@ aad
 dUv
 dUv
 cHg
-dVP
+cIn
 dWi
 rgB
 dcW
 dWN
+hLo
 dcW
-pqh
 daA
 daA
 daA
@@ -288741,13 +288803,13 @@ aad
 dUv
 cEQ
 cIC
-dVP
+cIn
 dWi
 oxr
-dcW
-dWO
+daA
 dwE
-dwE
+jJc
+vGe
 dwE
 dwE
 dwE
@@ -288943,10 +289005,10 @@ aad
 dUv
 dex
 cZG
-dVP
+cIn
 dWi
 dBh
-dcW
+daA
 dWQ
 cgc
 dXB
@@ -289145,7 +289207,7 @@ dUv
 dUv
 cHf
 cHg
-dVP
+cIn
 dDL
 rsu
 daA
@@ -289347,7 +289409,7 @@ dUv
 cmw
 cHg
 dvu
-dWb
+dVF
 eDr
 hKn
 qiG
@@ -289751,7 +289813,7 @@ dUv
 cEu
 cHg
 dvv
-dWd
+dWO
 eEy
 lRG
 qiG
@@ -289953,7 +290015,7 @@ dUv
 dUv
 cHH
 cHg
-dVP
+cIn
 dVg
 sPB
 daA
@@ -290155,7 +290217,7 @@ aad
 dUv
 deT
 dvw
-dVP
+cIn
 dWi
 dBB
 daA
@@ -290357,20 +290419,20 @@ aad
 dUv
 dfp
 dvx
-dVP
+cIn
 rNT
 iVC
 daA
-dWT
+dwE
 feG
 dvB
-dvB
-dvB
-dvB
-dvB
-dvB
-dXG
-dXG
+dwE
+dwE
+dwE
+dwE
+dwE
+dwE
+dwE
 dcW
 abF
 abF
@@ -290559,13 +290621,13 @@ aad
 dUv
 cIg
 dvF
-dVP
+cIn
 dWi
 eEz
 dcW
-dWN
+jIj
+hLo
 dcW
-pqh
 daA
 daA
 daA
@@ -290761,11 +290823,11 @@ aad
 dUv
 cIh
 cIq
-cHg
+dWT
 dWp
 dWd
 eEA
-dVF
+dWd
 dDs
 dDX
 dWd
@@ -290967,7 +291029,7 @@ dxC
 dyJ
 dCX
 dDp
-dVT
+dWb
 jwt
 dEb
 dEn
@@ -291571,8 +291633,8 @@ abF
 abF
 abF
 doD
-doD
-doD
+pqh
+pqh
 doD
 dyY
 dze
