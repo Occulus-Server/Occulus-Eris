@@ -1,5 +1,3 @@
-// Syzygy's snowflake crates go here
-
 /datum/supply_pack/randomised/gunmods
 	num_contained = 4
 	contains = list(/obj/item/weapon/gun_upgrade/mechanism/weintraub,
@@ -17,3 +15,9 @@
 	crate_name = "Surplus Gun Parts Crate"
 	containertype = /obj/structure/closet/crate
 	group = "Operations"
+
+/datum/supply_pack/ballisticarmor
+	name = "AC Ballistic Armor"
+
+/datum/supply_pack/energyarmor
+	name = "AC Ablative Armor"

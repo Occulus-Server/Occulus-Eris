@@ -144,7 +144,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	name = "FS Handgun Pack"
 	contains = list(/obj/item/weapon/gun/projectile/colt,
 			/obj/item/weapon/gun/projectile/paco,
-			/obj/item/weapon/gun/projectile/clarissa,
+			/obj/item/weapon/gun/projectile/selfload,
 			/obj/item/weapon/gun/projectile/olivaw)
 	cost = 3000
 	containertype = /obj/structure/closet/crate/secure/weapon
@@ -246,7 +246,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Security"
 */
 /datum/supply_pack/ballisticarmor
-	name = "AC Ballistic Armor"
+	name = "IH Ballistic Armor"
 	contains = list(/obj/item/clothing/suit/armor/bulletproof/ironhammer,
 					/obj/item/clothing/suit/armor/bulletproof/ironhammer,
 					/obj/item/clothing/head/armor/bulletproof/ironhammer_nvg,
@@ -293,7 +293,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 
 /datum/supply_pack/energyarmor
-	name = "AC Ablative Armor"
+	name = "IH Ablative Armor"
 	contains = list(/obj/item/clothing/suit/armor/laserproof/full,
 					/obj/item/clothing/suit/armor/laserproof/full,
 					/obj/item/clothing/head/armor/laserproof,
@@ -1307,7 +1307,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 /datum/supply_pack/warmcarpet
 	contains = list(/obj/item/stack/tile/carpet/cpack,
 				/obj/item/stack/tile/carpet/oracarpet/cpack,
-				/obj/item/stack/tile/carpet/gaycarpet/cpack,				
+				/obj/item/stack/tile/carpet/gaycarpet/cpack,
 				/obj/item/stack/tile/carpet/sblucarpet/cpack
 				)
 	name = "Warm Carpet Crate"

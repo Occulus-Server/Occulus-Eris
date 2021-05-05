@@ -22,7 +22,7 @@
 		),
 		"Projectile weapon" = list(
 			/obj/item/weapon/gun/projectile/paco,
-			/obj/item/weapon/gun/projectile/clarissa,
+			/obj/item/weapon/gun/projectile/selfload,
 			/obj/item/weapon/gun/projectile/olivaw,
 			/obj/item/weapon/gun/projectile/revolver/havelock,
 			/obj/item/weapon/gun/projectile/revolver/consul,

@@ -14,6 +14,7 @@ var/list/disciples = list()
 	max_power = 50
 	power_regen = 2/(1 MINUTES)
 	price_tag = 500
+	var/obj/item/weapon/cruciform_upgrade/upgrade
 
 //	var/righteous_life = 0 Occulus Edit: Be yote
 //	var/max_righteous_life = 100 Occulue Edit: Begone

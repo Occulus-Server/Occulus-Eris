@@ -87,8 +87,8 @@ var/global/obj/machinery/power/eotp/eotp
 		else
 			eotp.removeObservation(10)
 
-			scanned.Remove(H)
-			last_rescan = world.time
+		scanned.Remove(H)
+		last_rescan = world.time
 
 	updatePower()
 
