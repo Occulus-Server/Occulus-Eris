@@ -148,6 +148,6 @@
 	siemens_coefficient = 0.35
 	breach_threshold = 10
 	resilience = 0.07
-	species_restricted = list(SPECIES_HUMAN)
+//	species_restricted = list(SPECIES_HUMAN) Occulus Yeet
 	helmet = /obj/item/clothing/head/space/void/NTvoid
 	spawn_blacklisted = TRUE
