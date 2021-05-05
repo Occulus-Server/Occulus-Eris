@@ -41,6 +41,7 @@
 
 	var/power_cost = 250
 
+	var/clone_damage = 0
 
 /obj/machinery/neotheology/cloner/New()
 	..()
@@ -173,7 +174,7 @@
 	return TRUE
 
 /obj/machinery/neotheology/cloner/proc/done()
-	occupant.setCloneLoss(0)
+	occupant.setCloneLoss(clone_damage)
 	occupant.setBrainLoss(0)
 	occupant.updatehealth()
 	stop()
@@ -208,7 +209,7 @@
 			update_icon()
 			return
 
-		progress += time_multiplier // I.e. 3 manipulators of tier 1 will increase progress by 1, 3 manipulators of tier 2 by 2 and so on
+		progress += time_multiplier // Occulus Edit? I.e. 3 manipulators of tier 1 will increase progress by 1, 3 manipulators of tier 2 by 2 and so on
 
 		if(progress <= CLONING_DONE)
 			if(container)
@@ -218,7 +219,7 @@
 				stop()
 
 		if(occupant && ishuman(occupant))
-			occupant.setCloneLoss(CLONING_DONE-progress)
+			occupant.setCloneLoss(max(CLONING_DONE-progress, clone_damage))
 			occupant.setBrainLoss(CLONING_DONE-progress)
 
 			occupant.adjustOxyLoss(-4)

@@ -19,7 +19,7 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"the hypospray" = /obj/item/hypospray/mkii/CMO, //Occulus edit
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof/full,
-		"an Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
+		"an Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer //Occulus Edit
 	))
 GLOBAL_LIST_INIT(excel_item_targets,list(
 		"a Miller revolver" = /obj/item/weapon/gun/projectile/revolver,

@@ -4,7 +4,7 @@
 /obj/item/stash_spawner
 	name = "Stash Spawner"
 	desc = "You shouldn't see this, report it!"
-	rarity_value = 45 //Occulus Edit: Whoever set this to 3.5 caused basically all of them to spawn at roundstart. No beuno. Now they are about as rare as an atomcell
+	rarity_value = 5
 	//Reference of the stash datum we're spawning from.
 	//These are all singletons in a global list, but each will be removed from that list when we take it
 	var/datum/stash/datum
