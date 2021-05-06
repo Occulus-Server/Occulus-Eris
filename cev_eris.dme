@@ -2847,7 +2847,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\toys\costume.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\toys\laserpointer.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\mine.dm"
-#include "zzzz_modular_occulus\code\game\objects\items\weapons\nt_melee.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\nt_weps.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\secrets.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\wire_splicing.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\design_disks\_disks.dm"
