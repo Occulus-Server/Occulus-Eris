@@ -24,6 +24,8 @@
 	fire_sound = 'sound/weapons/guns/fire/lmg_fire.ogg'
 	recoil_buildup = 3.5
 	one_hand_penalty = 30 //you're not Stallone. LMG level.
+	rarity_value = 80
+	spawn_blacklisted = TRUE
 
 	init_firemodes = list(
 		FULL_AUTO_600,

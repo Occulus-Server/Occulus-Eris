@@ -252,6 +252,10 @@
 	name = "orange carpet"
 	build_path = /obj/item/stack/tile/carpet/oracarpet
 //Occulus Addition end
+/datum/design/bioprinter/holyvacuum
+	name = "\"Tersus\" Vacuum Cleaner"
+	build_path = /obj/item/weapon/holyvacuum
+
 //[/THINGS]
 /datum/design/autolathe/gun/plasma/martyr
 	name = "NT PR \"Martyr\""
