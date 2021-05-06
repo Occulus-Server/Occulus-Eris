@@ -19276,11 +19276,15 @@
 	})
 "aUz" = (
 /obj/structure/table/reinforced,
+/obj/item/ammo_magazine/lrifle/pk{
+	pixel_x = -6;
+	pixel_y = -4
+	},
+/obj/item/weapon/storage/box/trackimp,
 /obj/item/weapon/storage/box/chemimp{
 	pixel_x = 4;
 	pixel_y = 3
 	},
-/obj/item/weapon/storage/box/trackimp,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aUA" = (
@@ -104175,7 +104179,9 @@
 /obj/item/ammo_magazine/lrifle/pk,
 /obj/item/ammo_magazine/lrifle/pk,
 /obj/item/weapon/gun/projectile/automatic/lmg/tk,
-/obj/item/weapon/gun/projectile/automatic/lmg/tk,
+/obj/item/weapon/gun/projectile/automatic/lmg{
+	pixel_y = -5
+	},
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
