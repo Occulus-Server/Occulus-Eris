@@ -213,3 +213,33 @@ ARMOR_PEN_MASSIVE			30
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/cruciform_upgrade
 	disk_name = "Mekhane Armory - Cruciform Upgrades"
+
+/datum/design/bioprinter/nt_clothes/NTvoid
+	name = "Mekhane voidsuit"
+
+/obj/item/clothing/head/space/void/NTvoid
+	name = "MEK combat voidsuit helmet"
+	desc = "A voidsuit helmet commonly used by the Mekhane. Combat rated. When worn you can hear soft breathing in your ear."
+	armor = list(
+		melee = 45,
+		bullet = 30,
+		energy = 35,
+		bomb = 100,
+		bio = 200,
+		rad = 50
+	)
+
+/obj/item/clothing/suit/space/void/NTvoid
+	name = "MEK combat voidsuit"
+	desc = "A voidsuit commonly used by the Mekhane. Combat rated. When worn a faint heartbeat can be felt within the suit."
+	armor = list(
+		melee = 45,
+		bullet = 30,
+		energy = 35,
+		bomb = 100,
+		bio = 200,
+		rad = 50
+	)
+
+/obj/item/weapon/gun_upgrade/barrel/excruciator
+	name = "Mekhane \"EXCRUCIATOR\" giga lens"
