@@ -433,7 +433,7 @@ BLIND     // can't see anything
 	slowdown = SHOES_SLOWDOWN
 	force = 2
 
-	var/can_hold_knife
+	var/can_hold_knife = 0
 	var/obj/item/holding
 	var/noslip = 0
 	var/module_inside = 0
@@ -498,7 +498,8 @@ BLIND     // can't see anything
 			/obj/item/weapon/tool/knife/butterfly,
 			/obj/item/weapon/material/kitchen/utensil,
 			/obj/item/weapon/tool/knife/tacknife,
-			/obj/item/weapon/oddity/common/old_knife //Syzygy change that should have been done forever ago
+			/obj/item/weapon/oddity/common/old_knife, //Syzygy change that should have been done forever ago
+			/obj/item/weapon/tool/shiv,
 		)
 	if(can_hold_knife && is_type_in_list(I, knifes))
 		if(holding)
@@ -582,7 +583,7 @@ BLIND     // can't see anything
 		slot_l_hand_str = 'icons/mob/items/lefthand_uniforms.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_uniforms.dmi',
 		)
-	name = "under"
+	name = "jumpsuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	permeability_coefficient = 0.90
 	slot_flags = SLOT_ICLOTHING

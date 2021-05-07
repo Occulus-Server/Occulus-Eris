@@ -149,7 +149,7 @@
 /atom/movable/proc/crusade_activated()
 	return
 
-/* /datum/group_ritual_effect/cruciform/crusade/trigger_success(mob/starter, list/participants)
+/* /datum/group_ritual_effect/cruciform/crusade/trigger_success(mob/starter, list/participants) Occulus Edit: We don't have scoring
 	..()
 	for(var/atom/movable/A in GLOB.all_faction_items)
 		A.crusade_activated() */
