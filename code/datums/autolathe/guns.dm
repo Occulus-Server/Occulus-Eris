@@ -153,8 +153,12 @@
 	build_path = /obj/item/weapon/gun/projectile/automatic/ak47
 
 /datum/design/autolathe/gun/ak47_fs
-	name = "FS AR .30 \"Kalashnikov\""
+	name = "FS AR .30 \"Vipr\""
 	build_path = /obj/item/weapon/gun/projectile/automatic/ak47/fs
+
+/datum/design/autolathe/gun/ak47_sa
+	name = "SA Car .30 \"Krinkov\""
+	build_path = /obj/item/weapon/gun/projectile/automatic/ak47/sa
 
 /datum/design/autolathe/gun/sts35
 	name = "STS-35"
@@ -239,10 +243,6 @@
 /datum/design/autolathe/gun/plasma/cassad
 	name = "FS PR \"Cassad\""
 	build_path = /obj/item/weapon/gun/energy/plasma/cassad
-
-/datum/design/autolathe/gun/plasma/martyr
-	name = "NT PR \"Martyr\""
-	build_path = /obj/item/weapon/gun/energy/plasma/martyr
 
 // Special
 /datum/design/autolathe/gun/reclaimer

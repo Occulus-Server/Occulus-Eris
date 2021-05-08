@@ -216,10 +216,11 @@ Occulus Edit End */
 	icon_state = "psychic_lasercannon"
 	item_state = "psychic_lasercannon"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	item_charge_meter = TRUE
+	item_charge_meter = FALSE
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3, TECH_COVERT = 5)
 	projectile_type = /obj/item/projectile/beam/psychic/heavylaser
-	w_class = ITEM_SIZE_HUGE
+	w_class = ITEM_SIZE_NORMAL
+	force = WEAPON_FORCE_NORMAL
 	slot_flags = SLOT_BELT|SLOT_BACK
 	traitor = TRUE
 	pierce_multiplier = 2
@@ -233,8 +234,7 @@ Occulus Edit End */
 		WEAPON_NORMAL,
 		WEAPON_CHARGE
 		)
-	one_hand_penalty = 5
-	twohanded = TRUE
+	twohanded = FALSE
 
 /*/obj/item/weapon/gun/energy/laser/makeshift Occulus Edit: we never ported this
 	name = "makeshift laser carbine"
