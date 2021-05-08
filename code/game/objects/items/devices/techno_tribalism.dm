@@ -159,9 +159,9 @@
 		else
 			visible_message("\icon The [src] beeps, \"The [src] is not full enough to produce.\".")
 	else
-		visible_message("\icon The [src] beeps, \"The [src] need time to cooldown.\".")
+		visible_message("\icon The [src] beeps, \"The [src] needs time to cooldown.\".")
 
 /obj/item/device/techno_tribalism/examine(user)
 	..()
 	to_chat(user, SPAN_NOTICE("[src] has been fed [items_count]/[max_count] times.")) //Occulus Edit
-	// to_chat(user, SPAN_NOTICE("The [src] is feeded by [items_count]/[max_count].")) Original text
+	// to_chat(user, SPAN_NOTICE("The [src] is fed by [items_count]/[max_count]."))

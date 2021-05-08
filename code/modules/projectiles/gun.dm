@@ -83,10 +83,10 @@
 	var/noricochet = FALSE // wether or not bullets fired from this gun can ricochet off of walls
 	var/inversed_carry = FALSE
 
-/obj/item/weapon/gun/get_item_cost(export)
+/*/obj/item/weapon/gun/get_item_cost(export)//Occulus Edit: We aren't Eris, and this is why we have 10$ guns
 	if(export)
 		return ..() * 0.5 //Guns should be sold in the player market.
-	..()
+	..()*/
 
 /obj/item/weapon/gun/Initialize()
 	. = ..()
