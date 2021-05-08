@@ -9,6 +9,7 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5
 	active_power_usage = 100
+	pass_flags = PASSTABLE	//Occulus Edit, As request by jams
 	reagent_flags = OPENCONTAINER | NO_REACT
 	var/operating = 0 // Is it on?
 	var/dirty = 0 // = {0..100} Does it need cleaning?

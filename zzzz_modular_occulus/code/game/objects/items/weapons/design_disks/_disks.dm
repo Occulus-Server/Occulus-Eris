@@ -48,7 +48,8 @@
 		/datum/design/autolathe/fabkit,
 		/datum/design/autolathe/fabkit/bench,
 		/datum/design/autolathe/fabkit/bag,
-		/datum/design/autolathe/fabkit/psych
+		/datum/design/autolathe/fabkit/psych,
+		/datum/design/autolathe/fabkit/dryrack
 		)
 
 

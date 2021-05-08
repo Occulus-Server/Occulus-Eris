@@ -103921,6 +103921,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
+"gCm" = (
+/obj/machinery/smartfridge/drying_rack,
+/turf/simulated/floor/grass,
+/area/eris/crew_quarters/hydroponics/garden)
 "gDZ" = (
 /obj/structure/railing{
 	dir = 1
@@ -106355,6 +106359,10 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/hallway/main/section3)
+"ovQ" = (
+/obj/machinery/smartfridge/drying_rack,
+/turf/simulated/floor/grass,
+/area/eris/crew_quarters/hydroponics)
 "owL" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
@@ -164502,9 +164510,9 @@ bzz
 bCv
 bCy
 bQD
-bRH
+gCm
 bxH
-bQn
+ovQ
 bZn
 cga
 cCz

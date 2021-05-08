@@ -1361,6 +1361,14 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	cost = 3000
 	crate_name = "gym kit crate"
 	group = "Miscellaneous"
+
+/datum/supply_pack/dryrack
+	contains = list(/obj/item/fabkit/dryrack
+					)
+	name = "Drying Rack Fabkit Crate"
+	cost = 750
+	crate_name = "drying rack crate"
+	group = "Miscellaneous"
 	//Occulus Addition End
 
 //----------------------------------------------
