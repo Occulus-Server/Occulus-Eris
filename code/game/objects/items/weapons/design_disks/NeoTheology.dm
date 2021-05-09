@@ -81,6 +81,7 @@
 		/datum/design/bioprinter/ammo,
 		/datum/design/bioprinter/tubular,
 		/datum/design/bioprinter/tubular/vial,
+		/datum/design/bioprinter/part,
 
    		/datum/design/autolathe/device/headset_church,
 		/datum/design/bioprinter/leather/cash_bag
