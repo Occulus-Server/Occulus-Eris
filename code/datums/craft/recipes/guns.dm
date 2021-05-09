@@ -85,3 +85,12 @@
 		list(/obj/item/weapon/stock_parts/micro_laser , 4),
 		list(QUALITY_SCREW_DRIVING, 10)
 	)
+
+ /datum/craft_recipe/gun/guns_craft_frame //occulus edit: originally in misc.dm as /datum/craft_recipe/gun/guns_craft_frame - bear
+	name = "Gun assembly"
+	result = /obj/item/craft_frame/guns
+	steps = list(
+		list(CRAFT_MATERIAL, 5, MATERIAL_PLASTEEL, "time" = 30),
+		list(QUALITY_WELDING, 10, 10)
+	)
+	related_stats = list(STAT_MEC)
