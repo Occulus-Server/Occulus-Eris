@@ -147,6 +147,9 @@
 	desc = "A vest with hand and arm-guards attached that excels in protecting the wearer against high-velocity solid projectiles. \
 			This one has been done in Aegis Security colors."
 
+/obj/item/clothing/suit/armor/vest/full/ironhammer
+	desc = "An armored vest painted in Aegis Security colors. This one has shoulderpads and knee pads included to protect all parts of the body."
+
 /obj/item/weapon/tool/knife/neotritual
 	name = "Mekhane ritual knife"
 
@@ -205,3 +208,8 @@
 
 /obj/item/weapon/grenade/frag
 	name = "FS DFG \"Pomme\""
+
+//Machines
+/obj/machinery/microwave
+	name = "GenTech Autocooker 5000"
+	desc = "From the company that brought you the Absolute Zero Fridge comes the Autocooker 5000! Dinner, desserts, shellfish, it does it all!"
