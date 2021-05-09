@@ -181,47 +181,47 @@
 	steps = list(
 		list(CRAFT_MATERIAL, 5, MATERIAL_STEEL),
 	)
-	name_craft_menu = "Sofas (middle)"
+	//name_craft_menu = "Sofas (middle)"
 
 /datum/craft_recipe/furniture/sofa/black
 	name = "black sofa"
 	result = /obj/structure/bed/chair/sofa/black
-	variation_type = CRAFT_VARIATION
+	// // variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofa/brown
 	name = "brown sofa"
 	result = /obj/structure/bed/chair/sofa/brown
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofa/lime
 	name = "lime sofa"
 	result = /obj/structure/bed/chair/sofa/lime
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofa/teal
 	name = "teal sofa"
 	result = /obj/structure/bed/chair/sofa/teal
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofa/red
 	name = "red sofa"
 	result = /obj/structure/bed/chair/sofa/red
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofa/blue
 	name = "blue sofa"
 	result = /obj/structure/bed/chair/sofa/blue
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofa/purple
 	name = "purple sofa"
 	result = /obj/structure/bed/chair/sofa/purp
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofa/green
 	name = "green sofa"
 	result = /obj/structure/bed/chair/sofa/green
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 ////////////////////////
 	// SOFA CORNERS
@@ -234,47 +234,47 @@
 	steps = list(
 		list(CRAFT_MATERIAL, 5, MATERIAL_STEEL),
 	)
-	name_craft_menu = "Sofas (corner)"
+	//name_craft_menu = "Sofas (corner)"
 
 /datum/craft_recipe/furniture/sofacorner/black
 	name = "black sofa"
 	result = /obj/structure/bed/chair/sofa/black/corner
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofacorner/brown
 	name = "brown sofa"
 	result = /obj/structure/bed/chair/sofa/brown/corner
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofacorner/lime
 	name = "lime sofa"
 	result = /obj/structure/bed/chair/sofa/lime/corner
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofacorner/teal
 	name = "teal sofa"
 	result = /obj/structure/bed/chair/sofa/teal/corner
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofacorner/red
 	name = "red sofa"
 	result = /obj/structure/bed/chair/sofa/red/corner
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofacorner/blue
 	name = "blue sofa"
 	result = /obj/structure/bed/chair/sofa/blue/corner
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofacorner/purple
 	name = "purple sofa"
 	result = /obj/structure/bed/chair/sofa/purp/corner
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofacorner/green
 	name = "green sofa"
 	result = /obj/structure/bed/chair/sofa/green/corner
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 ////////////////////////
 	// SOFA LEFT CAPS
@@ -287,47 +287,47 @@
 	steps = list(
 		list(CRAFT_MATERIAL, 5, MATERIAL_STEEL),
 	)
-	name_craft_menu = "Sofas (left)"
+	//name_craft_menu = "Sofas (left)"
 
 /datum/craft_recipe/furniture/sofaleft/black
 	name = "black sofa"
 	result = /obj/structure/bed/chair/sofa/black/left
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaleft/brown
 	name = "brown sofa"
 	result = /obj/structure/bed/chair/sofa/brown/left
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaleft/lime
 	name = "lime sofa"
 	result = /obj/structure/bed/chair/sofa/lime/left
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaleft/teal
 	name = "teal sofa"
 	result = /obj/structure/bed/chair/sofa/teal/left
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaleft/red
 	name = "red sofa"
 	result = /obj/structure/bed/chair/sofa/red/left
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaleft/blue
 	name = "blue sofa"
 	result = /obj/structure/bed/chair/sofa/blue/left
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaleft/purple
 	name = "purple sofa"
 	result = /obj/structure/bed/chair/sofa/purp/left
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaleft/green
 	name = "green sofa"
 	result = /obj/structure/bed/chair/sofa/green/left
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 ////////////////////////
 	// SOFA RIGHT CAPS
@@ -340,44 +340,44 @@
 	steps = list(
 		list(CRAFT_MATERIAL, 5, MATERIAL_STEEL),
 	)
-	name_craft_menu = "Sofas (right)"
+	//name_craft_menu = "Sofas (right)"
 
 /datum/craft_recipe/furniture/sofaright/black
 	name = "black sofa"
 	result = /obj/structure/bed/chair/sofa/black/right
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaright/brown
 	name = "brown sofa"
 	result = /obj/structure/bed/chair/sofa/brown/right
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaright/lime
 	name = "lime sofa"
 	result = /obj/structure/bed/chair/sofa/lime/right
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaright/teal
 	name = "teal sofa"
 	result = /obj/structure/bed/chair/sofa/teal/right
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaright/red
 	name = "red sofa"
 	result = /obj/structure/bed/chair/sofa/red/right
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaright/blue
 	name = "blue sofa"
 	result = /obj/structure/bed/chair/sofa/blue/right
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaright/purple
 	name = "purple sofa"
 	result = /obj/structure/bed/chair/sofa/purp/right
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/sofaright/green
 	name = "green sofa"
 	result = /obj/structure/bed/chair/sofa/green/right
-	variation_type = CRAFT_VARIATION
+	// variation_type = CRAFT_VARIATION
