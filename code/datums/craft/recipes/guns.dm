@@ -98,7 +98,7 @@
 		list(CRAFT_MATERIAL, 10, MATERIAL_WOOD),
 		list(QUALITY_HAMMERING, 10)
 	)
-
+// start nonmodular occulus edit
  /datum/craft_recipe/gun/guns_craft_frame //occulus edit: originally in misc.dm as /datum/craft_recipe/gun/guns_craft_frame - bear
 	name = "Gun assembly"
 	result = /obj/item/craft_frame/guns
@@ -107,3 +107,4 @@
 		list(QUALITY_WELDING, 10, 10)
 	)
 	related_stats = list(STAT_MEC)
+// end nonmodular occuluis edit
