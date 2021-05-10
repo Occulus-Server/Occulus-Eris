@@ -152,3 +152,8 @@
 		rad = 75
 	)
 
+/obj/item/clothing/suit/space/void/hazardsuit/moebius
+	name = "NT hazard voidsuit"
+
+/obj/item/clothing/head/space/void/hazardhelmet/moebius
+	name = "NT hazard helmet"
