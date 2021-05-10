@@ -19427,6 +19427,8 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/camera/network/engineering,
+/obj/spawner/powercell,
+/obj/spawner/pack/tech_loot,
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/hallway/side/atmosphericshallway)
 "aUO" = (
@@ -27562,7 +27564,11 @@
 /area/eris/hallway/side/eschangarb)
 "bmc" = (
 /obj/structure/table/rack,
-/obj/spawner/tool_upgrade/low_chance,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bmd" = (
@@ -28971,8 +28977,11 @@
 /area/eris/medical/morgue)
 "bph" = (
 /obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/matches{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /obj/item/weapon/storage/fancy/cigarettes,
-/obj/item/weapon/storage/box/matches,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/drone_fabrication)
 "bpi" = (
@@ -29900,9 +29909,15 @@
 /area/eris/crew_quarters/librarybackroom)
 "brz" = (
 /obj/structure/table/rack,
-/obj/spawner/material/resources,
-/obj/spawner/material/resources/low_chance,
-/obj/spawner/material/resources,
+/obj/item/weapon/weldpack,
+/obj/item/clothing/head/welding{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/weapon/tool/weldingtool{
+	pixel_x = 10;
+	pixel_y = 5
+	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "brA" = (
@@ -34258,6 +34273,8 @@
 /obj/structure/table/reinforced,
 /obj/spawner/toolbox,
 /obj/spawner/toolbox,
+/obj/spawner/material/building,
+/obj/spawner/material/building,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/drone_fabrication)
 "bCa" = (
@@ -35509,6 +35526,7 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck4port)
 "bFf" = (
+/obj/spawner/traps/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/engineering/construction)
 "bFg" = (
@@ -36055,10 +36073,21 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck4central)
 "bGp" = (
-/obj/structure/closet,
-/obj/spawner/powercell,
-/obj/spawner/pack/tech_loot,
-/obj/spawner/pack/tech_loot,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/structure/closet/crate,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bGq" = (
@@ -36185,12 +36214,7 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck4central)
 "bGA" = (
-/obj/structure/closet,
-/obj/spawner/powercell,
-/obj/spawner/pack/tech_loot,
-/obj/spawner/pack/tech_loot,
-/obj/spawner/pack/tech_loot,
-/obj/spawner/pack/tech_loot,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bGB" = (
@@ -36373,13 +36397,12 @@
 /turf/simulated/wall/r_wall,
 /area/eris/hallway/main/section4)
 "bGW" = (
-/obj/structure/closet,
-/obj/spawner/powercell,
-/obj/spawner/pack/tech_loot,
-/obj/spawner/pack/tech_loot,
-/obj/spawner/pack/tech_loot,
-/obj/spawner/pack/tech_loot,
-/obj/spawner/pack/tech_loot,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bGX" = (
@@ -37830,7 +37853,6 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
-/obj/spawner/material/building,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bJR" = (
@@ -37848,7 +37870,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/spawner/material/building,
+/obj/spawner/junk/low_chance,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bJT" = (
@@ -38142,13 +38164,15 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck4port)
 "bKy" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance_engineering{
-	name = "Engineering Maintenance";
-	req_access = list(10)
-	},
-/turf/simulated/floor/tiled/techmaint_cargo,
-/area/eris/maintenance/section4deck4port)
+/obj/structure/closet,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/powercell,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/hallway/side/atmosphericshallway)
 "bKz" = (
 /obj/item/modular_computer/console/preset/security/camera{
 	dir = 4
@@ -39140,12 +39164,9 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/maintenance/section4deck4port)
 "bMI" = (
-/obj/structure/closet/crate,
-/obj/spawner/pack/tech_loot,
-/obj/spawner/pack/tech_loot,
-/obj/spawner/pack/tech_loot,
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section4deck4port)
+/obj/spawner/material/resources,
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/eris/engineering/drone_fabrication)
 "bMJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -39913,6 +39934,7 @@
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "bOj" = (
+/obj/spawner/armor_parts,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bOk" = (
@@ -39978,18 +40000,14 @@
 /obj/structure/sign/atmos_phoron{
 	pixel_y = 32
 	},
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck4port)
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "bOt" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 10
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck4port)
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "bOu" = (
 /obj/structure/table/rack,
 /obj/spawner/lowkeyrandom,
@@ -40038,9 +40056,8 @@
 /area/eris/maintenance/section4deck4port)
 "bOz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
-/area/eris/maintenance/section4deck4port)
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "bOA" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/structure/cable{
@@ -40137,8 +40154,11 @@
 /turf/space,
 /area/eris/maintenance/section4deck4port)
 "bOM" = (
-/turf/simulated/floor/hull,
-/area/eris/maintenance/section4deck4port)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/spawner/material/resources/low_chance,
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/eris/engineering/drone_fabrication)
 "bON" = (
 /turf/simulated/wall/r_wall,
 /area/eris/crew_quarters/sleep/cryo)
@@ -40209,13 +40229,13 @@
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bOX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bOY" = (
@@ -40231,6 +40251,13 @@
 	pixel_x = 28
 	},
 /obj/structure/cable/green,
+/obj/structure/closet,
+/obj/item/ammo_kit,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bPa" = (
@@ -40635,6 +40662,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck4port)
 "bPU" = (
@@ -40996,10 +41026,13 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/machinery/disposal,
+/obj/structure/table/standard,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bQO" = (
@@ -41009,6 +41042,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
+/obj/spawner/contraband/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck4port)
 "bQP" = (
@@ -41528,10 +41562,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint_cargo,
-/area/eris/maintenance/section4deck4port)
+/area/eris/engineering/construction)
 "bSd" = (
-/obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "bSf" = (
@@ -60822,6 +60855,8 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 24
 	},
+/obj/item/ammo_kit,
+/obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "cMb" = (
@@ -79771,9 +79806,11 @@
 	dir = 8
 	},
 /obj/structure/table/rack,
-/obj/spawner/tool_upgrade/rare/low_chance,
-/obj/spawner/tool_upgrade/low_chance,
-/obj/spawner/tool_upgrade/low_chance,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "dEj" = (
@@ -86185,8 +86222,13 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck2starboard)
 "dTp" = (
-/obj/spawner/flora/low_chance,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "dTq" = (
@@ -97015,6 +97057,8 @@
 /obj/structure/catwalk,
 /obj/structure/table/rack,
 /obj/spawner/tool_upgrade/low_chance,
+/obj/spawner/tool_upgrade/low_chance,
+/obj/spawner/tool_upgrade/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/breakroom)
 "esR" = (
@@ -103474,6 +103518,15 @@
 /obj/spawner/pack/machine,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1port)
+"eOH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "ePQ" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
 /obj/machinery/meter,
@@ -103721,6 +103774,15 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/eschangara)
+"fBB" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/ammo_kit,
+/obj/item/weapon/tool/tape_roll/fiber,
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "fBO" = (
 /obj/machinery/holomap{
 	dir = 4;
@@ -103935,10 +103997,10 @@
 /turf/space,
 /area/space)
 "gBc" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
+/obj/machinery/disposal,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "gCm" = (
@@ -104614,6 +104676,21 @@
 /obj/item/device/radio/beacon,
 /turf/simulated/floor/tiled/steel/panels,
 /area/eris/engineering/post)
+"iNs" = (
+/obj/structure/closet,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "iOT" = (
 /obj/item/weapon/stool,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
@@ -104964,6 +105041,20 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
+"jTd" = (
+/obj/structure/table/rack/shelf,
+/obj/item/craft_frame/guns{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/item/craft_frame/guns{
+	pixel_x = 10;
+	pixel_y = -7
+	},
+/obj/item/craft_frame/guns,
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "jTQ" = (
 /obj/spawner/junkfood/rotten/low_chance,
 /turf/simulated/floor/tiled/dark,
@@ -105043,6 +105134,14 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemstor)
+"kni" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/machinery/door/airlock/maintenance_engineering{
+	name = "Engineering Maintenance";
+	req_access = list(10)
+	},
+/turf/simulated/floor/tiled/techmaint_cargo,
+/area/eris/engineering/construction)
 "koe" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/freezer/medical,
@@ -105180,6 +105279,16 @@
 /obj/machinery/power/nt_obelisk,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/office)
+"kDL" = (
+/obj/structure/closet,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/obj/spawner/armor_parts,
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "kDP" = (
 /obj/machinery/door/airlock{
 	name = "Kitchen Freezer";
@@ -105251,6 +105360,8 @@
 "kPl" = (
 /obj/structure/catwalk,
 /obj/structure/table/rack,
+/obj/spawner/tool_upgrade/rare/low_chance,
+/obj/spawner/tool_upgrade/rare/low_chance,
 /obj/spawner/tool_upgrade/rare/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/breakroom)
@@ -105781,9 +105892,21 @@
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/space)
 "mCG" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/plating,
-/area/eris/engineering/construction)
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section4deck4port)
 "mFw" = (
 /obj/spawner/mob/roaches/cluster,
 /turf/simulated/floor/tiled/white/brown_platform,
@@ -106045,6 +106168,13 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
+"niK" = (
+/obj/structure/closet/crate,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck4port)
 "nkL" = (
 /obj/machinery/camera/network/third_section{
 	dir = 8
@@ -106101,6 +106231,12 @@
 /obj/item/weapon/soap,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/crew_quarters/clothingstorage)
+"npO" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "nse" = (
 /turf/simulated/floor/wood,
 /area/eris/maintenance/section4deck4central)
@@ -106337,6 +106473,19 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"oga" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/table/rack/shelf,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/wood/random,
+/obj/item/stack/material/wood/random,
+/obj/item/stack/material/wood/random,
+/obj/item/stack/material/wood/random,
+/obj/item/stack/material/wood/random,
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "oih" = (
 /obj/landmark/join/start/chemist,
 /obj/structure/disposalpipe/segment,
@@ -106722,6 +106871,14 @@
 /obj/item/weapon/bedsheet/blue,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
+"ptE" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/spawner/mob/roaches/low_chance,
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section4deck4port)
 "ptL" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/camera/network/prison,
@@ -106869,6 +107026,20 @@
 /obj/spawner/rations,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/kitchen)
+"pWi" = (
+/obj/item/ammo_kit,
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
+"pWz" = (
+/obj/structure/closet,
+/obj/spawner/powercell,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck3port)
 "pYo" = (
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/crew_quarters/library{
@@ -107300,6 +107471,9 @@
 	},
 /turf/simulated/open,
 /area/eris/maintenance/section1deck4central)
+"rLH" = (
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "rNq" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -107411,6 +107585,15 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
+"sla" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section4deck4port)
 "smt" = (
 /obj/structure/railing,
 /obj/spawner/junk,
@@ -107480,6 +107663,19 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck3port)
+"sCu" = (
+/obj/machinery/door/airlock/maintenance_engineering{
+	name = "Engineering Maintenance";
+	req_access = list(10)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "sEx" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -107753,6 +107949,13 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
+"tsa" = (
+/obj/structure/table/rack/shelf,
+/obj/spawner/tool/advanced,
+/obj/spawner/tool,
+/obj/spawner/tool/low_chance,
+/turf/simulated/floor/plating,
+/area/eris/engineering/construction)
 "tss" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/standard{
@@ -108205,6 +108408,13 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"vaV" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/spawner/contraband/low_chance,
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section4deck4port)
 "vbh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/firealarm{
@@ -108717,6 +108927,10 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/hangarsupply)
+"wMx" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section4deck4port)
 "wOW" = (
 /obj/structure/closet/secure_closet/medicine,
 /obj/structure/catwalk,
@@ -161345,7 +161559,7 @@ bFI
 bqK
 bum
 bqj
-bum
+niK
 bum
 bLL
 bqj
@@ -162763,7 +162977,7 @@ buq
 bPq
 bPQ
 bqK
-bum
+bOI
 bqj
 acR
 aae
@@ -162958,14 +163172,14 @@ bKR
 bKR
 bNk
 bqj
-bIJ
+sla
 buq
 bOL
 buq
 bNO
 bPT
 bqj
-bum
+cpO
 bqj
 acR
 aaa
@@ -163160,14 +163374,14 @@ bIl
 bKR
 bOf
 bOf
-bIJ
-bqj
-bOM
-bqj
+fBB
+bOf
+bOf
+bOf
 bPv
 bLE
 bqj
-bum
+wMx
 bqj
 acR
 aaa
@@ -163363,13 +163577,13 @@ bKR
 bEy
 bOf
 bOs
-bqj
-bqj
-bqj
-bqj
-bqj
-bqj
-bum
+tsa
+oga
+bOf
+bOf
+bOf
+bOf
+cpO
 bqj
 acR
 aaa
@@ -163563,14 +163777,14 @@ byB
 bNu
 bKR
 bFf
-bKy
+bOf
 bOt
 bOz
 bOz
 bOz
 bOz
 bOz
-bOz
+kni
 bQL
 bqj
 acR
@@ -163766,13 +163980,13 @@ bJx
 bKR
 bFy
 bOf
-bOf
+kDL
 bSd
-bSd
-bSd
+eOH
+bPs
+rLH
+iNs
 bOf
-bOf
-bqj
 bQM
 bqj
 acR
@@ -163967,14 +164181,14 @@ byS
 bJy
 bKR
 eGo
-bOj
+bOf
 bGp
 bGA
 bGW
-bGW
+rLH
 bOl
+jTd
 bOf
-bMI
 bPV
 bqj
 acR
@@ -164164,17 +164378,17 @@ abF
 bKR
 bJe
 bNu
-bNu
-bNu
+bMI
+bMI
 bBZ
 bKR
 bJQ
-bOj
-dvL
-bOj
-bOj
-bOj
-mCG
+bOf
+bOf
+bOf
+sCu
+bOf
+bOf
 bOf
 bOf
 bPV
@@ -164374,9 +164588,9 @@ bJS
 bOj
 bOW
 bPs
-bOj
-bOj
-dvL
+bGW
+pWi
+rLH
 bQN
 bOf
 bPV
@@ -164569,19 +164783,19 @@ bNe
 bMd
 bMC
 bNe
-bNe
+bOM
 bNJ
 bSb
 bKn
 bKp
 bOX
-uCf
+npO
 dTp
 uCf
 uCf
 gBc
-bFy
-bPV
+bOf
+ptE
 bqj
 acR
 aaa
@@ -164778,8 +164992,8 @@ bKo
 dvL
 bOY
 bPt
-bOj
-dvL
+bGA
+rLH
 bOf
 bOf
 bOf
@@ -165187,7 +165401,7 @@ bOf
 bOf
 bPV
 bqK
-bPV
+ptE
 bqj
 abF
 aaa
@@ -165586,7 +165800,7 @@ eKc
 bqK
 bum
 buq
-bIJ
+vaV
 bqj
 bqj
 bum
@@ -166170,7 +166384,7 @@ aCM
 bsu
 buF
 aCM
-djB
+bKy
 bCe
 bJH
 bHZ
@@ -166794,7 +167008,7 @@ bum
 bum
 bvW
 bMM
-bNx
+mCG
 bqj
 bum
 bqj
@@ -206191,7 +206405,7 @@ cWq
 cwU
 cXR
 cYJ
-cxw
+pWz
 cwU
 daS
 cwe
