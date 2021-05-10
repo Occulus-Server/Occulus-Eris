@@ -1524,8 +1524,7 @@
 /area/eris/security/prison)
 "adO" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/handcuffs,
-/obj/item/weapon/storage/box/handcuffs,
+/obj/item/weapon/tool/hammer/IH,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "adP" = (
