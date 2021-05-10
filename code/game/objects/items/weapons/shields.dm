@@ -76,7 +76,8 @@
 		var/obj/item/projectile/P = damage_source
 		//plastic shields do not stop bullets or lasers, even in space. Will block beanbags, rubber bullets, and stunshots just fine though.
 		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
-			return 0
+			return base_block_chance //occulus edit- This shield is not plastic, it's metal. TRAYSHIELDS SHOULD NOT BLOCK BETTER THEN ACTUAL RIOT SHIELDS.
+		//	return 0
 	return base_block_chance
 
 /obj/item/weapon/shield/riot/attackby(obj/item/weapon/W as obj, mob/user as mob)
