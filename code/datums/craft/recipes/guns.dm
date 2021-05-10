@@ -1,3 +1,4 @@
+
 /datum/craft_recipe/gun
 	category = "Guns"
 	time = 25
@@ -84,6 +85,18 @@
 		list(CRAFT_MATERIAL, 15, MATERIAL_PLASTIC),
 		list(/obj/item/weapon/stock_parts/micro_laser , 4),
 		list(QUALITY_SCREW_DRIVING, 10)
+	)
+
+/datum/craft_recipe/gun/kalash
+	name = "Makeshift AR .30 \"Kalash\""
+	result = /obj/item/weapon/gun/projectile/automatic/ak47/makeshift
+	steps = list(
+		list(/obj/item/part/gun, 4),
+		list(QUALITY_ADHESIVE, 15, 70),
+		list(CRAFT_MATERIAL, 20, MATERIAL_STEEL),
+		list(QUALITY_WELDING, 10, 20),
+		list(CRAFT_MATERIAL, 10, MATERIAL_WOOD),
+		list(QUALITY_HAMMERING, 10)
 	)
 
  /datum/craft_recipe/gun/guns_craft_frame //occulus edit: originally in misc.dm as /datum/craft_recipe/gun/guns_craft_frame - bear
