@@ -308,13 +308,20 @@
 
 	user.do_attack_animation(src)
 
+	// OCCULUS EDIT: invoke check_shields to catch superior_animal & other attacks
+
 	var/dam_zone = pick(organs_by_name)
-	var/obj/item/organ/external/affecting = get_organ(ran_zone(dam_zone))
-	var/dam = damage_through_armor(damage, BRUTE, affecting, ARMOR_MELEE)
-	if(dam > 0)
-		affecting.add_autopsy_data("[attack_message] by \a [user]", dam)
-	updatehealth()
-	hit_impact(damage, get_step(user, src))
+
+	if (!check_shields(damage, 0, user, dam_zone, "the [user.name]")) // if it fails to block, continue
+		var/obj/item/organ/external/affecting = get_organ(ran_zone(dam_zone))
+		var/dam = damage_through_armor(damage, BRUTE, affecting, ARMOR_MELEE)
+		if(dam > 0)
+			affecting.add_autopsy_data("[attack_message] by \a [user]", dam)
+		updatehealth()
+		hit_impact(damage, get_step(user, src))
+
+	// OCCULUS EDIT END
+
 	return TRUE
 
 //Used to attack a joint through grabbing
