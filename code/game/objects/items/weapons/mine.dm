@@ -43,6 +43,12 @@
 		add_overlays(image(icon,"mine_light"))
 
 /obj/item/weapon/mine/attack_self(mob/user)
+	if(locate(/obj/structure/multiz/ladder) in get_turf(user))
+		to_chat(user, SPAN_NOTICE("You cannot place \the [src] here, there is a ladder."))
+		return
+	if(locate(/obj/structure/multiz/stairs) in get_turf(user))
+		to_chat(user, SPAN_NOTICE("You cannot place \the [src] here, it needs a flat surface."))
+		return
 	if(!armed)
 		user.visible_message(
 			SPAN_DANGER("[user] starts to deploy \the [src]."),
@@ -66,7 +72,7 @@
 /obj/item/weapon/mine/attack_hand(mob/user as mob)
 	if (deployed)
 		user.visible_message(
-				SPAN_DANGER("[user] extends its hand to reach the [src]!"),
+				SPAN_DANGER("[user] extends its hand to reach \the [src]!"),
 				SPAN_DANGER("you extend your arms to pick it up, knowing that it will likely blow up when you touch it!")
 				)
 		if (do_after(user, 5))
@@ -99,14 +105,20 @@
 	else
 		if (deployed)   //now touching it with stuff that don't pulse will also be a bad idea
 			user.visible_message(
-				SPAN_DANGER("the [src] is hit with [I] and it explodes!"),
-				SPAN_DANGER("You hit the [src] with [I] and it explodes!"))
+				SPAN_DANGER("\The [src] is hit with [I] and it explodes!"),
+				SPAN_DANGER("You hit \the [src] with [I] and it explodes!"))
 			explode()
 		return
 
 
 /obj/item/weapon/mine/Crossed(mob/AM)
 	if (armed)
+		if(locate(/obj/structure/multiz/ladder) in get_turf(loc))
+			visible_message(SPAN_DANGER("\The [src]'s triggering mechanism is disrupted by the ladder and does not go off."))
+			return
+		if(locate(/obj/structure/multiz/stairs) in get_turf(loc))
+			visible_message(SPAN_DANGER("\The [src]'s triggering mechanism is disrupted by the slope and does not go off."))
+			return ..()
 		if (isliving(AM))
 			prob_explode = initial(prob_explode)
 			prob_explode -= AM.skill_to_evade_traps(prob_explode)

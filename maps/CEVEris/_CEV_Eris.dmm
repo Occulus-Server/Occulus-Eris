@@ -93398,9 +93398,9 @@
 "ekb" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/belt/archaeology,
-/obj/item/clothing/suit/space/anomaly,
-/obj/item/clothing/head/space/anomaly,
 /obj/item/clothing/mask/breath,
+/obj/item/clothing/suit/space/void/hazardsuit,
+/obj/item/clothing/head/space/void/hazardhelmet,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "11,9"
 	},
@@ -93520,15 +93520,11 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/anomaly,
-/obj/item/clothing/head/space/anomaly,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "eko" = (
 /obj/machinery/light,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/anomaly,
-/obj/item/clothing/head/space/anomaly,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "ekp" = (
@@ -93705,9 +93701,9 @@
 "ekI" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/belt/archaeology,
-/obj/item/clothing/suit/space/anomaly,
-/obj/item/clothing/head/space/anomaly,
 /obj/item/clothing/mask/breath,
+/obj/item/clothing/suit/space/void/hazardsuit,
+/obj/item/clothing/head/space/void/hazardhelmet,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "11,8"
 	},
@@ -93935,9 +93931,9 @@
 "elq" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/belt/archaeology,
-/obj/item/clothing/suit/space/anomaly,
-/obj/item/clothing/head/space/anomaly,
 /obj/item/clothing/mask/breath,
+/obj/item/clothing/suit/space/void/hazardsuit,
+/obj/item/clothing/head/space/void/hazardhelmet,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "11,7"
 	},
