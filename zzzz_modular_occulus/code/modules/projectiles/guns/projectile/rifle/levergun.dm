@@ -20,6 +20,7 @@
 	price_tag = 1000
 	recoil_buildup = 20
 	one_hand_penalty = 15 //full sized shotgun level
+	damage_multiplier = 0.8
 	var/sawn_result = /obj/item/weapon/gun/projectile/shotgun/leveraction/sawn	//snowflake way to make this not hardcoded
 	var/cansaw = TRUE
 
