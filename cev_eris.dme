@@ -2815,6 +2815,7 @@
 #include "zzzz_modular_occulus\code\datums\autolathe\circuits.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\fabkits.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\guns.dm"
+#include "zzzz_modular_occulus\code\datums\craft\crafting_items.dm"
 #include "zzzz_modular_occulus\code\datums\objective\blitzshell.dm"
 #include "zzzz_modular_occulus\code\datums\perks\oddity.dm"
 #include "zzzz_modular_occulus\code\datums\setup_option\core_implants.dm"
