@@ -7,7 +7,10 @@
 	contraband = list(/obj/item/weapon/reagent_containers/food/drinks/ice = 10)
 	prices = list(/obj/item/weapon/reagent_containers/food/drinks/coffee = 30, /obj/item/weapon/reagent_containers/food/drinks/tea/black = 30 ,
 					/obj/item/weapon/reagent_containers/food/drinks/tea/green = 30, /obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 40)
+	vendor_department = DEPARTMENT_CIVILIAN
 
+/obj/machinery/vending/snack
+	vendor_department = DEPARTMENT_CIVILIAN
 
 /obj/machinery/vending/cola
 	products = list(/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
@@ -20,6 +23,13 @@
 					/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 32,/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 30,
 					/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 30,/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 30,
 					/obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko = 50, /obj/item/weapon/reagent_containers/food/snacks/liquidfood = 60)
+	vendor_department = DEPARTMENT_CIVILIAN
+
+/obj/machinery/vending/engineering
+	vendor_department = DEPARTMENT_ENGINEERING
+
+/obj/machinery/vending/tool
+	vendor_department = DEPARTMENT_ENGINEERING
 
 /obj/machinery/vending/cigarette
 	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10,/obj/item/weapon/storage/box/matches = 10,/obj/item/weapon/flame/lighter/random = 4)
