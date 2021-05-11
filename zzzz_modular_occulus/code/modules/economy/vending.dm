@@ -1,3 +1,6 @@
+/obj/machinery/vending
+	shut_up = 1//Shush. We don't need these
+
 /obj/machinery/vending/coffee
 	products = list(/obj/item/weapon/reagent_containers/food/drinks/coffee = 25,/obj/item/weapon/reagent_containers/food/drinks/tea/black = 25,
 					/obj/item/weapon/reagent_containers/food/drinks/tea/green = 25,/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25)
@@ -92,8 +95,79 @@
 					)
 	idle_power_usage = 211
 	auto_price = FALSE
-	vendor_department = DEPARTMENT_CIVILIAN
 
+/obj/machinery/vending/medical/occulus
+	name = "MiniPharma Plus"
+	desc = "Medical drug dispenser."
+	icon_state = "med"
+	icon_deny = "med-deny"
+	req_access = list(access_medical_equip)
+	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
+
+	products = list(
+					/obj/item/weapon/reagent_containers/glass/bottle/antitoxin = 4,
+					/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline = 4,
+					/obj/item/weapon/reagent_containers/glass/bottle/stoxin = 4,
+					/obj/item/weapon/reagent_containers/glass/bottle/toxin = 4,
+					/obj/item/weapon/reagent_containers/syringe/spaceacillin = 4,
+					/obj/item/weapon/reagent_containers/syringe = 12,
+					/obj/item/device/scanner/health = 5,
+					/obj/item/weapon/reagent_containers/glass/beaker = 4,
+					/obj/item/weapon/reagent_containers/dropper = 2,
+					/obj/item/stack/medical/advanced/bruise_pack = 3,
+					/obj/item/stack/medical/advanced/ointment = 3,
+					/obj/item/stack/medical/splint = 2,
+					/obj/item/weapon/storage/hypospraykit/regular = 1,
+					/obj/item/weapon/storage/hypospraykit/fire = 1,
+					/obj/item/weapon/storage/hypospraykit/brute = 1,
+					/obj/item/weapon/storage/hypospraykit/toxin = 1,
+					/obj/item/weapon/storage/hypospraykit/o2 = 1,
+					/obj/item/hypospray/mkii = 4,
+					/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small = 9
+					)
+
+	contraband = list(
+					/obj/item/weapon/reagent_containers/pill/tox = 3,
+					/obj/item/weapon/reagent_containers/pill/antitox = 6,
+					/obj/item/weapon/reagent_containers/pill/stox = 4
+					)
+
+	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	auto_price = FALSE
+
+/obj/machinery/vending/wallmed/lobby
+	products = list(
+		/obj/item/device/scanner/health = 5,
+		/obj/item/stack/medical/bruise_pack = 5,
+		/obj/item/stack/medical/ointment = 5,
+		/obj/item/stack/medical/advanced/bruise_pack = 2,
+		/obj/item/stack/medical/advanced/ointment = 2,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin = 10,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine = 5,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin = 5,
+		/obj/item/weapon/implantcase/death_alarm = 2,
+		/obj/item/weapon/implanter = 2,
+		/obj/item/stack/nanopaste = 1
+		)
+
+/obj/machinery/vending/weapon_machine
+	prices = list(
+
+					/obj/item/weapon/gun/projectile/revolver/havelock = 600,
+					/obj/item/weapon/gun/projectile/giskard = 600,
+					/obj/item/weapon/gun/projectile/mk58 = 900,
+					/obj/item/weapon/gun/projectile/automatic/atreides = 1200,
+					/obj/item/weapon/gun/projectile/shotgun/pump = 1400,
+					/obj/item/weapon/gun/energy/gun/martin = 600,
+					/obj/item/clothing/accessory/holster/armpit = 200,
+					/obj/item/clothing/accessory/holster/waist = 200,
+					/obj/item/clothing/accessory/holster/hip = 200,//Occulus Edit: This was missing
+					/obj/item/weapon/tool/knife/tacknife = 400,
+					/obj/item/clothing/head/armor/helmet = 1000,
+					/obj/item/clothing/suit/armor/vest = 1500,
+					/obj/item/weapon/gun/projectile/automatic/slaught_o_matic = 300,//Occulus Edit: Ahahaha what? No
+					/obj/item/weapon/tool/knife/tacknife = 600,//Occulus Edit: We have a bullet vendor
+					/obj/item/weapon/storage/box/smokes = 200)
 
 //all these are just to update the bill validator lights
 /obj/machinery/vending/serbomat/New()
