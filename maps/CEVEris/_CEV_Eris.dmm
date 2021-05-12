@@ -93386,8 +93386,8 @@
 /obj/structure/table/rack,
 /obj/item/weapon/storage/belt/archaeology,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/suit/space/void/hazardsuit,
-/obj/item/clothing/head/space/void/hazardhelmet,
+/obj/item/clothing/suit/space/void/hazardsuit/moebius,
+/obj/item/clothing/head/space/void/hazardhelmet/moebius,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "11,9"
 	},
@@ -93507,15 +93507,15 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/hazardsuit,
-/obj/item/clothing/head/space/void/hazardhelmet,
+/obj/item/clothing/suit/space/void/hazardsuit/moebius,
+/obj/item/clothing/head/space/void/hazardhelmet/moebius,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "eko" = (
 /obj/machinery/light,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/hazardsuit,
-/obj/item/clothing/head/space/void/hazardhelmet,
+/obj/item/clothing/suit/space/void/hazardsuit/moebius,
+/obj/item/clothing/head/space/void/hazardhelmet/moebius,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "ekp" = (
@@ -93693,8 +93693,8 @@
 /obj/structure/table/rack,
 /obj/item/weapon/storage/belt/archaeology,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/suit/space/void/hazardsuit,
-/obj/item/clothing/head/space/void/hazardhelmet,
+/obj/item/clothing/suit/space/void/hazardsuit/moebius,
+/obj/item/clothing/head/space/void/hazardhelmet/moebius,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "11,8"
 	},
@@ -93923,8 +93923,8 @@
 /obj/structure/table/rack,
 /obj/item/weapon/storage/belt/archaeology,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/suit/space/void/hazardsuit,
-/obj/item/clothing/head/space/void/hazardhelmet,
+/obj/item/clothing/suit/space/void/hazardsuit/moebius,
+/obj/item/clothing/head/space/void/hazardhelmet/moebius,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "11,7"
 	},
