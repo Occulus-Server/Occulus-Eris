@@ -40,6 +40,7 @@
 			for(var/stat in oddity_stats)
 				oddity_stats[stat] = rand(1, oddity_stats[stat])
 		AddComponent(/datum/component/inspiration, oddity_stats, perk)
+
 /* Occulus Edit - This exists in the inspiration component examine code
 /obj/item/weapon/oddity/examine(user)
 	..()
@@ -514,8 +515,8 @@ End Occulus Edit */
 /obj/item/weapon/oddity/hivemind/hive_core/Initialize()
 	. = ..()
 	AddComponent(/datum/component/atom_sanity, sanity_value, "")
-	if(!perk && prob(prob_perk))
-		perk = get_oddity_perk()
+	(!perk && prob(prob_perk))
+// 		perk = get_oddity_perk()  - we don't have this proc on occulus lol
 
 	if(oddity_stats)
 		if(random_stats)
