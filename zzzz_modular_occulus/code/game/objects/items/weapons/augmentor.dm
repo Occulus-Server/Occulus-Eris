@@ -63,5 +63,5 @@ obj/item/weapon/augmentor/debug
 
 /obj/item/weapon/augmentor/tornado
 	name = "Augmentor (Tornado)"
-	desc = "A self augmentation device, this one holding an Integrated .25 Caseless BR. Ammo not included, designed to fit into arms."
+	desc = "A self augmentation device, this one holding an Integrated .25 Caseless PDW. Ammo not included, designed to fit into arms."
 	augmentpath = /obj/item/organ_module/active/simple/armsmg/tornado

@@ -10,10 +10,10 @@
 
 /datum/uplink_item/item/implants/typhoon
 	name = "Internal .40 AR Typhoon"
-	item_cost = 14
+	item_cost = 15
 	path = /obj/item/weapon/augmentor/typhoon
 
 /datum/uplink_item/item/implants/tornado
 	name = "Internal .25 BR Tornado"
-	item_cost = 14
+	item_cost = 13
 	path = /obj/item/weapon/augmentor/tornado
