@@ -6,61 +6,62 @@
  */
 #define CREATE_PROSTHESIS_VARIETIES_FULL(typename, string)\
 /obj/item/organ/external/robotic/typename/head {\
-	name = string + " Head";\
 	default_description = /datum/organ_description/head;\
 }\
 /obj/item/organ/external/robotic/typename/chest {\
-	name = string + " Chest";\
 	default_description = /datum/organ_description/chest;\
 }\
 /obj/item/organ/external/robotic/typename/l_arm {\
-	name = string + " Left Arm";\
 	default_description = /datum/organ_description/arm/left;\
 }\
 /obj/item/organ/external/robotic/typename/l_hand {\
-	name = string + " Left Hand";\
 	default_description = /datum/organ_description/hand/left;\
 }\
 /obj/item/organ/external/robotic/typename/r_arm {\
-	name = string + " Right Arm";\
 	default_description = /datum/organ_description/arm/right;\
 }\
 /obj/item/organ/external/robotic/typename/r_hand {\
-	name = string + " Right Hand";\
 	default_description = /datum/organ_description/hand/right;\
 }\
 /obj/item/organ/external/robotic/typename/groin {\
-	name = string + " Groin";\
 	default_description = /datum/organ_description/groin;\
 }\
 /obj/item/organ/external/robotic/typename/l_leg {\
-	name = string + " Left Leg";\
 	default_description = /datum/organ_description/leg/left;\
 }\
 /obj/item/organ/external/robotic/typename/l_foot {\
-	name = string + " Left Foot";\
 	default_description = /datum/organ_description/foot/left;\
 }\
 /obj/item/organ/external/robotic/typename/r_leg {\
-	name = string + " Right Leg";\
 	default_description = /datum/organ_description/leg/right;\
 }\
 /obj/item/organ/external/robotic/typename/r_foot {\
-	name = string + " Right Foot";\
 	default_description = /datum/organ_description/foot/right;\
 }
 // end CREATE_PROSTHESIS_VARIETIES_FULL
 
 // Copypasta of Irra's macro for hands and feet only.
 #define CREATE_PROSTHESIS_HANDSFEET(typename, string)\
+/obj/item/organ/external/robotic/typename/l_arm {\
+	default_description = /datum/organ_description/arm/left;\
+}\
 /obj/item/organ/external/robotic/typename/l_hand {\
 	default_description = /datum/organ_description/hand/left;\
+}\
+/obj/item/organ/external/robotic/typename/r_arm {\
+	default_description = /datum/organ_description/arm/right;\
 }\
 /obj/item/organ/external/robotic/typename/r_hand {\
 	default_description = /datum/organ_description/hand/right;\
 }\
+/obj/item/organ/external/robotic/typename/l_leg {\
+	default_description = /datum/organ_description/leg/left;\
+}\
 /obj/item/organ/external/robotic/typename/l_foot {\
 	default_description = /datum/organ_description/foot/left;\
+}\
+/obj/item/organ/external/robotic/typename/r_leg {\
+	default_description = /datum/organ_description/leg/right;\
 }\
 /obj/item/organ/external/robotic/typename/r_foot {\
 	default_description = /datum/organ_description/foot/right;\
