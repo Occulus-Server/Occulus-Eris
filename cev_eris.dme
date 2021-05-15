@@ -2981,6 +2981,8 @@
 #include "zzzz_modular_occulus\code\modules\reagents\reagent_containers\glass\bottle.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\reagents\medicine.dm"
 #include "zzzz_modular_occulus\code\modules\reagents\reagents\other.dm"
+#include "zzzz_modular_occulus\code\modules\research\designs.dm"
+#include "zzzz_modular_occulus\code\modules\research\nodes\biotech.dm"
 #include "zzzz_modular_occulus\code\modules\research\nodes\engineering.dm"
 #include "zzzz_modular_occulus\code\modules\sanity\sanity_mob.dm"
 #include "zzzz_modular_occulus\code\modules\scrap\oldificator.dm"
