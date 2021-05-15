@@ -46,10 +46,10 @@ obj/item/weapon/augmentor/debug
 	desc = "This is a debugging tool"
 	augmentpath = /obj/item/organ_module/debugger
 
-/obj/item/weapon/augmentor/armblade
-	name = "Augmentor (Armblade)"
-	desc = "A self augmentation device, this one holding an extendable armblade. It's your fault if you install it into your head and become a unicorn"
-	augmentpath = /obj/item/organ_module/active/simple/armblade
+/obj/item/weapon/augmentor/e_armblade
+	name = "Augmentor (Energy Armblade)"
+	desc = "A self augmentation device, this one holding an energetic armblade. It's your fault if you install it into your head and become a unicorn"
+	augmentpath = /obj/item/organ_module/active/simple/armblade/energy_blade
 
 /obj/item/weapon/augmentor/hurricane
 	name = "Augmentor (Hurricane)"
