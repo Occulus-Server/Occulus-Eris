@@ -9,7 +9,20 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/weapon/augmentor/New()
-	augment = new augmentpath
+	..()
+	if(ispath(augmentpath))
+		augment = new augmentpath
+		update_icon()
+
+/obj/item/weapon/augmentor/attack_self(mob/user)
+	if(!augment)
+		return ..()
+	user.put_in_hands(augment)
+	to_chat(user, SPAN_NOTICE("You remove \the [augment] from \the [src]."))
+	name = "augmentor"
+	augment = null
+	update_icon()
+	return
 
 /obj/item/weapon/augmentor/attack(mob/living/M, mob/living/user)
 	if(!istype(M) || !augment)
@@ -41,6 +54,14 @@
 		icon_state = "augmentor_used"
 	return
 
+/obj/item/organ_module/attackby(obj/item/weapon/I, mob/user)
+	..()
+	if (istype(I, /obj/item/weapon/augmentor))
+		var/obj/item/weapon/augmentor/M = I
+		if(!M.augment && user.unEquip(src, M))
+			M.augment = src
+			M.update_icon()
+
 obj/item/weapon/augmentor/debug
 	name = "Debugmentor"
 	desc = "This is a debugging tool"
@@ -65,3 +86,17 @@ obj/item/weapon/augmentor/debug
 	name = "Augmentor (Tornado)"
 	desc = "A self augmentation device, this one holding an Integrated .25 Caseless PDW. Ammo not included, designed to fit into arms."
 	augmentpath = /obj/item/organ_module/active/simple/armsmg/tornado
+
+/obj/item/weapon/augmentor/nt
+	name = "Augmentor"
+	desc = "A self augmentation device, made new and improved by Nanotrasen to be reusable"
+	icon_state = "nt_augmentor_empty"
+	origin_tech = list(TECH_BIO = 2)
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1)
+
+/obj/item/weapon/augmentor/nt/on_update_icon()
+	if(augment)
+		icon_state = "nt_augmentor"
+	else
+		icon_state = "nt_augmentor_empty"
+	return
