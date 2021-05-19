@@ -6,7 +6,8 @@
 /turf/simulated/mineral,
 /area/outpost/abandoned_fortress)
 "ac" = (
-/turf/simulated/wall/r_wall,
+/obj/spawner/traps,
+/turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ad" = (
 /obj/structure/low_wall/onestar,
@@ -536,6 +537,18 @@
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/outpost/abandoned_fortress)
+"cy" = (
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/obj/structure/railing/grey{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/plating/under,
+/area/outpost/abandoned_fortress)
 "cA" = (
 /obj/structure/railing/grey{
 	dir = 4
@@ -547,6 +560,16 @@
 	dir = 8;
 	pixel_x = -4
 	},
+/turf/simulated/floor/plating/under,
+/area/outpost/abandoned_fortress)
+"cB" = (
+/obj/structure/railing/grey{
+	dir = 8
+	},
+/obj/structure/railing/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
 "cC" = (
@@ -627,6 +650,9 @@
 /obj/structure/railing/grey{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
 "dX" = (
@@ -692,6 +718,18 @@
 /area/outpost/abandoned_fortress)
 "eW" = (
 /turf/simulated/floor/tiled/dark/golden,
+/area/outpost/abandoned_fortress)
+"eX" = (
+/obj/structure/sign/derelict1{
+	desc = "A sign in a language you don't understand. It appears to be a list of some kind, followed by a dense block of a paragraph.";
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/derelict,
+/area/outpost/abandoned_fortress)
+"eY" = (
+/obj/structure/window/reinforced,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/snow,
 /area/outpost/abandoned_fortress)
 "fc" = (
 /obj/structure/bed/chair/custom/onestar/red{
@@ -904,6 +942,10 @@
 	},
 /turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/outpost/abandoned_fortress)
+"iP" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/exoplanet/snow,
+/area/outpost/abandoned_fortress)
 "iV" = (
 /obj/structure/closet/onestar/tier3/mineral,
 /obj/structure/catwalk,
@@ -988,6 +1030,8 @@
 /area/outpost/abandoned_fortress)
 "ka" = (
 /obj/structure/closet/l3closet/general,
+/obj/spawner/lowkeyrandom,
+/obj/spawner/lowkeyrandom,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/outpost/abandoned_fortress)
 "kc" = (
@@ -1112,9 +1156,6 @@
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/outpost/abandoned_fortress)
 "lD" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
@@ -1161,6 +1202,10 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/outpost/abandoned_fortress)
+"mw" = (
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/tiled/derelict,
+/area/outpost/abandoned_fortress)
 "mx" = (
 /obj/structure/railing/grey{
 	dir = 8
@@ -1168,6 +1213,9 @@
 /obj/machinery/turretid/lethal{
 	pixel_y = 26
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
 "mA" = (
@@ -1346,7 +1394,9 @@
 "pS" = (
 /mob/living/simple_animal/hostile/megafauna/one_star{
 	health = 2500;
-	maxHealth = 2500
+	maxHealth = 2500;
+	melee_damage_lower = 20;
+	melee_damage_upper = 30
 	},
 /turf/simulated/floor/greengrid,
 /area/outpost/abandoned_fortress)
@@ -1494,6 +1544,15 @@
 	},
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/outpost/abandoned_fortress)
+"sz" = (
+/obj/spawner/material/building,
+/obj/spawner/material/building,
+/obj/spawner/material/building,
+/obj/spawner/material/building,
+/obj/spawner/material/building,
+/obj/structure/table/rack/shelf,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/outpost/abandoned_fortress)
 "sC" = (
 /obj/spawner/gun/normal/low_chance,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
@@ -1533,6 +1592,10 @@
 /area/outpost/abandoned_fortress)
 "tb" = (
 /obj/structure/closet/onestar/tier3/special/empty,
+/obj/spawner/tool/advanced/onestar,
+/obj/spawner/tool/advanced/onestar/low_chance,
+/obj/spawner/tool/advanced/onestar/low_chance,
+/obj/spawner/tool/advanced/onestar/low_chance,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/outpost/abandoned_fortress)
 "th" = (
@@ -1656,6 +1719,10 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass,
+/area/outpost/abandoned_fortress)
+"uY" = (
+/obj/structure/salvageable/os/machine,
+/turf/simulated/floor/tiled/dark/danger,
 /area/outpost/abandoned_fortress)
 "vf" = (
 /obj/spawner/junk/low_chance,
@@ -1849,6 +1916,7 @@
 /area/outpost/abandoned_fortress)
 "yD" = (
 /obj/structure/mopbucket,
+/obj/item/weapon/mop,
 /turf/simulated/floor/tiled/derelict,
 /area/outpost/abandoned_fortress)
 "yE" = (
@@ -2087,6 +2155,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
 /turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
+"DN" = (
+/obj/structure/sign/derelict2{
+	desc = "Looks like a small planetoid, maybe an asteroid, with a station hovering above it and...digging inside of it? There's thick lettering you can't understand..";
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/derelict,
+/area/outpost/abandoned_fortress)
 "DP" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27
@@ -2096,6 +2171,11 @@
 "Ea" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass,
+/area/outpost/abandoned_fortress)
+"Eb" = (
+/obj/structure/table/rack/shelf,
+/obj/spawner/tool/advanced/onestar,
+/turf/simulated/floor/tiled/dark/brown_perforated,
 /area/outpost/abandoned_fortress)
 "Ec" = (
 /obj/machinery/light/floor{
@@ -2350,9 +2430,26 @@
 /obj/machinery/light/floor,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/outpost/abandoned_fortress)
+"Hz" = (
+/obj/structure/closet/onestar/tier3/special/empty,
+/obj/spawner/lowkeyrandom,
+/obj/spawner/lowkeyrandom,
+/obj/spawner/lowkeyrandom,
+/obj/spawner/lowkeyrandom,
+/obj/spawner/lowkeyrandom,
+/obj/spawner/tool/advanced/onestar,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/outpost/abandoned_fortress)
 "HH" = (
 /mob/living/simple_animal/hostile/onestar_custodian,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
+/area/outpost/abandoned_fortress)
+"HW" = (
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
 "Id" = (
 /obj/structure/table/woodentable,
@@ -2582,9 +2679,18 @@
 "Lq" = (
 /turf/simulated/wall/untinted/onestar_reinforced,
 /area/outpost/abandoned_fortress)
+"Lr" = (
+/obj/structure/window/reinforced,
+/turf/simulated/floor/exoplanet/snow,
+/area/outpost/abandoned_fortress)
 "Lx" = (
 /obj/structure/salvageable/os/server,
 /turf/simulated/floor/tiled/derelict,
+/area/outpost/abandoned_fortress)
+"Ly" = (
+/obj/structure/table/rack/shelf,
+/obj/spawner/pack/tech_loot/onestar,
+/turf/simulated/floor/tiled/dark/brown_perforated,
 /area/outpost/abandoned_fortress)
 "LB" = (
 /obj/structure/closet/onestar/tier2/medical,
@@ -2597,6 +2703,9 @@
 /obj/structure/sign/faction/one_star_old{
 	desc = "One Star's all-seeing eye. A flash of color in dark monochrome and twilight.";
 	pixel_x = -32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
 	},
 /turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
@@ -2901,6 +3010,9 @@
 	desc = "One Star's all-seeing eye. A flash of color in dark monochrome and twilight.";
 	pixel_x = -32
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
 "Qr" = (
@@ -3003,10 +3115,8 @@
 /turf/simulated/floor/grass,
 /area/outpost/abandoned_fortress)
 "RX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/turf/simulated/mineral,
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/snow,
 /area/outpost/abandoned_fortress)
 "Sb" = (
 /mob/living/simple_animal/hostile/roomba/gun_ba,
@@ -3063,6 +3173,8 @@
 "SI" = (
 /obj/structure/closet/l3closet/general,
 /obj/item/clothing/glasses/hud/health,
+/obj/spawner/lowkeyrandom,
+/obj/spawner/lowkeyrandom,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/outpost/abandoned_fortress)
 "SL" = (
@@ -3109,6 +3221,9 @@
 /obj/structure/railing/grey{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
 "To" = (
@@ -3201,6 +3316,10 @@
 /obj/spawner/techpart/low_chance,
 /obj/spawner/rig/low_chance,
 /turf/simulated/floor/tiled/dark/gray_platform,
+/area/outpost/abandoned_fortress)
+"UV" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow,
 /area/outpost/abandoned_fortress)
 "UW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
@@ -3295,6 +3414,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/mineral,
 /area/outpost/abandoned_fortress)
+"Wc" = (
+/obj/structure/salvageable/os/console,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/outpost/abandoned_fortress)
 "Wi" = (
 /mob/living/simple_animal/hostile/onestar_custodian,
 /obj/machinery/light/floor{
@@ -3365,6 +3488,9 @@
 "XD" = (
 /obj/structure/railing/grey,
 /obj/structure/railing/grey{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 4
 	},
 /turf/simulated/floor/plating/under,
@@ -3467,6 +3593,14 @@
 /obj/spawner/techpart/low_chance,
 /obj/spawner/rig_module/rare,
 /turf/simulated/floor/tiled/dark/brown_perforated,
+/area/outpost/abandoned_fortress)
+"Zb" = (
+/mob/living/simple_animal/hostile/tree{
+	desc = "A tree-like alien. Upon closer inspection, its thin pine-needles appear to be sharp, jagged teeth. Uh-oh.";
+	melee_damage_lower = 25;
+	melee_damage_upper = 30
+	},
+/turf/simulated/floor/exoplanet/snow,
 /area/outpost/abandoned_fortress)
 "Zp" = (
 /obj/structure/bed/chair/custom/onestar/red{
@@ -11858,9 +11992,9 @@ aa
 ab
 ab
 ab
-ab
-ab
-ab
+Lq
+Lq
+Lq
 hM
 hM
 hM
@@ -12060,7 +12194,7 @@ ab
 ab
 ab
 ab
-ab
+Lq
 hM
 hM
 hM
@@ -12257,13 +12391,13 @@ aa
 aa
 Lq
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-hM
+Lq
+Lq
+Lq
+Lq
+Lq
+Lq
+eX
 hM
 Sv
 hM
@@ -12460,6 +12594,11 @@ aa
 Lq
 Lq
 Lq
+RX
+UV
+LT
+iP
+Lr
 hM
 hM
 hM
@@ -12468,12 +12607,7 @@ hM
 hM
 hM
 hM
-hM
-hM
-hM
-hM
-hM
-hM
+mw
 hM
 hM
 hM
@@ -12660,22 +12794,22 @@ aa
 aa
 aa
 bw
-ae
-af
-hM
-hM
-hM
-hM
-hM
-hM
+Cc
+wC
+Cc
+LT
+LT
+Zb
+eY
+oe
 hM
 Sv
 hM
 hM
 hM
-tS
 hM
 hM
+mw
 hM
 Sv
 hM
@@ -12718,7 +12852,7 @@ hM
 hM
 hM
 hM
-hM
+KV
 lm
 KV
 wC
@@ -12864,11 +12998,11 @@ aa
 Lq
 Lq
 Lq
-hM
-hM
-hM
-hM
-hM
+zj
+LT
+LT
+RX
+Lr
 hM
 hM
 hM
@@ -12877,7 +13011,7 @@ Sv
 hM
 hM
 hM
-hM
+KV
 hM
 hM
 hM
@@ -13065,13 +13199,13 @@ aa
 aa
 Lq
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-hM
+Lq
+Lq
+Lq
+Lq
+Lq
+Lq
+DN
 hM
 hM
 hM
@@ -13272,7 +13406,7 @@ ab
 ab
 ab
 ab
-ab
+Lq
 hM
 hM
 hM
@@ -14320,7 +14454,7 @@ EU
 CC
 EU
 CC
-bJ
+Hz
 MT
 ab
 ae
@@ -15726,10 +15860,10 @@ Lq
 ab
 ab
 MT
-yv
+uY
 yv
 bJ
-FR
+bJ
 bJ
 pX
 bJ
@@ -16159,7 +16293,7 @@ ab
 hO
 hO
 jg
-Wa
+Vi
 ab
 ab
 ab
@@ -17953,7 +18087,7 @@ Gr
 km
 Gr
 km
-Gr
+Ly
 km
 Gr
 pE
@@ -18155,7 +18289,7 @@ Gr
 km
 Gr
 km
-Gr
+Eb
 km
 Gr
 pE
@@ -18357,9 +18491,9 @@ Gr
 km
 Gr
 km
-Gr
+Wc
 km
-Gr
+sz
 pE
 MT
 ab
@@ -18986,7 +19120,7 @@ ae
 ab
 nw
 hO
-NI
+Wn
 ab
 ab
 ab
@@ -19188,7 +19322,7 @@ ae
 ab
 hO
 hO
-RX
+ab
 ab
 ab
 ab
@@ -20180,7 +20314,7 @@ hS
 aw
 MT
 hS
-hS
+fT
 aw
 MT
 ab
@@ -23998,15 +24132,15 @@ ab
 ab
 ab
 Lq
-br
+HW
 XD
 hM
 hM
 hM
 hM
 hM
-ke
-br
+cy
+HW
 Lq
 ab
 ab
@@ -24651,11 +24785,11 @@ Lq
 Lq
 Lq
 Lq
-ac
+Lq
 cb
-ac
+Lq
 cb
-ac
+Lq
 ae
 ck
 ck
@@ -25211,7 +25345,7 @@ ab
 ab
 Lq
 mx
-wo
+cB
 hM
 hM
 hM
@@ -31678,7 +31812,7 @@ ab
 ab
 Lq
 ae
-ae
+ac
 ab
 Lq
 Lq
