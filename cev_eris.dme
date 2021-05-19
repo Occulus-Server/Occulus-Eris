@@ -2839,6 +2839,7 @@
 #include "zzzz_modular_occulus\code\game\machinery\jukebox.dm"
 #include "zzzz_modular_occulus\code\game\machinery\nanite_reconstitution_apparatus.dm"
 #include "zzzz_modular_occulus\code\game\machinery\smartfridge.dm"
+#include "zzzz_modular_occulus\code\game\machinery\tweaks.dm"
 #include "zzzz_modular_occulus\code\game\machinery\telecomms\presets.dm"
 #include "zzzz_modular_occulus\code\game\objects\objs.dm"
 #include "zzzz_modular_occulus\code\game\objects\effects\decals\cleanable\humans.dm"

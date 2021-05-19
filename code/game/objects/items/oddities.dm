@@ -515,7 +515,7 @@ End Occulus Edit */
 /obj/item/weapon/oddity/hivemind/hive_core/Initialize()
 	. = ..()
 	AddComponent(/datum/component/atom_sanity, sanity_value, "")
-	(!perk && prob(prob_perk))
+//	(!perk && prob(prob_perk))
 // 		perk = get_oddity_perk()  - we don't have this proc on occulus lol
 
 	if(oddity_stats)
