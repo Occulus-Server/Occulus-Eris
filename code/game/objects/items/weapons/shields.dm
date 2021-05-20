@@ -31,7 +31,7 @@
 
 /obj/item/weapon/shield
 	name = "shield"
-	var/base_block_chance = 50
+	var/base_block_chance = 30	// OCCULUS EDIT: Less block chance
 
 /obj/item/weapon/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())
@@ -76,7 +76,8 @@
 		var/obj/item/projectile/P = damage_source
 		//plastic shields do not stop bullets or lasers, even in space. Will block beanbags, rubber bullets, and stunshots just fine though.
 		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
-			return 0
+			return base_block_chance //occulus edit- This shield is not plastic, it's metal. TRAYSHIELDS SHOULD NOT BLOCK BETTER THEN ACTUAL RIOT SHIELDS.
+		//	return 0
 	return base_block_chance
 
 /obj/item/weapon/shield/riot/attackby(obj/item/weapon/W as obj, mob/user as mob)

@@ -46,3 +46,12 @@
 	rarity_value = 223
 	price_tag = 600
 	structure_form_type = /obj/structure/bed/psych
+
+/obj/item/fabkit/dryrack
+	name = "EES Drying Rack FabKit"
+	icon_state = "fabkit_dryrack"
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_WOOD = 10)
+	w_class = ITEM_SIZE_NORMAL
+	rarity_value = 223
+	price_tag = 750
+	structure_form_type = /obj/machinery/smartfridge/drying_rack

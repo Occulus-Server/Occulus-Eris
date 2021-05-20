@@ -11,7 +11,7 @@
 			/obj/item/weapon/gun/projectile/automatic/wintermute,
 			/obj/item/weapon/gun/projectile/automatic/z8,
 			/obj/item/weapon/gun/projectile/avasarala,
-			/obj/item/weapon/gun/projectile/clarissa,
+			/obj/item/weapon/gun/projectile/selfload,
 			/obj/item/weapon/gun/projectile/colt,
 			/obj/item/weapon/gun/projectile/giskard,
 			/obj/item/weapon/gun/projectile/lamia,

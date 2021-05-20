@@ -23,6 +23,11 @@
 /obj/item/weapon/reagent_containers/glass/beaker/on_update_icon()
 	cut_overlays()
 
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
+		filling.color = reagents.get_color()
+		add_overlay(filling)
+
 	if(has_lid())
 		var/lid_icon = lid_icon_state ? lid_icon_state : "lid_[icon_state]"
 		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
@@ -32,16 +37,6 @@
 		var/label_icon = label_icon_state ? label_icon_state : "label_[icon_state]"
 		var/mutable_appearance/label = mutable_appearance(icon, label_icon)
 		add_overlay(label)
-
-	if(reagents?.total_volume)
-		if(label_text)
-			var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]_labeled-[get_filling_state()]")
-			filling.color = reagents.get_color()
-			add_overlay(filling)
-		else
-			var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
-			filling.color = reagents.get_color()
-			add_overlay(filling)
 
 
 //// Subtypes ////
@@ -157,3 +152,6 @@
 		var/image/lid = image(icon, src, "lid_[initial(icon_state)]")
 		add_overlays(lid)
 
+/obj/item/weapon/reagent_containers/glass/beaker/hivemind
+	preloaded_reagents = list("nanites" = 30, "uncap nanites" = 30)
+	spawn_blacklisted = TRUE
