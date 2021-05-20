@@ -57,6 +57,7 @@
 		STAT_TGH = 10,
 		STAT_VIG = 5,
 	)
+	department_account_access = TRUE
 	outfit_type = /decl/hierarchy/outfit/job/service/waiter
 	description = "As a Club Worker, you work for the Club Manager. Your job is to fulfill your duties in running the Club and making sure all the customers are satisfied.<br>\
 	<br>\
