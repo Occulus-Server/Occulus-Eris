@@ -49,3 +49,5 @@
 	name = "purple curtain"
 	result = /obj/structure/curtain/purple
 	// variation_type = CRAFT_VARIATION
+
+	// THIS IS AN EXAMPLE
