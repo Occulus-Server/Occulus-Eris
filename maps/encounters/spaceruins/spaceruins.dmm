@@ -104,10 +104,8 @@
 /turf/simulated/wall/untinted/onestar,
 /area/asteroid/rogue)
 "eI" = (
-/obj/rogue_mobspawner,
-/obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
-/turf/simulated/floor/asteroid,
+/mob/living/simple_animal/hostile/roomba/slayer,
+/turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "fc" = (
 /obj/effect/floor_decal/asteroid,
@@ -121,8 +119,8 @@
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
 "fL" = (
-/obj/spawner/mob/biome_spawner_mob,
-/turf/simulated/floor/tiled/derelict/white_big_edges,
+/mob/living/simple_animal/hostile/roomba/boomba,
+/turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "fN" = (
 /obj/structure/inflatable/door,
@@ -130,7 +128,7 @@
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "fT" = (
-/obj/spawner/mob/biome_spawner_mob/low_chance,
+/mob/living/simple_animal/hostile/onestar_custodian,
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
 "fU" = (
@@ -268,6 +266,12 @@
 	},
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
+"kf" = (
+/obj/machinery/floodlight{
+	light_range = 8
+	},
+/turf/simulated/floor/plating/under,
+/area/asteroid/rogue)
 "km" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Fortress Airlock"
@@ -309,6 +313,13 @@
 /obj/structure/table/onestar,
 /obj/spawner/gun/energy_cheap/low_chance,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
+"le" = (
+/obj/structure/sign/signnew/secure{
+	name = "Warning: Space";
+	pixel_y = -31
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "lj" = (
 /obj/structure/table/onestar,
@@ -585,8 +596,8 @@
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
 "vn" = (
-/obj/spawner/mob/biome_spawner_mob,
-/turf/simulated/floor/plating/under,
+/mob/living/simple_animal/hostile/onestar_custodian/engineer,
+/turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "vo" = (
 /obj/machinery/door/airlock/centcom{
@@ -626,7 +637,6 @@
 	dir = 4;
 	pixel_y = 8
 	},
-/obj/spawner/mob/biome_spawner_mob/low_chance,
 /turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "wP" = (
@@ -946,6 +956,10 @@
 	},
 /turf/simulated/floor/tiled/derelict,
 /area/asteroid/rogue)
+"HE" = (
+/mob/living/simple_animal/hostile/onestar_custodian,
+/turf/simulated/floor/plating/under,
+/area/asteroid/rogue)
 "HK" = (
 /obj/structure/table/onestar,
 /obj/spawner/tool_upgrade/low_chance,
@@ -969,7 +983,7 @@
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "IU" = (
-/obj/spawner/mob/biome_spawner_mob/low_chance,
+/mob/living/simple_animal/hostile/roomba/gun_ba,
 /turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "IW" = (
@@ -1053,7 +1067,7 @@
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "KA" = (
-/obj/spawner/mob/biome_spawner_mob/low_chance,
+/mob/living/simple_animal/hostile/onestar_custodian/engineer,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "KK" = (
@@ -1165,10 +1179,11 @@
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "PS" = (
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/light/small{
+	dir = 8
 	},
-/turf/space,
+/mob/living/simple_animal/hostile/onestar_custodian/chef,
+/turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "Qb" = (
 /obj/structure/lattice,
@@ -1248,11 +1263,11 @@
 /turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "Tj" = (
-/obj/spawner/mob/biome_spawner_mob,
+/mob/living/simple_animal/hostile/onestar_custodian,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "Tw" = (
-/obj/spawner/mob/biome_spawner_mob/low_chance,
+/mob/living/simple_animal/hostile/onestar_custodian/engineer,
 /turf/simulated/floor/plating/under,
 /area/asteroid/rogue)
 "Tz" = (
@@ -1262,7 +1277,7 @@
 "TA" = (
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	id = 1111;
+	id = "HangarShutterSpaceRuin";
 	name = "Hangar Blast Door"
 	},
 /turf/simulated/floor/plating/under,
@@ -1296,6 +1311,16 @@
 /obj/machinery/holosign/surgery,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
+"Uj" = (
+/obj/machinery/light/floor,
+/obj/machinery/button/remote{
+	desc = "The button that controls the hangar doors in the area. Do not press unless you can breathe vacuum, or you have oxygen..";
+	id = "HangarShutterSpaceRuin";
+	name = "Hangar Doors";
+	pixel_x = 27
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
 "Um" = (
 /obj/structure/table/onestar,
 /obj/machinery/light/small,
@@ -1315,17 +1340,16 @@
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "UV" = (
-/obj/rogue_mobspawner,
-/turf/simulated/floor/tiled/derelict/white_big_edges,
+/mob/living/simple_animal/hostile/onestar_custodian,
+/turf/simulated/floor/tiled/derelict,
 /area/asteroid/rogue)
 "UX" = (
 /obj/spawner/mob/spiders,
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
 "Vc" = (
-/obj/rogue_mobspawner,
-/obj/item/remains,
-/turf/simulated/floor/tiled/derelict/white_big_edges,
+/mob/living/simple_animal/hostile/onestar_custodian/engineer,
+/turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
 "Ve" = (
 /obj/structure/table/onestar,
@@ -1389,17 +1413,19 @@
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "Xc" = (
-/obj/machinery/button/alternate{
-	desc = "The button that controls the blast doors in this area. Don't press unless you can breathe vacuum, or you have oxygen.";
-	id = 1111;
-	name = "Hangar Blast Door Control";
+/obj/machinery/button/remote{
+	desc = "The button that controls the hangar doors in the area. Do not press unless you can breathe vacuum, or you have oxygen..";
+	id = "HangarShutterSpaceRuin";
+	name = "Hangar Doors";
 	pixel_y = 27
 	},
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
-"Xl" = (
-/obj/spawner/mob/biome_spawner_mob,
-/turf/simulated/floor/asteroid,
+"Xw" = (
+/obj/structure/sign/atmos_air{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "XL" = (
 /obj/structure/salvageable/os/implant_container,
@@ -1432,10 +1458,6 @@
 /mob/living/simple_animal/hostile/roomba/gun_ba,
 /mob/living/simple_animal/hostile/roomba/gun_ba,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/asteroid/rogue)
-"YB" = (
-/obj/spawner/mob/biome_spawner_mob,
-/turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "YF" = (
 /obj/structure/closet/onestar/tier3,
@@ -6629,7 +6651,7 @@ yr
 yr
 yr
 yr
-yr
+BW
 yr
 yr
 yr
@@ -6819,6 +6841,7 @@ yr
 yr
 yr
 yr
+BW
 yr
 yr
 yr
@@ -6830,8 +6853,7 @@ yr
 yr
 yr
 yr
-yr
-yr
+FB
 yr
 yr
 yr
@@ -6960,9 +6982,9 @@ lC
 yr
 dn
 FY
+fL
 FY
-YB
-YB
+FY
 jh
 fl
 yr
@@ -7009,6 +7031,19 @@ yr
 yr
 yr
 yr
+BW
+yr
+yr
+yr
+yr
+yr
+yr
+yr
+zp
+yr
+yr
+FB
+FB
 yr
 yr
 yr
@@ -7017,22 +7052,9 @@ yr
 yr
 yr
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+zp
+zp
+zp
 yr
 yr
 yr
@@ -7163,7 +7185,7 @@ yr
 dn
 FY
 FY
-IU
+vn
 FY
 kV
 fl
@@ -7205,42 +7227,42 @@ yr
 yr
 yr
 yr
+FB
+Zs
+FB
+FB
+FB
+yr
+Zs
+Zs
+yr
+Zs
+Zs
+yr
+yr
+zp
+yr
+Zs
+Zs
+Zs
+yr
+Zs
+yr
+Zs
+FB
 yr
 yr
 yr
 yr
 yr
 yr
+FB
 yr
+zp
 yr
+zp
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+BW
 yr
 yr
 yr
@@ -7405,43 +7427,43 @@ yr
 yr
 yr
 yr
+BW
+FB
+FB
+Zs
+yr
+Zs
+Zs
+FB
+FB
+FB
+FB
+FB
+yr
+zp
+zp
+yr
+FB
+zp
+zp
+FB
+FB
+FB
+FB
+yr
+yr
+zp
+FB
+FB
+FB
+FB
+FB
+FB
 yr
 yr
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+FB
+zp
 yr
 yr
 yr
@@ -7608,44 +7630,44 @@ yr
 yr
 yr
 yr
+FB
+yr
+Zs
+Zs
+zp
+zp
+yr
+zp
+yr
+zp
+yr
+FB
+FB
+FB
+FB
+FB
 yr
 yr
 yr
+zp
 yr
 yr
+zp
+zp
+zp
+yr
+zp
+zp
+zp
+yr
+FB
+FB
+FB
 yr
 yr
+FB
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+FB
 yr
 yr
 yr
@@ -7809,6 +7831,14 @@ yr
 yr
 yr
 yr
+FB
+yr
+Zs
+FB
+yr
+yr
+FB
+FB
 yr
 yr
 yr
@@ -7818,6 +7848,18 @@ yr
 yr
 yr
 yr
+FB
+yr
+yr
+yr
+yr
+yr
+zp
+yr
+yr
+yr
+yr
+zp
 yr
 yr
 yr
@@ -7825,27 +7867,7 @@ yr
 yr
 yr
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+zp
 yr
 yr
 yr
@@ -8011,6 +8033,24 @@ yr
 yr
 yr
 yr
+FB
+yr
+yr
+yr
+FB
+FB
+FB
+yr
+yr
+yr
+yr
+yr
+yr
+yr
+yr
+yr
+FB
+FB
 yr
 yr
 yr
@@ -8021,25 +8061,7 @@ yr
 yr
 yr
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+zp
 yr
 yr
 yr
@@ -8212,6 +8234,11 @@ yr
 yr
 yr
 yr
+Zs
+Zs
+yr
+yr
+Zs
 yr
 yr
 yr
@@ -8223,13 +8250,8 @@ yr
 yr
 yr
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+BW
+FB
 yr
 yr
 yr
@@ -8414,7 +8436,7 @@ yr
 yr
 yr
 yr
-yr
+FB
 yr
 yr
 yr
@@ -8613,10 +8635,10 @@ yr
 yr
 yr
 yr
+FB
 yr
 yr
-yr
-yr
+FB
 yr
 yr
 yr
@@ -8817,8 +8839,8 @@ yr
 yr
 yr
 yr
-yr
-yr
+FB
+zp
 yr
 yr
 yr
@@ -9017,12 +9039,12 @@ yr
 yr
 yr
 yr
+BW
+FB
+Zs
 yr
 yr
-yr
-yr
-yr
-yr
+FB
 yr
 yr
 yr
@@ -9220,9 +9242,9 @@ FB
 yr
 yr
 yr
+zp
 yr
-yr
-yr
+zp
 yr
 yr
 yr
@@ -9407,7 +9429,7 @@ zp
 ex
 zp
 zp
-fL
+xT
 zp
 zp
 ZR
@@ -9608,8 +9630,8 @@ zp
 zp
 dB
 zp
-vU
-fL
+yQ
+xT
 zp
 zp
 RN
@@ -10397,7 +10419,7 @@ zp
 pj
 zx
 BW
-KA
+Zs
 zx
 xK
 zp
@@ -10410,7 +10432,7 @@ zp
 zp
 ex
 zp
-zp
+ks
 zp
 zp
 zp
@@ -10590,8 +10612,8 @@ yr
 yr
 yr
 fl
-UV
-UV
+qj
+zp
 dB
 zp
 zp
@@ -10612,7 +10634,7 @@ zp
 zp
 ZI
 zp
-fL
+ks
 zp
 zp
 zp
@@ -10621,11 +10643,11 @@ zp
 zx
 zx
 zp
-fL
+ks
 zp
 ex
 zp
-BY
+PS
 zp
 zp
 fl
@@ -10792,8 +10814,8 @@ yr
 yr
 yr
 fl
-UV
-Vc
+zp
+yM
 dB
 zp
 qj
@@ -10801,7 +10823,7 @@ zp
 pj
 zx
 BW
-KA
+Zs
 zx
 xK
 zp
@@ -10814,7 +10836,7 @@ zp
 zp
 ex
 So
-fL
+zp
 zp
 zp
 zp
@@ -10823,12 +10845,12 @@ zp
 zp
 zp
 zp
-fL
+ks
 zp
 dB
 zp
 zp
-fL
+ks
 zp
 fl
 yr
@@ -11016,8 +11038,8 @@ zp
 zp
 ex
 Ym
-fL
-vU
+zp
+xT
 zp
 Ww
 ex
@@ -11025,12 +11047,12 @@ So
 zp
 zp
 zp
-fL
-vU
+ks
+zp
 ex
 zp
 zp
-fL
+zp
 zp
 fl
 yr
@@ -11218,7 +11240,7 @@ zp
 zp
 ex
 zp
-fL
+zp
 zp
 zp
 zp
@@ -11642,7 +11664,7 @@ yr
 yr
 yr
 zp
-FB
+zp
 zp
 yr
 yr
@@ -12035,7 +12057,7 @@ zp
 zp
 zp
 BY
-zp
+ks
 zp
 ex
 nR
@@ -12841,9 +12863,9 @@ yr
 fl
 zp
 zp
-fL
-fL
-fL
+ks
+ks
+zp
 zp
 fl
 fl
@@ -13426,7 +13448,7 @@ yr
 yr
 fl
 zp
-zp
+jW
 zp
 fl
 yr
@@ -14764,7 +14786,7 @@ lC
 Qr
 Pc
 lC
-lC
+Vc
 lC
 Pc
 Pc
@@ -14964,7 +14986,7 @@ fl
 lC
 lC
 Qr
-fT
+lC
 lC
 Pc
 lC
@@ -15241,7 +15263,7 @@ FY
 rC
 FY
 FY
-FY
+eI
 FY
 FY
 Pj
@@ -15368,8 +15390,8 @@ fl
 Pc
 lC
 lC
-Xl
-Xl
+qW
+qW
 lC
 lC
 Pc
@@ -15441,11 +15463,11 @@ zp
 zp
 FY
 FY
+eI
 FY
-YB
-YB
-YB
 FY
+FY
+eI
 FY
 FY
 zp
@@ -15644,9 +15666,9 @@ zp
 FY
 FY
 FY
+FY
 IU
-IU
-IU
+FY
 FY
 FY
 FY
@@ -15845,11 +15867,11 @@ zp
 zp
 FY
 FY
+eI
 FY
-IU
-IU
-IU
 FY
+FY
+eI
 FY
 NA
 zp
@@ -16049,7 +16071,7 @@ FY
 Pj
 FY
 FY
-FY
+eI
 FY
 rd
 Pj
@@ -16971,7 +16993,7 @@ lC
 ag
 lC
 lC
-By
+lC
 lC
 lC
 lC
@@ -17106,7 +17128,7 @@ FB
 Zs
 Zs
 FB
-FB
+zp
 FB
 FB
 Zs
@@ -17343,7 +17365,7 @@ zp
 FB
 FB
 FB
-FB
+zp
 FB
 FB
 FB
@@ -18179,7 +18201,7 @@ lC
 lC
 ex
 lC
-lC
+UX
 ex
 IF
 lC
@@ -18381,12 +18403,12 @@ lC
 lC
 ex
 kc
-eI
+mU
 ex
 lC
 lC
 lC
-By
+lC
 By
 lC
 lC
@@ -18562,7 +18584,7 @@ yr
 yr
 yr
 yr
-BW
+Uj
 yr
 yr
 yr
@@ -18965,7 +18987,7 @@ Zs
 Zs
 Zs
 Zs
-Zs
+le
 fl
 yr
 yr
@@ -19156,7 +19178,7 @@ zx
 zp
 sk
 fl
-Zs
+Xw
 YG
 YG
 YG
@@ -19364,9 +19386,9 @@ Zs
 Fn
 Tw
 YG
-vn
 YG
 YG
+HE
 Zs
 YG
 Zs
@@ -19564,12 +19586,12 @@ HK
 YG
 Zs
 YG
+Tw
 YG
-vn
 OB
 YG
 YG
-Zs
+Tj
 YG
 yv
 fl
@@ -19766,8 +19788,8 @@ HK
 YG
 Zs
 OB
-vn
-Tw
+YG
+kf
 OB
 YG
 YG
@@ -19969,7 +19991,7 @@ YG
 Zs
 OB
 YG
-YG
+Tw
 OB
 Fn
 YG
@@ -21422,7 +21444,7 @@ Pc
 GB
 GB
 lC
-Xl
+lC
 lC
 lC
 lC
@@ -21624,8 +21646,8 @@ Pc
 GB
 GB
 lC
-Xl
 lC
+qW
 lC
 Pc
 GB
@@ -23229,9 +23251,9 @@ lC
 lC
 lC
 lC
-Xl
-Xl
-Xl
+lC
+qW
+lC
 lC
 lC
 lC
@@ -23432,8 +23454,8 @@ lC
 lC
 lC
 lC
+qW
 lC
-fT
 lC
 lC
 Pc
@@ -24605,7 +24627,7 @@ yr
 yr
 yr
 yr
-bZ
+yr
 yr
 yr
 yr
@@ -24839,7 +24861,7 @@ yr
 yr
 yr
 yr
-PS
+yr
 yr
 yr
 yr
@@ -25216,7 +25238,7 @@ yr
 yr
 yr
 yr
-yr
+bZ
 yr
 yr
 yr
@@ -28448,7 +28470,7 @@ Nw
 ex
 Nw
 zp
-fL
+ks
 zp
 Nw
 ex
@@ -28650,7 +28672,7 @@ vu
 dB
 sX
 Zs
-Tj
+hf
 Zs
 sX
 dB
@@ -29810,8 +29832,8 @@ Lg
 aS
 aS
 aS
-vU
 zp
+yQ
 fl
 Pc
 Pc
@@ -29861,7 +29883,7 @@ BY
 zp
 dn
 zp
-fL
+xT
 ex
 dn
 Ug
@@ -30012,7 +30034,7 @@ Lg
 zp
 zp
 aS
-vU
+zp
 zp
 fl
 Pc
@@ -30062,7 +30084,7 @@ sk
 ya
 zp
 dB
-vU
+zp
 zp
 ex
 Kr
@@ -30212,8 +30234,8 @@ Pc
 fl
 wy
 nm
-vU
-vU
+yQ
+yQ
 zp
 zp
 fl
@@ -30264,7 +30286,7 @@ bD
 zp
 zp
 dn
-vU
+xT
 zp
 ex
 nR
@@ -30414,8 +30436,8 @@ Pc
 fl
 wy
 zp
-fL
-fL
+zp
+zp
 zp
 zp
 zp
@@ -30466,7 +30488,7 @@ ex
 ex
 ex
 ex
-vU
+zp
 zp
 ex
 zp
@@ -30867,7 +30889,7 @@ yr
 yr
 dn
 sk
-zp
+yQ
 zp
 dB
 zp
@@ -31069,7 +31091,7 @@ yr
 yr
 dn
 zx
-fL
+zp
 zp
 dn
 zp
@@ -32332,7 +32354,7 @@ st
 zp
 zp
 zp
-UV
+zp
 ex
 zp
 yD
@@ -32444,7 +32466,7 @@ Zs
 Zs
 ag
 Zs
-Zs
+Tj
 ag
 fl
 Cu
@@ -32532,8 +32554,8 @@ ex
 ex
 XL
 zp
+yQ
 zp
-UV
 zp
 dB
 zp
@@ -33049,7 +33071,7 @@ ex
 YG
 ex
 ag
-Tj
+Zs
 Zs
 ag
 fl
@@ -33251,7 +33273,7 @@ ex
 YG
 ex
 ag
-Zs
+Tj
 dQ
 ag
 fl
@@ -33453,8 +33475,8 @@ BJ
 YG
 ex
 ag
-KA
-KA
+Zs
+Zs
 ag
 fl
 ex
@@ -34069,7 +34091,7 @@ ag
 ag
 ag
 ag
-ag
+UV
 ag
 ag
 ag
