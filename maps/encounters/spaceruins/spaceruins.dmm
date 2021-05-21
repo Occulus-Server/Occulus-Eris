@@ -118,6 +118,13 @@
 /obj/structure/closet/onestar/tier1/medical,
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
+"fz" = (
+/obj/structure/sign/signnew/secure{
+	name = "Warning: Space";
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
 "fL" = (
 /mob/living/simple_animal/hostile/roomba/boomba,
 /turf/simulated/floor/tiled/derelict/white_red_edges,
@@ -163,6 +170,12 @@
 /obj/spawner/tool/low_chance,
 /obj/spawner/tool/low_chance,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
+"gO" = (
+/obj/structure/sign/atmos_air{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "hf" = (
 /mob/living/simple_animal/hostile/onestar_custodian/chef,
@@ -266,12 +279,6 @@
 	},
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
-"kf" = (
-/obj/machinery/floodlight{
-	light_range = 8
-	},
-/turf/simulated/floor/plating/under,
-/area/asteroid/rogue)
 "km" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Fortress Airlock"
@@ -313,13 +320,6 @@
 /obj/structure/table/onestar,
 /obj/spawner/gun/energy_cheap/low_chance,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/asteroid/rogue)
-"le" = (
-/obj/structure/sign/signnew/secure{
-	name = "Warning: Space";
-	pixel_y = -31
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "lj" = (
 /obj/structure/table/onestar,
@@ -369,6 +369,11 @@
 	pixel_x = 31
 	},
 /turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
+"mS" = (
+/obj/effect/floor_decal/asteroid,
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "mU" = (
 /obj/structure/bed,
@@ -429,6 +434,13 @@
 "pv" = (
 /obj/structure/table/onestar,
 /obj/spawner/medical,
+/turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
+"pz" = (
+/obj/structure/sign/signnew/secure{
+	name = "Warning: Space";
+	pixel_y = -31
+	},
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "pN" = (
@@ -589,6 +601,23 @@
 /area/asteroid/rogue)
 "vb" = (
 /obj/structure/salvageable/os/data,
+/turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
+"vd" = (
+/obj/structure/sign/signnew/secure{
+	name = "Warning: Space";
+	pixel_y = -31
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
+"ve" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/sign/signnew/secure{
+	name = "Warning: Space";
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "vm" = (
@@ -766,6 +795,12 @@
 /obj/spawner/mob/spiders/low_chance,
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
+"Bz" = (
+/obj/structure/sign/signnew/secure{
+	pixel_y = -31
+	},
+/turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
 "BJ" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -858,6 +893,12 @@
 /obj/effect/floor_decal/asteroid,
 /turf/space,
 /area/asteroid/rogue)
+"Fl" = (
+/obj/structure/sign/signnew/secure{
+	pixel_y = -31
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
 "Fn" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating/under,
@@ -914,6 +955,11 @@
 "FY" = (
 /turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
+"Gy" = (
+/obj/effect/floor_decal/asteroid,
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
 "GB" = (
 /turf/simulated/mineral/random,
 /area/asteroid/rogue)
@@ -956,10 +1002,6 @@
 	},
 /turf/simulated/floor/tiled/derelict,
 /area/asteroid/rogue)
-"HE" = (
-/mob/living/simple_animal/hostile/onestar_custodian,
-/turf/simulated/floor/plating/under,
-/area/asteroid/rogue)
 "HK" = (
 /obj/structure/table/onestar,
 /obj/spawner/tool_upgrade/low_chance,
@@ -996,6 +1038,10 @@
 /obj/effect/floor_decal/asteroid,
 /obj/structure/closet/onestar/tier1/normal/empty,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
+"Jc" = (
+/mob/living/simple_animal/hostile/onestar_custodian,
+/turf/simulated/floor/plating/under,
 /area/asteroid/rogue)
 "Jd" = (
 /obj/structure/table/onestar,
@@ -1195,6 +1241,12 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
+"Qq" = (
+/obj/machinery/floodlight{
+	light_range = 8
+	},
+/turf/simulated/floor/plating/under,
+/area/asteroid/rogue)
 "Qr" = (
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/asteroid,
@@ -1248,6 +1300,16 @@
 "Sy" = (
 /obj/structure/closet/onestar/tier2/normal,
 /turf/simulated/floor/asteroid,
+/area/asteroid/rogue)
+"SC" = (
+/obj/machinery/light/floor,
+/obj/machinery/button/remote{
+	desc = "The button that controls the hangar doors in the area. Do not press unless you can breathe vacuum, or you have oxygen..";
+	id = "HangarShutterSpaceRuin";
+	name = "Hangar Doors";
+	pixel_x = 27
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "SU" = (
 /obj/structure/bed/chair/custom/onestar/red,
@@ -1310,16 +1372,6 @@
 /obj/machinery/door/airlock/sandstone,
 /obj/machinery/holosign/surgery,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/asteroid/rogue)
-"Uj" = (
-/obj/machinery/light/floor,
-/obj/machinery/button/remote{
-	desc = "The button that controls the hangar doors in the area. Do not press unless you can breathe vacuum, or you have oxygen..";
-	id = "HangarShutterSpaceRuin";
-	name = "Hangar Doors";
-	pixel_x = 27
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "Um" = (
 /obj/structure/table/onestar,
@@ -1398,6 +1450,13 @@
 /obj/item/weapon/bedsheet/brown,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
+"VU" = (
+/obj/structure/sign/signnew/secure{
+	name = "Warning: Space";
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
 "Wp" = (
 /obj/structure/inflatable/wall,
 /obj/structure/lattice,
@@ -1418,12 +1477,6 @@
 	id = "HangarShutterSpaceRuin";
 	name = "Hangar Doors";
 	pixel_y = 27
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/asteroid/rogue)
-"Xw" = (
-/obj/structure/sign/atmos_air{
-	pixel_y = 31
 	},
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
@@ -7790,7 +7843,7 @@ yr
 FB
 FB
 FB
-Zs
+Yl
 zp
 zp
 zp
@@ -7992,7 +8045,7 @@ zp
 FB
 FB
 FB
-hz
+mS
 zp
 zp
 zp
@@ -8194,8 +8247,8 @@ hz
 Zs
 zp
 zp
-Zs
-zp
+Yl
+Nw
 zp
 xc
 fl
@@ -8397,7 +8450,7 @@ Zs
 fc
 FB
 FB
-zp
+Nw
 zp
 zp
 fl
@@ -8599,7 +8652,7 @@ ex
 ex
 FB
 FB
-zp
+Nw
 zp
 zp
 fl
@@ -8801,7 +8854,7 @@ Zs
 Zs
 fc
 FB
-zp
+Nw
 zp
 zp
 fl
@@ -9001,9 +9054,9 @@ Zs
 Zs
 hz
 hz
-fc
-zp
-zp
+Gy
+Nw
+Nw
 zp
 zp
 fl
@@ -9203,7 +9256,7 @@ Zs
 zp
 Zs
 Zs
-zp
+Nw
 zp
 zp
 zp
@@ -9404,8 +9457,8 @@ Zs
 ul
 Zs
 fc
-Zs
-zp
+Yl
+Nw
 zp
 zp
 zp
@@ -9835,7 +9888,7 @@ zp
 zp
 zp
 zp
-zp
+pz
 fl
 zp
 zp
@@ -16390,7 +16443,7 @@ Pc
 Pc
 lC
 KW
-BY
+ve
 dB
 zp
 zp
@@ -18584,7 +18637,7 @@ yr
 yr
 yr
 yr
-Uj
+SC
 yr
 yr
 yr
@@ -18987,7 +19040,7 @@ Zs
 Zs
 Zs
 Zs
-le
+vd
 fl
 yr
 yr
@@ -19178,7 +19231,7 @@ zx
 zp
 sk
 fl
-Xw
+gO
 YG
 YG
 YG
@@ -19388,7 +19441,7 @@ Tw
 YG
 YG
 YG
-HE
+Jc
 Zs
 YG
 Zs
@@ -19789,7 +19842,7 @@ YG
 Zs
 OB
 YG
-kf
+Qq
 OB
 YG
 YG
@@ -20580,7 +20633,7 @@ yr
 dn
 zp
 zp
-zp
+pz
 fl
 yr
 yr
@@ -22607,7 +22660,7 @@ PR
 ZS
 fl
 fl
-zp
+fz
 BW
 zp
 fl
@@ -30512,7 +30565,7 @@ ex
 ex
 ex
 ex
-zp
+fz
 zp
 BY
 zp
@@ -31452,7 +31505,7 @@ YG
 YG
 YG
 aV
-zp
+Bz
 fl
 ag
 dn
@@ -32263,7 +32316,7 @@ ex
 Zs
 ex
 ag
-Zs
+VU
 Zs
 ag
 fl
@@ -33157,7 +33210,7 @@ lC
 lC
 lC
 ex
-zp
+fz
 zp
 st
 zp
@@ -33896,7 +33949,7 @@ Zs
 BW
 Zs
 Zs
-Zs
+Fl
 fl
 dn
 dn
