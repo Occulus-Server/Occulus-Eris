@@ -213,3 +213,22 @@
 /obj/machinery/microwave
 	name = "GenTech Autocooker 5000"
 	desc = "From the company that brought you the Absolute Zero Fridge comes the Autocooker 5000! Dinner, desserts, shellfish, it does it all!"
+
+//One Star
+
+/obj/item/organ/external/robotic/one_star
+	name = "One star"
+	desc = "Advanced, extremly resileant and mobile prosthetic. Far beyond today's robotics advancements."
+
+/obj/item/weapon/tool/pickaxe/onestar
+	name = "One Star pickaxe"
+	desc = "A standard One Star basic tool. Uses advanced technology which makes it powerful and energy-efficent at the same time."
+
+
+/obj/item/weapon/tool/pickaxe/jackhammer/onestar
+	name = "One Star jackhammer"
+	desc = "A heavy One Star tool that cracks rocks with blasts, perfect for killing flimsy organics"
+
+/obj/structure/sign/faction/one_star
+	name = "One Star"
+	desc = "One Star's all-seeing eye, a banner of a now fallen empire. They once controlled this sector from their capital in Nullspace. Now it's all just dust, forgotten derelicts, and automated ships."
