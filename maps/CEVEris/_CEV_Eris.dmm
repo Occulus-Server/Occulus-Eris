@@ -28046,7 +28046,6 @@
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/sleep)
 "bnb" = (
-/obj/machinery/vending/tool,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "West APC";
@@ -28055,6 +28054,10 @@
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
+	},
+/obj/structure/table/standard,
+/obj/machinery/cash_register{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/rnd/lab)
@@ -28067,6 +28070,7 @@
 /area/eris/rnd/lab)
 "bnd" = (
 /obj/machinery/light,
+/obj/machinery/vending/tool,
 /turf/simulated/floor/tiled/dark,
 /area/eris/rnd/lab)
 "bne" = (
@@ -53113,6 +53117,12 @@
 /obj/structure/railing,
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/standard,
+/obj/item/device/eftpos{
+	eftpos_name = "Quartermaster EFTPOS scanner"
+	},
+/obj/item/weapon/holochip/cargo/marketpro,
+/obj/item/weapon/holochip/cargo/marketpro,
+/obj/item/weapon/holochip/cargo/marketpro,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/quartermaster/storage)
 "ctZ" = (
@@ -60735,8 +60745,7 @@
 /area/eris/storage/tech)
 "cLM" = (
 /obj/structure/table/standard,
-/obj/spawner/pack/tech_loot,
-/obj/spawner/pack/tech_loot,
+/obj/machinery/cash_register,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/breakroom)
 "cLN" = (
@@ -64652,7 +64661,9 @@
 "cVF" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/weapon/book/manual/security_aegisparagraphs,
+/obj/machinery/cash_register{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/security/lobby)
 "cVG" = (
@@ -74655,12 +74666,14 @@
 	pixel_y = -24
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
 /obj/machinery/button/remote/blast_door{
 	id = "Medical_Psych";
 	name = "Autodoc Shutters";
 	pixel_x = 6;
 	pixel_y = -24
+	},
+/obj/machinery/cash_register{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
@@ -77507,6 +77520,7 @@
 "dyM" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/office)
 "dyN" = (
@@ -78808,6 +78822,7 @@
 /area/eris/medical/reception)
 "dBO" = (
 /obj/structure/table/standard,
+/obj/item/weapon/paper_bin,
 /obj/item/weapon/hand_labeler,
 /obj/item/device/eftpos{
 	eftpos_name = "Medbay EFTPOS scanner"
@@ -98760,6 +98775,9 @@
 	pixel_y = -23
 	},
 /obj/structure/table/bar_special,
+/obj/machinery/cash_register{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "ewr" = (
@@ -107108,12 +107126,8 @@
 	})
 "pZE" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/holochip/cargo/marketpro,
-/obj/item/weapon/holochip/cargo/marketpro,
-/obj/item/weapon/holochip/cargo/marketpro,
-/obj/item/device/eftpos{
-	eftpos_name = "Quartermaster EFTPOS scanner"
+/obj/machinery/cash_register{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/quartermaster/office)
@@ -108232,6 +108246,8 @@
 "uiU" = (
 /obj/structure/table/standard,
 /obj/spawner/toolbox,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
 /obj/spawner/pack/tech_loot,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/breakroom)
