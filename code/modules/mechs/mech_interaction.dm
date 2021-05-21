@@ -206,6 +206,7 @@
 	user.playsound_local(null, 'sound/mechs/nominal.ogg', 50)
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_pilots()
+	on_update_icon()//Eris forgot to tell the icon to update when people enter/leave
 	return 1
 
 /mob/living/exosuit/proc/sync_access()
@@ -239,6 +240,7 @@
 		update_mech_hud_4(user)
 		user.client.eye = user.client.mob
 		user.client.perspective = MOB_PERSPECTIVE
+	on_update_icon()//Occulus Edit: Well that was simple!
 	return 1
 
 /mob/living/exosuit/attackby(obj/item/I, mob/living/user)
