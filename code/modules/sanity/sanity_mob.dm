@@ -5,19 +5,19 @@
 #define SANITY_VIEW_DAMAGE_MOD 0.2
 
 // Damage received from unpleasant stuff in view
-#define SANITY_DAMAGE_VIEW(damage, vig, dist) ((damage) * SANITY_VIEW_DAMAGE_MOD * max(0.1,(1.2 - (vig) / STAT_LEVEL_MAX)) * (1 - (dist)/15))
+#define SANITY_DAMAGE_VIEW(damage, vig, dist) ((damage) * SANITY_VIEW_DAMAGE_MOD * max(0.1,(1.2 - (vig) / STAT_LEVEL_MAX)) * (1 - (dist)/15))//Occulus Edit
 
 // Damage received from body damage
-#define SANITY_DAMAGE_HURT(damage, vig) (min((damage) / 5 * SANITY_DAMAGE_MOD * max(0.1, (1.2 - (vig) / STAT_LEVEL_MAX)), 60))
+#define SANITY_DAMAGE_HURT(damage, vig) (min((damage) / 5 * SANITY_DAMAGE_MOD * max(0.1, (1.2 - (vig) / STAT_LEVEL_MAX)), 60))//Occulus Edit
 
 // Damage received from shock
-#define SANITY_DAMAGE_SHOCK(shock, vig) ((shock) / 50 * SANITY_DAMAGE_MOD * max(0.1, (1.2 - (vig) / STAT_LEVEL_MAX)))
+#define SANITY_DAMAGE_SHOCK(shock, vig) ((shock) / 50 * SANITY_DAMAGE_MOD * max(0.1, (1.2 - (vig) / STAT_LEVEL_MAX)))//Occulus Edit
 
 // Damage received from psy effects
-#define SANITY_DAMAGE_PSY(damage, vig) (damage * SANITY_DAMAGE_MOD * max(0.1, (2 - (vig) / STAT_LEVEL_MAX)))
+#define SANITY_DAMAGE_PSY(damage, vig) (damage * SANITY_DAMAGE_MOD * max(0.1, (2 - (vig) / STAT_LEVEL_MAX)))//Occulus Edit
 
 // Damage received from seeing someone die
-#define SANITY_DAMAGE_DEATH(vig) (10 * SANITY_DAMAGE_MOD * max(0.1, (1 - (vig) / STAT_LEVEL_MAX)))
+#define SANITY_DAMAGE_DEATH(vig) (10 * SANITY_DAMAGE_MOD * max(0.1, (1 - (vig) / STAT_LEVEL_MAX)))//Occulus Edit
 
 #define SANITY_GAIN_SMOKE 0.05 // A full cig restores 300 times that
 #define SANITY_GAIN_SAY 1
