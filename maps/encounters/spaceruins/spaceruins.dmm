@@ -370,10 +370,16 @@
 	},
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
+"mJ" = (
+/obj/machinery/floodlight{
+	light_power = 4;
+	light_range = 8
+	},
+/turf/simulated/floor/asteroid,
+/area/asteroid/rogue)
 "mS" = (
-/obj/effect/floor_decal/asteroid,
-/obj/structure/inflatable/wall,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
+/obj/structure/foamedmetal,
+/turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "mU" = (
 /obj/structure/bed,
@@ -381,7 +387,7 @@
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
 "mV" = (
-/obj/structure/inflatable/wall,
+/obj/structure/foamedmetal,
 /turf/space,
 /area/asteroid/rogue)
 "ne" = (
@@ -592,6 +598,10 @@
 	},
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
+"uD" = (
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/tiled/derelict,
+/area/asteroid/rogue)
 "uZ" = (
 /obj/structure/sign/derelict2{
 	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
@@ -792,8 +802,9 @@
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "By" = (
-/obj/spawner/mob/spiders/low_chance,
-/turf/simulated/floor/asteroid,
+/obj/structure/lattice,
+/obj/structure/foamedmetal,
+/turf/space,
 /area/asteroid/rogue)
 "Bz" = (
 /obj/structure/sign/signnew/secure{
@@ -956,9 +967,8 @@
 /turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "Gy" = (
-/obj/effect/floor_decal/asteroid,
-/obj/structure/inflatable/wall,
-/turf/simulated/floor/tiled/derelict/white_big_edges,
+/obj/structure/foamedmetal,
+/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "GB" = (
 /turf/simulated/mineral/random,
@@ -1008,9 +1018,18 @@
 /obj/spawner/tool_upgrade/low_chance,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
+"HT" = (
+/obj/structure/foamedmetal,
+/obj/structure/foamedmetal,
+/turf/space,
+/area/asteroid/rogue)
 "HW" = (
 /mob/living/simple_animal/hostile/roomba,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
+"Iq" = (
+/obj/structure/foamedmetal,
+/turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
 "IF" = (
 /obj/machinery/light{
@@ -1128,6 +1147,10 @@
 /obj/item/remains/human,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
+"KZ" = (
+/obj/structure/inflatable/door,
+/turf/simulated/floor/tiled/derelict,
+/area/asteroid/rogue)
 "Lg" = (
 /obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
@@ -1170,6 +1193,15 @@
 "NA" = (
 /obj/item/remains,
 /turf/simulated/floor/tiled/derelict/white_red_edges,
+/area/asteroid/rogue)
+"NI" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/atmos_air{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "NW" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -1339,8 +1371,8 @@
 "TA" = (
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	id = "HangarShutterSpaceRuin";
-	name = "Hangar Blast Door"
+	id = "OneStarHangar";
+	name = "Hangar Door"
 	},
 /turf/simulated/floor/plating/under,
 /area/asteroid/rogue)
@@ -1455,6 +1487,7 @@
 	name = "Warning: Space";
 	pixel_x = -32
 	},
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "Wp" = (
@@ -1466,16 +1499,22 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
+"WJ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
 "WZ" = (
 /obj/structure/table/onestar,
 /obj/spawner/material/building/low_chance,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "Xc" = (
-/obj/machinery/button/remote{
-	desc = "The button that controls the hangar doors in the area. Do not press unless you can breathe vacuum, or you have oxygen..";
-	id = "HangarShutterSpaceRuin";
-	name = "Hangar Doors";
+/obj/machinery/button/remote/blast_door{
+	desc = "A sticky note is attached: Do not press unless you can breathe vacuum.";
+	id = "OneStarHangar;
+	name = "Hangar Blast Doors";
 	pixel_y = 27
 	},
 /turf/simulated/floor/tiled/derelict/red_white_edges,
@@ -7638,7 +7677,7 @@ lC
 yr
 yr
 FB
-yr
+mV
 fl
 ex
 ex
@@ -7838,12 +7877,12 @@ zp
 lC
 lC
 yr
-yr
-yr
-FB
-FB
-FB
-Yl
+mV
+mV
+By
+By
+By
+Gy
 zp
 zp
 zp
@@ -8040,12 +8079,12 @@ yr
 Zs
 hz
 yr
-yr
-zp
-FB
-FB
-FB
+mV
 mS
+By
+By
+By
+hz
 zp
 zp
 zp
@@ -8242,13 +8281,13 @@ yr
 Zs
 FB
 FB
-FB
+By
 hz
+Gy
+mS
+mS
 Zs
-zp
-zp
-Yl
-Nw
+mS
 zp
 xc
 fl
@@ -8444,13 +8483,13 @@ zp
 yr
 Zs
 hz
-yr
-Zs
-Zs
+mV
+Gy
+Gy
 fc
-FB
-FB
-Nw
+By
+By
+mS
 zp
 zp
 fl
@@ -8645,14 +8684,14 @@ FB
 FB
 yr
 fl
+mS
+Gy
+Gy
+ex
+ex
+By
+By
 zp
-Zs
-Zs
-ex
-ex
-FB
-FB
-Nw
 zp
 zp
 fl
@@ -8847,14 +8886,14 @@ FB
 FB
 FB
 FB
-FB
+By
 hz
-Zs
-Zs
-Zs
+Gy
+Gy
+Gy
 fc
-FB
-Nw
+By
+zp
 zp
 zp
 fl
@@ -9048,15 +9087,15 @@ yr
 FB
 yr
 yr
-zp
-yr
-Zs
-Zs
-hz
-hz
+mS
+mV
 Gy
-Nw
-Nw
+Gy
+hz
+hz
+fc
+zp
+zp
 zp
 zp
 fl
@@ -9251,12 +9290,12 @@ FB
 yr
 yr
 zp
-yr
-Zs
+mV
+Gy
+mS
+Gy
+Gy
 zp
-Zs
-Zs
-Nw
 zp
 zp
 zp
@@ -9455,10 +9494,10 @@ yr
 fl
 Zs
 ul
-Zs
+Gy
 fc
-Yl
-Nw
+Gy
+mS
 zp
 zp
 zp
@@ -9660,7 +9699,7 @@ fl
 fl
 ex
 ex
-Ep
+NI
 zp
 iJ
 iJ
@@ -16843,8 +16882,8 @@ lC
 lC
 ag
 lC
-UX
-UX
+lC
+lC
 lC
 lC
 lC
@@ -17041,8 +17080,8 @@ lC
 lC
 lC
 lC
-jA
-lC
+mJ
+fT
 ag
 lC
 lC
@@ -17254,8 +17293,8 @@ lC
 lC
 lC
 lC
-lC
-lC
+fT
+Iq
 Pc
 Pc
 Pc
@@ -17450,17 +17489,17 @@ ag
 lC
 lC
 lC
+fT
 lC
 lC
 lC
 lC
 lC
 lC
-lC
-lC
-lC
-Qr
-Qr
+Iq
+Iq
+Iq
+Iq
 Pc
 yr
 yr
@@ -17653,18 +17692,18 @@ lC
 lC
 lC
 lC
-lC
+qW
 lC
 PB
 lC
 lC
 lC
-lC
-lC
-lC
-lC
-yr
-yr
+Iq
+Iq
+Iq
+Iq
+mV
+mV
 yr
 yr
 yr
@@ -17861,12 +17900,12 @@ Pc
 lC
 Pc
 lC
-lC
-lC
-lC
+Iq
+Iq
+Iq
 Pc
-yr
-yr
+mV
+mV
 yr
 yr
 yr
@@ -18260,7 +18299,7 @@ IF
 lC
 lC
 lC
-UX
+lC
 lC
 lC
 lC
@@ -18462,7 +18501,7 @@ lC
 lC
 lC
 lC
-By
+lC
 lC
 lC
 lC
@@ -18664,7 +18703,7 @@ lC
 lC
 lC
 lC
-UX
+lC
 lC
 lC
 fl
@@ -20693,9 +20732,9 @@ lC
 lC
 lC
 lC
-Qr
+Iq
 Pc
-yr
+mV
 yr
 yr
 yr
@@ -20894,11 +20933,11 @@ lC
 lC
 lC
 lC
-lC
-Qr
+Iq
+Iq
 mV
-yr
-yr
+mV
+mV
 yr
 yr
 yr
@@ -21095,12 +21134,12 @@ lC
 lC
 fT
 lC
-lC
-lC
-Qr
+Iq
+Iq
+Iq
 mV
-yr
-yr
+mV
+mV
 yr
 yr
 yr
@@ -21251,7 +21290,7 @@ BW
 Zs
 zp
 zp
-zp
+dB
 zp
 zp
 zp
@@ -21297,12 +21336,12 @@ lC
 lC
 fT
 lC
-lC
-lC
-Qr
+Iq
+Iq
+Iq
 mV
-yr
-yr
+mV
+mV
 yr
 yr
 yr
@@ -21453,8 +21492,8 @@ mf
 BW
 Zs
 Zs
-Zs
-Zs
+fl
+WJ
 Zs
 BW
 Zs
@@ -21499,12 +21538,12 @@ GB
 lC
 lC
 lC
-lC
-lC
-Qr
+Iq
+Iq
+Iq
 Pc
 Pc
-yr
+mV
 yr
 yr
 yr
@@ -21655,7 +21694,7 @@ BW
 Zs
 zp
 zp
-zp
+dB
 zp
 zp
 zp
@@ -21701,7 +21740,7 @@ GB
 lC
 lC
 qW
-lC
+Iq
 Pc
 GB
 GB
@@ -23114,10 +23153,10 @@ lC
 lC
 lC
 lC
-lC
+Iq
 Pc
 Pc
-yr
+mV
 yr
 yr
 yr
@@ -23299,7 +23338,7 @@ Qr
 Pc
 Pc
 Pc
-jA
+mJ
 lC
 lC
 lC
@@ -23315,12 +23354,12 @@ lC
 lC
 lC
 lC
-lC
-Qr
+Iq
+Iq
 Pc
-yr
-yr
-yr
+mV
+mV
+mV
 yr
 yr
 yr
@@ -23517,11 +23556,11 @@ lC
 lC
 TE
 lC
-lC
-Qr
-Qr
-yr
-yr
+Iq
+Iq
+Iq
+HT
+mV
 yr
 yr
 yr
@@ -23719,12 +23758,12 @@ lC
 lC
 lC
 lC
-lC
+Iq
 Pc
 Pc
-yr
-yr
-yr
+mV
+mV
+mV
 yr
 yr
 yr
@@ -23923,11 +23962,11 @@ Pc
 Pc
 Pc
 Pc
-yr
-yr
-yr
-yr
-yr
+mV
+mV
+mV
+mV
+mV
 yr
 yr
 yr
@@ -24125,10 +24164,10 @@ GB
 GB
 Pc
 Pc
+mV
 yr
-yr
-yr
-yr
+mV
+mV
 yr
 yr
 yr
@@ -24322,14 +24361,14 @@ GB
 GB
 Pc
 Pc
-lC
-lC
-lC
+Iq
+Iq
+Iq
 Pc
 yr
 yr
 yr
-yr
+mV
 yr
 yr
 yr
@@ -24523,11 +24562,11 @@ GB
 GB
 Pc
 Pc
-lC
+Iq
 Pc
 Pc
 Pc
-yr
+mV
 yr
 yr
 yr
@@ -24724,7 +24763,7 @@ Pc
 Pc
 Pc
 yr
-yr
+mV
 Pc
 Pc
 Pc
@@ -24925,9 +24964,9 @@ yr
 yr
 yr
 yr
-yr
-yr
-yr
+mV
+mV
+mV
 yr
 yr
 yr
@@ -25129,7 +25168,7 @@ yr
 yr
 yr
 yr
-yr
+mV
 yr
 yr
 yr
@@ -30165,9 +30204,9 @@ no
 yD
 ex
 nR
-Zs
-Zs
-zp
+sX
+sX
+Nw
 ex
 yr
 yr
@@ -30568,10 +30607,10 @@ ex
 fz
 zp
 BY
-zp
-Zs
-Zs
-zp
+Nw
+sX
+sX
+Nw
 ex
 yr
 yr
@@ -31103,8 +31142,8 @@ YG
 fl
 zp
 fl
-ag
-ag
+KZ
+uD
 Zs
 ag
 fl
@@ -31507,7 +31546,7 @@ YG
 aV
 Bz
 fl
-ag
+KZ
 dn
 dn
 ag
@@ -31911,7 +31950,7 @@ zp
 ex
 VG
 fl
-ag
+KZ
 dn
 dn
 ag
@@ -32315,7 +32354,7 @@ zp
 ex
 Zs
 ex
-ag
+KZ
 VU
 Zs
 ag
