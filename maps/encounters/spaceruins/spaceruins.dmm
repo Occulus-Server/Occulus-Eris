@@ -1335,11 +1335,11 @@
 /area/asteroid/rogue)
 "SC" = (
 /obj/machinery/light/floor,
-/obj/machinery/button/remote{
-	desc = "The button that controls the hangar doors in the area. Do not press unless you can breathe vacuum, or you have oxygen..";
-	id = "HangarShutterSpaceRuin";
-	name = "Hangar Doors";
-	pixel_x = 27
+/obj/machinery/button/remote/blast_door{
+	desc = "A sticky note is attached: Do not press unless you can breathe vacuum.";
+	id = "OneStarHangar";
+	name = "Hangar Blast Doors";
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
@@ -1513,7 +1513,7 @@
 "Xc" = (
 /obj/machinery/button/remote/blast_door{
 	desc = "A sticky note is attached: Do not press unless you can breathe vacuum.";
-	id = "OneStarHangar;
+	id = "OneStarHangar";
 	name = "Hangar Blast Doors";
 	pixel_y = 27
 	},
