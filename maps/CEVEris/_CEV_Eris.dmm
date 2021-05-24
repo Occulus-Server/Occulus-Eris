@@ -7637,12 +7637,6 @@
 	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
-"arM" = (
-/obj/machinery/shield_diffuser,
-/turf/simulated/floor/tiled/dark/cargo,
-/area/eris/rnd/podbay{
-	name = "Tractor Beacon"
-	})
 "arN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -134243,13 +134237,13 @@ anm
 anp
 aoy
 arJ
-arM
 arJ
-arM
+arJ
+arJ
 aoy
-arM
 arJ
-arM
+arJ
+arJ
 arJ
 aoy
 arC
