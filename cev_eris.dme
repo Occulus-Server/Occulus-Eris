@@ -2925,6 +2925,7 @@
 #include "zzzz_modular_occulus\code\modules\economy\power_cells.dm"
 #include "zzzz_modular_occulus\code\modules\economy\price_list_fixed.dm"
 #include "zzzz_modular_occulus\code\modules\economy\price_list_reagents.dm"
+#include "zzzz_modular_occulus\code\modules\economy\retail_scanner.dm"
 #include "zzzz_modular_occulus\code\modules\economy\vending.dm"
 #include "zzzz_modular_occulus\code\modules\food\kitchen\icecream.dm"
 #include "zzzz_modular_occulus\code\modules\game\Objects\Items\oddities.dm"
