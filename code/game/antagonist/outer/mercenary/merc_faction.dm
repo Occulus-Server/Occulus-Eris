@@ -9,7 +9,7 @@
 
 /datum/faction/mercenary
 	id = FACTION_SERBS
-	name = "Mercenaries"
+	name = "Mercenaries" //Also this is an Occulu edit
 	antag = "soldier"
 	antag_plural = "soldiers"
 	welcome_text = WELCOME_SERBS
