@@ -750,7 +750,7 @@
 	GET_COMPONENT(tool_comp, /datum/component/item_upgrade)
 	for(var/upgrade in (tool_comp.tool_upgrades - GLOB.tool_aspects_blacklist))
 		if(isnum(tool_comp.tool_upgrades[upgrade]))
-			tool_comp.tool_upgrades[upgrade] = tool_comp.tool_upgrades[upgrade] * rand(5,15)/10
+			tool_comp.tool_upgrades[upgrade] = tool_comp.tool_upgrades[upgrade] * rand(4,17)/10//occulus edit: from 50-150% to 40-170%. Accounts for expander upgrades allowing 1-5 slots instead of 1-4
 	tool_comp.tool_upgrades[UPGRADE_BULK] = rand(-1,2)
 	QDEL_NULL(spawn_type)
 	QDEL_NULL(CATCH)

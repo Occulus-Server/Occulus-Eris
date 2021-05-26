@@ -43,6 +43,7 @@
 		crypt.add_modules(contained_modules)
 		used = TRUE
 		update_icon()
+		price_tag = 0//Occulus Edit: Is this one of those Eclipse things that ended up in the core repo? Bah!
 
 /obj/item/weapon/holochip/command
 	tag_color = COMMS_COLOR_COMMAND
