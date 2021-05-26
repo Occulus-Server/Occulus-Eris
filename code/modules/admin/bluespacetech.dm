@@ -70,7 +70,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_bst, R_ADMIN|R_DEBUG, TRUE)
 	//Add the rest of the languages
 	bst.add_language(LANGUAGE_COMMON)
 	bst.add_language(LANGUAGE_CYRILLIC)
-	bst.add_language(LANGUAGE_MERC)
+	bst.add_language(LANGUAGE_MERC) //Occulus edit, replaces LANGAUGE_SERBIAN
 	bst.add_language(LANGUAGE_MONKEY)
 	bst.add_language(LANGUAGE_JIVE)
 //	bst.add_language(LANGUAGE_GERMAN)
