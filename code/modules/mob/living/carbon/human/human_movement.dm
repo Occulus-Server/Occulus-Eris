@@ -97,6 +97,3 @@
 	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1
 	return 0
-/*
-/mob/living/carbon/human/handle_footstep(atom/T)
-	if(..())
