@@ -28059,6 +28059,7 @@
 /obj/machinery/cash_register{
 	dir = 1
 	},
+/obj/item/device/retail_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/eris/rnd/lab)
 "bnc" = (
@@ -42379,6 +42380,7 @@
 /obj/structure/table/standard,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/folder/blue,
+/obj/item/device/retail_scanner,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/security/lobby)
 "bUa" = (
@@ -60319,6 +60321,7 @@
 	amount = 20
 	},
 /obj/structure/catwalk,
+/obj/item/device/retail_scanner,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/breakroom)
 "cKJ" = (
@@ -98684,7 +98687,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
-/obj/item/device/retail_scanner/civilian,
+/obj/item/device/retail_scanner,
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "ewi" = (
@@ -105348,7 +105351,6 @@
 /obj/structure/table/standard,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo,
 /obj/item/device/scanner/price,
-/obj/item/device/retail_scanner/cargo,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/quartermaster/storage)
 "kDs" = (
@@ -107132,6 +107134,7 @@
 /obj/machinery/cash_register{
 	dir = 1
 	},
+/obj/item/device/retail_scanner,
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/quartermaster/office)
 "qaP" = (

@@ -3,9 +3,8 @@
 	desc = "Swipe your ID card to make purchases electronically."
 	icon = 'zzzz_modular_occulus/icons/obj/device.dmi'
 	icon_state = "retail_idle"
-	flags = NOBLUDGEON
 	slot_flags = SLOT_BELT
-	req_access = list(access_heads)
+	req_access = list()
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1)
 
@@ -42,6 +41,7 @@
 
 // Reset dir when picked back up
 /obj/item/device/retail_scanner/pickup(mob/user)
+	. = ..()
 	src.dir = SOUTH
 	src.pixel_y = 0
 
@@ -400,7 +400,7 @@
 		playsound(src, "sparks", 50, 1)
 		req_access = list()
 		emagged = 1
-
+/*
 //--Premades--//
 
 /obj/item/device/retail_scanner/command
@@ -423,3 +423,4 @@
 
 /obj/item/device/retail_scanner/civilian
 	account_to_connect = "Civilian"
+*/
