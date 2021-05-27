@@ -37,8 +37,8 @@
 	//Put on the fatigues. Armor not included, they equip that manually from the merc base
 	var/decl/hierarchy/outfit/O = outfit_by_type(/decl/hierarchy/outfit/antagonist/mercenary/casual)
 	O.equip(L)
-	//And we'll give them a random serbian name to start off with
-	var/datum/language/lang = all_languages[LANGUAGE_MERC]
+	//And we'll give them a random merc name to start off with
+	var/datum/language/lang = all_languages[LANGUAGE_MERC] //Set the Occulus namelist for this faction
 	lang.set_random_name(L)
 
 	//the missingg parrt was antag's stats!
