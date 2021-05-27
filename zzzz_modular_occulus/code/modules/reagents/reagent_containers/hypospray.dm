@@ -120,10 +120,10 @@
 
 	mode = !mode
 	switch (mode)
-		if(1)
+		if(0)
 			to_chat(usr, "You open up the [src]'s data tab")
 			update_icon()
-		if(0)
+		if(1)
 			to_chat(usr, "You close the [src]'s data tab")
 			update_icon()
 
