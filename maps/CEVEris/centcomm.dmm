@@ -17,8 +17,8 @@
 "aq" = (/turf/simulated/floor/holofloor/tiled/dark,/area/holodeck/source_emptycourt)
 "ar" = (/obj/structure/holostool,/turf/simulated/floor/holofloor/tiled,/area/holodeck/source_emptycourt)
 "as" = (/obj/structure/holostool,/obj/structure/window/reinforced/holowindow{dir = 4},/turf/simulated/floor/holofloor/tiled,/area/holodeck/source_emptycourt)
-"at" = (/obj/structure/table/steel,/obj/item/weapon/storage/fancy/cigarettes,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
-"au" = (/obj/structure/closet/l3closet,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"at" = (/obj/structure/table/steel,/obj/item/weapon/storage/fancy/cigarettes,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
+"au" = (/obj/structure/closet/l3closet,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
 "av" = (/obj/structure/window/reinforced/crescent{dir = 8},/turf/unsimulated/wall,/area/space)
 "aw" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/holofloor/desert,/area/holodeck/source_desert)
 "ax" = (/obj/structure/flora/ausbushes/ywflowers,/turf/simulated/floor/holofloor/grass,/area/holodeck/source_picnicarea)
@@ -27,8 +27,8 @@
 "aA" = (/obj/machinery/door/window/holowindoor,/turf/simulated/floor/holofloor/tiled,/area/holodeck/source_courtroom)
 "aB" = (/turf/simulated/floor/holofloor/wood,/area/holodeck/source_courtroom)
 "aC" = (/obj/landmark/mob/holocarpspawn,/turf/simulated/floor/holofloor/reinforced,/area/holodeck/source_wildlife)
-"aD" = (/obj/machinery/vending/engivend,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
-"aE" = (/obj/structure/bed/chair/comfy/red{dir = 4},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"aD" = (/obj/machinery/vending/engivend,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
+"aE" = (/obj/structure/bed/chair/comfy/red{dir = 4},/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
 "aF" = (/turf/unsimulated/wall,/area/centcom/suppy)
 "aG" = (/obj/structure/flora/ausbushes/brflowers,/obj/effect/floor_decal/spline/fancy/wood/corner,/turf/simulated/floor/holofloor/grass,/area/holodeck/source_picnicarea)
 "aH" = (/obj/structure/flora/ausbushes/ywflowers,/obj/effect/floor_decal/spline/fancy/wood,/turf/simulated/floor/holofloor/grass,/area/holodeck/source_picnicarea)
@@ -84,7 +84,7 @@
 "bF" = (/obj/structure/table/holo_woodentable,/turf/simulated/floor/holofloor/carpet,/area/holodeck/source_courtroom)
 "bG" = (/turf/simulated/floor/holofloor/carpet,/area/holodeck/source_courtroom)
 "bH" = (/obj/structure/table/holo_woodentable,/obj/effect/floor_decal/carpet{dir = 4},/turf/simulated/floor/holofloor/carpet,/area/holodeck/source_courtroom)
-"bI" = (/obj/structure/table/steel,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"bI" = (/obj/structure/table/steel,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
 "bJ" = (/obj/structure/shuttle_part/cargo{icon_state = "cargoshwall12"; tag = "icon-cargoshwall12"},/turf/space,/area/supply/dock)
 "bK" = (/turf/simulated/shuttle/wall/cargo{icon_state = "cargoshwall13"; tag = "icon-cargoshwall13"},/area/supply/dock)
 "bL" = (/obj/machinery/conveyor/east{id = "QMLoad"},/turf/simulated/shuttle/floor{icon_state = "cargofloor1"; name = "Cargo Transport Shuttle (A5)"; tag = "icon-cargofloor1"},/area/supply/dock)
@@ -118,7 +118,7 @@
 "cn" = (/obj/structure/bed/chair/holochair{dir = 1},/obj/effect/floor_decal/carpet{dir = 8},/obj/effect/floor_decal/carpet,/obj/effect/floor_decal/carpet{dir = 10},/turf/simulated/floor/holofloor/carpet,/area/holodeck/source_courtroom)
 "co" = (/obj/structure/bed/chair/holochair{dir = 1},/obj/effect/floor_decal/carpet,/turf/simulated/floor/holofloor/carpet,/area/holodeck/source_courtroom)
 "cp" = (/obj/structure/bed/chair/holochair{dir = 1},/obj/effect/floor_decal/carpet{dir = 4},/obj/effect/floor_decal/carpet,/obj/effect/floor_decal/carpet{dir = 6},/turf/simulated/floor/holofloor/carpet,/area/holodeck/source_courtroom)
-"cq" = (/obj/machinery/vending/cigarette,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"cq" = (/obj/machinery/vending/cigarette,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
 "cr" = (/turf/simulated/floor/holofloor/tiled,/area/holodeck/source_emptycourt)
 "cs" = (/obj/structure/shuttle_part/cargo{icon_state = "cargoshwall21"; tag = "icon-cargoshwall21"},/turf/space,/area/supply/dock)
 "ct" = (/turf/simulated/shuttle/wall/cargo{icon_state = "cargoshwall22"; tag = "icon-cargoshwall22"},/area/supply/dock)
@@ -139,7 +139,7 @@
 "cI" = (/obj/structure/holostool,/turf/simulated/floor/holofloor/tiled,/area/holodeck/source_basketball)
 "cJ" = (/obj/structure/holostool,/obj/structure/window/reinforced/holowindow{dir = 4},/turf/simulated/floor/holofloor/tiled,/area/holodeck/source_basketball)
 "cK" = (/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/wall/r_wall,/area/centcom/evac)
-"cL" = (/mob/living/exosuit/premade/powerloader,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"cL" = (/obj/structure/reagent_dispensers/water_cooler,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
 "cM" = (/obj/structure/holohoop,/turf/simulated/floor/holofloor/tiled,/area/holodeck/source_basketball)
 "cO" = (/turf/simulated/floor/holofloor/beach/sand,/area/holodeck/source_beach)
 "cP" = (/turf/simulated/floor/holofloor/tiled/dark,/area/holodeck/source_thunderdomecourt)
@@ -389,10 +389,10 @@
 "hJ" = (/turf/unsimulated/floor{icon_state = "cult"; name = "plating"; tag = "icon-cult"},/area/centcom/merc_base)
 "hK" = (/obj/structure/sign/double/map/left{pixel_y = 32},/turf/unsimulated/floor{icon_state = "cult"; name = "plating"; tag = "icon-cult"},/area/centcom/merc_base)
 "hL" = (/obj/structure/sign/double/map/right{pixel_y = 32},/turf/unsimulated/floor{icon_state = "cult"; name = "plating"; tag = "icon-cult"},/area/centcom/merc_base)
-"hM" = (/obj/structure/closet,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"hM" = (/obj/structure/closet,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
 "hN" = (/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/shuttle/plating,/area/skipjack_station/start)
-"hO" = (/obj/vehicle/train/cargo/engine,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
-"hP" = (/obj/item/weapon/storage/firstaid/adv,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"hO" = (/obj/vehicle/train/cargo/engine,/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"hP" = (/obj/item/weapon/storage/firstaid/adv,/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "hS" = (/obj/effect/window_lwall_spawn/smartspawn,/obj/effect/shuttle_landmark/merc/start,/turf/simulated/shuttle/plating,/area/shuttle/mercenary)
 "hT" = (/obj/machinery/vending/snack{name = "hacked Getmore Chocolate Corp"; prices = list()},/turf/unsimulated/floor{icon_state = "cult"; name = "plating"; tag = "icon-cult"},/area/centcom/merc_base)
 "hU" = (/obj/structure/table/standard,/obj/machinery/chemical_dispenser/soda{pixel_x = 2; pixel_y = 6},/turf/unsimulated/floor{icon_state = "white"},/area/centcom/merc_base)
@@ -403,9 +403,8 @@
 "ia" = (/obj/vehicle/train/cargo/trolley,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "ic" = (/turf/space,/turf/simulated/shuttle/wall{dir = 1; icon_state = "diagonalWall3"},/area/shuttle/mercenary)
 "id" = (/obj/structure/medical_stand,/turf/simulated/shuttle/floor{icon_state = "floor3"},/area/skipjack_station/start)
-"if" = (/obj/structure/bed/chair/comfy/red{dir = 8},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"if" = (/obj/structure/bed/chair/comfy/red{dir = 8},/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
 "ig" = (/obj/structure/closet/crate/secure,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
-"ih" = (/obj/structure/reagent_dispensers/watertank/huge,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "ij" = (/obj/structure/closet/crate/secure/loot,/obj/structure/closet/crate/hydroponics,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "ik" = (/obj/effect/shuttle_landmark/escape_pod/out/pod1,/turf/space,/area/space)
 "il" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/syringe/spaceacillin,/obj/item/weapon/reagent_containers/syringe/spaceacillin,/obj/item/weapon/tank/anesthetic,/obj/item/weapon/tool/wrench,/obj/item/weapon/tool/bonesetter,/turf/simulated/shuttle/floor{icon_state = "floor3"},/area/skipjack_station/start)
@@ -451,12 +450,12 @@
 "ja" = (/obj/machinery/vending/cola{name = "hacked Robust Softdrinks"; prices = list()},/turf/unsimulated/floor{icon_state = "cult"; name = "plating"; tag = "icon-cult"},/area/centcom/merc_base)
 "jb" = (/obj/structure/closet/secure_closet/freezer/kitchen{req_access = list(150)},/turf/unsimulated/floor{icon_state = "white"},/area/centcom/merc_base)
 "jc" = (/obj/structure/table/reinforced,/obj/item/weapon/tray{pixel_y = 5},/turf/unsimulated/floor{icon_state = "white"},/area/centcom/merc_base)
-"jd" = (/obj/machinery/vending/snack,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"jd" = (/obj/machinery/vending/snack,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
 "je" = (/obj/structure/reagent_dispensers/fueltank/huge/derelict,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "jf" = (/obj/structure/reagent_dispensers/watertank/huge/derelict,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "jg" = (/obj/machinery/conveyor/east,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
-"jh" = (/obj/structure/closet/firecloset,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
-"ji" = (/obj/structure/reagent_dispensers/fueltank,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"jh" = (/obj/structure/closet/firecloset,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
+"ji" = (/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "jj" = (/obj/structure/sink{dir = 8; icon_state = "sink"; pixel_x = -12; pixel_y = 2},/obj/structure/mirror/antag{pixel_x = -28},/turf/unsimulated/floor{dir = 2; icon_state = "freezerfloor"},/area/centcom/merc_base)
 "jk" = (/obj/machinery/light,/obj/item/device/radio/intercom/syndicate{dir = 1; pixel_y = -22},/turf/simulated/shuttle/floor{icon_state = "floor6"},/area/shuttle/mercenary)
 "jl" = (/obj/item/weapon/paper_bin{pixel_x = -3; pixel_y = 8},/obj/item/weapon/pen{pixel_y = 4},/turf/simulated/shuttle/floor{icon_state = "floor6"},/area/shuttle/mercenary)
@@ -816,12 +815,27 @@
 "qH" = (/obj/effect/shuttle_landmark/escape_pod/transit/pod2,/turf/space,/area/space)
 "qI" = (/obj/map_data/admin,/turf/space,/area/space)
 "rT" = (/obj/structure/table/rack,/obj/item/weapon/storage/backpack/satchel/military,/obj/item/weapon/storage/backpack/satchel/military,/obj/item/weapon/storage/backpack/satchel/military,/obj/item/weapon/storage/backpack/satchel/military,/obj/item/weapon/storage/backpack/satchel/military,/obj/item/weapon/storage/backpack/satchel/military,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/merc_base)
-"sb" = (/obj/machinery/embedded_controller/radio/simple_docking_controller{frequency = 1380; id_tag = "escape_pod_2_recovery"; pixel_x = 25; pixel_y = 0; req_one_access = list(13); tag_door = "escape_pod_2_recovery_hatch"},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
-"DZ" = (/obj/structure/table/steel,/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
-"Pr" = (/obj/structure/table/steel,/obj/item/weapon/tool/tape_roll,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"sb" = (/obj/machinery/embedded_controller/radio/simple_docking_controller{frequency = 1380; id_tag = "escape_pod_2_recovery"; pixel_x = 25; pixel_y = 0; req_one_access = list(13); tag_door = "escape_pod_2_recovery_hatch"},/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"wu" = (/obj/item/weapon/caution/cone,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"Bw" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/obj/structure/medical_stand/anesthetic,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"BW" = (/obj/effect/floor_decal/industrial/warning{dir = 5},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"DF" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"DZ" = (/obj/structure/table/steel,/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
+"Fa" = (/obj/machinery/trade_beacon/receiving,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"Io" = (/obj/effect/decal/cleanable/blood/oil,/obj/effect/floor_decal/industrial/warning{dir = 4},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"IT" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/mob/living/exosuit/premade/powerloader,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"Ji" = (/obj/effect/floor_decal/industrial/warning{dir = 10},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"Lq" = (/obj/machinery/conveyor_switch,/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"Ne" = (/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
+"Ng" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"Pr" = (/obj/structure/table/steel,/obj/item/weapon/tool/tape_roll,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/evac)
 "PS" = (/obj/effect/decal/cleanable/blood/oil,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "Qq" = (/obj/structure/table/rack,/obj/item/weapon/storage/deferred/crate/specialists_sidearm,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/merc_base)
+"Rd" = (/obj/machinery/trade_beacon/sending,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"Sc" = (/obj/structure/bed/roller/adv,/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"SP" = (/obj/machinery/floodlight,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "Vk" = (/obj/structure/table/rack,/obj/item/weapon/storage/deferred/crate/tools,/obj/item/weapon/storage/deferred/crate/tools,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/merc_base)
+"XU" = (/obj/structure/table/steel,/obj/item/weapon/storage/ration_pack,/obj/item/weapon/storage/ration_pack,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -923,17 +937,17 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahlhlhlhlhlhlhlaaaaaaaaaaaahmhnhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohohohohohohohohohohohohohohohohohohohoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahlhlhlhlhlhlhlaaaaaaaaaaaahmaahlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohohohohohohohohohoiGhohohohohohohohohoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahlhlhlhlhlhlhlhlaaaaaaaaaaaahChnhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohoaujhjhaDiRaEatPrifcqjdjijijijijijicKaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahlhlhlhlhlhlhlhlaaaaaaaaaaaahEaahnhlhlgZgZgZgZgZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahoiGiRiRiRiRiRaEDZbIifiRiRihihihihihihcKaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahlhlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaagZgZhchdhegZgZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohohohohohMhMhMiRiRiRiRiRiRiRiRiRiRiRiRiRiRcKaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahlhlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaahfhghhhhhhhggZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhleYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohohohohodjdjdjcLiRPSiRiRiRiRiRiRdXiRiRiRsbhoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaaaahfhghhhhhhhggZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhleYfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpeYaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohoaujhjhaDNeaEatPrifcqjdjiiRiRiRiRiRcKaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahlhlhlhlhlhlhlhlaaaaaaaaaaaahEaahnhlhlgZgZgZgZgZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahoiGNeNeNeNeNeaEDZbIifNeNejiRdiRiRFaiRcKaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahlhlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaagZgZhchdhegZgZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohohohohohMhMhMNeNeNeNeNeNeNeNejiiRiRiRiRiRcKaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahlhlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaahfhghhhhhhhggZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhleYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYeYaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohohohohodjdjdjcLNeNeNeNeNeNeNeJiLqDFDFDFsbhoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaaaahfhghhhhhhhggZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhleYfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpfpeYaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahodldliRdZiRiRiRiRiRiReciRiRiRiRiRhyhyhyhyhydKikaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaaaaaahfhghhhhhhhggZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahodldliRdZiRiRiRiRhzhAiRhDiRiRiRiRhthGhHhIhIhoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaahlhlaaaaaaaaaaaaaaaahlhlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaagZgZhhhhhhgZgZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohohohohohOiRiRhPiRhDiRiRiRiRiRPShthVhIhIhHhWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaahlhlhlhlhlaaaaaaaaaaaahlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagZhhhhhhgZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahYhohohohoiaiRPSiRiRiRiRiRiRPSiRiRigigijijimekaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaahlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahfhfhfhfgZgZhFgZgZgZgZgZgZgZhlhlhlhlhlhlhlhlhlhlhlhlhlhleYitaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohoiaiRiRiRiRiRhXiRiRiRiRiRioioioiSiShWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaahlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaepgNgNhSgNgNicaaaahfhJhKhLhJhJhJhTgZhUinisiygZhlhlhlhlhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohojejejfjfiRiRiRiRPSiRiRiRdXighIhIdMhoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaahlhlhlhlhlaaaaaaaaaaaaaaaaaaepiqiriuivixiHiqicaahfhJhphphJhJhJhJiAiBiBiBiCgZgZgZgZgZhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohojejejfjfiRiRiRiRiRiRiRiRjgjgjgjgjgdUiTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaahlhlhlhlaaaaaaaaaaaaaaaaaaiqiIiJiJiLiJiJixiqaahfiziEiFiDhJhJhJgZiOiBiBiPgZkNiXiYgZhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahodldliRdZiRiRiRiRhzhAiRhDiRiRiRwuhthGhHhIhIhoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaahlhlaaaaaaaaaaaaaaaahlhlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaagZgZhhhhhhgZgZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohohohohohODFDFhPDFScBwDFBWiRiRPShthVhIhIhHhWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaahlhlhlhlhlaaaaaaaaaaaahlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagZhhhhhhgZhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahYhohohohoiaiRPSiRiRiRiRiRNgPSiRiRigigijijimekaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaahlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahfhfhfhfgZgZhFgZgZgZgZgZgZgZhlhlhlhlhlhlhlhlhlhlhlhlhlhleYitaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohoiaiRiRiRiRiRhXiRNgiRiRiRioioioiSiShWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaahlhlhlhlhlhlaaaaaaaaaaaaaaaaaaaaepgNgNhSgNgNicaaaahfhJhKhLhJhJhJhTgZhUinisiygZhlhlhlhlhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohojejejfjfiRiRiRiRIoiRiRwudXighIhIdMhoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaahlhlhlhlhlaaaaaaaaaaaaaaaaaaepiqiriuivixiHiqicaahfhJhphphJhJhJhJiAiBiBiBiCgZgZgZgZgZhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohojejejfjfXUXUXUXUITSPiRiRjgjgjgjgjgdUiTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaahlhlhlhlaaaaaaaaaaaaaaaaaaiqiIiJiJiLiJiJixiqaahfiziEiFiDhJhJhJgZiOiBiBiPgZkNiXiYgZhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohohohohohojPhohohohohohoiGhohohohohohoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaahlhlaaaaaaaaaaaaaaaaaaaaiqiMiJiJiJiJiUiViqaahfhJiNiNhJhJhJjagZjbiBjciZgZlSiXjmgZhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahohohohohohohohohohohohohohohohohohohohoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiqiWiJiJjkiJiJjliqaahfhJhJhJhJhJhJjngZgZgZgZgZgZQqiXjpgZhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajriqjsiqiqiqiqiqjtaahfhfhfhfgZjqjqjqgZjujujCjDgZjoiXjFgZhlhlhlhlhlhlhlhlhlhleYfpaaaaaaaaaaaaaaaaaaaaaaaaaafWfWfWfWfWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafpeYaaaaaaaaaaaaaaaaaaaaaa
