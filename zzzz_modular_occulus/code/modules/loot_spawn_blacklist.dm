@@ -214,7 +214,7 @@
 /obj/item/weapon/gun/projectile/automatic/drozd
 	spawn_blacklisted = TRUE //Excelsior SMG .40 Magnum \"Drozd\"
 
-/obj/item/weapon/gun/projectile/clarissa/makarov
+/obj/item/weapon/gun/projectile/selfload/makarov
 	spawn_blacklisted = TRUE //Excelsior .35 Auto \"Makarov\"
 
 /obj/item/weapon/gun/projectile/automatic/ak47

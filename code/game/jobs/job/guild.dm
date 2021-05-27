@@ -73,6 +73,7 @@ Your second loyalty is to the Union. Ensure it retains good relations with priva
 	supervisors = "the Free Trade Union Merchant"
 	selection_color = "#c3b9a6"
 	wage = WAGE_LABOUR_DUMB
+	alt_titles = list("Union Salvage Technician")	// OCCULUS EDIT
 	department_account_access = TRUE
 	outfit_type = /decl/hierarchy/outfit/job/cargo/cargo_tech
 
@@ -110,7 +111,7 @@ Your main duties are to keep the local Union branch operational and profitable. 
 		Your second loyalty is to the merchant, he ensures you're well paid and respected, in a universe where workers are often treated as interchangeable parts."
 
 /obj/landmark/join/start/cargo_tech
-	name = "Union Cargo Technician"	//SYZYGY EDIT - Fixes landmarks
+	name = "Union Cargo Technician"	//OCCULUS EDIT - Fixes landmarks
 	icon_state = "player-beige"
 	join_tag = /datum/job/cargo_tech
 
@@ -125,7 +126,7 @@ Your main duties are to keep the local Union branch operational and profitable. 
 	supervisors = "the Free Trade Union Merchant"
 	selection_color = "#c3b9a6"
 	wage = WAGE_LABOUR_HAZARD //The miners union is stubborn
-	alt_titles = list("Union Salvage Technician")	// OCCULUS EDIT
+	alt_titles = list("Union Prospector")	// OCCULUS EDIT
 	outfit_type = /decl/hierarchy/outfit/job/cargo/mining
 
 	description = "You are an asteroid miner, working in resource Procurement for the local branch of the Free Trade Union.<br>\

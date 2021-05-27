@@ -11,7 +11,7 @@
 	w_class = ITEM_SIZE_SMALL
 	force = WEAPON_FORCE_PAINFUL
 	price_tag = 800	//becomes less valuable when you ruin it
-	damage_multiplier = 0.8 //slightly weaker due to sawn-off barrel
+	damage_multiplier = 0.6 //slightly weaker due to sawn-off barrel
 	penetration_multiplier = 0.8 //slightly weaker due to sawn-off barrel
 	recoil_buildup = 1.4 //The sawn-off at least keeps the shoulder stock. This insane thing has a pistol grip!
 	one_hand_penalty = 10 //compact shotgun level

@@ -6,7 +6,7 @@
 	item_state = "mk4"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_STEEL = 5, MATERIAL_WOOD = 2)
-	price_tag = 1200
+	price_tag = 1000
 	can_dual = 1
 	silenced = TRUE
 	caliber = CAL_PISTOL

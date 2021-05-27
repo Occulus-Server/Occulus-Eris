@@ -48,9 +48,9 @@
 	var/show_rconfig = FALSE
 	var/activated = FALSE
 
-	var/STEEL_REQ = 10
-	var/PLASTEEL_REQ = 3
-	var/NANITE_REQ = 9
+	var/STEEL_REQ = 3
+	var/PLASTEEL_REQ = 1
+	var/NANITE_REQ = 1
 	var/ROUND_FRACTION = 0.1
 
 /obj/machinery/nanite_reconstitution_apparatus/Initialize() //initializing

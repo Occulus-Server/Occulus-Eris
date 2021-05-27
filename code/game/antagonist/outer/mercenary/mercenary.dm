@@ -38,7 +38,7 @@
 	var/decl/hierarchy/outfit/O = outfit_by_type(/decl/hierarchy/outfit/antagonist/mercenary/casual)
 	O.equip(L)
 	//And we'll give them a random serbian name to start off with
-	var/datum/language/lang = all_languages[LANGUAGE_SERBIAN]
+	var/datum/language/lang = all_languages[LANGUAGE_MERC]
 	lang.set_random_name(L)
 
 	//the missingg parrt was antag's stats!

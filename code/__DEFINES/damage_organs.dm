@@ -75,6 +75,7 @@
 
 // Unique carrion Organs.
 #define BP_SPCORE   "spider core"
+#define BP_BRAIN_CULTIST "twisted mind"//Occultist brain object
 
 //Augmetations
 #define BP_AUGMENT_R_ARM         "right arm augment"

@@ -1448,9 +1448,12 @@
 					/obj/item/weapon/storage/deferred/crate/uniform_black = 4,
 					/obj/item/weapon/storage/deferred/crate/uniform_flak  = 2,
 					/obj/item/weapon/storage/deferred/crate/uniform_light = 2,
+					/obj/item/weapon/gun/projectile/kovacs = 5,
+					/obj/item/ammo_magazine/srifle = 20,
 					/obj/item/weapon/gun/projectile/boltgun/serbian = 10,
 					/obj/item/ammo_magazine/ammobox/lrifle_small = 30,
-					/obj/item/weapon/storage/ration_pack = 10
+					/obj/item/weapon/storage/ration_pack = 10,
+					/obj/item/clothing/mask/balaclava = 50
 					)
 	prices = list(
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka = 50,
@@ -1460,7 +1463,9 @@
 					/obj/item/weapon/storage/deferred/crate/uniform_flak  = 2200,
 					/obj/item/weapon/storage/deferred/crate/uniform_light = 1800,
 					/obj/item/ammo_magazine/ammobox/lrifle_small = 400,
-					/obj/item/weapon/storage/ration_pack = 800
+					/obj/item/ammo_magazine/srifle = 200,
+					/obj/item/weapon/storage/ration_pack = 800,
+					/obj/item/clothing/mask/balaclava = 100
 					)
 	idle_power_usage = 211
 	vendor_department = DEPARTMENT_CIVILIAN

@@ -474,9 +474,7 @@
 
 	if(cash_open)
 		cash_open = 0
-		remove_overlays("register_approve")
-		remove_overlays("register_open")
-		remove_overlays("register_cash")
+		cut_overlays()//Occulus Edit: Quick hack so overlays don't get stucked
 	else if(!cash_locked)
 		cash_open = 1
 		add_overlays("register_approve")

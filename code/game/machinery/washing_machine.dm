@@ -62,7 +62,8 @@
 		if(istype(A, /obj/item))
 			var/obj/item/I = A
 			I.decontaminate()
-		O.make_young()
+//		O.make_young() Occulus Edit: Gootbye, so long my friend, bye bye
+		O.color = "white" //Occulus Edit
 
 /obj/machinery/washing_machine/Process()
 	if(tick > 0 && (state in list(WASHSTATE_BLOODRUNNING, WASHSTATE_RUNNING)))

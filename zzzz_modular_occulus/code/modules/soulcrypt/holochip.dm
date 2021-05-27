@@ -1,3 +1,5 @@
+/obj/item/weapon/holochip
+	matter = list(MATERIAL_GOLD = 1, MATERIAL_PLATINUM = 1)
 //
 // STAT BOOSTERS
 //
