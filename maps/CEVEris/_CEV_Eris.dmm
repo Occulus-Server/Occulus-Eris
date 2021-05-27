@@ -3952,7 +3952,9 @@
 "ajw" = (
 /obj/effect/window_lwall_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "ajx" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
@@ -4117,7 +4119,9 @@
 	},
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "ajM" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -4760,18 +4764,20 @@
 /area/eris/crew_quarters/sleep)
 "all" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance_rnd{
-	name = "Robotics Maintenance";
-	req_access = list(29)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/airlock/maintenance_common{
+	name = "Service Maintenance";
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/steel,
-/area/eris/maintenance/section2deck5starboard)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "alm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4828,7 +4834,9 @@
 /obj/spawner/traps/wire_splicing/low_chance,
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "als" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/steel,
@@ -5090,15 +5098,12 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/security/maintpost)
 "alZ" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/research{
-	name = "Pod Bay";
-	req_access = list(5)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/rnd/podbay)
+/turf/simulated/floor/tiled/dark,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "ama" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/holomap{
@@ -5175,14 +5180,6 @@
 	},
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/security/maintpost)
-"ami" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/research{
-	name = "Pod Bay";
-	req_access = list(5)
-	},
-/turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/rnd/podbay)
 "amj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/item/device/radio/intercom{
@@ -5403,20 +5400,28 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "amK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/camera/network/research,
-/turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
-"amL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
+"amL" = (
+/obj/machinery/door/airlock/research{
+	name = "Pod Bay";
+	req_access = list(5)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "amM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -5425,13 +5430,17 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "amN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "amO" = (
 /obj/machinery/door/airlock/maintenance_common{
 	name = "Service Maintenance";
@@ -5545,8 +5554,33 @@
 /turf/simulated/floor/plating/under,
 /area/space)
 "anf" = (
+/obj/landmark/storyevent/midgame_stash_spawn{
+	navigation = "Section 2, floor 1.Tractor Beacon airlock."
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1379;
+	id_tag = "second_sec_4_airlock_pump";
+	name = "Second Section Airlock Pump - 4"
+	},
+/obj/machinery/airlock_sensor{
+	id_tag = "second_sec_4_airlock_sensor";
+	name = "Second Section Airlock Sensor - 4";
+	pixel_y = -27
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	id_tag = "second_sec_4_access_console";
+	name = "Second Section Airlock Console - 4";
+	pixel_y = -27;
+	tag_airpump = "second_sec_4_airlock_pump";
+	tag_chamber_sensor = "second_sec_4_airlock_sensor";
+	tag_exterior_door = "second_sec_4_airlock_door_ext";
+	tag_interior_door = "second_sec_4_airlock_door_int"
+	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "ang" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -6129,7 +6163,9 @@
 /area/eris/maintenance/section2deck5port)
 "aoy" = (
 /turf/simulated/wall/r_wall,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aoz" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "second_sec_2_access_console";
@@ -6231,12 +6267,16 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck5port)
 "aoI" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/obj/machinery/door/airlock/research{
+	name = "Pod Bay";
+	req_access = list(5)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aoJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -6247,32 +6287,39 @@
 	pixel_x = -22
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
-"aoK" = (
-/obj/machinery/suit_storage_unit/standard_unit,
-/turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aoL" = (
 /obj/structure/multiz/stairs/active/bottom{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aoM" = (
 /obj/structure/multiz/stairs/enter/bottom{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aoN" = (
 /turf/simulated/floor/reinforced,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aoO" = (
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/reinforced,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aoP" = (
 /obj/structure/table/rack,
 /obj/spawner/lowkeyrandom,
@@ -6329,17 +6376,25 @@
 	dir = 5
 	},
 /obj/landmark/storyevent/hidden_vent_antag,
-/turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
-"aoY" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/mechanical{
-	pixel_x = -2;
-	pixel_y = -1
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "West APC";
+	pixel_x = -28
 	},
-/obj/item/clothing/head/welding,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
+"aoY" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/tiled/dark,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aoZ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -6605,8 +6660,15 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "apN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6620,11 +6682,10 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/eschangarb)
 "apO" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced,
-/area/eris/rnd/podbay)
+/turf/simulated/floor/tiled/dark/danger,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "apP" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -6749,22 +6810,17 @@
 "aqa" = (
 /turf/simulated/wall,
 /area/eris/crew_quarters/bar)
-"aqb" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "West APC";
-	pixel_x = -28
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
 "aqc" = (
-/obj/structure/reagent_dispensers/fueltank,
+/obj/structure/table/standard,
+/obj/item/weapon/storage/toolbox/mechanical{
+	pixel_x = -2;
+	pixel_y = -1
+	},
+/obj/item/clothing/head/welding,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aqd" = (
 /obj/machinery/recharge_station,
 /obj/machinery/light{
@@ -6807,14 +6863,6 @@
 	},
 /turf/simulated/floor/tiled/steel/bar_flat,
 /area/eris/crew_quarters/bar)
-"aqh" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
 "aqi" = (
 /obj/machinery/firealarm{
 	pixel_y = 28
@@ -6919,16 +6967,16 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck5port)
 "aqr" = (
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -26
-	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aqs" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aqt" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/steel,
@@ -6941,14 +6989,24 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -26
+	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aqw" = (
 /obj/machinery/camera/network/research{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aqx" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -6956,7 +7014,9 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aqy" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -7092,7 +7152,9 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aqM" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -7215,8 +7277,21 @@
 	dir = 1;
 	pixel_y = -28
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1379;
+	master_tag = "second_sec_4_access_console";
+	name = "Tractor Beacon Airlock, External Access";
+	pixel_x = 32;
+	pixel_y = 25
+	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aqZ" = (
 /obj/structure/catwalk,
 /obj/structure/cable/green{
@@ -7284,17 +7359,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck5starboard)
-"are" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "second_sec_4_airlock_door_ext";
-	locked = 1;
-	name = "External Second Section Airlock - 4"
-	},
-/obj/machinery/shield_diffuser,
-/turf/simulated/floor/tiled/steel/cargo,
-/area/eris/maintenance/section2deck5starboard)
 "arf" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -7334,18 +7398,19 @@
 /area/eris/crew_quarters/toilet/medbay)
 "arj" = (
 /obj/machinery/light,
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/reinforced,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "ark" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1379;
-	master_tag = "second_sec_4_access_console";
-	name = "Second Section External Access Button - 4";
-	pixel_y = -25
+/obj/machinery/light{
+	dir = 1
 	},
-/turf/simulated/floor/hull,
-/area/space)
+/turf/simulated/floor/reinforced,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "arl" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
@@ -7549,13 +7614,10 @@
 /turf/simulated/wall,
 /area/eris/maintenance/section3deck5starboard)
 "arJ" = (
-/obj/machinery/airlock_sensor{
-	id_tag = "second_sec_4_airlock_sensor";
-	name = "Second Section Airlock Sensor - 4";
-	pixel_y = -27
-	},
-/turf/simulated/floor/tiled/steel/techfloor,
-/area/eris/maintenance/section2deck5starboard)
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "arK" = (
 /obj/structure/toilet{
 	dir = 4
@@ -7575,27 +7637,6 @@
 	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
-"arM" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	id_tag = "second_sec_4_access_console";
-	name = "Second Section Airlock Console - 4";
-	pixel_y = -27;
-	tag_airpump = "second_sec_4_airlock_pump";
-	tag_chamber_sensor = "second_sec_4_airlock_sensor";
-	tag_exterior_door = "second_sec_4_airlock_door_ext";
-	tag_interior_door = "second_sec_4_airlock_door_int"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1379;
-	id_tag = "second_sec_4_airlock_pump";
-	name = "Second Section Airlock Pump - 4"
-	},
-/obj/landmark/storyevent/midgame_stash_spawn{
-	navigation = "Section 2, floor 1. Maint airlock 4. Its near Emergency Pod."
-	},
-/turf/simulated/floor/tiled/steel/techfloor,
-/area/eris/maintenance/section2deck5starboard)
 "arN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -7858,14 +7899,7 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck5starboard)
 "asm" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "second_sec_4_airlock_door_int";
-	locked = 1;
-	name = "Internal Second Section Airlock - 4"
-	},
-/turf/simulated/floor/tiled/steel/cargo,
+/turf/simulated/wall,
 /area/eris/maintenance/section2deck5starboard)
 "asn" = (
 /obj/machinery/door/firedoor,
@@ -7876,8 +7910,20 @@
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/maintenance/section3deck5port)
 "aso" = (
-/turf/simulated/wall,
-/area/eris/rnd/podbay)
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "second_sec_4_airlock_door_int";
+	locked = 1;
+	name = "Internal Second Section Airlock - 4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "asp" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -8027,15 +8073,11 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck5port)
 "asF" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1379;
-	master_tag = "second_sec_4_access_console";
-	name = "Second Section Internal Access Button - 4";
-	pixel_y = 25
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section2deck5starboard)
+/obj/structure/jtb_pillar,
+/turf/simulated/floor/tiled/dark/danger,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "asG" = (
 /obj/structure/railing{
 	dir = 8
@@ -8674,8 +8716,11 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck5port)
 "auq" = (
-/turf/simulated/floor/tiled/dark/cargo,
-/area/eris/rnd/podbay)
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/reinforced,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aur" = (
 /obj/structure/closet/crate/trashcart,
 /obj/item/device/radio/intercom{
@@ -15570,7 +15615,9 @@
 	},
 /obj/spawner/flora/low_chance,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aMe" = (
 /obj/structure/railing{
 	dir = 4
@@ -21416,12 +21463,16 @@
 "aZd" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aZe" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/camera/network/research,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aZf" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/firealarm{
@@ -21429,14 +21480,18 @@
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aZg" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aZh" = (
 /obj/structure/table/rack,
 /obj/machinery/door/blast/shutters/glass{
@@ -21455,11 +21510,15 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aZj" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "aZk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -25290,7 +25349,9 @@
 "bhc" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "bhd" = (
 /obj/machinery/door/airlock/multi_tile/metal/mait{
 	name = "Service Maintenance"
@@ -25468,13 +25529,17 @@
 	dir = 8
 	},
 /turf/simulated/open,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "bhy" = (
 /obj/structure/multiz/stairs/enter{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "bhz" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/phoron,
@@ -29458,7 +29523,9 @@
 	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "bqp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/steel/gray_perforated,
@@ -29801,7 +29868,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay)
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "brk" = (
 /obj/machinery/atmospherics/pipe/zpipe/up{
 	dir = 1
@@ -103714,6 +103783,14 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/command/mbo/quarters)
+"eYZ" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "eZk" = (
 /obj/machinery/slotmachine,
 /turf/simulated/floor/tiled/steel/bar_light,
@@ -103770,6 +103847,18 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
+"fmo" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1379;
+	master_tag = "second_sec_4_access_console";
+	name = "Second Section External Access Button - 4";
+	pixel_y = -25
+	},
+/turf/simulated/floor/reinforced,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "fmD" = (
 /obj/structure/catwalk,
 /obj/effect/decal/cleanable/blood/drip,
@@ -104081,6 +104170,10 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2port)
+"gzo" = (
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/hallway/side/eschangarb)
 "gzZ" = (
 /obj/structure/disposalpipe/up{
 	dir = 1
@@ -104421,6 +104514,14 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck5central)
+"hGZ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "hHz" = (
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
@@ -105212,6 +105313,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
+"kmM" = (
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/tiled/dark/danger,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "kmV" = (
 /obj/structure/multiz/stairs/enter{
 	dir = 8
@@ -105616,6 +105723,19 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
+"lve" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "second_sec_4_airlock_door_ext";
+	locked = 1;
+	name = "External Second Section Airlock - 4"
+	},
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "lwl" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark/techfloor,
@@ -105892,6 +106012,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/disposaldrop)
+"msg" = (
+/obj/machinery/light,
+/turf/simulated/floor/reinforced,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "msk" = (
 /obj/structure/closet/wardrobe/color/grey,
 /turf/simulated/floor/tiled/white/gray_platform,
@@ -106247,6 +106373,12 @@
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
+	})
+"niC" = (
+/obj/machinery/computer/jtb_console,
+/turf/simulated/floor/reinforced,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
 	})
 "niK" = (
 /obj/structure/closet/crate,
@@ -107410,6 +107542,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall,
 /area/eris/crew_quarters/clothingstorage)
+"rnl" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/hallway/side/eschangarb)
 "roQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel/cargo,
@@ -109283,6 +109419,14 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemstor)
+"xRA" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/danger,
+/area/eris/rnd/podbay{
+	name = "Tractor Beacon"
+	})
 "xRV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -131471,8 +131615,8 @@ all
 aoy
 aoy
 apJ
-apJ
-apJ
+rnl
+gzo
 apJ
 apJ
 apJ
@@ -131673,7 +131817,7 @@ amM
 alZ
 aoJ
 aoX
-aqb
+aqr
 aqr
 aqv
 aqL
@@ -131872,10 +132016,10 @@ anF
 aoy
 amK
 amN
-ami
-amL
+aqr
+hGZ
 apM
-aqh
+aqx
 aMd
 aqx
 aqx
@@ -132075,7 +132219,7 @@ aoy
 amL
 aoI
 aoy
-aoK
+aoY
 aoY
 aqc
 aqs
@@ -132479,10 +132623,10 @@ aoy
 aoL
 aoL
 aoy
-aoN
-aoN
-aoN
-aoN
+auq
+niC
+eYZ
+auq
 ajw
 anf
 aoy
@@ -132686,7 +132830,7 @@ aoN
 aoN
 aoN
 aoy
-aso
+lve
 aoy
 aru
 asj
@@ -132881,14 +133025,14 @@ agn
 anF
 aoy
 aoN
+auq
 aoN
 aoN
+auq
 aoN
 aoN
-aoN
-aoN
-aoN
-aoN
+auq
+fmo
 aoy
 aru
 asj
@@ -133084,11 +133228,11 @@ anF
 aoy
 aoO
 aoN
-aoN
-aoN
-aoN
-aoN
-aoN
+asF
+apO
+apO
+apO
+asF
 aoN
 arj
 aoy
@@ -133286,11 +133430,11 @@ amE
 aoy
 aoN
 aoN
-aoN
-aoN
-aoN
-aoN
-aoN
+apO
+kmM
+apO
+kmM
+apO
 aoN
 aoN
 aoy
@@ -133486,15 +133630,15 @@ dUP
 anm
 anp
 aoy
-aoO
-aoN
-aoN
-aoN
-aoN
-aoN
-aoN
-aoN
-arj
+ark
+auq
+apO
+apO
+apO
+apO
+apO
+auq
+msg
 aoy
 aru
 asg
@@ -133690,11 +133834,11 @@ anp
 aoy
 aoN
 aoN
-aoN
-aoN
 apO
-aoN
-aoN
+kmM
+apO
+kmM
+apO
 aoN
 aoN
 aoy
@@ -133891,13 +134035,13 @@ ano
 anp
 aoy
 auq
-auq
-auq
-auq
-aoy
-auq
-auq
-auq
+aoN
+asF
+apO
+xRA
+apO
+asF
+aoN
 auq
 aoy
 aru
@@ -134091,17 +134235,17 @@ dMo
 dWf
 anm
 anp
-dMo
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-dMo
+aoy
+arJ
+arJ
+arJ
+arJ
+aoy
+arJ
+arJ
+arJ
+arJ
+aoy
 arC
 ask
 dUP
@@ -134508,7 +134652,7 @@ aaa
 dMo
 dMo
 dMo
-asF
+dUP
 dMo
 aaa
 aaa
@@ -134908,9 +135052,9 @@ aaa
 aaa
 aaa
 aaa
-ark
+aaa
 dMo
-arJ
+arF
 dMo
 dUP
 dMo
@@ -135110,9 +135254,9 @@ acR
 acR
 acR
 acR
-abF
-are
-arM
+acR
+asm
+arF
 dMo
 dUP
 dMo
@@ -135312,7 +135456,7 @@ aaa
 aaa
 aaa
 aaa
-abF
+acR
 dMo
 arN
 dMo
