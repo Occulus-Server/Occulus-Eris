@@ -9,5 +9,12 @@
 							/datum/design/autolathe/tool/chainsaw,
 							/datum/design/autolathe/tool/hypersaw,
 							/datum/design/autolathe/tool/rcd,
-							/datum/design/autolathe/tool/rcd_ammo
+							/datum/design/autolathe/tool/rcd_ammo,
+							/datum/design/research/item/holochip/alarm_mon
 							)
+
+/datum/technology/supplyanddemand
+
+	unlocks_designs = list(	/datum/design/research/circuit/ordercomp,
+							/datum/design/research/circuit/supplycomp,
+							/datum/design/research/item/holochip/marketpro)

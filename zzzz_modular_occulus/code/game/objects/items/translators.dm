@@ -96,8 +96,3 @@
 /datum/design/research/item/translator/ear
 	name = "Translator Earpiece"
 	build_path = /obj/item/device/universal_translator/ear
-
-/datum/technology/radio_transmission
-	unlocks_designs = list(/datum/design/research/item/translator,
-							/datum/design/research/item/translator/ear
-							)

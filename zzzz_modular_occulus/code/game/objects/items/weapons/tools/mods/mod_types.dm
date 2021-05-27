@@ -132,3 +132,5 @@
 	I.required_qualities = list(QUALITY_BOLT_TURNING,QUALITY_PRYING,QUALITY_HAMMERING)
 	I.negative_qualities = list(QUALITY_DIGGING, QUALITY_SHOVELING, QUALITY_EXCAVATION)
 
+/obj/item/weapon/tool_upgrade/productivity/antistaining
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PHORONGLASS = 2)
