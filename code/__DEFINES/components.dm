@@ -86,6 +86,11 @@
 #define COMSIG_OBJ_HIDE	"obj_hide"
 
 //machinery
+#define COMSIG_AREA_APC_OPERATING "area_operating"  //from apc process()
+#define COMSIG_AREA_APC_DELETED "area_apc_gone"
+#define COMSIG_AREA_APC_POWER_CHANGE "area_apc_power_change"
+#define COMSING_DESTRUCTIVE_ANALIZER "destructive_analizer"
+#define COMSIG_TURRENT "create_turrent"
 
 // /obj/item signals
 #define COMSIG_IATTACK "item_attack"									//from /mob/ClickOn(): (/atom, /src, /params) If any reply to this returns TRUE, overrides attackby and afterattack
