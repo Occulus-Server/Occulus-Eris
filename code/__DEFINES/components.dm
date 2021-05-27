@@ -53,6 +53,8 @@
 #define CONSIG_TURF_LEVELUPDATE "turf_levelupdate" //levelupdate()
 // /atom/movable signals
 #define COMSIG_MOVABLE_MOVED "movable_moved"					//from base of atom/movable/Moved(): (/atom, origin_loc, new_loc)
+#define COMSIG_MOVABLE_Z_CHANGED "movable_z_moved"				//from base of atom/movable/onTransitZ(): (oldz, newz)
+#define COMSIG_MOVABLE_PREMOVE "moveable_boutta_move"
 
 // /mob signals
 #define COMSIG_MOB_LIFE  "mob_life"                             //from mob/Life()
@@ -65,7 +67,10 @@
 #define COMSIG_CARBON_ELECTROCTE "carbon_electrocute act"       //mob/living/carbon/electrocute_act()
 
 // /mob/living/carbon/human signals
-#define COMSIG_HUMAN_SAY "human_say"                            //from mob/living/carbon/human/say(): (message)
+#define COMSIG_HUMAN_ACTIONINTENT_CHANGE "action_intent_change"
+#define COMSIG_HUMAN_WALKINTENT_CHANGE "walk_intent_change"
+#define COMSIG_EMPTY_POCKETS "human_empty_pockets"
+#define COMSIG_HUMAN_SAY "human_say"							//from mob/living/carbon/human/say(): (message)
 #define COMSIG_HUMAN_ROBOTIC_MODIFICATION "human_robotic_modification"
 #define COMSIG_STAT "current_stat"							   //current stat
 #define COMSIG_HUMAN_BREAKDOWN "human_breakdown"
@@ -81,25 +86,43 @@
 #define COMSIG_OBJ_HIDE	"obj_hide"
 
 //machinery
+#define COMSIG_AREA_APC_OPERATING "area_operating"  //from apc process()
+#define COMSIG_AREA_APC_DELETED "area_apc_gone"
+#define COMSIG_AREA_APC_POWER_CHANGE "area_apc_power_change"
+#define COMSING_DESTRUCTIVE_ANALIZER "destructive_analizer"
+#define COMSIG_TURRENT "create_turrent"
 
 // /obj/item signals
 #define COMSIG_IATTACK "item_attack"									//from /mob/ClickOn(): (/atom, /src, /params) If any reply to this returns TRUE, overrides attackby and afterattack
 #define COMSIG_ATTACKBY "attack_by"										//from /mob/ClickOn():
 #define COMSIG_APPVAL "apply_values"									//from /atom/refresh_upgrades(): (/src) Called to upgrade specific values
 #define COMSIG_ADDVAL "add_values" 										//from /atom/refresh_upgrades(): (/src) Called to add specific things to the /src, called before COMSIG_APPVAL
-#define COMSIG_REMOVE "uninstall"										//from  /obj/item/weapon/tool/attackby(): Called to remove an upgrade
+#define COMSIG_REMOVE "uninstall"	
+#define COMSIG_ITEM_DROPPED	"item_dropped"					//from  /obj/item/weapon/tool/attackby(): Called to remove an upgrade
+#define COMSIG_ITEM_PICKED "item_picked"
+
 // /obj/item/clothing signals
+#define COMSIG_CLOTH_DROPPED "cloths_missing"
+#define COMSIG_CLOTH_EQUIPPED "cloths_recovered"
 
 // /obj/item/implant signals
 
 // /obj/item/pda signals
 
 // /obj/item/radio signals
+#define COMSIG_MESSAGE_SENT "radio_message_sent"
+#define COMSIG_MESSAGE_RECEIVED "radio_message_received"
 
 /*******Component Specific Signals*******/
 //Janitor
 
 // /datum/component/storage signals
+#define COMSIG_STORAGE_INSERTED "item_inserted"
+#define COMSIG_STORAGE_TAKEN "item_taken"
+#define COMSIG_STORAGE_OPENED "new_backpack_who_dis"
+
+// OVERMAP
+#define COMSIG_SHIP_STILL "ship_still" // /obj/effect/overmap/ship/Process() && is_still()
 
 /*******Non-Signal Component Related Defines*******/
 
