@@ -49,7 +49,7 @@
 	var/inject_self = SELF_INJECT
 	var/quickload = FALSE
 	var/penetrates = FALSE
-	var/mode = 0
+	var/mode = 1
 	var/window_width = 400
 	var/window_height = 200
 	var/scan_title
@@ -120,10 +120,10 @@
 
 	mode = !mode
 	switch (mode)
-		if(0)
+		if(1)
 			to_chat(usr, "You open up the [src]'s data tab")
 			update_icon()
-		if(1)
+		if(0)
 			to_chat(usr, "You close the [src]'s data tab")
 			update_icon()
 
