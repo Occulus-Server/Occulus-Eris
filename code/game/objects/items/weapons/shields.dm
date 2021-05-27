@@ -32,8 +32,12 @@
 /obj/item/weapon/shield
 	name = "shield"
 	armor = list(melee = 20, bullet = 20, energy = 20, bomb = 0, bio = 0, rad = 0)
-	var/base_block_chance = 30	// OCCULUS EDIT: Less block chance
+	var/base_block_chance = 35	// OCCULUS EDIT: Less block chance / hey what if we got 5% more chance -tori
 	var/slowdown_time = 1
+//OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
+	var/list/armor_carry = list(melee = 0, bullet = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	var/list/armor_brace = list(melee = 20, bullet = 20, energy = 20, bomb = 0, bio = 0, rad = 0)
+//OCCULUS EDIT END
 
 /obj/item/weapon/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())
@@ -112,11 +116,11 @@
 		return
 	if(MOVING_QUICKLY(picking_human))
 		item_state = "[initial(item_state)]_run"
-		armor = list(melee = 0, bullet = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+		armor = getArmor(arglist(armor_carry)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
 		visible_message("[picking_human] lowers [gender_datums[picking_human.gender].his] [src.name].")
 	else
 		item_state = "[initial(item_state)]_walk"
-		armor = initial(armor)
+		armor = getArmor(arglist(armor_brace)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
 		visible_message("[picking_human] raises [gender_datums[picking_human.gender].his] [src.name] to cover [gender_datums[picking_human.gender].him]self!")
 	update_wear_icon()
 
