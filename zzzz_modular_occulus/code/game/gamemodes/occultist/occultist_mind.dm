@@ -35,3 +35,10 @@
 		purchasePower(href_list["P"])
 		KnowledgeMenu()
 	..()
+
+/obj/item/organ/internal/brain/occultist/proc/spendpoints(var/amount)
+	if(madnesspoints > amount)
+		return FALSE
+	else
+		madnesspoints -= amount
+		return TRUE
