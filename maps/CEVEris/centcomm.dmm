@@ -815,7 +815,7 @@
 "qH" = (/obj/effect/shuttle_landmark/escape_pod/transit/pod2,/turf/space,/area/space)
 "qI" = (/obj/map_data/admin,/turf/space,/area/space)
 "rT" = (/obj/structure/table/rack,/obj/item/weapon/storage/backpack/satchel/military,/obj/item/weapon/storage/backpack/satchel/military,/obj/item/weapon/storage/backpack/satchel/military,/obj/item/weapon/storage/backpack/satchel/military,/obj/item/weapon/storage/backpack/satchel/military,/obj/item/weapon/storage/backpack/satchel/military,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/merc_base)
-"sb" = (/obj/machinery/embedded_controller/radio/simple_docking_controller{frequency = 1380; id_tag = "escape_pod_2_recovery"; pixel_x = 25; pixel_y = 0; req_one_access = list(13); tag_door = "escape_pod_2_recovery_hatch"},/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"sb" = (/obj/machinery/embedded_controller/radio/simple_docking_controller{frequency = 1380; id_tag = "escape_pod_1_recovery_hatch"; pixel_x = 25; req_one_access = list(13); tag_door = "escape_pod_1_recovery_hatch"},/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "wu" = (/obj/item/weapon/caution/cone,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "Bw" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/obj/structure/medical_stand/anesthetic,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "BW" = (/obj/effect/floor_decal/industrial/warning{dir = 5},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
