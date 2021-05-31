@@ -2835,6 +2835,7 @@
 #include "zzzz_modular_occulus\code\game\gamemodes\occultist\modular_occultist.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\occultist\occultist_mind.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\occultist\occultist_powers.dm"
+#include "zzzz_modular_occulus\code\game\gamemodes\occultist\occultist_weapons.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\storytellers\storyevent.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\storytellers\storytellers.dm"
 #include "zzzz_modular_occulus\code\game\jobs\department.dm"
