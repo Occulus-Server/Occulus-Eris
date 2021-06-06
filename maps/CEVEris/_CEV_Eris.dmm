@@ -20556,9 +20556,9 @@
 /turf/simulated/wall/r_wall,
 /area/eris/maintenance/substation/section1)
 "aXi" = (
-/mob/living/carbon/human/monkey,
-/turf/simulated/floor/reinforced,
-/area/eris/medical/virology)
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section1deck2central)
 "aXj" = (
 /obj/structure/sign/atmos_air{
 	pixel_y = 32
@@ -20721,7 +20721,6 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/virology)
 "aXD" = (
@@ -20858,7 +20857,6 @@
 /obj/machinery/camera/network/medbay{
 	dir = 4
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/virology)
 "aXR" = (
@@ -20888,7 +20886,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/virology)
 "aXU" = (
@@ -26823,6 +26820,8 @@
 	dir = 8;
 	pixel_x = 24
 	},
+/obj/item/weapon/storage/box/monkeycubes,
+/obj/item/weapon/extinguisher,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/virology)
 "bkq" = (
@@ -56047,10 +56046,10 @@
 /turf/simulated/floor/plating,
 /area/eris/hallway/side/atmosphericshallway)
 "cAP" = (
-/obj/machinery/vending/cigarette,
 /obj/machinery/camera/network/command{
 	dir = 1
 	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/meeting_room)
 "cAQ" = (
@@ -68159,6 +68158,7 @@
 /obj/machinery/holoposter{
 	pixel_x = -32
 	},
+/obj/machinery/vending/cigarette,
 /turf/simulated/floor/wood,
 /area/eris/command/bridgebar)
 "ddF" = (
@@ -74270,9 +74270,18 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/drone_fabrication)
 "dqX" = (
-/mob/living/carbon/human/monkey,
-/turf/simulated/floor/reinforced,
-/area/eris/medical/genetics)
+/obj/spawner/medical/low_chance,
+/obj/spawner/medical/low_chance,
+/obj/structure/table/rack/shelf,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/item/weapon/storage/box/monkeycubes,
+/turf/simulated/floor/tiled/steel/gray_platform,
+/area/eris/medical/chemstor)
 "dqY" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
 /turf/simulated/floor/tiled/white/panels,
@@ -74309,7 +74318,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/genetics)
 "dre" = (
@@ -74340,7 +74348,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/genetics)
 "dri" = (
@@ -105759,7 +105766,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
 "lyk" = (
@@ -106351,7 +106357,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
 "nfk" = (
@@ -107963,7 +107968,6 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2port)
 "sJL" = (
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
 "sJQ" = (
@@ -164346,9 +164350,9 @@ crY
 abF
 abF
 bpE
-aXi
 aWY
-aXi
+aWY
+aWY
 bpE
 aaa
 aaa
@@ -164752,7 +164756,7 @@ biG
 bsh
 aXC
 aYh
-aXi
+aWY
 bpE
 aaa
 aaa
@@ -252202,7 +252206,7 @@ diN
 dkA
 dmi
 dek
-bKI
+aXi
 bKI
 bPe
 aaa
@@ -288991,7 +288995,7 @@ egQ
 wXf
 dQb
 dRa
-uYg
+dqX
 dSB
 xuA
 lwA
@@ -296461,9 +296465,9 @@ cWx
 cZH
 drw
 ebi
-dqX
+dmV
 drb
-dqX
+dmV
 elb
 emg
 enh
@@ -296865,7 +296869,7 @@ cZx
 drk
 drJ
 ebi
-dqX
+dmV
 drf
 drh
 eaT
