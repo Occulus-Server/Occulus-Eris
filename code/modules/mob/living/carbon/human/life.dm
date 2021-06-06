@@ -32,13 +32,17 @@
 	var/fire_alert = FIRE_ALERT_NONE
 	var/pressure_alert = 0
 	var/temperature_alert = 0
-	var/in_stasis = 0
+	var/in_stasis = FALSE
+	var/stasis_timeofdeath = 0
 	var/pulse = PULSE_NORM
 	var/global/list/overlays_cache = null
 
 /mob/living/carbon/human/Life()
 	set invisibility = 0
 	set background = BACKGROUND_ENABLED
+
+	if(in_stasis && (stat == DEAD))
+		timeofdeath = world.time - stasis_timeofdeath
 
 	if (HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
 		return
@@ -53,7 +57,7 @@
 	if(wearing_rig && wearing_rig.offline)
 		wearing_rig = null
 
-	..()
+	. = ..()
 
 	if(life_tick%30==15)
 		hud_updateflag = 1022
@@ -61,7 +65,7 @@
 	voice = GetVoice()
 
 	//No need to update all of these procs if the guy is dead.
-	if(stat != DEAD && !in_stasis)
+	if(. && !in_stasis)
 
 		//Organs and blood
 		handle_organs()
@@ -100,8 +104,8 @@
 
 /mob/living/carbon/human/proc/handle_some_updates()
 	if(life_tick > 5 && timeofdeath && (timeofdeath < 5 || world.time - timeofdeath > 6000))	//We are long dead, or we're junk mobs spawned like the clowns on the clown shuttle
-		return 0
-	return 1
+		return FALSE
+	return TRUE
 
 /mob/living/carbon/human/breathe()
 	if(!in_stasis)
@@ -1234,3 +1238,12 @@
 		return
 	if(XRAY in mutations)
 		sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+
+/mob/living/carbon/human/proc/EnterStasis()
+	in_stasis = TRUE
+	stasis_timeofdeath = world.time - timeofdeath
+
+
+/mob/living/carbon/human/proc/ExitStasis()
+	in_stasis = FALSE
+	stasis_timeofdeath = 0

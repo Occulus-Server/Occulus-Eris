@@ -59,7 +59,7 @@
 	camera_networks = list(NETWORK_MERCENARY)
 	light_overlay = "helmet_light_ihs"
 
-/obj/item/clothing/head/space/void/merc/update_icon()
+/obj/item/clothing/head/space/void/merc/on_update_icon()
 	..()
 	if(on)
 		icon_state = "syndiehelm_on"
@@ -90,6 +90,9 @@
 /obj/item/clothing/suit/space/void/merc/equipped
 	boots = /obj/item/clothing/shoes/magboots
 	tank = /obj/item/weapon/tank/oxygen
+	accompanying_object = null
+	spawn_blacklisted = TRUE
 
 /obj/item/clothing/suit/space/void/merc/boxed
 	tank = /obj/item/weapon/tank/emergency_oxygen/double
+	spawn_blacklisted = TRUE

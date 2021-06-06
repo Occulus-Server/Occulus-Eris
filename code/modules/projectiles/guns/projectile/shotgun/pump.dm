@@ -21,6 +21,7 @@
 	rarity_value = 16
 	recoil_buildup = 20
 	one_hand_penalty = 15 //full sized shotgun level
+	//spawn_tags = SPANW_TAG_FS_SHOTGUN
 
 /obj/item/weapon/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)

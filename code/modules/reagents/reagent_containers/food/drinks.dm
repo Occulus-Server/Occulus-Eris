@@ -9,8 +9,9 @@
 	reagent_flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 50
-	var/base_name = null // Name to put in front of drinks, i.e. "[base_name] of [contents]"
-	var/base_icon = null // Base icon name for fill states
+	bad_type = /obj/item/weapon/reagent_containers/food/drinks
+	var/base_name // Name to put in front of drinks, i.e. "[base_name] of [contents]"
+	var/base_icon // Base icon name for fill states
 
 /obj/item/weapon/reagent_containers/food/drinks/Initialize()
 	. = ..()
@@ -45,8 +46,11 @@
 
 	if(standard_pour_into(user, target))
 		return
-	if(standard_dispenser_refill(user, target))
-		return
+	// OCCULUS EDIT START - NO MORE REVERSE POURING
+	if(istype(target, /obj/structure/reagent_dispensers))
+		if(standard_dispenser_refill(user, target))
+			return
+	// OCCULUS EDIT END
 	return ..()
 
 /obj/item/weapon/reagent_containers/food/drinks/is_closed_message(mob/user)
@@ -58,9 +62,9 @@
 /obj/item/weapon/reagent_containers/food/drinks/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
-/obj/item/weapon/reagent_containers/food/drinks/update_icon()
+/obj/item/weapon/reagent_containers/food/drinks/on_update_icon()
 	cut_overlays()
-	if(reagents.total_volume)
+	if(reagents && reagents.total_volume)
 		if(base_name)
 			var/datum/reagent/R = reagents.get_master_reagent()
 			SetName("[base_name] of [R.glass_name ? R.glass_name : "something"]")
@@ -96,8 +100,7 @@
 		if(reagents.total_volume > 30) // 30 equates to 3 SECONDS.
 			usr.visible_message(SPAN_NOTICE("[usr] prepares to gulp down [src]."), SPAN_NOTICE("You prepare to gulp down [src]."))
 		if(!do_after(usr, reagents.total_volume))
-			if(Adjacent(usr))
-				standard_splash_mob(src, src)
+			standard_splash_mob(usr, usr)
 			return
 
 		if(!Adjacent(usr))
@@ -192,8 +195,8 @@
 	volume = 10
 	center_of_mass = list("x"=16, "y"=12)
 
-/obj/item/weapon/reagent_containers/food/drinks/sillycup/update_icon()
-	if(reagents.total_volume)
+/obj/item/weapon/reagent_containers/food/drinks/sillycup/on_update_icon()
+	if(reagents && reagents.total_volume)
 		icon_state = "water_cup"
 	else
 		icon_state = "water_cup_e"

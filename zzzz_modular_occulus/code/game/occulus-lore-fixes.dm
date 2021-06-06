@@ -147,8 +147,19 @@
 	desc = "A vest with hand and arm-guards attached that excels in protecting the wearer against high-velocity solid projectiles. \
 			This one has been done in Aegis Security colors."
 
+/obj/item/clothing/suit/armor/vest/full/ironhammer
+	desc = "An armored vest painted in Aegis Security colors. This one has shoulderpads and knee pads included to protect all parts of the body."
+
 /obj/item/weapon/tool/knife/neotritual
 	name = "Mekhane ritual knife"
+
+
+/obj/item/clothing/head/armor/bulletproof/ironhammer_full
+	desc = "Standard-issue Aegis ballistic helmet with a basic HUD included, covers the operator's entire face."
+
+/obj/item/weapon/emp_mine
+	name = "SDF EMP Mine"
+	desc = "Self-rechargeable EMP Skrellian mine. Not just a small holoplant."
 
 //Mech
 /mob/living/exosuit/premade/powerloader
@@ -190,3 +201,34 @@
 	desc = "This unidentified tar-like liquid warps and bends reality around it. Applying it to a tool may have unexpected results."
 	matter = list(MATERIAL_PHORON = 4, MATERIAL_URANIUM = 4)
 	rarity_value = 100
+
+/obj/machinery/autolathe/bioprinter
+	name = "Mekhane Bioprinter"
+	desc = "Mekhane's machine for printing things using biomass."
+
+/obj/item/weapon/grenade/frag
+	name = "FS DFG \"Pomme\""
+
+//Machines
+/obj/machinery/microwave
+	name = "GenTech Autocooker 5000"
+	desc = "From the company that brought you the Absolute Zero Fridge comes the Autocooker 5000! Dinner, desserts, shellfish, it does it all!"
+
+//One Star
+
+/obj/item/organ/external/robotic/one_star
+	name = "One star"
+	desc = "Advanced, extremly resileant and mobile prosthetic. Far beyond today's robotics advancements."
+
+/obj/item/weapon/tool/pickaxe/onestar
+	name = "One Star pickaxe"
+	desc = "A standard One Star basic tool. Uses advanced technology which makes it powerful and energy-efficent at the same time."
+
+
+/obj/item/weapon/tool/pickaxe/jackhammer/onestar
+	name = "One Star jackhammer"
+	desc = "A heavy One Star tool that cracks rocks with blasts, perfect for killing flimsy organics"
+
+/obj/structure/sign/faction/one_star
+	name = "One Star"
+	desc = "One Star's all-seeing eye, a banner of a now fallen empire. They once controlled this sector from their capital in Nullspace. Now it's all just dust, forgotten derelicts, and automated ships."

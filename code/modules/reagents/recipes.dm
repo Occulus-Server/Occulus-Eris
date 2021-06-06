@@ -601,7 +601,7 @@
 
 /datum/chemical_reaction/explosion_potassium/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
-	e.set_up(round (created_volume/10, 1), holder.my_atom, 0, 0)
+	e.set_up(round (created_volume/45, 1), holder.my_atom, 0, 0) // 600/45 = 13.3 , 13/3 = 4-3 light-range , slightly weaker than a cracker.
 	if(isliving(holder.my_atom))
 		e.amount *= 0.5
 		var/mob/living/L = holder.my_atom
@@ -631,7 +631,7 @@
 						continue
 
 				if (M.HUDtech.Find("flash"))
-					flick("e_flash", M.HUDtech["flash"])
+					FLICK("e_flash", M.HUDtech["flash"])
 				M.Weaken(15)
 
 			if(4 to 5)
@@ -640,7 +640,7 @@
 						continue
 
 				if (M.HUDtech.Find("flash"))
-					flick("e_flash", M.HUDtech["flash"])
+					FLICK("e_flash", M.HUDtech["flash"])
 				M.Stun(5)
 
 /datum/chemical_reaction/emp_pulse
@@ -1022,7 +1022,13 @@
 	required_reagents = list("phoron" = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/gold
-	mix_message = "The slime core fizzles disappointingly."
+	mix_message = "The slime extract begins to vibrate violently!"
+
+/datum/chemical_reaction/slime/crit/on_reaction(var/datum/reagents/holder)
+	for(var/i = 1 to 2)
+		var/roachcube = pick(subtypesof(/obj/item/weapon/reagent_containers/food/snacks/roachcube))
+		new roachcube(get_turf(holder.my_atom))
+	..()
 
 //Silver
 /datum/chemical_reaction/slime/bork
@@ -1037,7 +1043,7 @@
 	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
 			if (M.HUDtech.Find("flash"))
-				flick("e_flash", M.HUDtech["flash"])
+				FLICK("e_flash", M.HUDtech["flash"])
 
 	for(var/i = 1, i <= 4 + rand(1,2), i++)
 		var/chosen = pick(borks)
@@ -2096,3 +2102,8 @@
 	result = "nanovoice"
 	required_reagents = list("uncap nanites" = 1, "synaptizine" = 1)
 	result_amount = 1
+
+/*/datum/chemical_reaction/rejuvenating_agent Occulus Edit: Goodnight sweet prince
+	result = "rejuvetaning_agent"
+	required_reagents = list("cleaner" = 2, "pacid" = 1, "sulfur" = 1)
+	result_amount = 2 Occulus Edit: Goodnight sweet prince*/

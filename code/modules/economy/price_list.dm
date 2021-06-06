@@ -948,29 +948,8 @@
 //----Smokes-----//
 //***************//
 
-/obj/item/weapon/storage/fancy/cigarettes
-	price_tag = 150
-
-/obj/item/weapon/storage/fancy/cigarettes/luckystars
-	price_tag = 170
-
-/obj/item/weapon/storage/fancy/cigarettes/jerichos
-	price_tag = 220
-
-/obj/item/weapon/storage/fancy/cigarettes/menthols
-	price_tag = 180
-
-/obj/item/weapon/storage/fancy/cigar
-	price_tag = 270
-
-/obj/item/weapon/storage/fancy/cigarettes/carcinomas
-	price_tag  = 230
-
-/obj/item/weapon/storage/fancy/cigarettes/professionals
-	price_tag = 250
-
-/obj/item/weapon/storage/box/matches
-	price_tag = 10
+/obj/item/clothing/mask/smokable
+	price_tag = 5 //cigarette monopoly no more
 
 /obj/item/weapon/flame/lighter
 	price_tag = 20
@@ -1025,6 +1004,7 @@
 
 /obj/item/weapon/stock_parts
 	price_tag = 100
+
 /obj/item/weapon/stock_parts/get_item_cost(export)
 	. = ..() * rating
 
@@ -1054,6 +1034,7 @@
 	. += (. / 25 * reagents?.total_volume)
 
 /obj/item/ammo_magazine/price_tag = 60
+
 /obj/item/ammo_magazine/ammobox/price_tag = 40
 
 /obj/item/ammo_magazine/get_item_cost(export)

@@ -24,7 +24,11 @@ GLOBAL_LIST_INIT(music_tracks, list(
 	"Exploring" = /music_track/exploring,
 	"The Runner in Motion" = /music_track/runner,
 	"Neotheology" = /music_track/neotheology,
-	"Downtown 2" = /music_track/downtown
+	"Downtown 2" = /music_track/downtown,
+	"Hyperspace" = /music_track/hyperspace, //All these Astrometrics tracks are OCCULUS
+	"Hitchhiking" = /music_track/heardofaplace,
+	"Ram it" = /music_track/snout,
+	"Pirate Hunting" = /music_track/starbase
 ))
 
 /proc/setup_music_tracks(var/list/tracks)

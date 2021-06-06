@@ -1,4 +1,8 @@
 /obj/item/organ/internal
+	layer = ABOVE_LYING_MOB_LAYER
+	origin_tech = list(TECH_BIO = 2)
+	bad_type = /obj/item/organ/internal
+	spawn_tags = SPAWN_TAG_ORGAN_INTERNAL
 	var/list/owner_verbs = list()
 	var/list/organ_efficiency = list()	//Efficency of an organ, should become the most important variable
 	var/unique_tag	//If an organ is unique and doesn't scale off of organ processes
@@ -89,7 +93,7 @@
 	if(!damage || BP_IS_ROBOTIC(src) || !owner || owner.chem_effects[CE_TOXIN] || owner.is_asystole() || !current_blood)
 		return
 	if(damage < 0.1*max_damage)
-		owner.adjustNutrition(-(nutriment_req * 10))
+		owner.adjustNutrition(-(nutriment_req)) //Occulus Edit - Nerfing the redonk hunger loss from any organ damage by a factor of 10
 		heal_damage(0.1)
 
 /obj/item/organ/internal/examine(mob/user)

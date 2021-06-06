@@ -11,9 +11,12 @@
 */
 /datum/component/item_upgrade
 	dupe_mode = COMPONENT_DUPE_UNIQUE
+	can_transfer = TRUE
 	var/prefix = "upgraded" //Added to the tool's name
-	var/removal_time = WORKTIME_SLOW
 
+	var/removal_time = WORKTIME_SLOW
+	var/removal_difficulty = FAILCHANCE_CHALLENGING
+	var/destroy_on_removal = FALSE
 	//The upgrade can be applied to a tool that has any of these qualities
 	var/list/required_qualities = list()
 
@@ -42,21 +45,21 @@
 	return can_apply(A, user) && apply(A, user)
 
 /datum/component/item_upgrade/proc/can_apply(atom/A, mob/living/user)
-	if (isrobot(A))
+	if(isrobot(A))
 		return check_robot(A, user)
 
-	if (isitem(A))
+	if(isitem(A))
 		var/obj/item/T = A
 		//No using multiples of the same upgrade
 		for (var/obj/item/I in T.item_upgrades)
-			if (I.type == parent.type || (exclusive_type && istype(I.type, exclusive_type)))
+			if(I.type == parent.type || (exclusive_type && istype(I.type, exclusive_type)))
 				to_chat(user, SPAN_WARNING("An upgrade of this type is already installed!"))
 				return FALSE
 
-	if (istool(A))
+	if(istool(A))
 		return check_tool(A, user)
 
-	if (isgun(A))
+	if(isgun(A))
 		return check_gun(A, user)
 
 	return FALSE
@@ -78,18 +81,22 @@
 	return FALSE
 
 /datum/component/item_upgrade/proc/check_tool(obj/item/weapon/tool/T, mob/living/user)
-	if (T.item_upgrades.len >= T.max_upgrades)
+	if(!tool_upgrades.len)
+		to_chat(user, SPAN_WARNING("\The [parent] can not be attached to a tool."))
+		return FALSE
+
+	if(T.item_upgrades.len >= T.max_upgrades)
 		to_chat(user, SPAN_WARNING("This tool can't fit anymore modifications!"))
 		return FALSE
 
-	if (required_qualities.len)
+	if(required_qualities.len)
 		var/qmatch = FALSE
 		for (var/q in required_qualities)
-			if (T.ever_has_quality(q))
+			if(T.ever_has_quality(q))
 				qmatch = TRUE
 				break
 
-		if (!qmatch)
+		if(!qmatch)
 			to_chat(user, SPAN_WARNING("This tool lacks the required qualities!"))
 			return FALSE
 
@@ -99,7 +106,7 @@
 				to_chat(user, SPAN_WARNING("This tool can not accept the modification!"))
 				return FALSE
 
-	if ((req_fuel_cell & REQ_FUEL) && !T.use_fuel_cost)
+	if((req_fuel_cell & REQ_FUEL) && !T.use_fuel_cost)
 		to_chat(user, SPAN_WARNING("This tool does not use fuel!"))
 		return FALSE
 
@@ -131,7 +138,7 @@
 		to_chat(user, SPAN_WARNING("\The [parent] can not be applied to guns!"))
 		return FALSE //Can't be applied to a weapon
 
-	if (G.item_upgrades.len >= G.max_upgrades)
+	if(G.item_upgrades.len >= G.max_upgrades)
 		to_chat(user, SPAN_WARNING("This weapon can't fit anymore modifications!"))
 		return FALSE
 
@@ -152,10 +159,10 @@
 	return TRUE
 
 /datum/component/item_upgrade/proc/apply(obj/item/A, mob/living/user)
-	if (user)
+	if(user)
 		user.visible_message(SPAN_NOTICE("[user] starts applying [parent] to [A]"), SPAN_NOTICE("You start applying \the [parent] to \the [A]"))
 		var/obj/item/I = parent
-		if (!I.use_tool(user = user, target =  A, base_time = WORKTIME_FAST, required_quality = null, fail_chance = FAILCHANCE_ZERO, required_stat = STAT_MEC, forced_sound = WORKSOUND_WRENCHING))
+		if(!I.use_tool(user = user, target =  A, base_time = WORKTIME_FAST, required_quality = null, fail_chance = FAILCHANCE_ZERO, required_stat = STAT_MEC, forced_sound = WORKSOUND_WRENCHING))
 			return FALSE
 		to_chat(user, SPAN_NOTICE("You have successfully installed \the [parent] in \the [A]"))
 		user.drop_from_inventory(parent)
@@ -172,12 +179,17 @@
 /datum/component/item_upgrade/proc/uninstall(obj/item/I)
 	var/obj/item/P = parent
 	I.item_upgrades -= P
+	if(destroy_on_removal)
+		UnregisterSignal(I, COMSIG_ADDVAL)
+		UnregisterSignal(I, COMSIG_APPVAL)
+		qdel(P)
+		return
 	P.forceMove(get_turf(I))
 	UnregisterSignal(I, COMSIG_ADDVAL)
 	UnregisterSignal(I, COMSIG_APPVAL)
 
 /datum/component/item_upgrade/proc/apply_values(atom/holder)
-	if (!holder)
+	if(!holder)
 		return
 	if(istool(holder))
 		apply_values_tool(holder)
@@ -224,6 +236,9 @@
 		T.color = tool_upgrades[UPGRADE_COLOR]
 	if(tool_upgrades[UPGRADE_ITEMFLAGPLUS])
 		T.item_flags |= tool_upgrades[UPGRADE_ITEMFLAGPLUS]
+	if(tool_upgrades[UPGRADE_QUALITIES])//Occulus Edit
+		T.tool_qualities -= tool_upgrades[UPGRADE_QUALITIES]//Occulus Edit: If this works I may shoot myself
+		T.tool_qualities += tool_upgrades[UPGRADE_QUALITIES]//Occulus Edit
 	if(tool_upgrades[UPGRADE_CELLPLUS])
 		switch(T.suitable_cell)
 			if(/obj/item/weapon/cell/medium)
@@ -282,6 +297,15 @@
 		if(istype(G.loc, /mob))
 			var/mob/user = G.loc
 			user.update_action_buttons()
+	if(weapon_upgrades[GUN_UPGRADE_BAYONET])
+		G.attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+		G.sharp = TRUE
+	if(weapon_upgrades[GUN_UPGRADE_MELEEDAMAGE])
+		G.force += weapon_upgrades[GUN_UPGRADE_MELEEDAMAGE]
+	if(weapon_upgrades[GUN_UPGRADE_MELEEPENETRATION])
+		G.armor_penetration += weapon_upgrades[GUN_UPGRADE_MELEEPENETRATION]
+	if(weapon_upgrades[GUN_UPGRADE_ONEHANDPENALTY])
+		G.one_hand_penalty *= weapon_upgrades[GUN_UPGRADE_ONEHANDPENALTY]
 
 	if(!isnull(weapon_upgrades[GUN_UPGRADE_FORCESAFETY]))
 		G.restrict_safety = TRUE
@@ -294,6 +318,8 @@
 			E.overcharge_rate *= weapon_upgrades[GUN_UPGRADE_OVERCHARGE_MAX]
 		if(weapon_upgrades[GUN_UPGRADE_OVERCHARGE_MAX])
 			E.overcharge_max *= weapon_upgrades[GUN_UPGRADE_OVERCHARGE_MAX]
+		if(weapon_upgrades[GUN_UPGRADE_AGONY_MULT])
+			E.proj_agony_multiplier *= weapon_upgrades[GUN_UPGRADE_AGONY_MULT]
 
 	if(istype(G, /obj/item/weapon/gun/projectile))
 		var/obj/item/weapon/gun/projectile/P = G
@@ -322,32 +348,32 @@
 		to_chat(user, SPAN_NOTICE("Does additional burn damage to mutants."))
 	if (tool_upgrades[UPGRADE_PRECISION] > 0)
 		to_chat(user, SPAN_NOTICE("Enhances precision by [tool_upgrades[UPGRADE_PRECISION]]"))
-	else if (tool_upgrades[UPGRADE_PRECISION] < 0)
+	else if(tool_upgrades[UPGRADE_PRECISION] < 0)
 		to_chat(user, SPAN_WARNING("Reduces precision by [abs(tool_upgrades[UPGRADE_PRECISION])]"))
-	if (tool_upgrades[UPGRADE_WORKSPEED])
+	if(tool_upgrades[UPGRADE_WORKSPEED])
 		to_chat(user, SPAN_NOTICE("Enhances workspeed by [tool_upgrades[UPGRADE_WORKSPEED]*100]%"))
 
-	if (tool_upgrades[UPGRADE_DEGRADATION_MULT])
-		if (tool_upgrades[UPGRADE_DEGRADATION_MULT] < 1)
+	if(tool_upgrades[UPGRADE_DEGRADATION_MULT])
+		if(tool_upgrades[UPGRADE_DEGRADATION_MULT] < 1)
 			to_chat(user, SPAN_NOTICE("Reduces tool degradation by [(1-tool_upgrades[UPGRADE_DEGRADATION_MULT])*100]%"))
 		else if	(tool_upgrades[UPGRADE_DEGRADATION_MULT] > 1)
 			to_chat(user, SPAN_WARNING("Increases tool degradation by [(tool_upgrades[UPGRADE_DEGRADATION_MULT]-1)*100]%"))
 
-	if (tool_upgrades[UPGRADE_FORCE_MULT] >= 1)
+	if(tool_upgrades[UPGRADE_FORCE_MULT] >= 1)
 		to_chat(user, SPAN_NOTICE("Increases tool damage by [(tool_upgrades[UPGRADE_FORCE_MULT]-1)*100]%"))
-	if (tool_upgrades[UPGRADE_FORCE_MOD])
+	if(tool_upgrades[UPGRADE_FORCE_MOD])
 		to_chat(user, SPAN_NOTICE("Increases tool damage by [tool_upgrades[UPGRADE_FORCE_MOD]]"))
-	if (tool_upgrades[UPGRADE_POWERCOST_MULT] >= 1)
+	if(tool_upgrades[UPGRADE_POWERCOST_MULT] >= 1)
 		to_chat(user, SPAN_WARNING("Modifies power usage by [(tool_upgrades[UPGRADE_POWERCOST_MULT]-1)*100]%"))
-	if (tool_upgrades[UPGRADE_FUELCOST_MULT] >= 1)
+	if(tool_upgrades[UPGRADE_FUELCOST_MULT] >= 1)
 		to_chat(user, SPAN_WARNING("Modifies fuel usage by [(tool_upgrades[UPGRADE_FUELCOST_MULT]-1)*100]%"))
-	if (tool_upgrades[UPGRADE_MAXFUEL])
+	if(tool_upgrades[UPGRADE_MAXFUEL])
 		to_chat(user, SPAN_NOTICE("Modifies fuel storage by [tool_upgrades[UPGRADE_MAXFUEL]] units."))
-	if (tool_upgrades[UPGRADE_BULK])
+	if(tool_upgrades[UPGRADE_BULK])
 		to_chat(user, SPAN_WARNING("Increases tool size by [tool_upgrades[UPGRADE_BULK]]"))
-	if (tool_upgrades[UPGRADE_MAXUPGRADES])
+	if(tool_upgrades[UPGRADE_MAXUPGRADES])
 		to_chat(user, SPAN_NOTICE("Adds [tool_upgrades[UPGRADE_MAXUPGRADES]] additional modification slots."))
-	if (required_qualities.len)
+	if(required_qualities.len)
 		to_chat(user, SPAN_WARNING("Requires a tool with one of the following qualities:"))
 		to_chat(user, english_list(required_qualities, and_text = " or "))
 
@@ -497,11 +523,22 @@
 		to_chat(user, SPAN_WARNING("Requires a weapon with the following properties"))
 		to_chat(user, english_list(req_gun_tags))
 
+/datum/component/item_upgrade/UnregisterFromParent()
+	UnregisterSignal(parent, COMSIG_IATTACK)
+	UnregisterSignal(parent, COMSIG_EXAMINE)
+	UnregisterSignal(parent, COMSIG_REMOVE)
+
+/datum/component/item_upgrade/PostTransfer()
+	return COMPONENT_TRANSFER
+
 /datum/component/upgrade_removal
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
 /datum/component/upgrade_removal/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATTACKBY, .proc/attempt_uninstall)
+
+/datum/component/upgrade_removal/UnregisterFromParent()
+	UnregisterSignal(parent, COMSIG_ATTACKBY)
 
 /datum/component/upgrade_removal/proc/attempt_uninstall(obj/item/C, mob/living/user)
 	if(!isitem(C))
@@ -518,22 +555,25 @@
 	//Removing upgrades from a tool. Very difficult, but passing the check only gets you the perfect result
 	//You can also get a lesser success (remove the upgrade but break it in the process) if you fail
 	//Using a laser guided stabilised screwdriver is recommended. Precision mods will make this easier
-	if (upgrade_loc.item_upgrades.len && C.has_quality(QUALITY_SCREW_DRIVING))
+	if(upgrade_loc.item_upgrades.len && C.has_quality(QUALITY_SCREW_DRIVING))
 		var/list/possibles = upgrade_loc.item_upgrades.Copy()
 		possibles += "Cancel"
 		var/obj/item/weapon/tool_upgrade/toremove = input("Which upgrade would you like to try to remove? The upgrade will probably be destroyed in the process","Removing Upgrades") in possibles
-		if (toremove == "Cancel")
+		if(toremove == "Cancel")
 			return 1
 		var/datum/component/item_upgrade/IU = toremove.GetComponent(/datum/component/item_upgrade)
-		if (C.use_tool(user = user, target =  upgrade_loc, base_time = IU.removal_time, required_quality = QUALITY_SCREW_DRIVING, fail_chance = FAILCHANCE_CHALLENGING, required_stat = STAT_MEC))
+		if(C.use_tool(user = user, target =  upgrade_loc, base_time = IU.removal_time, required_quality = QUALITY_SCREW_DRIVING, fail_chance = FAILCHANCE_CHALLENGING, required_stat = STAT_MEC))
 			//If you pass the check, then you manage to remove the upgrade intact
-			to_chat(user, SPAN_NOTICE("You successfully remove \the [toremove] while leaving it intact."))
+			if(!IU.destroy_on_removal && user)
+				to_chat(user, SPAN_NOTICE("You successfully remove \the [toremove] while leaving it intact."))
+			if(IU.tool_upgrades[UPGRADE_QUALITIES])
+				T.tool_qualities -= IU.tool_upgrades[UPGRADE_QUALITIES]
 			SEND_SIGNAL(toremove, COMSIG_REMOVE, upgrade_loc)
 			upgrade_loc.refresh_upgrades()
 			return 1
 		else
 			//You failed the check, lets see what happens
-			if (prob(50))
+			if(prob(50))
 				//50% chance to break the upgrade and remove it
 				to_chat(user, SPAN_DANGER("You successfully remove \the [toremove], but destroy it in the process."))
 				SEND_SIGNAL(toremove, COMSIG_REMOVE, parent)
@@ -541,7 +581,7 @@
 				upgrade_loc.refresh_upgrades()
 				user.update_action_buttons()
 				return 1
-			else if (T && T.degradation) //Because robot tools are unbreakable
+			else if(T && T.degradation) //Because robot tools are unbreakable
 				//otherwise, damage the host tool a bit, and give you another try
 				to_chat(user, SPAN_DANGER("You only managed to damage \the [upgrade_loc], but you can retry."))
 				T.adjustToolHealth(-(5 * T.degradation), user) // inflicting 4 times use damage

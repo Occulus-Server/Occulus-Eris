@@ -5,7 +5,7 @@
 	desc = "A simple grasping tool specialized in construction and engineering work."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gripper"
-	bad_type = /obj/item/weapon/gripper
+	spawn_tags = null
 
 	flags = NOBLUDGEON
 
@@ -23,12 +23,13 @@
 		/obj/item/weapon/electronics/circuitboard,
 		/obj/item/device/assembly,//Primarily for making improved cameras, but opens many possibilities
 		/obj/item/weapon/computer_hardware,
-		/obj/item/stack/tile //Repair floors yay
+		/obj/item/stack/tile, //Repair floors yay
+		/obj/item/weapon/tool_upgrade	// OCCULUS EDIT - Make cyborgs be able to grab upgrades
 		)
 
-	var/obj/item/wrapped = null // Item currently being held.
+	var/obj/item/wrapped // Item currently being held.
 
-	var/force_holder = null //
+	var/force_holder //
 	var/justdropped = 0//When set to 1, the gripper has just dropped its item, and should not attempt to trigger anything
 
 /obj/item/weapon/gripper/examine(var/mob/user)
@@ -76,7 +77,7 @@
 
 
 //This places a little image of the gripped item in the gripper, so you can see visually what you're holding
-/obj/item/weapon/gripper/update_icon()
+/obj/item/weapon/gripper/on_update_icon()
 	underlays.Cut()
 	if (wrapped && wrapped.icon)
 		var/mutable_appearance/MA = new(wrapped)

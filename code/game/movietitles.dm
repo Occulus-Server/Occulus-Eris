@@ -55,7 +55,7 @@ client
 	QDEL_NULL_LIST(credits)
 	mob.clear_fullscreen("fishbed")
 	mob.clear_fullscreen("fadeout")
-	sound_to(mob, sound(null, channel = GLOB.lobby_sound_channel)) //To stop the credits
+//	sound_to(mob, sound(null, channel = GLOB.lobby_sound_channel)) Don't stop the music bby!
 
 /obj/screen/credit
 	icon_state = "blank"

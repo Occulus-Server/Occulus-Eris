@@ -32,7 +32,7 @@
 	return !!name
 
 /datum/breakdown/proc/update()
-	if(finished || (duration && world.time > end_time))
+	if(finished || (duration && world.time > end_time) || holder.owner.stat == DEAD)
 		conclude()
 		return FALSE
 	return TRUE
@@ -46,11 +46,24 @@
 /datum/breakdown/proc/occur_animation()
 	var/image/img = image('icons/effects/insanity_statuses.dmi', holder.owner)
 	holder.owner << img
-	flick(icon_state, img)
+	FLICK(icon_state, img)
 
 /datum/breakdown/proc/occur()
 	occur_animation()
 	holder.owner.playsound_local(get_turf(holder.owner), breakdown_sound, 100)
+	//Occulus Edit Start - Occultists gain madness here
+	for(var/mob/living/carbon/human/viewer in view(holder.owner, 7))
+		if(viewer.mind)
+			if(player_is_antag_id(viewer.mind, ROLE_OCCULTIST))
+				var/madnessgain
+				if(viewer == holder.owner)
+					madnessgain = 1
+				else
+					madnessgain = 4
+				var/obj/item/organ/internal/brain/occultist/B = viewer.random_organ_by_process(BP_BRAIN_CULTIST)
+				if(B)
+					B.madnesspoints += madnessgain
+	//Occulus edit end... for now
 	if(holder.owner.head && istype(holder.owner.head, /obj/item/clothing/head/mindreader))
 		var/obj/item/clothing/head/mindreader/MR = holder.owner.head
 		MR.extract_memory(holder.owner)
@@ -74,7 +87,7 @@
 		to_chat(holder.owner,SPAN_NOTICE(pick(end_messages)))
 	if(insight_reward)
 		if(finished)
-			holder.insight += insight_reward
+			holder.give_insight(insight_reward)
 			if(restore_sanity_post)
 				holder.restoreLevel(restore_sanity_post)
 		else if(is_negative)

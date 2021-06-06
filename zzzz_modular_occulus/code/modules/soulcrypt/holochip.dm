@@ -1,3 +1,5 @@
+/obj/item/weapon/holochip
+	matter = list(MATERIAL_GOLD = 1, MATERIAL_PLATINUM = 1)
 //
 // STAT BOOSTERS
 //
@@ -73,6 +75,15 @@
 	contained_modules = list(/datum/soulcrypt_module/language/yiff)
 
 //
+// MISC
+//
+
+/obj/item/weapon/holochip/security/painkiller
+	name = "holochip - Painkiller"
+	desc = "A one-use module containing a software package for a soulcrypt. This one includes pain suppressing software."
+	contained_modules = list(/datum/soulcrypt_module/painkiller)
+
+//
 // HONK
 //
 
@@ -84,10 +95,11 @@
 	new /obj/item/weapon/holochip/command/helpmaint(src)
 	new /obj/item/weapon/holochip/medical/celerity(src)
 	new /obj/item/weapon/holochip/medical/surgery(src)
+	new /obj/item/weapon/holochip/security/painkiller(src)
 	new /obj/item/weapon/holochip/science/yiff(src)
 
 /datum/supply_pack/randomised/holochips
-	num_contained = 3
+	num_contained = 4
 	contains = list(/obj/item/weapon/holochip/medical/celerity,
                 /obj/item/weapon/holochip/science/sol,
                 /obj/item/weapon/holochip/science/jive,
@@ -96,10 +108,13 @@
                 /obj/item/weapon/holochip/command/deathalarm,
                 /obj/item/weapon/holochip/science/smart,
                 /obj/item/weapon/holochip/security/tough,
-                /obj/item/weapon/holochip/security/combat
+                /obj/item/weapon/holochip/security/combat,
+                /obj/item/weapon/holochip/security/painkiller,
+                /obj/item/weapon/holochip/medical/surgery,
+                /obj/item/weapon/holochip/cargo/marketpro
                 )
 	name = "Assorted Holochips"
-	cost = 6000
+	cost = 3000
 	crate_name = "Assorted Holochip Crate"
 	containertype = /obj/structure/closet/crate
 	group = "Medical / Science"
@@ -110,7 +125,7 @@
 					/obj/item/weapon/implant/core_implant/soulcrypt,
 					/obj/item/weapon/implant/core_implant/soulcrypt
 					)
-	cost = 50000
+	cost = 20000
 	containertype = /obj/structure/closet/crate/medical
 	crate_name = "Soulcrypts crate"
 	group = "Medical / Science"

@@ -62,13 +62,23 @@ var/global/list/image/splatter_cache=list()
 	if(world.time > drytime)
 		dry()
 
-/obj/effect/decal/cleanable/blood/update_icon()
+/obj/effect/decal/cleanable/blood/on_update_icon()
 	if(basecolor == "rainbow") basecolor = get_random_colour(1)
 	color = basecolor
 
 /obj/effect/decal/cleanable/blood/Crossed(mob/living/carbon/human/perp)
 	if (!istype(perp))
 		return
+
+	///// OCCULUS EDIT: Don't track blood if the source has a catwalk or stairs, since it is
+	//                  difficult to spot and clean.
+
+	for (var/obj/structure/S in get_turf(perp))
+		if (istype(S, /obj/structure/catwalk) || istype(S, /obj/structure/multiz/stairs))
+			return
+
+	///// OCCULUS EDIT END
+
 	if(amount < 1)
 		return
 
@@ -87,11 +97,11 @@ var/global/list/image/splatter_cache=list()
 			if(!S.blood_DNA)
 				S.blood_DNA = list()
 				S.blood_overlay.color = basecolor
-				S.overlays += S.blood_overlay
+				S.add_overlays(S.blood_overlay)
 			if(S.blood_overlay && S.blood_overlay.color != basecolor)
 				S.blood_overlay.color = basecolor
-				S.overlays.Cut()
-				S.overlays += S.blood_overlay
+				S.cut_overlays()
+				S.add_overlays(S.blood_overlay)
 			S.blood_DNA |= blood_DNA.Copy()
 
 	else if (hasfeet)//Or feet
@@ -105,6 +115,7 @@ var/global/list/image/splatter_cache=list()
 		W.bloodiness = 4
 
 	perp.update_inv_shoes(1)
+
 	amount--
 
 /obj/effect/decal/cleanable/blood/proc/dry()
@@ -132,8 +143,8 @@ var/global/list/image/splatter_cache=list()
 		user.verbs += /mob/living/carbon/human/proc/bloody_doodle
 
 /obj/effect/decal/cleanable/blood/splatter
-        random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
-        amount = 2
+    random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
+    amount = 2
 
 /obj/effect/decal/cleanable/blood/drip
 	name = "drips of blood"
@@ -182,7 +193,7 @@ var/global/list/image/splatter_cache=list()
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
 	var/fleshcolor = "#FFFFFF"
 
-/obj/effect/decal/cleanable/blood/gibs/update_icon()
+/obj/effect/decal/cleanable/blood/gibs/on_update_icon()
 
 	var/image/giblets = new(base_icon, "[icon_state]_flesh", dir)
 	if(!fleshcolor || fleshcolor == "rainbow")
@@ -194,8 +205,8 @@ var/global/list/image/splatter_cache=list()
 	blood.Blend(basecolor,ICON_MULTIPLY)
 
 	icon = blood
-	overlays.Cut()
-	overlays += giblets
+	cut_overlays()
+	add_overlays(giblets)
 
 /obj/effect/decal/cleanable/blood/gibs/up
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6","gibup1","gibup1","gibup1")

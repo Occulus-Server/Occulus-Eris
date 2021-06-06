@@ -1,6 +1,6 @@
 /datum/trade_station/fbv_hellcat
 	name_pool = list("UTSC 'Hellcat'" = "United Terran Ship Cruiser 'Hellcat'. They are sending message, \"Greetings. This is the Hellcat. We're currently escorting the Caduceus and we will be departing the system shortly alongside them. We are willing to part with some extra supplies while we're still here.\"")
-	icon_states = "ship"
+	icon_states = "ihs_destroyer"
 	spawn_probability = 0
 	start_discovered = TRUE
 	markup = 0.5
@@ -22,11 +22,11 @@
 		),
 		"Projectile weapon" = list(
 			/obj/item/weapon/gun/projectile/paco,
-			/obj/item/weapon/gun/projectile/clarissa,
+			/obj/item/weapon/gun/projectile/selfload,
 			/obj/item/weapon/gun/projectile/olivaw,
 			/obj/item/weapon/gun/projectile/revolver/havelock,
 			/obj/item/weapon/gun/projectile/revolver/consul,
-			/obj/item/weapon/gun/projectile/automatic/ak47/fs,
+			/obj/item/weapon/gun/projectile/automatic/ak47/fs/ih,
 			/obj/item/weapon/gun/projectile/automatic/atreides,
 		),
 		"Ammunition" = list(

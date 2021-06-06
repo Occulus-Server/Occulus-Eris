@@ -94,7 +94,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 				recentmessages = list()
 
 		/* --- Do a snazzy animation! --- */
-		flick("broadcaster_send", src)
+		FLICK("broadcaster_send", src)
 
 /obj/machinery/telecomms/broadcaster/Destroy()
 	// In case message_delay is left on 1, otherwise it won't reset the list and people can't say the same thing twice anymore.
@@ -280,7 +280,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	var/list/heard_gibberish= list() // completely screwed over message (ie "F%! (O*# *#!<>&**%!")
 
 	for (var/mob/R in receive)
-
+		SEND_SIGNAL(radio, COMSIG_MESSAGE_RECEIVED, R)
 	  /* --- Loop through the receivers and categorize them --- */
 		if(isnewplayer(R)) // we don't want new players to hear messages. rare but generates runtimes.
 			continue
@@ -321,7 +321,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
   /* ###### Begin formatting and sending the message ###### */
 	if (length(heard_masked) || length(heard_normal) || length(heard_voice) || length(heard_garbled) || length(heard_gibberish))
 		if(text_size)
-			message = "<FONT size='[max(text_size, 1)]'>[message]</FONT>"
+			//Occulus Edit: This now scales properly.
+			message = "<span style='font-size:[max(text_size, 1)]em'>[message]</span>"
 
 	  /* --- Some miscellaneous variables to format the string output --- */
 		var/freq_text = get_frequency_name(display_freq)

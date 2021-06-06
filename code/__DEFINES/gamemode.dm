@@ -36,6 +36,7 @@
 #define ROLE_BANTYPE_INQUISITOR ROLE_INQUISITOR
 #define ROLE_BANTYPE_EXCELSIOR ROLE_EXCELSIOR_REV
 #define ROLE_BANTYPE_CARRION ROLE_CARRION
+#define ROLE_BANTYPE_OCCULTIST ROLE_OCCULTIST //Occulus Edit
 #define ROLE_BANTYPE_XENOS ROLE_XENOMORPH
 #define ROLE_BANTYPE_CREW_SIDED "crew_sided"
 #define ROLE_BANTYPE_BLITZ ROLE_BLITZ
@@ -49,8 +50,10 @@
 #define ROLE_COMMANDO "commando"
 #define ROLE_DEATHSQUAD "deathsquad"
 #define ROLE_ACTOR "actor"
+#define ROLE_ARTIST "artist"
 #define ROLE_MERCENARY "mercenary"
 #define ROLE_CARRION "carrion"
+#define ROLE_OCCULTIST "occultist"
 #define ROLE_MONKEY "monkey"
 #define ROLE_MALFUNCTION "malf"
 #define ROLE_TRAITOR "traitor"
@@ -69,7 +72,7 @@
 #define FACTION_XENOMORPHS "xenomorphs"
 #define FACTION_SERBS	"serbians"
 
-#define ROLES_CONTRACT list(ROLE_TRAITOR,ROLE_CARRION,ROLE_BLITZ)
+#define ROLES_CONTRACT list(ROLE_TRAITOR,ROLE_CARRION)//Occulus Edit: Blitzshell is no longer a contract role
 #define ROLES_UPLINK_BASE list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY)
 
 #define ROLESET_TRAITOR "traitor"

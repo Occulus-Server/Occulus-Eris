@@ -111,7 +111,7 @@
 	for(var/datum/core_module/M in modules)
 		M.on_implant_uninstall()
 
-/obj/item/weapon/implant/core_implant/hear_talk(mob/living/carbon/human/H, message, verb, datum/language/speaking, speech_volume)
+/obj/item/weapon/implant/core_implant/hear_talk(mob/living/carbon/human/H, message, verb, datum/language/speaking, speech_volume, message_pre_problems)
 	var/group_ritual_leader = FALSE
 	for(var/datum/core_module/group_ritual/GR in src.modules)
 		GR.hear(H, message)
@@ -123,14 +123,17 @@
 	else
 		for(var/RT in known_rituals)
 			var/datum/ritual/R = GLOB.all_rituals[RT]
-			if(R.compare(message))
+			var/true_message = message //Occulus Edit: I'm sorry this must be fixed
+			if(R.ignore_stuttering)
+				true_message = message_pre_problems //Occulus Edit: I refuse to allow eregius spelling errors
+			if(R.compare(true_message))
 				if(R.power > src.power)
 					to_chat(H, SPAN_DANGER("Not enough energy for the [R.name]."))
 					return
 				if(!R.is_allowed(src))
 					to_chat(H, SPAN_DANGER("You are not allowed to perform [R.name]."))
 					return
-				R.activate(H, src, R.get_targets(message))
+				R.activate(H, src, R.get_targets(true_message))//Occulus Edit: Spelling
 				return
 
 /obj/item/weapon/implant/core_implant/proc/hear_other(mob/living/carbon/human/H, message)
@@ -149,6 +152,9 @@
 /obj/item/weapon/implant/core_implant/proc/restore_power(var/value)
 	power = min(max_power, power + value)
 
+/obj/item/weapon/implant/core_implant/proc/auto_restore_power()
+	restore_power(power_regen)
+
 /obj/item/weapon/implant/core_implant/Process()
 	if(!active)
 		return
@@ -156,7 +162,8 @@
 		remove_hearing()
 		active = FALSE
 		STOP_PROCESSING(SSobj, src)
-	restore_power(power_regen)
+	else
+		auto_restore_power()
 
 /obj/item/weapon/implant/core_implant/proc/get_module(var/m_type)
 	if(!ispath(m_type))

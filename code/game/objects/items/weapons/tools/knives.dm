@@ -82,14 +82,27 @@
 
 /obj/item/weapon/tool/knife/tacknife
 	name = "tactical knife"
-	desc = "You'd be killing loads of people if this was Medal of Valor: Heroes of Space."
+	desc = "You'd be killing loads of people if this was Medal of Valor: Heroes of Space. Could be attached to a gun."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "tacknife_guard"
 	item_state = "knife"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2)
 	force = WEAPON_FORCE_PAINFUL
 	armor_penetration = ARMOR_PEN_MODERATE
+	embed_mult = 0.3
 	max_upgrades = 3
+
+/obj/item/weapon/tool/knife/tacknife/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_BAYONET = TRUE,
+		GUN_UPGRADE_MELEEDAMAGE = 5,
+		GUN_UPGRADE_MELEEPENETRATION = 15,
+		GUN_UPGRADE_OFFSET = 4
+		)
+	I.gun_loc_tag = GUN_UNDERBARREL
+	I.req_gun_tags = list(SLOT_BAYONET)
 
 /obj/item/weapon/tool/knife/dagger
 	name = "dagger"
@@ -98,8 +111,8 @@
 	icon_state = "dagger"
 	item_state = "dagger"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2)
-	force = WEAPON_FORCE_NORMAL+2
-	armor_penetration = ARMOR_PEN_DEEP
+	force = WEAPON_FORCE_NORMAL * 1.3
+	armor_penetration = ARMOR_PEN_HALF
 	rarity_value = 15
 
 /obj/item/weapon/tool/knife/dagger/ceremonial
@@ -108,6 +121,9 @@
 	icon_state = "fancydagger"
 	item_state = "fancydagger"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_GOLD = 1, MATERIAL_SILVER = 1)
+	armor_penetration = ARMOR_PEN_HALF
+	embed_mult = 0.3
+	max_upgrades = 4
 	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/knife/dagger/bluespace
@@ -127,11 +143,12 @@
 	spawn_blacklisted = TRUE
 	var/mob/living/embedded
 	var/last_teleport
+	var/entropy_value = 3
 
-/obj/item/weapon/tool/knife/dagger/bluespace/on_embed(var/mob/user)
+/obj/item/weapon/tool/knife/dagger/bluespace/on_embed(mob/user)
 	embedded = user
 
-/obj/item/weapon/tool/knife/dagger/bluespace/on_embed_removal(var/mob/user)
+/obj/item/weapon/tool/knife/dagger/bluespace/on_embed_removal(mob/user)
 	embedded = null
 
 /obj/item/weapon/tool/knife/dagger/bluespace/Process()
@@ -144,9 +161,7 @@
 				last_teleport = world.time
 				playsound(T, "sparks", 50, 1)
 				anim(T,embedded,'icons/mob/mob.dmi',,"phaseout",,embedded.dir)
-				embedded.forceMove(T)
-				playsound(T, 'sound/effects/phasein.ogg', 25, 1)
-				playsound(T, 'sound/effects/sparks2.ogg', 50, 1)
+				go_to_bluespace(get_turf(embedded), entropy_value, TRUE, embedded, T)
 				anim(T,embedded,'icons/mob/mob.dmi',,"phasein",,embedded.dir)
 
 /obj/item/weapon/tool/knife/dagger/assassin
@@ -198,6 +213,8 @@
 	armor_penetration = ARMOR_PEN_GRAZING
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_STEEL =6)
 	switched_on_qualities = list(QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5)
+	w_class = ITEM_SIZE_TINY
+	var/switched_on_w_class = ITEM_SIZE_SMALL
 	tool_qualities = list()
 	toggleable = TRUE
 	rarity_value = 25
@@ -213,6 +230,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	switched_on = TRUE
 	tool_qualities = switched_on_qualities
+	w_class = switched_on_w_class
 	if (!isnull(switched_on_force))
 		force = switched_on_force
 	update_icon()
@@ -228,6 +246,7 @@
 	switched_on = FALSE
 	tool_qualities = switched_off_qualities
 	force = initial(force)
+	w_class = initial(w_class)
 	update_icon()
 	update_wear_icon()
 
@@ -241,8 +260,9 @@
 	edge = FALSE
 	sharp = FALSE
 	force = WEAPON_FORCE_WEAK
-	switched_on_force = WEAPON_FORCE_NORMAL
-	armor_penetration = ARMOR_PEN_GRAZING
+	switched_on_force = WEAPON_FORCE_PAINFUL
+	w_class = ITEM_SIZE_TINY
+	var/switched_on_w_class = ITEM_SIZE_SMALL
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_STEEL = 6, MATERIAL_GOLD= 0.5)
 	switched_on_qualities = list(QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5)
 	tool_qualities = list()
@@ -262,6 +282,7 @@
 	tool_qualities = switched_on_qualities
 	if (!isnull(switched_on_force))
 		force = switched_on_force
+	w_class = switched_on_w_class
 	update_icon()
 	update_wear_icon()
 
@@ -275,5 +296,33 @@
 	switched_on = FALSE
 	tool_qualities = switched_off_qualities
 	force = initial(force)
+	w_class = initial(w_class)
 	update_icon()
 	update_wear_icon()
+
+
+/obj/item/weapon/tool/spear
+	name = "spear"
+	desc = "A piece of glass tied using cable coil onto two welded rods. Impressive work."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "spear"
+	item_state = "spear"
+	wielded_icon = "spear_wielded"
+	flags = CONDUCT
+	sharp = TRUE
+	edge = TRUE
+	worksound = WORKSOUND_HARD_SLASH
+	w_class = ITEM_SIZE_BULKY //4 , it's a spear mate
+	force = WEAPON_FORCE_NORMAL * 1.6 //16
+	throwforce = WEAPON_FORCE_DANGEROUS //20
+	armor_penetration = ARMOR_PEN_MODERATE //15
+	max_upgrades = 3
+	tool_qualities = list(QUALITY_CUTTING = 10,  QUALITY_WIRE_CUTTING = 5, QUALITY_SCREW_DRIVING = 1)
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_GLASS = 1)
+	attack_verb = list("slashed", "stabbed") //there's not much you can do with a spear aside from stabbing and slashing with it
+	slot_flags = SLOT_BACK
+	structure_damage_factor = STRUCTURE_DAMAGE_BLADE
+
+	rarity_value = 20
+	spawn_tags = SPAWN_TAG_KNIFE
+

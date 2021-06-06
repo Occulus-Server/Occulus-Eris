@@ -34,7 +34,8 @@
 #define REAGENTS_MIN_EFFECT_MULTIPLIER 0.2
 #define REAGENTS_MAX_EFFECT_MULTIPLIER 2.5
 
-#define CHEM_SYNTH_ENERGY 3000 // How much energy does it take to synthesize 1 unit of chemical, in Joules.
+// OCCULUS EDIT: Changed CHEM_SYNTH_ENERGY from 3000 to 2500 to let chemists do 120 units in a single dispensation.
+#define CHEM_SYNTH_ENERGY 2500 // How much energy does it take to synthesize 1 unit of chemical, in Joules.
 
 // Some on_mob_life() procs check for alien races.
 #define IS_XENOS   1
@@ -55,7 +56,7 @@
 #define CE_BLOODCLOT 	"bloodclot"	// Promote healing but thickens blood, slows and stops bleeding (range 0 - 1)
 #define CE_OXYGENATED    "oxygen"       // Dexalin.
 #define CE_PURGER "purger"	//Purger
-#define CE_NOWITHDRAW "no_withdrawal" 
+#define CE_NOWITHDRAW "no_withdrawal"
 #define CE_VOICEMIMIC "voice_mimic"
 #define CE_DYNAMICFINGERS "dynfingers"
 

@@ -61,14 +61,14 @@
 	if(drain_check)
 		return TRUE
 
-	if(empty())
+	if(is_empty())
 		return FALSE
 
 	var/cell_amt = power * CELLRATE
 
 	return use(cell_amt) / CELLRATE
 
-/obj/item/weapon/cell/update_icon()
+/obj/item/weapon/cell/on_update_icon()
 	var/charge_status
 	var/c = charge/maxcharge
 	if (c >=0.95)
@@ -85,13 +85,13 @@
 	if (charge_status == last_charge_status)
 		return
 
-	overlays.Cut()
+	cut_overlays()
 	if (charge_status != null)
-		overlays += image('icons/obj/power_cells.dmi', "[icon_state]_[charge_status]")
+		add_overlays(image('icons/obj/power_cells.dmi', "[icon_state]_[charge_status]"))
 
 	last_charge_status = charge_status
 
-/obj/item/weapon/cell/proc/empty()
+/obj/item/weapon/cell/proc/is_empty()
 	if(charge <= 0)
 		return TRUE
 	return FALSE
@@ -177,7 +177,7 @@
  * 10000-cell	explosion(T, -1, 1, 3, 3)
  * 15000-cell	explosion(T, -1, 2, 4, 4)
  * */
-	if (empty())
+	if(is_empty())
 		return
 	var/devastation_range = -1 //round(charge/11000)
 	var/heavy_impact_range = round(sqrt(charge)/60)

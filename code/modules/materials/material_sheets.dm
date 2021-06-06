@@ -197,8 +197,8 @@
 /obj/item/stack/material/platinum/random
 	rand_min = 1
 	rand_max = 10
-	//spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
-	//rarity_value = 45
+	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE  //Occulus edit: Re-adding platinum glass to spawn pools
+	rarity_value = 45 //Occulus edit: Re-adding platinum glass to spawn pools
 
 //Extremely valuable to Research.
 /obj/item/stack/material/mhydrogen
@@ -320,8 +320,8 @@
 /obj/item/stack/material/glass/phoronglass/random
 	rand_min = 3
 	rand_max = 30
-	//spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
-	//rarity_value = 50
+	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING //Occulus edit: Re-adding phoron glass to spawn pools
+	rarity_value = 50 //Occulus edit: Re-adding phoron glass to spawn pools
 
 /obj/item/stack/material/glass/phoronrglass
 	name = "reinforced borosilicate glass"

@@ -190,8 +190,15 @@
 	var/Me = pickweight(meteortypes)
 	var/obj/effect/meteor/M = new Me(pickedstart)
 	M.dest = pickedgoal
-	spawn(0)
-		walk_towards(M, M.dest, 1)
+	///// OCCULUS EDIT BEGIN
+	// 3 is the actual number for RUNLEVEL_GAME -- adjusting the Runlevel code
+	// to change it to 4 was met with unforeseen consequences
+	if (Master.current_runlevel >= 3)
+		spawn(0)
+			walk_towards(M, M.dest, 1)
+	else
+		message_admins("A meteor attempted to spawn, but the round has not started.")
+	///// OCCULUS EDIT END
 	return
 
 /proc/spaceDebrisStartLoc(startSide, Z)
@@ -326,7 +333,7 @@
 	var/turf/hit_location //used for reporting hit locations. The meteor may be deleted and its location nulled by report time
 
 /obj/effect/meteor/proc/get_shield_damage()
-	return max(((max(hits, 2)) * (heavy + 1) * rand(100, 140)) / hitpwr , 0)
+	return max(((max(hits, 2)) * (heavy + 1) * rand(20, 28)) / hitpwr , 0)//Occulus edit
 
 /obj/effect/meteor/New()
 	..()

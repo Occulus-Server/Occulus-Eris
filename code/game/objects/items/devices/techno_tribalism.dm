@@ -149,7 +149,7 @@
 				var/mob/living/carbon/human/user = src.loc
 				var/obj/item/weapon/oddity/techno/T = new /obj/item/weapon/oddity/techno(src)
 				T.oddity_stats = src.oddity_stats
-				T.AddComponent(/datum/component/inspiration, T.oddity_stats)
+				T.AddComponent(/datum/component/inspiration, T.oddity_stats, T.perk)
 				items_count = 0
 				oddity_stats = list(STAT_MEC = 0, STAT_COG = 0, STAT_BIO = 0, STAT_ROB = 0, STAT_TGH = 0, STAT_VIG = 0)
 				last_produce = world.time
@@ -159,9 +159,9 @@
 		else
 			visible_message("\icon The [src] beeps, \"The [src] is not full enough to produce.\".")
 	else
-		visible_message("\icon The [src] beeps, \"The [src] need time to cooldown.\".")
+		visible_message("\icon The [src] beeps, \"The [src] needs time to cooldown.\".")
 
 /obj/item/device/techno_tribalism/examine(user)
 	..()
 	to_chat(user, SPAN_NOTICE("[src] has been fed [items_count]/[max_count] times.")) //Occulus Edit
-	// to_chat(user, SPAN_NOTICE("The [src] is feeded by [items_count]/[max_count].")) Original text
+	// to_chat(user, SPAN_NOTICE("The [src] is fed by [items_count]/[max_count]."))

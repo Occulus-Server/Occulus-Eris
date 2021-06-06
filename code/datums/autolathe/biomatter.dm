@@ -1,11 +1,11 @@
 /datum/design/bioprinter
 	build_type = BIOPRINTER
-	materials = list("biomatter" = 6)
+	materials = list(MATERIAL_BIOMATTER = 6)
 
 /datum/design/bioprinter/meat
 	name = "Meat"
 	build_path = /obj/item/weapon/reagent_containers/food/snacks/meat
-	materials = list("biomatter" = 5)
+	materials = list(MATERIAL_BIOMATTER = 5)
 
 /datum/design/bioprinter/milk
 	name = "Milk"
@@ -19,7 +19,7 @@
 /datum/design/bioprinter/ez
 	name = "EZ-Nutrient"
 	build_path = /obj/item/weapon/reagent_containers/glass/fertilizer/ez
-	materials = list("biomatter" = 3)
+	materials = list(MATERIAL_BIOMATTER = 3)
 
 /datum/design/bioprinter/l4z
 	name = "Left4Zed"
@@ -28,29 +28,45 @@
 /datum/design/bioprinter/rh
 	name = "Robust Harvestt"
 	build_path = /obj/item/weapon/reagent_containers/glass/fertilizer/rh
-	materials = list("biomatter" = 7.5)
+	materials = list(MATERIAL_BIOMATTER = 7.5)
 //[/NUTRIMENTS]
 
 //[CLOTHES, ARMOR AND ACCESORIES]
 /datum/design/bioprinter/nt_clothes/acolyte_armor
 	name = "NT Acolyte Armor"
-	build_path = /obj/item/clothing/suit/space/void/acolyte
+	build_path = /obj/item/clothing/suit/armor/acolyte
+
+/datum/design/bioprinter/nt_clothes/NTvoid
+	name = "neotheology voidsuit"
+	build_path = /obj/item/clothing/suit/space/void/NTvoid		
 
 /datum/design/bioprinter/nt_clothes/agrolyte_armor
 	name = "NT Agrolyte Armor"
-	build_path = /obj/item/clothing/suit/space/void/agrolyte
+	build_path = /obj/item/clothing/suit/armor/agrolyte
 
 /datum/design/bioprinter/nt_clothes/custodian_armor
 	name = "NT Custodian Armor"
-	build_path = /obj/item/clothing/suit/space/void/custodian
+	build_path = /obj/item/clothing/suit/armor/custodian
+
+/datum/design/bioprinter/nt_clothes/acolyte_armor_head
+	name = "NT Acolyte Hood"
+	build_path = /obj/item/clothing/head/armor/acolyte
+
+/datum/design/bioprinter/nt_clothes/agrolyte_armor_head
+	name = "NT Agrolyte Helmet"
+	build_path = /obj/item/clothing/head/armor/agrolyte
+
+/datum/design/bioprinter/nt_clothes/custodian_armor_head
+	name = "NT Custodian Helmet"
+	build_path = /obj/item/clothing/head/armor/custodian
 
 /datum/design/bioprinter/nt_clothes/preacher_coat
 	name = "NT Preacher Longcoat"
-	build_path = /obj/item/clothing/suit/neotheology_coat
+	build_path = /obj/item/clothing/suit/storage/neotheology_coat
 
 /datum/design/bioprinter/nt_clothes/acolyte_jacket
 	name = "NT Acolyte Jacket"
-	build_path = /obj/item/clothing/suit/neotheology_jacket
+	build_path = /obj/item/clothing/suit/storage/neotheology_jacket
 
 /datum/design/bioprinter/nt_clothes/sports_jacket
 	name = "NT Sports Jacket"
@@ -99,7 +115,7 @@
 	build_path = /obj/item/clothing/accessory/holster/hip
 
 /datum/design/bioprinter/belt
-	materials = list("biomatter" = 30)
+	materials = list(MATERIAL_BIOMATTER = 30)
 
 /datum/design/bioprinter/belt/utility
 	name = "Utility belt"
@@ -128,17 +144,17 @@
 /datum/design/bioprinter/belt/misc/champion
 	name = "Champion belt"
 	build_path = /obj/item/weapon/storage/belt/champion
-	materials = list("biomatter" = 50)
+	materials = list(MATERIAL_BIOMATTER = 50)
 
 /datum/design/bioprinter/backpack
 	name = "grey duffelbag"
 	build_path = /obj/item/weapon/storage/backpack
-	materials = list("biomatter" = 40)
+	materials = list(MATERIAL_BIOMATTER = 40)
 
 /datum/design/bioprinter/backpack/duffelbag
 	name = "grey duffelbag"
 	build_path = /obj/item/weapon/storage/backpack/duffelbag
-	materials = list("biomatter" = 65)
+	materials = list(MATERIAL_BIOMATTER = 65)
 
 /datum/design/bioprinter/wallet
 	name = "Wallet"
@@ -147,10 +163,10 @@
 /datum/design/bioprinter/botanic_leather
 	name = "Botanical gloves"
 	build_path = /obj/item/clothing/gloves/botanic_leather
-	materials = list("biomatter" = 25)
+	materials = list(MATERIAL_BIOMATTER = 25)
 
 /datum/design/bioprinter/leather
-	materials = list("biomatter" = 40)
+	materials = list(MATERIAL_BIOMATTER = 40)
 
 /datum/design/bioprinter/satchel
 	name = "Leather Satchel"
@@ -192,6 +208,10 @@
 	name= "Vial pouch"
 	build_path = /obj/item/weapon/storage/pouch/tubular/vial
 
+/datum/design/bioprinter/part
+	name = "Part pouch"
+	build_path = /obj/item/weapon/storage/pouch/gun_part
+
 //[/CLOTHES, ARMOR AND ACCESORIES]
 
 //[MISC]
@@ -202,15 +222,79 @@
 /datum/design/bioprinter/leather/cash_bag
 	name = "Cash Bag"
 	build_path = /obj/item/weapon/storage/bag/money
+//Occulus Addition start
+/datum/design/bioprinter/carpet
+	name = "red carpet"
+	build_path = /obj/item/stack/tile/carpet
+	materials = list(MATERIAL_BIOMATTER = 3)
+
+/datum/design/bioprinter/carpet/bcarpet
+	name = "black carpet"
+	build_path = /obj/item/stack/tile/carpet/bcarpet
+
+/datum/design/bioprinter/carpet/blucarpet
+	name = "blue carpet"
+	build_path = /obj/item/stack/tile/carpet/blucarpet
+
+/datum/design/bioprinter/carpet/turcarpet
+	name = "turquoise carpet"
+	build_path = /obj/item/stack/tile/carpet/turcarpet
+
+/datum/design/bioprinter/carpet/sblucarpet
+	name = "silver-edged blue carpet"
+	build_path = /obj/item/stack/tile/carpet/sblucarpet
+
+/datum/design/bioprinter/carpet/gaycarpet
+	name = "clown carpet"
+	build_path = /obj/item/stack/tile/carpet/gaycarpet
+
+/datum/design/bioprinter/carpet/purcarpet
+	name = "purple carpet"
+	build_path = /obj/item/stack/tile/carpet/purcarpet
+
+/datum/design/bioprinter/carpet/oracarpet
+	name = "orange carpet"
+	build_path = /obj/item/stack/tile/carpet/oracarpet
+//Occulus Addition end
+/datum/design/bioprinter/holyvacuum
+	name = "\"Tersus\" Vacuum Cleaner"
+	build_path = /obj/item/weapon/holyvacuum
 
 //[/THINGS]
-/datum/design/autolathe/gun/plasma/martyr
-	name = "NT PR \"Martyr\""
-	build_path = /obj/item/weapon/gun/energy/plasma/martyr
-
 /datum/design/autolathe/firstaid/nt
 	name = "NeoTheologian Medkit"
 	build_path = /obj/item/weapon/storage/firstaid/nt
+
+/datum/design/autolathe/excruciator
+	name = "NeoTheology \"EXCRUCIATOR\" giga lens"
+	build_path = /obj/item/weapon/gun_upgrade/barrel/excruciator
+
+/datum/design/autolathe/cruciform_upgrade
+	build_path = /obj/item/weapon/cruciform_upgrade
+
+/datum/design/autolathe/cruciform_upgrade/natures_blessing
+	name = "Natures blessing"
+	build_path = /obj/item/weapon/cruciform_upgrade/natures_blessing
+
+/datum/design/autolathe/cruciform_upgrade/faiths_shield
+	name = "Faiths shield"
+	build_path = /obj/item/weapon/cruciform_upgrade/faiths_shield
+
+/datum/design/autolathe/cruciform_upgrade/cleansing_presence
+	name = "Cleansing presence"
+	build_path = /obj/item/weapon/cruciform_upgrade/cleansing_presence
+
+/*/datum/design/autolathe/cruciform_upgrade/martyr_gift Occulus Edit
+//	name = "Martyr gift"
+	build_path = /obj/item/weapon/cruciform_upgrade/martyr_gift*/
+
+/datum/design/autolathe/cruciform_upgrade/wrath_of_god
+	name = "Wrath of god"
+	build_path = /obj/item/weapon/cruciform_upgrade/wrath_of_god
+
+/datum/design/autolathe/cruciform_upgrade/speed_of_the_chosen
+	name = "Speed of the chosen"
+	build_path = /obj/item/weapon/cruciform_upgrade/speed_of_the_chosen
 
 //[MELEE]
 /datum/design/autolathe/sword/nt_sword
@@ -269,7 +353,7 @@
 
 //[MED]
 /datum/design/bioprinter/medical
-	materials = list("biomatter" = 10)
+	materials = list(MATERIAL_BIOMATTER = 10)
 
 /datum/design/bioprinter/medical/bruise
 	name = "Roll of gauze"
@@ -285,7 +369,7 @@
 
 
 /datum/design/bioprinter/medical/advanced
-	materials = list("biomatter" = 20)
+	materials = list(MATERIAL_BIOMATTER = 20)
 
 /datum/design/bioprinter/medical/advanced/bruise
 	name = "Advanced trauma kit"
@@ -297,6 +381,6 @@
 
 /datum/design/bioprinter/lungs
 	name = "Extended Lungs"
-	materials = list("biomatter" = 30)
+	materials = list(MATERIAL_BIOMATTER = 30)
 	build_path = /obj/item/organ/internal/lungs/long
 //[/MED]

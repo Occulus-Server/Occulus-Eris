@@ -23,6 +23,7 @@
 	one_hand_penalty = 15 //full sized shotgun level
 	var/bolt_open = 0
 	burst_delay = 0
+	no_internal_mag = TRUE
 	init_firemodes = list(
 		list(mode_name="fire one barrel at a time", burst=1, icon="semi"),
 		list(mode_name="fire both barrels at once", burst=2, icon="burst"),
@@ -36,7 +37,7 @@
 	desc = "A double-barreled shotgun meant to fire signal flash shells."
 	ammo_type = /obj/item/ammo_casing/shotgun/flash
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/update_icon()
+/obj/item/weapon/gun/projectile/shotgun/doublebarrel/on_update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)

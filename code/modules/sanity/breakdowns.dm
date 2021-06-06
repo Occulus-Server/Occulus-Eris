@@ -203,11 +203,11 @@
 
 /datum/breakdown/negative/selfharm/occur()
 	spawn(delay)
-		++holder.owner.suppress_communication
+		holder.owner.suppress_communication = TRUE	// OCCULUS EDIT: was ++holder.owner.suppress_communication
 	return ..()
 
 /datum/breakdown/negative/selfharm/conclude()
-	--holder.owner.suppress_communication
+	holder.owner.suppress_communication = FALSE	// OCCULUS EDIT: was --holder.owner.suppress_communication
 	..()
 
 
@@ -388,6 +388,8 @@
 /datum/breakdown/common/power_hungry/proc/check_shock()
 	finished = TRUE
 
+#define ACTVIEW_ONE TRUE
+#define ACTVIEW_BOTH 2
 
 /datum/breakdown/negative/glassification
 	name = "Glassification"
@@ -410,16 +412,8 @@
 /datum/breakdown/negative/glassification/update()
 	if(world.time < time)
 		return TRUE
-	if(active_view)
-		holder.owner.remoteviewer = FALSE
-		holder.owner.remoteview_target = null
-		holder.owner.reset_view(0)
-		target.remoteviewer = FALSE
-		target.remoteview_target = null
-		target.reset_view(0)
-		target = null
-		active_view = FALSE
-		time = world.time + cooldown
+	if(active_view) //Just in case the callback doesn't catch
+		reset_views()
 		return TRUE
 	. = ..()
 	if(!.)
@@ -428,16 +422,27 @@
 	if(targets.len)
 		target = pick(targets)
 		holder.owner.remoteviewer = TRUE
-		holder.owner.remoteview_target = target
-		holder.owner.reset_view(target)
+		holder.owner.set_remoteview(target)
 		to_chat(holder.owner, SPAN_WARNING("It seems as if you are looking through someone else's eyes."))
-		to_chat(target, SPAN_WARNING("It seems as if you are looking through someone else's eyes."))
-		target.remoteviewer = TRUE
-		target.remoteview_target = holder.owner
-		target.reset_view(holder.owner)
-		target.sanity.changeLevel(-rand(5,10))
-		active_view = TRUE
+		active_view = ACTVIEW_ONE
+		if(target.sanity.level < 50)
+			target.remoteviewer = TRUE
+			target.set_remoteview(holder.owner)
+			to_chat(target, SPAN_WARNING("It seems as if you are looking through someone else's eyes."))
+			active_view = ACTVIEW_BOTH
+		target.sanity.changeLevel(-rand(5,10)) //This phenomena will prove taxing on the viewed regardless
+		addtimer(CALLBACK(src, .proc/reset_views, TRUE), time_view)
 		time = world.time + time_view
+
+/datum/breakdown/negative/glassification/proc/reset_views()
+	holder.owner.set_remoteview()
+	holder.owner.remoteviewer = FALSE
+	if(active_view == ACTVIEW_BOTH)
+		target.set_remoteview()
+		target.remoteviewer = FALSE
+	target = null
+	active_view = FALSE
+	time = world.time + cooldown
 
 /datum/breakdown/common/herald
 	name = "Herald"
@@ -457,7 +462,7 @@
 	if(world.time >= message_time)
 		message_time = world.time + cooldown_message
 		var/chance = rand(1, 100)
-		holder.owner.say(chance <= 50 ? "[holder.pick_quote_20()]" : "[holder.pick_quote_40()]")
+		holder.owner.whisper_say(chance <= 50 ? "[holder.pick_quote_20()]" : "[holder.pick_quote_40()]") //Occulus edit, so you mutter to yourself
 
 /datum/breakdown/common/desire_for_chrome
 	name = "Desire for Chrome"
@@ -554,7 +559,7 @@
 	restore_sanity_post = 70
 	var/mob/living/carbon/human/target
 	var/message_time = 0
-	var/obsession_time = 3 MINUTES
+	var/obsession_time = 5 SECONDS //Occulus edit, so other breakdowns aren't so common but it's not 3 minutes of spam
 	var/last_time
 	var/delta_time
 

@@ -896,9 +896,9 @@ All Canmove setting in this proc is temporary. This var should not be set from h
 	return
 
 /mob/living/flash_weak_pain()
-//	flick("weak_pain", flash["pain"])
+//	FLICK("weak_pain", flash["pain"])
 	if(HUDtech.Find("pain"))
-		flick("weak_pain", HUDtech["pain"])
+		FLICK("weak_pain", HUDtech["pain"])
 
 
 /mob/proc/get_visible_implants()
@@ -1010,6 +1010,7 @@ mob/proc/yank_out_object()
 	handle_silent()
 	handle_drugged()
 	handle_slurring()
+	handle_slowdown()
 
 /mob/living/proc/handle_stunned()
 	if(stunned)
@@ -1045,6 +1046,11 @@ mob/proc/yank_out_object()
 	if(paralysis)
 		AdjustParalysis(-1)
 	return paralysis
+
+/mob/living/proc/handle_slowdown()
+	if(slowdown)
+		slowdown = max(slowdown-1, 0)
+	return slowdown
 
 //Check for brain worms in head.
 /mob/proc/has_brain_worms()
@@ -1280,3 +1286,6 @@ mob/proc/yank_out_object()
 /mob/proc/set_stat(var/new_stat)
 	. = stat != new_stat
 	stat = new_stat
+
+/mob/proc/ssd_check()
+	return !client && !teleop

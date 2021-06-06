@@ -4,13 +4,13 @@ var/global/list/limb_icon_cache = list()
 	return
 
 /obj/item/organ/external/proc/compile_icon()
-	overlays.Cut()
+	cut_overlays()
 	 // This is a kludge, only one icon has more than one generation of children though.
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
-				overlays += child.mob_icon
-		overlays += organ.mob_icon
+				add_overlays(child.mob_icon)
+		add_overlays(organ.mob_icon)
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	skin_tone = null
@@ -64,6 +64,12 @@ var/global/list/limb_icon_cache = list()
 	if(!appearance_test.special_update)
 		for(var/obj/item/organ/internal/eyes/I in internal_organs)
 			part_key += I.get_cache_key()
+
+///// OCCULUS EDIT START - delete the laggy old markings system, this is the actual icon caching bit
+	for(var/M in markings)
+		part_key += "[M][markings[M]["color"]]"
+///// OCCULUS EDIT END /////
+
 	return part_key
 
 /obj/item/organ/external/head/sync_colour_to_human(var/mob/living/carbon/human/human)
@@ -75,13 +81,13 @@ var/global/list/limb_icon_cache = list()
 	update_icon(1)
 	..()
 
-/obj/item/organ/external/head/update_icon()
+/obj/item/organ/external/head/on_update_icon()
 
 	..()
 	if(!appearance_test.special_update)
 		return mob_icon
 
-	overlays.Cut()
+	cut_overlays()
 	if(!owner || !owner.species)
 		return
 
@@ -100,7 +106,7 @@ var/global/list/limb_icon_cache = list()
 				var/icon/facial = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 				if(facial_hair_style.do_colouration)
 					facial.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)
-				overlays |= facial
+				associate_with_overlays(facial)
 
 		if(owner.h_style && !(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR)))
 			var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[owner.h_style]
@@ -108,12 +114,24 @@ var/global/list/limb_icon_cache = list()
 				var/icon/hair = new/icon(hair_style.icon, hair_style.icon_state)
 				if(hair_style.do_colouration)
 					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair), ICON_MULTIPLY)	//Eclipse edit.
-				overlays |= hair
+				associate_with_overlays(hair)
+
+///// OCCULUS EDIT START - delete the laggy old markings system
+	for(var/M in markings)
+		var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
+		var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
+		mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
+		add_overlay(mark_s) //So when it's not on your body, it has icons
+		mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
+		//icon_cache_key += "[M][markings[M]["color"]]"	//This is implemented in get_cache_keys() instead
+///// OCCULUS EDIT END /////
 
 	return mob_icon
 
-/obj/item/organ/external/update_icon(regenerate = 0)
+/obj/item/organ/external/on_update_icon(regenerate = 0)
 	var/gender = "_m"
+
+	overlays.Cut()	// OCCULUS EDIT - Make sure we're not stacking up redundant overlays
 
 	if(appearance_test.simple_setup)
 		gender = owner.gender == FEMALE ? "_f" : "_m"
@@ -161,6 +179,16 @@ var/global/list/limb_icon_cache = list()
 			if(s_col)
 				mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_MULTIPLY)
 
+	///// OCCULUS EDIT START - Delete the laggy body marking system /////
+	if(!istype(src,/obj/item/organ/external/head))
+		for(var/M in markings)
+			var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
+			var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
+			mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
+			add_overlay(mark_s) //So when it's not on your body, it has icons
+			mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
+			//icon_cache_key += "[M][markings[M]["color"]]"	//This is implemented in get_cache_keys() instead
+	///// OCCULUS EDIT END /////
 
 	dir = EAST
 	icon = mob_icon

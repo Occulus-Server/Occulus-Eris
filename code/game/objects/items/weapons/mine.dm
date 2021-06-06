@@ -8,7 +8,7 @@
 	matter_reagents = list("fuel" = 40)
 	layer = ABOVE_OBJ_LAYER //should fix all layering problems? or am i crazy stupid and understood it wrong
 	rarity_value = 10
-	spawn_tags = SPAWN_TAG_ITEM_MINE
+	spawn_tags = SPAWN_TAG_MINE_ITEM
 	var/prob_explode = 100
 
 	//var/obj/item/device/assembly_holder/detonator = null
@@ -33,17 +33,22 @@
 /obj/item/weapon/mine/proc/explode()
 	var/turf/T = get_turf(src)
 	explosion(T,explosion_d_size,explosion_h_size,explosion_l_size,explosion_f_size)
-	fragment_explosion(T, spread_radius, fragment_type, num_fragments, null, damage_step)
-	if(src)
-		qdel(src)
+//	fragment_explosion(T, spread_radius, fragment_type, num_fragments, null, damage_step,50) Occulus Edit - Even tremendously nerfing this doesn't fix the problems with it. I'm axing the fragments
+	qdel(src)
 
-/obj/item/weapon/mine/update_icon()
-	overlays.Cut()
+/obj/item/weapon/mine/on_update_icon()
+	cut_overlays()
 
 	if(armed)
-		overlays.Add(image(icon,"mine_light"))
+		add_overlays(image(icon,"mine_light"))
 
 /obj/item/weapon/mine/attack_self(mob/user)
+	if(locate(/obj/structure/multiz/ladder) in get_turf(user))
+		to_chat(user, SPAN_NOTICE("You cannot place \the [src] here, there is a ladder."))
+		return
+	if(locate(/obj/structure/multiz/stairs) in get_turf(user))
+		to_chat(user, SPAN_NOTICE("You cannot place \the [src] here, it needs a flat surface."))
+		return
 	if(!armed)
 		user.visible_message(
 			SPAN_DANGER("[user] starts to deploy \the [src]."),
@@ -67,20 +72,21 @@
 /obj/item/weapon/mine/attack_hand(mob/user as mob)
 	if (deployed)
 		user.visible_message(
-				SPAN_DANGER("[user] extends its hand to reach the [src]!"),
+				SPAN_DANGER("[user] extends its hand to reach \the [src]!"),
 				SPAN_DANGER("you extend your arms to pick it up, knowing that it will likely blow up when you touch it!")
 				)
 		if (do_after(user, 5))
 			user.visible_message(
-				SPAN_DANGER("[user] attempts to pick up the [src] only to hear a beep as it explodes in your hands!"),
-				SPAN_DANGER("you attempts to pick up the [src] only to hear a beep as it explodes in your hands!")
+				SPAN_DANGER("[user] attempts to pick up the [src] only to hear a beep as it explodes in their hands!"),//Occulus Edit: Russian grammar
+				SPAN_DANGER("you attempt to pick up the [src] only to hear a beep as it explodes in your hands!")//Occulus Edit: Russian grammar
 				)
 			explode()
+			return
 	.=..()
 
 /obj/item/weapon/mine/attackby(obj/item/I, mob/user)
 	if(QUALITY_PULSING in I.tool_qualities)
-		
+
 		if (deployed)
 			user.visible_message(
 			SPAN_DANGER("[user] starts to carefully disarm \the [src]."),
@@ -99,14 +105,20 @@
 	else
 		if (deployed)   //now touching it with stuff that don't pulse will also be a bad idea
 			user.visible_message(
-				SPAN_DANGER("the [src] is hit with [I] and it explodes!"),
-				SPAN_DANGER("You hit the [src] with [I] and it explodes!"))
+				SPAN_DANGER("\The [src] is hit with [I] and it explodes!"),
+				SPAN_DANGER("You hit \the [src] with [I] and it explodes!"))
 			explode()
 		return
 
 
 /obj/item/weapon/mine/Crossed(mob/AM)
 	if (armed)
+		if(locate(/obj/structure/multiz/ladder) in get_turf(loc))
+			visible_message(SPAN_DANGER("\The [src]'s triggering mechanism is disrupted by the ladder and does not go off."))
+			return
+		if(locate(/obj/structure/multiz/stairs) in get_turf(loc))
+			visible_message(SPAN_DANGER("\The [src]'s triggering mechanism is disrupted by the slope and does not go off."))
+			return ..()
 		if (isliving(AM))
 			prob_explode = initial(prob_explode)
 			prob_explode -= AM.skill_to_evade_traps(prob_explode)

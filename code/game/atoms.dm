@@ -42,6 +42,9 @@
 	var/list/atom_colours
 
 /atom/proc/update_icon()
+	return on_update_icon(arglist(args))
+
+/atom/proc/on_update_icon()
 	return
 
 /atom/New(loc, ...)
@@ -284,7 +287,8 @@ its easier to just keep the beam vertical.
 	if(isobserver(user))
 		to_chat(user, "\icon[src] This is [full_name] [suffix]")
 	else
-		user.visible_message("<font size=1>[user.name] looks at [src].</font>", "\icon[src] This is [full_name] [suffix]")
+		//Occulus Edit. Now scales properly.
+		user.visible_message("<span style='font-size:0.8em'>[user.name] looks at [src].</span>", "\icon[src] This is [full_name] [suffix]")
 
 	to_chat(user, show_stat_verbs()) //rewrite to show_stat_verbs(user)?
 
@@ -297,7 +301,8 @@ its easier to just keep the beam vertical.
 			if(reagents.reagent_list.len)
 				for(var/I in reagents.reagent_list)
 					var/datum/reagent/R = I
-					to_chat(user, "<span class='notice'>[R.volume] units of [R.name]</span>")
+					R.identify_reagent(user)	// OCCULUS EDIT: Use new reagent identification
+					//to_chat(user, "<span class='notice'>[R.volume] units of [R.name]</span>")
 
 				// TODO: reagent vision googles? code below:
 				/*
@@ -316,6 +321,11 @@ its easier to just keep the beam vertical.
 				to_chat(user, "<span class='notice'>It has [reagents.total_volume] unit\s left.</span>")
 			else
 				to_chat(user, "<span class='danger'>It's empty.</span>")
+
+	if(ishuman(user) && user.stats && user.stats.getPerk(/datum/perk/greenthumb))
+		var/datum/perk/greenthumb/P = user.stats.getPerk(/datum/perk/greenthumb)
+		P.virtual_scanner.afterattack(src, user, get_dist(src, user) <= 1)
+
 	SEND_SIGNAL(src, COMSIG_EXAMINE, user, distance)
 
 	return distance == -1 || (get_dist(src, user) <= distance) || isobserver(user)
@@ -718,12 +728,6 @@ its easier to just keep the beam vertical.
 		return null
 	return L.AllowDrop() ? L : L.drop_location()
 
-/atom/proc/lava_act()
-	visible_message("<span class='danger'>\The [src] sizzles and melts away, consumed by the lava!</span>")
-	playsound(src, 'sound/effects/flare.ogg', 100, 3)
-	qdel(src)
-	. = TRUE
-
 ///Adds an instance of colour_type to the atom's atom_colours list
 /atom/proc/add_atom_colour(coloration, colour_priority)
 	if(!atom_colours || !atom_colours.len)
@@ -757,3 +761,11 @@ its easier to just keep the beam vertical.
 
 /atom/proc/additional_see_invisible()
 	return 0
+/atom/proc/lava_act()
+	visible_message("<span class='danger'>\The [src] sizzles and melts away, consumed by the lava!</span>")
+	playsound(src, 'sound/effects/flare.ogg', 100, 3)
+	if(ismob(src))
+		var/mob/M = src
+		M.death(FALSE, FALSE)
+	qdel(src)
+	. = TRUE

@@ -2,7 +2,7 @@
 
 /datum/storyevent/hivemind
 	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE, TAG_NEGATIVE, TAG_SCARY, TAG_ROUNDENDING)
-	req_crew = 12	//Makes it so that at least 9 players must be playing in order to spawn
+	req_crew = 9	//Makes it so that at least 6 players must be playing in order to spawn
 	max_crew_diff_lower = 3
 
 /datum/storyevent/blob
@@ -11,15 +11,20 @@
 	max_crew_diff_lower = 3
 
 /datum/storyevent/roleset/blitz
-	weight = 0
-	enabled = FALSE
+	name = "rogue drone"
+	role_id = ROLE_BLITZ
+	weight = 0.4
 
+	base_quantity = 1
+	scaling_threshold = 15
+
+/*
 /datum/storyevent/roleset/faction/excelsior
 	req_crew = 12	//Makes it so that at least 9 players must be playing in order to spawn
 	max_crew_diff_lower = 3
 	base_quantity = 2 //They're a group antag, we want a few of em
 	scaling_threshold = 15
-
+*/
 /datum/storyevent/wallrot
 	enabled = TRUE
 

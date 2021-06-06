@@ -93,7 +93,7 @@
 	for(var/i = 1 to flora_diversity)
 		var/datum/seed/S = new()
 		S.randomize()
-		var/planticon = "alien[rand(1,4)]"
+		var/planticon = pick("alien","alien2","alien3","alien4") // Occulus Edit Correcting the alien1 growth stage bug!
 		S.set_trait(TRAIT_PRODUCT_ICON,planticon)
 		S.set_trait(TRAIT_PLANT_ICON,planticon)
 		var/color = pick(plantcolors)
@@ -139,7 +139,7 @@
 	if(big)
 		if(LAZYLEN(big_flora_types))
 			new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T, pick(big_flora_types), 1)
-		for(var/turf/neighbor in trange(1,T))
+		for(var/turf/neighbor in RANGE_TURFS(1,T))
 			spawn_grass(neighbor)
 	else
 		if(LAZYLEN(small_flora_types))

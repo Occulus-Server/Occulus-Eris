@@ -99,7 +99,7 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 						/datum/job/doctor, /datum/job/chemist, /datum/job/paramedic, /datum/job/psychiatrist,
 						/datum/job/technomancer,
 						/datum/job/cargo_tech, /datum/job/mining, /datum/job/merchant,
-						/datum/job/clubworker, /datum/job/clubmanager, /datum/job/actor,
+						/datum/job/clubworker, /datum/job/clubmanager,
 						/datum/job/chaplain, /datum/job/acolyte, /datum/job/janitor, /datum/job/hydro,
 						/datum/job/scientist, /datum/job/roboticist,
 						/datum/job/ai, /datum/job/cyborg,
@@ -108,8 +108,8 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 						)
 
 	var/overmap_z
-	var/overmap_size = 50
-	var/overmap_event_areas = 40
+	var/overmap_size = 50 * 4
+	var/overmap_event_areas = 40 * 16
 
 	var/emergency_shuttle_docked_message = "The escape pods are now armed. You have approximately %ETD% to board the escape pods."
 	var/emergency_shuttle_leaving_dock = "The escape pods have been launched, arriving at rendezvous point in %ETA%."

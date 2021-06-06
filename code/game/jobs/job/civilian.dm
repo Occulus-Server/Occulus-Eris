@@ -15,6 +15,7 @@
 	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 15, LANGUAGE_JIVE = 80)
 	access = list(access_bar, access_kitchen, access_maint_tunnels, access_change_club)
 	initial_balance = 3000
+	perks = list(PERK_CLUB)
 	wage = WAGE_NONE // Makes his own money
 	stat_modifiers = list(
 		STAT_ROB = 15,
@@ -49,6 +50,7 @@
 	selection_color = "#dddddd"
 	access = list(access_bar, access_kitchen)
 	initial_balance = 750
+	perks = list(PERK_CLUB)
 	wage = WAGE_NONE //They should get paid by the club owner, otherwise you know what to do.
 	stat_modifiers = list(
 		STAT_ROB = 10,
@@ -74,6 +76,7 @@
 	icon_state = "player-grey"
 	join_tag = /datum/job/clubworker
 
+/*	OCCULUS EDIT: Actor has been merged with Club Worker.
 /datum/job/actor
 	title = "Actor"
 	flag = ACTOR
@@ -94,11 +97,12 @@
 	)
 
 	loyalties = LOYALTY_CIVILIAN
+*/
 
 /obj/landmark/join/start/actor
 	name = "Actor"
 	icon_state = "player-grey"
-	join_tag = /datum/job/actor
+	// join_tag = /datum/job/actor // OCCULUS EDIT: Comment out the datum so the spawn can stay on the map if it's ever separated again
 /*
 /datum/job/hydro
 	title = "Botanist"

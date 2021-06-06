@@ -29,7 +29,7 @@
 		STAT_MEC = 20
 	)
 
-
+	perks = list(PERK_SURVIVOR)
 
 /datum/antagonist/mercenary/equip()
 	var/mob/living/L = owner.current
@@ -38,12 +38,15 @@
 	var/decl/hierarchy/outfit/O = outfit_by_type(/decl/hierarchy/outfit/antagonist/mercenary/casual)
 	O.equip(L)
 	//And we'll give them a random serbian name to start off with
-	var/datum/language/lang = all_languages[LANGUAGE_SERBIAN]
+	var/datum/language/lang = all_languages[LANGUAGE_MERC]
 	lang.set_random_name(L)
 
 	//the missingg parrt was antag's stats!
 	for(var/name in stat_modifiers)
 		L.stats.changeStat(name, stat_modifiers[name])
+
+	for(var/perk in perks)
+		L.stats.addPerk(perk)
 
 	create_id("Soldier")
 	..()
@@ -52,7 +55,8 @@
 /obj/item/weapon/card/id/merc
 	icon_state = "syndicate"
 
-/obj/item/weapon/card/id/merc/New()
+/obj/item/weapon/card/id/merc/Initialize(mapload)
+	. = ..()
 	access = list(access_mercenary,//This access governs their ship and base
 	access_external_airlocks,
 	access_maint_tunnels)

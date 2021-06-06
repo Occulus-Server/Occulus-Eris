@@ -6,7 +6,7 @@
 	amount_per_transfer_from_this = 10
 
 /obj/structure/reagent_dispensers/coolanttank/Initialize(mapload, ...)
-	..()
+	. = ..()
 	reagents.add_reagent("coolant",1000)
 
 /obj/structure/reagent_dispensers/coolanttank/bullet_act(var/obj/item/projectile/Proj)
@@ -27,14 +27,10 @@
 		S.start()
 
 	var/datum/gas_mixture/env = src.loc.return_air()
-	if(env)
-		if (reagents.total_volume > 750)
-			env.temperature = 0
-		else if (reagents.total_volume > 500)
-			env.temperature -= 100
-		else
-			env.temperature -= 50
-
+	if(env)//Occulus Edit start
+		var/removed_heat = (reagents.total_volume * 6000)
+		env.add_thermal_energy(-removed_heat)
+//Occulus Edit end
 	sleep(10)
 	if(src)
 		qdel(src)

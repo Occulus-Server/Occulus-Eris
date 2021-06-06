@@ -5,7 +5,7 @@
 /obj/item/weapon/reagent_containers/glass
 	name = " "
 	var/base_name = " "
-	desc = " "
+	desc = ""
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "null"
 	item_state = "null"
@@ -16,8 +16,9 @@
 	reagent_flags = OPENCONTAINER
 	unacidable = 1 //glass doesn't dissolve in acid
 	matter = list(MATERIAL_GLASS = 1)
-	var/label_icon_state = null
-	var/lid_icon_state = null
+	bad_type = /obj/item/weapon/reagent_containers/glass
+	var/label_icon_state
+	var/lid_icon_state
 
 	var/label_text = ""
 
@@ -121,8 +122,11 @@
 			return
 	if(standard_pour_into(user, target))
 		return 1
-	if(standard_dispenser_refill(user, target))
-		return 1
+	// OCCULUS EDIT START - NO MORE REVERSE POURING
+	if(istype(target, /obj/structure/reagent_dispensers))
+		if(standard_dispenser_refill(user, target))
+			return 1
+	// OCCULUS EDIT END
 
 /obj/item/weapon/reagent_containers/glass/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/weapon/pen) || istype(I, /obj/item/device/lighting/toggleable/flashlight/pen))

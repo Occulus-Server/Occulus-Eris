@@ -25,6 +25,7 @@
 	var/rarity_value = 1 //min:1
 	var/spawn_frequency = 0 //min:0
 	var/accompanying_object	//path or text "obj/item/weapon,/obj/item/device"
+	var/prob_aditional_object = 100
 	var/spawn_blacklisted = FALSE
 	var/bad_type //path
 
@@ -322,10 +323,10 @@
 	else
 		glide_size = max(min, glide_size_override)
 
-	for (var/atom/movable/AM in contents)
+/*	for (var/atom/movable/AM in contents)
 		AM.set_glide_size(glide_size, min, max)
 
-
+*/
 //This proc should never be overridden elsewhere at /atom/movable to keep directions sane.
 // Spoiler alert: it is, in moved.dm
 /atom/movable/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, var/glide_size_override = 0)
@@ -335,6 +336,7 @@
 	// To prevent issues, diagonal movements are broken up into two cardinal movements.
 
 	// Is this a diagonal movement?
+	SEND_SIGNAL(src, COMSIG_MOVABLE_PREMOVE, src)
 	if (Dir & (Dir - 1))
 		if (Dir & NORTH)
 			if (Dir & EAST)

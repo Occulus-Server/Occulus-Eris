@@ -62,6 +62,7 @@
 	icon_state = "insp_under"
 	item_state = "insp_under"
 	siemens_coefficient = 0.8
+	no_fibers = TRUE	// OCCULUS EDIT
 
 /obj/item/clothing/under/rank/det
 	name = "inspector's suit"
@@ -69,6 +70,7 @@
 	icon_state = "detective"
 	item_state = "det"
 	siemens_coefficient = 0.8
+	no_fibers = TRUE	// OCCULUS EDIT
 
 /obj/item/clothing/under/rank/det/black
 	icon_state = "detective3"
@@ -115,7 +117,6 @@
 	desc = "It's a jumpskirt worn by those few with the dedication to achieve the position of \"Aegis Commander\"."
 	icon_state = "hos_skirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	style = 1
 
 /obj/item/clothing/head/HoS
 	name = "Aegis Cobalt Commander Hat"

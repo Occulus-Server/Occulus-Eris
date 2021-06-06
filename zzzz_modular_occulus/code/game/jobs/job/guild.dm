@@ -15,3 +15,7 @@
 		STAT_TGH = 10,
 		STAT_VIG = 10
 	)
+
+
+/decl/hierarchy/outfit/job/cargo/mining
+	pda_type = /obj/item/modular_computer/pda/cargo

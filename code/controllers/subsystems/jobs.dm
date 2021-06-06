@@ -29,6 +29,17 @@ SUBSYSTEM_DEF(job)
 			continue
 		occupations += job
 		occupations_by_name[job.title] = job
+
+		///// OCCULUS EDIT START /////
+		// Allow alt titles to get paid.
+		// This has the side effect of ALSO listing alt titles under their proper department instead of misc.
+
+		if(job.alt_titles)
+			for(var/alt_title in job.alt_titles)
+				occupations_by_name[alt_title] = job
+
+		///// OCCULUS EDIT END /////
+
 		// // // BEGIN ECLIPSE EDITS // // //
 		//Rationale: Job whitelisting setup.
 		//I would have preferred to have this before var/J got filtered into job.* but it was causing compiler errors. Alas.
@@ -416,7 +427,7 @@ SUBSYSTEM_DEF(job)
 	var/alt_title = null
 	if(H.mind)
 		H.mind.assigned_role = rank
-	//	alt_title = H.mind.role_alt_title
+		alt_title = H.mind.role_alt_title	// OCCULUS EDIT: Allow alt. title to be shown in the blurb
 
 		switch(rank)
 			if("Robot")

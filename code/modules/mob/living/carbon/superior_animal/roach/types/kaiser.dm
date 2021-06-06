@@ -26,18 +26,20 @@ Has ability of every roach.
 	move_to_delay = 8
 	mob_size = MOB_HUGE
 
-	var/distress_call_stage = 3
-
-	var/health_marker_1 = 1500
-	var/health_marker_2 = 1000
-	var/health_marker_3 = 500
-
 	blattedin_revives_left = 0
 
 	// TODO: Add a special type of meat for Kaiser
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/fuhrer
 	meat_amount = 15
 	sanity_damage = 3
+
+	var/distress_call_stage = 3
+
+	var/health_marker_1 = 1500
+	var/health_marker_2 = 1000
+	var/health_marker_3 = 500
+	var/list/nanite_swarms = list()//Occulus Edit
+	var/max_swarms = 21 //Occulus Edit. 25 maximum swarms, as we release 5 clusters at once
 
 /mob/living/carbon/superior_animal/roach/kaiser/New()
 	..()
@@ -55,12 +57,36 @@ Has ability of every roach.
 		return
 
 	if(can_call_reinforcements())
+		new /obj/spawner/mob/roaches/cluster(get_turf(src)) //Occulus Edit: More. More. More
 		distress_call()
 
 	gas_sac.add_reagent("blattedin", 1)
 	if(prob(7))
 		gas_attack()
+	if(target_mob && prob(5) && nanite_swarms.len < max_swarms)//Occulus Edit Start - Kaiser Nanites
+		var/sound/screech = pick('sound/machines/robots/robot_talk_light1.ogg','sound/machines/robots/robot_talk_light2.ogg','sound/machines/robots/robot_talk_heavy4.ogg')
+		playsound(src, screech, 30, 1, -3)
+		nanite_swarms.Add(new /mob/living/simple_animal/hostile/naniteswarm(get_turf(src), src))
+		nanite_swarms.Add(new /mob/living/simple_animal/hostile/naniteswarm(get_turf(src), src))
+		nanite_swarms.Add(new /mob/living/simple_animal/hostile/naniteswarm(get_turf(src), src))
+		nanite_swarms.Add(new /mob/living/simple_animal/hostile/naniteswarm(get_turf(src), src))
+		nanite_swarms.Add(new /mob/living/simple_animal/hostile/naniteswarm(get_turf(src), src))
+		say("01000001 01110100 01110100 01100001 01100011 01101011 00100001")
 
+/mob/living/carbon/superior_animal/roach/kaiser/death()
+	for(var/mob/living/simple_animal/hostile/naniteswarm/NS in nanite_swarms)
+		nanite_swarms.Remove(NS)
+		NS.gib()
+	..()
+
+/mob/living/carbon/superior_animal/roach/kaiser/Destroy()
+	for(var/mob/living/simple_animal/hostile/naniteswarm/NS in nanite_swarms)
+		nanite_swarms.Remove(NS)
+		NS.gib()
+	.=..()//Occulus Edit nanites end
+
+/mob/living/carbon/superior_animal/roach/kaiser/eyecheck()//Occulus Edit
+	return 2//Flash immunity. Flashbang resist. Occulus Edit end
 
 // TOXIC ABILITIES
 /mob/living/carbon/superior_animal/roach/kaiser/UnarmedAttack(atom/A, proximity)

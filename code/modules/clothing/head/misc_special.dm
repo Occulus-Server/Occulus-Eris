@@ -35,9 +35,10 @@
 	action_button_name = "Flip Welding Mask"
 	siemens_coefficient = 0.9
 	w_class = ITEM_SIZE_NORMAL
-	var/base_state
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
+	style = STYLE_NEG_LOW
+	var/base_state
 
 /obj/item/clothing/head/welding/attack_self()
 	if(!base_state)
@@ -160,7 +161,7 @@
 		update_icon(user)
 	..()
 
-/obj/item/clothing/head/kitty/update_icon(var/mob/living/carbon/human/user)
+/obj/item/clothing/head/kitty/on_update_icon(var/mob/living/carbon/human/user)
 	if(!istype(user))
 		return
 	var/icon/ears = new/icon('icons/inventory/head/mob.dmi', "kitty")

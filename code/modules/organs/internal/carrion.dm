@@ -230,6 +230,7 @@
 
 	to_chat(owner, SPAN_NOTICE("We will attempt to regenerate our form."))
 
+	owner.reagents.add_reagent("kyphotorin", 15) //Occulus Edit
 	owner.status_flags |= FAKEDEATH
 	owner.update_lying_buckled_and_verb_status()
 	owner.emote("gasp")
@@ -239,13 +240,14 @@
 	spawn(rand(1 MINUTES, 3 MINUTES))
 		if(last_owner == owner)
 			owner.rejuvenate()
+		/* Occulus Edit start, Removed in favour for kyphotorin injection
 			for(var/limb_tag in owner.species.has_limbs)
 				var/obj/item/organ/external/E = owner.get_organ(limb_tag)
 				if(E.is_stump())
 					qdel(E)
 					var/datum/organ_description/OD = owner.species.has_limbs[limb_tag]
 					OD.create_organ(owner)
-
+		 Occulus Edit end. */
 			owner.status_flags &= ~(FAKEDEATH)
 			owner.update_lying_buckled_and_verb_status()
 			owner.update_icons()
@@ -257,6 +259,7 @@
 	icon_state = "carrion_maw"
 	organ_efficiency = list(OP_MAW = 100)
 	var/last_call = -5 MINUTES
+	specific_organ_size = 0
 
 	owner_verbs = list(
 		/obj/item/organ/internal/carrion/maw/proc/consume_flesh,
@@ -372,9 +375,10 @@
 	desc = "It emits an abhorrent smell. You shouldn't stand anywhere near this."
 	icon_state = "toxic_puddle"
 	anchored = TRUE
+	spawn_blacklisted = TRUE
 
 /obj/effect/decal/cleanable/carrion_puddle/Initialize()
-	..()
+	. = ..()
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/decal/cleanable/carrion_puddle/Destroy()

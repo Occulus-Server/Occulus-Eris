@@ -2,7 +2,7 @@
 #define SHIELD_DAMTYPE_EM 2			// Electromagnetic damage - Ion weaponry, stun beams, ...
 #define SHIELD_DAMTYPE_HEAT 3		// Heat damage - Lasers, fire
 
-#define ENERGY_PER_HP (50 KILOWATTS)// Base amount energy that will be deducted from the generator's internal reserve per 1 HP of damage taken
+#define ENERGY_PER_HP (100 KILOWATTS)// Base amount energy that will be deducted from the generator's internal reserve per 1 HP of damage taken. Occulus Edit
 #define ENERGY_UPKEEP_PER_TILE 35	// Base upkeep per tile protected. Multiplied by various enabled shield modes. Without them the field does literally nothing.
 
 

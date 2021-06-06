@@ -53,7 +53,7 @@
 		if(!cell.check_charge(hitcost))	//do we have enough power for another hit?
 			set_status(FALSE)
 
-/obj/item/weapon/melee/baton/update_icon()
+/obj/item/weapon/melee/baton/on_update_icon()
 	if(status)
 		icon_state = "[initial(icon_state)]_active"
 	else if(!cell)
@@ -146,6 +146,9 @@
 	..()
 
 //secborg stun baton module
+/obj/item/weapon/melee/baton/robot
+	bad_type = /obj/item/weapon/melee/baton/robot
+
 /obj/item/weapon/melee/baton/robot/attack_self(mob/user)
 	//try to find our power cell
 	var/mob/living/silicon/robot/R = loc

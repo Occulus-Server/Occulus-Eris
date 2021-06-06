@@ -3,6 +3,7 @@
 	icon_state = "beacon"
 	anchored = TRUE
 	density = TRUE
+	var/entropy_value = 1
 
 /obj/machinery/trade_beacon/attackby(obj/item/I, mob/user)
 	if(default_deconstruction(I, user))
@@ -14,7 +15,10 @@
 	return "[A.name] ([z], [x], [y])"
 
 /obj/machinery/trade_beacon/proc/activate()
-	flick("[icon_state]_active", src)
+	FLICK("[icon_state]_active", src)
+	do_sparks(5, 0, loc)
+	bluespace_entropy(2, get_turf(src))
+	playsound(loc, "sparks", 50, 1)
 
 /obj/machinery/trade_beacon/sending
 	name = "sending trade beacon"

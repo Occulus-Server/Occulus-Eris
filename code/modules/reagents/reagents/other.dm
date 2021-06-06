@@ -251,7 +251,7 @@
 		if(istype(T, /turf/simulated/wall))
 			var/turf/simulated/wall/W = T
 			W.thermite = 1
-			W.overlays += image('icons/effects/effects.dmi',icon_state = "#673910")
+			W.add_overlays(image('icons/effects/effects.dmi',icon_state = "#673910"))
 			remove_self(5)
 	return TRUE
 
@@ -497,3 +497,47 @@
 	taste_description = "nothing"
 	reagent_state = LIQUID
 	color = "#bbc5f0"
+
+/datum/reagent/other/rejuvenating_agent
+	name = "Rejuvenating agent"
+	id = "rejuvetaning_agent"
+	description = "A complex reagent that, applied to an object, is capable of eliminating most of the effects of the passage of time"
+	taste_description = "nothing"
+	reagent_state = LIQUID
+	color = "#c8d0f5"
+
+/datum/reagent/other/rejuvenating_agent/touch_obj(obj/O)
+	if(istype(O))
+		O.make_young()
+
+/datum/reagent/resuscitator
+	name = "Resuscitator"
+	id = "resuscitator"
+	description = "Incredibly rare cardiac stimulant."
+	reagent_state = LIQUID
+	color = "#A0522D"
+	metabolism = 1
+	overdose = REAGENTS_OVERDOSE
+	scannable = TRUE
+	affects_dead = TRUE
+
+/datum/reagent/resuscitator/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/internal/heart/heart = H.random_organ_by_process(OP_HEART)
+		if(heart)
+			heart.damage += 0.5
+			if(prob(30))
+				to_chat(H, SPAN_DANGER("Your heart feels like it's going to tear itself out of you!"))
+		if(H.stat == DEAD)
+			H.resuscitate()
+
+/datum/reagent/resuscitator/overdose(mob/living/carbon/M, alien)
+	. = ..()
+
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/internal/heart/heart = H.random_organ_by_process(OP_HEART)
+		if(heart)
+			heart.die()

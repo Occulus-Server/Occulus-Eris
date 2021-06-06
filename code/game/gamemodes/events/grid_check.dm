@@ -67,6 +67,16 @@ So sometimes this event can result in people finding new and interesting things
 		S.update_icon()
 		S.power_change()
 
+///// OCCULUS EDIT BEGIN
+// Add code bit to fill shields.
+
+/proc/shield_boost()
+
+	for(var/obj/machinery/power/shield_generator/G in SSmachines.machinery)
+		G.boost_field()
+
+///// OCCULUS EDIT END
+
 /proc/power_restore_quick(var/announce = 1)
 
 	if(announce)

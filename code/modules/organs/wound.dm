@@ -95,6 +95,11 @@
 		else if(damage_type == BURN)
 			return salved
 
+	proc/damtype_sanitize()
+		if(damage_type == BURN)
+			return BURN
+		return BRUTE
+
 	// Checks whether other other can be merged into src.
 	proc/can_merge(var/datum/wound/other)
 		if (other.type != src.type) return 0
@@ -274,12 +279,12 @@
 
 /datum/wound/cut/deep
 	max_bleeding_stage = 3
-	stages = list("ugly deep ripped cut" = 25, "deep ripped cut" = 20, "deep cut" = 15, "clotted cut" = 8, "scab" = 2, "fresh skin" = 0)
+	stages = list("ugly deep ripped cut" = 25, "deep ripped cut" = 20, "deep cut" = 15, "clotted cut" = 8, "scab" = 2, "healing scab" = 0) // OCCULUS EDIT: was 'fresh skin' for 0
 	damage_type = CUT
 
 /datum/wound/cut/flesh
 	max_bleeding_stage = 4
-	stages = list("ugly ripped flesh wound" = 35, "ugly flesh wound" = 30, "flesh wound" = 25, "blood soaked clot" = 15, "large scab" = 5, "fresh skin" = 0)
+	stages = list("ugly ripped flesh wound" = 35, "ugly flesh wound" = 30, "flesh wound" = 25, "blood soaked clot" = 15, "large scab" = 5, "healing large scab" = 0) // OCCULUS EDIT: was 'fresh skin' for 0
 	damage_type = CUT
 
 /datum/wound/cut/gaping
@@ -348,11 +353,11 @@ datum/wound/puncture/massive
 	return 0
 
 /datum/wound/burn/moderate
-	stages = list("ripped burn" = 10, "moderate burn" = 5, "healing moderate burn" = 2, "fresh skin" = 0)
+	stages = list("ripped burn" = 10, "moderate burn" = 5, "healing moderate burn" = 2, "fading burn spot" = 0) // OCCULUS EDIT: was 'fresh skin' for 0
 	damage_type = BURN
 
 /datum/wound/burn/large
-	stages = list("ripped large burn" = 20, "large burn" = 15, "healing large burn" = 5, "fresh skin" = 0)
+	stages = list("ripped large burn" = 20, "large burn" = 15, "healing large burn" = 5, "large fading burn spot" = 0) // OCCULUS EDIT: was 'fresh skin' for 0
 	damage_type = BURN
 
 /datum/wound/burn/severe

@@ -432,7 +432,7 @@
 	ADD_TRANSFORMATION_MOVEMENT_HANDLER(M)
 	M.canmove = 0
 	M.icon = null
-	M.overlays.Cut()
+	M.cut_overlays()
 	M.invisibility = 101
 	for(var/obj/item/W in M)
 		if(istype(W, /obj/item/weapon/implant)) //TODO: Carn. give implants a dropped() or something
@@ -502,7 +502,7 @@
 		var/obj/item/organ/internal/liver/L = H.random_organ_by_process(OP_LIVER)
 		if(istype(L))
 			L.take_damage(strength, 0)
-	if(issmall(M)) 
+	if(issmall(M))
 		M.adjustToxLoss(strength * 2)
 	else
 		M.adjustToxLoss(strength)
@@ -617,7 +617,7 @@
 	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC, STIM_TIME, "fuhrerole_w")
 
 /datum/reagent/toxin/fuhrerole/overdose(mob/living/carbon/M, alien)
-	M.add_chemical_effect(CE_SPEECH_VOLUME, rand(3,4))
+	M.add_chemical_effect(CE_SPEECH_VOLUME, rand(1,2)) //Occulus Edit - Was originally rand(3,4).
 	M.adjustBrainLoss(0.5)
 
 /datum/reagent/toxin/biomatter

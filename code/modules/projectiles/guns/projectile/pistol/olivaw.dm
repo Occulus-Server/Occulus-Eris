@@ -13,7 +13,6 @@
 	magazine_type = /obj/item/ammo_magazine/pistol
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_WOOD = 6)
 	price_tag = 800
-	rarity_value = 12
 	damage_multiplier = 1.2
 	penetration_multiplier = 1.2
 	recoil_buildup = 6
@@ -22,7 +21,9 @@
 		list(mode_name="2-round bursts", burst=2, fire_delay=0.2, move_delay=4,    	icon="burst"),
 		)
 
-/obj/item/weapon/gun/projectile/olivaw/update_icon()
+//	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+
+/obj/item/weapon/gun/projectile/olivaw/on_update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "[initial(icon_state)]"	// OCCULUS EDIT - Now this is no longer hardcoded to use olivawcivil

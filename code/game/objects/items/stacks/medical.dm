@@ -7,18 +7,15 @@
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 4
 	throw_range = 20
-	var/heal_brute = 0
-	var/heal_burn = 0
 	price_tag = 10
 	spawn_tags = SPAWN_TAG_MEDICINE
 	bad_type = /obj/item/stack/medical
 	matter = list(MATERIAL_BIOMATTER = 5)
+	var/heal_brute = 0
+	var/heal_burn = 0
 	var/automatic_charge_overlays = FALSE	//Do we handle overlays with base update_icon()? | Stolen from TG egun code
 	var/charge_sections = 5		// How many indicator blips are there?
 	var/charge_x_offset = 2		//The spacing between each charge indicator. Should be 2 to leave a 1px gap between each blip.
-
-/obj/item/stack/medical/advanced
-	bad_type = /obj/item/stack/medical/advanced/bruise_pack
 
 /obj/item/stack/medical/attack(mob/living/M, mob/living/user)
 	var/types = M.get_classification()
@@ -94,7 +91,7 @@
 
 	M.updatehealth()
 
-/obj/item/stack/medical/update_icon()
+/obj/item/stack/medical/on_update_icon()
 	if(QDELETED(src)) //Checks if the item has been deleted
 		return	//If it has, do nothing
 	..()
@@ -124,6 +121,7 @@
 	heal_brute = 4
 	preloaded_reagents = list("silicon" = 4, "ethanol" = 8)
 	rarity_value = 5
+	spawn_tags = SPAWN_TAG_MEDICINE_COMMON
 
 /obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M, mob/living/user)
 	if(..())
@@ -148,7 +146,7 @@
 				)
 				var/used = 0
 				for (var/datum/wound/W in affecting.wounds)
-					if (W.internal)
+					if(W.internal)
 						continue
 					if(W.bandaged)
 						continue
@@ -156,6 +154,12 @@
 						break
 					if(!do_mob(user, M, W.damage/5))
 						to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
+						break
+					if(W.internal)
+						continue
+					if(W.bandaged)
+						continue
+					if(used == amount)
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
 						user.visible_message(
@@ -196,8 +200,8 @@
 						to_chat(user, SPAN_WARNING("\The [src] is used up, but there are more wounds to treat on \the [affecting.name]."))
 				use(used)
 		else
-			if (can_operate(H, user))        //Checks if mob is lying down on table for surgery
-				if (do_surgery(H,user,src))
+			if (can_operate(H, user) == CAN_OPERATE_ALL)        //Checks if mob is lying down on table for surgery
+				if (do_surgery(H,user,src, TRUE))
 					return
 			else
 				to_chat(user, SPAN_NOTICE("The [affecting.name] is cut open, you'll need more than a bandage!"))
@@ -265,11 +269,15 @@
 						else
 							to_chat(user, "<span class='[pain > 50 ? "danger" : "warning"]'>Your amateur actions caused you [pain > 50 ? "a lot of " : ""]pain.</span>")
 		else
-			if (can_operate(H, user))        //Checks if mob is lying down on table for surgery
-				if (do_surgery(H,user,src))
+			if (can_operate(H, user) == CAN_OPERATE_ALL)        //Checks if mob is lying down on table for surgery
+				if (do_surgery(H,user,src, TRUE))
 					return
 			else
 				to_chat(user, SPAN_NOTICE("The [affecting.name] is cut open, you'll need more than a [src]!"))
+
+/obj/item/stack/medical/advanced
+	bad_type = /obj/item/stack/medical/advanced
+	spawn_tags = SPAWN_TAG_MEDICINE_ADVANCED
 
 /obj/item/stack/medical/advanced/bruise_pack
 	name = "advanced trauma kit"
@@ -283,7 +291,6 @@
 	splittable = FALSE	// Is the stack capable of being splitted?
 	preloaded_reagents = list("silicon" = 4, "ethanol" = 10, "lithium" = 4)
 	rarity_value = 10
-	spawn_tags = SPAWN_TAG_MEDICINE_COMMON
 
 /obj/item/stack/medical/advanced/bruise_pack/attack(mob/living/carbon/M, mob/living/user)
 	if(..())
@@ -313,14 +320,20 @@
 			)
 			var/used = 0
 			for (var/datum/wound/W in affecting.wounds)
-				if (W.internal)
+				if(W.internal)
 					continue
-				if (W.bandaged && W.disinfected)
+				if(W.bandaged && W.disinfected)
 					continue
 				if(used == amount)
 					break
 				if(!do_mob(user, M, W.damage/5))
 					to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
+					break
+				if(W.internal)
+					continue
+				if(W.bandaged && W.disinfected)
+					continue
+				if(used == amount)
 					break
 				if (W.current_stage <= W.max_bleeding_stage)
 					user.visible_message(
@@ -363,8 +376,8 @@
 			use(used)
 			update_icon()
 	else
-		if (can_operate(H, user))        //Checks if mob is lying down on table for surgery
-			if (do_surgery(H,user,src))
+		if (can_operate(H, user) == CAN_OPERATE_ALL)        //Checks if mob is lying down on table for surgery
+			if (do_surgery(H,user,src, TRUE))
 				return
 		else
 			to_chat(user, SPAN_NOTICE("The [affecting.name] is cut open, you'll need more than a bandage!"))
@@ -431,8 +444,8 @@
 						else
 							to_chat(user, "<span class='[pain > 50 ? "danger" : "warning"]'>Your amateur actions caused you [pain > 50 ? "a lot of " : ""]pain.</span>")
 		else
-			if (can_operate(H, user))        //Checks if mob is lying down on table for surgery
-				if (do_surgery(H,user,src))
+			if (can_operate(H, user) == CAN_OPERATE_ALL)        //Checks if mob is lying down on table for surgery
+				if (do_surgery(H,user,src, TRUE))
 					return
 			else
 				to_chat(user, SPAN_NOTICE("The [affecting.name] is cut open, you'll need more than a bandage!"))
@@ -518,7 +531,7 @@
 	matter = list(MATERIAL_BIOMATTER = 3)
 	origin_tech = list(TECH_BIO = 4)
 
-/obj/item/stack/medical/advanced/bruise_pack/nt/update_icon()
+/obj/item/stack/medical/advanced/bruise_pack/nt/on_update_icon()
 	icon_state = "[initial(icon_state)][amount]"
 	..()
 
@@ -533,6 +546,6 @@
 	matter = list(MATERIAL_BIOMATTER = 3)
 	origin_tech = list(TECH_BIO = 4)
 
-/obj/item/stack/medical/advanced/ointment/nt/update_icon()
+/obj/item/stack/medical/advanced/ointment/nt/on_update_icon()
 	icon_state = "[initial(icon_state)][amount]"
 	..()

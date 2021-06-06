@@ -4,14 +4,13 @@
 	damage_types = list(BRUTE = 5)
 	sharp = TRUE
 	embed = 1 //the dart is shot fast enough to pierce space suits, so I guess splintering inside the target can be a thing. Should be rare due to low damage.
-	var/reagent_amount = 15
 	kill_count = 15 //shorter range
-
 	muzzle_type = null
+	var/reagent_amount = 15
 
 /obj/item/projectile/bullet/chemdart/New()
-	reagents = new/datum/reagents(reagent_amount)
-	reagents.my_atom = src
+	create_reagents(reagent_amount)
+	..()
 
 /obj/item/projectile/bullet/chemdart/on_hit(atom/target, def_zone = null)
 	if(isliving(target))
@@ -47,7 +46,6 @@
 	desc = "Zeng-Hu Pharmaceutical's entry into the arms market, the Z-H P Artemis is a gas-powered dart gun capable of delivering chemical cocktails swiftly across short distances."
 	icon = 'icons/obj/guns/projectile/dartgun.dmi'
 	icon_state = "dartgun-empty"
-
 	caliber = CAL_DART
 	fire_sound = 'sound/weapons/empty.ogg'
 	fire_sound_text = "a metallic click"
@@ -64,7 +62,7 @@
 	var/max_beakers = 3
 	var/dart_reagent_amount = 15
 	var/beaker_type = /obj/item/weapon/reagent_containers/glass/beaker
-	var/list/starting_chems = null
+	var/list/starting_chems
 
 /obj/item/weapon/gun/projectile/dartgun/New()
 	..()
@@ -75,7 +73,7 @@
 			beakers += B
 	update_icon()
 
-/obj/item/weapon/gun/projectile/dartgun/update_icon()
+/obj/item/weapon/gun/projectile/dartgun/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "dartgun-[round(ammo_magazine.stored_ammo.len,2)]"
@@ -94,7 +92,7 @@
 	//if (!..(user, 2))
 	//	return
 	..()
-	if (beakers.len)
+	if(beakers.len)
 		to_chat(user, SPAN_NOTICE("[src] contains:"))
 		for(var/obj/item/weapon/reagent_containers/glass/beaker/B in beakers)
 			if(B.reagents && B.reagents.reagent_list.len)

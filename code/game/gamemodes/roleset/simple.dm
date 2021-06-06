@@ -34,7 +34,7 @@
 	name = "inquisitor"
 	role_id = ROLE_INQUISITOR
 	weight = 0.15
-	event_pools = list(EVENT_LEVEL_ROLESET = -30) //This is an antitag, it has a negative cost to allow more antags to exist
+//	event_pools = list(EVENT_LEVEL_ROLESET = -30) //This is an antitag, it has a negative cost to allow more antags to exist
 
 
 //Weighting is based on the total number of active antags and disciples.
@@ -92,7 +92,7 @@
 	role_id = ROLE_MARSHAL
 	weight = 0.2
 	req_crew = 10
-	event_pools = list(EVENT_LEVEL_ROLESET = -30) //This is an antitag, it has a negative cost to allow more antags to exist
+//	event_pools = list(EVENT_LEVEL_ROLESET = -30) //This is an antitag, it has a negative cost to allow more antags to exist
 
 /datum/storyevent/roleset/marshal/can_trigger(var/severity, var/report)
 	var/a_count = 0

@@ -52,21 +52,28 @@
 
 		var/to_fire = max_targets
 		for(var/A in affected)
-			if(istype(A, /obj/structure/burrow))
+			if(isburrow(A))
 				var/obj/structure/burrow/burrow = A
 				if(!burrow.obelisk_around)
 					burrow.obelisk_around = any2ref(src)
 			else if(istype(A, /mob/living/carbon/superior_animal))
 				var/mob/living/carbon/superior_animal/animal = A
 				if(animal.stat != DEAD) //got roach, spider, maybe bear
-					animal.take_overall_damage(damage)
+					animal.take_overall_damage(damage)//Occulus Edit, Obelisk feedback
+					do_sparks(5, 0, animal.loc)//Occulus Edit, Obelisk feedback
+					bluespace_entropy(1, get_turf(animal))//Occulus Edit, Obelisk feedback
+					playsound(animal.loc, "sparks", 50, 1)
 					if(animal.stat == DEAD)
 						eotp.addObservation(5)
 					if(!--to_fire)
 						return
 			else if(istype(A, /mob/living/simple_animal/hostile))
 				var/mob/living/simple_animal/hostile/animal = A
+
 				if(animal.stat != DEAD) //got bear or something
+					do_sparks(5, 0, animal.loc)//Occulus Edit, Obelisk feedback
+					bluespace_entropy(1, get_turf(animal))//Occulus Edit, Obelisk feedback
+					playsound(animal.loc, "sparks", 50, 1)//Occulus Edit, Obelisk feedback
 					animal.take_overall_damage(damage)
 					if(animal.stat == DEAD)
 						eotp.addObservation(1)
@@ -131,5 +138,5 @@
 	return got_neoteo
 
 
-/obj/machinery/power/nt_obelisk/update_icon()
+/obj/machinery/power/nt_obelisk/on_update_icon()
 	icon_state = "nt_obelisk[active?"_on":""]"

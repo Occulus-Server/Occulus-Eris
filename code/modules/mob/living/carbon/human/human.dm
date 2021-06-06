@@ -8,6 +8,7 @@
 	var/list/hud_list[10]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/weapon/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_lying_buckled_and_verb_status() call.
+	var/obj/item/weapon/gun/using_scope // This is not very good either, because I've copied it. Sorry.
 
 /mob/living/carbon/human/New(var/new_loc, var/new_species)
 
@@ -108,7 +109,7 @@
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
 		if (HUDtech.Find("flash"))
-			flick("flash", HUDtech["flash"])
+			FLICK("flash", HUDtech["flash"])
 
 	var/shielded = 0
 	var/b_loss
@@ -1032,7 +1033,7 @@ var/list/rank_prefix = list(\
 	var/list/data = list()
 
 	data["style"] = get_total_style()
-	data["min_style"] = MIN_HUMAN_SYLE
+	data["min_style"] = MIN_HUMAN_STYLE
 	data["max_style"] = MAX_HUMAN_STYLE
 	data["sanity"] = sanity.level
 	data["sanity_max_level"] = sanity.max_level
@@ -1040,6 +1041,12 @@ var/list/rank_prefix = list(\
 	data["desires"] = sanity.desires
 	data["rest"] = sanity.resting
 	data["insight_rest"] = sanity.insight_rest
+
+//	var/obj/item/weapon/implant/core_implant/cruciform/C = get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)Occulus Edit: Simple way to get rid of this part of the UI
+//	if(C)
+//		data["cruciform"] = TRUE
+//		data["righteous_life"] = C.righteous_life Occulus Edit: Simple way to get rid of this part of the UI
+
 	return data
 
 /mob/living/carbon/human/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
@@ -1116,15 +1123,16 @@ var/list/rank_prefix = list(\
 	if(species.default_language)
 		add_language(species.default_language)
 
+	var/skincolor//Occulus Edit Start: Banish the Tarpeople!
 	if(species.base_color && default_colour)
-		//Apply colour.
-		r_skin = hex2num(copytext(species.base_color,2,4))
-		g_skin = hex2num(copytext(species.base_color,4,6))
-		b_skin = hex2num(copytext(species.base_color,6,8))
+		skincolor = species.base_color
 	else
-		r_skin = 0
-		g_skin = 0
-		b_skin = 0
+		skincolor = "#a1665e"
+	//Apply colour.
+	r_skin = hex2num(copytext(skincolor,2,4))
+	g_skin = hex2num(copytext(skincolor,4,6))
+	b_skin = hex2num(copytext(skincolor,6,8))
+	//Occulus Edit End: banish the Tarpeople!
 
 	if(species.holder_type)
 		holder_type = species.holder_type
@@ -1361,13 +1369,27 @@ var/list/rank_prefix = list(\
 				if(head && head.item_flags & THICKMATERIAL)
 					. = 0
 			else
-				if(wear_suit && wear_suit.item_flags & THICKMATERIAL)
-					. = 0
+
+				///// OCCULUS EDIT START
+				// Fix injection code to not just check the 'wear_suit' variable
+				// Code partially hijacked from the armor protection methods
+
+				var/list/protective_gear = list(wear_suit, w_uniform, gloves, shoes)
+
+				for(var/gear in protective_gear)
+					if(gear && istype(gear ,/obj/item/clothing))
+						var/obj/item/clothing/C = gear
+						if(istype(C) && C.body_parts_covered & affecting.body_part)
+							if(C.item_flags & THICKMATERIAL)
+								. = 0
+
+				///// OCCULUS EDIT END
+
 	if(!. && error_msg && user)
 		if(BP_IS_LIFELIKE(affecting) && user.stats.getStat(STAT_BIO) < STAT_LEVEL_BASIC)
 			fail_msg = "Skin is tough and inelastic."
 		else if(!fail_msg)
-			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on their body"] to inject into."
+			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on that body part"] to inject into."	// OCCULUS EDIT: Be more clear about the failure
 		to_chat(user, SPAN_WARNING(fail_msg))
 
 /mob/living/carbon/human/print_flavor_text(var/shrink = 1)
@@ -1622,3 +1644,41 @@ var/list/rank_prefix = list(\
 /mob/living/carbon/human/proc/set_remoteview(var/atom/A)
 	remoteview_target = A
 	reset_view(A)
+
+/mob/living/carbon/human/proc/resuscitate()
+	var/obj/item/organ/internal/heart_organ = random_organ_by_process(OP_HEART)
+	var/obj/item/organ/internal/brain_organ = random_organ_by_process(BP_BRAIN)
+
+	if(!is_asystole() && !(heart_organ && brain_organ) || (heart_organ.is_broken() || brain_organ.is_broken()))
+		return 0
+
+	if(world.time >= (timeofdeath + NECROZTIME))
+		return 0
+
+	var/oxyLoss = getOxyLoss()
+	if(oxyLoss > 20)
+		setOxyLoss(20)
+
+	if(health <= (HEALTH_THRESHOLD_DEAD - oxyLoss))
+		visible_message(SPAN_WARNING("\The [src] twitches a bit, but their body is too damaged to sustain life!"))
+		timeofdeath = 0
+		return 0
+
+	visible_message(SPAN_NOTICE("\The [src] twitches a bit as their heart restarts!"))
+	pulse = PULSE_NORM
+	handle_pulse()
+	tod = null
+	timeofdeath = 0
+	stat = UNCONSCIOUS
+	jitteriness += 3 SECONDS
+	updatehealth()
+	switch_from_dead_to_living_mob_list()
+	if(mind)
+		for(var/mob/observer/ghost/G in GLOB.player_list)
+			if(G.can_reenter_corpse && G.mind == mind)
+				if(alert("Do you want to enter your body?","Resuscitate","OH YES","No, thank you") == "OH YES") //Removed Eris insulting players who decline
+					G.reenter_corpse()
+					break
+				else
+					break
+	return 1

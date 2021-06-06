@@ -1,4 +1,5 @@
-#define WELCOME_SERBS "You are a serbian mercenary, part of a team of professional soldiers. You are currently aboard your base preparing for a mission targeting the NEV Northern Light.<br>\
+///Occulus eddit, de-serbian mercs///
+#define WELCOME_SERBS "You are a crack, elite mercenary, part of a team of professional soldiers or acting on your own. You are currently aboard your base preparing for a mission targeting the CEV Northern Light on behalf of Sol, or someone else.<br>\
 	<br>\
 	In your base you will find your armoury full of weapon crates and the EVA capable SCAF armour. It is advised that you take a pistol, a rifle, a knife and a SCAF suit for basic equipment.<br>\
 	Once you have your basic gear, you may also wish to take along a specialist weapon, like the RPG-7 or the Pulemyot Kalashnikova. Each of the specialist weapons is powerful but very bulky, you will need to wear it over your back.<br>\
@@ -8,7 +9,7 @@
 
 /datum/faction/mercenary
 	id = FACTION_SERBS
-	name = "Serbians"
+	name = "Mercenaries" //Also this is an Occulu edit
 	antag = "soldier"
 	antag_plural = "soldiers"
 	welcome_text = WELCOME_SERBS

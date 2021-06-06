@@ -17,7 +17,7 @@
 // Languages.
 #define LANGUAGE_COMMON "Galactic Common"
 #define LANGUAGE_CYRILLIC "Techno-Russian"
-#define LANGUAGE_SERBIAN "Serbian"
+#define LANGUAGE_MERC "Merc Geardo" //Occulus edit, replaces LANGUAGE_SERBIAN "Serbian"
 #define LANGUAGE_JIVE	"Jive"
 
 #define LANGUAGE_ROBOT "Robot Talk"
@@ -48,6 +48,7 @@
 #define LANGUAGE_SIIK "Siik"
 #define LANGUAGE_SKRELLIAN "Common Skrellian"
 #define LANGUAGE_SCHECHI "Schechi"
+#define LANGUAGE_BIRDSONG "Nevari"
 #define LANGUAGE_ROOTLOCAL "Local Rootspeak"
 #define LANGUAGE_ROOTGLOBAL "Global Rootspeak"
 #define LANGUAGE_YUELDISCH "Yueldisch"

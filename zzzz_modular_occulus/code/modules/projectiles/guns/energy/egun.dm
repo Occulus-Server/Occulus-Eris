@@ -28,3 +28,7 @@
 	overlays.Cut()
 	if(cell && cell.charge >= charge_cost) //no overlay if we dont have any power
 		update_mode()
+
+/obj/item/weapon/gun/energy/retro
+	name = "FS LG \"Cog\""
+	desc = "A cheaply produced laser gun. In the distant past - this was the main weapon of low-rank police forces, billions of copies of this gun were made. They are ubiquitous."

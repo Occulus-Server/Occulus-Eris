@@ -216,8 +216,8 @@
 			to_chat(user, SPAN_NOTICE("You inject [trans] units of the solution. [src] now contains [src.reagents.total_volume] units."))
 
 
-
-/obj/item/weapon/reagent_containers/syringe/update_icon()
+/obj/item/weapon/reagent_containers/syringe/on_update_icon()
+	..()
 	cut_overlays()
 
 	if(mode == SYRINGE_BROKEN)
@@ -307,6 +307,7 @@
 	name = "blitzshell syringe"
 	desc = "A blitzshell syringe."
 	breakable = FALSE
+	spawn_tags = null
 
 /obj/item/weapon/reagent_containers/syringe/ld50_syringe
 	name = "lethal injection syringe"
@@ -366,14 +367,14 @@
 	name = "syringe (drugs)"
 	desc = "Contains aggressive drugs meant for torture."
 	preloaded_reagents = list("space_drugs" = 5, "mindbreaker" = 5, "cryptobiolin" = 5)
-	spawn_tags = SPAWN_TAG_DRUG_CONTRABAND
+	spawn_tags = SPAWN_ITEM_CONTRABAND
 	rarity_value = 50
 
 /obj/item/weapon/reagent_containers/syringe/drugs_recreational
 	name = "syringe (drugs)"
 	desc = "Contains recreational drugs."
 	preloaded_reagents = list("space_drugs" = 15)
-	spawn_tags = SPAWN_TAG_DRUG_CONTRABAND
+	spawn_tags = SPAWN_ITEM_CONTRABAND
 	rarity_value = 40
 
 /obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral
