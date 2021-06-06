@@ -877,6 +877,12 @@ var/list/rank_prefix = list(\
 	// This will ignore any prosthetics in the prefs currently.
 	rebuild_organs()
 
+// OCCULUS EDIT START - Reinstall our core implant if we had one, because rebuild_organs() has that bit of code gutted from it
+	var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
+	if(I)
+		I.apply(src)
+// OCCULUS EDIT END
+
 	if(!client || !key) //Don't boot out anyone already in the mob.
 		for(var/obj/item/organ/internal/brain/H in world)
 			if(H.brainmob)
@@ -1194,10 +1200,10 @@ var/list/rank_prefix = list(\
 /////////////////////////////////////////////////////////////////////////////////////////
 // OCCULUS EDIT START - Spaghetti to make rejuv less crap, and also fix the weird eye bug
 	var/obj/item/weapon/implant/core_implant/CI = get_core_implant(null, FALSE)
-	var/checkprefcruciform = FALSE	// To reset the cruciform to original form //wtf does this even mean???
+	//var/checkprefcruciform = FALSE	// To reset the cruciform to original form //wtf does this even mean???
 	if(CI)
-		checkprefcruciform = TRUE
-		qdel(CI)	//so this qdel isn't working for whatever reason!
+		//checkprefcruciform = TRUE
+		qdel(CI)
 
 // OCCULUS EDIT START - Spaghetti to make rejuv less crap, and also fix the weird eye bug
 	for(var/obj/item/organ/organ in (organs|internal_organs))//Occulus Edit - Moving this out so the cloner stops breaking
@@ -1240,12 +1246,13 @@ var/list/rank_prefix = list(\
 			else
 				var/organ_type = species.has_process[tag]
 				new organ_type(src)
-
+/* haha this spaghetti just made things 100x worse
 //	OCCULUS EDIT START - Spaghetti to fix spaghetti
 		var/datum/category_item/setup_option/core_implant/I = Pref.get_option("Core implant")
 		if(I)
 			I.apply(src)
 //	OCCULUS EDIT END
+*/
 	else
 		var/organ_type
 
@@ -1262,14 +1269,14 @@ var/list/rank_prefix = list(\
 			if(I && I.type == organ_type)
 				continue
 			new organ_type(src)
-
+/* guess this isn't working out after all
 //	OCCULUS EDIT START - Spaghetti to fix spaghetti
 		if(checkprefcruciform)
 			var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
 			if(I)
 				I.apply(src)
 //	OCCULUS EDIT END
-
+*/
 	for(var/obj/item/organ/internal/carrion/C in organs_to_readd)
 		C.replaced(get_organ(C.parent_organ_base))
 
