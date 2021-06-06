@@ -111,10 +111,9 @@ The module base code is held in module.dm
 
 		if(!hacked_snatcher)
 			for(var/mob/M in GLOB.player_list) //If they've respawned, we don't want to yoink them out of their current body.
-				if(host_mind)	// Extra check since this is runtiming on mannequins.
-					if(M.ckey == host_mind.key)
-						if(M.stat != DEAD)
-							return
+				if(M.ckey == host_mind.key)
+					if(M.stat != DEAD)
+						return
 
 		host_mind.transfer_to(wearer)
 		wearer.ckey = host_mind.key
