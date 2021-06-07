@@ -43,3 +43,20 @@
 	new /obj/item/weapon/gun/projectile/shotgun/leveraction(src)
 	new /obj/item/weapon/storage/box/shotgunammo/slug(src)
 	new /obj/item/device/t_scanner(src)
+
+/obj/structure/closet/secure_closet/reinforced/ensign
+	name = "\improper Ensign's locker"
+	req_access = list(access_heads)
+	icon = 'zzzz_modular_occulus/icons/obj/closet.dmi'
+	icon_state = "ensign"
+
+/obj/structure/closet/secure_closet/reinforced/ensign/populate_contents()
+	new /obj/item/clothing/under/rank/ensign(src)
+	new /obj/item/device/radio/headset/heads/hop/ensign(src)
+	new /obj/item/clothing/shoes/leather(src)
+	new /obj/item/weapon/storage/backpack/satchel/leather/withwallet(src)
+	new /obj/item/weapon/storage/pouch/fanny(src)
+	new /obj/item/clothing/glasses/sunglasses(src)
+	new /obj/item/device/flash(src)
+	new /obj/item/weapon/storage/belt/utility/full(src)
+	new /obj/item/weapon/tool/multitool(src)
