@@ -4,21 +4,14 @@
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/taucetispecial.dmi'
 	icon_state = "taucetispecial"
 	item_state = "taucetispecial"
-	max_shells = 5
+	drawChargeMeter = FALSE
 	w_class = ITEM_SIZE_SMALL
-	force = WEAPON_FORCE_NORMAL
-	can_dual = TRUE
+	max_shells = 6
 	caliber = CAL_SHOTGUN
-	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
-	load_method = SINGLE_CASING
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	handle_casings = HOLD_CASINGS
-	unload_sound = 'sound/weapons/guns/interact/rev_magout.ogg'
-	reload_sound = 'sound/weapons/guns/interact/rev_magin.ogg'
-	cocked_sound = 'sound/weapons/guns/interact/rev_cock.ogg'
-	fire_sound = 'sound/weapons/guns/fire/shotgunp_fire.ogg'
-	bulletinsert_sound 	= 'sound/weapons/guns/interact/shotgun_insert.ogg'
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	penetration_multiplier = 1.4
+	recoil_buildup = 8
 	matter = list(MATERIAL_PLASTIC = 20)
 	price_tag = 300
 	rarity_value = 16
-	recoil_buildup = 10 //it's a one-handed shotgun lmao
