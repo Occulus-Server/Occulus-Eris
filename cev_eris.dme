@@ -2811,7 +2811,6 @@
 #include "zzz_modular_syzygy\code\modules\reagents\recipes.dm"
 #include "zzzz_modular_occulus\code\__HELPERS\icons.dm"
 #include "zzzz_modular_occulus\code\__HELPERS\turfs.dm"
-#include "zzzz_modular_occulus\code\modules\discord\discord.dm"
 #include "zzzz_modular_occulus\code\controllers\multiline_me.dm"
 #include "zzzz_modular_occulus\code\controllers\pixelshift.dm"
 #include "zzzz_modular_occulus\code\controllers\subsystems\vote.dm"
