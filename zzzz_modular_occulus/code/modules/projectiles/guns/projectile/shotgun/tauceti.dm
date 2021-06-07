@@ -9,9 +9,9 @@
 	max_shells = 6
 	caliber = CAL_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	penetration_multiplier = 1.4
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
+	penetration_multiplier = 0.7 //meant for killing unarmored civillians.
 	recoil_buildup = 8
 	matter = list(MATERIAL_PLASTIC = 20)
-	price_tag = 300
-	rarity_value = 16
+	price_tag = 300 //nobody wants to buy this. it's illegal to trade in most markets.
+	rarity_value = 25 //uncommon. terrorist weapon.
