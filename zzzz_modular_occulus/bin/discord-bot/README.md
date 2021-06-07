@@ -11,19 +11,20 @@ Run go build -o discord-bot.exe in the src/ folder.
 Using
 -----
 
-Open discord-bot.exe (preferably in a command line). **config.json must be in the same folder as the bot executable.**
+Open discord-bot.exe (preferably in a command line).
+**config.json must be in the same folder as the bot executable, as well as**
+**spola_words and sanity_messages**
 It is preferable to do this before opening Dream Daemon
 with byond-rest.exe implemented, but otherwise byond-rest.exe
 will attempt to connect to this server's RPC port otherwise.
 
-Set these enviromental variables:
+Your config.json file should have:
 
-- `BYOND_GATEWAY_RPC_PORT` - The intended port you want to use for remote calls. The default is 33621.
-- `DISCORD_KEY` - Your bot user's discord key.
-
-  OR
-
-  `DISCORD_KEY_FILE` - A file containing your bot user's discord key.
+```
+"token": [ DISCORD TOKEN ],
+"port": [ INTERNAL BOT PORT ],
+"ddport": [ BYOND SERVER PORT ],
+```
 
 Adding features
 ---------------
