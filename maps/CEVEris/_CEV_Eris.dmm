@@ -58752,6 +58752,8 @@
 /area/eris/maintenance/section1deck2central)
 "cGK" = (
 /obj/structure/table/standard,
+/obj/item/weapon/storage/pouch/fanny,
+/obj/spawner/lowkeyrandom/low_chance,
 /obj/spawner/lowkeyrandom/low_chance,
 /obj/spawner/lowkeyrandom/low_chance,
 /turf/simulated/floor/tiled/techmaint_panels,
@@ -77698,9 +77700,13 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
-/obj/spawner/cloth/helmet,
-/obj/spawner/cloth/helmet,
-/obj/spawner/cloth/helmet,
+/obj/item/clothing/head/armor/faceshield/altyn/black{
+	pixel_y = 10
+	},
+/obj/item/clothing/head/armor/faceshield/altyn/black{
+	pixel_y = 5
+	},
+/obj/item/clothing/head/armor/faceshield/altyn/black,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dyZ" = (
@@ -77749,11 +77755,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "BridgeArmoury";
-	name = "Armoury Access";
-	pixel_y = -25
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
@@ -103755,18 +103756,18 @@
 /area/eris/neotheology/chapel)
 "eWj" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/magnum,
-/obj/item/ammo_magazine/magnum,
-/obj/item/ammo_magazine/magnum,
-/obj/item/ammo_magazine/magnum,
-/obj/item/ammo_magazine/magnum,
-/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
 /obj/machinery/door/blast/shutters/glass{
 	id = "BridgeArmoury";
 	name = "Armoury showcase"
 	},
-/obj/item/ammo_magazine/ammobox/magnum,
-/obj/item/ammo_magazine/ammobox/magnum,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "eYw" = (
@@ -104182,12 +104183,18 @@
 /area/eris/maintenance/section4deck1central)
 "gxs" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/projectile/avasarala,
-/obj/item/weapon/gun/projectile/avasarala,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
 /obj/machinery/door/blast/shutters/glass{
 	id = "BridgeArmoury";
 	name = "Armoury showcase"
 	},
+/obj/item/ammo_magazine/ammobox/magnum,
+/obj/item/ammo_magazine/ammobox/magnum,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "gyw" = (
@@ -104325,6 +104332,7 @@
 	},
 /obj/structure/closet/secure_closet/reinforced/ensign,
 /obj/item/device/synthesized_instrument/guitar,
+/obj/spawner/pack/tech_loot,
 /turf/simulated/floor/wood,
 /area/eris/hallway/side/bridgehallway)
 "gQw" = (
@@ -105854,6 +105862,7 @@
 "lQa" = (
 /obj/structure/closet/secure_closet/reinforced/ensign,
 /obj/item/clothing/head/hairflower,
+/obj/spawner/pack/tech_loot,
 /turf/simulated/floor/wood,
 /area/eris/hallway/side/bridgehallway)
 "lRG" = (
@@ -106193,10 +106202,7 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/maintenance/section2deck1port)
 "mQf" = (
-/obj/machinery/door/window{
-	base_state = "right";
-	dir = 1;
-	icon_state = "right";
+/obj/machinery/door/airlock/command{
 	name = "Secure Bridge Armoury";
 	req_access = list(20)
 	},
@@ -106596,6 +106602,7 @@
 "nQO" = (
 /obj/structure/closet/secure_closet/reinforced/ensign,
 /obj/item/clothing/glasses/regular/goggles/black,
+/obj/spawner/pack/tech_loot,
 /turf/simulated/floor/wood,
 /area/eris/hallway/side/bridgehallway)
 "nQQ" = (
@@ -107359,6 +107366,32 @@
 /obj/effect/shuttle_landmark/merc/engieva,
 /turf/space,
 /area/space)
+"qty" = (
+/obj/machinery/door/blast/shutters/glass{
+	id = "BridgeArmoury";
+	name = "Armoury showcase"
+	},
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/plasma/brigador,
+/obj/item/weapon/gun/energy/plasma/brigador,
+/obj/item/weapon/cell/small/high{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/obj/item/weapon/cell/small/high{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/obj/item/weapon/cell/small/high{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/obj/item/weapon/cell/small/high{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "qud" = (
 /obj/machinery/atmospherics/pipe/zpipe/up,
 /turf/simulated/floor/plating/under,
@@ -109015,21 +109048,10 @@
 /turf/simulated/open,
 /area/eris/quartermaster/misc)
 "wuY" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/machinery/door/blast/shutters/glass{
+/obj/machinery/button/remote/blast_door{
 	id = "BridgeArmoury";
-	name = "Armoury showcase"
-	},
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/item/ammo_magazine/ammobox/magnum/rubber,
-/obj/item/ammo_magazine/ammobox/magnum/rubber,
-/obj/structure/window/reinforced{
-	dir = 1
+	name = "Armoury Access";
+	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
@@ -109468,28 +109490,12 @@
 /turf/simulated/floor/wood,
 /area/eris/maintenance/section4deck4central)
 "xUa" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/projectile/avasarala,
+/obj/item/weapon/gun/projectile/avasarala,
 /obj/machinery/door/blast/shutters/glass{
 	id = "BridgeArmoury";
 	name = "Armoury showcase"
-	},
-/obj/structure/table/rack,
-/obj/item/weapon/gun/energy/plasma/brigador,
-/obj/item/weapon/gun/energy/plasma/brigador,
-/obj/item/weapon/cell/small/high{
-	pixel_x = 4;
-	pixel_y = -7
-	},
-/obj/item/weapon/cell/small/high{
-	pixel_x = 4;
-	pixel_y = -7
-	},
-/obj/item/weapon/cell/small/high{
-	pixel_x = 4;
-	pixel_y = -7
-	},
-/obj/item/weapon/cell/small/high{
-	pixel_x = 4;
-	pixel_y = -7
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
@@ -292225,11 +292231,11 @@ dyY
 dze
 cHg
 mQf
+wuY
 cHg
 cHg
 cHg
 dVw
-abF
 abF
 abF
 abF
@@ -292426,12 +292432,12 @@ dVw
 dyZ
 dzg
 kug
-wuY
+dVw
 eWj
 gxs
 xUa
+qty
 dVw
-abF
 abF
 abF
 abF
@@ -292633,7 +292639,7 @@ dVw
 dVw
 dVw
 dVw
-abF
+dVw
 abF
 abF
 abF
