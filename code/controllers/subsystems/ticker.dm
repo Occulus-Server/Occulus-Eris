@@ -146,8 +146,7 @@ SUBSYSTEM_DEF(ticker)
 					else
 						if(!delay_end)
 							to_chat(world, SPAN_NOTICE("<b>Restarting in [restart_timeout/10] seconds</b>"))
-
-
+					
 					if(!delay_end)
 						sleep(restart_timeout)
 						if(!delay_end)
