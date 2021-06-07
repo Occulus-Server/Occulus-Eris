@@ -11,7 +11,6 @@
 	caliber = CAL_SHOTGUN
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	load_method = SINGLE_CASING
-	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	handle_casings = HOLD_CASINGS
 	unload_sound = 'sound/weapons/guns/interact/rev_magout.ogg'
 	reload_sound = 'sound/weapons/guns/interact/rev_magin.ogg'
