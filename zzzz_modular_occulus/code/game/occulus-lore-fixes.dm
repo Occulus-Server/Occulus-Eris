@@ -232,3 +232,19 @@
 /obj/structure/sign/faction/one_star
 	name = "One Star"
 	desc = "One Star's all-seeing eye, a banner of a now fallen empire. They once controlled this sector from their capital in Nullspace. Now it's all just dust, forgotten derelicts, and automated ships."
+
+//Alert levels
+/decl/security_level/default/code_green
+	down_description = "All threats to the ship have passed. Crew are to return to normal duties."
+
+/decl/security_level/default/code_blue
+	up_description = "The ship has received reliable information about possible danger to it's safety. Crew are to prepare general quarters and see their respective command member for details."
+	down_description = "The immediate threat has passed. Crew are to remain on alert and see their respective command member for details."
+
+/decl/security_level/default/code_red
+	up_description = "There is an immediate serious threat to the ship. Privacy rights as suspended and crew are to listen to all command orders."
+	down_description = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the ship. Privacy rights are still suspended and crew are to listen to all command orders."
+
+/decl/security_level/default/code_delta/switching_up_to()
+	security_announcement_delta.Announce("The self-destruct mechanism has been engaged. All crew are ordered to obey all instructions given by command. These orders can be enforced by lethal force. This is not a drill.", "Attention! Delta security level reached!")
+	notify_station()
