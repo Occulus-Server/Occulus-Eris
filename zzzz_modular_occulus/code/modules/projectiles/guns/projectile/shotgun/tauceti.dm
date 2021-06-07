@@ -18,49 +18,7 @@
 	cocked_sound = 'sound/weapons/guns/interact/rev_cock.ogg'
 	fire_sound = 'sound/weapons/guns/fire/shotgunp_fire.ogg'
 	bulletinsert_sound 	= 'sound/weapons/guns/interact/shotgun_insert.ogg'
-	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 10)
-	price_tag = 1000
+	matter = list(MATERIAL_PLASTIC = 20)
+	price_tag = 300
 	rarity_value = 16
 	recoil_buildup = 10 //it's a one-handed shotgun lmao
-
-/*
-/obj/item/weapon/gun/projectile/revolver/tauceti/verb/spin_cylinder()
-	set name = "Spin cylinder"
-	set desc = "Fun when you're bored out of your skull."
-	set category = "Object"
-
-	chamber_offset = 0
-	visible_message(SPAN_WARNING("\The [usr] spins the cylinder of \the [src]!"), \
-	SPAN_NOTICE("You hear something metallic spin and click."))
-	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
-	loaded = shuffle(loaded)
-	if(rand(1,max_shells) > loaded.len)
-		chamber_offset = rand(0,max_shells - loaded.len)
-
-/obj/item/weapon/gun/projectile/revolver/tauceti/consume_next_projectile()
-	if(chamber_offset)
-		chamber_offset--
-		return
-	return ..()
-
-/obj/item/weapon/gun/projectile/revolver/tauceti/load_ammo(obj/item/A, mob/user)
-	chamber_offset = 0
-	return ..()
-
-/obj/item/weapon/gun/projectile/revolver/tauceti/tauceti/proc/update_charge()
-	if(!drawChargeMeter)
-		return
-	cut_overlays()
-	if(loaded.len==0)
-		add_overlays("[icon_state]_off")
-	else
-		add_overlays("[icon_state]_on")
-
-
-/obj/item/weapon/gun/projectile/revolver/tauceti/tauceti/on_update_icon()
-	update_charge()
-
-/obj/item/weapon/gun/projectile/revolver/tauceti/tauceti/generate_guntags()
-	..()
-	gun_tags |= GUN_REVOLVER
-	*/
