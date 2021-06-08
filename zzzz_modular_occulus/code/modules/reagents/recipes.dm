@@ -39,3 +39,20 @@
 	var/turf/T = get_turf(holder.my_atom)
 	var/range = clamp(sqrt(created_volume), 1, 6)
 	vortex(T, 1, range)
+
+/datum/chemical_reaction/nitrate
+	result = "nitrate"
+	required_reagents = list("nitrogen" = 1, "oxygen" = 3)
+	result_amount = 4
+
+/datum/chemical_reaction/aluminum_nitrate
+	required_reagents = list("aluminum" = 1, "nitrate" = 3)
+	result_amount = 4
+
+/datum/chemical_reaction/brownies
+	required_reagents = list("aluminum_nitrate" = 40, "tartrate" = 20)
+	result_amount = 0
+	on_reaction(var/datum/reagents/holder, var/created_volume)
+		for(var/i = 0; i < 3; i++)
+			new /obj/item/weapon/reagent_containers/food/snacks/brownies(get_turf(holder.my_atom))
+		return

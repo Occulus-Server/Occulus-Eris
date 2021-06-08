@@ -2,8 +2,7 @@
 
 
 
-
-
+//Pull/push proc!
 /proc/vortex(turf/T, setting_type, range)
 	for(var/atom/movable/X in orange(range, T))
 		if(X.anchored)
@@ -26,3 +25,19 @@
 				if(step_towards(X, T) && moving_power > 1)
 					addtimer(CALLBACK(GLOBAL_PROC, .proc/_step_towards, X, T), 2)
 
+proc/gaseous_reagent_check(var/mob/living/carbon/human/H) //protective clothing check
+	return (istype(H.wear_suit, /obj/item/clothing/suit/space) && istype(H.head, /obj/item/clothing/head/space)) \
+		|| (istype(H.wear_suit, /obj/item/clothing/suit/bio_suit) && istype(H.head, /obj/item/clothing/head/bio_hood) && H.gloves) \
+		|| (H.isSynthetic())
+
+// Called when reagents are removed from a container, most likely after metabolizing in a mob
+/datum/reagent/proc/on_remove(var/atom/A)
+	return
+
+// Called when a mob dies
+/datum/reagent/proc/on_mob_death(var/mob/M)
+ 	return
+
+ //on transfer to new container, return 1 to allow it to continue
+/datum/reagent/proc/on_transfer(var/volume)
+	return 1
