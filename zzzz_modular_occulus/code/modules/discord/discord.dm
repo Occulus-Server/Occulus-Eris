@@ -26,8 +26,6 @@ var/datum/discord_bot/discord_bot = new
 /proc/get_state()
 	var/t
 	var/s
-	var/l
-	var/j
 
 	switch (Master.current_runlevel) // got lazy trying to convert from base 10 to 2
 		if(0)
@@ -46,29 +44,16 @@ var/datum/discord_bot/discord_bot = new
 	if(GLOB.storyteller)
 		t = GLOB.storyteller.name
 
-	l = list(list(
-		"status" = s,
-		"storyteller" = t,
-		"duration" = roundduration2text(),
-		"roaches" = s != STATUS_LOBBY ? roach_counter : 0,
-	))
-
-	j = json_encode(l)
-	qdel(l)
-
-	return j
+	return "{\\\"status\\\":[s == null ? "null" : s],\\\"storyteller\\\":[t == null ? "null" : "\\\"[t]\\\""],\\\"duration\\\":\\\"[roundduration2text()]\",\\\"roaches\\\":[s != STATUS_LOBBY ? roach_counter : 0]}"
 
 /proc/create_json_rpc_call(method, json)
-	var/l = list("method" = method, "params" = json, id = rand(1, 1000))
-	var/c = json_encode(l)
-	qdel(l)
-
-	return c
+	return "{\"method\":\"[method]\",\"params\":\[\"[json]\"\],\"id\":[rand(1, 1000)]}"
 
 /// Bot communication ///
 
 /datum/discord_bot/proc/send(info)
 	var/C = call(CONN_LIBRARY, "SendAndClose")("127.0.0.1", "[port]", info)
+	log_world(C)
 
 	if (C == CONN_SUCCESS)
 		log_debug("Successfully sent to the discord bot.")
@@ -78,14 +63,12 @@ var/datum/discord_bot/discord_bot = new
 	return C
 
 /datum/discord_bot/proc/update_bot()
-	// var/r = json_encode(list("method" = "Bot.StateChange", "params" = list(json_encode(get_state())), id = rand(1, 1000)))
 	var/r = create_json_rpc_call("Bot.StateChange", get_state())
 	if (send(r) != CONN_SUCCESS)
 		log_debug("An error occurred while attempting to update the bot.")
 
 // topic calls don't send valid JSON
 /datum/discord_bot/proc/send_state()
-	// var/r = json_encode(list("method" = "Bot.StateRecieve", "params" = list(json_encode(get_state())), id = rand(1, 1000)))
 	var/r = create_json_rpc_call("Bot.StateRecieve", get_state())
 	return send(r)
 
