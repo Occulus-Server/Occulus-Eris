@@ -60,7 +60,7 @@ datum/reagent/nitrate
 		M.universal_understand = 0
 		to_chat(M, "<span class='warning'>You no longer feel attuned to the spoken word.</span>")
 
-/datum/reagent/abelizine/on_mob_death(var/mob/M)
+/datum/reagent/babelizine/on_mob_death(var/mob/M)
 	holder.remove_reagent(src.id, src.volume)
 
 
@@ -79,7 +79,7 @@ datum/reagent/nitrate
 
 	..()
 
-/datum/reagent/phororeagent/the_stuff
+/datum/reagent/the_stuff
 	id = "the_stuff"
 	name = "The Stuff"
 	description = "Looks as though it would metabolize into the ultimate hallucinogenic cocktail"
@@ -87,7 +87,7 @@ datum/reagent/nitrate
 	metabolism = 10 * REM
 	var/init = 0
 
-/datum/reagent/phororeagent/the_stuff/on_mob_life(var/mob/living/M as mob, var/alien)
+/datum/reagent/the_stuff/on_mob_life(var/mob/living/M as mob, var/alien)
 	if(!init)
 		to_chat(M, "<span class='warning'>You start tripping balls.</span>")
 		init = 1
@@ -97,42 +97,42 @@ datum/reagent/nitrate
 	M.reagents.add_reagent("mindbreaker", 0.2)
 	return ..()
 
-/datum/reagent/phororeagent/frioline
+/datum/reagent/frioline
 	id = "frioline"
 	name = "Frioline"
 	description = "Could cause rapid and sustained decrease in body temperature"
 	color = "#A0E1F7"
 
-/datum/reagent/phororeagent/frioline/on_mob_life(var/mob/living/M as mob, var/alien)
+/datum/reagent/frioline/on_mob_life(var/mob/living/M as mob, var/alien)
 	if(M.bodytemperature > 310)
 		to_chat(M, "<span class='notice'>You suddenly feel very cold.</span>")
 	M.bodytemperature = max(165, M.bodytemperature - 30)
 	return ..()
 
-/datum/reagent/phororeagent/luxitol
+/datum/reagent/luxitol
 	id = "luxitol"
 	name = "Luxitol"
 	description = "Mimics compounds in known connection with bioluminescence"
 	color = "#61E34F"
 	metabolism = 0.2 * REM
 
-/datum/reagent/phororeagent/luxitol/on_mob_life(var/mob/living/M as mob, var/alien)
+/datum/reagent/luxitol/on_mob_life(var/mob/living/M as mob, var/alien)
 	M.set_light(10)
 	return ..()
 
-/datum/reagent/phororeagent/luxitol/on_remove(var/atom/A)
+/datum/reagent/luxitol/on_remove(var/atom/A)
 	if(istype(A, /mob))
 		var/mob/M = A
 		M.set_light(0)
 	return ..()
 
-/datum/reagent/phororeagent/liquid_skin
+/datum/reagent/liquid_skin
 	id = "liquid_skin"
 	name = "Liquid Skin"
 	description = "Fills in microscopic ridges on biotic surfaces and hardens"
 	color = "#F7E9BE"
 
-/datum/reagent/phororeagent/liquid_skin/touch_mob(var/mob/M, var/volume)
+/datum/reagent/liquid_skin/touch_mob(var/mob/M, var/volume)
 	if(istype(M, /mob/living))
 		var/mob/living/L = M
 		var/burned = L.getFireLoss() > 0
@@ -356,13 +356,13 @@ datum/reagent/nitrate
 
 //It is POSSIBLE but very hard to "stop, drop, and roll" out the fire from an unprotected ignisol encounter before going into crit
 //I really just like the idea of scientists running out of a lab on fire to the science shower - DrBrock
-/datum/reagent/phororeagent/gaseous/ignisol
+/datum/reagent/gaseous/ignisol
 	id = "ignisol"
 	name = "Ignisol"
 	description = "Creates highly flammable reaction with biotic substances"
 	color = "#F78431"
 
-/*/datum/reagent/phororeagent/gaseous/ignisol/touch_turf(var/turf/T)
+/*/datum/reagent/gaseous/ignisol/touch_turf(var/turf/T)
 	var/mob_affected = 0
 	for(var/mob/living/L in T.contents)
 		mob_affected = 1
@@ -380,7 +380,7 @@ datum/reagent/nitrate
 	if(mob_affected)
 		src = null
 */
-/datum/reagent/phororeagent/gaseous/ignisol/touch_mob(var/mob/M, var/volume)
+/datum/reagent/gaseous/ignisol/touch_mob(var/mob/M, var/volume)
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		if(!gaseous_reagent_check(H)) //protective clothing check
