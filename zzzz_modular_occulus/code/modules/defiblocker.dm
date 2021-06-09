@@ -1,7 +1,7 @@
 /obj/structure/defibcabinet
 	name = "AED Cabinet"
 	desc = "A shiny cabinet that holds an Automated External Defibrillator for emergency use"
-	icon = 'zzz_modular_syzygy/icons/obj/ErisDefib.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi'
 	icon_state = "defiblocker"
 	anchored = TRUE
 	density = FALSE

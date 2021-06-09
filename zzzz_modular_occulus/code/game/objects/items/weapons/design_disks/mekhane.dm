@@ -183,18 +183,23 @@ ARMOR_PEN_MASSIVE			30
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_dominion
 	disk_name = "Mekhane Armory - MEK PL \"Dominion\""
+	rarity_value = 75
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_purger
 	disk_name = "Mekhane Armory - MEK PL \"Purger\""
+	rarity_value = 75
+
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/grenades
 	disk_name = "Mekhane Armory - Grenades Pack"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_nemesis
 	disk_name = "EC01 - Nemesis"
+	rarity_value = 90
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_themis
 	disk_name = "EC02 - Themis"
+	rarity_value = 90
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_svalinn
 	disk_name = "Mekhane Armory - MEK LP \"Svalinn\""

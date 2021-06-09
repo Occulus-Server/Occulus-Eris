@@ -114,37 +114,37 @@ CREATE_PROSTHESIS_VARIETIES_FULL(xion, "Xion")
 //ERIS PROSTHESIS OVERRIDES GO HERE
 
 /obj/item/organ/external/robotic/asters
-	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/asters.dmi'
+	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/asters.dmi'
 
 CREATE_PROSTHESIS_HANDSFEET(asters, "Asters")
 
 /obj/item/organ/external/robotic/serbian
-	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/serbian.dmi'
+	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/serbian.dmi'
 
 CREATE_PROSTHESIS_HANDSFEET(serbian, "Serbian")
 
 /obj/item/organ/external/robotic/frozen_star
-	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/frozen_star.dmi'
+	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/frozen_star.dmi'
 
 CREATE_PROSTHESIS_HANDSFEET(frozen_star, "Frozen Star")
 
 /obj/item/organ/external/robotic/technomancer
-	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/technomancer.dmi'
+	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/technomancer.dmi'
 
 CREATE_PROSTHESIS_HANDSFEET(technomancer, "Technomancer")
 
 /obj/item/organ/external/robotic/moebius
-	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/moebius.dmi'
+	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/moebius.dmi'
 
 CREATE_PROSTHESIS_HANDSFEET(moebius, "Moebius")
 
 /obj/item/organ/external/robotic/excelsior
-	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/excelsior.dmi'
+	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/excelsior.dmi'
 
 CREATE_PROSTHESIS_HANDSFEET(excelsior, "Excelsior")
 
 /obj/item/organ/external/robotic/one_star
-	force_icon = 'zzz_modular_syzygy/icons/eris_prosthesis/one_star.dmi'
+	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/one_star.dmi'
 
 CREATE_PROSTHESIS_HANDSFEET(one_star, "One Star")
 
