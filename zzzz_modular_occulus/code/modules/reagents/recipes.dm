@@ -56,3 +56,15 @@
 		for(var/i = 0; i < 3; i++)
 			new /obj/item/weapon/reagent_containers/food/snacks/brownies(get_turf(holder.my_atom))
 		return
+/datum/chemical_reaction/babelizine
+	required_reagents = list("unstable mutagen" = 2, "alkysine" =1)
+	result_amount = 3
+
+/datum/chemical_reaction/malaxitol
+	required_reagents = list("synaptizine" = 2, "innaprovaline" = 1, "acetone" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/bliss
+	required_reagents = list("serotrotium" = 1, "space_drugs" = 2, "methylphenidate" = 1)
+	result_amount = 4
+//seligitillin

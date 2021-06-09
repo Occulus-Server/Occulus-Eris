@@ -79,22 +79,31 @@ datum/reagent/nitrate
 
 	..()
 
-/datum/reagent/the_stuff
-	id = "the_stuff"
-	name = "The Stuff"
+/datum/reagent/bliss
+	id = "bliss"
+	name = "Bliss"
 	description = "Looks as though it would metabolize into the ultimate hallucinogenic cocktail"
 	color = "#1A979D"
 	metabolism = 10 * REM
 	var/init = 0
+	overdose = 15
 
-/datum/reagent/the_stuff/on_mob_life(var/mob/living/M as mob, var/alien)
+/datum/reagent/bliss/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(!init)
-		to_chat(M, "<span class='warning'>You start tripping balls.</span>")
+		to_chat(M, "<span class='warning'>Everything seems to turn glossy and wonderful.</span>")
 		init = 1
-	var/drugs = list("space_drugs", "serotrotium", "psilocybin", "nuka_cola", "atomicbomb", "hippiesdelight")
-	for(var/drug in drugs)
-		M.reagents.add_reagent(drug, 1)
-	M.reagents.add_reagent("mindbreaker", 0.2)
+	if(prob(5))
+		if(prob(98))
+			var/list/bliss_messages = list("You feel as if everything is great",
+			"The world seems bright and sparkly", "Everyone enjoys being with you.",
+			"You feel like theres nothing you can't do", "You feel a weight lifting off your chest",
+			"Nothing can go wrong for you",
+			"All your troubles seem to wash away")
+
+			to_chat(M, "<font color='#e3209b'>[pick(bliss_messages)]</font>")
+	sanity_gain = 4
+	M.druggy = max(M.druggy, 5 * effect_multiplier)
+	M.make_dizzy(10 * effect_multiplier)
 	return ..()
 
 /datum/reagent/frioline
@@ -103,7 +112,7 @@ datum/reagent/nitrate
 	description = "Could cause rapid and sustained decrease in body temperature"
 	color = "#A0E1F7"
 
-/datum/reagent/frioline/on_mob_life(var/mob/living/M as mob, var/alien)
+/datum/reagent/frioline/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(M.bodytemperature > 310)
 		to_chat(M, "<span class='notice'>You suddenly feel very cold.</span>")
 	M.bodytemperature = max(165, M.bodytemperature - 30)
@@ -116,7 +125,7 @@ datum/reagent/nitrate
 	color = "#61E34F"
 	metabolism = 0.2 * REM
 
-/datum/reagent/luxitol/on_mob_life(var/mob/living/M as mob, var/alien)
+/datum/reagent/luxitol/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.set_light(10)
 	return ..()
 
@@ -155,7 +164,7 @@ datum/reagent/nitrate
 	color = "#2F85CC"
 	metabolism = 3 * REM
 
-/datum/reagent/paralitol/on_mob_life(var/mob/living/M as mob, var/alien)
+/datum/reagent/paralitol/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.Weaken(2)
 	M.stuttering = 50
 	return ..()
@@ -185,7 +194,7 @@ datum/reagent/nitrate
 				else
 					C.reagents.add_reagent(id, volume)
 
-/datum/reagent/mortemol/on_mob_life(var/mob/living/M as mob, var/alien)
+/datum/reagent/mortemol/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(data[1])
 		M.halloss = 100
 		M.stuttering = 1
@@ -219,7 +228,7 @@ datum/reagent/nitrate
 	metabolism = 5 * REM
 	overdose = 15
 
-/datum/reagent/oxyphoromin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/oxyphoromin/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.add_chemical_effect(CE_PAINKILLER, 600)
 	M.eye_blurry = min(M.eye_blurry + 10, 250)
 //	M.confuse(5)
