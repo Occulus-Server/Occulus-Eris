@@ -52,3 +52,21 @@
 	name = "solgov white dress uniform"
 	icon_state = "whiteservice_skirt"
 	item_state = "whiteservice_skirt"
+
+/obj/item/clothing/under/rank/sailoruniform
+	name = "sailor uniform"
+	desc = "Very old fashioned, but still popular."
+	icon = 'zzzz_modular_occulus/icons/inventory/uniform/ensign.dmi'
+	icon_state = "sailor"
+	item_state = "sailor"
+	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob_fem.dmi'
+
+/obj/item/clothing/under/rank/ensign
+	name = "ensign jumpsuit"
+	desc = "Standard uniform for maritime naval officers."
+	icon = 'zzzz_modular_occulus/icons/inventory/uniform/ensign.dmi'
+	icon_state = "ensign"
+	item_state = "ensign"
+	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob_fem.dmi'

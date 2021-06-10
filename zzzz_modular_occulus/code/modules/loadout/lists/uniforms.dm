@@ -44,6 +44,9 @@
 	display_name = "yoga pants"
 	path = /obj/item/clothing/under/yogapants/topless
 
+/datum/gear/uniform/sailor
+	display_name = "sailor uniform"
+	path = /obj/item/clothing/under/rank/sailoruniform
 
 /datum/gear/uniform/solgovblackdress
 	display_name = "solgov dress uniform (black)"
