@@ -147,6 +147,9 @@
 	desc = "A vest with hand and arm-guards attached that excels in protecting the wearer against high-velocity solid projectiles. \
 			This one has been done in Aegis Security colors."
 
+/obj/item/clothing/suit/armor/vest/full/ironhammer
+	desc = "An armored vest painted in Aegis Security colors. This one has shoulderpads and knee pads included to protect all parts of the body."
+
 /obj/item/weapon/tool/knife/neotritual
 	name = "Mekhane ritual knife"
 
@@ -205,3 +208,43 @@
 
 /obj/item/weapon/grenade/frag
 	name = "FS DFG \"Pomme\""
+
+//Machines
+/obj/machinery/microwave
+	name = "GenTech Autocooker 5000"
+	desc = "From the company that brought you the Absolute Zero Fridge comes the Autocooker 5000! Dinner, desserts, shellfish, it does it all!"
+
+//One Star
+
+/obj/item/organ/external/robotic/one_star
+	name = "One star"
+	desc = "Advanced, extremly resileant and mobile prosthetic. Far beyond today's robotics advancements."
+
+/obj/item/weapon/tool/pickaxe/onestar
+	name = "One Star pickaxe"
+	desc = "A standard One Star basic tool. Uses advanced technology which makes it powerful and energy-efficent at the same time."
+
+
+/obj/item/weapon/tool/pickaxe/jackhammer/onestar
+	name = "One Star jackhammer"
+	desc = "A heavy One Star tool that cracks rocks with blasts, perfect for killing flimsy organics"
+
+/obj/structure/sign/faction/one_star
+	name = "One Star"
+	desc = "One Star's all-seeing eye, a banner of a now fallen empire. They once controlled this sector from their capital in Nullspace. Now it's all just dust, forgotten derelicts and automated ships."
+
+//Alert levels
+/decl/security_level/default/code_green
+	down_description = "All threats to the ship have passed. Crew members are to return to normal duties."
+
+/decl/security_level/default/code_blue
+	up_description = "The ship has received reliable information about possible danger to it's safety. Crew members are to prepare general quarters and see their respective command member for details."
+	down_description = "The immediate threat has passed. Crew members are to remain on alert and see their respective command member for details."
+
+/decl/security_level/default/code_red
+	up_description = "There is an immediate serious threat to the ship. Privacy rights are suspended and crew members are to listen to all command orders."
+	down_description = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the ship. Privacy rights are still suspended and crew members are to listen to all command orders."
+
+/decl/security_level/default/code_delta/switching_up_to()
+	security_announcement_delta.Announce("The self-destruct mechanism has been engaged. All crew members are ordered to obey all instructions given by command. These orders can be enforced by lethal force. This is not a drill.", "Attention! Delta security level reached!")
+	notify_station()

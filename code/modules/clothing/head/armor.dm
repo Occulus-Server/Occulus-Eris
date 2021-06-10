@@ -281,6 +281,7 @@
 	armor_down = list(melee = 40, bullet = 40, energy = 30, bomb = 35, bio = 0, rad = 0)
 	item_flags = THICKMATERIAL | COVER_PREVENT_MANIPULATION
 	price_tag = 150
+	rarity_value = 25
 
 /obj/item/clothing/head/armor/faceshield/Initialize()
 	. = ..()
@@ -289,7 +290,7 @@
 /obj/item/clothing/head/armor/faceshield/attack_self()
 	toggle()
 
-/obj/item/clothing/head/armor/faceshield/on_update_icon()
+/obj/item/clothing/head/armor/faceshield/update_icon()
 	icon_state = up ? "[initial(icon_state)]_up" : initial(icon_state)
 
 //I wanted to name it set_up() but some how I thought that would be misleading
@@ -324,57 +325,6 @@
 		else
 			to_chat(usr, "You flip the [src] down to protect your face.")
 
-		usr.update_action_buttons()
-
-// Riot helmet
-/obj/item/clothing/head/armor/riot
-	name = "riot helmet"
-	desc = "It's a helmet specifically designed to protect against close range attacks."
-	icon_state = "riot"
-	body_parts_covered = HEAD|FACE|EARS
-	var/list/armor_up = list(melee = 35, bullet = 25, energy = 25, bomb = 20, bio = 0, rad = 0)
-	var/list/armor_down = list(melee = 40, bullet = 40, energy = 30, bomb = 35, bio = 0, rad = 0)
-	item_flags = THICKMATERIAL | COVER_PREVENT_MANIPULATION
-	tint = TINT_MODERATE
-	flash_protection = FLASH_PROTECTION_MAJOR
-	action_button_name = "Flip Face Shield"
-	var/up = FALSE
-	price_tag = 150
-	rarity_value = 25
-
-/obj/item/clothing/head/armor/riot/Initialize()
-	. = ..()
-	armor = up ? armor_up : armor_down
-	update_icon()
-
-/obj/item/clothing/head/armor/riot/attack_self()
-	toggle()
-
-/obj/item/clothing/head/armor/riot/verb/toggle()
-	set category = "Object"
-	set name = "Adjust riot helmet"
-	set src in usr
-
-	if(!usr.incapacitated())
-		src.up = !src.up
-
-		if(src.up)
-			body_parts_covered &= ~(EYES|FACE)
-			tint = TINT_NONE
-			flags_inv &= ~(HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
-			flash_protection = FLASH_PROTECTION_NONE
-			armor = armor_up
-			to_chat(usr, "You push the [src] up out of your face.")
-		else
-			body_parts_covered |= (EYES|FACE)
-			tint = initial(tint)
-			flags_inv |= (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
-			flash_protection = initial(flash_protection)
-			armor = armor_down
-			to_chat(usr, "You flip the [src] down to protect your face.")
-
-		update_icon()
-		update_wear_icon()	//update our mob overlays
 		usr.update_action_buttons()
 
 
@@ -465,68 +415,23 @@
 	body_parts_covered = HEAD|EARS
 	siemens_coefficient = 1
 
-/obj/item/clothing/head/armor/altyn
+/obj/item/clothing/head/armor/faceshield/altyn
 	name = "altyn helmet"
 	desc = "A titanium helmet of serbian origin. Still widely used despite being discontinued."
 	icon_state = "altyn"
-	armor = list(melee = 20, bullet = 15, energy = 0, bomb = 15, bio = 0, rad = 0) //Fixing a runtime. Occulus Edit
-	var/list/armor_up = list(melee = 20, bullet = 15, energy = 0, bomb = 15, bio = 0, rad = 0)
-	var/list/armor_down = list(melee = 40, bullet = 40, energy = 0, bomb = 35, bio = 0, rad = 0) // slightly better than usual due to mask
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHEADHAIR
-	flash_protection = FLASH_PROTECTION_MAJOR
-	body_parts_covered = HEAD|FACE|EARS
+	armor_up = list(melee = 20, bullet = 15, energy = 0, bomb = 15, bio = 0, rad = 0)
+	armor_down = list(melee = 40, bullet = 40, energy = 0, bomb = 35, bio = 0, rad = 0)
 	siemens_coefficient = 1
 	rarity_value = 50
+	up = TRUE
 
-	action_button_name = "Flip Face Shield"
-	var/up = TRUE
-
-
-/obj/item/clothing/head/armor/altyn/Initialize()
-	. = ..()
-	armor = up ? armor_up : armor_down
-	update_icon()
-
-/obj/item/clothing/head/armor/altyn/update_icon()
-	icon_state = up ? "[initial(icon_state)]_up" : initial(icon_state)
-
-/obj/item/clothing/head/armor/altyn/attack_self()
-	toggle()
-
-
-/obj/item/clothing/head/armor/altyn/verb/toggle()
-	set category = "Object"
-	set name = "Adjust face shield"
-	set src in usr
-
-	if(!usr.incapacitated())
-		src.up = !src.up
-
-		if(src.up)
-			body_parts_covered &= ~(EYES|FACE)
-			flags_inv &= ~(HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
-			flash_protection = FLASH_PROTECTION_NONE
-			armor = armor_up
-			to_chat(usr, "You push the [src] up out of your face.")
-		else
-			body_parts_covered |= (EYES|FACE)
-			flags_inv |= (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
-			flash_protection = initial(flash_protection)
-			armor = armor_down
-			to_chat(usr, "You flip the [src] down to protect your face.")
-
-		update_icon()
-		update_wear_icon()	//update our mob overlays
-		usr.update_action_buttons()
-
-
-/obj/item/clothing/head/armor/altyn/brown
+/obj/item/clothing/head/armor/faceshield/altyn/brown
 	icon_state = "altyn_brown"
 
-/obj/item/clothing/head/armor/altyn/black
+/obj/item/clothing/head/armor/faceshield/altyn/black
 	icon_state = "altyn_black"
 
-/obj/item/clothing/head/armor/altyn/maska
+/obj/item/clothing/head/armor/faceshield/altyn/maska
 	name = "maska helmet"
 	desc = "\"I do not know who I am, I don\'t know why I\'m here. All I know is that I must kill.\""
 	icon_state = "maska"

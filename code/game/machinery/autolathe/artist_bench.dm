@@ -319,6 +319,8 @@
 		to_chat(user, SPAN_WARNING("To create this work of art you have sacrificed a part of yourself."))
 	else if(user.sanity.resting)
 		user.sanity.finish_rest()
+	if(user.stats.getPerk(PERK_ARTIST))//Occulus Edit: Custom names for art
+		name_piece(artwork, user)//Occulus Edit: Custom names for art
 
 /obj/machinery/autolathe/artist_bench/can_print(datum/design/design)
 	if(working)

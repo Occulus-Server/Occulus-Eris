@@ -877,6 +877,12 @@ var/list/rank_prefix = list(\
 	// This will ignore any prosthetics in the prefs currently.
 	rebuild_organs()
 
+// OCCULUS EDIT START - Reinstall our core implant if we had one, because rebuild_organs() has that bit of code gutted from it
+	var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
+	if(I)
+		I.apply(src)
+// OCCULUS EDIT END
+
 	if(!client || !key) //Don't boot out anyone already in the mob.
 		for(var/obj/item/organ/internal/brain/H in world)
 			if(H.brainmob)
@@ -979,6 +985,7 @@ var/list/rank_prefix = list(\
 			if(feet_blood_DNA && feet_blood_DNA.len)
 				feet_blood_color = null
 				feet_blood_DNA.Cut()
+				feet_blood_DNA = null //OCCULUS EDIT: Overlays remain if DNA is anything other than null. Cut sets it to empty list.
 				update_inv_shoes()
 
 	return
@@ -1190,24 +1197,28 @@ var/list/rank_prefix = list(\
 		for(var/obj/item/organ/internal/carrion/C in internal_organs)
 			C.removed_mob()
 			organs_to_readd += C
-/*	OCCULUS EDIT - Remove now redundant core implant spawning bits, these are now handled in core_implants.dm with the apply proc
-	var/obj/item/weapon/implant/core_implant/CI = get_core_implant()
-	var/checkprefcruciform = FALSE	// To reset the cruciform to original form
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// OCCULUS EDIT START - Spaghetti to make rejuv less crap, and also fix the weird eye bug
+	var/obj/item/weapon/implant/core_implant/CI = get_core_implant(null, FALSE)
+	//var/checkprefcruciform = FALSE	// To reset the cruciform to original form //wtf does this even mean???
 	if(CI)
-		checkprefcruciform = TRUE
+		//checkprefcruciform = TRUE
 		qdel(CI)
-*/
+
+// OCCULUS EDIT START - Spaghetti to make rejuv less crap, and also fix the weird eye bug
 	for(var/obj/item/organ/organ in (organs|internal_organs))//Occulus Edit - Moving this out so the cloner stops breaking
 		qdel(organ)//Occulus Edit
+	if(organs.len)
+		organs.Cut()
+	if(internal_organs.len)
+		internal_organs.Cut()
+	if(organs_by_name.len)
+		organs_by_name.Cut()
+	if(internal_organs_by_efficiency.len)
+		internal_organs_by_efficiency.Cut()
 
 	if(from_preference)
-
-		if(organs.len)
-			organs.Cut()
-		if(internal_organs.len)
-			internal_organs.Cut()
-		if(organs_by_name.len)
-			organs_by_name.Cut()
 		var/datum/preferences/Pref
 		if(istype(from_preference, /datum/preferences))
 			Pref = from_preference
@@ -1236,15 +1247,13 @@ var/list/rank_prefix = list(\
 			else
 				var/organ_type = species.has_process[tag]
 				new organ_type(src)
-/*	OCCULUS EDIT - Remove now redundant core implant spawning bits, these are now handled in core_implants.dm with the apply proc
+/* haha this spaghetti just made things 100x worse
+//	OCCULUS EDIT START - Spaghetti to fix spaghetti
 		var/datum/category_item/setup_option/core_implant/I = Pref.get_option("Core implant")
-		if(I.implant_type && (!mind || mind.assigned_role != "Robot"))
-			var/obj/item/weapon/implant/core_implant/C = new I.implant_type
-			C.install(src)
-			C.activate()
-			if(mind)
-				C.install_default_modules_by_job(mind.assigned_job)
-				C.access.Add(mind.assigned_job.cruciform_access)	*/
+		if(I)
+			I.apply(src)
+//	OCCULUS EDIT END
+*/
 	else
 		var/organ_type
 
@@ -1261,15 +1270,13 @@ var/list/rank_prefix = list(\
 			if(I && I.type == organ_type)
 				continue
 			new organ_type(src)
-/*	OCCULUS EDIT - Remove now redundant core implant spawning bits, these are now handled in core_implants.dm with the apply proc
+/* guess this isn't working out after all
+//	OCCULUS EDIT START - Spaghetti to fix spaghetti
 		if(checkprefcruciform)
 			var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
-			if(I.implant_type)
-				var/obj/item/weapon/implant/core_implant/C = new I.implant_type
-				C.install(src)
-				C.activate()
-				C.install_default_modules_by_job(mind.assigned_job)
-				C.access.Add(mind.assigned_job.cruciform_access)
+			if(I)
+				I.apply(src)
+//	OCCULUS EDIT END
 */
 	for(var/obj/item/organ/internal/carrion/C in organs_to_readd)
 		C.replaced(get_organ(C.parent_organ_base))
@@ -1279,13 +1286,15 @@ var/list/rank_prefix = list(\
 
 	update_body()
 
-/mob/living/carbon/human/proc/post_prefinit()
+/mob/living/carbon/human/proc/post_prefinit()	//OCCULUS EDIT - This proc is completely redundant.
+	return
+	/*
 	var/obj/item/weapon/implant/core_implant/C = locate() in src
 	if(C)
 		C.install(src)
 		C.activate()
 		C.install_default_modules_by_job(mind.assigned_job)
-		C.access |= mind.assigned_job.cruciform_access
+		C.access |= mind.assigned_job.cruciform_access*/
 
 /mob/living/carbon/human/proc/bloody_doodle()
 	set category = "IC"

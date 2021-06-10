@@ -26,6 +26,7 @@
 
 /obj/item/weapon/holochip/Initialize()
 	update_icon()
+	..()	//This is needed so that INITIALIZE_HINT_NORMAL is returned and it doesn't mess up initialization. Or so I hope.
 
 /obj/item/weapon/holochip/afterattack(atom/A, mob/user)
 	if(used)
@@ -43,6 +44,7 @@
 		crypt.add_modules(contained_modules)
 		used = TRUE
 		update_icon()
+		price_tag = 200//Occulus Edit: Is this one of those Eclipse things that ended up in the core repo? Bah!
 
 /obj/item/weapon/holochip/command
 	tag_color = COMMS_COLOR_COMMAND
@@ -64,8 +66,12 @@
 
 /obj/item/weapon/holochip/medical/suitsensors
 	contained_modules = list(/datum/soulcrypt_module/crew_monitor)
+	name = "holochip - Suit Sensor Control v1.21d"
+	desc = "A one-use module containing a software package for a soulcrypt. This one includes a crew sensors monitoring package."
 
 /obj/item/weapon/holochip/engineering/alarm_mon
 	contained_modules = list(/datum/soulcrypt_module/alarm_monitor)
+	name = "holochip - Ship Interface Suite v3.01"
+	desc = "A one-use module containing a software package for a soulcrypt. This one includes a ship sensors monitoring package."
 
 

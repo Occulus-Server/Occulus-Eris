@@ -21,7 +21,7 @@
 
 /datum/design/autolathe/gun/makarov
 	name = "Excelsior .35 \"Makarov\""
-	build_path = /obj/item/weapon/gun/projectile/clarissa/makarov
+	build_path = /obj/item/weapon/gun/projectile/selfload/makarov
 
 /datum/design/autolathe/gun/mk58
 	name = "NT HG .35 \"Mk58\""
@@ -156,6 +156,14 @@
 	name = "FS AR .30 \"Vipr\""
 	build_path = /obj/item/weapon/gun/projectile/automatic/ak47/fs
 
+/datum/design/autolathe/gun/ak47_fs_ih
+	name = "FS AR .30 \"Venger\""
+	build_path = /obj/item/weapon/gun/projectile/automatic/ak47/fs/ih
+
+/datum/design/autolathe/gun/ak47_sa
+	name = "SA Car .30 \"Krinkov\""
+	build_path = /obj/item/weapon/gun/projectile/automatic/ak47/sa
+
 /datum/design/autolathe/gun/ak47_sa
 	name = "SA Car .30 \"Krinkov\""
 	build_path = /obj/item/weapon/gun/projectile/automatic/ak47/sa
@@ -163,6 +171,10 @@
 /datum/design/autolathe/gun/sts35
 	name = "STS-35"
 	build_path = /obj/item/weapon/gun/projectile/automatic/sts35
+
+/datum/design/autolathe/gun/kovacs
+	name = "SA BR \"Kovacs\""
+	build_path = /obj/item/weapon/gun/projectile/kovacs
 
 // Heavy
 

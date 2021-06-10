@@ -16,6 +16,7 @@
 	)
 	also_known_languages = list(LANGUAGE_CYRILLIC = 0)
 /datum/job/hydro
+	wage = WAGE_LABOUR
 	also_known_languages = list(LANGUAGE_JIVE = 0)
 	stat_modifiers = list(
 		STAT_BIO = 25,
@@ -23,6 +24,7 @@
 		STAT_ROB = 10
 	)
 /datum/job/janitor
+	wage = WAGE_LABOUR_HAZARD
 	stat_modifiers = list(
 		STAT_BIO = 10,
 		STAT_ROB = 15,
