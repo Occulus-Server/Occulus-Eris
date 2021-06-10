@@ -31,7 +31,7 @@
 
 /obj/item/organ/internal/carrion
 	max_damage = 150 //resilient
-	scanner_hidden = TRUE //sneaky
+	//scanner_hidden = TRUE //sneaky	// OCCULUS NOTE: We need #5795 for this
 
 /obj/item/organ/internal/carrion/chemvessel
 	name = "chemical vessel"
