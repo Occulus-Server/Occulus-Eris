@@ -8,9 +8,13 @@
 	var/total_burn  = 0
 	var/total_brute = 0
 	for(var/obj/item/organ/external/O in organs)	//hardcoded to streamline things a bit
-		if(BP_IS_ROBOTIC(O) && !O.vital)
-		if(BP_IS_ORGANIC(O) && !O.vital)
-			continue //*non-vital* robot limbs don't count towards shock and crit
+	// OCCULUS EDIT - this is dumb
+		//if(BP_IS_ROBOTIC(O) && !O.vital)
+		//	continue //OCCULUS EDIT - reeee why didn't you dummies do this properly - NOTE: Eris forgot to put back the continue here
+		//if(BP_IS_ORGANIC(O) && !O.vital)
+		//	continue //*non-vital* robot limbs don't count towards shock and crit	//OCCULUS NOTE - yeah.
+		if(!O.vital)	//OCCULUS EDIT
+			continue
 		total_brute += O.brute_dam
 		total_burn  += O.burn_dam
 

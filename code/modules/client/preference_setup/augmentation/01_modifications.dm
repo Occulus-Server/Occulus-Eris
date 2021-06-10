@@ -2,9 +2,9 @@
 	var/list/modifications_data   = list()
 	var/list/modifications_colors = list()
 	var/current_organ = BP_CHEST
-	var/global/list/r_organs = list(BP_HEAD, BP_R_ARM, BP_R_HAND, BP_CHEST, BP_R_LEG, BP_R_FOOT, BP_GROIN)
-	var/global/list/l_organs = list(BP_EYES, BP_L_ARM, BP_L_HAND,  BP_L_LEG, BP_L_FOOT, OP_HEART, OP_KIDNEYS, OP_STOMACH, BP_BRAIN, OP_LUNGS, OP_LIVER)
-	var/global/list/internal_organs = list("chest2", OP_HEART, OP_KIDNEYS, OP_STOMACH, BP_BRAIN,  OP_LUNGS, OP_LIVER)
+	var/global/list/r_organs = list(BP_HEAD, BP_R_ARM, BP_R_HAND, BP_CHEST, BP_GROIN, BP_R_LEG, BP_R_FOOT, OP_LUNGS, OP_LIVER)
+	var/global/list/l_organs = list(BP_EYES, BP_L_ARM, BP_L_HAND, BP_L_LEG, BP_L_FOOT, BP_BRAIN, OP_HEART, OP_KIDNEYS, OP_STOMACH)
+	var/global/list/internal_organs = list("chest2", OP_HEART, OP_KIDNEYS, OP_STOMACH, BP_BRAIN, OP_LUNGS, OP_LIVER)
 
 /datum/category_item/player_setup_item/augmentation/modifications
 	name = "Augmentation"
