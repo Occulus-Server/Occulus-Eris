@@ -2926,6 +2926,7 @@
 #include "zzzz_modular_occulus\code\modules\hivemind\core.dm"
 #include "zzzz_modular_occulus\code\modules\hydroponics\trays\tray_soil.dm"
 #include "zzzz_modular_occulus\code\modules\loadout\lists\eyegear.dm"
+#include "zzzz_modular_occulus\code\modules\loadout\lists\gloves.dm"
 #include "zzzz_modular_occulus\code\modules\loadout\lists\headwear.dm"
 #include "zzzz_modular_occulus\code\modules\loadout\lists\misc.dm"
 #include "zzzz_modular_occulus\code\modules\loadout\lists\shoes.dm"
