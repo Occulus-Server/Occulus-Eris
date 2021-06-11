@@ -171,3 +171,8 @@
 /datum/category_item/underwear/undershirt/tiedye
 	name = "Tiedye Shirt"
 	icon_state = "tiedye"
+
+/datum/category_item/underwear/undershirt/babydoll
+	name = "Translucent Lingerie"
+	icon_state = "babydoll"
+	has_color = TRUE

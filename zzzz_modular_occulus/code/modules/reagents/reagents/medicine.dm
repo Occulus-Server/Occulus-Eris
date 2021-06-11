@@ -19,13 +19,13 @@
 /datum/reagent/medicine/bicaridine/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.heal_organ_damage(0.6 * effect_multiplier, 0, 5 * effect_multiplier)
 	M.add_chemical_effect(CE_BLOODCLOT, 0.15)
-	M.add_chemical_effect(CE_PAINKILLER, -50)
+	M.add_chemical_effect(CE_PAINKILLER, -25)
 	M.add_chemical_effect(CE_PULSE, 1)
 
 /datum/reagent/medicine/meralyne/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.heal_organ_damage(1.2 * effect_multiplier, 0, 5 * effect_multiplier)
 	M.add_chemical_effect(CE_BLOODCLOT, 0.30)
-	M.add_chemical_effect(CE_PAINKILLER, -120)
+	M.add_chemical_effect(CE_PAINKILLER, -50)
 	M.add_chemical_effect(CE_PULSE, 2)
 
 /datum/reagent/medicine/kelotane/affect_blood(mob/living/carbon/M, alien, effect_multiplier)

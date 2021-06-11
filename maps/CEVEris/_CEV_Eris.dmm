@@ -10943,6 +10943,15 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
+/obj/item/ammo_magazine/m12/empty{
+	pixel_x = -10
+	},
+/obj/item/ammo_magazine/m12/empty{
+	pixel_x = -10
+	},
+/obj/item/ammo_magazine/m12/empty{
+	pixel_x = -10
+	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "azN" = (
@@ -11176,6 +11185,10 @@
 /obj/item/device/magnetic_lock/security,
 /obj/item/device/magnetic_lock/security,
 /obj/item/device/magnetic_lock/security,
+/obj/item/weapon/gun/projectile/shotgun/bojevic/jackhammer,
+/obj/item/ammo_magazine/m12/beanbag,
+/obj/item/ammo_magazine/m12/beanbag,
+/obj/item/ammo_magazine/m12/beanbag,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aAm" = (
