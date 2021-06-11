@@ -118,7 +118,7 @@
 	. += "<div style='clear: both;'"
 	. += "<b>Extra Appearance:</b><br>"
 
-	. += "<b>Custom Species</b> "
+	. += "<b>Custom Species Name</b> "
 	. += "<a href='?src=\ref[src];custom_species=1'>[pref.custom_species ? pref.custom_species : "-Input Name-"]</a><br>"
 
 
