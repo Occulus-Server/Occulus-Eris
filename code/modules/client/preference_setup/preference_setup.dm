@@ -35,10 +35,13 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 	sort_order = 5
 	category_item_type = /datum/category_item/player_setup_item/antagonism
 
+// OCCULUS REMOVE - Removes matchmaking from character setup screen
+/*
 /datum/category_group/player_setup_category/relations_preferences
 	name = "Matchmaking"
 	sort_order = 6
 	category_item_type = /datum/category_item/player_setup_item/relations
+*/
 
 /datum/category_group/player_setup_category/loadout_preferences
 	name = "Loadout"
