@@ -29,7 +29,7 @@
 /obj/item/device/defib_kit
 	name = "AED Unit"
 	desc = "A device that delivers powerful shocks to detachable paddles in order to resuscitate incapacitated patients. This model comes with a built in audio tutorial for inexperienced users!"
-	icon = 'zzz_modular_syzygy/icons/obj/ErisDefib.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi'
 	icon_state = "defibunit"
 	item_state = "defibunit"
 	slot_flags = SLOT_BACK
@@ -49,9 +49,14 @@
 	var/oxygain = 50 //How much oxyloss should this thing heal?
 
 	item_icons = list(
-		slot_l_hand_str = 'zzz_modular_syzygy/icons/mob/left_hand.dmi',
-		slot_r_hand_str = 'zzz_modular_syzygy/icons/mob/right_hand.dmi',
-		slot_back_str = 'zzz_modular_syzygy/icons/mob/back.dmi'
+		slot_l_hand_str = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi',
+		slot_r_hand_str = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi',
+		slot_back_str = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi'
+		)
+	item_state_slots = list(
+		slot_l_hand_str = "defibpaddles_left",
+		slot_r_hand_str = "defibpaddles_right",
+		slot_back_str = "defibunit_back"
 		)
 
 
@@ -265,14 +270,23 @@
 /obj/item/device/defib_kit/compact
 	name = "Defibrillator Belt"
 	desc = "A belt-equipped defibrillator that can be rapidly deployed."
-	icon = 'zzz_modular_syzygy/icons/obj/ErisDefib.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi'
 	icon_state = "defibcompact"
 	item_state = "defibcompact"
 	w_class = ITEM_SIZE_NORMAL		//Syzygy edit.
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BIO = 5, TECH_POWER = 3)
 
-	icon_override = 'zzz_modular_syzygy/icons/mob/belt.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi',
+		slot_r_hand_str = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi',
+		slot_belt_str = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi'
+		)
+	item_state_slots = list(
+		slot_l_hand_str = "defibpaddles_left",
+		slot_r_hand_str = "defibpaddles_right",
+		slot_belt_str = "defibunit_belt"
+		)
 
 /obj/item/device/defib_kit/compact/loaded
 	bcell = /obj/item/weapon/cell/large/high
@@ -297,11 +311,11 @@
 /obj/item/weapon/shockpaddles
 	name = "defibrillator paddles"
 	desc = "A pair of plastic-gripped paddles with flat metal surfaces that are used to deliver powerful electric shocks."
-	icon = 'zzz_modular_syzygy/icons/obj/ErisDefib.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi'
 	icon_state = "defibpaddles"
 	item_state_slots = list(
-		slot_l_hand_str = "defibpaddles",
-		slot_r_hand_str = "defibpaddles",
+		slot_l_hand_str = "defibpaddles_left",
+		slot_r_hand_str = "defibpaddles_right",
 		)
 	wielded_icon = "wielded_defibpaddles"
 	gender = PLURAL
@@ -310,8 +324,8 @@
 	w_class = ITEM_SIZE_BULKY		//Syzygy edit.
 
 	item_icons = list(
-		slot_l_hand_str = 'zzz_modular_syzygy/icons/mob/left_hand.dmi',
-		slot_r_hand_str = 'zzz_modular_syzygy/icons/mob/right_hand.dmi',
+		slot_l_hand_str = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi',
+		slot_r_hand_str = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi'
 		)
 
 	var/safety = 1 //if you can zap people with the paddles on harm mode
@@ -360,8 +374,8 @@
 	..()
 	if(!wielded && wielded_icon)
 		item_state_slots = list(
-			slot_l_hand_str = "defibpaddles",
-			slot_r_hand_str = "defibpaddles",
+			slot_l_hand_str = "defibpaddles_left",
+			slot_r_hand_str = "defibpaddles_right",
 			)
 
 /obj/item/weapon/shockpaddles/proc/set_cooldown(var/delay)

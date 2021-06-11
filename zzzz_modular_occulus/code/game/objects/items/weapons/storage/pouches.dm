@@ -44,3 +44,17 @@
 
 /obj/item/weapon/tool/sword
 	w_class = ITEM_SIZE_BULKY
+
+/obj/item/weapon/storage/pouch/fanny
+	name = "fannypack"
+	desc = "An economical solution for general purpose belt-located storage. Holds less than a large pouch."
+	icon = 'zzzz_modular_occulus/icons/inventory/pockets/icon.dmi'
+	icon_state = "fanny"
+	item_state = "large_generic" //Doesn't really exist AFAIK so irrelevant.
+	matter = list(MATERIAL_BIOMATTER = 30, MATERIAL_STEEL = 8 )
+	w_class = ITEM_SIZE_NORMAL
+	slot_flags = SLOT_BELT | SLOT_DENYPOCKET
+	storage_slots = null //Uses generic capacity
+	max_storage_space = DEFAULT_SMALL_STORAGE * 1.25
+	max_w_class = ITEM_SIZE_NORMAL
+	rarity_value = 30

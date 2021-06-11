@@ -4,17 +4,11 @@
 /decl/hierarchy/outfit/job/ensign
 	name = OUTFIT_JOB_NAME("Ensign")
 	uniform = /obj/item/clothing/under/rank/ensign
-	l_ear = /obj/item/device/radio/headset/heads/hop
+	l_ear = /obj/item/device/radio/headset/heads/hop/ensign
 	shoes = /obj/item/clothing/shoes/reinforced
 	id_type = /obj/item/weapon/card/id/hop
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/weapon/tool/knife/dagger/ceremonial = 1)
-
-/obj/item/clothing/under/rank/ensign
-	desc = "It's a jumpsuit worn by a low-ranking officer."
-	name = "ensign jumpsuit"
-	icon_state = "genericb"
-	item_state = "b_suit"
 
 /datum/job/ensign
 	flag = ENSIGN
@@ -52,7 +46,7 @@ Should the worst occur, defend your ship, post, and commanders with your life."
 
 
 	software_on_spawn = list(/datum/computer_file/program/comm,
-							 /datum/computer_file/program/card_mod,
+							 /datum/computer_file/program/suit_sensors,
 							 /datum/computer_file/program/camera_monitor,
 							 /datum/computer_file/program/reports)
 

@@ -20556,9 +20556,9 @@
 /turf/simulated/wall/r_wall,
 /area/eris/maintenance/substation/section1)
 "aXi" = (
-/mob/living/carbon/human/monkey,
-/turf/simulated/floor/reinforced,
-/area/eris/medical/virology)
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section1deck2central)
 "aXj" = (
 /obj/structure/sign/atmos_air{
 	pixel_y = 32
@@ -20721,7 +20721,6 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/virology)
 "aXD" = (
@@ -20858,7 +20857,6 @@
 /obj/machinery/camera/network/medbay{
 	dir = 4
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/virology)
 "aXR" = (
@@ -20888,7 +20886,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/virology)
 "aXU" = (
@@ -26823,6 +26820,8 @@
 	dir = 8;
 	pixel_x = 24
 	},
+/obj/item/weapon/storage/box/monkeycubes,
+/obj/item/weapon/extinguisher,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/virology)
 "bkq" = (
@@ -56047,10 +56046,10 @@
 /turf/simulated/floor/plating,
 /area/eris/hallway/side/atmosphericshallway)
 "cAP" = (
-/obj/machinery/vending/cigarette,
 /obj/machinery/camera/network/command{
 	dir = 1
 	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/meeting_room)
 "cAQ" = (
@@ -58753,6 +58752,8 @@
 /area/eris/maintenance/section1deck2central)
 "cGK" = (
 /obj/structure/table/standard,
+/obj/item/weapon/storage/pouch/fanny,
+/obj/spawner/lowkeyrandom/low_chance,
 /obj/spawner/lowkeyrandom/low_chance,
 /obj/spawner/lowkeyrandom/low_chance,
 /turf/simulated/floor/tiled/techmaint_panels,
@@ -68159,6 +68160,7 @@
 /obj/machinery/holoposter{
 	pixel_x = -32
 	},
+/obj/machinery/vending/cigarette,
 /turf/simulated/floor/wood,
 /area/eris/command/bridgebar)
 "ddF" = (
@@ -74270,9 +74272,18 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/drone_fabrication)
 "dqX" = (
-/mob/living/carbon/human/monkey,
-/turf/simulated/floor/reinforced,
-/area/eris/medical/genetics)
+/obj/spawner/medical/low_chance,
+/obj/spawner/medical/low_chance,
+/obj/structure/table/rack/shelf,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/item/weapon/storage/box/monkeycubes,
+/turf/simulated/floor/tiled/steel/gray_platform,
+/area/eris/medical/chemstor)
 "dqY" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
 /turf/simulated/floor/tiled/white/panels,
@@ -74309,7 +74320,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/genetics)
 "dre" = (
@@ -74340,7 +74350,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/genetics)
 "dri" = (
@@ -77668,59 +77677,50 @@
 /area/eris/engineering/starboardhallway)
 "dyX" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/projectile/avasarala,
-/obj/item/weapon/gun/projectile/avasarala,
-/obj/machinery/door/blast/shutters/glass{
-	id = "BridgeArmoury";
-	name = "Armoury showcase"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/item/clothing/suit/storage/vest{
+	pixel_y = 10
+	},
+/obj/item/clothing/suit/storage/vest{
+	pixel_y = 5
+	},
+/obj/item/clothing/suit/storage/vest,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dyY" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/magnum,
-/obj/item/ammo_magazine/magnum,
-/obj/item/ammo_magazine/magnum,
-/obj/item/ammo_magazine/magnum,
-/obj/item/ammo_magazine/magnum,
-/obj/item/ammo_magazine/magnum,
-/obj/machinery/door/blast/shutters/glass{
-	id = "BridgeArmoury";
-	name = "Armoury showcase"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/ammo_magazine/ammobox/magnum,
-/obj/item/ammo_magazine/ammobox/magnum,
+/obj/structure/table/rack,
+/obj/item/clothing/head/armor/faceshield/altyn/black{
+	pixel_y = 10
+	},
+/obj/item/clothing/head/armor/faceshield/altyn/black{
+	pixel_y = 5
+	},
+/obj/item/clothing/head/armor/faceshield/altyn/black,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dyZ" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/machinery/door/blast/shutters/glass{
-	id = "BridgeArmoury";
-	name = "Armoury showcase"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/item/ammo_magazine/ammobox/magnum/rubber,
-/obj/item/ammo_magazine/ammobox/magnum/rubber,
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/taser{
+	pixel_y = 10
+	},
+/obj/item/weapon/gun/energy/taser{
+	pixel_y = 5
+	},
+/obj/item/weapon/gun/energy/taser,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dza" = (
@@ -77755,11 +77755,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "BridgeArmoury";
-	name = "Armoury Access";
-	pixel_y = -25
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
@@ -88026,7 +88021,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
 	name = "Bridge Armoury";
-	req_access = list(20)
+	req_access = list(19)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -103759,6 +103754,22 @@
 /obj/item/weapon/plantspray/pests,
 /turf/simulated/floor/grass,
 /area/eris/neotheology/chapel)
+"eWj" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/machinery/door/blast/shutters/glass{
+	id = "BridgeArmoury";
+	name = "Armoury showcase"
+	},
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "eYw" = (
 /obj/machinery/firealarm{
 	pixel_y = 28
@@ -104170,6 +104181,22 @@
 /obj/spawner/scrap,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section4deck1central)
+"gxs" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/machinery/door/blast/shutters/glass{
+	id = "BridgeArmoury";
+	name = "Armoury showcase"
+	},
+/obj/item/ammo_magazine/ammobox/magnum,
+/obj/item/ammo_magazine/ammobox/magnum,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "gyw" = (
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/plating/under,
@@ -104303,14 +104330,9 @@
 	pixel_x = -24;
 	pixel_y = -5
 	},
-/obj/structure/closet/secure_closet/personal,
-/obj/item/clothing/under/rank/ensign,
-/obj/item/clothing/shoes/leather,
-/obj/item/weapon/storage/backpack/satchel/leather,
-/obj/item/weapon/tool/multitool,
-/obj/item/weapon/storage/belt/utility/full,
-/obj/item/device/radio/headset/heads/hop,
+/obj/structure/closet/secure_closet/reinforced/ensign,
 /obj/item/device/synthesized_instrument/guitar,
+/obj/spawner/pack/tech_loot,
 /turf/simulated/floor/wood,
 /area/eris/hallway/side/bridgehallway)
 "gQw" = (
@@ -105362,15 +105384,18 @@
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
 "kug" = (
-/obj/machinery/door/blast/shutters/glass{
-	id = "BridgeArmoury";
-	name = "Armoury showcase"
-	},
 /obj/structure/table/rack,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
+/obj/item/weapon/cell/medium/high{
+	pixel_y = 10
+	},
+/obj/item/weapon/cell/medium/high{
+	pixel_y = 5
+	},
+/obj/item/weapon/cell/medium/high,
+/obj/item/weapon/cell/medium/high,
+/obj/item/weapon/cell/medium/high{
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "kuJ" = (
@@ -105759,7 +105784,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
 "lyk" = (
@@ -105836,14 +105860,9 @@
 	name = "\improper Cafe"
 	})
 "lQa" = (
-/obj/structure/closet/secure_closet/personal,
-/obj/item/clothing/under/rank/ensign,
-/obj/item/clothing/shoes/leather,
-/obj/item/weapon/storage/backpack/satchel/leather,
-/obj/item/weapon/tool/multitool,
-/obj/item/weapon/storage/belt/utility/full,
-/obj/item/device/radio/headset/heads/hop,
+/obj/structure/closet/secure_closet/reinforced/ensign,
 /obj/item/clothing/head/hairflower,
+/obj/spawner/pack/tech_loot,
 /turf/simulated/floor/wood,
 /area/eris/hallway/side/bridgehallway)
 "lRG" = (
@@ -106183,13 +106202,10 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/maintenance/section2deck1port)
 "mQf" = (
-/obj/machinery/door/blast/shutters/glass{
-	id = "BridgeArmoury";
-	name = "Armoury showcase"
+/obj/machinery/door/airlock/command{
+	name = "Secure Bridge Armoury";
+	req_access = list(20)
 	},
-/obj/structure/table/rack,
-/obj/item/weapon/gun/energy/plasma/brigador,
-/obj/item/weapon/gun/energy/plasma/brigador,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "mQl" = (
@@ -106351,7 +106367,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
 "nfk" = (
@@ -106585,14 +106600,9 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/storage)
 "nQO" = (
-/obj/structure/closet/secure_closet/personal,
-/obj/item/clothing/under/rank/ensign,
-/obj/item/clothing/shoes/leather,
-/obj/item/weapon/storage/backpack/satchel/leather,
-/obj/item/weapon/tool/multitool,
-/obj/item/weapon/storage/belt/utility/full,
-/obj/item/device/radio/headset/heads/hop,
+/obj/structure/closet/secure_closet/reinforced/ensign,
 /obj/item/clothing/glasses/regular/goggles/black,
+/obj/spawner/pack/tech_loot,
 /turf/simulated/floor/wood,
 /area/eris/hallway/side/bridgehallway)
 "nQQ" = (
@@ -107356,6 +107366,32 @@
 /obj/effect/shuttle_landmark/merc/engieva,
 /turf/space,
 /area/space)
+"qty" = (
+/obj/machinery/door/blast/shutters/glass{
+	id = "BridgeArmoury";
+	name = "Armoury showcase"
+	},
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/plasma/brigador,
+/obj/item/weapon/gun/energy/plasma/brigador,
+/obj/item/weapon/cell/small/high{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/obj/item/weapon/cell/small/high{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/obj/item/weapon/cell/small/high{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/obj/item/weapon/cell/small/high{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "qud" = (
 /obj/machinery/atmospherics/pipe/zpipe/up,
 /turf/simulated/floor/plating/under,
@@ -107963,7 +107999,6 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2port)
 "sJL" = (
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
 "sJQ" = (
@@ -109012,6 +109047,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/open,
 /area/eris/quartermaster/misc)
+"wuY" = (
+/obj/machinery/button/remote/blast_door{
+	id = "BridgeArmoury";
+	name = "Armoury Access";
+	pixel_x = -24
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "www" = (
 /obj/item/modular_computer/console/preset/medical/records,
 /turf/simulated/floor/tiled/dark/cyancorner,
@@ -109446,6 +109489,16 @@
 /obj/spawner/scrap/dense,
 /turf/simulated/floor/wood,
 /area/eris/maintenance/section4deck4central)
+"xUa" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/projectile/avasarala,
+/obj/item/weapon/gun/projectile/avasarala,
+/obj/machinery/door/blast/shutters/glass{
+	id = "BridgeArmoury";
+	name = "Armoury showcase"
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "xUW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -164346,9 +164399,9 @@ crY
 abF
 abF
 bpE
-aXi
 aWY
-aXi
+aWY
+aWY
 bpE
 aaa
 aaa
@@ -164752,7 +164805,7 @@ biG
 bsh
 aXC
 aYh
-aXi
+aWY
 bpE
 aaa
 aaa
@@ -252202,7 +252255,7 @@ diN
 dkA
 dmi
 dek
-bKI
+aXi
 bKI
 bPe
 aaa
@@ -288991,7 +289044,7 @@ egQ
 wXf
 dQb
 dRa
-uYg
+dqX
 dSB
 xuA
 lwA
@@ -292176,13 +292229,13 @@ pqh
 doD
 dyY
 dze
+cHg
 mQf
-aae
-abF
-abF
-abF
-abF
-abF
+wuY
+cHg
+cHg
+cHg
+dVw
 abF
 abF
 abF
@@ -292379,12 +292432,12 @@ dVw
 dyZ
 dzg
 kug
-aae
-abF
-abF
-abF
-abF
-abF
+dVw
+eWj
+gxs
+xUa
+qty
+dVw
 abF
 abF
 abF
@@ -292581,12 +292634,12 @@ dVw
 dVw
 dVw
 dVw
-aae
-abF
-abF
-abF
-abF
-abF
+dVw
+dVw
+dVw
+dVw
+dVw
+dVw
 abF
 abF
 abF
@@ -296461,9 +296514,9 @@ cWx
 cZH
 drw
 ebi
-dqX
+dmV
 drb
-dqX
+dmV
 elb
 emg
 enh
@@ -296865,7 +296918,7 @@ cZx
 drk
 drJ
 ebi
-dqX
+dmV
 drf
 drh
 eaT

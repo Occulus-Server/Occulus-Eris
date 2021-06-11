@@ -49,7 +49,7 @@
 	var/inject_self = SELF_INJECT
 	var/quickload = FALSE
 	var/penetrates = FALSE
-	var/mode = 0
+	var/mode = 1
 	var/window_width = 400
 	var/window_height = 200
 	var/scan_title

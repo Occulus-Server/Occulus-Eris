@@ -5,7 +5,7 @@
 	restricted_jobs = list("AI", "Robot")
 	protected_jobs = list("Aegis Gunnery Sergeant","Aegis Inspector", JOBS_COMMAND)
 	bantype = ROLE_BANTYPE_OCCULTIST
-	welcome_text = "You are Occultist. You have glimpsed the secrets deep within this vessel and they have driven you to the brink of madness.<br>\
+	welcome_text = "You are an Occultist. You have glimpsed the secrets deep within this vessel and they have driven you to the brink of madness.<br>\
 	Your mind is expanding! Drive yourself and others past the brink of insanity to further your knowledge of the true shape of the universe beyond the veil! <br>\
 	The others will not understand, they may try and stop you. Do not let them! Even others who have pierced the veil may not be your friends! <br>\
 	With enough insight you may choose to induct other members of the crew to your cult... but the process must be voluntary and your powers will terrify many."

@@ -8,19 +8,6 @@
 
 // T1 Powers
 
-/datum/power/occultist/glassification
-	name = "Glassification"
-	desc = "Forces the user to suffer a glassification breakdown"
-	verbpath = /mob/living/carbon/human/proc/Glassification
-
-/mob/living/carbon/human/proc/Glassification()
-	set category = "Occultist"
-	set desc = "Pierce the veil"
-
-	sanity.level = 20
-	sanity.breakdown_time = world.time + SANITY_COOLDOWN_BREAKDOWN
-	sanity.breakdowns += new /datum/breakdown/negative/glassification()
-
 /datum/power/occultist/voidmother_embrace
 	name = "Embrace of the Voidmother"
 	desc = "Permanently boosts your positive breakdown chance by 20%"
@@ -38,13 +25,33 @@
 	set category = "Occultist"
 	set desc = "Recover our mortal coil"
 
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
+
 	heal_overall_damage(40,40)
-	stun_effect_act(0, 200, BP_CHEST)
-	weakened = 10
+	stun_effect_act(0, 150, BP_CHEST)
 	visible_message(
 		SPAN_DANGER("[src]'s flesh begins to hiss and bubble as their wounds mend!"),
 		SPAN_DANGER("A wave of agony envelops you as your wounds begin to close!")
 		)
+	var/datum/effect/effect/system/smoke_spread/bad/smoke
+	smoke = new
+	smoke.attach(src)
+
+	playsound(loc, 'sound/effects/smoke.ogg', 50, 1, -3)
+	smoke.set_up(3, 0, src.loc)
+	spawn(0)
+		smoke.start()
+		sleep(10)
+		smoke.start()
+		sleep(10)
+		smoke.start()
+		sleep(10)
+		smoke.start()
 
 
 /datum/power/occultist/horrifying
@@ -56,8 +63,47 @@
 	..()
 
 /datum/power/occultist/vblade
-	name = "Voidmother's Blade"
+	name = "Blade of the Voidmother"
 	desc = "Transforms an oddity into a weapon for our cause."
+	verbpath = /mob/living/carbon/human/proc/BladeoftheVoidmother
+
+/mob/living/carbon/human/proc/BladeoftheVoidmother()
+	set category = "Occultist"
+	set desc = "Construct a weapon"
+
+	var/obj/item/weapon/oddity/active = null
+	if(get_active_hand())
+		if(istype(get_active_hand(), /obj/item/weapon/oddity))
+			active = get_active_hand()
+			if(!active.oddity_stats)
+				to_chat(src, "This oddity has no aspects to build a weapon from!")
+				return
+			var/list/LStats = active.oddity_stats
+			var/obj/item/weapon/cultweaponchoice = pickweight(list(
+				/obj/item/weapon/tool/sword/cult = (1 + LStats[STAT_ROB]),
+				/obj/item/weapon/gun/projectile/automatic/sol/cult = (1 + LStats[STAT_VIG]),
+				/obj/item/weapon/gun/energy/laser/cult = (1 + LStats[STAT_COG]),
+				/obj/item/weapon/tool/hammer/homewrecker/cult= (1 + LStats[STAT_TGH]),
+				/obj/item/weapon/gun/energy/plasma/cassad/cult = (1 + LStats[STAT_BIO]),
+				/obj/item/weapon/tool/saw/chain/cult = (1 + LStats[STAT_MEC])))
+			playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 50, 1, -3)
+			var/turf/T = get_turf(src)
+			var/obj/effect/decal/cleanable/blood/writing/sign = new /obj/effect/decal/cleanable/blood/writing(T)
+			sign.message = sanity.pick_quote_20()
+			do_sparks(8, 0, T)
+			cultweaponchoice = new cultweaponchoice(T)
+			visible_message(
+				SPAN_DANGER("[src] molds and twists the [active] like clay, transforming it into a [cultweaponchoice]!"),
+				SPAN_DANGER("You mold and twist the [active] like clay, transforming it into a [cultweaponchoice]!")
+				)
+			drop_item()
+			put_in_active_hand(cultweaponchoice)
+			qdel(active)
+
+		else
+			to_chat(src, "You must hold an oddity in your active hand.")
+	else
+		to_chat(src, "You must hold an oddity in your active hand.")
 
 /datum/power/occultist/amoung
 	name = "Among Them"
@@ -69,11 +115,32 @@
 
 // T2 Powers
 
+/mob/living/carbon/human/proc/spendpoints(var/amount)
+	if(get_organ(BP_BRAIN_CULTIST))
+		if(get_organ(BP_BRAIN_CULTIST).spendpoints(amount))
+			return TRUE
+		else
+			return FALSE
 
 /datum/power/occultist/tranquility
 	name = "Tranquility"
 	desc = "End a breakdown immediately"
+	verbpath = /mob/living/carbon/human/proc/Tranquility
 	activecost = 1
+
+/mob/living/carbon/human/proc/Tranquility()
+	set category = "Occultist"
+	set desc = "Ends a Breakdown"
+
+	if(sanity.breakdowns.len > 0)
+		if(spendpoints(1))
+			for(var/datum/breakdown/B in sanity.breakdowns)
+				B.conclude()
+				to_chat(src, "You excise some madness from yourself and end your breakdown.")
+		else
+			to_chat(src, "You lack enough madness to end your breakdown.")
+	else
+		to_chat(src, "You are currently sane...fix that.")
 
 /datum/power/occultist/candle
 	name = "Like a Candle"
@@ -106,7 +173,7 @@
 	activecost = 1
 
 /datum/power/occultist/vfaith
-	name = "Voidmother's Faith"
+	name = "Faith of the Voidmother"
 	desc = "Restores your sanity to full"
 	activecost = 1
 

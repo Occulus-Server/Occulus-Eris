@@ -20,3 +20,14 @@
 	silenced = 1 //embedding messages are still produced so it's kind of weird when enabled.
 	no_attack_log = 1
 	muzzle_type = null
+
+//Rubberizing rubber rounds
+
+/obj/item/projectile/bullet/srifle/rubber
+	penetrating = 0
+
+/obj/item/projectile/bullet/clrifle/rubber
+	penetrating = 0
+
+/obj/item/projectile/bullet/lrifle/rubber
+	penetrating = 0

@@ -116,3 +116,7 @@
 	result = "ignisol"
 	required_reagents = list("thermite" = 1, "fuel" = 3, "phoron" = 1)
 	result_amount = 5
+/datum/chemical_reaction/aloe
+	result = "aloe"
+	required_reagents = list("irishcream" = 1, "watermelonjuice" = 1)
+	result_amount = 3

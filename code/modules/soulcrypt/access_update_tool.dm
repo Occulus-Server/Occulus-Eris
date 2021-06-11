@@ -13,6 +13,10 @@
 
 
 /obj/item/weapon/access_update_tool/attackby(obj/item/I, mob/user as mob)
+	if(card)	//haha it was deleting pre-existing IDs if you try to insert one while there was one in it
+		to_chat(user, SPAN_WARNING("There's already an ID in the card port!"))
+		return
+
 	if(istype(I, /obj/item/weapon/card/id))
 		to_chat(user, SPAN_NOTICE("You slot the [I] into [src]'s ID card port."))
 		user.drop_item()

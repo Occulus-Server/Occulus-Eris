@@ -25,7 +25,7 @@
 	icon = 'zzzz_modular_occulus/icons/inventory/suit/captain.dmi'
 	icon_state = "captains_voidsuit"
 	item_state = "captains_voidsuit"
-	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/captain.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/mob/suit.dmi'
 	icon_override_female = 'zzzz_modular_occulus/icons/mob/suit_fem.dmi'
 	slowdown = 0.3
 	armor = list(
