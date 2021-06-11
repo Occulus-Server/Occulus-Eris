@@ -34,7 +34,7 @@
 
 /datum/gear/uniform/tacticalturtleneck
 	display_name = "military turtleneck"
-	path = /obj/item/clothing/under/turtleneckloadout //Coinflip between a green and black one!
+	path = /obj/item/clothing/under/turtleneckloadout //No more coinflip between a green and black one!
 
 /datum/gear/uniform/tacticalturtleneck/New()
 	..()
