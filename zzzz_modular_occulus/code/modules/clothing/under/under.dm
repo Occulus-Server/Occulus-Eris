@@ -70,3 +70,17 @@
 	item_state = "ensign"
 	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
 	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob_fem.dmi'
+
+/obj/item/clothing/under/turtleneckloadout //This is so you can choose the one at the loadout. Heck eris
+	name = "green turtleneck"
+	desc = "Military style turtleneck, for operating in cold environments. Typically worn underneath armour"
+	icon_state = "greenturtle"
+	item_state = "bl_suit"
+	has_sensor = 0
+	price_tag = 50
+	spawn_blacklisted = TRUE
+
+/obj/item/clothing/under/turtleneckloadout/black
+	name = "black turtleneck"
+	desc = "Military style turtleneck, for operating in cold environments. Typically worn underneath armour"
+	icon_state = "blackturtle"
