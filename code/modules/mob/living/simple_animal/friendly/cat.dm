@@ -273,7 +273,7 @@ var/cat_number = 0
 
 /mob/living/simple_animal/cat/runtime
 	name = "Dusty"
-	desc = "A bluespace denizen that purrs its way into our dimension when the very fabric of reality is teared apart."
+	desc = "A bluespace denizen that purrs its way into our dimension when the very fabric of reality is torn apart."
 	icon_state = "runtimecat"
 	item_state = "runtimecat"
 	density = 0
