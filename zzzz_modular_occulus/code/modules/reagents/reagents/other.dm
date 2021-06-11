@@ -79,14 +79,27 @@ datum/reagent/nitrate
 
 	..()
 
+/datum/reagent/delight			//Joyflower chem, used to make Bliss
+	name = "Delight"
+	id = "delight"
+	description = "A chemical naturally made in Joy Flowers, its known to make people smile"
+	taste_description = "sweet"
+	reagent_state = LIQUID
+	color = "#ffc0cb"
+	metabolism = REM * 0.5
+	overdose = REAGENTS_OVERDOSE * 2
+	sanity_gain = 0.5
+	addiction_chance = 5
+
 /datum/reagent/bliss
 	id = "bliss"
 	name = "Bliss"
 	description = "Looks as though it would metabolize into the ultimate hallucinogenic cocktail"
-	color = "#1A979D"
+	color = "#ffc0eb"
 	metabolism = 10 * REM
 	var/init = 0
 	overdose = 15
+	addiction_chance = 60
 
 /datum/reagent/bliss/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(!init)
@@ -226,19 +239,29 @@ datum/reagent/nitrate
 	description = "Extreme painkiller derived of Oxycodone, dangerous in high doses"
 	color = "#540E5C"
 	metabolism = 5 * REM
-	overdose = 15
+	overdose = 10
+	nerve_system_accumulations = 80
+	addiction_chance = 70
 
 /datum/reagent/oxyphoromin/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.add_chemical_effect(CE_PAINKILLER, 600)
 	M.eye_blurry = min(M.eye_blurry + 10, 250)
-//	M.confuse(5)
-
+/datum/reagent/oxyphoromin/withdrawal_act(mob/living/carbon/M)
+	M.stuttering = 50
+	M.add_chemical_effect(CE_SPEEDBOOST, -1)
 /datum/reagent/oxyphoromin/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.druggy = max(M.druggy, 60)
-//	M.hallucination = max(M.hallucination, 3)
+	M.add_chemical_effect(CE_MIND, 300)
+	M.add_chemical_effect(CE_TOXIN, 30)
 
-/*
+/datum/reagent/bluespace_dust
+	id = "bluespace_dust"
+	name = "Sparkling Crystaline Dust"
+	description = "Remnants of a bluespace crystal, they seem to shimmer when looked at"
+	color = "#4ECBF5"
+	reagent_state = SOLID
+
 //Temporarily disabled till I have more time to look at this. Need to adjust coordinates to reflect safe and unsafe XYZ.
 /datum/reagent/liquid_bluespace
 	id = "liquid_bluespace"
@@ -247,6 +270,7 @@ datum/reagent/nitrate
 	color = "#4ECBF5"
 	metabolism = 0
 	var/initial_time = 0
+	addiction_chance = 100
 
 /datum/reagent/liquid_bluespace/on_mob_life(var/mob/living/M as mob)
 	if(!initial_time)
@@ -257,7 +281,7 @@ datum/reagent/nitrate
 			metabolism = 1
 			to_chat(M, "<span class='notice'>You begin to feel transcendental.</span>")
 
-		if(M.z > 5 || M.z == 2 || M.z < 1) //no centcomm teleport, also not dealing with other unknown sectors
+		if(M.z > 5 || M.z < 1) //no centcomm teleport, also not dealing with other unknown sectors
 			to_chat(M, "<span class='warning'>You feel the bluespace leave your body on this sector, nothing happens.</span>")
 			src = null
 			return
@@ -271,24 +295,23 @@ datum/reagent/nitrate
 			var/list/params //list(x min, x max, y min, y max, sector)
 			switch(M.z)
 				if(1)
-					params = list(95, 209, 76, 246, 1) //main station
+					params = list(69, 124, 56, 155, 1) //deck 5
+				if(2)
+					params = list(64, 128,  45, 159, 2) //deck 4
 				if(3)
-					params = list(113, 141, 110, 143, 3) //telecomms station
+					params = list(67, 126, 50, 157, 3) //deck 3
 				if(4)
-					params = list(58, 95, 34, 80, 4) //engineering outpost
+					params = list(63, 124, 50, 153, 4) //deck 2
 				if(5)
-					if(prob(50))
-						params = list(35, 73, 89, 120, 5) //mining station
-					else
-						params = list(65, 99, 121, 182, 5) //research station
+					params = list(62, 130, 52, 160, 5) //deck 1
 
 			x = rand(params[1], params[2])
 			y = rand(params[3], params[4])
 			z = params[5]
 
 			var/turf/new_loc = locate(x, y, z)
-			//ensure they don't land inside rock unless on mining asteroid
-			valid_location = (!istype(new_loc, /turf/simulated/mineral) || z == 5 || z == 4)
+			//ensure they don't land inside rock somehow or space
+			valid_location = (!istype(new_loc, /turf/simulated/mineral)|| !istype(new_loc, /turf/space))
 		while(!valid_location)
 
 		M.x = x
@@ -305,7 +328,9 @@ datum/reagent/nitrate
 	if(istype(A, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = A
 		H.vomit()
-*/
+		H.add_chemical_effect(CE_TOXIN, 30)
+		H.Weaken(90)
+
 
 /datum/reagent/gaseous
 	reagent_state = GAS
@@ -325,46 +350,7 @@ datum/reagent/nitrate
 	initial_reaction(src.holder, src.holder.my_atom, volume, null)
 	return 0
 
-
-/datum/reagent/gaseous/occaecosone
-	id = "occaecosone"
-	name = "Occaecosone"
-	description = "Would react very negatively with proteins in biotic eyes"
-	color = "#213E73"
-/* Need to fix some incorrect Vars related to organs/eyes.
-/datum/reagent/gaseous/occaecosone/touch_turf(var/turf/T)
-	var/mob_affected = 0
-	for(var/mob/living/L in T.contents)
-		mob_affected = 1
-		if(istype(L, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = L
-			if(!gaseous_reagent_check(H)) //protective clothing check
-				var/obj/item/organ/eyes = H.internal_organs_by_name["eyes"]
-				if(!(eyes.status & ORGAN_ROBOT))
-					eyes.take_damage(50)
-					H << "<span class='warning'><b>The gas stings your eyes like you have never felt before!</b></span>"
-		else if(!istype(L, /mob/living/silicon))
-			L.eye_blind = 500
-
-	if(mob_affected)
-		src = null
-
-
-/datum/reagent/gaseous/occaecosone/touch_mob(var/mob/M, var/volume)
-	if(istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
-		if(!gaseous_reagent_check(H)) //protective clothing check
-			var/obj/item/organ/eyes = H.internal_organs_by_name["eyes"]
-			if(!(eyes.status & ORGAN_ROBOT))
-				eyes.take_damage(50)
-				H << "<span class='warning'><b>The gas stings your eyes like you have never felt before!</b></span>"
-	else if(!istype(M, /mob/living/silicon))
-		M.eye_blind = 500
-	src = null
-*/
-
 //It is POSSIBLE but very hard to "stop, drop, and roll" out the fire from an unprotected ignisol encounter before going into crit
-//I really just like the idea of scientists running out of a lab on fire to the science shower - DrBrock
 /datum/reagent/gaseous/ignisol
 	id = "ignisol"
 	name = "Ignisol"

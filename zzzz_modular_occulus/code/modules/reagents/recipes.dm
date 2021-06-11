@@ -46,6 +46,7 @@
 	result_amount = 4
 
 /datum/chemical_reaction/aluminum_nitrate
+	result = "aluminum_nitrate"
 	required_reagents = list("aluminum" = 1, "nitrate" = 3)
 	result_amount = 4
 
@@ -57,14 +58,61 @@
 			new /obj/item/weapon/reagent_containers/food/snacks/brownies(get_turf(holder.my_atom))
 		return
 /datum/chemical_reaction/babelizine
+	result = "babelizine"
 	required_reagents = list("unstable mutagen" = 2, "alkysine" =1)
 	result_amount = 3
 
 /datum/chemical_reaction/malaxitol
+	result = "malaxitol"
 	required_reagents = list("synaptizine" = 2, "innaprovaline" = 1, "acetone" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/bliss
-	required_reagents = list("serotrotium" = 1, "space_drugs" = 2, "methylphenidate" = 1)
+	result = "bliss"
+	required_reagents = list("serotrotium" = 1, "delight" = 2, "methylphenidate" = 1)
 	result_amount = 4
-//seligitillin
+	minimum_temperature = 474
+
+/datum/chemical_reaction/frioline
+	result = "frioline"
+	required_reagents = list("nitrate" = 1, "tungsten" =1, "aceteone" = 1)
+	result_amount = 3
+	maximum_temperature = 200
+//
+
+/datum/chemical_reaction/luxitol
+	result = "luxitol"
+	required_reagents = list("aluminum_nitrate" = 2, "phosphorus" = 3)
+	result_amount = 5
+	catalysts = list("uranium" = 5)
+
+/datum/chemical_reaction/liquid_skin
+	result = "liquid_skin"
+	required_reagents = list("silver" = 1, "sulfur" = 1, "oxygen" = 1, "chlorine" = 1, "blood" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/paralitol
+	result = "paralitol"
+	required_reagents = list("mindbreaker" =2, "pacid" =2)
+	result_amount = 2
+
+/datum/chemical_reaction/mortemol
+	result = "mortemol"
+	required_reagents = list("seligitillin" = 3, "rezadone" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/oxyphoromin
+	result = "oxyphoromin"
+	required_reagents = list("oxycodone" =2, "phoron" = 1, "fuhrerole" = 1)
+	result_amount = 2
+	minimum_temperature = 474
+
+/datum/chemical_reaction/liquid_bluespace
+	result = "liquid_bluespace"
+	required_reagents = list("bluespace_dust" =1, "mercury" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/ignisol
+	result = "ignisol"
+	required_reagents = list("thermite" = 1, "fuel" = 3, "phoron" = 1)
+	result_amount = 5
