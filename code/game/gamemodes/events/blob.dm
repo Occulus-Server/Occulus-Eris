@@ -489,9 +489,6 @@
 			absorbed_damage = min(health * fire_resist, Proj.damage_types[i])
 			taken_damage= (Proj.damage_types[i]  / fire_resist)
 			Proj.damage_types[i] -= absorbed_damage
-	var/datum/effect/effect/system/smoke_spread/bad/smoke
-	smoke.set_up(3, 0, src.loc)
-	smoke.start()
 	take_damage(taken_damage)
 	if (Proj.get_total_damage() <= 0)
 		return 0
