@@ -1,8 +1,8 @@
 // Global stuff that will put us on the map
-/datum/category_group/player_setup_category/vore
+/* /datum/category_group/player_setup_category/vore // OCCULUS REMOVE: Removes tab, it is merging with the default tab now. It has been thrown into brazil
 	name = "Species Customization"
 	sort_order = 7
-	category_item_type = /datum/category_item/player_setup_item/vore
+	category_item_type = /datum/category_item/player_setup_item/vore */
 
 // Define a place to save appearance in character setup
 /datum/preferences
@@ -28,12 +28,16 @@
 	var/dress_mob = TRUE
 	var/fuzzy = FALSE
 
-// Definition of the stuff for Ears
-/datum/category_item/player_setup_item/vore/ears
-	name = "Appearance"
-	sort_order = 1
+//
+// OCCULUS EDIT - MASS REPLACEMENT /datum/category_item/player_setup_item/vore/ears -----> /datum/category_item/player_setup_item/physical/ears
+//
 
-/datum/category_item/player_setup_item/vore/ears/load_character(var/savefile/S)
+// Definition of the stuff for Ears
+/datum/category_item/player_setup_item/physical/ears
+	name = "Appearance"
+	sort_order = 5
+
+/datum/category_item/player_setup_item/physical/ears/load_character(var/savefile/S)
 	S["ear_style"]		>> pref.ear_style
 	S["r_ears"]			>> pref.r_ears
 	S["g_ears"]			>> pref.g_ears
@@ -57,7 +61,7 @@
 	S["fuzzy"]>> pref.fuzzy
 
 
-/datum/category_item/player_setup_item/vore/ears/save_character(var/savefile/S)
+/datum/category_item/player_setup_item/physical/ears/save_character(var/savefile/S)
 	S["ear_style"]		<< pref.ear_style
 	S["r_ears"]			<< pref.r_ears
 	S["g_ears"]			<< pref.g_ears
@@ -81,7 +85,7 @@
 	S["fuzzy"]<< pref.fuzzy
 
 
-/datum/category_item/player_setup_item/vore/ears/sanitize_character()
+/datum/category_item/player_setup_item/physical/ears/sanitize_character()
 	pref.r_ears		= sanitize_integer(pref.r_ears, 0, 255, initial(pref.r_ears))
 	pref.g_ears		= sanitize_integer(pref.g_ears, 0, 255, initial(pref.g_ears))
 	pref.b_ears		= sanitize_integer(pref.b_ears, 0, 255, initial(pref.b_ears))
@@ -109,19 +113,11 @@
 
 	pref.fuzzy				= sanitize_integer(pref.fuzzy, 0, 1, initial(pref.fuzzy))
 
+// OCCULUS EDIT: Removed Preview and renamed title appropriately
+/datum/category_item/player_setup_item/physical/ears/content(var/mob/user)
+	. += "<div style='clear: both;'"
+	. += "<b>Extra Appearance:</b><br>"
 
-/datum/category_item/player_setup_item/vore/ears/content(var/mob/user)
-	. += "<h2>Appearance and Custom Species Settings</h2>"
-
-	if(!pref.preview_icon)
-		pref.update_preview_icon()
- 	user << browse_rsc(pref.preview_icon, "previewicon.png")
-
-	. += "<b>Preview</b><br>"
-	. += "<div class='statusDisplay'><center><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></center></div>"
-	. += "<br><a href='?src=\ref[src];toggle_clothing=1'>[pref.dress_mob ? "Hide equipment" : "Show equipment"]</a><br>"
-
-	. += "<br>"
 	. += "<b>Custom Species</b> "
 	. += "<a href='?src=\ref[src];custom_species=1'>[pref.custom_species ? pref.custom_species : "-Input Name-"]</a><br>"
 
@@ -177,7 +173,7 @@
 		if (T.do_colouration)
 			. += "<a href='?src=\ref[src];wing_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_wing, 2)][num2hex(pref.g_wing, 2)][num2hex(pref.b_wing, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_wing, 2)][num2hex(pref.g_wing, 2)][num2hex(pref.b_wing, 2)]'><tr><td>__</td></tr></table> </font><br>"
 
-/datum/category_item/player_setup_item/vore/ears/OnTopic(var/href,var/list/href_list, var/mob/user)
+/datum/category_item/player_setup_item/physical/ears/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(!CanUseTopic(user))
 		return TOPIC_NOACTION
 
