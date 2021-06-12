@@ -29,6 +29,7 @@
 
 /datum/stash/junk/plush
 	contents_list_extra = list(/obj/item/toy/plushie/soygel = 1,
+	/obj/item/toy/plushie/lexi = 1,
 	/obj/item/toy/plushie/mouse = 1,
 	/obj/item/toy/plushie/kitten = 1,
 	/obj/item/toy/plushie/lizard =1,

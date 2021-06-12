@@ -107,8 +107,24 @@
 	icon_state = "striped_bra"
 	has_color = TRUE
 
-// Syzygy stuff
+// Syzygy stuff - RIP Syzygy
 /datum/category_item/underwear/top/tighttank
 	name = "Tight Tank Top"
 	icon_state = "tighttank"
+	has_color = TRUE
+
+// Occulus stuff
+/datum/category_item/underwear/top/neko
+	name = "Neko Bra"
+	icon_state = "bra_neko"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/binderstrapless
+	name = "Strapless Binder Bra"
+	icon_state = "bra_binder_strapless"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/thin
+	name = "Thin Bra"
+	icon_state = "bra_thin"
 	has_color = TRUE
