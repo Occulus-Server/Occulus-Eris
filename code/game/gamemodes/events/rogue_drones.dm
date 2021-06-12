@@ -63,7 +63,7 @@
 	//Pick a list of spawn locatioons
 	var/list/spawn_locations = pickweight_mult(viable_turfs, drones_to_spawn)
 
-	log_and_message_admins("Spawning [drones_to_spawn]")
+	log_and_message_admins("Spawning [drones_to_spawn] hostile combat drones around random windows adjacent to space.") //OCCULUS EDIT - better description
 	for(var/turf/T in spawn_locations)
 		var/mob/living/simple_animal/hostile/retaliate/malf_drone/D = new /mob/living/simple_animal/hostile/retaliate/malf_drone(T)
 		drones_list.Add(D)
@@ -72,7 +72,7 @@
 		if (prob(95))
 			D.hostile_drone = TRUE //There's a small chance that each one wont attack
 		if (prob(5))
-			log_and_message_admins("Drone spawned at [jumplink(T)],")
+			log_and_message_admins("Hostile combat drone spawned at [jumplink(T)].") //OCCULUS EDIT - better description
 
 /datum/event/rogue_drone/end()
 	var/num_recovered = 0
@@ -86,6 +86,8 @@
 		qdel(D)
 		num_recovered++
 
+	log_and_message_admins("Despawning [num_recovered] hostile combat drones due to event end.") //OCCULUS EDIT - better logging
+	
 	if(num_recovered > drones_list.len * 0.75)
 		command_announcement.Announce("Icarus drone control reports the malfunctioning wing has been recovered safely.", "Rogue drone alert")
 	else
