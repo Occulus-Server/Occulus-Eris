@@ -13,7 +13,7 @@
 	wage = WAGE_COMMAND
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihc
-	
+
 	wl_config_heads = TRUE		//Eclipse edit.
 	wl_config_sec = TRUE		//Eclipse edit.
 
@@ -72,7 +72,7 @@
 	selection_color = "#a7bbc6"
 	department_account_access = TRUE
 	wage = WAGE_LABOUR_HAZARD
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/gunserg
@@ -125,7 +125,7 @@
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/inspector
@@ -182,7 +182,7 @@
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/medspec
@@ -236,7 +236,7 @@
 	//alt_titles = list("Aegis Junior Operative")
 	selection_color = "#a7bbc6"
 	wage = WAGE_LABOUR_HAZARD
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihoper
