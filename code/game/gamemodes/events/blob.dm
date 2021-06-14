@@ -157,7 +157,7 @@
 
 	//Heal ourselves
 	regen()
-
+	MeltFloor(src.loc)//Occulus Edit
 
 	if (world.time >= next_expansion)
 		//Update our neighbors. This may cause us to stop processing
@@ -434,6 +434,9 @@
 //Blobs will do horrible things to any mobs they share a tile with
 //Returns true if any mob was damaged, false if not
 /obj/effect/blob/proc/attack_mobs(var/turf/T)
+	if(!core) //Occulus edit. If the core is dead, stop attacking
+		return//Occulus edit: If the core is dead, stop attacking
+	var/result = FALSE//Occulus Edit
 	if (!T)
 		T = loc
 	for (var/mob/living/L in T)
@@ -441,28 +444,30 @@
 			continue
 		L.visible_message(SPAN_DANGER("The blob attacks \the [L]!"), SPAN_DANGER("The blob attacks you!"))
 		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
-		L.take_organ_damage(burn = RAND_DECIMAL(0.4, 2.3))
+//		L.take_organ_damage(burn = RAND_DECIMAL(6,8))//Occulus Edit: No wonder this did basically no damage.
+		L.apply_damage(RAND_DECIMAL(6,8),BURN)//Occulus Edit: this respects armor now
 
 		//In addition to the flat damage above, we will also splash a small amount of acid on the target
 		//This allows them to wear acidproof gear to resist it
 		if (iscarbon(L))
-			var/datum/reagents/R = new /datum/reagents(4, null)
-			R.add_reagent("sacid", RAND_DECIMAL(0.8,4))
-			R.trans_to(L, R.total_volume)
+			var/datum/reagents/R = new /datum/reagents(30, null)//Bigger container Occulus Edit
+			R.add_reagent("sacid", 30)//Deals another 5 damage if you aren't in an acidproof suit, Ocuclus Edit
+			R.splash(L, R.total_volume)//Acid gets splashed on people you Eris dummies. Occulus Edit
 			qdel(R)
 
-		return TRUE
+		result = TRUE//Occulus edit
 
 	//If we get here, nobody was harmed
-	return FALSE
+	return result//Occulus edit
 
 
 //Stepping on a blob is bad for your health.
 //When walked over, the blob will wake up and attack whoever stepped on it
 //Since it's awake, it will keep attacking them every process call until they leave or die
-/obj/effect/blob/Crossed()
-	set_awake()
-	attack_mobs()
+/obj/effect/blob/Crossed(mob/AM)
+	if(isliving(AM))//Occulus Edit
+		set_awake()//Edits
+		attack_mobs()//Edits
 
 /*******************
 	BLOB DEFENSE
@@ -504,6 +509,8 @@
 				damage = (W.force / brute_resist)
 
 		take_damage(damage)
+		if(prob(5))
+			attack_mobs(user.loc)
 		return 1
 	return ..()
 

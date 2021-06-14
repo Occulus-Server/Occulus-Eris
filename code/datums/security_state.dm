@@ -192,7 +192,7 @@
 		if(FA.z in GLOB.maps_data.contact_levels)
 			FA.update_icon()
 	post_status("alert")
-
+/////Occulus Note: Changing the wording of the alert levels, nothing else/////
 /decl/security_level/default/code_green
 	name = "code green"
 
@@ -208,7 +208,7 @@
 
 	overlay_status_display = "status_display_green"
 
-	down_description = "All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
+	down_description = "All threats to the ship have passed. Crew are to return to normal duties."
 
 /decl/security_level/default/code_blue
 	name = "code blue"
@@ -224,8 +224,8 @@
 
 	overlay_status_display = "status_display_blue"
 
-	up_description = "The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible, random searches are permitted."
-	down_description = "The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed."
+	up_description = "The ship has received reliable information about possible danger to it's safety. Crew are to prepare general quarters and see their respective command member for details."
+	down_description = "The immediate threat has passed. Crew are to remain on alert and see their respective command member for details."
 
 /decl/security_level/default/code_red
 	name = "code red"
@@ -241,8 +241,8 @@
 
 	overlay_status_display = "status_display_red"
 
-	up_description = "There is an immediate serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised."
-	down_description = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised."
+	up_description = "There is an immediate serious threat to the ship. Privacy rights as suspended and crew are to listen to all command orders."
+	down_description = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the ship. Privacy rights are still suspended and crew are to listen to all command orders."
 
 /decl/security_level/default/code_delta
 	name = "code delta"
@@ -261,5 +261,5 @@
 	var/static/datum/announcement/priority/security/security_announcement_delta = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/effects/siren.ogg'))
 
 /decl/security_level/default/code_delta/switching_up_to()
-	security_announcement_delta.Announce("The self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.", "Attention! Delta security level reached!")
+	security_announcement_delta.Announce("The self-destruct mechanism has been engaged. All crew are ordered to obey all instructions given by command. These orders can be enforced by lethal force. This is not a drill.", "Attention! Delta security level reached!")
 	notify_station()

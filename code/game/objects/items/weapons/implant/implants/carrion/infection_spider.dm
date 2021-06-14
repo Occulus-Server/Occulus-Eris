@@ -54,7 +54,7 @@
 				"You feel like something is taking control of you!",
 				"You feel weak, like something is growing inside of your body!"
 			))
-			wearer.apply_effect(20, AGONY, armor_value = 0, check_protection = FALSE) //Flat 20 agony damage
+			wearer.adjustHalLoss(10) //Flat 10 agony damage
 			to_chat(wearer, "\red <font size=3><b>[pain_message]</b></font>")
 		if(prob(1)) //around one limb per transformation
 			var/obj/item/organ/external/E = wearer.get_organ(pick(list(BP_L_ARM, BP_L_LEG, BP_R_ARM, BP_R_LEG)))

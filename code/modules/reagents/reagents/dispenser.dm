@@ -322,7 +322,7 @@
 				remove_self(volume)
 				return
 			else if(volume > meltdose)
-				H << "<span class='danger'>Your [H.head] melts away!</span>"
+				to_chat(H, "<span class='danger'>Your [H.head] melts away!</span>")
 				qdel(H.head)
 				H.update_inv_head(1)
 				H.update_hair(1)
@@ -336,7 +336,7 @@
 				remove_self(volume)
 				return
 			else if(volume > meltdose)
-				H << "<span class='danger'>Your [H.wear_mask] melts away!</span>"
+				to_chat(H, "<span class='danger'>Your [H.wear_mask] melts away!</span>")
 				qdel(H.wear_mask)
 				H.update_inv_wear_mask(1)
 				H.update_hair(1)
@@ -349,7 +349,7 @@
 				H << "<span class='danger'>Your [H.glasses] partially protect you from the acid!</span>"
 				volume /= 2
 			else if(volume > meltdose)
-				H << "<span class='danger'>Your [H.glasses] melt away!</span>"
+				to_chat(H, "<span class='danger'>Your [H.glasses] melt away!</span>")
 				qdel(H.glasses)
 				H.update_inv_glasses(1)
 				remove_self(meltdose / 2)

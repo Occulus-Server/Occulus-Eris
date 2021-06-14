@@ -5,19 +5,23 @@
 	. = FALSE
 	..()
 	if(config.enable_mob_sleep)
-		if(life_cycles_before_scan > 0)
-			life_cycles_before_scan--
-		else
-			if(check_surrounding_area(7))
-				activate_ai()
-				life_cycles_before_scan = 3
+		//OCCULUS EDIT START - Experimental optimization on a piece of experimental optimization
+		if(AI_inactive) //Are we sleeping?
+			if(life_cycles_before_scan > 0) //Is it time to scan?
+				life_cycles_before_scan-- //If no, count down
+			else //If yes...
+				if(check_surrounding_area(7)) //See if there are valid threats around us
+					activate_ai() //If there are, wake up
+					life_cycles_before_scan = 5 //Reset this
+				else //If not...
+					life_cycles_before_scan = 5 //Restart the countdown
 
-		if(life_cycles_before_sleep)
-			life_cycles_before_sleep--
-
-		if(life_cycles_before_sleep < 1 && !AI_inactive)
-			AI_inactive = TRUE
-
+		else //If we are not sleeping...
+			if(life_cycles_before_sleep > 0) //Is it time to sleep?
+				life_cycles_before_sleep-- //If no, count down
+			else //If it is time...
+				AI_inactive = TRUE //resetting the sleep timer is handled in activate_ai(), so we don't need to do it here
+		//OCCULUS EDIT END
 
 	if(!stasis)
 		if (HasMovementHandler(/datum/movement_handler/mob/transformation/))

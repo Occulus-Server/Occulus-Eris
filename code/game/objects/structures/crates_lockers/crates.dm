@@ -78,7 +78,7 @@
 	name = "plastic crate"
 	desc = "A rectangular plastic crate."
 	icon_state = "plasticcrate"
-	matter = list(MATERIAL_PLASIC = 10)
+	matter = list(MATERIAL_PLASTIC = 10)//Occulus Edit: Spelling error
 	price_tag = 10
 
 /obj/structure/closet/crate/internals

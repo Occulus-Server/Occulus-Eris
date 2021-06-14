@@ -37,13 +37,10 @@
 	icon_state = "m5"
 
 /datum/category_item/underwear/bottom/panties_noback
-	name = "Panties, noback"
-	underwear_name = "panties"
+	name = "Jockstrap"	//originally noback panties but that's lame
+	underwear_name = "jockstrap"
 	icon_state = "m6"
 	has_color = TRUE
-
-/datum/category_item/underwear/bottom/panties_noback/is_default(var/gender)
-	return gender == FEMALE
 
 /datum/category_item/underwear/bottom/boxers_loveheart
 	name = "Boxers, Loveheart"
@@ -102,4 +99,19 @@
 /datum/category_item/underwear/bottom/longjon
 	name = "Long John Bottoms"
 	icon_state = "ljonb"
+	has_color = TRUE
+
+/datum/category_item/underwear/bottom/neko
+	name = "Neko Panties"
+	icon_state = "panties_neko"
+	has_color = TRUE
+
+/datum/category_item/underwear/bottom/slim
+	name = "Low Profile Panties"
+	icon_state = "panties_slim"
+	has_color = TRUE
+
+/datum/category_item/underwear/bottom/thin
+	name = "Thin Panties"
+	icon_state = "panties_thin"
 	has_color = TRUE

@@ -346,7 +346,7 @@ var/global/list/damage_icon_parts = list()
 			var/obj/item/underwear/UW = entry
 			var/icon/I = new /icon(get_gender_icon(gender, "underwear"), UW.icon_state)
 			if(UW.color)
-				I.Blend(UW.color, ICON_ADD)
+				I.Blend(UW.color, ICON_MULTIPLY) // OCCULUS EDIT - Fixes undies
 			underwear.Blend(I, ICON_OVERLAY)
 		overlays_standing[UNDERWEAR_LAYER] = image(underwear)
 	if(update_icons)
@@ -569,6 +569,15 @@ var/global/list/damage_icon_parts = list()
 				under_state = w_uniform.icon_state
 			else
 				under_state = w_uniform.item_state
+
+		//Occulus Edit - Rolldowns
+		if (istype(w_uniform, /obj/item/clothing/under))//Occulus anti-runtime stuff
+			var/obj/item/clothing/under/uniformcheck = w_uniform
+			if (uniformcheck.rolldown)//Are we rolled down?
+				var/icon/originalicon = icon(under_icon, icon_state = under_state)
+				var/icon/rollalpha = icon('zzzz_modular_occulus/icons/inventory/overlays.dmi', icon_state = "rolldown")//If we are, grab the overlay
+				originalicon.Blend(rollalpha, ICON_MULTIPLY)//Then apply the transform to the standing icon. End occulus Edit
+				under_icon = originalicon
 
 		//need to append _s to the icon state for legacy compatibility
 		var/image/standing = image(icon = under_icon, icon_state = under_state)

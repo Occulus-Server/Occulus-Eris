@@ -33,7 +33,7 @@
 	/obj/item/clothing/suit/storage/greatcoat = 15)
 	weight = 0.2
 
-
+/* Occulus edit
 /datum/stash/command/kismet
 	contents_list_external = list(/obj/item/remains/human = 1)
 	lore = "A hundred thousand credits of education fallen to a ten cent rubber bullet to the temple.<br>\
@@ -91,3 +91,4 @@ Remember this spot when the anesthetic wears off<br>\
  %D;<br>\
  <br>\
  don't go stumbling around for a week like last time. "
+ */
