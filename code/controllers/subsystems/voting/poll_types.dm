@@ -158,7 +158,7 @@
 	name = "Evacuate Ship"
 	question = "Do you want to call evacuation and restart the round?"
 	time = 120
-	minimum_win_percentage = 0.6
+//	minimum_win_percentage = 0.6 Occulus Edit, we are moving this to a simple majority
 	cooldown = 20 MINUTES
 	next_vote = 90 MINUTES //Minimum round length before it can be called for the first time
 	choice_types = list()
