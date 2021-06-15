@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/storage/captains_coat
-	name = "captain's greatcoat"
-	desc = "It's a swanky blue greatcoat with gold epaulettes and trimmings denoting the rank of \"Captain\"."
+	name = "captain's parade uniform"
+	desc = "A black and gold trimmed coat with attached half-cape. The inside is made of high-quality red velvet. Ostentatious enough to tell everyone around you that you are the \"Captain\"."
 	icon = 'zzzz_modular_occulus/icons/inventory/suit/captain.dmi'
 	icon_state = "captains_coat"
 	item_state = "captains_coat"
@@ -18,6 +18,28 @@
 	)
 	siemens_coefficient = 0.8
 	spawn_blacklisted = TRUE	//no random captain shit in maint
+
+/obj/item/clothing/suit/storage/toggle/captains_jacket
+	name = "captain's jacket"
+	desc = "A black jacket with gold trim verifying that you are the Captain. It can be buttoned up or unbuttoned."
+	icon = 'zzzz_modular_occulus/icons/obj/clothing/suit.dmi'
+	icon_state = "capjacket"
+	item_state = "capjacket"
+	icon_open = "capjacket_open"
+	icon_closed = "capjacket"
+	icon_override = 'zzzz_modular_occulus/icons/mob/suit.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/mob/suit_fem.dmi'
+	body_parts_covered = UPPER_TORSO|ARMS
+	blood_overlay_type = "coat"
+	armor = list(
+		melee = 30,
+		bullet = 35,
+		energy = 30,
+		bomb = 30,
+		bio = 15,
+		rad = 0
+	) // These are the same as the captain's coat so you can play fashion souls instead of minmaxing.
+	spawn_blacklisted = TRUE //no random captain shit in maint
 
 /obj/item/clothing/suit/space/void/captain
 	name = "captain's voidsuit"
