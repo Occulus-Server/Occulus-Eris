@@ -48,3 +48,10 @@
 	name = "blue beret"
 	icon_state = "beret_blue"
 	item_state = "beret_blue"
+
+/obj/item/clothing/head/caphat
+	name = "captain's hat"
+	icon = 'zzzz_modular_occulus/icons/inventory/head/icon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/mob/head.dmi'
+	icon_state = "captain"
+	item_state = "captain"
