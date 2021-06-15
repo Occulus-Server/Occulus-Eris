@@ -46631,6 +46631,14 @@
 /obj/item/weapon/electronics/circuitboard/destructive_analyzer,
 /obj/item/weapon/electronics/circuitboard/protolathe,
 /obj/item/weapon/electronics/circuitboard/aifixer,
+/obj/item/weapon/electronics/circuitboard/ADMS{
+	pixel_x = -2;
+	pixel_y = 5
+	},
+/obj/item/weapon/electronics/circuitboard/rdconsole{
+	pixel_x = -2;
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "cek" = (
@@ -47745,6 +47753,11 @@
 /obj/machinery/holoposter{
 	pixel_y = 32
 	},
+/obj/structure/table/rack,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/powercell/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "cgz" = (
@@ -47755,6 +47768,11 @@
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
+/obj/structure/table/rack,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/powercell/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "cgB" = (
@@ -47812,6 +47830,11 @@
 /turf/simulated/wall/r_wall,
 /area/eris/medical/surgery)
 "cgJ" = (
+/obj/structure/table/rack,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/powercell/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "cgK" = (
@@ -48498,6 +48521,11 @@
 	dir = 1;
 	pixel_y = -22
 	},
+/obj/structure/table/rack,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/powercell/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "civ" = (
@@ -48552,6 +48580,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/rack,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/powercell/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "ciB" = (
@@ -97343,6 +97376,11 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 27
 	},
+/obj/structure/table/rack,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/powercell/low_chance,
+/obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "etg" = (
