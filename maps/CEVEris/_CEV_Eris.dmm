@@ -635,8 +635,8 @@
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "abM" = (
-/obj/machinery/computer/arcade,
-/turf/simulated/floor/tiled/steel,
+/obj/structure/fitness/punchingbag,
+/turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
 "abN" = (
 /obj/structure/table/rack,
@@ -1008,10 +1008,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
-"acA" = (
-/obj/structure/fitness/weightlifter,
-/turf/simulated/floor/tiled/steel/brown_perforated,
-/area/eris/crew_quarters/sleep)
 "acB" = (
 /obj/machinery/atmospherics/pipe/zpipe/up{
 	dir = 4
@@ -2352,9 +2348,7 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/prison)
 "afX" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
+/obj/structure/fitness/weightlifter,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
 "afY" = (
@@ -3946,7 +3940,8 @@
 /area/eris/maintenance/section1deck5central)
 "ajv" = (
 /obj/structure/table/standard,
-/obj/structure/bedsheetbin,
+/obj/item/weapon/dice,
+/obj/item/weapon/deck/cards,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
 "ajw" = (
@@ -4234,9 +4229,14 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "ajY" = (
-/obj/structure/table/standard,
-/obj/item/weapon/dice,
-/turf/simulated/floor/tiled/steel/brown_perforated,
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "aka" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4245,11 +4245,8 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "akb" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel/brown_perforated,
-/area/eris/crew_quarters/sleep)
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/elevator)
 "akd" = (
 /obj/machinery/button/remote/blast_door{
 	id = "maint_hatch_ihsforens2";
@@ -4520,7 +4517,9 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
 "akH" = (
-/obj/structure/bed/chair,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "akI" = (
@@ -4677,7 +4676,15 @@
 /obj/structure/table/standard,
 /obj/item/device/paicard,
 /obj/item/weapon/packageWrap,
-/turf/simulated/floor/tiled/steel/brown_perforated,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/machinery/button/remote/elevator_call_button{
+	dir = 8;
+	id = "ElevatorDorms";
+	pixel_x = 26
+	},
+/turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "akZ" = (
 /obj/structure/catwalk,
@@ -4838,9 +4845,11 @@
 	name = "Tractor Beacon"
 	})
 "als" = (
-/obj/machinery/recharge_station,
-/turf/simulated/floor/tiled/steel,
-/area/eris/crew_quarters/sleep)
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/turcarpet,
+/area/eris/elevator)
 "alt" = (
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/steel,
@@ -105663,6 +105672,9 @@
 /obj/item/weapon/handcuffs/zipties,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
+"kZN" = (
+/turf/simulated/wall/r_wall,
+/area/eris/elevator)
 "lcL" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white/brown_platform,
@@ -106826,6 +106838,13 @@
 	},
 /turf/simulated/floor/hull,
 /area/space)
+"oCP" = (
+/obj/machinery/button/remote/elevator_panel{
+	id = "ElevatorDorms";
+	pixel_y = 26
+	},
+/turf/simulated/floor/carpet/turcarpet,
+/area/eris/elevator)
 "oEk" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -107247,6 +107266,13 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet,
 /area/eris/maintenance/section4deck4central)
+"pQI" = (
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
+	},
+/turf/simulated/floor/carpet/turcarpet,
+/area/eris/elevator)
 "pSx" = (
 /obj/spawner/scrap/sparse,
 /turf/simulated/floor/tiled/techmaint,
@@ -107912,12 +107938,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
-"ssJ" = (
-/obj/item/modular_computer/console/preset/civilian{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel/brown_perforated,
-/area/eris/crew_quarters/sleep)
 "suD" = (
 /obj/machinery/holomap{
 	dir = 8;
@@ -108175,12 +108195,15 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/medical/medbreak)
 "tkQ" = (
-/obj/machinery/light,
-/obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/turf/simulated/floor/tiled/steel/brown_perforated,
-/area/eris/crew_quarters/sleep)
+/obj/machinery/door/airlock/multi_tile/metal{
+	_wifi_id = null;
+	desc = "An elevator airlock. This one is labeled as the dormitory elevator.";
+	dir = 2;
+	id_tag = "ElevatorDorms";
+	name = "Dorms Elevator"
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/elevator)
 "tlK" = (
 /obj/spawner/junk/low_chance,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -108633,9 +108656,8 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4central)
 "uRl" = (
-/obj/structure/fitness/punchingbag,
-/turf/simulated/floor/tiled/steel/brown_perforated,
-/area/eris/crew_quarters/sleep)
+/turf/simulated/floor/carpet/turcarpet,
+/area/eris/elevator)
 "uRH" = (
 /obj/machinery/door/airlock/maintenance_common{
 	name = "Central Maintenance"
@@ -109044,6 +109066,9 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
+"wob" = (
+/turf/simulated/wall,
+/area/eris/elevator)
 "wqX" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -126002,7 +126027,7 @@ dzi
 aaa
 agf
 ajY
-acf
+akH
 akH
 akY
 agY
@@ -126202,12 +126227,12 @@ dzi
 dzi
 dzi
 aaa
-agf
+kZN
+kZN
 akb
-acf
-akH
 tkQ
-agY
+kZN
+wob
 alD
 alV
 agD
@@ -126404,12 +126429,12 @@ aae
 aaa
 aaa
 aaa
-agf
+kZN
+oCP
 uRl
-acf
-akH
-ssJ
-agD
+uRl
+uRl
+kZN
 alE
 alE
 agD
@@ -126606,12 +126631,12 @@ aad
 aaa
 aaa
 aaa
-agf
-acA
-acf
-acf
+kZN
 als
-agD
+uRl
+pQI
+als
+kZN
 alI
 alI
 agD
@@ -126808,12 +126833,12 @@ aae
 aad
 aad
 aad
-agD
-agf
-agf
-agf
-agf
-agD
+kZN
+kZN
+kZN
+kZN
+kZN
+kZN
 agD
 agD
 agD
