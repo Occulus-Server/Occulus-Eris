@@ -45640,7 +45640,7 @@
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/crew_quarters/clothingstorage)
 "cbY" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/snack,
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/crew_quarters/clothingstorage)
 "cbZ" = (
@@ -208632,7 +208632,7 @@ anJ
 ctG
 aqV
 cil
-cil
+cCq
 cCq
 cil
 cil
