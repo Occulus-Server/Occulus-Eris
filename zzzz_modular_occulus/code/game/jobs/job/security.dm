@@ -33,7 +33,7 @@
 	Often you will be assigned alongside an operative or inspector as a partner. In those situations you may act as fire support for your partner. Try and minimize risk to yourself, as your skill set is invaluable and you are not able to help others while incapacitated or dead.<br>\
 	<br>\
 	3. Brig Support. <br>\
-	During quiet times, you are responsible for assisting the warden in the as a local medic and backup forensics specialist. You are also capable of supporting Inspectors by performing lab work alongside them and should ensure the well-being of prisoners under the care of the Gunnery Sergeant."
+	During quiet times, you are responsible for assisting other support roles in Aegis. You are also capable of performing lab work alongside the Inspector and should ensure the well-being of prisoners under the care of the Gunnery Sergeant."
 
 /datum/job/ihoper
 	alt_titles = list("Aegis Recruit")
