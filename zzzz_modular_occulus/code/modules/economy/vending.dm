@@ -234,10 +234,10 @@
 	product_slogans = "Try our new nougat bar!;Twice the calories for half the price!"
 	product_ads = "The healthiest!;Award-winning chocolate bars!;Mmm! So good!;Oh my god it's so juicy!;Have a snack.;Snacks are good for you!;Have some more. Getmore!;Best quality snacks straight from mars.;We love chocolate!;Try our new jerky!;We are legally required to disclose that we are under investigation by the Solarian Federal Bureau of Labor Protection."
 	icon_state = "snack"
-	products = list(/obj/item/weapon/reagent_containers/food/snacks/candy = 20,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 6,/obj/item/weapon/reagent_containers/food/snacks/chips =6,
-					/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 20,/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 6,/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 6,
-					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 20, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 6)
-	contraband = list(/obj/item/weapon/reagent_containers/food/snacks/syndicake = 8, /obj/item/weapon/storage/ration_pack = 3)
+	products = list(/obj/item/weapon/reagent_containers/food/snacks/candy = 6,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 6,/obj/item/weapon/reagent_containers/food/snacks/chips =6,
+					/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 6,/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 6,/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 6,
+					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 6, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 6)
+	contraband = list(/obj/item/weapon/reagent_containers/food/snacks/syndicake = 8, /obj/item/weapon/storage/ration_pack = 1)
 	prices = list(/obj/item/weapon/reagent_containers/food/snacks/candy = 60,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 80,/obj/item/weapon/reagent_containers/food/snacks/chips = 70,
 					/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 75,/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 80,/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 60,
 					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 90, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 100,
