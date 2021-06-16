@@ -52,7 +52,7 @@ var/global/list/default_medbay_channels = list(
 	var/syndie = 0//Holder to see if it's a syndicate encrypted radio
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
-	
+
 	//Eclipse-added vars
 	var/freqlock = FALSE		//Eclipse Edit: Should we lock the frequency to prevent people from changing the channel?
 
@@ -72,7 +72,7 @@ var/global/list/default_medbay_channels = list(
 	if(syndie)
 		internal_channels += unique_internal_channels.Copy()
 	add_hearing()
-	
+
 	//eclipse addition
 	if(audible_squelch_enabled)		//if it's disabled, should stay as null.ogg. Prevents it from playing squelch in the event another if-check fails.
 		audible_squelch_type = pick(all_radio_squelch_sounds)		//radios get a semi-unique radio squelch sound. granted, there's four sounds total, but if one radio receives it should maintain the same squelch sound all the time.
@@ -262,7 +262,13 @@ var/global/list/default_medbay_channels = list(
 		return
 	if (!connection)
 		return
-
+	var/jammed = FALSE //occulus code start
+	for(var/obj/item/jammer/jammer in GLOB.active_jammers)
+		if(get_dist(get_turf(src), get_turf(jammer)) < jammer.range)
+			jammed = TRUE
+			break
+	if(jammed)
+		message = Gibberish(message, 100) //occulus code end
 	Broadcast_Message(connection, null,
 						0, "*garbled automated announcement*", src,
 						message, from, "Automated Announcement", from, "synthesized voice",
