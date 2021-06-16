@@ -53,7 +53,6 @@ var/datum/discord_bot/discord_bot = new
 
 /datum/discord_bot/proc/send(info)
 	var/C = call(CONN_LIBRARY, "SendAndClose")("127.0.0.1", "[port]", info)
-	log_world(C)
 
 	if (C == CONN_SUCCESS)
 		log_debug("Successfully sent to the discord bot.")
