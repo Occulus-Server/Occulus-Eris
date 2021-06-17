@@ -354,6 +354,8 @@ This function restores all organs.
 	//visible_message("Hit debug. [damage] | [damagetype] | [def_zone] | [blocked] | [sharp] | [used_weapon]")
 
 	//Handle other types of damage
+	if(damagetype == PSY) //Occulus Edit
+		sanity.onPsyDamage(damage)//Occulus Edit
 	if(damagetype != BRUTE && damagetype != BURN)
 		if(damagetype == HALLOSS && !(species && (species.flags & NO_PAIN)))
 			if (!stat && (damage > 25 && prob(20)) || (damage > 50 && prob(60)))
