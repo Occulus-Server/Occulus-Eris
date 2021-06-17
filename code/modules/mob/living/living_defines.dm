@@ -9,7 +9,7 @@
 	var/hud_updateflag = 0
 
 	var/life_cycles_before_sleep = 120
-	var/life_cycles_before_scan = 100
+	var/life_cycles_before_scan = 5 //OCCULUS EDIT - Reduced to be in line with stuff
 
 	var/stasis = FALSE
 	var/AI_inactive = FALSE

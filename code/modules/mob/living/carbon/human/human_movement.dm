@@ -32,8 +32,6 @@
 	if(hunger_deficiency >= 200) tally += (hunger_deficiency / 100) //If youre starving, movement slowdown can be anything up to 4.
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
 
-	if (!(species && (species.flags & NO_PAIN)))
-		if(halloss >= 10) tally += (halloss / 20) //halloss shouldn't slow you down if you can't even feel it
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
 		for(var/organ_name in list(BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM))
 			var/obj/item/organ/external/E = get_organ(organ_name)
@@ -47,7 +45,7 @@
 		if(shoes)
 			tally += shoes.slowdown
 
-	if(shock_stage >= 10) tally += 3
+	tally += min((shock_stage / 100) * 3, 3) //Scales from 0 to 3 over 0 to 100 shock stage
 
 	if (bodytemperature < 283.222)
 		tally += (283.222 - bodytemperature) / 10 * 1.75

@@ -95,11 +95,11 @@
 			stat(null, "Suit charge: [cell_status]")
 
 		var/chemvessel_efficiency = get_organ_efficiency(OP_CHEMICALS)
-		if(chemvessel_efficiency)
+		if(chemvessel_efficiency > 1)
 			stat("Chemical Storage", "[carrion_stored_chemicals]/[round(0.5 * chemvessel_efficiency)]")
 
 		var/maw_efficiency = get_organ_efficiency(OP_MAW)
-		if(maw_efficiency > 0)
+		if(maw_efficiency > 1)
 			stat("Gnawing hunger", "[carrion_hunger]/[round(maw_efficiency/10)]")
 
 		var/obj/item/weapon/implant/core_implant/cruciform/C = get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
@@ -197,6 +197,8 @@
 			dat += "<BR><A href='?src=\ref[src];item=internals'>Toggle internals.</A>"
 
 	// Other incidentals.
+	if(istype(suit) && suit.has_sensor == 1) //Occulus Edit start
+		dat += "<BR><A href='?src=\ref[src];item=sensors'>Set sensors</A>" //Occulus edit end
 	if(handcuffed)
 		dat += "<BR><A href='?src=\ref[src];item=[slot_handcuffed]'>Handcuffed</A>"
 	if(legcuffed)
@@ -614,7 +616,7 @@ var/list/rank_prefix = list(\
 		return FLASH_PROTECTION_MAJOR
 
 	var/eye_efficiency = get_organ_efficiency(OP_EYES)
-	if(eye_efficiency <= 0)
+	if(eye_efficiency <= 1)
 		return FLASH_PROTECTION_MAJOR
 
 	return flash_protection
@@ -877,6 +879,12 @@ var/list/rank_prefix = list(\
 	// This will ignore any prosthetics in the prefs currently.
 	rebuild_organs()
 
+// OCCULUS EDIT START - Reinstall our core implant if we had one, because rebuild_organs() has that bit of code gutted from it
+	var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
+	if(I)
+		I.apply(src)
+// OCCULUS EDIT END
+
 	if(!client || !key) //Don't boot out anyone already in the mob.
 		for(var/obj/item/organ/internal/brain/H in world)
 			if(H.brainmob)
@@ -979,6 +987,7 @@ var/list/rank_prefix = list(\
 			if(feet_blood_DNA && feet_blood_DNA.len)
 				feet_blood_color = null
 				feet_blood_DNA.Cut()
+				feet_blood_DNA = null //OCCULUS EDIT: Overlays remain if DNA is anything other than null. Cut sets it to empty list.
 				update_inv_shoes()
 
 	return
@@ -1194,10 +1203,10 @@ var/list/rank_prefix = list(\
 /////////////////////////////////////////////////////////////////////////////////////////
 // OCCULUS EDIT START - Spaghetti to make rejuv less crap, and also fix the weird eye bug
 	var/obj/item/weapon/implant/core_implant/CI = get_core_implant(null, FALSE)
-	var/checkprefcruciform = FALSE	// To reset the cruciform to original form //wtf does this even mean???
+	//var/checkprefcruciform = FALSE	// To reset the cruciform to original form //wtf does this even mean???
 	if(CI)
-		checkprefcruciform = TRUE
-		qdel(CI)	//so this qdel isn't working for whatever reason!
+		//checkprefcruciform = TRUE
+		qdel(CI)
 
 // OCCULUS EDIT START - Spaghetti to make rejuv less crap, and also fix the weird eye bug
 	for(var/obj/item/organ/organ in (organs|internal_organs))//Occulus Edit - Moving this out so the cloner stops breaking
@@ -1225,9 +1234,9 @@ var/list/rank_prefix = list(\
 		for(var/tag in species.has_limbs)
 			BM = Pref.get_modification(tag)
 			var/datum/organ_description/OD = species.has_limbs[tag]
-			var/datum/body_modification/PBM = Pref.get_modification(OD.parent_organ_base)
-			if(PBM && (PBM.nature == MODIFICATION_SILICON || PBM.nature == MODIFICATION_REMOVED))
-				BM = PBM
+//			var/datum/body_modification/PBM = Pref.get_modification(OD.parent_organ_base)
+//			if(PBM && (PBM.nature == MODIFICATION_SILICON || PBM.nature == MODIFICATION_REMOVED))
+//				BM = PBM
 			if(BM.is_allowed(tag, Pref, src))
 				BM.create_organ(src, OD, Pref.modifications_colors[tag])
 			else
@@ -1240,12 +1249,13 @@ var/list/rank_prefix = list(\
 			else
 				var/organ_type = species.has_process[tag]
 				new organ_type(src)
-
+/* haha this spaghetti just made things 100x worse
 //	OCCULUS EDIT START - Spaghetti to fix spaghetti
 		var/datum/category_item/setup_option/core_implant/I = Pref.get_option("Core implant")
 		if(I)
 			I.apply(src)
 //	OCCULUS EDIT END
+*/
 	else
 		var/organ_type
 
@@ -1254,6 +1264,8 @@ var/list/rank_prefix = list(\
 			var/obj/item/I = organs_by_name[limb_tag]
 			if(I && I.type == OD.default_type)
 				continue
+			else if(I)
+				qdel(I)
 			OD.create_organ(src)
 
 		for(var/organ_tag in species.has_process)
@@ -1261,15 +1273,17 @@ var/list/rank_prefix = list(\
 			var/obj/item/I = random_organ_by_process(organ_tag)
 			if(I && I.type == organ_type)
 				continue
+			else if(I)
+				qdel(I)
 			new organ_type(src)
-
+/* guess this isn't working out after all
 //	OCCULUS EDIT START - Spaghetti to fix spaghetti
 		if(checkprefcruciform)
 			var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
 			if(I)
 				I.apply(src)
 //	OCCULUS EDIT END
-
+*/
 	for(var/obj/item/organ/internal/carrion/C in organs_to_readd)
 		C.replaced(get_organ(C.parent_organ_base))
 

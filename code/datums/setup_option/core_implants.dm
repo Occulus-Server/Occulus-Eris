@@ -13,8 +13,9 @@
 	var/obj/item/weapon/implant/core_implant/cruciform/C = new implant_type
 	C.install(character)
 	C.activate()
-	C.install_default_modules_by_job(character.mind.assigned_job)
-	C.access.Add(character.mind.assigned_job.cruciform_access)
+	if(character.mind.assigned_job)
+		C.install_default_modules_by_job(character.mind.assigned_job)
+		C.access.Add(character.mind.assigned_job.cruciform_access)
 	spawn(1)
 		var/datum/core_module/cruciform/cloning/R = C.get_module(CRUCIFORM_CLONING)
 		R.ckey = character.ckey

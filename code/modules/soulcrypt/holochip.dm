@@ -26,6 +26,7 @@
 
 /obj/item/weapon/holochip/Initialize()
 	update_icon()
+	..()	//This is needed so that INITIALIZE_HINT_NORMAL is returned and it doesn't mess up initialization. Or so I hope.
 
 /obj/item/weapon/holochip/afterattack(atom/A, mob/user)
 	if(used)
