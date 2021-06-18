@@ -9,4 +9,4 @@
 	usr.visible_message("[usr] adjusts their jumpsuit.", \
 	"You adjust your jumpsuit.")
 	rolldown = !rolldown
-	usr.update_icons()
+	usr.update_inv_w_uniform()
