@@ -635,8 +635,8 @@
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "abM" = (
-/obj/machinery/computer/arcade,
-/turf/simulated/floor/tiled/steel,
+/obj/structure/fitness/weightlifter,
+/turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
 "abN" = (
 /obj/structure/table/rack,
@@ -978,10 +978,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
-"acA" = (
-/obj/structure/fitness/weightlifter,
-/turf/simulated/floor/tiled/steel/brown_perforated,
-/area/eris/crew_quarters/sleep)
 "acB" = (
 /obj/machinery/atmospherics/pipe/zpipe/up{
 	dir = 4
@@ -2321,9 +2317,7 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/prison)
 "afX" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
+/obj/structure/fitness/punchingbag,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
 "afY" = (
@@ -3915,8 +3909,9 @@
 /area/eris/maintenance/section1deck5central)
 "ajv" = (
 /obj/structure/table/standard,
-/obj/structure/bedsheetbin,
-/turf/simulated/floor/tiled/steel/brown_perforated,
+/obj/item/weapon/dice,
+/obj/item/weapon/deck/cards,
+/turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "ajw" = (
 /obj/effect/window_lwall_spawn/reinforced,
@@ -4203,21 +4198,19 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "ajY" = (
-/obj/structure/table/standard,
-/obj/item/weapon/dice,
-/turf/simulated/floor/tiled/steel/brown_perforated,
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "aka" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/steel,
-/area/eris/crew_quarters/sleep)
-"akb" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
 "akd" = (
 /obj/machinery/button/remote/blast_door{
@@ -4489,9 +4482,14 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
 "akH" = (
-/obj/structure/bed/chair,
-/turf/simulated/floor/tiled/steel,
-/area/eris/crew_quarters/sleep)
+/obj/machinery/door/airlock/multi_tile/metal{
+	desc = "It's an elevator airlock. This one says it goes to the dorms.";
+	dir = 2;
+	id_tag = "ElevatorDorms";
+	name = "Elevator Airlock"
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/elevator)
 "akI" = (
 /obj/machinery/camera/network/security{
 	dir = 4
@@ -4647,7 +4645,12 @@
 /obj/structure/table/standard,
 /obj/item/device/paicard,
 /obj/item/weapon/packageWrap,
-/turf/simulated/floor/tiled/steel/brown_perforated,
+/obj/machinery/button/remote/elevator_call_button{
+	dir = 8;
+	id = "ElevatorDorms";
+	pixel_x = 26
+	},
+/turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "akZ" = (
 /obj/structure/catwalk,
@@ -4804,9 +4807,11 @@
 	name = "Tractor Beacon"
 	})
 "als" = (
-/obj/machinery/recharge_station,
-/turf/simulated/floor/tiled/steel,
-/area/eris/crew_quarters/sleep)
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/turcarpet,
+/area/eris/elevator)
 "alt" = (
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/steel,
@@ -105272,6 +105277,9 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/section3starboard)
+"kdB" = (
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/elevator)
 "kdR" = (
 /obj/structure/railing{
 	dir = 8
@@ -107886,11 +107894,8 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
 "ssJ" = (
-/obj/item/modular_computer/console/preset/civilian{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel/brown_perforated,
-/area/eris/crew_quarters/sleep)
+/turf/simulated/floor/carpet/turcarpet,
+/area/eris/elevator)
 "suD" = (
 /obj/machinery/holomap{
 	dir = 8;
@@ -108148,12 +108153,8 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/medical/medbreak)
 "tkQ" = (
-/obj/machinery/light,
-/obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/turf/simulated/floor/tiled/steel/brown_perforated,
-/area/eris/crew_quarters/sleep)
+/turf/simulated/wall/r_wall,
+/area/eris/elevator)
 "tlK" = (
 /obj/spawner/junk/low_chance,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -108570,6 +108571,9 @@
 /obj/structure/low_wall,
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/bar)
+"uMo" = (
+/turf/simulated/wall,
+/area/eris/elevator)
 "uNl" = (
 /obj/machinery/light{
 	dir = 4
@@ -108606,9 +108610,12 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4central)
 "uRl" = (
-/obj/structure/fitness/punchingbag,
-/turf/simulated/floor/tiled/steel/brown_perforated,
-/area/eris/crew_quarters/sleep)
+/obj/machinery/button/remote/elevator_panel{
+	id = "ElevatorDorms";
+	pixel_y = 26
+	},
+/turf/simulated/floor/carpet/turcarpet,
+/area/eris/elevator)
 "uRH" = (
 /obj/machinery/door/airlock/maintenance_common{
 	name = "Central Maintenance"
@@ -109064,6 +109071,13 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/maintenance/section2deck1port)
+"wDk" = (
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 26
+	},
+/turf/simulated/floor/carpet/turcarpet,
+/area/eris/elevator)
 "wEt" = (
 /obj/structure/railing{
 	dir = 4
@@ -125984,7 +125998,7 @@ aaa
 agf
 ajY
 acf
-akH
+acf
 akY
 agY
 acf
@@ -126183,12 +126197,12 @@ dzi
 dzi
 dzi
 aaa
-agf
-akb
-acf
+tkQ
+tkQ
+kdB
 akH
 tkQ
-agY
+uMo
 alD
 alV
 agD
@@ -126385,12 +126399,12 @@ aae
 aaa
 aaa
 aaa
-agf
+tkQ
 uRl
-acf
-akH
 ssJ
-agD
+ssJ
+ssJ
+tkQ
 alE
 alE
 agD
@@ -126587,12 +126601,12 @@ aad
 aaa
 aaa
 aaa
-agf
-acA
-acf
-acf
+tkQ
 als
-agD
+ssJ
+wDk
+als
+tkQ
 alI
 alI
 agD
@@ -126789,12 +126803,12 @@ aae
 aad
 aad
 aad
-agD
-agf
-agf
-agf
-agf
-agD
+tkQ
+tkQ
+tkQ
+tkQ
+tkQ
+tkQ
 agD
 agD
 agD
