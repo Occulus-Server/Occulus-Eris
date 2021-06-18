@@ -117,7 +117,7 @@
 
 /obj/machinery/button/remote/elevator_call_button/trigger()
 	for(var/obj/machinery/door/airlock/D in range(src, 5))
-		if (D.id_tag == id & D.locked)
+		if (D.id_tag == id && D.locked)
 			for(var/obj/machinery/button/remote/elevator_panel/B in range(src, 5))
 				if (B.elevator_moving == FALSE)
 					if(world.time - cooldown_timer > cooldown)
@@ -134,7 +134,7 @@
 						to_chat(usr, SPAN_DANGER("The elevator is currently in transit. Please wait for it to arrive."))
 				else
 					to_chat(usr, SPAN_DANGER("The elevator is currently in use. Please wait for it to reach the dormitories before calling it again."))
-		else if (D.id_tag == id & !D.locked)
+		else if (D.id_tag == id && !D.locked)
 			D.open()
 
 
