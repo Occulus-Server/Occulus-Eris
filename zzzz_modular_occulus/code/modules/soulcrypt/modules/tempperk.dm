@@ -20,6 +20,7 @@
 				owner.send_host_message("<b>[name]:</b> No applicable effects to user. Recommend immediate uninstallation.", MESSAGE_WARNING)
 
 /datum/soulcrypt_module/perkadder/perform()
+	on_install() //a bit of a hack, but it makes sure that it doesn't delete perks that you got after installing this.
 	for(var/perk in perks_to_add)
 		owner.wearer.stats.addPerk(perk)
 
