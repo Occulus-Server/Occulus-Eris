@@ -272,7 +272,7 @@ The module base code is held in module.dm
 		send_host_message("Emergency charge complete! Active modules are now available.", MESSAGE_NOTICE)
 		emergency_charge = FALSE
 
-	wearer.adjustNutrition(nutrition_to_remove)
+	wearer.adjustNutrition(-nutrition_to_remove) // REEE THIS NEEDS TO BE NEGATIVE
 
 /obj/item/weapon/implant/core_implant/soulcrypt/proc/handle_integrity()
 	if(integrity < (max_integrity * 0.15) && (next_integrity_warning < world.time))

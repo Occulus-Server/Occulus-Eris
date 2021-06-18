@@ -181,32 +181,41 @@ Let there be light! Makes you glow for 5 minutes at a time.
 	else
 		return TRUE
 
-// haha lets put the weapon define here because why not
+// haha lets put the weapon define here because why not | okay this was a horrible idea this is the most spaghetti and overworked thing I have seen in months
 /obj/item/weapon/tool/knife/dagger/nt/energy
 	name = "unleashed Mekhanite dagger"
-	desc = "It seems to burn intensely with an otherwordly energy of some sort. You're likely to hurt yourself using this. Can be thrown for a crowd controlling detonation."
-	icon = 'icons/obj/nt_melee.dmi'
-	icon_state = "nt_dagger"
-	item_state = "nt_dagger"
+	desc = "It seems to burn intensely with an otherwordly energy of some sort. It's already falling apart, and you're likely to hurt yourself using this. Can be thrown for a crowd controlling detonation."
+	icon = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
+	icon_state = "edagger"
+	item_icons = list(
+		slot_l_hand_str = 'zzzz_modular_occulus/icons/obj/weapons.dmi',
+		slot_r_hand_str = 'zzzz_modular_occulus/icons/obj/weapons.dmi',
+		)
+	item_state_slots = list(
+		slot_l_hand_str = "edagger_left",
+		slot_r_hand_str = "edagger_right"
+		)
 	force = WEAPON_FORCE_BRUTAL //becomes equal to a longsword for just 10 hits
 	throwforce = WEAPON_FORCE_ROBUST
 	throw_speed = 0.5
 	throw_range = 10
 	heat = 3800
 	price_tag = 0 //no one wants to buy a volatile knife that's more likely to hurt you than your target
+	origin_tech = list(TECH_BIO = 3, TECH_COMBAT = 5, TECH_POWER = 5) // Tech because this is kind of a weird anomaly I guess???
 	var/uses_left = 10
 
 /obj/item/weapon/tool/knife/dagger/nt/energy/New()
 	..()
 	set_light(l_range = 2, l_power = 2, l_color = COLOR_YELLOW) //make it glow
 
-/obj/item/weapon/tool/knife/dagger/nt/energy/afterattack(obj/target, mob/living/carbon/human/user, flag)
+/obj/item/weapon/tool/knife/dagger/nt/energy/afterattack(obj/target, mob/living/carbon/human/user, proximity)
 	..()
-	user.get_active_hand_organ().take_damage(0,5) //0 brute 5 burn
-	to_chat(user, SPAN_DANGER("\The [src] scorches your hand as you use it!"))
-	if(uses_left-- <1)
-		visible_message(SPAN_DANGER("\The [src] disintegrates!."))
-		qdel(src)
+	if(proximity && target && istype(target,/mob/living)) //only works on adjacent mobs so you don't get burnt for clicking on a mouse 7 tiles away
+		user.get_active_hand_organ().take_damage(0,5) //0 brute 5 burn
+		to_chat(user, SPAN_DANGER("\The [src] scorches your hand as you land a hit with it!"))
+		if(uses_left-- <1)
+			visible_message(SPAN_DANGER("\The [src] disintegrates!"))
+			qdel(src)
 
 /obj/item/weapon/tool/knife/dagger/nt/energy/throw_impact(atom/hit_atom)
 	..()
@@ -224,7 +233,7 @@ Let there be light! Makes you glow for 5 minutes at a time.
 	new/obj/effect/sparks(loc)
 	new/obj/effect/effect/smoke/illumination(loc, brightness=15)
 	if(src)
-		visible_message(SPAN_DANGER("\The [src] disintegrates in a flash of light!."))
+		visible_message(SPAN_DANGER("\The [src] conflagarates in a bright flash of light!."))
 		qdel(src)
 
 //Holy copypasta, batman! This is bad. Real bad. But whatever.
