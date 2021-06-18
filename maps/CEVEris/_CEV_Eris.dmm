@@ -635,8 +635,8 @@
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "abM" = (
-/obj/structure/fitness/punchingbag,
-/turf/simulated/floor/tiled/steel/brown_perforated,
+/obj/machinery/computer/arcade,
+/turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "abN" = (
 /obj/structure/table/rack,
@@ -655,59 +655,41 @@
 /area/eris/security/range)
 "abP" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/head/armor/riot_hud,
-/obj/item/clothing/head/armor/riot_hud,
-/obj/item/clothing/head/armor/riot_hud,
-/obj/item/clothing/head/armor/riot_hud,
-/obj/item/clothing/head/armor/riot_hud,
-/obj/item/clothing/head/armor/riot_hud,
-/obj/item/clothing/head/armor/riot_hud,
-/obj/item/clothing/head/armor/riot_hud,
+/obj/item/clothing/suit/armor/bulletproof/ironhammer,
+/obj/item/clothing/suit/armor/bulletproof/ironhammer,
+/obj/item/clothing/suit/armor/bulletproof/ironhammer,
+/obj/item/clothing/suit/armor/bulletproof/ironhammer,
+/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
+/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
+/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
+/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "abQ" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/tactical/ironhammer,
-/obj/item/weapon/storage/belt/tactical/ironhammer,
-/obj/item/weapon/storage/belt/tactical/ironhammer,
+/obj/item/clothing/suit/armor/vest/ironhammer,
+/obj/item/clothing/suit/armor/vest/ironhammer,
+/obj/item/clothing/suit/armor/vest/ironhammer,
+/obj/item/clothing/suit/armor/vest/ironhammer,
+/obj/item/clothing/head/armor/helmet/ironhammer,
+/obj/item/clothing/head/armor/helmet/ironhammer,
+/obj/item/clothing/head/armor/helmet/ironhammer,
+/obj/item/clothing/head/armor/helmet/ironhammer,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "abR" = (
 /obj/structure/table/rack,
-/obj/item/weapon/melee/baton,
-/obj/item/weapon/melee/baton,
-/obj/item/weapon/melee/baton,
-/obj/item/weapon/melee/baton,
-/obj/item/weapon/melee/baton,
-/obj/item/weapon/melee/baton,
-/obj/item/weapon/melee/baton,
-/obj/item/weapon/melee/baton,
-/obj/item/weapon/shield/riot,
-/obj/item/weapon/shield/riot,
-/obj/item/weapon/shield/riot,
-/obj/item/weapon/shield/riot,
-/obj/item/weapon/shield/riot,
-/obj/item/weapon/shield/riot,
-/obj/item/weapon/shield/riot,
-/obj/item/weapon/shield/riot,
+/obj/item/weapon/storage/belt/tactical/ironhammer,
+/obj/item/weapon/storage/belt/tactical/ironhammer,
+/obj/item/weapon/storage/belt/tactical/ironhammer,
+/obj/item/weapon/storage/belt/tactical/ironhammer,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "abS" = (
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "abT" = (
-/obj/structure/table/rack,
-/obj/item/clothing/gloves/stungloves,
-/obj/item/clothing/gloves/stungloves,
-/obj/item/clothing/gloves/stungloves,
+/obj/machinery/flasher/portable,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "abU" = (
@@ -783,7 +765,6 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/prison)
 "acc" = (
-/obj/structure/closet/wardrobe/color/orange,
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "North APC";
@@ -793,6 +774,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/prison)
 "acd" = (
@@ -819,61 +801,51 @@
 /turf/simulated/floor/plating,
 /area/eris/command/commander)
 "aci" = (
-/obj/machinery/flasher/portable,
+/obj/structure/table/rack,
+/obj/spawner/rig_module,
+/obj/spawner/rig_module,
+/obj/item/weapon/rig/combat/ironhammer/equipped,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "acj" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/gun/martin,
-/obj/item/weapon/gun/energy/gun/martin,
-/obj/item/weapon/gun/energy/gun/martin,
-/obj/item/weapon/gun/energy/gun/martin,
+/obj/item/weapon/shield/riot,
+/obj/item/weapon/shield/riot,
+/obj/item/weapon/shield/riot,
+/obj/item/weapon/shield/riot,
+/obj/item/weapon/melee/baton,
+/obj/item/weapon/melee/baton,
+/obj/item/weapon/melee/baton,
+/obj/item/weapon/melee/baton,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "ack" = (
+/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
+/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
+/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
+/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
+/obj/item/clothing/head/armor/riot_hud,
+/obj/item/clothing/head/armor/riot_hud,
+/obj/item/clothing/head/armor/riot_hud,
+/obj/item/clothing/head/armor/riot_hud,
 /obj/structure/table/rack,
-/obj/item/weapon/storage/firstaid/regular,
-/obj/item/weapon/storage/firstaid/regular,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "acl" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/bulletproof/ironhammer,
-/obj/item/clothing/suit/armor/bulletproof/ironhammer,
-/obj/item/clothing/suit/armor/bulletproof/ironhammer,
-/obj/item/clothing/suit/armor/bulletproof/ironhammer,
-/obj/item/clothing/suit/armor/bulletproof/ironhammer,
-/obj/item/clothing/suit/armor/bulletproof/ironhammer,
-/obj/item/clothing/suit/armor/bulletproof/ironhammer,
-/obj/item/clothing/suit/armor/bulletproof/ironhammer,
-/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
-/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
-/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
-/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
-/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
-/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
-/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
-/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
+/obj/item/clothing/gloves/stungloves,
+/obj/item/clothing/gloves/stungloves,
+/obj/item/clothing/gloves/stungloves,
+/obj/item/clothing/gloves/stungloves,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "acm" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/vest/ironhammer,
-/obj/item/clothing/suit/armor/vest/ironhammer,
-/obj/item/clothing/suit/armor/vest/ironhammer,
-/obj/item/clothing/suit/armor/vest/ironhammer,
-/obj/item/clothing/suit/armor/vest/ironhammer,
-/obj/item/clothing/suit/armor/vest/ironhammer,
-/obj/item/clothing/suit/armor/vest/ironhammer,
-/obj/item/clothing/suit/armor/vest/ironhammer,
-/obj/item/clothing/head/armor/helmet/ironhammer,
-/obj/item/clothing/head/armor/helmet/ironhammer,
-/obj/item/clothing/head/armor/helmet/ironhammer,
-/obj/item/clothing/head/armor/helmet/ironhammer,
-/obj/item/clothing/head/armor/helmet/ironhammer,
-/obj/item/clothing/head/armor/helmet/ironhammer,
-/obj/item/clothing/head/armor/helmet/ironhammer,
-/obj/item/clothing/head/armor/helmet/ironhammer,
+/obj/structure/table/rack,
+/obj/item/weapon/cell/medium/high,
+/obj/item/weapon/cell/medium/high,
+/obj/item/weapon/gun/energy/taser,
+/obj/item/weapon/gun/energy/taser,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "acn" = (
@@ -881,8 +853,6 @@
 	name = "ammo crate";
 	req_access = list(63)
 	},
-/obj/item/ammo_magazine/ammobox/clrifle/rubber,
-/obj/item/ammo_magazine/ammobox/clrifle/rubber,
 /obj/item/ammo_magazine/ammobox/clrifle/rubber,
 /obj/item/ammo_magazine/ammobox/clrifle/rubber,
 /turf/simulated/floor/tiled/dark/cargo,
@@ -1008,6 +978,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
+"acA" = (
+/obj/structure/fitness/weightlifter,
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "acB" = (
 /obj/machinery/atmospherics/pipe/zpipe/up{
 	dir = 4
@@ -1280,7 +1254,8 @@
 /area/eris/security/armory)
 "adf" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/weapon/storage/box/bodybags,
+/obj/item/weapon/storage/box/bodybags,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "adg" = (
@@ -1303,28 +1278,6 @@
 /area/eris/security/range)
 "adh" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/floor/tiled/dark/cargo,
-/area/eris/security/armory)
-"adi" = (
-/obj/structure/table/rack,
-/obj/item/weapon/cell/medium/high,
-/obj/item/weapon/cell/medium/high,
-/obj/item/weapon/cell/medium/high,
-/obj/item/weapon/cell/medium/high,
-/obj/item/weapon/cell/medium/high,
-/obj/item/weapon/cell/medium/high,
-/turf/simulated/floor/tiled/dark/cargo,
-/area/eris/security/armory)
-"adj" = (
-/obj/structure/table/rack,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "adk" = (
@@ -1462,10 +1415,9 @@
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/prison)
 "adD" = (
-/obj/structure/closet/emcloset,
-/obj/machinery/camera/network/prison,
-/turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/security/prison)
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/security/armory)
 "adH" = (
 /obj/structure/table/steel,
 /obj/structure/bedsheetbin,
@@ -1473,11 +1425,18 @@
 /area/eris/security/prison)
 "adI" = (
 /obj/structure/table/rack,
-/obj/spawner/rig_module,
-/obj/spawner/rig_module,
-/obj/spawner/rig_module,
-/obj/spawner/rig_module,
-/obj/item/weapon/rig/combat/ironhammer/equipped,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/weapon/gun/projectile/paco,
+/obj/item/weapon/gun/projectile/paco,
+/obj/item/weapon/gun/projectile/paco,
+/obj/item/weapon/gun/projectile/paco,
+/obj/item/weapon/gun/projectile/paco,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/weapon/gun/projectile/paco,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "adJ" = (
@@ -1526,29 +1485,43 @@
 /area/eris/security/armory)
 "adP" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/bodybags,
-/obj/item/weapon/storage/box/bodybags,
-/obj/item/weapon/storage/box/bodybags,
-/obj/item/weapon/storage/box/bodybags,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/smg/rubber,
+/obj/item/ammo_magazine/smg/rubber,
+/obj/item/weapon/gun/projectile/automatic/molly,
+/obj/item/weapon/gun/projectile/automatic/molly,
+/obj/item/weapon/gun/projectile/automatic/straylight,
+/obj/item/weapon/gun/projectile/automatic/straylight,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "adQ" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/emergency_oxygen/double,
-/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/clothing/suit/space/void/security/equipped,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "adR" = (
 /obj/structure/table/rack,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/turf/simulated/floor/tiled/dark/cargo,
+/obj/item/device/lighting/toggleable/flashlight/seclite,
+/obj/item/device/lighting/toggleable/flashlight/seclite,
+/obj/item/device/lighting/toggleable/flashlight/seclite,
+/obj/item/device/lighting/toggleable/flashlight/seclite,
+/turf/simulated/floor/tiled/dark,
 /area/eris/security/armory)
 "adS" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/security/equipped,
+/obj/item/weapon/cell/small/high,
+/obj/item/weapon/cell/small/high,
+/obj/item/weapon/cell/small/high,
+/obj/item/weapon/cell/small/high,
+/obj/item/weapon/cell/small/high,
+/obj/item/weapon/cell/small/high,
+/obj/item/weapon/gun/energy/gun/martin,
+/obj/item/weapon/gun/energy/gun/martin,
+/obj/item/weapon/gun/energy/gun/martin,
+/obj/item/weapon/gun/energy/gun/martin,
+/obj/item/weapon/gun/energy/gun/martin,
+/obj/item/weapon/gun/energy/gun/martin,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "adT" = (
@@ -1844,16 +1817,16 @@
 /obj/machinery/camera/network/security{
 	dir = 1
 	},
+/obj/structure/fireaxecabinet{
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/armory)
 "aeF" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/fireaxecabinet{
-	pixel_y = -24
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "aeG" = (
 /obj/machinery/hologram/holopad,
@@ -2348,7 +2321,9 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/prison)
 "afX" = (
-/obj/structure/fitness/weightlifter,
+/obj/structure/bed/chair{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
 "afY" = (
@@ -3940,8 +3915,7 @@
 /area/eris/maintenance/section1deck5central)
 "ajv" = (
 /obj/structure/table/standard,
-/obj/item/weapon/dice,
-/obj/item/weapon/deck/cards,
+/obj/structure/bedsheetbin,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
 "ajw" = (
@@ -4229,14 +4203,9 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "ajY" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel,
+/obj/structure/table/standard,
+/obj/item/weapon/dice,
+/turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
 "aka" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4245,8 +4214,11 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "akb" = (
-/turf/simulated/floor/tiled/steel/cargo,
-/area/eris/elevator)
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "akd" = (
 /obj/machinery/button/remote/blast_door{
 	id = "maint_hatch_ihsforens2";
@@ -4517,9 +4489,7 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
 "akH" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
+/obj/structure/bed/chair,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "akI" = (
@@ -4527,6 +4497,7 @@
 	dir = 4
 	},
 /obj/structure/medical_stand,
+/obj/item/roller/adv,
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/eris/security/exerooms)
 "akJ" = (
@@ -4676,15 +4647,7 @@
 /obj/structure/table/standard,
 /obj/item/device/paicard,
 /obj/item/weapon/packageWrap,
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/obj/machinery/button/remote/elevator_call_button{
-	dir = 8;
-	id = "ElevatorDorms";
-	pixel_x = 26
-	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
 "akZ" = (
 /obj/structure/catwalk,
@@ -4806,12 +4769,8 @@
 /area/eris/security/exerooms)
 "alp" = (
 /obj/structure/table/glass,
-/obj/item/weapon/tool/cautery{
-	pixel_y = 4
-	},
-/obj/item/weapon/tool/hemostat{
-	pixel_y = 4
-	},
+/obj/item/weapon/storage/pill_bottle/tramadol,
+/obj/item/weapon/storage/pill_bottle/tramadol,
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/eris/security/exerooms)
 "alq" = (
@@ -4845,11 +4804,9 @@
 	name = "Tractor Beacon"
 	})
 "als" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/turcarpet,
-/area/eris/elevator)
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "alt" = (
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/steel,
@@ -5135,16 +5092,11 @@
 /area/eris/hallway/side/eschangarb)
 "ame" = (
 /obj/structure/table/glass,
-/obj/item/weapon/tool/retractor{
-	pixel_y = 6
-	},
-/obj/item/weapon/tool/scalpel,
-/obj/item/weapon/tool/surgicaldrill,
-/obj/item/weapon/tool/saw/circular,
 /obj/item/device/radio/intercom{
 	dir = 8;
 	pixel_x = 22
 	},
+/obj/item/weapon/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/eris/security/exerooms)
 "amf" = (
@@ -5251,7 +5203,6 @@
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/item/weapon/storage/pill_bottle/tramadol,
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/eris/security/exerooms)
 "amp" = (
@@ -5355,7 +5306,6 @@
 	pixel_x = 1;
 	pixel_y = 1
 	},
-/obj/item/weapon/tool/bonesetter,
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/eris/security/exerooms)
 "amE" = (
@@ -10951,15 +10901,6 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
-/obj/item/ammo_magazine/m12/empty{
-	pixel_x = -10
-	},
-/obj/item/ammo_magazine/m12/empty{
-	pixel_x = -10
-	},
-/obj/item/ammo_magazine/m12/empty{
-	pixel_x = -10
-	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "azN" = (
@@ -11193,10 +11134,12 @@
 /obj/item/device/magnetic_lock/security,
 /obj/item/device/magnetic_lock/security,
 /obj/item/device/magnetic_lock/security,
-/obj/item/weapon/gun/projectile/shotgun/bojevic/jackhammer,
 /obj/item/ammo_magazine/m12/beanbag,
 /obj/item/ammo_magazine/m12/beanbag,
 /obj/item/ammo_magazine/m12/beanbag,
+/obj/item/ammo_magazine/m12/empty,
+/obj/item/ammo_magazine/m12/empty,
+/obj/item/ammo_magazine/m12/empty,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aAm" = (
@@ -17585,14 +17528,12 @@
 /area/eris/security/main)
 "aQC" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/projectile/automatic/sol,
+/obj/item/weapon/gun/projectile/shotgun/bojevic/jackhammer,
+/obj/item/weapon/gun/projectile/shotgun/bojevic/jackhammer,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
-/obj/item/weapon/gun/projectile/automatic/sol,
-/obj/item/weapon/gun/projectile/automatic/sol,
-/obj/item/weapon/gun/projectile/automatic/sol,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "aQD" = (
@@ -18441,11 +18382,7 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aSy" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/cell/medium/high,
-/obj/item/weapon/cell/medium/high,
-/obj/item/weapon/cell/medium/high,
-/obj/item/weapon/cell/medium/high,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aSz" = (
@@ -18669,14 +18606,12 @@
 /area/eris/security/warden)
 "aSY" = (
 /obj/structure/table/rack,
+/obj/item/weapon/gun/projectile/automatic/straylight,
+/obj/item/weapon/gun/projectile/automatic/straylight,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
-/obj/item/weapon/gun/projectile/automatic/straylight,
-/obj/item/weapon/gun/projectile/automatic/straylight,
-/obj/item/weapon/gun/projectile/automatic/straylight,
-/obj/item/weapon/gun/projectile/automatic/straylight,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "aSZ" = (
@@ -19616,9 +19551,13 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/security/prisoncells)
 "aVa" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/warden)
+/obj/structure/table/rack,
+/obj/item/device/radio/color/red,
+/obj/item/device/radio/color/red,
+/obj/item/device/radio/color/red,
+/obj/item/device/radio/color/red,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/security/armory)
 "aVb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark/gray_perforated,
@@ -20489,6 +20428,9 @@
 "aWV" = (
 /obj/structure/table/reinforced,
 /obj/machinery/smartfridge/disks,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/security,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aWW" = (
@@ -21758,25 +21700,13 @@
 /turf/simulated/floor/plating,
 /area/eris/security/armory)
 "aZG" = (
-/obj/structure/table/reinforced,
-/obj/machinery/recharger,
-/obj/item/stack/material/plastic{
-	amount = 120
-	},
-/obj/item/stack/material/steel{
-	amount = 120
-	},
-/obj/item/stack/material/glass{
-	amount = 120
-	},
-/obj/item/stack/material/plasteel{
-	amount = 10
-	},
-/obj/item/weapon/reagent_containers/glass/beaker,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/security,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
-/turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/warden)
+/obj/structure/table/rack,
+/obj/item/taperoll/police,
+/obj/item/taperoll/police,
+/obj/item/taperoll/police,
+/obj/item/taperoll/police,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/security/armory)
 "aZH" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -64223,6 +64153,7 @@
 /obj/item/device/magnetic_lock/security,
 /obj/item/device/magnetic_lock/security,
 /obj/item/device/magnetic_lock/security,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "cUm" = (
@@ -86871,9 +86802,11 @@
 /area/eris/command/bridge)
 "dUw" = (
 /obj/structure/table/rack,
-/obj/item/clothing/mask/gas/ihs,
-/obj/item/clothing/mask/gas/ihs,
-/turf/simulated/floor/tiled/dark/cargo,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/turf/simulated/floor/tiled/dark,
 /area/eris/security/armory)
 "dUx" = (
 /obj/structure/table/reinforced,
@@ -95261,11 +95194,18 @@
 /area/shuttle/research/station)
 "eoq" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/cdeathalarm_kit,
-/obj/item/weapon/storage/box/cdeathalarm_kit,
-/obj/item/weapon/holochip/command/deathalarm,
-/obj/item/weapon/holochip/command/deathalarm,
-/obj/item/weapon/holochip/command/deathalarm,
+/obj/item/ammo_magazine/ihclrifle/rubber,
+/obj/item/ammo_magazine/ihclrifle/rubber,
+/obj/item/ammo_magazine/ihclrifle/rubber,
+/obj/item/ammo_magazine/ihclrifle/rubber,
+/obj/item/ammo_magazine/ihclrifle/rubber,
+/obj/item/ammo_magazine/ihclrifle/rubber,
+/obj/item/weapon/gun/projectile/automatic/sol,
+/obj/item/weapon/gun/projectile/automatic/sol,
+/obj/item/weapon/gun/projectile/automatic/sol,
+/obj/item/weapon/gun/projectile/automatic/sol,
+/obj/item/weapon/gun/projectile/automatic/sol,
+/obj/item/weapon/gun/projectile/automatic/sol,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "eor" = (
@@ -105672,9 +105612,6 @@
 /obj/item/weapon/handcuffs/zipties,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
-"kZN" = (
-/turf/simulated/wall/r_wall,
-/area/eris/elevator)
 "lcL" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white/brown_platform,
@@ -106838,13 +106775,6 @@
 	},
 /turf/simulated/floor/hull,
 /area/space)
-"oCP" = (
-/obj/machinery/button/remote/elevator_panel{
-	id = "ElevatorDorms";
-	pixel_y = 26
-	},
-/turf/simulated/floor/carpet/turcarpet,
-/area/eris/elevator)
 "oEk" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -107266,13 +107196,13 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet,
 /area/eris/maintenance/section4deck4central)
-"pQI" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
-/turf/simulated/floor/carpet/turcarpet,
-/area/eris/elevator)
+"pSi" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/weapon/storage/toolbox/mechanical,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/security/armory)
 "pSx" = (
 /obj/spawner/scrap/sparse,
 /turf/simulated/floor/tiled/techmaint,
@@ -107886,6 +107816,23 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
+"skt" = (
+/obj/structure/table/reinforced,
+/obj/item/stack/material/plastic{
+	amount = 120
+	},
+/obj/item/stack/material/steel{
+	amount = 120
+	},
+/obj/item/stack/material/glass{
+	amount = 120
+	},
+/obj/item/stack/material/plasteel{
+	amount = 10
+	},
+/obj/item/weapon/reagent_containers/glass/beaker,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/security/warden)
 "sla" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -107938,6 +107885,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
+"ssJ" = (
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "suD" = (
 /obj/machinery/holomap{
 	dir = 8;
@@ -108195,15 +108148,12 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/medical/medbreak)
 "tkQ" = (
-/obj/machinery/door/airlock/multi_tile/metal{
-	_wifi_id = null;
-	desc = "An elevator airlock. This one is labeled as the dormitory elevator.";
-	dir = 2;
-	id_tag = "ElevatorDorms";
-	name = "Dorms Elevator"
-	},
-/turf/simulated/floor/tiled/steel/cargo,
-/area/eris/elevator)
+/obj/machinery/light,
+/obj/structure/table/standard,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "tlK" = (
 /obj/spawner/junk/low_chance,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -108656,8 +108606,9 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4central)
 "uRl" = (
-/turf/simulated/floor/carpet/turcarpet,
-/area/eris/elevator)
+/obj/structure/fitness/punchingbag,
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "uRH" = (
 /obj/machinery/door/airlock/maintenance_common{
 	name = "Central Maintenance"
@@ -109066,9 +109017,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
-"wob" = (
-/turf/simulated/wall,
-/area/eris/elevator)
 "wqX" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -109458,6 +109406,14 @@
 /obj/spawner/traps,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck5central)
+"xLz" = (
+/obj/structure/table/rack,
+/obj/item/weapon/holochip/command/deathalarm,
+/obj/item/weapon/holochip/command/deathalarm,
+/obj/item/weapon/holochip/command/deathalarm,
+/obj/item/weapon/storage/box/cdeathalarm_kit,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/security/armory)
 "xLB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -126027,7 +125983,7 @@ dzi
 aaa
 agf
 ajY
-akH
+acf
 akH
 akY
 agY
@@ -126227,12 +126183,12 @@ dzi
 dzi
 dzi
 aaa
-kZN
-kZN
+agf
 akb
+acf
+akH
 tkQ
-kZN
-wob
+agY
 alD
 alV
 agD
@@ -126429,12 +126385,12 @@ aae
 aaa
 aaa
 aaa
-kZN
-oCP
+agf
 uRl
-uRl
-uRl
-kZN
+acf
+akH
+ssJ
+agD
 alE
 alE
 agD
@@ -126631,12 +126587,12 @@ aad
 aaa
 aaa
 aaa
-kZN
+agf
+acA
+acf
+acf
 als
-uRl
-pQI
-als
-kZN
+agD
 alI
 alI
 agD
@@ -126833,12 +126789,12 @@ aae
 aad
 aad
 aad
-kZN
-kZN
-kZN
-kZN
-kZN
-kZN
+agD
+agf
+agf
+agf
+agf
+agD
 agD
 agD
 agD
@@ -127424,7 +127380,7 @@ aad
 abH
 abH
 abH
-adD
+aef
 aei
 aei
 app
@@ -130457,7 +130413,7 @@ ade
 adm
 aeo
 aec
-abS
+pSi
 aaR
 aaa
 aaa
@@ -130659,7 +130615,7 @@ adf
 adO
 aep
 aeQ
-abS
+xLz
 aaR
 aaa
 aaa
@@ -131056,11 +131012,11 @@ aaR
 aaZ
 abd
 abB
-abS
-abS
+abd
+abd
 acG
-abS
-abS
+abd
+abd
 aer
 aeU
 ivn
@@ -131464,7 +131420,7 @@ abU
 acn
 abd
 adk
-adS
+aVa
 aet
 aaL
 aeW
@@ -131666,7 +131622,7 @@ abV
 aco
 abd
 odL
-adS
+aZG
 aeu
 aaR
 aaR
@@ -132065,11 +132021,11 @@ aaB
 aaR
 abf
 abf
-abf
+abT
 aci
 abS
 acI
-adi
+adQ
 adR
 abd
 abw
@@ -132268,10 +132224,10 @@ aaR
 abg
 abf
 abf
-aci
+adD
 abS
 acI
-adj
+adQ
 dUw
 aeE
 aaR
@@ -171459,7 +171415,7 @@ aSt
 aTa
 aSx
 aWV
-aZG
+aSx
 aUh
 aSG
 aaB
@@ -171660,9 +171616,9 @@ aQC
 aaJ
 aTa
 aSy
-aTa
+skt
 aTx
-aVa
+aTa
 aSS
 aXf
 aaB
