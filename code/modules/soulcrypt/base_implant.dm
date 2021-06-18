@@ -241,14 +241,14 @@ The module base code is held in module.dm
 
 	switch(nutrition_usage_setting) //Get how much nutrition we use per tick.
 		if(NUTRITION_USAGE_LOW)
-			nutrition_to_remove = 1
+			nutrition_to_remove = -1
 		if(NUTRITION_USAGE_MEDIUM)
-			nutrition_to_remove = 2
+			nutrition_to_remove = -2
 		if(NUTRITION_USAGE_HIGH)
-			nutrition_to_remove = 3
+			nutrition_to_remove = -3
 
 	if(emergency_charge && !user_starving)
-		nutrition_to_remove += 1
+		nutrition_to_remove -= 1
 
 	if(!user_starving)
 		energy_to_add = nutrition_to_remove * SOULCRYPT_ENERGY_PER_NUTRITION //Simple maths to figure out what our energy budget is.
