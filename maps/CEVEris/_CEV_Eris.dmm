@@ -4204,6 +4204,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "aka" = (
@@ -4482,14 +4483,11 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
 "akH" = (
-/obj/machinery/door/airlock/multi_tile/metal{
-	desc = "It's an elevator airlock. This one says it goes to the dorms.";
-	dir = 2;
-	id_tag = "ElevatorDorms";
-	name = "Elevator Airlock"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/steel/cargo,
-/area/eris/elevator)
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "akI" = (
 /obj/machinery/camera/network/security{
 	dir = 4
@@ -4649,6 +4647,9 @@
 	dir = 8;
 	id = "ElevatorDorms";
 	pixel_x = 26
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
@@ -105277,9 +105278,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/section3starboard)
-"kdB" = (
-/turf/simulated/floor/tiled/steel/cargo,
-/area/eris/elevator)
 "kdR" = (
 /obj/structure/railing{
 	dir = 8
@@ -106223,6 +106221,15 @@
 	},
 /turf/simulated/floor/tiled/steel/bar_flat,
 /area/eris/crew_quarters/bar)
+"mRK" = (
+/obj/machinery/door/airlock/multi_tile/metal{
+	desc = "It's an elevator airlock. This one says it goes to the dorms.";
+	dir = 2;
+	id_tag = "ElevatorDorms";
+	name = "Elevator Airlock"
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/elevator)
 "mSn" = (
 /obj/machinery/disposal/deliveryChute{
 	dir = 1
@@ -107633,6 +107640,13 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
 /area/eris/maintenance/section4deck4central)
+"rzw" = (
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 26
+	},
+/turf/simulated/floor/carpet/turcarpet,
+/area/eris/elevator)
 "rzU" = (
 /obj/spawner/flora,
 /turf/simulated/floor/tiled/techmaint,
@@ -108567,13 +108581,13 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/atmos)
+"uKf" = (
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/elevator)
 "uMe" = (
 /obj/structure/low_wall,
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/bar)
-"uMo" = (
-/turf/simulated/wall,
-/area/eris/elevator)
 "uNl" = (
 /obj/machinery/light{
 	dir = 4
@@ -108900,6 +108914,9 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section3)
+"vMT" = (
+/turf/simulated/wall,
+/area/eris/elevator)
 "vNe" = (
 /obj/structure/mopbucket,
 /obj/item/weapon/mop,
@@ -109071,13 +109088,6 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/maintenance/section2deck1port)
-"wDk" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 26
-	},
-/turf/simulated/floor/carpet/turcarpet,
-/area/eris/elevator)
 "wEt" = (
 /obj/structure/railing{
 	dir = 4
@@ -125997,8 +126007,8 @@ dzi
 aaa
 agf
 ajY
-acf
-acf
+akH
+akH
 akY
 agY
 acf
@@ -126199,10 +126209,10 @@ dzi
 aaa
 tkQ
 tkQ
-kdB
-akH
+uKf
+mRK
 tkQ
-uMo
+vMT
 alD
 alV
 agD
@@ -126604,7 +126614,7 @@ aaa
 tkQ
 als
 ssJ
-wDk
+rzw
 als
 tkQ
 alI
