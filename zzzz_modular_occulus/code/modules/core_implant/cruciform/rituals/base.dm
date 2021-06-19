@@ -128,8 +128,7 @@ Let there be light! Makes you glow for 5 minutes at a time.
 /datum/ritual/cruciform/occulus/enkindle/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/list/glowy_doods = list()	// Initialize a list of who's getting affected!
 	glowy_doods.Add(user)	// Add the caster to the list
-	user.nutrition -= 50
-	user.adjustToxLoss(5)
+	user.nutrition -= 25
 
 	var/mob/living/carbon/human/H = get_victim(user)	// See if we have a lucky victim (someone who's being grabbed or is directly in front of the caster)
 
