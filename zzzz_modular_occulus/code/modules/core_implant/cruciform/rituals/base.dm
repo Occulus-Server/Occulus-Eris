@@ -19,13 +19,13 @@
 
 // Literally just a port of the agrolyte litany from upstream, but made general. Placed here for sorting reasons.
 
-/datum/ritual/cruciform/absolution
+/datum/ritual/cruciform/base/absolution
 	name = "Eternal Gasp"
 	phrase = "Surge et ambula"
 	desc = "Stabilizes the health of a person in front of you. Equivalent to Inaprovaline autoinjectors. Works instantly so long as the target is directly in front of you."
 	power = 35
 
-/datum/ritual/cruciform/absolution/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
+/datum/ritual/cruciform/base/absolution/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
 	var/mob/living/carbon/human/T = get_front_human_in_range(user, 1)
 	if(!T)
 		fail("No target in front of you.", user, C)
@@ -43,13 +43,13 @@
 
 // This pain relief works on ANYONE!
 
-/datum/ritual/cruciform/relief_other
+/datum/ritual/cruciform/base/relief_other
 	name = "Reprieve"
 	phrase = "Domine, da mihi potestatem iis doloribus"
 	desc = "Relieve a person of their agony, even if they are not a disciple. Requires the user to touch the target. Drastically more effective than Relief, about equivalent to one dose of Tramadol. Consumes nutrition when performed."
 	power = 40
 
-/datum/ritual/cruciform/relief_other/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
+/datum/ritual/cruciform/base/relief_other/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
 
 	var/mob/living/carbon/human/H = get_victim(user)
 
@@ -79,13 +79,13 @@
 Soul hunger except it works on anyone!
 */
 
-/datum/ritual/cruciform/saturation
+/datum/ritual/cruciform/base/saturation
 	name = "Saturation"
 	phrase = "Honoribus eos persequi, quod panem et vinum fides nostra"
 	desc = "Stave off the hunger of an adjacent person, even if they are not a disciple. Requires the user to touch the target. The user will experience some mild toxicity."
 	power = 50
 
-/datum/ritual/cruciform/saturation/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
+/datum/ritual/cruciform/base/saturation/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
 
 	var/mob/living/carbon/human/H = get_victim(user)
 
