@@ -4,9 +4,17 @@
 
 /obj/machinery/button/remote/elevator_panel/proc/despawn_passenger(var/mob/living/user)
 	var/mob/living/passenger = user
+	//var/mob/living/carbon/human/passengerplayer = user
 
 	for(var/obj/item/W in passenger)
-		if (istype(W, /obj/item/weapon/storage || /obj/item/clothing/suit/storage))
+		if (istype(W, /obj/item/modular_computer/pda))
+			var/obj/item/modular_computer/pda/found_pda = W
+			found_pda.eject_id()
+		else if (istype(W, /obj/item/weapon/implant))
+			var/obj/item/weapon/implant/found_implant = W
+			found_implant.uninstall()
+			qdel(found_implant)
+		else if (istype(W, /obj/item/weapon/storage || /obj/item/clothing/suit/storage))
 			for(var/T in preserve_items)
 				for (var/obj/item/w_storage in W.contents)
 					if (istype(w_storage, T))
@@ -17,7 +25,6 @@
 				if(istype(W, T))
 					passenger.drop_from_inventory(W)
 					continue
-
 
 	log_and_message_admins("[key_name(passenger)]" + "[passenger.mind ? " ([passenger.mind.assigned_role])" : ""]" + " ended their shift via the elevator to the dormitories.")
 	announce.autosay("[passenger.real_name]" + "[passenger.mind ? ", [passenger.mind.assigned_role]" : ""]" + ", [on_store_message]", "[on_store_name]")
