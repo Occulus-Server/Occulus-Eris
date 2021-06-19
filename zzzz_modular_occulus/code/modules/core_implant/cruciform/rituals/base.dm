@@ -12,20 +12,20 @@
 //NEW STUFF: New shiny litanies! (haha who am i kidding its just going to be copypasta)
 
 /datum/ritual/cruciform/occulus
-	name = "occulus exclusive"
+	name = "utility litanies"
 	phrase = null
 	desc = ""
-	category = "Occulus"
+	category = "Utility"
 
 // Literally just a port of the agrolyte litany from upstream, but made general. Placed here for sorting reasons.
 
-/datum/ritual/cruciform/occulus/absolution
+/datum/ritual/cruciform/absolution
 	name = "Eternal Gasp"
 	phrase = "Surge et ambula"
 	desc = "Stabilizes the health of a person in front of you. Equivalent to Inaprovaline autoinjectors. Works instantly so long as the target is directly in front of you."
 	power = 35
 
-/datum/ritual/cruciform/occulus/absolution/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
+/datum/ritual/cruciform/absolution/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
 	var/mob/living/carbon/human/T = get_front_human_in_range(user, 1)
 	if(!T)
 		fail("No target in front of you.", user, C)
@@ -43,13 +43,13 @@
 
 // This pain relief works on ANYONE!
 
-/datum/ritual/cruciform/occulus/relief_other
+/datum/ritual/cruciform/relief_other
 	name = "Reprieve"
 	phrase = "Domine, da mihi potestatem iis doloribus"
-	desc = "Relief a person of their agony, even if they are not a disciple. Requires the user to touch the target. Drastically more effective than Relief, about equivalent to one dose of Tramadol. Consumes nutrition when performed."
+	desc = "Relieve a person of their agony, even if they are not a disciple. Requires the user to touch the target. Drastically more effective than Relief, about equivalent to one dose of Tramadol. Consumes nutrition when performed."
 	power = 40
 
-/datum/ritual/cruciform/occulus/relief_other/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
+/datum/ritual/cruciform/relief_other/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
 
 	var/mob/living/carbon/human/H = get_victim(user)
 
@@ -79,13 +79,13 @@
 Soul hunger except it works on anyone!
 */
 
-/datum/ritual/cruciform/occulus/saturation
+/datum/ritual/cruciform/saturation
 	name = "Saturation"
 	phrase = "Honoribus eos persequi, quod panem et vinum fides nostra"
 	desc = "Stave off the hunger of an adjacent person, even if they are not a disciple. Requires the user to touch the target. The user will experience some mild toxicity."
 	power = 50
 
-/datum/ritual/cruciform/occulus/saturation/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
+/datum/ritual/cruciform/saturation/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
 
 	var/mob/living/carbon/human/H = get_victim(user)
 
@@ -153,13 +153,13 @@ Let there be light! Makes you glow for 5 minutes at a time.
 		to_chat(participant, SPAN_NOTICE("The bright golden light flickers and fades from your chest."))
 
 
-/datum/ritual/cruciform/occulus/freeedagger
-	name = "Burninate"
+/datum/ritual/cruciform/crusader/freeedagger
+	name = "Immolate"
 	phrase = "Deo indignus acrior exurat"
 	desc = "Unleashes the latent power hidden within a Mekhanite dagger held within your hands, augmenting its offensive capabilities and also turning it into a dangerous projectile when thrown. An unleashed dagger will burn the user's hand when used to attack, and will also disintegrate in 10 hits, or upon being thrown."
 	power = 50
 
-/datum/ritual/cruciform/occulus/freeedagger/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
+/datum/ritual/cruciform/crusader/freeedagger/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
 	var/success = FALSE
 	if(user.l_hand)
 		var/obj/item/weapon/tool/knife/dagger/nt/pls = user.l_hand
@@ -260,8 +260,7 @@ Let there be light! Makes you glow for 5 minutes at a time.
 	if(eye_safety < FLASH_PROTECTION_MODERATE)
 		if (M.HUDtech.Find("flash"))
 			flick("e_flash", M.HUDtech["flash"])
-		M.Stun(2)
-		M.Weaken(10)
+		M.Weaken(4)
 
 
 
@@ -269,10 +268,9 @@ Let there be light! Makes you glow for 5 minutes at a time.
 	if((get_dist(M, T) <= 2 || loc == M.loc || loc == M))
 		if(ear_safety > 0)
 			M.Stun(2)
-			M.Weaken(1)
 		else
 			M.Stun(10)
-			M.Weaken(3)
+			M.Weaken(1)
 			if ((prob(14) || (M == loc && prob(70))))
 				M.ear_damage += rand(1, 10)
 			else
@@ -281,12 +279,12 @@ Let there be light! Makes you glow for 5 minutes at a time.
 
 	else if(get_dist(M, T) <= 5)
 		if(!ear_safety)
-			M.Stun(8)
+			M.Stun(4)
 			M.ear_damage += rand(0, 3)
 			M.ear_deaf = max(M.ear_deaf,10)
 
 	else if(!ear_safety)
-		M.Stun(4)
+		M.Stun(2)
 		M.ear_damage += rand(0, 1)
 		M.ear_deaf = max(M.ear_deaf,5)
 
