@@ -33,6 +33,16 @@
 		playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
 		update_icon()
 
+/obj/item/weapon/access_update_tool/AltClick(var/mob/user)
+	if(!CanPhysicallyInteract(user))
+		return
+	if(card)
+		to_chat(user, SPAN_NOTICE("You remove the ID card from [src]'s ID card port."))
+		user.put_in_hands(card)
+		card = null
+		playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
+		update_icon()
+
 /obj/item/weapon/access_update_tool/afterattack(atom/A, mob/living/user)
 	if(istype(A, /mob/living/carbon/human))
 		var/mob/living/carbon/human/person = A

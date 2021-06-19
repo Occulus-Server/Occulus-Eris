@@ -41,14 +41,14 @@
 	return TRUE
 
 
-/datum/ritual/cruciform/base/entreaty
+/datum/ritual/cruciform/occulus/entreaty//Occulus Edit, moved to utility
 	name = "Entreaty"
 	phrase = "Deus meus ut quid dereliquisti me"
 	desc = "Call for help, that other cruciform bearers can hear."
 	power = 50
 	ignore_stuttering = TRUE
 
-/datum/ritual/cruciform/base/entreaty/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/occulus/entreaty/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)//Occulus Edit, moved to utility
 	for(var/mob/living/carbon/human/target in disciples)
 		if(target == H)
 			continue
@@ -61,13 +61,13 @@
 	set_personal_cooldown(H)
 	return TRUE
 
-/datum/ritual/cruciform/base/reveal
+/datum/ritual/cruciform/occulus/reveal //Occulus Edit, moved to utility
 	name = "Reveal Adversaries"
 	phrase = "Et fumus tormentorum eorum ascendet in saecula saeculorum: nec habent requiem die ac nocte, qui adoraverunt bestiam, et imaginem ejus, et si quis acceperit caracterem nominis ejus."
 	desc = "Gain knowledge of your surroundings, to reveal evil in people and places. Can tell you about hostile creatures around you, rarely can help you spot traps, and sometimes let you sense a carrion."
 	power = 35
 
-/datum/ritual/cruciform/base/reveal/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/occulus/reveal/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)//Occulus Edit, moved to utility
 	var/was_triggired = FALSE
 	log_and_message_admins("performed reveal litany")
 	if(prob(20)) //Aditional fail chance that hidded from user
@@ -101,13 +101,13 @@
 	set_personal_cooldown(H)
 	return TRUE
 
-/datum/ritual/cruciform/base/sense_cruciform
+/datum/ritual/cruciform/occulus/sense_cruciform//Occulus Edit, moved to utility
 	name = "Cruciform sense"
 	phrase = "Et si medio umbrae"
 	desc = "Very short litany to identify NeoTheology followers. Targets individuals directly in front of caster or being grabbed by caster."
 	power = 20
 
-/datum/ritual/cruciform/base/sense_cruciform/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/occulus/sense_cruciform/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)//Occulus Edit, moved to utility
 	var/list/mob/living/carbon/human/humans = list()
 	for(var/mob/living/carbon/human/T in view(7, get_turf(H)))
 		humans.Add(T)

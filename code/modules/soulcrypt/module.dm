@@ -80,6 +80,9 @@
 		owner.energy -= energy_cost	// Deduct the energy here!
 		if(causes_wear)	// Lazy way to make non-constant modules also drain integrity
 			owner.integrity -= wear_cause_amount
+	if(has_energy_upkeep)
+		owner.active_module_drain += energy_cost
+		owner.integrity_loss += wear_cause_amount
 	if(has_nanomodule)
 		if(!NMmodule)
 			NMmodule = new nanomodule_type
@@ -98,6 +101,9 @@
 /datum/soulcrypt_module/proc/deactivate(var/force_close = FALSE)
 	active = FALSE
 	var/_deactivation_msg = "<b>[name]:</b> [deactivation_message]"
+	if(has_energy_upkeep)
+		owner.active_module_drain -= energy_cost
+		owner.integrity_loss -= wear_cause_amount
 	if(NMmodule)
 		QDEL_NULL(NMmodule)
 

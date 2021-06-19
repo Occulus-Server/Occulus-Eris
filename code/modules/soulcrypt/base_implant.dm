@@ -20,9 +20,11 @@ The module base code is held in module.dm
 
 	var/energy = 100 //How much energy do we have stored up from user nutrition?
 	var/max_energy = 100 //The maximum amount of energy we can have stored.
+	var/active_module_drain = 0 //How much energy are we using per tick?
 	var/emergency_charge = FALSE	// Did we deplete our energy and engage our cool can't-use-abilities state?
 	var/integrity = 100 //How much integrity we have - this is used pretty rarely, but certain modules might use it.
 	var/max_integrity = 100 //Maximum integrity.
+	var/integrity_loss = 0 ////How much integrity are we losing per tick?
 	var/next_energy_warning //In deciseconds.
 	var/next_integrity_warning //In deciseconds.
 	var/host_death_time //What time did our host die - if null, our host has not yet died, or the revive notice has been sent.
@@ -143,6 +145,7 @@ The module base code is held in module.dm
 	was_emp = TRUE
 	integrity -= rand(5,20)
 	deactivate_modules()
+	send_host_message("WARNING: ELECTROMAGNETIC PULSE DETECTED. ALL MODULES DISABLED. NEURAL ENGRAM BACKUP DISTRUPTED. SERVICE REQUIRED.", MESSAGE_DANGER)
 
 /obj/item/weapon/implant/core_implant/soulcrypt/Process()
 	if(!wearer)
@@ -215,20 +218,15 @@ The module base code is held in module.dm
 
 /obj/item/weapon/implant/core_implant/soulcrypt/proc/handle_energy() //Take some nutrition, provide energy. Remove the energy used by any active modules from this amount.
 	var/energy_to_add = 0
-	var/active_module_drain = 0
 	var/nutrition_to_remove = 0
 	var/user_starving = FALSE
 
 	//if(energy >= max_energy)	// Whyyyyyyy. I mean I get the idea but this just makes it not process energy at all once it hits 100
 	//	return
 
-	if(wearer.stat == DEAD)
-		deactivate_modules()
+	if(wearer.stat == DEAD) //we ded bruh
+		deactivate_modules() //cut that shit out
 		return
-
-	for(var/datum/soulcrypt_module/M in modules) //Loop through modules that are active and have an upkeep cost, figure out how much the active drain will take from the energy we have.
-		if(M.active && M.has_energy_upkeep)
-			active_module_drain += M.energy_cost
 
 	if(((energy == max_energy) && (!active_module_drain) && (!emergency_charge)) || integrity <= 0)
 		return
@@ -274,15 +272,9 @@ The module base code is held in module.dm
 		send_host_message("Emergency charge complete! Active modules are now available.", MESSAGE_NOTICE)
 		emergency_charge = FALSE
 
-	wearer.adjustNutrition(nutrition_to_remove)
+	wearer.adjustNutrition(-nutrition_to_remove) // REEE THIS NEEDS TO BE NEGATIVE
 
 /obj/item/weapon/implant/core_implant/soulcrypt/proc/handle_integrity()
-	var/integrity_loss = 0
-
-	for(var/datum/soulcrypt_module/M in modules)
-		if(M.active && M.causes_wear)
-			integrity_loss += M.wear_cause_amount
-
 	if(integrity < (max_integrity * 0.15) && (next_integrity_warning < world.time))
 		send_host_message(integrity_warning_message, MESSAGE_WARNING)
 		if(integrity <= 0)
