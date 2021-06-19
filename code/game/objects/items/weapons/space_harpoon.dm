@@ -39,9 +39,6 @@
 		update_icon()
 
 /obj/item/weapon/bluespace_harpoon/afterattack(atom/A, mob/user)
-	if(user.mind && player_is_antag(user.mind)) //OCCULUS EDIT - Too much salt, this is better than nerfing it to the ground
-		to_chat(user, SPAN_NOTICE("Sorry, antagonists aren't allowed to use this."))
-		return
 	if(get_dist(A, user) > range)
 		return ..()
 //	if(!(A in view(user))) // OCCULUS EDIT - This prevents z-level traversal somehow, so eh.
