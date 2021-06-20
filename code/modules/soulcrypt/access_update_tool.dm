@@ -50,6 +50,9 @@
 		if(!crypt)
 			to_chat(user, SPAN_WARNING("[person] doesn't have a Soulcrypt to modify."))
 			return
+		if(!card)	//haha it was runtiming if you didn't put a card in
+			to_chat(user, SPAN_WARNING("There's no ID in the card port to copy access from!"))
+			return
 		//Else, we overwrite the soulcrypt's current access with the access on the ID card.
 		crypt.access.Cut()
 		crypt.access = card.access
