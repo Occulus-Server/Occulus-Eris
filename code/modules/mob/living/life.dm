@@ -5,24 +5,21 @@
 	. = FALSE
 	..()
 	if(config.enable_mob_sleep)
-		if(life_cycles_before_scan > 0)
-			life_cycles_before_scan--
-		else
-			if(check_surrounding_area(7))
-				activate_ai()
-				life_cycles_before_scan = 29 //So it doesn't fall asleep just to wake up the next tick
+		if(stat != DEAD)
+			if(life_cycles_before_scan > 0)
+				life_cycles_before_scan--
 			else
-				life_cycles_before_scan = 240
+				if(check_surrounding_area(7))
+					activate_ai()
+					life_cycles_before_scan = 29 //So it doesn't fall asleep just to wake up the next tick
+				else
+					life_cycles_before_scan = 240
 
-		else //If we are not sleeping...
-			if(life_cycles_before_sleep > 0) //Is it time to sleep?
-				life_cycles_before_sleep-- //If no, count down
-			else //If it is time...
-				AI_inactive = TRUE //resetting the sleep timer is handled in activate_ai(), so we don't need to do it here
-		//OCCULUS EDIT END
+			if(life_cycles_before_sleep)
+				life_cycles_before_sleep--
 
-		if(life_cycles_before_sleep < 1 && !AI_inactive)
-			AI_inactive = TRUE
+			if(life_cycles_before_sleep < 1 && !AI_inactive)
+				AI_inactive = TRUE
 
 
 	if((!stasis && !AI_inactive) || ishuman(src)) //god fucking forbid we do this to humanmobs somehow
@@ -30,7 +27,7 @@
 			. = TRUE
 
 	else
-		if((life_cycles_before_scan % 20) == 0)
+		if((life_cycles_before_scan % 60) == 0)
 			Life_Check_Light()
 
 
