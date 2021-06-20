@@ -248,3 +248,4 @@
 	if(altar)
 		new /obj/item/weapon/paper/neopaper(altar.loc, disciples.Join("\n"), "Church Record")
 	return TRUE
+
