@@ -42,9 +42,9 @@
 		if (M.z == src.z && get_dist(src, M) <= dist)
 			return 1
 
-	for(var/mob/living/M in L)
-		if (M.faction != faction)
-			return 1
+	for(var/mob/living/M in SSmobs.mob_living_by_zlevel[(get_turf(src)).z])
+		if((M.stat != DEAD) && (M.faction != faction) && (get_dist(src, M) <= dist) && isInSight(src, M))
+			return TRUE
 
 	return 0
 

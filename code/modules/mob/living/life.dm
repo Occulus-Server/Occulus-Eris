@@ -10,7 +10,7 @@
 		else
 			if(check_surrounding_area(7))
 				activate_ai()
-				life_cycles_before_scan = 20
+				life_cycles_before_scan = 30
 
 		else //If we are not sleeping...
 			if(life_cycles_before_sleep > 0) //Is it time to sleep?
