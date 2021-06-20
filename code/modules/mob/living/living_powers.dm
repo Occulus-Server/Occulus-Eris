@@ -21,6 +21,10 @@
 	AI_inactive = FALSE
 	life_cycles_before_sleep = initial(life_cycles_before_sleep)
 
+/mob/living/proc/try_activate_ai()
+	if(AI_inactive)
+		activate_ai()
+
 
 /mob/living/proc/check_surrounding_area(var/dist = 7)
 	var/list/L = hearers(src, dist)
@@ -30,6 +34,9 @@
 
 	if(faction == "station")
 		return 1
+
+	if(faction == "CEV Eris")
+		return TRUE
 
 	for (var/mob/living/exosuit/M in GLOB.mechas_list)
 		if (M.z == src.z && get_dist(src, M) <= dist)

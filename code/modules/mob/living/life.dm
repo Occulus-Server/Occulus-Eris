@@ -5,16 +5,12 @@
 	. = FALSE
 	..()
 	if(config.enable_mob_sleep)
-		//OCCULUS EDIT START - Experimental optimization on a piece of experimental optimization
-		if(AI_inactive) //Are we sleeping?
-			if(life_cycles_before_scan > 0) //Is it time to scan?
-				life_cycles_before_scan-- //If no, count down
-			else //If yes...
-				if(check_surrounding_area(7)) //See if there are valid threats around us
-					activate_ai() //If there are, wake up
-					life_cycles_before_scan = 5 //Reset this
-				else //If not...
-					life_cycles_before_scan = 5 //Restart the countdown
+		if(life_cycles_before_scan > 0)
+			life_cycles_before_scan--
+		else
+			if(check_surrounding_area(7))
+				activate_ai()
+				life_cycles_before_scan = 20
 
 		else //If we are not sleeping...
 			if(life_cycles_before_sleep > 0) //Is it time to sleep?
@@ -23,57 +19,88 @@
 				AI_inactive = TRUE //resetting the sleep timer is handled in activate_ai(), so we don't need to do it here
 		//OCCULUS EDIT END
 
-	if(!stasis)
-		if (HasMovementHandler(/datum/movement_handler/mob/transformation/))
-			return
-		if(!loc)
-			return
-		var/datum/gas_mixture/environment = loc.return_air()
-		handle_chemicals_in_body() //Occulus edit - Allowing some chems to process on dead things.
-		if(stat != DEAD)
-			//Breathing, if applicable
-			handle_breathing()
+		if(life_cycles_before_sleep < 1 && !AI_inactive)
+			AI_inactive = TRUE
 
-			//Mutations and radiation
-			handle_mutations_and_radiation()
 
-			//Chemicals in the body
-			//handle_chemicals_in_body()Occulus edit - Allowing some chems to process on dead things. on_mob_life already checks if the target is dead and there is a flag for chems that work on dead things!
-
-			//Blood
-			handle_blood()
-
-			//Random events (vomiting etc)
-			handle_random_events()
-
+	if(!stasis && !AI_inactive)
+		if(Life_Check())
 			. = TRUE
 
-		//Handle temperature/pressure differences between body and environment
-		if(environment)
-			handle_environment(environment)
+	else
+		if((life_cycles_before_scan % 20) == 0)
+			Life_Check_Light()
 
-		//Chemicals in the body
-		handle_chemicals_in_body()
 
-		//Check if we're on fire
-		handle_fire()
+	var/turf/T = get_turf(src)
+	if(T)
+		if(registered_z != T.z)
+			update_z(T.z)
 
-		update_pulling()
 
-		for(var/obj/item/weapon/grab/G in src)
-			G.Process()
+/mob/living/proc/Life_Check()
+	if (HasMovementHandler(/datum/movement_handler/mob/transformation/))
+		return
+	if(!loc)
+		return
+	var/datum/gas_mixture/environment = loc.return_air()
 
-		blinded = 0 // Placing this here just show how out of place it is.
-		// human/handle_regular_status_updates() needs a cleanup, as blindness should be handled in handle_disabilities()
-		if(handle_regular_status_updates()) // Status & health update, are we dead or alive etc.
-			handle_disabilities() // eye, ear, brain damages
-			handle_status_effects() //all special effects, stunned, weakened, jitteryness, hallucination, sleeping, etc
+	if(stat != DEAD)
+		//Breathing, if applicable
+		handle_breathing()
 
-		handle_actions()
+		//Mutations and radiation
+		handle_mutations_and_radiation()
 
-		update_lying_buckled_and_verb_status()
+		//Blood
+		handle_blood()
 
-		handle_regular_hud_updates()
+		//Random events (vomiting etc)
+		handle_random_events()
+
+		. = TRUE
+
+	//Handle temperature/pressure differences between body and environment
+	if(environment)
+		handle_environment(environment)
+
+	//Chemicals in the body
+	handle_chemicals_in_body()
+
+	//Check if we're on fire
+	handle_fire()
+
+	update_pulling()
+
+	for(var/obj/item/weapon/grab/G in src)
+		G.Process()
+
+	blinded = FALSE // Placing this here just show how out of place it is.
+	// human/handle_regular_status_updates() needs a cleanup, as blindness should be handled in handle_disabilities()
+	if(handle_regular_status_updates()) // Status & health update, are we dead or alive etc.
+		handle_disabilities() // eye, ear, brain damages
+		handle_status_effects() //all special effects, stunned, weakened, jitteryness, hallucination, sleeping, etc
+
+	handle_actions()
+
+	update_lying_buckled_and_verb_status()
+
+	handle_regular_hud_updates()
+
+
+
+/mob/living/proc/Life_Check_Light()
+	if (HasMovementHandler(/datum/movement_handler/mob/transformation/))
+		return
+	if(!loc)
+		return
+	var/datum/gas_mixture/environment = loc.return_air()
+
+	//Handle temperature/pressure differences between body and environment
+	if(environment)
+		handle_environment(environment)
+
+	update_pulling()
 
 /mob/living/proc/handle_breathing()
 	return
