@@ -11140,12 +11140,6 @@
 /obj/item/device/magnetic_lock/security,
 /obj/item/device/magnetic_lock/security,
 /obj/item/device/magnetic_lock/security,
-/obj/item/ammo_magazine/m12/beanbag,
-/obj/item/ammo_magazine/m12/beanbag,
-/obj/item/ammo_magazine/m12/beanbag,
-/obj/item/ammo_magazine/m12/empty,
-/obj/item/ammo_magazine/m12/empty,
-/obj/item/ammo_magazine/m12/empty,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aAm" = (
@@ -19286,11 +19280,19 @@
 	})
 "aUz" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/trackimp,
-/obj/item/weapon/storage/box/chemimp{
-	pixel_x = 4;
-	pixel_y = 3
+/obj/item/stack/material/plasteel{
+	amount = 10
 	},
+/obj/item/stack/material/glass{
+	amount = 120
+	},
+/obj/item/stack/material/steel{
+	amount = 120
+	},
+/obj/item/stack/material/plastic{
+	amount = 120
+	},
+/obj/item/weapon/reagent_containers/glass/beaker,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aUA" = (
@@ -21670,6 +21672,18 @@
 /obj/item/ammo_magazine/magnum,
 /obj/item/ammo_magazine/magnum,
 /obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/m12/empty,
+/obj/item/ammo_magazine/m12/empty,
+/obj/item/ammo_magazine/m12/empty,
+/obj/item/ammo_magazine/m12/empty,
+/obj/item/weapon/cell/medium/moebius/high,
+/obj/item/weapon/cell/medium/moebius/high,
+/obj/item/weapon/cell/medium/moebius/high,
+/obj/item/weapon/cell/medium/moebius/high,
+/obj/item/weapon/cell/medium/moebius/high,
+/obj/item/weapon/cell/medium/moebius/high,
+/obj/item/weapon/cell/medium/moebius/high,
+/obj/item/weapon/cell/medium/moebius/high,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "aZC" = (
@@ -107840,19 +107854,11 @@
 	})
 "skt" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/material/plastic{
-	amount = 120
+/obj/item/weapon/storage/box/trackimp,
+/obj/item/weapon/storage/box/chemimp{
+	pixel_x = 4;
+	pixel_y = 3
 	},
-/obj/item/stack/material/steel{
-	amount = 120
-	},
-/obj/item/stack/material/glass{
-	amount = 120
-	},
-/obj/item/stack/material/plasteel{
-	amount = 10
-	},
-/obj/item/weapon/reagent_containers/glass/beaker,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "sla" = (
