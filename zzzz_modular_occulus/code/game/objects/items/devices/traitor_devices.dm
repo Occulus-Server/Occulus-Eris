@@ -18,7 +18,7 @@
 	icon_state = "jammer"
 	var/active = FALSE
 	var/range = 12
-
+	origin_tech = list(TECH_MAGNET = 5, TECH_COVERT = 2)
 /obj/item/jammer/Destroy()
 	GLOB.active_jammers -= src
 	return ..()
