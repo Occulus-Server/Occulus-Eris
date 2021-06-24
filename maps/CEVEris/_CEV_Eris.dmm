@@ -101174,6 +101174,10 @@
 	pixel_y = 8
 	},
 /obj/machinery/smartfridge/disks,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/carpets{
+	pixel_x = 6;
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/bioreactor)
 "eBm" = (

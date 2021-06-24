@@ -92,5 +92,21 @@ CHURCH DISKS
 	build_path = /obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors
 	materials = list(MATERIAL_BIOMATTER = 10, MATERIAL_GLASS = 1)
 
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/carpets
+	disk_name = "Mekhanite Bio-Fabric Flooring"
+	icon_state = "neotheology"
+	license = -1
+	spawn_blacklisted = TRUE
+	designs = list(
+		/datum/design/bioprinter/carpet,
+		/datum/design/bioprinter/carpet/bcarpet,
+		/datum/design/bioprinter/carpet/blucarpet,
+		/datum/design/bioprinter/carpet/gaycarpet,
+		/datum/design/bioprinter/carpet/oracarpet,
+		/datum/design/bioprinter/carpet/purcarpet,
+		/datum/design/bioprinter/carpet/sblucarpet,
+		/datum/design/bioprinter/carpet/turcarpet
+	)
+
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/retro
 	disk_name = "FS LG \"Cog\""
