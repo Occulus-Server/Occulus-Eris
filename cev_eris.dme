@@ -2817,6 +2817,7 @@
 #include "zzzz_modular_occulus\code\datum\craft\recipes\furniture.dm"
 #include "zzzz_modular_occulus\code\datum\craft\recipes\weapon.dm"
 #include "zzzz_modular_occulus\code\datum\language\merc.dm"
+#include "zzzz_modular_occulus\code\datums\autolathe\biomatter.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\circuits.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\fabkits.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\guns.dm"
