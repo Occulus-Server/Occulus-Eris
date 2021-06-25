@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/storage/captains_coat
-	name = "captain's greatcoat"
-	desc = "It's a swanky blue greatcoat with gold epaulettes and trimmings denoting the rank of \"Captain\"."
+	name = "captain's parade uniform"
+	desc = "A black and gold trimmed coat with attached half-cape. The inside is made of high-quality red velvet. Ostentatious enough to tell everyone around you that you are the \"Captain\"."
 	icon = 'zzzz_modular_occulus/icons/inventory/suit/captain.dmi'
 	icon_state = "captains_coat"
 	item_state = "captains_coat"
@@ -18,6 +18,28 @@
 	)
 	siemens_coefficient = 0.8
 	spawn_blacklisted = TRUE	//no random captain shit in maint
+
+/obj/item/clothing/suit/storage/toggle/captains_jacket
+	name = "captain's jacket"
+	desc = "A black jacket with gold trim verifying that you are the Captain. It can be buttoned up or unbuttoned."
+	icon = 'zzzz_modular_occulus/icons/obj/clothing/suit.dmi'
+	icon_state = "capjacket"
+	item_state = "capjacket"
+	icon_open = "capjacket_open"
+	icon_closed = "capjacket"
+	icon_override = 'zzzz_modular_occulus/icons/mob/suit.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/mob/suit_fem.dmi'
+	body_parts_covered = UPPER_TORSO|ARMS
+	blood_overlay_type = "coat"
+	armor = list(
+		melee = 30,
+		bullet = 35,
+		energy = 30,
+		bomb = 30,
+		bio = 15,
+		rad = 0
+	) // These are the same as the captain's coat so you can play fashion souls instead of minmaxing.
+	spawn_blacklisted = TRUE //no random captain shit in maint
 
 /obj/item/clothing/suit/space/void/captain
 	name = "captain's voidsuit"
@@ -106,3 +128,56 @@
 	name = "solgov Officer dress uniform"
 	icon_state = "whitedress_comm"
 	item_state = "whitedress_comm"
+
+/obj/item/clothing/suit/space/captain
+	name = "captain's armor"
+	desc = "A black jacket, white shirt, and grey pants with black boots. Affixed to the chest is a small pin. The whole outfit hums quietly."
+	icon_state = "caparmor"
+	icon = 'zzzz_modular_occulus/icons/inventory/suit/captain.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/mob/suit.dmi'
+	item_state = "caparmor"
+	armor = list(melee = 50,
+		bullet = 40,
+		energy = 40,
+		bomb = 50,
+		bio = 100,
+		rad = 50)
+/*var/current_charges = 3 //held number of charges
+	var/max_charges = 3 //max number of charges
+	var/recharge_delay = 200 // time after damage before recharge, 20 seconds at 200
+	var/recharge_cooldown = 0 //time since last been shot
+	var/recharge_rate = 1 //How fast shield charges once it's started
+	var/shield_state = "shield"
+	var/shield_on = "shield"
+	sprite_sheets = null //what does this mean radiant?
+
+/obj/item/clothing/suit/space/captain/shielded/hit_reaction(mob/living/carbon/human/owner, attack_text)
+	if(current_charges > 0)
+		do_sparks(2, 1, src)
+		owner.visible_message("<span class='danger'>[owner]'s shields deflect [attack_text] in a shower of sparks!</span>")
+		current_charges--
+		recharge_cooldown = world.time + recharge_delay
+		processing_objects |= src
+		if (current_charges <= 0)
+			owner.visible_message("[owner]'s shield overloads, flickering off!")
+			shield_state = "broken"
+			owner.update_inv_wear_suit()
+		return 1
+	return 0
+
+/obj/item/clothing/suit/space/captain/Destroy()
+	processing_objects.Remove(src)
+	return ..()
+
+/obj/item/clothing/suit/space/captain
+	if(world.time > recharge_cooldown && current_charges < max_charges)
+		current_charges = Clamp((current_charges + recharge_rate), 0, max_charges)
+		playsound(loc, 'sound/magic/charge.ogg', 50, 1)
+		if(current_charges == max_charges)
+			playsound(loc, 'sound/machines/ding.ogg', 50, 1) //change this to something less microwavey?
+			processing_objects.Remove(src)
+		shield_state = "[shield on]"
+		if(istype(loc, /mob/living/carbon/human))
+			var/mob/living/carbon/human/C = loc
+			C.update_inv_wear_suit() */ // Commenting this out until we can figure out how to do this in this codebase. It's here to modify for later./
+										// technically it's supposed to be some kind of charging armor system for 3 invincible charges but my brain is a potato and I don't know how to do it.
