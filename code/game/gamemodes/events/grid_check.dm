@@ -72,7 +72,7 @@ So sometimes this event can result in people finding new and interesting things
 
 /proc/shield_boost()
 
-	for(var/obj/machinery/power/shield_generator/G in SSmachines.machinery)
+	for(var/obj/machinery/power/shield_generator/G in GLOB.machines)
 		G.boost_field()
 
 ///// OCCULUS EDIT END
