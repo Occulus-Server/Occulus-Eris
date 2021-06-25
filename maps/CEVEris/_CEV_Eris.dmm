@@ -52109,7 +52109,7 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/mixing)
 "crj" = (
-/obj/machinery/vending/Billomat,
+/obj/machinery/vending/powermat,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/hallway/side/cryo)
 "crk" = (
