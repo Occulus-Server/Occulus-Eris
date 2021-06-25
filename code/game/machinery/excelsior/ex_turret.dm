@@ -2,6 +2,7 @@
 #define TURRET_SECONDARY_TARGET 1
 #define TURRET_NOT_TARGET 0
 
+/*
 /obj/machinery/porta_turret/excelsior
 	icon = 'icons/obj/machines/excelsior/turret.dmi'
 	desc = "A fully automated anti infantry platform. Fires 7.62mm rounds"
@@ -13,9 +14,10 @@
 	installation = null
 	var/obj/item/ammo_magazine/ammo_box = /obj/item/ammo_magazine/ammobox/lrifle
 	var/ammo = 0 // number of bullets left.
-	var/ammo_max = 160
+	var/ammo_max = 96
 	var/working_range = 30 // how far this turret operates from excelsior teleporter
 	health = 60
+
 
 /obj/machinery/porta_turret/excelsior/proc/has_power_source_nearby()
 	for (var/a in excelsior_teleporters)
@@ -142,3 +144,4 @@
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET
 #undef TURRET_NOT_TARGET
+*/

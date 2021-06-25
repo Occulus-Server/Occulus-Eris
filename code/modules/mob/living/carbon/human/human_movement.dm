@@ -54,7 +54,7 @@
 
 	if(slowdown)
 		tally += 1
-	
+
 	tally += (r_hand?.slowdown_hold + l_hand?.slowdown_hold)
 
 	return tally
