@@ -239,3 +239,17 @@ obj/item/clothing/under/genericr
 	desc = "A simple red shirt with black pants."
 	icon_state = "genericr"
 	item_state = "genericr"
+
+/obj/item/clothing/under/gnome
+	name = "gnome outfit"
+	desc = "Against the gnome there is no reception, if there is no other gnomes."
+	icon_state = "gnome"
+	item_state = "gnome"
+	style = STYLE_HIGH
+
+/obj/item/clothing/under/tuxedo
+	name = "tuxedo"
+	desc = "A very stylish black tuxedo with a necktie. Must have for all crime-boys."
+	icon_state = "tuxedo"
+	style = STYLE_HIGH
+	price_tag = 300
