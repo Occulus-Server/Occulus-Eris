@@ -7,9 +7,16 @@
 /datum/reagent/resuscitator
 		reagent_type = "Stimulator" //For some reason this doesn't inherit a reagent type unless we do this...????
 
+/datum/reagent/nitrogen
+	name = "Nitrogen"
+	id = "nitrogen"
+	description = "A colorless, odorless, tasteless gas."
+	taste_description = null
+	color = "#808080"
 
 /datum/reagent/liquid_dark_matter
 	name = "Liquid Dark Matter"
+	id = "ldm"
 	description = "Sucks everything into the detonation point."
 	reagent_state = LIQUID
 	color = "#210021"
@@ -17,6 +24,7 @@
 
 /datum/reagent/sorium
 	name = "Sorium"
+	id = "sorium"
 	description = "Sends everything flying from the detonation point."
 	reagent_state = LIQUID
 	color = "#5A64C8"
@@ -54,32 +62,15 @@ datum/reagent/nitrate
 	M.universal_understand = 1
 	..()
 
-/datum/reagent/babelizine/on_remove(var/atom/A)
-	if(istype(A, /mob/living))
-		var/mob/living/M = A
+/datum/reagent/babelizine/on_mob_delete(var/mob/living/L)
+	if(istype(L))
 		M.universal_understand = 0
 		to_chat(M, "<span class='warning'>You no longer feel attuned to the spoken word.</span>")
 
 /datum/reagent/babelizine/on_mob_death(var/mob/M)
 	holder.remove_reagent(src.id, src.volume)
 
-
-/datum/reagent/malaxitol
-	id = "malaxitol"
-	name = "Malaxitol"
-	description = "Analysis indicates it could greatly speed up the rate at which other reagents are metabolized"
-	color = "#A155ED"
-	metabolism = 2 * REM
-
-/datum/reagent/malaxitol/on_mob_life(var/mob/living/M as mob, var/alien)
-	for(var/datum/reagent/R in M.reagents.reagent_list)
-		if(R.id == src.id)
-			continue
-		R.on_mob_life(M, alien)
-
-	..()
-
-/datum/reagent/delight			//Joyflower chem, used to make Bliss
+/datum/reagent/drug/delight			//Joyflower chem, used to make Bliss
 	name = "Delight"
 	id = "delight"
 	description = "A chemical naturally made in Joy Flowers, its known to make people smile"
@@ -91,12 +82,12 @@ datum/reagent/nitrate
 	sanity_gain = 0.5
 	addiction_chance = 5
 
-/datum/reagent/bliss
+/datum/reagent/drug/bliss
 	id = "bliss"
 	name = "Bliss"
 	description = "Looks as though it would metabolize into the ultimate hallucinogenic cocktail"
 	color = "#ffc0eb"
-	metabolism = 10 * REM
+	metabolism = 0.25 * REM
 	var/init = 0
 	overdose = 15
 	addiction_chance = 60
@@ -139,12 +130,11 @@ datum/reagent/nitrate
 	metabolism = 0.2 * REM
 
 /datum/reagent/luxitol/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.set_light(10)
+	M.set_light(l_range = 4.5, l_power = 2.5, l_color = COLOR_YELLOW)
 	return ..()
 
-/datum/reagent/luxitol/on_remove(var/atom/A)
-	if(istype(A, /mob))
-		var/mob/M = A
+/datum/reagent/luxitol/on_mob_delete(var/mob/living/L)	//Needs testingx
+	if(istype(L))
 		M.set_light(0)
 	return ..()
 
@@ -159,18 +149,18 @@ datum/reagent/nitrate
 		var/mob/living/L = M
 		var/burned = L.getFireLoss() > 0
 		if(burned)
-			L << "<span class='notice'>In a strange sensation, you feel some burns stop hurting.</span>"
+			to_chat(L) "<span class='notice'>In a strange sensation, you feel some burns stop hurting.</span>"
 			L.heal_organ_damage(0, min(15, volume / 4))
 
 		if (mFingerprints in L.mutations)
 			if(!burned)
-				L << "<span class='warning'>Another application of the substance does nothing weird to your hands.</span>"
+				to_chat(L) "<span class='warning'>Another application of the substance does nothing weird to your hands.</span>"
 		else
 			L.mutations.Add(mFingerprints)
-			L << "<span class='notice'>Your fingers feel strange after the substance splashes on your hands.</span>"
+			to_chat(L) "<span class='notice'>Your fingers feel strange after the substance splashes on your hands.</span>"
 	return ..()
 
-/datum/reagent/paralitol
+/datum/reagent/paralitol			//Testing needed here BELOW
 	id = "paralitol"
 	name = "Paralitol"
 	description = "Seems as if it could work as an extreme muscle inhibitor"
@@ -187,7 +177,7 @@ datum/reagent/nitrate
 	name = "Mortemol"
 	description = "Further testing required, could potentially reanimate dead cells if delivered with enough force"
 	color = "#000000"
-	metabolism = 5 * REM //gotta balance it somehow
+	metabolism = .5 * REM
 	data = list(0) //use data? Might cause problems with blood dialysis
 
 /datum/reagent/mortemol/touch_mob(var/mob/M, var/volume) //requires a splash to start effects because dead humans don't process reagents
@@ -214,10 +204,9 @@ datum/reagent/nitrate
 
 	return ..()
 
-/datum/reagent/mortemol/on_remove(var/atom/A)
+/datum/reagent/mortemol/on_mob_delete(var/mob/living/L)
 	if(data[1])
-		if(istype(A, /mob))
-			var/mob/M = A
+		if(istype(L))
 			to_chat(M, "<span class='notice'>You feel the last traces of chemicals leave your body as you return to death once more...</span>")
 			M.death(0)
 		//Reagent giveth, and reagent taketh away
@@ -232,28 +221,6 @@ datum/reagent/nitrate
 			C.rejuvenate()
 			C.rejuvenate() //Necessary to call twice in testing
 			C.visible_message("<span class='notice'>[C] seems to wake from the dead!</span>")
-
-/datum/reagent/oxyphoromin
-	id = "oxyphoromin"
-	name = "Oxyphoromin"
-	description = "Extreme painkiller derived of Oxycodone, dangerous in high doses"
-	color = "#540E5C"
-	metabolism = 5 * REM
-	overdose = 10
-	nerve_system_accumulations = 80
-	addiction_chance = 70
-
-/datum/reagent/oxyphoromin/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.add_chemical_effect(CE_PAINKILLER, 600)
-	M.eye_blurry = min(M.eye_blurry + 10, 250)
-/datum/reagent/oxyphoromin/withdrawal_act(mob/living/carbon/M)
-	M.stuttering = 50
-	M.add_chemical_effect(CE_SPEEDBOOST, -1)
-/datum/reagent/oxyphoromin/overdose(var/mob/living/carbon/M, var/alien)
-	..()
-	M.druggy = max(M.druggy, 60)
-	M.add_chemical_effect(CE_MIND, 300)
-	M.add_chemical_effect(CE_TOXIN, 30)
 
 /datum/reagent/bluespace_dust
 	id = "bluespace_dust"
@@ -324,9 +291,8 @@ datum/reagent/nitrate
 			s.start()
 	..()
 
-/datum/reagent/liquid_bluespace/on_remove(var/atom/A)
-	if(istype(A, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = A
+/datum/reagent/liquid_bluespace/on_mob_delete(var/mob/living/L)
+	if(istype(L))
 		H.vomit()
 		H.add_chemical_effect(CE_TOXIN, 30)
 		H.Weaken(90)

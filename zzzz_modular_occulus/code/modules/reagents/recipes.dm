@@ -23,7 +23,7 @@
 /datum/chemical_reaction/sorium
 	result_amount = 4
 	required_reagents = list("mercury" = 1, "tungsten" = 1, "carbon" = 1)
-	catalysts = list("silver" = 5)
+	catalysts = list("phoron" = 5)
 
 /datum/chemical_reaction/sorium/on_reaction(datum/reagents/holder, created_volume)
 	holder.remove_reagent(/datum/reagent/sorium, created_volume*4)
@@ -42,7 +42,7 @@
 
 /datum/chemical_reaction/nitrate
 	result = "nitrate"
-	required_reagents = list("nitrogen" = 1, "oxygen" = 3)
+	required_reagents = list("nitrogen" = 1, "carbon" = 3)
 	result_amount = 4
 
 /datum/chemical_reaction/aluminum_nitrate
@@ -59,13 +59,9 @@
 		return
 /datum/chemical_reaction/babelizine
 	result = "babelizine"
-	required_reagents = list("unstable mutagen" = 2, "alkysine" =1)
+	required_reagents = list("mutagen" = 2, "alkysine" =1)
 	result_amount = 3
 
-/datum/chemical_reaction/malaxitol
-	result = "malaxitol"
-	required_reagents = list("synaptizine" = 2, "innaprovaline" = 1, "acetone" = 1)
-	result_amount = 2
 
 /datum/chemical_reaction/bliss
 	result = "bliss"
@@ -77,7 +73,8 @@
 	result = "frioline"
 	required_reagents = list("nitrate" = 1, "tungsten" =1, "aceteone" = 1)
 	result_amount = 3
-	maximum_temperature = 200
+	minimum_temperature = 200	//Needs testing
+	maximum_temperature = 250
 //
 
 /datum/chemical_reaction/luxitol
@@ -88,7 +85,7 @@
 
 /datum/chemical_reaction/liquid_skin
 	result = "liquid_skin"
-	required_reagents = list("silver" = 1, "sulfur" = 1, "oxygen" = 1, "chlorine" = 1, "blood" = 1)
+	required_reagents = list("silver" = 1, "sulfur" = 1, "carbon" = 1, "sodium" = 1, "blood" = 1)
 	result_amount = 5
 
 /datum/chemical_reaction/paralitol
@@ -98,14 +95,8 @@
 
 /datum/chemical_reaction/mortemol
 	result = "mortemol"
-	required_reagents = list("seligitillin" = 3, "rezadone" = 1)
+	required_reagents = list("kaisertophin" = 3, "rezadone" = 1)
 	result_amount = 2
-
-/datum/chemical_reaction/oxyphoromin
-	result = "oxyphoromin"
-	required_reagents = list("oxycodone" =2, "phoron" = 1, "fuhrerole" = 1)
-	result_amount = 2
-	minimum_temperature = 474
 
 /datum/chemical_reaction/liquid_bluespace
 	result = "liquid_bluespace"
