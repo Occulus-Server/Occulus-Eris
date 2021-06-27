@@ -84,7 +84,7 @@
 	icon_state = "trap-purple-spawner-low"
 	spawn_nothing_percentage = 60
 
-// Junk Tractor Beam (JTB)
+/*// Junk Tractor Beam (JTB)
 /obj/landmark/loot_biomes/jtb
 	range = 10 // Maximum could be 12 since we have 25x25 chunks and landmark is at the center
 	min_loot_amount = 4
@@ -105,3 +105,4 @@
 
 /obj/landmark/loot_biomes/jtb/serbian
 	main_tags = list(SPAWN_SERBIAN)
+*/
