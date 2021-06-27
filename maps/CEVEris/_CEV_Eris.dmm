@@ -8037,12 +8037,6 @@
 /obj/spawner/traps/wire_splicing/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck5port)
-"asF" = (
-/obj/structure/jtb_pillar,
-/turf/simulated/floor/tiled/dark/danger,
-/area/eris/rnd/podbay{
-	name = "Tractor Beacon"
-	})
 "asG" = (
 /obj/structure/railing{
 	dir = 8
@@ -106402,12 +106396,6 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
-"niC" = (
-/obj/machinery/computer/jtb_console,
-/turf/simulated/floor/reinforced,
-/area/eris/rnd/podbay{
-	name = "Tractor Beacon"
-	})
 "niK" = (
 /obj/structure/closet/crate,
 /obj/spawner/pack/tech_loot,
@@ -132704,7 +132692,7 @@ aoL
 aoL
 aoy
 auq
-niC
+aoN
 eYZ
 auq
 ajw
@@ -133308,11 +133296,11 @@ anF
 aoy
 aoO
 aoN
-asF
 apO
 apO
 apO
-asF
+apO
+apO
 aoN
 arj
 aoy
@@ -134116,11 +134104,11 @@ anp
 aoy
 auq
 aoN
-asF
+apO
 apO
 xRA
 apO
-asF
+apO
 aoN
 auq
 aoy
