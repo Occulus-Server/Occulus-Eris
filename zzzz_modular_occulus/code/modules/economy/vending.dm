@@ -83,7 +83,11 @@
 					/obj/item/weapon/storage/box/shotgunammo/beanbags = 5,
 					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 5,
 					/obj/item/weapon/cell/small/high = 10,
-					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 5	// OCCULUS EDIT - pew pew
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 5, // OCCULUS EDIT - pew pew
+					/obj/item/weapon/storage/deferred/crate/clown_crime = 2,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/wolf = 2,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/hoxton = 2,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/chains = 2
 					)
 	prices = list(
 					/obj/item/ammo_magazine/slpistol/rubber = 90,
@@ -101,7 +105,11 @@
 					/obj/item/weapon/storage/box/shotgunammo/beanbags = 575,
 					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 575,
 					/obj/item/weapon/cell/small/high = 500,
-					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2500	// OCCULUS EDIT - pew pew
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2500, // OCCULUS EDIT - pew pew
+					/obj/item/weapon/storage/deferred/crate/clown_crime = 1800,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/wolf = 1800,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/hoxton = 1800,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/chains = 1800
 					)
 	idle_power_usage = 211
 	auto_price = FALSE
