@@ -4,7 +4,7 @@
 	var/verbpath //the verb we add if we add a verb
 
 /datum/power/occultist/proc/addPower(var/mob/living/carbon/human/themaster)
-	to_chat(themaster, "DEBUG. Adding: [src] to the occultist")
+	to_chat(themaster, "You focus your mind and discover [src]!")
 
 // T1 Powers
 
@@ -116,8 +116,8 @@
 // T2 Powers
 
 /mob/living/carbon/human/proc/spendpoints(var/amount)
-	if(get_organ(BP_BRAIN_CULTIST))
-		if(get_organ(BP_BRAIN_CULTIST).spendpoints(amount))
+	for(var/obj/item/organ/internal/brain/occultist/O in src.contents)
+		if(O.spendpoints(amount))
 			return TRUE
 		else
 			return FALSE
@@ -142,29 +142,94 @@
 	else
 		to_chat(src, "You are currently sane...fix that.")
 
-/datum/power/occultist/candle
-	name = "Like a Candle"
-	desc = "Grants target a glimpse into the power of the void."
-	activecost = 5
-
-/datum/power/occultist/wail
-	name = "Unearthly Wail"
-	desc = "Allows you to unleash a blood-curdling wail, draining sanity."
+/datum/power/occultist/callswarm
+	name = "Call Swarm"
+	desc = "Calls a swarm of roaches to your location. They are not friendly to you."
 	activecost = 1
+	verbpath = /mob/living/carbon/human/proc/Call_Swarm
 
-/datum/power/occultist/darkness
-	name = "Bring Darkness"
-	desc = "Breaks all lights around you."
-	activecost = 1
+/mob/living/carbon/human/proc/Call_Swarm()
+	set category = "Occultist"
+	set desc = "Call a swarm to your location."
+
+	if(spendpoints(1))
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 100, 1, 8, 8)
+		spawn(2)
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 100, 1, 8, 8)
+		//Playing the sound twice will make it sound really horrible
+		visible_message(SPAN_DANGER("[src] emits a horrifying wail as nearby burrows stir to life!"))
+		for (var/obj/structure/burrow/B in find_nearby_burrows())
+			B.distress(TRUE)
+	else
+		to_chat(src, "You lack enough madness to summon a swarm.")
 
 /datum/power/occultist/banish
 	name = "Banish Swarm"
 	desc = "Banishes all roaches within 15 tiles of you to the nearest burrow."
 	activecost = 1
+	verbpath = /mob/living/carbon/human/proc/Banish_Swarm
 
-/datum/power/occultist/callswarm
-	name = "Call Swarm"
-	desc = "Calls a swarm of roaches to your location. They are not friendly to you."
+/mob/living/carbon/human/proc/Banish_Swarm()
+	set category = "Occultist"
+	set desc = "Banish nearby roaches from your location"
+
+	if(spendpoints(1))
+		playsound(src.loc, 'sound/voice/hiss6.ogg', 100, 1, 8, 8)
+		spawn(2)
+		playsound(src.loc, 'sound/voice/hiss6.ogg', 100, 1, 8, 8)
+		//Playing the sound twice will make it sound really horrible
+		visible_message(SPAN_DANGER("[src] emits a haunting scream as it turns to flee, taking the nearby horde with it...."))
+		for (var/obj/structure/burrow/B in find_nearby_burrows())
+			B.evacuate()
+	else
+		to_chat(src, "You lack enough madness to banish a swarm.")
+
+/datum/power/occultist/vfaith
+	name = "Faith of the Voidmother"
+	desc = "Restores your sanity to full"
+	activecost = 1
+	verbpath = /mob/living/carbon/human/proc/Faith_of_the_Voidmother
+
+/mob/living/carbon/human/proc/Faith_of_the_Voidmother()
+	set category = "Occultist"
+	set desc = "Banish nearby roaches from your location"
+
+	if(spendpoints(1))
+		src.sanity.level = 100
+		to_chat(src, "You steel your mind against the dangers of the ship. This is not the path.")
+	else
+		to_chat(src, "You lack enough madness to restore your mind.")
+
+/datum/power/occultist/wail
+	name = "Unearthly Wail"
+	desc = "Allows you to unleash a blood-curdling wail, draining sanity."
+	activecost = 1
+	verbpath = /mob/living/carbon/human/proc/Unearthly_Wail
+
+
+/mob/living/carbon/human/proc/Unearthly_Wail()
+	set category = "Occultist"
+	set desc = "Channel the raw energies of the universe for a brief time."
+
+	if(spendpoints(1))
+		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 100, 1, 8, 8)
+		sleep(2)
+		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 100, 1, 8, 8)
+		sleep(2)
+		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 100, 1, 8, 8)
+		for(var/mob/living/carbon/human/targets in view(src))
+			if(targets == src)
+				continue
+			else
+				targets.sanity.level -= 25
+				to_chat(targets, SPAN_DANGER("As [src] howls something claws at the edge of your mind!"))
+				targets.hallucination(30,50)
+	else
+		to_chat(src, "You lack enough madness to channel this!")
+
+/datum/power/occultist/darkness
+	name = "Bring Darkness"
+	desc = "Breaks all lights around you."
 	activecost = 1
 
 /datum/power/occultist/rust
@@ -172,10 +237,7 @@
 	desc = "Causes one object in your hand to rust and become useless."
 	activecost = 1
 
-/datum/power/occultist/vfaith
-	name = "Faith of the Voidmother"
-	desc = "Restores your sanity to full"
-	activecost = 1
+
 
 //T3 Powers
 

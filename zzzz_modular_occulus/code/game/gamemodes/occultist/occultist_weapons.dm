@@ -130,6 +130,27 @@
 	proj_damage_adjust = list(PSY = 10)
 	penetration_multiplier = 0.9
 
+/obj/item/weapon/gun_upgrade/mechanism/occultist
+	name = "Occultist psionic catalyst"
+	desc = "Controversal device amplifies greatly this. Allows the natural psionic user abilityof the will world into the them."
+	icon_state = "psionic_catalyst"
+	spawn_blacklisted = TRUE
+
+/obj/item/weapon/gun_upgrade/mechanism/occultist/New()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+	GUN_UPGRADE_DAMAGE_PSY = 10)
+	I.destroy_on_removal = TRUE
+	I.removal_time *= 100
+	I.removal_difficulty *= 100
+	I.gun_loc_tag = GUN_MECHANISM
+
+/obj/item/weapon/gun/projectile/automatic/sol/cult/New()
+	..()
+	var/obj/item/weapon/gun_upgrade/mechanism/occultist/catalyst
+	catalyst = new /obj/item/weapon/gun_upgrade/mechanism/occultist
+	SEND_SIGNAL(catalyst, COMSIG_IATTACK, src, null)
+
 /obj/item/weapon/gun/energy/laser/cult
 	name = "OCLT LG \"Moonrise\""
 	desc = "Radiant and deadly. Zealotry \"Mekhane\" ire. Laser carbine of the brand it represents like."
