@@ -83,7 +83,9 @@
 					/obj/item/weapon/storage/box/shotgunammo/beanbags = 5,
 					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 5,
 					/obj/item/weapon/cell/small/high = 10,
-					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 5, // OCCULUS EDIT - pew pew
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 5 // OCCULUS EDIT - pew pew
+					)
+	contraband = list(
 					/obj/item/weapon/storage/deferred/crate/clown_crime = 2,
 					/obj/item/weapon/storage/deferred/crate/clown_crime/wolf = 2,
 					/obj/item/weapon/storage/deferred/crate/clown_crime/hoxton = 2,
