@@ -100,3 +100,12 @@
 	name = "black turtleneck"
 	desc = "Military style turtleneck, for operating in cold environments. Typically worn underneath armour"
 	icon_state = "blackturtle"
+
+/obj/item/clothing/under/rank/engineer/ees
+	desc = "A highly practical, rough and tumble jumpsuit with bright orange reflective strips. The standard uniform of Einstein Engineering Solutions employees."
+	name = "\improper EES corporate jumpsuit"
+	icon = 'zzzz_modular_occulus/icons/inventory/uniform/icon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob_fem.dmi'
+	icon_state = "ees"
+	item_state = "ees"
