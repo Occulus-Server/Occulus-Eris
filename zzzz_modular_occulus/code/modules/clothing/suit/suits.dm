@@ -181,3 +181,27 @@
 			var/mob/living/carbon/human/C = loc
 			C.update_inv_wear_suit() */ // Commenting this out until we can figure out how to do this in this codebase. It's here to modify for later./
 										// technically it's supposed to be some kind of charging armor system for 3 invincible charges but my brain is a potato and I don't know how to do it.
+
+/obj/item/clothing/suit/storage/vest/merc/ees //Merc path because it has more storage
+	name = "\improper EES Safety Harness"
+	desc = "A heavy duty set of harnesses and pouches. Carries twice the amount of items that standard armor does. Produced exclusively for Einstein Engineering Solutions."
+	icon = 'zzzz_modular_occulus/icons/inventory/suit/icon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/mob.dmi'
+	icon_state = "ees"
+	item_state = "armor_engineering"
+	armor = list(
+		melee = 30,
+		bullet = 15,
+		energy = 20,
+		bomb = 10,
+		bio = 0,
+		rad = 30
+	) //Sacrifices armor for more storage, also no arms coverage
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	item_flags = DRAG_AND_DROP_UNEQUIP
+	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS
+	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0
+	price_tag = 600
+	rarity_value = 60
+	style = STYLE_NONE //less bulky than actual armor
