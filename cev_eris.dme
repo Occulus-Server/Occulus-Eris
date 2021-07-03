@@ -2916,6 +2916,7 @@
 #include "zzzz_modular_occulus\code\modules\cargo\packs.dm"
 #include "zzzz_modular_occulus\code\modules\client\asset_cashe.dm"
 #include "zzzz_modular_occulus\code\modules\client\preference_setup\loadout\gear_tweaks.dm"
+#include "zzzz_modular_occulus\code\modules\client\preference_setup\loadout\lists\accessories.dm"
 #include "zzzz_modular_occulus\code\modules\client\preference_setup\loadout\lists\headwear.dm"
 #include "zzzz_modular_occulus\code\modules\client\preference_setup\loadout\lists\suits.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\chameleon.dm"
