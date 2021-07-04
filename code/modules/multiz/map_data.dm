@@ -25,6 +25,15 @@ GLOBAL_DATUM_INIT(maps_data, /datum/maps_data, new)
 	var/turf/T = get_turf(A)
 	return T && isContactLevel(T.z)
 
+//OCCULUS EDIT - checks for sealed Z-levels.
+/proc/isSealedLevel(level)
+	return level in GLOB.maps_data.sealed_levels
+
+/proc/isOnSealedLevel(atom/A)
+	var/turf/T = get_turf(A)
+	return T && isSealedLevel(T.z)
+//END OCCULUS EDIT.
+
 /proc/isAdminLevel(level)
 	return level in GLOB.maps_data.admin_levels
 
