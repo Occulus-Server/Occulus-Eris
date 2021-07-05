@@ -62,8 +62,8 @@ datum/reagent/nitrate
 	M.universal_understand = 1
 	..()
 
-/datum/reagent/babelizine/on_mob_delete(var/mob/living/L)
-	if(istype(L))
+/datum/reagent/babelizine/on_mob_delete(var/mob/living/M)
+	if(istype(M))
 		M.universal_understand = 0
 		to_chat(M, "<span class='warning'>You no longer feel attuned to the spoken word.</span>")
 
@@ -127,14 +127,14 @@ datum/reagent/nitrate
 	name = "Luxitol"
 	description = "Mimics compounds in known connection with bioluminescence"
 	color = "#61E34F"
-	metabolism = 0.2 * REM
+	metabolism = 0.4 * REM
 
 /datum/reagent/luxitol/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.set_light(l_range = 4.5, l_power = 2.5, l_color = COLOR_YELLOW)
 	return ..()
 
-/datum/reagent/luxitol/on_mob_delete(var/mob/living/L)	//Needs testingx
-	if(istype(L))
+/datum/reagent/luxitol/on_mob_delete(var/mob/living/M)	//Needs testingx
+	if(istype(M))
 		M.set_light(0)
 	return ..()
 
@@ -149,15 +149,15 @@ datum/reagent/nitrate
 		var/mob/living/L = M
 		var/burned = L.getFireLoss() > 0
 		if(burned)
-			to_chat(L) "<span class='notice'>In a strange sensation, you feel some burns stop hurting.</span>"
+			to_chat(usr, "In a strange sensation, you feel some burns stop hurting.")
 			L.heal_organ_damage(0, min(15, volume / 4))
 
-		if (mFingerprints in L.mutations)
+		if (mFingerprints in M.mutations)
 			if(!burned)
-				to_chat(L) "<span class='warning'>Another application of the substance does nothing weird to your hands.</span>"
+				to_chat(usr, "Another application of the substance does nothing weird to your hands.")
 		else
-			L.mutations.Add(mFingerprints)
-			to_chat(L) "<span class='notice'>Your fingers feel strange after the substance splashes on your hands.</span>"
+			M.mutations.Add(mFingerprints)
+			to_chat(usr, "Your fingers feel strange after the substance splashes on your hands.")
 	return ..()
 
 /datum/reagent/paralitol			//Testing needed here BELOW
@@ -168,16 +168,16 @@ datum/reagent/nitrate
 	metabolism = 3 * REM
 
 /datum/reagent/paralitol/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.Weaken(2)
+	M.Weaken(12)
 	M.stuttering = 50
 	return ..()
 
-/datum/reagent/mortemol
+/datum/reagent/mortemol //needs testing
 	id = "mortemol"
 	name = "Mortemol"
 	description = "Further testing required, could potentially reanimate dead cells if delivered with enough force"
 	color = "#000000"
-	metabolism = .5 * REM
+	metabolism = 0.5 * REM
 	data = list(0) //use data? Might cause problems with blood dialysis
 
 /datum/reagent/mortemol/touch_mob(var/mob/M, var/volume) //requires a splash to start effects because dead humans don't process reagents
@@ -191,8 +191,7 @@ datum/reagent/nitrate
 				if(C.stat && !(data[1]))
 					data[1] = 1
 					C.reagents.add_reagent(id, volume, data)
-					C.rejuvenate()
-					C.rejuvenate() //I like C.rejuvenate()
+					C.revive()
 					C.visible_message("<span class='notice'>[C] seems to wake from the dead!</span>")
 				else
 					C.reagents.add_reagent(id, volume)
@@ -204,10 +203,10 @@ datum/reagent/nitrate
 
 	return ..()
 
-/datum/reagent/mortemol/on_mob_delete(var/mob/living/L)
+/datum/reagent/mortemol/on_mob_delete(var/mob/living/M)
 	if(data[1])
-		if(istype(L))
-			to_chat(M, "<span class='notice'>You feel the last traces of chemicals leave your body as you return to death once more...</span>")
+		if(istype(M))
+			to_chat(usr,	"You feel the last traces of chemicals leave your body as you return to death once more...")
 			M.death(0)
 		//Reagent giveth, and reagent taketh away
 
@@ -222,7 +221,7 @@ datum/reagent/nitrate
 			C.rejuvenate() //Necessary to call twice in testing
 			C.visible_message("<span class='notice'>[C] seems to wake from the dead!</span>")
 
-/datum/reagent/bluespace_dust
+/datum/reagent/bluespace_dust //needs testing
 	id = "bluespace_dust"
 	name = "Sparkling Crystaline Dust"
 	description = "Remnants of a bluespace crystal, they seem to shimmer when looked at"
@@ -291,11 +290,11 @@ datum/reagent/nitrate
 			s.start()
 	..()
 
-/datum/reagent/liquid_bluespace/on_mob_delete(var/mob/living/L)
-	if(istype(L))
-		H.vomit()
-		H.add_chemical_effect(CE_TOXIN, 30)
-		H.Weaken(90)
+/datum/reagent/liquid_bluespace/on_mob_delete(var/mob/living/M)
+	if(istype(M))
+		M.vomit()
+//		M.add_chemical_effect(CE_TOXIN, 30)
+		M.Weaken(90)
 
 
 /datum/reagent/gaseous
@@ -317,7 +316,7 @@ datum/reagent/nitrate
 	return 0
 
 //It is POSSIBLE but very hard to "stop, drop, and roll" out the fire from an unprotected ignisol encounter before going into crit
-/datum/reagent/gaseous/ignisol
+/datum/reagent/gaseous/ignisol //needs testing
 	id = "ignisol"
 	name = "Ignisol"
 	description = "Creates highly flammable reaction with biotic substances"

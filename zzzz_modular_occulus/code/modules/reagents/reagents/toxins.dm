@@ -30,7 +30,7 @@
 	var/mob/living/carbon/human/H = M
 	for(var/obj/item/organ/internal/S in H.internal_organs)	//ALL INTERNAL ORGANS.
 		if(istype(S))
-			S.take_damage(8, 0)	//Greedy for Ambrosia results in insides melting
+			S.take_damage(1, 0)	//Greedy for Ambrosia results in insides melting
 	M.adjustFireLoss(50)
 
 

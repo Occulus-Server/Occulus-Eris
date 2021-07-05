@@ -50,6 +50,11 @@
 	required_reagents = list("aluminum" = 1, "nitrate" = 3)
 	result_amount = 4
 
+/datum/chemical_reaction/tartrate
+	result = "tartrate"
+	required_reagents = list("nitroge" = 1, "hydrazine" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/brownies
 	required_reagents = list("aluminum_nitrate" = 40, "tartrate" = 20)
 	result_amount = 0
@@ -73,8 +78,7 @@
 	result = "frioline"
 	required_reagents = list("nitrate" = 1, "tungsten" =1, "aceteone" = 1)
 	result_amount = 3
-	minimum_temperature = 200	//Needs testing
-	maximum_temperature = 250
+	minimum_temperature = 474
 //
 
 /datum/chemical_reaction/luxitol
