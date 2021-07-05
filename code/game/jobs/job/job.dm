@@ -96,11 +96,15 @@
 		return
 
 	//give them an account in the station database
-	var/species_modifier = (H.species ? economic_species_modifier[H.species.type] : 2)
-	if(!species_modifier)
-		species_modifier = economic_species_modifier[/datum/species/human]
+	// var/species_modifier = (H.species ? economic_species_modifier[H.species.type] : 2) // OCCULUS EDIT - Nobles get 5x the starting balance (This bit is uneeded, as it wasn't used whatsoever)
+	// if(!species_modifier)
+	// 	species_modifier = economic_species_modifier[/datum/species/human]
 
-	var/money_amount = one_time_payment(species_modifier)
+	var/modifier = 1				// OCCULUS EDIT v
+	if(H.stats.getPerk(PERK_NOBLE)) // OCCULUS EDIT - Nobles get 5x the starting balance
+		modifier *= 5
+	
+	var/money_amount = one_time_payment(modifier)
 	var/datum/money_account/M = create_account(H.real_name, money_amount, null)
 	if(H.mind)
 		var/remembered_info = ""
