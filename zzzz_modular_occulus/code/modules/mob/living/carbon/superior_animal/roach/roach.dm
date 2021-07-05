@@ -21,7 +21,7 @@
 	max_size = 1.3
 
 /mob/living/carbon/superior_animal/roach/kaiser
-
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/kaiser
 	// Kaisers are untouched. They're scary enough
 
 	min_size = 1

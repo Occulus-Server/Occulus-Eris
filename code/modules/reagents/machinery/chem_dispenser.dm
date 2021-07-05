@@ -27,7 +27,8 @@
 		"sulfur","hclacid","potassium",
 		"iron","copper","mercury",
 		"radium","water","ethanol",
-		"sugar","sacid","tungsten"
+		"sugar","sacid","tungsten",
+		"nitrogen"					//occulus edit
 	)
 	var/list/hacked_reagents = list()
 	var/obj/item/weapon/reagent_containers/beaker
@@ -216,7 +217,7 @@ obj/machinery/chemical_dispenser/soda/on_update_icon()
 		icon_state = icon_on+"_off"
 	else
 		icon_state = icon_on
-	
+
 	if(beaker)
 		add_overlays(image(icon, icon_on+"_loaded"))
 
