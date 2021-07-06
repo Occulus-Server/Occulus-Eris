@@ -97,11 +97,12 @@
 /obj/machinery/telesci_relay/proc/shatterCrystal()
 	if(!stored_crystal)
 		return
-	src.visible_message("<span class='warning'>\The [stored_crystal] in \the [src] collapses into inert fragments.")
+	src.visible_message("<span class='warning'>\The [stored_crystal] in \the [src] collapses into dust.")
 	do_sparks(6, FALSE, get_turf(src))
 	qdel(stored_crystal)
 	stored_crystal = null
 	bluespace_entropy(4, get_turf(src), TRUE)
+	new /obj/item/bluespace_dust(get_turf(src))
 
 /obj/machinery/telesci_relay/proc/pingCrystal()
 	. = checkCrystal()
