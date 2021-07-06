@@ -100,7 +100,7 @@
 	// if(!species_modifier)
 	// 	species_modifier = economic_species_modifier[/datum/species/human]
 
-	var/modifier = 1				// OCCULUS EDIT v
+	var/modifier = 1		// OCCULUS EDIT v
 	if(H.stats.getPerk(PERK_NOBLE)) // OCCULUS EDIT - Nobles get 5x the starting balance
 		modifier *= 5
 	
