@@ -231,68 +231,153 @@
 	name = "Bring Darkness"
 	desc = "Breaks all lights around you."
 	activecost = 1
+	verbpath = /mob/living/carbon/human/proc/Bring_Darkness
+
+/mob/living/carbon/human/proc/Bring_Darkness()
+	set category = "Occultist"
+	set desc = "Remove the false safety of the light."
+
+	if(spendpoints(1))
+		playsound(src.loc, 'sound/hallucinations/growl1.ogg', 25,1,8,8)
+		var/area/A = get_area(src)
+		for(var/obj/machinery/power/apc/apc in A)
+			apc.overload_lighting()
+		for(var/turf/T in A)
+			if(prob(1))
+				var/obj/effect/decal/cleanable/blood/writing/sign = new /obj/effect/decal/cleanable/blood/writing(T)
+				sign.message = sanity.pick_quote_20()
+			if(prob(5))
+				var/obj/effect/decal/cleanable/blood/writing/sign = new /obj/effect/decal/cleanable/blood/writing(T)
+				sign.message = sanity.pick_quote_40()
+	else
+		to_chat(src, "You lack enough madness to banish the light!")
 
 /datum/power/occultist/rust
 	name = "Rust"
 	desc = "Causes one object in your hand to rust and become useless."
 	activecost = 1
+	verbpath = /mob/living/carbon/human/proc/Rust
 
+/mob/living/carbon/human/proc/Rust()
+	set category = "Occultist"
+	set desc = "Diminish their tools."
+
+	if(spendpoints(1))
+		if(src.get_active_hand())
+			var/obj/A = src.get_active_hand()
+			A.make_old()
+		else
+			to_chat(src, "You must hold an item in your active hand to destroy it.")
+	else
+		to_chat(src, "You lack the madness to destroy this item.")
 
 
 //T3 Powers
 
-/datum/power/occultist/decay
-	name = "Decay"
-	desc = "Makes all objects on your person and in the inventory of your grabbed target rust and become useless."
-	activecost = 4
-	madnesscost = 40
-
-/datum/power/occultist/vshield
-	name = "Voidmother's Shield"
-	desc = "Grants you a black, oily substance that functions as powerful armor... permanently"
-	madnesscost = 40
-
-/datum/power/occultist/initiate
-	name = "Rite of Initiation"
-	desc = "Induct a new Occultist to our ranks."
-	activecost = 4
-	madnesscost = 40
-
 /datum/power/occultist/kingofbeasts
 	name = "King of Beasts"
-	desc = "Summons a friendly kaiser roach to your location."
+	desc = "Sacrifice much of yourself to summon a kaiser roach and his escort to your location."
 	activecost = 4
 	madnesscost = 40
+	verbpath = /mob/living/carbon/human/proc/King_of_Beasts
 
-/datum/power/occultist/viel
-	name = "Tear the Veil"
-	desc = "Rends the veil asunder for yourself and one other person."
-	activecost = 6
-	madnesscost = 40
+/mob/living/carbon/human/proc/King_of_Beasts()
+	set category = "Occultist"
+	set desc = "Bring forth an Emperor!"
+
+	if(spendpoints(4))
+		src.stats.changeStat(STAT_TGH, -20)
+		src.stats.changeStat(STAT_VIG, -20)
+		src.stats.changeStat(STAT_ROB, -20)
+		src.stats.changeStat(STAT_COG, -20)
+		src.stats.changeStat(STAT_BIO, -20)
+		src.stats.changeStat(STAT_MEC, -20)
+		visible_message(
+			SPAN_DANGER("[src] lets out a blood-curdling wail and drops to their knees as the ground quakes!"),
+			SPAN_DANGER("You let out a cry to the bowls of the ship, sacrificing your skills to summon the emperor himself")
+		)
+		sleep(9)
+		for(var/mob/M in range(10, src))
+			if(!M.stat && !isAI(M))
+				shake_camera(M, 3, 1)
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 20, 1, 8, 8)
+		sleep(9)
+		for(var/mob/M in range(10, src))
+			if(!M.stat && !isAI(M))
+				shake_camera(M, 3, 1)
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 60, 1, 8, 8)
+		sleep(9)
+		for(var/mob/M in range(10, src))
+			if(!M.stat && !isAI(M))
+				shake_camera(M, 3, 1)
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 80, 1, 8, 8)
+		sleep(9)
+		for(var/mob/M in range(10, src))
+			if(!M.stat && !isAI(M))
+				shake_camera(M, 3, 1)
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 100, 1, 8, 8)
+		new /mob/living/carbon/superior_animal/roach/kaiser(src.loc)
+		new /obj/spawner/mob/roaches/cluster(src.loc)
+		new /obj/spawner/mob/roaches/cluster(src.loc)
+		new /obj/spawner/mob/roaches/cluster(src.loc)
+		return
+	else
+		to_chat(src, "You lack the four madness required to summon a Kaiser.")
 
 /datum/power/occultist/truthinblood
 	name = "Truth in Blood"
 	desc = "Covers the ground around you in blood and gore."
 	activecost = 4
 	madnesscost = 40
+	verbpath = /mob/living/carbon/human/proc/Truth_in_Blood
 
-/datum/power/occultist/breakfaith
-	name = "Break the faith"
-	desc = "Subvert an Obelisk to our cause."
-	activecost = 4
-	madnesscost = 40
+/mob/living/carbon/human/proc/Truth_in_Blood()
+	set category = "Occultist"
+	set desc = "Thin the veil, here!"
+	if(spendpoints(4))
+		var/datum/effect/effect/system/smoke_spread/bad/smoke
+		smoke = new
+		playsound(loc, 'sound/effects/smoke.ogg', 50, 1, -3)
+		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.species.blood_color)
+		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.species.blood_color)
+		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.species.blood_color)
+		for(var/turf/simulated/floor/T in orange(5, src))
+			if(prob(20))
+				new /obj/effect/gibspawner/human(T, src.dna, src.species.flesh_color, src.species.blood_color)
+				new /obj/effect/gibspawner/human(T, src.dna, src.species.flesh_color, src.species.blood_color)
+				var/datum/effect/effect/system/smoke_spread/bad/smoke2
+				smoke2 = new
+				smoke2.set_up(3, 0, T)
+				smoke2.attach(T)
+				spawn(0)
+					smoke.start()
+		for(var/turf/simulated/floor/T in orange(7, src))
+			if(prob(1))
+				var/obj/effect/decal/cleanable/blood/writing/sign = new /obj/effect/decal/cleanable/blood/writing(T)
+				sign.message = sanity.pick_quote_20()
+				sign.color = src.species.blood_color
+		smoke.set_up(3, 0, src.loc)
+		smoke.attach(src)
+		spawn(0)
+			smoke.start()
+			sleep(3)
+			smoke.start()
+			sleep(3)
+			smoke.start()
+			sleep(3)
+			smoke.start()
+	else
+		to_chat(src, "You lack the four madness required to do this.")
 
-/datum/power/occultist/breakreality
-	name = "Unseat Reality"
-	desc = "Bring down the walls of reality around you."
-	activecost = 4
-	madnesscost = 40
 
 /datum/power/occultist/embracecorruption
 	name = "Embrace Corruption"
-	desc = "Sacrifice yourself to bring about a true fusion of man and machine."
-	activecost = 0
+	desc = "Sacrifice yourself to bring about a true fusion of man and machine. This ability will activate as soon as you select it."
 	madnesscost = 40
+
+/datum/power/occultist/embracecorruption/addPower(var/mob/living/carbon/human/themaster)
+	new /obj/machinery/hivemind_machine/node(themaster.loc)
+	themaster.gib()
 
 /datum/power/occultist/underworld
 	name = "Path to the Underworld"
@@ -303,5 +388,17 @@
 /datum/power/occultist/theskies
 	name = "The Skies are Buried Deep"
 	desc = "Reveals the truth to everyone who can see you."
+	activecost = 4
+	madnesscost = 40
+
+/datum/power/occultist/decay
+	name = "Decay"
+	desc = "Makes all objects on your person and in the inventory of your grabbed target rust and become useless."
+	activecost = 4
+	madnesscost = 40
+
+/datum/power/occultist/initiate
+	name = "Rite of Initiation"
+	desc = "Induct a new Occultist to our ranks."
 	activecost = 4
 	madnesscost = 40
