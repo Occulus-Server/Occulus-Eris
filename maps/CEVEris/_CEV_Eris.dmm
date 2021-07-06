@@ -1294,6 +1294,7 @@
 	tag_exterior_door = "security_airlock_door_ext";
 	tag_interior_door = "security_airlock_door_int"
 	},
+/obj/machinery/telesci_inhibitor,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/armory)
 "adm" = (
@@ -14914,6 +14915,7 @@
 /area/turret_protected/ai)
 "aKk" = (
 /obj/machinery/camera/xray/security,
+/obj/machinery/telesci_inhibitor,
 /turf/simulated/floor/tiled/dark/danger,
 /area/turret_protected/ai)
 "aKl" = (
@@ -18376,7 +18378,12 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aSy" = (
-/obj/machinery/hologram/holopad,
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/trackimp,
+/obj/item/weapon/storage/box/chemimp{
+	pixel_x = 4;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aSz" = (
@@ -19703,8 +19710,8 @@
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/engineering/atmos/storage)
 "aVt" = (
-/obj/structure/railing,
-/obj/structure/lattice,
+/obj/structure/catwalk,
+/obj/machinery/telesci_inhibitor,
 /turf/simulated/open,
 /area/eris/security/prison)
 "aVu" = (
@@ -62747,6 +62754,9 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/landmark/storyevent/midgame_stash_spawn{
+	navigation = "Mining Barge comunications room, on north-east of the barge itself."
+	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base"
 	},
@@ -103558,9 +103568,7 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck4central)
 "eLL" = (
-/obj/landmark/storyevent/midgame_stash_spawn{
-	navigation = "Mining Barge comunications room, on north-east of the barge itself."
-	},
+/obj/machinery/telesci_inhibitor,
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base"
 	},
@@ -104933,6 +104941,10 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"iUM" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/security/warden)
 "iVf" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/alarm{
@@ -106528,6 +106540,10 @@
 /obj/structure/table/gamblingtable,
 /turf/simulated/floor/wood,
 /area/eris/maintenance/section4deck4central)
+"nBy" = (
+/obj/machinery/telesci_inhibitor,
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/eris/engineering/engine_room)
 "nCp" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -107845,12 +107861,7 @@
 	name = "\improper Cafe"
 	})
 "skt" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/trackimp,
-/obj/item/weapon/storage/box/chemimp{
-	pixel_x = 4;
-	pixel_y = 3
-	},
+/obj/machinery/telesci_inhibitor,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "sla" = (
@@ -109370,6 +109381,10 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/crew_quarters/kitchen)
+"xAr" = (
+/obj/machinery/telesci_inhibitor,
+/turf/simulated/floor/tiled/dark/golden,
+/area/eris/neotheology/bioreactor)
 "xCI" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/door/firedoor,
@@ -126867,7 +126882,7 @@ bZK
 cci
 bts
 bts
-bts
+xAr
 aCn
 bPZ
 bRI
@@ -168005,7 +168020,7 @@ aaa
 aab
 ceZ
 abH
-aVc
+bEc
 aVM
 bjk
 bjk
@@ -168409,7 +168424,7 @@ aRe
 ceK
 aBi
 bak
-aVc
+dIT
 aVO
 bjk
 bjk
@@ -171636,7 +171651,7 @@ aRb
 aaB
 aQC
 aaJ
-aTa
+iUM
 aSy
 skt
 aTx
@@ -284650,7 +284665,7 @@ abF
 abF
 bNn
 eBa
-eEt
+nBy
 eEt
 dpB
 dIi
