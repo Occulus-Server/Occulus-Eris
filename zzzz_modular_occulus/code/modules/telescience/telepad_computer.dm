@@ -4,6 +4,7 @@
 #define BS_MENU_PORTAL 4
 
 #define BS_DISTANCE_INVALID -1
+#define BS_DISTANCE_BYPASSED 0
 #define BS_DISTANCE_SHORT 1
 #define BS_DISTANCE_MEDIUM 2
 #define BS_DISTANCE_LONG 3
@@ -68,7 +69,7 @@
 /obj/machinery/computer/telesci_console/Process()
 	if(!istype(telepad) || QDELETED(telepad))
 		telepad = null
-	if(!istype(tracked_beacon))
+	if(!tracked_beacon || !istype(tracked_beacon))
 		tracked_beacon = null
 		if(tracking_beacon)
 			addLog("Connection to beacon timed out after [rand(10,400)]ms. No longer tracking.")
@@ -96,10 +97,13 @@
 			openPortal()
 		
 		if(currentStage <= 1)
-			progressMessage = "Acquiring Relays for calculation assistance."
+			if(tracking_beacon)
+				progressMessage = "Coordinating with selected beacon for pathing."
+			else
+				progressMessage = "Acquiring Relays for calculation assistance."
 		if(currentStage > 1)
 			progressMessage = "Querying Relay [currentStage-1] for calculations."
-		if(currentStage > 4)
+		if(currentStage > 5)
 			progressMessage = "Bypassing bluespace interference."
 		
 		var/numPings = rand(5, 15)
@@ -136,6 +140,8 @@
 		return BS_DISTANCE_STRESSFUL //Sealed Z levels like deep maint require stressing the telepad.
 	if(targetArea.tele_inhibited())
 		return BS_DISTANCE_STRESSFUL //Tele inhibited Z levels also require stressing the telepad.
+	if(tracking_beacon)
+		return BS_DISTANCE_BYPASSED //Teleporting to a beacon is easy if it's not in a tele_inhibited area.
 	if(!isOnStationLevel(telepad))
 		if(targetZ != origin.z)
 			return BS_DISTANCE_FAR
@@ -292,6 +298,7 @@
 		totalDelay += 2 * baseDelay
 	ticking = TRUE
 	telegraph = new(get_turf(locate(targetX,targetY,targetZ)))
+	progressMessage = "Initializing gateway pathing calculations..."
 	return TRUE
 
 /obj/machinery/computer/telesci_console/attack_hand(mob/user)
@@ -322,7 +329,7 @@
 		targetY = tracked_beacon.y
 		targetZ = tracked_beacon.z
 	var/list/data = list()
-	data["telepadPresent"] = istype(telepad)
+	data["telepadPresent"] = telepad ? TRUE : FALSE
 	data["targetX"] = targetX
 	data["targetY"] = targetY
 	data["targetZ"] = targetZ
@@ -330,6 +337,7 @@
 	data["invalid"] = invalid
 	if(istype(telepad))
 		data["digitRequirement"] = getDigitRequirement()
+		data["telepadOpen"] = telepad.panel_open
 		var/workingRelays = 0
 		for(var/obj/machinery/telesci_relay/relay in telepad.findRelays())
 			if(relay.checkCrystal())
@@ -437,6 +445,7 @@
 			if(istype(L, /obj/item/device/radio/beacon))
 				tracked_beacon = L
 				var/turf/T = get_turf(tracked_beacon)
+				tracking_beacon = TRUE
 				addLog("Selected beacon at ([T.x],[T.y],[T.z]). Offloading pathfinding calculations.")
 			else
 				addLog("Beacon selection failed. Contact a system administrator for further assistance.")
@@ -447,7 +456,7 @@
 		if(href_list["pathing"])
 			if(invalid)
 				addLog("Unable to pathfind to selected coordinates. Terminating calculation.")
-			else if(istype(tracked_beacon))
+			else if(tracking_beacon)
 				addLog("Beginning automatic pathfinding calculations for bluespace tunnel to ([targetX],[targetY],[targetZ]).")
 				startPathfinding()
 			else if(dangerous)
@@ -499,7 +508,7 @@
 			addLog("Closing bluespace tunnel by user request.")
 			closePortal()
 	
-	ui_interact(usr)
+	ui_interact(user)
 	return FALSE
 
 /obj/machinery/computer/telesci_console/Destroy()

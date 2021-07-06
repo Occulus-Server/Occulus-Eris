@@ -1,6 +1,8 @@
 <h1>Advanced Telepad Control Console</h1>
 {{if !data.telepadPresent}}
 	<div class='notice'>No telepad located. <BR>Please add telepad data via use of Multitool.</div>
+{{else data.telepadOpen}}
+	<div class='notice'>Telepad indicates maintenance protocols active.<BR>Please ensure telepad cover is securely attached.</div>
 {{else}}
 	{{if data.menu == 1}} <!-- BS_MENU_SELECT -->
 		<div style="float:left;">

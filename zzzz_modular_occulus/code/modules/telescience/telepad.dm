@@ -26,6 +26,7 @@
 	for(var/obj/item/bluespace_crystal/crystal in component_parts)
 		if(istype(crystal, /obj/item/bluespace_crystal/artificial)) //Efficiency is 25% worse for each artifical bluespace crystal, linearly.
 			eff += 0.25
+	power_efficiency = eff
 	max_power = maxpow
 
 /obj/machinery/telesci_pad/Process()
@@ -48,6 +49,8 @@
 
 /obj/machinery/telesci_pad/attackby(obj/item/I, mob/user, params)
 	if(default_deconstruction(I, user))
+		if(panel_open)
+			closePortal()
 		return
 	if(default_part_replacement(I, user))
 		return
@@ -70,11 +73,13 @@
 		icon_state = "telepad"
 
 /obj/machinery/telesci_pad/proc/openPortal(x, y, z)
+	if(panel_open)
+		return FALSE
 	var/source = get_turf(src)
 	var/target = get_turf(locate(x,y,z))
-	if(istype(portal))
-		closePortal()
+	closePortal()
 	portal = new /obj/effect/portal/wormhole/telepad(source, 0, target)
+	return TRUE
 
 /obj/machinery/telesci_pad/proc/closePortal()
 	for(var/obj/machinery/telesci_relay/relay in relaysInUse)
