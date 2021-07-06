@@ -695,13 +695,9 @@
 // facing verbs
 /mob/proc/canface()
 	// Occulus edit: shuffled order around and added resting check to allow facing and pixelmoving while resting
-	if(stat)
+	if(stat || anchored || transforming)
 		return FALSE
 	if(incapacitated(INCAPACITATION_STUNNED|INCAPACITATION_UNCONSCIOUS)) // Incapacitated but not resting
-		return FALSE
-	if(anchored)
-		return FALSE
-	if(transforming)
 		return FALSE
 	return TRUE
 
