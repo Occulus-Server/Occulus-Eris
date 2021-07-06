@@ -694,11 +694,12 @@
 
 // facing verbs
 /mob/proc/canface()
-	if(!canmove)						return 0
-	if(stat)							return 0
-	if(anchored)						return 0
-	if(transforming)						return 0
-	return 1
+	// Occulus edit: shuffled order around and added resting check to allow facing and pixelmoving while resting
+	if(stat || anchored || transforming)
+		return FALSE
+	if(incapacitated(INCAPACITATION_STUNNED|INCAPACITATION_UNCONSCIOUS)) // Incapacitated but not resting
+		return FALSE
+	return TRUE
 
 // Not sure what to call this. Used to check if humans are wearing an AI-controlled exosuit and hence don't need to fall over yet.
 /mob/proc/can_stand_overridden()
