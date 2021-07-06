@@ -34,7 +34,7 @@
 
 /obj/machinery/telesci_inhibitor/Destroy()
 	area.tele_inhibitors -= src
-	return ..()
+	. = ..()
 
 /obj/machinery/telesci_inhibitor/proc/can_inhibit()
 	return (!stat)
@@ -45,7 +45,7 @@
 
 /area
 	var/innate_tele_inhibited = FALSE //Is the area innately tele_inhibited
-	var/list/obj/machinery/telesci_inhibitor/tele_inhibitors = 0
+	var/list/obj/machinery/telesci_inhibitor/tele_inhibitors = list()
 
 /area/proc/tele_inhibited()
 	if(innate_tele_inhibited)

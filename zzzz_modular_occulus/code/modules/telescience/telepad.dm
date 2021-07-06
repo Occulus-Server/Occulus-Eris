@@ -11,7 +11,7 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = BS_POWER_DRAW
 	circuit = /obj/item/weapon/electronics/circuitboard/telesci_pad
-	var/obj/effect/portal/wormhole/telepad/portal
+	var/obj/effect/portal/wormhole/telepad/portal = null
 	var/stored_power = 0
 	var/max_power = BS_CAPACITOR_POWER
 	var/power_efficiency = 1.0 //Multiplied by internal power draw, less is better.
@@ -29,9 +29,8 @@
 	max_power = maxpow
 
 /obj/machinery/telesci_pad/Process()
-	. = ..()
-	stored_power += idle_power_usage
-	if(istype(portal))
+	stored_power += BS_POWER_DRAW
+	if(portal)
 		stored_power -= BS_PORTAL_POWER_USE * power_efficiency
 
 	if(stored_power >= max_power)

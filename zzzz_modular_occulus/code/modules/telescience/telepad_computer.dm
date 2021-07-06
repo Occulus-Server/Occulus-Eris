@@ -66,6 +66,8 @@
 		..()
 
 /obj/machinery/computer/telesci_console/Process()
+	if(!istype(telepad) || QDELETED(telepad))
+		telepad = null
 	if(!istype(tracked_beacon))
 		tracked_beacon = null
 		if(tracking_beacon)
@@ -308,6 +310,8 @@
 		ui.set_auto_update_layout(TRUE)
 
 /obj/machinery/computer/telesci_console/proc/form_data()
+	if(!istype(telepad) || QDELETED(telepad))
+		telepad = null
 	if(!istype(tracked_beacon))
 		tracked_beacon = null
 		if(tracking_beacon)

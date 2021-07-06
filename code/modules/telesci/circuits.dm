@@ -6,7 +6,7 @@
 	origin_tech = list(TECH_MATERIAL = 3, TECH_BLUESPACE = 4)
 
 	req_components = list(
-		/obj/item/bluespace_crystal/artificial = 2,
+		/obj/item/bluespace_crystal = 2,
 		/obj/item/weapon/stock_parts/capacitor = 1
 	)
 
