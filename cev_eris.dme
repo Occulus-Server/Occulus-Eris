@@ -2383,7 +2383,6 @@
 #include "code\modules\projectiles\guns\projectile\pistol\mk58.dm"
 #include "code\modules\projectiles\guns\projectile\pistol\olivaw.dm"
 #include "code\modules\projectiles\guns\projectile\pistol\paco.dm"
-#include "code\modules\projectiles\guns\projectile\pistol\selfload.dm"
 #include "code\modules\projectiles\guns\projectile\pistol\type42.dm"
 #include "code\modules\projectiles\guns\projectile\pistol\type69.dm"
 #include "code\modules\projectiles\guns\projectile\revolver\artwork_revolver.dm"

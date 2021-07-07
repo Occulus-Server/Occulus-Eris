@@ -461,6 +461,7 @@
 	name = "\improper Bar"
 	icon_state = "bar"
 	sound_env = LARGE_SOFTFLOOR
+	narrate = "Reflective blue floors give the illusion of neon and glamour. The smell of alcohol is strong on the air. "
 
 /area/eris/crew_quarters/barbackroom
 	name = "Bar Backroom"
