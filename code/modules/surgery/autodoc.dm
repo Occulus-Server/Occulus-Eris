@@ -197,7 +197,7 @@
 	if(current_step > picked_patchnotes.len)
 		stop()
 		to_chat(patient, SPAN_NOTICE("Operations complete."))	// OCCULUS EDIT: Tell the patient when it's over
-		scan_user(patient, TRUE)
+		scan_user(patient, TRUE)				// OCCULUS EDIT - Autodoc won't charge for automatically rescanning during operation
 	else
 
 		var/datum/autodoc_patchnote/next_note = picked_patchnotes[current_step]
