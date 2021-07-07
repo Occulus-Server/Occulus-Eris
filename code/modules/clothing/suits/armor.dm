@@ -22,6 +22,9 @@
 	icon_state = "armor"
 	item_state = "armor"
 	blood_overlay_type = "armor"
+	equip_delay = 2 SECONDS // OCCULUS EDIT
+	equip_sound = 'zzzz_modular_occulus/sound/clothing/vest_on.ogg' // OCCULUS EDIT
+	unequip_sound = 'zzzz_modular_occulus/sound/clothing/vest_off.ogg' // OCCULUS EDIT
 	armor = list(
 		melee = 30,
 		bullet = 30,
@@ -41,6 +44,7 @@
 	icon_state = "armor_fullbody"
 	blood_overlay_type = "armor"
 	slowdown = 0.1
+	equip_delay = 3 SECONDS // OCCULUS EDIT
 	rarity_value = 30 // little bit rarer than just vests
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS // kneepads and shoulderpads, so it covers arms and legs
 	matter = list(
@@ -112,6 +116,9 @@
 	icon_state = "flakvest"
 	item_state = "armor"
 	blood_overlay_type = "armor"
+	equip_delay = 2 SECONDS // OCCULUS EDIT
+	equip_sound = 'zzzz_modular_occulus/sound/clothing/vest_on.ogg' // OCCULUS EDIT
+	unequip_sound = 'zzzz_modular_occulus/sound/clothing/vest_off.ogg' // OCCULUS EDIT
 	rarity_value = 18
 	armor = list(
 		melee = 35,
@@ -131,6 +138,7 @@
 	desc = "An armored vest built for protection against high-velocity solid projectiles. This set has had kneepads and shoulderpads attached for more protection."
 	icon_state = "flakvest_fullbody"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS // shoulderpads and kneepads
+	equip_delay = 3 SECONDS // OCCULUS EDIT
 	rarity_value = 25 // rarer than version without pads
 	slowdown = 0.1
 
@@ -144,6 +152,9 @@
 	icon_state = "bulletproof"
 	item_state = "armor"
 	blood_overlay_type = "armor"
+	equip_delay = 2 SECONDS // OCCULUS EDIT
+	equip_sound = 'zzzz_modular_occulus/sound/clothing/vest_on.ogg' // OCCULUS EDIT
+	unequip_sound = 'zzzz_modular_occulus/sound/clothing/vest_off.ogg' // OCCULUS EDIT
 	slowdown = 0.15
 	rarity_value = 6
 	armor = list(
@@ -166,6 +177,7 @@
 	desc = "A vest built for protection against bullets and other high-velocity projectiles. This one has shoulderpads and kneepads for extra coverage."
 	icon_state = "bulletproof_fullbody"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	equip_delay = 3 SECONDS // OCCULUS EDIT
 	rarity_value = 55
 	matter = list(
 		MATERIAL_STEEL = 15, // costs a smidge more steel to cover for shoulder and knees
@@ -218,6 +230,7 @@
 	desc = "A vest built for protection against bullets and other high-velocity projectiles. This one has shoulderpads and kneepads for extra coverage."
 	icon_state = "platecarrier_fullbody"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	equip_delay = 3 SECONDS // OCCULUS EDIT
 	rarity_value = 45
 	slowdown = 0.1
 
@@ -237,6 +250,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	blood_overlay_type = "armor"
 	slowdown = 0.15
+	equip_delay = 3 SECONDS // OCCULUS EDIT
 	rarity_value = 45
 	armor = list(
 		melee = 25,
@@ -317,7 +331,9 @@
 		bio = 0,
 		rad = 0
 	)
-	equip_delay = 2 SECONDS
+	equip_delay = 3 SECONDS // OCCULUS EDIT
+	equip_sound = 'zzzz_modular_occulus/sound/clothing/vest_on.ogg' // OCCULUS EDIT
+	unequip_sound = 'zzzz_modular_occulus/sound/clothing/vest_off.ogg' // OCCULUS EDIT
 	price_tag = 250
 	rarity_value = 25
 	style = STYLE_NEG_HIGH
@@ -369,6 +385,9 @@
 	name = "webbed armor"
 	desc = "An armored vest used for day-to-day operations. This one has various pouches and straps attached."
 	icon_state = "webvest"
+	equip_delay = 2 SECONDS // OCCULUS EDIT
+	equip_sound = 'zzzz_modular_occulus/sound/clothing/vest_on.ogg' // OCCULUS EDIT
+	unequip_sound = 'zzzz_modular_occulus/sound/clothing/vest_off.ogg' // OCCULUS EDIT
 	price_tag = 250 //Normal vest is worth 200, this one is worth 250 because it also has storage space
 	armor = list( //Same stats as the standard vest only difference is that this one has storage
 		melee = 30,
@@ -410,6 +429,7 @@
 	name = "full heavy armor vest"
 	desc = "A high-quality armor vest in a fetching tan. This one is webbed, and has kneepads and shoulderpads for extra coverage."
 	icon_state = "mercwebvest_fullbody"
+	equip_delay = 3 SECONDS // OCCULUS EDIT
 	rarity_value = 95
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
