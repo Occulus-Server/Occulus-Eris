@@ -308,20 +308,6 @@ var/list/mob/living/forced_ambiance_list = new
 		CL.ambience_playing = sound
 		sound_to(L, sound(sound, repeat = 1, wait = 0, volume = 30, channel = GLOB.ambience_sound_channel))
 
-//OCCULUS EDIT START
-/area/proc/do_area_blurb(var/mob/living/L)
-	if(isnull(narrate))
-		return
-
-	if(L?.get_preference_value(/datum/client_preference/area_info_blurb) != GLOB.PREF_YES)
-		return
-
-	if(!(L.ckey in blurbed_stated_to))
-		blurbed_stated_to += L.ckey
-		to_chat(L, SPAN_NOTICE("[narrate]"))
-//OCCULUS EDIT END
-
-
 //Figures out what gravity should be and sets it appropriately
 /area/proc/update_gravity()
 	var/grav_before = has_gravity
