@@ -456,8 +456,8 @@
 		return
 	..()
 
-/datum/autodoc/capitalist_autodoc/scan_user(mob/living/carbon/human/human, no_charge = FALSE) // OCCULUS EDIT - Autodoc won't charge for automatically rescanning during operation
-	if(!no_charge && !charge(AUTODOC_SCAN_COST))
+/datum/autodoc/capitalist_autodoc/scan_user(mob/living/carbon/human/human, no_charge = FALSE)	// OCCULUS EDIT - Autodoc won't charge for automatically rescanning during operation
+	if(!no_charge && !charge(AUTODOC_SCAN_COST))						// OCCULUS EDIT ^
 		return
 	. = ..()
 
