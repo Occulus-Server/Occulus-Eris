@@ -153,9 +153,9 @@
 	set desc = "Call a swarm to your location."
 
 	if(spendpoints(1))
-		playsound(src.loc, 'sound/voice/shriek1.ogg', 100, 1, 8, 8)
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 75, 1, 8, 8)
 		spawn(2)
-		playsound(src.loc, 'sound/voice/shriek1.ogg', 100, 1, 8, 8)
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 75, 1, 8, 8)
 		//Playing the sound twice will make it sound really horrible
 		visible_message(SPAN_DANGER("[src] emits a horrifying wail as nearby burrows stir to life!"))
 		for (var/obj/structure/burrow/B in find_nearby_burrows())
@@ -173,10 +173,16 @@
 	set category = "Occultist"
 	set desc = "Banish nearby roaches from your location"
 
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
 	if(spendpoints(1))
-		playsound(src.loc, 'sound/voice/hiss6.ogg', 100, 1, 8, 8)
+		playsound(src.loc, 'sound/voice/hiss6.ogg', 75, 1, 8, 8)
 		spawn(2)
-		playsound(src.loc, 'sound/voice/hiss6.ogg', 100, 1, 8, 8)
+		playsound(src.loc, 'sound/voice/hiss6.ogg', 75, 1, 8, 8)
 		//Playing the sound twice will make it sound really horrible
 		visible_message(SPAN_DANGER("[src] emits a haunting scream as it turns to flee, taking the nearby horde with it...."))
 		for (var/obj/structure/burrow/B in find_nearby_burrows())
@@ -211,12 +217,18 @@
 	set category = "Occultist"
 	set desc = "Channel the raw energies of the universe for a brief time."
 
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
 	if(spendpoints(1))
-		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 100, 1, 8, 8)
+		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 75, 1, 8, 8)
 		sleep(2)
-		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 100, 1, 8, 8)
+		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 75, 1, 8, 8)
 		sleep(2)
-		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 100, 1, 8, 8)
+		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 75, 1, 8, 8)
 		for(var/mob/living/carbon/human/targets in view(src))
 			if(targets == src)
 				continue
@@ -231,77 +243,329 @@
 	name = "Bring Darkness"
 	desc = "Breaks all lights around you."
 	activecost = 1
+	verbpath = /mob/living/carbon/human/proc/Bring_Darkness
+
+/mob/living/carbon/human/proc/Bring_Darkness()
+	set category = "Occultist"
+	set desc = "Remove the false safety of the light."
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
+	if(spendpoints(1))
+		playsound(src.loc, 'sound/hallucinations/growl1.ogg', 25,1,8,8)
+		var/area/A = get_area(src)
+		for(var/obj/machinery/power/apc/apc in A)
+			apc.overload_lighting()
+		for(var/turf/T in A)
+			if(prob(1))
+				var/obj/effect/decal/cleanable/blood/writing/sign = new /obj/effect/decal/cleanable/blood/writing(T)
+				sign.message = sanity.pick_quote_20()
+			if(prob(5))
+				var/obj/effect/decal/cleanable/blood/writing/sign = new /obj/effect/decal/cleanable/blood/writing(T)
+				sign.message = sanity.pick_quote_40()
+	else
+		to_chat(src, "You lack enough madness to banish the light!")
 
 /datum/power/occultist/rust
 	name = "Rust"
 	desc = "Causes one object in your hand to rust and become useless."
 	activecost = 1
+	verbpath = /mob/living/carbon/human/proc/Rust
 
+/mob/living/carbon/human/proc/Rust()
+	set category = "Occultist"
+	set desc = "Diminish their tools."
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
+	if(spendpoints(1))
+		if(src.get_active_hand())
+			var/obj/A = src.get_active_hand()
+			A.make_old()
+		else
+			to_chat(src, "You must hold an item in your active hand to destroy it.")
+	else
+		to_chat(src, "You lack the madness to destroy this item.")
 
 
 //T3 Powers
 
-/datum/power/occultist/decay
-	name = "Decay"
-	desc = "Makes all objects on your person and in the inventory of your grabbed target rust and become useless."
-	activecost = 4
-	madnesscost = 40
-
-/datum/power/occultist/vshield
-	name = "Voidmother's Shield"
-	desc = "Grants you a black, oily substance that functions as powerful armor... permanently"
-	madnesscost = 40
-
-/datum/power/occultist/initiate
-	name = "Rite of Initiation"
-	desc = "Induct a new Occultist to our ranks."
-	activecost = 4
-	madnesscost = 40
-
 /datum/power/occultist/kingofbeasts
 	name = "King of Beasts"
-	desc = "Summons a friendly kaiser roach to your location."
+	desc = "Sacrifice much of yourself to summon a kaiser roach and his escort to your location."
 	activecost = 4
 	madnesscost = 40
+	verbpath = /mob/living/carbon/human/proc/King_of_Beasts
 
-/datum/power/occultist/viel
-	name = "Tear the Veil"
-	desc = "Rends the veil asunder for yourself and one other person."
-	activecost = 6
-	madnesscost = 40
+/mob/living/carbon/human/proc/King_of_Beasts()
+	set category = "Occultist"
+	set desc = "Bring forth an Emperor!"
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
+	if(spendpoints(4))
+		src.stats.changeStat(STAT_TGH, -20)
+		src.stats.changeStat(STAT_VIG, -20)
+		src.stats.changeStat(STAT_ROB, -20)
+		src.stats.changeStat(STAT_COG, -20)
+		src.stats.changeStat(STAT_BIO, -20)
+		src.stats.changeStat(STAT_MEC, -20)
+		visible_message(
+			SPAN_DANGER("[src] lets out a blood-curdling wail and drops to their knees as the ground quakes!"),
+			SPAN_DANGER("You let out a cry to the bowls of the ship, sacrificing your skills to summon the emperor himself")
+		)
+		sleep(9)
+		for(var/mob/M in range(10, src))
+			if(!M.stat && !isAI(M))
+				shake_camera(M, 3, 1)
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 20, 1, 8, 8)
+		sleep(9)
+		for(var/mob/M in range(10, src))
+			if(!M.stat && !isAI(M))
+				shake_camera(M, 3, 1)
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 60, 1, 8, 8)
+		sleep(9)
+		for(var/mob/M in range(10, src))
+			if(!M.stat && !isAI(M))
+				shake_camera(M, 3, 1)
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 80, 1, 8, 8)
+		sleep(9)
+		for(var/mob/M in range(10, src))
+			if(!M.stat && !isAI(M))
+				shake_camera(M, 3, 1)
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 100, 1, 8, 8)
+		new /mob/living/carbon/superior_animal/roach/kaiser(src.loc)
+		new /obj/spawner/mob/roaches/cluster(src.loc)
+		new /obj/spawner/mob/roaches/cluster(src.loc)
+		new /obj/spawner/mob/roaches/cluster(src.loc)
+		return
+	else
+		to_chat(src, "You lack the four madness required to summon a Kaiser.")
 
 /datum/power/occultist/truthinblood
 	name = "Truth in Blood"
 	desc = "Covers the ground around you in blood and gore."
 	activecost = 4
 	madnesscost = 40
+	verbpath = /mob/living/carbon/human/proc/Truth_in_Blood
 
-/datum/power/occultist/breakfaith
-	name = "Break the faith"
-	desc = "Subvert an Obelisk to our cause."
-	activecost = 4
-	madnesscost = 40
+/mob/living/carbon/human/proc/Truth_in_Blood()
+	set category = "Occultist"
+	set desc = "Thin the veil, here!"
 
-/datum/power/occultist/breakreality
-	name = "Unseat Reality"
-	desc = "Bring down the walls of reality around you."
-	activecost = 4
-	madnesscost = 40
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
+	if(spendpoints(4))
+		var/datum/effect/effect/system/smoke_spread/bad/smoke
+		smoke = new
+		playsound(loc, 'sound/effects/smoke.ogg', 50, 1, -3)
+		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.species.blood_color)
+		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.species.blood_color)
+		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.species.blood_color)
+		for(var/turf/simulated/floor/T in orange(5, src))
+			if(prob(20))
+				new /obj/effect/gibspawner/human(T, src.dna, src.species.flesh_color, src.species.blood_color)
+				new /obj/effect/gibspawner/human(T, src.dna, src.species.flesh_color, src.species.blood_color)
+				var/datum/effect/effect/system/smoke_spread/bad/smoke2
+				smoke2 = new
+				smoke2.set_up(3, 0, T)
+				smoke2.attach(T)
+				spawn(0)
+					smoke.start()
+		for(var/turf/simulated/floor/T in orange(7, src))
+			if(prob(1))
+				var/obj/effect/decal/cleanable/blood/writing/sign = new /obj/effect/decal/cleanable/blood/writing(T)
+				sign.message = sanity.pick_quote_20()
+				sign.color = src.species.blood_color
+		smoke.set_up(3, 0, src.loc)
+		smoke.attach(src)
+		spawn(0)
+			smoke.start()
+			sleep(3)
+			smoke.start()
+			sleep(3)
+			smoke.start()
+			sleep(3)
+			smoke.start()
+	else
+		to_chat(src, "You lack the four madness required to do this.")
+
 
 /datum/power/occultist/embracecorruption
 	name = "Embrace Corruption"
-	desc = "Sacrifice yourself to bring about a true fusion of man and machine."
-	activecost = 0
+	desc = "Sacrifice yourself to bring about a true fusion of man and machine. This ability will activate as soon as you select it."
 	madnesscost = 40
 
-/datum/power/occultist/underworld
-	name = "Path to the Underworld"
-	desc = "Teleport yourself and anyone grabbed by you to the under-tunnels."
-	activecost = 4
-	madnesscost = 40
+/datum/power/occultist/embracecorruption/addPower(var/mob/living/carbon/human/themaster)
+	new /obj/machinery/hivemind_machine/node(themaster.loc)
+	themaster.gib()
 
 /datum/power/occultist/theskies
 	name = "The Skies are Buried Deep"
 	desc = "Reveals the truth to everyone who can see you."
 	activecost = 4
 	madnesscost = 40
+	verbpath = /mob/living/carbon/human/proc/The_Skies
+
+
+/mob/living/carbon/human/proc/The_Skies()
+	set category = "Occultist"
+	set desc = "Destroy the sanity of all around you."
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
+	if(spendpoints(4))
+		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 75, 1, 8, 8)
+		sleep(2)
+		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 75, 1, 8, 8)
+		sleep(2)
+		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 75, 1, 8, 8)
+		for(var/mob/living/carbon/human/targets in view(src))
+			if(targets == src)
+				continue
+			else
+				targets.sanity.level = 0
+				to_chat(targets, SPAN_DANGER("Your vision blurs as [src] screams incomprehensibly!"))
+				targets.hallucination(80,120)
+	else
+		to_chat(src, "You lack enough madness to channel this!")
+
+
+/datum/power/occultist/bringdecay
+	name = "Decay"
+	desc = "Makes all objects on your person and in the inventory of your grabbed target rust and become useless."
+	activecost = 4
+	madnesscost = 40
+	verbpath = /mob/living/carbon/human/proc/Bring_Decay
+
+/mob/living/carbon/human/proc/Bring_Decay()
+	set category = "Occultist"
+	set desc = "Rust all the items in your grabbed target's inventory!"
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
+	if(get_grabbed_mob(src))
+		if(spendpoints(4))
+			var/mob/living/L
+			L = get_grabbed_mob(src)
+			for(var/obj/objects in L.contents)
+				if(istype(objects, /obj/item/organ))
+					continue
+				if(istype(objects, /obj/parallax))
+					continue
+				if(istype(objects, /obj/item/weapon/grab))
+					continue
+				else
+					objects.make_old()
+					visible_message(
+						SPAN_DANGER("[objects] rusts and decays!"),
+					)
+		else
+			to_chat(src, "You lack the four madness required to do this.")
+	else
+		to_chat(src, "You must grab your target!")
+
+/datum/power/occultist/underworld
+	name = "Path to the Underworld"
+	desc = "Teleport yourself and anyone grabbed by you to the under-tunnels."
+	activecost = 4
+	madnesscost = 40
+	verbpath = /mob/living/carbon/human/proc/Path_to_the_Underworld
+
+/mob/living/carbon/human/proc/Path_to_the_Underworld()
+	set category = "Occultist"
+	set desc = "Teleport to the under tunnels."
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
+	var/mob/living/L = get_grabbed_mob(src)			//Grab anyone we have grabbed
+	var/turf/simulated/floor/target					//this is where we are teleporting
+	var/list/validtargets = list()					//list of valid tiles to teleport to
+
+	for(var/area/A in world)						//Clumbsy, but less intensive than iterating every tile
+		if(istype(A, /area/deepmaint))				//First find our deepmaint areas
+			for(var/turf/simulated/floor/T in A)	//Pull a list of valid floor tiles from deepmaint
+				validtargets += T					//Add them to the list
+	target = pick(validtargets)						//Now we pick a target
+
+	do_sparks(1, 0, src)							//Visual feedback before the teleport
+	src.forceMove(target)							//Moves the caster
+	if(L)											//If we have a grabbed target
+		do_sparks(1, 0, target)						//Visual feeback before the teleport
+		L.forceMove(target)							//Moves the target
+		do_sparks(1, 0, target)						//Visual feedback after the teleport
+	do_sparks(1, 0, src)							//Visual feedback after the teleport
+	src.weakened += 10								//Moving like this is stressful and stuns you for a time.
+
+/datum/power/occultist/initiate
+	name = "Rite of Initiation"
+	desc = "Induct a new Occultist to our ranks."
+	activecost = 4
+	madnesscost = 40
+	verbpath = /mob/living/carbon/human/proc/Rite_of_Initiation
+
+/mob/living/carbon/human/proc/Rite_of_Initiation()
+	set category = "Occultist"
+	set desc = "Induct a new cultist."
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
+	if(get_front_mob(src))
+		var/mob/living/carbon/human/L = get_front_mob(src)
+		if(istype(L, /mob/living/carbon/human) && L.stat == CONSCIOUS)
+			if(L.ckey)
+				if(alert(L, "An alien presence touches your mind, offering you power and insight into the very fabric of reality. Do you accept its offer and become an Occultist?",
+					"Become Occultist", "No", "Yes") != "Yes")
+					to_chat(src, "The target refuses your gift!")
+					return
+				else
+					if(spendpoints(4))
+						visible_message(
+							SPAN_WARNING("[src] grabs [L]! Old wounds rip open on [src] and begin pouring a dark liquid over [L] !"),
+							SPAN_WARNING("You open your wounds, pouring your life essance over [L]")
+						)
+						if(do_after(src, 150 , incapacitation_flags = INCAPACITATION_DEFAULT))
+							L.make_occultist()
+							src.take_overall_damage(90)
+							to_chat(src, "You sink down as the ritual completes.")
+							to_chat(L, "Your mind is aflame with possibilities! You can see, you can SEE, YOU CAN SEE IT ALL!")
+						else
+							to_chat(src, "You must not move while performing the ritual. Madness lost!")
+					else
+						to_chat(src, "You lack the required four madness to initiate another.")
+
+
+	else
+		to_chat(src, "You must face your target!")
