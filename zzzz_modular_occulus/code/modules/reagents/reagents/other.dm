@@ -172,55 +172,6 @@ datum/reagent/nitrate
 	M.stuttering = 50
 	return ..()
 
-/datum/reagent/mortemol //needs testing
-	id = "mortemol"
-	name = "Mortemol"
-	description = "Further testing required, could potentially reanimate dead cells if delivered with enough force"
-	color = "#000000"
-	metabolism = 0.5 * REM
-	data = list(0) //use data? Might cause problems with blood dialysis
-
-/datum/reagent/mortemol/touch_mob(var/mob/M, var/volume) //requires a splash to start effects because dead humans don't process reagents
-	if(!istype(M, /mob/living/carbon))
-		return 0
-
-	var/mob/living/carbon/C = M
-	if(holder)
-		if(!istype(holder.my_atom, /obj/effect/effect/smoke/chem))
-			if(C.reagents)
-				if(C.stat && !(data[1]))
-					data[1] = 1
-					C.reagents.add_reagent(id, volume, data)
-					C.revive()
-					C.visible_message("<span class='notice'>[C] seems to wake from the dead!</span>")
-				else
-					C.reagents.add_reagent(id, volume)
-
-/datum/reagent/mortemol/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	if(data[1])
-		M.halloss = 100
-		M.stuttering = 1
-
-	return ..()
-
-/datum/reagent/mortemol/on_mob_delete(var/mob/living/M)
-	if(data[1])
-		if(istype(M))
-			to_chat(usr,	"You feel the last traces of chemicals leave your body as you return to death once more...")
-			M.death(0)
-		//Reagent giveth, and reagent taketh away
-
-/datum/reagent/mortemol/on_mob_death(var/mob/M)
-	if(data[1])
-		return
-	else
-		if(istype(M, /mob/living/carbon))
-			var/mob/living/carbon/C = M
-			data[1] = 1
-			C.rejuvenate()
-			C.rejuvenate() //Necessary to call twice in testing
-			C.visible_message("<span class='notice'>[C] seems to wake from the dead!</span>")
-
 /datum/reagent/bluespace_dust //needs testing
 	id = "bluespace_dust"
 	name = "Sparkling Crystaline Dust"
@@ -228,7 +179,7 @@ datum/reagent/nitrate
 	color = "#4ECBF5"
 	reagent_state = SOLID
 
-//Temporarily disabled till I have more time to look at this. Need to adjust coordinates to reflect safe and unsafe XYZ.
+//Still teleports people into space. Need to figure out why.. But otherwise good to go.
 /datum/reagent/liquid_bluespace
 	id = "liquid_bluespace"
 	name = "Liquid Bluespace"
@@ -296,61 +247,4 @@ datum/reagent/nitrate
 //		M.add_chemical_effect(CE_TOXIN, 30)
 		M.Weaken(90)
 
-
-/datum/reagent/gaseous
-	reagent_state = GAS
-
-/datum/reagent/gaseous/proc/initial_reaction(var/obj/item/weapon/reagent_containers/container, var/turf/T, var/volume, var/message)
-	var/datum/effect/effect/system/smoke_spread/chem/effect = new/datum/effect/effect/system/smoke_spread/chem()
-	var/datum/reagents/R = new/datum/reagents()
-	R.my_atom = container
-	R.add_reagent(src.id, volume)
-	effect.set_up(R, 17, 0, T, 0)
-	effect.start()
-	spawn(1)
-		container.reagents.clear_reagents()
-	return ..()
-
-/datum/reagent/gaseous/on_transfer(var/volume)
-	initial_reaction(src.holder, src.holder.my_atom, volume, null)
-	return 0
-
-//It is POSSIBLE but very hard to "stop, drop, and roll" out the fire from an unprotected ignisol encounter before going into crit
-/datum/reagent/gaseous/ignisol //needs testing
-	id = "ignisol"
-	name = "Ignisol"
-	description = "Creates highly flammable reaction with biotic substances"
-	color = "#F78431"
-
-/*/datum/reagent/gaseous/ignisol/touch_turf(var/turf/T)
-	var/mob_affected = 0
-	for(var/mob/living/L in T.contents)
-		mob_affected = 1
-		if(istype(L, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = L
-			if(!gaseous_reagent_check(H)) //protective clothing check
-				H.on_fire = 1
-				H.adjust_fire_stacks(20)
-				H.update_fire()
-		else
-			if(!istype(L, /mob/living/silicon))
-				L.on_fire = 1
-				L.adjust_fire_stacks(20)
-
-	if(mob_affected)
-		src = null
-*/
-/datum/reagent/gaseous/ignisol/touch_mob(var/mob/M, var/volume)
-	if(istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
-		if(!gaseous_reagent_check(H)) //protective clothing check
-			H.on_fire = 1
-			H.adjust_fire_stacks(20)
-			H.update_fire()
-	else
-		if(istype(M, /mob/living) && !istype(M, /mob/living/silicon))
-			var/mob/living/L = M
-			L.on_fire = 1
-			L.adjust_fire_stacks(20)
-	src = null
 
