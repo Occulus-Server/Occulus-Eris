@@ -60331,7 +60331,15 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/engineering/engeva)
 "cKE" = (
-/obj/machinery/suit_storage_unit/engineering,
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/northright{
+	name = "Atmospherics Hardsuits";
+	req_access = list(24)
+	},
+/obj/item/weapon/rig/techno/equipped,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engeva)
 "cKF" = (

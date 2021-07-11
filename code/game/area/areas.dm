@@ -276,6 +276,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 	L.lastarea = newarea
 	play_ambience(L)
+	do_area_blurb(L) // !!!!OCCULUS EDIT!!!! This handles narration logic.
 
 /area/proc/play_ambience(var/mob/living/L)
     // Ambience goes down here -- make sure to list each area seperately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
@@ -306,7 +307,6 @@ var/list/mob/living/forced_ambiance_list = new
 		var/sound = 'sound/ambience/shipambience.ogg'
 		CL.ambience_playing = sound
 		sound_to(L, sound(sound, repeat = 1, wait = 0, volume = 30, channel = GLOB.ambience_sound_channel))
-
 
 //Figures out what gravity should be and sets it appropriately
 /area/proc/update_gravity()
@@ -414,3 +414,4 @@ var/list/mob/living/forced_ambiance_list = new
 	A.Entered(T, old_area)
 	for(var/atom/movable/AM in T)
 		A.Entered(AM, old_area) // Note: this will _not_ raise moved or entered events. If you change this, you must also change everything which uses them.
+

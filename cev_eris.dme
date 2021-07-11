@@ -2946,6 +2946,7 @@
 #include "zzzz_modular_occulus\code\modules\economy\retail_scanner.dm"
 #include "zzzz_modular_occulus\code\modules\economy\vending.dm"
 #include "zzzz_modular_occulus\code\modules\food\kitchen\icecream.dm"
+#include "zzzz_modular_occulus\code\modules\game\areas\areablurb.dm"
 #include "zzzz_modular_occulus\code\modules\game\Objects\Items\oddities.dm"
 #include "zzzz_modular_occulus\code\modules\game\Objects\Items\Devices\artifacts.dm"
 #include "zzzz_modular_occulus\code\modules\hivemind\core.dm"
