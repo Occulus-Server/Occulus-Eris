@@ -59,3 +59,27 @@
 
 	cold_discomfort_level = 275
 	blood_color = "#D514F7"
+
+//slime
+
+/datum/species/slime/roundstart
+	name = SPECIES_SLIMEPERSON
+	name_plural = "lesser slimepeople"
+	mob_size = MOB_MEDIUM
+	flags = NO_SLIP //need to breathe unlike real slimepeople, they only retain the noslip property that real slimes do
+	total_health = 125 //Unathi level
+	brute_mod = 1.1 //Normalized to .1 delta
+	burn_mod = 0.9 // ditto
+	spawn_flags = CAN_JOIN //duh
+	siemens_coefficient = 3 //conductive | left untouched from regular slimes
+	darksight = 3
+	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite) // no free super stungloves
+
+	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SKIN_COLOR
+
+	breath_type = "oxygen"
+	poison_type = "phoron"
+	exhale_type = "carbon_dioxide"
+
+	blurb = "A slime species originating from a rogue planet found orbiting a gravitational singularity in nullspace. \
+	Relies on aerobic respiration in stark contrast to the slimes more often found on the ship."
