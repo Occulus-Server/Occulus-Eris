@@ -32,7 +32,7 @@
 	darksight = 3
 //	ambiguous_genders = TRUE
 	gluttonous = 1
-	slowdown = 0.3
+	slowdown = 0.15 // OCCULUS EDIT - Normalizing slowdown values
 	total_health = 125
 	brute_mod = 0.90	//syzygy edit
 	burn_mod = 0.90		//also edit
@@ -48,7 +48,7 @@
 //	species_language = LANGUAGE_UNATHI
 //	health_hud_intensity = 2.5
 
-	min_age = 32
+	min_age = 18 // OCCULUS EDIT - so now you can roleplay as someone who's not middle aged if you're just a unathi-based custom species
 	max_age = 260
 
 //	economic_modifier = 7
