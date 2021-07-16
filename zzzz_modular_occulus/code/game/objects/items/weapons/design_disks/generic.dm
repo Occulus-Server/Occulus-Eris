@@ -10,3 +10,5 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/robustcells
 	disk_name = "Robustcells"
 
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/asters
+	disk_name = "Enforcement Armor Pack"
