@@ -131,6 +131,16 @@ ARMOR_PEN_MASSIVE			30
 	icon = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi'
 	icon_state = "mek_mace"
 	item_state = "chargehammer"
+	item_icons = list(
+		slot_l_hand_str = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi',
+		slot_r_hand_str = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi',
+		slot_back_str = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi'
+		)
+	item_state_slots = list(
+		slot_l_hand_str = "lefthand",
+		slot_r_hand_str = "righthand",
+		slot_back_str = "back"
+		)
 
 /datum/design/autolathe/sword/mek_hammer
 	name = "Mekhane Electro-Mace"
