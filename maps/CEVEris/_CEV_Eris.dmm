@@ -104315,6 +104315,11 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/main)
+"gNW" = (
+/obj/structure/table/standard,
+/obj/item/toy/plushie/braincell,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/security/main)
 "gOy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -169647,7 +169652,7 @@ aac
 aBi
 aVX
 aXv
-aXv
+gNW
 aBi
 bfU
 aCx
