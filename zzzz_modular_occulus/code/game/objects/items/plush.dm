@@ -11,3 +11,10 @@
 	icon = 'zzzz_modular_occulus/icons/obj/plush.dmi'
 	icon_state = "lexi"
 	item_state = "inflatable"
+
+/obj/item/toy/plushie/braincell
+	name = "Aegis Communal Braincell"
+	desc = "Legends say those who hold this are fit to lead Aegis into battle."
+	icon = 'zzzz_modular_occulus/icons/obj/plush.dmi'
+	icon_state = "braincell"
+	item_state = "inflatable"
