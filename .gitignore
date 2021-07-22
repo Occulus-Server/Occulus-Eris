@@ -15,9 +15,7 @@ cfg/
 tmp/
 build_log.txt
 __pycache__
-config/example/
-config/names/
 
 #vscode
 .vscode
-
+.history
