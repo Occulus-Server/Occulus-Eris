@@ -118,16 +118,19 @@
 	name = "solgov NCO dress unfirom"
 	icon_state = "whitedress_snco"
 	item_state = "whitedress_snco"
+	desc = "A dress uniform worn by members of the solgov navy. Typically at formal events."
 
 /obj/item/clothing/suit/storage/solgov/wo
 	name = "solgov Warrent Officer dress uniform"
 	icon_state = "whitedress_wo"
 	item_state = "whitedress_wo"
+	desc = "A dress uniform worn by members of the solgov navy. Typically at formal events. This one is styled in warrent officer colors."
 
 /obj/item/clothing/suit/storage/solgov/ltcdr
 	name = "solgov Officer dress uniform"
 	icon_state = "whitedress_comm"
 	item_state = "whitedress_comm"
+	desc = "A dress uniform worn by members of the solgov navy. Typically at formal events. This one is styled in officer colors."
 
 /obj/item/clothing/suit/space/captain
 	name = "captain's armor"
