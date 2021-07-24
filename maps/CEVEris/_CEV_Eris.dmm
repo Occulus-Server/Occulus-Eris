@@ -25531,6 +25531,7 @@
 /obj/machinery/camera/network/third_section{
 	dir = 4
 	},
+/obj/structure/medical_stand,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/neotheology/storage)
 "bhD" = (
@@ -25538,6 +25539,10 @@
 	dir = 8;
 	pixel_x = 22
 	},
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/structure/closet/crate/freezer,
+/obj/item/weapon/tank/anesthetic,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/neotheology/storage)
 "bhE" = (
@@ -30547,6 +30552,9 @@
 /area/eris/rnd/lab)
 "btd" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/sink/kitchen{
+	pixel_y = 26
+	},
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bte" = (
@@ -44550,6 +44558,7 @@
 	pixel_y = 6
 	},
 /obj/structure/table/woodentable,
+/obj/item/weapon/storage/fancy/egg_box,
 /turf/simulated/floor/wood,
 /area/eris/neotheology/storage)
 "bZn" = (
@@ -75478,6 +75487,7 @@
 "dtS" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/beakers,
+/obj/item/weapon/storage/pill_bottle/spaceacillin,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
 "dtT" = (
@@ -108789,6 +108799,12 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engine_room)
+"vhV" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/storage/firstaid/regular,
+/obj/item/weapon/storage/pill_bottle/spaceacillin,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/neotheology/chapelritualroom)
 "vjd" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet,
@@ -163244,7 +163260,7 @@ ccU
 ccU
 byQ
 ccU
-cBm
+vhV
 cBm
 uly
 ccU
