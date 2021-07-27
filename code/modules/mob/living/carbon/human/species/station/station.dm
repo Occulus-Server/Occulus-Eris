@@ -32,7 +32,7 @@
 	darksight = 3
 //	ambiguous_genders = TRUE
 	gluttonous = 1
-	slowdown = 0.15 // OCCULUS EDIT - Normalizing slowdown values
+	slowdown = 0.3
 	total_health = 125
 	brute_mod = 0.90	//syzygy edit
 	burn_mod = 0.90		//also edit
