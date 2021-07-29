@@ -1,4 +1,4 @@
-/mob/living/carbon/superior_animal/roach/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/carbon/superior_animal/roach/UnarmedAttack(var/atom/A, var/proximity)//Occulus Edit Start - This whole file is filled with our edits. Ergo I'm marking the whole thing as an Occulus Edit. Do not blindly merge anything into this.
 	if(isliving(A))
 		var/mob/living/L = A
 		var/mob/living/carbon/human/H
@@ -18,6 +18,4 @@
 				L.Weaken(3)
 				L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))
 
-	. = ..()
-
-
+	. = ..()//Occulus Edit End
