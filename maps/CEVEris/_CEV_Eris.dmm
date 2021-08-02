@@ -4110,13 +4110,12 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "ajY" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/computer/cryopod/elevator_storage{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
 "aka" = (
@@ -126139,7 +126138,7 @@ agH
 agQ
 dzi
 aaa
-agf
+agD
 ajY
 akH
 akH
