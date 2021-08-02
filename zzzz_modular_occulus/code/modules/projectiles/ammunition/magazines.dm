@@ -18,3 +18,59 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo/Initialize()	//modular override to add rubbershot to the nonlethal ammo disk
 	designs += list(/datum/design/autolathe/ammo/shotgun_rubbershot)	// add the designs we want on the disk
 	. = ..()	// then let it install the data onto the disk properly
+
+
+// white nail wells
+/obj/item/ammo_magazine/nail
+	name = "white nail ammo well"
+	icon_state = "srifle_l"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	mag_well = MAG_WELL_RIFLE
+	caliber = "nail"
+	matter = list(MATERIAL_STEEL = 60)
+	ammo_type = /obj/item/ammo_casing/clrifle // caseless is used to prevent tons of casing litter
+	max_ammo = 10
+	initial_ammo = 0
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/nail/rubber
+	name = "white nail rubber ammo well"
+	icon_state = "srifle_r"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	mag_well = MAG_WELL_RIFLE
+	caliber = "nail"
+	matter = list(MATERIAL_STEEL = 60)
+	ammo_type = /obj/item/ammo_casing/clrifle/rubber
+	max_ammo = 10
+	initial_ammo = 0
+	multiple_sprites = 1
+
+//hicap white nail wells
+
+/obj/item/ammo_magazine/hnail
+	name = "white nail hicap ammo well"
+	icon_state = "srifle_l"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	mag_well = MAG_WELL_RIFLE
+	caliber = "nail"
+	matter = list(MATERIAL_STEEL = 60)
+	ammo_type = /obj/item/ammo_casing/clrifle
+	max_ammo = 21
+	initial_ammo = 0
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/hnail/rubber
+	name = "white nail hicap ammo well"
+	icon_state = "srifle_r"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	mag_well = MAG_WELL_RIFLE
+	caliber = "nail"
+	matter = list(MATERIAL_STEEL = 60)
+	ammo_type = /obj/item/ammo_casing/clrifle/rubber
+	max_ammo = 21
+	initial_ammo = 0
+	multiple_sprites = 1

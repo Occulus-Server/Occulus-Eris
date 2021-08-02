@@ -2998,6 +2998,7 @@
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\rifle\magnumlever.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\rifle\magnumleversawn.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\rifle\sawnlevergun.dm"
+#include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\rifle\white_nail.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\shotgun\jackhammer.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\shotgun\sawnoff.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\shotgun\tauceti.dm"
