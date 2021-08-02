@@ -1664,7 +1664,7 @@ var/list/rank_prefix = list(\
 	var/obj/item/organ/internal/heart_organ = random_organ_by_process(OP_HEART)
 	var/obj/item/organ/internal/brain_organ = random_organ_by_process(BP_BRAIN)
 
-	if(!is_asystole() && !(heart_organ && brain_organ) || (heart_organ.is_broken() || brain_organ.is_broken()))
+	if(!(heart_organ && brain_organ) || (heart_organ.is_broken() || brain_organ.is_broken()))//Occulus Edit: is_asystole is ALWAYS going to get called on a dead mob. Because they are DEAD. DIMWITS
 		return 0
 
 	if(world.time >= (timeofdeath + NECROZTIME))
@@ -1676,14 +1676,14 @@ var/list/rank_prefix = list(\
 
 	if(health <= (HEALTH_THRESHOLD_DEAD - oxyLoss))
 		visible_message(SPAN_WARNING("\The [src] twitches a bit, but their body is too damaged to sustain life!"))
-		timeofdeath = 0
+		//timeofdeath = 0 Occulus yeet
 		return 0
 
 	visible_message(SPAN_NOTICE("\The [src] twitches a bit as their heart restarts!"))
 	pulse = PULSE_NORM
 	handle_pulse()
 	tod = null
-	timeofdeath = 0
+	//timeofdeath = 0 Occulus yeet
 	stat = UNCONSCIOUS
 	jitteriness += 3 SECONDS
 	updatehealth()

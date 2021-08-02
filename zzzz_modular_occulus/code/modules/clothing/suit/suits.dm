@@ -69,26 +69,6 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	spawn_blacklisted = TRUE	//no random command shit in maint
 
-/obj/item/clothing/suit/storage/cyberjacket
-	name = "crystaljacket"
-	desc = "A stylish jacket featuring a proprietary liquid crystal liner that absorbs physical impacts exceptionally well. The liquid crystal layer also serves to provide a neat glow around the collar."
-	icon = 'zzzz_modular_occulus/icons/inventory/suit/jacket.dmi'
-	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/jacketmob.dmi'
-	icon_state = "cyber"
-	rarity_value = 6
-	armor = list(
-		melee = 25,
-		bullet = 5,
-		energy = 0,
-		bomb = 5,
-		bio = 0,
-		rad = 0
-	)
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
-	min_cold_protection_temperature = T0C - 20
-	style = STYLE_HIGH
-
 /obj/item/clothing/suit/storage/cyberjacket/red
 	icon_state = "cyber_red"
 
@@ -118,16 +98,19 @@
 	name = "solgov NCO dress unfirom"
 	icon_state = "whitedress_snco"
 	item_state = "whitedress_snco"
+	desc = "A dress uniform worn by members of the solgov navy. Typically at formal events."
 
 /obj/item/clothing/suit/storage/solgov/wo
 	name = "solgov Warrent Officer dress uniform"
 	icon_state = "whitedress_wo"
 	item_state = "whitedress_wo"
+	desc = "A dress uniform worn by members of the solgov navy. Typically at formal events. This one is styled in warrent officer colors."
 
 /obj/item/clothing/suit/storage/solgov/ltcdr
 	name = "solgov Officer dress uniform"
 	icon_state = "whitedress_comm"
 	item_state = "whitedress_comm"
+	desc = "A dress uniform worn by members of the solgov navy. Typically at formal events. This one is styled in officer colors."
 
 /obj/item/clothing/suit/space/captain
 	name = "captain's armor"
@@ -190,7 +173,7 @@
 	icon_state = "ees"
 	item_state = "armor_engineering"
 	armor = list(
-		melee = 30,
+		melee = 20,
 		bullet = 15,
 		energy = 20,
 		bomb = 10,
@@ -204,4 +187,46 @@
 	siemens_coefficient = 0
 	price_tag = 600
 	rarity_value = 60
-	style = STYLE_NONE //less bulky than actual armor
+	style = STYLE_NEG_LOW
+
+/obj/item/clothing/suit/storage/cyberjacket
+	name = "crystaljacket"
+	desc = "A stylish jacket featuring a proprietary liquid crystal liner that absorbs physical impacts exceptionally well. The liquid crystal layer also serves to provide a neat glow around the collar."
+	icon = 'zzzz_modular_occulus/icons/inventory/suit/jacket.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/jacketmob.dmi'
+	icon_state = "cyber"
+	rarity_value = 6
+	armor = list(
+		melee = 20,
+		bullet = 10,
+		energy = 10,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = T0C - 20
+	style = STYLE_HIGH
+
+/obj/item/clothing/suit/storage/cyberpunksleek
+	desc = "A sleek overcoat made of neo-laminated fabric designed to repel energy weapons. It has an association with upper-class mobsters and gangs."
+	armor = list(
+		melee = 10,
+		bullet = 10,
+		energy = 20,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
+
+/obj/item/clothing/suit/storage/cyberpunksleek_long
+	desc = "A long overcoat made of neo-laminated fabric designed to repel energy weapons. It has an association with upper-class mobsters and gangs."
+	armor = list(
+		melee = 10,
+		bullet = 10,
+		energy = 20,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)

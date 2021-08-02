@@ -149,6 +149,7 @@
 	color = "#8080FF"
 	metabolism = REM * 0.5
 	scannable = 1
+	affects_dead = 1//Occulus Edit
 
 /datum/reagent/medicine/cryoxadone/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(M.bodytemperature < 170)
@@ -168,6 +169,7 @@
 	color = "#80BFFF"
 	metabolism = REM * 0.5
 	scannable = 1
+	affects_dead = 1//Occulus Edit
 
 /datum/reagent/medicine/clonexadone/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(M.bodytemperature < 170)
@@ -177,6 +179,8 @@
 		M.heal_organ_damage(3 * effect_multiplier, 3 * effect_multiplier, 5 * effect_multiplier, 5 * effect_multiplier)
 		M.adjustToxLoss(-(3 + (M.getToxLoss() * 0.05)) * effect_multiplier)
 		M.add_chemical_effect(CE_PULSE, -2)
+		if(M.stat == DEAD)//Occulus Edit
+			M.timeofdeath += 20//Occulus Edit
 
 /* Painkillers */
 

@@ -2846,6 +2846,7 @@
 #include "zzzz_modular_occulus\code\game\jobs\job\science.dm"
 #include "zzzz_modular_occulus\code\game\jobs\job\security.dm"
 #include "zzzz_modular_occulus\code\game\machinery\autodoc.dm"
+#include "zzzz_modular_occulus\code\game\machinery\bsd.dm"
 #include "zzzz_modular_occulus\code\game\machinery\dorms_elevator.dm"
 #include "zzzz_modular_occulus\code\game\machinery\jukebox.dm"
 #include "zzzz_modular_occulus\code\game\machinery\nanite_reconstitution_apparatus.dm"

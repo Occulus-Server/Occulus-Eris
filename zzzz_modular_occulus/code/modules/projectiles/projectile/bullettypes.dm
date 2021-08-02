@@ -25,9 +25,30 @@
 
 /obj/item/projectile/bullet/srifle/rubber
 	penetrating = 0
+	damage_types = list(BRUTE = 6)
+	agony = 27
 
 /obj/item/projectile/bullet/clrifle/rubber
 	penetrating = 0
+	damage_types = list(BRUTE = 6)
+	agony = 16
 
 /obj/item/projectile/bullet/lrifle/rubber
 	penetrating = 0
+	damage_types = list(BRUTE = 6)
+	agony = 22
+
+/obj/item/projectile/bullet/magnum/rubber
+	damage_types = list(BRUTE = 12)
+	agony = 28
+
+/obj/item/projectile/bullet/shotgun/beanbag
+	damage_types = list(BRUTE = 17)
+
+/obj/item/projectile/bullet/pistol/rubber
+	damage_types = list(BRUTE = 6)
+	agony = 22
+
+/obj/item/projectile/bullet/pellet/shotgun/rubber
+	damage_types = list(BRUTE = 2) //The official consensus is that getting PB'd by rubbers should be an owie.
+	agony = 8 //Whoever the hell had this at 15 is going to suffer multiple shots to the groin.
