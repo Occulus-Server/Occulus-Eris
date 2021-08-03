@@ -4,6 +4,7 @@
 	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/corsair.dmi'
 	icon_state = "corsair"
 	charge_meter = FALSE
+	item_charge_meter = FALSE
 	item_state = null
 	w_class = ITEM_SIZE_HUGE
 	force = WEAPON_FORCE_PAINFUL
@@ -44,11 +45,20 @@
 		to_chat(user, SPAN_WARNING("It is already emagged!"))
 
 /obj/item/weapon/gun/energy/shrapnel/corsair/on_update_icon()
-	set_item_state("-[item_modifystate]")
 	cut_overlays()
 	var/ratio = 0
 
 	if(cell)
 		ratio = cell.charge / cell.maxcharge
 		ratio = min(max(round(ratio, 0.25) * 100, 25), 100)
-		add_overlay("[initial(icon_state)]-[ratio]")
+		if(charge_cost > cell.charge)
+			add_overlay("[initial(icon_state)]-0")
+		else
+			add_overlay("[initial(icon_state)]-[ratio]")
+			
+	if(wielded)
+		item_state_slots[slot_l_hand_str] = "lefthand"  + wielded_item_state
+		item_state_slots[slot_r_hand_str] = "righthand" + wielded_item_state
+	else
+		item_state_slots[slot_l_hand_str] = "lefthand"
+		item_state_slots[slot_r_hand_str] = "righthand"

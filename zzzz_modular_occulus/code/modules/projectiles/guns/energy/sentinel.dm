@@ -5,6 +5,7 @@
 	icon_state = "sentinel"
 	item_state = null
 	charge_meter = FALSE
+	item_charge_meter = FALSE
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BACK
 	w_class = ITEM_SIZE_HUGE
@@ -43,11 +44,20 @@
 		to_chat(user, SPAN_WARNING("It is already emagged!"))
 
 /obj/item/weapon/gun/energy/laser/sentinel/on_update_icon()
-	set_item_state("-[item_modifystate]")
 	cut_overlays()
 	var/ratio = 0
 
 	if(cell)
 		ratio = cell.charge / cell.maxcharge
 		ratio = min(max(round(ratio, 0.25) * 100, 25), 100)
-		add_overlay("[initial(icon_state)][ratio]")
+		if(charge_cost > cell.charge)
+			add_overlay("[initial(icon_state)]-0")
+		else
+			add_overlay("[initial(icon_state)]-[ratio]")
+			
+	if(wielded)
+		item_state_slots[slot_l_hand_str] = "lefthand"  + wielded_item_state
+		item_state_slots[slot_r_hand_str] = "righthand" + wielded_item_state
+	else
+		item_state_slots[slot_l_hand_str] = "lefthand"
+		item_state_slots[slot_r_hand_str] = "righthand"
