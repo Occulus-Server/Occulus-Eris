@@ -1,8 +1,8 @@
-/obj/item/weapon/gun/energy/plasma/diktat
-	name = "CAT \"Diktat\""
-	desc = "A \"Catalyser\" energy gun, The Diktat refines energy into an overly energetic plasma, spewing balls of nigh-unquenchable energy."
-	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/diktat.dmi'
-	icon_state = "diktat"
+/obj/item/weapon/gun/energy/plasma/didact
+	name = "CAT \"Didact\""
+	desc = "A \"Catalyzer\" energy gun, The Didact refines energy into an overly energetic plasma, spewing balls of nigh-unquenchable energy."
+	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/didact.dmi'
+	icon_state = "didact"
 	charge_meter = FALSE
 	item_state = null
 	w_class = ITEM_SIZE_HUGE
@@ -24,7 +24,7 @@
 		list(mode_name="full auto", projectile_type=/obj/item/projectile/plasma/light, mode_type = /datum/firemode/automatic, fire_delay=5  , charge_cost=125, icon="auto", projectile_color = "#9F87FF"),
 	)
 
-/obj/item/weapon/gun/energy/plasma/diktat/emag_act(var/remaining_charges, var/mob/user)
+/obj/item/weapon/gun/energy/plasma/didact/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		emagged = 1
 		init_firemodes = list(
@@ -37,7 +37,7 @@
 	else
 		to_chat(user, SPAN_WARNING("It is already emagged!"))
 
-/obj/item/weapon/gun/energy/plasma/diktat/on_update_icon()
+/obj/item/weapon/gun/energy/plasma/didact/on_update_icon()
 	set_item_state("-[item_modifystate]")
 	cut_overlays()
 	var/ratio = 0

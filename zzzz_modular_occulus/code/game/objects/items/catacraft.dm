@@ -143,7 +143,7 @@
 	if(istype(core, /obj/item/guncore/rubber))
 		gun_result = /obj/item/weapon/gun/energy/shrapnel/corsair/enforcer
 	if(istype(core, /obj/item/guncore/plasma))
-		gun_result = /obj/item/weapon/gun/energy/plasma/diktat
+		gun_result = /obj/item/weapon/gun/energy/plasma/didact
 	if(istype(core, /obj/item/guncore/laser))
 		gun_result = /obj/item/weapon/gun/energy/laser/sentinel
 

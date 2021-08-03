@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/laser/sentinel
 	name = "CAT \"Sentinel\""
-	desc = "A \"Catalyser\" gun designed around most popular laser weaponry. Its unique core grants it an extended charging limit."
+	desc = "A \"Catalyzer\" gun designed around most popular laser weaponry. Its unique core grants it an extended charging limit."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/sentinel.dmi'
 	icon_state = "sentinel"
 	item_state = null

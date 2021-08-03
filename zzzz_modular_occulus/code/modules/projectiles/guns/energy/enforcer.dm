@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/shrapnel/corsair/enforcer
 	name = "CAT \"Enforcer\""
-	desc = "A \"Catalyser\" energy gun, The Enforcer uses a catalytic conversion system to turn energy into a hard, rubbery mass"
+	desc = "A \"Catalyzer\" energy gun, The Enforcer uses a catalytic conversion system to turn energy into a hard, rubbery mass"
 	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/enforcer.dmi'
 	icon_state = "enforcer"
 	init_firemodes = list(
@@ -22,6 +22,3 @@
 	else
 		to_chat(user, SPAN_WARNING("It is already emagged!"))
 
-/obj/item/weapon/gun/energy/shrapnel/corsair/enforcer/on_update_icon(ignore_inhands)
-
-	

@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/shrapnel/corsair
 	name = "CAT \"Corsair\""
-	desc = "A \"Catalyser\" energy gun that uses a catalytic conversion system to compile energy into a solid, sharpened mass."
+	desc = "A \"Catalyzer\" energy gun that uses a catalytic conversion system to compile energy into a solid, sharpened mass."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/corsair.dmi'
 	icon_state = "corsair"
 	charge_meter = FALSE
