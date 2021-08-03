@@ -1,6 +1,6 @@
 /obj/item/guncore
 	name = "Inert Catalyst"
-	desc = "An inert device of some kind."
+	desc = "An inert device of some kind. Looks like it could use some more parts."
 	icon = 'zzzz_modular_occulus/icons/obj/catacraft.dmi'
 	icon_state = "catacore"
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 5)
@@ -123,7 +123,7 @@
 
 /obj/item/gunchassis
 	name = "Experimental Stock"
-	desc = "An odd machine chassis in the shape of a stock."
+	desc = "An odd machine chassis vaguely resembling a gun stock."
 	icon = 'icons/obj/oddities.dmi'
 	icon_state = "artwork_3"
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 5)

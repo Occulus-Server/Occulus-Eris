@@ -1,13 +1,13 @@
 /obj/item/weapon/gun/energy/laser/sentinel
 	name = "CAT \"Sentinel\""
 	desc = "A \"Catalyser\" gun designed around most popular laser weaponry. Its unique core grants it an extended charging limit."
-	icon = 'icons/obj/guns/energy/laser.dmi'
-	icon_state = "laser"
-	item_state = "laser"
-	item_charge_meter = TRUE
+	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/sentinel.dmi'
+	icon_state = "sentinel"
+	item_state = null
+	charge_meter = FALSE
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BACK
-	w_class = ITEM_SIZE_NORMAL
+	w_class = ITEM_SIZE_HUGE
 	force = WEAPON_FORCE_NORMAL
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 8, MATERIAL_SILVER = 5)
@@ -41,3 +41,13 @@
 		return 1
 	else
 		to_chat(user, SPAN_WARNING("It is already emagged!"))
+
+/obj/item/weapon/gun/energy/laser/sentinel/on_update_icon()
+	set_item_state("-[item_modifystate]")
+	cut_overlays()
+	var/ratio = 0
+
+	if(cell)
+		ratio = cell.charge / cell.maxcharge
+		ratio = min(max(round(ratio, 0.25) * 100, 25), 100)
+		add_overlay("[initial(icon_state)][ratio]")
