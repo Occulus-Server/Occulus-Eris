@@ -51,6 +51,7 @@
 	var/splat_type = /obj/effect/decal/cleanable/fruit_smudge // Graffiti decal.
 	var/has_mob_product
 	var/force_layer
+	var/list/taste_tag = list(VEGETARIAN_FOOD,VEGAN_FOOD) //Occulus Edit: Adds flavor to fruit
 
 /datum/seed/New()
 
@@ -92,7 +93,6 @@
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)         // Plant eats this much per tick.
 	set_trait(TRAIT_PLANT_COLOUR,         "#46B543")    // Colour of the plant icon.
 	set_trait(TRAIT_BOOSTED_GROWTH,       1)            // Rate of plant aging process for growth.
-
 	spawn(5)
 		sleep(-1)
 		update_growth_stages()

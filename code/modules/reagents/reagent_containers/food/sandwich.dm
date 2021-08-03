@@ -36,6 +36,7 @@
 		F.reagents.trans_to_obj(src, F.reagents.total_volume)
 		user.drop_from_inventory(W, src)
 		ingredients += W
+		update_taste(W)//Occulus Edit
 		update()
 		return
 	..()
