@@ -153,7 +153,7 @@
 		if(req_parts > 0)
 			to_chat(user, SPAN_NOTICE("Requires [req_parts] parts to be complete."))
 		else
-			to_chat(user, SPAN_NOTICE("[src] is complete."))
+			to_chat(user, SPAN_NOTICE("[src] is complete, and just needs its screws tightened."))
 
 		if(!coreinstalled)
 			to_chat(user, SPAN_NOTICE("[src] does not have a core installed."))
