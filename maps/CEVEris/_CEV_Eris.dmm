@@ -6104,6 +6104,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/spawner/mob/spud,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck5port)
 "aow" = (
@@ -15703,6 +15704,8 @@
 "aMu" = (
 /obj/spawner/junk,
 /obj/spawner/pack/tech_loot/low_chance,
+/obj/spawner/lathe_disk/advanced/low_chance,
+/obj/spawner/lathe_disk/advanced/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "aMv" = (
@@ -105128,6 +105131,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/command/bridge)
+"jwE" = (
+/obj/spawner/mob/cluster/roombattler,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section1deck4central)
 "jwY" = (
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/techmaint,
@@ -105744,6 +105751,11 @@
 	dir = 1
 	},
 /turf/simulated/open,
+/area/eris/maintenance/section1deck4central)
+"lmp" = (
+/obj/spawner/junk/low_chance,
+/obj/spawner/gun_upgrade,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
 "lmw" = (
 /obj/item/device/radio/intercom{
@@ -106678,6 +106690,10 @@
 /obj/spawner/lowkeyrandom,
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/quartermaster/office)
+"nYi" = (
+/obj/spawner/mob/spud,
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/eris/maintenance/section1deck3central)
 "nYI" = (
 /obj/structure/catwalk,
 /obj/structure/closet/wall_mounted/firecloset{
@@ -107455,6 +107471,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/fitness)
+"qDK" = (
+/obj/spawner/mob/cluster/roombattler,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/maintenance/section3deck1central)
 "qDQ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -108809,6 +108829,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet,
 /area/eris/maintenance/section4deck4central)
+"vjy" = (
+/obj/spawner/junkfood/rotten,
+/obj/spawner/oddities/low_chance,
+/obj/spawner/oddities/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section1deck4central)
 "vkt" = (
 /obj/machinery/door/window/eastright{
 	name = "Research Desk";
@@ -109535,6 +109561,11 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
+"xTi" = (
+/obj/spawner/junkfood/rotten,
+/obj/spawner/gun/normal/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section1deck4central)
 "xTX" = (
 /obj/machinery/disposal,
 /obj/machinery/light/small{
@@ -165417,11 +165448,11 @@ aaa
 aaa
 aAY
 aLc
-cvH
+jwE
 bkg
 bwy
 bwZ
-cyw
+lmp
 csS
 aPz
 aRc
@@ -165623,7 +165654,7 @@ aFa
 aFI
 aKn
 aFI
-bcB
+vjy
 csS
 aPB
 aRf
@@ -165824,7 +165855,7 @@ aLc
 aFa
 aFa
 aKQ
-bcB
+xTi
 bBx
 csS
 aIz
@@ -206828,7 +206859,7 @@ aaa
 aaa
 bqs
 bOV
-bsn
+nYi
 bqw
 bqw
 bqR
@@ -290334,7 +290365,7 @@ aRM
 aRM
 baY
 brW
-bfe
+qDK
 bfe
 bfe
 dXi
