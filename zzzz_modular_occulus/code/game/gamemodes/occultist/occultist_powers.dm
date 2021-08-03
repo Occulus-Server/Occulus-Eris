@@ -1,5 +1,5 @@
 /datum/power/occultist
-	var/madnesscost = 10 // Cost for the occultist to evolve this power.
+	var/madnesscost = 5 // Cost for the occultist to evolve this power.
 	var/activecost = 0
 	var/verbpath //the verb we add if we add a verb
 
@@ -302,7 +302,7 @@
 	name = "King of Beasts"
 	desc = "Sacrifice much of yourself to summon a kaiser roach and his escort to your location."
 	activecost = 4
-	madnesscost = 40
+	madnesscost = 20
 	verbpath = /mob/living/carbon/human/proc/King_of_Beasts
 
 /mob/living/carbon/human/proc/King_of_Beasts()
@@ -357,8 +357,8 @@
 /datum/power/occultist/truthinblood
 	name = "Truth in Blood"
 	desc = "Covers the ground around you in blood and gore."
-	activecost = 4
-	madnesscost = 40
+	activecost = 1
+	madnesscost = 20
 	verbpath = /mob/living/carbon/human/proc/Truth_in_Blood
 
 /mob/living/carbon/human/proc/Truth_in_Blood()
@@ -371,7 +371,7 @@
 	if(stat == UNCONSCIOUS)
 		to_chat(src, "You cannot perform the rite while unconsious.")
 		return
-	if(spendpoints(4))
+	if(spendpoints(1))
 		var/datum/effect/effect/system/smoke_spread/bad/smoke
 		smoke = new
 		playsound(loc, 'sound/effects/smoke.ogg', 50, 1, -3)
@@ -410,7 +410,7 @@
 /datum/power/occultist/embracecorruption
 	name = "Embrace Corruption"
 	desc = "Sacrifice yourself to bring about a true fusion of man and machine. This ability will activate as soon as you select it."
-	madnesscost = 40
+	madnesscost = 20
 
 /datum/power/occultist/embracecorruption/addPower(var/mob/living/carbon/human/themaster)
 	new /obj/machinery/hivemind_machine/node(themaster.loc)
@@ -420,7 +420,7 @@
 	name = "The Skies are Buried Deep"
 	desc = "Reveals the truth to everyone who can see you."
 	activecost = 4
-	madnesscost = 40
+	madnesscost = 20
 	verbpath = /mob/living/carbon/human/proc/The_Skies
 
 
@@ -454,8 +454,8 @@
 /datum/power/occultist/bringdecay
 	name = "Decay"
 	desc = "Makes all objects on your person and in the inventory of your grabbed target rust and become useless."
-	activecost = 4
-	madnesscost = 40
+	activecost = 1
+	madnesscost = 20
 	verbpath = /mob/living/carbon/human/proc/Bring_Decay
 
 /mob/living/carbon/human/proc/Bring_Decay()
@@ -469,7 +469,7 @@
 		to_chat(src, "You cannot perform the rite while unconsious.")
 		return
 	if(get_grabbed_mob(src))
-		if(spendpoints(4))
+		if(spendpoints(1))
 			var/mob/living/L
 			L = get_grabbed_mob(src)
 			for(var/obj/objects in L.contents)
@@ -492,8 +492,8 @@
 /datum/power/occultist/underworld
 	name = "Path to the Underworld"
 	desc = "Teleport yourself and anyone grabbed by you to the under-tunnels."
-	activecost = 4
-	madnesscost = 40
+	activecost = 1
+	madnesscost = 20
 	verbpath = /mob/living/carbon/human/proc/Path_to_the_Underworld
 
 /mob/living/carbon/human/proc/Path_to_the_Underworld()
@@ -529,7 +529,7 @@
 	name = "Rite of Initiation"
 	desc = "Induct a new Occultist to our ranks."
 	activecost = 4
-	madnesscost = 40
+	madnesscost = 20
 	verbpath = /mob/living/carbon/human/proc/Rite_of_Initiation
 
 /mob/living/carbon/human/proc/Rite_of_Initiation()
