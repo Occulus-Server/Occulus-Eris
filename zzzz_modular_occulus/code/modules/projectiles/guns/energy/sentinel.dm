@@ -28,6 +28,7 @@
 		FULL_AUTO_400
 	)
 	twohanded = TRUE
+	spawn_blacklisted = TRUE
 	var/emagged = 0
 
 /obj/item/weapon/gun/energy/laser/sentinel/emag_act(var/remaining_charges, var/mob/user)

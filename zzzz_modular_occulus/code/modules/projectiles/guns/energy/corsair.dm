@@ -29,6 +29,7 @@
 	rarity_value = 20
 	spawn_tags = SPAWN_TAG_GUN_SHOTGUN_ENERGY
 	twohanded = TRUE
+	spawn_blacklisted = TRUE
 	var/emagged = 0
 	
 /obj/item/weapon/gun/energy/shrapnel/corsair/emag_act(var/remaining_charges, var/mob/user)

@@ -15,6 +15,7 @@
 	damage_multiplier = 0.5
 	recoil_buildup = 2 
 	sel_mode = 1
+	spawn_blacklisted = TRUE
 	twohanded = TRUE
 	var/emagged = 0
 
