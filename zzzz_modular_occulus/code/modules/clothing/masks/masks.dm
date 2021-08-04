@@ -14,3 +14,8 @@
 	name = "blue shemaugh"
 	icon_state = "shemaugh-blue"
 	item_state = "shemaugh-blue"
+
+/obj/item/clothing/mask/scarf/shemaugh/red
+	name = "red shemaugh"
+	icon_state = "shemaugh-red"
+	item_state = "shemaugh-red"
