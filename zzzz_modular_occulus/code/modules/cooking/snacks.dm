@@ -1,3 +1,6 @@
+/obj/item/weapon/reagent_containers/food/snacks/no_raisin
+		nutriment_amt = 5
+
 /obj/item/weapon/reagent_containers/food/snacks/proc/update_taste(var/obj/item/weapon/reagent_containers/food/snacks/W)//This can be defined under snacks so we can have other foods besides sandwitch call it
 	if(!istype(W))//If for some reason something that isn't a snack is put in here, get the heck out
 		return

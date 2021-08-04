@@ -56,12 +56,6 @@
 /datum/seed/mushroom/glowshroom
 	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, UMAMI_FOOD, SALTY_FOOD)
 
-/datum/seed/mushroom/maintshroom
-	name = "fungoartiglieria"
-	seed_name = "Fungo di Artiglieria mushroom"
-	display_name = "Fungo di Artiglieria"
-	mutants = null
-
 /datum/seed/grapes
 	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
 
