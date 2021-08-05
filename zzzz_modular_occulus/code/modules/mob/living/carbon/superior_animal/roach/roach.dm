@@ -38,7 +38,7 @@
 	melee_damage_upper = 10//Tanks, take them out at range
 	min_size = 1
 	max_size = 1.5 // chunky boy
-	agony_coefficient = 0.5 //tonks, rubbers have trouble penetrating
+	agony_coefficient = 0.8 //tonks, rubbers have trouble penetrating
 
 /mob/living/carbon/superior_animal/roach/toxic		// Gestrahlte
 
