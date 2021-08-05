@@ -65,6 +65,11 @@
 
 	// This despawn is not a gib() in this sense, it is used to remove objectives tied on these despawned mobs in cryos
 	passenger.despawn()
+	for (var/obj/item/W in get_area(src)) // For every item inside the elevator area... (The area that the elevator airlock is in)
+		if (!istype(W, /obj/item/device/radio/intercom)) //Stop eating my fucking intercom you cockwaffle
+			W.forceMove(lostFound) // Move the items to the lost and found unit in order to clean up the elevator.
+			lostFound.frozen_items += W // And add them to the inventory list.
+
 
 
 //// This code is for the elevator lost and found unit.
@@ -206,11 +211,6 @@
 /obj/machinery/button/remote/elevator_call_button/trigger()
 	for(var/obj/machinery/door/airlock/D in range(src, 5))
 		if (D.id_tag == id && D.locked) //Gotta check if the airlock is locked. This is how we know whether the elevator is at our floor or at the dorms.
-			for (var/obj/item/W in get_area(D)) // For every item inside the elevator area... (The area that the elevator airlock is in)
-				if (!istype(W, /obj/item/device/radio/intercom)) //Stop eating my fucking intercom you cockwaffle
-					for (lostFound in range(usr, 5)) // Get any Lost and Found units within 5 tiles...
-						W.forceMove(lostFound) // Move the items to the lost and found unit in order to clean up the elevator.
-						lostFound.frozen_items += W // And add them to the inventory list.
 			for(var/obj/machinery/button/remote/elevator_panel/B in range(src, 5))
 				if (B.elevator_moving == FALSE) //If the elevator is no longer moving I.E., the timer it sets has finished, then we are ready to call it back down.
 					if(world.time - cooldown_timer > cooldown)
