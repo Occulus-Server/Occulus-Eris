@@ -5,7 +5,6 @@
 	icon_state = "spud"
 	speak_chance = 5
 	turns_per_move = 3
-	speed = 4
 	maxHealth = 125
 	health = 125
 	speak = list(
@@ -54,19 +53,6 @@
 	qdel(src)
 	return
 
-/mob/living/simple_animal/hostile/spud/syndi //Infiltrator unit designed to synergize with local hostile fauna
-	name = "\improper blood-red SPUD unit"
-	desc = "A popular product from Bosstown Dynamics Incorporated, the Synchronized Pseudopodal Utility Demonstrator unit is a modular robot capable of fufilling all manner of tasks. This one has a snazzy blood-red paintjob and also has a very distinct roach-like odor."
-	icon_state = "syndi"
-	melee_damage_lower = 15
-	melee_damage_upper = 30
-	faction = "roach" //something something roach pheromones
-	can_burrow = TRUE
-	light_color = COLOR_LIGHTING_GREEN_BRIGHT
-	spawn_tags = SPAWN_TAG_ROACH
-	rarity_value = 100 // 10 rarer than a fuhrer
-	sanity_damage = 0.5
-
 /mob/living/simple_animal/hostile/spud/frozenstar
 	name = "\improper FS SPUD unit"
 	desc = "A popular product from Bosstown Dynamics Incorporated, the Synchronized Pseudopodal Utility Demonstrator unit is a modular robot capable of fufilling all manner of tasks. This one has a cool Frozen Star paintjob."
@@ -75,3 +61,23 @@
 	melee_damage_upper = 30
 	light_color = COLOR_LIGHTING_RED_BRIGHT
 	rarity_value = 10
+
+/mob/living/simple_animal/hostile/spud/syndi //hostile edition
+	name = "\improper blood-red SPUD unit"
+	desc = "A popular product from Bosstown Dynamics Incorporated, the Synchronized Pseudopodal Utility Demonstrator unit is a modular robot capable of fufilling all manner of tasks. This one has a snazzy blood-red paintjob."
+	icon_state = "syndi"
+	melee_damage_lower = 15
+	melee_damage_upper = 30
+	light_color = COLOR_LIGHTING_GREEN_BRIGHT
+	faction = "bosstown"
+	rarity_value = 100
+
+/mob/living/simple_animal/hostile/spud/syndi/infiltrator //Infiltrator unit designed to synergize with local hostile fauna
+	name = "\improper Kampfer SPUD unit"
+	desc = "A monstrous, dog-sized cockroach. These huge mutants can be everywhere where humans are, on ships, planets and stations. Something seems off about this one..."
+	icon_state = "infiltrator"
+	faction = "roach" //something something roach pheromones
+	can_burrow = TRUE
+	spawn_tags = SPAWN_TAG_ROACH
+	rarity_value = 180 // 2x rarer than a fuhrer
+	sanity_damage = 0.5

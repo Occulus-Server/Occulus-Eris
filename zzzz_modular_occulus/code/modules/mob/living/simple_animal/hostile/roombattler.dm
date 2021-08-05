@@ -4,8 +4,8 @@
 	icon = 'zzzz_modular_occulus/icons/mob/roombattler.dmi'
 	icon_state = "turtle"
 	speak_chance = 5
-	turns_per_move = 6
-	speed = 8
+	turns_per_move = 8
+	move_to_delay = 8
 	maxHealth = 200
 	health = 200
 	speak = list(
@@ -33,7 +33,7 @@
 
 	agony_coefficient = 0 // super armored unit, doesn't take damage from non-lethals.
 
-	faction = "roach"
+	faction = "bosstown"
 
 	light_range = 3
 	light_color = COLOR_LIGHTING_RED_BRIGHT
@@ -58,7 +58,7 @@
 	desc = "A discontinued product from Bosstown Dynamics Incorporated, the Room Maintenance Bot model A4 was inspired by a long-since defunct company's design. The Quasimodo variant features a mounted riot gun."
 	icon_state = "riot"
 	ranged = TRUE
-	rapid = FALSE // Burst fire rubbers are... a bad idea. Burst fire practice rounds are better, but eh. Not enough punch.
+	rapid = TRUE // Burst fire rubbers are... very painful.
 	projectiletype = /obj/item/projectile/bullet/clrifle/rubber/weak
 	projectilesound = 'sound/weapons/guns/fire/pistol_fire.ogg'
 	minimum_distance = 3
