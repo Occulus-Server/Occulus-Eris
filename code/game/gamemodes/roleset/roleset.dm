@@ -183,7 +183,7 @@
 
 		//We will now refund part of the cost
 		var/success_percent = 0.0
-		if (success_quantity > 1)
+		if (success_quantity > 0)//Occulus Edit: If this is 1, we refund all the points if only one antag spawns. Dummies! HAHAHA I FUCKING FOUND IT.
 			success_percent = success_quantity / target_quantity
 		cancel(severity, success_percent)
 
