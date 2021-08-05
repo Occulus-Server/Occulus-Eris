@@ -3073,7 +3073,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/landmark/join/late/dormitory,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "ahE" = (
@@ -4122,7 +4121,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/landmark/join/late/dormitory,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "akd" = (
@@ -4400,7 +4398,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/landmark/join/late/dormitory,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "akI" = (
@@ -106548,12 +106545,14 @@
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/surgery)
 "nIM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/button/remote/elevator_call_button{
+	dir = 4;
+	id = "ElevatorDorms";
+	name = "Elevator Exit Button";
+	pixel_x = -26
 	},
-/obj/landmark/join/late/dormitory,
-/turf/simulated/floor/tiled/steel,
-/area/eris/crew_quarters/sleep)
+/turf/simulated/floor/carpet/turcarpet,
+/area/eris/elevator)
 "nPo" = (
 /obj/machinery/disposal/deliveryChute{
 	dir = 8
@@ -107251,11 +107250,6 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
-"pYI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/landmark/join/late/dormitory,
-/turf/simulated/floor/tiled/steel,
-/area/eris/crew_quarters/sleep)
 "pZE" = (
 /obj/structure/table/standard,
 /obj/machinery/cash_register{
@@ -107650,6 +107644,7 @@
 	dir = 8;
 	pixel_x = 26
 	},
+/obj/landmark/join/late/dormitory,
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/elevator)
 "rzU" = (
@@ -125736,7 +125731,7 @@ dzi
 aaa
 agf
 afX
-nIM
+ajB
 aka
 akE
 akE
@@ -125939,7 +125934,7 @@ aaa
 agf
 ajv
 ahD
-pYI
+akU
 akU
 alc
 akU
@@ -126546,7 +126541,7 @@ tkQ
 uRl
 ssJ
 ssJ
-ssJ
+nIM
 tkQ
 alE
 alE
