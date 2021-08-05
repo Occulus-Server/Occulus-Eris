@@ -4,8 +4,9 @@
 	icon = 'zzzz_modular_occulus/icons/mob/roombattler.dmi'
 	icon_state = "turtle"
 	speak_chance = 5
-	turns_per_move = 8
-	move_to_delay = 8
+	turns_per_move = 5
+	move_to_delay = 7
+	speed = 8
 	maxHealth = 200
 	health = 200
 	speak = list(
