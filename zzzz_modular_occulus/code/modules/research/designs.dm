@@ -118,3 +118,21 @@
 	desc = "A one-use module containing a painkilling software package"
 	build_path = /obj/item/weapon/holochip/security/painkiller
 	sort_string = "MFAAQ"
+
+/datum/design/research/item/weapon/whitenail
+	name = "NT Prototype .20 \"White Nail\""
+	desc = "A state of the art prototype rifle that regenerates ammunition over time."
+	build_path = /obj/item/weapon/gun/projectile/automatic/white_nail
+	sort_string = "MGAAA"
+
+/datum/design/research/item/weapon/whitenail/nailmag
+	name = "white nail ammo well"
+	desc = "A bespoke container for ammunition for the White Nail prototype."
+	build_path = /obj/item/ammo_magazine/nail
+	sort_string = "MGAAB"
+
+/datum/design/research/item/weapon/whitenail/nailmag/rubber
+	name = "white nail rubber ammo well"
+	desc = "A bespoke container for ammunition for the White Nail prototype. Generates less-lethal ammunition."
+	build_path = /obj/item/ammo_magazine/nail/rubber
+	sort_string = "MGAAC"

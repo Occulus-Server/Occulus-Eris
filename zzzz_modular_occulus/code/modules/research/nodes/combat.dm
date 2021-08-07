@@ -19,3 +19,21 @@
 	unlocks_designs = list(	/datum/design/research/item/holochip/combat,
 							/datum/design/research/item/holochip/tough,
 							/datum/design/research/item/holochip/painkiller)
+
+/datum/technology/whitenail
+	name = "White Nail Nanite Rifle"
+	desc = "A state of the art prototype rifle that regenerates ammunition over time."
+	tech_type = RESEARCH_COMBAT
+
+	x = 0.7
+	y = 0.2
+	icon = "whitenail"
+
+	required_technologies = list(/datum/technology/exotic_weaponry)
+	required_tech_levels = list()
+	cost = 5000
+
+	unlocks_designs = list(/datum/design/research/item/weapon/whitenail,
+						   /datum/design/research/item/weapon/whitenail/nailmag,
+						   /datum/design/research/item/weapon/whitenail/nailmag/rubber)
+
