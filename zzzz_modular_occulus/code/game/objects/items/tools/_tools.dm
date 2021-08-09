@@ -35,7 +35,7 @@
 	matter = list(MATERIAL_PLASTIC = 6, MATERIAL_GLASS = 5, MATERIAL_GOLD = 1, MATERIAL_SILVER = 1)
 	origin_tech = list(TECH_MAGNET = 5, TECH_ENGINEERING = 2)
 	use_power_cost = 0.50 //Dosnt use much power but it is pulling form a medium - > large
-	workspeed = 1.2  //20% faster base
+	//workspeed = 1.2 - commited out do to 60plusing allowing for high speeds + upgrades
 	max_upgrades = 4 //To keep in line with other advanced tools
 	rarity_value = 24 //Base multy tool is 12, so twice as rare
 	suitable_cell = /obj/item/weapon/cell/medium //We have a cell so we can take upgrades
