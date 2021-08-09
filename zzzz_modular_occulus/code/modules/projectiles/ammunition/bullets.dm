@@ -21,3 +21,22 @@
 
 /obj/item/ammo_casing/shotgun/pellet/rubber/prespawned
 	amount = 5
+
+// white nail rounds
+#define CAL_NAIL 	"nanite nail"
+
+/obj/item/ammo_casing/whitenail
+	name = "white nail round"
+	desc = "A round from a White Nail rifle. Typically does not retain its shape for long outside of the rifle."
+	icon = 'zzzz_modular_occulus/icons/obj/ammo.dmi'
+	icon_state = "nail_round"
+	spent_icon = "nail_round_spent"
+	caliber = CAL_NAIL
+	projectile_type = /obj/item/projectile/bullet/whitenail
+	is_caseless = TRUE
+	maxamount = 1
+
+/obj/item/ammo_casing/whitenail/rubber
+	name = "white nail rubber round"
+	desc = "A rubber round from a White Nail rifle. Typically does not retain its shape for long outside of the rifle."
+	projectile_type = /obj/item/projectile/bullet/whitenail/rubber

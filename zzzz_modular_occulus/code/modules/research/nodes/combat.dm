@@ -10,7 +10,7 @@
 
 	x = 0.8
 	y = 0.2
-	icon = "toxincoater"
+	icon = "holochip"
 
 	required_technologies = list(/datum/technology/adv_exotic_weaponry)
 	required_tech_levels = list()
@@ -22,7 +22,7 @@
 
 /datum/technology/whitenail
 	name = "White Nail Nanite Rifle"
-	desc = "A state of the art prototype rifle that regenerates ammunition over time."
+	desc = "A state of the art prototype rifle that regenerates ammunition slowly over time using advanced nanite technology"
 	tech_type = RESEARCH_COMBAT
 
 	x = 0.7
@@ -34,6 +34,6 @@
 	cost = 5000
 
 	unlocks_designs = list(/datum/design/research/item/weapon/whitenail,
-						   /datum/design/research/item/weapon/whitenail/nailmag,
-						   /datum/design/research/item/weapon/whitenail/nailmag/rubber)
+						   /datum/design/research/item/weapon/whitenail/whitenailmag,
+						   /datum/design/research/item/weapon/whitenail/whitenailmag/rubber)
 

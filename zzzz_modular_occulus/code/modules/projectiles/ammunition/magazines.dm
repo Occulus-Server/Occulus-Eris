@@ -20,30 +20,22 @@
 	. = ..()	// then let it install the data onto the disk properly
 
 
-// white nail wells
-/obj/item/ammo_magazine/nail
-	name = "white nail ammo well"
+// white nail ammo
+
+/obj/item/ammo_magazine/whitenail
+	name = "white nail magazine"
 	icon = 'zzzz_modular_occulus/icons/obj/magazines.dmi'
 	icon_state = "whitenail_mag"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	mag_well = MAG_WELL_RIFLE
-	caliber = "nail"
-	matter = list(MATERIAL_STEEL = 1)
-	ammo_type = /obj/item/ammo_casing/clrifle // caseless is used to prevent tons of casing litter
-	max_ammo = 10
+	caliber = CAL_NAIL
+	matter = list(MATERIAL_STEEL = 5, MATERIAL_GLASS = 2)
+	ammo_type = /obj/item/ammo_casing/whitenail
+	max_ammo = 12
 	initial_ammo = 0
-	multiple_sprites = 1
 
-/obj/item/ammo_magazine/nail/rubber
-	name = "white nail rubber ammo well"
-	icon_state = "whitenail_mag"
-	origin_tech = list(TECH_COMBAT = 2)
-	mag_type = MAGAZINE
-	mag_well = MAG_WELL_RIFLE
-	caliber = "nail"
-	matter = list(MATERIAL_STEEL = 1)
-	ammo_type = /obj/item/ammo_casing/clrifle/rubber
-	max_ammo = 10
-	initial_ammo = 0
-	multiple_sprites = 1
+/obj/item/ammo_magazine/whitenail/rubber
+	name = "white nail rubber magazine"
+	icon_state = "whitenail_mag_rubber"
+	ammo_type = /obj/item/ammo_casing/whitenail/rubber
