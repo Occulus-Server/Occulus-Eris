@@ -85,7 +85,7 @@
 
 /datum/reagent/drink/milkshake/blueberry
 	name = "Blueberry Milkshake"
-	description = "A sweet blueberry flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	description = "A sweet blueberry flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	taste_description = "thick creamy blueberry"
 	id = "blueberry_milkshake"
 	color = "#969CE5"
@@ -94,7 +94,7 @@
 
 	glass_icon_state = "shake_blueberry"
 	glass_name = "Blueberry Milkshake"
-	glass_desc = "A sweet blueberry flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	glass_desc = "A sweet blueberry flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/drink/milkshake/blueberry/New()
@@ -103,7 +103,7 @@
 
 /datum/reagent/drink/milkshake/pineapple // We have no pineapple fruits.
 	name = "Pineapple Milkshake"
-	description = "A sweet and strong pineapple flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	description = "A sweet and strong pineapple flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	taste_description = "strong creamy pineapple"
 	id = "pineapple_milkshake"
 	color = "#FCFF40"
@@ -112,7 +112,7 @@
 
 	glass_icon_state = "shake_pineapple"
 	glass_name = "Pineapple Milkshake"
-	glass_desc = "A sweet and strong pineapple flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	glass_desc = "A sweet and strong pineapple flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/drink/milkshake/pineapple/New()
@@ -121,7 +121,7 @@
 
 /datum/reagent/drink/milkshake/strawberry // We have no strawberry fruits.
 	name = "Strawberry Milkshake"
-	description = "A sweet suggary strawberry flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	description = "A sweet sugary strawberry flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	taste_description = "sweet creamy strawberry"
 	id = "strawberry_milkshake"
 	color = "#FE7F7F"
@@ -130,7 +130,7 @@
 
 	glass_icon_state = "shake_strawberry"
 	glass_name = "Strawberry Milkshake"
-	glass_desc = "A sweet suggary strawberry flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	glass_desc = "A sweet sugary strawberry flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/drink/milkshake/strawberry/New()
@@ -139,7 +139,7 @@
 
 /datum/reagent/drink/milkshake/chocolate
 	name = "Chocolate Milkshake"
-	description = "A deep chocolate flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	description = "A deep chocolate flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	taste_description = "rich creamy chocolate"
 	id = "chocolate_milkshake"
 	color = "#81551D"
@@ -148,7 +148,7 @@
 
 	glass_icon_state = "shake_chocolate"
 	glass_name = "Chocolate Milkshake"
-	glass_desc = "A deep chocolate flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	glass_desc = "A deep chocolate flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/drink/milkshake/chocolate/New()
@@ -157,7 +157,7 @@
 
 /datum/reagent/drink/milkshake/mintchocolate // We have no mint plants.
 	name = "Mint Chocolate Milkshake"
-	description = "A refreshing mint chocolate flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	description = "A refreshing mint chocolate flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	taste_description = "cooling creamy mint chocolate"
 	id = "mintchocolate_milkshake"
 	color = "#9F7136"
@@ -166,7 +166,7 @@
 
 	glass_icon_state = "shake_chocolate_mint"
 	glass_name = "Mint Chocolate Milkshake"
-	glass_desc = "A refreshing mint chocolate flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	glass_desc = "A refreshing mint chocolate flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/drink/milkshake/mintchocolate/New()
@@ -175,7 +175,7 @@
 
 /datum/reagent/drink/milkshake/banana
 	name = "Banana Milkshake"
-	description = "A sweet and gentle banana flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	description = "A sweet and gentle banana flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	taste_description = "smooth creamy banana"
 	id = "banana_milkshake"
 	color = "#FFFD78"
@@ -184,7 +184,7 @@
 
 	glass_icon_state = "shake_banana"
 	glass_name = "Banana Milkshake"
-	glass_desc = "A sweet and gentle banana flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	glass_desc = "A sweet and gentle banana flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/drink/milkshake/banana/New()
@@ -193,7 +193,7 @@
 
 /datum/reagent/drink/milkshake/berry
 	name = "Berry Milkshake"
-	description = "A sweet forrest berry flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	description = "A sweet forest berry flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	taste_description = "fruity creamy berries"
 	id = "berry_milkshake"
 	color = "#B76B99"
@@ -202,7 +202,7 @@
 
 	glass_icon_state = "shake_berry"
 	glass_name = "Berry Milkshake"
-	glass_desc = "A sweet forrest berry flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	glass_desc = "A sweet forest berry flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/drink/milkshake/berry/New()
@@ -211,7 +211,7 @@
 
 /datum/reagent/drink/milkshake/grape
 	name = "Grape Milkshake"
-	description = "A very sweet grape flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	description = "A very sweet grape flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	taste_description = "very sweet creamy grapes"
 	id = "grape_milkshake"
 	color = "#9E6ABF"
@@ -220,7 +220,7 @@
 
 	glass_icon_state = "shake_grape"
 	glass_name = "Grape Milkshake"
-	glass_desc = "A very sweet grape flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	glass_desc = "A very sweet grape flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/drink/milkshake/grape/New()
@@ -229,7 +229,7 @@
 
 /datum/reagent/drink/milkshake/watermelon // Requires slices
 	name = "Watermelon Milkshake"
-	description = "A sweet and subtle watermelon flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	description = "A sweet and subtle watermelon flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	taste_description = "subtle creamy watermelon"
 	id = "watermelon_milkshake"
 	color = "#FFB1B1"
@@ -238,7 +238,7 @@
 
 	glass_icon_state = "shake_watermelon"
 	glass_name = "Watermelon Milkshake"
-	glass_desc = "A sweet and subtle watermelon flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	glass_desc = "A sweet and subtle watermelon flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/drink/milkshake/watermelon/New()
@@ -247,7 +247,7 @@
 
 /datum/reagent/drink/milkshake/cherry
 	name = "Cherry Milkshake"
-	description = "A luxuriously sweet cherry flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	description = "A luxuriously sweet cherry flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	taste_description = "luxuriously creamy cherries"
 	id = "cherry_milkshake"
 	color = "#FF5B5B"
@@ -256,7 +256,7 @@
 
 	glass_icon_state = "shake_cherry"
 	glass_name = "Cherry Milkshake"
-	glass_desc = "A luxuriously sweet cherry flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	glass_desc = "A luxuriously sweet cherry flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/drink/milkshake/cherry/New()
@@ -265,7 +265,7 @@
 
 /datum/reagent/drink/milkshake/pumpkinspice
 	name = "Pumpkin Spice Milkshake"
-	description = "A sweet pumpkin spice flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth and cinnamon. The perfect drink for a comfortable Autumn day."
+	description = "A sweet pumpkin spice flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth and cinnamon. The perfect drink for a comfortable Autumn day."
 	taste_description = "a cold autumn night"
 	id = "pumpkinspice_milkshake"
 	color = "#CB7D19"
@@ -274,12 +274,12 @@
 
 	glass_icon_state = "pumpkin_spice"
 	glass_name = "Pumpkin Spice Milkshake"
-	glass_desc = "A sweet pumpkin spice flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth and cinnamon. The perfect drink for a comfortable Autumn day."
+	glass_desc = "A sweet pumpkin spice flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth and cinnamon. The perfect drink for a comfortable Autumn day."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/drink/milkshake/junglefruits // A BLAST OF FRUITY FLAVOUR!! Every fruit in one >:3
 	name = "Jungle Milkshake"
-	description = "A very fruity tropical flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	description = "A very fruity tropical flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	taste_description = "a strong creamy mix of many sweet, sour and refreshing tropical fruits"
 	id = "jungle_milkshake"
 	color = "#EA5C5C"
@@ -288,7 +288,7 @@
 
 	glass_icon_state = "jungle_fruits"
 	glass_name = "Jungle Milkshake"
-	glass_desc = "A very fruity tropical flavour with a smooth blend of cream and milk, shaked and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
+	glass_desc = "A very fruity tropical flavour with a smooth blend of cream and milk, shaken and cooled to perfection in order to guarantee palate satisfaction, all topped with a light layer of froth."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 
