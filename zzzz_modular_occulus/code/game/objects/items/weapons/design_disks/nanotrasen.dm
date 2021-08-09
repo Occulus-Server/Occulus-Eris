@@ -22,7 +22,7 @@
 		/datum/design/autolathe/ammo/dart_mag
 //		/datum/design/autolathe/container/syringe/large, Occulus Edit Not ported
 	)
-
+/*
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/medical/advanced_surgery_tools
 	disk_name = "NT Advanced Medical Designs"
 	rarity_value = 10 //Base is 4.5
@@ -47,6 +47,7 @@
 		/datum/design/autolathe/container/syringegun_ammo,
 		/datum/design/autolathe/ammo/dart_mag
 	)
+*/
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/computer
 	disk_name = "NT Computer Parts"
