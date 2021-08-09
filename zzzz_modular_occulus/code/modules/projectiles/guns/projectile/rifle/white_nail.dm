@@ -89,4 +89,3 @@
 
 	if (!ammo_magazine)
 		icon_state = "whitenail"
-	item_state = "whitenail"
