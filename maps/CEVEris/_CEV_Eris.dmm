@@ -2138,6 +2138,7 @@
 /obj/structure/closet/secure_closet/reinforced/hos,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/weapon/rig/combat/ironhammer/equipped,
+/obj/item/rig_module/cape/hos,
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "afw" = (
@@ -22303,6 +22304,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/item/rig_module/cape,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck4central)
 "bbg" = (
@@ -50755,6 +50757,7 @@
 "cop" = (
 /obj/structure/table/rack,
 /obj/item/weapon/rig/hazmat/equipped,
+/obj/item/rig_module/cape/cso,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/command/meo)
 "coq" = (
@@ -77283,6 +77286,7 @@
 /obj/item/weapon/autopsy_scanner,
 /obj/structure/closet/secure_closet/personal,
 /obj/item/weapon/soulmanip,
+/obj/item/rig_module/cape/cmo,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/command/mbo)
 "dyv" = (

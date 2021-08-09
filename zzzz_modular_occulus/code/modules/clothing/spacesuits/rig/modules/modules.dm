@@ -73,7 +73,7 @@
 	interface_desc = "A graceful cape designed exclusively for chief medical officers in a rescue suit."
 	spawn_blacklisted = TRUE //NT allows NO IMPOSTERS
 
-/obj/item/rig_module/cape/cmo
+/obj/item/rig_module/cape/hos
 	name = "security cape"
 	price_tag = 100
 	suit_overlay_active = "cape_hos"
