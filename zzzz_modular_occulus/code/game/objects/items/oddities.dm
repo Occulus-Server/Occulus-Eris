@@ -37,5 +37,7 @@
 	)
 	rarity_value = 26
 
-/obj/item/weapon/oddity/techno
+/* - Debuffed a lot, so perks form techno parts should be fine
+/obj/item/weapon/oddity/techno 
 	prob_perk = 0 //So that way unknown techno parts dont get perks.
+*/
