@@ -48,6 +48,7 @@
 	matter = list(MATERIAL_STEEL = 6, MATERIAL_GLASS = 3)
 	tool_qualities = list(QUALITY_BONE_SETTING = 60)
 	degradation = 0.75
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/cautery/adv
 	name = "high powered electrocautery"
@@ -55,6 +56,7 @@
 	matter = list(MATERIAL_STEEL = 12, MATERIAL_GLASS = 4)
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 2)
 	tool_qualities = list(QUALITY_CAUTERIZING = 60)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/hemostat/adv
 	name = "precise hemostat"
@@ -62,9 +64,11 @@
 	matter = list(MATERIAL_STEEL = 6)
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 3)
 	tool_qualities = list(QUALITY_CLAMPING = 60)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/retractor/adv
 	name = "extended retractor"
 	desc = "Retracts surgical incisions with greater precision and speed than normal."
 	matter = list(MATERIAL_STEEL = 8)
 	tool_qualities = list(QUALITY_RETRACTING = 60)
+	spawn_blacklisted = TRUE
