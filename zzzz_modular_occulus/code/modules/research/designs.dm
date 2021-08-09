@@ -119,6 +119,25 @@
 	build_path = /obj/item/weapon/holochip/security/painkiller
 	sort_string = "MFAAQ"
 
+
+/datum/design/research/item/weapon/whitenail
+	name = "NT Prototype \"White Nail\""
+	desc = "A state of the art prototype rifle that regenerates ammunition slowly over time using advanced nanite technology"
+	build_path = /obj/item/weapon/gun/projectile/automatic/whitenail
+	sort_string = "MGAAA"
+
+/datum/design/research/item/weapon/whitenail/whitenailmag
+	name = "white nail magazine"
+	desc = "A bespoke container for ammunition for the White Nail prototype. Ammunition does not retain its shape for long outside of the rifle."
+	build_path = /obj/item/ammo_magazine/whitenail
+	sort_string = "MGAAB"
+
+/datum/design/research/item/weapon/whitenail/whitenailmag/rubber
+	name = "white nail rubber magazine"
+	desc = "A bespoke container for ammunition for the White Nail prototype. Ammunition does not retain its shape for long outside of the rifle. Generates less-lethal ammunition."
+	build_path = /obj/item/ammo_magazine/whitenail/rubber
+	sort_string = "MGAAC"
+
 ///Advanced surgery tools - Todo remove improve rnd. Do Better
 /datum/design/research/item/bonesetter_adv
 	name = "Bone Clamp Setter"
