@@ -3,7 +3,6 @@
 	desc = "A bleeding-edge development in kinetic weaponry. This gun has an internal magazine that generates ammunition over time. Uses Nail™ ammunition."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/whitenail.dmi'
 	icon_state = "whitenail"
-	item_state = "whitenail"
 	w_class = ITEM_SIZE_HUGE
 	force = WEAPON_FORCE_PAINFUL
 	caliber = "nail"
@@ -90,3 +89,4 @@
 
 	if (!ammo_magazine)
 		icon_state = "whitenail"
+	item_state = "whitenail"
