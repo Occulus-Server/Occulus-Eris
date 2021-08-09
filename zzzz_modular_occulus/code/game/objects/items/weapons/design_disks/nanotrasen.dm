@@ -23,6 +23,31 @@
 //		/datum/design/autolathe/container/syringe/large, Occulus Edit Not ported
 	)
 
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/medical/advanced_surgery_tools
+	disk_name = "NT Advanced Medical Designs"
+	rarity_value = 10 //Base is 4.5
+	designs = list(
+		/datum/design/autolathe/gun/syringe_gun,
+		/datum/design/autolathe/misc/penflashlight,
+		/datum/design/research/item/scalpel_laser,
+		/datum/design/autolathe/tool/circularsaw,
+		/datum/design/autolathe/tool/surgicaldrill,
+		/datum/design/research/item/cautery_adv,
+		/datum/design/research/item/hemostat_adv,
+		/datum/design/research/item/retractor_adv,
+		/datum/design/research/item/bonesetter_adv,
+		/datum/design/autolathe/container/syringe,
+		/datum/design/autolathe/container/vial,
+		/datum/design/autolathe/container/beaker,
+		/datum/design/autolathe/container/beaker_large,
+		/datum/design/autolathe/container/pill_bottle,
+		/datum/design/autolathe/container/spray,
+		/datum/design/autolathe/container/freezer_medical,
+		/datum/design/autolathe/device/implanter,
+		/datum/design/autolathe/container/syringegun_ammo,
+		/datum/design/autolathe/ammo/dart_mag
+	)
+
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/computer
 	disk_name = "NT Computer Parts"
 

@@ -36,3 +36,6 @@
 		STAT_VIG = 8,
 	)
 	rarity_value = 26
+
+/obj/item/weapon/oddity/techno
+	prob_perk = 0 //So that way unknown techno parts dont get perks.

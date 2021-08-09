@@ -22,6 +22,7 @@
 		/datum/design/autolathe/tool/combi_driver,
 		/datum/design/autolathe/tool/armature_cutter,
 		/datum/design/autolathe/tool/weldertool_adv,
+		/datum/design/autolathe/tool/multitool_advanced,
 		/datum/design/autolathe/part/diamondblade,
 		/datum/design/autolathe/tool/rpd,
 		/datum/design/autolathe/tool/fibertape

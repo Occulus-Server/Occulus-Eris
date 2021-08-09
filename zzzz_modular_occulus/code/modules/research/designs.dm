@@ -118,3 +118,25 @@
 	desc = "A one-use module containing a painkilling software package"
 	build_path = /obj/item/weapon/holochip/security/painkiller
 	sort_string = "MFAAQ"
+
+///Advanced surgery tools - Todo remove improve rnd. Do Better
+/datum/design/research/item/bonesetter_adv
+	name = "Bone Clamp Setter"
+	desc = "An advanced bone clamping tool, allows for more precise settling of bones with less wrist force required."
+	build_path = /obj/item/weapon/tool/bonesetter/adv
+
+/datum/design/research/item/cautery_adv
+	name = "High Power Cautery"
+	desc = "A cautery with self-regulating heat transfer capabilities, allows for quicker and more precise cauterization of surgical incisions."
+	build_path = /obj/item/weapon/tool/cautery/adv
+
+/datum/design/research/item/hemostat_adv
+	name = "Precise Hemostat"
+	desc = "An advanced hemostat with better vein clamping strength and an adaptive tip tuned to also allow easier extraction of shrapnel, organs, and implants."
+	build_path = /obj/item/weapon/tool/hemostat/adv
+
+/datum/design/research/item/retractor_adv
+	name = "Extended Retractor"
+	desc = "Retracts surgical incisions with greater precision and speed than normal."
+	build_path = /obj/item/weapon/tool/retractor/adv
+
