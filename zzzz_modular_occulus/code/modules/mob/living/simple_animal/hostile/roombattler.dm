@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/roombattler
 	name = "\improper RMB-A4 Schildkröte"
-	desc = "A discontinued product from Bosstown Dynamics Incorporated, the Room Maintenance Bot model A4 was inspired by a long-since defunct company's design. The Schildkröte variant features extra heavy plating and shields."
+	desc = "A discontinued product from Frozen Star, the Room Maintenance Bot model A4 was purchased as a long-since defunct company's design. These were bought in surplus by EES to handle the roach problem. It's got kinks that need worked out still. The Schildkröte variant features extra heavy plating and shields and looks much too tough for rubber bullets to put a dent in."
 	icon = 'zzzz_modular_occulus/icons/mob/roombattler.dmi'
 	icon_state = "turtle"
 	speak_chance = 5
@@ -56,7 +56,7 @@
 
 /mob/living/simple_animal/hostile/roombattler/riot
 	name = "\improper RMB-A4 Quasimodo"
-	desc = "A discontinued product from Bosstown Dynamics Incorporated, the Room Maintenance Bot model A4 was inspired by a long-since defunct company's design. The Quasimodo variant features a mounted riot gun."
+	desc = "A discontinued product from Frozen Star, the Room Maintenance Bot model A4 was purchased as a long-since defunct company's design. These were bought in surplus by EES to handle the roach problem. It's got kinks that need worked out still. The Quasimodo variant features a mounted riot gun."
 	icon_state = "riot"
 	ranged = TRUE
 	rapid = TRUE // Burst fire rubbers are... very painful.

@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/spud
 	name = "\improper SPUD unit"
-	desc = "A popular product from Bosstown Dynamics Incorporated, the Synchronized Pseudopodal Utility Demonstrator unit is a modular robot capable of fufilling all manner of tasks."
+	desc = "A popular product from Automita Dynamics Incorporated, the Synchronized Pseudopodal Utility Demonstrator unit is a modular robot capable of fufilling all manner of tasks."
 	icon = 'zzzz_modular_occulus/icons/mob/spud.dmi'
 	icon_state = "spud"
 	speak_chance = 5
@@ -55,7 +55,7 @@
 
 /mob/living/simple_animal/hostile/spud/frozenstar
 	name = "\improper FS SPUD unit"
-	desc = "A popular product from Bosstown Dynamics Incorporated, the Synchronized Pseudopodal Utility Demonstrator unit is a modular robot capable of fufilling all manner of tasks. This one has a cool Frozen Star paintjob."
+	desc = "A popular product from Automita Dynamics Incorporated, the Synchronized Pseudopodal Utility Demonstrator unit is a modular robot capable of fufilling all manner of tasks. This one has a cool Frozen Star paintjob."
 	icon_state = "frozen"
 	melee_damage_lower = 15
 	melee_damage_upper = 30
@@ -64,7 +64,7 @@
 
 /mob/living/simple_animal/hostile/spud/syndi //hostile edition
 	name = "\improper blood-red SPUD unit"
-	desc = "A popular product from Bosstown Dynamics Incorporated, the Synchronized Pseudopodal Utility Demonstrator unit is a modular robot capable of fufilling all manner of tasks. This one has a snazzy blood-red paintjob."
+	desc = "A popular product from Automita Dynamics Incorporated, the Synchronized Pseudopodal Utility Demonstrator unit is a modular robot capable of fufilling all manner of tasks. This one has a snazzy blood-red paintjob and makes angry sounding beeps."
 	icon_state = "syndi"
 	melee_damage_lower = 15
 	melee_damage_upper = 30
