@@ -1,5 +1,7 @@
 //// Occulus Modular Drinks! Time to add some flavor to our server. Literally ////
 
+//You can find the tastes for the taste_tag variable inside the `sanity.dm` file.
+
 ///////JUICES///////
 
 /datum/reagent/drink/blueberryjuice

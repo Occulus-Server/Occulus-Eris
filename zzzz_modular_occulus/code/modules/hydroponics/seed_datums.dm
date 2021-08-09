@@ -14,7 +14,10 @@ at those if you want to use an existing sprite and recolour it with the product_
 Another thing to note is that in hydroponics_products.dmi there are two sets of products. One with `-product` which is the actual fruit you can harvest and eat,
 and another without the `-product` which is the sprite that will appear on the plant when it is ready to be harvested. This is very important to keep in mind.
 
-Finally, the chems list is for what the product of this seed will give when injested or blended. So keep that in mind.
+The chems list is for what the product of this seed will give when injested or blended. So keep that in mind too.
+
+Finally, I'm going to make your life easier here. Each new seed has to be given a taste_tag. The list of tastes that can be added to taste_tag can be
+found inside the `sanity.dm` file. The same place where you can fine the tastes for drinks!
 
 If you need more examples, there's a TON of them on the original seed_datums.dm file. Go take a look, learn and have fun making new seeds!
 */
@@ -22,7 +25,7 @@ If you need more examples, there's a TON of them on the original seed_datums.dm 
 
 
 
-//////Seeds that need fixing//////
+//////Existing seeds that need fixing//////
 
 /datum/seed/pumpkin
 	name = "pumpkin"
@@ -30,6 +33,7 @@ If you need more examples, there's a TON of them on the original seed_datums.dm 
 	display_name = "pumpkin vine"
 	chems = list("nutriment" = list(1,6), "pumpkinjuice" = list(10,6))
 	kitchen_tag = "pumpkin"
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
 
 /datum/seed/pumpkin/New()
 	..()
@@ -50,6 +54,7 @@ If you need more examples, there's a TON of them on the original seed_datums.dm 
 	display_name = "watermelon vine"
 	chems = list("nutriment" = list(1,6), "watermelonjuice" = list(10,6))
 	kitchen_tag = "watermelon" // Added a kitchen tag.
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
 
 /datum/seed/watermelon/New()
 	..()
@@ -74,6 +79,7 @@ If you need more examples, there's a TON of them on the original seed_datums.dm 
 	display_name = "lemon tree" //It's just one tree, not multiple. Removed plural
 	chems = list("nutriment" = list(1,20), "lemonjuice" = list(10,20))
 	kitchen_tag = "lemon"
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
 
 /datum/seed/citrus/lemon/New()
 	..()
@@ -86,6 +92,107 @@ If you need more examples, there's a TON of them on the original seed_datums.dm 
 
 
 
+
+//////Existing seeds that need to be given a taste//////
+
+// Chili plants/variants.
+/datum/seed/chili
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SPICY_FOOD)
+
+/datum/seed/chili/ice
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SPICY_FOOD)
+
+/datum/seed/berry
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
+
+/datum/seed/berry/glow
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD, SPICY_FOOD)
+
+/datum/seed/berry/poison
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD, SPICY_FOOD)
+
+/datum/seed/berry/poison/death
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SPICY_FOOD, SALTY_FOOD)
+
+/datum/seed/nettle
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SPICY_FOOD)
+
+/datum/seed/nettle/death
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SPICY_FOOD, SALTY_FOOD)
+
+/datum/seed/tomato/blood
+	taste_tag = list(MEAT_FOOD)
+
+/datum/seed/tomato/killer
+	taste_tag = list(MEAT_FOOD)
+
+/datum/seed/tomato/blue
+	taste_tag = list(VEGETARIAN_FOOD, CHEESE_FOOD)
+
+/datum/seed/eggplant
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, UMAMI_FOOD)
+
+/datum/seed/apple
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
+
+/datum/seed/apple/poison
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD, SPICY_FOOD)
+
+/datum/seed/ambrosia
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, UMAMI_FOOD)
+
+/datum/seed/mushroom
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, UMAMI_FOOD)
+
+/datum/seed/mushroom/plump
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, UMAMI_FOOD, SWEET_FOOD)
+
+/datum/seed/mushroom/poison
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, UMAMI_FOOD, SPICY_FOOD)
+
+/datum/seed/mushroom/glowshroom
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, UMAMI_FOOD, SALTY_FOOD)
+
+/datum/seed/grapes
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
+
+/datum/seed/peanuts
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, UMAMI_FOOD)
+
+/datum/seed/banana
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
+
+/datum/seed/corn
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
+
+/datum/seed/soybean
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, UMAMI_FOOD)
+
+/datum/seed/wheat
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, FLOURY_FOOD)
+
+/datum/seed/rice
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, FLOURY_FOOD)
+
+/datum/seed/whitebeets
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
+
+/datum/seed/sugarcane
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
+
+/datum/seed/citrus
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
+
+/datum/seed/cocoa
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, COCO_FOOD)
+
+/datum/seed/cherries
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
+
+
+
+
+
 //////New seeds!//////
 
 /datum/seed/blueberry
@@ -94,6 +201,7 @@ If you need more examples, there's a TON of them on the original seed_datums.dm 
 	display_name = "blueberry bush"
 	chems = list("nutriment" = list(1,10), "blueberryjuice" = list(10,10))
 	kitchen_tag = "blueberries"
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
 
 /datum/seed/blueberry/New()
 	..()
@@ -117,6 +225,7 @@ If you need more examples, there's a TON of them on the original seed_datums.dm 
 	display_name = "strawberry bush"
 	chems = list("nutriment" = list(1,10), "strawberryjuice" = list(10,10))
 	kitchen_tag = "strawberries"
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
 
 /datum/seed/strawberry/New()
 	..()
@@ -140,6 +249,7 @@ If you need more examples, there's a TON of them on the original seed_datums.dm 
 	display_name = "pineapple shrub"
 	chems = list("nutriment" = list(10,20), "pineapplejuice" = list(20,30))
 	kitchen_tag = "pineapples"
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SWEET_FOOD)
 
 /datum/seed/pineapple/New()
 	..()
@@ -160,6 +270,7 @@ If you need more examples, there's a TON of them on the original seed_datums.dm 
 	seed_name = "cinnamon"
 	display_name = "cinnamon"
 	chems = list("cinnamonpowder" = list(6,12))
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SPICY_FOOD) // Spicy as in it's a spice.
 
 /datum/seed/cinnamon/New()
 	..()
@@ -180,6 +291,7 @@ If you need more examples, there's a TON of them on the original seed_datums.dm 
 	display_name = "mint plant"
 	chems = list("blendedmint" = list(10,10))
 	kitchen_tag = "mint"
+	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD, SPICY_FOOD) //Spicy as in it's a spice.
 
 /datum/seed/mint/New()
 	..()
