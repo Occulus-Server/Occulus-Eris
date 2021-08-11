@@ -131,7 +131,7 @@ var/list/custom_table_appearance = list(
 	switch(tool_type)
 
 		if(QUALITY_SCREW_DRIVING)
-			if(user.a_intent == I_HELP)
+			if(user.a_intent == I_HELP)//Occulus Edit
 				return ..()
 			if(reinforced)
 				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_EASY,  required_stat = STAT_MEC))
@@ -143,7 +143,7 @@ var/list/custom_table_appearance = list(
 			return
 
 		if(QUALITY_PRYING)
-			if(user.a_intent == I_HELP)
+			if(user.a_intent == I_HELP)//Occulus Edit
 				return ..()
 			if(custom_appearance)
 				/*if(custom_appearance[5] && !reinforced) SYZYGY Edit - This was preventing people from modifying the bar tables at all. Fixed!
@@ -162,7 +162,7 @@ var/list/custom_table_appearance = list(
 			return
 
 		if(QUALITY_WELDING)
-			if(user.a_intent == I_HELP)
+			if(user.a_intent == I_HELP)//Occulus Edit
 				return ..()
 			if(health < maxhealth)
 				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_EASY,  required_stat = STAT_MEC))
@@ -171,7 +171,7 @@ var/list/custom_table_appearance = list(
 			return
 
 		if(QUALITY_BOLT_TURNING)
-			if(user.a_intent == I_HELP)
+			if(user.a_intent == I_HELP)//Occulus Edit
 				return ..()
 			if(!reinforced && !custom_appearance)
 				if(material)
