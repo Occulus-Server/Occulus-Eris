@@ -235,7 +235,8 @@
 	else if(istype(W,/obj/item/weapon/melee/baton) && W:status ||\
 			istype(W,/obj/item/weapon/melee/energy) ||\
 			istype(W,/obj/item/weapon/card/emag) ||\
-			istype(W,/obj/item/weapon/tool/multitool))
+			istype(W,/obj/item/weapon/tool/multitool) ||\
+			istype(W,/obj/item/weapon/tool/baton/stun)) //Occulus Edit
 		if (my_effect.trigger == TRIGGER_ENERGY)
 			my_effect.ToggleActivate()
 		if(secondary_effect && secondary_effect.trigger == TRIGGER_ENERGY && prob(25))
