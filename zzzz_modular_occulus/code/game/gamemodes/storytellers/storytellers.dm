@@ -1,6 +1,6 @@
 /datum/storyteller
 	variance = 0.45 //Tripling potential varience. Since right now storytellers are kinda... easy to predict
-
+	repetition_multiplier = 0.85 //This needs to be below 1, otherwise every time an event occurs it becomes much more likely to reoccur.
 /*The Guide is the default storyteller
 It is set as storyteller base in __defines/gamemode.dm
 */
@@ -22,7 +22,12 @@ It is set as storyteller base in __defines/gamemode.dm
 	welcome = "A strict regimen is paramount, if one is to master the brutal arithmetic of combat."
 	description = "A PvE focused storyteller that pulls no punches, but doesn't try and overwhelm you. Defend the gates. Identical to guide, but generates no antagonists or round-ending events."
 	gain_mult_roleset = 0
-	tag_weight_mults = list(TAG_ROUNDENDING = 0)
+	points = list(
+		EVENT_LEVEL_MUNDANE = 0, //Mundane
+		EVENT_LEVEL_MODERATE = 0, //Moderate
+		EVENT_LEVEL_MAJOR = 0, //Major
+		EVENT_LEVEL_ROLESET = 0 //Roleset - Spawns antagonists at 30minutes and 150 minutes roughly
+	)
 /*The Mentor is designed to teach new players the ropes of the Northern Light.
 It generates points about half as a fast as guide
 */
@@ -40,7 +45,7 @@ It generates points about half as a fast as guide
 	EVENT_LEVEL_MUNDANE = 10, //Mundane
 	EVENT_LEVEL_MODERATE = 20, //Moderate
 	EVENT_LEVEL_MAJOR = 40, //Major
-	EVENT_LEVEL_ROLESET = 0 //Roleset
+	EVENT_LEVEL_ROLESET = 45 //Roleset
 	)
 /*The Healer is designed for RP-heavy rounds.
 It generates no antagonists and disables the most destructive major events.
@@ -57,6 +62,7 @@ It generates no antagonists and disables the most destructive major events.
 	gain_mult_roleset = 0 //Healer does not generate antagonists.
 
 	tag_weight_mults = list(TAG_COMBAT = 0.75, TAG_NEGATIVE = 0.5, TAG_POSITIVE = 2, TAG_ROUNDENDING = 0)
+	repetition_multiplier = 0.85 //This needs to be below 1, otherwise every time an event occurs it becomes much more likely to reoccur.
 
 	points = list(
 	EVENT_LEVEL_MUNDANE = 25, //Mundane
@@ -79,8 +85,6 @@ It generates half again as many events as default, as well as more antagonists.
 	gain_mult_roleset = 1.2
 
 	tag_weight_mults = list(TAG_COMBAT = 0.6, TAG_DESTRUCTIVE = 0.6)
-
-	repetition_multiplier = 1 //Fine, since we want antags to spawn and not much else to happen that isn't combat or destructive.
 
 	//Generates few events after spawning antagonists.
 	points = list(

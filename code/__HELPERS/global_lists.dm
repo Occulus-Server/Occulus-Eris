@@ -6,6 +6,7 @@ var/list/directory = list()							//list of all ckeys with associated client
 //Since it didn't really belong in any other category, I'm putting this here
 //This is for procs to replace all the goddamn 'in world's that are chilling around the code
 
+GLOBAL_LIST_EMPTY(mob_list)					//EVERY single mob, dead or alive
 GLOBAL_LIST_EMPTY(player_list)				//List of all mobs **with clients attached**. Excludes /mob/new_player
 GLOBAL_LIST_EMPTY(human_mob_list)				//List of all human mobs and sub-types, including clientless
 GLOBAL_LIST_EMPTY(silicon_mob_list)			//List of all silicon mobs, including clientless
@@ -13,6 +14,7 @@ GLOBAL_LIST_EMPTY(living_mob_list)			//List of all alive mobs, including clientl
 GLOBAL_LIST_EMPTY(dead_mob_list)				//List of all dead mobs, including clientless. Excludes /mob/new_player
 GLOBAL_LIST_EMPTY(current_antags)
 GLOBAL_LIST_EMPTY(current_factions)
+GLOBAL_LIST_EMPTY(superior_animal_list)		//A list of all superior animals; for targeting each other
 
 GLOBAL_LIST_EMPTY(cable_list)					//Index for all cables, so that powernets don't have to look through the entire world all the time
 GLOBAL_LIST_EMPTY(chemical_reactions_list)				//list of all /datum/chemical_reaction datums. Used during chemical reactions
@@ -23,8 +25,19 @@ GLOBAL_LIST_EMPTY(shuttle_landmarks_list)		//list of all /obj/effect/shuttle_lan
 GLOBAL_LIST_EMPTY(old_surgery_steps)			//list of all old-style (not bound to organs) surgery steps
 GLOBAL_LIST_EMPTY(surgery_steps)					//list of all new organ-based surgery steps
 GLOBAL_LIST_EMPTY(mechas_list)				//list of all mechs. Used by hostile mobs target tracking. Not sure this is used anymore
+GLOBAL_LIST_EMPTY(all_burrows)				//list of all burrows
+GLOBAL_LIST_EMPTY(all_maintshrooms)			//list of all maintshrooms
 
-
+//Machinery lists
+GLOBAL_LIST_EMPTY(alarm_list) //List of fire alarms
+GLOBAL_LIST_EMPTY(ai_status_display_list) //List of AI status displays
+GLOBAL_LIST_EMPTY(apc_list) //List of Area Power Controllers
+GLOBAL_LIST_EMPTY(smes_list) //List of SMES
+GLOBAL_LIST_EMPTY(machines) //List of classless machinery. Removed from SSmachinery because that subsystem is half-dead by just existing
+GLOBAL_LIST_EMPTY(firealarm_list) //List of fire alarms
+GLOBAL_LIST_EMPTY(computer_list) //List of all computers
+GLOBAL_LIST_EMPTY(all_doors) //List of all airlocks
+GLOBAL_LIST_EMPTY(atmos_machinery) //All things atmos
 
 GLOBAL_LIST_EMPTY(hearing_objects)			//list of all objects, that can hear mob say
 
@@ -84,9 +97,9 @@ GLOBAL_DATUM_INIT(underwear, /datum/category_collection/underwear, new())
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
 
 var/global/list/organ_structure = list(
-	torso = list(name= "Torso", children=list(BP_GROIN, BP_HEAD, BP_R_ARM, BP_L_ARM)),
-	groin = list(name= "Groin",     parent=BP_CHEST, children=list(BP_L_LEG, BP_R_LEG)),
-	head  = list(name= "Head",      parent=BP_CHEST, children=list()),
+	torso = list(name= "Torso", children=list(BP_GROIN, BP_HEAD, BP_R_ARM, BP_L_ARM, OP_HEART, OP_LUNGS, OP_STOMACH)),
+	groin = list(name= "Groin",     parent=BP_CHEST, children=list(BP_L_LEG, BP_R_LEG, OP_KIDNEYS, OP_LIVER)),
+	head  = list(name= "Head",      parent=BP_CHEST, children=list(BP_BRAIN, BP_EYES)),
 	r_arm = list(name= "Right arm", parent=BP_CHEST, children=list(BP_R_HAND)),
 	l_arm = list(name= "Left arm",  parent=BP_CHEST, children=list(BP_L_HAND)),
 	r_leg = list(name= "Right leg", parent=BP_GROIN, children=list(BP_R_FOOT)),
@@ -105,7 +118,9 @@ var/global/list/organ_tag_to_name = list(
 	eyes  = "eyes", l_arm = "left arm",
 	groin = "groin",l_leg = "left leg",
 	chest2= "back", heart = "heart",
-	lungs  = "lungs", liver = "liver"
+	lungs  = "lungs", liver = "liver",
+	"left kidney" = "left kidney", "right kidney" = "right kidney",
+	stomach = "stomach", brain = "brain"
 	)
 */
 var/global/list/organ_tag_to_name = list(
@@ -114,7 +129,8 @@ var/global/list/organ_tag_to_name = list(
 	eyes  = "eyes", l_arm = "left arm", l_hand = "left hand",
 	groin = "groin",l_leg = "left leg", l_foot = "left foot",
 	chest2= "back", heart = "heart",    lungs  = "lungs",
-	liver = "liver"
+	liver = "liver", stomach = "stomach", brain = "brain",
+	kidneys = "kidneys"
 	)
 
 // Visual nets

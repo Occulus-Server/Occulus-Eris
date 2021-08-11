@@ -34,7 +34,7 @@ true, and the mob is not yet deleted, so we need to check that as well*/
 		return TRUE
 
 	//Melee weapon embedded object code.
-	if (I && I.damtype == BRUTE && !I.anchored && !is_robot_module(I))
+	if (I && I.damtype == BRUTE && !I.anchored && !I.wielded && !is_robot_module(I)) // Occulus edit: !I.wielded - wielded weapons don't embed
 		var/damage = effective_force
 
 		//blunt objects should really not be embedding in things unless a huge amount of force is involved

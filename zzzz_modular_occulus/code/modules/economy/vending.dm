@@ -83,7 +83,13 @@
 					/obj/item/weapon/storage/box/shotgunammo/beanbags = 5,
 					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 5,
 					/obj/item/weapon/cell/small/high = 10,
-					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 5	// OCCULUS EDIT - pew pew
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 5 // OCCULUS EDIT - pew pew
+					)
+	contraband = list(
+					/obj/item/weapon/storage/deferred/crate/clown_crime = 2,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/wolf = 2,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/hoxton = 2,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/chains = 2
 					)
 	prices = list(
 					/obj/item/ammo_magazine/slpistol/rubber = 90,
@@ -101,7 +107,11 @@
 					/obj/item/weapon/storage/box/shotgunammo/beanbags = 575,
 					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 575,
 					/obj/item/weapon/cell/small/high = 500,
-					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2500	// OCCULUS EDIT - pew pew
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2500, // OCCULUS EDIT - pew pew
+					/obj/item/weapon/storage/deferred/crate/clown_crime = 1800,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/wolf = 1800,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/hoxton = 1800,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/chains = 1800
 					)
 	idle_power_usage = 211
 	auto_price = FALSE
@@ -228,3 +238,17 @@
 
 	. = ..()	//And we go back to how things were.
 
+/obj/machinery/vending/snack
+	name = "Getmore Chocolate Corp"
+	desc = "A snack machine courtesy of the Getmore Chocolate Corporation."
+	product_slogans = "Try our new nougat bar!;Twice the calories for half the price!"
+	product_ads = "The healthiest!;Award-winning chocolate bars!;Mmm! So good!;Oh my god it's so juicy!;Have a snack.;Snacks are good for you!;Have some more. Getmore!;Best quality snacks straight from mars.;We love chocolate!;Try our new jerky!;We are legally required to disclose that we are under investigation by the Solarian Federal Bureau of Labor Protection."
+	icon_state = "snack"
+	products = list(/obj/item/weapon/reagent_containers/food/snacks/candy = 6,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 6,/obj/item/weapon/reagent_containers/food/snacks/chips =6,
+					/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 6,/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 6,/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 6,
+					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 6, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 6)
+	contraband = list(/obj/item/weapon/reagent_containers/food/snacks/syndicake = 8, /obj/item/weapon/storage/ration_pack = 1)
+	prices = list(/obj/item/weapon/reagent_containers/food/snacks/candy = 60,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 80,/obj/item/weapon/reagent_containers/food/snacks/chips = 70,
+					/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 75,/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 80,/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 60,
+					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 90, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 100,
+					/obj/item/weapon/reagent_containers/food/snacks/syndicake = 80, /obj/item/weapon/storage/ration_pack = 500)

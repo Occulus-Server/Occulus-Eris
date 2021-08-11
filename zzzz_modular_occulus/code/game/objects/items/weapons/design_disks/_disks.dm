@@ -1,26 +1,3 @@
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools
-	designs = list(
-		/datum/design/autolathe/tool/big_wrench,
-		/datum/design/autolathe/tool/pneumatic_crowbar,
-		/datum/design/research/item/weapon/mining/jackhammer,
-		/datum/design/research/item/weapon/mining/drill,
-		/datum/design/research/item/weapon/mining/drill_diamond,
-		/datum/design/autolathe/tool/pickaxe_excavation,
-		/datum/design/autolathe/tool/shovel/power,
-		/datum/design/autolathe/tool/circularsaw,
-		/datum/design/autolathe/tool/powered_hammer,
-		/datum/design/autolathe/tool/chainsaw,
-		/datum/design/autolathe/tool/hypersaw,
-		/datum/design/autolathe/tool/rcd,
-		/datum/design/autolathe/tool/electric_screwdriver,
-		/datum/design/autolathe/tool/combi_driver,
-		/datum/design/autolathe/tool/armature_cutter,
-		/datum/design/autolathe/tool/weldertool_adv,
-		/datum/design/autolathe/part/diamondblade,
-		/datum/design/autolathe/tool/rpd,
-		/datum/design/autolathe/tool/fibertape
-	)
-
 /datum/design/autolathe/tool/fibertape
 	name = "fiber tape"
 	build_path = /obj/item/weapon/tool/tape_roll/fiber
@@ -114,6 +91,22 @@ CHURCH DISKS
 /datum/design/bioprinter/cahor
 	build_path = /obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors
 	materials = list(MATERIAL_BIOMATTER = 10, MATERIAL_GLASS = 1)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/carpets
+	disk_name = "Mekhanite Bio-Fabric Flooring"
+	icon_state = "neotheology"
+	license = -1
+	spawn_blacklisted = TRUE
+	designs = list(
+		/datum/design/bioprinter/carpet,
+		/datum/design/bioprinter/carpet/bcarpet,
+		/datum/design/bioprinter/carpet/blucarpet,
+		/datum/design/bioprinter/carpet/gaycarpet,
+		/datum/design/bioprinter/carpet/oracarpet,
+		/datum/design/bioprinter/carpet/purcarpet,
+		/datum/design/bioprinter/carpet/sblucarpet,
+		/datum/design/bioprinter/carpet/turcarpet
+	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/retro
 	disk_name = "FS LG \"Cog\""

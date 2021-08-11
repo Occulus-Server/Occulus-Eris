@@ -200,7 +200,7 @@
 		//You can get yourself out of the cryopod, or it will auto-eject after one minute
 		spawn(600)
 			if (C && C.occupant == M)
-				C.eject() 
+				C.eject()
 		return TRUE
 	return FALSE
 
@@ -216,7 +216,7 @@
 */
 /datum/spawnpoint/dormitory
 
-/datum/spawnpoint/dormitory/get_spawn_locations()
+/*/datum/spawnpoint/dormitory/get_spawn_locations() We removed dorm spawning in favor of elevator spawning Occulus Edit Start
 	. = list()
 	var/list/things = list()
 	for (var/turf/P in points)
@@ -242,7 +242,7 @@
 
 /datum/spawnpoint/dormitory/get_free_turfs(update = FALSE)
 	return null
-	//This doesn't spawn people on turfs
+	//This doesn't spawn people on turfs - Occulus Now it does
 
 /datum/spawnpoint/dormitory/put_mob(mob/M, ignore_environment = FALSE, announce = TRUE)
 	var/list/beds = get_spawn_locations()
@@ -257,4 +257,7 @@
 		//Once you wake up, you can get yourself out of bed. I've made it real easy, just click basically anything
 
 		return TRUE
-	return FALSE
+
+	M.forceMove
+	return FALSE Occulus Edit End
+*/

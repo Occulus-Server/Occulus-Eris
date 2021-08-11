@@ -172,14 +172,14 @@
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections
-	var/antibiotics = owner.reagents.get_reagent_amount("spaceacillin")
+	var/antibiotics = owner.reagents.get_reagent_amount("spaceacillin") + owner.ingested.get_reagent_amount("spaceacillin")//Occulus Edit: spacae pills should work again
 
 	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(30))
 		germ_level--
 
 	if (germ_level >= INFECTION_LEVEL_ONE/2)
 		//aiming for germ level to go from ambient to INFECTION_LEVEL_TWO in an average of 15 minutes
-		if(antibiotics < 5 && prob(round(germ_level/6)))
+		if(antibiotics < 1 && prob(round(germ_level/6)))//Occulus Edit: Any amount of antibiotics will work as long as you have them in you.
 			germ_level++
 
 	if(germ_level >= INFECTION_LEVEL_ONE)
@@ -188,7 +188,7 @@
 
 	if (germ_level >= INFECTION_LEVEL_TWO)
 		//spread germs
-		if (antibiotics < 5 && parent.germ_level < germ_level && ( parent.germ_level < INFECTION_LEVEL_ONE*2 || prob(30) ))
+		if (antibiotics < 1 && parent.germ_level < germ_level && ( parent.germ_level < INFECTION_LEVEL_ONE*2 || prob(30) ))//Occulus edit: Any amount of antibiotics will work as long as you have them in you
 			parent.germ_level++
 
 		if (prob(3))	//about once every 30 seconds
@@ -234,9 +234,9 @@
 /obj/item/organ/proc/handle_antibiotics()
 	var/antibiotics = 0
 	if(owner)
-		antibiotics = owner.reagents.get_reagent_amount("spaceacillin")
+		antibiotics = owner.reagents.get_reagent_amount("spaceacillin") + owner.ingested.get_reagent_amount("spaceacillin")
 
-	if (!germ_level || antibiotics < 5)
+	if (!germ_level || antibiotics < 1)//Occulus Edit: You only need 1u of antibiotics for them to work as long as they last
 		return
 
 	if (germ_level < INFECTION_LEVEL_ONE)

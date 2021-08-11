@@ -3,15 +3,15 @@
 
 
 /obj/item/organ/internal/brain/occultist
-	name = "brain"
+	name = "brain tumor"
 	health = 400
 	max_damage = 400
 	desc = "a meat of juicy piece found in a head's person."
 	parent_organ_base = BP_HEAD
-	organ_efficiency = list(BP_BRAIN_CULTIST = 200)
+	organ_efficiency = list(BP_BRAIN_CULTIST = 200, BP_BRAIN = 200)
 	unique_tag = BP_BRAIN_CULTIST
+	specific_organ_size = 0
 	vital = 1
-	specific_organ_size = 2
 	var/list/purchasedpowers = list()
 	var/madnesspoints = 10
 
@@ -24,7 +24,6 @@
 	var/mindxfer = src.ckey
 	if(istype(user))
 		var/obj/item/organ/external/head = user.get_organ(BP_HEAD)
-
 		if(head)
 			var/obj/item/organ/internal/brain/occultist/B = new /obj/item/organ/internal/brain/occultist
 			B.replaced(head)
@@ -35,3 +34,10 @@
 		purchasePower(href_list["P"])
 		KnowledgeMenu()
 	..()
+
+/obj/item/organ/internal/brain/occultist/proc/spendpoints(var/amount)
+	if(madnesspoints < amount)
+		return FALSE
+	else
+		madnesspoints -= amount
+		return TRUE

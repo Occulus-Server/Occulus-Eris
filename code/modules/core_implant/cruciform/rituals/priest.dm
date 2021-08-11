@@ -219,7 +219,7 @@
 	s.set_up(1, 1, M.loc)
 	s.start()
 
-	M.apply_effect(50, AGONY, 0)
+	M.adjustHalLoss(50)
 
 	return TRUE
 
@@ -248,3 +248,4 @@
 	if(altar)
 		new /obj/item/weapon/paper/neopaper(altar.loc, disciples.Join("\n"), "Church Record")
 	return TRUE
+

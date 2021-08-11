@@ -1,3 +1,12 @@
+/datum/sprite_accessory/ears/uglycatears
+	name = "old kitty, colorable"
+	desc = ""
+	icon = 'zzzz_modular_occulus/icons/mob/jamini-ears.dmi'
+	icon_state = "kitty"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+	extra_overlay = "kittyinner"
+
 /datum/sprite_accessory/ears/cobrahood
 	name = "cobra, colorable"
 	desc = ""

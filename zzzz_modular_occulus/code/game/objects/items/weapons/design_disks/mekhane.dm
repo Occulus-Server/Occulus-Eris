@@ -131,6 +131,16 @@ ARMOR_PEN_MASSIVE			30
 	icon = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi'
 	icon_state = "mek_mace"
 	item_state = "chargehammer"
+	item_icons = list(
+		slot_l_hand_str = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi',
+		slot_r_hand_str = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi',
+		slot_back_str = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi'
+		)
+	item_state_slots = list(
+		slot_l_hand_str = "lefthand",
+		slot_r_hand_str = "righthand",
+		slot_back_str = "back"
+		)
 
 /datum/design/autolathe/sword/mek_hammer
 	name = "Mekhane Electro-Mace"
@@ -183,18 +193,23 @@ ARMOR_PEN_MASSIVE			30
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_dominion
 	disk_name = "Mekhane Armory - MEK PL \"Dominion\""
+	rarity_value = 75
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_purger
 	disk_name = "Mekhane Armory - MEK PL \"Purger\""
+	rarity_value = 75
+
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/grenades
 	disk_name = "Mekhane Armory - Grenades Pack"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_nemesis
 	disk_name = "EC01 - Nemesis"
+	rarity_value = 90
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_themis
 	disk_name = "EC02 - Themis"
+	rarity_value = 90
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_svalinn
 	disk_name = "Mekhane Armory - MEK LP \"Svalinn\""
