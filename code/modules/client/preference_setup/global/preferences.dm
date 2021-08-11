@@ -280,3 +280,11 @@ var/list/_client_preferences_by_type
 	options = list(GLOB.PREF_SHOW, GLOB.PREF_HIDE)
 	default_value = GLOB.PREF_HIDE
 	flags = R_ADMIN|R_DEBUG
+
+//OCCULUS EDIT BELOW THIS LINE
+
+/datum/client_preference/area_info_blurb
+	description = "Show area narration."
+	key = "AREA_INFO"
+
+//OCCULUS EDIT END

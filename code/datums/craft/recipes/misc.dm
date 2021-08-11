@@ -292,13 +292,11 @@
 	name = "Makeshift prosthetic right arm"
 	result = /obj/item/organ/external/robotic/makeshift/r_arm*/
 
-//start nonmodular occulus edit
-/* /datum/craft_recipe/guns_craft_frame Occulus Edit: This is now under gun.dm as /datum/craft_recipe/gun/guns_craft_frame
+ /datum/craft_recipe/gun/guns_craft_frame
 	name = "Gun assembly"
 	result = /obj/item/craft_frame/guns
 	steps = list(
 		list(CRAFT_MATERIAL, 5, MATERIAL_PLASTEEL, "time" = 30),
 		list(QUALITY_WELDING, 10, 10)
 	)
-	related_stats = list(STAT_MEC) */
-//END nonmodular occulus edit
+	related_stats = list(STAT_MEC)

@@ -51,6 +51,7 @@
 	var/splat_type = /obj/effect/decal/cleanable/fruit_smudge // Graffiti decal.
 	var/has_mob_product
 	var/force_layer
+	var/list/taste_tag = list(VEGETARIAN_FOOD,VEGAN_FOOD) //Occulus Edit: Adds flavor to fruit
 
 /datum/seed/New()
 

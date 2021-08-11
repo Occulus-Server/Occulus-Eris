@@ -334,6 +334,7 @@
 			var/obj/item/projectile/P = projectile
 			P.adjust_damages(proj_damage_adjust)
 			P.adjust_ricochet(noricochet)
+			P.multiply_projectile_accuracy(user.stats.getStat(STAT_VIG)/2)
 
 		if(pointblank)
 			process_point_blank(projectile, user, target)
@@ -502,7 +503,7 @@
 			user.death()
 		else
 			to_chat(user, SPAN_NOTICE("Ow..."))
-			user.apply_effect(110,AGONY,0)
+			user.adjustHalLoss(110)
 		qdel(in_chamber)
 		mouthshoot = FALSE
 		return
@@ -806,6 +807,8 @@
 		gun_tags |= GUN_GRIP
 	if(!zoom_factor && !(slot_flags & SLOT_HOLSTER))
 		gun_tags |= GUN_SCOPE
+	if(!sharp)
+		gun_tags |= SLOT_BAYONET
 
 /obj/item/weapon/gun/zoom(tileoffset, viewsize)
 	..()
@@ -816,6 +819,3 @@
 		H.using_scope = src
 	else
 		H.using_scope = null
-
-	if(!sharp)
-		gun_tags |= SLOT_BAYONET

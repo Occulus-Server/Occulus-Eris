@@ -62,8 +62,8 @@
 
 				for(var/quality in W.tool_qualities)
 
-					if(W.tool_qualities[quality] >= 35)
-						var/stat_cost = round(W.tool_qualities[quality] / 15)
+					if(W.tool_qualities[quality] >= 30)//Occulus Edit
+						var/stat_cost = round(W.tool_qualities[quality] / 25)//Occulus Edit
 						if(quality == QUALITY_BOLT_TURNING || quality == QUALITY_SCREW_DRIVING || quality == QUALITY_CUTTING)
 							oddity_stats[STAT_COG] += stat_cost
 							useful = TRUE

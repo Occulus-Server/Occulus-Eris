@@ -8,7 +8,7 @@
 	action_button_name = "Toggle Stun Glove"
 	price_tag = 100
 	rarity_value = 30
-	//siemens_coefficient = 1 Jamini Edit: Original stungloves didn't protect you from shocks as a balance concern. Additionally adding wiring to conduct electricity would probably make your glove armor less effective
+	siemens_coefficient = 1.3 // Siemens Coef 0 is shock proof. 1 is full shock damage. If anything it should be set to 1.3, for extra shock, Not commented out, as that makes you take less shock via normal glove coef
 	stunforce = 0
 	agonyforce = 15 //Maint gremlins not as good as Aegis. Glove stuns at over 100 Halloss. Req 7 consequetive hits to knock unconscious at 15 agony.
 	suitable_cell = /obj/item/weapon/cell/medium

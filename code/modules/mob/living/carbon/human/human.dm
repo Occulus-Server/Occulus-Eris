@@ -95,11 +95,11 @@
 			stat(null, "Suit charge: [cell_status]")
 
 		var/chemvessel_efficiency = get_organ_efficiency(OP_CHEMICALS)
-		if(chemvessel_efficiency)
+		if(chemvessel_efficiency > 1)
 			stat("Chemical Storage", "[carrion_stored_chemicals]/[round(0.5 * chemvessel_efficiency)]")
 
 		var/maw_efficiency = get_organ_efficiency(OP_MAW)
-		if(maw_efficiency > 0)
+		if(maw_efficiency > 1)
 			stat("Gnawing hunger", "[carrion_hunger]/[round(maw_efficiency/10)]")
 
 		var/obj/item/weapon/implant/core_implant/cruciform/C = get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
@@ -197,6 +197,8 @@
 			dat += "<BR><A href='?src=\ref[src];item=internals'>Toggle internals.</A>"
 
 	// Other incidentals.
+	if(istype(suit) && suit.has_sensor == 1) //Occulus Edit start
+		dat += "<BR><A href='?src=\ref[src];item=sensors'>Set sensors</A>" //Occulus edit end
 	if(handcuffed)
 		dat += "<BR><A href='?src=\ref[src];item=[slot_handcuffed]'>Handcuffed</A>"
 	if(legcuffed)
@@ -614,7 +616,7 @@ var/list/rank_prefix = list(\
 		return FLASH_PROTECTION_MAJOR
 
 	var/eye_efficiency = get_organ_efficiency(OP_EYES)
-	if(eye_efficiency <= 0)
+	if(eye_efficiency <= 1)
 		return FLASH_PROTECTION_MAJOR
 
 	return flash_protection
@@ -1232,9 +1234,9 @@ var/list/rank_prefix = list(\
 		for(var/tag in species.has_limbs)
 			BM = Pref.get_modification(tag)
 			var/datum/organ_description/OD = species.has_limbs[tag]
-			var/datum/body_modification/PBM = Pref.get_modification(OD.parent_organ_base)
-			if(PBM && (PBM.nature == MODIFICATION_SILICON || PBM.nature == MODIFICATION_REMOVED))
-				BM = PBM
+//			var/datum/body_modification/PBM = Pref.get_modification(OD.parent_organ_base)
+//			if(PBM && (PBM.nature == MODIFICATION_SILICON || PBM.nature == MODIFICATION_REMOVED))
+//				BM = PBM
 			if(BM.is_allowed(tag, Pref, src))
 				BM.create_organ(src, OD, Pref.modifications_colors[tag])
 			else
@@ -1262,6 +1264,8 @@ var/list/rank_prefix = list(\
 			var/obj/item/I = organs_by_name[limb_tag]
 			if(I && I.type == OD.default_type)
 				continue
+			else if(I)
+				qdel(I)
 			OD.create_organ(src)
 
 		for(var/organ_tag in species.has_process)
@@ -1269,6 +1273,8 @@ var/list/rank_prefix = list(\
 			var/obj/item/I = random_organ_by_process(organ_tag)
 			if(I && I.type == organ_type)
 				continue
+			else if(I)
+				qdel(I)
 			new organ_type(src)
 /* guess this isn't working out after all
 //	OCCULUS EDIT START - Spaghetti to fix spaghetti
@@ -1658,7 +1664,7 @@ var/list/rank_prefix = list(\
 	var/obj/item/organ/internal/heart_organ = random_organ_by_process(OP_HEART)
 	var/obj/item/organ/internal/brain_organ = random_organ_by_process(BP_BRAIN)
 
-	if(!is_asystole() && !(heart_organ && brain_organ) || (heart_organ.is_broken() || brain_organ.is_broken()))
+	if(!(heart_organ && brain_organ) || (heart_organ.is_broken() || brain_organ.is_broken()))//Occulus Edit: is_asystole is ALWAYS going to get called on a dead mob. Because they are DEAD. DIMWITS
 		return 0
 
 	if(world.time >= (timeofdeath + NECROZTIME))
@@ -1670,14 +1676,14 @@ var/list/rank_prefix = list(\
 
 	if(health <= (HEALTH_THRESHOLD_DEAD - oxyLoss))
 		visible_message(SPAN_WARNING("\The [src] twitches a bit, but their body is too damaged to sustain life!"))
-		timeofdeath = 0
+		//timeofdeath = 0 Occulus yeet
 		return 0
 
 	visible_message(SPAN_NOTICE("\The [src] twitches a bit as their heart restarts!"))
 	pulse = PULSE_NORM
 	handle_pulse()
 	tod = null
-	timeofdeath = 0
+	//timeofdeath = 0 Occulus yeet
 	stat = UNCONSCIOUS
 	jitteriness += 3 SECONDS
 	updatehealth()

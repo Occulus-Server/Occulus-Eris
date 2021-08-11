@@ -41,11 +41,9 @@
 	for(var/name in stat_modifiers)
 		L.stats.changeStat(name, stat_modifiers[name])
 
-/*Not ready yet
 /datum/storyevent/roleset/occultist
 	id = "occultist"
 	name = "occultist"
 	role_id = ROLE_OCCULTIST
 	base_quantity = 1
 	scaling_threshold = 10
-*/

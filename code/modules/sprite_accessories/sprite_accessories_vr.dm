@@ -416,7 +416,7 @@
 	icon = 'icons/mob/human_face_vr.dmi'
 	icon_state = "soghun_dubhorns"
 	do_colouration = 1
-	color_blend_mode = ICON_ADD
+	color_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/ears/unathi_bighorn
 	name = "Unathi Horns Big"

@@ -6,12 +6,13 @@
 	item_state = "taucetispecial"
 	drawChargeMeter = FALSE
 	w_class = ITEM_SIZE_SMALL
-	max_shells = 6
+	max_shells = 5
 	caliber = CAL_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
-	penetration_multiplier = 0.7 //meant for killing unarmored civillians.
+	damage_multiplier = 0.6
+	penetration_multiplier = 0.5 //meant for killing unarmored civillians.
 	recoil_buildup = 8
 	matter = list(MATERIAL_PLASTIC = 20)
-	price_tag = 300 //nobody wants to buy this. it's illegal to trade in most markets.
-	rarity_value = 25 //uncommon. terrorist weapon.
+	price_tag = 200 //nobody wants to buy this. not valuable mats. it's illegal to trade in most markets.
+	rarity_value = 80 //uncommon. terrorist weapon.

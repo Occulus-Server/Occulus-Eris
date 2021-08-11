@@ -458,7 +458,7 @@
 "ji" = (/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "jj" = (/obj/structure/sink{dir = 8; icon_state = "sink"; pixel_x = -12; pixel_y = 2},/obj/structure/mirror/antag{pixel_x = -28},/turf/unsimulated/floor{dir = 2; icon_state = "freezerfloor"},/area/centcom/merc_base)
 "jk" = (/obj/machinery/light,/obj/item/device/radio/intercom/syndicate{dir = 1; pixel_y = -22},/turf/simulated/shuttle/floor{icon_state = "floor6"},/area/shuttle/mercenary)
-"jl" = (/obj/item/weapon/paper_bin{pixel_x = -3; pixel_y = 8},/obj/item/weapon/pen{pixel_y = 4},/turf/simulated/shuttle/floor{icon_state = "floor6"},/area/shuttle/mercenary)
+"jl" = (/obj/machinery/telesci_inhibitor,/turf/simulated/shuttle/floor{icon_state = "floor6"},/area/shuttle/mercenary)
 "jm" = (/obj/structure/table/rack,/obj/item/weapon/storage/deferred/crate/saw,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/merc_base)
 "jn" = (/obj/machinery/vending/cigarette{name = "hacked cigarette machine"; prices = list(); products = list(/obj/item/weapon/storage/fancy/cigarettes = 10, /obj/item/weapon/storage/box/matches = 10, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)},/turf/unsimulated/floor{icon_state = "cult"; name = "plating"; tag = "icon-cult"},/area/centcom/merc_base)
 "jo" = (/obj/structure/table/rack,/obj/item/weapon/storage/deferred/surgery,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/merc_base)

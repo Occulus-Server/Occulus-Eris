@@ -1,5 +1,5 @@
 /mob/living/carbon/superior_animal/proc/check_AI_act()
-	if ((stat != CONSCIOUS) || !canmove || resting || lying || stasis || AI_inactive)
+	if ((stat != CONSCIOUS) || !canmove || resting || lying || stasis || AI_inactive || client || grabbed_by_friend)
 		stance = HOSTILE_STANCE_IDLE
 		target_mob = null
 		walk(src, 0)
@@ -38,7 +38,10 @@
 			stop_automated_movement = 1
 			stance = HOSTILE_STANCE_ATTACKING
 			set_glide_size(DELAY2GLIDESIZE(move_to_delay))
-			handle_walk_to(target_mob)	// OCCULUS EDIT: Move to shared function
+			if(!kept_distance)
+				handle_walk_to(target_mob) // OCCULUS EDIT: Move to shared function
+			else
+				step_to(src, target_mob, kept_distance)
 
 		if(HOSTILE_STANCE_ATTACKING)
 

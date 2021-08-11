@@ -1,5 +1,5 @@
 /obj/item/device/radio/intercom
-	name = "station intercom (General)"
+	name = "ship intercom (General)"
 	desc = "Talk through this."
 	icon_state = "intercom"
 	anchored = TRUE
@@ -12,16 +12,16 @@
 	var/area/linked_area
 
 /obj/item/device/radio/intercom/custom
-	name = "station intercom (Custom)"
+	name = "ship intercom (Custom)"
 	broadcasting = 0
 	listening = 0
 
 /obj/item/device/radio/intercom/interrogation
-	name = "station intercom (Interrogation)"
+	name = "ship intercom (Interrogation)"
 	frequency  = 1449
 
 /obj/item/device/radio/intercom/private
-	name = "station intercom (Private)"
+	name = "ship intercom (Private)"
 	frequency = AI_FREQ
 
 /obj/item/device/radio/intercom/department
@@ -30,11 +30,11 @@
 	listening = 1
 
 /obj/item/device/radio/intercom/department/medbay
-	name = "station intercom (Medbay)"
+	name = "ship intercom (Medbay)"
 	frequency = MED_I_FREQ
 
 /obj/item/device/radio/intercom/department/security
-	name = "station intercom (Security)"
+	name = "ship intercom (Security)"
 	frequency = SEC_I_FREQ
 
 /obj/item/device/radio/intercom/New()
@@ -90,7 +90,7 @@
 	return canhear_range
 
 /obj/item/device/radio/intercom/proc/change_status()
-	on = linked_area.powered(EQUIP)
+	on = linked_area.powered(STATIC_EQUIP)
 	icon_state = on ? "intercom" : "intercom-p"
 
 /obj/item/device/radio/intercom/proc/loop_area_check()

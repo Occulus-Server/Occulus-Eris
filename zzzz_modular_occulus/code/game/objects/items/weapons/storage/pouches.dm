@@ -57,4 +57,4 @@
 	storage_slots = null //Uses generic capacity
 	max_storage_space = DEFAULT_SMALL_STORAGE * 1.25
 	max_w_class = ITEM_SIZE_NORMAL
-	rarity_value = 30
+	rarity_value = 60

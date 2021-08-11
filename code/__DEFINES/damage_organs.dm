@@ -17,6 +17,7 @@
 #define PARALYZE  "paralize"
 #define IRRADIATE "irradiate"
 #define AGONY     "agony"     // Added in PAIN!
+#define PSY       "sanity"	//Sanity damage - Occulus Edit
 #define SLUR      "slur"
 #define STUTTER   "stutter"
 #define EYE_BLUR  "eye_blur"
