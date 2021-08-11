@@ -102,7 +102,7 @@ var/list/custom_table_appearance = list(
 		var/mob/living/L = mover
 		if(L.weakened)
 			return 1
-	return ..()	
+	return ..()
 
 /obj/structure/table/examine(mob/user)
 	. = ..()
@@ -131,6 +131,8 @@ var/list/custom_table_appearance = list(
 	switch(tool_type)
 
 		if(QUALITY_SCREW_DRIVING)
+			if(user.a_intent == I_HELP)
+				return ..()
 			if(reinforced)
 				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_EASY,  required_stat = STAT_MEC))
 					remove_reinforced(I, user)
@@ -141,6 +143,8 @@ var/list/custom_table_appearance = list(
 			return
 
 		if(QUALITY_PRYING)
+			if(user.a_intent == I_HELP)
+				return ..()
 			if(custom_appearance)
 				/*if(custom_appearance[5] && !reinforced) SYZYGY Edit - This was preventing people from modifying the bar tables at all. Fixed!
 					to_chat(user, SPAN_WARNING("This type of design can't be applied to simple tables. Reinforce it first."))
@@ -158,6 +162,8 @@ var/list/custom_table_appearance = list(
 			return
 
 		if(QUALITY_WELDING)
+			if(user.a_intent == I_HELP)
+				return ..()
 			if(health < maxhealth)
 				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_EASY,  required_stat = STAT_MEC))
 					user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."),SPAN_NOTICE("You repair some damage to \the [src]."))
@@ -165,6 +171,8 @@ var/list/custom_table_appearance = list(
 			return
 
 		if(QUALITY_BOLT_TURNING)
+			if(user.a_intent == I_HELP)
+				return ..()
 			if(!reinforced && !custom_appearance)
 				if(material)
 					if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_EASY,  required_stat = STAT_MEC))

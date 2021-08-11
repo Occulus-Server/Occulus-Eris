@@ -2896,6 +2896,8 @@
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\firstaid.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\pouches.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\storage.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\tools\surgery.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\tools\weldingtool.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\tools\mods\mod_types.dm"
 #include "zzzz_modular_occulus\code\game\objects\random\utility.dm"
 #include "zzzz_modular_occulus\code\game\objects\structures\curtains.dm"

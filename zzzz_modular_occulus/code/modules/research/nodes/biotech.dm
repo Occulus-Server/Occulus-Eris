@@ -9,3 +9,11 @@
 							/datum/design/research/item/holochip/deathalarm,
 							/datum/design/research/item/holochip/helpmaint
 							)
+
+/datum/technology/basic_medical_tools
+	unlocks_designs = list(	/datum/design/research/item/medical/mass_spectrometer,
+							/datum/design/research/item/medical/reagent_scanner,
+							/datum/design/research/item/scalpel_laser,
+							/datum/design/research/item/hud/health,
+							/datum/design/research/item/ims
+							)

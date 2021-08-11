@@ -118,3 +118,17 @@
 	desc = "A one-use module containing a painkilling software package"
 	build_path = /obj/item/weapon/holochip/security/painkiller
 	sort_string = "MFAAQ"
+
+/datum/design/research/item/ims
+	desc = "An advanced management system that greatly simplifies surgical procedures. It contains multiple attachments to perform more than one operation at a time."
+	build_path = /obj/item/weapon/tool/incisionmanager
+	category = "Medical"
+	sort_string = "MBBZZ"
+
+/datum/design/autolathe/tool/eweldertool
+	name = "electric welding tool"
+	build_path = /obj/item/weapon/tool/weldingtool/electric
+
+/datum/design/autolathe/tool/circularsaw/advanced
+	name = "advanced circular saw"
+	build_path = /obj/item/weapon/tool/saw/circular/advanced
