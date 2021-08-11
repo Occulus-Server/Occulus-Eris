@@ -52,7 +52,7 @@
 
 /datum/chemical_reaction/tartrate
 	result = "tartrate"
-	required_reagents = list("nitroge" = 1, "hydrazine" = 1)
+	required_reagents = list("nitrogen" = 1, "hydrazine" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/brownies
@@ -97,20 +97,11 @@
 	required_reagents = list("mindbreaker" =2, "pacid" =2)
 	result_amount = 2
 
-/datum/chemical_reaction/mortemol
-	result = "mortemol"
-	required_reagents = list("kaisertophin" = 3, "rezadone" = 1)
-	result_amount = 2
-
 /datum/chemical_reaction/liquid_bluespace
 	result = "liquid_bluespace"
 	required_reagents = list("bluespace_dust" =1, "mercury" = 1)
 	result_amount = 1
 
-/datum/chemical_reaction/ignisol
-	result = "ignisol"
-	required_reagents = list("thermite" = 1, "fuel" = 3, "phoron" = 1)
-	result_amount = 5
 /datum/chemical_reaction/aloe
 	result = "aloe"
 	required_reagents = list("irishcream" = 1, "watermelonjuice" = 1)

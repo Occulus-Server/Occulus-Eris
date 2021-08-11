@@ -86,13 +86,14 @@ datum/reagent/nitrate
 	id = "bliss"
 	name = "Bliss"
 	description = "Looks as though it would metabolize into the ultimate hallucinogenic cocktail"
+	taste_description = "sweet"
 	color = "#ffc0eb"
 	metabolism = 0.25 * REM
 	var/init = 0
 	overdose = 15
 	addiction_chance = 60
 
-/datum/reagent/bliss/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
+/datum/reagent/drug/bliss/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(!init)
 		to_chat(M, "<span class='warning'>Everything seems to turn glossy and wonderful.</span>")
 		init = 1
@@ -160,7 +161,7 @@ datum/reagent/nitrate
 			to_chat(usr, "Your fingers feel strange after the substance splashes on your hands.")
 	return ..()
 
-/datum/reagent/paralitol			//Testing needed here BELOW
+/datum/reagent/paralitol
 	id = "paralitol"
 	name = "Paralitol"
 	description = "Seems as if it could work as an extreme muscle inhibitor"
@@ -172,7 +173,7 @@ datum/reagent/nitrate
 	M.stuttering = 50
 	return ..()
 
-/datum/reagent/bluespace_dust //needs testing
+/datum/reagent/bluespace_dust
 	id = "bluespace_dust"
 	name = "Sparkling Crystaline Dust"
 	description = "Remnants of a bluespace crystal, they seem to shimmer when looked at"
