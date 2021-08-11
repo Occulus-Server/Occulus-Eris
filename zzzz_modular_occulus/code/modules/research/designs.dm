@@ -150,4 +150,3 @@
 	desc = "A bespoke container for ammunition for the White Nail prototype. Ammunition does not retain its shape for long outside of the rifle. Generates less-lethal ammunition."
 	build_path = /obj/item/ammo_magazine/whitenail/rubber
 	sort_string = "MGAAC"
-  
