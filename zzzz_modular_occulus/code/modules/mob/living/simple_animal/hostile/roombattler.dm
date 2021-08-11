@@ -72,3 +72,4 @@
 
 /obj/item/projectile/bullet/clrifle/rubber/weak
 	agony = 8
+	step_delay = 2
