@@ -1,3 +1,4 @@
 obj/item/clothing/under/syndicate/civilian
 	name = "black turtleneck"
-	desc = "some non-descript civilian clothing."
+	desc = "Some non-descript civilian clothing."
+	has_sensor = 1

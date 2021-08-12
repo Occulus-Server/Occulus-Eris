@@ -27,6 +27,8 @@
 
 	var/style = STYLE_NONE
 	var/no_fibers = FALSE	// OCCULUS EDIT: For clothing that should not leave fibers, like detective's gear
+	var/equip_sound = null // OCCULUS EDIT: For playing specific audio files on equip.
+	var/unequip_sound = null // OCCULUS EDIT: For playing specific audio files on unequip.
 
 /obj/item/clothing/Initialize(mapload, ...)
 	. = ..()
@@ -67,6 +69,8 @@
 	if (equip_delay > 0)
 		//If its currently worn, we must be taking it off
 		if (is_worn())
+			if(unequip_sound != null) // OCCULUS EDIT: For playing specific audio files when unequipping the clothing item.
+				playsound(src, unequip_sound, 50, 0)
 			user.visible_message(
 				SPAN_NOTICE("[user] starts taking off \the [src]..."),
 				SPAN_NOTICE("You start taking off \the [src]...")
@@ -75,6 +79,8 @@
 				return TRUE //A nonzero return value will cause the equipping operation to fail
 
 		else if (is_held() && !(slot in unworn_slots))
+			if(equip_sound != null) // OCCULUS EDIT: For playing specific audio files when equipping the clothing item.
+				playsound(src, equip_sound, 50, 0)
 			user.visible_message(
 				SPAN_NOTICE("[user] starts putting on \the [src]..."),
 				SPAN_NOTICE("You start putting on \the [src]...")

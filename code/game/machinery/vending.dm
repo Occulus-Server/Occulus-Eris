@@ -939,7 +939,7 @@
 	contraband = list(/obj/item/weapon/reagent_containers/food/drinks/tea/green = 10, /obj/item/weapon/reagent_containers/food/drinks/tea/black = 10)
 	vend_delay = 15
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	product_slogans = "I hope nobody asks me for a bloody cup o' tea...;Alcohol is humanity's friend. Would you abandon a friend?;Quite delighted to serve you!;Is nobody thirsty on this station?"
+	product_slogans = "I hope nobody asks me for a bloody cup o' tea...;Alcohol is humanity's friend. Would you abandon a friend?;Quite delighted to serve you!;Is nobody thirsty on this ship?"
 	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
 	auto_price = FALSE
 
@@ -1230,7 +1230,7 @@
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"
 	desc = "When you need seeds fast!"
-	product_slogans = "THIS'S WHERE TH' SEEDS LIVE! GIT YOU SOME!;Hands down the best seed selection on the station!;Also certain mushroom varieties available, more for experts! Get certified today!"
+	product_slogans = "THIS'S WHERE TH' SEEDS LIVE! GIT YOU SOME!;Hands down the best seed selection on the ship!;Also certain mushroom varieties available, more for experts! Get certified today!"
 	product_ads = "We like plants!;Grow some crops!;Grow, baby, growww!;Aw h'yeah son!"
 	icon_state = "seeds"
 	always_open = TRUE
@@ -1322,7 +1322,7 @@
 //This one's from bay12
 /obj/machinery/vending/engineering
 	name = "Robco Tool Maker"
-	desc = "Everything you need for do-it-yourself station repair."
+	desc = "Everything you need for do-it-yourself ship repair."
 	icon_state = "engi"
 	icon_deny = "engi-deny"
 	products = list(/obj/item/clothing/head/hardhat = 4,
@@ -1470,6 +1470,58 @@
 	idle_power_usage = 211
 	vendor_department = DEPARTMENT_CIVILIAN
 */
+
+/obj/machinery/vending/Billomat
+	name = "Bill Trustworthy's Discount Guns and Enterprising Detritus"
+	desc = "Some relic of an arms dealer's business, its owner most likely long dead."
+	product_slogans = "Discount guns for discount prices!;Also see our used ship line!;From the home of Challenge Pissing!"
+	product_ads = "Brought to you by the man behind Bill Trustworthy's Used Ships!;Don't wait! Don't delay! Don't fuck with us!;No refunds before you die.;Coolness sold seperately."
+	icon_state = "trashvend"
+	products = list(
+					/obj/item/ammo_magazine/lrifle = 12,
+					/obj/item/ammo_magazine/hpistol = 12,
+					/obj/item/ammo_magazine/srifle = 12,
+					/obj/item/ammo_magazine/smg = 12,
+					/obj/item/part/armor = 20,
+					/obj/item/part/gun = 20,
+					/obj/item/weapon/gun/projectile/automatic/ak47/fs = 4,
+					/obj/item/weapon/gun/energy/retro = 4,
+					/obj/item/weapon/gun/projectile/mk58  = 2,
+					/obj/item/weapon/gun/projectile/mk58/wood = 2,
+					/obj/item/weapon/gun/projectile/revolver/deckard = 2,
+					/obj/item/weapon/gun/projectile/automatic/z8 = 4,
+					/obj/item/weapon/gun/projectile/automatic/molly = 4,
+					/obj/item/weapon/gun/projectile/shotgun/pump/gladstone = 4,
+					/obj/item/weapon/storage/deferred/crate/clown_crime = 2,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/wolf = 2,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/hoxton = 2,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/chains = 2
+					)
+	contraband = list(/obj/item/weapon/gun/projectile/mandella = 4,/obj/item/ammo_magazine/cspistol = 12)
+	prices = list(
+					/obj/item/ammo_magazine/lrifle = 400,
+					/obj/item/ammo_magazine/hpistol = 300,
+					/obj/item/ammo_magazine/cspistol = 400,
+					/obj/item/ammo_magazine/srifle = 300,
+					/obj/item/ammo_magazine/smg = 400,
+					/obj/item/part/armor = 700,
+					/obj/item/part/gun = 700,
+					/obj/item/weapon/gun/projectile/automatic/ak47/fs = 3200,
+					/obj/item/weapon/gun/energy/retro = 2000,
+					/obj/item/weapon/gun/projectile/mk58  = 1500,
+					/obj/item/weapon/gun/projectile/mk58/wood = 1500,
+					/obj/item/weapon/gun/projectile/mandella = 1800,
+					/obj/item/weapon/gun/projectile/revolver/deckard = 3600,
+					/obj/item/weapon/gun/projectile/automatic/z8 = 3500,
+					/obj/item/weapon/gun/projectile/automatic/molly = 2000,
+					/obj/item/weapon/gun/projectile/shotgun/pump/gladstone = 2200,
+					/obj/item/weapon/storage/deferred/crate/clown_crime = 1800,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/wolf = 1800,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/hoxton = 1800,
+					/obj/item/weapon/storage/deferred/crate/clown_crime/chains = 1800
+					)
+	idle_power_usage = 211
+	vendor_department = DEPARTMENT_CIVILIAN
 
 /obj/machinery/vending/custom
 	name = "Custom Vendomat"

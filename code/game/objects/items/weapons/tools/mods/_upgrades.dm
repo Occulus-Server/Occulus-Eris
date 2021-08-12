@@ -275,6 +275,8 @@
 		G.proj_damage_adjust[BRUTE] += weapon_upgrades[GUN_UPGRADE_DAMAGE_BRUTE]
 	if(weapon_upgrades[GUN_UPGRADE_DAMAGE_BURN])
 		G.proj_damage_adjust[BURN] += weapon_upgrades[GUN_UPGRADE_DAMAGE_BURN]
+	if(weapon_upgrades[GUN_UPGRADE_DAMAGE_PSY])//Occulus Edit: Psy mods
+		G.proj_damage_adjust[PSY] += weapon_upgrades[GUN_UPGRADE_DAMAGE_PSY]//Occulus Edit: Psy mods
 	if(weapon_upgrades[GUN_UPGRADE_DAMAGE_TOX])
 		G.proj_damage_adjust[TOX] += weapon_upgrades[GUN_UPGRADE_DAMAGE_TOX]
 	if(weapon_upgrades[GUN_UPGRADE_DAMAGE_OXY])

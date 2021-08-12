@@ -142,7 +142,6 @@
 	create_reagents(200)
 	if(mechanical)
 		connect()
-	AddComponent(/datum/component/plumbing/demand/all/special_icon, anchored, FALSE)
 	var/turf/T = get_turf(src)
 	T?.levelupdate()
 	update_icon()
@@ -403,7 +402,7 @@
 						user.visible_message(SPAN_DANGER("[user] starts damage the plants root."))
 						dead = 1
 						update_icon()
-					else 
+					else
 						user.visible_message(SPAN_DANGER("[user] fails to kill the plant."))
 				return
 			if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_VERY_EASY, required_stat = STAT_BIO))
@@ -411,7 +410,7 @@
 				weedlevel = 0
 				update_icon()
 				return
-			
+
 			return
 
 		if(QUALITY_WIRE_CUTTING)

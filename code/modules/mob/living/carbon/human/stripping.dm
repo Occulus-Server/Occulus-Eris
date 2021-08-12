@@ -15,7 +15,7 @@
 			if(!user.stats.getPerk(PERK_FAST_FINGERS))
 				visible_message(SPAN_DANGER("\The [user] is trying to empty \the [src]'s pockets!"))
 			else
-				to_chat(user, SPAN_NOTICE("You silently try to empty \the [src]'s pockets."))	
+				to_chat(user, SPAN_NOTICE("You silently try to empty \the [src]'s pockets."))
 			if(do_mob(user,src,HUMAN_STRIP_DELAY,progress = 1))
 				empty_pockets(user)
 			return
@@ -23,6 +23,11 @@
 			visible_message(SPAN_DANGER("\The [user] is trying to remove \the [src]'s splints!"))
 			if(do_mob(user,src,HUMAN_STRIP_DELAY,progress = 1))
 				remove_splints(user)
+			return
+		if("sensors")
+			visible_message("<span class='danger'>\The [user] is trying to set \the [src]'s sensors!</span>")
+			if(do_after(user,HUMAN_STRIP_DELAY,src))
+				toggle_sensors(user)
 			return
 		if("internals")
 			visible_message(SPAN_DANGER("\The [usr] is trying to set \the [src]'s internals!"))
@@ -102,6 +107,17 @@
 		visible_message(SPAN_DANGER("\The [user] empties \the [src]'s pockets!"))
 	else
 		to_chat(user, SPAN_NOTICE("You empty \the [src]'s pockets."))
+
+// Modify the current target sensor level. Occulus edit start
+/mob/living/carbon/human/proc/toggle_sensors(var/mob/living/user)
+	var/obj/item/clothing/under/suit = w_uniform
+	if(!suit)
+		to_chat(user, "<span class='warning'>\The [src] is not wearing a suit with sensors.</span>")
+		return
+	if (suit.has_sensor >= 2)
+		to_chat(user, "<span class='warning'>\The [src]'s suit sensor controls are locked.</span>")
+		return
+	suit.set_sensors(user) //Occulus edit end
 
 // Remove all splints.
 /mob/living/carbon/human/proc/remove_splints(var/mob/living/user)

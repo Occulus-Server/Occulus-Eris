@@ -40,6 +40,22 @@
 	// turf animation
 	var/atom/movable/overlay/c_animation = null
 
+/obj/machinery/door/New()
+	GLOB.all_doors += src
+	..()
+
+/obj/machinery/door/Destroy()
+	GLOB.all_doors -= src
+	..()
+
+/obj/machinery/door/New()
+	GLOB.all_doors += src
+	..()
+
+/obj/machinery/door/Destroy()
+	GLOB.all_doors -= src
+	..()
+
 /obj/machinery/door/can_prevent_fall()
 	return density
 

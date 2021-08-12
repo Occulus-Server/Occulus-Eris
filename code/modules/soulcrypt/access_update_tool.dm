@@ -33,12 +33,25 @@
 		playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
 		update_icon()
 
+/obj/item/weapon/access_update_tool/AltClick(var/mob/user)
+	if(!CanPhysicallyInteract(user))
+		return
+	if(card)
+		to_chat(user, SPAN_NOTICE("You remove the ID card from [src]'s ID card port."))
+		user.put_in_hands(card)
+		card = null
+		playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
+		update_icon()
+
 /obj/item/weapon/access_update_tool/afterattack(atom/A, mob/living/user)
 	if(istype(A, /mob/living/carbon/human))
 		var/mob/living/carbon/human/person = A
 		var/obj/item/weapon/implant/core_implant/soulcrypt/crypt = person.crypt
 		if(!crypt)
 			to_chat(user, SPAN_WARNING("[person] doesn't have a Soulcrypt to modify."))
+			return
+		if(!card)	//haha it was runtiming if you didn't put a card in
+			to_chat(user, SPAN_WARNING("There's no ID in the card port to copy access from!"))
 			return
 		//Else, we overwrite the soulcrypt's current access with the access on the ID card.
 		crypt.access.Cut()

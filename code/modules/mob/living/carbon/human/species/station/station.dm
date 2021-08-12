@@ -48,7 +48,7 @@
 //	species_language = LANGUAGE_UNATHI
 //	health_hud_intensity = 2.5
 
-	min_age = 32
+	min_age = 18 // OCCULUS EDIT - so now you can roleplay as someone who's not middle aged if you're just a unathi-based custom species
 	max_age = 260
 
 //	economic_modifier = 7

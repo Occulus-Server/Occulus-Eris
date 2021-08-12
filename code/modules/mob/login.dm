@@ -38,6 +38,13 @@
 	if(hud_used)	qdel(hud_used)		//remove the hud objects
 	hud_used = new /datum/hud(src)
 
+// OCCULUS EDIT START - Makes client fps actually apply when reconnecting
+	if(client.prefs && client.prefs.clientfps)
+		client.apply_fps(client.prefs.clientfps)
+	else
+		client.apply_fps(0) // Results in using the server FPS
+// OCCULUS EDIT END
+
 	next_move = 1
 	sight |= SEE_SELF
 	..()

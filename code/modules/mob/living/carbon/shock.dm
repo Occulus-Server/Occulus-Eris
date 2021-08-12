@@ -56,6 +56,8 @@
 		if(organ && (organ.is_broken() || (!BP_IS_ROBOTIC(organ) && organ.open)))
 			. += 25
 		. *= max((get_specific_organ_efficiency(OP_NERVE, organ.organ_tag)/100), 0.5)
+//		if(!organ.vital)	// OCCULUS EDIT - Non-vital organs hurt 20% less ON SECOND THOUGHT, NAH
+//			. *= 0.8
 
 /mob/living/carbon/proc/get_dynamic_pain()
 	. = 1.33 * halloss
@@ -103,25 +105,27 @@
 		shock_stage = min(shock_stage, 58)
 
 	sanity.onShock(shock_stage)
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// OCCULUS EDIT START - Tori's Shock Stage Butchering to make things less whacky. Stuttering at 30 brute? Heck that.
+//
 	if(shock_stage == 10)
-		to_chat(src, "<span class='danger'>[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!</span>")
+		to_chat(src, "<span class='danger'>[pick("The pain is bearable", "It hurts a little")]!</span>")
 
-	if(shock_stage >= 30)
-		if(shock_stage == 30) emote("me",1,"is having trouble keeping their eyes open.")
-		stuttering = max(stuttering, 5)
+	if(shock_stage == 30)
+		to_chat(src, "<span class='danger'>[pick("The pain is starting to get unbearable", "It hurts quite a bit")]!</span>")
 
 	if(shock_stage == 40)
-		to_chat(src, "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>")
+		to_chat(src, "<span class='danger'>[pick("The pain is uncomfortable", "It hurts", "You could go for some paracetamol right about now")]!</span>")
 
 	if (shock_stage >= 60)
-		if(shock_stage == 60) emote("me",1,"'s body becomes limp.")
-		if (prob(2))
-			to_chat(src, "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>")
-			Weaken(10)
+		stuttering = max(stuttering, 5)
+		if (shock_stage == 60)
+			to_chat(src, "<span class='danger'>[pick("The pain is unbearable", "It hurts a lot")]!</span>")
 
 	if(shock_stage >= 80)
-		if (prob(5))
+		if(shock_stage == 80)
+			emote("me",1,"is having trouble keeping their eyes open.")
+		if (prob(5 - clamp((stats.getStat(STAT_TGH) / 10), 0, 3))) //Weaken chance reduction caps out at 30 TGH
 			to_chat(src, "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>")
 			Weaken(10)
 
@@ -129,7 +133,8 @@
 		enter_hard_crit()
 
 /mob/living/carbon/human/proc/enter_hard_crit()
-	var/knockout_time = rand(15 SECONDS, 25 SECONDS)
+	var/upperbounds = 30 - clamp((stats.getStat(STAT_TGH) / 10), 0, 15) //Upper knockout time range reduction caps out at 150 TGH
+	var/knockout_time = rand(15 SECONDS, upperbounds SECONDS)
 	to_chat(src, SPAN_DANGER("[pick("You are knocked out", "You can't feel anything anymore", "You just can't keep going anymore")]!"))
 	visible_message(SPAN_DANGER("[src] [species.knockout_message]"))
 	Weaken(knockout_time)
@@ -140,11 +145,14 @@
 
 /mob/living/carbon/human/proc/exit_hard_crit()
 	if(status_flags & HARDCRIT)
-		setHalLoss(0)
-		SetWeakened(0)
+		setHalLoss(clamp(halloss, 0, 75)) // Retain some halloss so we aren't just good as new upon waking up
+		SetWeakened(5) // So you don't immediately get up after waking up
 		SetParalysis(0)
 		shock_stage = 0
 		status_flags &= ~HARDCRIT
+//
+// OCCULUS EDIT END
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #undef SOFTCRIT_TRAUMATIC_SHOCK
 #undef HARDCRIT_TRAUMATIC_SHOCK

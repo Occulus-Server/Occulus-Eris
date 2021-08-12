@@ -129,7 +129,7 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
-	GUN_UPGRADE_DAMAGE_PSY = 0.4)
+	GUN_UPGRADE_DAMAGE_PSY = 10)//This needs to be higher than 0.4 to actually do anything.
 	I.req_gun_tags = list(GUN_PROJECTILE)
 	I.gun_loc_tag = GUN_MECHANISM
 
