@@ -14,3 +14,5 @@
 	recoil_buildup = 1.2 //gonna have solid grip on those, point-blank shots adviced
 	one_hand_penalty = 10 //compact shotgun level
 	rarity_value = 24
+	twohanded = FALSE
+	saw_off = FALSE

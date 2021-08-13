@@ -244,7 +244,10 @@
 		/obj/item/weapon/gun/projectile/paco,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn, //short enough to fit in
 		/obj/item/weapon/gun/launcher/syringe,
-		/obj/item/weapon/gun/energy/plasma/brigador
+		/obj/item/weapon/gun/energy/plasma/brigador,
+		/obj/item/weapon/gun/projectile/shotgun/pump/sawn,
+		/obj/item/weapon/gun/projectile/boltgun/obrez,
+		/obj/item/weapon/gun/energy/retro/sawn
 		)
 
 	sliding_behavior = TRUE
