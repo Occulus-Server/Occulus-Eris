@@ -7,6 +7,7 @@
 	turns_per_move = 3
 	maxHealth = 250
 	health = 250
+	resistance = 5
 	speak = list(
 				"New target acquired.",
 				"Warning, incoming hostile."
@@ -43,6 +44,8 @@
 	spawn_tags = SPAWN_SPUD
 	rarity_value = 5
 
+	var/loot_table = list(/obj/item/weapon/computer_hardware/hard_drive/portable/research_points)
+
 /mob/living/simple_animal/hostile/spud/death()
 	..()
 	visible_message("<b>[src]</b> blows apart!")
@@ -50,6 +53,10 @@
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
+	var/lootdrop = pick(loot_table)
+	new lootdrop(get_turf(src))
+	if(lootdrop)
+		visible_message("Something tumbles out of \the [src]'s remains!")
 	qdel(src)
 	return
 
@@ -72,6 +79,8 @@
 	faction = "bosstown"
 	spawn_tags = SPAWN_ROOMBATTLER
 	rarity_value = 100
+	loot_table = list(/obj/spawner/contraband,
+					/obj/spawner/tool/advanced/onestar)
 
 /mob/living/simple_animal/hostile/spud/syndi/infiltrator //Infiltrator unit designed to synergize with local hostile fauna
 	name = "\improper Kampfer SPUD unit"
