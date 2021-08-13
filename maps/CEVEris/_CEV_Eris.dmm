@@ -61041,7 +61041,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "cMK" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
@@ -61079,7 +61079,8 @@
 /area/eris/rnd/storage)
 "cMP" = (
 /obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/wall/r_wall,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/eris/engineering/engine_room)
 "cMQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -67702,6 +67703,7 @@
 /area/eris/maintenance/section2deck2port)
 "dcR" = (
 /obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/hull,
 /area/eris/engineering/engine_room)
 "dcS" = (
@@ -105896,6 +105898,11 @@
 /obj/structure/multiz/ladder,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck4central)
+"meF" = (
+/obj/structure/table/rack,
+/obj/spawner/tool/advanced/low_chance,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/engineering/engine_room)
 "meP" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -107724,6 +107731,10 @@
 	},
 /turf/simulated/open,
 /area/eris/maintenance/section1deck4central)
+"rLe" = (
+/mob/living/simple_animal/hostile/spud/frozenstar,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section1deck5central)
 "rLH" = (
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
@@ -108608,6 +108619,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
+"uDu" = (
+/obj/effect/floor_decal/rust,
+/mob/living/simple_animal/hostile/spud,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/hallway/side/atmosphericshallway)
 "uFZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
@@ -109675,6 +109691,11 @@
 	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
+"ygp" = (
+/obj/structure/table/rack,
+/obj/item/device/rodar,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/engineering/engine_room)
 "ygJ" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -132990,7 +133011,7 @@ abF
 abF
 dzi
 abl
-dzn
+rLe
 afs
 aga
 aga
@@ -285378,7 +285399,7 @@ dXi
 aaa
 aCM
 eEF
-dPi
+uDu
 aCM
 abF
 aaa
@@ -285787,8 +285808,8 @@ dPi
 aCM
 aaa
 abF
-abF
 bNn
+meF
 cPi
 cPi
 cPi
@@ -285989,8 +286010,8 @@ dPn
 aCM
 aaa
 abF
-abF
-bIP
+bNn
+ygp
 cPi
 mJW
 ulB
@@ -285999,7 +286020,7 @@ mJW
 ulB
 cMI
 cMJ
-dcR
+cMP
 abF
 eDV
 dvV
