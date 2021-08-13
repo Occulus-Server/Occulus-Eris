@@ -2,8 +2,8 @@
 	var/datum/gender/pronouns = "\[UNSET\]"
 
 /mob/living/carbon/human/set_id_info(var/obj/item/weapon/card/id/id_card)
-	id_card.pronouns = gender_datums[get_gender()]
-	id_card.age = 0
+	id_card.pronouns 			= gender_datums[get_gender()]
+	id_card.age 				= age
 	id_card.registered_name		= real_name
 	id_card.sex 				= capitalize(gender)
 	id_card.set_id_photo(src)
