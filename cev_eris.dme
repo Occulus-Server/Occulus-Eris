@@ -3060,6 +3060,7 @@
 #include "zzzz_modular_occulus\code\modules\telescience\telepad_computer.dm"
 #include "zzzz_modular_occulus\code\modules\telescience\telepad_relay.dm"
 #include "zzzz_modular_occulus\code\modules\telescience\teleport_blocker.dm"
+#include "zzzz_modular_occulus\code\modules\trade\machinery\circuits\trade_beacon.dm"
 #include "zzzz_modular_occulus\maps\submaps\deepmaint_rooms\core\core_rooms.dm"
 #include "zzzz_modular_occulus\maps\submaps\deepmaint_rooms\normal\normal_rooms.dm"
 #include "zzzz_modular_occulus\prosthesis\implementation.dm"
