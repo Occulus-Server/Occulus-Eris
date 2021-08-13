@@ -805,10 +805,10 @@
 /obj/item/weapon/shield/riot,
 /obj/item/weapon/shield/riot,
 /obj/item/weapon/shield/riot,
-/obj/item/weapon/melee/baton,
-/obj/item/weapon/melee/baton,
-/obj/item/weapon/melee/baton,
-/obj/item/weapon/melee/baton,
+/obj/item/weapon/tool/baton/stun,
+/obj/item/weapon/tool/baton/stun,
+/obj/item/weapon/tool/baton/stun,
+/obj/item/weapon/tool/baton/stun,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "ack" = (

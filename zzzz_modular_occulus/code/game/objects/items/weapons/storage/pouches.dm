@@ -6,6 +6,7 @@
 
 /obj/item/weapon/storage/pouch/baton_holster
 	can_hold = list(
+		/obj/item/weapon/tool/baton,
 		/obj/item/weapon/melee,
 		/obj/item/weapon/tool/crowbar,
 		/obj/item/device/lighting/toggleable/flashlight,

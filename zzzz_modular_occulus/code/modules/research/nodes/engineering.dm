@@ -1,6 +1,7 @@
 /datum/technology/adv_tools
 	unlocks_designs = list(	/datum/design/autolathe/tool/pneumatic_crowbar,
 							/datum/design/autolathe/tool/weldertool_adv,
+							/datum/design/autolathe/tool/eweldertool,
 							/datum/design/autolathe/tool/electric_screwdriver,
 							/datum/design/autolathe/tool/combi_driver,
 							/datum/design/autolathe/tool/powered_hammer,
