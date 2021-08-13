@@ -52,3 +52,20 @@
 /obj/item/projectile/bullet/pellet/shotgun/rubber
 	damage_types = list(BRUTE = 2) //The official consensus is that getting PB'd by rubbers should be an owie.
 	agony = 8 //Whoever the hell had this at 15 is going to suffer multiple shots to the groin.
+
+// white nail bullet types
+
+/obj/item/projectile/bullet/whitenail
+	damage_types = list(BRUTE = 25)
+	armor_penetration = 20
+	penetrating = 1
+	sharp = TRUE
+	can_ricochet = FALSE 
+	embed = FALSE
+
+/obj/item/projectile/bullet/whitenail/rubber
+	damage_types = list(BRUTE = 5)
+	agony = 20
+	armor_penetration = 0
+	penetrating = 0
+	sharp = FALSE

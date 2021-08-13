@@ -90,7 +90,7 @@
 	// Organs
 	if(istype(I, /obj/item/organ/internal))
 		var/obj/item/organ/internal/organ = I
-		
+
 		var/o_a =  (organ.gender == PLURAL) ? "" : "a "
 
 		if(organ.unique_tag)
@@ -246,6 +246,7 @@
 		if(isitem(I))
 			var/obj/item/item = I
 			item.on_embed_removal(owner)
+			I.forceMove(drop_location())//Occulus Edit: Drops embedded items on the floor instead of into nullspace
 		if(istype(I, /obj/item/weapon/implant))
 			var/obj/item/weapon/implant/implant = I
 			if(implant.wearer)

@@ -118,6 +118,7 @@ var/global/datum/controller/plants/plant_controller // Set in New().
 		seed.set_trait(TRAIT_LIGHT_TOLERANCE,5)
 		seed.set_trait(TRAIT_LOWKPA_TOLERANCE,25)
 		seed.set_trait(TRAIT_HIGHKPA_TOLERANCE,200)
+	seed.taste_tag = pick(MEAT_FOOD, COCO_FOOD, CHEESE_FOOD, SALTY_FOOD, SPICY_FOOD, FLOURY_FOOD)//Occulus Edit: random seeds get random flavors
 	return seed
 
 /datum/controller/plants/Process()
