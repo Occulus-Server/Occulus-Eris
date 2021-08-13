@@ -1,6 +1,8 @@
 // pronoun set defines
 #define GENDERNEUTRAL	"gender neutral (they/them)"
 #define NONPERSONAL 	"non-personal (it/its)"
+#define all_pronouns_define_list    list(MALE,FEMALE,GENDERNEUTRAL,NONPERSONAL)
+#define all_genders_text_list       list("Male","Female","Gender Neutral","Non-Personal")
 
 datum/preferences
 	var/biological_gender = MALE 				// character's biological sex
@@ -35,7 +37,7 @@ datum/preferences/proc/set_biological_gender(var/gender)
 	if(!S) S = all_species[SPECIES_HUMAN]
 	pref.age                	= sanitize_integer(pref.age, S.min_age, S.max_age, initial(pref.age))
 	pref.biological_gender      = sanitize_inlist(pref.biological_gender, S.genders, pick(S.genders))
-	pref.identifying_gender     = (pref.identifying_gender in all_genders_define_list) ? pref.identifying_gender : pref.biological_gender
+	pref.identifying_gender     = (pref.identifying_gender in all_pronouns_define_list) ? pref.identifying_gender : pref.biological_gender
 	pref.spawnpoint         	= sanitize_inlist(pref.spawnpoint, get_late_spawntypes(), initial(pref.spawnpoint))
 	pref.be_random_name     	= sanitize_integer(pref.be_random_name, 0, 1, initial(pref.be_random_name))
 
@@ -104,7 +106,7 @@ datum/preferences/proc/set_biological_gender(var/gender)
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	
 	else if(href_list["id_gender"])
-		var/new_gender = input(user, "Choose your character's pronouns:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.identifying_gender) as null|anything in all_genders_define_list
+		var/new_gender = input(user, "Choose your character's pronouns:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.identifying_gender) as null|anything in all_pronouns_define_list
 		if(new_gender && CanUseTopic(user))
 			pref.identifying_gender = new_gender
 		return TOPIC_REFRESH_UPDATE_PREVIEW

@@ -19,7 +19,7 @@
 				cut_and_generate_data()
 				return 1
 	if(href_list["gender_id"])
-		if(can_change(APPEARANCE_GENDER) && (href_list["gender_id"] in all_genders_define_list))
+		if(can_change(APPEARANCE_GENDER) && (href_list["gender_id"] in all_pronouns_define_list))
 			owner.identifying_gender = href_list["gender_id"]
 			cut_and_generate_data()
 			return 1
@@ -109,7 +109,7 @@
 			genders[++genders.len] =  list("gender_name" = gender2text(gender), "gender_key" = gender)
 		data["genders"] = genders
 		var/id_genders[0]
-		for(var/gender in all_genders_define_list)
+		for(var/gender in all_pronouns_define_list)
 			id_genders[++id_genders.len] =  list("gender_name" = gender2text(gender), "gender_key" = gender)
 		data["id_genders"] = id_genders
 
