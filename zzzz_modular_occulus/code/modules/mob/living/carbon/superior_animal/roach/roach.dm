@@ -25,6 +25,23 @@
 	min_size = 0.95
 	max_size = 1.2
 
+/mob/living/carbon/superior_animal/roach/fuhrer
+	density = TRUE
+	min_size = 1
+	max_size = 1.3
+
+/mob/living/carbon/superior_animal/roach/kaiser
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/kaiser
+	// Kaisers are untouched. They're scary enough
+
+	min_size = 1
+	max_size = 1
+
+/mob/living/carbon/superior_animal/roach/support	// Seuche
+
+	min_size = 0.75
+	max_size = 1
+
 /mob/living/carbon/superior_animal/roach/nanite		// Kraftwerk
 
 	melee_damage_lower = 2//Ranged roach, but we're buffing everyone

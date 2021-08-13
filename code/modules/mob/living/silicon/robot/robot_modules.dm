@@ -254,7 +254,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/standard/New(var/mob/living/silicon/robot/R)
 
 	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/weapon/melee/baton(src)
+	src.modules += new /obj/item/weapon/tool/baton/stun/robot(src)//Occulus Edit
 	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/weapon/tool/wrench/robotic(src)
 	src.modules += new /obj/item/weapon/tool/crowbar/robotic(src)
@@ -584,7 +584,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/floor_painter(src)
 	src.modules += new /obj/item/weapon/inflatable_dispenser(src)
 	src.modules += new /obj/item/weapon/rpd/borg(src)
-	src.emag = new /obj/item/weapon/melee/baton(src)
+	src.emag = new /obj/item/weapon/tool/baton/stun(src)//Occulus Edit
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(60000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(40000)
@@ -699,7 +699,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)
-	src.modules += new /obj/item/weapon/melee/baton/robot(src)
+	src.modules += new /obj/item/weapon/tool/baton/stun/robot(src)//Occulus Edit
 	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src)
 	src.modules += new /obj/item/taperoll/police(src)
 	//src.modules += new /obj/item/device/holowarrant(src)
@@ -716,7 +716,7 @@ var/global/list/robot_modules = list(
 		T.update_icon()
 	else
 		T.charge_tick = 0
-	var/obj/item/weapon/melee/baton/robot/B = locate() in src.modules
+	var/obj/item/weapon/tool/baton/stun/robot/B = locate() in src.modules//Occulus Edit
 	if(B && B.cell)
 		B.cell.give(amount)
 

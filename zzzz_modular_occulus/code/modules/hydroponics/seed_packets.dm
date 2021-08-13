@@ -25,3 +25,6 @@ If you want to add seeds to the seed vendor in the garden, go add the new seed p
 /obj/item/seeds/mintseed
 	seed_type = "mint"
 
+/obj/item/seeds/joy
+	seed_type = "joyflower"
+

@@ -72,7 +72,7 @@
 	..()
 
 	if (ammo_magazine)
-		var/ammo_percent = (src.get_ammo() / ammo_magazine.max_ammo) * 100
+		var/ammo_percent = round(src.get_ammo() / ammo_magazine.max_ammo, 0.25) * 100
 		icon_state = "whitenail_[ammo_percent]"
 
 	if (!ammo_magazine)
