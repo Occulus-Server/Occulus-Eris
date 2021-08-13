@@ -115,7 +115,7 @@
 
 		if ("choke")
 			if(miming)
-				message = "clutches [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] throat desperately!"
+				message = "clutches [gender_datums[src.identifying_gender].his] throat desperately!" // OCCULUS EDIT - adjusting for gender rework 
 				m_type = 1
 			else
 				if (!muzzled)
@@ -133,14 +133,14 @@
 					m_type = 1
 		if ("flap")
 			if (!src.restrained())
-				message = "flaps [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] wings."
+				message = "flaps [gender_datums[src.identifying_gender].his] wings." // OCCULUS EDIT - adjusting for gender rework
 				m_type = 2
 				if(miming)
 					m_type = 1
 
 		if ("aflap")
 			if (!src.restrained())
-				message = "flaps [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] wings ANGRILY!"
+				message = "flaps [gender_datums[src.identifying_gender].his] wings ANGRILY!" // OCCULUS EDIT - adjusting for gender rework
 				m_type = 2
 				if(miming)
 					m_type = 1
@@ -300,7 +300,7 @@
 					message = "cries."
 					m_type = 2
 				else
-					message = "makes a weak noise. [get_visible_gender() == MALE ? "He" : get_visible_gender() == FEMALE ? "She" : "They"] [get_visible_gender() == NEUTER ? "frown" : "frowns"]."
+					message = "makes a weak noise. [gender_datums[src.identifying_gender].his] [src.identifying_gender == "gender neutral (they/them)" ? "frown" : "frowns"]." // OCCULUS EDIT - adjusting for gender rework
 					m_type = 2
 
 		if ("sigh")
@@ -403,7 +403,7 @@
 			m_type = 1
 
 		if("shake")
-			message = "shakes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] head."
+			message = "shakes [gender_datums[src.identifying_gender].his] head." // OCCULUS EDIT - adjusting for gender rework
 			m_type = 1
 
 		if ("shrug")
@@ -513,7 +513,7 @@
 				if (M)
 					message = "hugs [M]."
 				else
-					message = "hugs [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]."
+					message = "hugs [gender_datums[src.identifying_gender].himself]." // OCCULUS EDIT - adjusting for gender rework
 
 		if ("handshake")
 			m_type = 1
@@ -531,7 +531,7 @@
 					if (M.canmove && !M.r_hand && !M.restrained())
 						message = "shakes hands with [M]."
 					else
-						message = "holds out [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] hand to [M]."
+						message = "holds out [gender_datums[src.identifying_gender].his] hand to [M]." // OCCULUS EDIT - adjusting for gender rework
 
 		if("dap")
 			m_type = 1
@@ -545,7 +545,7 @@
 				if (M)
 					message = "gives daps to [M]."
 				else
-					message = "sadly can't find anybody to give daps to, and daps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]. Shameful."
+					message = "sadly can't find anybody to give daps to, and daps [gender_datums[src.identifying_gender].himself]. Shameful." // OCCULUS EDIT - adjusting for gender rework
 
 		if ("scream")
 			if (miming)
@@ -578,7 +578,7 @@
 				to_chat(usr, "You need at least one hand in good working order to snap your fingers.")
 				return
 
-			message = "snaps [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] fingers."
+			message = "snaps [gender_datums[src.identifying_gender].his] fingers." // OCCULUS EDIT - adjusting for gender rework
 			playsound(src, 'zzzz_modular_occulus/sound/effects/fingersnap.ogg', 50, 1, -3)
 
 		// Animal noises
@@ -650,4 +650,4 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag"})
 	if(suppress_communication)
 		return FALSE
 
-	pose =  sanitize(input(usr, "This is [src]. [get_visible_gender() == MALE ? "He" : get_visible_gender() == FEMALE ? "She" : "They"] [get_visible_gender() == NEUTER ? "are" : "is"]...", "Pose", null)  as text)
+	pose =  sanitize(input(usr, "This is [src]. [gender_datums[src.identifying_gender].he] [src.identifying_gender == "gender neutral (they/them)" ? "are" : "is"]...", "Pose", null)  as text) // OCCULUS EDIT - adjusting for gender rework
