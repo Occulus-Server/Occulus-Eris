@@ -5,9 +5,7 @@
 //Pull/push proc!
 /proc/vortex(turf/T, setting_type, range)
 	for(var/atom/movable/X in orange(range, T))
-		if(X.anchored)
-			continue
-		if(iseffect(X))
+		if (X.anchored && iseffect(X))
 			continue
 		var/distance = get_dist(X, T)
 		var/moving_power = max(range - distance, 1)
