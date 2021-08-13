@@ -5,8 +5,8 @@
 	icon_state = "spud"
 	speak_chance = 5
 	turns_per_move = 3
-	maxHealth = 125
-	health = 125
+	maxHealth = 250
+	health = 250
 	speak = list(
 				"New target acquired.",
 				"Warning, incoming hostile."
@@ -70,6 +70,7 @@
 	melee_damage_upper = 30
 	light_color = COLOR_LIGHTING_GREEN_BRIGHT
 	faction = "bosstown"
+	spawn_tags = SPAWN_ROOMBATTLER
 	rarity_value = 100
 
 /mob/living/simple_animal/hostile/spud/syndi/infiltrator //Infiltrator unit designed to synergize with local hostile fauna

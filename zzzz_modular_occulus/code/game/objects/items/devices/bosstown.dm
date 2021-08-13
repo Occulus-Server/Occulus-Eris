@@ -4,7 +4,7 @@
 	name = "\improper Mk.XIV Synthetic Entity Detector"
 	desc = "This handy device emits a peculiar signal that pings various robots around the ship and forcibly reboots them, causing them to flock to certain areas that it can pinpoint. Announces pinpointed locations over engineering comms."
 	icon = 'zzzz_modular_occulus/icons/obj/device.dmi'
-	icon_state = "dronelocator"
+	icon_state = "dronelocator-ready"
 	w_class = ITEM_SIZE_TINY
 	price_tag = 20000 // One of a kind relic-tier price and tech levels
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5, TECH_MAGNET = 5)
@@ -15,7 +15,7 @@
 
 /obj/item/device/rodar/New()
 	..()
-	update_icon()
+	//update_icon() //unused for the moment
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 
 /obj/item/device/rodar/attack_self(mob/user)
@@ -36,7 +36,7 @@
 		for (var/turf/heck in targets)
 			var/area/aaa = get_area(heck)
 			areanames += strip_improper(aaa.name)
-			log_and_message_admins("EES SED sending roombas to [jumplink(heck)]")
+			log_and_message_admins("EES SED sending hostile robots to [jumplink(heck)]")
 			for(var/i = 1, i <= num_spawns_per_area,i++)
 				new /obj/spawner/mob/cluster/roombattler(heck)
 		radio.autosay("Synthetic entities detected at [english_list(areanames)]." , "Mk.XIV Synthetic Entity Detector", "Engineering")
