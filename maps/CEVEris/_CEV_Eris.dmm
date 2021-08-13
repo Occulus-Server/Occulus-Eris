@@ -18604,7 +18604,10 @@
 "aTn" = (
 /obj/structure/table/standard,
 /obj/item/weapon/paper_bin,
-/obj/spawner/instructional/rob,
+/obj/item/weapon/oddity/instructional/common/rob/aegis{
+	pixel_x = -7;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/barracks{
 	name = "Aegis Barracks"
@@ -18633,6 +18636,10 @@
 "aTr" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/donut,
+/obj/item/weapon/oddity/instructional/common/rob/vaggie{
+	pixel_x = -15;
+	pixel_y = 13
+	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/barracks{
 	name = "Aegis Barracks"
@@ -18999,6 +19006,7 @@
 "aUg" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
+/obj/item/weapon/oddity/instructional/common/rob/paul,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/barracks{
 	name = "Aegis Barracks"
@@ -25642,8 +25650,6 @@
 /obj/structure/table/standard,
 /obj/item/weapon/pen,
 /obj/item/weapon/storage/box/holobadge,
-/obj/spawner/instructional/rob,
-/obj/spawner/instructional/rob/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/barracks{
 	name = "Aegis Barracks"
@@ -55025,6 +55031,7 @@
 "cyU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/table/bar_special,
+/obj/item/weapon/oddity/instructional/common/vig/ross,
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "cyV" = (
@@ -55711,6 +55718,7 @@
 "cAw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/table/bar_special,
+/obj/item/weapon/oddity/instructional/common/tgh/soldier,
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "cAx" = (
@@ -71805,8 +71813,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/spawner/instructional/cog,
-/obj/spawner/instructional/cog/low_chance,
+/obj/item/weapon/oddity/instructional/common/cog/book,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/research)
 "dlL" = (
@@ -71863,7 +71870,7 @@
 	name = "plastic table frame"
 	},
 /obj/item/weapon/hand_labeler,
-/obj/spawner/instructional/cog,
+/obj/item/weapon/oddity/instructional/common/cog/nt,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/research)
 "dlU" = (
@@ -76953,8 +76960,7 @@
 	pixel_x = 4;
 	pixel_y = 3
 	},
-/obj/spawner/instructional/bio,
-/obj/spawner/instructional/bio/low_chance,
+/obj/item/weapon/oddity/instructional/common/bio/aid,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/medical/medbreak)
 "dxy" = (
@@ -77528,7 +77534,14 @@
 	pixel_x = 5;
 	pixel_y = -2
 	},
-/obj/spawner/instructional/bio,
+/obj/item/weapon/oddity/instructional/common/bio/pamphlet{
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/obj/item/weapon/oddity/instructional/common/bio/primer{
+	pixel_x = 8;
+	pixel_y = -5
+	},
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/medical/medbreak)
 "dyW" = (
@@ -88235,6 +88248,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/weapon/oddity/instructional/common/bio/aid,
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "dXR" = (
@@ -90904,6 +90918,7 @@
 "eeq" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
+/obj/item/weapon/oddity/instructional/common/tgh/slip,
 /turf/simulated/floor/carpet/oracarpet,
 /area/eris/quartermaster/misc)
 "eer" = (
@@ -91386,8 +91401,7 @@
 /area/eris/quartermaster/misc)
 "efy" = (
 /obj/structure/table/woodentable,
-/obj/spawner/instructional/tgh,
-/obj/spawner/instructional/tgh/low_chance,
+/obj/item/weapon/oddity/instructional/common/tgh/soldier,
 /turf/simulated/floor/carpet/oracarpet,
 /area/eris/quartermaster/misc)
 "efz" = (
@@ -104815,8 +104829,14 @@
 /area/space)
 "iKI" = (
 /obj/structure/table/reinforced,
-/obj/spawner/instructional/mec,
-/obj/spawner/instructional/mec/low_chance,
+/obj/item/weapon/oddity/instructional/common/mec/ees{
+	pixel_x = 6;
+	pixel_y = -7
+	},
+/obj/item/weapon/oddity/instructional/common/mec/tape{
+	pixel_x = -6;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
 "iKO" = (
@@ -105605,6 +105625,7 @@
 	name = "plastic table frame"
 	},
 /obj/item/weapon/storage/freezer/contains_food,
+/obj/item/weapon/oddity/instructional/common/cog/python,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/research)
 "leL" = (
@@ -107756,7 +107777,7 @@
 "rMs" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
-/obj/spawner/instructional/tgh,
+/obj/item/weapon/oddity/instructional/common/tgh/book,
 /turf/simulated/floor/carpet/oracarpet,
 /area/eris/quartermaster/misc)
 "rNq" = (
@@ -108472,9 +108493,17 @@
 	dir = 4
 	},
 /obj/structure/table/woodentable,
-/obj/spawner/instructional/vig,
-/obj/spawner/instructional/vig,
-/obj/spawner/instructional/vig/low_chance,
+/obj/item/weapon/oddity/instructional/common/vig/audio{
+	pixel_x = -5;
+	pixel_y = 15
+	},
+/obj/item/weapon/oddity/instructional/common/vig/mek{
+	pixel_x = -8;
+	pixel_y = -4
+	},
+/obj/item/weapon/oddity/instructional/common/vig/ross{
+	pixel_x = 5
+	},
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/chapelritualroom)
 "uie" = (
@@ -109314,6 +109343,11 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section4deck4port)
+"wNz" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/oddity/instructional/common/mec/pamphlet,
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/eris/engineering/engine_room)
 "wOc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -284826,7 +284860,7 @@ nBy
 eEt
 dpB
 dIi
-iKI
+wNz
 eER
 bNn
 abF

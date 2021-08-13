@@ -8,10 +8,8 @@
 	icon_state = "instructional_debug"
 	item_state = "electronic"
 	w_class = ITEM_SIZE_SMALL
-
-	//spawn values
-	//rarity_value = 6 //6 compared to common oddity 10. Commenting this out for now until I figure out how I really want them in
-	spawn_tags = SPAWN_TAG_INSTRUCTIONAL
+	rarity_value = 6 //6 compared to common oddity 10.
+	//spawn_tags = SPAWN_TAG_INSTRUCTIONAL //whoever wrote the spawner code needs to never touch a compiler again
 	bad_type = /obj/item/weapon/oddity/instructional
 
 	random_stats = FALSE //we want this false so that we can have six types to guarantee a level up of that type
@@ -20,14 +18,17 @@
 
 /obj/item/weapon/oddity/instructional/Initialize()
 	if(oddity_stats)
-		AddComponent(/datum/component/inspiration, oddity_stats)
+		AddComponent(/datum/component/inspiration/instructional, oddity_stats)
 
 /obj/item/weapon/oddity/instructional/common //Opening up the possibility of rarer stuff later on that provides a better bonus?
 	spawn_blacklisted = TRUE
 
+
 /obj/item/weapon/oddity/instructional/common/bio
+	name = "Default bio instructional"
+	desc = "The default item for bio instructionals."
+	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_BIO = 1)
-	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_BIO
 
 /obj/item/weapon/oddity/instructional/common/bio/pamphlet
 	name = "Medical Instructional Pamphlet"
@@ -44,9 +45,13 @@
 	desc = "The primer any doctor wishes their patients carried."
 	icon_state = "instructional_bio_aid"
 
+
+
 /obj/item/weapon/oddity/instructional/common/cog
+	name = "Default cog"
+	desc = "The default item for cog instructionals."
+	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_COG = 1)
-	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_COG
 
 /obj/item/weapon/oddity/instructional/common/cog/book
 	name = "Theorems on Entrope and Rhinemann Manifolds in Non-Euclidian Space"
@@ -66,8 +71,10 @@
 
 
 /obj/item/weapon/oddity/instructional/common/mec
+	name = "Default mec instructional"
+	desc = "The default item for mec instructionals."
+	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_MEC = 1)
-	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_MEC
 
 /obj/item/weapon/oddity/instructional/common/mec/pamphlet
 	name = "Screwdriving Monthly"
@@ -92,8 +99,10 @@
 
 
 /obj/item/weapon/oddity/instructional/common/rob
+	name = "Default rob instructional"
+	desc = "The default item for rob instructionals."
+	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_ROB = 1)
-	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_ROB
 
 /obj/item/weapon/oddity/instructional/common/rob/aegis
 	name = "Aegis Hand-to-Hand Combat Manual"
@@ -113,8 +122,10 @@
 
 
 /obj/item/weapon/oddity/instructional/common/tgh
+	name = "Default tgh instructional"
+	desc = "The default item for tgh instructionals."
+	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_TGH = 1)
-	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_TGH
 
 /obj/item/weapon/oddity/instructional/common/tgh/slip
 	name = "Steadying Yourself"
@@ -132,9 +143,13 @@
 	icon_state = "instructional_tgh_book"
 
 
+
 /obj/item/weapon/oddity/instructional/common/vig
+	name = "Default vig instructional"
+	desc = "The default item for vig instructionals."
+	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_VIG = 1)
-	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_VIG
+	// spawn_tags = SPAWN_TAG_INSTRUCTIONAL_VIG // SPAWNERS AREN'T WORKING WHO WROTE THEIR CODE I WILL STRANGLE
 
 /obj/item/weapon/oddity/instructional/common/vig/ross
 	name = "Happy Little Accidents"
@@ -150,3 +165,11 @@
 	name = "Holding Fast: Body and Soul"
 	desc = "Some lesser known Mekhane preacher somehow got this book on mental and physical health published."
 	icon_state = "instructional_vig_mek"
+
+/datum/component/inspiration/instructional
+
+/datum/component/inspiration/instructional/ //making a new component so the examine text can be different.
+
+/datum/component/inspiration/instructional/on_examine(mob/user) //new component's examine text
+	var/primary_stat = stats[1]
+	to_chat(user, SPAN_NOTICE("This is a guide on how to improve your [primary_stat]."))
