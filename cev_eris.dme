@@ -2865,6 +2865,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\oddities.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\plush.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\translators.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\devices\jammer.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\devices\magnetic_lock.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\devices\radio.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\devices\traitor_devices.dm"

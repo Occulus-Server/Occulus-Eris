@@ -262,13 +262,7 @@ var/global/list/default_medbay_channels = list(
 		return
 	if (!connection)
 		return
-	var/jammed = FALSE //occulus code start
-	for(var/obj/item/jammer/jammer in GLOB.active_jammers)
-		if(get_dist(get_turf(src), get_turf(jammer)) < jammer.range)
-			jammed = TRUE
-			break
-	if(jammed)
-		message = Gibberish(message, 100) //occulus code end
+
 	Broadcast_Message(connection, null,
 						0, "*garbled automated announcement*", src,
 						message, from, "Automated Announcement", from, "synthesized voice",
@@ -325,6 +319,7 @@ var/global/list/default_medbay_channels = list(
 
 	var/turf/position = get_turf(src)
 
+
 	//#### Tagging the signal with all appropriate identity values ####//
 
 	// ||-- The mob's name identity --||
@@ -337,6 +332,7 @@ var/global/list/default_medbay_channels = list(
 
 
 	var/jobname // the mob's "job"
+
 
 	// --- Human: use their actual job ---
 	if (ishuman(M))
@@ -417,6 +413,11 @@ var/global/list/default_medbay_channels = list(
 		signal.frequency = connection.frequency // Quick frequency set
 
 	  //#### Sending the signal to all subspace receivers ####//
+		var/list/jamming = is_jammed(src)	//Occulus edit start- Jammer code
+		if(jamming)
+			var/distance = jamming["distance"]
+			to_chat(M, "<span class='danger'> You hear the [distance <= 2 ? "loud hiss" : "soft hiss"] of static.</span>")
+			return FALSE	//occulus edit end- Jammer code
 
 		for(var/obj/machinery/telecomms/receiver/R in telecomms_list)
 			R.receive_signal(signal)
@@ -523,6 +524,8 @@ var/global/list/default_medbay_channels = list(
 		return -1
 	if(!listening)
 		return -1
+	if(is_jammed(src))	//occulus edit
+		return -1		//occulus edit
 	if(!(0 in level))
 		var/turf/position = get_turf(src)
 		if(!position || !(position.z in level))
