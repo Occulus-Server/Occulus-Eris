@@ -9,7 +9,7 @@
 	item_state = "electronic"
 	w_class = ITEM_SIZE_SMALL
 	rarity_value = 6 //6 compared to common oddity 10.
-	//spawn_tags = SPAWN_TAG_INSTRUCTIONAL //whoever wrote the spawner code needs to never touch a compiler again
+	spawn_tags = SPAWN_TAG_INSTRUCTIONAL //whoever wrote the spawner code needs to never touch a compiler again
 	bad_type = /obj/item/weapon/oddity/instructional
 
 	random_stats = FALSE //we want this false so that we can have six types to guarantee a level up of that type
@@ -29,6 +29,7 @@
 	desc = "The default item for bio instructionals."
 	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_BIO = 1)
+	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_BIO
 
 /obj/item/weapon/oddity/instructional/common/bio/pamphlet
 	name = "Medical Instructional Pamphlet"
@@ -52,6 +53,7 @@
 	desc = "The default item for cog instructionals."
 	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_COG = 1)
+	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_COG
 
 /obj/item/weapon/oddity/instructional/common/cog/book
 	name = "Theorems on Entrope and Rhinemann Manifolds in Non-Euclidian Space"
@@ -75,6 +77,7 @@
 	desc = "The default item for mec instructionals."
 	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_MEC = 1)
+	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_MEC
 
 /obj/item/weapon/oddity/instructional/common/mec/pamphlet
 	name = "Screwdriving Monthly"
@@ -103,6 +106,7 @@
 	desc = "The default item for rob instructionals."
 	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_ROB = 1)
+	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_ROB
 
 /obj/item/weapon/oddity/instructional/common/rob/aegis
 	name = "Aegis Hand-to-Hand Combat Manual"
@@ -126,6 +130,7 @@
 	desc = "The default item for tgh instructionals."
 	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_TGH = 1)
+	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_TGH
 
 /obj/item/weapon/oddity/instructional/common/tgh/slip
 	name = "Steadying Yourself"
@@ -149,7 +154,7 @@
 	desc = "The default item for vig instructionals."
 	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_VIG = 1)
-	// spawn_tags = SPAWN_TAG_INSTRUCTIONAL_VIG // SPAWNERS AREN'T WORKING WHO WROTE THEIR CODE I WILL STRANGLE
+	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_VIG
 
 /obj/item/weapon/oddity/instructional/common/vig/ross
 	name = "Happy Little Accidents"

@@ -1,7 +1,7 @@
 /obj/spawner/instructional
 	name = "Random instructional spawner"
-	rarity_value = 0
-	spawn_frequency = 0
+	rarity_value = 100//So our truerandom spawns don't get flooded with this.
+	spawn_frequency = 1
 	icon = 'zzzz_modular_occulus/icons/obj/spawners/instructional.dmi'
 	icon_state = "instructional_base"
 	tags_to_spawn = SPAWN_TAG_INSTRUCTIONAL

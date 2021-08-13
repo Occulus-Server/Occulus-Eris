@@ -15,7 +15,7 @@
 	vortex(T, 0, range)
 
 /datum/chemical_reaction/ldm_vortex
-	required_reagents = list(/datum/reagent/liquid_dark_matter = 1)
+	required_reagents = list("ldm" = 1)
 	minimum_temperature = 474
 /datum/chemical_reaction/ldm_vortex/on_reaction(datum/reagents/holder, created_volume)
 	var/turf/T = get_turf(holder.my_atom)
@@ -34,7 +34,7 @@
 	vortex(T, 1, range)
 
 /datum/chemical_reaction/sorium_vortex
-	required_reagents = list(/datum/reagent/sorium = 1)
+	required_reagents = list("sorium" = 1)
 	minimum_temperature = 474
 
 /datum/chemical_reaction/sorium_vortex/on_reaction(datum/reagents/holder, created_volume)
@@ -78,7 +78,7 @@
 
 /datum/chemical_reaction/frioline
 	result = "frioline"
-	required_reagents = list("nitrate" = 1, "tungsten" =1, "aceteone" = 1)
+	required_reagents = list("nitrate" = 1, "tungsten" =1, "acetone" = 1)
 	result_amount = 3
 	minimum_temperature = 474
 //
