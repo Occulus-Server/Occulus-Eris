@@ -7,7 +7,7 @@
 	color = "#0F4800"
 	strength = 0.15
 	var/heal_strength = 5
-	metabolism = REM * 0.1
+	metabolism = REM//Quick and dirty Occulus Edit
 
 	heating_point = T0C + 260
 	heating_products = list("carbon", "protein")
