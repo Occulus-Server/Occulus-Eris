@@ -42,7 +42,7 @@
 		/mob/living/simple_animal/hostile/retaliate/goat,
 		/obj/machinery/sleeper,
 		/obj/machinery/smartfridge/,
-		/obj/machinery/biogenerator,
+		//obj/machinery/biogenerator,OCCULUS EDIT. Comments out the non-Mekhane Biogenerator for lore reasons
 		/obj/machinery/constructable_frame,
 		/obj/machinery/radiocarbon_spectrometer,
 		/obj/machinery/centrifuge,

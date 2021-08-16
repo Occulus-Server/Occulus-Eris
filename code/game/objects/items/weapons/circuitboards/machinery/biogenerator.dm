@@ -1,4 +1,4 @@
-/obj/item/weapon/electronics/circuitboard/biogenerator
+/* /obj/item/weapon/electronics/circuitboard/biogenerator OCCULUS EDIT. Comments out the non-Mekhane Biogenerator for lore reasons
 	name = T_BOARD("biogenerator")
 	build_path = /obj/machinery/biogenerator
 	board_type = "machine"
@@ -8,3 +8,4 @@
 		/obj/item/weapon/stock_parts/matter_bin = 1,
 		/obj/item/weapon/stock_parts/manipulator = 1
 	)
+*/
