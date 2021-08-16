@@ -3257,6 +3257,8 @@
 "aid" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/table/standard,
+/obj/item/weapon/inflatable_duck,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "aie" = (
@@ -3273,7 +3275,6 @@
 	pixel_y = 28
 	},
 /obj/item/weapon/stool/padded,
-/obj/spawner/toy/plushie,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "aig" = (
@@ -3284,6 +3285,7 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/personal,
+/obj/spawner/toy/plushie,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
 "aih" = (
@@ -4567,8 +4569,8 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "ald" = (
-/obj/item/weapon/inflatable_duck,
-/turf/simulated/floor/exoplanet/water/shallow,
+/obj/structure/bed/padded,
+/turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "ale" = (
 /obj/structure/table/rack/shelf,
@@ -4883,7 +4885,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/spawner/toy/plushie,
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
@@ -107371,6 +107372,7 @@
 /area/space)
 "pMN" = (
 /obj/machinery/camera/network/fist_section,
+/obj/structure/bed/padded,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "pPE" = (
@@ -109410,6 +109412,11 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
+"wpU" = (
+/obj/structure/table/standard,
+/obj/spawner/toy/plushie,
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "wqX" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -109506,6 +109513,13 @@
 /obj/landmark/join/start/assistant,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/clothingstorage)
+"wHl" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/bed/padded,
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "wHO" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -123638,7 +123652,7 @@ agD
 agX
 aib
 agY
-acf
+ald
 wOc
 aia
 ajS
@@ -123840,10 +123854,10 @@ agD
 ahr
 aib
 ahH
-alD
+wHl
 wOc
 alR
-ald
+alR
 alR
 alR
 alR
@@ -124244,7 +124258,7 @@ agD
 ahr
 aib
 ahF
-acf
+wpU
 wOc
 ajc
 alx
