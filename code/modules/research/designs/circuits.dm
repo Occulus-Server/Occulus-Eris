@@ -331,11 +331,11 @@
 	sort_string = "KAAAB"
 	category = CAT_COMP
 
-/datum/design/research/circuit/biogenerator
+/* /datum/design/research/circuit/biogenerator OCCULUS EDIT. Comments out the non-Mekhane Biogenerator for lore reasons
 	name = "biogenerator"
 	build_path = /obj/item/weapon/electronics/circuitboard/biogenerator
 	sort_string = "KBAAA"
-	category = CAT_MEDI
+	category = CAT_MEDI */
 
 /datum/design/research/circuit/miningdrill
 	name = "mining drill head"
