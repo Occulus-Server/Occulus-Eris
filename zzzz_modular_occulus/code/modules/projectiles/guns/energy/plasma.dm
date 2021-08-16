@@ -27,3 +27,36 @@
 			return TRUE
 		overlays += image(icon, "cell_guild")
 		return TRUE
+
+/obj/item/weapon/gun/energy/nt_svalinn
+	name = "MEK PP \"Svalinn\""
+	desc = "\"Mekhane\" brand plasma pistol. Small and easily concealable, it only can fire low-impact stun blasts. Ideal for personal defense."
+	fire_sound='sound/weapons/Taser.ogg'
+	projectile_type = /obj/item/projectile/plasma/light
+	projectile_color = "#00FFFF"
+	charge_cost = 15
+	init_firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/plasma/stun, fire_sound='sound/weapons/Taser.ogg', icon="stun", fire_delay=2,charge_cost=12.5, projectile_color = "#0000FF"),
+	)
+
+
+/obj/item/weapon/gun/energy/plasma/brigador
+	name = "NanoTrasen PP \"Brigador\""
+	desc = "\"NanoTrasen\" brand energy pistol, for personal overprotection."
+	icon = 'icons/obj/guns/energy/brigador.dmi'
+	icon_state = "brigador"
+	charge_meter = FALSE
+	w_class = ITEM_SIZE_NORMAL
+	twohanded = FALSE
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+
+	projectile_color = "#00FFFF"
+
+	fire_sound='sound/weapons/Taser.ogg'
+
+	fire_delay=8
+	charge_cost=15
+
+	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 8, MATERIAL_PHORON = 2, MATERIAL_SILVER = 3, MATERIAL_URANIUM = 3)
+
+	init_firemodes = list()
