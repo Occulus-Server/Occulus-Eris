@@ -2,7 +2,7 @@ GLOBAL_DATUM(last_shelter, /obj/item/device/last_shelter)
 
 /obj/item/device/last_shelter
 	name = "Last Shelter"
-	desc = "A sacred Mekhanite artifact that passively scans nearby sectors of space and pre-emptively recovers cruciforms when they are at risk of being lost in space. Also functions to summon lost souls when activated." // OCCULUS EDIT - More accurate description
+	desc = "A sacred Mekhanite artifact that passively scans the current sector of space. It recovers the cruciforms of the faithful who are lost to the void." // OCCULUS EDIT - More accurate description
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "last_shelter"
 	item_state = "last_shelter"
@@ -121,9 +121,20 @@ GLOBAL_DATUM(last_shelter, /obj/item/device/last_shelter)
 /mob/living/lost_in_space()
 	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 	if(CI)
-		gib()
-		CI.forceMove(GLOB.last_shelter.loc)
-		for(var/mob/living/carbon/human/target in disciples)
-			to_chat(target, SPAN_DANGER("[src.real_name]'s cruciform has been cast unto the void! It has been returned to the Last Shelter."))
+		if(client)
+			if(alert(src, "Do you wish to be recovered by the Lost Shelter? You will be gibbed, and your Cruciform will be teleported back to it.","Last Shelter","Yes","No") == "Yes")
+				gib()
+				spawn(50) //Delay to make sure you finish gibbing before the thing gets teleported
+					CI.forceMove(GLOB.last_shelter.loc)
+					for(var/mob/living/carbon/human/target in disciples)
+						to_chat(target, SPAN_DANGER("[src.real_name]'s cruciform has been cast unto the void! It has been returned to the Last Shelter."))
+			else
+				return ..()
+		else
+			gib()
+			spawn(50) //Delay to make sure you finish gibbing before the thing gets teleported
+				CI.forceMove(GLOB.last_shelter.loc)
+				for(var/mob/living/carbon/human/target in disciples)
+					to_chat(target, SPAN_DANGER("[src.real_name]'s cruciform has been cast unto the void! It has been returned to the Last Shelter."))
 	else
 		return ..()
