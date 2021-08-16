@@ -66500,6 +66500,14 @@
 "cZW" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "CSOBedPriv";
+	layer = 2.6;
+	name = "CMO Bedroom Privacy Shutter";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/eris/command/meo/quarters)
 "cZX" = (
@@ -67282,6 +67290,14 @@
 "dcc" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "FOBedPriv";
+	layer = 2.6;
+	name = "First Officer Bedroom Privacy Shutter";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/eris/command/fo/quarters)
 "dcd" = (
@@ -69454,6 +69470,12 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "CSOBedPriv";
+	name = "CSO Bedroom Privacy Shutters";
+	pixel_x = -4;
+	pixel_y = -32
+	},
 /turf/simulated/floor/wood,
 /area/eris/command/meo/quarters)
 "dgQ" = (
@@ -69895,6 +69917,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "FOBedPriv";
+	name = "First Office Bedroom Privacy Shutters";
+	pixel_x = -4;
+	pixel_y = -32
+	},
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo/quarters)
 "dhC" = (
@@ -70272,6 +70300,14 @@
 "dit" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "CMOBedPriv";
+	layer = 2.6;
+	name = "CMO Bedroom Privacy Shutter";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/eris/command/mbo/quarters)
 "diu" = (
@@ -72023,6 +72059,12 @@
 /obj/item/weapon/storage/firstaid/regular{
 	pixel_x = -2;
 	pixel_y = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "CMOBedPriv";
+	name = "CMO Bedroom Privacy Shutters";
+	pixel_x = -4;
+	pixel_y = -32
 	},
 /turf/simulated/floor/wood,
 /area/eris/command/mbo/quarters)
@@ -104655,6 +104697,14 @@
 "hWM" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "CMOBedPriv";
+	layer = 2.6;
+	name = "CMO Bedroom Privacy Shutter";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/eris/command/mbo/quarters)
 "iaa" = (
@@ -108504,7 +108554,7 @@
 "trr" = (
 /obj/machinery/button/remote/blast_door{
 	id = "RDPrivacy";
-	name = "Merchant Office Privacy Shutters";
+	name = "CSO Office Privacy Shutters";
 	pixel_x = -4;
 	pixel_y = -32
 	},
