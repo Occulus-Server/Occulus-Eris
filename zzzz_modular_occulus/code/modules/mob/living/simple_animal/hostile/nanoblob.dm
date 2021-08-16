@@ -37,7 +37,7 @@
 
 	environment_smash = 1
 
-	agony_coefficient = 0.8 // rubbers aren't going to hurt a blob of goo very much
+	agony_coefficient = 1.2 // lots of squish to splatter against
 
 	faction = "nanoblob"
 	var/mob/living/owner
