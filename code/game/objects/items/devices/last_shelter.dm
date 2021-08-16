@@ -122,7 +122,7 @@ GLOBAL_DATUM(last_shelter, /obj/item/device/last_shelter)
 	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 	if(CI)
 		if(client)
-			if(alert(src, "Do you wish to be recovered by the Lost Shelter? You will be gibbed, and your Cruciform will be teleported back to it.","Last Shelter","Yes","No") == "Yes")
+			if(alert(src, "Do you wish to be recovered by the Last Shelter? You will be gibbed, and your Cruciform will be teleported back to it.","Last Shelter","Yes","No") == "Yes")
 				gib()
 				spawn(50) //Delay to make sure you finish gibbing before the thing gets teleported
 					CI.forceMove(GLOB.last_shelter.loc)
