@@ -9,7 +9,7 @@
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_PLASTIC = 10)
 	price_tag = 10000
 	damage_multiplier = 0.8 //same as bojevic
-	penetration_multiplier = 0.4 //100% less penetration than the bojevic
+	penetration_multiplier = 0.6
 	recoil_buildup = 15
 	one_hand_penalty = 15
 	auto_eject = 1

@@ -17,7 +17,7 @@
 	magazine_type = /obj/item/ammo_magazine/smg
 	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_DIAMOND = 1, MATERIAL_PLASTIC = 2)
 	price_tag = 2000
-	damage_multiplier = 0.65	//Lower than even the Molly
+	damage_multiplier = 0.7
 	penetration_multiplier = 0.75
 	recoil_buildup = 2
 	one_hand_penalty = 4
