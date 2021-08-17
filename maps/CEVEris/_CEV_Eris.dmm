@@ -88820,10 +88820,6 @@
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/hallway/side/section3starboard)
 "dZh" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/landmark/join/start/assistant,
 /obj/machinery/holoposter{
 	pixel_x = 32
 	},
@@ -103892,14 +103888,6 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/prison)
-"fwz" = (
-/obj/structure/bed/chair,
-/obj/landmark/join/start/assistant,
-/obj/machinery/holoposter{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/steel/brown_perforated,
-/area/eris/maintenance/section3deck3starboard)
 "fyF" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -105356,13 +105344,6 @@
 /obj/effect/shuttle_landmark/merc/atmos,
 /turf/space,
 /area/space)
-"jWU" = (
-/obj/machinery/door/airlock/maintenance_common{
-	name = "Service Maintenance";
-	req_access = list(12)
-	},
-/turf/simulated/floor/tiled/steel/brown_platform,
-/area/eris/maintenance/section3deck3starboard)
 "kcK" = (
 /obj/machinery/floor_light/prebuilt{
 	color = "#8F00FF";
@@ -218696,9 +218677,9 @@ dFG
 dvd
 ewa
 dSb
+ewg
 dZh
-dUc
-fwz
+ewa
 dSb
 ewg
 dvd
@@ -218899,7 +218880,7 @@ dvd
 dRv
 dRv
 dRv
-jWU
+dRv
 dRv
 dRv
 dRv
