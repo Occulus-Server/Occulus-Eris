@@ -14,7 +14,7 @@
 	sharp = FALSE
 	edge = TRUE
 	tool_qualities = list(QUALITY_SHOVELING = 30, QUALITY_DIGGING = 30, QUALITY_EXCAVATION = 10, QUALITY_HAMMERING = 10)
-	rarity_value = 10
+	rarity_value = 9.6
 
 /obj/item/weapon/tool/shovel/improvised
 	name = "junk shovel"
