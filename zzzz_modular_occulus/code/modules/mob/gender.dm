@@ -1,17 +1,22 @@
 /datum/gender
-    var/himself = "themselves"
+	var/identity = "gender"
+	var/himself = "themselves"
 
 /datum/gender/male
-    himself = "himself"
+	identity = "Male"
+	himself = "himself"
 
 /datum/gender/female
-    himself = "herself"
+	identity = "Female"
+	himself = "herself"
 
 /datum/gender/neuter
-    himself = "itself"
+	himself = "itself"
 
 /datum/gender/genderneutral
-	key  = GENDERNEUTRAL
+	identity = "Non Binary"
+	key = GENDERNEUTRAL
 
 /datum/gender/neuter/nonpersonal
-    key = NONPERSONAL
+	identity = "Agender"
+	key = NONPERSONAL

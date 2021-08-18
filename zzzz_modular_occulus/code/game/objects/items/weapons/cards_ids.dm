@@ -18,7 +18,7 @@
 	var/dat = ("<table><tr><td>")
 	dat += text("Name: []</A><BR>", registered_name)
 	dat += text("Sex: []</A><BR>\n", sex)
-	dat += text("Pronouns: []</A><BR>\n", addtext(pronouns.He, "/", capitalize(pronouns.him)))
+	dat += text("Gender Identity: []</A><BR>\n", pronouns.identity)
 	dat += text("Age: []</A><BR>\n", age)
 	dat += text("Rank: []</A><BR>\n", assignment)
 	dat += text("Fingerprint: []</A><BR>\n", fingerprint_hash)
