@@ -12,7 +12,7 @@
 		"Enforce Equipment" = list(
 			/obj/item/weapon/handcuffs,
 			/obj/item/weapon/shield/riot,
-			/obj/item/weapon/melee/baton,
+			/obj/item/weapon/tool/baton/stun,//Occulus Edit
 			/obj/machinery/deployable/barrier,
 			/obj/machinery/shieldwallgen,
 		),

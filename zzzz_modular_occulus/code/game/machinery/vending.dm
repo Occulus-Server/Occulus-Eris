@@ -8,4 +8,4 @@
 					/obj/item/seeds/poppyseed = 3,/obj/item/seeds/sugarcaneseed = 3,/obj/item/seeds/ambrosiavulgarisseed = 3,/obj/item/seeds/peanutseed = 3,/obj/item/seeds/whitebeetseed = 3,/obj/item/seeds/watermelonseed = 3,/obj/item/seeds/limeseed = 3,
 					/obj/item/seeds/lemonseed = 3,/obj/item/seeds/orangeseed = 3,/obj/item/seeds/grassseed = 3,/obj/item/seeds/cocoapodseed = 3,/obj/item/seeds/plumpmycelium = 2,
 					/obj/item/seeds/cabbageseed = 3,/obj/item/seeds/grapeseed = 3,/obj/item/seeds/pumpkinseed = 3,/obj/item/seeds/cherryseed = 3,/obj/item/seeds/plastiseed = 3,/obj/item/seeds/riceseed = 3, /obj/item/seeds/tobaccoseed = 3,
-					/obj/item/seeds/blueberryseed = 3, /obj/item/seeds/strawberryseed = 3, /obj/item/seeds/pineappleseed = 3, /obj/item/seeds/cinnamonseed = 3, /obj/item/seeds/mintseed = 3)
+					/obj/item/seeds/blueberryseed = 3, /obj/item/seeds/strawberryseed = 3, /obj/item/seeds/pineappleseed = 3, /obj/item/seeds/cinnamonseed = 3, /obj/item/seeds/mintseed = 3, /obj/item/seeds/joy = 2)
