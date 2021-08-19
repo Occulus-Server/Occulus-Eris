@@ -12,6 +12,7 @@
 #define TURF_ACID_IMMUNE       			2048
 #define TURF_HIDES_THINGS				4096
 #define TURF_CAN_HAVE_RANDOM_BORDER		4096
+#define TURF_RIPPABLE				4096 //Occulus Edit for remove plating verb
 
 
 
