@@ -1,4 +1,5 @@
 /obj/item/melee/energy
+	icon = 'icons/obj/weapons.dmi'
 	sharp = FALSE
 	edge = FALSE
 	armor_penetration = ARMOR_PEN_HALF
