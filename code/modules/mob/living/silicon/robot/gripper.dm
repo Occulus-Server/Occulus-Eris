@@ -256,6 +256,7 @@
 		/obj/item/storage/pill_bottle,
 		/obj/item/hand_labeler,
 		/obj/item/stack/material/phoron
+		/obj/item/reagent_containers/food/snacks/meat
 		)
 
 /obj/item/gripper/service //Used to handle food, drinks, and seeds.
