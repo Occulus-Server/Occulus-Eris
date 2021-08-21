@@ -43,7 +43,7 @@ ty ilu - bear
 	narrate = "Cameras swivel to follow every single visible movement. The most costly room on the ship by a factor of ten."
 
 /area/eris/crew_quarters/toilet/medbay
-	narrate = "...It smells like piss."
+	narrate = "Overpowering cleaning odour. The floors are slippery and sticky at the same time."
 
 /area/eris/maintenance/oldbridge
 	narrate = "What used to be the bridge of a proud ship; now, a casket from which one stares longingly at the stars."
@@ -68,3 +68,12 @@ ty ilu - bear
 
 /area/eris/maintenance/section3deck5starboard
 	narrate = "The crunch and whir of machinery scream the room's purpose. This is where old things go to die, and new materials are born again."
+
+/area/eris/crew_quarters/baroscar
+	narrate = "A half-bar, half-diner that makes for a comfy spot. The Landlord says the poor girl that built this place got stabbed to death by her wife."
+
+/area/eris/security/oscarnuke
+	narrate = "It's you that I'd lie with, as the atom bomb locks in. You faintly taste metal."
+
+/area/outpost/museum
+	narrate = "It's awfully dusty in this most remote corner of the world. This isn't on any map of Port Nowhere- not even the Landlord knows about this place. Or maybe he just didn't tell anyone?"
