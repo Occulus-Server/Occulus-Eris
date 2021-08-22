@@ -131,10 +131,6 @@
 	name = "MK PR \"Purger\""
 	desc = "A more recent \"Mekhane\" brand plasma rifle, developed in direct response to compete against the highly successful \"Cassad\" design."
 
-/obj/item/weapon/gun/energy/plasma/brigador
-	name = "Frozen Star PP \"Brigador\""
-	desc = "\"Frozen Star\" brand energy pistol, for personal overprotection without the bulk of the Cassad."
-
 /obj/item/weapon/gun/energy/plasma/martyr // or should it be  Zealot
 	name = "MK PR \"Martyr\""
 	desc = "A \"Mekhane\" weapon that uses advanced biomass conversion controllable blasts of energized matter. is a disposable side arm, good enough to save you and be recycled."
