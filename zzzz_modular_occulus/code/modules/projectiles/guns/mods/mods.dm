@@ -1,5 +1,5 @@
 /obj/item/weapon/gun_upgrade/barrel/diffuser
-	name = "Frozen Star \"Diffuser\" micro lens"
+	name = "MEK \"DIFFUSER\" micro lens"
 	desc = "A point of light in the distance."
 	icon_state = "Excruciator"
 	rarity_value = 50
@@ -14,3 +14,6 @@
 	I.gun_loc_tag = GUN_BARREL
 	I.req_gun_tags = list(GUN_ENERGY)
 
+/datum/design/autolathe/diffuser
+	name = "Mekhane \"DIFFUSER\" micro lens"
+	build_path = /obj/item/weapon/gun_upgrade/barrel/diffuser

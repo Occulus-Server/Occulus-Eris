@@ -168,7 +168,14 @@ ARMOR_PEN_MASSIVE			30
 	disk_name = "Mekhane Armory - Crusader Armor"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/excruciator
-	disk_name = "Mekhane Armory - MEK \"EXCRUCIATOR\" giga lens"
+	disk_name = "Mekhane Armory - MEK Energy Weapons"
+	designs = list(
+		/datum/design/autolathe/excruciator,
+		/datum/design/autolathe/diffuser,
+		/datum/design/autolathe/gun/nt_svalinn
+	)
+
+
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt
 	disk_name = "Mekhane Armory - Blank"

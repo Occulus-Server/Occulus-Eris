@@ -68,7 +68,7 @@
 	duration = 10*30
 
 	start(mob/living/carbon/human/H)
-		H.emote("me", 1, "has drool running down from [H.gender == MALE ? "his" : H.gender == FEMALE ? "her" : "their"] mouth.")
+		H.emote("me", 1, "has drool running down from [gender_datums[H.identifying_gender].his] mouth.") // OCCULUS EDIT - adjusting for gender rework
 
 	finish(mob/living/carbon/human/H)
 		if(!H.reagents.has_reagent("anti_toxin"))

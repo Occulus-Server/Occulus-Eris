@@ -54,6 +54,7 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 	set_department(H ? GetDepartment(H) : "Unset")
 	set_job(H ? GetAssignment(H) : "Unset")
 	set_sex(H ? gender2text(H.get_sex()) : "Unset")
+	set_pronouns(H ? H.identifying_gender : "Unset") // OCCULUS EDIT - adjusting for gender rework
 	set_age(H ? H.age : 30)
 	set_status(GLOB.default_physical_status)
 
@@ -204,6 +205,7 @@ FIELD_SHORT("Name", name, null, access_change_ids)
 FIELD_SHORT("Department", department, null, access_change_ids)
 FIELD_SHORT("Job", job, null, access_change_ids)
 FIELD_LIST("Sex", sex, record_genders(), null, access_change_ids)
+FIELD_SHORT("Pronouns", pronouns, null, access_change_ids) // OCCULUS EDIT - adjusting for gender rework
 FIELD_NUM("Age", age, null, access_change_ids)
 FIELD_LIST_EDIT("Status", status, GLOB.physical_statuses, null, access_moebius)
 

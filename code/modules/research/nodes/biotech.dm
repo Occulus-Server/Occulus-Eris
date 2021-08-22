@@ -75,7 +75,7 @@
 	required_tech_levels = list()
 	cost = 400
 
-	unlocks_designs = list(	/datum/design/research/circuit/biogenerator,
+	unlocks_designs = list(	//datum/design/research/circuit/biogenerator, OCCULUS EDIT. Comments out the non-Mekhane Biogenerator for lore reasons
 							/datum/design/research/item/weapon/flora_gun)
 
 /datum/technology/portable_chemistry
