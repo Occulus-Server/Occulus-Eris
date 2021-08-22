@@ -33,8 +33,8 @@
 
 
 /obj/item/weapon/gun/energy/plasma/brigador
-	name = "NanoTrasen PP \"Brigador\""
-	desc = "\"NanoTrasen\" brand energy pistol, for personal overprotection."
+	name = "Frozen Star PP \"Brigador\""
+	desc = "\"Frozen Star\" brand energy pistol, for personal overprotection without the bulk of the Cassad."
 	icon = 'icons/obj/guns/energy/brigador.dmi'
 	icon_state = "brigador"
 	charge_meter = FALSE
