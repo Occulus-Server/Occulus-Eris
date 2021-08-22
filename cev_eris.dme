@@ -2895,7 +2895,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\grenades\stinger.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\cleaner_spider.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\disruptor_spider.dm"
-#include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\https://github.com/Occulus-Server/Occulus-Eris/pull/668carrion\friend_spider.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\friend_spider.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\injector_spider.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\mending_spider.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\sleep_spider.dm"
