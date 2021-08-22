@@ -106108,6 +106108,10 @@
 /obj/spawner/booze/low_chance,
 /turf/simulated/floor/wood,
 /area/eris/maintenance/section4deck4central)
+"mmd" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "mnq" = (
 /obj/structure/closet/wall_mounted/emcloset/escape_pods{
 	pixel_y = 30
@@ -292754,7 +292758,7 @@ mQf
 wuY
 cHg
 cHg
-cHg
+mmd
 dVw
 abF
 abF
