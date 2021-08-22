@@ -49,14 +49,12 @@
 	w_class = ITEM_SIZE_NORMAL
 	twohanded = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-
 	projectile_color = "#00FFFF"
-
-	fire_sound='sound/weapons/Taser.ogg'
-
-	fire_delay=8
 	charge_cost=15
 
 	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 8, MATERIAL_PHORON = 2, MATERIAL_SILVER = 3, MATERIAL_URANIUM = 3)
 
-	init_firemodes = list()
+	init_firemodes = list(
+		list(mode_name="burn", projectile_type=/obj/item/projectile/plasma/light, fire_sound='sound/weapons/Laser.ogg', icon="kill", fire_delay=8, charge_cost=15, projectile_color = "#00FFFF"),
+		list(mode_name="stun", projectile_type=/obj/item/projectile/plasma/stun, fire_sound='sound/weapons/Taser.ogg', icon="stun", fire_delay=2,charge_cost=12.5, projectile_color = "#0000FF"),
+	)
