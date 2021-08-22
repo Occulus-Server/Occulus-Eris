@@ -1,11 +1,3 @@
-/obj/item/weapon/gun/energy/plasma/brigador
-	slot_flags = SLOT_BELT|SLOT_HOLSTER //Why does a double barrel shotgun fit in a holster but not this?
-	one_hand_penalty = 0 // Some genius forgot to set this variable from the parent plasma rifle type, which sets it to 10.
-	init_firemodes = list(
-		list(mode_name="burn", projectile_type=/obj/item/projectile/plasma/light, fire_sound='sound/weapons/Laser.ogg', icon="kill", fire_delay=8, charge_cost=15, projectile_color = "#00FFFF"),
-		list(mode_name="stun", projectile_type=/obj/item/projectile/plasma/stun, fire_sound='sound/weapons/Taser.ogg', icon="stun", fire_delay=2,charge_cost=12.5, projectile_color = "#0000FF"),
-	)
-
 /obj/item/weapon/gun/energy/plasma/brigador/update_icon()
 	overlays.Cut()
 	..()
@@ -41,22 +33,22 @@
 
 
 /obj/item/weapon/gun/energy/plasma/brigador
-	name = "NanoTrasen PP \"Brigador\""
-	desc = "\"NanoTrasen\" brand energy pistol, for personal overprotection."
+	name = "Frozen Star PP \"Brigador\""
+	desc = "\"Frozen Star\" brand energy pistol, for personal overprotection without the bulk of the Cassad."
 	icon = 'icons/obj/guns/energy/brigador.dmi'
 	icon_state = "brigador"
 	charge_meter = FALSE
 	w_class = ITEM_SIZE_NORMAL
 	twohanded = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-
 	projectile_color = "#00FFFF"
-
-	fire_sound='sound/weapons/Taser.ogg'
-
-	fire_delay=8
-	charge_cost=15
+	charge_cost = 15
+	one_hand_penalty = 0
+	fire_delay = 8
 
 	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 8, MATERIAL_PHORON = 2, MATERIAL_SILVER = 3, MATERIAL_URANIUM = 3)
 
-	init_firemodes = list()
+	init_firemodes = list(
+		list(mode_name="burn", projectile_type=/obj/item/projectile/plasma/light, fire_sound='sound/weapons/Laser.ogg', icon="kill", fire_delay=8, charge_cost=15, projectile_color = "#00FFFF"),
+		list(mode_name="stun", projectile_type=/obj/item/projectile/plasma/stun, fire_sound='sound/weapons/Taser.ogg', icon="stun", fire_delay=2,charge_cost=12.5, projectile_color = "#0000FF"),
+	)
