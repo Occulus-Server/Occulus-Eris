@@ -104,8 +104,10 @@
 /turf/simulated/wall/untinted/onestar,
 /area/asteroid/rogue)
 "eI" = (
-/mob/living/simple_animal/hostile/roomba/slayer,
-/turf/simulated/floor/tiled/derelict/white_red_edges,
+/obj/machinery/door/airlock/centcom{
+	name = "Fortress Airlock"
+	},
+/turf/space,
 /area/asteroid/rogue)
 "fc" = (
 /obj/effect/floor_decal/asteroid,
@@ -200,6 +202,19 @@
 /obj/spawner/surgery_tool/low_chance,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
+"io" = (
+/obj/structure/table/onestar,
+/obj/structure/sign/derelict2{
+	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
+	pixel_y = -31
+	},
+/obj/structure/sign/derelict2{
+	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
+	pixel_x = -32
+	},
+/obj/spawner/tool/advanced/onestar,
+/turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
 "ip" = (
 /obj/asteroid_spawner,
 /obj/asteroid_spawner,
@@ -272,6 +287,12 @@
 "jW" = (
 /mob/living/simple_animal/hostile/roomba/gun_ba,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
+"ka" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "kc" = (
 /obj/machinery/light/small{
@@ -403,6 +424,10 @@
 /obj/structure/closet/onestar/tier3,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
+"nt" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
 "nD" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
@@ -424,6 +449,10 @@
 "ox" = (
 /obj/machinery/door/airlock/sandstone,
 /turf/simulated/floor/asteroid,
+/area/asteroid/rogue)
+"oI" = (
+/obj/rogue/telebeacon/return_beacon,
+/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "pd" = (
 /obj/structure/salvageable/os/data,
@@ -455,12 +484,10 @@
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "qe" = (
-/obj/machinery/door/airlock/centcom{
-	icon_state = "door_locked";
-	locked = 1;
-	name = "Fortress Airlock"
+/obj/structure/sign/signnew/danger{
+	pixel_y = -31
 	},
-/turf/space,
+/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "qg" = (
 /obj/structure/closet/onestar/tier2/normal/empty,
@@ -532,6 +559,11 @@
 /obj/structure/table/onestar,
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
+"sP" = (
+/obj/structure/low_wall/onestar,
+/obj/structure/window/reinforced/full,
+/turf/space,
+/area/asteroid/rogue)
 "sX" = (
 /obj/structure/inflatable/door,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
@@ -539,6 +571,10 @@
 "te" = (
 /obj/structure/closet/onestar/tier1/medical,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
+"th" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner,
+/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "tm" = (
 /obj/machinery/optable,
@@ -782,6 +818,12 @@
 /obj/structure/table/onestar,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
+"Ap" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
 "At" = (
 /obj/structure/inflatable/wall,
 /obj/structure/inflatable/door,
@@ -817,6 +859,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating/under,
+/area/asteroid/rogue)
+"BO" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/asteroid/rogue)
 "BR" = (
 /mob/living/simple_animal/hostile/roomba/boomba,
@@ -862,6 +910,12 @@
 	},
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
+"Dv" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
 "DD" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Fortress Airlock"
@@ -898,6 +952,20 @@
 /obj/structure/table/onestar,
 /obj/spawner/tool_upgrade/rare/low_chance,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
+"EN" = (
+/obj/structure/table/onestar,
+/obj/structure/sign/derelict2{
+	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
+	pixel_y = 31
+	},
+/obj/structure/sign/derelict2{
+	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
+	pixel_x = -32
+	},
+/obj/spawner/medical,
+/obj/spawner/medical/low_chance,
+/turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "Fe" = (
 /obj/structure/lattice,
@@ -1027,6 +1095,12 @@
 /mob/living/simple_animal/hostile/roomba,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
+"In" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
 "Iq" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/asteroid,
@@ -1044,7 +1118,7 @@
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "IU" = (
-/mob/living/simple_animal/hostile/roomba/gun_ba,
+/obj/rogue/teleporter,
 /turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "IW" = (
@@ -1223,6 +1297,12 @@
 /obj/structure/salvageable/os/computer,
 /turf/simulated/floor/tiled/derelict,
 /area/asteroid/rogue)
+"OZ" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
 "Pc" = (
 /turf/simulated/mineral,
 /area/asteroid/rogue)
@@ -1364,6 +1444,19 @@
 /mob/living/simple_animal/hostile/onestar_custodian/engineer,
 /turf/simulated/floor/plating/under,
 /area/asteroid/rogue)
+"Ty" = (
+/obj/structure/table/onestar,
+/obj/structure/sign/derelict2{
+	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
+	pixel_x = 28
+	},
+/obj/structure/sign/derelict2{
+	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
+	pixel_y = -31
+	},
+/obj/spawner/tool/advanced/onestar/low_chance,
+/turf/simulated/floor/tiled/derelict/white_big_edges,
+/area/asteroid/rogue)
 "Tz" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/derelict,
@@ -1494,6 +1587,20 @@
 /obj/structure/inflatable/wall,
 /obj/structure/lattice,
 /turf/space,
+/area/asteroid/rogue)
+"Wv" = (
+/obj/structure/table/onestar,
+/obj/structure/sign/derelict2{
+	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
+	pixel_x = 28
+	},
+/obj/structure/sign/derelict2{
+	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
+	pixel_y = 31
+	},
+/obj/spawner/medical,
+/obj/spawner/medical/low_chance,
+/turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "Ww" = (
 /obj/machinery/light/small,
@@ -6552,11 +6659,11 @@ yr
 yr
 yr
 yr
-yr
-yr
-yr
-yr
-yr
+fl
+sP
+sP
+sP
+fl
 yr
 yr
 yr
@@ -6753,13 +6860,13 @@ yr
 yr
 yr
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+fl
+fl
+Ph
+zp
+zp
+fl
+fl
 yr
 yr
 yr
@@ -6951,18 +7058,18 @@ yr
 yr
 yr
 yr
+fl
 yr
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+fl
+fl
+EN
+zp
+BW
+zp
+io
+fl
+fl
 yr
 yr
 yr
@@ -7149,23 +7256,23 @@ zp
 zp
 yr
 yr
+fl
 yr
 yr
+FB
+FB
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+fl
+fl
+su
+zp
+Zs
+Zs
+Zs
+zp
+vb
+fl
+fl
 yr
 yr
 yr
@@ -7355,19 +7462,19 @@ yr
 zp
 yr
 BW
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+FB
+FB
+zp
+aV
+zp
+Zs
+th
+Dv
+In
+Zs
+zp
+vb
+sP
 yr
 yr
 yr
@@ -7559,17 +7666,17 @@ zp
 yr
 yr
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+qe
+fl
+BW
+Zs
+nt
+oI
+BO
+Zs
+BW
+vb
+sP
 yr
 yr
 yr
@@ -7760,18 +7867,18 @@ yr
 FB
 yr
 FB
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+eI
+zp
+aV
+zp
+Zs
+Ap
+OZ
+ka
+Zs
+zp
+vb
+sP
 yr
 yr
 yr
@@ -7960,20 +8067,20 @@ yr
 yr
 yr
 zp
+fl
 yr
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+fl
+fl
+Ph
+zp
+Zs
+Zs
+Zs
+zp
+vb
+fl
+fl
 yr
 yr
 yr
@@ -8166,15 +8273,15 @@ yr
 yr
 yr
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+fl
+fl
+Wv
+zp
+BW
+zp
+Ty
+fl
+fl
 yr
 yr
 yr
@@ -8369,13 +8476,13 @@ yr
 yr
 yr
 yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+fl
+fl
+su
+zp
+zp
+fl
+fl
 yr
 yr
 yr
@@ -8572,11 +8679,11 @@ yr
 yr
 yr
 yr
-yr
-yr
-yr
-yr
-yr
+fl
+sP
+sP
+sP
+fl
 yr
 yr
 yr
@@ -9331,7 +9438,7 @@ FB
 FB
 FB
 FB
-yr
+zp
 yr
 yr
 zp
@@ -15355,7 +15462,7 @@ FY
 rC
 FY
 FY
-eI
+FY
 FY
 FY
 Pj
@@ -15555,11 +15662,11 @@ zp
 zp
 FY
 FY
-eI
 FY
 FY
 FY
-eI
+FY
+FY
 FY
 FY
 zp
@@ -15959,11 +16066,11 @@ zp
 zp
 FY
 FY
-eI
 FY
 FY
 FY
-eI
+FY
+FY
 FY
 NA
 zp
@@ -16163,7 +16270,7 @@ FY
 Pj
 FY
 FY
-eI
+FY
 FY
 rd
 Pj
@@ -21101,7 +21208,7 @@ dn
 dn
 dn
 fl
-qe
+oc
 fl
 fl
 fl
