@@ -16,6 +16,7 @@
 	//Damage same as Kampfers
 	min_size = 0.75
 	max_size = 1.25
+	agony_coefficient = 1.2 //squishy-ish sacs, easy to pop I guess
 
 /mob/living/carbon/superior_animal/roach/hunter		// Jager
 
@@ -54,6 +55,7 @@
 	melee_damage_upper = 10//Tanks, take them out at range
 	min_size = 1
 	max_size = 1.5 // chunky boy
+	agony_coefficient = 0.8 //tonks, rubbers have trouble penetrating
 
 /mob/living/carbon/superior_animal/roach/toxic		// Gestrahlte
 
@@ -62,6 +64,7 @@
 	melee_damage_upper = 10 //Weaker than hunter
 	min_size = 1
 	max_size = 1.4
+	agony_coefficient = 1.2 //squishy sacs, easy to pop
 
 /mob/living/carbon/superior_animal/roach/fuhrer
 	density = TRUE
@@ -69,6 +72,7 @@
 	melee_damage_upper = 30 //Fuhrer damage is in a good spot
 	min_size = 1
 	max_size = 1.3
+	agony_coefficient = 0.8 //gives them a bit more dignity, needing an extra rubber or so to kill
 
 /mob/living/carbon/superior_animal/roach/kaiser
 

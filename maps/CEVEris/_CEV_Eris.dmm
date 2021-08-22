@@ -61016,7 +61016,7 @@
 /obj/structure/catwalk,
 /obj/machinery/button/remote/blast_door/id_card{
 	id = "complicator";
-	name = "Reality Complicator id lock";
+	name = "EES SED ID lock";
 	pixel_x = 28;
 	req_access = list(56)
 	},
@@ -61024,13 +61024,13 @@
 /area/eris/engineering/engine_room)
 "cMJ" = (
 /obj/structure/table/rack,
-/obj/item/weapon/complicator,
 /obj/machinery/door/blast/shutters/glass{
 	id = "complicator"
 	},
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/device/rodar,
 /turf/simulated/floor/plating,
 /area/eris/engineering/engine_room)
 "cMK" = (
