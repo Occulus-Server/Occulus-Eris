@@ -701,7 +701,7 @@
 	switched_on = FALSE
 	STOP_PROCESSING(SSobj, src)
 	tool_qualities = switched_off_qualities
-	if (!isnull(switched_off_force))//Occulus Edit: Fioxing togglable tool damage
+	if (!isnull(switched_off_force))//Occulus Edit: Fixing togglable tool damage
 		force = switched_off_force//Occulus Edit fixing togglable tool damage
 		if(wielded)//Occulus Edit: REEEEEE!
 			force *= 1.3//Occulus Edit: REEEE
@@ -814,6 +814,7 @@
 	use_power_cost = initial(use_power_cost)
 	force = initial(force)
 	switched_on_force = initial(switched_on_force)
+	switched_off_force= initial(switched_off_force)//Aha, found you you little bugger Occulus Edit
 	extra_bulk = initial(extra_bulk)
 	item_flags = initial(item_flags)
 	name = initial(name)
