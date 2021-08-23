@@ -7,6 +7,7 @@
 	slot_flags = SLOT_BELT
 	force = WEAPON_FORCE_PAINFUL
 	switched_on_force = WEAPON_FORCE_PAINFUL
+	switched_off_force = WEAPON_FORCE_PAINFUL
 	sharp = FALSE
 	edge = FALSE
 	throwforce = WEAPON_FORCE_PAINFUL
