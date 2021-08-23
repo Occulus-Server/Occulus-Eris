@@ -18,16 +18,17 @@
 //[NUTRIMENTS]
 /datum/design/bioprinter/ez
 	name = "EZ-Nutrient"
-	build_path = /obj/item/weapon/reagent_containers/glass/fertilizer/ez
+	build_path = /obj/item/weapon/reagent_containers/glass/bottle/fertilizer/ez
 	materials = list(MATERIAL_BIOMATTER = 3)
 
 /datum/design/bioprinter/l4z
 	name = "Left4Zed"
-	build_path = /obj/item/weapon/reagent_containers/glass/fertilizer/l4z
+	build_path = /obj/item/weapon/reagent_containers/glass/bottle/fertilizer/l4z
+	materials = list(MATERIAL_BIOMATTER = 5) //Occulus Edit?
 
 /datum/design/bioprinter/rh
-	name = "Robust Harvestt"
-	build_path = /obj/item/weapon/reagent_containers/glass/fertilizer/rh
+	name = "Robust Harvest"
+	build_path = /obj/item/weapon/reagent_containers/glass/bottle/fertilizer/rh
 	materials = list(MATERIAL_BIOMATTER = 7.5)
 //[/NUTRIMENTS]
 
@@ -38,7 +39,7 @@
 
 /datum/design/bioprinter/nt_clothes/NTvoid
 	name = "neotheology voidsuit"
-	build_path = /obj/item/clothing/suit/space/void/NTvoid		
+	build_path = /obj/item/clothing/suit/space/void/NTvoid
 
 /datum/design/bioprinter/nt_clothes/agrolyte_armor
 	name = "NT Agrolyte Armor"

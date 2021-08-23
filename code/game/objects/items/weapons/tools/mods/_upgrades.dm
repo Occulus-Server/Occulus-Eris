@@ -214,10 +214,24 @@
 		T.degradation *= tool_upgrades[UPGRADE_DEGRADATION_MULT]
 	if(tool_upgrades[UPGRADE_FORCE_MULT])
 		T.force *= tool_upgrades[UPGRADE_FORCE_MULT]
-		T.switched_on_force *= tool_upgrades[UPGRADE_FORCE_MULT]
+		if(T.force_wielded)//Occulus Edit start. Apparantly this was just never considered
+			T.force_wielded *= tool_upgrades[UPGRADE_FORCE_MULT]
+		if(T.force_unwielded)
+			T.force_unwielded *= tool_upgrades[UPGRADE_FORCE_MULT]
+		if(T.switched_on_force)
+			T.switched_on_force *= tool_upgrades[UPGRADE_FORCE_MULT]
+		if(T.switched_off_force)
+			T.switched_off_force *= tool_upgrades[UPGRADE_FORCE_MULT]//Occulus Edit end
 	if(tool_upgrades[UPGRADE_FORCE_MOD])
 		T.force += tool_upgrades[UPGRADE_FORCE_MOD]
-		T.switched_on_force += tool_upgrades[UPGRADE_FORCE_MOD]
+		if(T.force_wielded)//Occulus Edit start. Apparantly this was just never considered
+			T.force_wielded *= tool_upgrades[UPGRADE_FORCE_MOD]
+		if(T.force_unwielded)
+			T.force_unwielded *= tool_upgrades[UPGRADE_FORCE_MOD]
+		if(T.switched_on_force)
+			T.switched_on_force *= tool_upgrades[UPGRADE_FORCE_MOD]
+		if(T.switched_off_force)
+			T.switched_off_force *= tool_upgrades[UPGRADE_FORCE_MOD]//Occulus Edit end
 	if(tool_upgrades[UPGRADE_FUELCOST_MULT])
 		T.use_fuel_cost *= tool_upgrades[UPGRADE_FUELCOST_MULT]
 	if(tool_upgrades[UPGRADE_POWERCOST_MULT])

@@ -6,6 +6,7 @@
 	item_state = "baton"
 	slot_flags = SLOT_BELT
 	force = WEAPON_FORCE_PAINFUL
+	switched_on_force = WEAPON_FORCE_PAINFUL
 	sharp = FALSE
 	edge = FALSE
 	throwforce = WEAPON_FORCE_PAINFUL
@@ -72,7 +73,7 @@
 	.=..()
 	if(.)
 		playsound(loc, "sparks", 75, 1, -1)
-		START_PROCESSING(SSobj, src)
+//		START_PROCESSING(SSobj, src)
 
 /obj/item/weapon/tool/baton/stun/attack(mob/M, mob/user)
 	if(switched_on && (CLUMSY in user.mutations) && prob(50))

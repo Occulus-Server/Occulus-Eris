@@ -101,7 +101,7 @@
 	src.pixel_x = rand(-5.0, 5)
 	src.pixel_y = rand(-5.0, 5)
 
-
+/*
 /obj/item/weapon/reagent_containers/glass/fertilizer/ez
 	name = "bottle of E-Z-Nutrient"
 	icon_state = "bottle16"
@@ -116,3 +116,23 @@
 	name = "bottle of Robust Harvest"
 	icon_state = "bottle15"
 	preloaded_reagents = list("robustharvest" = 60)
+*/
+
+/obj/item/weapon/reagent_containers/glass/bottle/fertilizer/ez
+	name = "inaprovaline bottle"
+	desc = "A small bottle. Contains EZ-Nutriment. Used to fertilize plants."
+	icon_state = "bottle"
+	preloaded_reagents = list("eznutrient" = 60)
+
+/obj/item/weapon/reagent_containers/glass/bottle/fertilizer/l4z
+	name = "inaprovaline bottle"
+	desc = "A small bottle. Contains Left 4 Zed. Used to fertilize plants."
+	icon_state = "bottle"
+	preloaded_reagents = list("left4zed" = 60)
+
+/obj/item/weapon/reagent_containers/glass/bottle/fertilizer/rh
+	name = "inaprovaline bottle"
+	desc = "A small bottle. Contains Robust Harvest. Used to fertilize plants."
+	icon_state = "bottle"
+	preloaded_reagents = list("robustharvest" = 60)
+

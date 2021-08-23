@@ -56,6 +56,7 @@
 	var/switched_on = FALSE	//Curent status of tool. Dont edit this in subtypes vars, its for procs only.
 	var/switched_on_qualities	//This var will REPLACE tool_qualities when tool will be toggled on.
 	var/switched_on_force
+	var/switched_off_force //Occulus Edit: Replaces initial force for turn_on and turn_off
 	var/switched_off_qualities	//This var will REPLACE tool_qualities when tool will be toggled off. So its possible for tool to have diferent qualities both for ON and OFF state.
 	var/create_hot_spot = FALSE	 //Set this TRUE to ignite plasma on turf with tool upon activation
 	var/glow_color	//Set color of glow upon activation, or leave it null if you dont want any light
@@ -87,6 +88,10 @@
 		health = max_health
 
 	update_icon()
+	if(force_unwielded)//Occulus Edit: I should make a big cluster of these edits and push them upstream or something. They have so many fucking little bugs. SO MANY
+		force = force_unwielded//Occulus edit: Gives a force if it isn't defined because lolErisdiditagain
+	if(switched_on_force)
+		switched_off_force = force
 	return
 
 /obj/item/weapon/tool/Initialize(mapload, ...)
@@ -696,7 +701,10 @@
 	switched_on = FALSE
 	STOP_PROCESSING(SSobj, src)
 	tool_qualities = switched_off_qualities
-	force = initial(force)
+	if (!isnull(switched_off_force))//Occulus Edit: Fioxing togglable tool damage
+		force = switched_off_force//Occulus Edit fixing togglable tool damage
+		if(wielded)//Occulus Edit: REEEEEE!
+			force *= 1.3//Occulus Edit: REEEE
 	if(glow_color)
 		set_light(l_range = 0, l_power = 0, l_color = glow_color)
 	update_icon()
