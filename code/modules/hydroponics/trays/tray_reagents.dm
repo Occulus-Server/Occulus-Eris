@@ -119,19 +119,19 @@
 */
 
 /obj/item/weapon/reagent_containers/glass/bottle/fertilizer/ez
-	name = "inaprovaline bottle"
+	name = "E-Z Nutriment Bottle"
 	desc = "A small bottle. Contains EZ-Nutriment. Used to fertilize plants."
 	icon_state = "bottle"
 	preloaded_reagents = list("eznutrient" = 60)
 
 /obj/item/weapon/reagent_containers/glass/bottle/fertilizer/l4z
-	name = "inaprovaline bottle"
+	name = "Left 4 Zed Bottle"
 	desc = "A small bottle. Contains Left 4 Zed. Used to fertilize plants."
 	icon_state = "bottle"
 	preloaded_reagents = list("left4zed" = 60)
 
 /obj/item/weapon/reagent_containers/glass/bottle/fertilizer/rh
-	name = "inaprovaline bottle"
+	name = "Robust Harvest Bottle"
 	desc = "A small bottle. Contains Robust Harvest. Used to fertilize plants."
 	icon_state = "bottle"
 	preloaded_reagents = list("robustharvest" = 60)
