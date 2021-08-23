@@ -89,9 +89,9 @@
 
 	update_icon()
 	if(force_unwielded)//Occulus Edit: I should make a big cluster of these edits and push them upstream or something. They have so many fucking little bugs. SO MANY
-		force = force_unwielded//Occulus edit: Gives a force if it isn't defined because lolErisdiditagain
-	if(switched_on_force)
-		switched_off_force = force
+		force = force_unwielded //Occulus edit: Gives a force if it isn't defined because lolErisdiditagain
+	if(switched_on_force)//Occulus Edit
+		switched_off_force = force //Occulus Edit
 	return
 
 /obj/item/weapon/tool/Initialize(mapload, ...)
