@@ -103665,7 +103665,7 @@
 /obj/item/weapon/tool/minihoe,
 /obj/item/weapon/reagent_containers/glass/bucket,
 /obj/item/weapon/reagent_containers/syringe,
-/obj/item/weapon/reagent_containers/glass/fertilizer/ez,
+/obj/item/weapon/reagent_containers/glass/bottle/fertilizer/ez,
 /obj/item/weapon/plantspray/pests,
 /turf/simulated/floor/grass,
 /area/eris/neotheology/chapel)
