@@ -239,11 +239,7 @@
 
 	// Validate type, get a temporary component
 	var/assembly_path = all_assemblies[assembly_params["type"]]
-	var/obj/item/I = cached_assemblies[assembly_path]
-	var/obj/item/device/electronic_assembly/assembly = I
-	if(istype(I, /obj/item/implant/integrated_circuit))
-		var/obj/item/implant/integrated_circuit/implant = I
-		assembly = implant.IC
+	var/obj/item/device/electronic_assembly/assembly = cached_assemblies[assembly_path]
 	if(!assembly)
 		return "Invalid assembly type."
 
@@ -338,12 +334,8 @@
 
 	// Block 1. Assembly.
 	var/list/assembly_params = blocks["assembly"]
-	var/assembly_path = all_assemblies[assembly_params["type"]]
-	var/obj/item/I = new assembly_path(null)
-	var/obj/item/device/electronic_assembly/assembly = I
-	if(istype(I, /obj/item/implant/integrated_circuit))
-		var/obj/item/implant/integrated_circuit/implant = I
-		assembly = implant.IC
+	var/obj/item/device/electronic_assembly/assembly_path = all_assemblies[assembly_params["type"]]
+	var/obj/item/device/electronic_assembly/assembly = new assembly_path(null)
 	assembly.load(assembly_params)
 
 
@@ -364,5 +356,5 @@
 			var/datum/integrated_io/IO2 = assembly.get_pin_ref_list(wire[2])
 			IO.connect_pin(IO2)
 
-	I.forceMove(loc)
+	assembly.forceMove(loc)
 	return assembly
