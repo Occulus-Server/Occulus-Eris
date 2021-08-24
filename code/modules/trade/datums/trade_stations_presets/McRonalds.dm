@@ -4,7 +4,7 @@
 		"Burgers" = list(
 			/obj/item/weapon/reagent_containers/food/snacks/bigbiteburger = custom_good_name("BigR RBurger"),
 			/obj/item/weapon/reagent_containers/food/snacks/jellyburger/cherry = custom_good_name("JellyCherry RBurger"),
-			/obj/item/weapon/reagent_containers/food/snacks/tofuburger = custom_good_name("Vegeterian RBurger")
+			/obj/item/weapon/reagent_containers/food/snacks/tofuburger = custom_good_name("Tofu RBurger")
 		),
 		"Misc" = list(
 			/obj/item/weapon/reagent_containers/food/snacks/fishandchips = custom_good_name("Duchess Fish 'n' Lord Chips"),

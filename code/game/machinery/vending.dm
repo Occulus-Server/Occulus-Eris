@@ -1201,7 +1201,7 @@
 					/obj/item/ammo_magazine/smg/rubber = 4,
 					/obj/item/ammo_magazine/slmagnum/rubber = 4,
 					/obj/item/ammo_magazine/magnum/rubber = 4,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags = 2,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags = 2,
 					/obj/item/ammo_magazine/ammobox/pistol/rubber = 4,
 					/obj/item/ammo_magazine/ammobox/magnum/rubber = 4,
 					/obj/item/ammo_magazine/ammobox/clrifle_small/rubber = 4,
