@@ -40,9 +40,9 @@
 			/obj/item/ammo_magazine/smg,
 			/obj/item/ammo_magazine/pistol,
 			/obj/item/ammo_magazine/hpistol,
-			/obj/item/weapon/storage/box/shotgunammo/slug,
-			/obj/item/weapon/storage/box/shotgunammo/buckshot,
-			/obj/item/weapon/storage/box/shotgunammo/beanbags
+			/obj/item/ammo_magazine/ammobox/shotgun,
+			/obj/item/ammo_magazine/ammobox/shotgun/buckshot,
+			/obj/item/ammo_magazine/ammobox/shotgun/beanbags
 		),
 		"Armor" = list(
 			/obj/item/clothing/suit/armor/heavy/riot,

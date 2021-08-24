@@ -196,14 +196,14 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/eweapons
 	name = "Incendiary weapons crate"
-	contains = list(/obj/item/weapon/flamethrower/full,
-					/obj/item/weapon/tank/phoron,
-					/obj/item/weapon/tank/phoron,
-					/obj/item/weapon/tank/phoron,
-					/obj/item/weapon/grenade/chem_grenade/incendiary,
-					/obj/item/weapon/grenade/chem_grenade/incendiary,
-					/obj/item/weapon/grenade/chem_grenade/incendiary,
-					/obj/item/weapon/storage/box/shotgunammo/incendiaryshells)
+	contains = list(/obj/item/flamethrower/full,
+					/obj/item/tank/plasma,
+					/obj/item/tank/plasma,
+					/obj/item/tank/plasma,
+					/obj/item/grenade/chem_grenade/incendiary,
+					/obj/item/grenade/chem_grenade/incendiary,
+					/obj/item/grenade/chem_grenade/incendiary,
+					/obj/item/ammo_magazine/ammobox/shotgun/incendiaryshells)
 	cost = 2500
 	containertype = /obj/structure/closet/crate/secure/weapon
 	crate_name = "Incendiary weapons crate"
@@ -268,22 +268,22 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/shotgunammo_beanbag
 	name = "FS Shotgun shells (Beanbag)"
-	contains = list(/obj/item/weapon/storage/box/shotgunammo/beanbags,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags)
+	contains = list(/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags)
 	cost = 1000
 	crate_name = "FS Shotgun shells (Beanbag)"
 	group = "Security"
 
 /datum/supply_pack/shotgunammo_slug
 	name = "FS Shotgun shells (slug)"
-	contains = list(/obj/item/weapon/storage/box/shotgunammo/slug,
-					/obj/item/weapon/storage/box/shotgunammo/slug,
-					/obj/item/weapon/storage/box/shotgunammo/slug,
-					/obj/item/weapon/storage/box/shotgunammo/slug,
-					/obj/item/weapon/storage/box/shotgunammo/slug)
+	contains = list(/obj/item/ammo_magazine/ammobox/shotgun,
+					/obj/item/ammo_magazine/ammobox/shotgun,
+					/obj/item/ammo_magazine/ammobox/shotgun,
+					/obj/item/ammo_magazine/ammobox/shotgun,
+					/obj/item/ammo_magazine/ammobox/shotgun)
 	cost = 1500
 	containertype = /obj/structure/closet/crate/secure
 	crate_name = "FS Shotgun shells (slug)"
@@ -291,11 +291,11 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/shotgunammo_buckshot
 	name = "FS Shotgun shells (buckshot)"
-	contains = list(/obj/item/weapon/storage/box/shotgunammo/buckshot,
-					/obj/item/weapon/storage/box/shotgunammo/buckshot,
-					/obj/item/weapon/storage/box/shotgunammo/buckshot,
-					/obj/item/weapon/storage/box/shotgunammo/buckshot,
-					/obj/item/weapon/storage/box/shotgunammo/buckshot)
+	contains = list(/obj/item/ammo_magazine/ammobox/shotgun/buckshot,
+					/obj/item/ammo_magazine/ammobox/shotgun/buckshot,
+					/obj/item/ammo_magazine/ammobox/shotgun/buckshot,
+					/obj/item/ammo_magazine/ammobox/shotgun/buckshot,
+					/obj/item/ammo_magazine/ammobox/shotgun/buckshot)
 	cost = 1500
 	containertype = /obj/structure/closet/crate/secure
 	crate_name = "FS Shotgun shells (buckshot)"

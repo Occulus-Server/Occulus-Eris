@@ -197,6 +197,7 @@
 	spawn_tags = SPAWN_TAG_AMMO_SHOTGUN_COMMON
 	bad_type = /obj/item/weapon/storage/box/shotgunammo
 	initial_amount = 7
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/storage/box/shotgunammo/populate_contents()
 	if(initial_amount > 0 && spawn_type)
