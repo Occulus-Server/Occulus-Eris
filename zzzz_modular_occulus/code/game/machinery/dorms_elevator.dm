@@ -152,14 +152,14 @@
 			D.close()
 			sleep(15)
 			if (!D.command_completed("close")) //Check that the door closed succesfully. If it didn't, the door is malfunctioning.
-				T.audible_message("<font color = #F63812><B>Elevator Coms</B> states, \"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or try again.\"</font>")
+				T.audible_message("<font color = #F63812><B>Elevator Coms</B> states, \"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or check for obstructions.\"</font>")
 				playsound(src, 'sound/machines/buzz-two.ogg', 50, 0)
 				return
 			else //If it did close successfully, we move on to the next part of the process.
 				D.lock()
 				sleep(5)
 				if (!D.command_completed("close") && !D.command_completed("lock")) //Check that the door closed succesfully again and has locked this time to mitigate people pressing the button while standing on the airlock. If it didn't, the door is malfunctioning.
-					T.audible_message("<font color = #F63812><B>Elevator Coms</B> states, \"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or try again.\"</font>")
+					T.audible_message("<font color = #F63812><B>Elevator Coms</B> states, \"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or check for obstructions.\"</font>")
 					D.unlock()
 					playsound(src, 'sound/machines/buzz-two.ogg', 50, 0)
 					return
@@ -188,6 +188,7 @@
 	panel_state = "elevator_panel_floor1"
 	update_icon()
 	sleep(35)
+	T.audible_message("<font color = #00BA6E><B>Elevator Coms</B> states, \"Deck one, pool.\"</font>")
 	for(var/obj/machinery/door/airlock/D in range(src, 5)) // On arrival, unlock the airlock and open it as an elevator would once it arrives to a floor.
 		if (D.id_tag == id)
 			D.unlock()
@@ -206,14 +207,14 @@
 			D.close()
 			sleep(15)
 			if (!D.command_completed("close")) //Check that the door closed succesfully. If it didn't, the door is malfunctioning.
-				T.audible_message("<font color = #F63812><B>Elevator Coms</B> states, \"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or try again.\"</font>")
+				T.audible_message("<font color = #F63812><B>Elevator Coms</B> states, \"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or check for obstructions.\"</font>")
 				playsound(src, 'sound/machines/buzz-two.ogg', 50, 0)
 				return
 			else //If it did close successfully, we move on to the next part of the process.
 				D.lock()
 				sleep(5)
 				if (!D.command_completed("close") && !D.command_completed("lock")) //Check that the door closed succesfully again and has locked this time to mitigate people pressing the button while standing on the airlock. If it didn't, the door is malfunctioning.
-					T.audible_message("<font color = #F63812><B>Elevator Coms</B> states, \"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or try again.\"</font>")
+					T.audible_message("<font color = #F63812><B>Elevator Coms</B> states, \"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or check for obstructions.\"</font>")
 					D.unlock()
 					playsound(src, 'sound/machines/buzz-two.ogg', 50, 0)
 					return
@@ -241,7 +242,9 @@
 	sleep(33)
 	panel_state = "elevator_panel_floor6"
 	update_icon()
-	sleep(35)
+	sleep(25)
+	T.audible_message("<font color = #00BA6E><B>Elevator Coms</B> states, \"Deck six, dorms.\"</font>")
+	sleep(10)
 	for (var/mob/living/mobsgoingup in get_area(src))
 		despawn_passenger(mobsgoingup)
 	sleep(22)
