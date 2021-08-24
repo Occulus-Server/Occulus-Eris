@@ -80,8 +80,8 @@
 					/obj/item/ammo_magazine/cspistol/rubber = 5,
 					/obj/item/ammo_magazine/ammobox/clrifle_small/rubber = 5,
 					/obj/item/ammo_casing/shotgun/beanbag/prespawned = 20,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags = 5,
-					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 5,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags = 5,
+					/obj/item/ammo_magazine/ammobox/shotgun/rubbershot = 5,
 					/obj/item/weapon/cell/small/high = 10,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 5 // OCCULUS EDIT - pew pew
 					)
@@ -104,8 +104,8 @@
 					/obj/item/ammo_magazine/cspistol/rubber = 250,
 					/obj/item/ammo_magazine/ammobox/clrifle_small/rubber = 900,
 					/obj/item/ammo_casing/shotgun/beanbag/prespawned = 75,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags = 575,
-					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 575,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags = 575,
+					/obj/item/ammo_magazine/ammobox/shotgun/rubbershot = 575,
 					/obj/item/weapon/cell/small/high = 500,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2500, // OCCULUS EDIT - pew pew
 					/obj/item/weapon/storage/deferred/crate/clown_crime = 1800,
