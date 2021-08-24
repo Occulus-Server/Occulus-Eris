@@ -2,6 +2,7 @@
 	name_pool = list("UTSC 'Hellcat'" = "United Terran Ship Cruiser 'Hellcat'. They are sending message, \"Greetings. This is the Hellcat. We're currently escorting the Caduceus and we will be departing the system shortly alongside them. We are willing to part with some extra supplies while we're still here.\"")
 	icon_states = "ihs_destroyer"
 	start_discovered = TRUE
+	spawn_always = TRUE
 	markup = 0.5
 	forced_overmap_zone = list(
 		list(15, 20),
@@ -34,7 +35,6 @@
 			/obj/item/weapon/grenade/empgrenade/low_yield,
 			/obj/item/weapon/grenade/smokebomb,
 			/obj/item/weapon/grenade/flashbang,
-
 			/obj/item/ammo_magazine/ammobox/magnum,
 			/obj/item/ammo_magazine/lrifle,
 			/obj/item/ammo_magazine/smg,

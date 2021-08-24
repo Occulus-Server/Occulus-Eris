@@ -16,3 +16,5 @@
 	rarity_value = 8
 	recoil_buildup = 6
 	//spawn_tags = SPAWN_TAG_FS_PROJECTILE
+
+	spawn_tags = SPAWN_TAG_FS_PROJECTILE
