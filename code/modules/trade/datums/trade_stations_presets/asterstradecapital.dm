@@ -33,7 +33,7 @@
 			/obj/item/weapon/tool/weldingtool,
 			/obj/item/weapon/tool/tape_roll
 		),
-		"Aster's Cells" = list(
+		"Robustcells" = list(
 			/obj/item/weapon/cell/small,
 			/obj/item/weapon/cell/small/high,
 			/obj/item/weapon/cell/small/super,
