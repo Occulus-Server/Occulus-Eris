@@ -3,7 +3,7 @@
 	icon_states = "moe_capital"
 	start_discovered = TRUE
 	spawn_always = TRUE
-
+	linked_with = /datum/trade_station/fbv_hellcat
 	forced_overmap_zone = list(
 		list(20, 22),
 		list(20, 25)

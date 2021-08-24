@@ -125,11 +125,12 @@
 
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 10)
-
+	price_tag = 3000
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	init_firemodes = list(
-		SEMI_AUTO_NODELAY,
-		BURST_3_ROUND,
-		BURST_5_ROUND
+	SEMI_AUTO_NODELAY,
+	BURST_3_ROUND,
+	BURST_5_ROUND
 	)
 
 	price_tag = 2000
