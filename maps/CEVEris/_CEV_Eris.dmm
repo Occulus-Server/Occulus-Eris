@@ -33154,7 +33154,7 @@
 	name = "Cargo Maintenance";
 	req_access = list(50)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/quartermaster/storage)
 "bzO" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
@@ -54191,7 +54191,7 @@
 	name = "Cargo Office";
 	req_access = list(31)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/office)
 "cxJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -95604,13 +95604,12 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/storage/primary)
 "eqd" = (
-/obj/machinery/door/airlock/glass{
-	name = "Hydroponics";
-	req_access = list(35)
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/airlock{
+	name = "Church"
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/chapel)
@@ -206965,10 +206964,10 @@ cmE
 cmE
 cmE
 cmE
-cqn
+cmE
 csx
 cwh
-cqn
+cmE
 cmE
 cmE
 gBz
