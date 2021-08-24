@@ -106759,12 +106759,7 @@
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/surgery)
 "nIM" = (
-/obj/machinery/button/remote/elevator_call_button{
-	dir = 4;
-	id = "ElevatorDorms";
-	name = "Elevator Exit Button";
-	pixel_x = -26
-	},
+/obj/landmark/join/late/dormitory,
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/elevator)
 "nPo" = (
@@ -107975,7 +107970,6 @@
 	dir = 8;
 	pixel_x = 26
 	},
-/obj/landmark/join/late/dormitory,
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/elevator)
 "rzU" = (
@@ -127047,7 +127041,7 @@ tkQ
 uRl
 ssJ
 ssJ
-nIM
+ssJ
 tkQ
 alE
 alE
@@ -127247,7 +127241,7 @@ aaa
 aaa
 tkQ
 als
-ssJ
+nIM
 rzw
 als
 tkQ
