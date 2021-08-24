@@ -171,7 +171,7 @@
 	sleep(15)	//Wait 1.5 seconds before proceeding
 	playsound(src, 'zzzz_modular_occulus/sound/effects/elevator_going_up.ogg', 70, 0)
 	sleep(10)
-	visible_message("<span class='notice'>The elevator hums and creaks as it makes its way to the dormitory floor.</span>")
+	visible_message("<span class='notice'>The elevator hums and creaks as it makes its way to deck 1.</span>")
 	sleep(27)
 	panel_state = "elevator_panel_floor5"
 	update_icon()
