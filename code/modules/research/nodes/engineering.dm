@@ -152,7 +152,7 @@
 	desc = "Integral Ciruits - Instant Cloning"
 	tech_type = RESEARCH_ENGINEERING
 
-	x = 0.5
+	x = 0.4
 	y = 0.9
 	icon = "tesla"
 
