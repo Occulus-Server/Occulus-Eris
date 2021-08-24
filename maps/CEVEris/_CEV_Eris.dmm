@@ -105916,7 +105916,9 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/table/woodentable,
+/obj/machinery/seed_storage/xenobotany{
+	name = "Argolyte seed storage"
+	},
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/crew_quarters/hydroponics)
 "kVM" = (
