@@ -16,7 +16,7 @@
 	var/spawn_probability = 30
 	var/spawn_cost = 1
 	var/start_discovered = FALSE
-	var/commision = 200 //Cost of trading more than one thing or cost for crate
+	var/list/linked_with //trade 'stations' or 'station' that must spawn with //list or path
 
 	var/list/forced_overmap_zone //list(list(minx, maxx), list(miny, maxy))
 	var/overmap_opacity = 0
@@ -26,7 +26,7 @@
 	var/markup = 0
 	var/list/assortiment = list()
 	var/list/offer_types = list()
-	
+
 	var/list/amounts_of_goods = list()
 
 	var/obj/effect/overmap_event/overmap_object

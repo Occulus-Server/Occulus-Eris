@@ -196,13 +196,13 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/eweapons
 	name = "Incendiary weapons crate"
-	contains = list(/obj/item/flamethrower/full,
-					/obj/item/tank/plasma,
-					/obj/item/tank/plasma,
-					/obj/item/tank/plasma,
-					/obj/item/grenade/chem_grenade/incendiary,
-					/obj/item/grenade/chem_grenade/incendiary,
-					/obj/item/grenade/chem_grenade/incendiary,
+	contains = list(/obj/item/weapon/flamethrower/full,
+					/obj/item/weapon/tank/plasma,
+					/obj/item/weapon/tank/plasma,
+					/obj/item/weapon/tank/plasma,
+					/obj/item/weapon/grenade/chem_grenade/incendiary,
+					/obj/item/weapon/grenade/chem_grenade/incendiary,
+					/obj/item/weapon/grenade/chem_grenade/incendiary,
 					/obj/item/ammo_magazine/ammobox/shotgun/incendiaryshells)
 	cost = 2500
 	containertype = /obj/structure/closet/crate/secure/weapon

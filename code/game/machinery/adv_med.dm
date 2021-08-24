@@ -304,20 +304,20 @@
 		var/significant = FALSE
 
 		for(var/obj/item/organ/internal/I in e.internal_organs) // I put this before the actual external organ
-			if(I.scanner_hidden) // so that I could set significant based on internal organ results.
-				continue
-	
+			//if(I.scanner_hidden) // so that I could set significant based on internal organ results. // OCCULUS NOTE: We need #5795 for this
+				//continue
+
 			var/list/internal_wounds = list()
 			if(BP_IS_ASSISTED(I))
 				internal_wounds += "Assisted"
 			if(BP_IS_ROBOTIC(I))
 				internal_wounds += "Prosthetic"
-	
+
 			var/obj/item/organ/internal/bone/B = I
 			if(istype(B))
 				if(B.parent.status & ORGAN_BROKEN)
 					internal_wounds += "[B.broken_description]"
-	
+
 			switch (I.germ_level)
 				if (0 to INFECTION_LEVEL_ONE - 1) //in the case of no infection, do nothing.
 				if (1 to INFECTION_LEVEL_ONE + 200)

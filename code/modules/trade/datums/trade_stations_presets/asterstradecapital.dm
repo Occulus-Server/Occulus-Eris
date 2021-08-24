@@ -1,5 +1,5 @@
 /datum/trade_station/asterstradecapital
-	name_pool = list("FTS 'Solnishko'" = "Free Trade Station 'Solnishko', they sending message \"Zdravstvuite, this is the Trade Station 'Solaris'. We have all of the bests products on sale at Hansa! You couldn't get even better prices!.\ Everything for sale here, don't be afraid to come aboard and check our wares!\"")
+	name_pool = list("FTS 'Solnishko'" = "Free Trade Station 'Solnishko', they sending message \"Zdravstvuite, this is the Trade Station 'Solaris'. We have all of the bests products on sale! You couldn't get even better prices!.\ Everything for sale here, don't be afraid to come aboard and check our wares!\"")
 	start_discovered = TRUE
 	spawn_always = TRUE
 	forced_overmap_zone = list(
@@ -8,12 +8,12 @@
 	)
 	assortiment = list(
 		"Disk Designs" = list(
-			/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools = good_data("Asters Basic Tool Pack", list(1, 10)),
-			/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc = good_data("Asters Miscellaneous Pack", list(1, 10)),
-			/obj/item/weapon/computer_hardware/hard_drive/portable/design/robustcells = good_data("Asters Robustcells", list(1, 10)),
-			/obj/item/weapon/computer_hardware/hard_drive/portable/design/devices = good_data("Asters Devices and Instruments", list(1, 10)),
-			/obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo = good_data("Frozen Star Nonlethal Magazines Pack", list(1, 10)),
-			/obj/item/weapon/computer_hardware/hard_drive/portable/design/lethal_ammo = good_data("Frozen Star Lethal Magazines Pack", list(1, 10)),
+			/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools = good_data("Basic Tool Pack", list(1, 10)),
+			/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc = good_data("Miscellaneous Pack", list(1, 10)),
+			/obj/item/weapon/computer_hardware/hard_drive/portable/design/robustcells = good_data("Robustcells", list(1, 10)),
+			/obj/item/weapon/computer_hardware/hard_drive/portable/design/devices = good_data("Devices and Instruments", list(1, 10)),
+			/obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo = good_data("Nonlethal Magazines Pack", list(1, 10)),
+			/obj/item/weapon/computer_hardware/hard_drive/portable/design/lethal_ammo = good_data("Lethal Magazines Pack", list(1, 10)),
 			/obj/item/weapon/storage/deferred/disks
 		),
 		"Tools and Equipment" = list(
@@ -24,7 +24,7 @@
 			/obj/item/weapon/storage/belt/utility,
 			/obj/item/device/lighting/toggleable/flashlight,
 			/obj/item/device/lighting/toggleable/flashlight/heavy,
-			/obj/item/weapon/tool/omnitool = good_data("Asters \"Munchkin 5000\"", list(1, 3)),
+			/obj/item/weapon/tool/omnitool = good_data("\"Munchkin 5000\"", list(1, 3)),
 			/obj/item/weapon/tool/crowbar,
 			/obj/item/weapon/tool/screwdriver,
 			/obj/item/weapon/tool/shovel,
