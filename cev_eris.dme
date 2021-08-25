@@ -2967,6 +2967,7 @@
 #include "zzzz_modular_occulus\code\modules\core_implant\cruciform\machinery\eotp.dm"
 #include "zzzz_modular_occulus\code\modules\core_implant\cruciform\rituals\base.dm"
 #include "zzzz_modular_occulus\code\modules\core_implant\cruciform\rituals\priest.dm"
+#include "zzzz_modular_occulus\code\modules\discord\discord.dm"
 #include "zzzz_modular_occulus\code\modules\economy\atm.dm"
 #include "zzzz_modular_occulus\code\modules\economy\power_cells.dm"
 #include "zzzz_modular_occulus\code\modules\economy\price_list_fixed.dm"

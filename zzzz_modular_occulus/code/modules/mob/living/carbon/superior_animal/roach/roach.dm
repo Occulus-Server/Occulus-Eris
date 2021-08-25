@@ -1,3 +1,5 @@
+var/roach_counter = 0
+
 /mob/living/carbon/superior_animal/roach/roachling
 
 	melee_damage_lower = 1

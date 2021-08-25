@@ -112,6 +112,7 @@
 
 	// OCCULUS EDIT: Insert code for random roach sizes
 	if (istype(src, /mob/living/carbon/superior_animal/roach))
+		roach_counter++
 		var/mob/living/carbon/superior_animal/roach/this_roach = src
 		this_roach.randomize_scale()
 		this_roach.update_icons()
