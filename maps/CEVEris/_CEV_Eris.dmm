@@ -40896,7 +40896,10 @@
 /turf/simulated/open,
 /area/eris/maintenance/section4deck4port)
 "bQW" = (
-/obj/machinery/power/nt_obelisk,
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
 /turf/simulated/floor/dirt,
 /area/eris/neotheology/chapelritualroom)
 "bQX" = (
@@ -40978,9 +40981,8 @@
 /obj/machinery/alarm{
 	pixel_y = 26
 	},
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/grass,
 /area/eris/neotheology/chapelritualroom)
@@ -42508,6 +42510,10 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24
+	},
 /turf/simulated/floor/wood,
 /area/eris/neotheology/chapelritualroom)
 "bVc" = (
@@ -86392,15 +86398,10 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapel)
 "dUp" = (
-/obj/machinery/firealarm{
-	pixel_y = 28
-	},
-/obj/structure/bed/chair/comfy/lime{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/power/nt_obelisk,
 /turf/simulated/floor/grass,
 /area/eris/neotheology/chapelritualroom)
 "dUq" = (
@@ -109837,10 +109838,13 @@
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/maintenance/section4deck4central)
 "uWW" = (
-/obj/structure/bed/chair/comfy/lime{
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/eris/neotheology/chapelritualroom)
 "uYg" = (
 /obj/spawner/medical/low_chance,
@@ -167377,7 +167381,7 @@ bRH
 cqb
 egv
 cfF
-uWW
+bZn
 cga
 evR
 bxH
@@ -167579,7 +167583,7 @@ bRH
 cqb
 cqb
 egw
-duN
+bZn
 cga
 czB
 mEu
@@ -168383,7 +168387,7 @@ bVU
 bWk
 bWk
 bHh
-cga
+uWW
 czB
 bVp
 bWM
