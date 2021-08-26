@@ -40,3 +40,25 @@
 	name = "white nail rubber round"
 	desc = "A rubber round from a White Nail rifle. Typically does not retain its shape for long outside of the rifle."
 	projectile_type = /obj/item/projectile/bullet/whitenail/rubber
+
+/obj/item/ammo_casing/shotgun/pellet/whitenail
+	name = "grey claw pellet"
+	desc = "A pellet from a Grey Claw shotgun. Typically does not retain its shape for long outside of the weapon."
+	icon = 'zzzz_modular_occulus/icons/obj/ammo.dmi'
+	icon_state = "nail_round"
+	spent_icon = "nail_round_spent"
+	caliber = CAL_NAIL
+	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/whitenail
+	is_caseless = TRUE
+	maxamount = 1
+
+/obj/item/ammo_casing/shotgun/pellet/whitenail/rubber
+	name = "grey claw rubber pellet"
+	desc = "A rubber pellet from a Grey Claw shotgun. Typically does not retain its shape for long outside of the weapon."
+	icon = 'zzzz_modular_occulus/icons/obj/ammo.dmi'
+	icon_state = "nail_round"
+	spent_icon = "nail_round_spent"
+	caliber = CAL_NAIL
+	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/rubber/whitenail
+	is_caseless = TRUE
+	maxamount = 1

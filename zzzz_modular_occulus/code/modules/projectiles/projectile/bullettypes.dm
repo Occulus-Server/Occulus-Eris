@@ -69,3 +69,15 @@
 	armor_penetration = 0
 	penetrating = 0
 	sharp = FALSE
+
+/obj/item/projectile/bullet/pellet/shotgun/whitenail
+	damage_types = list(BRUTE = 10)
+	pellets = 6
+	armor_penetration = 20
+	penetrating = 1
+	sharp = TRUE
+	can_ricochet = FALSE 
+	embed = FALSE
+
+/obj/item/projectile/bullet/pellet/shotgun/rubber/whitenail
+	pellets = 6

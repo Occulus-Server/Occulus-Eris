@@ -20,7 +20,7 @@
 	. = ..()	// then let it install the data onto the disk properly
 
 
-// white nail & black talon ammo
+// nail magazines
 
 /obj/item/ammo_magazine/whitenail
 	name = "white nail magazine"
@@ -58,3 +58,22 @@
 	icon = 'zzzz_modular_occulus/icons/obj/magazines.dmi'
 	icon_state = "blacktalon_mag_rubber"
 	ammo_type = /obj/item/ammo_casing/whitenail/rubber
+
+/obj/item/ammo_magazine/greyclaw
+	name = "grey claw magazine"
+	icon = 'zzzz_modular_occulus/icons/obj/magazines.dmi'
+	icon_state = "greyclaw_mag"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	mag_well = MAG_WELL_RIFLE
+	caliber = CAL_NAIL
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_GLASS = 1)
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet/whitenail
+	max_ammo = 2
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/greyclaw/rubber
+	name = "grey claw rubber magazine"
+	icon = 'zzzz_modular_occulus/icons/obj/magazines.dmi'
+	icon_state = "greyclaw_mag_rubber"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet/whitenail/rubber

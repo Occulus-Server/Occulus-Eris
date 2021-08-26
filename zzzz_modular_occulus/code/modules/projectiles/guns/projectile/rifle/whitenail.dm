@@ -24,7 +24,7 @@
 	damage_multiplier = 1.2 // Effective mult of 1.1 due to forced 3 burst round applying -0.1
 	spawn_blacklisted = TRUE
 	var/rebuild_tick = 0
-	var/rebuild_time = 3
+	var/rebuild_time = 4
 	init_firemodes = list(
 		BURST_3_ROUND
 		)
@@ -43,7 +43,7 @@
 		generate_ammo()
 
 /obj/item/weapon/gun/projectile/automatic/whitenail/proc/generate_ammo() // generates ammo in the loaded mag
-	var/rebuilt_bullets = ammo_magazine.max_ammo / 4 
+	var/rebuilt_bullets = CEILING(ammo_magazine.max_ammo / 4, 1) 
 	if(src.get_ammo() >=  ammo_magazine.max_ammo) 
 		return FALSE
 	
@@ -96,8 +96,30 @@
 	price_tag = 1900
 	fire_sound = 'zzzz_modular_occulus/sound/weapons/guns/fire/talon_fire.ogg'
 	one_hand_penalty = 0 // Matches Olivaw 
-	damage_multiplier = 1.4 
+	zoom_factor = 0
+	damage_multiplier = 0.9 
 	rebuild_time = 3
 	init_firemodes = list(
 		list(mode_name="2-round bursts", burst=2, fire_delay=0.2, move_delay=4, icon="burst"),
+		)
+
+/obj/item/weapon/gun/projectile/automatic/whitenail/greyclaw
+	name = "NT Prototype \"Grey Claw\""
+	desc = "A bleeding-edge development in kinetic weaponry. This gun regenerates ammunition slowly over time using advanced nanite technology. The rifle's body feels similar to very sturdy ceramic. When all you have is a Nail..."
+	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/greyclaw.dmi'
+	icon_state = "greyclaw"
+	icon_name = "greyclaw"
+	magazine_type = /obj/item/ammo_magazine/greyclaw
+	matter_reagents = list("uncap nanites" = 30)
+	price_tag = 8000
+	fire_sound = 'zzzz_modular_occulus/sound/weapons/guns/fire/claw_fire.ogg'
+	zoom_factor = 0
+	recoil_buildup = 15
+	one_hand_penalty = 15 
+	damage_multiplier = 1
+	spawn_blacklisted = TRUE
+	rebuild_time = 5
+	init_firemodes = list(
+		list(mode_name="mag-dump", burst=2, burst_delay=4, fire_delay=0.6, move_delay=4, icon="burst", damage_mult_add = -0.2),
+		list(mode_name="semiauto", burst=1, fire_delay=6, move_delay=4, icon="semi")
 		)
