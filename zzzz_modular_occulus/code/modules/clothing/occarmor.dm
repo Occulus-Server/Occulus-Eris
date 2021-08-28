@@ -62,9 +62,19 @@
 			return
 		on = !on
 		to_chat(user, "With a whisper in a langauge that should not be, you [on ? "enkindle" : "extinguish"] the hood's unnatural light.")
-		update_flashlight(user)
+		update_occult_flashlight(user)
 	else
 		return ..(user)
+
+/obj/item/clothing/head/space/occulthood/proc/update_occult_flashlight(mob/user = null)
+	if(on && !light_applied)
+		set_light(brightness_on, l_color = "#5B0E4F")
+		light_applied = 1
+	else if(!on && light_applied)
+		set_light(0)
+		light_applied = 0
+	update_icon(user)
+	user.update_action_buttons()
 
 
 /obj/item/clothing/gloves/occultgloves //We want them to not be snippable. Maybe make it some kind of rigsuit?
