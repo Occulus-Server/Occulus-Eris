@@ -5,8 +5,8 @@
 	icon_state = "spud"
 	speak_chance = 5
 	turns_per_move = 3
-	maxHealth = 250
-	health = 250
+	maxHealth = 100
+	health = 100
 	resistance = 5
 	speak = list(
 				"New target acquired.",
@@ -32,7 +32,7 @@
 
 	environment_smash = 1
 
-	agony_coefficient = 0.5 // armored unit, doesn't take much damage from non-lethals.
+	agony_coefficient = 0.8 // armored unit, doesn't take much damage from non-lethals.
 
 	faction = "neutral"
 
@@ -64,8 +64,6 @@
 	name = "\improper FS SPUD unit"
 	desc = "A popular product from Automita Dynamics Incorporated, the Synchronized Pseudopodal Utility Demonstrator unit is a modular robot capable of fufilling all manner of tasks. This one has a cool Frozen Star paintjob."
 	icon_state = "frozen"
-	melee_damage_lower = 15
-	melee_damage_upper = 30
 	light_color = COLOR_LIGHTING_RED_BRIGHT
 	rarity_value = 10
 
@@ -73,13 +71,11 @@
 	name = "\improper blood-red SPUD unit"
 	desc = "A popular product from Automita Dynamics Incorporated, the Synchronized Pseudopodal Utility Demonstrator unit is a modular robot capable of fufilling all manner of tasks. This one has a snazzy blood-red paintjob and makes angry sounding beeps."
 	icon_state = "syndi"
-	melee_damage_lower = 15
-	melee_damage_upper = 30
 	light_color = COLOR_LIGHTING_GREEN_BRIGHT
 	faction = "bosstown"
 	spawn_tags = SPAWN_ROOMBATTLER
 	rarity_value = 100
-	loot_table = list(/obj/spawner/contraband,
+	loot_table = list(/obj/item/weapon/computer_hardware/hard_drive/portable/research_points,
 					/obj/spawner/tool/advanced/onestar)
 
 /mob/living/simple_animal/hostile/spud/syndi/infiltrator //Infiltrator unit designed to synergize with local hostile fauna
