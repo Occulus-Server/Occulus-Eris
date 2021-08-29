@@ -9,6 +9,7 @@
 	price_tag = 20000 // One of a kind relic-tier price and tech levels
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5, TECH_MAGNET = 5)
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1, MATERIAL_STEEL = 5)
+	spawn_blacklisted = TRUE
 	var/cooldown = 20 MINUTES
 	var/last_search = -20 MINUTES
 	var/obj/item/device/radio/radio
@@ -40,6 +41,7 @@
 			for(var/i = 1, i <= num_spawns_per_area,i++)
 				new /obj/spawner/mob/cluster/roombattler(heck)
 		radio.autosay("Synthetic entities detected at [english_list(areanames)]." , "Mk.XIV Synthetic Entity Detector", "Engineering")
+		new /obj/item/weapon/paper(user.loc, areanames.Join("\n"), "SED Location Report")
 	else
 		to_chat(user, SPAN_WARNING("The [src] needs time to recharge!"))
 

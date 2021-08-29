@@ -60662,7 +60662,7 @@
 	id = "complicator";
 	name = "EES SED ID lock";
 	pixel_x = 28;
-	req_access = list(56)
+	req_access = list(23)
 	},
 /turf/simulated/open,
 /area/eris/engineering/engine_room)
@@ -107234,12 +107234,16 @@
 	dir = 8
 	},
 /obj/structure/table/rack/shelf,
-/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full{
+	pixel_x = -4;
+	pixel_y = -4
+	},
 /obj/item/stack/material/wood/random,
 /obj/item/stack/material/wood/random,
-/obj/item/stack/material/wood/random,
-/obj/item/stack/material/wood/random,
-/obj/item/stack/material/wood/random,
+/obj/item/stack/material/plastic/full{
+	pixel_x = 4;
+	pixel_y = 3
+	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
 "ogT" = (

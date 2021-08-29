@@ -7,8 +7,8 @@
 	turns_per_move = 5
 	move_to_delay = 7
 	speed = 8
-	maxHealth = 200
-	health = 200
+	maxHealth = 100
+	health = 100
 	resistance = 5
 	speak = list(
 				"New target acquired.",
@@ -33,7 +33,7 @@
 
 	environment_smash = 1
 
-	agony_coefficient = 0 // super armored unit, doesn't take damage from non-lethals.
+	agony_coefficient = 0.5 // super armored unit, doesn't take much damage from non-lethals.
 
 	faction = "bosstown"
 
@@ -45,7 +45,7 @@
 	spawn_tags = SPAWN_ROOMBATTLER
 	rarity_value = 5
 
-	var/loot_table = list(/obj/spawner/techpart,
+	var/loot_table = list(/obj/spawner/powercell/medium,
 						/obj/spawner/tool_upgrade/rare)
 
 /mob/living/simple_animal/hostile/roombattler/death()
@@ -72,13 +72,13 @@
 	projectilesound = 'sound/weapons/guns/fire/pistol_fire.ogg'
 	minimum_distance = 3
 	ranged_cooldown = 5 SECONDS
-	maxHealth = 100
-	health = 100
-	agony_coefficient = 0.5 // half shields, half health, half defense
+	maxHealth = 50
+	health = 50
+	agony_coefficient = 0.8 // half shields, half health, half defense
 
 	rarity_value = 10
 
-	loot_table = list(/obj/spawner/techpart,
+	loot_table = list(/obj/spawner/gun_upgrade,
 					/obj/spawner/pack/gun_loot)
 
 /obj/item/projectile/bullet/clrifle/rubber/weak
