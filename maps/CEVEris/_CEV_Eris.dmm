@@ -45310,7 +45310,6 @@
 "cbZ" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
-/obj/spawner/instructional/low,
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/crew_quarters/clothingstorage)
 "cca" = (
@@ -45571,7 +45570,6 @@
 	},
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
-/obj/spawner/instructional/low,
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/crew_quarters/clothingstorage)
 "ccH" = (
