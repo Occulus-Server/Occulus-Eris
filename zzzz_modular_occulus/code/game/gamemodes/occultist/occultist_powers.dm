@@ -569,3 +569,46 @@
 
 	else
 		to_chat(src, "You must face your target!")
+
+/datum/power/occultist/occarmor
+	name = "Occult Garb"
+	desc = "Summons a set of armor from somewhere that does not exist. It cannot be taken off. Worn non-uniform equipment will be lost."
+	activecost = 1
+	madnesscost = 15
+	verbpath = /mob/living/carbon/human/proc/Occult_Garb
+
+/mob/living/carbon/human/proc/Occult_Garb() //Replaces the current clothing and armor with the occult armor set.
+	set category = "Occultist"
+	set desc = "Don the Occult Armor set."
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
+
+	//var/mob/carbon/human/living/occultist/O //Define the occultist using the power for message and replacement purposes.
+
+	//This is not a pleasant process.
+	playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 50, 1, -3) //Same sound as the scream.
+	visible_message(
+		SPAN_DANGER("[src]'s flesh and clothing contort and shimmer, reforming into flowing, black and bronze robes!"),
+		SPAN_DANGER("Your flesh and clothing meld painfully, shimmering out of this reality as they are replaced with a set of armored robes!")
+		)
+	//Start the replacement.
+	//Feet
+	to_chat(usr, SPAN_DANGER("Your feet and legs slough away, replaced with something stronger. Can you hear it underneath you?"))
+	usr.replace_in_slot(new /obj/item/clothing/shoes/occultgreaves, slot_shoes, skip_covering_check = TRUE)
+
+	//Chestpiece
+	to_chat(usr, SPAN_DANGER("Your chest turns in on itself and expands. It needs to get out. Let it out."))
+	usr.replace_in_slot(new /obj/item/clothing/suit/space/occultist, slot_wear_suit, skip_covering_check = TRUE)
+
+	//Gloves
+	to_chat(usr, SPAN_DANGER("Your fingers bend backwards until they pierce through the back of your hands. Can you feel it tugging at the corners of your brain?"))
+	usr.replace_in_slot(new /obj/item/clothing/gloves/occultgloves, slot_gloves, skip_covering_check = TRUE)
+
+	//Hood
+	to_chat(usr, SPAN_DANGER("Your eyes have melted, now you can see. Tear open reality and release what is underneath."))
+	usr.replace_in_slot(new /obj/item/clothing/head/space/occulthood, slot_head, skip_covering_check = TRUE)
