@@ -203,10 +203,14 @@
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
-	desc = "For prime comfort during psychiatric evaluations."
+	desc = "For prime comfort during psychiatric evaluations. You seem relaxed at the sight of it."
 	icon_state = "psychbed"
 	base_icon = "psychbed"
+	var/sanity_value = 5	// 5x the strength of an oddity! Wow! (may need balancing)
 
+/obj/structure/bed/psych/Initialize()
+	. = ..()
+	AddComponent(/datum/component/atom_sanity, sanity_value, "")
 /obj/structure/bed/psych/New(var/newloc)
 	..(newloc, MATERIAL_WOOD, MATERIAL_LEATHER)
 
