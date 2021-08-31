@@ -110,8 +110,11 @@ var/list/flooring_cache = list()
 
 
 
-	if(decals && decals.len)
-		associate_with_overlays(decals)
+	if(decals && decals.len)//Occulus edit: You can't add or associate lists to an overlay. You need to do so for each image.
+		var/x = decals.len
+		while(x > 0)
+			associate_with_overlays(decals[x])
+			x-- //Occulus edit end.
 
 	if(broken || burnt)
 		if(!isnull(broken))

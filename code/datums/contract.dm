@@ -228,7 +228,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		target = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 		if(!target)
 			target = H.organs_by_name[BP_HEAD]
-		desc = "Assasinate [target_mind.current.real_name] and send [gender_datums[target_mind.current.gender].his] [target.name] via BSDM as a proof."
+		desc = "Assasinate [target_mind.current.real_name] and send [gender_datums[H.identifying_gender].his] [target.name] via BSDM as a proof." // OCCULUS EDIT - adjusting for gender rework
 		//if(H.stats.getPerk(PERK_NOBLE))	//OCCULUS EDIT - Only nobles get targeted now, so might as well just up the base reward
 		//	reward *= 1.5					//OCCULUS EDIT - Only nobles get targeted now, so might as well just up the base reward
 		break

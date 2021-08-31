@@ -68,7 +68,7 @@ SUBSYSTEM_DEF(supply)
 			continue
 
 		msg += "[export_text]<br>"
-		points += E.total_cost
+		points += round(E.total_cost) // Occulus Edit - Fixes the Union account getting non-integer credits. (round() rounds down)
 
 	msg += "<br>Total exports value: [points] credits.<br>"
 	exports.Cut()

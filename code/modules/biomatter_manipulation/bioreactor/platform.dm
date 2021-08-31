@@ -40,7 +40,7 @@
 				var/hazard_protection = victim.getarmor(null, ARMOR_BIO)
 				var/damage = CLONE_DAMAGE_PER_TICK - (CLONE_DAMAGE_PER_TICK * (hazard_protection/100))
 				victim.apply_damage(damage, CLONE, used_weapon = "Biological")
-				
+
 				if(prob(10))
 					playsound(loc, 'sound/effects/bubbles.ogg', 45, 1)
 				if(victim.health <= -victim.maxHealth)
@@ -226,10 +226,10 @@
 	contamination_level += amount
 	if(contamination_level >= max_contamination_lvl)
 		contamination_level = max_contamination_lvl
-		opacity = FALSE
+		opacity = TRUE //Occulus Fix: Eris doesn't understand < or >
 	if(contamination_level <= 0)
 		contamination_level = 0
-		opacity = TRUE
+		opacity = FALSE//Occulus Fix: Eris doesn't understand < or >
 	update_icon()
 
 
