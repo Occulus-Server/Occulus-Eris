@@ -23788,6 +23788,9 @@
 "beA" = (
 /obj/structure/bed/padded,
 /mob/living/simple_animal/mouse/brown/Tom,
+/obj/landmark/storyevent/midgame_stash_spawn{
+	navigation = "Section 2, floor 2. Tom's cheese stash."
+	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/maintenance/section2deck4port)
 "beB" = (
@@ -49196,9 +49199,6 @@
 /area/eris/rnd/mixing)
 "cnj" = (
 /obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/eris/command/mbo)
 "cnk" = (
@@ -50435,28 +50435,16 @@
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/occulus/medical/trauma)
 "cqB" = (
-/obj/machinery/door/airlock/maintenance_medical{
-	name = "Medbay Maintenance";
-	req_access = list(5)
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "MedbayTotalLockdown";
-	layer = 2.6;
-	name = "Medbay Total Lockdown";
-	opacity = 0
-	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/white/cargo,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating/under,
 /area/occulus/medical/storage)
 "cqC" = (
 /obj/structure/multiz/stairs/active/bottom{
@@ -59885,11 +59873,8 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck2starboard)
 "cNy" = (
-/obj/landmark/storyevent/midgame_stash_spawn{
-	navigation = "Section 2, floor 5. Maints above the medbay, small room near airlock."
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section2deck1starboard)
+/turf/space,
+/area/occulus/medical/storage)
 "cNz" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -61201,9 +61186,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/machinery/light_switch{
-	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/hallway/side/morguehallway)
@@ -65907,6 +65889,10 @@
 /obj/item/weapon/storage/firstaid/regular,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/captain)
+"dcx" = (
+/obj/structure/bookcase,
+/turf/simulated/floor/tiled/white,
+/area/eris/maintenance/section2deck1starboard)
 "dcz" = (
 /obj/structure/toilet,
 /obj/landmark/storyevent/midgame_stash_spawn{
@@ -74348,6 +74334,7 @@
 /area/eris/maintenance/section1deck1central)
 "dzE" = (
 /obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/occulus/medical/surgery)
 "dzF" = (
@@ -92143,7 +92130,11 @@
 	},
 /area/eris/command/tcommsat/chamber)
 "esp" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/landmark/storyevent/midgame_stash_spawn{
+	navigation = "Section 2, floor 5. Maints above the medbay, small room with carpet"
+	},
+/obj/item/toy/plushie/spider,
+/obj/item/weapon/stool/padded,
 /turf/simulated/floor/carpet,
 /area/eris/maintenance/section2deck1starboard)
 "esq" = (
@@ -92909,7 +92900,10 @@
 /turf/simulated/floor/carpet/oracarpet,
 /area/eris/quartermaster/misc)
 "eub" = (
-/obj/machinery/door/airlock/glass_medical,
+/obj/machinery/door/airlock/glass_medical{
+	name = "Medical Break Room";
+	req_access = list(5)
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbreak)
 "euc" = (
@@ -98669,6 +98663,10 @@
 /obj/machinery/slotmachine,
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
+"eZp" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/dark,
+/area/eris/maintenance/section2deck1port)
 "eZs" = (
 /turf/simulated/wall,
 /area/occulus/medical/storage)
@@ -99108,8 +99106,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/occulus/medical/surgery)
@@ -99300,10 +99299,9 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
 "fZc" = (
-/obj/machinery/atmospherics/portables_connector{
-	name = "Connector Port (Air Supply)"
+/obj/machinery/atmospherics/pipe/tank/oxygen{
+	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating/under,
 /area/occulus/medical/storage)
 "fZr" = (
@@ -99774,6 +99772,10 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/main)
+"gMu" = (
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/white,
+/area/eris/maintenance/section2deck1starboard)
 "gMx" = (
 /obj/machinery/vending/medical/occulus,
 /obj/structure/disposalpipe/segment,
@@ -99981,14 +99983,11 @@
 /area/eris/quartermaster/hangarsupply)
 "haf" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/drinks/britcup{
-	pixel_x = 5;
-	pixel_y = -2
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/item/weapon/oddity/instructional/common/bio/pamphlet,
+/obj/item/weapon/storage/freezer/contains_food,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/medical/medbreak)
 "haK" = (
@@ -100313,8 +100312,7 @@
 /turf/simulated/floor/plating,
 /area/eris/engineering/atmoscontrol)
 "hzr" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/machinery/atmospherics/valve{
 	dir = 4
 	},
 /turf/simulated/floor/plating/under,
@@ -100806,7 +100804,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
 "iic" = (
-/obj/structure/bed/padded,
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/food/drinks/teapot,
 /turf/simulated/floor/carpet,
 /area/eris/maintenance/section2deck1starboard)
 "iiw" = (
@@ -100844,6 +100843,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
+/obj/structure/bed/padded,
 /turf/simulated/floor/carpet,
 /area/eris/maintenance/section2deck1starboard)
 "ijC" = (
@@ -101401,6 +101401,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/occulus/medical/surgeryhall)
 "iXe" = (
@@ -101495,10 +101498,8 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/occulus/medical/trauma)
 "jgT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/turf/simulated/wall/r_wall,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating/under,
 /area/occulus/medical/storage)
 "jhJ" = (
 /obj/structure/table/standard,
@@ -101675,7 +101676,6 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/virology)
 "jvm" = (
-/obj/landmark/join/start/paramedic,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/medical/medbreak)
 "jvt" = (
@@ -101879,6 +101879,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/occulus/medical/surgery)
 "jHM" = (
@@ -101935,11 +101939,9 @@
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/quartermaster/office)
 "jNI" = (
-/obj/machinery/atmospherics/valve{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/occulus/medical/storage)
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/wall,
+/area/eris/maintenance/section2deck3port)
 "jPQ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
@@ -102249,6 +102251,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbay)
+"krl" = (
+/obj/item/trash/material/metal,
+/obj/spawner/pack/gun_loot/low_chance,
+/turf/simulated/floor/tiled/dark,
+/area/eris/maintenance/section2deck1port)
 "krt" = (
 /obj/structure/closet/secure_closet/medicine,
 /obj/structure/catwalk,
@@ -102472,9 +102479,11 @@
 /turf/simulated/open,
 /area/eris/engineering/atmos)
 "kFS" = (
-/obj/machinery/atmospherics/pipe/tank/oxygen,
+/obj/landmark/storyevent/midgame_stash_spawn{
+	navigation = "Section 2, floor 3. West of medbay, maint coridor behind the glass."
+	},
 /turf/simulated/floor/plating/under,
-/area/occulus/medical/storage)
+/area/eris/maintenance/section2deck3port)
 "kGc" = (
 /obj/machinery/door/blast/shutters{
 	dir = 2;
@@ -102577,6 +102586,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/sortjunction/flipped{
+	name = "CMO sorting junction";
 	tag = "CMO Office"
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
@@ -104013,15 +104023,20 @@
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/hallway/side/atmosphericshallway)
 "mMp" = (
-/obj/machinery/atmospherics/portables_connector{
-	name = "Connector Port (Air Supply)"
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/machinery/light/small{
-	dir = 1
+/obj/machinery/door/airlock/maintenance_medical{
+	name = "Medbay Maintenance";
+	req_access = list(5)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating/under,
-/area/occulus/medical/storage)
+/area/occulus/medical/trauma)
 "mNb" = (
 /obj/machinery/atmospherics/unary/heat_exchanger,
 /turf/simulated/floor/tiled/steel/danger,
@@ -104581,6 +104596,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white/cargo,
 /area/occulus/medical/surgeryhall)
 "nzj" = (
@@ -104755,12 +104773,13 @@
 /obj/structure/bed/chair/shuttle{
 	dir = 4
 	},
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark,
 /area/eris/maintenance/section2deck1port)
 "nHW" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
 	},
+/obj/landmark/join/start/doctor,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "nIv" = (
@@ -104809,7 +104828,10 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "nMu" = (
-/obj/machinery/door/airlock/glass_medical,
+/obj/machinery/door/airlock/glass_medical{
+	name = "Medical Break Room";
+	req_access = list(5)
+	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -104880,7 +104902,7 @@
 /obj/structure/bed/chair/shuttle{
 	dir = 8
 	},
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/dark,
 /area/eris/maintenance/section2deck1port)
 "nPv" = (
 /turf/simulated/wall,
@@ -105313,6 +105335,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/occulus/medical/trauma)
+"ozc" = (
+/obj/item/stack/rods/random,
+/obj/landmark/storyevent/midgame_stash_spawn{
+	navigation = "Section 2, floor 5. You can find a damaged escape pod. Get there by laddder in maints near it."
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/maintenance/section2deck1port)
 "oAK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -105437,7 +105466,7 @@
 "oJZ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_medical{
-	name = "Medbay Maintenance";
+	name = "Psychiatric ward";
 	req_access = list(5)
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
@@ -105488,7 +105517,6 @@
 /area/eris/medical/chemistry)
 "oMq" = (
 /obj/structure/bed/chair/comfy/beige,
-/obj/landmark/join/start/doctor,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -105498,6 +105526,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/landmark/join/start/paramedic,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/medical/medbreak)
 "oMQ" = (
@@ -106069,14 +106098,13 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbay/uppercor)
 "pAK" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -26
 	},
 /obj/machinery/camera/network/medbay{
 	dir = 4
 	},
+/obj/structure/closet/crate/freezer,
 /turf/simulated/floor/tiled/white,
 /area/occulus/medical/surgery)
 "pBe" = (
@@ -106249,21 +106277,11 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/maintenance/section2deck1starboard)
 "pQp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/junction{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/brown_platform,
 /area/occulus/medical/surgery)
 "pQs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -106813,6 +106831,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbay/uppercor)
+"qGp" = (
+/turf/simulated/floor/tiled/white,
+/area/eris/maintenance/section2deck1starboard)
 "qGK" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -106866,10 +106887,10 @@
 /area/eris/medical/medbreak)
 "qIn" = (
 /obj/structure/bed/chair/comfy/beige,
-/obj/landmark/join/start/doctor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/landmark/join/start/paramedic,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/medical/medbreak)
 "qIF" = (
@@ -107123,7 +107144,7 @@
 	pixel_x = -25;
 	pixel_y = 25
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/white,
 /area/eris/maintenance/section2deck1starboard)
 "rcr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -107410,9 +107431,6 @@
 /turf/simulated/floor/wood,
 /area/eris/maintenance/section4deck4central)
 "ruy" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
 /obj/item/device/radio/intercom{
 	dir = 8;
 	pixel_x = 22
@@ -107655,7 +107673,7 @@
 /obj/structure/table/standard,
 /obj/item/clothing/suit/straight_jacket,
 /obj/item/clothing/mask/muzzle,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/white,
 /area/eris/maintenance/section2deck1starboard)
 "rMk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -108024,7 +108042,7 @@
 "snc" = (
 /obj/structure/table/standard,
 /obj/item/clothing/accessory/stethoscope,
-/turf/simulated/floor/tiled/white/violetcorener,
+/turf/simulated/floor/tiled/white,
 /area/eris/maintenance/section2deck1starboard)
 "snm" = (
 /obj/structure/curtain/black,
@@ -108196,7 +108214,7 @@
 	dir = 1
 	},
 /obj/landmark/storyevent/midgame_stash_spawn{
-	navigation = "Section 2, floor 1. Medbay toilet."
+	navigation = "Section 2, floor 2. Medbay toilet."
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/toilet/medbay)
@@ -108245,14 +108263,10 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patient_wing)
 "sEu" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
+/obj/machinery/atmospherics/portables_connector{
+	name = "Connector Port (Air Supply)"
 	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 26
-	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating/under,
 /area/occulus/medical/storage)
 "sEx" = (
@@ -108559,8 +108573,10 @@
 /turf/simulated/floor/carpet,
 /area/eris/medical/psych)
 "sYm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/catwalk,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor/plating/under,
 /area/occulus/medical/storage)
 "sYE" = (
@@ -108712,6 +108728,8 @@
 /area/eris/maintenance/section1deck4central)
 "tfC" = (
 /obj/machinery/flasher,
+/obj/structure/plushie/ian,
+/obj/item/weapon/stool/padded,
 /turf/simulated/floor/carpet,
 /area/eris/maintenance/section2deck1starboard)
 "tfD" = (
@@ -109083,9 +109101,9 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
 "tNw" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/carpet,
-/area/eris/maintenance/section2deck1starboard)
+/obj/spawner/scrap/sparse/low_chance,
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section2deck1port)
 "tOq" = (
 /obj/structure/railing,
 /obj/structure/railing{
@@ -109749,6 +109767,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patient_wing)
+"uIL" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/eris/maintenance/section2deck1starboard)
 "uKf" = (
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/elevator)
@@ -109829,6 +109853,10 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"uPO" = (
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section2deck1port)
 "uPZ" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
@@ -109951,6 +109979,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/sortjunction/flipped{
+	name = "medbay sorting junction";
 	tag = "Medbay"
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
@@ -110032,7 +110061,7 @@
 /area/eris/maintenance/section1deck4central)
 "vhg" = (
 /obj/landmark/storyevent/midgame_stash_spawn{
-	navigation = "Section 2, floor 5. Air storage north of maint airlock 1. Its above the medbay."
+	navigation = "Section 2, floor 5. Behind a window near an abandoned psychiatric lockup. Its above the medbay."
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1starboard)
@@ -110613,7 +110642,8 @@
 	dir = 8;
 	pixel_x = 22
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction,
+/obj/structure/disposalpipe/junction,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/occulus/medical/surgeryhall)
 "vXR" = (
@@ -110903,7 +110933,8 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "wqI" = (
-/obj/landmark/storyevent/hidden_vent_antag,
+/obj/structure/plushie/carp,
+/obj/item/weapon/stool/padded,
 /turf/simulated/floor/carpet,
 /area/eris/maintenance/section2deck1starboard)
 "wqX" = (
@@ -111040,9 +111071,6 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patient_wing)
 "wyY" = (
-/obj/landmark/storyevent/midgame_stash_spawn{
-	navigation = "Section 2, floor 3. West of medbay, maint coridor behind the glass."
-	},
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -111402,9 +111430,10 @@
 /area/eris/medical/medbay/uppercor)
 "xaC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+	dir = 5
 	},
-/turf/simulated/wall/r_wall,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating/under,
 /area/occulus/medical/storage)
 "xbO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -111872,6 +111901,8 @@
 /obj/machinery/camera/network/medbay{
 	dir = 4
 	},
+/obj/structure/plushie/drone,
+/obj/item/weapon/stool/padded,
 /turf/simulated/floor/carpet,
 /area/eris/maintenance/section2deck1starboard)
 "xKY" = (
@@ -111954,7 +111985,6 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
 "xSL" = (
-/obj/landmark/join/start/paramedic,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
@@ -112030,10 +112060,13 @@
 /turf/simulated/wall,
 /area/eris/maintenance/section3deck4central)
 "xXy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+/obj/machinery/atmospherics/portables_connector{
+	name = "Connector Port (Air Supply)"
 	},
-/obj/structure/catwalk,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/plating/under,
 /area/occulus/medical/storage)
 "xXC" = (
@@ -205408,8 +205441,8 @@ bSx
 swY
 qND
 cse
-wWE
-cse
+jNI
+kFS
 bSx
 ouK
 wlm
@@ -206830,7 +206863,7 @@ dtS
 bYL
 dCw
 pAK
-pQp
+srt
 vGO
 bYL
 cdx
@@ -207641,7 +207674,7 @@ dil
 ifp
 bjP
 fFy
-dzE
+pQp
 fVX
 fVX
 htw
@@ -211464,12 +211497,12 @@ aTG
 abF
 aaa
 aaa
+cNy
 rri
-kFS
 sYm
 jgT
 kfh
-mqU
+mMp
 cpD
 mqU
 gwm
@@ -211666,8 +211699,8 @@ abF
 abF
 aaa
 aaa
+cNy
 rri
-mMp
 xXy
 xaC
 cqB
@@ -211868,10 +211901,10 @@ abF
 abF
 aaa
 aaa
+cNy
 rri
-fZc
+sEu
 rVH
-jNI
 pwl
 eZs
 qVX
@@ -212070,8 +212103,8 @@ abF
 abF
 aaa
 aaa
+cNy
 rri
-fZc
 sEu
 eNo
 rVH
@@ -212477,7 +212510,7 @@ bSx
 cnx
 bSV
 bSx
-uWm
+fZc
 uWm
 eZs
 dgo
@@ -289439,10 +289472,10 @@ aaa
 alb
 alb
 alb
+tNw
 dAF
-dAF
-dAF
-dAF
+uPO
+tNw
 dAF
 amO
 dAF
@@ -289645,7 +289678,7 @@ anQ
 mrT
 dAF
 vPL
-dAF
+uPO
 anQ
 lsk
 jbS
@@ -289860,8 +289893,8 @@ anQ
 anQ
 cOp
 tjL
-tDI
-uzz
+eZp
+ozc
 tjL
 dAF
 kGc
@@ -290048,7 +290081,7 @@ dAF
 anQ
 fIL
 dAF
-dAF
+uPO
 dAF
 amO
 dAF
@@ -290062,7 +290095,7 @@ amc
 anQ
 cXX
 seE
-lAb
+krl
 nPt
 amc
 amc
@@ -290248,7 +290281,7 @@ alb
 dAF
 dAF
 anQ
-dAF
+tNw
 dAF
 dAF
 anQ
@@ -292269,9 +292302,9 @@ ala
 ala
 wUZ
 wUZ
-alG
-oQz
-cLc
+qGp
+uIL
+dcx
 wUZ
 alG
 wUZ
@@ -292471,9 +292504,9 @@ ijA
 xKP
 nFi
 wUZ
-kWW
-alG
-alG
+gMu
+qGp
+qGp
 oJZ
 kWW
 alG
@@ -292674,8 +292707,8 @@ iic
 esp
 oVJ
 rcn
-alG
-alG
+qGp
+qGp
 wUZ
 wUZ
 alG
@@ -292873,11 +292906,11 @@ aaa
 ala
 urP
 wqI
-tNw
-wUZ
+nFi
+alC
 snc
-alG
-alG
+qGp
+qGp
 wUZ
 cLO
 alG
@@ -293079,10 +293112,10 @@ wUZ
 wUZ
 alC
 wUZ
-alG
+qGp
 wUZ
 cMH
-cNy
+alG
 cRD
 efd
 efY
