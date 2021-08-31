@@ -3,12 +3,24 @@
 	icon_state = "bar"
 	sound_env = LARGE_SOFTFLOOR
 
+
+
+
+
+
+
+
+
+
+// Event areas for church_bear.dmm
+
+
 /area/neotheology/event/bioreactor
 	name = "\improper Church Bioreactor"
 	icon_state = "erisblue"
 
 /area/neotheology/event/bioreactor
-	name = "\improper Chapel Office"
+	name = "\improper Bioreactor"
 	icon_state = "chapeloffice"
 
 /area/neotheology/event/chapelritualroom
@@ -33,4 +45,12 @@
 
 /area/neotheology/event/secretarea
 	name = "D###? Zero"
+	icon_state = "erisgreen"
+
+/area/neotheology/event/dormotories
+	name = "Dormotories"
+	icon_state = "erisgreen"
+
+/area/neotheology/event/atmosmaking
+	name = "Atmospherics"
 	icon_state = "erisgreen"
