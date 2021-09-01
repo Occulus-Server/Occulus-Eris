@@ -271,9 +271,9 @@
 		else if(temp.germ_level > INFECTION_LEVEL_TWO && temp.germ_level < INFECTION_LEVEL_THREE)
 			wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.name] is oozing pus!</span><br>"
 		else if(temp.germ_level > INFECTION_LEVEL_THREE)
-			wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.name] is covered in decaying tissue!</span><br>"
+			wound_flavor_text["[temp.name]"] += "<span class='danger'>[T.His] [temp.name] is covered in decaying tissue!</span><br>"
 		if(temp.status & ORGAN_DEAD)
-			wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.name] is necrotic</span><br>"//Occulus Edit End
+			wound_flavor_text["[temp.name]"] += "<span class='danger'>[T.His] [temp.name] is necrotic!</span><br>"//Occulus Edit End
 		for(var/obj/item/organ/internal/blood_vessel/BV in temp.internal_organs)//Occulus Edit: Ruptured Blood Vessel
 			if(BV.damage > 4)//occulus Edit: Ruptured blood vessel that is above the self-heal threshold
 				wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.name] swollen and discolored!</span><br>"//Occulus Edit: Ruptured Blood vessel
