@@ -29,7 +29,7 @@
 /datum/stat_holder/proc/changeStat(statName, Value)
 	var/datum/stat/S = stat_list[statName]
 	S.changeValue(Value)
-	
+
 /datum/stat_holder/proc/setStat(statName, Value)
 	var/datum/stat/S = stat_list[statName]
 	S.setValue(Value)
@@ -170,8 +170,21 @@
 		if(SM.id == id)
 			return SM
 
-/datum/stat/proc/changeValue(affect)
-	value = value + affect
+/datum/stat/proc/changeValue(affect)//Occulus Edit start: Softcaps
+	var/affectover
+	if(value+affect > 80)
+		if(value > 80)
+			value = round(value+(affect*0.25))
+		else
+			affectover = (value+affect-80)*0.25
+			value= round((80+affectover))
+	else if(value+affect > 60)
+		if(value > 60)
+			value = round(value+(affect*0.5))
+		else
+			affectover = (value+affect-60)*0.5
+			value = round((60+affectover))
+	else( value = value + affect)//Occulus Edit End
 
 /datum/stat/proc/getValue(pure = FALSE)
 	if(pure)
