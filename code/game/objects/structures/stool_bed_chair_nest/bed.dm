@@ -208,11 +208,23 @@
 	base_icon = "psychbed"
 	var/sanity_value = 5	// 5x the strength of an oddity! Wow! (may need balancing)
 
+
+
+
+
 /obj/structure/bed/psych/Initialize()
 	. = ..()
-	AddComponent(/datum/component/atom_sanity, sanity_value, "")
+
 /obj/structure/bed/psych/New(var/newloc)
+	START_PROCESSING(SSobj, src)
 	..(newloc, MATERIAL_WOOD, MATERIAL_LEATHER)
+
+/obj/structure/bed/psych/Process()
+	for(var/mob/living/carbon/human/H in oviewers(5, src))
+		H.sanity.level += 20
+
+/obj/structure/bed/psych/Destroy()
+	STOP_PROCESSING(SSobj, src)
 
 /obj/structure/bed/padded/New(var/newloc)
 	..(newloc, MATERIAL_PLASTIC, "cotton")
