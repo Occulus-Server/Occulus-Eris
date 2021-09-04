@@ -220,8 +220,9 @@
 	..(newloc, MATERIAL_WOOD, MATERIAL_LEATHER)
 
 /obj/structure/bed/psych/Process()
-	for(var/mob/living/carbon/human/H in oviewers(5, src))
-		H.sanity.level += 20
+	for(var/mob/living/carbon/human/H in oviewers(1, src))
+		if(H.sanity && H.sanity.level < H.sanity.max_level)
+			H.sanity.level += 5
 
 /obj/structure/bed/psych/Destroy()
 	STOP_PROCESSING(SSobj, src)

@@ -108707,10 +108707,6 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1port)
 "qxP" = (
-/obj/machinery/door/airlock/glass_medical{
-	name = "Psychiatrist's Office";
-	req_access = list(64)
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -108721,6 +108717,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/door/airlock/medical{
+	name = "Psychiatrist's Office";
+	req_access = list(64)
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/psych)
