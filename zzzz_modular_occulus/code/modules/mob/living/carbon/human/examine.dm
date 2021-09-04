@@ -277,13 +277,14 @@
 		for(var/obj/item/organ/internal/blood_vessel/BV in temp.internal_organs)//Occulus Edit: Ruptured Blood Vessel
 			if(BV.damage > 4)//occulus Edit: Ruptured blood vessel that is above the self-heal threshold
 				wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.name] swollen and discolored!</span><br>"//Occulus Edit: Ruptured Blood vessel
-	if(user.stats.getPerk(PERK_EMPATH))
-		if(sanity.level <= 40 && sanity.level > 20)
-			msg += "[T.He] looks stressed out.\n"
-		else if(sanity.level <= 20 && sanity.level > 0)
-			msg += "<span class='warning'>[T.He] looks ready to do something rash!</span>\n"
-		else if(sanity.level == 0)
-			msg += "<span class ='danger'>[T.He] needs help! Now! Something is wrong!\n"
+	if(user.stats)
+		if(user.stats.getPerk(PERK_EMPATH))
+			if(sanity.level <= 40 && sanity.level > 20)
+				msg += "[T.He] looks stressed out.\n"
+			else if(sanity.level <= 20 && sanity.level > 0)
+				msg += "<span class='warning'>[T.He] looks ready to do something rash!</span>\n"
+			else if(sanity.level == 0)
+				msg += "<span class ='danger'>[T.He] needs help! Now! Something is wrong!\n"
 
 
 
