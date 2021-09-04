@@ -1,6 +1,11 @@
-use serenity::framework::standard::{macros::command, CommandResult};
-use serenity::model::prelude::*;
-use serenity::prelude::*;
+use serenity::{
+    framework::standard::{
+        macros::{check, command},
+        Args, CommandOptions, CommandResult, Reason
+    },
+    model::prelude::*,
+    prelude::*
+};
 use super::util::*;
 
 /*
@@ -12,7 +17,41 @@ async fn ping(ctx: &Context, msg: &Message) -> CommandResult {
 }
 */
 
+#[check]
+#[name = "Status"]
+async fn status_whitelist_check(
+    ctx: &Context,
+    msg: &Message,
+    _: &mut Args,
+    _: &CommandOptions,
+) -> Result<(), Reason> {
+    let channel = msg.channel_id.to_channel(ctx.http.clone()).await;
+
+    match channel {
+        Ok(channel) => match channel {
+            Channel::Guild(channel) => {
+                if let Some(t) = channel.topic {
+                    if t.contains("roachbot#status") {
+                        return Ok(());
+                    } else {
+                        return Err(Reason::User(String::from(
+                            "Channel cannot send status messages",
+                        )));
+                    }
+                } else {
+                    return Err(Reason::User(String::from(
+                        "Channel cannot send status messages",
+                    )));
+                }
+            }
+            _ => return Err(Reason::User(String::from("Channel is not within a guild"))),
+        },
+        Err(e) => return Err(Reason::Log(format!("could not send to channel: {:?}", e))),
+    }
+}
+
 #[command]
+#[checks(Status)]
 #[description = "Gets the current status of the SS13 server."]
 #[bucket = "status"]
 async fn status(ctx: &Context, msg: &Message) -> CommandResult {
@@ -36,6 +75,7 @@ async fn status(ctx: &Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[checks(Status)]
 #[description = "Gets the current storyteller on the SS13 server."]
 #[bucket = "status"]
 async fn storyteller(ctx: &Context, msg: &Message) -> CommandResult {
