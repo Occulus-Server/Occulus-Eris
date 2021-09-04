@@ -54,3 +54,9 @@
 /area/neotheology/event/atmosmaking
 	name = "Atmospherics"
 	icon_state = "erisgreen"
+
+/area/outpost/museum
+	requires_power = 0
+
+/area/outpost/abandoned_fortress
+	requires_power = 0
