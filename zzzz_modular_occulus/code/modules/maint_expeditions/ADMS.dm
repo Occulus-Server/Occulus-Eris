@@ -238,7 +238,7 @@
 	update_icon()
 
 //Handles ejecting the data disk, when able, will place and hand
-/obj/machinery/exploration/adms/proc/eject_disk_action(mob/living/user)
+/obj/machinery/exploration/ADMS/proc/eject_disk_action(mob/living/user)
 	if(!inserted_disk)
 		to_chat(usr, SPAN_NOTICE("No disk is inside."))
 		return
@@ -251,7 +251,7 @@
 	inserted_disk = null
 	inserted_disk_file = null
 
-/obj/machinery/exploration/adms/verb/eject_disk()
+/obj/machinery/exploration/ADMS/verb/eject_disk()
 	set name = "Eject Disk"
 	set category = "Object"
 	set src in view(1)
