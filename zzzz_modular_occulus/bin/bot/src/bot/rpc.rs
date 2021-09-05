@@ -91,7 +91,7 @@ impl Rpc for BotRpcHandler {
                     |m| {
                         m.content([
                             "<@&",
-                            &bot_settings.notification_group,
+                            &bot_settings.notification_group.to_string(),
                             ">",
                         ]
                         .join(""));

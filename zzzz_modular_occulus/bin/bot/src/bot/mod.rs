@@ -100,7 +100,7 @@ pub struct Settings {
     // to avoid making functions to change these fields
     // when they're changed in the discord server
     pub notification_channel: u64,
-    pub notification_group: String,
+    pub notification_group: u64,
 
     token: String,
     bot_port: u16,
@@ -112,7 +112,7 @@ impl Default for Settings {
         Settings {
             bot_name: "roachbot".to_string(),
             notification_channel: 0,
-            notification_group: "".to_string(),
+            notification_group: 0,
             token: "REPLACE_ME".to_string(),
             bot_port: 3621,
             dream_daemon_port: 0

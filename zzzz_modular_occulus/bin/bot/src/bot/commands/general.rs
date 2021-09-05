@@ -7,6 +7,7 @@ use serenity::{
     prelude::*
 };
 use super::util::*;
+use crate::bot::Settings;
 
 /*
 #[command]
@@ -25,13 +26,17 @@ async fn status_whitelist_check(
     _: &mut Args,
     _: &CommandOptions,
 ) -> Result<(), Reason> {
+    let botname = {
+        let data = ctx.data.read().await;
+        &data.get::<Settings>().clone().unwrap().bot_name
+    };
     let channel = msg.channel_id.to_channel(ctx.http.clone()).await;
 
     match channel {
         Ok(channel) => match channel {
             Channel::Guild(channel) => {
                 if let Some(t) = channel.topic {
-                    if t.contains("roachbot#status") {
+                    if t.contains(&format!("{}#status", botname)) {
                         return Ok(());
                     } else {
                         return Err(Reason::User(String::from(
@@ -48,6 +53,34 @@ async fn status_whitelist_check(
         },
         Err(e) => return Err(Reason::Log(format!("could not send to channel: {:?}", e))),
     }
+}
+
+#[command]
+#[only_in(guilds)]
+#[description = "Toggles bot notifications for you."]
+#[aliases(togglenotif, notifyme)]
+async fn toggle_notifications(ctx: &Context, msg: &Message) -> CommandResult {
+    let notif_group = {
+        let data = ctx.data.read().await;
+        RoleId::from(data.get::<Settings>().clone().unwrap().notification_group)
+    };
+    let mut roles = msg.member.unwrap().roles;
+
+    if roles.contains(&notif_group) {
+        roles = roles.into_iter()
+            .filter(|v| *v == notif_group)
+            .collect::<Vec<RoleId>>();
+    } else {
+        roles.push(notif_group);
+    }
+
+    msg.guild_id.unwrap().edit_member(
+        &ctx.http.clone(),
+        msg.member.unwrap().user.unwrap().id,
+        |m| m.roles(roles))
+        .await?;
+
+    Ok(())
 }
 
 #[command]
