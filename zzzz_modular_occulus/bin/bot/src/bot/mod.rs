@@ -2,8 +2,9 @@ mod rpc;
 mod commands;
 mod framework;
 mod files;
+pub mod quotes;
 
-use commands::{general::*, admin::*, rand::*};
+use commands::{general::*, admin::*, quotes::*, rand::*};
 use serenity::{
     framework::standard::{
         macros::{group},
@@ -22,7 +23,7 @@ impl TypeMapKey for ChannelContainer {
 }
 
 #[group]
-#[commands(status, storyteller, duration, roaches, spola, sanity)]
+#[commands(status, storyteller, duration, roaches, spola, sanity, quote)]
 #[summary = "General server commands"]
 struct General;
 
@@ -60,12 +61,14 @@ pub async fn new(mut settings_reader: impl std::io::Read) -> Result<Client, Erro
         discord_client.cache_and_http.http.clone(),
     ).await;
     let messages = Arc::new(files::RandomMessages::load());
+    let quotedb = Arc::new(quotes::QuoteDatabase::open()?);
 
     {
         let mut data = discord_client.data.write().await;
         data.insert::<rpc::BotRpcContainer>(rpc_server);
         data.insert::<ChannelContainer>(state_sender);
         data.insert::<files::RandomMessages>(messages);
+        data.insert::<quotes::QuoteDatabase>(quotedb);
     }
 
     Ok(discord_client)

@@ -28,7 +28,7 @@ async fn status_whitelist_check(
 ) -> Result<(), Reason> {
     let botname = {
         let data = ctx.data.read().await;
-        &data.get::<Settings>().clone().unwrap().bot_name
+        data.get::<Settings>().clone().unwrap().bot_name.clone()
     };
     let channel = msg.channel_id.to_channel(ctx.http.clone()).await;
 
@@ -36,7 +36,7 @@ async fn status_whitelist_check(
         Ok(channel) => match channel {
             Channel::Guild(channel) => {
                 if let Some(t) = channel.topic {
-                    if t.contains(&format!("{}#status", botname)) {
+                    if t.contains(&format!("{}#status", &botname)) {
                         return Ok(());
                     } else {
                         return Err(Reason::User(String::from(
@@ -64,7 +64,7 @@ async fn toggle_notifications(ctx: &Context, msg: &Message) -> CommandResult {
         let data = ctx.data.read().await;
         RoleId::from(data.get::<Settings>().clone().unwrap().notification_group)
     };
-    let mut roles = msg.member.unwrap().roles;
+    let mut roles = msg.member.as_ref().unwrap().roles.clone();
 
     if roles.contains(&notif_group) {
         roles = roles.into_iter()
@@ -76,7 +76,7 @@ async fn toggle_notifications(ctx: &Context, msg: &Message) -> CommandResult {
 
     msg.guild_id.unwrap().edit_member(
         &ctx.http.clone(),
-        msg.member.unwrap().user.unwrap().id,
+        &msg.member.as_ref().unwrap().user.as_ref().unwrap().id,
         |m| m.roles(roles))
         .await?;
 
