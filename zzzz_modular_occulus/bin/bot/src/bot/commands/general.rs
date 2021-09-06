@@ -62,13 +62,13 @@ async fn status_whitelist_check(
 async fn toggle_notifications(ctx: &Context, msg: &Message) -> CommandResult {
     let notif_group = {
         let data = ctx.data.read().await;
-        RoleId::from(data.get::<Settings>().clone().unwrap().notification_group)
+        RoleId::from(data.get::<Settings>().unwrap().notification_group)
     };
     let mut roles = msg.member.as_ref().unwrap().roles.clone();
 
     if roles.contains(&notif_group) {
         roles = roles.into_iter()
-            .filter(|v| *v == notif_group)
+            .filter(|v| *v != notif_group)
             .collect::<Vec<RoleId>>();
     } else {
         roles.push(notif_group);

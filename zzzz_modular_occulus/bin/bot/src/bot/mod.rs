@@ -23,9 +23,14 @@ impl TypeMapKey for ChannelContainer {
 }
 
 #[group]
-#[commands(status, storyteller, duration, roaches, spola, sanity, quote)]
+#[commands(status, storyteller, duration, roaches)]
 #[summary = "General server commands"]
 struct General;
+
+#[group]
+#[commands(spola, sanity, quote)]
+#[summary = "Fun commands"]
+struct Fun;
 
 #[group]
 #[commands(set_notification_channel, set_notification_group)]
@@ -43,6 +48,7 @@ pub async fn new(mut settings_reader: impl std::io::Read) -> Result<Client, Erro
         .after(framework::after)
         .bucket("status", |b| b.delay(5)).await
         .group(&GENERAL_GROUP)
+        .group(&FUN_GROUP)
         .group(&WEBMIN_GROUP);
 
     let discord_client = Client::builder(&settings.token).framework(framework).await?;
