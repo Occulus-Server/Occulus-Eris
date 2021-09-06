@@ -7,7 +7,7 @@
 	duration = 80
 
 /datum/surgery_step/fix_brute/can_use(mob/living/user, obj/item/organ/external/organ, obj/item/stack/tool)
-	return BP_IS_ORGANIC(organ) && organ.is_open() && organ.brute_dam >= 15
+	return BP_IS_ORGANIC(organ) && organ.is_open() && organ.brute_dam >= 15 && tool.amount != 0 // Occulus Edit
 
 /datum/surgery_step/fix_brute/begin_step(mob/living/user, obj/item/organ/external/organ, obj/item/stack/tool)
 	user.visible_message(
@@ -20,8 +20,11 @@
 		SPAN_NOTICE("[user] finishes mending [organ.get_surgery_name()]."),
 		SPAN_NOTICE("You finish mending [organ.get_surgery_name()].")
 	)
-	if(tool.use(1))
-		organ.heal_damage(rand(10, 15), 0, 1, 1)
+	if(prob(10 + user.stats.getStat(STAT_BIO))) // Occulus Edit
+		to_chat(user, SPAN_NOTICE("You have managed to waste less of [tool]."))
+	else // Occulus Edit
+		tool.use(1)
+	organ.heal_damage(rand(10, 15), 0, 1, 1)
 
 /datum/surgery_step/fix_brute/fail_step(mob/living/user, obj/item/organ/external/organ, obj/item/stack/tool)
 	user.visible_message(
@@ -45,7 +48,7 @@
 	duration = 80
 
 /datum/surgery_step/fix_burn/can_use(mob/living/user, obj/item/organ/external/organ, obj/item/stack/tool)
-	return BP_IS_ORGANIC(organ) && organ.is_open() && organ.burn_dam >= 15
+	return BP_IS_ORGANIC(organ) && organ.is_open() && organ.burn_dam >= 15 && tool.amount != 0 // Occulus Edit
 
 /datum/surgery_step/fix_burn/begin_step(mob/living/user, obj/item/organ/external/organ, obj/item/stack/tool)
 	user.visible_message(
@@ -58,8 +61,11 @@
 		SPAN_NOTICE("[user] finishes treating [organ.get_surgery_name()]."),
 		SPAN_NOTICE("You finish treating [organ.get_surgery_name()].")
 	)
-	if(tool.use(1))
-		organ.heal_damage(0, rand(10, 15), 1, 1)
+	if(prob(10 + user.stats.getStat(STAT_BIO))) // Occulus Edit
+		to_chat(user, SPAN_NOTICE("You have managed to waste less of [tool]."))
+	else // Occulus Edit
+		tool.use(1)
+	organ.heal_damage(0, rand(10, 15), 1, 1)
 
 /datum/surgery_step/fix_burn/fail_step(mob/living/user, obj/item/organ/external/organ, obj/item/stack/tool)
 	user.visible_message(

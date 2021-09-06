@@ -151,6 +151,7 @@
 	throwforce = WEAPON_FORCE_HARMLESS
 	slot_flags = SLOT_BELT
 	storage_slots = 6
+	item_obj = /obj/item/clothing/mask/smokable/cigarette
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/weapon/flame/lighter)
 	icon_type = "cigarette"
 	reagent_flags = REFILLABLE | NO_REACT
@@ -178,7 +179,7 @@
 
 /obj/item/weapon/storage/fancy/cigarettes/populate_contents()
 	for(var/i in 1 to storage_slots)
-		new /obj/item/clothing/mask/smokable/cigarette(src)
+		new item_obj(src)
 	create_reagents(15 * storage_slots)//so people can inject cigarettes without opening a packet, now with being able to inject the whole one
 
 /obj/item/weapon/storage/fancy/cigarettes/on_update_icon()
@@ -221,6 +222,7 @@
 	desc = "A packet of six imported DromedaryCo cancer sticks. A label on the packaging reads, \"Wouldn't a slow death make a change?\""
 	icon_state = "Dpacket"
 	item_state = "Dpacket"
+	item_obj = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 
 /obj/item/weapon/storage/fancy/cigarettes/killthroat
 	name = "\improper AcmeCo packet"
@@ -264,6 +266,52 @@
 /obj/item/weapon/storage/fancy/cigarettes/killthroat/Initialize()
 	. = ..()
 	fill_cigarre_package(src, list("fuel" = 15))
+
+/obj/item/weapon/storage/fancy/cigcartons
+	name = "carton of cigarettes"
+	desc = "A box containing 10 packets of cigarettes."
+	icon_state = "cigpacketcarton"
+	item_state = "cigpacketcarton"
+	icon = 'icons/obj/cigarettes.dmi'
+	w_class = ITEM_SIZE_NORMAL
+	throwforce = WEAPON_FORCE_HARMLESS
+	storage_slots = 10
+	item_obj = /obj/item/weapon/storage/fancy/cigarettes
+	can_hold = list(/obj/item/weapon/storage/fancy/cigarettes)
+	icon_type = "packet"
+	reagent_flags = REFILLABLE | NO_REACT
+
+/obj/item/weapon/storage/fancy/cigcartons/update_icon()
+	if( contents.len > 0 )
+		icon_state = "[initial(icon_state)]1"
+	else
+		icon_state = "[initial(icon_state)]"
+
+/obj/item/weapon/storage/fancy/cigcartons/populate_contents()
+	for(var/i in 1 to storage_slots)
+		new item_obj(src)
+	update_icon()
+
+/obj/item/weapon/storage/fancy/cigcartons/dromedaryco
+	name = "carton of Dromedaryco cigarettes"
+	desc = "A box containing 10 packets of Dromedarycos cigarettes."
+	icon_state = "Dpacketcarton"
+	item_state = "Dpacketcarton"
+	item_obj = /obj/item/weapon/storage/fancy/cigarettes/dromedaryco
+
+/obj/item/weapon/storage/fancy/cigcartons/killthroat
+	name = "carton of AcmeCo cigarettes"
+	desc = "A box containing 10 packets of AcmeCo cigarettes."
+	icon_state = "Bpacketcarton"
+	item_state = "Bpacketcarton"
+	item_obj = /obj/item/weapon/storage/fancy/cigarettes/killthroat
+
+/obj/item/weapon/storage/fancy/cigcartons/homeless
+	name = "carton of Nomad cigarettes"
+	desc = "A box containing 10 packets of Nomad cigarettes."
+	icon_state = "Cpacketcarton"
+	item_state = "Cpacketcarton"
+	item_obj = /obj/item/weapon/storage/fancy/cigarettes/homeless
 
 /obj/item/weapon/storage/fancy/cigar
 	name = "cigar case"

@@ -197,9 +197,9 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 /datum/supply_pack/eweapons
 	name = "Incendiary weapons crate"
 	contains = list(/obj/item/weapon/flamethrower/full,
-					/obj/item/weapon/tank/plasma,
-					/obj/item/weapon/tank/plasma,
-					/obj/item/weapon/tank/plasma,
+					/obj/item/weapon/tank/phoron,
+					/obj/item/weapon/tank/phoron,
+					/obj/item/weapon/tank/phoron,
 					/obj/item/weapon/grenade/chem_grenade/incendiary,
 					/obj/item/weapon/grenade/chem_grenade/incendiary,
 					/obj/item/weapon/grenade/chem_grenade/incendiary,
@@ -1432,22 +1432,24 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Miscellaneous"
 //Occulus Addition
 /datum/supply_pack/warmcarpet
-	contains = list(/obj/item/stack/tile/carpet/cpack,
-				/obj/item/stack/tile/carpet/oracarpet/cpack,
-				/obj/item/stack/tile/carpet/gaycarpet/cpack,
-				/obj/item/stack/tile/carpet/sblucarpet/cpack
+	contains = list(/obj/item/stack/tile/carpet,
+				/obj/item/stack/tile/carpet/oracarpet,
+				/obj/item/stack/tile/carpet/gaycarpet,
+				/obj/item/stack/tile/carpet/sblucarpet
 				)
+	amount = 30
 	name = "Warm Carpet Crate"
 	cost = 3500
 	crate_name = "warm carpet crate"
 	group = "Miscellaneous"
 
 /datum/supply_pack/coldcarpet
-	contains = list(/obj/item/stack/tile/carpet/blucarpet/cpack,
-					/obj/item/stack/tile/carpet/turcarpet/cpack,
-					/obj/item/stack/tile/carpet/bcarpet/cpack,
-					/obj/item/stack/tile/carpet/purcarpet/cpack
+	contains = list(/obj/item/stack/tile/carpet/blucarpet,
+					/obj/item/stack/tile/carpet/turcarpet,
+					/obj/item/stack/tile/carpet/bcarpet,
+					/obj/item/stack/tile/carpet/purcarpet
 					)
+	amount = 30
 	name = "Cool Carpet Crate"
 	cost = 3500
 	crate_name = "cool carpet crate"
@@ -1670,15 +1672,16 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 //Occulus addition start
 /datum/supply_pack/randomised/carpet
 	num_contained = 4
-	contains = list(/obj/item/stack/tile/carpet/cpack,
-					/obj/item/stack/tile/carpet/bcarpet/cpack,
-					/obj/item/stack/tile/carpet/blucarpet/cpack,
-					/obj/item/stack/tile/carpet/turcarpet/cpack,
-					/obj/item/stack/tile/carpet/sblucarpet/cpack,
-					/obj/item/stack/tile/carpet/gaycarpet/cpack,
-					/obj/item/stack/tile/carpet/purcarpet/cpack,
-					/obj/item/stack/tile/carpet/oracarpet/cpack
+	contains = list(/obj/item/stack/tile/carpet,
+					/obj/item/stack/tile/carpet/bcarpet,
+					/obj/item/stack/tile/carpet/blucarpet,
+					/obj/item/stack/tile/carpet/turcarpet,
+					/obj/item/stack/tile/carpet/sblucarpet,
+					/obj/item/stack/tile/carpet/gaycarpet,
+					/obj/item/stack/tile/carpet/purcarpet,
+					/obj/item/stack/tile/carpet/oracarpet
 					)
+	amount = 30
 	name = "Surplus Carpet Crate"
 	cost = 2500
 	crate_name = "Surplus Carpet Crate"
