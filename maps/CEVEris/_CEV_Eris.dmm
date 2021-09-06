@@ -49537,6 +49537,7 @@
 	name = "Maintenance Hatch"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/eris/medical/medbay)
 "cnw" = (
@@ -49719,6 +49720,10 @@
 	dir = 4;
 	name = "East APC";
 	pixel_x = 28
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patient_a)
@@ -50729,6 +50734,10 @@
 	dir = 6
 	},
 /obj/structure/bed/padded,
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patient_a)
 "cqr" = (
@@ -107932,6 +107941,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patient_a)
 "pcE" = (
@@ -108163,6 +108175,11 @@
 "pze" = (
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/maintenance/section1deck4central)
+"pBd" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating/under,
+/area/eris/medical/medbay)
 "pBq" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
@@ -109403,6 +109420,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/hologram/holopad,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patient_a)
 "rNq" = (
@@ -111867,6 +111888,9 @@
 	id_tag = "MedbayExam";
 	name = "Patient Room B";
 	req_access = list(5)
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patient_wing)
@@ -209993,7 +210017,7 @@ abF
 aaa
 cvS
 coQ
-cpI
+pBd
 cnv
 cnK
 coK
