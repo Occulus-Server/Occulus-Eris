@@ -23,7 +23,7 @@ impl TypeMapKey for ChannelContainer {
 }
 
 #[group]
-#[commands(status, storyteller, duration, roaches)]
+#[commands(status, notifyme)]
 #[summary = "General server commands"]
 struct General;
 

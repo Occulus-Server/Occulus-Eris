@@ -58,8 +58,7 @@ async fn status_whitelist_check(
 #[command]
 #[only_in(guilds)]
 #[description = "Toggles bot notifications for you."]
-#[aliases(togglenotif, notifyme)]
-async fn toggle_notifications(ctx: &Context, msg: &Message) -> CommandResult {
+async fn notifyme(ctx: &Context, msg: &Message) -> CommandResult {
     let notif_group = {
         let data = ctx.data.read().await;
         RoleId::from(data.get::<Settings>().unwrap().notification_group)
@@ -86,6 +85,7 @@ async fn toggle_notifications(ctx: &Context, msg: &Message) -> CommandResult {
 #[command]
 #[checks(Status)]
 #[description = "Gets the current status of the SS13 server."]
+#[sub_commands(storyteller, duration, roaches)]
 #[bucket = "status"]
 async fn status(ctx: &Context, msg: &Message) -> CommandResult {
     let state = get_state(ctx).await?;
