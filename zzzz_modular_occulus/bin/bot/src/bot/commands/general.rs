@@ -28,7 +28,7 @@ async fn status_whitelist_check(
 ) -> Result<(), Reason> {
     let botname = {
         let data = ctx.data.read().await;
-        data.get::<Settings>().clone().unwrap().bot_name.clone()
+        data.get::<Settings>().unwrap().bot_name.clone()
     };
     let channel = msg.channel_id.to_channel(ctx.http.clone()).await;
 
@@ -75,9 +75,11 @@ async fn notifyme(ctx: &Context, msg: &Message) -> CommandResult {
 
     msg.guild_id.unwrap().edit_member(
         &ctx.http.clone(),
-        &msg.member.as_ref().unwrap().user.as_ref().unwrap().id,
+        &msg.author.id,
         |m| m.roles(roles))
         .await?;
+
+    msg.channel_id.say(&ctx.http, "This bot will now notify you on server status changes.").await?;
 
     Ok(())
 }
