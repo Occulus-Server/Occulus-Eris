@@ -1,13 +1,13 @@
+use super::util::*;
+use crate::bot::Settings;
 use serenity::{
     framework::standard::{
         macros::{check, command},
-        Args, CommandOptions, CommandResult, Reason
+        Args, CommandOptions, CommandResult, Reason,
     },
     model::prelude::*,
-    prelude::*
+    prelude::*,
 };
-use super::util::*;
-use crate::bot::Settings;
 
 /*
 #[command]
@@ -66,20 +66,27 @@ async fn notifyme(ctx: &Context, msg: &Message) -> CommandResult {
     let mut roles = msg.member.as_ref().unwrap().roles.clone();
 
     if roles.contains(&notif_group) {
-        roles = roles.into_iter()
+        roles = roles
+            .into_iter()
             .filter(|v| *v != notif_group)
             .collect::<Vec<RoleId>>();
+        msg.channel_id
+            .say(&ctx.http, "Notification group removed.")
+            .await?;
     } else {
         roles.push(notif_group);
+        msg.channel_id
+            .say(
+                &ctx.http,
+                "This bot will now notify you on server status changes.",
+            )
+            .await?;
     }
 
-    msg.guild_id.unwrap().edit_member(
-        &ctx.http.clone(),
-        &msg.author.id,
-        |m| m.roles(roles))
+    msg.guild_id
+        .unwrap()
+        .edit_member(&ctx.http.clone(), &msg.author.id, |m| m.roles(roles))
         .await?;
-
-    msg.channel_id.say(&ctx.http, "This bot will now notify you on server status changes.").await?;
 
     Ok(())
 }
@@ -93,18 +100,23 @@ async fn status(ctx: &Context, msg: &Message) -> CommandResult {
     let state = get_state(ctx).await?;
     let footer_text = get_random_phrase(ctx, "sanity").await;
 
-    msg.channel_id.send_message(&ctx.http, |m| {
-        m.embed(|e| {
-            e.title(&state.status.to_string())
-                .color(state.status.color())
-                .description(format!("- Storyteller: {}\n- Duration: {}\n- Roaches: {}", &state.storyteller, &state.duration, state.roaches))
-                .footer(|f| f.text(footer_text));
+    msg.channel_id
+        .send_message(&ctx.http, |m| {
+            m.embed(|e| {
+                e.title(&state.status.to_string())
+                    .color(state.status.color())
+                    .description(format!(
+                        "- Storyteller: {}\n- Duration: {}\n- Roaches: {}",
+                        &state.storyteller, &state.duration, state.roaches
+                    ))
+                    .footer(|f| f.text(footer_text));
 
-            e
-        });
+                e
+            });
 
-        m
-    }).await?;
+            m
+        })
+        .await?;
 
     Ok(())
 }
@@ -116,11 +128,16 @@ async fn status(ctx: &Context, msg: &Message) -> CommandResult {
 async fn storyteller(ctx: &Context, msg: &Message) -> CommandResult {
     let state = get_state(ctx).await?;
 
-    msg.channel_id.send_message(&ctx.http, |m| {
-        m.content(format!("The storyteller is currently {}", state.storyteller));
+    msg.channel_id
+        .send_message(&ctx.http, |m| {
+            m.content(format!(
+                "The storyteller is currently {}",
+                state.storyteller
+            ));
 
-        m
-    }).await?;
+            m
+        })
+        .await?;
 
     Ok(())
 }
@@ -131,11 +148,13 @@ async fn storyteller(ctx: &Context, msg: &Message) -> CommandResult {
 async fn duration(ctx: &Context, msg: &Message) -> CommandResult {
     let state = get_state(ctx).await?;
 
-    msg.channel_id.send_message(&ctx.http, |m| {
-        m.content(format!("The round has lasted for {}", state.duration));
+    msg.channel_id
+        .send_message(&ctx.http, |m| {
+            m.content(format!("The round has lasted for {}", state.duration));
 
-        m
-    }).await?;
+            m
+        })
+        .await?;
 
     Ok(())
 }
@@ -146,11 +165,16 @@ async fn duration(ctx: &Context, msg: &Message) -> CommandResult {
 async fn roaches(ctx: &Context, msg: &Message) -> CommandResult {
     let state = get_state(ctx).await?;
 
-    msg.channel_id.send_message(&ctx.http, |m| {
-        m.content(format!("There have been a total of {} roaches.", state.roaches));
+    msg.channel_id
+        .send_message(&ctx.http, |m| {
+            m.content(format!(
+                "There have been a total of {} roaches.",
+                state.roaches
+            ));
 
-        m
-    }).await?;
+            m
+        })
+        .await?;
 
     Ok(())
 }
