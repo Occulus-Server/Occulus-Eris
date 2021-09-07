@@ -84,12 +84,24 @@ async fn add(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
         data.get::<QuoteDatabase>().unwrap().clone()
     };
 
+    let id: u64;
+    let quote: String;
+
     if args.is_empty() {
-        msg.channel_id.say(&ctx.http, "You need to say something to add a quote.").await?;
-        return Ok(())
+        // thanks Shadz (@Shadz) for recommending this feature
+        if msg.referenced_message.is_none() {
+            msg.channel_id.say(&ctx.http, "You need to say something to add a quote.").await?;
+            return Ok(())
+        }
+
+        id = *msg.referenced_message.as_ref().unwrap().author.id.as_u64();
+        quote = msg.referenced_message.as_ref().unwrap().content.clone();
+    } else {
+        id = *msg.author.id.as_u64();
+        quote = args.rest().to_string();
     }
 
-    db.add_quote(*msg.author.id.as_u64(), args.rest().to_string())?;
+    db.add_quote(id, quote)?;
     msg.channel_id.say(&ctx.http, "Quote successfully added.").await?;
 
     Ok(())
