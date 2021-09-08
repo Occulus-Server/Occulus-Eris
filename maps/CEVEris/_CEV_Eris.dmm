@@ -106065,11 +106065,10 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/hallway/main/section2)
 "mAL" = (
-/obj/structure/lattice,
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1port)
 "mAW" = (
 /obj/structure/bed/chair{
@@ -109027,6 +109026,10 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1port)
+"qXA" = (
+/obj/structure/lattice,
+/turf/simulated/wall,
+/area/eris/maintenance/section2deck1port)
 "qZr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -110630,6 +110633,9 @@
 /area/eris/command/bridge)
 "tLo" = (
 /obj/spawner/structures/common/low_chance,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1port)
 "tLp" = (
@@ -290242,10 +290248,10 @@ aaa
 abF
 abF
 alb
-vgv
-vgv
 dAF
-vgv
+qXA
+dAF
+qXA
 mNY
 anQ
 amc
@@ -290649,7 +290655,7 @@ anQ
 anQ
 mAL
 dAF
-vgv
+qXA
 rAj
 anQ
 tth
@@ -290849,7 +290855,7 @@ alb
 pcM
 dAF
 anQ
-vgv
+anQ
 dAF
 rAj
 dAF
@@ -291053,7 +291059,7 @@ dAF
 anQ
 tLo
 dAF
-vgv
+qXA
 dAF
 amO
 dAF
@@ -291257,8 +291263,8 @@ gQl
 dAF
 mNY
 anQ
-vgv
-vgv
+anQ
+tDD
 anQ
 jQY
 anQ
@@ -291459,9 +291465,9 @@ pha
 dUW
 dUW
 dUW
+iTB
+alG
 xZK
-xZK
-dUW
 amc
 dGs
 amc
