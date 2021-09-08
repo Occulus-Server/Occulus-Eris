@@ -84948,7 +84948,7 @@
 "dUN" = (
 /obj/structure/catwalk,
 /obj/spawner/pack/gun_loot/low_chance,
-/turf/simulated/open,
+/turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1starboard)
 "dUO" = (
 /obj/spawner/flora/low_chance,
@@ -107996,6 +107996,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/fitness)
+"pha" = (
+/obj/machinery/door/airlock/maintenance_common{
+	name = "Service Maintenance";
+	req_access = list(12)
+	},
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section2deck1starboard)
 "phd" = (
 /obj/structure/railing{
 	dir = 8
@@ -108423,6 +108430,13 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/crew_quarters/bar)
+"pYZ" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/eris/maintenance/section2deck1starboard)
 "pZm" = (
 /obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/gray_perforated,
@@ -291441,12 +291455,12 @@ aaa
 alb
 dAF
 anQ
-dWB
+pha
 dUW
 dUW
 dUW
-dUW
-dUW
+xZK
+xZK
 dUW
 amc
 dGs
@@ -291650,7 +291664,7 @@ dUW
 foW
 alG
 fzH
-aof
+rAj
 wZT
 aof
 anQ
@@ -291848,11 +291862,11 @@ alb
 yda
 gtp
 ora
-dUW
+xZK
 foW
 alG
-xZK
-dQr
+dUW
+anQ
 anQ
 anQ
 anQ
@@ -292053,8 +292067,8 @@ jDO
 dUW
 nEC
 alG
-xZK
-xuA
+dUW
+xLX
 xuA
 dUW
 ijA
@@ -292255,10 +292269,10 @@ jDO
 dUW
 fWo
 alG
-xZK
+dUW
 dUN
-uYg
-uYg
+ate
+ate
 alG
 aor
 dUW
@@ -292457,9 +292471,9 @@ qEM
 dUW
 iTB
 alG
-xZK
-xuA
-xuA
+dUW
+pYZ
+xLX
 dUW
 dUW
 xZK
@@ -292654,15 +292668,15 @@ dWB
 alC
 eWP
 eDD
-uYg
-uYg
+ate
+ate
 dUW
-dUW
+xZK
 fzH
 dUW
 dUN
-uYg
-uYg
+ate
+ate
 egQ
 kmV
 dVD
@@ -292856,14 +292870,14 @@ dWB
 ala
 ala
 ala
-uYg
-uYg
-uYg
-uYg
-uYg
-eDL
-xuA
+ate
+ate
+ate
+ate
+ate
+dUW
 xLX
+xuA
 xLX
 dUW
 dUW
@@ -293062,10 +293076,10 @@ irC
 dUW
 dUW
 dUW
-uYg
+ate
 ala
 dUW
-xZK
+dUW
 dUW
 dUW
 qcr
