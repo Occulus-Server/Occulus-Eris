@@ -11,7 +11,7 @@ use serenity::{
 use crate::bot::quotes::QuoteDatabase;
 
 #[command]
-#[sub_commands(add, user)]
+#[sub_commands(add, user, maintain)]
 #[only_in(guilds)]
 #[description = "Gets a quote from the quote database."]
 #[usage = "<keyword> or [name]!quote add <quote>"]
@@ -103,6 +103,63 @@ async fn add(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
 
     db.add_quote(id, quote)?;
     msg.channel_id.say(&ctx.http, "Quote successfully added.").await?;
+
+    Ok(())
+}
+
+#[command]
+#[sub_commands(search, delete)]
+#[allowed_roles("Webmin")]
+#[only_in(guilds)]
+#[description = "Maintain quotes. Does not do anything - you must call a subcommand."]
+async fn maintain(ctx: &Context, msg: &Message) -> CommandResult {
+    msg.channel_id.say(&ctx.http, "You must call a subcommand to use this command.").await?;
+
+    Ok(())
+}
+
+#[command]
+#[allowed_roles("Webmin")]
+#[only_in(guilds)]
+#[description = "Search a quote, and get its debug information."]
+async fn search(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
+    let db = {
+        let data = ctx.data.read().await;
+        data.get::<QuoteDatabase>().unwrap().clone()
+    };
+
+    if args.is_empty() {
+        msg.channel_id.say(&ctx.http, "You must type in a quote to start querying it.").await?;
+        return Ok(())
+    }
+
+    let quotes = db.get_quotes(args.rest().to_string())?;
+    let mut result = String::from("Quotes:\n");
+    quotes.iter().for_each(|quote| result.push_str(&format!("{:?}\n", quote)));
+
+    msg.channel_id.say(&ctx.http, result).await?;
+
+    Ok(())
+}
+
+#[command]
+#[allowed_roles("Webmin")]
+#[only_in(guilds)]
+#[description = "Delete a quote by ID."]
+async fn delete(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
+    let db = {
+        let data = ctx.data.read().await;
+        data.get::<QuoteDatabase>().unwrap().clone()
+    };
+
+    if args.is_empty() {
+        msg.channel_id.say(&ctx.http, "You must type in an ID to delete it.").await?;
+        return Ok(())
+    }
+
+    db.delete_quote(usize::from_str_radix(&args.rest(), 10)?)?;
+
+    msg.channel_id.say(&ctx.http, "Deleted quote.").await?;
 
     Ok(())
 }

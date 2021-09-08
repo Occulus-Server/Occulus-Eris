@@ -22,7 +22,7 @@ async fn main() -> Result<(), bot::Error> {
 
     if let Err(e) = File::open("quotes.db") {
         if e.kind() == std::io::ErrorKind::NotFound {
-            QuoteDatabase::new()?;
+            QuoteDatabase::init()?;
         } else {
             panic!("Error: {}", e);
         }
