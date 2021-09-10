@@ -114,7 +114,7 @@
 		var/good_amount = station.get_good_amount(choosed_category, text2num(href_list["PRG_cart_add"]))
 		if(!good_amount)
 			return
-		
+
 		set_2d_matrix_cell(shoppinglist, choosed_category, path, clamp(get_2d_matrix_cell(shoppinglist, choosed_category, path) + 1, 0, good_amount))
 		return 1
 
@@ -235,7 +235,7 @@
 		.["offers"] += list(offer)
 	if(!recursiveLen(.["offers"]))
 		.["offers"] = null
-	
+
 
 #undef GOODS_SCREEN
 #undef OFFER_SCREEN

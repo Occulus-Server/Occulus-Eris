@@ -5,6 +5,13 @@
 	explosion_l_size = 2
 	explosion_f_size = 15
 	num_fragments = 8
+	price_tag = 200
+
+/obj/item/weapon/emp_mine
+	price_tag = 400
+
+/obj/item/weapon/beartrap
+	price_tag = 100
 
 /obj/item/weapon/mine/armed
 	deployed = TRUE

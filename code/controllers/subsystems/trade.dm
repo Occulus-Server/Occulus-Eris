@@ -176,7 +176,6 @@ SUBSYSTEM_DEF(trade)
 
 	station.generate_offer()
 
-
 /datum/controller/subsystem/trade/proc/buy(obj/machinery/trade_beacon/receiving/beacon, datum/money_account/account, list/shoppinglist, datum/trade_station/station)
 	if(QDELETED(beacon) || !account || !length(shoppinglist))
 		return
