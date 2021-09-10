@@ -1,3 +1,5 @@
+#define BALACLAVA_SANITY_COEFF_BUFF 1.6
+
 /obj/item/clothing/mask/balaclava
 	name = "balaclava"
 	desc = "Designed to both hide your face and keep it comfy and warm."
@@ -17,7 +19,15 @@
 	rarity_value = 10
 	var/open = 0 //0 = full, 1 = head only, 2 = face only
 
+<<<<<<< HEAD
 /obj/item/clothing/mask/balaclava/tactical/proc/adjust_mask(mob/living/carbon/human/user)
+=======
+/obj/item/clothing/mask/balaclava/New()
+	..()
+	AddComponent(/datum/component/clothing_sanity_protection, BALACLAVA_SANITY_COEFF_BUFF)
+
+/obj/item/clothing/mask/balaclava/proc/adjust_mask(mob/living/carbon/human/user)
+>>>>>>> 34eb9555f... Adds the sanity damage reduction component for clothing , adds it to balaclavas (#6503)
 	if(!istype(user))
 		return
 	if(!user.incapacitated())
