@@ -599,16 +599,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				screw = TRUE
 				to_chat(user, SPAN_NOTICE("You open the cap on [src]."))
 				reagent_flags |= OPENCONTAINER
-				icon_state = "vape_mask_open"
-				item_state = "vape_mask_open"
+				icon_state = "[icon_state]_open"	//occulus edit, i'm not copying all this just for a fucking child variant item
+				item_state = "[item_state]_open"	//occulus edit
 				update_icon()
 		else
 			if(O.use_tool(user, src, WORKTIME_INSTANT, QUALITY_SCREW_DRIVING, FAILCHANCE_EASY, required_stat = STAT_MEC))
 				screw = FALSE
 				to_chat(user, SPAN_NOTICE("You close the cap on [src]."))
 				reagent_flags &= ~(OPENCONTAINER)
-				icon_state = "vape_mask"
-				item_state = "vape_mask"
+				icon_state = "[initial(icon_state)]"	//occulus edit
+				item_state = "[initial(item_state)]"	//occulus edit
 				update_icon()
 
 	if(istype(O, /obj/item/weapon/tool/multitool))
