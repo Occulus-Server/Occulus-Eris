@@ -32,11 +32,11 @@
 	vendor_department = DEPARTMENT_ENGINEERING
 
 /obj/machinery/vending/cigarette
-	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10,/obj/item/weapon/storage/box/matches = 10,/obj/item/weapon/flame/lighter/random = 4)
-	contraband = list(/obj/item/clothing/mask/smokable/cigarette/cigar = 4, /obj/item/weapon/flame/lighter/zippo = 4,)
-	premium = list(/obj/item/weapon/storage/fancy/cigar = 5,/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5 )
-	prices = list(/obj/item/clothing/mask/smokable/cigarette/cigar = 200, /obj/item/weapon/storage/fancy/cigarettes = 100 ,/obj/item/weapon/storage/box/matches = 30,/obj/item/weapon/flame/lighter/random = 30,
-				/obj/item/weapon/flame/lighter/zippo = 250)
+	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10,/obj/item/weapon/storage/fancy/cigcartons = 5,/obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 5,/obj/item/weapon/storage/fancy/cigcartons/dromedaryco = 3,/obj/item/weapon/storage/box/matches = 10,/obj/item/weapon/flame/lighter/random = 4)
+	contraband = list(/obj/item/clothing/mask/smokable/cigarette/cigar = 4, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/vape/pipe = 3,/obj/item/clothing/mask/vape = 5, /obj/item/weapon/reagent_containers/glass/beaker/vial/vape/nicotine = 5,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/berry = 10,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/lemon = 10,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/banana = 10,)
+	premium = list(/obj/item/weapon/storage/fancy/cigar = 5,/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5,/obj/item/weapon/storage/fancy/cigarettes/homeless = 3 )
+	prices = list(/obj/item/clothing/mask/smokable/cigarette/cigar = 200, /obj/item/weapon/storage/fancy/cigarettes = 100,/obj/item/weapon/storage/fancy/cigcartons = 800,/obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 100,/obj/item/weapon/storage/fancy/cigcartons/dromedaryco = 800,/obj/item/weapon/storage/box/matches = 30,/obj/item/weapon/flame/lighter/random = 30,
+				/obj/item/weapon/flame/lighter/zippo = 250, /obj/item/clothing/mask/vape/pipe = 500, /obj/item/clothing/mask/vape = 300, /obj/item/weapon/reagent_containers/glass/beaker/vial/vape/nicotine = 150,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/berry = 100,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/lemon = 100,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/banana = 100,)
 
 /obj/machinery/vending/boozeomat
 	req_access = list(access_bar)
