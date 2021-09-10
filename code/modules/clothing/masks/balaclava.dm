@@ -16,7 +16,7 @@
 	..()
 	AddComponent(/datum/component/clothing_sanity_protection, BALACLAVA_SANITY_COEFF_BUFF)
 
-/obj/item/clothing/mask/balaclava/tactical/proc/adjust_mask(mob/living/carbon/human/user)
+/obj/item/clothing/mask/balaclava/proc/adjust_mask(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
 	if(!user.incapacitated())
