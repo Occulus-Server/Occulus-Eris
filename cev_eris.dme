@@ -306,6 +306,7 @@
 #include "code\datums\autolathe\tools.dm"
 #include "code\datums\colors\color_generator.dm"
 #include "code\datums\components\_component.dm"
+#include "code\datums\components\clothing_sanity_protection.dm"
 #include "code\datums\components\fabric.dm"
 #include "code\datums\craft\crafting_items.dm"
 #include "code\datums\craft\item.dm"
