@@ -4,7 +4,7 @@
 	head_position = 1
 	department = DEPARTMENT_CHURCH
 	department_flag = CHURCH | COMMAND
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "The Mekhanite Council"
@@ -53,7 +53,7 @@
 	For those who are not part of the fold, the next best thing you can offer is a dignified funeral. The chapel area contains coffins and machinery to commit the dead unto the void. Burial at space. Any player who is given a proper funeral will have their respawn time reduced, allowing them to rejoin the crew as a new character more quickly, after death."
 
 
-	duties = "Represent the interests of Mekhane disciples aboard the NEV Northern Light. Protect them from persecution and speak for them.<br>\
+	duties = "Represent the interests of Mekhane disciples aboard the CEV Northern Light. Protect them from persecution and speak for them.<br>\
 		Hold mass, give sermons, preach to the faithful, and lead group ritual sessions.<br>\
 		Recover and clone the faithful dead.<br>\
 		Hold funerals for the dead heathens."
@@ -70,7 +70,7 @@
 	flag = ACOLYTE
 	department = DEPARTMENT_CHURCH
 	department_flag = CHURCH
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Mekhane Preacher"
@@ -111,7 +111,7 @@
 	flag = BOTANIST
 	department = DEPARTMENT_CHURCH
 	department_flag = CHURCH
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Mekhane Preacher"
@@ -156,7 +156,7 @@
 	flag = JANITOR
 	department = DEPARTMENT_CHURCH
 	department_flag = CHURCH
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Mekhane Preacher"
