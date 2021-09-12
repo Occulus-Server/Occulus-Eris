@@ -2917,6 +2917,8 @@
 #include "zzzz_modular_occulus\code\game\objects\structures\stool_bed_chair_nest\bed.dm"
 #include "zzzz_modular_occulus\code\game\objects\structures\stool_bed_chair_nest\sofas.dm"
 #include "zzzz_modular_occulus\code\game\turfs\flooring\flooring_decals.dm"
+#include "zzzz_modular_occulus\code\game\turfs\flooring\occultfloor.dm"
+#include "zzzz_modular_occulus\code\game\turfs\walls\occultwall.dm"
 #include "zzzz_modular_occulus\code\modules\defib.dm"
 #include "zzzz_modular_occulus\code\modules\defiblocker.dm"
 #include "zzzz_modular_occulus\code\modules\gunkits.dm"
