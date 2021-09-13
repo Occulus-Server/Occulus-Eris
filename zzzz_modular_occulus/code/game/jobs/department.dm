@@ -5,7 +5,7 @@
 	account_initial_balance = 12000
 
 /datum/department/civilian
-	name = "NEV Northern Light Civic"
+	name = "CEV Northern Light Civic"
 	id = DEPARTMENT_CIVILIAN
 	account_initial_balance = 2000 // Less vital than most departments and smaller
 	account_budget = 1000 //A small stipend that the manager can distribute as he sees fit.
@@ -24,17 +24,17 @@
 		associated_account_number = department_account.account_number //This only fails during setup!
 
 /obj/item/weapon/card/id/account/command
-	name = "NEV Northern Light banking card"
+	name = "CEV Northern Light banking card"
 	desc = "A card that holds account information for the Northern Light command bank account."
 	item_state = "gold_id"
-	registered_name = "NEV Northern Light Command"
+	registered_name = "CEV Northern Light Command"
 	department = DEPARTMENT_COMMAND
 
 /obj/item/weapon/card/id/account/technomancers
 	name = "Engineering Department banking card"
 	desc = "A card that holds account information for the Northern Light engineering bank account."
 	item_state = "id_ce"
-	registered_name = "NEV Northern Light Engineering"
+	registered_name = "CEV Northern Light Engineering"
 	department = DEPARTMENT_ENGINEERING
 
 /obj/item/weapon/card/id/account/aegis
@@ -76,7 +76,7 @@
 	name = "The Club banking card"
 	desc = "A card that holds account information for The Club bank account."
 	item_state = "id_hop"
-	registered_name = "NEV Northern Light Civic"
+	registered_name = "CEV Northern Light Civic"
 	department = DEPARTMENT_CIVILIAN
 
 /decl/hierarchy/outfit/job/captain
