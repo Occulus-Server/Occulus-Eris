@@ -142,8 +142,6 @@
 					/obj/item/weapon/storage/hypospraykit/brute = 1,
 					/obj/item/weapon/storage/hypospraykit/toxin = 1,
 					/obj/item/weapon/storage/hypospraykit/o2 = 1,
-					/obj/item/hypospray/mkii = 4,
-					/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small = 9
 					)
 
 	contraband = list(
