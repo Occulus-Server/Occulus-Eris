@@ -152,3 +152,41 @@
 		rad = 75
 	)
 
+/obj/item/clothing/head/space/void/dss
+	name = "DeepFlare voidsuit helmet"
+	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
+	icon_state = "dss_helm"
+	item_state = "dss_helm"
+	item_state_slots = list(
+		slot_l_hand_str = "sec_helm",
+		slot_r_hand_str = "sec_helm",
+		)
+
+	armor = list(
+		melee = 35,
+		bullet = 35,
+		energy = 35,
+		bomb = 25,
+		bio = 100,
+		rad = 75
+	)
+	siemens_coefficient = 0.7
+	light_overlay = "helmet_light_ihs"
+
+/obj/item/clothing/suit/space/void/dss
+	name = "DeepFlare voidsuit"
+	icon_state = "dss_voidsuit"
+	desc = "A bulky suit that protects against hazardous, low pressure environments. Sacrifices mobility for protection."
+	item_state = "dss_voidsuit"
+	armor = list(
+		melee = 35,
+		bullet = 35,
+		energy = 35,
+		bomb = 25,
+		bio = 100,
+		rad = 75
+	)
+	siemens_coefficient = 0.7
+	helmet = /obj/item/clothing/head/space/void/dss
+	rarity_value = 40
+
