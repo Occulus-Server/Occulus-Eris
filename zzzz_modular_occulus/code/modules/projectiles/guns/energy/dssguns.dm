@@ -44,5 +44,4 @@
 	rarity_value = 8
 	init_firemodes = list(
 		list(mode_name="kill", projectile_type=/obj/item/projectile/bullet/pellet/energy, fire_sound='sound/weapons/guns/fire/energy_shotgun.ogg', fire_delay=6, charge_cost=180, icon="kill" ),
-		,
 		)
