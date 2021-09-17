@@ -110,3 +110,27 @@ CHURCH DISKS
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/retro
 	disk_name = "FS LG \"Cog\""
+
+/datum/design/autolathe/tool/voidsuit/dss
+	name = "DSS assault suit"
+	build_path = /obj/item/clothing/suit/space/void/dss
+
+/datum/design/autolathe/gun/stalwart
+	name = "DSS Stalwart"
+	build_path = /obj/item/weapon/gun/energy/stalwart
+
+/datum/design/autolathe/gun/resolute
+	name = "DSS Resolute"
+	build_path = /obj/item/weapon/gun/energy/resolute
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss
+	disk_name = "Deepflare Security - assault package"
+	icon_state = "frozenstar"
+	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
+	rarity_value = 30
+	license = 9
+	designs = list(
+		/datum/design/autolathe/tool/voidsuit/dss = 6, // "DSS assault suit"
+		/datum/design/autolathe/gun/stalwart =3,	// "DSS ESG \"Stalwart\""
+		/datum/design/autolathe/gun/resolute = 3,	// "DSS ECAR \"Resolute\""
+		)
