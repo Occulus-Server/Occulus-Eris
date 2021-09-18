@@ -2,9 +2,10 @@
 
 /obj/item/device/rodar //haha robot radar
 	name = "\improper Mk.XIV Synthetic Entity Detector"
-	desc = "This handy device emits a peculiar signal that pings various robots around the ship and forcibly reboots them, causing them to flock to certain areas that it can pinpoint. Announces pinpointed locations over engineering comms."
+	desc = "This handy device emits a peculiar signal that pings various robots around the ship and forcibly reboots them, causing them to flock to certain areas that it can pinpoint.\
+	Announces pinpointed locations over engineering comms."
 	icon = 'zzzz_modular_occulus/icons/obj/device.dmi'
-	icon_state = "dronelocator-ready"
+	icon_state = "dronelocatorv2"
 	w_class = ITEM_SIZE_TINY
 	price_tag = 20000 // One of a kind relic-tier price and tech levels
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5, TECH_MAGNET = 5)
@@ -30,6 +31,8 @@
 		var/num_areas = rand(3, 6)
 		var/num_spawns_per_area = rand(1, 2)
 		var/list/turf/targets = list()
+		var/list/howmanydamnlistsdoyouneed = list()
+		var/list/coodinateslist = list()
 		for (var/i = 0; i < num_areas;i++)
 			var/area/A = random_maintenance_area(TRUE)
 			var/turf/T = A.random_space()
@@ -37,11 +40,14 @@
 		for (var/turf/heck in targets)
 			var/area/aaa = get_area(heck)
 			areanames += strip_improper(aaa.name)
+			howmanydamnlistsdoyouneed.Add(new /datum/coords(heck))
 			log_and_message_admins("EES SED sending hostile robots to [jumplink(heck)]")
 			for(var/i = 1, i <= num_spawns_per_area,i++)
 				new /obj/spawner/mob/cluster/roombattler(heck)
 		radio.autosay("Synthetic entities detected at [english_list(areanames)]." , "Mk.XIV Synthetic Entity Detector", "Engineering")
-		new /obj/item/weapon/paper(user.loc, areanames.Join("\n"), "SED Location Report")
+		for (var/datum/coords/skree in howmanydamnlistsdoyouneed)
+			coodinateslist.Add(skree.get_text())
+		new /obj/item/weapon/paper(user.loc, coodinateslist.Join("\n"), "SED Location Report")
 	else
 		to_chat(user, SPAN_WARNING("The [src] needs time to recharge!"))
 
@@ -68,3 +74,8 @@
 		possible += A
 
 	return pick(possible)
+
+/obj/item/weapon/paper/eessed
+	name = "paper - 'EES Memorandum 1R-1574'"
+	info = {"As per Memorandum 5A-8994, the robotic entities that have been procured by management are to be recovered or otherwise liquidated effective immediately.
+	The usage of the Mk.XIV device will be instrumental in carrying out this task. The wherewithal to support any and all relevant staff that can assist in this endeavour may be freely dispensed."}

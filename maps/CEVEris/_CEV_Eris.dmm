@@ -60033,6 +60033,7 @@
 	dir = 4
 	},
 /obj/item/device/rodar,
+/obj/item/weapon/paper/eessed,
 /turf/simulated/floor/plating,
 /area/eris/engineering/engine_room)
 "cMK" = (
