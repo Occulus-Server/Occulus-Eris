@@ -143,10 +143,22 @@ async fn search(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
 }
 
 #[command]
+#[sub_commands(delete_quote, delete_user)]
+#[allowed_roles("Webmin")]
+#[only_in(guilds)]
+#[description = "Delete quotes/users from the quote database."]
+async fn delete(ctx: &Context, msg: &Message) -> CommandResult {
+    msg.channel_id.say(&ctx.http, "You must call a subcommand to use this command.").await?;
+
+    Ok(())
+}
+
+#[command]
+#[aliases(quote)]
 #[allowed_roles("Webmin")]
 #[only_in(guilds)]
 #[description = "Delete a quote by ID."]
-async fn delete(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
+async fn delete_quote(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
     let db = {
         let data = ctx.data.read().await;
         data.get::<QuoteDatabase>().unwrap().clone()
@@ -157,7 +169,30 @@ async fn delete(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
         return Ok(())
     }
 
-    db.delete_quote(usize::from_str_radix(&args.rest(), 10)?)?;
+    db.delete_quote(args.rest().parse()?)?;
+
+    msg.channel_id.say(&ctx.http, "Deleted quote.").await?;
+
+    Ok(())
+}
+
+#[command]
+#[aliases(user)]
+#[allowed_roles("Webmin")]
+#[only_in(guilds)]
+#[description = "Delete a quote by user."]
+async fn delete_user(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
+    let db = {
+        let data = ctx.data.read().await;
+        data.get::<QuoteDatabase>().unwrap().clone()
+    };
+
+    if args.is_empty() {
+        msg.channel_id.say(&ctx.http, "You must type in a user's ID to delete them. (hint: use !quote maintain search [quote] to search for user IDs as well)").await?;
+        return Ok(())
+    }
+
+    db.delete_user(args.rest().parse()?)?;
 
     msg.channel_id.say(&ctx.http, "Deleted quote.").await?;
 

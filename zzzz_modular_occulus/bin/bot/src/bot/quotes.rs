@@ -59,7 +59,16 @@ impl QuoteDatabase {
         let db = Connection::open("quotes.db")?;
 
         db.execute("CREATE TABLE users (user_id INTEGER PRIMARY KEY)", [])?;
-        db.execute("CREATE TABLE quotes (quote_id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, quote TEXT NOT NULL, FOREIGN KEY (user_id) REFERENCES users (user_id) ON UPDATE RESTRICT ON DELETE CASCADE)", [])?;
+        db.execute("
+            CREATE TABLE quotes (
+                quote_id INTEGER PRIMARY KEY,
+                user_id INTEGER NOT NULL,
+                quote TEXT NOT NULL,
+                FOREIGN KEY (user_id)
+                    REFERENCES users (user_id)
+                    ON UPDATE RESTRICT
+                    ON DELETE CASCADE
+            )", [])?;
 
         Ok(())
     }
@@ -130,4 +139,14 @@ impl QuoteDatabase {
 
         Ok(())
     }
+
+    pub fn delete_user(&self, user_id: u64) -> Result<(), Error> {
+        self.db.get()?.execute(
+            "DELETE FROM users WHERE user_id = :id",
+            &[(":id", &user_id.to_string())],
+        )?;
+
+        Ok(())
+    }
+
 }
