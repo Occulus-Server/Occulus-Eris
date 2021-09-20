@@ -57,6 +57,7 @@
 			/obj/item/clothing/accessory/holster/armpit,
 			/obj/item/clothing/accessory/holster/waist,
 			/obj/item/clothing/accessory/holster/hip,
+			/obj/item/weapon/gun/projectile/revolver/saa,
 			/obj/item/weapon/gun/projectile/revolver/havelock,
 			/obj/item/weapon/gun/projectile/olivaw,
 			/obj/item/weapon/gun/projectile/giskard,
