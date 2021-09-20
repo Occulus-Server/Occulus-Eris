@@ -171,27 +171,9 @@
 		)
 
 /obj/machinery/vending/weapon_machine
-	products = list(
-					/obj/item/weapon/reagent_containers/spray/pepper = 5,
-					/obj/item/weapon/gun/projectile/revolver/havelock = 5,
-					/obj/item/weapon/gun/projectile/revolver/saa = 5,
-					/obj/item/weapon/gun/projectile/giskard = 5,
-					/obj/item/weapon/gun/projectile/mk58 = 5,
-					/obj/item/weapon/gun/projectile/automatic/atreides = 3,
-					/obj/item/weapon/gun/projectile/shotgun/pump = 3,
-					/obj/item/weapon/gun/energy/gun/martin = 5,
-					/obj/item/clothing/accessory/holster/armpit = 5,
-					/obj/item/clothing/accessory/holster/waist = 5,
-					/obj/item/clothing/accessory/holster/hip = 5,
-					/obj/item/weapon/tool/knife/tacknife = 5,
-					/obj/item/weapon/storage/box/smokes = 3,
-					/obj/item/clothing/head/armor/helmet = 2,
-					/obj/item/clothing/suit/armor/vest = 2)
-
 	prices = list(
-					/obj/item/weapon/reagent_containers/spray/pepper = 200,
+
 					/obj/item/weapon/gun/projectile/revolver/havelock = 600,
-					/obj/item/weapon/gun/projectile/revolver/saa = 700,
 					/obj/item/weapon/gun/projectile/giskard = 600,
 					/obj/item/weapon/gun/projectile/mk58 = 900,
 					/obj/item/weapon/gun/projectile/automatic/atreides = 1200,
@@ -199,11 +181,13 @@
 					/obj/item/weapon/gun/energy/gun/martin = 600,
 					/obj/item/clothing/accessory/holster/armpit = 200,
 					/obj/item/clothing/accessory/holster/waist = 200,
-					/obj/item/clothing/accessory/holster/hip = 200,
+					/obj/item/clothing/accessory/holster/hip = 200,//Occulus Edit: This was missing
 					/obj/item/weapon/tool/knife/tacknife = 400,
-					/obj/item/weapon/storage/box/smokes = 200,
 					/obj/item/clothing/head/armor/helmet = 1000,
-					/obj/item/clothing/suit/armor/vest = 1500)
+					/obj/item/clothing/suit/armor/vest = 1500,
+					/obj/item/weapon/gun/projectile/automatic/slaught_o_matic = 300,//Occulus Edit: Ahahaha what? No
+					/obj/item/weapon/tool/knife/tacknife = 600,//Occulus Edit: We have a bullet vendor
+					/obj/item/weapon/storage/box/smokes = 200)
 
 //all these are just to update the bill validator lights
 /obj/machinery/vending/serbomat/New()
