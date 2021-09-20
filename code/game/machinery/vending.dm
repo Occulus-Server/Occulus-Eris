@@ -216,7 +216,7 @@
 
 	if(!user.unEquip(W))
 		return
-
+		
 	var/buying_price = round(R.price * buying_percentage/100,5)
 	if(earnings_account.money < buying_price)
 		to_chat(user, SPAN_WARNING("[src] flashes a message: Account is unable to make this purchase."))
@@ -229,7 +229,6 @@
 	spawn_money(buying_price,loc,usr)
 
 	to_chat(user, SPAN_NOTICE("[src] accepts the sale of [W] and dispenses [buying_price] credits."))
-
 
 	SSnano.update_uis(src)
 
@@ -766,9 +765,11 @@
 			else
 				to_chat(user, SPAN_NOTICE("You weren't able to pull the coin out fast enough, the machine ate it, string and all."))
 				qdel(coin)
+				coin = null    //Occulus Addition, fixing coin cost
 				categories &= ~CAT_COIN
 		else
 			qdel(coin)
+			coin = null    //Occulus Addition, fixing coin cost
 			categories &= ~CAT_COIN
 
 	if(((last_reply + (vend_delay + 200)) <= world.time) && vend_reply)
