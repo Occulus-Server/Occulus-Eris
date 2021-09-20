@@ -73284,10 +73284,7 @@
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/medical/chemstor)
 "dsK" = (
-/obj/spawner/medical/low_chance,
-/obj/spawner/medical/low_chance,
 /obj/structure/table/rack/shelf,
-/obj/item/weapon/storage/box/monkeycubes,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -73299,6 +73296,22 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/hypospray/mkii,
+/obj/item/hypospray/mkii,
+/obj/item/hypospray/mkii,
+/obj/item/hypospray/mkii,
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,
+/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/medical/chemstor)
 "dsL" = (
@@ -76348,21 +76361,6 @@
 /area/occulus/medical/equipment)
 "dAD" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/hypospraykit/fire{
-	pixel_x = -1;
-	pixel_y = -1
-	},
-/obj/item/weapon/storage/hypospraykit/o2,
-/obj/item/weapon/storage/hypospraykit/toxin{
-	pixel_x = 1;
-	pixel_y = 1
-	},
-/obj/item/hypospray/mkii,
-/obj/item/hypospray/mkii{
-	pixel_x = 2;
-	pixel_y = 2
-	},
-/obj/item/weapon/storage/hypospraykit/regular,
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
@@ -77629,10 +77627,6 @@
 /obj/item/weapon/storage/firstaid/fire{
 	pixel_x = 2;
 	pixel_y = 6
-	},
-/obj/item/weapon/storage/firstaid/fire{
-	pixel_x = -2;
-	pixel_y = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -102124,7 +102118,7 @@
 /obj/item/weapon/autopsy_scanner,
 /obj/item/weapon/soulmanip,
 /obj/item/rig_module/cape/cmo,
-/obj/structure/closet/secure_closet/reinforced/CMO,
+/obj/structure/closet/secure_closet/reinforced/CMOcculus,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/command/mbo)
 "fUN" = (
@@ -103063,10 +103057,6 @@
 /obj/item/weapon/storage/firstaid/o2{
 	pixel_x = 2;
 	pixel_y = 6
-	},
-/obj/item/weapon/storage/firstaid/o2{
-	pixel_x = -2;
-	pixel_y = 4
 	},
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -104158,10 +104148,6 @@
 /obj/item/weapon/storage/firstaid/o2{
 	pixel_x = 2;
 	pixel_y = 6
-	},
-/obj/item/weapon/storage/firstaid/o2{
-	pixel_x = -2;
-	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/occulus/medical/equipment)
@@ -107223,10 +107209,6 @@
 /obj/item/weapon/storage/firstaid/fire{
 	pixel_x = 2;
 	pixel_y = 6
-	},
-/obj/item/weapon/storage/firstaid/fire{
-	pixel_x = -2;
-	pixel_y = 4
 	},
 /obj/machinery/camera/network/medbay{
 	dir = 1
