@@ -20163,14 +20163,6 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/engineering/wastingroom)
-"aWN" = (
-/obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayFoyer";
-	name = "Upper Medical Hall";
-	req_access = list(5)
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section2deck4port)
 "aWO" = (
 /obj/machinery/camera/network/fist_section,
 /turf/simulated/floor/tiled/techmaint,
@@ -170848,7 +170840,7 @@ aaa
 cJK
 awz
 aWT
-aWN
+cOq
 cOq
 ccT
 beA
