@@ -11,7 +11,7 @@
 	if(!cursor || reinit)
 		cursor = image('icons/holomap_markers.dmi', "you")
 	if(!legend || reinit)
-		legend = image('icons/effects/64x64.dmi', "legend")
+		legend = image('zzzz_modular_occulus/icons/effects/64x64.dmi', "legend") // OCCULUS EDIT - Making the holomap legends lore accurate.
 	if(isStationLevel(T.z))
 		if(!deck_name || reinit)
 			deck_name = image(HOLO_DECK_NAME, "deck")
