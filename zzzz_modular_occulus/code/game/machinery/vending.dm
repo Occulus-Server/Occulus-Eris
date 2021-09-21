@@ -120,6 +120,14 @@
 					/obj/item/weapon/storage/box/smokes = 3,
 					/obj/item/clothing/head/armor/helmet = 2,
 					/obj/item/clothing/suit/armor/vest = 2)
+	premium = list(
+					/obj/item/weapon/gun/projectile/automatic/wintermute = 3,
+					/obj/item/weapon/gun/projectile/automatic/sol = 3,
+					/obj/item/weapon/gun/projectile/automatic/straylight = 3,
+					/obj/item/weapon/gun/projectile/paco = 3,
+					/obj/item/weapon/gun/projectile/revolver/deckard = 3,
+					/obj/item/weapon/gun/projectile/shotgun/pump/regulator = 3,
+					/obj/item/weapon/gun/energy/gun/gemini = 3)
 	prices = list(
 					/obj/item/weapon/reagent_containers/spray/pepper = 200,
 					/obj/item/weapon/gun/projectile/revolver/havelock = 600,
@@ -135,7 +143,14 @@
 					/obj/item/clothing/head/armor/helmet = 1000,
 					/obj/item/clothing/suit/armor/vest = 1500,
 					/obj/item/weapon/tool/knife/tacknife = 600,
-					/obj/item/weapon/storage/box/smokes = 200)
+					/obj/item/weapon/storage/box/smokes = 200,
+					/obj/item/weapon/gun/projectile/automatic/wintermute = 3500,
+					/obj/item/weapon/gun/projectile/automatic/sol = 2300,
+					/obj/item/weapon/gun/projectile/automatic/straylight = 1400,
+					/obj/item/weapon/gun/projectile/paco = 1500,
+					/obj/item/weapon/gun/projectile/revolver/deckard = 3100,
+					/obj/item/weapon/gun/projectile/shotgun/pump/regulator = 1500,
+					/obj/item/weapon/gun/energy/gun/gemini = 2100)
 
 /obj/machinery/vending/serbomat
 	name = "BulletHeaven"
@@ -162,6 +177,12 @@
 					/obj/item/weapon/cell/small/high = 10,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2
 					)
+	premium = list(
+					/obj/item/weapon/storage/pouch/ammo = 5,
+					/obj/item/ammo_magazine/ammobox/clrifle/rubber = 3,
+					/obj/item/ammo_magazine/ammobox/lrifle/rubber = 3,
+					/obj/item/ammo_magazine/ammobox/srifle/rubber = 3
+					)
 	prices = list(
 					/obj/item/ammo_magazine/slpistol/rubber = 90,
 					/obj/item/ammo_magazine/pistol/rubber = 200,
@@ -178,7 +199,11 @@
 					/obj/item/ammo_magazine/ammobox/shotgun/beanbags = 575,
 					/obj/item/ammo_magazine/ammobox/shotgun/rubbershot = 575,
 					/obj/item/weapon/cell/small/high = 500,
-					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2500
+					/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2500,
+					/obj/item/weapon/storage/pouch/ammo = 750,
+					/obj/item/ammo_magazine/ammobox/clrifle/rubber = 1500,
+					/obj/item/ammo_magazine/ammobox/lrifle/rubber = 1500,
+					/obj/item/ammo_magazine/ammobox/srifle/rubber = 1500
 					)
 	idle_power_usage = 211
 	auto_price = FALSE
@@ -236,6 +261,30 @@
 		/obj/item/weapon/implanter = 2,
 		/obj/item/stack/nanopaste = 1
 		)
+	premium = list(
+		/obj/item/weapon/storage/firstaid/regular = 5,
+		/obj/item/weapon/storage/firstaid/adv = 3
+		)
+	prices = list(
+		/obj/item/device/scanner/health = 50,
+		/obj/item/stack/medical/bruise_pack = 100,
+		/obj/item/stack/medical/ointment = 100,
+		/obj/item/stack/medical/advanced/bruise_pack = 200,
+		/obj/item/stack/medical/advanced/ointment = 200,
+		/obj/item/stack/nanopaste = 1000,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin = 100, 
+		/obj/item/weapon/reagent_containers/syringe/antitoxin = 200,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine = 150, 
+		/obj/item/weapon/reagent_containers/syringe/tricordrazine = 300,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin = 100, 
+		/obj/item/weapon/reagent_containers/syringe/spaceacillin = 200,
+		/obj/item/weapon/implantcase/death_alarm = 500,
+		/obj/item/weapon/implanter = 50,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/hyperzine = 500,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/drugs = 500,
+		/obj/item/weapon/storage/firstaid/regular = 400,
+		/obj/item/weapon/storage/firstaid/adv = 800,
+		)
 
 //Seed Vendors
 
@@ -282,6 +331,38 @@
 		/obj/item/device/electronics/integrated/integrated_circuit_printer = 3000
 	)
 	vendor_department = DEPARTMENT_ENGINEERING
+
+/obj/machinery/vending/powermat
+	premium = list(/obj/item/weapon/cell/large/hyper = 3,
+					/obj/item/weapon/cell/medium/hyper = 3,
+					/obj/item/weapon/cell/small/hyper = 3
+					)
+	prices = list(/obj/item/weapon/cell/large = 500, 
+					/obj/item/weapon/cell/large/high = 700, 
+					/obj/item/weapon/cell/medium = 300, 
+					/obj/item/weapon/cell/medium/high = 400, 
+					/obj/item/weapon/cell/small = 100, 
+					/obj/item/weapon/cell/small/high = 200,
+					/obj/item/weapon/cell/large/super = 1200, 
+					/obj/item/weapon/cell/medium/super = 700, 
+					/obj/item/weapon/cell/small/super = 350, 
+					/obj/item/weapon/cell/large/hyper = 1700, 
+					/obj/item/weapon/cell/medium/hyper = 1000, 
+					/obj/item/weapon/cell/small/hyper = 500
+					)
+
+//Mekhane Theomat
+
+/obj/machinery/vending/theomat
+	premium = list(
+					/obj/item/weapon/storage/belt/utility/neotheology = 3,
+					/obj/item/weapon/storage/belt/tactical/neotheology = 3)
+	prices = list(/obj/item/weapon/book/ritual/cruciform = 500, 
+					/obj/item/weapon/storage/fancy/candle_box = 200, 
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors = 250,
+					/obj/item/weapon/implant/core_implant/cruciform = 1000,
+					/obj/item/weapon/storage/belt/utility/neotheology = 150,
+					/obj/item/weapon/storage/belt/tactical/neotheology = 150)
 
 //all these are just to update the bill validator lights
 /obj/machinery/vending/serbomat/New()
