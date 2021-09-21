@@ -47531,6 +47531,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/devices,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/medical,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/coins,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/quartermaster/storage)

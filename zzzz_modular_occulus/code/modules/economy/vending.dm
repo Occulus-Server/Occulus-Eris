@@ -36,7 +36,7 @@
 	contraband = list(/obj/item/clothing/mask/smokable/cigarette/cigar = 4, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/vape/pipe = 3,/obj/item/clothing/mask/vape = 5, /obj/item/weapon/reagent_containers/glass/beaker/vial/vape/nicotine = 5,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/berry = 10,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/lemon = 10,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/banana = 10,)
 	premium = list(/obj/item/weapon/storage/fancy/cigar = 5,/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5,/obj/item/weapon/storage/fancy/cigarettes/homeless = 3 )
 	prices = list(/obj/item/clothing/mask/smokable/cigarette/cigar = 200, /obj/item/weapon/storage/fancy/cigarettes = 100,/obj/item/weapon/storage/fancy/cigcartons = 800,/obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 100,/obj/item/weapon/storage/fancy/cigcartons/dromedaryco = 800,/obj/item/weapon/storage/box/matches = 30,/obj/item/weapon/flame/lighter/random = 30,
-				/obj/item/weapon/flame/lighter/zippo = 250, /obj/item/clothing/mask/vape/pipe = 500, /obj/item/clothing/mask/vape = 300, /obj/item/weapon/reagent_containers/glass/beaker/vial/vape/nicotine = 150,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/berry = 100,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/lemon = 100,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/banana = 100,)
+				/obj/item/weapon/flame/lighter/zippo = 250, /obj/item/clothing/mask/vape/pipe = 500, /obj/item/clothing/mask/vape = 300, /obj/item/weapon/reagent_containers/glass/beaker/vial/vape/nicotine = 150,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/berry = 100,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/lemon = 100,/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/banana = 100, /obj/item/weapon/storage/fancy/cigar = 50,/obj/item/weapon/storage/fancy/cigarettes/killthroat = 50, /obj/item/weapon/storage/fancy/cigarettes/homeless = 50)
 
 /obj/machinery/vending/boozeomat
 	req_access = list(access_bar)
@@ -91,6 +91,12 @@
 					/obj/item/weapon/storage/deferred/crate/clown_crime/hoxton = 2,
 					/obj/item/weapon/storage/deferred/crate/clown_crime/chains = 2
 					)
+	premium = list(
+					/obj/item/weapon/storage/pouch/ammo = 5,
+					/obj/item/ammo_magazine/ammobox/clrifle/rubber = 3,
+					/obj/item/ammo_magazine/ammobox/lrifle/rubber = 3,
+					/obj/item/ammo_magazine/ammobox/srifle/rubber = 3
+	)
 	prices = list(
 					/obj/item/ammo_magazine/slpistol/rubber = 90,
 					/obj/item/ammo_magazine/pistol/rubber = 200,
@@ -111,7 +117,11 @@
 					/obj/item/weapon/storage/deferred/crate/clown_crime = 1800,
 					/obj/item/weapon/storage/deferred/crate/clown_crime/wolf = 1800,
 					/obj/item/weapon/storage/deferred/crate/clown_crime/hoxton = 1800,
-					/obj/item/weapon/storage/deferred/crate/clown_crime/chains = 1800
+					/obj/item/weapon/storage/deferred/crate/clown_crime/chains = 1800,
+					/obj/item/weapon/storage/pouch/ammo = 750,
+					/obj/item/ammo_magazine/ammobox/clrifle/rubber = 1500,
+					/obj/item/ammo_magazine/ammobox/lrifle/rubber = 1500,
+					/obj/item/ammo_magazine/ammobox/srifle/rubber = 1500
 					)
 	idle_power_usage = 211
 	auto_price = FALSE
@@ -154,6 +164,9 @@
 	auto_price = FALSE
 
 /obj/machinery/vending/wallmed/lobby
+	premium = list(/obj/item/weapon/storage/firstaid/regular = 5,
+					/obj/item/weapon/storage/firstaid/adv = 3
+	)
 	products = list(
 		/obj/item/device/scanner/health = 5,
 		/obj/item/stack/medical/bruise_pack = 5,
@@ -168,7 +181,36 @@
 		/obj/item/stack/nanopaste = 1
 		)
 
+	prices = list(
+		/obj/item/device/scanner/health = 50,
+
+		/obj/item/stack/medical/bruise_pack = 100, /obj/item/stack/medical/ointment = 100,
+		/obj/item/stack/medical/advanced/bruise_pack = 200, /obj/item/stack/medical/advanced/ointment = 200,
+		/obj/item/stack/nanopaste = 1000,
+
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin = 100, /obj/item/weapon/reagent_containers/syringe/antitoxin = 200,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine = 150, /obj/item/weapon/reagent_containers/syringe/tricordrazine = 300,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin = 100, /obj/item/weapon/reagent_containers/syringe/spaceacillin = 200,
+
+		/obj/item/weapon/implantcase/death_alarm = 500,
+		/obj/item/weapon/implanter = 50,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/hyperzine = 500,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/drugs = 500,
+
+		/obj/item/weapon/storage/firstaid/regular = 500,
+		/obj/item/weapon/storage/firstaid/adv = 1000
+		)
+
 /obj/machinery/vending/weapon_machine
+	premium = list(
+					/obj/item/weapon/gun/projectile/automatic/wintermute = 3,
+					/obj/item/weapon/gun/projectile/automatic/sol = 3,
+					/obj/item/weapon/gun/projectile/automatic/straylight = 3,
+					/obj/item/weapon/gun/projectile/paco = 3,
+					/obj/item/weapon/gun/projectile/revolver/deckard = 3,
+					/obj/item/weapon/gun/projectile/shotgun/pump/regulator = 3,
+					/obj/item/weapon/gun/energy/gun/gemini = 3
+	)
 	prices = list(
 
 					/obj/item/weapon/gun/projectile/revolver/havelock = 600,
@@ -185,7 +227,14 @@
 					/obj/item/clothing/suit/armor/vest = 1500,
 					/obj/item/weapon/gun/projectile/automatic/slaught_o_matic = 300,//Occulus Edit: Ahahaha what? No
 					/obj/item/weapon/tool/knife/tacknife = 600,//Occulus Edit: We have a bullet vendor
-					/obj/item/weapon/storage/box/smokes = 200)
+					/obj/item/weapon/storage/box/smokes = 200,
+					/obj/item/weapon/gun/projectile/automatic/wintermute = 3500,
+					/obj/item/weapon/gun/projectile/automatic/sol = 2300,
+					/obj/item/weapon/gun/projectile/automatic/straylight = 1400,
+					/obj/item/weapon/gun/projectile/paco = 1500,
+					/obj/item/weapon/gun/projectile/revolver/deckard = 3100,
+					/obj/item/weapon/gun/projectile/shotgun/pump/regulator = 1500,
+					/obj/item/weapon/gun/energy/gun/gemini = 2100)
 
 //all these are just to update the bill validator lights
 /obj/machinery/vending/serbomat/New()
@@ -250,3 +299,32 @@
 					/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 75,/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 80,/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 60,
 					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 90, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 100,
 					/obj/item/weapon/reagent_containers/food/snacks/syndicake = 80, /obj/item/weapon/storage/ration_pack = 500)
+
+/obj/machinery/vending/powermat
+	premium = list(/obj/item/weapon/cell/large/hyper = 3,
+					/obj/item/weapon/cell/medium/hyper = 3,
+					/obj/item/weapon/cell/small/hyper = 3)
+	prices = list(/obj/item/weapon/cell/large = 500, 
+					/obj/item/weapon/cell/large/high = 700, 
+					/obj/item/weapon/cell/medium = 300, 
+					/obj/item/weapon/cell/medium/high = 400, 
+					/obj/item/weapon/cell/small = 100, 
+					/obj/item/weapon/cell/small/high = 200,
+					/obj/item/weapon/cell/large/super = 1200, 
+					/obj/item/weapon/cell/medium/super = 700, 
+					/obj/item/weapon/cell/small/super = 350, 
+					/obj/item/weapon/cell/large/hyper = 1700, 
+					/obj/item/weapon/cell/medium/hyper = 1000, 
+					/obj/item/weapon/cell/small/hyper = 500)
+
+/obj/machinery/vending/theomat
+	premium = list(
+					/obj/item/weapon/storage/belt/utility/neotheology = 3,
+					/obj/item/weapon/storage/belt/tactical/neotheology = 3
+	)
+	prices = list(/obj/item/weapon/book/ritual/cruciform = 500, 
+					/obj/item/weapon/storage/fancy/candle_box = 200, 
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors = 250,
+					/obj/item/weapon/implant/core_implant/cruciform = 1000,
+					/obj/item/weapon/storage/belt/utility/neotheology = 150,
+					/obj/item/weapon/storage/belt/tactical/neotheology = 150)

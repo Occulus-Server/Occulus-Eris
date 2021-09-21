@@ -29,7 +29,18 @@
 		/datum/design/autolathe/fabkit/dryrack
 		)
 
-
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/coins
+	disk_name = "FTU Coinpress Disk"
+	icon_state = "guild"
+	rarity_value = 264
+	designs = list(
+		/datum/design/autolathe/coin,
+		/datum/design/autolathe/coin/silver,
+		/datum/design/autolathe/coin/gold,
+		/datum/design/autolathe/coin/platinum,
+		/datum/design/autolathe/coin/diamond
+	)
+ 
 /*
 CHURCH DISKS
 */
