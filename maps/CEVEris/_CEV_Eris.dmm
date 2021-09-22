@@ -89649,17 +89649,17 @@
 "efV" = (
 /obj/structure/catwalk,
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/shotgunammo{
-	pixel_x = -4;
-	pixel_y = -4
+/obj/machinery/light/small,
+/obj/item/ammo_magazine/ammobox/shotgun/beanbags{
+	pixel_y = 8
 	},
-/obj/item/weapon/storage/box/shotgunammo,
-/obj/item/weapon/storage/box/shotgunammo{
-	pixel_x = 4;
+/obj/item/ammo_magazine/ammobox/shotgun/beanbags{
 	pixel_y = 4
 	},
-/obj/item/weapon/storage/box/shotgunammo,
-/obj/machinery/light/small,
+/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
+/obj/item/ammo_magazine/ammobox/shotgun/beanbags{
+	pixel_y = -4
+	},
 /turf/simulated/open,
 /area/eris/quartermaster/misc)
 "efW" = (
