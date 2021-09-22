@@ -18171,14 +18171,14 @@
 /area/eris/engineering/atmos/storage)
 "aSw" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/shotgunammo/slug,
-/obj/item/weapon/storage/box/shotgunammo/slug,
-/obj/item/weapon/storage/box/shotgunammo/slug,
-/obj/item/weapon/storage/box/shotgunammo/slug,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
+/obj/item/ammo_magazine/ammobox/shotgun,
+/obj/item/ammo_magazine/ammobox/shotgun,
+/obj/item/ammo_magazine/ammobox/shotgun,
+/obj/item/ammo_magazine/ammobox/shotgun,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "aSx" = (
@@ -18413,16 +18413,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/security/warden)
-"aSY" = (
-/obj/structure/table/rack,
-/obj/item/weapon/gun/projectile/automatic/straylight,
-/obj/item/weapon/gun/projectile/automatic/straylight,
-/obj/machinery/door/blast/shutters/glass{
-	id = "Armoury";
-	name = "Armoury showcase"
-	},
-/turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "aSZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -20214,6 +20204,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/tools,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/security,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aWW" = (
@@ -21244,10 +21235,8 @@
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
-/obj/item/weapon/gun/energy/plasma/cassad,
-/obj/item/weapon/gun/energy/plasma/cassad,
-/obj/item/weapon/gun/energy/plasma/cassad,
-/obj/item/weapon/gun/energy/plasma/cassad,
+/obj/item/weapon/gun/projectile/revolver/consul,
+/obj/item/weapon/gun/projectile/revolver/consul,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "aZi" = (
@@ -21428,7 +21417,6 @@
 /obj/item/ammo_magazine/pistol,
 /obj/item/ammo_magazine/pistol,
 /obj/item/ammo_magazine/pistol,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/lethal_ammo,
 /obj/item/ammo_magazine/ammobox/srifle,
 /obj/item/ammo_magazine/ammobox/srifle,
@@ -84800,6 +84788,9 @@
 /area/eris/maintenance/section4deck2port)
 "dUu" = (
 /obj/structure/closet/secure_closet/personal/agrolyte,
+/obj/item/weapon/cell/small,
+/obj/item/weapon/gun/energy/nt_svalinn,
+/obj/item/weapon/tool/knife/dagger/nt,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "dUv" = (
@@ -84871,6 +84862,9 @@
 	name = "Seed Alien1 Growth Stage Value:"
 	},
 /obj/structure/closet/secure_closet/personal/agrolyte,
+/obj/item/weapon/cell/small,
+/obj/item/weapon/gun/energy/nt_svalinn,
+/obj/item/weapon/tool/knife/dagger/nt,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "dUE" = (
@@ -84899,6 +84893,9 @@
 	pixel_y = 26
 	},
 /obj/structure/closet/secure_closet/personal/agrolyte,
+/obj/item/weapon/cell/small,
+/obj/item/weapon/gun/energy/nt_svalinn,
+/obj/item/weapon/tool/knife/dagger/nt,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "dUH" = (
@@ -102991,9 +102988,6 @@
 /obj/item/ammo_magazine/lrifle/pk,
 /obj/item/ammo_magazine/lrifle/pk,
 /obj/item/weapon/gun/projectile/automatic/lmg/tk,
-/obj/item/weapon/gun/projectile/automatic/lmg{
-	pixel_y = -5
-	},
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
@@ -104773,6 +104767,18 @@
 	},
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/engineering/construction)
+"knT" = (
+/obj/structure/table/rack,
+/obj/machinery/door/blast/shutters/glass{
+	id = "Armoury";
+	name = "Armoury showcase"
+	},
+/obj/item/weapon/gun/energy/plasma/cassad,
+/obj/item/weapon/gun/energy/plasma/cassad,
+/obj/item/weapon/gun/energy/plasma/cassad,
+/obj/item/weapon/gun/energy/plasma/cassad,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/security/warden)
 "koe" = (
 /turf/simulated/wall/r_wall,
 /area/eris/medical/patient_wing)
@@ -175446,7 +175452,7 @@ abF
 aaB
 aaB
 aaB
-aSY
+aZh
 aaJ
 aTa
 aSx
@@ -175648,7 +175654,7 @@ abF
 abF
 abF
 aaB
-aZh
+knT
 aaJ
 aaJ
 aTV
