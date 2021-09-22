@@ -5,6 +5,7 @@
 	The simplistic design allows for tighter tolerances between the cylinder and barrel, causing less gasses to escape during firing and increasing muzzle velocity."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/saa.dmi'
 	icon_state = "saa"
+	fire_sound = 'zzzz_modular_occulus/sound/weapons/guns/fire/saarevolverfire.ogg'
 	drawChargeMeter = FALSE
 	w_class = ITEM_SIZE_SMALL
 	max_shells = 6
