@@ -230,3 +230,13 @@
 		bio = 0,
 		rad = 0
 	)
+
+/obj/item/clothing/suit/storage/toggle/bomber
+		armor = list(
+		melee = 15,
+		bullet = 10,
+		energy = 15,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
