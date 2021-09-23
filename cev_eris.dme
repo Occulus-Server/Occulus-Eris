@@ -2823,7 +2823,7 @@
 #include "zzzz_modular_occulus\code\datums\datacore.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\biomatter.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\circuits.dm"
-#include "zzzz_modular_occulus\code\datums\autolathe\coins.dm" 
+#include "zzzz_modular_occulus\code\datums\autolathe\coins.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\fabkits.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\guns.dm"
 #include "zzzz_modular_occulus\code\datums\craft\crafting_items.dm"
