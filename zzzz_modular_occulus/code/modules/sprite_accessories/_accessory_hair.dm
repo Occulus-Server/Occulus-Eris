@@ -132,3 +132,25 @@
 	name = "Teshari Fluffy Mohawk"
 	icon = 'zzzz_modular_occulus/icons/mob/jamini-hair.dmi'
 	icon_state = "teshari_fluffymohawk_s"
+	
+///////// Dragonfruits more hair PR
+
+/datum/sprite_accessory/hair/halfshave
+	name = "Half-shaved"
+	icon = 'zzzz_modular_occulus/icons/mob/more_hair.dmi'
+	icon_state = "halfshave"
+	
+/datum/sprite_accessory/hair/halfshave
+	name = "Half-shaved long"
+	icon = 'zzzz_modular_occulus/icons/mob/more_hair.dmi'
+	icon_state = "halfshave_long"
+	
+/datum/sprite_accessory/hair/halfshave
+	name = "Messy half-shaved"
+	icon = 'zzzz_modular_occulus/icons/mob/more_hair.dmi'
+	icon_state = "halfshave_messy"
+	
+/datum/sprite_accessory/hair/halfshave
+	name = "Messy half-shaved long"
+	icon = 'zzzz_modular_occulus/icons/mob/more_hair.dmi'
+	icon_state = "halfshave_messylong"
