@@ -140,17 +140,17 @@
 	icon = 'zzzz_modular_occulus/icons/mob/more_hair.dmi'
 	icon_state = "halfshave"
 	
-/datum/sprite_accessory/hair/halfshave
+/datum/sprite_accessory/hair/halfshave_long
 	name = "Half-shaved long"
 	icon = 'zzzz_modular_occulus/icons/mob/more_hair.dmi'
 	icon_state = "halfshave_long"
 	
-/datum/sprite_accessory/hair/halfshave
+/datum/sprite_accessory/hair/halfshave_messy
 	name = "Messy half-shaved"
 	icon = 'zzzz_modular_occulus/icons/mob/more_hair.dmi'
 	icon_state = "halfshave_messy"
 	
-/datum/sprite_accessory/hair/halfshave
+/datum/sprite_accessory/hair/halfshave_messylong
 	name = "Messy half-shaved long"
 	icon = 'zzzz_modular_occulus/icons/mob/more_hair.dmi'
 	icon_state = "halfshave_messylong"
