@@ -72,6 +72,12 @@
 			/obj/item/ammo_magazine/ammobox/pistol,
 			/obj/item/ammo_magazine/ammobox/pistol/rubber
 		),
+		"DeepFlare Arms" = list(
+			/obj/item/weapon/gun/energy/resolute = custom_good_amount_range(list(-1, 3)),
+			/obj/item/weapon/gun/energy/stalwart = custom_good_amount_range(list(-1, 2)),
+			/obj/item/weapon/gun/energy/gun/gemini,
+			/obj/item/weapon/gun/energy/gun/glasgow,
+		),
 		"Miscellanous" = list(
 			/obj/item/device/camera,
 			/obj/item/device/camera_film,

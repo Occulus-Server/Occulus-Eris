@@ -175,7 +175,7 @@
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/suit/space/void/dss
-	name = "deepflare voidsuit"
+	name = "deepflare assault voidsuit"
 	desc = "A bulky suit that protects against hazardous, low pressure environments. Sacrifices mobility for protection."
 	icon = 'zzzz_modular_occulus/icons/inventory/suit/icon.dmi'
 	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/mob.dmi'
