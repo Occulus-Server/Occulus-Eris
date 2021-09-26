@@ -25,7 +25,7 @@
 
 /obj/item/weapon/gun/energy/stalwart
 	name = "DSS ESG \"Stalwart\""
-	desc = "\"DeepFlare Security System\" tri-barrel energy scattergun. The stalwart comes with a built in bayonet and fires short tripple bursts of energized particles. "
+	desc = "\"DeepFlare Security System\" tri-barrel energy scattergun. The stalwart comes with a built in bayonet and fires short triple bursts of energized particles. "
 	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/stalwart.dmi'
 	item_state = "vulpshotty"
 	icon_state = "vulpshotty"

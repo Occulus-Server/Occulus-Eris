@@ -17,6 +17,7 @@
 /datum/design/autolathe/gun/glasgow
 	name = "DSS Glasgow"
 	/obj/item/weapon/gun/energy/gun/glasgow
+
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss
 	disk_name = "Deepflare Security - blank"
 	icon = 'zzzz_modular_occulus/icons/obj/discs.dmi'
