@@ -13,7 +13,7 @@
 	slot_flags = SLOT_BELT
 	recoil_buildup = 5
 	charge_cost = 40
-	damage_multiplier = .9
+	damage_multiplier = 0.9
 	price_tag = 2500
 	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 8, MATERIAL_SILVER = 7, MATERIAL_GOLD = 4)
 	fire_sound = 'sound/weapons/Laser.ogg'

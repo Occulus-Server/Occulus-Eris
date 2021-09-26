@@ -60,7 +60,7 @@
 	rarity_value = 20
 	license = 9
 	designs = list(
-		/datum/design/autolathe/gun/glasgow = 3	// "DSS PDW E \"Glasgow\""
+		/datum/design/autolathe/gun/glasgow = 3,	// "DSS PDW E \"Glasgow\""
 		/datum/design/autolathe/cell/small,
 		/datum/design/autolathe/cell/small/high = 2,
 		)
