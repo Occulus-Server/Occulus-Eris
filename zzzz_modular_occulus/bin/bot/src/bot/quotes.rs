@@ -7,17 +7,17 @@ use serenity::{
     model::{channel::Message, id::UserId},
     prelude::TypeMapKey,
 };
-use std::sync::Arc;
 use std::fmt;
+use std::sync::Arc;
 
 pub struct QuoteDatabase {
     db: Pool<SqliteConnectionManager>,
 }
 
 pub struct QuoteResult {
-    quote_id: usize,
-    user_id: u64,
-    quote: String,
+    pub quote_id: usize,
+    pub user_id: u64,
+    pub quote: String,
 }
 
 impl fmt::Debug for QuoteResult {
@@ -59,7 +59,8 @@ impl QuoteDatabase {
         let db = Connection::open("quotes.db")?;
 
         db.execute("CREATE TABLE users (user_id INTEGER PRIMARY KEY)", [])?;
-        db.execute("
+        db.execute(
+            "
             CREATE TABLE quotes (
                 quote_id INTEGER PRIMARY KEY,
                 user_id INTEGER NOT NULL,
@@ -68,7 +69,9 @@ impl QuoteDatabase {
                     REFERENCES users (user_id)
                     ON UPDATE RESTRICT
                     ON DELETE CASCADE
-            )", [])?;
+            )",
+            [],
+        )?;
 
         Ok(())
     }
@@ -124,6 +127,17 @@ impl QuoteDatabase {
         )
     }
 
+    pub fn get_quotes_by_user_fragment(
+        &self,
+        user_id: u64,
+        fragment: String,
+    ) -> Result<Vec<QuoteResult>, Error> {
+        self.get_quote_vec(
+            "SELECT quote_id, user_id, quote FROM quotes WHERE user_id = :id AND like(:fragment, quote)",
+            &[(":fragment", &format!("%{}%", fragment)), (":id", &user_id.to_string())],
+        )
+    }
+
     pub fn get_quotes_by_user(&self, user_id: u64) -> Result<Vec<QuoteResult>, Error> {
         self.get_quote_vec(
             "SELECT quote_id, user_id, quote FROM quotes WHERE user_id = :id",
@@ -148,5 +162,4 @@ impl QuoteDatabase {
 
         Ok(())
     }
-
 }
