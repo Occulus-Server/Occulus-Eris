@@ -95,31 +95,7 @@
 /obj/item/stack/tile/carpet/oracarpet
 	name = "orange carpet"
 	icon_state = "tile_oracarpet"
-//occulus additions start for carpet crate packs
-/obj/item/stack/tile/carpet/cpack
-	amount = 30
 
-/obj/item/stack/tile/carpet/bcarpet/cpack
-	amount = 30
-
-/obj/item/stack/tile/carpet/blucarpet/cpack
-	amount = 30
-
-/obj/item/stack/tile/carpet/turcarpet/cpack
-	amount = 30
-
-/obj/item/stack/tile/carpet/sblucarpet/cpack
-	amount = 30
-
-/obj/item/stack/tile/carpet/gaycarpet/cpack
-	amount = 30
-
-/obj/item/stack/tile/carpet/purcarpet/cpack
-	amount = 30
-
-/obj/item/stack/tile/carpet/oracarpet/cpack
-	amount = 30
-//Occulus addition end
 /*
  * Flooring parent
  */

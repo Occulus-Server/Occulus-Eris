@@ -203,12 +203,29 @@
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
-	desc = "For prime comfort during psychiatric evaluations."
+	desc = "For prime comfort during psychiatric evaluations. You seem relaxed at the sight of it."
 	icon_state = "psychbed"
 	base_icon = "psychbed"
+	var/sanity_value = 5	// 5x the strength of an oddity! Wow! (may need balancing)
+
+
+
+
+
+/obj/structure/bed/psych/Initialize()
+	. = ..()
 
 /obj/structure/bed/psych/New(var/newloc)
+	START_PROCESSING(SSobj, src)
 	..(newloc, MATERIAL_WOOD, MATERIAL_LEATHER)
+
+/obj/structure/bed/psych/Process()
+	for(var/mob/living/carbon/human/H in oviewers(1, src))
+		if(H.sanity && H.sanity.level < H.sanity.max_level)
+			H.sanity.level += 5
+
+/obj/structure/bed/psych/Destroy()
+	STOP_PROCESSING(SSobj, src)
 
 /obj/structure/bed/padded/New(var/newloc)
 	..(newloc, MATERIAL_PLASTIC, "cotton")

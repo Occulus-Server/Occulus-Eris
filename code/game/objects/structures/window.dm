@@ -666,7 +666,7 @@
 
 /obj/machinery/button/windowtint
 	name = "window tint control"
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/machines/buttons.dmi'	//- Occulus edit- Someone linked the wrong dmi file, Hah. Should function now properly
 	icon_state = "light0"
 	desc = "A remote control switch for polarized windows."
 	var/range = 7
@@ -684,7 +684,7 @@
 	update_icon()
 
 	for(var/obj/structure/window/reinforced/polarized/W in range(src,range))
-		if (W.id == src.id || !W.id)
+		if (W.id == src.id) //|| !W.id) occulus edit- WHY WAS THIS A THING? IT LITTERALLY TOGGLED ALL WINDOWS INSTEAD OF ID'D ONES!
 			spawn(0)
 				W.toggle()
 				return

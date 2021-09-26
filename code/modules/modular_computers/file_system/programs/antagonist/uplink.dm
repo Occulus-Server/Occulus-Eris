@@ -1,6 +1,6 @@
 /datum/computer_file/program/uplink
 	filename = "taxquickly"
-	filedesc = "TaxQuickly 2559"
+	filedesc = "TaxQuickly 2419" //Occulus Edit, changed the years to reflect lore - all years on this file.
 	program_icon_state = "uplink"
 	extended_desc = "An online tax filing software. It is a few years out of date."
 	size = 0 // it is cloud based
@@ -11,7 +11,7 @@
 	var/authenticated = FALSE
 
 /datum/nano_module/program/uplink
-	name = "TaxQuickly 2559"
+	name = "TaxQuickly 2419"
 	var/error = FALSE
 	var/stored_login = ""
 
@@ -54,7 +54,7 @@
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "taxquickly.tmpl", "TaxQuickly 2559", 450, 600, state = state)
+		ui = new(user, src, ui_key, "taxquickly.tmpl", "TaxQuickly 2419", 450, 600, state = state)
 		if(host.update_layout())
 			ui.auto_update_layout = TRUE
 		ui.set_initial_data(data)

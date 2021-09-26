@@ -6,7 +6,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	department = DEPARTMENT_COMMAND
 	head_position = 1
 	department_flag = COMMAND
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "your heart, wisdom and NanoTrasen"
@@ -24,7 +24,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	outfit_type = /decl/hierarchy/outfit/job/captain
 
 	description = "You are a NanoTrasen captain. <br>\
-The assigned supervisor of the vast rusting hulk that is the NEV Northern Light. At least, as long as you keep sending the expedition reports.<br>\
+The assigned supervisor of the vast rusting hulk that is the CEV Northern Light. At least, as long as you keep sending the expedition reports.<br>\
 This ship is a pinnacle of your career, crewed by an alliance of corporations and factions that NanoTrasen has brokered uneasy treaties with.<br>\
 
 You are the supreme leader of this world, and your word is law. But only as long as you can enforce that law.<br>\
@@ -76,7 +76,7 @@ Your third loyalty is to your command officers. The heads of each faction. Liste
 	department = DEPARTMENT_COMMAND
 	head_position = 1
 	department_flag = COMMAND
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"

@@ -4,7 +4,7 @@
 	head_position = 1
 	department = DEPARTMENT_SCIENCE
 	department_flag = SCIENCE | COMMAND
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "The Captain and NanoTrasen"
@@ -12,7 +12,7 @@
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
 	outfit_type = /decl/hierarchy/outfit/job/science/rd
-	
+
 	wl_config_heads = TRUE		//Eclipse edit.
 
 	access = list(
@@ -62,7 +62,7 @@ As a scientist, your first loyalty is to knowledge and Discovery, the ultimate g
 	flag = SCIENTIST
 	department = DEPARTMENT_SCIENCE
 	department_flag = SCIENCE
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "the Chief Science Officer"
@@ -96,7 +96,7 @@ There are a few specialist branches within the research wing that you may delve 
 	Xenoarchaeology: A facility for analysing artefacts and finds brought back from expeditions.<br>\
 	<br>\
 	The Vasily Dokuchaev is the Expedition shuttle, and is intended for going on adventures down to strange sites, and recovering items of value."
-	
+
 	duties = "Create unusual things and experiment with them<br>\
 Explore, learn and adventure, do anything to advance the cause of knowledge"
 	perks = list(/datum/perk/selfmedicated)
@@ -116,7 +116,7 @@ Explore, learn and adventure, do anything to advance the cause of knowledge"
 	flag = ROBOTICIST
 	department = DEPARTMENT_SCIENCE
 	department_flag = SCIENCE
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Chief Science Officer"
@@ -149,11 +149,11 @@ In addition, your department contains the manufacturing facilities for prostheti
 <br>\
 Lastly, though they're not commonly used, you have the facilities to construct massive and powerful mechanised vehicles. These have powerful capabilities in mining and rescue, as well as obvious military applications"
 
-	duties = "	Repair, maintain and upgrade robots aboard the NEV Northern Light<br>\
+	duties = "	Repair, maintain and upgrade robots aboard the CEV Northern Light<br>\
 	Maintain and implant new bionics in crewmembers<br>\
 	Advertise bionics for sale and run a commercial cybernetic clinic<br>\
 	Construct large mechas for specialised use in departments"
-	
+
 
 
 /obj/landmark/join/start/roboticist

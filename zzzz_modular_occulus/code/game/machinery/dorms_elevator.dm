@@ -110,7 +110,7 @@
 
 	var/cooldown = 24 SECONDS
 	var/cooldown_timer
-	var/elevator_moving = FALSE
+	var/elevator_moving = FALSE // This is the variable that checks against the world timer and is TRUE only while the elevator is in transit.
 	var/list/preserve_items = list(
 		/obj/item/weapon/hand_tele,
 		/obj/item/weapon/card/id/captains_spare,
@@ -144,60 +144,140 @@
 	update_icon()
 	..()
 
-/obj/machinery/button/remote/elevator_panel/trigger()
-	var/elevator_prompt
+/obj/machinery/button/remote/elevator_panel/proc/going_down()
 	var/turf/T = get_turf(src)
 
+	for(var/obj/machinery/door/airlock/D in range(src, 5)) //Check all airlocks (D) in 5 tile range of the button
+		if (D.id_tag == id) //Find the ones with the same IDtag as the button
+			D.close()
+			sleep(15)
+			if (!D.command_completed("close")) //Check that the door closed succesfully. If it didn't, the door is malfunctioning.
+				T.audible_message("<font color = #F63812><B>Elevator Coms</B> states, \"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or check for obstructions.\"</font>")
+				playsound(src, 'sound/machines/buzz-two.ogg', 50, 0)
+				return
+			else //If it did close successfully, we move on to the next part of the process.
+				D.lock()
+				sleep(5)
+				if (!D.command_completed("close") && !D.command_completed("lock")) //Check that the door closed succesfully again and has locked this time to mitigate people pressing the button while standing on the airlock. If it didn't, the door is malfunctioning.
+					T.audible_message("<font color = #F63812><B>Elevator Coms</B> states, \"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or check for obstructions.\"</font>")
+					D.unlock()
+					playsound(src, 'sound/machines/buzz-two.ogg', 50, 0)
+					return
+				else//If it did close and lock sucesfully, we are ready to go down to the pool!
+					cooldown_timer = world.time //Now that we've confirmed we can start the elevator, the button cooldown will begin.
+					elevator_moving = TRUE //The elevator is now in use. Until this is set back to False, the elevator call button will not work.
+					panel_state = "elevator_panel_floor6"
+					update_icon()
+	sleep(15)	//Wait 1.5 seconds before proceeding
+	playsound(src, 'zzzz_modular_occulus/sound/effects/elevator_going_up.ogg', 70, 0)
+	sleep(10)
+	visible_message("<span class='notice'>The elevator hums and creaks as it makes its way to deck 1.</span>")
+	sleep(27)
+	panel_state = "elevator_panel_floor5"
+	update_icon()
+	sleep(33) //Sleep times vary here in order to slightly simulate the elevator speeding up and slowing down as it departs and arrives.
+	panel_state = "elevator_panel_floor4"
+	update_icon()
+	sleep(32)
+	panel_state = "elevator_panel_floor3"
+	update_icon()
+	sleep(32)
+	panel_state = "elevator_panel_floor2"
+	update_icon()
+	sleep(33)
+	panel_state = "elevator_panel_floor1"
+	update_icon()
+	sleep(35)
+	T.audible_message("<font color = #00BA6E><B>Elevator Coms</B> states, \"Deck one, pool.\"</font>")
+	for(var/obj/machinery/door/airlock/D in range(src, 5)) // On arrival, unlock the airlock and open it as an elevator would once it arrives to a floor.
+		if (D.id_tag == id)
+			D.unlock()
+			sleep(15)
+			update_icon()
+			D.open()
+	sleep(50) // Give people enough time to leave the elevator before it can be called.
+	panel_state = "elevator_panel_idle"
+	elevator_moving = FALSE //The elevator is no longer in use. Calling it will now work.
+
+/obj/machinery/button/remote/elevator_panel/proc/going_up()
+	var/turf/T = get_turf(src)
+
+	for(var/obj/machinery/door/airlock/D in range(src, 5)) //Check all airlocks (D) in 5 tile range of the button
+		if (D.id_tag == id) //Find the ones with the same IDtag as the button
+			D.close()
+			sleep(15)
+			if (!D.command_completed("close")) //Check that the door closed succesfully. If it didn't, the door is malfunctioning.
+				T.audible_message("<font color = #F63812><B>Elevator Coms</B> states, \"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or check for obstructions.\"</font>")
+				playsound(src, 'sound/machines/buzz-two.ogg', 50, 0)
+				return
+			else //If it did close successfully, we move on to the next part of the process.
+				D.lock()
+				sleep(5)
+				if (!D.command_completed("close") && !D.command_completed("lock")) //Check that the door closed succesfully again and has locked this time to mitigate people pressing the button while standing on the airlock. If it didn't, the door is malfunctioning.
+					T.audible_message("<font color = #F63812><B>Elevator Coms</B> states, \"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or check for obstructions.\"</font>")
+					D.unlock()
+					playsound(src, 'sound/machines/buzz-two.ogg', 50, 0)
+					return
+				else//If it did close and lock sucesfully, we are ready to go up to the dorms!
+					cooldown_timer = world.time //Now that we've confirmed we can start the elevator, the button cooldown will begin.
+					elevator_moving = TRUE //The elevator is now in use. Until this is set back to False, the elevator call button will not work.
+					panel_state = "elevator_panel_floor1"
+					update_icon()
+	sleep(15)	//Wait 1.5 seconds before proceeding
+	playsound(src, 'zzzz_modular_occulus/sound/effects/elevator_going_up.ogg', 70, 0)
+	sleep(10)
+	visible_message("<span class='notice'>The elevator hums and creaks as it makes its way to the dormitory floor.</span>")
+	sleep(27)
+	panel_state = "elevator_panel_floor2"
+	update_icon()
+	sleep(33) //Sleep times vary here in order to slightly simulate the elevator speeding up and slowing down as it departs and arrives.
+	panel_state = "elevator_panel_floor3"
+	update_icon()
+	sleep(32)
+	panel_state = "elevator_panel_floor4"
+	update_icon()
+	sleep(32)
+	panel_state = "elevator_panel_floor5"
+	update_icon()
+	sleep(33)
+	panel_state = "elevator_panel_floor6"
+	update_icon()
+	sleep(25)
+	T.audible_message("<font color = #00BA6E><B>Elevator Coms</B> states, \"Deck six, dorms.\"</font>")
+	sleep(10)
+	for (var/mob/living/mobsgoingup in get_area(src))
+		despawn_passenger(mobsgoingup)
+	sleep(22)
+	panel_state = "elevator_panel_idle"
+	elevator_moving = FALSE //The elevator is no longer in use. Calling it will now work.
+
+/obj/machinery/button/remote/elevator_panel/trigger()
+	var/elevator_prompt_floor
+	var/elevator_prompt_warning
+
 	if(world.time - cooldown_timer > cooldown) //Cooldown timer so the button can't be spammed.
-		elevator_prompt = alert(usr, "Using the elevator will end your shift and remove you from the round.\nAre you sure you want to head to your dorm for the day?\n(Everyone inside the elevator with you will end their shift and be removed as well!)", "End your shift and head to your dorm?", "Stay on shift", "End shift")
-		if(elevator_prompt == "End shift" && Adjacent(usr)) //If the prompt is accepted and the player is adjacent to the elevator button.
-			for(var/obj/machinery/door/airlock/D in range(src, 5)) //Check all airlocks (D) in 5 tile range of the button
-				if (D.id_tag == id) //Find the ones with the same IDtag as the button
-					D.close()
-					sleep(15)
-					if (!D.command_completed("close")) //Check that the door closed succesfully. If it didn't, the door is malfunctioning.
-						T.audible_message("<B>Elevator Coms</B> states, <font color = #F63812>\"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or try again.\"</font>")
-						playsound(src, 'sound/machines/buzz-two.ogg', 50, 0)
-						return
-					else //If it did close successfully, we move on to the next part of the process.
-						D.lock()
-						sleep(5)
-						if (!D.command_completed("close") && !D.command_completed("lock")) //Check that the door closed succesfully again and has locked this time to mitigate people pressing the button while standing on the airlock. If it didn't, the door is malfunctioning.
-							T.audible_message("<B>Elevator Coms</B> states, <font color = #F63812>\"Error. The elevator airlock appears to be out of service. Please contact your local engineering department or try again.\"</font>")
-							D.unlock()
-							playsound(src, 'sound/machines/buzz-two.ogg', 50, 0)
-							return
-						else//If it did close and lock sucesfully, we are ready to go up to the dorms!
-							cooldown_timer = world.time //Now that we've confirmed we can start the elevator, the button cooldown will begin.
-							elevator_moving = TRUE //The elevator is now in use. Until this is set back to False, the elevator call button will not work.
-							panel_state = "elevator_panel_floor1"
-							update_icon()
-			sleep(15)	//Wait 1.5 seconds before proceeding
-			playsound(src, 'zzzz_modular_occulus/sound/effects/elevator_going_up.ogg', 70, 0)
-			sleep(10)
-			visible_message("<span class='notice'>The elevator hums and creaks as it makes its way to the dormitory floor.</span>")
-			sleep(27)
-			panel_state = "elevator_panel_floor2"
-			update_icon()
-			sleep(33) //Sleep times vary here in order to slightly simulate the elevator speeding up and slowing down as it departs and arrives.
-			panel_state = "elevator_panel_floor3"
-			update_icon()
-			sleep(32)
-			panel_state = "elevator_panel_floor4"
-			update_icon()
-			sleep(32)
-			panel_state = "elevator_panel_floor5"
-			update_icon()
-			sleep(33)
-			panel_state = "elevator_panel_floor6"
-			update_icon()
-			sleep(35)
-			for (var/mob/living/mobsgoingup in get_area(src))
-				despawn_passenger(mobsgoingup)
-			sleep(22)
-			panel_state = "elevator_panel_idle"
-			elevator_moving = FALSE //The elevator is no longer in use. Calling it will now work.
+
+		elevator_prompt_floor = alert(usr, "Please select the deck you would like to go to.", "Elevator Panel", "Deck 1 - Pool", "Deck 6 - Dorms")
+		if (elevator_prompt_floor == "Deck 1 - Pool" && Adjacent(usr))
+			for(var/obj/machinery/door/airlock/D in range(src, 5))
+				if (D.id_tag == id && !D.locked)
+					D.open()
+					return
+				else
+					going_down()
+					return
 		else
+			elevator_prompt_warning = alert(usr, "Using the elevator will end your shift and remove you from the round.\nAre you sure you want to head to your dorm for the day?\n(Everyone inside the elevator with you will end their shift and be removed as well!)", "End your shift and head to your dorm?", "Stay on shift", "End shift")
+			if(elevator_prompt_warning == "End shift" && Adjacent(usr)) //If the prompt is accepted and the player is adjacent to the elevator button.
+				for(var/obj/machinery/door/airlock/D in range(src, 5))
+					if (D.id_tag == id && D.locked && D.command_completed("close"))
+						for (var/mob/living/mobsgoingup in get_area(src))
+							despawn_passenger(mobsgoingup)
+							return
+					else
+						going_up()
+						return
+			else
 	else
 		to_chat(usr, SPAN_DANGER("The elevator is currently in use. Please wait before you can use it again."))
 
