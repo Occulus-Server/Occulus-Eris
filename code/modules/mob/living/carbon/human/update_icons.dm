@@ -394,6 +394,15 @@ var/global/list/damage_icon_parts = list()
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]")
 			if(hair_style.do_colouration)
 				hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.blend)
+				// OCCULUS EDIT START - Hair Color Gradients
+				for(var/M in head_organ.markings)
+					var/datum/sprite_accessory/marking/mark_style = head_organ.markings[M]["datum"]
+					if(mark_style.draw_target == 1)
+						var/icon/mark_s = new/icon(mark_style.icon, mark_style.icon_state)
+						mark_s.Blend(hair_s, ICON_AND)
+						mark_s.Blend(head_organ.markings[M]["color"], mark_style.color_blend_mode)
+						hair_s.Blend(mark_s, ICON_OVERLAY)
+				// OCCULUS EDIT END - Hair Color Gradients
 
 			face_standing.Blend(hair_s, ICON_OVERLAY)
 

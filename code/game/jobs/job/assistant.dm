@@ -3,7 +3,7 @@
 	flag = ASSISTANT
 	department = DEPARTMENT_CIVILIAN
 	department_flag = CIVILIAN
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "anyone who pays you"
@@ -23,7 +23,7 @@
 		STAT_COG = 8
 	)
 
-	description = "You are a drifter, journeying through the vast expanses of space upon the NEV Northern Light. You will not be paid a wage.<br>\
+	description = "You are a drifter, journeying through the vast expanses of space upon the CEV Northern Light. You will not be paid a wage.<br>\
 Though this does not mean you have no home, as the Northern Light is your home. Whatever planet you may have came from a now distant memory.<br>\
 You remember boarding the Northern Light sometime in your past, when it had a different purpose and a different captain.<br>\
 Over time you've become accustomed to the dangers of this ship.<br>\
