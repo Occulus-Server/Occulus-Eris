@@ -766,9 +766,11 @@
 			else
 				to_chat(user, SPAN_NOTICE("You weren't able to pull the coin out fast enough, the machine ate it, string and all."))
 				qdel(coin)
+				coin = null    //Occulus Addition, fixing coin cost
 				categories &= ~CAT_COIN
 		else
 			qdel(coin)
+			coin = null    //Occulus Addition, fixing coin cost
 			categories &= ~CAT_COIN
 
 	if(((last_reply + (vend_delay + 200)) <= world.time) && vend_reply)

@@ -2,9 +2,10 @@
 
 /obj/item/device/rodar //haha robot radar
 	name = "\improper Mk.XIV Synthetic Entity Detector"
-	desc = "This handy device emits a peculiar signal that pings various robots around the ship and forcibly reboots them, causing them to flock to certain areas that it can pinpoint. Announces pinpointed locations over engineering comms."
+	desc = "This handy device emits a peculiar signal that pings various robots around the ship and forcibly reboots them, causing them to flock to certain areas that it can pinpoint.\
+	Announces pinpointed locations over engineering comms."
 	icon = 'zzzz_modular_occulus/icons/obj/device.dmi'
-	icon_state = "dronelocator-ready"
+	icon_state = "dronelocatorv2"
 	w_class = ITEM_SIZE_TINY
 	price_tag = 20000 // One of a kind relic-tier price and tech levels
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5, TECH_MAGNET = 5)
@@ -26,22 +27,27 @@
 	if(world.time >= (last_search + cooldown))
 		to_chat(user, SPAN_NOTICE("\The [src] starts searching the ship for unusual robotic signatures..."))
 		last_search = world.time
-		var/list/areanames = list()
-		var/num_areas = rand(3, 6)
-		var/num_spawns_per_area = rand(1, 2)
-		var/list/turf/targets = list()
-		for (var/i = 0; i < num_areas;i++)
-			var/area/A = random_maintenance_area(TRUE)
-			var/turf/T = A.random_space()
-			targets.Add(T)
-		for (var/turf/heck in targets)
-			var/area/aaa = get_area(heck)
-			areanames += strip_improper(aaa.name)
-			log_and_message_admins("EES SED sending hostile robots to [jumplink(heck)]")
-			for(var/i = 1, i <= num_spawns_per_area,i++)
-				new /obj/spawner/mob/cluster/roombattler(heck)
+		var/list/areanames = list() // list for storing the NAMES of the areas of spawnpoints
+		var/num_areas = rand(3, 6) // how many areas should have spawn points?
+		var/num_spawns_per_area = rand(1, 2) // how many spawnpoints should each area have?
+		var/list/turf/targets = list() // list for storing the actual spawnpoints, the turfs they are in.
+		var/list/coordinateslist = list() // list for storing the coordinate datums of the spawnpoints
+		var/list/papertextoutput = list() // list for storing the human readable output of the coordinate datums
+		for (var/i = 0; i < num_areas;i++) // while we still have num_areas to go through...
+			var/area/A = random_maintenance_area(TRUE) // find a random area in maint
+			var/turf/T = A.random_space() // find a random turf inside that random area that we just found
+			targets.Add(T) // add that turf into our targets list
+		for (var/turf/heck in targets) // for everything in our targets list...
+			var/area/aaa = get_area(heck) // get the area of that turf
+			areanames += strip_improper(aaa.name) // then get the name of the area of that turf
+			coordinateslist.Add(new /datum/coords(heck)) // generate coordinate datums for the turf and add them to our coordinates list
+			log_and_message_admins("EES SED sending hostile robots to [jumplink(heck)]") // admin log
+			for(var/i = 1, i <= num_spawns_per_area,i++) // while we still have spawns to go through for this area...
+				new /obj/spawner/mob/cluster/roombattler(heck) // spawn new spawners in the turf we chose
 		radio.autosay("Synthetic entities detected at [english_list(areanames)]." , "Mk.XIV Synthetic Entity Detector", "Engineering")
-		new /obj/item/weapon/paper(user.loc, areanames.Join("\n"), "SED Location Report")
+		for (var/datum/coords/skree in coordinateslist) // while we still have stuff in our coordinates list...
+			papertextoutput.Add(skree.get_text()) // convert the coordinates to a human readable format and add them to this handy dandy list
+		new /obj/item/weapon/paper(user.loc, papertextoutput.Join("\n"), "SED Location Report") // finally, convert the list of human readable coordinates into a human readable form!
 	else
 		to_chat(user, SPAN_WARNING("The [src] needs time to recharge!"))
 
@@ -68,3 +74,8 @@
 		possible += A
 
 	return pick(possible)
+
+/obj/item/weapon/paper/eessed
+	name = "paper - 'EES Memorandum 1R-1574'"
+	info = {"As per Memorandum 5A-8994, the robotic entities that have been procured by management are to be recovered or otherwise liquidated effective immediately.
+	The usage of the Mk.XIV device will be instrumental in carrying out this task. The wherewithal to support any and all relevant staff that can assist in this endeavour may be freely dispensed."}
