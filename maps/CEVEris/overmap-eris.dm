@@ -1,5 +1,5 @@
 /obj/effect/overmap/ship/eris
-	name = "NEV Northern Light"
+	name = "CEV Northern Light"
 	fore_dir = NORTH
 	vessel_mass = 300
 	default_delay = 20 SECONDS
@@ -48,7 +48,7 @@
 
 /obj/effect/overmap/ship/eris/Initialize()
 	.=..()
-	if(name == "NEV Northern Light")	//Syzygy edit - to make this work with our ship name
+	if(name == "CEV Northern Light")	//Syzygy edit - to make this work with our ship name
 		ships[eris] = src
 
 /obj/effect/overmap/ship/eris/Process()

@@ -47,7 +47,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	var/list/forced_ambience
 	var/sound_env = STANDARD_STATION
 	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
-	var/vessel = "NEV Northern Light" //The ship or station this area is on. This is so far just for the benefit of shield generators
+	var/vessel = "CEV Northern Light" //The ship or station this area is on. This is so far just for the benefit of shield generators
 	var/holomap_color // Color of this area on station holomap
 
 	//Consoles can only control shields on the same vessel as them

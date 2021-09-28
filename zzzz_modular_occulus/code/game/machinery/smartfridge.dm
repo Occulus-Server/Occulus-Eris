@@ -49,3 +49,19 @@
 		if(O.use_tool(user, src, WORKTIME_FAST, QUALITY_BOLT_TURNING))
 			to_chat(user, SPAN_NOTICE("You [anchored ? "secure" : "unsecure"] the [src]."))
 			anchored = !anchored
+
+/obj/machinery/smartfridge/chemistry/mini
+	name = "\improper Short-Term Chemical Storage"
+	desc = "A mini-refrigerated storage unit for chemical storage."
+	icon = 'zzzz_modular_occulus/icons/obj/vending.dmi'
+	icon_state = "minifridge"
+	use_power = IDLE_POWER_USE
+	idle_power_usage = 2
+	active_power_usage = 50
+	reagent_flags = NO_REACT
+	icon_on = "minifridge-on"
+	icon_off = "minifridge-off"
+	icon_panel = "minifridge-panel"
+	icon_fill10 = "minifridge-fill"
+	icon_fill20 = "minifridge-fill"
+	icon_fill30 = "minifridge-fill"

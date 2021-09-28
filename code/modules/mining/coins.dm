@@ -20,30 +20,44 @@
 /obj/item/weapon/coin/gold
 	name = COIN_GOLD
 	icon_state = "coin_gold"
+	matter = list(MATERIAL_GOLD = 1)	//occulus edit: adding matter value to coins
+	price_tag = 75	//occulus edit: adding pricetag and export to coins based on 1.5 the mat value
 
 /obj/item/weapon/coin/silver
 	name = COIN_SILVER
 	icon_state = "coin_silver"
+	matter = list(MATERIAL_SILVER = 1)	//occulus edit: adding matter value to coins
+	price_tag = 60	//occulus edit: adding pricetag and export to coins
 
 /obj/item/weapon/coin/diamond
 	name = COIN_DIAMOND
 	icon_state = "coin_diamond"
+	matter = list(MATERIAL_DIAMOND = 1)	//occulus edit: adding matter value to coins
+	price_tag = 150	//occulus edit: adding pricetag and export to coins
 
 /obj/item/weapon/coin/iron
 	name = COIN_IRON
 	icon_state = "coin_iron"
+	matter = list(MATERIAL_IRON = 1)	//occulus edit: adding matter value to coins
+	price_tag = 10	//occulus edit: adding pricetag and export to coins, special exception to value
 
 /obj/item/weapon/coin/phoron
 	name = COIN_PHORON
 	icon_state = "coin_phoron"
+	matter = list(MATERIAL_PHORON = 1)	//occulus edit: adding matter value to coins
+	price_tag = 45	//occulus edit: adding pricetag and export to coins
 
 /obj/item/weapon/coin/uranium
 	name = COIN_URANIUM
 	icon_state = "coin_uranium"
+	matter = list(MATERIAL_URANIUM = 1)	//occulus edit: adding matter value to coins
+	price_tag = 75	//occulus edit: adding pricetag and export to coins
 
 /obj/item/weapon/coin/platinum
 	name = COIN_PLATINUM
 	icon_state = "coin_adamantine"
+	matter = list(MATERIAL_PLATINUM = 1)	//occulus edit: adding matter value to coins
+	price_tag = 120	//occulus edit: adding pricetag and export to coins
 
 /obj/item/weapon/coin/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack/cable_coil))

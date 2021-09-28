@@ -31,12 +31,12 @@
 	icon_state = "officercap"
 	spawn_blacklisted = TRUE
 
-//HOP
+/*//HOP Occulus Edit: Removal
 /obj/item/clothing/head/caphat/hop
 	name = "crew resource's hat"
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
 	icon_state = "hopcap"
-	spawn_blacklisted = TRUE
+	spawn_blacklisted = TRUE*/
 
 //Chaplain
 /obj/item/clothing/head/chaplain_hood

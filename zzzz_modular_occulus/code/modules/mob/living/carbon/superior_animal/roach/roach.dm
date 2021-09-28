@@ -1,3 +1,5 @@
+var/roach_counter = 0
+
 /mob/living/carbon/superior_animal/roach/roachling
 
 	melee_damage_lower = 1
@@ -16,6 +18,7 @@
 	//Damage same as Kampfers
 	min_size = 0.75
 	max_size = 1.25
+	agony_coefficient = 1.2 //squishy-ish sacs, easy to pop I guess
 
 /mob/living/carbon/superior_animal/roach/hunter		// Jager
 
@@ -24,6 +27,23 @@
 
 	min_size = 0.95
 	max_size = 1.2
+
+/mob/living/carbon/superior_animal/roach/fuhrer
+	density = TRUE
+	min_size = 1
+	max_size = 1.3
+
+/mob/living/carbon/superior_animal/roach/kaiser
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/kaiser
+	// Kaisers are untouched. They're scary enough
+
+	min_size = 1
+	max_size = 1
+
+/mob/living/carbon/superior_animal/roach/support	// Seuche
+
+	min_size = 0.75
+	max_size = 1
 
 /mob/living/carbon/superior_animal/roach/nanite		// Kraftwerk
 
@@ -37,6 +57,7 @@
 	melee_damage_upper = 10//Tanks, take them out at range
 	min_size = 1
 	max_size = 1.5 // chunky boy
+	agony_coefficient = 0.8 //tonks, rubbers have trouble penetrating
 
 /mob/living/carbon/superior_animal/roach/toxic		// Gestrahlte
 
@@ -45,6 +66,7 @@
 	melee_damage_upper = 10 //Weaker than hunter
 	min_size = 1
 	max_size = 1.4
+	agony_coefficient = 1.2 //squishy sacs, easy to pop
 
 /mob/living/carbon/superior_animal/roach/fuhrer
 	density = TRUE
@@ -52,6 +74,7 @@
 	melee_damage_upper = 30 //Fuhrer damage is in a good spot
 	min_size = 1
 	max_size = 1.3
+	agony_coefficient = 0.8 //gives them a bit more dignity, needing an extra rubber or so to kill
 
 /mob/living/carbon/superior_animal/roach/kaiser
 

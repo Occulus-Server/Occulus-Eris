@@ -22,35 +22,13 @@
 	new /obj/spawner/cloth/holster(src)
 	new /obj/item/clothing/suit/storage/captains_coat(src)
 
-/obj/structure/closet/secure_closet/personal/miner/populate_contents()
-	new /obj/item/weapon/storage/backpack/industrial(src)
-	new /obj/item/weapon/storage/backpack/satchel/industrial(src)
-	new /obj/item/device/radio/headset/headset_cargo(src)
-	new /obj/item/clothing/under/rank/miner(src)
-	new /obj/item/clothing/gloves/thick(src)
-	new /obj/item/clothing/glasses/powered/meson(src)
-	new /obj/item/clothing/shoes/color/black(src)
-	new /obj/item/weapon/cell/medium(src)
-	new /obj/item/weapon/cell/medium(src)
-	new /obj/item/weapon/cell/small(src)
-	new /obj/item/weapon/tool_upgrade/augment/fuel_tank(src)
-	new /obj/item/device/scanner/gas(src)
-	new /obj/item/weapon/storage/bag/ore(src)
-	new /obj/item/device/lighting/toggleable/flashlight/heavy(src)
-	new /obj/item/weapon/tool/shovel(src)
-	new /obj/item/weapon/tool/pickaxe(src)
-	new /obj/item/weapon/tool/pickaxe/drill(src)
-	new /obj/item/weapon/gun/projectile/shotgun/leveraction(src)
-	new /obj/item/weapon/storage/box/shotgunammo/slug(src)
-	new /obj/item/device/t_scanner(src)
-
-/obj/structure/closet/secure_closet/reinforced/ensign
+/obj/structure/closet/secure_closet/personal/ensign
 	name = "\improper Ensign's locker"
 	req_access = list(access_heads)
 	icon = 'zzzz_modular_occulus/icons/obj/closet.dmi'
 	icon_state = "ensign"
 
-/obj/structure/closet/secure_closet/reinforced/ensign/populate_contents()
+/obj/structure/closet/secure_closet/personal/ensign/populate_contents()
 	new /obj/item/clothing/under/rank/ensign(src)
 	new /obj/item/device/radio/headset/heads/hop/ensign(src)
 	new /obj/item/clothing/shoes/leather(src)

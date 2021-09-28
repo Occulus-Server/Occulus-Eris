@@ -163,6 +163,9 @@
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
 
+/obj/item/stack/material/plastic/full
+	amount = 120
+
 /obj/item/stack/material/gold
 	name = "gold"
 	icon_state = "sheet-gold"
@@ -253,6 +256,9 @@
 	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
 	rarity_value = 10
 
+/obj/item/stack/material/plasteel/full
+	amount = 120
+
 /obj/item/stack/material/wood
 	name = "wooden plank"
 	icon_state = "sheet-wood"
@@ -264,6 +270,9 @@
 	rand_max = 30
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
+
+/obj/item/stack/material/wood/full
+	amount = 120
 
 /obj/item/stack/material/cloth
 	name = "cloth"
@@ -285,6 +294,9 @@
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
 
+/obj/item/stack/material/cardboard/full
+	amount = 120
+
 /obj/item/stack/material/leather
 	name = "leather"
 	desc = "The by-product of mob grinding."
@@ -303,6 +315,9 @@
 	rand_max = 30
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_BULDING
 	rarity_value = 22.5
+
+/obj/item/stack/material/glass/full
+	amount = 120
 
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
