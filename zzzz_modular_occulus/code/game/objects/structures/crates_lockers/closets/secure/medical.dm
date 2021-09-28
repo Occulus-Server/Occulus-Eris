@@ -52,7 +52,7 @@
 	new /obj/item/weapon/reagent_containers/food/snacks/chocolatebar(src)
 	new /obj/item/weapon/reagent_containers/food/snacks/chocolatebar(src)
 	new /obj/item/weapon/reagent_containers/food/snacks/chocolatebar(src)
-	new /obj/item/device/neuroinducer
+	new /obj/item/device/neuroinducer(src)
 
 /obj/structure/closet/wall_mounted/blood
 	name = "blood pack wall locker"
