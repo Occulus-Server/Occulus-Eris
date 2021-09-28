@@ -72,3 +72,9 @@
 		var/mob/living/silicon/robot/drone/blitzshell/BS = new /mob/living/silicon/robot/drone/blitzshell(loc)
 		BS.request_player()
 	return 1
+
+/datum/uplink_item/item/tools/neuroinducer
+	name = "Jail broken Neuroinducer"
+	desc = "This device is will induce a mental breakdown and reduce the targets nerve. Takes a few seconds to apply, and uses medium cells."
+	item_cost = 4
+	path = /obj/item/device/neuroinducertraitor

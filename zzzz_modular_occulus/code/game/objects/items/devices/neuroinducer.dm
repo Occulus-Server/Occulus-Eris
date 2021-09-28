@@ -75,7 +75,7 @@
 
 /obj/item/device/neuroinducertraitor
 	name = "jail broken neuroinducer"
-	desc = "This device used to be Nanotrasen's top of the line in mental health, but has been perversely modified to fluctuate brain-waves wildly, causing severe mental distress. Takes Telecrystals."
+	desc = "This device used to be Nanotrasen's top of the line in mental health, but has been perversely modified to fluctuate brain-waves wildly, causing severe mental distress."
 	icon = 'zzzz_modular_occulus/icons/obj/device.dmi'
 	icon_state = "evilneuroinducer"
 	suitable_cell = /obj/item/weapon/cell/medium
