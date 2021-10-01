@@ -387,9 +387,6 @@
 	if(handle_cheap_regular_status_updates()) // They have died after all of this, do not scan or do not handle AI anymore.
 		return PROCESS_KILL
 
-	if (can_burrow && bad_environment)
-		evacuate()
-
 	if(!AI_inactive)
 		handle_ai()
 	if(life_cycles_before_sleep)
