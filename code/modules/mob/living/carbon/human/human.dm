@@ -259,6 +259,7 @@ var/list/rank_prefix = list(\
 	"Aegis Inspector" = "Inspector",\
 	"Aegis Gunnery Sergeant" = "Sergeant",\
 	"Aegis Commander" = "Lieutenant",\
+	"Aegis Medical Specialist" = "Specialist",\
 	"Captain" = "Captain",\
 	"Medical Doctor" = "Doctor",\
 	"Chief Medical Officer" = "Doctor",\
