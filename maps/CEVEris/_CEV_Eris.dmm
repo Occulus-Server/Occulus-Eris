@@ -48580,14 +48580,14 @@
 /area/eris/rnd/mixing)
 "ckV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/closet/crate/trashcart,
+/obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
 "ckW" = (
 /obj/machinery/holoposter{
 	pixel_y = 32
 	},
-/obj/structure/closet/crate/trashcart,
+/obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
 "ckX" = (
@@ -48761,10 +48761,10 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/storage)
 "clx" = (
-/obj/structure/closet/crate/trashcart,
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
+/obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
 "cly" = (
@@ -49035,7 +49035,7 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
 "cmf" = (
-/obj/structure/closet/crate/trashcart,
+/obj/vehicle/train/cargo/engine,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
 "cmg" = (
@@ -51243,6 +51243,7 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Quartermaster EFTPOS scanner"
 	},
+/obj/item/weapon/key/cargo_train,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/quartermaster/storage)
 "crB" = (
