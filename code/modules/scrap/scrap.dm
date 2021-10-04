@@ -352,9 +352,6 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	//Occulus Edit Start
 	var/list/usable_qualities = list(QUALITY_SHOVELING, QUALITY_HAMMERING)
 	var/tool_type = W.get_tool_type(user, usable_qualities, src)
-	if(QUALITY_HAMMERING in tool_type)
-		if(W.tool_qualities[QUALITY_HAMMERING] < 30)
-			tool_type -= QUALITY_HAMMERING
 	switch(tool_type)
 		if(QUALITY_SHOVELING)
 			if(W.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SHOVELING, FAILCHANCE_VERY_EASY, required_stat = STAT_ROB, forced_sound = "rummage"))
