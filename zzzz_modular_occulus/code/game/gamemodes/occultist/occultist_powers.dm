@@ -198,7 +198,7 @@
 
 /mob/living/carbon/human/proc/Faith_of_the_Voidmother()
 	set category = "Occultist"
-	set desc = "Banish nearby roaches from your location"
+	set desc = "Steel your mind against the madness tugging at the back of your eyes. Not yet, not yet."
 
 	if(spendpoints(1))
 		src.sanity.level = 100
@@ -295,6 +295,47 @@
 	else
 		to_chat(src, "You lack the madness to destroy this item.")
 
+
+/datum/power/occultist/totem
+	name = "Shrine"
+	desc = "Summons a totem that will slowly drain the sanity of all who observe it."
+	activecost = 3 //Make this 4-5 if we run into issues with it, currently trying something to make madness gain a little easier
+	verbpath = /mob/living/carbon/human/proc/Totem
+
+/mob/living/carbon/human/proc/Totem()
+	set category = "Occultist"
+	set desc = "Craft a totem that shows the truth."
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot construct things while unconsious.")
+		return
+	if(spendpoints(3))
+		new /obj/machinery/occultist/totem(loc) //Calls a new machine, should have random name, icon, and desc.
+	else to_chat(src, "You lack the madness to craft a totem.")
+
+/* //Commented out until I can figure out how the fuck walls work --Sigma 9/17/21 Update: Walls still a fuck. Someone else is going to have to decipher that.
+/datum/power/occultist/builder
+	name = "Unearthly Construction"
+	desc = "Summons material to craft strange walls and floors."
+	activecost = 2 //maybe make 1?
+	verbpath = /mob/living/carbon/human/proc/Builder
+
+/mob/living/carbon/human/proc/Builder()
+	set category = "Occultist"
+	set desc == "Construct a lair worthy of your madness."
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+	if(spendpoints(2))
+		if(src.get_active_hand())
+			//spawn strange material stack here, 120 should do it?
+*/
 
 //T3 Powers
 
@@ -612,3 +653,14 @@
 	//Hood
 	to_chat(usr, SPAN_DANGER("Your eyes have melted, now you can see. Tear open reality and release what is underneath."))
 	usr.replace_in_slot(new /obj/item/clothing/head/space/occulthood, slot_head, skip_covering_check = TRUE)
+
+/datum/power/occultist/monolith
+	name = "Unnatural Sculpting"
+	desc = "Craft a monolith to your madness and show others the truth."
+	activecost= 0
+	madnesscost = 15
+
+/datum/power/occultist/monolith/addPower(var/mob/living/carbon/human/themaster)
+	set category = "Occultist"
+	set desc = "Summons a Monolith at your location."
+	new /obj/machinery/occultist/monolith(themaster.loc)
