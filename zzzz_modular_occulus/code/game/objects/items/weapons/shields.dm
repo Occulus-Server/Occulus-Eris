@@ -1,9 +1,14 @@
 /obj/item/weapon/shield/riot/bastion
 	name = "bastion shield"
 	desc = "A modified Riot shield, allowing for swift deployment to encamp into and prevent harm behind it."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "riot"
-	item_state = "riot"
+	icon = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
+	icon_state = "bastion"
+	item_icons = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
+	item_state = "bastion"
+	item_state_slots = list(
+		slot_l_hand_str = "bastion_left",
+		slot_r_hand_str = "bastion_right",
+		)
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	force = WEAPON_FORCE_PAINFUL
@@ -16,6 +21,7 @@
 	price_tag = 500
 	attack_verb = list("shoved", "bashed")
 	var/structure_form_type = /obj/structure/shield_deployed
+
 
 /obj/item/weapon/shield/riot/bastion/attack_self(mob/user)
 	deploy(user)
