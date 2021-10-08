@@ -160,9 +160,6 @@
 	var/list/mods = list()
 
 
-/datum/stat_holder/proc/addTempStat(statName, Value, timeDelay, id = null)
-	var/datum/stat/S = stat_list[statName]
-	S.addModif(timeDelay, Value, id)
 
 /datum/stat/proc/addModif(delay, affect, id)
 	for(var/elem in mods)
