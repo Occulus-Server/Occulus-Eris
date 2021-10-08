@@ -104,6 +104,7 @@
 // /obj/item/clothing signals
 #define COMSIG_CLOTH_DROPPED "cloths_missing"
 #define COMSIG_CLOTH_EQUIPPED "cloths_recovered"
+#define COMSIG_GLASS_LENSES_REMOVED "lenses_removed" // lenses.dm
 
 // /obj/item/implant signals
 

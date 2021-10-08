@@ -3194,6 +3194,7 @@
 #include "zzzz_modular_occulus\prosthesis\implementation.dm"
 #include "zzzz_modular_occulus\prosthesis\prosthesis_brands.dm"
 #include "zzzz_modular_occulus\prosthesis\prosthesis_parts.dm"
+#include "code/modules/clothing/accessories/lenses.dm"
 // END_INCLUDE
 // BEGIN_INTERNALS
 // END_INTERNALS
