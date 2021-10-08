@@ -106,7 +106,7 @@
 		if (C)
 			stat("Cruciform", "[C.power]/[C.max_power]")
 
-/mob/living/carbon/human/ex_act(severity)
+/mob/living/carbon/human/ex_act(severity, epicenter)
 	if(!blinded)
 		if (HUDtech.Find("flash"))
 			FLICK("flash", HUDtech["flash"])
@@ -115,6 +115,11 @@
 	var/b_loss
 	var/f_loss
 	var/bomb_defense = getarmor(null, ARMOR_BOMB) + mob_bomb_defense
+	var/target_turf = get_turf_away_from_target_simple(src, epicenter, 8)
+	var/throw_distance = 8 - 2*severity
+	throw_at(target_turf, throw_distance, 5)
+	Weaken(severity) // If they don't get knocked out , weaken them for a bit.
+
 	switch (severity)
 		if (1.0)
 			b_loss += 500
