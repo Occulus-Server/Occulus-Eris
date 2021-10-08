@@ -1,7 +1,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/fake_ammo
 	disk_name = "Frozen Star Practice Magazines Pack"
 	icon_state = "frozenstar"
-	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED_COMMON
+	spawn_tags = SPAWN_TAG_DESIGN_COMMON
 	designs = list(
 		//please, maintain general order (pistol>speedloaders>smg>other>shells)+(smaller/less damaging caliber>bigger/more damaging caliber)
 		//pistol mags
