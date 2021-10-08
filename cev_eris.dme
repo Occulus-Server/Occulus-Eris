@@ -2903,6 +2903,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\design_disks\dss.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\design_disks\ees.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\design_disks\excelsior.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\design_disks\frozen_star.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\design_disks\generic.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\design_disks\mekhane.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\design_disks\nanotrasen.dm"
