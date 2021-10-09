@@ -316,7 +316,7 @@
 		new /obj/machinery/occultist/totem(loc) //Calls a new machine, should have random name, icon, and desc.
 	else to_chat(src, "You lack the madness to craft a totem.")
 
-/* //Commented out until I can figure out how the fuck walls work --Sigma 9/17/21 Update: Walls still a fuck. Someone else is going to have to decipher that.
+/* //Commented out until I can figure out how the fuck walls work --Sigma 9/17/21 Update: Walls still a fuck. Someone else is going to have to decipher that.-Sigma 10/3/21
 /datum/power/occultist/builder
 	name = "Unearthly Construction"
 	desc = "Summons material to craft strange walls and floors."

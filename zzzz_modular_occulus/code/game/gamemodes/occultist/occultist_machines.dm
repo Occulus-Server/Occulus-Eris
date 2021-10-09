@@ -1,7 +1,7 @@
 /obj/machinery/occultist/totem
 	name = "improper totem"
 	desc = "A basic totem of an outer god. Ahelp if you see this."
-	icon = 'zzzz_modular_occulus/icons/turf/occult/misc.dmi'
+	icon = 'zzzz_modular_occulus/icons/turf/occult/totems.dmi'
 	icon_state = "totem1"
 	density = TRUE
 	use_power = NO_POWER_USE
@@ -9,9 +9,8 @@
 	anchored = TRUE
 	var/builder //for holding the builder of the totem for seeing sanity later?
 	var/sanrestore = 10 //How much sanity is restored to non-occultists who watch this thing getting taken apart?
-	var/sanity_value = -0.5 // maybe change this, but it's here for now
 	var/desclore //For holding the lore portion of the description
-	var/decontime
+	var/decontime //For holding the time that the thing is deconstructed
 	var/descdecon //Holding the decon portion of the description
 	var/list/timelist = list(\
 		WORKTIME_NEAR_INSTANT,
@@ -100,8 +99,10 @@
 		"totem6"\
 		)
 	decontime = pick(timelist)
-//This is a placeholder for on deconstruction.
-
+//This is a placeholder for on deconstruction. It'll spawn 1-5 random bits of scrap material, rods or glass shards.
+	partsamount = rand(1,5)
+	for(var/i = 0, i < partsamount, i++)
+		partslist += pick(/obj/item/stack/rods, /obj/item/weapon/material/shard)
 
 /* This block is supposed to spawn random materials on deconstruction but I can't get the place_sheet proc to work. If someone can get it to work, comment out the above block.
 //Now we set what happens when it'll be dismantled, picking a few random materials and amounts of them.
@@ -117,35 +118,55 @@
 		component_parts += material.place_sheet(src, amount=(rand(1,3))) //Add the stack of the material that we just made to the list of parts
 		//component_parts += pick(partslist)
 		*/
+
+	//Now the processing object that allows them to damage sanity below environmental sanity cap. These aren't things you get used to. This gets destroyed on deconstruction.
+	START_PROCESSING(SSmachines, src)
+	..()
+
 /obj/machinery/occultist/totem/attackby(obj/item/I, mob/user)
 	var/tool_type = I.get_tool_type(user, list(deconqual), src) //Get the tooltypes on the tool used to dismantle it
 	if(tool_type == deconqual) //Check to see if we're using the right tooltype. Need target.deconqual?
 		if(I.use_tool(user, src, decontime, tool_type, FAILCHANCE_ZERO))
 			to_chat(user, SPAN_NOTICE("You dismantle the strange totem."))
+			STOP_PROCESSING(SSmachines, src) //Destroy the associated processing object to stop the san damage.
 			for(var/mob/living/carbon/human/viewer in view(src))
 				if(viewer.mind && player_is_antag_id(viewer.mind, ROLE_OCCULTIST))//does not have an occultist organ, they shouldn't heal from their own totems being destroyed
 					return
 
 				else viewer.sanity.changeLevel(sanrestore) //Add sanity for taking apart that monstrosity.
+			//This is the placeholder deconstruction block.
+			for(var/obj/P in partslist)
+				if(P == /obj/item/stack/rods)
+					new P(src.loc, amount=(rand(1,3)))
+				else new P(src.loc)
+			/* This block is to be reenabled when we get actual randomized scrap working. Delete the above scrap bit if we get this working.
 			for(var/obj/P in component_parts)
 				P.forceMove(loc)
 				component_parts -= P
+				*/
 			qdel(src)
 			return
 	else to_chat(user, SPAN_NOTICE("Your tool bends away from the totem unnaturally."))
 
+//The processing object to handle sanity lowering below the environmental cap.
+/obj/machinery/occultist/totem/Process()
+	for(var/mob/living/carbon/human/H in view(src.loc))
+		H.sanity.insight += 0.05 //Insight yes-yes
+		H.sanity.level -= 5
+		H.sanity.environment_cap_coeff = 0 //No environmental cap
+		//todo: add creepy muttering and other spoopy sound effects that play at random?
 
 
 /obj/machinery/occultist/monolith //A massive grandiose centerpiece to an occultist's lair.
 	name = "improper monolith"
 	desc = "A basic monolith to something that never existed. Ahelp if you see this."
-	icon = 'zzzz_modular_occulus/icons/turf/occult/misc.dmi'
+	icon = 'zzzz_modular_occulus/icons/turf/occult/totems.dmi'
 	icon_state = "kubrick"
 	density = TRUE	//no walking through this
 	use_power = NO_POWER_USE //not a machine proper, like the nuke
 	unacidable = 1 //yeah we don't want it getting eaten, only one spawnable per occultist per round
 	anchored = TRUE
-	var/cooldown = 20 MINUTES //For the touch verb. 20 minutes in ticks is 12,000
+	var/cooldown = 20 MINUTES //For the touch verb. 20 minutes in ticks is 20,000
 	var/recharge = 0 //for storing recharge times
 	var/charge = 1
 	var/chargemax = 1 //max number of charges stores
@@ -166,7 +187,7 @@
 		"a fearful memory of a pleasant day"
 		)
 	var/namelist_lore = list( //Then define a list of names that have lore significance to the server. We do this so we can attach proper lore in the desc later.
-		"a vessel-shaped hole",
+		"A vessel-shaped hole",
 		"Avimelech",
 		"THE SKIES",
 		"OBJECT/NAME"
@@ -190,7 +211,7 @@
 		)
 	if(namepick == namelist) //If we've got a generic name, get a generic description.
 		desc = pick(desc_gen)
-	if(namepick == namelist_lore) //If we have a lore-important name, give it the lore-accurate description.
+	if(namepick == namelist_lore) //If we have a lore-important name, give it the lore-accurate description. Thank you Aerodynamique/Bear!
 		if(name == "A vessel-shaped hole")
 			desc = "A pool-shaped hole where your life will arrive and disappear. Despite the fact there is nothing here, it doesn't matter; \
 			 the objects matter much less than the holes they occupy. This would be comforting, if only you understood."
@@ -206,12 +227,13 @@
 		"kubrick",
 		"orb",
 		"hellraiser",
-		"kozilek",
+		"kozilekeye",
 		"eye"\
 		) //Set the look. Put these in zzzz_modular_occulus/icons/turf/occultist/misc.dmi. Readd poduim when it doesn't look like a blob -Sigma
 //todo: make the proc that instabreaks everyone within range.
 
 //Can't make this find the owner of the sanity thing where the breakdown spawns. It's giving a "can't find owner" runtime on click. Undefined var in breakdowns.dm, 407, 307, 47, 53
+//Todo: add sound effects!
 
 /obj/machinery/occultist/monolith/attack_hand(mob/user as mob)
 	if(charge > 0) //Can we activate?
@@ -221,19 +243,26 @@
 				if(player_is_antag_id(viewer.mind, ROLE_OCCULTIST)) //And are not an antag
 					to_chat(user, SPAN_DANGER("Your touch causes occult energies to flare to life, stabbing into the minds of others!")) //Occultist won't break down from this, it's their madness.
 
+				//Delete the following block if you're able to get the negative breakdown to work.
 				else
+					viewer.sanity.level -= viewer.sanity.level //This should set sanity to 0 on click regardless of amount.
+
+				/*The following block is not actually causing the breakdown to affect the person. I don't know how to solve this. It only ever creates an unknown owner error or
+				  the beakdown doesn't happen at all. If someone can fix this, please do so. -Sigma, 10/08/21
 				//The following is causing two breakdowns, not one. Not sure why. I think this is okay though because it can only happen once every twenty minutes?
+				else
 					var/list/possible_results = subtypesof(/datum/breakdown/negative) //We want only negatives here. Maybe have it remove the absolute most hated?
 					to_chat(user, SPAN_DANGER("As [user] touches the object, your mind is assaulted by occult energies!"))
 
 					while(possible_results.len)//Now we loop through every negative and hit the first applicable one we come across
 						var/datum/breakdown/B = pick_n_take(possible_results) //We pull it from the list
-						var/datum/breakdown/K = new B(viewer.sanity) //Make a new breakdown of type we picked.
+						var/datum/breakdown/K = new B(viewer) //Make a new breakdown of type we picked.
 						if(!K.can_occur()) //If it can't occur, kill the new breakdown we made
 							qdel(K)
 							continue
-						if(K.occur()) //If it can, hit the poor sod with it and stop
+						if(K.occur()) //If it can, hit the poor sod with it and stop //Maybe rewrite this block so that it actually works?
 							break
+					*/
 
 		recharge = (world.time + cooldown) //Set recharge. It'll be 12000 ticks from when it's activated.
 		START_PROCESSING(SSmachines, src) //Add this to the processing objects to check for later.
