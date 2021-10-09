@@ -20186,6 +20186,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/security,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/fake_ammo,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aWW" = (
@@ -48502,14 +48503,14 @@
 /area/eris/rnd/mixing)
 "ckV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/closet/crate/trashcart,
+/obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
 "ckW" = (
 /obj/machinery/holoposter{
 	pixel_y = 32
 	},
-/obj/structure/closet/crate/trashcart,
+/obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
 "ckX" = (
@@ -48683,10 +48684,10 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/storage)
 "clx" = (
-/obj/structure/closet/crate/trashcart,
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
+/obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
 "cly" = (
@@ -48957,7 +48958,7 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
 "cmf" = (
-/obj/structure/closet/crate/trashcart,
+/obj/vehicle/train/cargo/engine,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
 "cmg" = (
@@ -51166,6 +51167,7 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Quartermaster EFTPOS scanner"
 	},
+/obj/item/weapon/key/cargo_train,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/quartermaster/storage)
 "crB" = (
@@ -66075,7 +66077,7 @@
 /turf/simulated/floor/plating,
 /area/eris/command/fo/quarters)
 "dcd" = (
-/obj/structure/bookcase/manuals/medical,
+/obj/structure/closet/secure_closet/psychiatrist,
 /turf/simulated/floor/carpet,
 /area/eris/medical/psych)
 "dce" = (
@@ -102050,7 +102052,7 @@
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/command/mbo)
 "fUN" = (
-/obj/structure/closet/secure_closet/psychiatrist,
+/obj/structure/bookcase/manuals/medical,
 /turf/simulated/floor/wood,
 /area/eris/medical/psych)
 "fUU" = (
