@@ -66154,7 +66154,7 @@
 /turf/simulated/floor/plating,
 /area/eris/command/fo/quarters)
 "dcd" = (
-/obj/structure/bookcase/manuals/medical,
+/obj/structure/closet/secure_closet/psychiatrist,
 /turf/simulated/floor/carpet,
 /area/eris/medical/psych)
 "dce" = (
@@ -102115,7 +102115,7 @@
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/command/mbo)
 "fUN" = (
-/obj/structure/closet/secure_closet/psychiatrist,
+/obj/structure/bookcase/manuals/medical,
 /turf/simulated/floor/wood,
 /area/eris/medical/psych)
 "fUU" = (

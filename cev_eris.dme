@@ -2882,6 +2882,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\translators.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\devices\bosstown.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\devices\magnetic_lock.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\devices\neuroinducer.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\devices\perscriptionkit.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\devices\radio.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\devices\traitor_devices.dm"
