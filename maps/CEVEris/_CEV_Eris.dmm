@@ -20205,6 +20205,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/security,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/fake_ammo,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aWW" = (
