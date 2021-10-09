@@ -99,10 +99,6 @@
 		"totem6"\
 		)
 	decontime = pick(timelist)
-//This is a placeholder for on deconstruction. It'll spawn 1-5 random bits of scrap material, rods or glass shards.
-	partsamount = rand(1,5)
-	for(var/i = 0, i < partsamount, i++)
-		partslist += pick(/obj/item/stack/rods, /obj/item/weapon/material/shard)
 
 /* This block is supposed to spawn random materials on deconstruction but I can't get the place_sheet proc to work. If someone can get it to work, comment out the above block.
 //Now we set what happens when it'll be dismantled, picking a few random materials and amounts of them.
@@ -134,12 +130,7 @@
 					return
 
 				else viewer.sanity.changeLevel(sanrestore) //Add sanity for taking apart that monstrosity.
-			//This is the placeholder deconstruction block.
-			for(var/obj/P in partslist)
-				if(P == /obj/item/stack/rods)
-					new P(src.loc, amount=(rand(1,3)))
-				else new P(src.loc)
-			/* This block is to be reenabled when we get actual randomized scrap working. Delete the above scrap bit if we get this working.
+			/* This block is to be reenabled when we get actual randomized scrap working.
 			for(var/obj/P in component_parts)
 				P.forceMove(loc)
 				component_parts -= P
