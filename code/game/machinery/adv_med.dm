@@ -337,7 +337,7 @@
 			if (I.damage || internal_wounds.len)
 				significant = TRUE
 				dat += "<tr>"
-				dat += "<td>[I.name]</td><td>N/A</td><td>[I.damage]</td><td>[other_wounds.len ? jointext(other_wounds, ":") : "None"]</td><td></td>"
+				dat += "<td>[I.name]</td><td>N/A</td><td>[I.damage]</td><td>[internal_wounds.len ? jointext(internal_wounds, ":") : "None"]</td><td></td>"// Occulus edit: This is required to display issues on internal organs.
 				dat += "</tr>"
 
 		for(var/datum/wound/W in e.wounds) if(W.internal)
