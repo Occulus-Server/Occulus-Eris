@@ -3,12 +3,15 @@
 	desc = "A modified Riot shield, allowing for swift deployment to encamp into and prevent harm behind it."
 	icon = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
 	icon_state = "bastion"
-	item_icons = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
-	item_state = "bastion"
+	item_icons = list(
+		slot_l_hand_str = 'zzzz_modular_occulus/icons/obj/weapons.dmi',
+		slot_r_hand_str = 'zzzz_modular_occulus/icons/obj/weapons.dmi',
+		slot_back_str = 'zzzz_modular_occulus/icons/obj/weapons.dmi')
+	item_state = null
 	item_state_slots = list(
 		slot_l_hand_str = "bastion_left",
 		slot_r_hand_str = "bastion_right",
-		)
+		slot_back_str = "bastion_back")
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	force = WEAPON_FORCE_PAINFUL
@@ -22,6 +25,18 @@
 	attack_verb = list("shoved", "bashed")
 	var/structure_form_type = /obj/structure/shield_deployed
 
+/obj/item/weapon/shield/riot/bastion/update_state()
+	if(!picking_human)
+		return
+	if(MOVING_QUICKLY(picking_human))
+		item_state_slots = list(slot_l_hand_str = "bastion_left_run",	slot_r_hand_str = "bastion_right_run",	slot_back_str = "bastion_back_run")
+		armor = getArmor(arglist(armor_carry)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
+		visible_message("[picking_human] lowers [gender_datums[picking_human.gender].his] [src.name].")
+	else
+		item_state_slots = list(slot_l_hand_str = "bastion_left_walk",	slot_r_hand_str = "bastion_right_walk",	slot_back_str = "bastion_back_walk")
+		armor = getArmor(arglist(armor_brace)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
+		visible_message("[picking_human] raises [gender_datums[picking_human.gender].his] [src.name] to cover [gender_datums[picking_human.gender].him]self!")
+	update_wear_icon()
 
 /obj/item/weapon/shield/riot/bastion/attack_self(mob/user)
 	deploy(user)
