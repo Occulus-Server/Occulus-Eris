@@ -1,6 +1,6 @@
 /obj/item/weapon/shield/riot/bastion
-	name = "bastion shield"
-	desc = "A modified Riot shield, allowing for swift deployment to encamp into and prevent harm behind it."
+	name = "Prototype: Bastion Shield"
+	desc = "A Project inspired by an idea for a true deployable barrier, the Bastion Shield came as surprisingly successful idea, both light enough to carry as a shield, and expands out into a combat barrier when deployed. Bow before the Cobalt Aegis."
 	icon = 'zzzz_modular_occulus/icons/obj/bastion.dmi'
 	icon_state = "bastion"
 	item_icons = list(
@@ -21,7 +21,7 @@
 	w_class = ITEM_SIZE_BULKY
 	origin_tech = list(TECH_MATERIAL = 2)
 	matter = list(MATERIAL_PHORONGLASS = 5, MATERIAL_STEEL = 5, MATERIAL_PLASTEEL = 10, MATERIAL_OSMIUM = 2)
-	price_tag = 500
+	price_tag = 2500
 	attack_verb = list("shoved", "bashed")
 	var/structure_form_type = /obj/structure/shield_deployed
 
@@ -52,10 +52,10 @@
 		qdel(src)
 
 /obj/structure/shield_deployed
-	name = "Bastion shield"
-	desc = "A deployed Bastion shield, ready for encampment. "
-	icon = 'icons/obj/tables.dmi'
-	icon_state = "solid_flip0"
+	name = "Bastion Barrier"
+	desc = "A Deployed Bastion shield, ready to be used as a combat barrier for gunfights."
+	icon = 'zzzz_modular_occulus/icons/obj/bastion.dmi'
+	icon_state = "barrier"
 	density = TRUE
 	anchored = TRUE
 	throwpass = 1
@@ -65,6 +65,12 @@
 	var/reinforced = FALSE
 	var/item_form_type = /obj/item/weapon/shield/riot/bastion
 
+/obj/structure/shield_deployed/update_icon()
+	if(reinforced)
+		icon_state = "barrier_reinforced"
+	else
+		icon_state = "barrier"
+	
 
 /obj/structure/shield_deployed/attackby(obj/item/I, mob/living/user)
 	if(I.has_quality(QUALITY_WELDING))
@@ -85,12 +91,14 @@
 			if(do_after(user, 10))
 				reinforced = TRUE
 				to_chat(user, SPAN_NOTICE("\The [src] is reinforced in place and expanded!"))
+				update_icon()
 				return
 		if(reinforced == TRUE)
 			if(user.loc != loc)
 				if(do_after(user, 50))
 					reinforced = FALSE
 					to_chat(user,SPAN_NOTICE("You collapse \the [src], allowing it to be picked up."))
+					update_icon()
 					return
 			else
 				if(do_after(user, 10))
