@@ -19,7 +19,7 @@
 	throw_speed = 1
 	throw_range = 4
 	w_class = ITEM_SIZE_BULKY
-	origin_tech = list(TECH_MATERIAL = 2)
+	origin_tech = list(TECH_MATERIAL = 4, TECH_COMBAT = 4)
 	matter = list(MATERIAL_PHORONGLASS = 5, MATERIAL_STEEL = 5, MATERIAL_PLASTEEL = 10, MATERIAL_OSMIUM = 2)
 	price_tag = 2500
 	attack_verb = list("shoved", "bashed")
@@ -79,7 +79,7 @@
 			return
 		if(health < max_health)
 			to_chat(user, SPAN_NOTICE("You start reparing \the [src]."))
-			if(do_after(user, 10))
+			if(do_after(user, 30))
 				health = max_health
 				to_chat(user, SPAN_NOTICE("\The [src] is now fully repaired!"))
 				return
@@ -88,14 +88,14 @@
 			return
 		if(reinforced == FALSE)
 			to_chat(user, SPAN_NOTICE("You start reinforcing \the [src]!"))
-			if(do_after(user, 10))
+			if(do_after(user, 30))
 				reinforced = TRUE
 				to_chat(user, SPAN_NOTICE("\The [src] is reinforced in place and expanded!"))
 				update_icon()
 				return
 		if(reinforced == TRUE)
 			if(user.loc != loc)
-				if(do_after(user, 50))
+				if(do_after(user, 30))
 					reinforced = FALSE
 					to_chat(user,SPAN_NOTICE("You collapse \the [src], allowing it to be picked up."))
 					update_icon()
@@ -104,6 +104,7 @@
 				if(do_after(user, 10))
 					reinforced = FALSE
 					to_chat(user,SPAN_NOTICE("You collapse \the [src], allowing it to be picked up."))
+					update_icon()
 					return
 
 /obj/structure/shield_deployed/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -113,19 +114,19 @@
 			return (check_cover(mover,target))
 		
 		var/obj/item/projectile/P = mover
-		var/chance = 50
+		var/chance = 40
 		if(get_dist(P.starting, loc) <= 1)
 			return 1
 		if(health >= 1)
 			if(reinforced == TRUE)
-				chance += 30
+				chance += 40
 			if(prob(chance))
-				health -= 10
+				health -= 20
 				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
 				return 0
 		else
 			return 1
-	if (health >= 1)
+	if(health >= 1)
 		if (get_dir(loc, target) == dir)
 			return !density
 		else
@@ -147,14 +148,9 @@
 	if(get_dist(P.starting, loc) <= 1) //Tables won't help you if people are THIS close
 		return 1
 	if(get_turf(P.original) == cover)
-		var/chance = 20
+		var/chance = 40
 		if(reinforced == TRUE)			
-			chance += 30	
-		if(health>=1)
-			if(get_dir(loc, from) == dir)	
-				chance += 30
-			else
-				return 1
+			chance += 40	
 		if(health==0)
 			chance = 0
 		if(prob(chance))
