@@ -1,12 +1,12 @@
 /obj/item/weapon/shield/riot/bastion
 	name = "bastion shield"
 	desc = "A modified Riot shield, allowing for swift deployment to encamp into and prevent harm behind it."
-	icon = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/bastion.dmi'
 	icon_state = "bastion"
 	item_icons = list(
-		slot_l_hand_str = 'zzzz_modular_occulus/icons/obj/weapons.dmi',
-		slot_r_hand_str = 'zzzz_modular_occulus/icons/obj/weapons.dmi',
-		slot_back_str = 'zzzz_modular_occulus/icons/obj/weapons.dmi')
+		slot_l_hand_str = 'zzzz_modular_occulus/icons/obj/bastion.dmi',
+		slot_r_hand_str = 'zzzz_modular_occulus/icons/obj/bastion.dmi',
+		slot_back_str = 'zzzz_modular_occulus/icons/obj/bastion.dmi')
 	item_state = null
 	item_state_slots = list(
 		slot_l_hand_str = "bastion_left",
