@@ -1,6 +1,6 @@
 /obj/item/weapon/shield/riot/bastion
 	name = "Prototype: Bastion Shield"
-	desc = "A Project inspired by an idea for a true deployable barrier, the Bastion Shield came as surprisingly successful idea, both light enough to carry as a shield, and expands out into a combat barrier when deployed. Bow before the Cobalt Aegis."
+	desc = "A Project inspired by an idea for a true deployable barrier, the \"Bastion Shield\" came as surprisingly successful idea, both light enough to carry as a shield, and expands out into a combat barrier when deployed. Bow before the Cobalt Aegis."
 	icon = 'zzzz_modular_occulus/icons/obj/bastion.dmi'
 	icon_state = "bastion"
 	item_icons = list(
