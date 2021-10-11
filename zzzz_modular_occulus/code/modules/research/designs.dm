@@ -134,7 +134,8 @@
 	build_path = /obj/item/weapon/tool/saw/circular/advanced
 
 /datum/design/research/item/bastion
-	desc = "An advanced management system that greatly simplifies surgical procedures. It contains multiple attachments to perform more than one operation at a time."
+	name = "Prototype \"Bastion Shield\""
+	desc = "An advanced shield, Able to be deployed to the ground along with casual carry."
 	build_path = /obj/item/weapon/shield/riot/bastion
 	category = "Combat"
 	sort_string = "CSCAS"

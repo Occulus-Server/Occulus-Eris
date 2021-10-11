@@ -154,7 +154,7 @@
 		if(health==0)
 			chance = 0
 		if(prob(chance))
-			health -= P.get_structure_damage()/2
+			health -= 20
 			if (health > 0)
 				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
 				return 0
