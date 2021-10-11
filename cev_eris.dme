@@ -3028,6 +3028,7 @@
 #include "zzzz_modular_occulus\code\modules\mob\living\silicon\robot\inventory.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\defense.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\friendly\corgi.dm"
+#include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\minerbot.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\nanoblob.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\roombattler.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\spud.dm"
