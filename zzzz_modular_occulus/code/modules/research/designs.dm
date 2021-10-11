@@ -133,6 +133,12 @@
 	name = "advanced circular saw"
 	build_path = /obj/item/weapon/tool/saw/circular/advanced
 
+/datum/design/research/item/bastion
+	desc = "An advanced management system that greatly simplifies surgical procedures. It contains multiple attachments to perform more than one operation at a time."
+	build_path = /obj/item/weapon/shield/riot/bastion
+	category = "Combat"
+	sort_string = "CSCAS"
+
 /datum/design/research/item/weapon/whitenail
 	name = "NT Prototype \"White Nail\""
 	desc = "A state of the art prototype rifle that regenerates ammunition slowly over time using advanced nanite technology"
