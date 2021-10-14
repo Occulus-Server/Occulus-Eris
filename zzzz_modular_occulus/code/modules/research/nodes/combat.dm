@@ -20,6 +20,21 @@
 							/datum/design/research/item/holochip/tough,
 							/datum/design/research/item/holochip/painkiller)
 
+/datum/technology/advanced_armor
+	name = "Advanced Armor Solutions"
+	desc = "Advanced voidsuit with combined ballistic and ablative plating, and other personal protection."
+	tech_type = RESEARCH_COMBAT
+
+	x = 0.8
+	y = 0.5
+	icon = "moebiushelm"
+
+	required_technologies = list(/datum/technology/laser_weaponry)
+	required_tech_levels = list()
+	cost = 2500
+	unlocks_designs = list(/datum/design/research/item/science_voidsuit,
+						   /datum/design/research/item/bastion)
+
 /datum/technology/whitenail
 	name = "White Nail Nanite Rifle"
 	desc = "A state of the art prototype rifle that regenerates ammunition slowly over time using advanced nanite technology"
