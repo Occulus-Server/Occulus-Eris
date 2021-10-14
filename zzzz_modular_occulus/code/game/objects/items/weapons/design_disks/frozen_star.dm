@@ -22,3 +22,6 @@
 		//shells
 		/datum/design/autolathe/ammo/shotgun_blanks,
 	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_regulator
+	disk_name = "Frozen Star - .50 Regulator Shotgun"

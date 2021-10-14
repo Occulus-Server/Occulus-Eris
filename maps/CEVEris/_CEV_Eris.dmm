@@ -47254,7 +47254,6 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayCryo2";
 	name = "Medbay";
 	req_access = list(5)
 	},
@@ -76690,7 +76689,6 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayCryo2";
 	name = "Medbay";
 	req_access = list(5)
 	},
@@ -76930,7 +76928,6 @@
 "dCr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayCryo2";
 	name = "Medbay";
 	req_access = list(5)
 	},
@@ -106880,11 +106877,6 @@
 /area/eris/crew_quarters/clothingstorage)
 "nDc" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayFoyer";
-	name = "Upper Medical Hall";
-	req_access = list(5)
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -106898,6 +106890,10 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/airlock/glass_medical{
+	name = "Upper Medical Hallway";
+	req_access = list(5)
 	},
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/medical/medbay/uppercor)
@@ -110562,7 +110558,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayCryo2";
 	name = "Medbay";
 	req_access = list(5)
 	},
@@ -112166,8 +112161,7 @@
 "wiU" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayFoyer";
-	name = "Upper Medical Hall";
+	name = "Upper Medical Hallway";
 	req_access = list(5)
 	},
 /turf/simulated/floor/tiled/white/cargo,
