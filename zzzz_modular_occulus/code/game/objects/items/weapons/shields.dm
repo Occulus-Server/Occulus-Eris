@@ -60,8 +60,8 @@
 	anchored = TRUE
 	throwpass = 1
 	climbable = TRUE
-	var/max_health = 1000
-	var/health = 1000
+	var/max_health = 500
+	var/health = 500
 	var/reinforced = FALSE
 	var/item_form_type = /obj/item/weapon/shield/riot/bastion
 
@@ -71,8 +71,13 @@
 	else
 		icon_state = "barrier"
 	
+/obj/structure/shield_deployed/proc/damage(damage)
+	health -= damage
+	if(health <= 0)
+		collapse()
 
 /obj/structure/shield_deployed/attackby(obj/item/I, mob/living/user)
+	.=..()
 	if(I.has_quality(QUALITY_WELDING))
 		if(health == max_health)
 			to_chat(user, SPAN_NOTICE("\The [src] is already fully repaired!"))
@@ -107,6 +112,13 @@
 					update_icon()
 					return
 
+/obj/structure/shield_deployed/attack_generic(var/mob/user, var/damage, var/attack_message = "smashes", var/wallbreaker)//Occulus Edit
+	if(damage)//Occulus edit
+		damage(damage)//Occulus Edit
+		attack_animation(user)
+		visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))
+		return 1
+
 /obj/structure/shield_deployed/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
 	if(istype(mover,/obj/item/projectile))
@@ -121,7 +133,7 @@
 			if(reinforced == TRUE)
 				chance += 40
 			if(prob(chance))
-				health -= 20
+				health -= 10
 				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
 				return 0
 		else
@@ -154,7 +166,7 @@
 		if(health==0)
 			chance = 0
 		if(prob(chance))
-			health -= 20
+			health -= 10
 			if (health > 0)
 				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
 				return 0
@@ -193,3 +205,32 @@
 
 	collapse()
 
+/obj/structure/shield_deployed/do_climb(var/mob/living/user)
+	if(!can_climb(user))
+		return
+
+	usr.visible_message(SPAN_WARNING("[user] starts climbing onto \the [src]!"))
+	climbers |= user
+
+	var/delay = (issmall(user) ? 20 : 34)
+	var/duration = max(delay * user.stats.getMult(STAT_VIG, STAT_LEVEL_EXPERT), delay * 0.66)
+	if(!do_after(user, duration))
+		climbers -= user
+		return
+
+	if(!can_climb(user, post_climb_check=1))
+		climbers -= user
+		return
+
+	if(!neighbor_turf_passable())
+		to_chat(user, SPAN_DANGER("You can't climb there, the way is blocked."))
+		climbers -= user
+		return
+
+	if(get_turf(user) == get_turf(src))
+		usr.forceMove(get_step(src, src.dir))
+	else
+		usr.forceMove(get_turf(src))
+
+	usr.visible_message(SPAN_WARNING("[user] climbed over \the [src]!"))
+	climbers -= user
