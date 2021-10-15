@@ -269,3 +269,19 @@ There are important things regarding this file:
 	nodamage = TRUE
 	embed = FALSE
 	sharp = FALSE
+
+/obj/item/projectile/bullet/bolt
+	icon_state = "SpearFlight"
+	name = "bolt"
+	damage_types = list(BRUTE = 27)
+//	armor_divisor = 2
+	embed = FALSE
+	can_ricochet = TRUE
+//	recoil = 3
+//	style_damage = 40
+//	wounding_mult = WOUNDING_EXTREME
+
+/obj/item/projectile/bullet/bolt/on_hit(mob/living/target, def_zone = BP_CHEST)
+    if(istype(target))
+        var/obj/item/ammo_casing/crossbow/bolt/R = new(null)
+        target.embed(R, def_zone)

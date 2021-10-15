@@ -34,6 +34,11 @@
 	item_state = "ba_suit"
 	siemens_coefficient = 0.8
 
+/obj/item/clothing/under/rank/security/turtleneck
+	name = "Cobalt Operative's turtleneck" //Occulus Edit - I blame whoever made this non-modular in the first place
+	desc = "Military style turtleneck, made of a slightly sturdier material than standard jumpsuits, to allow for robust protection"
+	icon_state = "securityrturtle"
+
 /obj/item/clothing/under/rank/security/skirt
 	name = "Cobalt Operative jumpskirt"
 	desc = "It's made of a slightly sturdier material than standard jumpskirts, to allow for robust protection."

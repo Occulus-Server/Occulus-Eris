@@ -444,3 +444,34 @@
 	caliber = CAL_CAP
 	color = "#FF0000"
 	projectile_type = /obj/item/projectile/bullet/cap
+
+/obj/item/ammo_casing/flare
+	name = "AG FR \"Floodlight\""
+	desc = "A chemical flare shell designed to produce a distress signal or illuminate an area."
+	caliber = CAL_FLARE
+	amount = 3
+	icon_state = "f-shell"
+	spent_icon = "f-shell-spent"
+	projectile_type = /obj/item/projectile/bullet/flare
+	matter = list(MATERIAL_PLASTIC = 1, MATERIAL_PHORON = 1)
+	matter_reagents = list("phosphorus" = 3)
+	rarity_value = 8
+
+/obj/item/ammo_casing/crossbow/bolt
+	name = "steel bolt"
+	desc = "A steel rod worked into the shape of a crossbow bolt."
+	icon_state = "CrossbowBolt"
+	spent_icon = "CrossbowBolt"
+	caliber = CAL_CBOLT
+	projectile_type = /obj/item/projectile/bullet/bolt
+	matter = list(MATERIAL_STEEL = 1)
+	is_caseless = TRUE
+	maxamount = 5
+	sharp = TRUE
+
+	sprite_update_spawn = TRUE
+	sprite_max_rotate = 32
+	sprite_scale = 1
+
+/obj/item/ammo_casing/crossbow/bolt/prespawned
+	amount = 5
