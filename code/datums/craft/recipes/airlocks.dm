@@ -73,7 +73,10 @@
 /datum/craft_recipe/airlock/assembly/high_security
 	name = "high security airlock assembly"
 	result = /obj/structure/door_assembly/door_assembly_highsecurity
-	// variation_type = CRAFT_VARIATION
+	steps = list(
+		list(CRAFT_MATERIAL, 10, MATERIAL_PLASTEEL)
+	)
+
 
 /datum/craft_recipe/airlock/shutter/emergency_shutter
 	name = "emergency shutter"
