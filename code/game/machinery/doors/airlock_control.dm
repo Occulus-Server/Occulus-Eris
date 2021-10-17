@@ -29,9 +29,12 @@
 
 	do_command(cur_command)
 	if(command_completed(cur_command))
+		completing = FALSE
 		cur_command = null
 		return TRUE
-	addtimer(CALLBACK(src , .proc/execute_current_command), 2 SECONDS) // Fuck it , try again.
+	if(!completing)
+		addtimer(CALLBACK(src , .proc/execute_current_command), 2 SECONDS) // Fuck it , try again.
+		completing = TRUE
 	return FALSE
 
 /obj/machinery/door/airlock/proc/do_command(var/command)
