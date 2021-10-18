@@ -11,7 +11,7 @@
 	var/flickering = 0
 	var/ticks_before_next_summon = 2
 	var/mobgenlist = list(
-		/mob/living/simple_animal/hostile/bear,
+		/mob/living/simple_animal/hostile/minerbot, //Occulus edit
 		/mob/living/simple_animal/hostile/carp,
 		/mob/living/simple_animal/hostile/carp,
 		/mob/living/simple_animal/hostile/carp/pike,
