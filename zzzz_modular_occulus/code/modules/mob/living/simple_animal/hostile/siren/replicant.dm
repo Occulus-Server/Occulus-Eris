@@ -87,7 +87,7 @@
 /mob/living/simple_animal/hostile/siren/replicant
 	name = "replicant"
 	desc = "A truly alien creature, it is a mesh of organic and synthetic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original."
-	icon = 'zzzz_modular_occulus/icons/mob/replicant.dmi'
+	icon = 'zzzz_modular_occulus/icons/mob/siren/replicant.dmi'
 	icon_state = "Replicant"
 	icon_living = "Replicant"
 	icon_aggro = "Replicant_alert"
@@ -128,7 +128,7 @@
 
 /mob/living/simple_animal/hostile/siren/replicant/proc/soundloop()
 	if( sounddelay == 0)
-		playsound(src.loc, 'zzzz_modular_occulus/sound/voice/replicanthum.ogg', 100, 1, 8, 8)
+		playsound(src.loc, 'zzzz_modular_occulus/sound/voice/replicanthum.wav', 100, 1, 8, 8)
 		sounddelay = 15
 		return
 	else
@@ -250,7 +250,7 @@
 /mob/living/simple_animal/hostile/siren/replicanttendril
 	name = "replicant tendril"
 	desc = "A thin cord-like tendril made of bio-synthetic mesh, broken off from a larger creature. There are stories of these cords pulling crew into the darkness to never be seen again..."
-	icon = 'zzzz_modular_occulus/icons/mob/replicant.dmi'
+	icon = 'zzzz_modular_occulus/icons/mob/siren/replicant.dmi'
 	icon_state = "Replicanttendril"
 	icon_living = "Replicanttendril"
 	icon_aggro = "Replicanttendril"
