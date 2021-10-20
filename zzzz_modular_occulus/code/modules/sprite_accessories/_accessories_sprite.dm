@@ -300,7 +300,7 @@
 	name = "Antlers"
 	icon_state = "antlermark"
 	body_parts = list(BP_HEAD)
-	color_blend_mode = ICON_ADD
+	color_blend_mode = ICON_MULTIPLY
 	
 /datum/sprite_accessory/marking/syzygy/antlermarksmall
 	name = "Small Antlers"
