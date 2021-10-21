@@ -271,9 +271,10 @@
 /mob/living/simple_animal/hostile/siren/replicanttendril/New()
 	..()
 	spawn(180)
+		visible_message(SPAN_NOTICE("[src] reoils to it's host Replicant!")
 		qdel(src)
 
 /mob/living/simple_animal/hostile/siren/replicanttendril/death()
-	visible_message(SPAN_NOTICE("[src] melts away into a pile of ash!"))
+	visible_message(SPAN_NOTICE("[src] melts away into a pile of glittering ash!"))
 	new /obj/effect/decal/cleanable/ash(loc)
 	qdel(src)
