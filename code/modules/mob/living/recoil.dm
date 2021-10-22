@@ -11,24 +11,17 @@
 
 //Called to get current recoil value
 /mob/living/proc/calc_recoil()
-	if(!recoil || !last_recoil_update)
-		return 0
-	var/time = world.time - last_recoil_update
-	if(time)
-		//About the following code. This code is a mess, and we SHOULD NOT USE WORLD TIME FOR RECOIL
-		var/timed_reduction = min(time**2, 400)
-		recoil -= timed_reduction * calc_reduction()
-		if(recoil <= 0)
-			recoil = 0
-			last_recoil_update = 0
-		else
-			last_recoil_update = world.time
-	return recoil
 
-/mob/living/proc/calc_timer()
-	if(recoil <= 0)
-		return 0
-	return round(1+((recoil/10)/calc_reduction()))
+	if(recoil >= 10)
+		recoil *= 0.9
+	else if(recoil < 10 && recoil > 1)
+		recoil -= 1
+	else
+		recoil = 0
+
+	if(recoil != 0) recoil_reduction_timer = addtimer(CALLBACK(src, .proc/calc_recoil), 0.1 SECONDS, TIMER_STOPPABLE)
+	else deltimer(recoil_reduction_timer)
+	update_cursor()
 
 //Called after setting recoil
 /mob/living/proc/update_recoil(var/obj/item/gun/G)
@@ -46,10 +39,7 @@
 
 /mob/living/proc/update_recoil_cursor()
 	update_cursor()
-	var/timer = calc_timer()
-	if(timer > 0)
-		deltimer(recoil_timer)
-		recoil_timer = addtimer(CALLBACK(src, .proc/update_recoil_cursor), timer, TIMER_STOPPABLE)
+	recoil_reduction_timer = addtimer(CALLBACK(src, .proc/calc_recoil), 0.3 SECONDS, TIMER_STOPPABLE)
 
 /mob/living/proc/update_cursor()
 	if(get_preference_value(/datum/client_preference/gun_cursor) != GLOB.PREF_YES)
