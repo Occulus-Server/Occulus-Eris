@@ -1,14 +1,5 @@
 //Disks
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter
-	disk_name = "Mekhane Bioprinter Production"
-
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_public
-	disk_name = "Mekhane Bioprinter Pack"
-
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_boards
-	disk_name = "Mekhane Circuit Pack"
-
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_mk58
 	disk_name = "Frozen Star - .35 MK58 Handgun Pack"
 	icon_state = "frozenstar"
@@ -28,9 +19,6 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_counselor
 	disk_name = "Frozen Star - Councelor PDW E"
 	icon_state = "frozenstar"
-
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_svalinn
-	disk_name = "Mekhane Armory - MK LP \"Svalinn\""
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_nemesis
 	disk_name = "Serbian Arms - Nemesis Energy Crossbow"
@@ -244,3 +232,7 @@
 /decl/security_level/default/code_delta/switching_up_to()
 	security_announcement_delta.Announce("The self-destruct mechanism has been engaged. All crew members are ordered to obey all instructions given by command. These orders can be enforced by lethal force. This is not a drill.", "Attention! Delta security level reached!")
 	notify_station()
+
+/*
+* Split this into the right files when you can - Jamini
+*/
