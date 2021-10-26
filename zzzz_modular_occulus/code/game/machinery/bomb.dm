@@ -1,9 +1,9 @@
 #define BUTTON_COOLDOWN 60 // cant delay the bomb forever
 #define BUTTON_DELAY	20 // two seconds
 
-/obj/machinery/syndicatebomb
+/obj/machinery/bomb
 	icon = 'icons/obj/assemblies.dmi'
-	name = "syndicate bomb"
+	name = "x-12 bomb"
 	icon_state = "syndicate-bomb"
 	desc = "A large and menacing device. Can be bolted down with a wrench."
 
@@ -11,7 +11,7 @@
 	density = FALSE
 	layer = BELOW_MOB_LAYER //so people can't hide it and it's REALLY OBVIOUS
 
-	var/datum/wires/syndicatebomb/wires = null
+	var/datum/wires/bomb/wires = null
 	var/minimum_timer = 90
 	var/timer_set = 90
 	var/maximum_timer = 60000
@@ -29,7 +29,7 @@
 	var/detonation_timer
 	var/explode_now = FALSE
 
-/obj/machinery/syndicatebomb/proc/try_detonate(ignore_active = FALSE)
+/obj/machinery/bomb/proc/try_detonate(ignore_active = FALSE)
 	. = (active || ignore_active) && !defused
 	if(.)
 		explosion(src, 3, 9, 17)
@@ -37,7 +37,7 @@
 
 
 
-/obj/machinery/syndicatebomb/Process()
+/obj/machinery/bomb/Process()
 	if(!active)
 		STOP_PROCESSING(SSobj, src)
 		detonation_timer = null
@@ -72,44 +72,42 @@
 		if(defused)
 			STOP_PROCESSING(SSobj, src)
 
-/obj/machinery/syndicatebomb/Initialize()
+/obj/machinery/bomb/Initialize()
 	. = ..()
-	wires = new /datum/wires/syndicatebomb(src)
+	wires = new /datum/wires/bomb(src)
 	update_icon()
 
-/obj/machinery/syndicatebomb/Destroy()
+/obj/machinery/bomb/Destroy()
 	QDEL_NULL(wires)
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/machinery/syndicatebomb/examine(mob/user)
+/obj/machinery/bomb/examine(mob/user)
 	. = ..()
 	. += "A digital display on it reads \"[seconds_remaining()]\"."
 
-/obj/machinery/syndicatebomb/update_icon()
+/obj/machinery/bomb/update_icon()
 	icon_state = "[initial(icon_state)][active ? "-active" : "-inactive"][open_panel ? "-wires" : ""]"
 
-/obj/machinery/syndicatebomb/proc/seconds_remaining()
+/obj/machinery/bomb/proc/seconds_remaining()
 	if(active)
 		. = max(0, round((detonation_timer - world.time) / 10))
 	else
 		. = timer_set
 
-/obj/machinery/syndicatebomb/attackby(obj/item/I, mob/user, params)
+/obj/machinery/bomb/attackby(obj/item/I, mob/user, params)
 	if((QUALITY_BOLT_TURNING in I.tool_qualities) && can_unanchor)
 		if(!anchored)
 			if(!isturf(loc) || loc == /turf/space)
 				to_chat(user, "<span class='notice'>The bomb must be placed on solid ground to attach it.</span>")
 			else
 				to_chat(user, "<span class='notice'>You firmly wrench the bomb to the floor.</span>")
-				I.play_tool_sound(src)
 				anchored = TRUE
 				if(active)
 					to_chat(user, "<span class='notice'>The bolts lock in place.</span>")
 		else
 			if(!active)
 				to_chat(user, "<span class='notice'>You wrench the bomb from the floor.</span>")
-				I.play_tool_sound(src)
 				anchored = FALSE
 			else
 				to_chat(user, "<span class='warning'>The bolts are locked down!</span>")
@@ -123,7 +121,7 @@
 		wires.Interact(user)
 
 
-/obj/machinery/syndicatebomb/interact(mob/user)
+/obj/machinery/bomb/interact(mob/user)
 	wires.Interact(user)
 	if(!open_panel)
 		if(!active)
@@ -131,14 +129,14 @@
 		else if(anchored)
 			to_chat(user, "<span class='warning'>The bomb is bolted to the floor!</span>")
 
-/obj/machinery/syndicatebomb/proc/activate()
+/obj/machinery/bomb/proc/activate()
 	active = TRUE
 	START_PROCESSING(SSobj, src)
 	next_beep = world.time + 10
 	detonation_timer = world.time + (timer_set * 10)
 	playsound(loc, 'sound/machines/click.ogg', 30, 1)
 
-/obj/machinery/syndicatebomb/proc/settings(mob/user)
+/obj/machinery/bomb/proc/settings(mob/user)
 	var/new_timer = input(user, "Please set the timer.", "Timer", "[timer_set]") as num
 	if(in_range(src, user) && isliving(user)) //No running off and setting bombs from across the station
 		timer_set = clamp(new_timer, minimum_timer, maximum_timer)

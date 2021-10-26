@@ -1,6 +1,6 @@
-/datum/wires/syndicatebomb
+/datum/wires/bomb
 	random = TRUE
-	holder_type = /obj/machinery/syndicatebomb
+	holder_type = /obj/machinery/bomb
 	wire_count = 5
 
 var/const/WIRE_BOOM = 1			// Explodes if pulsed or cut while active, defuses a bomb that isn't active on cut
@@ -9,7 +9,10 @@ var/const/WIRE_DELAY = 4		// Raises the timer on pulse, does nothing on cut
 var/const/WIRE_PROCEED = 8		// Lowers the timer, explodes if cut while the bomb is active
 var/const/WIRE_ACTIVATE = 16	// Will start a bombs timer if pulsed, will hint if pulsed while already active, will stop a timer a bomb on cut
 
-/datum/wires/syndicatebomb/GetWireName(index)
+/datum/wires/proc/GetWireName(index)
+	return
+
+/datum/wires/bomb/GetWireName(index)
 	switch(index)
 		if(WIRE_BOOM)
 			return "Explode"
@@ -26,14 +29,14 @@ var/const/WIRE_ACTIVATE = 16	// Will start a bombs timer if pulsed, will hint if
 		if(WIRE_ACTIVATE)
 			return "Activate"
 
-/datum/wires/syndicatebomb/CanUse(mob/living/L)
-	var/obj/machinery/syndicatebomb/P = holder
+/datum/wires/bomb/CanUse(mob/living/L)
+	var/obj/machinery/bomb/P = holder
 	if(P.open_panel)
 		return TRUE
 	return FALSE
 
-/datum/wires/syndicatebomb/UpdatePulsed(index)
-	var/obj/machinery/syndicatebomb/B = holder
+/datum/wires/bomb/UpdatePulsed(index)
+	var/obj/machinery/bomb/B = holder
 	switch(index)
 		if(WIRE_BOOM)
 			if(B.active)
@@ -72,8 +75,8 @@ var/const/WIRE_ACTIVATE = 16	// Will start a bombs timer if pulsed, will hint if
 				B.delayedlittle = TRUE
 	..()
 
-/datum/wires/syndicatebomb/UpdateCut(index, mended)
-	var/obj/machinery/syndicatebomb/B = holder
+/datum/wires/bomb/UpdateCut(index, mended)
+	var/obj/machinery/bomb/B = holder
 	switch(index)
 		if(WIRE_EXPLODE)
 			if(mended)
