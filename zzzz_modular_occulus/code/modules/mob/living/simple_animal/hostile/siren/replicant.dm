@@ -271,7 +271,7 @@
 /mob/living/simple_animal/hostile/siren/replicanttendril/New()
 	..()
 	spawn(180)
-		visible_message(SPAN_NOTICE("[src] reoils to it's host Replicant!")
+		visible_message(SPAN_NOTICE("[src] recoils to it's host Replicant!"))
 		qdel(src)
 
 /mob/living/simple_animal/hostile/siren/replicanttendril/death()
