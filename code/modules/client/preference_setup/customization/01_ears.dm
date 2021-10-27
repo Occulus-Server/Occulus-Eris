@@ -116,6 +116,7 @@
 		pref.size_multiplier = initial(pref.size_multiplier)
 
 	pref.fuzzy				= sanitize_integer(pref.fuzzy, 0, 1, initial(pref.fuzzy))
+	pref.blood_color = sanitize_hexcolor(pref.blood_color, default="#A10808")
 
 // OCCULUS EDIT: Removed Preview and renamed title appropriately
 /datum/category_item/player_setup_item/physical/ears/content(var/mob/user)
