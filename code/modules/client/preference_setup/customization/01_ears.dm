@@ -27,6 +27,7 @@
 	var/size_multiplier = RESIZE_NORMAL
 	var/dress_mob = TRUE
 	var/fuzzy = FALSE
+	var/blood_color = "#A10808"
 
 //
 // OCCULUS EDIT - MASS REPLACEMENT /datum/category_item/player_setup_item/vore/ears -----> /datum/category_item/player_setup_item/physical/ears
@@ -59,6 +60,7 @@
 	S["custom_species"]	>> pref.custom_species
 	S["size_multiplier"]>> pref.size_multiplier
 	S["fuzzy"]>> pref.fuzzy
+	S["blood_color"]	>> pref.blood_color
 
 
 /datum/category_item/player_setup_item/physical/ears/save_character(var/savefile/S)
@@ -83,6 +85,8 @@
 	S["custom_species"]	<< pref.custom_species
 	S["size_multiplier"]<< pref.size_multiplier
 	S["fuzzy"]<< pref.fuzzy
+	S["blood_color"]	<< pref.blood_color
+
 
 
 /datum/category_item/player_setup_item/physical/ears/sanitize_character()
@@ -115,17 +119,20 @@
 
 // OCCULUS EDIT: Removed Preview and renamed title appropriately
 /datum/category_item/player_setup_item/physical/ears/content(var/mob/user)
-	. += "<div style='clear: both;'"
+	. += "<div style='clear: both;'>"
 	. += "<b>Extra Appearance:</b><br>"
 
 	. += "<b>Custom Species Name</b> "
 	. += "<a href='?src=\ref[src];custom_species=1'>[pref.custom_species ? pref.custom_species : "-Input Name-"]</a><br>"
 
-
 	. += "<br>"
 	. += "<b>Scale:</b> <a href='?src=\ref[src];size_multiplier=1'>[round(pref.size_multiplier*100)]%</a><br>"
 	. += "<b>Scaled Appearance:</b> <a [pref.fuzzy ? "" : ""] href='?src=\ref[src];toggle_fuzzy=1'><b>[pref.fuzzy ? "Fuzzy" : "Sharp"]</b></a><br>"
 	. += "<br>"
+
+	. += "<b>Custom Blood Color:</b> <a href='?src=\ref[src];blood_color=1'>Change Color</a> <font face='fixedsys' size='3' color='[pref.blood_color]'><table style='display:inline;' bgcolor='[pref.blood_color]'><tr><td>__</td></tr></table> </font><br>"
+	. += "<br><br>"
+
 
 	var/ear_display = "Normal"
 	if(pref.ear_style && (pref.ear_style in ear_styles_list))
@@ -292,5 +299,10 @@
 		pref.fuzzy = pref.fuzzy ? 0 : 1;
 		return TOPIC_REFRESH
 
+	else if(href_list["blood_color"])
+		var/color_choice = input(usr, "Pick a blood color","Blood Color",pref.blood_color) as color
+		if(color_choice)
+			pref.blood_color = sanitize_hexcolor(color_choice, default="#A10808")
+		return TOPIC_REFRESH
 
 	return ..()
