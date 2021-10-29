@@ -230,6 +230,7 @@ There are important things regarding this file:
 /obj/item/projectile/bullet/shotgun/incendiary
 	damage_types = list(BRUTE = 45)
 	knockback = 0
+
 	var/fire_stacks = 4
 
 /obj/item/projectile/bullet/shotgun/incendiary/on_hit(atom/target, blocked = FALSE)
@@ -248,7 +249,7 @@ There are important things regarding this file:
 	pellets = 8
 	range_step = 1
 	spread_step = 10
-	knockback = 1
+	pellet_to_knockback_ratio = 2
 
 /obj/item/projectile/bullet/pellet/shotgun/Initialize()
 	. = ..()
