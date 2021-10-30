@@ -168,15 +168,23 @@
 /////////////////Defensive EMP burst ENDS here///////////////////////
 
 /mob/living/simple_animal/hostile/siren/replicant/death()
+<<<<<<< Updated upstream
 	new /obj/item/weapon/bluespace_harpoon/replicant_core(src.loc)
 	..()
 
 /obj/item/weapon/bluespace_harpoon/replicant_core
+=======
+	new /obj/item/weapon/replicant_core(src.loc)
+	..()
+
+/obj/item/weapon/replicant_core
+>>>>>>> Stashed changes
 	name = "replicant core"
 	desc = "All that remains of a creature, it seems to be what remains of it's core. It still seems to glow somewhat."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "boiledrorocore"
 	var/charges = 1
+<<<<<<< Updated upstream
 	var/warned = 0
 
 /obj/item/weapon/bluespace_harpoon/replicant_core/New()
@@ -247,6 +255,38 @@
 			Using = FALSE
 	else
 		to_chat(user, SPAN_WARNING("Error, single destination only!"))
+=======
+	var/active = 0
+	var/det_time = 40
+/obj/item/weapon/replicant_core/attack_self(mob/user as mob)
+			activate(user)
+			add_fingerprint(user)
+			if(iscarbon(user))
+				var/mob/living/carbon/C = user
+				C.throw_mode_on()
+	return
+/obj/item/weapon/replicant_core/prime()
+	..()
+	if(empulse(src, 4, 10))
+	active = 0
+	return
+/obj/item/weapon/replicant_core/proc/activate(mob/user as mob)
+	if(active)
+		return
+
+	if(user)
+		log_and_message_admins("activates \a [src]")
+		user.attack_log += "\[[time_stamp()]\] <font color='red'>primed \a [src]</font>"
+
+	active = 1
+	playsound(loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
+
+
+	spawn(det_time)
+		prime(user)
+		return
+
+>>>>>>> Stashed changes
 /mob/living/simple_animal/hostile/siren/replicanttendril
 	name = "replicant tendril"
 	desc = "A thin cord-like tendril made of bio-synthetic mesh, broken off from a larger creature. There are stories of these cords pulling crew into the darkness to never be seen again..."

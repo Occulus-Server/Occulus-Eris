@@ -11,6 +11,10 @@
 	move_to_delay = 5
 	ranged = 0
 	vision_range = 5
+<<<<<<< Updated upstream
+=======
+	density = TRUE
+>>>>>>> Stashed changes
 	aggro_vision_range = 11
 	idle_vision_range = 9
 	speed = 4
