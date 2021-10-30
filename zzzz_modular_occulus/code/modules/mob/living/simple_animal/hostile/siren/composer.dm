@@ -5,16 +5,13 @@
 	icon_state = "sixleg"
 	icon_living = "sixleg"
 	icon_aggro = "sixleg"
-	icon_dead = "Replicant_dead"
+	icon_dead = "sixleg-dead"
 	icon_gib = "syndicate_gib"
 	mouse_opacity = 2
 	move_to_delay = 5
 	ranged = 0
 	vision_range = 5
-<<<<<<< Updated upstream
-=======
 	density = TRUE
->>>>>>> Stashed changes
 	aggro_vision_range = 11
 	idle_vision_range = 9
 	speed = 4

@@ -79,9 +79,43 @@
 	response_disarm = "shoves"
 	response_harm = "strikes"
 	a_intent = I_HURT
+	var/shieldcharge = 0
+	var/chargedelay = 150
+	var/chargerate = 0
 	var/throw_message = "bounces off of"
 	var/icon_aggro = null // for swapping to when we get aggressive
 	var/atom/target // :  Removed type specification so spiders can target doors.
+/*
+/mob/living/simple_animal/hostile/siren/Life()
+	for(var/mob/living/simple_animal/hostile/siren/augmentor/A in view(src, 7))
+		if(shieldcharge <= 0)
+			charging = world.time + chargedelay
+			while(shieldcharge < 3)
+				chargerate =
+
+/mob/living/simple_animal/hostile/siren/bullet_act(obj/item/projectile/P, def_zone)
+	if(shieldcharge >= 1)
+		user.visible_message(SPAN_DANGER("\The [user] repells [attack_text] with it's shield!"))
+
+		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
+		spark_system.set_up(5, 0, user.loc)
+		spark_system.start()
+		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		shieldcharge--
+		return PROJECTILE_FORCE_MISS
+
+/mob/living/simple_animal/hostile/siren/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+		if(shieldcharge >= 1)
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
+
+		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
+		spark_system.set_up(5, 0, user.loc)
+		spark_system.start()
+		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		return 1
+	return 0*/
+
+
 
 
 /mob/living/simple_animal/hostile/siren/replicant
@@ -168,106 +202,26 @@
 /////////////////Defensive EMP burst ENDS here///////////////////////
 
 /mob/living/simple_animal/hostile/siren/replicant/death()
-<<<<<<< Updated upstream
-	new /obj/item/weapon/bluespace_harpoon/replicant_core(src.loc)
-	..()
-
-/obj/item/weapon/bluespace_harpoon/replicant_core
-=======
 	new /obj/item/weapon/replicant_core(src.loc)
 	..()
 
 /obj/item/weapon/replicant_core
->>>>>>> Stashed changes
 	name = "replicant core"
 	desc = "All that remains of a creature, it seems to be what remains of it's core. It still seems to glow somewhat."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "boiledrorocore"
 	var/charges = 1
-<<<<<<< Updated upstream
-	var/warned = 0
-
-/obj/item/weapon/bluespace_harpoon/replicant_core/New()
-	spawn(1200)
-		warned = 1
-		desc = "All that remains of a creature, it seems to be what remains of it's core. It seems to have lost it's spark of energy "
-
-/obj/item/weapon/bluespace_harpoon/replicant_core/afterattack(atom/A, mob/user)
-	if(get_dist(A, user) > range)
-		return ..()
-	if(!(A in view(user)))
-		return ..()
-	if(istype(A, /obj/item/weapon/storage/))
-		return ..()
-	else if(istype(A, /obj/structure/table/) && (get_dist(A, user) <= 1))
-		return ..()
-
-	var/turf/AtomTurf = get_turf(A)
-	var/turf/UserTurf = get_turf(user)
-	var/dense_check
-	switch(mode)
-		if(MODE_TRANSMIT)
-			dense_check = AtomTurf.contains_dense_objects(TRUE)
-		if(MODE_RECEIVE)
-			dense_check = UserTurf.contains_dense_objects(TRUE)
-	if(dense_check)
-		to_chat(user, SPAN_WARNING("Dense content detected on receiving terrain. Do not \"Telefrag\" any living beings caught in the harpoon. Please disengage."))
-		return //No actual telefragging, wasn't allowed to do that at the time
-	if (charges == 0)
-		if(warned == 0)
-			visible_message(SPAN_DANGER("The [src] sparks and sputters, light fading from it's components."))
-			warned = 1
-		else
-			to_chat(user, SPAN_WARNING("The [src] does not respond."))
-			return
-		return
-
-
-	if(!Using)
-		Using = TRUE
-		if(do_after(user, 4 SECONDS - user.stats.getMult(STAT_COG, STAT_LEVEL_GODLIKE/20, src)))
-			Using = FALSE
-			if(!cell || !cell.checked_use(100))
-				to_chat(user, SPAN_WARNING("\The [src]'s battery is dead or missing."))
-				return
-			if(!user || !A || user.machine)
-				return
-			if(transforming)
-				to_chat(user, SPAN_WARNING("You can't fire \the [src] while it is transforming!"))
-				return
-
-			playsound(user, 'sound/weapons/wave.ogg', 60, 1)
-
-			user.visible_message(SPAN_WARNING("\The [user] fires \the [src]!"))
-			to_chat(user,SPAN_WARNING("You fire \the [src]"))
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(4, 1, A)
-			s.start()
-			charges = 0
-
-			switch(mode)
-				if(MODE_TRANSMIT)
-					teleport(UserTurf, AtomTurf)
-				if(MODE_RECEIVE)
-					teleport(AtomTurf, UserTurf)
-		else
-			to_chat(user, SPAN_WARNING("Error, do not move!"))
-			Using = FALSE
-	else
-		to_chat(user, SPAN_WARNING("Error, single destination only!"))
-=======
 	var/active = 0
 	var/det_time = 40
 /obj/item/weapon/replicant_core/attack_self(mob/user as mob)
-			activate(user)
-			add_fingerprint(user)
-			if(iscarbon(user))
-				var/mob/living/carbon/C = user
-				C.throw_mode_on()
+	activate(user)
+	add_fingerprint(user)
+	if(iscarbon(user))
+		var/mob/living/carbon/C = user
+		C.throw_mode_on()
 	return
-/obj/item/weapon/replicant_core/prime()
-	..()
-	if(empulse(src, 4, 10))
+/obj/item/weapon/replicant_core/proc/prime()
+	empulse(src, 4, 10)
 	active = 0
 	return
 /obj/item/weapon/replicant_core/proc/activate(mob/user as mob)
@@ -286,7 +240,6 @@
 		prime(user)
 		return
 
->>>>>>> Stashed changes
 /mob/living/simple_animal/hostile/siren/replicanttendril
 	name = "replicant tendril"
 	desc = "A thin cord-like tendril made of bio-synthetic mesh, broken off from a larger creature. There are stories of these cords pulling crew into the darkness to never be seen again..."
@@ -307,11 +260,11 @@
 	attacktext = "slices"
 	throw_message = "falls right through the strange body of the"
 	environment_smash = 4
-	agony_coefficient = .8 //Hard to shoot whip-like tendrils effectively
+	agony_coefficient = 0.8 //Hard to shoot whip-like tendrils effectively
 
 /mob/living/simple_animal/hostile/siren/replicanttendril/New()
 	..()
-	spawn(180)
+	spawn(200)
 		visible_message(SPAN_NOTICE("[src] recoils to it's host Replicant!"))
 		qdel(src)
 

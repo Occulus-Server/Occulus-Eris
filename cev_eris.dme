@@ -3034,13 +3034,9 @@
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\nanoblob.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\roombattler.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\spud.dm"
-<<<<<<< Updated upstream
-#include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\siren\composer.dm"
-=======
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\siren\augmentor.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\siren\composer.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\siren\conservator.dm"
->>>>>>> Stashed changes
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\siren\replicant.dm"
 #include "zzzz_modular_occulus\code\modules\nano\modules\human_appearance.dm"
 #include "zzzz_modular_occulus\code\modules\organs\organ.dm"
