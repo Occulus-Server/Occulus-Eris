@@ -3,7 +3,6 @@
 	var/ranged_cooldown_cap = 3 //What ranged attacks, after being used are set to, to go back on cooldown, defaults to 3 life() ticks
 	var/retreat_distance = null //If our mob runs from players when they're too close, set in tile distance. By default, mobs do not retreat.
 	var/search_objects = 0 //If we want to consider objects when searching around, set this to 1. If you want to search for objects while also ignoring mobs until hurt, set it to 2. To completely ignore mobs, even when attacked, set it to 3
-
 /mob/living/simple_animal/hostile/siren/proc/GiveTarget(var/new_target) //Step 4, give us our selected target
 	target = new_target
 	if(target != null)
@@ -70,6 +69,7 @@
 	max_co2 = 0
 	min_n2 = 0
 	max_n2 = 0
+	agony_coefficient = 0.5		//Gotta use lethals to put em down effectively
 	unsuitable_atoms_damage = 15
 	faction = "siren"
 	environment_smash = 15
@@ -94,7 +94,7 @@
 	icon_dead = "Replicant_dead"
 	icon_gib = "syndicate_gib"
 	mouse_opacity = 2
-	move_to_delay = 14
+	move_to_delay = 5
 	ranged = 1
 	vision_range = 5
 	aggro_vision_range = 11
@@ -262,11 +262,12 @@
 	speed = 3
 	maxHealth = 35
 	health = 35
-	melee_damage_lower = 7
-	melee_damage_upper = 14
+	melee_damage_lower = 10
+	melee_damage_upper = 18
 	attacktext = "slices"
 	throw_message = "falls right through the strange body of the"
 	environment_smash = 4
+	agony_coefficient = .8 //Hard to shoot whip-like tendrils effectively
 
 /mob/living/simple_animal/hostile/siren/replicanttendril/New()
 	..()
