@@ -1,10 +1,10 @@
 /mob/living/simple_animal/hostile/siren/augmentor
 	name = "augmentor"
-	desc = "A truly alien creature, it is a mesh of organic and synthetic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original."
-	icon = 'zzzz_modular_occulus/icons/mob/siren/replicant.dmi'
-	icon_state = "Replicant"
-	icon_living = "Replicant"
-	icon_aggro = "Replicant_alert"
+	desc = "A crawling robot with deliberate movements. It seems less biological then it's companions, though no less deadly."
+	icon = 'zzzz_modular_occulus/icons/mob/siren/augmentor.dmi'
+	icon_state = "shieldbot"
+	icon_living = "shieldbot"
+	icon_aggro = "shieldbot"
 	icon_dead = "Replicant_dead"
 	icon_gib = "syndicate_gib"
 	mouse_opacity = 2
@@ -13,28 +13,33 @@
 	vision_range = 5
 	aggro_vision_range = 11
 	idle_vision_range = 9
+	fire_verb = "fires a blast of plasma" //reminder that the attack message is "\red <b>[src]</b> [fire_verb] at [target]!"
+	projectilesound = 'sound/weapons/pulse.ogg'
+	projectiletype = /obj/item/projectile/plasma/blast
 	speed = 3
-	maxHealth = 300
-	health = 300
-	harm_intent_damage = 25
+	ranged_cooldown = 4 SECOND
+	maxshieldcharge = 10
+	shieldcharge = 10
+	maxHealth = 50
+	health = 50
+	harm_intent_damage = 5
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	attacktext = "lashes out at"
 	throw_message = "falls right through the strange body of the"
 	environment_smash = 0
-	retreat_distance = 6
-	minimum_distance = 5
+	retreat_distance = 4
+	minimum_distance = 3
 	pass_flags = PASSTABLE
+/mob/living/simple_animal/hostile/siren/augmentor/New()
+	..()
+	add_overlay("shield")
 
-/obj/item/weapon/holo/esword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
-		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
+/mob/living/simple_animal/hostile/siren/augmentor/OpenFire(var/the_target)
+	..()
 
-		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-		spark_system.set_up(5, 0, user.loc)
-		spark_system.start()
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
-		return 1
-	return 0
-
-//	if(type/
+/mob/living/simple_animal/hostile/siren/augmentor/death()
+	..()
+	new /datum/effect/effect/system/spark_spread
+	gibs(loc, null, /obj/effect/gibspawner/robot)
+	qdel(src)

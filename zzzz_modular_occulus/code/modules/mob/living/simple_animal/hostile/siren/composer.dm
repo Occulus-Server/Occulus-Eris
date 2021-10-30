@@ -20,7 +20,7 @@
 	harm_intent_damage = 25
 	melee_damage_lower = 20
 	melee_damage_upper = 30
-	attacktext = "slashes"
+	attacktext = "slashed"
 	environment_smash = 0
 	retreat_distance = null
 	minimum_distance = 1
@@ -33,7 +33,8 @@
 
 
 /mob/living/simple_animal/hostile/siren/composer/Life()
-	. = ..()
+	..()
+
 	soundloop()
 	if(target_mob)
 		skremloop()

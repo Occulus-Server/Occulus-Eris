@@ -3,7 +3,9 @@
 	var/ranged_cooldown_cap = 3 //What ranged attacks, after being used are set to, to go back on cooldown, defaults to 3 life() ticks
 	var/retreat_distance = null //If our mob runs from players when they're too close, set in tile distance. By default, mobs do not retreat.
 	var/search_objects = 0 //If we want to consider objects when searching around, set this to 1. If you want to search for objects while also ignoring mobs until hurt, set it to 2. To completely ignore mobs, even when attacked, set it to 3
+	var/ranged_cooldown_time = 150
 /mob/living/simple_animal/hostile/siren/proc/GiveTarget(var/new_target) //Step 4, give us our selected target
+	..()
 	target = new_target
 	if(target != null)
 		Aggro()
@@ -17,8 +19,9 @@
 	if(target_mob in ListTargets(10))
 		var/target_distance = get_dist(src,target_mob)
 		if(ranged)//We ranged? Shoot at em
-			if(target_distance >= 1)//But make sure they're a tile away at least, and our range attack is off cooldown
-				OpenFire()
+			if(target_distance >= 1 && world.time >= ranged_cooldown)//But make sure they're a tile away at least, and our range attack is off cooldown
+				OpenFire(target_mob)
+				ranged_cooldown = world.time+ranged_cooldown_time
 		if(isturf(loc) && target_mob.Adjacent(src))	//If they're next to us, attack
 			AttackingTarget()
 		if(retreat_distance != null && target_distance <= retreat_distance) //If we have a retreat distance, check if we need to run from our target
@@ -37,6 +40,8 @@
 			LostTarget()
 	LostTarget()
 /mob/living/simple_animal/hostile/siren/proc/FindHidden(var/atom/hidden_target)	//THERE IS NO ESCAPE
+	if(hidden_target == null)
+		return 0
 	if(istype(target.loc, /obj/structure/closet) || istype(target.loc, /obj/machinery/disposal) || istype(target.loc, /obj/machinery/sleeper))
 		return 1
 	else
@@ -81,39 +86,53 @@
 	a_intent = I_HURT
 	var/shieldcharge = 0
 	var/chargedelay = 150
+	var/maxshieldcharge = 3
 	var/chargerate = 0
 	var/throw_message = "bounces off of"
 	var/icon_aggro = null // for swapping to when we get aggressive
 	var/atom/target // :  Removed type specification so spiders can target doors.
-/*
+
 /mob/living/simple_animal/hostile/siren/Life()
-	for(var/mob/living/simple_animal/hostile/siren/augmentor/A in view(src, 7))
-		if(shieldcharge <= 0)
-			charging = world.time + chargedelay
-			while(shieldcharge < 3)
-				chargerate =
+	..()
+	for(var/mob/living/simple_animal/hostile/siren/augmentor/A in view(src, 3))
+		if(health <= 0)
+			return
+		if(shieldcharge <= 0 && chargerate <= world.time)
+//			spawn(50)
+			if(shieldcharge < maxshieldcharge)
+				shieldcharge++
+				chargerate = world.time + 50
+				updateicon()
+			else
+
+/mob/living/simple_animal/hostile/siren/death()
+	..()
+	shieldcharge = 0
+	updateicon()
+
+
+/mob/living/simple_animal/hostile/siren/updateicon()
+	..()
+	if(shieldcharge >= 1)
+		add_overlay("shield")
+	if(shieldcharge < 1)
+		cut_overlays("shield")
 
 /mob/living/simple_animal/hostile/siren/bullet_act(obj/item/projectile/P, def_zone)
+	..()
 	if(shieldcharge >= 1)
-		user.visible_message(SPAN_DANGER("\The [user] repells [attack_text] with it's shield!"))
+		visible_message(SPAN_DANGER("\The [src] repells the [P] with it's shield!"))
 
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-		spark_system.set_up(5, 0, user.loc)
+		spark_system.set_up(5, 0, src.loc)
 		spark_system.start()
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 		shieldcharge--
+		updateicon()
+		chargerate = world.time + chargedelay
 		return PROJECTILE_FORCE_MISS
 
-/mob/living/simple_animal/hostile/siren/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-		if(shieldcharge >= 1)
-		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 
-		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-		spark_system.set_up(5, 0, user.loc)
-		spark_system.start()
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
-		return 1
-	return 0*/
 
 
 
@@ -148,6 +167,7 @@
 	var/sounddelay = 0
 	var/emp_range = 5
 	var/distress_level = 0
+	ranged_cooldown_time = 0
 
 /mob/living/simple_animal/hostile/siren/replicant/New()
 	..()
