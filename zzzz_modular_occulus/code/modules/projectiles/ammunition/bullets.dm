@@ -41,24 +41,34 @@
 	desc = "A rubber round from a White Nail rifle. Typically does not retain its shape for long outside of the rifle."
 	projectile_type = /obj/item/projectile/bullet/whitenail/rubber
 
-/obj/item/ammo_casing/shotgun/pellet/whitenail
+/obj/item/ammo_casing/whitenail/greyclaw
+	name = "grey claw shotgun slug"
+	desc = "A slug from a Grey Claw shotgun. Typically does not retain its shape for long outside of the weapon."
+	projectile_type = /obj/item/projectile/bullet/greyclaw
+
+/obj/item/ammo_casing/whitenail/greyclaw/rubber
+	name = "grey claw shotgun rubber slug"
+	desc = "A rubber slug from a Grey Claw shotgun. Typically does not retain its shape for long outside of the weapon."
+	projectile_type = /obj/item/projectile/bullet/greyclaw/rubber
+
+/obj/item/ammo_casing/shotgun/pellet/greyclaw
 	name = "grey claw pellet"
 	desc = "A pellet from a Grey Claw shotgun. Typically does not retain its shape for long outside of the weapon."
 	icon = 'zzzz_modular_occulus/icons/obj/ammo.dmi'
 	icon_state = "nail_round"
 	spent_icon = "nail_round_spent"
 	caliber = CAL_NAIL
-	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/whitenail
+	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/greyclaw
 	is_caseless = TRUE
 	maxamount = 1
 
-/obj/item/ammo_casing/shotgun/pellet/whitenail/rubber
+/obj/item/ammo_casing/shotgun/pellet/greyclaw/rubber
 	name = "grey claw rubber pellet"
 	desc = "A rubber pellet from a Grey Claw shotgun. Typically does not retain its shape for long outside of the weapon."
 	icon = 'zzzz_modular_occulus/icons/obj/ammo.dmi'
 	icon_state = "nail_round"
 	spent_icon = "nail_round_spent"
 	caliber = CAL_NAIL
-	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/rubber/whitenail
+	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/rubber/greyclaw
 	is_caseless = TRUE
 	maxamount = 1

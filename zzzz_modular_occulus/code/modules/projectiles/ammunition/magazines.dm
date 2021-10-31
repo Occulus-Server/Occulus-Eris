@@ -65,6 +65,7 @@
 	icon_state = "blacktalon_mag_rubber"
 	ammo_type = /obj/item/ammo_casing/whitenail/rubber
 
+
 /obj/item/ammo_magazine/greyclaw
 	name = "grey claw magazine"
 	icon = 'zzzz_modular_occulus/icons/obj/magazines.dmi'
@@ -74,7 +75,7 @@
 	mag_well = MAG_WELL_RIFLE
 	caliber = CAL_NAIL
 	matter = list(MATERIAL_STEEL = 3, MATERIAL_GLASS = 1)
-	ammo_type = /obj/item/ammo_casing/shotgun/pellet/whitenail
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet/greyclaw
 	max_ammo = 2
 	initial_ammo = 0
 
@@ -82,4 +83,6 @@
 	name = "grey claw rubber magazine"
 	icon = 'zzzz_modular_occulus/icons/obj/magazines.dmi'
 	icon_state = "greyclaw_mag_rubber"
-	ammo_type = /obj/item/ammo_casing/shotgun/pellet/whitenail/rubber
+	// pellet_mode = /obj/item/ammo_casing/shotgun/pellet/greyclaw/rubber
+	// slug_mode = /obj/item/projectile/bullet/greyclaw/rubber
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet/greyclaw/rubber
