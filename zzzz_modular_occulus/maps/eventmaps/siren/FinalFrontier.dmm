@@ -1,0 +1,957 @@
+"aa" = (/obj/machinery/door/airlock/centcom,/turf/simulated/floor/tiled,/area/finalfrontier)
+"ae" = (/obj/effect/decal/cleanable/blood/tracks,/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"aj" = (/obj/structure/particle_accelerator/particle_emitter/left{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"an" = (/obj/machinery/door/airlock/centcom,/turf/simulated/wall/r_wall,/area/finalfrontier/science)
+"av" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/table/marble,/obj/machinery/chemical_dispenser/beer,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"ax" = (/obj/structure/table/standard,/obj/structure/girder,/obj/structure/girder,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"ay" = (/obj/machinery/vending/snack,/turf/simulated/floor/tiled,/area/finalfrontier)
+"aH" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"aI" = (/obj/item/stack/rods,/turf/simulated/floor/tiled,/area/finalfrontier/maintenance)
+"aL" = (/obj/machinery/door/firedoor,/obj/structure/low_wall,/turf/simulated/floor/plating,/area/finalfrontier/aichamber)
+"aM" = (/obj/structure/lattice,/obj/effect/floor_decal/burned2{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"aQ" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"aX" = (/obj/structure/closet/secure_closet/anesthetics,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"aZ" = (/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"bb" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/effect/decal/cleanable/blood/splatter,/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"bc" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/phoron,/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"bd" = (/obj/structure/lattice,/obj/effect/decal/cleanable/blood/oil,/obj/effect/floor_decal/burned1{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"bh" = (/obj/item/stack/rods,/turf/space,/area/space)
+"bj" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/item/weapon/material/shard,/obj/item/trash/material/metal,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"bm" = (/obj/structure/closet/crate/bin,/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"bt" = (/obj/structure/lattice,/turf/space,/area/finalfrontier)
+"bu" = (/obj/effect/overmap/sector/finalfrontier,/turf/space,/area/space)
+"bG" = (/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"bH" = (/obj/effect/floor_decal/burned1{dir = 1},/obj/structure/lattice,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"bJ" = (/obj/item/device/radio/intercom{dir = 4; pixel_x = -22},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"bL" = (/obj/structure/lattice,/obj/effect/decal/cleanable/blood/oil,/obj/item/weapon/material/shard,/obj/effect/floor_decal/burned1{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"bN" = (/obj/machinery/chem_master,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"bV" = (/obj/structure/closet/crate/bin,/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"bZ" = (/obj/structure/lattice,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"ca" = (/obj/effect/decal/cleanable/blood/gibs,/turf/simulated/floor/tiled,/area/finalfrontier)
+"ce" = (/obj/machinery/door/airlock/centcom,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"ch" = (/obj/effect/floor_decal/fact_plaque/med4,/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"ci" = (/obj/structure/closet/toolcloset,/obj/item/weapon/tool/multitool,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"cj" = (/obj/effect/floor_decal/fact_plaque/rnd4,/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"cn" = (/obj/machinery/atmospherics/valve/digital/open,/turf/simulated/floor/tiled/steel/danger,/area/finalfrontier/engineering)
+"cv" = (/obj/machinery/light,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"cw" = (/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"cz" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"cL" = (/obj/structure/lattice,/obj/item/weapon/material/shard,/turf/space,/area/space)
+"cQ" = (/obj/item/trash/material/metal,/turf/space,/area/finalfrontier/hallway)
+"cU" = (/obj/item/stack/rods,/turf/simulated/floor/greengrid,/area/finalfrontier/aichamber)
+"cW" = (/obj/machinery/light{dir = 4},/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"cZ" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"db" = (/obj/item/trash/material/metal,/turf/space,/area/space)
+"dc" = (/obj/machinery/door/airlock/centcom,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/item/weapon/material/shard,/obj/machinery/door/blast/regular,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"dh" = (/obj/structure/salvageable/os/computer,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"di" = (/obj/structure/multiz/stairs/enter{dir = 4},/turf/simulated/floor/plating/under,/area/finalfrontier/bridge)
+"dl" = (/obj/structure/table/standard,/obj/item/weapon/material/shard,/turf/space,/area/space)
+"dv" = (/obj/item/ammo_casing/magnum,/turf/simulated/floor/tiled,/area/finalfrontier)
+"dw" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/obj/effect/decal/cleanable/blood/gibs/robot/down,/obj/spawner/junk,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"dx" = (/obj/structure/closet/secure_closet/engineering_welding,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"dB" = (/obj/effect/decal/cleanable/blood/tracks,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"dD" = (/obj/structure/table/standard,/obj/item/weapon/shreddedp,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"dG" = (/obj/item/stack/tile/floor,/turf/space,/area/finalfrontier/engineering)
+"dO" = (/turf/simulated/floor/tiled,/area/space)
+"dR" = (/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating/under,/area/space)
+"dS" = (/obj/item/weapon/material/shard,/turf/simulated/floor/tiled,/area/finalfrontier)
+"dY" = (/obj/item/stack/rods,/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/tiled,/area/finalfrontier)
+"eb" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 6},/obj/machinery/camera/network/engineering{dir = 4},/turf/simulated/floor/tiled/steel/techfloor,/area/finalfrontier/engineering)
+"eo" = (/obj/item/stack/rods,/turf/simulated/wall,/area/finalfrontier/engineering)
+"et" = (/obj/effect/decal/cleanable/blood/gibs,/obj/effect/floor_decal/burned2{dir = 4},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"ex" = (/obj/machinery/door/window,/obj/machinery/firealarm{pixel_y = 28},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"eB" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 8; external_pressure_bound = 0; external_pressure_bound_default = 0; frequency = 1443; icon_state = "map_vent_in"; id_tag = "air_out"; internal_pressure_bound = 2000; internal_pressure_bound_default = 2000; pressure_checks = 2; pressure_checks_default = 2; pump_direction = 0; use_power = 1},/turf/simulated/floor/reinforced/airmix,/area/finalfrontier/engineering)
+"eD" = (/obj/structure/closet/toolcloset,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"eE" = (/obj/structure/closet,/turf/simulated/floor/tiled,/area/finalfrontier)
+"eI" = (/obj/structure/barricade,/turf/simulated/wall,/area/finalfrontier)
+"eQ" = (/obj/item/stack/rods,/obj/structure/girder,/turf/space,/area/space)
+"eV" = (/obj/item/weapon/gun/projectile/revolver/consul,/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"fa" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"fb" = (/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"fd" = (/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"fe" = (/obj/machinery/light/small{dir = 4},/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"fg" = (/obj/structure/lattice,/obj/effect/floor_decal/burned1,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"fh" = (/obj/effect/decal/cleanable/blood/oil,/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"fi" = (/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/item/stack/rods,/obj/item/weapon/material/shard,/turf/simulated/floor/greengrid,/area/finalfrontier/hallway)
+"fk" = (/obj/machinery/door/airlock/centcom,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"fo" = (/obj/item/stack/tile/floor,/obj/effect/decal/cleanable/blood/oil,/turf/space,/area/finalfrontier/engineering)
+"fq" = (/obj/machinery/lapvend,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"fy" = (/obj/item/stack/tile/floor,/obj/item/weapon/material/shard,/turf/space,/area/space)
+"fz" = (/obj/machinery/door/airlock/centcom,/turf/simulated/wall/r_wall,/area/finalfrontier/security)
+"fA" = (/obj/structure/salvageable/os/computer,/turf/simulated/floor/greengrid,/area/finalfrontier/hallway)
+"fL" = (/obj/effect/floor_decal/burned1,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"fM" = (/obj/structure/low_wall,/turf/space,/area/finalfrontier/engineering)
+"fT" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/spawner/junk,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"fW" = (/obj/machinery/door/airlock/centcom{name = "Armoury"},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"fY" = (/mob/living/simple_animal/hostile/siren/replicant,/turf/simulated/floor/tiled,/area/finalfrontier)
+"fZ" = (/obj/structure/lattice,/obj/item/trash/material/metal,/turf/space,/area/finalfrontier)
+"gf" = (/obj/machinery/door/blast/shutters,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"gl" = (/obj/structure/table/standard,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"gn" = (/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"gq" = (/turf/simulated/wall/r_wall,/area/space)
+"gr" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"gs" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"gx" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/wall,/area/finalfrontier/engineering)
+"gA" = (/obj/structure/cable{d2 = 8; icon_state = "0-8"},/obj/machinery/power/apc{name = "South APC"; pixel_y = -28},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"gP" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/item/weapon/material/shard,/turf/simulated/floor/plating/under,/area/space)
+"gU" = (/obj/effect/window_lwall_spawn/smartspawn,/obj/item/stack/rods,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"gZ" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"hj" = (/obj/structure/table/rack/shelf,/turf/simulated/floor/plating/under,/area/finalfrontier/secondarybridge)
+"hl" = (/obj/effect/floor_decal/fact_plaque,/obj/item/stack/tile/floor,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"hm" = (/obj/structure/table/standard,/obj/item/weapon/gun/energy/taser,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"hr" = (/obj/structure/multiz/stairs/enter{dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating/under,/area/finalfrontier/bridge)
+"hs" = (/obj/effect/decal/cleanable/blood/gibs,/obj/item/weapon/material/shard,/turf/simulated/floor/tiled,/area/finalfrontier)
+"ht" = (/obj/machinery/atmospherics/unary/vent_pump{dir = 1; external_pressure_bound = 0; external_pressure_bound_default = 0; frequency = 1441; icon_state = "map_vent_in"; id_tag = "n2_out"; initialize_directions = 1; internal_pressure_bound = 4000; internal_pressure_bound_default = 4000; pressure_checks = 2; pressure_checks_default = 2; pump_direction = 0; use_power = 1},/turf/simulated/floor/reinforced/nitrogen,/area/finalfrontier/engineering)
+"hE" = (/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"hG" = (/obj/structure/cable{d2 = 4; icon_state = "0-4"},/obj/machinery/power/apc{dir = 1; name = "North APC"; pixel_y = 28},/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"hL" = (/obj/structure/table/standard,/obj/effect/decal/cleanable/blood/gibs,/turf/simulated/floor/tiled,/area/finalfrontier)
+"hR" = (/obj/structure/bed,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/effect/gibspawner/human,/turf/simulated/floor/tiled,/area/finalfrontier)
+"id" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/floor/plating,/area/finalfrontier/hallway)
+"ih" = (/obj/item/weapon/material/shard,/obj/item/ammo_casing/magnum,/obj/structure/table/marble,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"il" = (/obj/item/weapon/material/shard,/obj/item/stack/tile/floor,/obj/item/stack/tile/floor,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"im" = (/obj/machinery/light{dir = 8},/mob/living/simple_animal/hostile/siren/composer,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"iq" = (/obj/machinery/door/airlock/centcom,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"ir" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/obj/machinery/door/blast/shutters{dir = 2; id = "ffsecure"; layer = 3.3; name = "Maintenance Hatch"},/turf/simulated/floor/plating,/area/finalfrontier/security)
+"is" = (/obj/structure/table/standard,/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"iw" = (/obj/machinery/door/airlock/centcom,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"ix" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow{dir = 1},/turf/simulated/floor/tiled/steel/techfloor,/area/finalfrontier/engineering)
+"iB" = (/obj/structure/cable/yellow{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"iH" = (/obj/machinery/door/airlock/maintenance_hatch,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"iK" = (/obj/structure/table/standard,/turf/simulated/floor/plating/under,/area/finalfrontier/security)
+"iL" = (/obj/item/weapon/material/shard,/turf/simulated/wall/r_wall,/area/finalfrontier/engineering)
+"iM" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating/under,/area/space)
+"iV" = (/turf/simulated/floor/reinforced/airmix,/area/finalfrontier/engineering)
+"iZ" = (/obj/machinery/door/airlock/centcom,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"ja" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/unary/vent_pump,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"jc" = (/obj/item/weapon/material/shard,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"jj" = (/obj/structure/closet,/obj/item/stack/rods,/turf/simulated/floor/tiled,/area/finalfrontier)
+"jm" = (/obj/item/ammo_casing/magnum,/obj/structure/table/marble,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"jx" = (/obj/machinery/door/airlock/centcom,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/wall/r_wall,/area/finalfrontier/security)
+"jz" = (/obj/item/stack/tile/floor,/turf/simulated/wall/r_wall,/area/finalfrontier/medical)
+"jA" = (/obj/item/weapon/spacecash/bundle/c20,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"jG" = (/obj/item/stack/tile/floor,/obj/item/stack/tile/floor,/obj/item/inflatable/door/torn,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"jH" = (/obj/machinery/chemical_dispenser/industrial,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"jI" = (/obj/item/stack/tile/floor,/obj/item/stack/tile/floor,/obj/item/stack/tile/floor,/turf/simulated/floor/tiled,/area/finalfrontier)
+"jL" = (/obj/structure/table/standard,/obj/spawner/medical,/obj/spawner/medical,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"jR" = (/obj/item/trash/material/metal,/turf/space,/area/finalfrontier/maintenance)
+"jV" = (/obj/item/stack/tile/floor,/obj/structure/barricade,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"jW" = (/turf/simulated/wall,/area/finalfrontier)
+"jZ" = (/obj/item/weapon/spacecash/bundle/c1000,/obj/item/weapon/spacecash/bundle/c1000,/obj/item/weapon/spacecash/bundle/c500,/obj/effect/decal/cleanable/blood/gibs/body,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"kb" = (/obj/item/stack/rods,/obj/item/weapon/material/shard,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"kc" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/plating,/area/finalfrontier/hallway)
+"ki" = (/obj/machinery/light{dir = 8},/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"kj" = (/turf/simulated/wall,/area/finalfrontier/engineering)
+"kl" = (/obj/structure/table/standard,/obj/item/weapon/storage/firstaid/surgery,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"ko" = (/obj/item/stack/tile/floor,/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"kw" = (/obj/item/device/radio/intercom{pixel_y = 24},/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"ky" = (/obj/machinery/door/airlock/centcom,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier)
+"kA" = (/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"kB" = (/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"kF" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/item/device/radio/intercom{pixel_y = 24},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"kK" = (/obj/effect/decal/cleanable/blood/gibs/body,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"kL" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating/under,/area/space)
+"kM" = (/obj/item/stack/tile/floor,/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"kX" = (/obj/structure/table/standard,/obj/structure/bs_crystal_structure,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"lb" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/floor/plating,/area/finalfrontier/secondarybridge)
+"le" = (/obj/item/stack/tile/floor,/obj/structure/lattice,/turf/space,/area/finalfrontier/engineering)
+"lg" = (/obj/structure/table/standard,/obj/structure/girder,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"lh" = (/turf/simulated/wall,/area/finalfrontier/maintenance)
+"lo" = (/obj/structure/medical_stand/anesthetic,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"ls" = (/obj/structure/closet/radiation,/obj/item/clothing/glasses/powered/meson,/turf/simulated/floor/tiled/steel/gray_platform,/area/finalfrontier/engineering)
+"lz" = (/obj/structure/closet/radiation,/obj/item/clothing/glasses/powered/meson,/obj/item/stack/tile/floor,/turf/simulated/floor/tiled/steel/gray_platform,/area/finalfrontier/engineering)
+"lB" = (/obj/structure/salvageable/os/computer,/turf/simulated/floor/plating/under,/area/finalfrontier/security)
+"lI" = (/obj/machinery/door/airlock/centcom,/obj/machinery/door/blast/regular,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"lJ" = (/obj/structure/cable{d2 = 8; icon_state = "0-8"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/power/apc{dir = 1; name = "North APC"; pixel_y = 28},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"lK" = (/obj/item/stack/tile/floor,/obj/machinery/firealarm{dir = 4; pixel_x = 28},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"lN" = (/turf/simulated/floor/plating/under,/area/space)
+"lT" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/effect/decal/cleanable/blood/gibs,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"lW" = (/obj/structure/bed/chair/office/dark{dir = 1},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"lZ" = (/obj/item/stack/rods,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"mc" = (/obj/machinery/light,/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 4},/turf/simulated/floor/tiled/steel/techfloor,/area/finalfrontier/engineering)
+"me" = (/obj/machinery/door/airlock/maintenance_hatch,/obj/item/weapon/material/shard,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"mj" = (/obj/item/stack/rods,/obj/item/weapon/stool/padded,/turf/simulated/floor/tiled,/area/finalfrontier)
+"mo" = (/obj/effect/decal/cleanable/blood/gibs/limb,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"mz" = (/obj/effect/decal/cleanable/blood/gibs,/obj/effect/floor_decal/burned2{dir = 4},/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"mG" = (/obj/structure/lattice,/obj/effect/floor_decal/burned3{dir = 8},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"mI" = (/obj/effect/floor_decal/burned3,/obj/structure/lattice,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"mJ" = (/obj/structure/table/standard,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"mK" = (/obj/effect/floor_decal/burned3{dir = 4},/obj/structure/lattice,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"mM" = (/obj/item/trash/material/metal,/turf/simulated/floor/tiled,/area/finalfrontier)
+"mQ" = (/turf/space,/area/finalfrontier/maintenance)
+"mW" = (/obj/machinery/light,/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"mX" = (/obj/structure/lattice,/obj/item/weapon/material/shard,/turf/space,/area/finalfrontier/engineering)
+"ne" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/simulated/floor/plating/under,/area/finalfrontier/medical)
+"nj" = (/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/effect/gibspawner/human,/obj/effect/decal/cleanable/blood/gibs/up,/turf/simulated/floor/tiled,/area/finalfrontier)
+"nk" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"nl" = (/obj/item/stack/rods,/turf/simulated/wall/r_wall,/area/finalfrontier/engineering)
+"np" = (/obj/map_data/finalfrontier,/turf/space,/area/space)
+"nq" = (/obj/machinery/door/firedoor,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"nu" = (/obj/item/weapon/stool,/obj/effect/decal/cleanable/blood/gibs,/mob/living/simple_animal/hostile/siren/conservator,/obj/effect/decal/cleanable/blood/gibs/body,/obj/effect/decal/cleanable/blood/gibs/body,/obj/effect/decal/cleanable/blood/gibs/up,/turf/simulated/floor/tiled,/area/finalfrontier)
+"nB" = (/obj/machinery/vending/phoronresearch,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"nD" = (/obj/item/stack/tile/floor,/turf/space,/area/finalfrontier)
+"nF" = (/obj/effect/decal/cleanable/vomit,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"nG" = (/obj/item/stack/tile/floor,/mob/living/simple_animal/hostile/siren/conservator,/obj/machinery/door/airlock/centcom,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"nI" = (/obj/item/stack/tile/floor,/obj/item/weapon/material/shard,/turf/space,/area/finalfrontier/engineering)
+"nM" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/greengrid,/area/finalfrontier/hallway)
+"nS" = (/obj/effect/damagedfloor,/turf/simulated/floor/plating/under,/area/space)
+"nT" = (/obj/item/stack/rods,/obj/spawner/junk,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"nW" = (/obj/item/stack/rods,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"oe" = (/obj/structure/cable,/obj/machinery/power/apc{name = "South APC"; pixel_y = -28},/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"of" = (/obj/effect/decal/cleanable/blood/gibs/body,/turf/simulated/wall/r_wall,/area/finalfrontier/maintenance)
+"og" = (/obj/effect/floor_decal/burned1,/obj/structure/lattice,/obj/structure/lattice,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"op" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/table/marble,/turf/simulated/floor/tiled,/area/finalfrontier)
+"os" = (/obj/effect/floor_decal/fact_plaque/rnd3,/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"ot" = (/obj/structure/table/rack/shelf,/obj/item/clothing/suit/armor/vest,/turf/simulated/floor/plating/under,/area/finalfrontier/secondarybridge)
+"ou" = (/obj/structure/table/standard,/turf/space,/area/space)
+"ox" = (/obj/structure/closet/secure_closet/personal/engineering_personal,/obj/spawner/tool/advanced/low_chance,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"oy" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 10},/obj/machinery/camera/network/engineering{dir = 8},/turf/simulated/floor/tiled/steel/techfloor,/area/finalfrontier/engineering)
+"oD" = (/turf/simulated/wall/r_wall,/area/finalfrontier/bridge)
+"oG" = (/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"oJ" = (/obj/machinery/door/blast/shutters{dir = 2; name = "secure shutters"},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"oL" = (/obj/structure/closet/secure_closet/personal/doctor,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"oQ" = (/obj/structure/cable/yellow{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"oV" = (/obj/item/stack/tile/floor,/obj/effect/decal/cleanable/blood/gibs/body,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"oW" = (/obj/item/stack/tile/floor,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"oZ" = (/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"pc" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/finalfrontier)
+"pd" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/firealarm{pixel_y = 28},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"pf" = (/obj/screen/damageoverlay,/turf/space,/area/space)
+"ph" = (/obj/structure/closet/crate/bin,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"pm" = (/turf/simulated/wall/r_wall,/area/finalfrontier/aichamber)
+"pq" = (/obj/item/stack/tile/floor,/obj/structure/table,/turf/simulated/floor/tiled,/area/finalfrontier)
+"pt" = (/obj/structure/lattice,/obj/item/stack/tile/floor,/turf/space,/area/finalfrontier/engineering)
+"pu" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/phoron,/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"pz" = (/obj/item/stack/tile/floor,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"pE" = (/obj/machinery/atmospherics/unary/vent_pump{dir = 1; external_pressure_bound = 0; external_pressure_bound_default = 0; frequency = 1441; icon_state = "map_vent_in"; id_tag = "o2_out"; initialize_directions = 1; internal_pressure_bound = 4000; internal_pressure_bound_default = 4000; pressure_checks = 2; pressure_checks_default = 2; pump_direction = 0; use_power = 1},/turf/simulated/floor/reinforced/oxygen,/area/finalfrontier/engineering)
+"pF" = (/turf/simulated/wall/r_wall,/area/finalfrontier/security)
+"pG" = (/obj/machinery/light/floor,/turf/simulated/floor/greengrid,/area/finalfrontier/aichamber)
+"pM" = (/obj/machinery/computer/operating,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"pR" = (/obj/item/stack/rods,/turf/simulated/wall/r_wall,/area/finalfrontier/hallway)
+"pT" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/firealarm{pixel_y = 28},/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"pW" = (/obj/effect/decal/cleanable/blood/splatter,/mob/living/simple_animal/hostile/siren/augmentor,/obj/effect/decal/cleanable/blood/gibs/robot/down,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"pX" = (/obj/item/weapon/material/shard,/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier)
+"pY" = (/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"pZ" = (/obj/effect/decal/cleanable/blood/oil,/obj/item/weapon/material/shard,/turf/simulated/floor/plating/under,/area/space)
+"qb" = (/obj/structure/fireaxecabinet{pixel_y = -32},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"qc" = (/obj/item/weapon/spacecash/bundle/c1000,/obj/item/weapon/spacecash/bundle/c500,/obj/item/weapon/spacecash/bundle/c50,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"qg" = (/turf/simulated/floor/reinforced/oxygen,/area/finalfrontier/engineering)
+"qi" = (/obj/effect/decal/cleanable/blood/gibs,/turf/space,/area/finalfrontier)
+"qm" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/item/ammo_casing/magnum,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"qn" = (/obj/machinery/optable,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"qr" = (/obj/machinery/porta_turret/stationary,/turf/simulated/floor/greengrid,/area/finalfrontier/aichamber)
+"qz" = (/obj/machinery/door/airlock/centcom{name = "Bridge"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/blast/regular{id = "bridgebl"; name = "Bridge Blast Door"},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"qB" = (/obj/effect/floor_decal/fact_plaque/rnd2,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"qG" = (/obj/effect/floor_decal/burned1,/obj/structure/lattice,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"qK" = (/obj/item/weapon/tool/broken_bottle,/obj/item/weapon/tool/broken_bottle,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"qL" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"qT" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/effect/decal/cleanable/blood/splatter,/obj/structure/barricade,/obj/item/ammo_casing/magnum,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"qU" = (/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/wall,/area/finalfrontier)
+"qX" = (/obj/machinery/light{dir = 4},/obj/item/ammo_casing/magnum,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"qZ" = (/obj/structure/lattice,/obj/effect/floor_decal/burned1{dir = 1},/turf/space,/area/finalfrontier/maintenance)
+"rb" = (/obj/structure/cable/yellow{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/light{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"rl" = (/turf/simulated/wall/r_wall,/area/finalfrontier/maintenance)
+"rm" = (/obj/structure/salvageable/os/computer,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"rq" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/firealarm{pixel_y = 28},/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"rt" = (/obj/item/weapon/material/shard,/mob/living/simple_animal/hostile/siren/augmentor,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"rw" = (/obj/item/ammo_casing/magnum,/obj/item/weapon/gun/projectile/shotgun/doublebarrel,/obj/item/weapon/tool/broken_bottle,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"rx" = (/obj/item/weapon/material/shard,/turf/simulated/floor/greengrid,/area/finalfrontier/aichamber)
+"ry" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor,/obj/machinery/door/airlock/centcom,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"rE" = (/obj/item/weapon/material/shard,/obj/effect/decal/cleanable/blood/gibs/robot/down,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"rG" = (/obj/structure/multiz/stairs/enter{dir = 8},/turf/simulated/floor/plating/under,/area/finalfrontier/bridge)
+"rI" = (/obj/effect/decal/cleanable/blood/splatter,/obj/effect/decal/cleanable/blood/splatter,/mob/living/simple_animal/hostile/siren/replicant,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"rJ" = (/obj/item/stack/tile/floor,/obj/structure/barricade,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"rM" = (/turf/simulated/wall,/area/finalfrontier/science)
+"rS" = (/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"rT" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"rW" = (/obj/item/weapon/stool/padded,/turf/simulated/floor/tiled,/area/finalfrontier)
+"rY" = (/mob/living/simple_animal/hostile/siren/conservator,/turf/space,/area/finalfrontier)
+"si" = (/obj/item/weapon/material/shard/shrapnel,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"sj" = (/mob/living/simple_animal/hostile/siren/conservator,/turf/space,/area/space)
+"sk" = (/turf/simulated/wall,/area/finalfrontier/hallway)
+"sv" = (/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"sA" = (/obj/machinery/door/airlock/centcom,/obj/machinery/door/blast/regular{id = "bridgebl"; name = "Bridge Blast Door"},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"sB" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"sI" = (/turf/simulated/wall/r_wall,/area/finalfrontier/hallway)
+"sN" = (/obj/effect/shuttle_landmark/finalfrontier/nav1,/turf/space,/area/space)
+"sO" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"sR" = (/obj/item/weapon/material/shard,/turf/space,/area/space)
+"sU" = (/obj/structure/table/standard,/obj/spawner/toolbox,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"sV" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/mob/living/simple_animal/hostile/siren/augmentor,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"sY" = (/obj/item/weapon/material/shard,/turf/space,/area/finalfrontier/engineering)
+"ta" = (/obj/effect/decal/cleanable/blood/gibs/robot/down,/turf/simulated/floor/tiled,/area/finalfrontier)
+"tc" = (/obj/machinery/light,/turf/simulated/floor/tiled,/area/finalfrontier)
+"th" = (/obj/structure/salvageable/os/computer,/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"tk" = (/mob/living/simple_animal/hostile/siren/replicant,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"tl" = (/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/floor/tiled,/area/finalfrontier)
+"tm" = (/obj/structure/table/rack,/obj/machinery/light{dir = 1},/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"tt" = (/obj/structure/closet,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/finalfrontier)
+"tv" = (/obj/item/weapon/paper{info = "4 Deployable Barriers<br>4 Portable Flashers + Wrench <br>3 Sets of Riot Armor <br>1 Bulletproof Vest <br>1 Ablative Vest <br>1 Bomb Suit <br>1 Biohazard Suit <br>1 Chemical Implant Kit <br>1 Tracking Implant Kit <br>1 Loyalty Implant Kit <br>1 Box of Spare Handcuffs <br>1 Box of flashbangs <br>1 Box of spare R.O.B.U.S.T. cartridges <br>3 Riot shields <br>3 Stun Batons <br>3 Energy Guns <br>3 Laser Rifles <br>6 Gas Masks"; name = "Armory Inventory"},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"ty" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/door/airlock/centcom,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"tz" = (/obj/machinery/door/airlock/centcom{name = "surgery"},/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"tD" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/airlock/centcom,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"tE" = (/obj/item/weapon/material/shard,/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"tJ" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"tT" = (/obj/item/stack/rods,/turf/simulated/wall,/area/finalfrontier/maintenance)
+"tV" = (/obj/item/stack/rods,/obj/item/weapon/material/shard/shrapnel,/obj/item/stack/tile/floor,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"tW" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/space)
+"ud" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"ui" = (/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/tiled,/area/finalfrontier)
+"ul" = (/obj/machinery/light,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"up" = (/obj/item/weapon/material/shard,/obj/item/ammo_casing/magnum,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"ut" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/finalfrontier)
+"uu" = (/obj/structure/closet,/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/tiled,/area/finalfrontier)
+"uw" = (/obj/item/weapon/material/shard,/obj/item/trash/candy,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"uB" = (/obj/structure/table/standard,/obj/item/device/radio/intercom{dir = 4; pixel_x = -22},/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"uD" = (/mob/living/simple_animal/hostile/siren/composer,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"uI" = (/obj/item/stack/tile/floor,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"uO" = (/obj/machinery/door/airlock/centcom,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/barricade,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"uR" = (/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"uV" = (/turf/simulated/floor/greengrid,/area/finalfrontier/aichamber)
+"uZ" = (/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"va" = (/obj/structure/table/standard,/obj/item/weapon/holochip/medical/surgery,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"vb" = (/turf/simulated/wall,/area/finalfrontier/security)
+"vi" = (/obj/effect/floor_decal/burned1,/obj/structure/lattice,/turf/space,/area/finalfrontier/engineering)
+"vl" = (/obj/item/trash/material/metal,/obj/structure/lattice,/turf/space,/area/finalfrontier/maintenance)
+"vp" = (/obj/structure/table/rack/shelf,/obj/item/weapon/gun/energy/gun/glasgow,/turf/simulated/floor/plating/under,/area/finalfrontier/secondarybridge)
+"vr" = (/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"vx" = (/obj/machinery/light{dir = 8},/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"vy" = (/obj/item/ammo_casing/magnum,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"vE" = (/obj/item/trash/candy,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"vF" = (/obj/machinery/vending/engivend,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"vG" = (/obj/structure/barricade,/turf/simulated/wall,/area/finalfrontier/hallway)
+"vM" = (/obj/structure/lattice,/turf/space,/area/space)
+"vN" = (/obj/structure/closet/secure_closet/engineering_electrical,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"vP" = (/obj/structure/table/standard,/obj/item/weapon/gun/energy/gun,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"vT" = (/obj/effect/decal/cleanable/blood/splatter,/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"vX" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/finalfrontier)
+"vY" = (/obj/item/modular_computer/console/preset/civilian/professional{dir = 4},/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"vZ" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/mob/living/simple_animal/hostile/siren/composer,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"wb" = (/obj/item/trash/material/metal,/turf/simulated/wall,/area/finalfrontier)
+"wi" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/simulated/floor/plating/under,/area/finalfrontier/science)
+"wn" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/effect/decal/cleanable/vomit,/turf/simulated/floor/tiled,/area/finalfrontier)
+"wq" = (/obj/effect/decal/cleanable/blood/gibs,/obj/item/ammo_casing/magnum,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"wr" = (/obj/machinery/power/terminal{dir = 1},/obj/structure/cable/yellow{d2 = 4; icon_state = "0-4"},/obj/structure/cable/yellow{d2 = 8; icon_state = "0-8"},/obj/machinery/atmospherics/pipe/simple/visible/red{dir = 10},/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"wt" = (/obj/machinery/door/blast/regular,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"wv" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/item/ammo_casing/magnum,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"wx" = (/obj/structure/bed,/obj/structure/cable{d2 = 2; icon_state = "0-2"},/obj/machinery/power/apc{dir = 8; name = "West APC"; pixel_x = -28},/turf/simulated/floor/tiled,/area/finalfrontier)
+"wF" = (/obj/structure/AIcore/deactivated,/turf/simulated/floor/plating/under,/area/finalfrontier/aichamber)
+"wH" = (/obj/item/trash/material/metal,/turf/space,/area/finalfrontier)
+"wN" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"wP" = (/obj/structure/lattice,/obj/item/weapon/material/shard,/obj/structure/girder,/turf/space,/area/finalfrontier/engineering)
+"wR" = (/turf/simulated/floor/plating/under,/area/finalfrontier)
+"wY" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow,/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/phoron,/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"xe" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"xg" = (/obj/item/stack/rods,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"xh" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"xl" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor/plating/under,/area/space)
+"xC" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/item/stack/tile/floor,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"xE" = (/obj/item/weapon/material/shard/shrapnel,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"xH" = (/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/space)
+"xO" = (/mob/living/carbon/human/monkey,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"xR" = (/obj/effect/floor_decal/fact_plaque/rnd1,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"xY" = (/obj/item/clothing/suit/space/emergency,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"yf" = (/obj/effect/decal/cleanable/blood/gibs,/obj/effect/floor_decal/burned2{dir = 4},/turf/simulated/floor/plating/under,/area/finalfrontier)
+"yh" = (/obj/item/stack/tile/floor,/obj/item/stack/tile/floor,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"yp" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"yw" = (/obj/effect/decal/cleanable/blood/oil,/obj/machinery/door/airlock/centcom,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"yz" = (/obj/machinery/door/airlock/centcom,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/door/blast/regular,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"yF" = (/obj/item/stack/rods,/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"yI" = (/obj/machinery/light/small{dir = 4},/obj/machinery/air_sensor{frequency = 1443; id_tag = "air_sensor"; output = 7},/turf/simulated/floor/reinforced/airmix,/area/finalfrontier/engineering)
+"yK" = (/obj/machinery/power/terminal{dir = 1},/obj/structure/cable/yellow{d2 = 4; icon_state = "0-4"},/obj/structure/cable/yellow{d2 = 8; icon_state = "0-8"},/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"yU" = (/obj/effect/floor_decal/burned1{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"yV" = (/obj/effect/decal/cleanable/blood/splatter,/obj/effect/decal/cleanable/blood/gibs,/turf/simulated/floor/tiled,/area/finalfrontier)
+"zd" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/effect/gibspawner/human,/turf/simulated/floor/tiled,/area/finalfrontier)
+"zk" = (/obj/item/stack/tile/floor,/obj/item/weapon/material/shard,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"zr" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/item/ammo_casing/magnum,/obj/machinery/door/blast/shutters{dir = 2; name = "secure shutters"},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"zs" = (/obj/structure/closet/secure_closet/engineering_welding,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"zt" = (/obj/effect/decal/cleanable/blood/gibs/limb,/turf/simulated/floor/tiled,/area/finalfrontier)
+"zx" = (/obj/effect/floor_decal/burned3{dir = 4},/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"zz" = (/turf/simulated/wall,/area/finalfrontier/secondarybridge)
+"zA" = (/obj/item/weapon/shreddedp,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"zO" = (/obj/machinery/radiocarbon_spectrometer,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"zT" = (/obj/structure/cryopod_spawner/medical,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"zV" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/wall/r_wall,/area/finalfrontier/engineering)
+"zX" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"Am" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ao" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/effect/decal/cleanable/blood/oil,/obj/effect/decal/cleanable/blood/gibs,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Aq" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/effect/decal/cleanable/blood/splatter,/obj/structure/barricade,/obj/item/weapon/stool/padded,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ar" = (/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"Au" = (/obj/item/ammo_casing/magnum,/obj/effect/decal/cleanable/vomit,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Aw" = (/obj/effect/decal/cleanable/blood/gibs,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"AE" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/blast/regular,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"AF" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/plating,/area/finalfrontier/bridge)
+"AG" = (/obj/structure/barricade,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"AR" = (/mob/living/simple_animal/hostile/siren/conservator,/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier)
+"AS" = (/obj/structure/lattice,/obj/item/stack/rods,/turf/space,/area/space)
+"AT" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/space)
+"AY" = (/obj/item/stack/rods,/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Bf" = (/obj/effect/floor_decal/burned1,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Bh" = (/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"Bi" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"Bk" = (/obj/structure/barricade,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"Bq" = (/obj/item/weapon/material/shard,/turf/space,/area/finalfrontier)
+"Bu" = (/obj/machinery/door/airlock/centcom,/obj/structure/barricade,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"Bv" = (/obj/item/stack/tile/floor,/turf/simulated/floor/plating/under,/area/space)
+"Bw" = (/obj/structure/table/marble,/turf/simulated/floor/tiled,/area/finalfrontier)
+"By" = (/obj/structure/table/rack,/obj/structure/barricade,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"BC" = (/obj/machinery/atmospherics/unary/freezer,/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"BE" = (/obj/effect/decal/cleanable/blood/gibs,/obj/structure/lattice,/turf/space,/area/finalfrontier/engineering)
+"BJ" = (/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"BO" = (/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"BP" = (/obj/machinery/vending/dinnerware,/turf/simulated/floor/tiled,/area/finalfrontier)
+"BR" = (/obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,/obj/machinery/meter,/turf/simulated/floor/tiled/steel/techfloor,/area/finalfrontier/engineering)
+"BT" = (/obj/structure/lattice,/turf/simulated/wall,/area/finalfrontier)
+"BU" = (/obj/structure/closet/secure_closet/rare_loot,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"Cc" = (/obj/structure/girder,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"Cd" = (/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"Cg" = (/obj/structure/cable{d2 = 4; icon_state = "0-4"},/obj/structure/cable{d2 = 8; icon_state = "0-8"},/obj/machinery/power/smes/buildable/engine{RCon_tag = "Engine - Main 2"},/obj/structure/barricade,/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"Ch" = (/obj/item/device/radio/intercom{dir = 4; pixel_x = -22},/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"Ci" = (/obj/item/stack/rods,/turf/simulated/floor/plating/under,/area/space)
+"Ck" = (/obj/item/stack/rods,/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Cm" = (/obj/item/ammo_casing/magnum,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"Co" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/turf/simulated/floor/tiled,/area/finalfrontier)
+"Cp" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/greengrid,/area/finalfrontier/hallway)
+"Cs" = (/obj/machinery/door/airlock/maintenance_hatch,/obj/item/stack/rods,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"Cu" = (/obj/effect/floor_decal/burned2,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Cx" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/effect/decal/cleanable/vomit,/obj/item/weapon/tool/broken_bottle,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"CC" = (/obj/item/stack/tile/floor,/obj/machinery/door/airlock/centcom,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"CH" = (/turf/simulated/floor/plating/under,/area/finalfrontier/secondarybridge)
+"CJ" = (/obj/item/inflatable/torn,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"CQ" = (/obj/item/stack/rods,/obj/item/weapon/material/shard,/turf/space,/area/space)
+"CY" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"Di" = (/obj/machinery/light{dir = 4},/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Dj" = (/obj/structure/girder,/turf/space,/area/finalfrontier)
+"Dk" = (/obj/effect/decal/cleanable/blood/gibs/robot/down,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"Dl" = (/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/space)
+"Do" = (/obj/item/weapon/material/shard,/obj/spawner/junk,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Ds" = (/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"Dt" = (/turf/space,/area/finalfrontier/hallway)
+"Du" = (/obj/item/ammo_casing/magnum,/obj/structure/table/standard,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"DC" = (/obj/item/weapon/material/shard,/turf/simulated/wall,/area/finalfrontier)
+"DE" = (/obj/machinery/door/airlock/centcom,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/blast/regular{id = "bridgebl"; name = "Bridge Blast Door"},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"DQ" = (/obj/item/stack/tile/floor,/obj/item/stack/tile/floor,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"DS" = (/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled,/area/finalfrontier)
+"DT" = (/obj/item/stack/rods,/obj/item/weapon/material/shard,/turf/simulated/wall/r_wall,/area/finalfrontier/engineering)
+"DX" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"Ec" = (/obj/machinery/light{dir = 4; icon_state = "tube1"},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ed" = (/obj/effect/decal/cleanable/blood/oil/streak,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Eg" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/mob/living/simple_animal/hostile/siren/augmentor,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ei" = (/obj/effect/shuttle_landmark/finalfrontier/nav2,/turf/space,/area/space)
+"El" = (/obj/structure/closet,/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/finalfrontier)
+"Er" = (/obj/machinery/light,/obj/effect/decal/cleanable/blood/gibs/body,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Et" = (/obj/item/stack/tile/floor,/obj/effect/decal/cleanable/blood/splatter,/turf/space,/area/finalfrontier)
+"Ev" = (/obj/machinery/light{dir = 4},/obj/item/stack/tile/floor,/obj/effect/decal/cleanable/blood/splatter,/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ez" = (/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/wall,/area/finalfrontier/hallway)
+"EE" = (/obj/structure/lattice,/obj/item/stack/rods,/obj/item/weapon/material/shard,/turf/space,/area/finalfrontier/engineering)
+"EK" = (/obj/item/stack/tile/floor,/turf/simulated/floor/tiled,/area/finalfrontier/maintenance)
+"EN" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow,/obj/effect/window_lwall_spawn/smartspawn,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"ES" = (/obj/structure/lattice,/turf/space,/area/finalfrontier/engineering)
+"ET" = (/obj/effect/floor_decal/fact_plaque/med3,/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"EU" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/floor/plating,/area/finalfrontier/science)
+"EV" = (/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/floor/plating/under,/area/finalfrontier/bridge)
+"EZ" = (/obj/effect/decal/cleanable/blood/splatter,/obj/item/weapon/stool/padded,/obj/item/weapon/tool/broken_bottle,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Fc" = (/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Ff" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Fg" = (/obj/effect/decal/cleanable/blood/splatter,/obj/item/weapon/material/shard,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Fk" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/effect/decal/cleanable/blood/gibs,/obj/item/trash/chips,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Fn" = (/obj/item/stack/tile/floor,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Fo" = (/obj/item/weapon/material/shard,/obj/structure/lattice,/turf/space,/area/finalfrontier/engineering)
+"Fr" = (/obj/effect/gibspawner/human,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Fv" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/item/trash/material/metal,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"Fy" = (/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"Fz" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow,/obj/effect/window_lwall_spawn/smartspawn,/obj/machinery/door/firedoor,/obj/item/stack/rods,/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"FA" = (/obj/machinery/artifact_scanpad,/obj/structure/bs_crystal_structure,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"FD" = (/obj/machinery/deployable/barrier,/turf/simulated/floor/plating/under,/area/finalfrontier/secondarybridge)
+"FL" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/blast/shutters{density = 0; dir = 2; icon_state = "shutter0"; id = null; name = "Secure Shutters"; opacity = 0},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"FW" = (/turf/simulated/floor/tiled,/area/finalfrontier)
+"FX" = (/obj/item/weapon/material/shard/shrapnel,/obj/item/stack/tile/floor,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ga" = (/mob/living/simple_animal/hostile/siren/augmentor,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"Gg" = (/obj/structure/table,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"Gj" = (/obj/machinery/door/airlock/centcom{name = "Research Team leader"},/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"Gl" = (/obj/structure/lattice,/obj/effect/floor_decal/burned1{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Gp" = (/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Gr" = (/obj/effect/decal/cleanable/blood/gibs/body,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"Gv" = (/obj/machinery/dna_scannernew,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"Gw" = (/obj/spawner/junk,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"GK" = (/mob/living/simple_animal/hostile/siren/replicant,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"GL" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"GM" = (/obj/machinery/artifact_analyser,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"GT" = (/obj/effect/floor_decal/burned2{dir = 4},/turf/simulated/floor/plating/under,/area/finalfrontier)
+"GU" = (/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"GV" = (/obj/structure/salvageable/os/computer,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"Hn" = (/obj/effect/floor_decal/burned1{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Hr" = (/turf/simulated/wall,/area/finalfrontier/bridge)
+"Hv" = (/obj/machinery/light/small,/obj/machinery/air_sensor{frequency = 1441; id_tag = "o2_sensor"},/turf/simulated/floor/reinforced/oxygen,/area/finalfrontier/engineering)
+"HC" = (/obj/effect/decal/cleanable/blood/gibs,/obj/effect/floor_decal/burned2{dir = 4},/obj/item/trash/material/metal,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"HE" = (/obj/item/stack/tile/floor,/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"HF" = (/obj/item/weapon/spacecash/bundle/c20,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"HG" = (/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"HH" = (/obj/effect/decal/cleanable/blood/oil,/obj/structure/barricade,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"HM" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier)
+"HN" = (/obj/machinery/sleeper{dir = 8},/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"HP" = (/obj/item/weapon/material/shard,/turf/simulated/wall,/area/finalfrontier/engineering)
+"HR" = (/obj/machinery/door/firedoor,/obj/structure/low_wall,/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"HY" = (/obj/effect/floor_decal/burned2,/obj/structure/lattice,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"If" = (/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"Ij" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/item/stack/rods,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Il" = (/obj/item/stack/tile/floor,/turf/space,/area/finalfrontier/maintenance)
+"In" = (/obj/item/device/radio/intercom{pixel_y = 24},/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"Io" = (/obj/item/weapon/material/shard,/turf/simulated/wall,/area/finalfrontier/hallway)
+"Ir" = (/obj/item/trash/material/metal,/obj/item/trash/material/metal,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"Is" = (/obj/structure/salvageable/os/computer,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"Iv" = (/obj/item/weapon/material/shard/shrapnel,/obj/structure/barricade,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"Iy" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/centcom,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"IA" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/obj/machinery/door/blast/shutters{dir = 2; id = "ffsecure"; layer = 3.3; name = "Maintenance Hatch"},/turf/simulated/floor/plating,/area/finalfrontier/hallway)
+"IB" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"ID" = (/obj/structure/table/standard,/obj/item/weapon/shreddedp,/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"IE" = (/obj/effect/floor_decal/burned3,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"IF" = (/obj/machinery/power/solar,/turf/space,/area/space)
+"IG" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"IK" = (/obj/structure/table/standard,/obj/item/weapon/shreddedp,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"IL" = (/obj/machinery/meter{frequency = 1443; id = "mair_in_meter"; name = "Mixed Air Tank In"},/obj/machinery/atmospherics/pipe/simple/visible/cyan{dir = 4},/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/phoron,/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"IX" = (/obj/effect/decal/cleanable/blood/oil,/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Jd" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"Jn" = (/mob/living/simple_animal/hostile/siren/composer,/obj/machinery/firealarm{dir = 4; pixel_x = 28},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Jr" = (/obj/item/ammo_casing/magnum,/obj/spawner/junk,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Js" = (/obj/effect/decal/cleanable/blood/splatter,/obj/item/weapon/material/shard,/turf/space,/area/finalfrontier)
+"Jt" = (/turf/simulated/wall/r_wall,/area/finalfrontier/secondarybridge)
+"Jw" = (/obj/machinery/door/airlock/centcom,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Jx" = (/obj/machinery/power/apc{name = "South APC"; pixel_y = -28},/obj/structure/cable{d2 = 8; icon_state = "0-8"},/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"JF" = (/obj/item/stack/tile/floor,/turf/simulated/wall,/area/finalfrontier)
+"JK" = (/obj/structure/lattice,/turf/space,/area/finalfrontier/maintenance)
+"JQ" = (/obj/structure/lattice,/obj/item/stack/tile/floor,/obj/item/stack/tile/floor,/obj/item/weapon/material/shard,/turf/space,/area/finalfrontier/engineering)
+"JU" = (/obj/structure/table/standard,/obj/machinery/button/remote/airlock{id = "ffsecure"; name = "Security desk shutters"},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"JW" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/floor/plating,/area/finalfrontier/aichamber)
+"JX" = (/obj/effect/decal/cleanable/blood/splatter,/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"JZ" = (/obj/machinery/atmospherics/unary/vent_pump,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ka" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/blast/shutters,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ke" = (/obj/structure/closet/secure_closet/personal/engineering_personal,/obj/spawner/tool/advanced/low_chance,/obj/item/device/radio/intercom{dir = 4; pixel_x = -22},/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"Ki" = (/obj/structure/table,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Km" = (/obj/spawner/junk,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Ko" = (/obj/structure/girder,/turf/space,/area/finalfrontier/engineering)
+"Kp" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/obj/item/trash/material/metal,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ku" = (/obj/effect/decal/cleanable/blood/gibs,/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"KF" = (/obj/item/weapon/disk/data{name = "Sensor Data Disk"},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"KQ" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/mob/living/simple_animal/hostile/siren/augmentor,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"KX" = (/obj/machinery/atmospherics/unary/vent_pump,/turf/simulated/floor/tiled,/area/finalfrontier)
+"La" = (/turf/simulated/floor/reinforced/nitrogen,/area/finalfrontier/engineering)
+"Li" = (/obj/item/weapon/material/shard,/obj/structure/girder,/turf/space,/area/space)
+"Lo" = (/obj/structure/table/rack,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Ls" = (/obj/machinery/light{dir = 4},/obj/item/trash/candy,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Lt" = (/obj/item/weapon/shreddedp,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"LD" = (/obj/item/ammo_magazine/ammobox/magnum,/obj/item/device/radio/intercom{dir = 1; pixel_y = -22},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"LI" = (/obj/machinery/light{dir = 4},/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"LU" = (/obj/structure/girder,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"LW" = (/obj/item/stack/tile/floor,/mob/living/simple_animal/hostile/siren/replicant,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"LY" = (/obj/item/stack/tile/floor,/turf/simulated/wall/r_wall,/area/finalfrontier/engineering)
+"LZ" = (/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Mb" = (/obj/structure/closet/secure_closet/medicine,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"Me" = (/obj/structure/table/standard,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Mf" = (/obj/structure/table/standard,/obj/machinery/light{dir = 4},/obj/spawner/firstaid,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"Ml" = (/obj/machinery/atmospherics/valve/digital/open,/obj/item/stack/rods,/turf/simulated/floor/tiled/steel/danger,/area/finalfrontier/engineering)
+"Mo" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/salvageable/os/computer,/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"Mq" = (/obj/effect/decal/cleanable/blood/splatter,/obj/item/inflatable/torn,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Mt" = (/obj/machinery/door/airlock/maintenance_hatch,/obj/machinery/deployable/barrier,/turf/simulated/floor/plating/under,/area/finalfrontier/science)
+"MA" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/item/trash/chips,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"MG" = (/obj/structure/cable{d2 = 8; icon_state = "0-8"},/obj/machinery/power/apc{dir = 4; name = "East APC"; pixel_x = 28},/obj/structure/salvageable/os/computer,/turf/simulated/floor/greengrid,/area/finalfrontier/hallway)
+"MI" = (/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"MJ" = (/obj/structure/girder,/turf/space,/area/finalfrontier/maintenance)
+"ML" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow,/turf/simulated/floor/tiled/steel/techfloor,/area/finalfrontier/engineering)
+"MP" = (/mob/living/simple_animal/hostile/siren/conservator,/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier)
+"MR" = (/obj/item/stack/rods,/turf/simulated/wall,/area/finalfrontier)
+"MV" = (/obj/machinery/recharge_station,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"MZ" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/wall,/area/finalfrontier/bridge)
+"Na" = (/obj/machinery/vending/cola,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Nb" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/item/inflatable/torn,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ni" = (/obj/machinery/artifact,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"Nm" = (/obj/machinery/sleeper{dir = 8},/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"Np" = (/obj/machinery/light/small{dir = 8},/turf/simulated/floor/plating/under,/area/finalfrontier)
+"ND" = (/obj/machinery/light,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"NO" = (/obj/item/weapon/tool/broken_bottle,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Oa" = (/obj/machinery/power/apc{dir = 1; name = "North APC"; pixel_y = 28},/obj/structure/cable{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Od" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/power/apc{name = "South APC"; pixel_y = -28},/obj/structure/cable{d2 = 8; icon_state = "0-8"},/obj/item/trash/candy,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Oe" = (/obj/structure/bed,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Oi" = (/obj/item/stack/rods,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ol" = (/obj/structure/closet/crate/medical,/obj/item/clothing/suit/space/void/medical,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"Op" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/blast/regular{id = "bridgebl"; name = "Bridge Blast Door"},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"Or" = (/obj/structure/lattice,/obj/item/stack/tile/floor,/turf/space,/area/space)
+"Ow" = (/obj/machinery/door/airlock/centcom,/obj/item/stack/rods,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Ox" = (/obj/structure/lattice,/obj/item/stack/tile/floor,/obj/effect/floor_decal/burned1{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"OC" = (/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"OF" = (/obj/structure/cable{d2 = 4; icon_state = "0-4"},/obj/machinery/power/smes/buildable/engine{RCon_tag = "Engine - Main 1"},/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"OJ" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/barricade,/obj/item/ammo_casing/magnum,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"OP" = (/obj/structure/lattice,/mob/living/simple_animal/hostile/siren/replicant,/turf/space,/area/finalfrontier/engineering)
+"OX" = (/obj/structure/bed,/obj/effect/gibspawner/human,/turf/simulated/floor/tiled,/area/finalfrontier)
+"OY" = (/obj/item/stack/tile/floor,/obj/machinery/vending/tool,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Pe" = (/mob/living/simple_animal/hostile/siren/replicant,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"Ph" = (/obj/item/stack/tile/floor,/obj/machinery/door/firedoor,/obj/machinery/door/blast/shutters{density = 0; dir = 2; icon_state = "shutter0"; id = null; name = "Secure Shutters"; opacity = 0},/turf/space,/area/finalfrontier/engineering)
+"Pl" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Pu" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/floor/plating,/area/finalfrontier/medical)
+"Px" = (/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/wall,/area/finalfrontier)
+"PC" = (/obj/item/stack/rods,/obj/item/weapon/material/shard,/obj/item/ammo_casing/magnum,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"PI" = (/obj/structure/closet/crate/bin,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"PJ" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/tiled,/area/finalfrontier)
+"PN" = (/obj/effect/floor_decal/burned1,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"PW" = (/mob/living/simple_animal/hostile/siren/replicant,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"PY" = (/obj/effect/decal/cleanable/blood/gibs/body,/turf/simulated/floor/tiled,/area/finalfrontier)
+"PZ" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"Qd" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/item/stack/tile/floor,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Qg" = (/obj/item/ammo_casing/magnum,/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Qo" = (/obj/machinery/door/airlock/highsecurity,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Qw" = (/obj/item/stack/tile/floor,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"QC" = (/obj/structure/particle_accelerator/particle_emitter/right{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"QE" = (/obj/machinery/power/solar,/obj/item/weapon/material/shard,/turf/simulated/floor/plating/under,/area/space)
+"QK" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/item/weapon/material/shard,/obj/machinery/firealarm{dir = 4; pixel_x = 28},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"QQ" = (/obj/structure/bed/chair/office/dark,/turf/simulated/floor/plating/under,/area/finalfrontier/security)
+"QS" = (/obj/machinery/power/solar,/obj/structure/lattice,/turf/simulated/floor/plating/under,/area/space)
+"QU" = (/obj/machinery/door/airlock/highsecurity,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"QV" = (/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"Rk" = (/obj/effect/floor_decal/fact_plaque/med2,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"Rn" = (/obj/machinery/atmospherics/unary/outlet_injector{dir = 8; frequency = 1443; id = "air_in"; use_power = 1},/turf/simulated/floor/reinforced/airmix,/area/finalfrontier/engineering)
+"Rp" = (/obj/structure/lattice,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"Rq" = (/turf/simulated/floor/greengrid,/area/finalfrontier/hallway)
+"Rw" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"RA" = (/turf/simulated/floor/tiled,/area/finalfrontier/maintenance)
+"RB" = (/obj/item/weapon/material/shard,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"RE" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/item/stack/cable_coil/cyan,/obj/item/stack/cable_coil/yellow,/turf/simulated/floor/plating,/area/finalfrontier/engineering)
+"RG" = (/obj/effect/floor_decal/burned3{dir = 4},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"RH" = (/obj/effect/floor_decal/fact_plaque/med1,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"RM" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/floor/plating,/area/finalfrontier)
+"RR" = (/obj/machinery/atmospherics/unary/engine{dir = 1},/turf/space,/area/finalfrontier/engineering)
+"RS" = (/obj/effect/decal/cleanable/blood/splatter,/obj/structure/barricade,/obj/item/weapon/stool/padded,/obj/machinery/door/blast/regular{density = 0; icon_state = "pdoor0"; id = null; layer = 2.6; opacity = 0},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"RU" = (/turf/simulated/floor/tiled/steel/techfloor,/area/finalfrontier/engineering)
+"RW" = (/obj/item/weapon/material/shard,/obj/effect/floor_decal/burned1{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Sc" = (/obj/structure/girder,/turf/space,/area/space)
+"Sg" = (/obj/effect/floor_decal/burned2,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"Sr" = (/obj/item/ammo_casing/magnum,/obj/structure/table/marble,/turf/simulated/floor/tiled,/area/finalfrontier)
+"St" = (/obj/structure/lattice,/obj/effect/decal/cleanable/blood/oil,/obj/item/weapon/material/shard,/turf/space,/area/finalfrontier/engineering)
+"Su" = (/obj/machinery/atmospherics/unary/outlet_injector{dir = 1; frequency = 1441; id = "n2_in"; use_power = 1},/turf/simulated/floor/reinforced/nitrogen,/area/finalfrontier/engineering)
+"Sv" = (/obj/effect/decal/cleanable/blood/gibs,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Sy" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/effect/decal/cleanable/blood/gibs/robot/down,/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"SA" = (/turf/simulated/floor/plating/under,/area/finalfrontier/security)
+"SC" = (/obj/structure/table/standard,/obj/spawner/medical,/obj/spawner/medical,/obj/spawner/firstaid,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"SF" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/floor/plating,/area/finalfrontier/bridge)
+"SG" = (/obj/machinery/door/firedoor,/obj/structure/low_wall,/obj/structure/low_wall,/turf/simulated/floor/plating,/area/finalfrontier/aichamber)
+"SM" = (/obj/structure/barricade,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"SU" = (/obj/effect/decal/cleanable/blood/gibs,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"SV" = (/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/effect/decal/cleanable/blood/splatter,/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"Te" = (/obj/structure/salvageable/os/computer,/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"Tg" = (/obj/item/weapon/tool/broken_bottle,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ti" = (/obj/item/weapon/material/shard/shrapnel,/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Tm" = (/obj/structure/lattice,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"Tp" = (/obj/item/stack/rods,/turf/simulated/wall/r_wall,/area/finalfrontier/maintenance)
+"Tr" = (/obj/item/weapon/material/shard,/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Ts" = (/obj/item/ammo_casing/magnum,/turf/simulated/wall,/area/finalfrontier)
+"Tt" = (/obj/item/weapon/material/shard,/obj/item/trash/material/metal,/turf/space,/area/finalfrontier/maintenance)
+"Tv" = (/obj/item/stack/tile/floor,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"Tx" = (/mob/living/simple_animal/hostile/siren/conservator,/obj/effect/decal/cleanable/blood/gibs/body,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"TF" = (/obj/structure/cable/yellow{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"TG" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/item/weapon/tool/broken_bottle,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"TM" = (/obj/effect/floor_decal/burned3{dir = 4},/turf/simulated/floor/plating/under,/area/finalfrontier)
+"TN" = (/turf/space,/area/space)
+"TP" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"TR" = (/obj/machinery/atmospherics/unary/cryo_cell,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"TY" = (/obj/machinery/door/airlock/centcom,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/wall/r_wall,/area/finalfrontier/science)
+"Ug" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating/under,/area/space)
+"Uk" = (/obj/item/stack/rods,/obj/effect/decal/cleanable/blood/splatter,/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ul" = (/obj/structure/girder,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Um" = (/obj/machinery/door/blast/regular{id = "bridgebl"; name = "Bridge Blast Door"},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"Uo" = (/obj/machinery/door/airlock/maintenance_hatch,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"Up" = (/obj/machinery/door/blast/shutters{density = 0; dir = 2; icon_state = "shutter0"; id = null; name = "Secure Shutters"; opacity = 0},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ur" = (/obj/item/stack/rods,/turf/space,/area/finalfrontier/engineering)
+"Uu" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/spawner/junk,/obj/item/inflatable/torn,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ux" = (/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"UD" = (/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"UH" = (/obj/item/trash/material/metal,/turf/simulated/floor/plating/under,/area/space)
+"UK" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/item/weapon/material/shard,/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier)
+"UM" = (/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"UN" = (/turf/simulated/wall,/area/finalfrontier/medical)
+"UP" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"UR" = (/obj/effect/decal/cleanable/blood/gibs/robot/down,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"UV" = (/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/finalfrontier)
+"UX" = (/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"UZ" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Vc" = (/obj/structure/table/standard,/obj/item/weapon/shreddedp,/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"Vl" = (/obj/machinery/button/remote/airlock{id = "bridgebl"; name = "bridge blast doors"; pixel_y = -32},/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"Vm" = (/obj/item/stack/tile/floor,/obj/item/stack/tile/floor,/turf/space,/area/space)
+"Vq" = (/obj/effect/floor_decal/burned3,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Vv" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Vy" = (/obj/item/ammo_magazine/ammobox/magnum,/turf/simulated/floor/tiled,/area/finalfrontier/secondarybridge)
+"Vz" = (/obj/structure/table/standard,/obj/spawner/firstaid,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"VC" = (/obj/item/stack/rods,/obj/item/trash/material/metal,/turf/space,/area/space)
+"VG" = (/obj/machinery/light/small{dir = 8},/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"VJ" = (/obj/item/weapon/material/shard,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"VS" = (/obj/item/stack/tile/floor,/turf/simulated/wall/r_wall,/area/space)
+"VW" = (/obj/machinery/power/solar,/obj/machinery/power/solar,/turf/simulated/floor/plating/under,/area/space)
+"VX" = (/mob/living/simple_animal/hostile/siren/replicant,/turf/simulated/floor/tiled,/area/finalfrontier/bridge)
+"Wd" = (/obj/item/stack/rods,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"We" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"Wf" = (/obj/structure/closet/secure_closet/personal/engineering_personal,/obj/spawner/tool/advanced/low_chance,/turf/simulated/floor/tiled/steel/gray_platform,/area/finalfrontier/engineering)
+"Wi" = (/turf/simulated/wall/r_wall,/area/finalfrontier/science)
+"Wm" = (/obj/item/modular_computer/console/preset/civilian/professional{dir = 4},/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"Wn" = (/mob/living/simple_animal/hostile/siren/composer,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Ws" = (/obj/item/stack/tile/floor,/turf/simulated/wall/r_wall,/area/finalfrontier/maintenance)
+"WA" = (/turf/simulated/wall/r_wall,/area/finalfrontier/medical)
+"WB" = (/obj/structure/barricade,/obj/item/trash/candy,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"WC" = (/obj/machinery/door/window/westleft,/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"WE" = (/obj/effect/decal/cleanable/blood/splatter,/turf/space,/area/finalfrontier)
+"WF" = (/obj/effect/floor_decal/burned1{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier)
+"WH" = (/obj/effect/decal/cleanable/blood/gibs,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"WI" = (/obj/effect/window_lwall_spawn/smartspawn,/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"WJ" = (/obj/machinery/door/airlock/centcom,/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"WK" = (/obj/machinery/turretid/stun{pixel_y = 32},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"WL" = (/obj/machinery/light{dir = 8},/obj/item/stack/rods,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"WO" = (/obj/machinery/atm{name = "Mangled Automatic Teller Machine"},/turf/simulated/floor/plating/under,/area/finalfrontier)
+"WR" = (/obj/machinery/door/airlock/centcom,/obj/machinery/door/blast/regular,/turf/simulated/floor/plating/under,/area/finalfrontier/security)
+"WS" = (/obj/structure/barricade,/turf/simulated/floor/tiled,/area/finalfrontier)
+"WT" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/item/weapon/material/shard,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"WV" = (/obj/item/weapon/stool,/obj/item/weapon/material/shard,/turf/simulated/floor/tiled,/area/finalfrontier)
+"WW" = (/obj/structure/table/rack,/obj/machinery/light{dir = 1},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Xa" = (/obj/effect/decal/cleanable/blood/oil,/turf/space,/area/finalfrontier/engineering)
+"Xb" = (/obj/item/weapon/material/shard,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"Xc" = (/obj/machinery/door/window,/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"Xg" = (/turf/space,/area/finalfrontier)
+"Xr" = (/obj/structure/barricade,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"Xw" = (/obj/structure/cable{d2 = 8; icon_state = "0-8"},/obj/machinery/power/apc{dir = 1; name = "North APC"; pixel_y = 28},/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"XB" = (/obj/item/weapon/spacecash/bundle/c1000,/obj/machinery/atmospherics/unary/vent_pump,/turf/simulated/floor/tiled,/area/finalfrontier)
+"XC" = (/obj/spawner/junk,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"XE" = (/obj/item/stack/tile/floor,/obj/item/weapon/material/shard,/turf/simulated/floor/plating/under,/area/finalfrontier)
+"XG" = (/obj/item/weapon/material/shard/shrapnel,/turf/simulated/wall,/area/finalfrontier/hallway)
+"XI" = (/obj/structure/closet/crate/bin,/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"XM" = (/obj/item/weapon/spacecash/bundle/c1000,/obj/item/weapon/spacecash/bundle/c1000,/obj/item/weapon/spacecash/bundle/c500,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled,/area/finalfrontier)
+"XR" = (/obj/item/stack/tile/floor,/turf/space,/area/space)
+"XS" = (/obj/effect/floor_decal/burned1{dir = 4},/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"XU" = (/obj/item/weapon/stool,/turf/simulated/floor/tiled,/area/finalfrontier)
+"XW" = (/mob/living/simple_animal/hostile/siren/composer,/turf/simulated/floor/tiled,/area/finalfrontier/engineering)
+"Ya" = (/obj/machinery/door/firedoor,/obj/effect/window_lwall_spawn/smartspawn,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/blast/shutters{dir = 2; id = "ffsecure"; layer = 3.3; name = "Maintenance Hatch"},/turf/simulated/floor/plating,/area/finalfrontier/security)
+"Ye" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"Yf" = (/obj/machinery/light{dir = 8},/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Yh" = (/obj/item/inflatable/door/torn,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"Yj" = (/obj/machinery/door/airlock/maintenance_hatch,/obj/machinery/deployable/barrier,/turf/simulated/floor/plating/under,/area/finalfrontier/medical)
+"Ym" = (/obj/machinery/air_sensor{frequency = 1441; id_tag = "n2_sensor"},/obj/machinery/light/small,/turf/simulated/floor/reinforced/nitrogen,/area/finalfrontier/engineering)
+"Yq" = (/obj/item/stack/tile/floor,/obj/item/stack/tile/floor,/turf/space,/area/finalfrontier/engineering)
+"Yw" = (/obj/machinery/door/airlock/centcom,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/finalfrontier/medical)
+"Yy" = (/obj/item/weapon/material/shard,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"YG" = (/obj/effect/decal/cleanable/blood/splatter,/obj/structure/table/marble,/obj/item/weapon/stool/padded,/turf/simulated/floor/tiled,/area/finalfrontier)
+"YH" = (/obj/effect/decal/cleanable/blood/gibs/body,/mob/living/simple_animal/hostile/siren/conservator,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"YI" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"YJ" = (/obj/machinery/antigrav,/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"YL" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/finalfrontier/science)
+"YM" = (/turf/space,/area/finalfrontier/engineering)
+"YN" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/effect/decal/cleanable/blood/gibs,/obj/item/ammo_casing/magnum,/obj/item/ammo_casing/magnum,/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"YO" = (/obj/structure/lattice,/obj/item/stack/tile/floor,/obj/item/weapon/material/shard,/turf/space,/area/finalfrontier/engineering)
+"YR" = (/obj/item/weapon/material/shard,/turf/simulated/floor/plating/under,/area/space)
+"YU" = (/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/tiled,/area/finalfrontier/hallway)
+"YV" = (/obj/machinery/vending/containers,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Zb" = (/obj/structure/closet/emcloset,/turf/simulated/floor/plating/under,/area/finalfrontier/maintenance)
+"Zg" = (/obj/machinery/power/solar,/turf/simulated/floor/plating/under,/area/space)
+"Zk" = (/obj/effect/decal/cleanable/blood/gibs/up,/turf/simulated/floor/tiled,/area/finalfrontier)
+"Zo" = (/turf/simulated/wall/r_wall,/area/finalfrontier/engineering)
+"ZM" = (/obj/effect/floor_decal/burned2{dir = 4},/turf/simulated/floor/plating/under,/area/finalfrontier/engineering)
+"ZN" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/finalfrontier/security)
+"ZR" = (/obj/item/stack/rods,/turf/space,/area/finalfrontier)
+"ZW" = (/obj/item/stack/tile/floor,/turf/simulated/floor/plating/under,/area/finalfrontier/hallway)
+"ZY" = (/obj/item/stack/tile/floor,/obj/structure/table/standard,/obj/structure/girder,/turf/simulated/floor/plating/under,/area/finalfrontier)
+
+(1,1,1) = {"
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlrlrlrlrlrlrlrlrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlrlrlArciArArArciArrlrlrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArArArArArArArArArArArrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlrlArrlrlrlrlrlrlrlrlrlArrlrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlrlArArrlTNTNTNTNTNTNTNrlArArrlrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlrlArArJtJtlblblblblblblbJtJtArArrlrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArArrlJtDsththDstheVththDsJtrlArArrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArrlrlJtvxlWoGoGKFoGoGlWcWJtrlrlArrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArrlTNJtthVyqboGVlfbgALDthJtTNrlArrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArrlTNJtlbJtJtsAJtDEJtJtlbJtTNrlArrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArrlTNTNTNTNJtoGoGIGJtTNTNTNTNrlArrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArrlJtJtJtJtJtUXoGIGJtJtJtJtJtJtArrlTNsRTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNWAWAWAWAWAWATNTNTNTNTNrlArlhhjCHCHCHfWoGtvIGfWCHCHCHotzzArrlTNTNTNTNTNWiWiWiWiWiWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNWAWATRTRBCQVWATNTNTNTNTNrlArlhvpCHCHCHJtoGoGIGJtCHCHCHhjzzArrlTNTNTNTNTNWipYpYisvPWiWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNWAOlcwcwcwcwWATNTNTNTNrlrlArlhhjhjvphjJtsAJtqzJtFDFDhjhjzzArrlrlTNTNTNTNWiWmOCOCOCIsWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNWAcwcwcwcwWAWATNTNTNTNrlArfelhJtJtJtJtJtMIUxxhJtJtJtJtJtJtVGArrlTNTNTNTNWiWiOCOCOCpYWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNWAcwcwcwGVWATNTNTNvMvMrlArArpFMIMIMItEpFMIMIxhpFMIMIMIMIpFjcArrlvMvMTNTNTNWiEUEUGjWiWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNWAWAcwcwcwGVWAvMvMvMvMrlrlArArpFkitEMIMIWCMIMIxhexMItEtELIpFArArrlrlvMvMvMvMWiOCOCOCOCWiWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNWAzTcwcwcwHNWAvMvMvMvMrlZbArfepFBhMIMIMIWCMIMIxhXcMIMItEgnpFArArZbrlvMvMvMvMWiMVOCOCOCIsWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNWAvYcwcwcwNmWAvMvMvMrlrlBUArArpFMItEMIMIpFUmpFOppFSASASASApFArArBUrlrlvMvMvMWiMVOCOCOCIsWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNPuMbcwcwcwcwWAWAPuWAWAWAWAneUNpFpFpFpFpFpFMIbVxhpFpFpFpFpFvbrMwiWiWiWiWiEUWiWinBOCOCOCsUEUTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNPuSCzAcwcwcwiwkwcwcwhGpTfafaYwRHRkZNjxkFCYZNZNBilJpdjxZNxRqBTYYLYLrqYLXwOCInWJOCOCOCLtkXEUTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNPujLcwcwcwcwiwcwcwcwNDcwcwcwiwETchMIfzMIMIMIMIxhMIMIfzMIoscjanOCOCOCulOCOCOCWJOCLtOCOCOCEUTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNPuSCcwcwhmVcWAWAPuWAWAWAWAYjUNvbMIMIpFlBQQMIMIxhQQlBpFSASAvbrMMtWiWiWiWiEUWiWifqOCOCOCGMEUTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNWAjLcwcwcwbNWAvMvMvMrlrlArArArlhWRWRpFiriKTeMIMoiKirpFWRWRlhArArArrlrlvMvMvMWiYJOCOCOCFAWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNWAoLcwcwcwjHWAvMvMvMvMrlArxYfeskrSfdfdIApFUxJUdDpFIAfdrSfdskArArArrlvMvMvMvMWiNiOCLtOCVzWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNPuoLcwcwIfMfWAvMvMvMvMrlrlArArskfdrSfdoZiririrYairfdvrglfdskVGxYrlrlvMvMvMvMWiOCOCOCOCsUEUTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNPucwcwcwcwcwWATNTNTNvMvMrlArArrTfdfdvrFXFXxEfdwNfdoZfdfdfdrTArArrlvMvMTNTNTNWizOOCOCOCpYEUTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNWAcwWAtzPuPuWAWATNTNTNTNrlArArsksvWdvrZWoZYyYyPZvrGwoZfdYUskArArWssRTNTNTNWirMzOIsOCIsGvWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNWAWAWAcwcwlopMWATNTNTNTNrlrlArskYfIvTiFnilOifdwNvrWdtVZWYUskArrlWsTNTNTNTNWirMrMrMOCrMWiWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNWAaXcwcwcwqnWATNTNTNTNTNrlFysksvvrYyfdFnZWhlwNFnFnsivrDiskArrlTNTNTNTNTNWiOCxOOCxOOCWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNvMvMTNTNTNTNWAWAvaIfIfklWATNTNTNTNTNrlfeskfdXCrtvrfdfdfdQdrJfdfdLWlKXGArrlTNTNTNTNTNWixOOCxOOCWiWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNXRTNjzjzWAWAWAWATNTNTNTNTNrlFyskfdfdfdfdvrrSYywNxEfdfdXCfdskArrlTNTNTNTNTNWiWiWiWiWiWiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNXRTNTNTNTNTNTNvMvMTNTNTNTNrlJdskskskrTskOifdYyTPfdskrTskskskJdrlTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMOrTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNrlrlrlrlkojVArArfelhskfkskJwskskvrZWvrXrArrlrlrlrlTNTNTNTNTNvMvMTNTNTNTNTNTNTNXRXRTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMOrTNTNXRXRXRXRVmTNTNTNTNTNTNvMvMTNTNrlArArArAGArTvArArlhvrfdfdwNvrskvrZWvrvrAGArTvArrlmQTNTNTNTNvMTNTNTNTNXRTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNXRTNTNTNTNTNTNTNTNvMTNTNrlrlTvkoArArlhArArArJdvrfdfdUZKQUoJxvrvrskArArArArrlrlTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArkKArjWjWjWjWjWjWjWXbFWjWpcwRjWjWjWjWjWjWjWArArArrlTNTNTNvMvMTNvMTNTNTNTNTNTNTNTNTNTNXRTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNvMvMvMTNTNTNrlArArfejWBPayjWDSUVFWFWFWjWUKpXDSUVuijWYVNajWArArArrlTNTNTNvMvMTNTNXRTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNrlrlofkKArArjWFWFWjWDSTrFWNOFWFWpcFWDSUVuijWFWFWjWVGArArrlrlmQvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNXRTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNvMTNrlArArArYHArjWFWFWjWGpdYmjAurWKmwnEZFWKmFWjWFWFWjWArArArTvArrlTNTNTNTNTNTNvMTNvMTNTNTNTNTNTNXRTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNrlAroVArjWjWjWFWFWeIFWdvSrBwBwjWopYGDoGpGpPxFWFWjWjWjWArArPWrlTNTNTNTNTNTNvMTNOrTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNvMvMTNTNvMvMvMvMTNrluDkKJFJFwRjWfdfdRSfdupihTgnFqKCxjmTgfdfdLZfdfdjWwRjWjWArArrlTNTNTNTNXRTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNvMvMTNTNTNTNvMTNTNrlArArjWuIuIjWimOiwtfdfdrSfdTgrwTGavUPUPzXUPAqqXjWFWwRjWkKkKrlTNTNTNTNXRTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNIFTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNrlkKFyjWwRFWRMfdrSpmpmpmpmpmpmpmpmpmpmpmpmpmFfvyRMFWwRjWjcFyrlTNTNTNTNTNOrvMXRTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMIFTNvMvMTNTNTNvMTNTNrlArjWjWwRwRRMfdrSpmuVuVqrpGaLJWaLpGqruVuVpmwNfdRMwRFWjWjWArrlTNTNvMvMTNvMvMTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNvMvMTNvMvMTNmQrlrlArgrwRfYEtjWfdOipmuVrxuVrxaLwFaLcUrxuVcUpmwNJnjWwRfYKXgrArrlrlrlvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMvMTNrlArArAGjWwRFWWEjWkAOipmuVcUuVuVSGaLaLuVuVuVuVpmFfLsjWwRFWpqjWAGkKArrlTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMmQrlrlVGArlhjWGLwRFWFWrSvrpmuVuVrxuVrxuVcUrxuVuVuVpmqTYhFWCJwRpqjWlhkKArrlgqTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZgZgTNTNTNTNZgZglNlNZgZgTNTNTNTNZgZgZgZgZgZgZgZgTNZgTNTNTNTNZgZgZglNlNTNTNTNrlrlArArArArjWwRVvuIFWfdvypmpmpmqrpGuVuVuVpGqrpmpmpmOJfdnWdSjGMPjWVGArFyArrlrlTNTNTNTNlNZgTNZgZgZgZgZgZgZgZgTNZgTNTNTNTNZgZgZgZgZgZgZgTNZgTNTNTNTNZgZgZgZgTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNiMiMiMTNTNTNiMiMlNlNiMiMTNTNTNTNiMTNTNiMiMiMiMiMiMiMTNTNIFTNiMiMiMlNlNTNTNTNrlArArjWjWjWjWBkBkBkRMoJJrskvrsIsIfARqfiCpMGsIsIvrskzrnTRMXbuIOYjWjWjWjWArArrlTNTNTNTNlNlNTNiMTNTNiMiMiMiMiMiMiMTNTNIFTNiMiMiMiMiMiMiMiMiMTNTNIFTNiMiMiMlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNdRdRTNTNTNTNdRdRdRdRdRdRTNTNTNTNdRdRdRdRdRdRdRdRTNdRdRdRdRdRdRdRdRlNlNTNTNTNrlJdlhjWwRwRjWWSARBkjWrSrSskvrvrsIfARqnMRqfAsIvrvrskwNfdjWwRCJKijWwRuIjWjWJdrlTNTNTNTNlNlNTNdRdRxHdRdRdRdRdRTNdRdRdRdRdRdRdRdRdRdRdRdRTNdRdRdRdRdRdRdRdRlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZgZglNlNZgZgZglNlNZgZgZgZgZglNlNZgZglNlNZgZgZgZgZgZglNDlZgZgZglNlNlNlNlNlNlNrlAGlhFWBJwRjWmJmJmJjWXCJXskrTsksIsIsIQosIsIsIsIcZskwNfdjWwRFcQgJFwRwRwRjWAGrllNTNTNTNlNZglNZgZglNlNZgZgZgZgZgZglNlNZgZgZglNlNZgZgZgZgZgZglNlNZgZgZglNlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNlNlNlNlNlNlNrlmQmQwHwRuIjWlgaxZYRMXCLZskfdfddhsIWKwNfdsIdhfdfdskIjnTRMXEFWGgjWwRwRwRjWArrllNTNTNTNlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNlNTNsjTNTNTNTNTNTNTNTNTNTNlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZgZgZgZgZgZgZgZgTNZgZgZgZgZglNlNZglNlNlNlNZgTNZgZgZgZgZgZgZgZglNlNlNkLlNlNlNrlJKJKwHuIuIjWXMqcpzjWfdfdskQUsksksIsIQosIsIskskQUskwNvrRMFWwRvFjWwRwRyhjWArrllNlNlNlNlNZglNZglNlNlNlNZgTNZgZgZgZgZgZgZgZglNlNlNZgTNZgZgZgZgZgZgZgZglNlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNiMiMiMiMiMiMiMiMiMiMlNlNiMiMiMiMiMiMlNlNiMiMlNlNiMiMiMlNlNiMiMiMlNkLTNTNTNrlmQJKFWwRwRjWXBjZHFjWfdvyrSfdWnfdfdfdwNfdvrfdfdfdvyNbEvjWFWwRjWjWwRFWyhjWArrlTNTNTNTNTNlNiMiMiMiMlNlNiMiMlNlNiMiMiMlNDliMiMiMlNiMiMlNlNiMiMiMlNlNiMiMiMlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNxlxlxlTNATlNlNxlxlxlxlUgUgTNTNxlxlxlxlxlxlxlxllNlNlNkLTNTNTNrlmQmQXgFWFWjWjWjAWOjWWLfdvEEdOiCmPCOinkaZMAUPUuqmjaKpLZjWFWJFJFuIFWBJwRjWVGrlTNXRTNvMTNlNxlxlxlATUgUgTNTNxlxlxlxlxlxlxlxllNlNUgTNTNxlxlxlxlxlxlxlxllNlNlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZgVWZgZgZgZgZgZgTNZgZgTNTNTNTNlNlNlNZgZgZgZgZgTNTNTNTNmQmQmQmQvljRqUFWuIwRjWjWwRjWOifdJZYyYyfdfdYyrEwNfdMqfdOifdXCfdjWwRJFwRXbwRwRjWDCArmQgqdbvMTNTNZgZgTNZgZgTNvMTNTNlNlNlNZgZgZgZgZgTNTNTNTNTNlNlNlNZgZgZgZgZgTNTNZgTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNIFIFIFTNTNTNTNTNIFIFTNTNTNTNTNTNTNTNvMTNTNTNIFIFTNTNTNTNvMTNTNTNmQmQmQmQjRmQjWFWFWFWwRjWjWjWRMRMaaaaskvrskfdYyTPskvrjWaaaaRMRMjWjWJFXbFWXgbtDCTtjRrllNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNIFIFTNTNTNTNTNTNTNvMTNTNTNTNIFIFTNvMvMvMTNvMTNIFTNTNvMTNTNTNTNTNTNTNTNArJKmQJKJKJKjWmMFWFWFWFWFWwRGKwRwRwRskPIvrfdEdwNvrPIjWwRwRwRwRXbwRdSXgwRrYwRXgmQWemQdOdbdOTNTNTNTNTNTNTNvMTNTNvMvMTNvMTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNIFvMvMvMTNTNTNTNTNTNTNTNTNTNvMTNTNTNkLmQmQmQvlmQmQjWNpwRFWFWFWFWFWFWwRFWFWskskskfkskdcskskjWwRGKwRXbwRwRwRXgXgFWXgFWmQWeRAlNdbTNvMTNvMTNTNTNTNTNTNTNTNTNTNvMTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZgZgZgZglNlNZgZgZgZglNlNZgZgTNTNvMTNTNTNZgZgZgZgZgZgZgZgZglNkLrlmQrlmQmQmQwbFWFWFcFWdSdSFWwRwRwRGKskvrskbJfdwNskvrjWwRwRwRwRwRFWwRwRBJwRwRBqVGbjrlgqTNTNTNYRZgTNZgZgQSZgZgZgZgZgTNZgTNTNTNTNZgZgZgTNZgZgZgZgZgZgZgZgTNZgTNTNTNTNZgZgZgTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNlNlNlNlNTNTNTNTNDllNlNlNlNlNTNTNTNTNTNTNlNlNlNlNlNlNTNTNlNlNkLTNTNTNrlTmBTjWwRwRwRwRDCjWjWjWjWjWjWjWjWskvrfdQKskjWjWjWDCDCjWjWjWJFwRXgwRwRDCArmQmQTNTNvMTNYRDlTNiMTNTNiMiMiMiMiMiMiMTNTNIFTNiMiMiMTNiMTNTNiMiMiMiMiMiMiMTNTNIFTNiMiMiMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNUgUgUgUgTNTNTNTNUgUgUgUgTNTNTNTNlNUgUgUgUgUgUgUgUgTNUgUgUgUgTNdbdbTNrlIrjWFWFWFWwRjWDChLmoPYDCeEEleEeEIoYyuwwNskeEEluueEjWFWwRUVjWjWwRBJFWjWjWmQrlsRTNTNlNYRlNTNdRdRdRdRdRdRdRdRTNdRdRdRdRdRdRdRdRTNdRdRdRdRdRxHdRdRTNdRdRdRdRdRdRdRdRTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZglNlNZgZgZgTNTNTNTNZgZgZgZgTNTNTNTNZgZgZgZgZgZgZgZgZgZgZgZgZglNlNlNUHlNrlArjWwRFWwRjWjWtlmoGrGrjWOeOXOeOXskfdXCwNjWwxOeOeOejWFWXUUVtljWjWFWwRwRjWWerlUHYRlNlNlNZglNZgZglNlNZgZgZgZgZgZglNlNZgZgZglNlNlNZgZglNlNZgZgZgZgZgZglNlNZgZgZglNlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNIFTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNsjTNTNTNTNTNlNlNlNlNlNlNrlArjWwRFWwRjWhLhLhLTxPYiZtaFrnjzduOUPEgdwtyCowRwRFWiZFWXUwRUVUVjWwRwRwRjWsVrlUHlNlNlNlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZglNlNTNTNTNZgTNTNTNZgZgZgTNTNTNTNZgZgZglNlNZgZgZgZgZgZgTNTNTNTNZglNTNTNTNlNrlGajWwRFWwRjWXUBJnuZkPYjWOeFchROeskfdfdwNjWOenWwRBJjWFWwRwRXUWVMRwRwRwRjWWerllNlNlNlNlNQElNZglNlNlNlNZgTNZgZgZgZgZgZgZgZglNlNTNTNTNTNsjTNTNTNTNTNTNTNTNTNTNTNTNlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNlNlNlNTNTNlNlNTNTNTNlNlNlNTNTNTNTNiMiMiMiMiMlNlNiMiMiMiMiMTNTNTNTNTNTNTNTNTNrlJdjWjWwRwRjWztPYErPYhsjWeEZktteEskfdvrwNjWeEjjFWeEjWeEFWtcXbFWjWwRwRjWjWiHrlTNTNTNYRlNYRgPiMtWiMlNlNiMiMlNlNiMiMiMlNlNiMiMiMlNZglNlNlNlNZgTNZgZgZgZgZgZgZgZglNlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNlNlNlNTNTNTNlNTNTNTNlNTNlNTNTNTNTNxlxlxlxlATxlxlxlxllNlNxlxlxlxlxllNTNTNTNTNrlArArjWjWjWjWjWjWjWBujWDCDCjWkyjWjWfdfdfTjWDjDjOwDjDjMROwjWDCjWjWjWjWjWArWerlbhTNTNlNlNlNxlxlxlxlUgUgTNTNxlxlxlxlxlxlxlxllNlNiMiMiMiMlNlNiMiMlNlNiMiMiMlNlNiMiMiMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZgZgZgTNTNZgZgTNTNTNZgTNZgZglNlNZgZgZgZglNlNZglNlNZgZglNlNZglNlNZglNTNIFTNTNrlrlRARARARAgrFWtaFWwRFWXgWSwRpcWSjWwtwtAEjWBqJsBqqiXgIESgFWFWtaCsmQmQArArrlrlbhTNTNYRlNZgZgTNZgZgTNTNTNTNlNlNlNZgZgZgZgZgTNTNxlxlxlxlUgUgTNTNxlxlxlxlxlATxlxllNlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNEiTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNVmTNTNdbTNTNrlrlmQEKRAjWFWFWDuUVUVXgWSWSHMWSjWgfgfKajWLUXgXgwRXgXgIESgcaFWMRWeArArrlrlTNlNlNTNTNTNTNTNXRTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZgTNZgZgTNTNTNTNlNlNlNZgZgZgZgZgTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNIFTNTNTNXRTNScTNXRTNTNXRXRTNTNmQmQmQmQXgjWjWdvwRwRwRdvwRpcFWLUvrDtDtjWXgXgbtbtbtfZXgIEfLSgFWWePWTvWsTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNsNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNIFTNTNXRTNOrvMTNTNScTNScbhCiBvScTNmQmQmQmQXgXgjWFWFWXgwRwRtapcFWwRDtDtDtDjLUjWTMXgXgXgXgZRXgIEPNmQmQrlrlTNXRTNTNXRTNsRTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNIFTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNIFTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNvMTNmQIlZRXgDjFWwRXgcawqFWFkAwwRDtcQDtwRuIjIyfTMXgXgnDbtwRXgJKArMJTNTNTNTNTNScTNvMcLTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNsRXRTNTNlNScTNCQTNTNScTNScTNbhTNrlmQmQXgjWFWwRFWwRwRGppcwRLUvrvrDtjWwRmMFWGTWFTMXgXgXgXgTNlNTNTNTNTNTNTNlNsRvMTNTNTNTNTNTNTNTNTNTNvMTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNsRXRTNTNTNfyfybhLiTNTNXRTNTNCiTNmQmQmQXgjWFWFWyVcaFWFWpcFWjWChvrFvjWwRFWtaFWFWHCTMXgbtXgTNTNTNlNTNXRlNlNlNTNScCiTNTNTNTNTNTNTNTNTNvMTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNsRTNTNTNTNXRlNTNTNTNbhScdbTNTNTNmQmQXgDjjWFWGpFWFWFWPJutvXUPUPgZRMFWFWFWcacaFWGTWFTMXglNTNlNdbTNXRlNlNTNScTNTNTNTNvMTNTNTNbhbhbhTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNXRTNTNTNTNTNXRbhTNTNbhTNTNBvlNlNVSmQmQmQmQjWjWjWjWjWjWjWjWeInqnqYIjWjWjWjWjWTsWSjWjWGTTMTNTNXRTNXRTNUHdbScTNTNTNbhvMvMTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNScbhXRbhTNlNTNSclNlNScTNrlrlrlArlhFgfdfdSvOifdfdrSfdfdwNfdSvfdfdfdfdvyfdtTaIrlgqTNXRBvTNTNTNTNTNTNTNTNTNvMTNeQVCTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNvMvMTNlNlNlNTNTNTNTNTNTNlNlNlNTNTNTNlhArmedBfdfdxeUkSvLZfdfdfdwvUPlTAoUPUPOdYNAmJdRArlTNTNTNTNlNlNTNScvMvMTNTNvMvMvMTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNvMvMTNTNTNfyTNTNbhTNXRTNlNlNlNTNTNsRrlrllhfdfdskcvrSKufdfdfdfdfdAYfdfdSvcvvGfdFflhrlrlTNTNTNScTNTNTNTNvMvMTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNXRTNXRTNTNXRXRTNXRTNbhXRlNTNTNlNlNYRTNTNTNmQsIdBWBfdskskidididididskidkcidididskskCkIjfdrlTNTNTNTNTNTNTNScTNTNTNTNTNScTNTNTNTNsRvMvMTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNvMvMTNsRTNvMcLTNTNTNTNmQpRdBfdfdskskTNTNTNTNTNTNTNbhTNTNTNskskfdwNfdrlTNTNbhTNTNvMTNTNTNXRTNTNTNTNvMvMTNsRTNTNTNTNsRsRTNlNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNvMvMTNTNTNvMvMTNTNTNTNTpsIUpoJskDtTNTNTNTNTNTNTNTNbhTNTNTNTNskskFLoJrlrlTNbhTNTNdbTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlrlrlrlrlphaeWnskTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNskvZfdfdrlrlrlrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNScTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlrlrlrlrlrlrlrlrlrlTNTNTNTNTNTNTNTNTNTNvMTNTNmQmQArArArfdkBEcskTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNskPlAmxeArArArrlTNTNTNTNvMTNTNTNdbTNTNTNTNTNTNTNMJrlMJJKJKrlrlrlrlrlTNlNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNmQArArArArArArArArrlrlrlrlrlrlrlmQmQmQrlmQmQmQmQmQlhlhlhfdkBsksksIDtTNTNTNTNTNTNTNTNTNTNTNTNDtskEzaHxelhlhArrlrlrlrlrlCcMJmQmQmQmQCcCcCcCclhlhArArArArArArArArJKJKTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNvMmQmQlhlhlhlhlhlhArArArArArArArmQArmQmQmQArmQmQmQmQlhlNlhkBfdskvrsISFSFSFoDTNTNTNTNTNoDSFSFSFsIfdEzwNxebmlhTvArArArArArArArmQmQmQmQmQmQmQArArArMJmQYMkjkjESESkjJKJKTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNmQJKmQmQmQTmRAlhrllhmQlhlhlhmQTmJKmQlhlhArlhlhlhlhlhTNmQfdrSHrMZoDrmrmrmoDSFSFSFSFSFoDrmrmrmoDHrHrwNxevrkjkjkjkjkjkjkjkjkjUlYMYMYMYMYMYMUlkjkjkjkjkjUDUDESOPkjArrlTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNmQmQmQmQmQmQArRAUDCdCdUDCdUDYMUDCdUDCdUDCdCdCdCdCdUDYMYMxefdrGuRoDuBuRuRIDHGrmrmrmHGIDvTuRHGoDhEdiwNkMvrkjlZCdCdUDlsZoUDzVCdYMYMsYBEESVqCuCdCdCdpfCdUlUlCdUDkjArrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNJKJKJKmQmQmQmQTmBfYMqGYMBfqGBffgfgBfogBfBfviqGBfCuCdCdiqxefdrGuRlIuRbGDkuRIKbGVXuRHGSVbbypSyyzudhrtJFnWdIyUDGUCdUDlsZoUDZoCdYMYMESESESESVqHYWHCdCdUDUDUDUDUDkjArrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNmQmQmQmQmQJKmQJKYMYMESYMYMUDESYMFosYmXESYMYMYMYMVqCuYMUMxefhrGhElIuRbGbGmWuRrIuRrIbGoebGpWuRlIuRdiTPfdvrIyCdURCdUDZoZoZoZoCdCdYMYMYMYMYMESmIBfCuCdCdUDUDUDkjkjArrlTNTNTNlNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNmQmQmQmQmQmQmQmQYMYMYMYMYMUDYMESYMYMEEYMJQYMYMESmGaMUDkjfkxeEVEVSFuRuRuRoDSFAFSFSFSFoDuRDkuRSFEVEVwNfdvrkjUDCdCdQwywUDQwCCCdCduZRGESYMYMESUrYMVqCuCdUDUDkjArArArrlTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNJKmQJKmQmQAryUqZHnHnHnHnHnHnHnHnbHHnOxbdbLRWGlGlaMESUDkjvrgsvrvrsISFSFSFoDTNTNTNTNTNoDSFSFSFgqvrvrPZZWvrkjUDUDCdUDywCdDQnGCdCduZetRGYMYMleYMYMESVqCuWHCdUlArArrlrlTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNmQmQmQmQlhRARARACdCdCdCdCdCdUDCdCdCdCdVJVJCdCdCdUDYMYMXaYMYMsksksITNTNTNouTNTNTNTNTNTNTNTNTNgqkjkjryPhkjkjUDSMCdCdZoLYZoZoCdCduZCdZMHnmKYMYMYMESYMVqBfCuUlArrlrlTNnSTNnSTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArArlhArArArZoYMZoZoUDUDsYoWQwCdBOYMdGUDESYMYMkjkjXIqLYMWfYMTNTNTNTNTNTNTNvMASTNvMvMTNTNTNkjoxDXCdXIkjkjUDCdIXlzZoUDZoCdCdUDUDCdCdetmKYMESESYMUrESVqCcArMJTNTNnSvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlrlArlhlhlhlhZoYMYMpEpuUDUDUDQwCdUDUDkbUDYMUDUDYMvNUDUDqLWfkjTNTNTNTNTNvMpZcLvMTNvMvMTNsRTNkjKeDXCdCdvNkjCdCdoWlsZoUDZoUDCdUDUDWHSUCdZMHnRGYMdGYMYMYMArmQMJTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNrlArArArmQArZoYMYMqgwYYMsYsYsYUDnIYMYMUrYMYMYMUDvNCdCdCdUDgxkjTNTNTNlNTNoudlTNlNTNTNlNTNkjkjCdDXCdXWvNkjUDUDqLZoZoUDZoUDUDuZtkUDUDlZUDUDZMRGYMYMYMYMmQmQTNTNnSTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNvMvMTNTNTNTNTNTNrlrlrlrllhArZoqgHvqgbcXaXaUDUDUDYMdGsYYMYMYMUDkjvNCdCdCdzsUDkjkjTNTNTNTNsRTNTNTNTNTNTNHPkjUDdxDXCdCdvNgxSMCdYMdGoWYMYMYMqLWIuZuZuZuZgUuZUDmzzxmQmQmQmQmQTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNvMvMvMTNTNTNTNTNTNTNTNrlrlArZoZoZoZoZoUDUDYMYMYMYMdGESmXESbZUDkjkjCdCdCdzsZoUDkjHRHRHRkjYMfMUDfMYMHRHRHPUDZodxDXCdUDkjkjUDCdYMfoCdYMUrYMUDUDUDUDUDQCYMajUDArXSmQmQmQmQMJTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArZoSuLahtbcUDYMXaBOUDUrYMStYOptYMESUDUDCdCdCdzsZoUDkjeDeDeDUDYMzkESptYMeDeDHPUDZodxDXGUUDUDUDUDUDUDZoYMdGYMYMYMUDUDYMYMYMYMUDUlArMJMJTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArYMLaLaLapuUDUDqLUDqLYMYMsYnIfoESESUDUDCdCdCdZoZozVZoUDUDUDoWYMYMmXESnIUDUDZoZoZoZoWTRBUDUDRBRBUDlZZoYMdGdGYMYMiBYMYMYMYMUDUDkjArMJTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNvMTNTNTNTNTNTNTNTNrlArZoLaYmLawYUDBOUDZoZoDTiLYMYMdGESYMZoZoCdCdCdZoUDtmLoUDtkHEMeYMYMYMYMYqUDUDByWWUDZotDiqZoZoZoZonlZoZoUDYMYMYMYMYMYMYMYMsYsYUDkjArlhTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNvMvMTNTNrlArZoZoZoZoZoGUCdCdUDUDUDUDYMYMYMptESUDCdZoUDRBZoUDUDUDUDoWHEUDMeMeUDMeUDUDoWCdCdUDZosBUDZoUDSMUDUDaQZoUDUDYMYMYMYMESmXsYYMUDRBkjmQlhTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNrlPWZoeBiViVYMCdCdCdUDCdCdUDYMYMYMYMYMUDxgZoUDlZZoUDBOczCdRpESUDUDUDUDUDCdCdCdVJzkUDZosBUDZoOFCgREUDUDZoZoZoZoYMYMYMESmXYMUlUlZokjmQmQTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNrlArZoiViVyIYMCdCdCdUDUDCdUDUDUDUDUDUDUDCdUDUDUDceUDGUCdUDmXmXUDUDHHCdUDCdqLUDUDUDUDOasOUDUDwryKoQTFTFTFTFTFrbESESYMYMYMESYMUDYMsYmQmQTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArZoRniViVILCdCdCdBOUDUDYMYMESESYMUDUDUDUDCdUDiqUDUDUDUDRBUDBOBOCdUDCdUDyFqLUDqLqLqLIBYexCYeYeRwUDUDUDUDUDUDESESYMKoYMESESwPYMYMmQmQTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArZoZoZoZoZoPeCdCdZoRUMLYMYMESESYMYMYMYMYMYMYMZoUDUDUDMeMeUDUDUDUDUDUDUDMeMeUDUDUDZoRUMLYMYMYMYMYMYMYMYMYMYMYMYMYMYMYMYMESYMYMYMmQmQTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlArUDUDCdCdCdCdCdCdZoebBRYMYMYMYMYMESESESESYMYMZokjkjkjkjMeUDUDMeMeMeMeUDMekjkjkjeoZoebBRixmcixixixixixmcixixoyYMsYsYsYYMYMYMYMYMmQmQTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNrlrlZoUDCdCdCdCdCdCdZocncnYMYMYMYMYMESYMESYMYMYMUDUDUDUDkjkjkjYMkjkjkjkjkjkjkjUDUDUDUDMlcncnZocncncncncnZocncncnYMKoUDYMYMYMYMYMYMmQmQTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNZoZoZoUDUDUDUDUDZoENENYMYMYMYMESESESESESYMYMZoZoZoUDYMYMYMYMUDUDUDUDUDYMYMYMZoZoZoENFzENnlENENENENENZoENENENZoUDUDYMESESYMYMYMTNvMvMTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoZoUDUDUDZoZoRRRRRRZoYMYMESESESESYMYMYMYMTNZoZofMYMfMYMZoZoZoZoZoYMfMYMZoTNZoRRRRRRZoRRRRRRRRRRZoRRRRRRZoUDUDYMESYMYMTNTNTNvMTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoZoZoUDZoTNTNTNTNTNTNTNTNTNvMTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoUDUDZoZoYMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoZoZoTNTNTNTNTNTNTNTNTNvMvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoUDZoZoTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoZoTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNZoZoZoTNTNTNTNTNvMvMTNTNTNTNTNvMvMTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoTNTNTNTNTNTNTNTNTNTNvMvMvMTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNZoTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNvMvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoTNTNTNTNTNTNTNTNTNTNvMTNvMTNTNvMvMTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNZoTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNvMTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNZoTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNZoTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNvMTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNbuTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+TNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+npTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTN
+"}
