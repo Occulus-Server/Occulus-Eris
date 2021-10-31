@@ -23,20 +23,3 @@
 	icon = 'zzzz_modular_occulus/icons/turf/flooring/decals.dmi'
 
 
-/obj/effect/floor_decal/burned1
-	name = "floor"
-	icon = 'zzzz_modular_occulus/icons/turf/flooring/plating.dmi'
-	icon_state = "burnedstraight"
-	layer = 2.3
-
-/obj/effect/floor_decal/burned2
-	name = "floor"
-	icon = 'zzzz_modular_occulus/icons/turf/flooring/plating.dmi'
-	icon_state = "burnedcornerinv"
-	layer = 2.3
-
-/obj/effect/floor_decal/burned3
-	name = "floor"
-	icon = 'zzzz_modular_occulus/icons/turf/flooring/plating.dmi'
-	icon_state = "burnedcorner"
-	layer = 2.3
