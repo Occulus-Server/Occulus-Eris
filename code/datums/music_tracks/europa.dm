@@ -39,3 +39,10 @@
 	song = 'sound/music/europa/WildEncounters.ogg'
 	licence = /decl/licence/cc_by_sa_4_0
 	url = "https://ghyti.bandcamp.com/"
+
+/music_track/youwillbeokay
+	artist = "Sam Haft"
+	title = "You Will be Okay"
+	song = 'sound/music/YouWillBeOkay.ogg'
+	licence = /decl/licence/cc_by_sa_4_0
+	url = "https://www.youtube.com/watch?v=kpnwRg268FQ&ab_channel=Vivziepop"
