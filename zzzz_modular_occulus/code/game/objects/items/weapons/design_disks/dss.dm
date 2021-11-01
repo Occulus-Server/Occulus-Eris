@@ -12,11 +12,11 @@
 
 /datum/design/autolathe/gun/gemini
 	name = "DSS Gemini"
-	/obj/item/weapon/gun/energy/gun/gemini
+	build_path = /obj/item/weapon/gun/energy/gun/gemini
 
 /datum/design/autolathe/gun/glasgow
 	name = "DSS Glasgow"
-	/obj/item/weapon/gun/energy/gun/glasgow
+	build_path = /obj/item/weapon/gun/energy/gun/glasgow
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss
 	disk_name = "Deepflare Security - blank"
