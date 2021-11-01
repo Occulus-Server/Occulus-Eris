@@ -56,7 +56,6 @@
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss/glasgow
 	disk_name = "Deepflare Security - Glasgow Energy Personal Defense Weapon"
-	icon_state = "frozenstar"
 	rarity_value = 20
 	license = 9
 	designs = list(
@@ -67,7 +66,6 @@
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss/gemini
 	disk_name = "Deepflare Security - Gemini Energy personal Defense Weapon"
-	icon_state = "frozenstar"
 	rarity_value = 30
 	license = 9
 	designs = list(
