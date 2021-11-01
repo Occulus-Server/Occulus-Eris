@@ -98479,7 +98479,6 @@
 /area/eris/engineering/propulsion/left)
 "eAu" = (
 /obj/effect/window_lwall_spawn/smartspawn,
-/obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/atmospherics/pipe/simple/hidden/blue,
 /obj/structure/cable/green{
 	d1 = 1;
