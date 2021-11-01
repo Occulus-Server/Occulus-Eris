@@ -55,7 +55,8 @@
 			return
 		//Else, we overwrite the soulcrypt's current access with the access on the ID card.
 		crypt.access.Cut()
-		crypt.access = card.access
+		for(var/x in card.access)
+			crypt.access += x
 		to_chat(user, SPAN_NOTICE("Access upload completed!"))
 		playsound(loc, 'sound/machines/chime.ogg', 50, 1)
 		crypt.send_host_message("Access transponder code upload completed.")
