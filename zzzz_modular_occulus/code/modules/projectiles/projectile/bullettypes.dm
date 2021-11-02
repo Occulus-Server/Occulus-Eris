@@ -75,7 +75,7 @@
 	icon_state = "slug"
 	damage_types = list(BRUTE = 54)
 	armor_penetration = 20
-	knockback = 1
+	knockback = 0.5
 	step_delay = 1.1
 
 /obj/item/projectile/bullet/greyclaw/rubber

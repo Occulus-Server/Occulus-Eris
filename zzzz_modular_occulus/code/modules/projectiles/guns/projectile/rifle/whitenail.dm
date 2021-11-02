@@ -126,28 +126,22 @@
 
 /obj/item/weapon/gun/projectile/automatic/whitenail/greyclaw/load_ammo(obj/item/A, mob/user)
 	.=..()
-	greyclaw_swap()
+	greyclaw_swap(ammo_magazine)
 
 /obj/item/weapon/gun/projectile/automatic/whitenail/greyclaw/toggle_firemode()
 	..()
 	if(ammo_magazine)
-		greyclaw_swap()
+		greyclaw_swap(ammo_magazine)
 
-/obj/item/weapon/gun/projectile/automatic/whitenail/greyclaw/proc/greyclaw_swap()
+/obj/item/weapon/gun/projectile/automatic/whitenail/greyclaw/proc/greyclaw_swap(var/obj/item/ammo_magazine/greyclaw/M)
 	var/current_ammo = src.get_ammo()
 	for(var/i=1 to src.get_ammo()) // get amount of ammo currently in mag before deleting so you can refil the mag and pretend like the ammo was just converted
 		ammo_magazine.stored_ammo.Cut()
 	
-	if(ammo_magazine.ammo_type == /obj/item/ammo_casing/shotgun/pellet/greyclaw/rubber)
-		if(sel_mode == 1)
-			ammo_magazine.ammo_type = /obj/item/ammo_casing/shotgun/pellet/greyclaw/rubber // pellet
-		else
-			ammo_magazine.ammo_type = /obj/item/ammo_casing/whitenail/greyclaw/rubber // slug
+	if(sel_mode == 1)
+		ammo_magazine.ammo_type = M.pellet_mode
 	else
-		if(sel_mode == 1)
-			ammo_magazine.ammo_type = /obj/item/ammo_casing/shotgun/pellet/greyclaw // pellet
-		else
-			ammo_magazine.ammo_type = /obj/item/ammo_casing/whitenail/greyclaw // slug
+		ammo_magazine.ammo_type = M.slug_mode
 
 	for(var/i=1 to current_ammo)
 		ammo_magazine.stored_ammo += new ammo_magazine.ammo_type()
