@@ -8,7 +8,7 @@
 /obj/item/weapon/implant/carrion_spider/sleeping/activate()
 	..()
 	if(wearer)
-		wearer.reagents.add_reagent("stoxin", 5)
+		wearer.reagents.add_reagent("stoxin", 10)
 		to_chat(wearer, SPAN_NOTICE("You feel tired and drop into a sleep"))
 		die()
 	else
