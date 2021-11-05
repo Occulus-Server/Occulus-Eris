@@ -18,10 +18,10 @@
 	magazine_type = /obj/item/ammo_magazine/maxim
 	matter = list(MATERIAL_PLASTEEL = 40, MATERIAL_PLASTIC = 30)
 	price_tag = 5000
-	unload_sound 	= 'sound/weapons/guns/interact/lmg_magout.ogg'
-	reload_sound 	= 'sound/weapons/guns/interact/lmg_magin.ogg'
-	cocked_sound 	= 'sound/weapons/guns/interact/lmg_cock.ogg'
-	fire_sound = 'sound/weapons/guns/fire/lmg_fire.ogg'
+	unload_sound = 'sound/weapons/guns/interact/lmg_magout.ogg'
+	reload_sound = 'sound/weapons/guns/interact/lmg_magin.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/lmg_cock.ogg'
+	fire_sound = 'sound/weapons/guns/fire/cal/30.ogg'
 	recoil_buildup = 2.2
 	one_hand_penalty = 45 //not like it's used anyway, but HMG level
 	init_firemodes = list(

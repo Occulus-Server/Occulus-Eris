@@ -69,7 +69,7 @@
 	var/list/gun_tags = list() //Attributes of the gun, used to see if an upgrade can be applied to this weapon.
 	/*	SILENCER HANDLING */
 	var/silenced = FALSE
-	var/fire_sound_silenced = 'sound/weapons/Gunshot_silenced.wav' //Firing sound used when silenced
+	var/fire_sound_silenced = 'sound/weapons/guns/fire/cal/silenced.ogg' //Firing sound used when silenced
 
 	var/icon_contained = TRUE
 	var/static/list/item_icons_cache = list()
