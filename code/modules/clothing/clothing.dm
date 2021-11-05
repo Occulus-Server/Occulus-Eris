@@ -505,7 +505,7 @@ BLIND     // can't see anything
 			/obj/item/material/kitchen/utensil,
 			/obj/item/tool/knife/tacknife,
 			/obj/item/oddity/common/old_knife, //Occulus Edit
-			/obj/item/tool/shiv,
+			//obj/item/tool/shiv,
 		)
 	if(can_hold_knife && is_type_in_list(I, knifes))
 		if(holding)
