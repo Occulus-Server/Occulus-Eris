@@ -32,7 +32,9 @@
 
 	rarity_value = 16
 	price_tag = 1200
-	//spawn_tags = SPAWN_TAG_FS_PROJECTILE Occulus edit : We don't have those tags yet
+	wield_delay = 0.2 SECOND
+	wield_delay_factor = 0.2 // 20 vig
+	//spawn_tags = SPAWN_TAG_FS_PROJECTILE
 
 /obj/item/gun/projectile/selfload/on_update_icon()
 	..()

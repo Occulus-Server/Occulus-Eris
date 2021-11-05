@@ -21,7 +21,9 @@
 	damage_multiplier = 0.8
 	recoil_buildup = 4
 	one_hand_penalty = 5 //smg level
-	gun_tags = list(GUN_SILENCABLE)
+	gun_tags = list(GUN_SILENCABLE, GUN_GILDABLE)
+	wield_delay = 0.5 SECOND
+	wield_delay_factor = 0.1 // 10 vig for instant
 
 	init_firemodes = list(
 		FULL_AUTO_400,
@@ -33,6 +35,10 @@
 
 	var/iconstring = initial(icon_state)
 	var/itemstring = ""
+
+	if(gilded)
+		iconstring += "_gold"
+		itemstring += "_gold"
 
 	if (ammo_magazine)
 		iconstring += "_mag"

@@ -29,6 +29,8 @@
 		)
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	wield_delay = 0.3 SECOND
+	wield_delay_factor = 0.2 // SMG level
 	fire_sound = 'sound/weapons/guns/fire/cal/25.ogg'
 
 /obj/item/gun/projectile/automatic/sol/proc/update_charge()
