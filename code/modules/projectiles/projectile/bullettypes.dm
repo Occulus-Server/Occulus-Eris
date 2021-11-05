@@ -190,6 +190,42 @@ There are important things regarding this file:
 	penetrating = 1
 	hitscan = TRUE //so the PTR isn't useless as a sniper weapon
 
+/obj/item/projectile/bullet/antim/emp
+	damage_types = list(BRUTE = 30)
+	armor_penetration = 40
+
+/obj/item/projectile/bullet/antim/emp/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	empulse(target, 0, 0)
+
+/obj/item/projectile/bullet/antim/uranium
+	damage_types = list(BRUTE = 65)
+	armor_penetration = 100
+	irradiate = 200
+
+/obj/item/projectile/bullet/antim/breach
+	damage_types = list(BRUTE = 20)
+	armor_penetration = 40
+	agony = 40
+	penetrating = 0
+	step_delay = 0.6
+	hitscan = FALSE
+	nocap_structures = TRUE
+	kill_count = 30
+
+/obj/item/projectile/bullet/antim/breach/proc/get_tiles_passed(var/distance)
+	var/tiles_passed = distance
+	return ROUND_PROB(tiles_passed)
+
+/obj/item/projectile/bullet/antim/breach/get_structure_damage()
+	var/distance = get_dist(loc, starting)
+	return  22 * get_tiles_passed(distance)
+
+/obj/item/projectile/bullet/antim/breach/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	fragment_explosion_angled(target, starting ,/obj/item/projectile/bullet/pellet/fragment/strong, 5)
+	playsound(target, 'sound/effects/explosion1.ogg', 100, 25, 8, 8)
+
 /obj/item/projectile/bullet/antim/scrap
 	damage_types = list(BRUTE = 63)
 
