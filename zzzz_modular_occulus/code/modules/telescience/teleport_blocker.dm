@@ -10,6 +10,12 @@
 	circuit = /obj/item/weapon/electronics/circuitboard/tele_inhibitor
 	var/area/area
 
+/obj/machinery/telesci_inhibitor/proc/explode()
+	var/turf/T = get_turf(src)
+	explosion(T, -1, 1, 2, 5) //Like a landmine but with less flash.
+	bluespace_entropy(20, get_turf(src), TRUE)
+	qdel(src)
+
 /obj/machinery/telesci_inhibitor/Initialize()
 	. = ..()
 	area = get_area(src)
@@ -38,6 +44,9 @@
 
 /obj/machinery/telesci_inhibitor/proc/can_inhibit()
 	return (!stat)
+
+/obj/machinery/telesci_inhibitor/attackby(obj/item/I, mob/user, params)
+	default_deconstruction(I, user)
 
 /////////////////////////////
 // Occulus Additional Vars //

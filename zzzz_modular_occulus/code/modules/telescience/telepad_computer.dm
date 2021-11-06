@@ -119,8 +119,27 @@
 	portalOpened = TRUE
 	telepad.openPortal(targetX, targetY, targetZ)
 	if(dangerous)
+		addLog("WHOOP SNOOP")
 		for(var/obj/machinery/telesci_relay/relay in telepad.relaysInUse)
+			addLog("BUTTS")
 			relay.chanceExplode()
+		var/area/loc = get_area(get_turf(locate(x,y,z)))
+		var/inhibitorExploded = FALSE
+		for(var/obj/machinery/telesci_inhibitor/blocker in loc.tele_inhibitors)
+			if(!istype(blocker))
+				continue
+			addLog("SCHWEEMUS")
+			inhibitorExploded = TRUE
+			blocker.visible_message(SPAN_DANGER("\The [src] sparks violently and begins to shake!"))
+			do_sparks(6, FALSE, get_turf(src))
+			addtimer(CALLBACK(blocker, /obj/machinery/telesci_inhibitor/proc/explode), 1 SECONDS)
+		
+		if(inhibitorExploded)
+			var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
+			a.autosay("ALERT: Extreme bluespace disruption detected in [loc]. Equipment failure imm-m-...", "Bluespace Inhibition Node")
+			qdel(a)
+
+
 	qdel(telegraph)
 	telegraph = null
 	menuOption = BS_MENU_PORTAL
@@ -272,6 +291,9 @@
 	menuOption = BS_MENU_SELECT
 	qdel(telegraph)
 	telegraph = null
+	for(var/obj/machinery/telesci_relay/relay in telepad.relaysInUse)
+		telepad.relaysInUse -= relay
+		relay.inUse = FALSE
 
 /obj/machinery/computer/telesci_console/proc/startTimer(var/baseDelay = BS_PATHING_DELAY)
 	var/list/obj/machinery/telesci_relay/workingRelays = telepad.findWorkingRelays()
@@ -287,7 +309,7 @@
 	totalProgress = 0
 	totalDelay += baseDelay
 	delayStages += baseDelay
-	if(!tracking_beacon)
+	if(!tracking_beacon || dangerous)
 		for(var/i in 1 to min(getDigitRequirement(), workingRelays.len))
 			delayStages += totalDelay + workingRelays[i].pathfinding_speed
 			totalDelay += workingRelays[i].pathfinding_speed
