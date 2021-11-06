@@ -73,7 +73,7 @@ obj/item/weapon/augmentor/debug
 	name = "Augmentor (Energy Armblade)"
 	desc = "A self augmentation device, this one holding an energetic armblade. It's your fault if you install it into your head and become a unicorn"
 	augmentpath = /obj/item/organ_module/active/simple/armblade/energy_blade
- 	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_PLATINUM = 1, MATERIAL_PHORONGLASS = 4, MATERIAL_TRITIUM = 1)
+	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_PLATINUM = 1, MATERIAL_PHORONGLASS = 4, MATERIAL_TRITIUM = 1)
 
 /obj/item/weapon/augmentor/hurricane
 	name = "Augmentor (Hurricane)"

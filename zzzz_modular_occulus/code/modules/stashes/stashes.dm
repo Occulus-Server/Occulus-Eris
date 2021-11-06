@@ -315,8 +315,7 @@
 			%D <br>\
 			and come back to it later when theyve had consequences too."
 	contents_list_external = list(/obj/item/remains/human = 1)
-	contents_list_base = list(/obj/item/clothing/under/rank/first_officer = 1,
-		/obj/item/clothing/head/caphat/hop = 1)
+	contents_list_base = list(/obj/item/clothing/under/rank/first_officer = 1)
 	contents_list_random = list(/obj/item/clothing/suit/armor/vest = 70,
 		/obj/item/clothing/glasses/sunglasses = 55,
 		/obj/item/weapon/reagent_containers/food/drinks/flask = 50,

@@ -62,7 +62,7 @@
 /datum/category_item/setup_option/background/fate/noble
 	name = "Noble"
 	desc = "You are of a prestigious family or lineage. Maybe you're self-made. Maybe you're the heir to a fortune.\
-			Either way, you, like everyone else, are stuck aboard the NEV Northern Light. This is not the luxury you are used to. \
+			Either way, you, like everyone else, are stuck aboard the CEV Northern Light. This is not the luxury you are used to. \
 			You're far more likely to be targeted for abduction by... unsavory types. \
 			Stay safe, star-child."
 

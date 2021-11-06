@@ -185,6 +185,7 @@
 	switched_on_qualities = list(QUALITY_CUTTING = 25)
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 6)
 	switched_on_force = WEAPON_FORCE_BRUTAL
+	switched_off_force = WEAPON_FORCE_DANGEROUS * 1.5
 	rarity_value = 60
 	spawn_blacklisted = TRUE
 

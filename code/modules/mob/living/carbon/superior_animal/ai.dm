@@ -101,5 +101,8 @@
 			for(var/obj/machinery/door/obstacle in get_step(src,dir))
 				if(obstacle.density == 1)
 					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-					return//occulus edit end
+					return
+			for(var/obj/structure/shield_deployed/obstacle in get_step(src,dir))
+				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext) 
+				return//occulus edit end
 

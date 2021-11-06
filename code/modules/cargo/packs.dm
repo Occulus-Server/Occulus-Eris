@@ -203,7 +203,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/grenade/chem_grenade/incendiary,
 					/obj/item/weapon/grenade/chem_grenade/incendiary,
 					/obj/item/weapon/grenade/chem_grenade/incendiary,
-					/obj/item/weapon/storage/box/shotgunammo/incendiaryshells)
+					/obj/item/ammo_magazine/ammobox/shotgun/incendiaryshells)
 	cost = 2500
 	containertype = /obj/structure/closet/crate/secure/weapon
 	crate_name = "Incendiary weapons crate"
@@ -268,22 +268,22 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/shotgunammo_beanbag
 	name = "FS Shotgun shells (Beanbag)"
-	contains = list(/obj/item/weapon/storage/box/shotgunammo/beanbags,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags)
+	contains = list(/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags)
 	cost = 1000
 	crate_name = "FS Shotgun shells (Beanbag)"
 	group = "Security"
 
 /datum/supply_pack/shotgunammo_slug
 	name = "FS Shotgun shells (slug)"
-	contains = list(/obj/item/weapon/storage/box/shotgunammo/slug,
-					/obj/item/weapon/storage/box/shotgunammo/slug,
-					/obj/item/weapon/storage/box/shotgunammo/slug,
-					/obj/item/weapon/storage/box/shotgunammo/slug,
-					/obj/item/weapon/storage/box/shotgunammo/slug)
+	contains = list(/obj/item/ammo_magazine/ammobox/shotgun,
+					/obj/item/ammo_magazine/ammobox/shotgun,
+					/obj/item/ammo_magazine/ammobox/shotgun,
+					/obj/item/ammo_magazine/ammobox/shotgun,
+					/obj/item/ammo_magazine/ammobox/shotgun)
 	cost = 1500
 	containertype = /obj/structure/closet/crate/secure
 	crate_name = "FS Shotgun shells (slug)"
@@ -291,11 +291,11 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/shotgunammo_buckshot
 	name = "FS Shotgun shells (buckshot)"
-	contains = list(/obj/item/weapon/storage/box/shotgunammo/buckshot,
-					/obj/item/weapon/storage/box/shotgunammo/buckshot,
-					/obj/item/weapon/storage/box/shotgunammo/buckshot,
-					/obj/item/weapon/storage/box/shotgunammo/buckshot,
-					/obj/item/weapon/storage/box/shotgunammo/buckshot)
+	contains = list(/obj/item/ammo_magazine/ammobox/shotgun/buckshot,
+					/obj/item/ammo_magazine/ammobox/shotgun/buckshot,
+					/obj/item/ammo_magazine/ammobox/shotgun/buckshot,
+					/obj/item/ammo_magazine/ammobox/shotgun/buckshot,
+					/obj/item/ammo_magazine/ammobox/shotgun/buckshot)
 	cost = 1500
 	containertype = /obj/structure/closet/crate/secure
 	crate_name = "FS Shotgun shells (buckshot)"
@@ -1432,22 +1432,24 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Miscellaneous"
 //Occulus Addition
 /datum/supply_pack/warmcarpet
-	contains = list(/obj/item/stack/tile/carpet/cpack,
-				/obj/item/stack/tile/carpet/oracarpet/cpack,
-				/obj/item/stack/tile/carpet/gaycarpet/cpack,
-				/obj/item/stack/tile/carpet/sblucarpet/cpack
+	contains = list(/obj/item/stack/tile/carpet,
+				/obj/item/stack/tile/carpet/oracarpet,
+				/obj/item/stack/tile/carpet/gaycarpet,
+				/obj/item/stack/tile/carpet/sblucarpet
 				)
+	amount = 30
 	name = "Warm Carpet Crate"
 	cost = 3500
 	crate_name = "warm carpet crate"
 	group = "Miscellaneous"
 
 /datum/supply_pack/coldcarpet
-	contains = list(/obj/item/stack/tile/carpet/blucarpet/cpack,
-					/obj/item/stack/tile/carpet/turcarpet/cpack,
-					/obj/item/stack/tile/carpet/bcarpet/cpack,
-					/obj/item/stack/tile/carpet/purcarpet/cpack
+	contains = list(/obj/item/stack/tile/carpet/blucarpet,
+					/obj/item/stack/tile/carpet/turcarpet,
+					/obj/item/stack/tile/carpet/bcarpet,
+					/obj/item/stack/tile/carpet/purcarpet
 					)
+	amount = 30
 	name = "Cool Carpet Crate"
 	cost = 3500
 	crate_name = "cool carpet crate"
@@ -1670,15 +1672,16 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 //Occulus addition start
 /datum/supply_pack/randomised/carpet
 	num_contained = 4
-	contains = list(/obj/item/stack/tile/carpet/cpack,
-					/obj/item/stack/tile/carpet/bcarpet/cpack,
-					/obj/item/stack/tile/carpet/blucarpet/cpack,
-					/obj/item/stack/tile/carpet/turcarpet/cpack,
-					/obj/item/stack/tile/carpet/sblucarpet/cpack,
-					/obj/item/stack/tile/carpet/gaycarpet/cpack,
-					/obj/item/stack/tile/carpet/purcarpet/cpack,
-					/obj/item/stack/tile/carpet/oracarpet/cpack
+	contains = list(/obj/item/stack/tile/carpet,
+					/obj/item/stack/tile/carpet/bcarpet,
+					/obj/item/stack/tile/carpet/blucarpet,
+					/obj/item/stack/tile/carpet/turcarpet,
+					/obj/item/stack/tile/carpet/sblucarpet,
+					/obj/item/stack/tile/carpet/gaycarpet,
+					/obj/item/stack/tile/carpet/purcarpet,
+					/obj/item/stack/tile/carpet/oracarpet
 					)
+	amount = 30
 	name = "Surplus Carpet Crate"
 	cost = 2500
 	crate_name = "Surplus Carpet Crate"

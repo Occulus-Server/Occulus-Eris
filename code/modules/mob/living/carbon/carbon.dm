@@ -192,14 +192,7 @@
 							src.ExtinguishMob()
 							src.fire_stacks = 0
 		else
-			var/t_him = "it"
-			if (src.gender == MALE)
-				t_him = "him"
-			else if (src.gender == FEMALE)
-				t_him = "her"
-			if (ishuman(src) && src:w_uniform)
-				var/mob/living/carbon/human/H = src
-				H.w_uniform.add_fingerprint(M)
+			var/datum/gender/t_him = gender_datums[get_gender()].him // OCCULUS EDIT - adjusting for gender rework
 
 			var/show_ssd
 			var/target_organ_exists = FALSE

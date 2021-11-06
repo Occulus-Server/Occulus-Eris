@@ -14,7 +14,7 @@
 	flag = ENSIGN
 	department = DEPARTMENT_COMMAND
 	department_flag = COMMAND
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the first officer and captain"

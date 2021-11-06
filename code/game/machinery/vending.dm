@@ -766,9 +766,11 @@
 			else
 				to_chat(user, SPAN_NOTICE("You weren't able to pull the coin out fast enough, the machine ate it, string and all."))
 				qdel(coin)
+				coin = null    //Occulus Addition, fixing coin cost
 				categories &= ~CAT_COIN
 		else
 			qdel(coin)
+			coin = null    //Occulus Addition, fixing coin cost
 			categories &= ~CAT_COIN
 
 	if(((last_reply + (vend_delay + 200)) <= world.time) && vend_reply)
@@ -1075,13 +1077,18 @@
 					/obj/item/weapon/flame/lighter/random = 4,
 					/obj/item/weapon/storage/fancy/cigar = 5,
 					/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5,
-					///obj/item/clothing/mask/vape = 5,
-					///obj/item/weapon/reagent_containers/glass/beaker/vial/vape/berry = 10,
-					///obj/item/weapon/reagent_containers/glass/beaker/vial/vape/banana = 10,
-					///obj/item/weapon/reagent_containers/glass/beaker/vial/vape/lemon = 10,
-					///obj/item/weapon/reagent_containers/glass/beaker/vial/vape/nicotine = 5
+					/obj/item/weapon/storage/fancy/cigcartons/killthroat = 3,
+					/obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 5,
+					/obj/item/weapon/storage/fancy/cigcartons/dromedaryco = 3,
+					/obj/item/clothing/mask/vape = 5,
+					/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/berry = 10,
+					/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/banana = 10,
+					/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/lemon = 10,
+					/obj/item/weapon/reagent_containers/glass/beaker/vial/vape/nicotine = 5
 				   )
-
+	contraband = list(/obj/item/weapon/storage/fancy/cigarettes/homeless = 3,
+					  /obj/item/weapon/storage/fancy/cigcartons/homeless = 1,
+					)
 	prices = list(/obj/item/clothing/mask/smokable/cigarette/cigar = 200,
 				  /obj/item/weapon/storage/fancy/cigarettes = 100,
 				  /obj/item/weapon/storage/fancy/cigcartons = 800,
@@ -1089,12 +1096,17 @@
 				  /obj/item/weapon/flame/lighter/random = 5,
 				  /obj/item/weapon/storage/fancy/cigar = 450,
 				  /obj/item/weapon/storage/fancy/cigarettes/killthroat = 100,
+				  /obj/item/weapon/storage/fancy/cigcartons/killthroat = 800,
+				  /obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 100,
+				  /obj/item/weapon/storage/fancy/cigcartons/dromedaryco = 800,
 				  /obj/item/weapon/flame/lighter/zippo = 250,
-				  ///obj/item/clothing/mask/vape = 300,
-				  ///obj/item/weapon/reagent_containers/glass/beaker/vial/vape/berry = 100,
-				  ///obj/item/weapon/reagent_containers/glass/beaker/vial/vape/banana = 100,
-				  ///obj/item/weapon/reagent_containers/glass/beaker/vial/vape/lemon = 100,
-				  ///obj/item/weapon/reagent_containers/glass/beaker/vial/vape/nicotine = 100
+				  /obj/item/clothing/mask/vape = 300,
+				  /obj/item/weapon/reagent_containers/glass/beaker/vial/vape/berry = 100,
+				  /obj/item/weapon/reagent_containers/glass/beaker/vial/vape/banana = 100,
+				  /obj/item/weapon/reagent_containers/glass/beaker/vial/vape/lemon = 100,
+				  /obj/item/weapon/reagent_containers/glass/beaker/vial/vape/nicotine = 100,
+				  /obj/item/weapon/storage/fancy/cigarettes/homeless = 300,
+				  /obj/item/weapon/storage/fancy/cigcartons/homeless = 2400
 				  )
 
 
@@ -1201,7 +1213,7 @@
 					/obj/item/ammo_magazine/smg/rubber = 4,
 					/obj/item/ammo_magazine/slmagnum/rubber = 4,
 					/obj/item/ammo_magazine/magnum/rubber = 4,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags = 2,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags = 2,
 					/obj/item/ammo_magazine/ammobox/pistol/rubber = 4,
 					/obj/item/ammo_magazine/ammobox/magnum/rubber = 4,
 					/obj/item/ammo_magazine/ammobox/clrifle_small/rubber = 4,
@@ -1221,8 +1233,8 @@
 	product_slogans = "Aren't you glad you don't have to fertilize the natural way?;Now with 50% less stink!;Plants are people too!"
 	product_ads = "We like plants!;Don't you want some?;The greenest thumbs ever.;We like big plants.;Soft soil..."
 	icon_state = "nutri"
-	products = list(/obj/item/weapon/reagent_containers/glass/fertilizer/ez = 6,/obj/item/weapon/reagent_containers/glass/fertilizer/l4z = 4,/obj/item/weapon/reagent_containers/glass/fertilizer/rh = 4,/obj/item/weapon/plantspray/pests = 20,
-					/obj/item/weapon/reagent_containers/syringe = 5,/obj/item/weapon/storage/bag/produce = 5)
+	products = list(/obj/item/weapon/reagent_containers/glass/bottle/fertilizer/ez = 6,/obj/item/weapon/reagent_containers/glass/bottle/fertilizer/l4z = 4,/obj/item/weapon/reagent_containers/glass/bottle/fertilizer/rh = 4,/obj/item/weapon/plantspray/pests = 20,
+					/obj/item/weapon/reagent_containers/syringe = 5,/obj/item/weapon/storage/bag/produce = 5)//Occulus Eddit
 	premium = list(/obj/item/weapon/reagent_containers/glass/bottle/ammonia = 10,/obj/item/weapon/reagent_containers/glass/bottle/diethylamine = 5)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	auto_price = FALSE

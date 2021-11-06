@@ -2,7 +2,7 @@
 	title = "AI"
 	flag = AI
 	department_flag = COMMAND
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 0 // Not used for AI, see is_position_available below and modules/mob/living/silicon/ai/latejoin.dm
 	spawn_positions = 1
 	selection_color = "#b5b7cb"
@@ -11,7 +11,7 @@
 	account_allowed = 0
 	wage = WAGE_NONE
 	outfit_type = /decl/hierarchy/outfit/job/silicon/ai
-	
+
 	wl_config_heads = TRUE		//Eclipse edit - AI is de-facto head over silicons.
 	wl_config_borgs = TRUE		//Eclipse edit.
 
@@ -36,7 +36,7 @@
 	title = "Robot"
 	flag = CYBORG
 	department_flag = MISC
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	alt_titles = list("Drone", "Cyborg")

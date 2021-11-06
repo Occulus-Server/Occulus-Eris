@@ -18,3 +18,10 @@
 	icon = 'zzzz_modular_occulus/icons/obj/plush.dmi'
 	icon_state = "braincell"
 	item_state = "inflatable"
+
+/obj/item/toy/plushie/therapy
+	name = "soft plush"
+	desc = "A soft, off-white, amorphous plush. Maybe it's a marshmallow?"
+	icon = 'zzzz_modular_occulus/icons/obj/plush.dmi'
+	icon_state = "therapyplush"
+	item_state = "inflatable"

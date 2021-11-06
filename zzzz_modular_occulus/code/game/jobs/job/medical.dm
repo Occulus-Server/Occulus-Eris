@@ -18,6 +18,7 @@
 		access_genetics, access_maint_tunnels)
 
 /datum/job/psychiatrist
+	perks = list(/datum/perk/selfmedicated, /datum/perk/oddity/empath)
 	access = list(
 		access_moebius, access_medical_equip, access_morgue, access_psychiatrist, access_chemistry, access_maint_tunnels
 	)
