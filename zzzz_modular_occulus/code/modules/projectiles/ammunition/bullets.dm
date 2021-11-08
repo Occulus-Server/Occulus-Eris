@@ -69,6 +69,6 @@
 	icon_state = "nail_round"
 	spent_icon = "nail_round_spent"
 	caliber = CAL_NAIL
-	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/rubber/greyclaw
+	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/greyclaw/rubber
 	is_caseless = TRUE
 	maxamount = 1

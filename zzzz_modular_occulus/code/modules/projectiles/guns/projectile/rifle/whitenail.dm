@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/automatic/whitenail
 	name = "NT Prototype \"White Nail\""
-	desc = "A bleeding-edge development in kinetic weaponry. This gun regenerates ammunition slowly over time using advanced nanite technology. The rifle's body feels similar to very sturdy ceramic. When all you have is a Nail..."
+	desc = "A bleeding-edge development in kinetic weaponry. This gun regenerates ammunition slowly over time using advanced nanite technology. The rifle's body feels similar to very sturdy ceramic. Fires three round bursts."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/whitenail.dmi'
 	icon_state = "whitenail"
 	var/icon_name = "whitenail"
@@ -67,7 +67,7 @@
 	if(ammo_magazine)
 		for(var/i=1 to src.get_ammo())
 			ammo_magazine.stored_ammo.Cut()
-		to_chat(user, SPAN_WARNING("The magazine rattles as you remove it, the ammunition unable to sustain itself outside of the rifle."))
+		to_chat(user, SPAN_WARNING("The magazine rattles as you remove it, the ammunition unable to sustain itself outside of the gun."))
 	.=..()
 
 /obj/item/weapon/gun/projectile/automatic/whitenail/on_update_icon()
@@ -82,7 +82,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/whitenail/blacktalon
 	name = "NT Prototype \"Black Talon\""
-	desc = "A bleeding-edge development in kinetic weaponry. This gun regenerates ammunition slowly over time using advanced nanite technology. The rifle's body feels similar to very sturdy ceramic. When all you have is a Nail..."
+	desc = "A bleeding-edge development in kinetic weaponry. This gun regenerates ammunition slowly over time using advanced nanite technology. The pistol's grip feels natural and well fitted. Fires two round bursts."	
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/blacktalon.dmi'
 	icon_state = "blacktalon"
 	icon_name = "blacktalon"
@@ -103,9 +103,9 @@
 		list(mode_name="2-round bursts", burst=2, fire_delay=0.2, move_delay=4, icon="burst"),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/whitenail/greyclaw
+/obj/item/weapon/gun/projectile/automatic/whitenail/greyclaw // REMINDER TO ADD NEW GUNS TO R&D CONSOLE SO PEOPLE CAN USE THEM
 	name = "NT Prototype \"Grey Claw\""
-	desc = "A bleeding-edge development in kinetic weaponry. This gun regenerates ammunition slowly over time using advanced nanite technology. The rifle's body feels similar to very sturdy ceramic. When all you have is a Nail..."
+	desc = "A bleeding-edge development in kinetic weaponry. This gun regenerates ammunition slowly over time using advanced nanite technology. The shotgun's rigid frame makes up for its bulk. Offers alternate slug/pellet firing modes."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/greyclaw.dmi'
 	icon_state = "greyclaw"
 	icon_name = "greyclaw"
@@ -120,8 +120,8 @@
 	spawn_blacklisted = TRUE
 	rebuild_time = 5
 	init_firemodes = list(
-		list(mode_name="pellet", burst=1, fire_delay=6, move_delay=4, icon="semi"),
-		list(mode_name="slug", burst=1, fire_delay=6, move_delay=4, icon="semi")
+		list(mode_name="pellet", burst=1, fire_delay=6, move_delay=4, icon="pellet"),
+		list(mode_name="slug", burst=1, fire_delay=6, move_delay=4, icon="slug")
 		)
 
 /obj/item/weapon/gun/projectile/automatic/whitenail/greyclaw/load_ammo(obj/item/A, mob/user)
@@ -138,10 +138,14 @@
 	for(var/i=1 to src.get_ammo()) // get amount of ammo currently in mag before deleting so you can refil the mag and pretend like the ammo was just converted
 		ammo_magazine.stored_ammo.Cut()
 	
-	if(sel_mode == 1)
+	if(sel_mode == 1) // depending on the mode selected, switch between buckshot and slugs being loaded
 		ammo_magazine.ammo_type = M.pellet_mode
+		proj_step_multiplier = 1
+		damage_multiplier = 1
 	else
 		ammo_magazine.ammo_type = M.slug_mode
+		proj_step_multiplier = 1.15
+		damage_multiplier = 1.2
 
 	for(var/i=1 to current_ammo)
 		ammo_magazine.stored_ammo += new ammo_magazine.ammo_type()

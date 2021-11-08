@@ -38,5 +38,5 @@
 // shotguns
 
 /obj/item/weapon/gun/projectile/automatic/whitenail/greyclaw
-	wieldsound = 'zzzz_modular_occulus/sound/weapons/guns/misc/wieldingnoises/nail_wield.ogg'
+	wieldsound = 'zzzz_modular_occulus/sound/weapons/guns/misc/wieldingnoises/claw_wield.ogg'
 

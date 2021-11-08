@@ -75,26 +75,33 @@
 	icon_state = "slug"
 	damage_types = list(BRUTE = 54)
 	armor_penetration = 20
-	knockback = 0.5
+	knockback = 1
 	step_delay = 1.1
+	sharp = TRUE
+	can_ricochet = FALSE
+	embed = FALSE
 
 /obj/item/projectile/bullet/greyclaw/rubber
-	damage_types = list(BRUTE = 10)
+	name = "grey claw rubber slug"
+	damage_types = list(BRUTE = 15)
+	agony = 60
 	armor_penetration = 0
 	penetrating = 0
 	sharp = FALSE
 
 /obj/item/projectile/bullet/pellet/shotgun/greyclaw
-	damage_types = list(BRUTE = 10)
-	pellets = 6
+	pellets = 7
 	armor_penetration = 20
 	penetrating = 1
 	sharp = TRUE
 	can_ricochet = FALSE 
 	embed = FALSE
 
-/obj/item/projectile/bullet/pellet/shotgun/rubber/greyclaw
-	pellets = 6
+/obj/item/projectile/bullet/pellet/shotgun/greyclaw/rubber
+	damage_types = list(BRUTE = 1)
+	agony = 10
+	sharp = FALSE
+
 
 //Should do about 75 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
