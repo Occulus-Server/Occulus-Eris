@@ -17364,7 +17364,9 @@
 /turf/simulated/floor/hull,
 /area/space)
 "aQH" = (
-/obj/map_data/eris,
+/obj/map_data/eris{
+	name = "Northern Light"
+	},
 /turf/space,
 /area/space)
 "aQI" = (

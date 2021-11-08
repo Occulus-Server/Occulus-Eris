@@ -246,7 +246,7 @@ var/global/list/image/splatter_cache=list()
 	anchored = TRUE
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mucus"
-	random_icon_states = list("mucus")
+	//random_icon_states = list("mucus") Occulus Edit
 
 	var/list/datum/disease2/disease/virus2 = list()
 	var/dry=0 // Keeps the lag down
@@ -254,6 +254,7 @@ var/global/list/image/splatter_cache=list()
 /obj/effect/decal/cleanable/mucus/New()
 	spawn(DRYING_TIME * 2)
 		dry=1
+	..()//Occulus Edit
 
 //This proc prevents blood on openspace tiles, by causing them to fall down until they hit the ground
 /obj/effect/decal/cleanable/blood/proc/fall_to_floor()

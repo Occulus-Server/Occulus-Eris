@@ -473,7 +473,7 @@
 	name = "donut"
 	desc = "Goes great with Robust Coffee."
 	icon_state = "donut1"
-	filling_color = "#D9C386"
+	filling_color = "#C99528"//Occulus Edit
 	var/overlay_state = "box-donut1"
 	center_of_mass = list("x"=13, "y"=16)
 	nutriment_desc = list("sweetness" = 2, "donut" = 3)
@@ -489,6 +489,7 @@
 	New()
 		..()
 		if(prob(30))
+			filling_color = "#E57D9A"//Occulus Edit
 			src.icon_state = "donut2"
 			src.overlay_state = "box-donut2"
 			src.name = "frosted donut"
@@ -499,7 +500,7 @@
 	name = "Chaos Donut"
 	desc = "Like life, it never quite tastes the same."
 	icon_state = "donut1"
-	filling_color = "#ED11E6"
+	filling_color = "#ED11E6"//Occulus Edit
 	nutriment_amt = 2
 	bitesize = 10
 	preloaded_reagents = list("sprinkles" = 1)
@@ -538,7 +539,7 @@
 	name = "Jelly Donut"
 	desc = "You jelly?"
 	icon_state = "jdonut1"
-	filling_color = "#ED1169"
+	filling_color = "#C99528"//Occulus Edit
 	center_of_mass = list("x"=16, "y"=11)
 	nutriment_amt = 3
 	bitesize = 5
@@ -546,6 +547,7 @@
 	New()
 		..()
 		if(prob(30))
+			filling_color = "#E57D9A"//Occulus Edit
 			src.icon_state = "jdonut2"
 			src.overlay_state = "box-donut2"
 			src.name = "Frosted Jelly Donut"
@@ -555,7 +557,7 @@
 	name = "Jelly Donut"
 	desc = "You jelly?"
 	icon_state = "jdonut1"
-	filling_color = "#ED1169"
+	filling_color = "#C99528"//Occulus Edit
 	center_of_mass = list("x"=16, "y"=11)
 	nutriment_amt = 3
 	bitesize = 5
@@ -563,6 +565,7 @@
 	New()
 		..()
 		if(prob(30))
+			filling_color = "#E57D9A"//Occulus Edit
 			src.icon_state = "jdonut2"
 			src.overlay_state = "box-donut2"
 			src.name = "Frosted Jelly Donut"
@@ -572,7 +575,7 @@
 	name = "Jelly Donut"
 	desc = "You jelly?"
 	icon_state = "jdonut1"
-	filling_color = "#ED1169"
+	filling_color = "#C99528"//Occulus Edit
 	bitesize = 5
 	center_of_mass = list("x"=16, "y"=11)
 	nutriment_amt = 3
@@ -580,6 +583,7 @@
 	New()
 		..()
 		if(prob(30))
+			filling_color = "#E57D9A"//Occulus Edit
 			src.icon_state = "jdonut2"
 			src.overlay_state = "box-donut2"
 			src.name = "Frosted Jelly Donut"
@@ -616,6 +620,7 @@
 	overlay_state = "donut_mec_c"
 	stats_buff = list(STAT_MEC)
 	preloaded_reagents = list("sprinkles" = 1, "lemonjuice" = 1)
+	filling_color = "#DEC128"//Occulus Edit
 
 /obj/item/weapon/reagent_containers/food/snacks/donut/stat_buff/cog
 	name = "Purple Masterpiece Donut"
@@ -623,6 +628,7 @@
 	icon_state = "donut_cog"
 	overlay_state = "donut_cog_c"
 	stats_buff = list(STAT_COG)
+	filling_color = "#995ADD"//Occulus Edit
 
 /obj/item/weapon/reagent_containers/food/snacks/donut/stat_buff/bio
 	name = "Green Masterpiece Donut"
@@ -631,6 +637,7 @@
 	overlay_state = "donut_bio_c"
 	stats_buff = list(STAT_BIO)
 	preloaded_reagents = list("sprinkles" = 1, "mint" = 1)
+	filling_color = "#6ABE30"//Occulus Edit
 
 /obj/item/weapon/reagent_containers/food/snacks/donut/stat_buff/rob
 	name = "Brown Masterpiece Donut"
@@ -639,6 +646,7 @@
 	overlay_state = "donut_rob_c"
 	stats_buff = list(STAT_ROB)
 	preloaded_reagents = list("sprinkles" = 1, "coco" = 1)
+	filling_color = "#582D18"//Occulus Edit
 
 /obj/item/weapon/reagent_containers/food/snacks/donut/stat_buff/tgh
 	name = "Cream Masterpiece Donut"
@@ -646,6 +654,7 @@
 	icon_state = "donut_tgh"
 	overlay_state = "donut_tgh_c"
 	stats_buff = list(STAT_TGH)
+	filling_color = "#E6C37A"//Occulus Edit
 
 /obj/item/weapon/reagent_containers/food/snacks/donut/stat_buff/vig
 	name = "Blue Masterpiece Donut"
@@ -654,6 +663,7 @@
 	overlay_state = "donut_vig_c"
 	stats_buff = list(STAT_VIG)
 	preloaded_reagents = list("sprinkles" = 1, "berryjuice" = 1)
+	filling_color = "#59B4DE"//Occulus Edit
 
 /obj/item/weapon/reagent_containers/food/snacks/egg
 	name = "egg"

@@ -1,10 +1,15 @@
 /* Binary */
 /crew_sensor_modifier/binary/process_crew_data(var/mob/living/carbon/human/H, var/obj/item/clothing/under/C, var/turf/pos, var/list/crew_data)
 	crew_data["alert"] = FALSE
-	if(!H.isSynthetic())
-		var/pulse = H.pulse()
-		if(pulse == PULSE_NONE || pulse == PULSE_THREADY)
-			crew_data["alert"] = TRUE
+	if(!H.isSynthetic() && H.should_have_process(OP_HEART))//Occulus Edit Start
+		var/obj/item/organ/internal/heart/O = H.random_organ_by_process(OP_HEART)
+		if (!O || !BP_IS_ROBOTIC(O)) // Don't make medical freak out over prosthetic hearts
+			var/pulse = H.pulse()
+			if(pulse == PULSE_NONE || pulse == PULSE_THREADY)
+				crew_data["alert"] = TRUE
+		else if(BP_IS_ROBOTIC(O))
+			crew_data["pulse_span"] = "highlight"
+			crew_data["pulse"] = "synthetic"
 		if(H.getOxyLoss() >= 20)
 			crew_data["alert"] = TRUE
 	return ..()

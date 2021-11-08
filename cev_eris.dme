@@ -2818,6 +2818,7 @@
 #include "zzzz_modular_occulus\code\controllers\subsystems\vote.dm"
 #include "zzzz_modular_occulus\code\datum\craft\recipes\furniture.dm"
 #include "zzzz_modular_occulus\code\datum\craft\recipes\guns.dm"
+#include "zzzz_modular_occulus\code\datum\craft\recipes\tools.dm"
 #include "zzzz_modular_occulus\code\datum\craft\recipes\weapon.dm"
 #include "zzzz_modular_occulus\code\datum\language\merc.dm"
 #include "zzzz_modular_occulus\code\datums\datacore.dm"
