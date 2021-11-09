@@ -7,10 +7,11 @@
 	use_power = NO_POWER_USE
 	unacidable = 1
 	anchored = TRUE
+	var/maker = /mob/living/carbon/human
 	var/builder //for holding the builder of the totem for seeing sanity later?
 	var/sanrestore = 10 //How much sanity is restored to non-occultists who watch this thing getting taken apart?
 	var/desclore //For holding the lore portion of the description
-	var/decontime //For holding the time that the thing is deconstructed
+	var/decontime //For holding the time that the totem takes to be deconstructed
 	var/descdecon //Holding the decon portion of the description
 	var/list/timelist = list(\
 		WORKTIME_NEAR_INSTANT,
@@ -30,24 +31,24 @@
 		QUALITY_SCREW_DRIVING,
 		QUALITY_WELDING,
 		QUALITY_WIRE_CUTTING\
-		)//A list of qualities for random deconstruction requirements. These things are WEIRD so they should have strange things.
+		)//A list of qualities for random deconstruction requirements. These things are WEIRD so they should have strange things like pulsing.
 	var/partsamount
 	var/list/blacklist = list(/material/resin, /material/voxalloy, /material/plastic/holographic, /material/wood/holographic)//A blacklist of materials we don't want spawning, minus the padding because that's handled on deconstruction
 	var/list/partslist //A list of parts for random choosing when it's time to deconstruct.
 
-/obj/machinery/occultist/totem/New()
-	..()
+/obj/machinery/occultist/totem/New(mob/living/carbon/human/creator)
+	maker = creator //Set the owner for remote madness generation
 	//Pick a name!
 	name = pick(\
-		"the unsettling question",
-		"the unbound sky",
-		"the thing in the corner of your eye",
-		"the shadow standing behind you",
-		"the smallest infinity",
-		"the greatest nothingness"
-		"the blood-blister upon spacetime",
-		"the melody of a blue space",
-		"the scent of water on smoke"\
+		"\proper the unsettling question",
+		"\proper the unbound sky",
+		"\proper the thing in the corner of your eye",
+		"\proper the shadow standing behind you",
+		"\proper the smallest infinity",
+		"\proper the greatest nothingness"
+		"\proper the blood-blister upon spacetime",
+		"\proper the melody of a blue space",
+		"\proper the scent of water on smoke"\
 		)
 
 	//The next thing we need to do is pick the tool quality that can deconstruct it.
@@ -100,7 +101,8 @@
 		)
 	decontime = pick(timelist)
 
-/* This block is supposed to spawn random materials on deconstruction but I can't get the place_sheet proc to work. If someone can get it to work, comment out the above block.
+// This block is supposed to spawn random materials on deconstruction but I can't get the place_sheet proc to work. If someone can get it to work, comment out the above block.
+/*
 //Now we set what happens when it'll be dismantled, picking a few random materials and amounts of them.
 	partslist = subtypesof(/material) //Now we set up the list of parts that it can drop.
 	partslist -= blacklist //remove everything on the blacklist
@@ -110,14 +112,14 @@
 	partsamount = rand(1, 3) //Randomize the number of types of parts that we drop
 	for(var/i = 0, i < partsamount, i++)
 		var/material/material = pick(partslist) //Pick something from parts list
-		//var/number = rand(1,3)
+		var/number = rand(1,3)
 		component_parts += material.place_sheet(src, amount=(rand(1,3))) //Add the stack of the material that we just made to the list of parts
-		//component_parts += pick(partslist)
-		*/
+		component_parts += pick(partslist)
+*/
 
 	//Now the processing object that allows them to damage sanity below environmental sanity cap. These aren't things you get used to. This gets destroyed on deconstruction.
 	START_PROCESSING(SSmachines, src)
-	..()
+	return ..(init)
 
 /obj/machinery/occultist/totem/attackby(obj/item/I, mob/user)
 	var/tool_type = I.get_tool_type(user, list(deconqual), src) //Get the tooltypes on the tool used to dismantle it
@@ -128,7 +130,6 @@
 			for(var/mob/living/carbon/human/viewer in view(src))
 				if(viewer.mind && player_is_antag_id(viewer.mind, ROLE_OCCULTIST))//does not have an occultist organ, they shouldn't heal from their own totems being destroyed
 					return
-
 				else viewer.sanity.changeLevel(sanrestore) //Add sanity for taking apart that monstrosity.
 			/* This block is to be reenabled when we get actual randomized scrap working.
 			for(var/obj/P in component_parts)
@@ -167,18 +168,18 @@
 	..()
 	//First we handle names.
 	var/namelist = list( //Here, we define a list of random kinda creepy names. If you wanna add one, follow the "a/an strange oxymoron thing" formula, or as close as you can for consistency
-		"a thing a quiet madness made",
-		"a beautiful oblivion",
-		"a question thirty AU deep",
-		"an answer without a question",
-		"a curiosity of a lonely god",
-		"a slow and sudden death",
-		"a periscope into a deeper reality",
-		"an echo of a forgotten truth",
-		"a fearful memory of a pleasant day"
+		"\proper a thing a quiet madness made",
+		"\proper a beautiful oblivion",
+		"\proper a question thirty AU deep",
+		"\proper an answer without a question",
+		"\proper a curiosity of a lonely god",
+		"\proper a slow and sudden death",
+		"\proper a periscope into a deeper reality",
+		"\proper an echo of a forgotten truth",
+		"\proper a fearful memory of a pleasant day"
 		)
 	var/namelist_lore = list( //Then define a list of names that have lore significance to the server. We do this so we can attach proper lore in the desc later.
-		"A vessel-shaped hole",
+		"\proper a vessel-shaped hole",
 		"Avimelech",
 		"THE SKIES",
 		"OBJECT/NAME"
@@ -203,7 +204,7 @@
 	if(namepick == namelist) //If we've got a generic name, get a generic description.
 		desc = pick(desc_gen)
 	if(namepick == namelist_lore) //If we have a lore-important name, give it the lore-accurate description. Thank you Aerodynamique/Bear!
-		if(name == "A vessel-shaped hole")
+		if(name == "\proper a vessel-shaped hole")
 			desc = "A pool-shaped hole where your life will arrive and disappear. Despite the fact there is nothing here, it doesn't matter; \
 			 the objects matter much less than the holes they occupy. This would be comforting, if only you understood."
 		if(name == "Avimelech")
@@ -221,9 +222,9 @@
 		"kozilekeye",
 		"eye"\
 		) //Set the look. Put these in zzzz_modular_occulus/icons/turf/occultist/misc.dmi. Readd poduim when it doesn't look like a blob -Sigma
-//todo: make the proc that instabreaks everyone within range.
 
 //Can't make this find the owner of the sanity thing where the breakdown spawns. It's giving a "can't find owner" runtime on click. Undefined var in breakdowns.dm, 407, 307, 47, 53
+//The above is still current as of 10/14/21, why does nothing make sense here -Sigma
 //Todo: add sound effects!
 
 /obj/machinery/occultist/monolith/attack_hand(mob/user as mob)
@@ -259,7 +260,7 @@
 		START_PROCESSING(SSmachines, src) //Add this to the processing objects to check for later.
 	else if(charge == 0) //Working, but sec is coming out the same as min for some reason.
 		var/min //Storage for the use message: minutes.
-		//var/sec //Storage for the use message: seconds.
+		//var/sec //Storage for the use message: seconds. Currently defaults to the value of var/min and I don't know why.
 		var/time //Use this to figure out min and sec
 
 		time = ((recharge - world.time)/10) //Determine how long is actually left on the recharge and turn it into seconds.

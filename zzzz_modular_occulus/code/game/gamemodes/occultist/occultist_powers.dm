@@ -296,15 +296,15 @@
 		to_chat(src, "You lack the madness to destroy this item.")
 
 
-/datum/power/occultist/totem
+/datum/power/occultist/shrine
 	name = "Shrine"
 	desc = "Summons a totem that will slowly drain the sanity of all who observe it."
-	activecost = 3 //Make this 4-5 if we run into issues with it, currently trying something to make madness gain a little easier
-	verbpath = /mob/living/carbon/human/proc/Totem
+	activecost = 0 //3 Commenting this out for balance testing, see what happens. Make this 4-5 if we run into issues with it, currently trying something to make madness gain a little easier
+	verbpath = /mob/living/carbon/human/proc/Shrine
 
-/mob/living/carbon/human/proc/Totem()
+/mob/living/carbon/human/proc/Shrine()
 	set category = "Occultist"
-	set desc = "Craft a totem that shows the truth."
+	set desc = "Craft a totem from five small roaches and a candle that shows the truth."
 
 	if(stat == DEAD)
 		to_chat(src, "You are dead.")
@@ -312,11 +312,47 @@
 	if(stat == UNCONSCIOUS)
 		to_chat(src, "You cannot construct things while unconsious.")
 		return
-	if(spendpoints(3))
-		new /obj/machinery/occultist/totem(loc) //Calls a new machine, should have random name, icon, and desc.
+	if(spendpoints(0)) //Free, but needs stuff.
+		var/list/stuff = src.loc.contents
+		to_world(json_encode(src.loc.contents)) //Debug. Apparently json_encode makes a list into a readable message format.
+		//var/R = typesof(/mob/living/carbon/superior_animal/roach/) //Any roaches on the tile
+		var/list/reqlarge = list() //Needs one roach of MOB_MEDIUM or higher.
+		var/list/reqsmall = list() //Needs five roaches of MOB_SMALL or lower.
+		/*for(var/obj/O in stuff) //Check for a candles
+			if(O == /obj/item/weapon/flame/candle) //If you find a candle, add it to the list.
+				reqsmall += O
+				reqlarge += O
+				break //We only need the one candle.
+			else if(/obj/item/trash/candle in stuff) //If this isn't commented out it makes a candle warning for every object in contents
+				to_chat(src, "You need a fresh candle.")
+			else to_chat(src, "You need a candle!")*/ //commenting this block out because we check it down under the length checking?
+		for(var/mob/living/carbon/superior_animal/roach/M in stuff) //Check for roach
+			//if(M in typesof(/mob/living/carbon/superior_animal/roach/))
+			if(M.mob_size <= 10) //MOB_SMALL is 10, this checks for anything smaller than MOB_MEDIUM.
+				reqsmall += M //Add the found roach to the list
+			if(M.mob_size >= 20) //MOB_MEDIUM is 20, this checks for anything MOB_MEDIUM or larger.
+				reqlarge += M //Add the found roach to the list
+			if(reqsmall.len >= 5 || reqlarge.len >= 1) //If we have 5 small or one large roach
+				if(typesof(/obj/item/weapon/flame/candle) in stuff) //Check if we have a candle
+					for(M in reqsmall)
+						qdel(M)
+					for(M in reqlarge)
+						qdel(M)
+					new /obj/machinery/occultist/totem(loc) //If we have roaches and a candle, spawn it.
+					return
+				else if(/obj/item/trash/candle in stuff) //If it's a burned out candle, no juice.
+					to_chat(src, "You have the roaches, but you need a fresh candle.")
+					return
+				else
+					to_chat(src, "You have the roaches, but need a candle!") //We want a candle too. //It's still not recognizing candles. 11-3-21
+					return
+			else
+				to_chat(src, "You need more roaches!") //Tell them they need more roaches.
+				break
 	else to_chat(src, "You lack the madness to craft a totem.")
 
 /* //Commented out until I can figure out how the fuck walls work --Sigma 9/17/21 Update: Walls still a fuck. Someone else is going to have to decipher that.-Sigma 10/3/21
+   //Materials are still the big fucking stupid. We're gonna need another way to get this to work. Maybe a tool that spawns walls on click?
 /datum/power/occultist/builder
 	name = "Unearthly Construction"
 	desc = "Summons material to craft strange walls and floors."
@@ -658,7 +694,7 @@
 	name = "Unnatural Sculpting"
 	desc = "Craft a monolith to your madness and show others the truth."
 	activecost= 0
-	madnesscost = 15
+	madnesscost = 10
 
 /datum/power/occultist/monolith/addPower(var/mob/living/carbon/human/themaster)
 	set category = "Occultist"
