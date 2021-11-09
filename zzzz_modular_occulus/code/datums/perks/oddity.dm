@@ -11,3 +11,8 @@
 	name = "Empath"
 	desc = "You have a sixth sense about people. You can tell when they are stressed."
 	icon_state = "flowers"
+
+/datum/perk/oddity/surefooting
+	name = "placeholder"
+	desc = "placeholder"
+	icon_state = "null"
