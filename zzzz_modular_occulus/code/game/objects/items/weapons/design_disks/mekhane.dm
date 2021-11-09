@@ -155,30 +155,23 @@ ARMOR_PEN_MASSIVE			30
 		/datum/design/autolathe/tool_upgrade/sanctifier
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter
-	disk_name = "Mekhane Bioprinter Products and Utilities"
-
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes
-	disk_name = "Mekhane Bio-Fabric Designs"
-
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_public
-	disk_name = "Mekhane Bioprinter Pack"
-
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/crusader
-	disk_name = "Mekhane Armory - Crusader Armor"
-
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/excruciator
-	disk_name = "Mekhane Armory - MEK Energy Weapons"
-	designs = list(
-		/datum/design/autolathe/excruciator,
-		/datum/design/autolathe/diffuser,
-		/datum/design/autolathe/gun/nt_svalinn
-	)
+/datum/design/bioprinter/cahor
+	build_path = /obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors
+	materials = list(MATERIAL_BIOMATTER = 10, MATERIAL_GLASS = 1)
 
 
+/datum/design/bioprinter/nt_clothes/NTvoid
+	name = "Mekhane voidsuit"
+
+/*
+CHURCH DISKS
+*/
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt
 	disk_name = "Mekhane Armory - Blank"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_public
+	disk_name = "Mekhane Bioprinter Pack"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/melee
 	disk_name = "Mekhane Armory - Basic Melee Weapons"
@@ -198,6 +191,66 @@ ARMOR_PEN_MASSIVE			30
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/firstaid
 	disk_name = "Mekhane Armory - Advanced Medkit"
 
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/grenades
+	disk_name = "Mekhane Armory - Grenades Pack"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/crusader
+	disk_name = "Mekhane Armory - Crusader Armor"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes
+	disk_name = "Mekhane Bio-Fabric Designs"
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/excruciator
+	disk_name = "Mekhane Armory - MEK Energy Weapons"
+	designs = list(
+		/datum/design/autolathe/excruciator,
+		/datum/design/autolathe/diffuser,
+		/datum/design/autolathe/gun/nt_svalinn
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter
+	disk_name = "Mekhanite Bioprinter Products and Utilities"
+	designs = list(
+		/datum/design/bioprinter/cahor,
+		/datum/design/bioprinter/meat,
+		/datum/design/bioprinter/milk,
+		/datum/design/bioprinter/soap,
+
+		/datum/design/bioprinter/ez,
+		/datum/design/bioprinter/l4z,
+		/datum/design/bioprinter/rh,
+
+		/datum/design/bioprinter/medical/bruise,
+		/datum/design/bioprinter/medical/splints,
+		/datum/design/bioprinter/medical/ointment,
+		/datum/design/bioprinter/medical/advanced/bruise,
+		/datum/design/bioprinter/medical/advanced/ointment,
+
+		/datum/design/autolathe/gun/nt_sprayer,
+		/datum/design/autolathe/device/grenade/nt_cleaner,
+		/datum/design/autolathe/device/grenade/nt_weedkiller,
+
+		/datum/design/bioprinter/holyvacuum
+
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/carpets
+	disk_name = "Mekhanite Bio-Fabric Flooring"
+	icon_state = "neotheology"
+	license = -1
+	spawn_blacklisted = TRUE
+	designs = list(
+		/datum/design/bioprinter/carpet,
+		/datum/design/bioprinter/carpet/bcarpet,
+		/datum/design/bioprinter/carpet/blucarpet,
+		/datum/design/bioprinter/carpet/gaycarpet,
+		/datum/design/bioprinter/carpet/oracarpet,
+		/datum/design/bioprinter/carpet/purcarpet,
+		/datum/design/bioprinter/carpet/sblucarpet,
+		/datum/design/bioprinter/carpet/turcarpet
+	)
+
+
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_dominion
 	disk_name = "Mekhane Armory - MEK PL \"Dominion\""
 	rarity_value = 75
@@ -205,10 +258,6 @@ ARMOR_PEN_MASSIVE			30
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_purger
 	disk_name = "Mekhane Armory - MEK PL \"Purger\""
 	rarity_value = 75
-
-
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/grenades
-	disk_name = "Mekhane Armory - Grenades Pack"
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_nemesis
 	disk_name = "EC01 - Nemesis"
@@ -230,14 +279,28 @@ ARMOR_PEN_MASSIVE			30
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_mk58
 	disk_name = "MK58 Handgun Pack"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_regulator
-	disk_name = "Frozen Star - .50 Regulator Shotgun"
-
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/cruciform_upgrade
 	disk_name = "Mekhane Armory - Cruciform Upgrades"
 
-/datum/design/bioprinter/nt_clothes/NTvoid
-	name = "Mekhane voidsuit"
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_boards
+	disk_name = "Mekhane Circuit Pack"
+	designs = list(
+		/datum/design/autolathe/circuit/bioprinter,
+		/datum/design/autolathe/circuit/solidifier,
+		/datum/design/autolathe/circuit/biogen,
+		/datum/design/autolathe/circuit/biogen_console,
+		/datum/design/autolathe/circuit/biogen_port,
+		/datum/design/autolathe/circuit/bioreactor_loader,
+		/datum/design/autolathe/circuit/bioreactor_metrics,
+		/datum/design/autolathe/circuit/bioreactor_port,
+		/datum/design/autolathe/circuit/bioreactor_biotank,
+		/datum/design/autolathe/circuit/bioreactor_unloader,
+		/datum/design/autolathe/circuit/bioreactor_platform
+	)
+
+/*
+* Voidsuit overrides
+*/
 
 /obj/item/clothing/head/space/void/NTvoid
 	name = "MEK combat voidsuit helmet"
@@ -262,6 +325,10 @@ ARMOR_PEN_MASSIVE			30
 		bio = 200,
 		rad = 50
 	)
+
+/*
+* Mods
+*/
 
 /obj/item/weapon/gun_upgrade/barrel/excruciator
 	name = "Mekhane \"EXCRUCIATOR\" giga lens"

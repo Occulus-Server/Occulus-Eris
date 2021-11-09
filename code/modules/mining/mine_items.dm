@@ -26,7 +26,7 @@
 	new /obj/item/weapon/tool/pickaxe(src)
 	new /obj/item/weapon/tool/pickaxe/drill(src)
 	new /obj/item/weapon/gun/projectile/shotgun/doublebarrel(src)
-	new /obj/item/weapon/storage/box/shotgunammo/slug(src)
+	new /obj/item/ammo_magazine/ammobox/shotgun(src)
 	new /obj/item/device/t_scanner(src)
 
 /******************************Lantern*******************************/

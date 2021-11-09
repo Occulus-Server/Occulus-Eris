@@ -133,6 +133,7 @@
 	item_state = "bluespace_dagger"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 10, MATERIAL_GOLD = 5, MATERIAL_PHORON = 20)
 	switched_on_force = WEAPON_FORCE_NORMAL+1
+	switched_off_force = WEAPON_FORCE_NORMAL//Occulus Edit
 	armor_penetration = ARMOR_PEN_DEEP
 	embed_mult = 25 //You WANT it to embed
 	suitable_cell = /obj/item/weapon/cell/small
@@ -210,6 +211,7 @@
 	sharp = FALSE
 	force = WEAPON_FORCE_WEAK
 	switched_on_force = WEAPON_FORCE_NORMAL+2
+	switched_off_force = WEAPON_FORCE_WEAK//Occulus Edit
 	armor_penetration = ARMOR_PEN_GRAZING
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_STEEL =6)
 	switched_on_qualities = list(QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5)
@@ -233,6 +235,8 @@
 	w_class = switched_on_w_class
 	if (!isnull(switched_on_force))
 		force = switched_on_force
+		if(wielded)//Occulus Edit: REEEEEE!
+			force *= 1.3//Occulus Edit: REEEE
 	update_icon()
 	update_wear_icon()
 
@@ -245,7 +249,10 @@
 	to_chat(user, SPAN_NOTICE("You flip [src] back into the handle gracefully."))
 	switched_on = FALSE
 	tool_qualities = switched_off_qualities
-	force = initial(force)
+	if (!isnull(switched_off_force))//Occulus Edit: Fixing togglable tool damage
+		force = switched_off_force//Occulus Edit fixing togglable tool damage
+		if(wielded)//Occulus Edit: REEEEEE!
+			force *= 1.3//Occulus Edit: REEEE
 	w_class = initial(w_class)
 	update_icon()
 	update_wear_icon()
@@ -261,6 +268,7 @@
 	sharp = FALSE
 	force = WEAPON_FORCE_WEAK
 	switched_on_force = WEAPON_FORCE_PAINFUL
+	switched_off_force = WEAPON_FORCE_WEAK //Occulus_Edit
 	w_class = ITEM_SIZE_TINY
 	var/switched_on_w_class = ITEM_SIZE_SMALL
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_STEEL = 6, MATERIAL_GOLD= 0.5)
@@ -282,6 +290,8 @@
 	tool_qualities = switched_on_qualities
 	if (!isnull(switched_on_force))
 		force = switched_on_force
+		if(wielded)
+			force *= 1.3
 	w_class = switched_on_w_class
 	update_icon()
 	update_wear_icon()
@@ -295,7 +305,10 @@
 	to_chat(user, SPAN_NOTICE("You press the button and [src] swiftly retracts."))
 	switched_on = FALSE
 	tool_qualities = switched_off_qualities
-	force = initial(force)
+	if (!isnull(switched_off_force))//Occulus Edit: Fixing togglable tool damage
+		force = switched_off_force//Occulus Edit fixing togglable tool damage
+		if(wielded)//Occulus Edit: REEEEEE!
+			force *= 1.3//Occulus Edit: REEEE
 	w_class = initial(w_class)
 	update_icon()
 	update_wear_icon()

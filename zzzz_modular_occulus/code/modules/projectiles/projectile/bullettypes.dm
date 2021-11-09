@@ -60,7 +60,7 @@
 	armor_penetration = 20
 	penetrating = 1
 	sharp = TRUE
-	can_ricochet = FALSE 
+	can_ricochet = FALSE
 	embed = FALSE
 
 /obj/item/projectile/bullet/whitenail/rubber
@@ -69,3 +69,19 @@
 	armor_penetration = 0
 	penetrating = 0
 	sharp = FALSE
+
+//Should do about 75 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
+//Overall less damage than slugs in exchange for more damage at very close range and more embedding
+/obj/item/projectile/bullet/pellet/energy
+	name = "energy blast"
+	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile.dmi'
+	icon_state = "flux-1"
+	damage_types = list(BURN = 25)
+	pellets = 3
+	base_spread = 50
+	range_step = 3
+	spread_step = 60
+	knockback = 0
+/obj/item/projectile/bullet/pellet/energy/Initialize()
+	. = ..()
+	icon_state = "flux-[rand(1,3)]"

@@ -86,7 +86,7 @@
 	spawn_blacklisted = TRUE
 	extra_allowed = list(
 		/obj/item/seeds,
-		/obj/item/weapon/reagent_containers/glass/fertilizer,
+		/obj/item/weapon/reagent_containers/glass/bottle,//Occulus Edit
 		/obj/item/weedkiller
 	)
 

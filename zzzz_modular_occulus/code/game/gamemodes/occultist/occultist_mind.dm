@@ -28,6 +28,8 @@
 			var/obj/item/organ/internal/brain/occultist/B = new /obj/item/organ/internal/brain/occultist
 			B.replaced(head)
 			src.ckey = mindxfer
+	if(stats)
+		stats.addPerk(PERK_EMPATH)
 
 /obj/item/organ/internal/brain/occultist/Topic(href, href_list)
 	if(href_list["P"])

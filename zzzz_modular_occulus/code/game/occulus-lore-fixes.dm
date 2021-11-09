@@ -1,14 +1,5 @@
 //Disks
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter
-	disk_name = "Mekhane Bioprinter Production"
-
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_public
-	disk_name = "Mekhane Bioprinter Pack"
-
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_boards
-	disk_name = "Mekhane Circuit Pack"
-
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_mk58
 	disk_name = "Frozen Star - .35 MK58 Handgun Pack"
 	icon_state = "frozenstar"
@@ -28,9 +19,6 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_counselor
 	disk_name = "Frozen Star - Councelor PDW E"
 	icon_state = "frozenstar"
-
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_svalinn
-	disk_name = "Mekhane Armory - MK LP \"Svalinn\""
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_nemesis
 	disk_name = "Serbian Arms - Nemesis Energy Crossbow"
@@ -130,10 +118,6 @@
 /obj/item/weapon/gun/energy/plasma/destroyer
 	name = "MK PR \"Purger\""
 	desc = "A more recent \"Mekhane\" brand plasma rifle, developed in direct response to compete against the highly successful \"Cassad\" design."
-
-/obj/item/weapon/gun/energy/plasma/brigador
-	name = "Frozen Star PP \"Brigador\""
-	desc = "\"Frozen Star\" brand energy pistol, for personal overprotection without the bulk of the Cassad."
 
 /obj/item/weapon/gun/energy/plasma/martyr // or should it be  Zealot
 	name = "MK PR \"Martyr\""
@@ -248,3 +232,7 @@
 /decl/security_level/default/code_delta/switching_up_to()
 	security_announcement_delta.Announce("The self-destruct mechanism has been engaged. All crew members are ordered to obey all instructions given by command. These orders can be enforced by lethal force. This is not a drill.", "Attention! Delta security level reached!")
 	notify_station()
+
+/*
+* Split this into the right files when you can - Jamini
+*/

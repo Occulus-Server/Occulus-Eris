@@ -6,6 +6,7 @@
 	icon_state = "DS_gemini"
 	charge_meter = FALSE
 	w_class = ITEM_SIZE_NORMAL
+	matter = list(MATERIAL_STEEL = 8, MATERIAL_PLASTIC = 4, MATERIAL_PLASTEEL = 2)
 	damage_multiplier = 0.7
 	rarity_value = 8
 	init_firemodes = list(

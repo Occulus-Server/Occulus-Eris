@@ -103,7 +103,7 @@
 	/obj/spawner/mob/spiders,
 	/obj/spawner/mob/roaches,
 	/mob/living/simple_animal/hostile/samak,
-	/mob/living/simple_animal/hostile/bear,
+	/mob/living/simple_animal/hostile/minerbot, //Another Occulus Edit
 	/mob/living/simple_animal/hostile/carp,
 	/mob/living/simple_animal/hostile/creature,
 	/mob/living/simple_animal/hostile/carp/pike
