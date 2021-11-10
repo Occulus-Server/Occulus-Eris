@@ -73,6 +73,8 @@ var/game_id
  * All atoms in both compiled and uncompiled maps are initialized()
  */
 /world/New()
+	//enable the debugger for VSC
+	enable_auxtools_debugger()
 	//logs
 	var/date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
 	href_logfile = file("data/logs/[date_string] hrefs.htm")
@@ -117,6 +119,7 @@ var/game_id
 
 	#ifdef UNIT_TESTS
 	// load_unit_test_changes() // ??
+	testing("FUCK")
 	HandleTestRun()
 	#endif
 
@@ -394,3 +397,7 @@ proc/establish_db_connection()
 		return //No change required.
 
 	fps = new_value
+
+/world/Del()
+	disable_auxtools_debugger() //If we dont do this, we get phantom threads which can crash DD from memory access violations
+	..()
