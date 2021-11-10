@@ -72,7 +72,7 @@
 #include "mob_tests.dm"
 #include "movement_tests.dm"
 // #include "ntnetwork_tests.dm"
-#include "observation_tests.dm"
+// #include "observation_tests.dm"
 // #include "outfit_sanity.dm"
 // #include "pills.dm"
 // #include "plantgrowth_tests.dm"
