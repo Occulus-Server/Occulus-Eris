@@ -9,11 +9,6 @@
 	var/cur_command = null	//the command the door is currently attempting to complete
 	var/completing = FALSE
 
-/obj/machinery/door/airlock/Process()
-	..()
-	if(arePowerSystemsOn())
-		execute_current_command()
-
 /obj/machinery/door/airlock/receive_signal(datum/signal/signal)
 	if(!arePowerSystemsOn()) return //no power
 
