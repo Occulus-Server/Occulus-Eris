@@ -2913,6 +2913,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\design_disks\nanotrasen.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\grenades\chem_grenade.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\grenades\stinger.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\carrion_spiders.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\cleaner_spider.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\disruptor_spider.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\friend_spider.dm"
