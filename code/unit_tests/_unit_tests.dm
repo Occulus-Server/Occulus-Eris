@@ -57,7 +57,7 @@
 // #include "emoting.dm"
 #include "extension_sanity.dm"
 // #include "food_edibility_check.dm"
-// #include "glasses_vision.dm" // disabled due to the ci itself being broken
+#include "glasses_vision.dm" // disabled due to the ci itself being broken
 // #include "heretic_knowledge.dm"
 // #include "holidays.dm"
 // #include "hydroponics_harvest.dm"
@@ -69,9 +69,10 @@
 // #include "medical_wounds.dm"
 // #include "merge_type.dm"
 // #include "metabolizing.dm"
-#include "movement_tests.dm"
 #include "mob_tests.dm"
+#include "movement_tests.dm"
 // #include "ntnetwork_tests.dm"
+#include "observation_tests.dm"
 // #include "outfit_sanity.dm"
 // #include "pills.dm"
 // #include "plantgrowth_tests.dm"
@@ -82,7 +83,6 @@
 // #include "reagent_mod_procs.dm"
 // #include "reagent_recipe_collisions.dm"
 // #include "resist.dm"
-#include "uniqueness.dm"
 // #include "say.dm"
 // #include "security_officer_distribution.dm"
 // #include "serving_tray.dm"
@@ -98,6 +98,7 @@
 // #include "teleporters.dm"
 // #include "tgui_create_message.dm"
 #include "timer_sanity.dm"
+#include "uniqueness.dm"
 #include "unit_test.dm"
 // #include "wizard.dm"
 
