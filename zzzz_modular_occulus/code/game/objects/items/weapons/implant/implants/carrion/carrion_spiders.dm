@@ -29,8 +29,6 @@
 	to_chat(wearer, SPAN_WARNING("You feel a sharp stabbing pain followed by an odd electric tingle."))
 
 /obj/item/weapon/implant/carrion_spider/mindboil/Process()
-	..()
-
 	if(active)
 		if(wearer)
 			attack_from = wearer
