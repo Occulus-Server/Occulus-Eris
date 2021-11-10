@@ -36,7 +36,7 @@
 			return 0
 	return ..()
 
-/obj/item/gun/projectile/handmade_pistol/attackby(obj/item/W, mob/user)
+/obj/item/weapon/gun/projectile/handmade_pistol/attackby(obj/item/W, mob/user)
 	if(QUALITY_SCREW_DRIVING in W.tool_qualities)
 		to_chat(user, SPAN_NOTICE("You begin to rechamber \the [src]."))
 		if(chamber_open && W.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SCREW_DRIVING, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
@@ -49,12 +49,12 @@
 			else if(caliber == CAL_CLRIFLE)
 				caliber = CAL_MAGNUM
 				to_chat(user, SPAN_WARNING("You successfully rechamber \the [src] to .40 Magnum."))
-		else 
+		else
 			to_chat(user, SPAN_WARNING("You cannot rechamber a closed firearm!"))
 			return
 	..()
 
-/obj/item/gun/projectile/handmade_pistol/attack_self(mob/user)
+/obj/item/weapon/gun/projectile/handmade_pistol/attack_self(mob/user)
 	if(!chamber_open)
 		open_chamber()
 		to_chat(user, SPAN_NOTICE("You force open chamber."))

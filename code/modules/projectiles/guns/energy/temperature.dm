@@ -83,7 +83,7 @@
 		else
 			temperature = current_temperature
 
-/obj/item/gun/energy/temperature/consume_next_projectile()
+/obj/item/weapon/gun/energy/temperature/consume_next_projectile()
 	if(!cell) return null
 	if(!ispath(projectile_type)) return null
 	if(!cell.checked_use(charge_cost)) return null
