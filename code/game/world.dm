@@ -119,7 +119,6 @@ var/game_id
 
 	#ifdef UNIT_TESTS
 	// load_unit_test_changes() // ??
-	testing("FUCK")
 	HandleTestRun()
 	#endif
 
