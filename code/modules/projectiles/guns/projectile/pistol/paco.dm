@@ -24,7 +24,7 @@
 	recoil_buildup = 3
 	gun_tags = list(GUN_SILENCABLE, GUN_PACO) //Occulus Edit: WHOEVER MADE THE FUN SWITCH IS GETTING A PADDLIN'
 	wield_delay = 0.2 SECOND
-	wield_delay_factor = 0.3 // 30 vig
+	wield_delay_factor = 0.1 // 10 vig
 
 //	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 

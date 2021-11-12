@@ -15,8 +15,8 @@
 	damage_multiplier = 1.5
 	recoil_buildup = 17
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
-	wield_delay = 0.3 SECOND
-	wield_delay_factor = 0.2 // 20 vig
+	wield_delay = 0.1 SECOND
+	wield_delay_factor = 0.05 // 5 vig
 
 /obj/item/gun/projectile/colt/on_update_icon()
 	..()
