@@ -109,6 +109,7 @@
 			anchored = TRUE
 			armed = TRUE
 			update_icon()
+			log_admin("[key_name(user)] has placed \a [src] at ([x],[y],[z]).")
 
 	update_icon()
 
