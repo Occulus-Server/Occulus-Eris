@@ -3203,6 +3203,8 @@
 #include "zzzz_modular_occulus\prosthesis\implementation.dm"
 #include "zzzz_modular_occulus\prosthesis\prosthesis_brands.dm"
 #include "zzzz_modular_occulus\prosthesis\prosthesis_parts.dm"
+#include "code/game/machinery/crafting_station.dm"
+#include "code/game/objects/items/weapons/circuitboards/machinery/crafting_station.dm"
 // END_INCLUDE
 // BEGIN_INTERNALS
 // END_INTERNALS
