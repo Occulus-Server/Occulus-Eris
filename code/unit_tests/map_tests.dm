@@ -17,7 +17,8 @@
 
 	var/static/list/exempt_from_apc = typesof(
 		/area/eris/engineering/construction,
-		/area/eris/medical/genetics)
+		/area/eris/medical/genetics,
+		/area/eris/elevator) //Occulus Edit - Elevator doesn't need an APC.
 
 	for(var/area/A in GLOB.map_areas)
 		if(A.z == 1 && !(A.type in exempt_areas))
