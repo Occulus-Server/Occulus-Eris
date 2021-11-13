@@ -223,7 +223,7 @@
 			var/mobchoice = pick(mobgenlist)
 			var/mob/living/newmob = new mobchoice(get_turf(MS))
 			newmob.faction = "asteroid_belt" //so they won't just kill each other
-	var/teleporter = pick(myarea.teleporter_spawns)
+	var/teleporter = safepick(myarea.teleporter_spawns) //Occulus Edit: Fixes runtime if no teleporter spawns are set
 	generate_teleporter(teleporter)
 
 /obj/asteroid_generator/proc/generate_teleporter(var/obj/asteroid_spawner/rogue_teleporter/TP)
