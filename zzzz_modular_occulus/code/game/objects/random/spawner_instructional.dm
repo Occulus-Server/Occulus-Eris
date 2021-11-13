@@ -4,7 +4,14 @@
 	spawn_frequency = 1
 	icon = 'zzzz_modular_occulus/icons/obj/spawners/instructional.dmi'
 	icon_state = "instructional_base"
-	tags_to_spawn = SPAWN_TAG_INSTRUCTIONAL
+	tags_to_spawn = list(
+		SPAWN_INSTRUCTIONAL_BIO,
+		SPAWN_INSTRUCTIONAL_COG,
+		SPAWN_INSTRUCTIONAL_MEC,
+		SPAWN_INSTRUCTIONAL_ROB,
+		SPAWN_INSTRUCTIONAL_TGH,
+		SPAWN_INSTRUCTIONAL_VIG)
+	allow_blacklist = TRUE //We don't want the instructional manuals to spawn in other spawners, but we do want it to spawn in ours.
 
 /obj/spawner/instructional/low
 	name = "Random instructional spawn low chance"
@@ -14,7 +21,7 @@
 /obj/spawner/instructional/bio
 	name = "Random instructional bio spawn"
 	icon_state = "instructional_bio"
-	tags_to_spawn = SPAWN_TAG_INSTRUCTIONAL_BIO
+	tags_to_spawn = list(SPAWN_INSTRUCTIONAL_BIO)
 
 /obj/spawner/instructional/bio/low_chance
 	name = "Random instructional bio spawn low chance"
@@ -24,7 +31,7 @@
 /obj/spawner/instructional/cog
 	name = "Random instructional cog spawn"
 	icon_state = "instructional_cog"
-	tags_to_spawn = SPAWN_TAG_INSTRUCTIONAL_COG
+	tags_to_spawn = list(SPAWN_INSTRUCTIONAL_COG)
 
 /obj/spawner/instructional/cog/low_chance
 	name = "Random instructional cog spawn low chance"
@@ -34,7 +41,7 @@
 /obj/spawner/instructional/mec
 	name = "Random instructional mec spawn"
 	icon_state = "instructional_mec"
-	tags_to_spawn = SPAWN_TAG_INSTRUCTIONAL_MEC
+	tags_to_spawn = list(SPAWN_INSTRUCTIONAL_MEC)
 
 /obj/spawner/instructional/mec/low_chance
 	name = "Random instructional mec spawn low chance"
@@ -44,7 +51,7 @@
 /obj/spawner/instructional/rob
 	name = "Random instructional rob spawn"
 	icon_state = "instructional_rob"
-	tags_to_spawn = SPAWN_TAG_INSTRUCTIONAL_ROB
+	tags_to_spawn = list(SPAWN_INSTRUCTIONAL_ROB)
 
 /obj/spawner/instructional/rob/low_chance
 	name = "Random instructional rob spawn low chance"
@@ -54,7 +61,7 @@
 /obj/spawner/instructional/tgh
 	name = "Random instructional tgh spawn"
 	icon_state = "instructional_tgh"
-	tags_to_spawn = SPAWN_TAG_INSTRUCTIONAL_TGH
+	tags_to_spawn = list(SPAWN_INSTRUCTIONAL_TGH)
 
 /obj/spawner/instructional/tgh/low_chance
 	name = "Random instructional tgh spawn low chance"
@@ -64,7 +71,7 @@
 /obj/spawner/instructional/vig
 	name = "Random instructional vig spawn"
 	icon_state = "instructional_vig"
-	tags_to_spawn = SPAWN_TAG_INSTRUCTIONAL_VIG
+	tags_to_spawn = list(SPAWN_INSTRUCTIONAL_VIG)
 
 /obj/spawner/instructional/vig/low_chance
 	name = "Random instructional vig spawn low chance"
