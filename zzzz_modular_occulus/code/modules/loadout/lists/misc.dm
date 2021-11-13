@@ -15,6 +15,11 @@
 	allowed_roles = list("Aegis Operative","Aegis Commander","Aegis Gunnery Sergeant","Captain","Head of Personnel","Quartermaster","Aegis Inspector","Aegis Medical Specialist")	//SYZYGY EDIT - Added medspec to list
 
 /datum/gear/tennis/color_presets
+	display_name = "tennis ball"
+	path = /obj/item/toy/tennis
+	cost = 1
+
+/datum/gear/tennis/color_presets
 	display_name = "tennis ball, color presets"
 	path = /obj/item/toy/tennis
 	cost = 1
