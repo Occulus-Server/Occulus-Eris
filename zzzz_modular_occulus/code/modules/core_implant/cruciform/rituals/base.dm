@@ -202,6 +202,7 @@ Let there be light! Makes you glow for 5 minutes at a time.
 	price_tag = 0 //no one wants to buy a volatile knife that's more likely to hurt you than your target
 	origin_tech = list(TECH_BIO = 3, TECH_COMBAT = 5, TECH_POWER = 5) // Tech because this is kind of a weird anomaly I guess???
 	var/uses_left = 10
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/knife/dagger/nt/energy/New()
 	..()
