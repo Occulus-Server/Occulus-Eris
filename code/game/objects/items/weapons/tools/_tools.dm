@@ -56,6 +56,7 @@
 	var/switched_on = FALSE	//Curent status of tool. Dont edit this in subtypes vars, its for procs only.
 	var/switched_on_qualities	//This var will REPLACE tool_qualities when tool will be toggled on.
 	var/switched_on_force
+	var/switched_off_force //Occulus Edit: Replaces initial force for turn_on and turn_off
 	var/switched_off_qualities	//This var will REPLACE tool_qualities when tool will be toggled off. So its possible for tool to have diferent qualities both for ON and OFF state.
 	var/create_hot_spot = FALSE	 //Set this TRUE to ignite plasma on turf with tool upon activation
 	var/glow_color	//Set color of glow upon activation, or leave it null if you dont want any light
@@ -87,6 +88,10 @@
 		health = max_health
 
 	update_icon()
+	if(force_unwielded)//Occulus Edit: I should make a big cluster of these edits and push them upstream or something. They have so many fucking little bugs. SO MANY
+		force = force_unwielded //Occulus edit: Gives a force if it isn't defined because lolErisdiditagain
+	if(switched_on_force)//Occulus Edit
+		switched_off_force = force //Occulus Edit
 	return
 
 /obj/item/weapon/tool/Initialize(mapload, ...)
@@ -580,7 +585,7 @@
 			if("throw")
 				if(user)
 					var/mob/living/carbon/human/H = user
-					var/throw_target = pick(trange(6, user))
+					var/throw_target = pick(RANGE_TURFS(6, user))
 					to_chat(user, SPAN_DANGER("Your [src] flies away!"))
 					H.unEquip(src)
 					throw_at(throw_target, src.throw_range, src.throw_speed, H)
@@ -590,7 +595,7 @@
 					AD.take_out_wedged_item()
 				else
 					forceMove(get_turf(src))
-				var/throw_target = pick(trange(6, src))
+				var/throw_target = pick(RANGE_TURFS(6, src))
 				throw_at(throw_target, src.throw_range, src.throw_speed)
 				return
 
@@ -696,7 +701,10 @@
 	switched_on = FALSE
 	STOP_PROCESSING(SSobj, src)
 	tool_qualities = switched_off_qualities
-	force = initial(force)
+	if (!isnull(switched_off_force))//Occulus Edit: Fixing togglable tool damage
+		force = switched_off_force//Occulus Edit fixing togglable tool damage
+		if(wielded)//Occulus Edit: REEEEEE!
+			force *= 1.3//Occulus Edit: REEEE
 	if(glow_color)
 		set_light(l_range = 0, l_power = 0, l_color = glow_color)
 	update_icon()
@@ -806,6 +814,7 @@
 	use_power_cost = initial(use_power_cost)
 	force = initial(force)
 	switched_on_force = initial(switched_on_force)
+	switched_off_force= initial(switched_off_force)//Aha, found you you little bugger Occulus Edit
 	extra_bulk = initial(extra_bulk)
 	item_flags = initial(item_flags)
 	name = initial(name)

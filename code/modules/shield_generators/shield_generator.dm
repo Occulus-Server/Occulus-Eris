@@ -610,7 +610,7 @@
 	var/list/base_turfs = get_base_turfs()
 
 	for(var/turf/gen_turf in base_turfs)
-		for(var/turf/T in trange(field_radius, gen_turf))
+		for(var/turf/T in RANGE_TURFS(field_radius, gen_turf))
 			if(istype(T, /turf/space))
 				continue
 

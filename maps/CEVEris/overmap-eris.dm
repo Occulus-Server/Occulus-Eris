@@ -1,12 +1,12 @@
 /obj/effect/overmap/ship/eris
-	name = "NEV Northern Light"
+	name = "CEV Northern Light"
 	fore_dir = NORTH
 	vessel_mass = 300
 	default_delay = 20 SECONDS
 	speed_mod = 5 SECONDS
 	base = 1
 
-	name_stages = list("CEV Eris", "unknown vessel", "unknown spatial phenomenon")
+	name_stages = list("CEV Northern Light", "unknown vessel", "unknown spatial phenomenon")//Occulus Edit
 	icon_stages = list("eris", "ship", "poi")
 
 	start_x = 9
@@ -48,7 +48,7 @@
 
 /obj/effect/overmap/ship/eris/Initialize()
 	.=..()
-	if(name == "NEV Northern Light")	//Syzygy edit - to make this work with our ship name
+	if(name == "CEV Northern Light")	//Syzygy edit - to make this work with our ship name
 		ships[eris] = src
 
 /obj/effect/overmap/ship/eris/Process()

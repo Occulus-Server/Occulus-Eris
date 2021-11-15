@@ -82,7 +82,7 @@
 	if(continuous)
 		fitting_turfs = origin_turf.CardinalTurfs(FALSE)
 	else
-		fitting_turfs = trange(range, origin_turf)
+		fitting_turfs = RANGE_TURFS(range, origin_turf)
 	fitting_turfs = shuffle(fitting_turfs)
 	for(var/turf/T in fitting_turfs)
 		if(T in candidate_turfs)
@@ -123,7 +123,7 @@
 		new_event.enter(entering_ship)
 
 /decl/overmap_event_handler/proc/scan_loc(var/obj/effect/overmap/ship/S, var/turf/new_loc, var/can_scan)
-	
+
 	if(!can_scan) // No active scanner
 		// Everything is stage 2 (too far for sensors)
 		for(var/turf/T in range(PASSIVE_SCAN_RANGE+1, new_loc))
@@ -144,22 +144,23 @@
 					playsound(H.loc, 'sound/effects/fastbeep.ogg', 50, 1)
 
 		// Stage 0 (close range)
-		for(var/turf/T in range(PASSIVE_SCAN_RANGE-1, new_loc))
+		//Occulus Edit Start
+		for(var/turf/T in range(S.scanrange-1, new_loc))//Occu Edit here
 			for(var/obj/effect/overmap_event/E in T)
 				E.name = E.name_stages[1]
 				if(!passive_scan)
 					E.SetIconState(E.icon_stages[1])  // No outline
-				else					
+				else
 					E.SetIconState(E.icon_stages[1] + "_g")  // Green outline
 			for(var/obj/effect/overmap/E in T)
 				E.name = E.name_stages[1]
 				if((!passive_scan) || istype(E, /obj/effect/overmap/sector/exoplanet))
 					E.SetIconState(E.icon_stages[1])  // No outline
-				else					
+				else
 					E.SetIconState(E.icon_stages[1] + "_g")  // Green outline
 
 		// Stage 1 (limit range)
-		for(var/turf/T in getcircle(new_loc, PASSIVE_SCAN_RANGE))
+		for(var/turf/T in getcircle(new_loc, S.scanrange))//Occu Edit here
 			for(var/obj/effect/overmap_event/E in T)
 				E.name = E.name_stages[2]
 				E.SetIconState(E.icon_stages[2])
@@ -168,7 +169,7 @@
 				E.SetIconState(E.icon_stages[2])
 
 		// Stage 2 (too far for sensors)
-		for(var/turf/T in getcircle(new_loc, PASSIVE_SCAN_RANGE+1))
+		for(var/turf/T in getcircle(new_loc, S.scanrange+1))//Occu Edit here
 			for(var/obj/effect/overmap_event/E in T)
 				E.name = E.name_stages[3]
 				E.SetIconState(E.icon_stages[3])

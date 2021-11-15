@@ -112,7 +112,7 @@
 	base_block_chance = 40
 
 /obj/item/weapon/shield/riot/nt/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/melee/baton) || istype(W, /obj/item/weapon/tool/sword/nt))
+	if(istype(W, /obj/item/weapon/melee/baton) || istype(W, /obj/item/weapon/tool/sword/nt) || istype(W, /obj/item/weapon/tool/baton))//Occulus Edit
 		on_bash(W, user)
 	else
 		..()

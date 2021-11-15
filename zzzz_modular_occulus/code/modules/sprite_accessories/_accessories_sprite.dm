@@ -1,3 +1,12 @@
+/datum/sprite_accessory/ears/uglycatears
+	name = "old kitty, colorable"
+	desc = ""
+	icon = 'zzzz_modular_occulus/icons/mob/jamini-ears.dmi'
+	icon_state = "kitty"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+	extra_overlay = "kittyinner"
+
 /datum/sprite_accessory/ears/cobrahood
 	name = "cobra, colorable"
 	desc = ""
@@ -150,6 +159,22 @@
 	extra_overlay = "herd_extra"
 	suit_sprites = 'icons/mob/taursuits_horse_vr.dmi'
 
+/datum/sprite_accessory/wing/antler
+	name = "Antlers"
+	desc = ""
+	icon = 'zzzz_modular_occulus/icons/mob/wings.dmi'
+	icon_state = "antlers"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+
+/datum/sprite_accessory/wing/smallantler
+	name = "Small Antlers"
+	desc = ""
+	icon = 'zzzz_modular_occulus/icons/mob/wings.dmi'
+	icon_state = "smallantlers"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+
 //Syzygy ported tails
 
 /datum/sprite_accessory/tail/husky
@@ -269,6 +294,18 @@
 	name = "Jackal Back Markings"
 	icon_state = "jackal_backpattern"
 	body_parts = list(BP_CHEST, BP_L_ARM, BP_R_ARM)
+	color_blend_mode = ICON_MULTIPLY
+
+/datum/sprite_accessory/marking/syzygy/antlermark
+	name = "Antlers"
+	icon_state = "antlermark"
+	body_parts = list(BP_HEAD)
+	color_blend_mode = ICON_MULTIPLY
+	
+/datum/sprite_accessory/marking/syzygy/antlermarksmall
+	name = "Small Antlers"
+	icon_state = "antlermarksmall"
+	body_parts = list(BP_HEAD)
 	color_blend_mode = ICON_MULTIPLY
 
 //Old Polaris stuff

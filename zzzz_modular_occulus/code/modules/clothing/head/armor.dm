@@ -22,7 +22,7 @@
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	price_tag = 600
 	rarity_value = 60
-	style = STYLE_NONE //lightweight and more comfy
+	style = STYLE_NEG_LOW //30 armor = negative style
 
 /obj/item/clothing/head/beret/engineering/ees
 	name = "\improper EES beret"

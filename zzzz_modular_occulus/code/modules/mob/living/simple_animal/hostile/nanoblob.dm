@@ -37,6 +37,8 @@
 
 	environment_smash = 1
 
+	agony_coefficient = 1.2 // lots of squish to splatter against
+
 	faction = "nanoblob"
 	var/mob/living/owner
 

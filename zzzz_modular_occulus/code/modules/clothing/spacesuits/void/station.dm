@@ -152,3 +152,45 @@
 		rad = 75
 	)
 
+/obj/item/clothing/head/space/void/dss
+	name = "deepflare assault voidsuit helmet"
+	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
+	icon = 'zzzz_modular_occulus/icons/inventory/head/icon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/head/mob.dmi'
+	icon_state = "dss_helm"
+	item_state = "dss_helm"
+	item_state_slots = list(
+		slot_l_hand_str = "sec_helm",
+		slot_r_hand_str = "sec_helm",
+		)
+
+	armor = list(
+		melee = 35,
+		bullet = 35,
+		energy = 35,
+		bomb = 25,
+		bio = 100,
+		rad = 75
+	)
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/suit/space/void/dss
+	name = "deepflare assault voidsuit"
+	desc = "A bulky suit that protects against hazardous, low pressure environments. Sacrifices mobility for protection."
+	icon = 'zzzz_modular_occulus/icons/inventory/suit/icon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/mob.dmi'
+	icon_state = "dss_voidsuit"
+	item_state = "dss_voidsuit"
+	armor = list(
+		melee = 35,
+		bullet = 35,
+		energy = 35,
+		bomb = 25,
+		bio = 100,
+		rad = 75
+	)
+	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 8, MATERIAL_STEEL = 5, MATERIAL_GLASS = 5)
+	siemens_coefficient = 0.7
+	helmet = /obj/item/clothing/head/space/void/dss
+	rarity_value = 40
+

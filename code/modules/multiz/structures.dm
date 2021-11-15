@@ -138,6 +138,8 @@
 		attack_hand(user)
 
 /obj/structure/multiz/ladder/attack_hand(var/mob/M)
+	if (M.buckled)//Occulus Edit: Prevents buckled mobs from getting stuck on ladders
+		return//Occulus Edit
 	if (isrobot(M) && !isdrone(M))
 		var/mob/living/silicon/robot/R = M
 		climb(M, (climb_delay)/R.speed_factor) //Robots are not built for climbing, they should go around where possible	// OCCULUS EDIT - Removed the *6 multiplier from robot climb delay

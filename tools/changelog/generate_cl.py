@@ -1,18 +1,14 @@
 """
 DO NOT MANUALLY RUN THIS SCRIPT.
 ---------------------------------
-
 This script is designed to generate and push a CL file that can be later compiled.
 The body of the changelog is determined by the description of the PR that was merged.
-
 If a commit is pushed without being associated with a PR, or if a PR is missing a CL,
 the script is designed to exit as a failure. This is to help keep track of PRs without
 CLs and direct commits. See the relating comments in the below source to disable this function.
-
 This script depends on the tags.yml file located in the same directory. You can use that
 file to configure the exact tags you'd like this script to use when generating changelog entries.
 If this is being used in a /tg/ or Bee downstream, the default tags should work.
-
 Expected envrionmental variables:
 -----------------------------------
 GIT_NAME: Username of the github account to be used as the commiter (User provided)
@@ -90,7 +86,7 @@ if write_cl['changes']:
         cl_contents.seek(0)
 
         #Push the newly generated changelog to the master branch so that it can be compiled
-        repo.create_file(f"html/changelogs/AutoChangeLog-pr-{pr_number}.yml", f"Automatic changelog generation for PR #{pr_number} [ci skip]", content=f'{cl_contents.read()}', branch='changelog', committer=InputGitAuthor(git_name, git_email))
+        repo.create_file(f"html/changelogs/AutoChangeLog-pr-{pr_number}.yml", f"Automatic changelog generation for PR #{pr_number} [ci skip]", content=f'{cl_contents.read()}', branch='master', committer=InputGitAuthor(git_name, git_email))
     print("Done!")
 else:
     print("No CL changes detected!")

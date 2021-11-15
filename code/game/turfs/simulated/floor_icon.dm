@@ -110,8 +110,11 @@ var/list/flooring_cache = list()
 
 
 
-	if(decals && decals.len)
-		associate_with_overlays(decals)
+	if(decals && decals.len)//Occulus edit: You can't add or associate lists to an overlay. You need to do so for each image.
+		var/x = decals.len
+		while(x > 0)
+			associate_with_overlays(decals[x])
+			x-- //Occulus edit end.
 
 	if(broken || burnt)
 		if(!isnull(broken))
@@ -129,7 +132,7 @@ var/list/flooring_cache = list()
 				associate_with_overlays(get_damage_overlay("scorched[n]-[plane]", "scorched[n]"))
 
 	if(update_neighbors)
-		for(var/turf/simulated/floor/F in trange(1, src))
+		for(var/turf/simulated/floor/F in RANGE_TURFS(1, src))
 			if(F == src)
 				continue
 			F.update_icon()

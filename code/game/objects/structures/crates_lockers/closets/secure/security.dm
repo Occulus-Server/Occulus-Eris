@@ -31,7 +31,7 @@
 /obj/structure/closet/secure_closet/reinforced/hop/populate_contents()
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/under/rank/first_officer(src)
-	new /obj/item/clothing/head/caphat/hop(src)
+//	new /obj/item/clothing/head/caphat/hop(src) Occulus Edit: Removal
 	new /obj/item/clothing/suit/armor/vest(src)
 	new /obj/item/clothing/head/armor/helmet(src)
 	new /obj/item/device/radio/headset/heads/hop(src)

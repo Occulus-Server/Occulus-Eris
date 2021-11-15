@@ -70,6 +70,9 @@
 
 	var/list/affected_mobs = SSmobs.mob_living_by_zlevel[(get_turf(src)).z]
 
+	if(!active)
+		return
+
 	var/to_fire = max_targets
 	for(var/mob/living/A in affected_mobs)
 		if(!(get_dist(src, A) <= area_radius))
@@ -100,6 +103,8 @@
 	if(to_fire)//If there is anything else left, fuck up the plants
 		for(var/obj/effect/plant/shroom in GLOB.all_maintshrooms)
 			if(shroom.z == src.z && get_dist(src, shroom) <= area_radius)
+				bluespace_entropy(1, get_turf(shroom))//Occulus Edit, Obelisk feedback
+				playsound(shroom.loc, "sparks", 50, 1)//Occulus Edit, Obelisk feedback
 				qdel(shroom)
 				if(!--to_fire)
 					return

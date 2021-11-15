@@ -15,3 +15,6 @@
 	one_hand_penalty = 15 //full sized shotgun level
 	rarity_value = 20
 	rarity_value = 10.66
+
+	price_tag = 2000
+	spawn_tags = SPANW_TAG_FS_SHOTGUN

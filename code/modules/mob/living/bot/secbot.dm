@@ -308,7 +308,7 @@
 	Sa.add_overlays(image('icons/obj/aibots.dmi', "hs_hole"))
 	Sa.created_name = name
 	new /obj/item/device/assembly/prox_sensor(Tsec)
-	new /obj/item/weapon/melee/baton(Tsec)
+	new /obj/item/weapon/tool/baton/stun(Tsec)//Occulus Edit
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
 
@@ -532,7 +532,7 @@
 		add_overlays(image('icons/obj/aibots.dmi', "hs_arm"))
 		qdel(I)
 
-	else if(istype(I, /obj/item/weapon/melee/baton) && build_step == 3)
+	else if((istype(I, /obj/item/weapon/melee/baton)||istype(I,/obj/item/weapon/tool/baton/stun)) && build_step == 3)//Occulus Edit
 		user.drop_item()
 		to_chat(user, "You complete the Securitron! Beep boop.")
 		playsound(src.loc, 'sound/effects/insert.ogg', 50, 1)

@@ -17,4 +17,4 @@
 	penetration_multiplier = 1.4
 	recoil_buildup = 8
 
-	//spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	spawn_tags = SPAWN_TAG_FS_PROJECTILE

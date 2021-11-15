@@ -1,5 +1,5 @@
 /datum/power/occultist
-	var/madnesscost = 10 // Cost for the occultist to evolve this power.
+	var/madnesscost = 5 // Cost for the occultist to evolve this power.
 	var/activecost = 0
 	var/verbpath //the verb we add if we add a verb
 
@@ -302,7 +302,7 @@
 	name = "King of Beasts"
 	desc = "Sacrifice much of yourself to summon a kaiser roach and his escort to your location."
 	activecost = 4
-	madnesscost = 40
+	madnesscost = 20
 	verbpath = /mob/living/carbon/human/proc/King_of_Beasts
 
 /mob/living/carbon/human/proc/King_of_Beasts()
@@ -357,8 +357,8 @@
 /datum/power/occultist/truthinblood
 	name = "Truth in Blood"
 	desc = "Covers the ground around you in blood and gore."
-	activecost = 4
-	madnesscost = 40
+	activecost = 1
+	madnesscost = 20
 	verbpath = /mob/living/carbon/human/proc/Truth_in_Blood
 
 /mob/living/carbon/human/proc/Truth_in_Blood()
@@ -371,7 +371,7 @@
 	if(stat == UNCONSCIOUS)
 		to_chat(src, "You cannot perform the rite while unconsious.")
 		return
-	if(spendpoints(4))
+	if(spendpoints(1))
 		var/datum/effect/effect/system/smoke_spread/bad/smoke
 		smoke = new
 		playsound(loc, 'sound/effects/smoke.ogg', 50, 1, -3)
@@ -410,7 +410,7 @@
 /datum/power/occultist/embracecorruption
 	name = "Embrace Corruption"
 	desc = "Sacrifice yourself to bring about a true fusion of man and machine. This ability will activate as soon as you select it."
-	madnesscost = 40
+	madnesscost = 20
 
 /datum/power/occultist/embracecorruption/addPower(var/mob/living/carbon/human/themaster)
 	new /obj/machinery/hivemind_machine/node(themaster.loc)
@@ -420,7 +420,7 @@
 	name = "The Skies are Buried Deep"
 	desc = "Reveals the truth to everyone who can see you."
 	activecost = 4
-	madnesscost = 40
+	madnesscost = 20
 	verbpath = /mob/living/carbon/human/proc/The_Skies
 
 
@@ -454,8 +454,8 @@
 /datum/power/occultist/bringdecay
 	name = "Decay"
 	desc = "Makes all objects on your person and in the inventory of your grabbed target rust and become useless."
-	activecost = 4
-	madnesscost = 40
+	activecost = 1
+	madnesscost = 20
 	verbpath = /mob/living/carbon/human/proc/Bring_Decay
 
 /mob/living/carbon/human/proc/Bring_Decay()
@@ -469,7 +469,7 @@
 		to_chat(src, "You cannot perform the rite while unconsious.")
 		return
 	if(get_grabbed_mob(src))
-		if(spendpoints(4))
+		if(spendpoints(1))
 			var/mob/living/L
 			L = get_grabbed_mob(src)
 			for(var/obj/objects in L.contents)
@@ -492,8 +492,8 @@
 /datum/power/occultist/underworld
 	name = "Path to the Underworld"
 	desc = "Teleport yourself and anyone grabbed by you to the under-tunnels."
-	activecost = 4
-	madnesscost = 40
+	activecost = 1
+	madnesscost = 20
 	verbpath = /mob/living/carbon/human/proc/Path_to_the_Underworld
 
 /mob/living/carbon/human/proc/Path_to_the_Underworld()
@@ -529,7 +529,7 @@
 	name = "Rite of Initiation"
 	desc = "Induct a new Occultist to our ranks."
 	activecost = 4
-	madnesscost = 40
+	madnesscost = 20
 	verbpath = /mob/living/carbon/human/proc/Rite_of_Initiation
 
 /mob/living/carbon/human/proc/Rite_of_Initiation()
@@ -569,3 +569,46 @@
 
 	else
 		to_chat(src, "You must face your target!")
+
+/datum/power/occultist/occarmor
+	name = "Occult Garb"
+	desc = "Summons a set of armor from somewhere that does not exist. It cannot be taken off. Worn non-uniform equipment will be lost."
+	activecost = 1
+	madnesscost = 15
+	verbpath = /mob/living/carbon/human/proc/Occult_Garb
+
+/mob/living/carbon/human/proc/Occult_Garb() //Replaces the current clothing and armor with the occult armor set.
+	set category = "Occultist"
+	set desc = "Don the Occult Armor set."
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+		return
+
+	//var/mob/carbon/human/living/occultist/O //Define the occultist using the power for message and replacement purposes.
+
+	//This is not a pleasant process.
+	playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 50, 1, -3) //Same sound as the scream.
+	visible_message(
+		SPAN_DANGER("[src]'s flesh and clothing contort and shimmer, reforming into flowing, black and bronze robes!"),
+		SPAN_DANGER("Your flesh and clothing meld painfully, shimmering out of this reality as they are replaced with a set of armored robes!")
+		)
+	//Start the replacement.
+	//Feet
+	to_chat(usr, SPAN_DANGER("Your feet and legs slough away, replaced with something stronger. Can you hear it underneath you?"))
+	usr.replace_in_slot(new /obj/item/clothing/shoes/occultgreaves, slot_shoes, skip_covering_check = TRUE)
+
+	//Chestpiece
+	to_chat(usr, SPAN_DANGER("Your chest turns in on itself and expands. It needs to get out. Let it out."))
+	usr.replace_in_slot(new /obj/item/clothing/suit/space/occultist, slot_wear_suit, skip_covering_check = TRUE)
+
+	//Gloves
+	to_chat(usr, SPAN_DANGER("Your fingers bend backwards until they pierce through the back of your hands. Can you feel it tugging at the corners of your brain?"))
+	usr.replace_in_slot(new /obj/item/clothing/gloves/occultgloves, slot_gloves, skip_covering_check = TRUE)
+
+	//Hood
+	to_chat(usr, SPAN_DANGER("Your eyes have melted, now you can see. Tear open reality and release what is underneath."))
+	usr.replace_in_slot(new /obj/item/clothing/head/space/occulthood, slot_head, skip_covering_check = TRUE)

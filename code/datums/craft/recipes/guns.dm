@@ -98,13 +98,14 @@
 		list(CRAFT_MATERIAL, 10, MATERIAL_WOOD),
 		list(QUALITY_HAMMERING, 10)
 	)
-// start nonmodular occulus edit
- /datum/craft_recipe/gun/guns_craft_frame //occulus edit: originally in misc.dm as /datum/craft_recipe/gun/guns_craft_frame - bear
-	name = "Gun assembly"
-	result = /obj/item/craft_frame/guns
+
+/datum/craft_recipe/gun/ammo_kit
+	name = "Scrap ammo kit"
+	result = /obj/item/ammo_kit
 	steps = list(
-		list(CRAFT_MATERIAL, 5, MATERIAL_PLASTEEL, "time" = 30),
-		list(QUALITY_WELDING, 10, 10)
+		list(/obj/item/weapon/tool/wirecutters, 1),
+		list(CRAFT_MATERIAL, 10, MATERIAL_STEEL),
+		list(QUALITY_WELDING, 10, 20),
+		list(CRAFT_MATERIAL, 5, MATERIAL_CARDBOARD),
+		list(QUALITY_ADHESIVE, 15, 70)
 	)
-	related_stats = list(STAT_MEC)
-// end nonmodular occuluis edit

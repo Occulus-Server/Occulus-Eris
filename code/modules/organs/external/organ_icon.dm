@@ -114,15 +114,25 @@ var/global/list/limb_icon_cache = list()
 				var/icon/hair = new/icon(hair_style.icon, hair_style.icon_state)
 				if(hair_style.do_colouration)
 					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair, owner.species.hair_alpha), ICON_MULTIPLY)	//Eclipse edit. // OCCULUS EDIT - hair alpha for slimes
+			// OCCULUS EDIT START - Hair Color Gradients
+					for(var/M in markings)
+						var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
+						if(mark_style.draw_target == 1)
+							var/icon/mark_s = new/icon(mark_style.icon, mark_style.icon_state)
+							mark_s.Blend(hair, ICON_AND)
+							mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
+							hair.Blend(mark_s, ICON_OVERLAY)
+			// OCCULUS EDIT END - Hair Color Gradients
 				associate_with_overlays(hair)
 
 ///// OCCULUS EDIT START - delete the laggy old markings system
 	for(var/M in markings)
 		var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-		var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
-		mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
-		add_overlay(mark_s) //So when it's not on your body, it has icons
-		mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
+		if(!mark_style.draw_target)
+			var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
+			mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
+			add_overlay(mark_s) //So when it's not on your body, it has icons
+			mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
 		//icon_cache_key += "[M][markings[M]["color"]]"	//This is implemented in get_cache_keys() instead
 ///// OCCULUS EDIT END /////
 

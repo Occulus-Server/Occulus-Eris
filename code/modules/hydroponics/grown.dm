@@ -62,6 +62,17 @@
 	update_desc()
 	if(reagents.total_volume > 0)
 		bitesize = 1+round(reagents.total_volume / 2, 1)
+	if(seed.taste_tag)//Occulus Edit: Gives fruit a flavor tag
+		taste_tag += seed.taste_tag//Occulus Edit: Gives fruits a flavor tag
+		var/list/blandremoval = list(COCO_FOOD, SALTY_FOOD, SPICY_FOOD, SWEET_FOOD)//Occulus Edit: These tags remove  bland
+		for(var/notblandflavor in blandremoval)
+			if(notblandflavor in seed.taste_tag)//Occulus Edit: Do we have one of these?
+				taste_tag.Remove(BLAND_FOOD)//Occulus Edit: removes bland if certain other tags exist
+		if(MEAT_FOOD in seed.taste_tag)//Occu Edit: This should only show up in RNG seeds and blood tomatoes
+			taste_tag.Remove(VEGAN_FOOD)//Occu Edit: Meat isn't vegan
+			taste_tag.Remove(VEGETARIAN_FOOD)//Occu Edit: Meat isn't Vegitarian
+		if(CHEESE_FOOD in seed.taste_tag)//Occu Edit
+			taste_tag.Remove(VEGAN_FOOD)//Cheese isn't vegan. Occu edit
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/proc/update_desc()
 

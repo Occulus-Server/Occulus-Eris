@@ -116,7 +116,7 @@
 	//Cache a list of nearby turfs for throwing shards at
 	var/list/turf/nearby
 	if (explode)
-		nearby = (trange(2, src) - get_turf(src))
+		nearby = (RANGE_TURFS(2, src) - get_turf(src))
 
 	if(display_message)
 		visible_message("[src] shatters!")
@@ -481,7 +481,7 @@
 			if(W.anchored && W.density && W.type == src.type && W.is_fulltile()) //Only counts anchored, not-destroyed fill-tile windows.
 				dirs += get_dir(src, W)
 
-	for(var/turf/simulated/wall/T in trange(1, src) - src)
+	for(var/turf/simulated/wall/T in RANGE_TURFS(1, src) - src)
 		var/T_dir = get_dir(src, T)
 		dirs |= T_dir
 		if(propagate)
@@ -666,7 +666,7 @@
 
 /obj/machinery/button/windowtint
 	name = "window tint control"
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/machines/buttons.dmi'	//- Occulus edit- Someone linked the wrong dmi file, Hah. Should function now properly
 	icon_state = "light0"
 	desc = "A remote control switch for polarized windows."
 	var/range = 7
@@ -684,7 +684,7 @@
 	update_icon()
 
 	for(var/obj/structure/window/reinforced/polarized/W in range(src,range))
-		if (W.id == src.id || !W.id)
+		if (W.id == src.id) //|| !W.id) occulus edit- WHY WAS THIS A THING? IT LITTERALLY TOGGLED ALL WINDOWS INSTEAD OF ID'D ONES!
 			spawn(0)
 				W.toggle()
 				return
