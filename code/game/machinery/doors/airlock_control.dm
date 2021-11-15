@@ -29,12 +29,9 @@
 
 	do_command(cur_command)
 	if(command_completed(cur_command))
-		completing = FALSE
 		cur_command = null
 		return TRUE
-	if(!completing)
-		addtimer(CALLBACK(src , .proc/execute_current_command), 2 SECONDS) // Fuck it , try again.
-		completing = TRUE
+	addtimer(CALLBACK(src , .proc/execute_current_command), 2 SECONDS) // Fuck it , try again.
 	return FALSE
 
 /obj/machinery/door/airlock/proc/do_command(var/command)
@@ -62,7 +59,6 @@
 		if("secure_close")
 			unlock()
 			close()
-
 			lock()
 			sleep(2)
 
