@@ -1,5 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 #define DOOR_REPAIR_AMOUNT 50	//amount of health regained per stack amount used
+#define DOOR_AI_ACTIVATION_RANGE 12 // Range in which this door activates AI when opened
 
 /obj/machinery/door
 	name = "Door"
@@ -454,7 +455,7 @@
 	if(autoclose)
 		var/wait = normalspeed ? 150 : 5
 		addtimer(CALLBACK(src, .proc/close), wait)
-	return 1
+	return TRUE
 
 /obj/machinery/door/proc/close(var/forced = 0)
 	set waitfor = FALSE
