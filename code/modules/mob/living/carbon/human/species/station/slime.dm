@@ -62,7 +62,7 @@
 	if(!user || !species)
 		return
 	if(user.stat)
-		return 
+		return
 	for(var/limb_tag in BP_ALL_LIMBS)
 		var/obj/item/organ/external/organ_to_check = organs_by_name[limb_tag]
 		if(!organ_to_check || istype(organ_to_check , /obj/item/organ/external/stump))
@@ -78,4 +78,5 @@
 		user.adjustNutrition(-50)
 		var/datum/organ_description/OD = species.has_limbs[missing_limb_tag]
 		OD.create_organ(src)
-		to_chat(user, "You regenerate your [missing_limb_tag]")
+		to_chat(user, "You regenerate your [OD.name].") // OCCULUS EDIT - No more l_hand regenerating!
+		update_body() //OCCULUS EDIT - No more invisible regenerated limbs!
