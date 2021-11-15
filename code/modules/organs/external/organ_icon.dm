@@ -58,7 +58,7 @@ var/global/list/limb_icon_cache = list()
 
 	part_key += "[dna.GetUIState(DNA_UI_GENDER)]"
 	part_key += "[skin_tone]"
-	part_key += rgb(s_col[1], s_col[2], s_col[3])
+	part_key += rgb(s_col[1], s_col[2], s_col[3], species.body_alpha)
 	part_key += model
 
 	if(!appearance_test.special_update)
@@ -105,7 +105,7 @@ var/global/list/limb_icon_cache = list()
 			if(facial_hair_style && facial_hair_style.species_allowed && (species.get_bodytype() in facial_hair_style.species_allowed))
 				var/icon/facial = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 				if(facial_hair_style.do_colouration)
-					facial.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)
+					facial.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial, owner.species.hair_alpha), ICON_ADD) // OCCULUS EDIT - hair alpha for slimes
 				associate_with_overlays(facial)
 
 		if(owner.h_style && !(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR)))
@@ -113,7 +113,7 @@ var/global/list/limb_icon_cache = list()
 			if(hair_style && (species.get_bodytype() in hair_style.species_allowed))
 				var/icon/hair = new/icon(hair_style.icon, hair_style.icon_state)
 				if(hair_style.do_colouration)
-					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair), ICON_MULTIPLY)	//Eclipse edit.
+					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair, owner.species.hair_alpha), ICON_MULTIPLY)	//Eclipse edit. // OCCULUS EDIT - hair alpha for slimes
 				associate_with_overlays(hair)
 
 ///// OCCULUS EDIT START - delete the laggy old markings system
@@ -177,7 +177,7 @@ var/global/list/limb_icon_cache = list()
 				mob_icon.Blend(rgb(-skin_tone,  -skin_tone,  -skin_tone), ICON_SUBTRACT)
 		else
 			if(s_col)
-				mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_MULTIPLY)
+				mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3], species.body_alpha), ICON_MULTIPLY) // OCCULUS EDIT - body alpha for slimes
 
 	///// OCCULUS EDIT START - Delete the laggy body marking system /////
 	if(!istype(src,/obj/item/organ/external/head))
