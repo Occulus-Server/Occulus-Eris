@@ -17,10 +17,9 @@
 	. = ..()
 	do_sparks(3, 0, src.loc)
 
-/mob/living/carbon/superior_animal/roach/bluespace/Life()
-	. = ..()
-	if(stat) // if the roach is conscious
-		return
+/mob/living/carbon/superior_animal/roach/bluespace/handle_ai()
+	..()
+
 	var/turf/target
 	if((stance == HOSTILE_STANCE_ATTACK || stance == HOSTILE_STANCE_ATTACKING) && target_mob && !Adjacent(target_mob) && prob(change_tele_to_mob))
 		target = get_turf(target_mob)
