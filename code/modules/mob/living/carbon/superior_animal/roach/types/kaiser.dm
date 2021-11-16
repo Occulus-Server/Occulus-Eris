@@ -53,7 +53,8 @@ Has ability of every roach.
 
 
 /mob/living/carbon/superior_animal/roach/kaiser/handle_ai()
-	..()
+	if(!..())
+		return FALSE
 
 	if(can_call_reinforcements())
 		new /obj/spawner/mob/roaches/cluster(get_turf(src)) //Occulus Edit: More. More. More

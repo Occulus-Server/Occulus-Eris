@@ -178,7 +178,8 @@
 // Same as breath but with innecesarry code removed and damage tripled. Environment pressure damage moved here since we handle moles.
 /mob/living/carbon/superior_animal/proc/handle_cheap_breath(datum/gas_mixture/breath as anything)
 	if(!(breath.total_moles))
-		adjustBruteLoss(6)
+		if(min_air_pressure)
+			adjustBruteLoss(6)
 		if(breath_required_type)
 			adjustOxyLoss(6)
 		bad_environment = TRUE
@@ -207,9 +208,10 @@
 			bodytemperature = max(1,bodytemperature - 30*(1-get_cold_protection(0)))
 		if(min_air_pressure)
 			adjustBruteLoss(6)
+			bad_environment = TRUE
 		if(breath_required_type)
 			adjustOxyLoss(6)
-		bad_environment = TRUE
+			bad_environment = TRUE
 		return FALSE
 	bad_environment = FALSE
 	if (!contaminant_immunity)
@@ -239,9 +241,6 @@
 		dust()
 		return FALSE
 
-	//If we're unable to breathe, lets get out of here
-	if (can_burrow && !stat && bad_environment)
-		evacuate()
 
 /mob/living/carbon/superior_animal/proc/cheap_update_lying_buckled_and_verb_status_()
 
@@ -279,12 +278,12 @@
 	//CONSCIOUS UNCONSCIOUS DEAD
 
 	if (!check_AI_act())
-		return
+		return FALSE
 
 	switch(stance)
 		if(HOSTILE_STANCE_IDLE)
 			if (!busy) // if not busy with a special task
-				stop_automated_movement = 0
+				stop_automated_movement = FALSE
 			target_mob = findTarget()
 			if (target_mob)
 				stance = HOSTILE_STANCE_ATTACK
@@ -293,7 +292,7 @@
 			if(destroy_surroundings)
 				destroySurroundings()
 
-			stop_automated_movement = 1
+			stop_automated_movement = TRUE
 			stance = HOSTILE_STANCE_ATTACKING
 			set_glide_size(DELAY2GLIDESIZE(move_to_delay))
 			if(!kept_distance)
@@ -309,7 +308,7 @@
 
 	//random movement
 	if(wander && !stop_automated_movement && !anchored)
-		if(isturf(src.loc) && !resting && !buckled && canmove)
+		if(isturf(loc) && !resting && !buckled && canmove)
 			turns_since_move++
 			if(turns_since_move >= turns_per_move)
 				if(!(stop_automated_movement_when_pulled && pulledby))
@@ -321,6 +320,8 @@
 	//Speaking
 	if(speak_chance && prob(speak_chance))
 		visible_emote(emote_see)
+
+	return TRUE
 
 // Same as overridden proc but -3 instead of -1 since its 3 times less frequently envoked
 /mob/living/carbon/superior_animal/handle_status_effects()
@@ -335,10 +336,11 @@
 	health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss() - halloss
 	if(health <= 0 && stat != DEAD)
 		death()
-		STOP_PROCESSING(SSmobs, src)
+		// STOP_PROCESSING(SSmobs, src) This is handled in Superior animal Life().
 		blinded = TRUE
 		silent = FALSE
 		return TRUE
+	return FALSE
 
 /mob/living/carbon/superior_animal/proc/handle_cheap_chemicals_in_body()
 	if(reagents)
@@ -372,7 +374,6 @@
 	handle_fire()
 	handle_regular_hud_updates()
 	handle_cheap_chemicals_in_body()
-	handle_cheap_regular_status_updates()
 	if(!(ticks_processed%3))
 		handle_status_effects()
 		cheap_update_lying_buckled_and_verb_status_()
@@ -383,6 +384,11 @@
 		handle_cheap_environment(environment)
 		updateicon()
 		ticks_processed = 0
+	if(handle_cheap_regular_status_updates()) // They have died after all of this, do not scan or do not handle AI anymore.
+		return PROCESS_KILL
+
+	if (can_burrow && bad_environment)
+		evacuate()
 
 	if(!AI_inactive)
 		handle_ai()
