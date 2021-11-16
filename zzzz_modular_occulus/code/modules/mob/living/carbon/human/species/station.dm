@@ -110,7 +110,7 @@
 	)
 
 	body_alpha = 120
-	hair_alpha = 100
+	hair_alpha = 160
 
 /obj/item/organ/internal/heart/slime
 	name = "slime vascular system"
