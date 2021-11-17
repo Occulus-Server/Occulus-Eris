@@ -24,16 +24,20 @@
 
 /proc/error(msg)
 	#if defined(UNIT_TESTS)	// Occulus Edit Start - Color CI logs
-		log_world("## \x1b\[31mERROR: ")
+		log_world("## \x1b\[31mERROR: [msg][log_end]")
 	#else
 		log_world("## ERROR: [msg][log_end]")
 	#endif
-							// Occulus Edit End
 
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
 /proc/warning(msg)
-	log_world("## WARNING: [msg][log_end]")
+	#if defined(UNIT_TESTS)
+		log_world("## \x1b\[33mWARNING: [msg][log_end]")
+	#else
+		log_world("## WARNING: [msg][log_end]")
+	#endif
+							// Occulus Edit End
 
 //print a testing-mode debug message to world.log
 /proc/testing(msg)
