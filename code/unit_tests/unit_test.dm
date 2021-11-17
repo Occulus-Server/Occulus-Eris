@@ -106,7 +106,7 @@ GLOBAL_VAR(test_log)
 		GLOB.current_test = null
 		GLOB.failed_any_test |= !test.succeeded
 
-		var/list/log_entry = list("[test.succeeded ? "\033\[32mPASS" : "\033\[1;31mFAIL"]: [I] [duration / 10]s")
+		var/list/log_entry = list("[test.succeeded ? "\\033\[32mPASS" : "\\033\[1;31mFAIL"]: [I] [duration / 10]s")
 		var/list/fail_reasons = test.fail_reasons
 
 		for(var/J in 1 to LAZYLEN(fail_reasons))
