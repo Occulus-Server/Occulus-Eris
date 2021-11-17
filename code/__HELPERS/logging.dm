@@ -19,11 +19,16 @@
 /proc/log_test(text)
 	// WRITE_LOG(GLOB.test_log, text)
 	log_world("## CI: [text]")
-	SEND_TEXT(world.log, text)
+	//SEND_TEXT(world.log, text) // Occulus Edit - Done by the above, but better formatted.
 #endif
 
 /proc/error(msg)
-	log_world("## ERROR: [msg][log_end]")
+	#if defined(UNIT_TESTS)	// Occulus Edit Start - Color CI logs
+		log_world("## \x1b\[31mERROR: ")
+	#else
+		log_world("## ERROR: [msg][log_end]")
+	#endif
+							// Occulus Edit End
 
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
