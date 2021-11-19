@@ -13,7 +13,7 @@
 	magazine_type = /obj/item/ammo_magazine/whitenail
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_STEEL = 5)
 	matter_reagents = list("uncap nanites" = 24)
-	price_tag = 2500
+	price_tag = 3500
 	fire_sound = 'zzzz_modular_occulus/sound/weapons/guns/fire/nail_fire.ogg'
 	unload_sound 	= 'zzzz_modular_occulus/sound/weapons/guns/interact/nail_out.ogg'
 	reload_sound 	= 'zzzz_modular_occulus/sound/weapons/guns/interact/nail_in.ogg'
@@ -111,7 +111,7 @@
 	icon_name = "greyclaw"
 	magazine_type = /obj/item/ammo_magazine/greyclaw
 	matter_reagents = list("uncap nanites" = 30)
-	price_tag = 3500
+	price_tag = 4500
 	fire_sound = 'zzzz_modular_occulus/sound/weapons/guns/fire/claw_fire.ogg'
 	zoom_factor = 0
 	recoil_buildup = 15
