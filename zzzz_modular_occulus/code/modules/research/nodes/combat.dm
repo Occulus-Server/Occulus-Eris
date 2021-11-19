@@ -20,9 +20,11 @@
 							/datum/design/research/item/holochip/tough,
 							/datum/design/research/item/holochip/painkiller)
 
-/datum/technology/whitenail
-	name = "White Nail Nanite Rifle"
-	desc = "A state of the art prototype rifle that regenerates ammunition slowly over time using advanced nanite technology"
+// nanite weapons
+
+/datum/technology/naniteweaponry
+	name = "Self Regenerating Nanite Weaponry"
+	desc = "State of the art weaponry that regenerates ammunition slowly over time using advanced nanite technology."
 	tech_type = RESEARCH_COMBAT
 
 	x = 0.7
@@ -35,5 +37,12 @@
 
 	unlocks_designs = list(/datum/design/research/item/weapon/whitenail,
 						   /datum/design/research/item/weapon/whitenail/whitenailmag,
-						   /datum/design/research/item/weapon/whitenail/whitenailmag/rubber)
+						   /datum/design/research/item/weapon/whitenail/whitenailmag/rubber,
+						   /datum/design/research/item/weapon/blacktalon,
+						   /datum/design/research/item/weapon/blacktalon/blacktalonmag,
+						   /datum/design/research/item/weapon/blacktalon/blacktalonmag/rubber,
+						   /datum/design/research/item/weapon/greyclaw,
+						   /datum/design/research/item/weapon/greyclaw/greyclawmag,
+						   /datum/design/research/item/weapon/greyclaw/greyclawmag/rubber,
+						   )
 

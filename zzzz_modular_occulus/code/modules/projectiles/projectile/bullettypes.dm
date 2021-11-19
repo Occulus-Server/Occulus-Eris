@@ -53,7 +53,7 @@
 	damage_types = list(BRUTE = 2) //The official consensus is that getting PB'd by rubbers should be an owie.
 	agony = 8 //Whoever the hell had this at 15 is going to suffer multiple shots to the groin.
 
-// white nail bullet types
+// nanite bullet types
 
 /obj/item/projectile/bullet/whitenail
 	damage_types = list(BRUTE = 25)
@@ -73,7 +73,7 @@
 /obj/item/projectile/bullet/greyclaw
 	name = "grey claw slug"
 	icon_state = "slug"
-	damage_types = list(BRUTE = 54)
+	damage_types = list(BRUTE = 58)
 	armor_penetration = 20
 	knockback = 1
 	step_delay = 1.1
@@ -90,6 +90,7 @@
 	sharp = FALSE
 
 /obj/item/projectile/bullet/pellet/shotgun/greyclaw
+	damage_types = list(BRUTE = 6)
 	pellets = 7
 	armor_penetration = 20
 	penetrating = 1
@@ -99,7 +100,7 @@
 
 /obj/item/projectile/bullet/pellet/shotgun/greyclaw/rubber
 	damage_types = list(BRUTE = 1)
-	agony = 10
+	agony = 7
 	sharp = FALSE
 
 

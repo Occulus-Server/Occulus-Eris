@@ -133,20 +133,58 @@
 	name = "advanced circular saw"
 	build_path = /obj/item/weapon/tool/saw/circular/advanced
 
-/datum/design/research/item/weapon/whitenail
+// nanite weapons
+
+/datum/design/research/item/weapon/whitenail // white nail
 	name = "NT Prototype \"White Nail\""
 	desc = "A state of the art prototype rifle that regenerates ammunition slowly over time using advanced nanite technology"
 	build_path = /obj/item/weapon/gun/projectile/automatic/whitenail
 	sort_string = "MGAAA"
 
 /datum/design/research/item/weapon/whitenail/whitenailmag
-	name = "white nail magazine"
+	name = "White Nail Magazine"
 	desc = "A bespoke container for ammunition for the White Nail prototype. Ammunition does not retain its shape for long outside of the rifle."
 	build_path = /obj/item/ammo_magazine/whitenail
 	sort_string = "MGAAB"
 
 /datum/design/research/item/weapon/whitenail/whitenailmag/rubber
-	name = "white nail rubber magazine"
+	name = "White Nail Rubber Magazine"
 	desc = "A bespoke container for ammunition for the White Nail prototype. Ammunition does not retain its shape for long outside of the rifle. Generates less-lethal ammunition."
 	build_path = /obj/item/ammo_magazine/whitenail/rubber
 	sort_string = "MGAAC"
+
+/datum/design/research/item/weapon/blacktalon // black talon
+	name = "NT Prototype \"Black Talon\""
+	desc = "A state of the art prototype handgun that regenerates ammunition slowly over time using advanced nanite technology"
+	build_path = /obj/item/weapon/gun/projectile/automatic/whitenail/blacktalon
+	sort_string = "MGABA"
+
+/datum/design/research/item/weapon/blacktalon/blacktalonmag
+	name = "Black Talon Magazine"
+	desc = "A bespoke container for ammunition for the Black Talon prototype. Ammunition does not retain its shape for long outside of the rifle."
+	build_path = /obj/item/ammo_magazine/blacktalon
+	sort_string = "MGABB"
+
+/datum/design/research/item/weapon/blacktalon/blacktalonmag/rubber
+	name = "Black Talon Rubber Magazine"
+	desc = "A bespoke container for ammunition for the White Nail prototype. Ammunition does not retain its shape for long outside of the rifle. Generates less-lethal ammunition."
+	build_path = /obj/item/ammo_magazine/blacktalon/rubber
+	sort_string = "MGABC"
+
+/datum/design/research/item/weapon/greyclaw // grey claw
+	name = "NT Prototype \"Grey Claw\""
+	desc = "A state of the art prototype shotgun that regenerates ammunition slowly over time using advanced nanite technology"
+	build_path = /obj/item/weapon/gun/projectile/automatic/whitenail/greyclaw
+	sort_string = "MGACA"
+
+/datum/design/research/item/weapon/greyclaw/greyclawmag
+	name = "Grey Claw Magazine"
+	desc = "A bespoke container for ammunition for the Grey Claw prototype. Ammunition does not retain its shape for long outside of the rifle."
+	build_path = /obj/item/ammo_magazine/greyclaw
+	sort_string = "MGACB"
+
+/datum/design/research/item/weapon/greyclaw/greyclawmag/rubber
+	name = "Grey Claw Rubber Magazine"
+	desc = "A bespoke container for ammunition for the Grey Claw prototype. Ammunition does not retain its shape for long outside of the rifle. Generates less-lethal ammunition."
+	build_path = /obj/item/ammo_magazine/greyclaw/rubber
+	sort_string = "MGACC"
