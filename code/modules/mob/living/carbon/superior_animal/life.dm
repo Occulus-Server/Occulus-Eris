@@ -7,6 +7,8 @@
 
 	return 1
 
+/*
+
 /mob/living/carbon/superior_animal/Life()
 	. = ..()
 
@@ -66,6 +68,7 @@
 	//Speaking
 	if(speak_chance && prob(speak_chance))
 		visible_emote(emote_see)
+*/
 
 // OCCULUS EDIT: Make angry superior animals obey gravity. avoids repeating code
 /mob/living/carbon/superior_animal/proc/handle_walk_to(target_mob)

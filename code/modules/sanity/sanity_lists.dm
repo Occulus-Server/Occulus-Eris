@@ -133,7 +133,10 @@
 		"The fungus dreams.",
 		"Eternity lies ahead of you, and behind. Have you drunk your fill?",
 		"Your blood is precious and must never be seen by the greedy.",
-		"You hear the distant, unmistakable sound of the drum roll from singer-songerwiter Phil Collin's original 1981 release of In The Air Tonight. ...Who the hell is Phil Collins?"
+		"You hear the distant, unmistakable sound of the drum roll from singer-songerwiter Phil Collin's original 1981 release of In The Air Tonight. ...Who the hell is Phil Collins?",
+		"You hear chittering and broken whispers scratch at your mind",  //Occulus Edit
+		"You feel a sharp stabbing pain that slowly fades.",  //Occulus Edit
+		"You feel a sharp stabbing pain followed by an odd electric tingle."  //Occulus Edit
 		
 	)
 	return pick(sanity_quotes_40)

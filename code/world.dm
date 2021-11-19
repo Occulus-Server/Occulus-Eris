@@ -331,3 +331,11 @@ proc/establish_db_connection()
 /world/proc/incrementMaxZ()
 	maxz++
 	SSmobs.MaxZChanged()
+
+/world/proc/change_fps(new_value = 30)
+	if(new_value <= 0)
+		CRASH("change_fps() called with [new_value] new_value.")
+	if(fps == new_value)
+		return //No change required.
+
+	fps = new_value

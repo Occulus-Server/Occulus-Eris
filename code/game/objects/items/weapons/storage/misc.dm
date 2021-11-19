@@ -31,7 +31,10 @@
 	cut_overlays()
 	var/i = 0
 	for(var/obj/item/weapon/reagent_containers/food/snacks/donut/D in contents)
-		add_overlays(image('icons/obj/food.dmi', "[i][D.overlay_state]"))
+		//Occulus Edit - Refactoring this
+		var/image/inthebox = new('zzzz_modular_occulus/icons/obj/food.dmi',"[i]box-donutC")
+		inthebox.color = D.filling_color
+		add_overlays(inthebox)
 		i++
 
 /obj/item/weapon/storage/box/donut/empty

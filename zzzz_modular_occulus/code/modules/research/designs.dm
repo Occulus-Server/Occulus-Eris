@@ -133,6 +133,13 @@
 	name = "advanced circular saw"
 	build_path = /obj/item/weapon/tool/saw/circular/advanced
 
+/datum/design/research/item/bastion
+	name = "Prototype \"Bastion Shield\""
+	desc = "An advanced shield, Able to be deployed to the ground along with casual carry."
+	build_path = /obj/item/weapon/shield/riot/bastion
+	category = "Combat"
+	sort_string = "CSCAS"
+
 // nanite weapons
 
 /datum/design/research/item/weapon/whitenail // white nail
