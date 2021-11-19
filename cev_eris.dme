@@ -655,6 +655,7 @@
 #include "code\game\machinery\CableLayer.dm"
 #include "code\game\machinery\cloning.dm"
 #include "code\game\machinery\constructable_frame.dm"
+#include "code\game\machinery\crafting_station.dm"
 #include "code\game\machinery\cryo.dm"
 #include "code\game\machinery\cryopod.dm"
 #include "code\game\machinery\deployable.dm"
@@ -996,6 +997,7 @@
 #include "code\game\objects\items\weapons\circuitboards\machinery\chemistry.dm"
 #include "code\game\objects\items\weapons\circuitboards\machinery\cloning.dm"
 #include "code\game\objects\items\weapons\circuitboards\machinery\commsantenna.dm"
+#include "code\game\objects\items\weapons\circuitboards\machinery\crafting_station.dm"
 #include "code\game\objects\items\weapons\circuitboards\machinery\excelsior.dm"
 #include "code\game\objects\items\weapons\circuitboards\machinery\lrange_scanner.dm"
 #include "code\game\objects\items\weapons\circuitboards\machinery\mech_recharger.dm"
@@ -3203,8 +3205,6 @@
 #include "zzzz_modular_occulus\prosthesis\implementation.dm"
 #include "zzzz_modular_occulus\prosthesis\prosthesis_brands.dm"
 #include "zzzz_modular_occulus\prosthesis\prosthesis_parts.dm"
-#include "code/game/machinery/crafting_station.dm"
-#include "code/game/objects/items/weapons/circuitboards/machinery/crafting_station.dm"
 // END_INCLUDE
 // BEGIN_INTERNALS
 // END_INTERNALS
