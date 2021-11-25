@@ -140,7 +140,18 @@
 			var/mob/living/carbon/human/H = A
 			if(H.sanity.level < 30 || H.health < 50)
 				. += SANITY_DAMAGE_VIEW(0.1, vig, get_dist(owner, A))
-
+//Occulus Edit Start - Paper Worm springs into action!
+		if(owner.stats.getPerk(PERK_PAPER_WORM) && istype(A, /mob/living/carbon/human)) //Paper Worms are weak in day to day, but spring into action in emergencies!
+			var/mob/living/carbon/human/H = A
+			if(H.sanity.level < 30 || H.health < 50)
+				to_chat(owner, "You feel a rush of Adrenaline!")
+				owner.stats.addTempStat(STAT_MEC, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_COG, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_BIO, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_VIG, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_TGH, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_ROB, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+//Occulus Edit End
 /datum/sanity/proc/handle_area()
 	var/area/my_area = get_area(owner)
 	if(!my_area)
