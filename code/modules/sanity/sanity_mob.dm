@@ -144,7 +144,6 @@
 		if(owner.stats.getPerk(PERK_PAPER_WORM) && istype(A, /mob/living/carbon/human)) //Paper Worms are weak in day to day, but spring into action in emergencies!
 			var/mob/living/carbon/human/H = A
 			if(H.sanity.level < 30 || H.health < 50)
-				to_chat(owner, "You feel a rush of Adrenaline!")
 				owner.stats.addTempStat(STAT_MEC, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
 				owner.stats.addTempStat(STAT_COG, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
 				owner.stats.addTempStat(STAT_BIO, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
