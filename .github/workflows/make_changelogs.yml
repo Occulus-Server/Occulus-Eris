@@ -7,7 +7,7 @@ on:
 jobs:
   MakeCL:
     runs-on: ubuntu-latest
-    if: github.repository == 'SyzygyStation/Syzygy-Eris'
+    if: github.repository == 'discordia-space/CEV-Eris'
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -25,5 +25,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_EMAIL: "action@github.com"
-          GIT_NAME: "Changelog Automaker" 
+          GIT_NAME: "Nestor Jr." 
         run: python tools/changelog/generate_cl.py
