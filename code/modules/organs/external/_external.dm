@@ -340,7 +340,10 @@
 	if(status & ORGAN_SPLINTED)
 		. += 0.5
 
-	. += (-(limb_efficiency / 100 - 1) * 3)	//0 at 100 efficiency, -1.5 at 150, +1.5 at 50
+	var/muscle_eff = owner.get_specific_organ_efficiency(OP_MUSCLE, organ_tag)
+	var/nerve_eff = max(owner.get_specific_organ_efficiency(OP_NERVE, organ_tag),1)
+	muscle_eff = (muscle_eff/100) - (muscle_eff/nerve_eff) //Need more nerves to control those new muscles
+	. += max(-(muscle_eff), MAX_MUSCLE_SPEED)
 
 	. += tally
 
