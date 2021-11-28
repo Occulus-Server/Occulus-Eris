@@ -134,9 +134,9 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "w" = (
-/turf/simulated/floor/wood,
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/roomba/slayer,
+/turf/simulated/floor/wood,
 /area/template_noop)
 "x" = (
 /obj/structure/table/woodentable,
