@@ -56,6 +56,6 @@
 	name = "Tool mod: Adze"
 	result = /obj/item/weapon/tool_upgrade/augment/digging_addon
 	steps = list(
-		list(/obj/item/weapon/tool/shovel/spade, 1, "time" = 30),
+		list(/obj/item/weapon/tool/shovel, 1, "time" = 30),
 		list(QUALITY_SAWING, 10, 150),
 	)

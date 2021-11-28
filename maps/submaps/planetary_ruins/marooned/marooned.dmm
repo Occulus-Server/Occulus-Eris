@@ -216,9 +216,6 @@
 "aF" = (
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/map_template/marooned)
-"aG" = (
-/turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/map_template/marooned)
 "aH" = (
 /obj/structure/railing{
 	icon_state = "handrail";
@@ -640,8 +637,8 @@ ar
 ah
 aw
 aB
-aG
-aG
+aF
+aF
 aN
 ah
 aS

@@ -283,12 +283,6 @@
 /obj/item/trash/cigbutt/cigarbutt,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growD)
-"aS" = (
-/obj/structure/catwalk,
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/item/seeds/tobaccoseed,
-/turf/simulated/floor/alium,
-/area/map_template/hydrobase/station/growA)
 "aT" = (
 /obj/item/trash/cigbutt/cigarbutt,
 /turf/simulated/floor/tiled/white,
@@ -583,7 +577,6 @@
 /obj/machinery/button/remote/blast_door{
 	id = "goatzone";
 	name = "containment zone control";
-	pixel_w = 0;
 	pixel_x = 0;
 	pixel_y = 25
 	},
@@ -1163,10 +1156,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growA)
-"cX" = (
-/obj/item/trash/cigbutt/cigarbutt,
-/turf/simulated/floor/tiled/white,
-/area/map_template/hydrobase/station/growA)
 "cY" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -1641,12 +1630,6 @@
 /obj/item/seeds/peanutseed,
 /turf/simulated/floor/alium,
 /area/map_template/hydrobase/station/growC)
-"dZ" = (
-/obj/structure/catwalk,
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/item/seeds/potatoseed,
-/turf/simulated/floor/alium,
-/area/map_template/hydrobase/station/growC)
 "ea" = (
 /obj/structure/catwalk,
 /obj/machinery/light,
@@ -1677,12 +1660,6 @@
 /mob/living/simple_animal/hostile/retaliate/malf_hydro_drone,
 /turf/simulated/floor/alium,
 /area/map_template/hydrobase/station/growC)
-"ef" = (
-/obj/structure/catwalk,
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/item/seeds/tobaccoseed,
-/turf/simulated/floor/alium,
-/area/map_template/hydrobase/station/growA)
 "eg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
@@ -2478,16 +2455,6 @@
 /obj/item/seeds/tobaccoseed,
 /turf/simulated/floor/alium,
 /area/map_template/hydrobase/station/growA)
-"fL" = (
-/obj/structure/catwalk,
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/item/seeds/tobaccoseed,
-/turf/simulated/floor/alium,
-/area/map_template/hydrobase/station/growA)
 "fM" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -3279,7 +3246,7 @@ cy
 cR
 dl
 cR
-dZ
+dX
 cm
 eP
 fi
@@ -3572,10 +3539,10 @@ eS
 fn
 aq
 fK
-ef
-ef
-ef
-ef
+ap
+ap
+ap
+ap
 al
 al
 aa
@@ -3609,7 +3576,7 @@ dt
 cU
 aE
 aE
-cX
+aT
 bR
 aq
 aE
@@ -3617,7 +3584,7 @@ aE
 aE
 aT
 aq
-ef
+ap
 al
 al
 aa
@@ -3659,7 +3626,7 @@ aE
 aE
 aE
 aq
-ef
+ap
 al
 al
 aa
@@ -3677,8 +3644,8 @@ ao
 aq
 av
 aE
-aS
-aS
+ap
+ap
 bk
 bu
 bF
@@ -3689,15 +3656,15 @@ ap
 cV
 dv
 dH
-ef
-ef
-ef
-ef
+ap
+ap
+ap
+ap
 fA
 bu
 fV
-ef
-ef
+ap
+ap
 aE
 av
 aq
@@ -3741,7 +3708,7 @@ aE
 aE
 aE
 aq
-ef
+ap
 al
 al
 aa
@@ -3768,7 +3735,7 @@ aq
 aE
 aE
 aE
-cX
+aT
 dw
 aE
 aE
@@ -3781,7 +3748,7 @@ aE
 aE
 aE
 aq
-ef
+ap
 al
 al
 aa
@@ -3817,11 +3784,11 @@ cU
 aE
 aE
 aq
-fL
-ef
-ef
-ef
-ef
+bw
+ap
+ap
+ap
+ap
 al
 al
 aa
