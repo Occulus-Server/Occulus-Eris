@@ -257,6 +257,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 	return 1
 
 /mob/living/carbon/human/proc/get_active_hand_organ()
+	RETURN_TYPE(/obj/item/organ/external) // Occulus Edit - Linting Fix
 	if(hand)
 		return get_organ(BP_L_HAND)
 	else

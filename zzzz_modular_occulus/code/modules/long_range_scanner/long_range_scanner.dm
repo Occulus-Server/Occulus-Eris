@@ -5,10 +5,9 @@
 	if(scanners)//do we have any scanners in the list?
 		var/x = scanners.len
 		scanrange = 0//if we do, zero out the scan range
-		while(x > 0)
-			if(scanners[x].scan_range > scanrange)//And take the longest range availible!
-				scanrange = scanners[x].scan_range
-			x--
+		for(var/obj/machinery/power/long_range_scanner/scanner in scanners)
+			if(scanner.scan_range > scanrange)
+				scanrange = scanner.scan_range
 	if(!is_still())
 		var/list/deltas = list(0,0)
 		for(var/i=1, i<=2, i++)
