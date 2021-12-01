@@ -102,11 +102,6 @@
 		vial = new start_vial
 	update_icon()
 
-/obj/item/hypospray/mkii/proc/show_results(mob/user)
-	var/datum/browser/popup = new(user, "hypospray", scan_title, window_width, window_height)
-	popup.set_content("[scan_data]")
-	popup.open()
-
 /obj/item/hypospray/mkii/update_icon()
 	icon_state = "[initial(icon_state)][is_scanning ? "-d" : ""][vial ? "" : "-e"]"
 
@@ -115,7 +110,7 @@
 	set category = "Object"
 
 	is_scanning = !is_scanning
-	to_chat(usr, "You [is_scanning ? "close" : "open up"] the [src]'s data tab.")
+	to_chat(usr, "You [is_scanning ? "open up" : "close"] the [src]'s data tab.")
 	update_icon()
 
 /obj/item/hypospray/mkii/examine(mob/user)
@@ -153,16 +148,14 @@
 	unload_hypo(user) // This allows quickloading hypos to put the cartridge into the user's hand
 	H.loc = src
 	vial = H
-	user.visible_message(SPAN_NOTICE("[user] has loaded a cartridge into [src].</span>"), SPAN_NOTICE("You have loaded [vial] into [src].</span>"))
+	user.visible_message(SPAN_NOTICE("[user] loads a cartridge into \the [src].</span>"), SPAN_NOTICE("You load \a [vial] into \the [src].</span>"))
 	update_icon()
 	playsound(loc, 'sound/weapons/guns/interact/sfrifle_magin.ogg', 35, 1)
 	return TRUE
 
 /obj/item/hypospray/mkii/AltClick(mob/user)
 	. = ..()
-	if(vial)
-		vial.attack_self(user)
-		return TRUE
+	toggle_mode()
 
 /obj/item/hypospray/mkii/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
@@ -173,21 +166,25 @@
 		penetrates = TRUE
 		return TRUE
 	else
-		to_chat(user, SPAN_WARNING("[src] happens to be already overcharged."))
+		to_chat(user, SPAN_WARNING("[src] is already overcharged."))
 		return
 
 /obj/item/hypospray/mkii/attack_hand(mob/user)
 	. = ..() //Don't bother changing this or removing it from containers will break.
 
 /obj/item/hypospray/mkii/attack(mob/living/M as mob, mob/user as mob)
+	if (!istype(M))
+		return
+	if(is_scanning)
+		scan(M, user)
+		return
 	if(!vial)
-		to_chat(user, SPAN_NOTICE("[src] doesn't have any cartridge installed!"))
+		to_chat(user, SPAN_NOTICE("[src] doesn't have a cartridge installed!"))
 		return
 	if(!vial.reagents.total_volume)
 		to_chat(user, SPAN_WARNING("[src] is empty."))
 		return
-	if (!istype(M))
-		return
+
 	var/injtime //Injecting through a hardsuit takes long time due to needing to find a port.
 				// Handling errors and injection duration
 	var/mob/living/carbon/human/H = M
@@ -227,7 +224,6 @@
 		user.do_attack_animation(M)
 		if(!penetrates && injtime) //checks for rig and for penetration var.
 			user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [M]'s suit!"), SPAN_WARNING("You begins hunting for an injection port on [M]'s suit!"))
-			scan(M, user)
 			if(!emagged && check_overdose(M, user))	//OD check for injecting rigs.
 				return
 			if(do_mob(user, M, RIG_WAIT_INJECT))
@@ -235,7 +231,6 @@
 
 		else //Check for what type of injectwait if not rig or if penetrates.
 			user.visible_message(SPAN_WARNING("[user] begins scanning [M] with [src]!"))
-			scan(M, user)
 			if(!emagged && check_overdose(M, user))	//OD check for injecting normal patient
 				return
 			if(do_mob(user, M, inject_wait))
@@ -245,7 +240,6 @@
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		user.do_attack_animation(M)
 		user.visible_message(SPAN_WARNING("[user] begins scanning themself with [src]!"))
-		scan(M, user)
 		if(!emagged && check_overdose(M, user))	//OD check for self injection, derpy user
 			return
 		user.visible_message(SPAN_WARNING("[user] injects [M] with [src]!"), SPAN_WARNING("You inject [M] with [src]."))	// No injection delay for self.
@@ -302,12 +296,15 @@
 	return istype(O, /mob/living) || istype(O, /obj/structure/closet/body_bag)
 
 /obj/item/hypospray/mkii/proc/scan(atom/A, mob/user)
-	if(is_scanning == FALSE)
-		return
 	scan_data = hypo_scan_action(A, user)
 	scan_title = "Hypo scan - [A]"
 	show_results(user)
 	flick("health2", src)
+
+/obj/item/hypospray/mkii/proc/show_results(mob/user)
+	var/datum/browser/popup = new(user, "hypospray", scan_title, window_width, window_height)
+	popup.set_content("[scan_data]")
+	popup.open()
 
 /obj/item/hypospray/mkii/proc/hypo_scan_action(atom/target, mob/living/user)
 
@@ -373,6 +370,8 @@
 				++unknown
 		if(unknown)
 			dat += SPAN_WARNING("Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.")
+	if(!dat)
+		dat = "No reagents detected in subject."
 	. = jointext(dat, "<br>")
 
 /obj/item/hypospray/mkii/attack_self(mob/living/user)
