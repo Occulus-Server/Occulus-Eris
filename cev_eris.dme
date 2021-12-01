@@ -31,7 +31,6 @@
 #include "code\__DEFINES\dna.dm"
 #include "code\__DEFINES\economy.dm"
 #include "code\__DEFINES\error_handler.dm"
-#include "code\__DEFINES\excelsior.dm"
 #include "code\__DEFINES\flags.dm"
 #include "code\__DEFINES\gamemode.dm"
 #include "code\__DEFINES\holomap.dm"

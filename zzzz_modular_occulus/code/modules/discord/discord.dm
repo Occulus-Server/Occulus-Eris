@@ -52,6 +52,9 @@ var/datum/discord_bot/discord_bot = new
 /// Bot communication ///
 
 /datum/discord_bot/proc/send(info)
+	if (!fexists(CONN_LIBRARY))
+		return CONN_ERROR
+
 	var/C = call(CONN_LIBRARY, "SendAndClose")("127.0.0.1", "[port]", info)
 
 	if (C == CONN_SUCCESS)

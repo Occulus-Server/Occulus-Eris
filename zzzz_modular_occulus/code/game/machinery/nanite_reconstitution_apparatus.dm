@@ -1,6 +1,3 @@
-#define SANITIZE_LATHE_COST(n) round(n * mat_efficiency, 0.01)
-
-
 #define ERR_OK 0
 #define ERR_NOTFOUND "not found"
 #define ERR_NOMATERIAL "no material"
