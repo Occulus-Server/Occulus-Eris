@@ -292,7 +292,7 @@
 	name = "Makeshift prosthetic right arm"
 	result = /obj/item/organ/external/robotic/makeshift/r_arm*/
 
- /datum/craft_recipe/gun/guns_craft_frame
+/datum/craft_recipe/gun/guns_craft_frame
 	name = "Gun assembly"
 	result = /obj/item/craft_frame/guns
 	steps = list(

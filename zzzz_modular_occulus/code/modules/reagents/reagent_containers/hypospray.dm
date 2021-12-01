@@ -302,33 +302,12 @@ obj/item/hypospray/mkii/proc/check_overdose(mob/living/carbon/human/patient, mob
 				continue	// skip this iteration -- it won't overdose!
 
 			// First, let's check if the target has any of the reagent, and if so, how much.
+			var/existing_volume = patient.reagents.get_reagent_amount(hypo_drug.id)
 
-			var/datum/reagents/metabolism/bloodstream = patient.bloodstr	// can be called with 'bloodstream'
-			var/datum/reagents/metabolism/ingested = patient.ingested	// can be called with 'ingested'
-			var/datum/reagents/metabolism/touching = patient.touching	// can be called with 'touching'
+			// /* Now, existing_volume has possibly been incremented, if any of it was in the target's system.
+			// 	Check to see if existing_volume, when injected with more of the drug, will cause an overdose. */
 
-			var/metabolism_list = list(bloodstream, ingested, touching)	// collect it all in one variable so we can do...
-
-			var/target_drug_existing_volume = 0	// this will be incremented if we find any of the drug in the target
-
-			for (var/list/datum/reagents/metabolism/metabolism_category in metabolism_list)	// this will iterate over each metabolism,
-																						// so we do not need to write code for
-																						// each one.
-
-				if (metabolism_category.reagent_list.len)											// if the reagent_list is not empty...
-					for (var/datum/reagent/metabolism_reagent in metabolism_category.reagent_list)	// iterate over each reagent in the selected metabolism.
-						if (metabolism_reagent.name == hypo_drug.name)						// the target has the drug in their system
-							target_drug_existing_volume += metabolism_reagent.volume				// increment target_drug_volume with how much is in this particular metabolism.
-							break														// we've found our target reagent, so abort searching this metabolism.
-				else
-					continue	// it's empty -- so skip checking this.
-
-				// the loop will continue until it finishes checking all of the metabolisms -- bloodstream, ingested, and touching.
-
-			/* Now, target_drug_volume has possibly been incremented, if any of it was in the target's system.
-				Check to see if target_drug_volume, when injected with more of the drug, will cause an overdose. */
-
-			if (target_drug_existing_volume + min(hypo_drug.volume, vial.amount_per_transfer_from_this) > hypo_drug.overdose)	// if it is over the overdose limit...
+			if (existing_volume + min(hypo_drug.volume, vial.amount_per_transfer_from_this) > hypo_drug.overdose)	// if it is over the overdose limit...
 				to_chat(doctor, SPAN_WARNING("The [src] beeps indignantly. 'Injection refused -- this would cause an overdose of [hypo_drug.name].'"))
 				overdosing = TRUE	// To be checked soon. We do not return now in the event of multiple overdoses.
 
