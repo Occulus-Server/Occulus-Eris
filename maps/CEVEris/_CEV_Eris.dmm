@@ -70809,6 +70809,9 @@
 	d2 = 0;
 	icon_state = "16-0"
 	},
+/obj/structure/disposalpipe/up{
+	dir = 4
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2starboard)
 "dmG" = (
@@ -70830,6 +70833,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2starboard)
 "dmK" = (
@@ -70846,13 +70852,12 @@
 	dir = 4
 	},
 /obj/spawner/traps/wire_splicing/low_chance,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2starboard)
 "dmL" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
 /obj/structure/catwalk,
 /obj/structure/cable/green{
 	d1 = 4;
@@ -70865,6 +70870,10 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-y"
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2starboard)
 "dmM" = (
@@ -85505,6 +85514,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1starboard)
 "dWs" = (
@@ -85527,6 +85540,9 @@
 /obj/structure/railing{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1starboard)
 "dWu" = (
@@ -85537,6 +85553,9 @@
 	d1 = 32;
 	d2 = 8;
 	icon_state = "32-8"
+	},
+/obj/structure/disposalpipe/down{
+	dir = 8
 	},
 /turf/simulated/open,
 /area/eris/maintenance/section2deck1starboard)
@@ -85978,7 +85997,6 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/docking)
 "dXv" = (
-/obj/structure/disposalpipe/junction,
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 28
@@ -86004,6 +86022,10 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-y"
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/research)
@@ -89770,6 +89792,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1starboard)
 "egp" = (
@@ -90812,6 +90835,10 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "eiV" = (
@@ -90834,6 +90861,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "eiW" = (
@@ -90848,6 +90878,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
@@ -91201,6 +91234,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "ejG" = (
@@ -91586,6 +91620,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "ekn" = (
