@@ -90091,6 +90091,10 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "ehd" = (
@@ -91196,7 +91200,9 @@
 /area/eris/maintenance/section4deck1central)
 "ejA" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "ejB" = (
@@ -91600,15 +91606,20 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section4deck1central)
 "ekk" = (
-/obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -24
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/hazardsuit/moebius,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "ekl" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/hazardsuit/moebius,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "ekm" = (
@@ -91627,14 +91638,14 @@
 /obj/machinery/camera/network/research{
 	dir = 1
 	},
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/hazardsuit/moebius,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "eko" = (
-/obj/machinery/light,
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/hazardsuit/moebius,
+/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "ekp" = (
@@ -98456,10 +98467,13 @@
 /area/eris/maintenance/section3deck1central)
 "eAm" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/item/modular_computer/laptop/preset/atmos,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 27
+	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "eAn" = (
