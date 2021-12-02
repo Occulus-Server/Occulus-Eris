@@ -76721,9 +76721,6 @@
 /obj/structure/defibcabinet{
 	pixel_x = 28
 	},
-/obj/structure/defibcabinet{
-	pixel_x = 28
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -88627,6 +88624,7 @@
 /obj/structure/table/standard,
 /obj/item/clothing/glasses/powered/science,
 /obj/item/clothing/glasses/powered/science,
+/obj/item/weapon/inflatable_dispenser,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/rnd/anomal)
 "edI" = (
@@ -91569,6 +91567,10 @@
 /area/eris/maintenance/section4deck1central)
 "ekk" = (
 /obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "ekl" = (
