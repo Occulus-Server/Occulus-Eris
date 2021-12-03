@@ -17,7 +17,7 @@
 	projectilesound = 'sound/weapons/pulse.ogg'
 	projectiletype = /obj/item/projectile/plasma/blast
 	speed = 3
-	ranged_cooldown = 4 SECOND
+	ranged_cooldown = 4 SECONDS
 	maxshieldcharge = 10
 	shieldcharge = 10
 	maxHealth = 50
@@ -31,6 +31,7 @@
 	retreat_distance = 4
 	minimum_distance = 3
 	pass_flags = PASSTABLE
+
 /mob/living/simple_animal/hostile/siren/augmentor/New()
 	..()
 	add_overlay("shield")

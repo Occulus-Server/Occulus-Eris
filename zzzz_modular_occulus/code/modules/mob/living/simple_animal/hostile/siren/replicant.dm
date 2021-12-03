@@ -7,9 +7,10 @@
 /mob/living/simple_animal/hostile/siren/proc/GiveTarget(var/new_target) //Step 4, give us our selected target
 	..()
 	target = new_target
-	if(target != null)
-		Aggro()
-		stance = HOSTILE_STANCE_ATTACK
+	if(target == null)
+		return
+	Aggro()
+	stance = HOSTILE_STANCE_ATTACK
 	return
 
 /mob/living/simple_animal/hostile/siren/MoveToTarget()		//Custom pathing! attemptto maintain distance if ranged,
@@ -233,6 +234,7 @@
 	var/charges = 1
 	var/active = 0
 	var/det_time = 40
+
 /obj/item/weapon/replicant_core/attack_self(mob/user as mob)
 	activate(user)
 	add_fingerprint(user)
@@ -240,10 +242,12 @@
 		var/mob/living/carbon/C = user
 		C.throw_mode_on()
 	return
+
 /obj/item/weapon/replicant_core/proc/prime()
 	empulse(src, 4, 10)
 	active = 0
 	return
+
 /obj/item/weapon/replicant_core/proc/activate(mob/user as mob)
 	if(active)
 		return
@@ -285,7 +289,7 @@
 /mob/living/simple_animal/hostile/siren/replicanttendril/New()
 	..()
 	spawn(200)
-		visible_message(SPAN_NOTICE("[src] recoils to it's host Replicant!"))
+		visible_message(SPAN_NOTICE("[src] recoils to its host Replicant!"))
 		qdel(src)
 
 /mob/living/simple_animal/hostile/siren/replicanttendril/death()
