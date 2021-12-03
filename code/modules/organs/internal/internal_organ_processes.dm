@@ -162,7 +162,7 @@
 		if(getOxyLoss() < 50)//Occulus Edit
 			adjustOxyLoss(3)//Occulus Edit: Bumping up over automatic oxyloss recovery
 		if(prob(15))
-			Paralyse(rand(1,3))
+			Weaken(rand(1,3))
 			to_chat(src, SPAN_WARNING("You feel extremely [pick("dizzy","woosey","faint")]"))
 
 	else if(blood_volume < blood_safe)
