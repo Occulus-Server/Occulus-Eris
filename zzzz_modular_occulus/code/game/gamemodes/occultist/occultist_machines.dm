@@ -237,10 +237,11 @@
 
 				//Delete the following block if you're able to get the negative breakdown to work.
 				else
-					viewer.sanity.level -= viewer.sanity.level //This should set sanity to 0 on click regardless of amount.
+					viewer.sanity.level -= viewer.sanity.level //This should set sanity to 0 on click regardless of amount. I hate this. There is a better way to do this but I don't know how.
 
 				/*The following block is not actually causing the breakdown to affect the person. I don't know how to solve this. It only ever creates an unknown owner error or
-				  the beakdown doesn't happen at all. If someone can fix this, please do so. -Sigma, 10/08/21
+				  the beakdown doesn't happen at all. If someone can fix this, please do so. -Sigma, 10/08/21 -- Update: Still broken as of 11/19/21
+				  Update: still broken as of 12/3/21
 				//The following is causing two breakdowns, not one. Not sure why. I think this is okay though because it can only happen once every twenty minutes?
 				else
 					var/list/possible_results = subtypesof(/datum/breakdown/negative) //We want only negatives here. Maybe have it remove the absolute most hated?
