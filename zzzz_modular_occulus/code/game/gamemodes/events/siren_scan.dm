@@ -38,7 +38,7 @@
 	spawnLists += list(/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator)
 	spawnLists += list(/mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/replicant, /mob/living/simple_animal/hostile/siren/replicant)
 	spawnLists += list(/mob/living/simple_animal/hostile/siren/composer, /mob/living/simple_animal/hostile/siren/replicant)
-	spawnLists += list(/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator, mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/composer)
+	spawnLists += list(/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/composer)
 
 /datum/event/siren_scan/start()
 	SSweather.run_weather(/datum/weather/siren_scan)
@@ -69,22 +69,12 @@
 
 
 
-
-
-
 /datum/event/siren_scan/proc/PickSirenPod(var/mob/candidate)
 	var/list/spawnTypes = spawnLists[rand(0,spawnLists.len-1)]
 	SpawnSirenPodInRange(candidate,10,7,spawnTypes)
 
-
-
-
-
-
-
-
-/datum/event/siren_scan/proc/SpawnSirenPodInRange(atom/origin,outer_range,inner_range,list/types)
-	for(var/type in types)
+/datum/event/siren_scan/proc/SpawnSirenPodInRange(atom/origin,outer_range,inner_range,list/spawnTypes)
+	for(var/type in spawnTypes)
 		var/turf/picked = get_random_secure_turf_in_range(origin,10,7)
 		type = spawnTypes
 		new type(picked)
@@ -101,7 +91,6 @@
 		return
 	candidates = shuffle(candidates)//Incorporating Donkie's list shuffle
 
-	var/list/used_sirenpod = list()
 	var/list/used_candidates = list()
 	var/siren_anger = rand(2, 4)
 	while(siren_anger > 0 && candidates.len)
