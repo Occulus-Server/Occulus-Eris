@@ -65,19 +65,20 @@
 
 
 
-
-
-
-
 /datum/event/siren_scan/proc/PickSirenPod(var/mob/candidate)
-	var/list/spawnTypes = spawnLists[rand(0,spawnLists.len-1)]
+	var/list/spawnTypes = spawnLists[rand(1,spawnLists.len-1)]
+	to_world( "spawntypes set to spawn list")
 	SpawnSirenPodInRange(candidate,10,7,spawnTypes)
+	to_world( "afterspawnsirenpodinrange")
 
 /datum/event/siren_scan/proc/SpawnSirenPodInRange(atom/origin,outer_range,inner_range,list/spawnTypes)
 	for(var/type in spawnTypes)
 		var/turf/picked = get_random_secure_turf_in_range(origin,10,7)
-		type = spawnTypes
+		to_world( "after get turf")
+		type = pick(spawnTypes)
+		to_world( "after picking spawnTypes")
 		new type(picked)
+		to_world( "after spawning mob")
 
 /datum/event/siren_scan/proc/scanning()	//this proc will eventually be made to locate any players, and spawn a cluster of siren mobs out of view on the ship. Not needed for the event tho.
 
@@ -94,8 +95,9 @@
 	var/list/used_candidates = list()
 	var/siren_anger = rand(2, 4)
 	while(siren_anger > 0 && candidates.len)
-
+		to_world( "after Sirenanger")
 		PickSirenPod(candidates[1])
+		to_world( "picksirenpod")
 		used_candidates += candidates[1]
 		candidates.Remove(candidates[1])
 		siren_anger--
