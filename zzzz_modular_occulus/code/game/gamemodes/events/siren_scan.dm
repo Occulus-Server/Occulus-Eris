@@ -25,6 +25,7 @@
 	endWhen					= revokeAccess
 	var/postStartTicks 		= 0
 	var/list/spawnLists
+	var/list/used_candidates = list()
 	//two_part = 1
 	//ic_name = "radiation"
 
@@ -33,12 +34,12 @@
 
 /datum/event/siren_scan/proc/runThisOnEventStartup()
 	spawnLists = list()
-	spawnLists += list(/mob/living/simple_animal/hostile/siren/replicant, /mob/living/simple_animal/hostile/siren/replicant,/mob/living/simple_animal/hostile/siren/replicant)
-	spawnLists += list(/mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/composer,/mob/living/simple_animal/hostile/siren/composer)
-	spawnLists += list(/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator)
-	spawnLists += list(/mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/replicant, /mob/living/simple_animal/hostile/siren/replicant)
-	spawnLists += list(/mob/living/simple_animal/hostile/siren/composer, /mob/living/simple_animal/hostile/siren/replicant)
-	spawnLists += list(/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/composer)
+	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/replicant, /mob/living/simple_animal/hostile/siren/replicant,/mob/living/simple_animal/hostile/siren/replicant))
+	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/composer,/mob/living/simple_animal/hostile/siren/composer))
+	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator))
+	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/replicant, /mob/living/simple_animal/hostile/siren/replicant))
+	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/composer, /mob/living/simple_animal/hostile/siren/replicant))
+	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/composer))
 
 /datum/event/siren_scan/start()
 	SSweather.run_weather(/datum/weather/siren_scan)
@@ -66,7 +67,7 @@
 
 
 /datum/event/siren_scan/proc/PickSirenPod(var/mob/candidate)
-	var/list/spawnTypes = spawnLists[rand(1,spawnLists.len-1)]
+	var/list/spawnTypes = pick_n_take(spawnLists)
 	to_world( "spawntypes set to spawn list")
 	SpawnSirenPodInRange(candidate,10,7,spawnTypes)
 	to_world( "afterspawnsirenpodinrange")
@@ -90,9 +91,9 @@
 				candidates += G
 	if(!candidates.len)
 		return
+	candidates -= used_candidates
 	candidates = shuffle(candidates)//Incorporating Donkie's list shuffle
 
-	var/list/used_candidates = list()
 	var/siren_anger = rand(2, 4)
 	while(siren_anger > 0 && candidates.len)
 		to_world( "after Sirenanger")
@@ -103,4 +104,4 @@
 		siren_anger--
 
 /datum/event/siren_scan/end()
-
+	used_candidates = list()
