@@ -28,6 +28,7 @@
 	var/list/used_candidates = list()
 	//two_part = 1
 	//ic_name = "radiation"
+	var/siren_anger
 
 /datum/event/siren_scan/announce()
 	command_announcement.Announce("Anomalous electromagnetic interference detected approaching ship. Interference expected to bypass shields, effects unknown.", "Anomaly Alert", new_sound = 'sound/misc/interference.ogg')
@@ -44,6 +45,7 @@
 /datum/event/siren_scan/start()
 	SSweather.run_weather(/datum/weather/siren_scan)
 	runThisOnEventStartup()
+	siren_anger = rand(2, 4)
 
 /datum/event/siren_scan/tick()
 	if(activeFor == enterBelt)
@@ -87,7 +89,9 @@
 	if(!candidates.len)
 		return
 	candidates -= used_candidates
-	candidates = shuffle(candidates)//Incorporating Donkie's list shuffle
+
+	if(siren_anger <= 0)
+		candidates = shuffle(candidates)//Incorporating Donkie's list shuffle
 
 	var/siren_anger = rand(2, 4)
 	while(siren_anger > 0 && candidates.len)
