@@ -1,7 +1,11 @@
 //wrapper macros for easier grepping
 #define DIRECT_OUTPUT(A, B) A << B
+#define DIRECT_INPUT(A, B) A >> B
+#define SEND_IMAGE(target, image) DIRECT_OUTPUT(target, image)
+#define SEND_SOUND(target, sound) DIRECT_OUTPUT(target, sound)
 #define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
 #define WRITE_FILE(file, text) DIRECT_OUTPUT(file, text)
+#define READ_FILE(file, text) DIRECT_INPUT(file, text)
 //print an error message to world.log
 
 
@@ -11,14 +15,29 @@
 
 /var/global/log_end= world.system_type == UNIX ? ascii2text(13) : ""
 
+#if defined(UNIT_TESTS) || defined(SPACEMAN_DMM)
+/proc/log_test(text)
+	// WRITE_LOG(GLOB.test_log, text)
+	log_world("## CI: [text]")
+	//SEND_TEXT(world.log, text) // Occulus Edit - Done by the above, but better formatted.
+#endif
 
 /proc/error(msg)
-	log_world("## ERROR: [msg][log_end]")
+	#if defined(UNIT_TESTS)	// Occulus Edit Start - Color CI logs
+		log_world("## \x1b\[31mERROR: [msg][log_end]")
+	#else
+		log_world("## ERROR: [msg][log_end]")
+	#endif
 
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
 /proc/warning(msg)
-	log_world("## WARNING: [msg][log_end]")
+	#if defined(UNIT_TESTS)
+		log_world("## \x1b\[33mWARNING: [msg][log_end]")
+	#else
+		log_world("## WARNING: [msg][log_end]")
+	#endif
+							// Occulus Edit End
 
 //print a testing-mode debug message to world.log
 /proc/testing(msg)

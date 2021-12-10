@@ -12,11 +12,11 @@
 
 /datum/design/autolathe/gun/gemini
 	name = "DSS Gemini"
-	/obj/item/weapon/gun/energy/gun/gemini
+	build_path = /obj/item/weapon/gun/energy/gun/gemini
 
 /datum/design/autolathe/gun/glasgow
 	name = "DSS Glasgow"
-	/obj/item/weapon/gun/energy/gun/glasgow
+	build_path = /obj/item/weapon/gun/energy/gun/glasgow
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss
 	disk_name = "Deepflare Security - blank"
@@ -56,7 +56,6 @@
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss/glasgow
 	disk_name = "Deepflare Security - Glasgow Energy Personal Defense Weapon"
-	icon_state = "frozenstar"
 	rarity_value = 20
 	license = 9
 	designs = list(
@@ -67,7 +66,6 @@
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss/gemini
 	disk_name = "Deepflare Security - Gemini Energy personal Defense Weapon"
-	icon_state = "frozenstar"
 	rarity_value = 30
 	license = 9
 	designs = list(

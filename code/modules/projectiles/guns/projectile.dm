@@ -42,6 +42,7 @@
 	var/tac_reloads = TRUE	// Enables guns to eject mag and insert new magazine.
 	var/no_internal_mag = FALSE // to bar sniper and double-barrel from installing overshooter.
 
+
 /obj/item/weapon/gun/projectile/Destroy()
 	QDEL_NULL(chambered)
 	QDEL_NULL(ammo_magazine)

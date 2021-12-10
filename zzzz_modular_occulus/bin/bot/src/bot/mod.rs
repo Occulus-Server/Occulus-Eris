@@ -1,15 +1,14 @@
-mod rpc;
 mod commands;
-mod framework;
 mod files;
+mod framework;
+pub mod quotes;
+mod rpc;
 
-use commands::{general::*, admin::*, rand::*};
+use commands::{admin::*, general::*, quotes::*, rand::*};
 use serenity::{
-    framework::standard::{
-        macros::{group},
-        StandardFramework
-    },
-    prelude::*
+    framework::standard::{macros::group, StandardFramework},
+    model::user::CurrentUser,
+    prelude::*,
 };
 use std::sync::Arc;
 use tokio::sync::broadcast::*;
@@ -21,10 +20,20 @@ impl TypeMapKey for ChannelContainer {
     type Value = Sender<State>;
 }
 
+pub struct BotUserContainer;
+impl TypeMapKey for BotUserContainer {
+    type Value = Arc<CurrentUser>;
+}
+
 #[group]
-#[commands(status, storyteller, duration, roaches, spola, sanity)]
+#[commands(status, notifyme)]
 #[summary = "General server commands"]
 struct General;
+
+#[group]
+#[commands(spola, sanity, quote)]
+#[summary = "Fun commands"]
+struct Fun;
 
 #[group]
 #[commands(set_notification_channel, set_notification_group)]
@@ -37,14 +46,21 @@ pub async fn new(mut settings_reader: impl std::io::Read) -> Result<Client, Erro
     let settings: Arc<Settings> = Arc::new(serde_json::from_str(&settings_raw)?);
 
     let framework = StandardFramework::new()
-        .configure(|c| c.with_whitespace(true).prefix(&[&settings.bot_name, "!"].join("")))
+        .configure(|c| {
+            c.with_whitespace(true)
+                .prefix(&[&settings.bot_name, "!"].join(""))
+        })
         .help(&framework::HELP)
         .after(framework::after)
-        .bucket("status", |b| b.delay(5)).await
+        .bucket("status", |b| b.delay(5))
+        .await
         .group(&GENERAL_GROUP)
+        .group(&FUN_GROUP)
         .group(&WEBMIN_GROUP);
 
-    let discord_client = Client::builder(&settings.token).framework(framework).await?;
+    let discord_client = Client::builder(&settings.token)
+        .framework(framework)
+        .await?;
 
     {
         log::info!("Loading settings into client...");
@@ -58,14 +74,25 @@ pub async fn new(mut settings_reader: impl std::io::Read) -> Result<Client, Erro
         state_sender.clone(),
         discord_client.data.clone(),
         discord_client.cache_and_http.http.clone(),
-    ).await;
+    )
+    .await;
     let messages = Arc::new(files::RandomMessages::load());
+    let quotedb = Arc::new(quotes::QuoteDatabase::open()?);
 
     {
+        let user = Arc::new(
+            discord_client
+                .cache_and_http
+                .http
+                .get_current_user()
+                .await?,
+        );
         let mut data = discord_client.data.write().await;
         data.insert::<rpc::BotRpcContainer>(rpc_server);
         data.insert::<ChannelContainer>(state_sender);
         data.insert::<files::RandomMessages>(messages);
+        data.insert::<quotes::QuoteDatabase>(quotedb);
+        data.insert::<BotUserContainer>(user);
     }
 
     Ok(discord_client)
@@ -81,14 +108,11 @@ pub struct State {
 
 impl std::fmt::Display for State {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-       write!(
-           f,
-           "{}\nStoryteller: {}\nDuration: {}, Roaches: {}",
-           self.status,
-           self.storyteller,
-           self.duration,
-           self.roaches
-       )
+        write!(
+            f,
+            "{}\nStoryteller: {}\nDuration: {}, Roaches: {}",
+            self.status, self.storyteller, self.duration, self.roaches
+        )
     }
 }
 
@@ -100,7 +124,7 @@ pub struct Settings {
     // to avoid making functions to change these fields
     // when they're changed in the discord server
     pub notification_channel: u64,
-    pub notification_group: String,
+    pub notification_group: u64,
 
     token: String,
     bot_port: u16,
@@ -112,10 +136,10 @@ impl Default for Settings {
         Settings {
             bot_name: "roachbot".to_string(),
             notification_channel: 0,
-            notification_group: "".to_string(),
+            notification_group: 0,
             token: "REPLACE_ME".to_string(),
             bot_port: 3621,
-            dream_daemon_port: 0
+            dream_daemon_port: 0,
         }
     }
 }
@@ -149,11 +173,10 @@ impl Status {
             Status::Setup | Status::Lobby => 0xFFFFFF,
             Status::InRound => 0x008000,
             Status::CrewTransfer => 0xFFFF00,
-            Status::Restarting => 0xFF0000
+            Status::Restarting => 0xFF0000,
         }
     }
 }
-
 
 impl std::fmt::Display for Status {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

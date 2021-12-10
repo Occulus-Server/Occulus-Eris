@@ -22,13 +22,11 @@
 
 /obj/item/device/neuroinducer/proc/halcyon(mob/living/carbon/human/M, mob/user)
 	if(user.incapacitated() || user.get_active_hand() != src)
-		to_world("user is incapacitated")
 		return
 	to_chat(user, SPAN_DANGER("[user] begins to run the [src] over [M]'s Limbic cortex!"))
 	if (do_mob(user, M, 20))
 		if(!cell_use_check(charge_per_use, user))	//I hate this proc -radiantflash
-			update_icon()
-			to_world("updated icon")	//Inducer charge empty
+			update_icon()	//Inducer charge empty
 			return
 		update_icon()
 		var/mob/living/carbon/human/affected = M
@@ -36,7 +34,6 @@
 			B.finished = TRUE
 		if(M.sanity.level < 25)
 			M.sanity.level = 25
-			to_world("sanity level now 25")
 		to_chat(M, SPAN_NOTICE("You have a warm fuzzy feeling, as if you were remembering a pleasant memory."))
 
 		if(M.stats.getPerk(PERK_LOWBORN) && M.sanity.max_level <110)

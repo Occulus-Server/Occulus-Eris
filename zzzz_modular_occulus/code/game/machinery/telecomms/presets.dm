@@ -11,4 +11,4 @@
 
 /obj/machinery/telecomms/hub/preset_cent
 	autolinkers = list("hub_cent", "c_relay", "s_relay", "m_relay", "r_relay",
-	 "centcomm", "receiverCent", "broadcasterCent", "d_relay")
+	 "centcom", "receiverCent", "broadcasterCent", "d_relay")

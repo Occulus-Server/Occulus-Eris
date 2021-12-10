@@ -34,13 +34,13 @@
 	for(var/stat in stats)
 		var/aspect
 		switch(stats[stat])
-			if(10 to INFINITY)
+			if(4 to INFINITY)//occulus edit, oddity nerf
 				aspect = "an <span style='color:#d0b050;'>overwhelming</span>"
-			if(6 to 10)
+			if(3)//Occulus edit, oddity nerf
 				aspect = "a <span class='red'>strong</span>"
-			if(3 to 6)
+			if(2)//Occulus edit, oddity nerf
 				aspect = "a <span class='green'>medium</span>"
-			if(1 to 3)
+			if(1)//Occulus edit, oddity nerf
 				aspect = "a <span class='blue'>weak</span>"
 			else
 				continue

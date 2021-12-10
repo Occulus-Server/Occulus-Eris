@@ -29,7 +29,7 @@ async fn set_notification_group(ctx: &Context, msg: &Message) -> CommandResult {
         let mut settings = get_settings(ctx).await?;
         let mut settings_cloned = Arc::make_mut(&mut settings);
 
-        settings_cloned.notification_group = msg.mention_roles[0].to_string();
+        settings_cloned.notification_group = *msg.mention_roles[0].as_u64();
 
         set_settings(ctx, Arc::new(settings_cloned.clone())).await?;
 

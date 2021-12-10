@@ -16,7 +16,7 @@
 			taste_tag.Remove(VEGETARIAN_FOOD)//remove vegetarian
 		if(VEGAN_FOOD in taste_tag)//and vegan
 			taste_tag.Remove(VEGAN_FOOD)//remove vegan
-	if(CHEESE_FOOD in taste_tag && VEGAN_FOOD in taste_tag)//if we have cheese and vegan
+	if((CHEESE_FOOD in taste_tag) && (VEGAN_FOOD in taste_tag))//if we have cheese and vegan
 		taste_tag.Remove(VEGAN_FOOD)//remove vegan
 	var/list/blandremoval = list(COCO_FOOD, SALTY_FOOD, SPICY_FOOD, SWEET_FOOD)//These tags remove  bland
 	for(var/notblandflavor in blandremoval)//for each strong flavor

@@ -43,7 +43,7 @@
 // These define the time taken for the shuttle to get to the space station, and the time before it leaves again.
 
 #define PODS_PREPTIME 	600	//10 mins = 600 sec - hol long pods will wait before launch
-#define PODS_TRANSIT 	120 //2 mins - how long pods takes to get to the centcomm
+#define PODS_TRANSIT 	120 //2 mins - how long pods takes to get to the centcom
 #define PODS_LOCKDOWN	90	//1.5 mins - how long pods stay opened, if evacuation will be cancelled
 
 // Shuttle moving status.
@@ -331,3 +331,6 @@
 #define WASHABLE_COLOUR_PRIORITY 	3 //color splashed onto an atom (e.g. paint on turf)
 #define FIXED_COLOUR_PRIORITY 		4 //color inherent to the atom (e.g. blob color)
 #define COLOUR_PRIORITY_AMOUNT      4 //how many priority levels there are.
+
+//Prevent the master controller from starting automatically
+#define NO_INIT_PARAMETER "no-init"

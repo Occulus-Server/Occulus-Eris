@@ -131,9 +131,6 @@
 /obj/spawner/closet,
 /turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
-"aD" = (
-/turf/simulated/floor/tiled/steel/techfloor,
-/area/template_noop)
 "aE" = (
 /obj/structure/bookcase/manuals/xenoarchaeology,
 /turf/simulated/floor/carpet/blucarpet,
@@ -337,7 +334,7 @@ aV
 aL
 ab
 aB
-aD
+au
 ab
 ao
 "}
@@ -351,7 +348,7 @@ aq
 aJ
 ac
 aP
-aD
+au
 aW
 ab
 aa
@@ -420,7 +417,7 @@ aa
 aa
 ab
 at
-aD
+au
 aT
 bd
 av

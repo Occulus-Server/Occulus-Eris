@@ -199,7 +199,7 @@ datum/reagent/nitrate
 			metabolism = 1
 			to_chat(M, "<span class='notice'>You begin to feel transcendental.</span>")
 
-		if(M.z > 5 || M.z < 1) //no centcomm teleport, also not dealing with other unknown sectors
+		if(M.z > 5 || M.z < 1) //no centcom teleport, also not dealing with other unknown sectors
 			to_chat(M, "<span class='warning'>You feel the bluespace leave your body on this sector, nothing happens.</span>")
 			src = null
 			return

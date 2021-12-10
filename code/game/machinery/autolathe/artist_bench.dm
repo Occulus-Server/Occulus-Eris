@@ -252,7 +252,7 @@
 			stats_amt += 3//max = 3*4*2+6 = 30 points, min 3*4+6 = 18
 		for(var/i in 1 to stats_amt)
 			var/stat = pick(ALL_STATS)
-			oddity_stats[stat] = min(MAX_STAT_VALUE, oddity_stats[stat]+ 1) //Occulus Edit - Nerfing Artist oddity stats a bit!
+			oddity_stats[stat] = round(min(MAX_STAT_VALUE, oddity_stats[stat]+ 1)/3) //Occulus Edit - Nerfing Artist oddity stats a bit!
 
 		O.oddity_stats = oddity_stats
 		O.AddComponent(/datum/component/inspiration, O.oddity_stats, O.perk)

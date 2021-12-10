@@ -17364,7 +17364,9 @@
 /turf/simulated/floor/hull,
 /area/space)
 "aQH" = (
-/obj/map_data/eris,
+/obj/map_data/eris{
+	name = "Northern Light"
+	},
 /turf/space,
 /area/space)
 "aQI" = (
@@ -47254,7 +47256,6 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayCryo2";
 	name = "Medbay";
 	req_access = list(5)
 	},
@@ -76690,7 +76691,6 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayCryo2";
 	name = "Medbay";
 	req_access = list(5)
 	},
@@ -76930,7 +76930,6 @@
 "dCr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayCryo2";
 	name = "Medbay";
 	req_access = list(5)
 	},
@@ -98482,7 +98481,6 @@
 /area/eris/engineering/propulsion/left)
 "eAu" = (
 /obj/effect/window_lwall_spawn/smartspawn,
-/obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/atmospherics/pipe/simple/hidden/blue,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -106880,11 +106878,6 @@
 /area/eris/crew_quarters/clothingstorage)
 "nDc" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayFoyer";
-	name = "Upper Medical Hall";
-	req_access = list(5)
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -106898,6 +106891,10 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/airlock/glass_medical{
+	name = "Upper Medical Hallway";
+	req_access = list(5)
 	},
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/medical/medbay/uppercor)
@@ -110562,7 +110559,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayCryo2";
 	name = "Medbay";
 	req_access = list(5)
 	},
@@ -112166,8 +112162,7 @@
 "wiU" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
-	id_tag = "MedbayFoyer";
-	name = "Upper Medical Hall";
+	name = "Upper Medical Hallway";
 	req_access = list(5)
 	},
 /turf/simulated/floor/tiled/white/cargo,
@@ -113266,9 +113261,6 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section2deck1starboard)
-"yay" = (
-/turf/space,
-/area/eris/maintenance/section4deck5starboard)
 "yaG" = (
 /obj/structure/bed/chair/sofa/red/right,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -135165,13 +135157,13 @@ aDf
 aLs
 aMi
 aEI
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -135367,13 +135359,13 @@ aDf
 aLt
 meP
 aEI
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -135569,13 +135561,13 @@ aDf
 aLu
 aMj
 aEI
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -135771,13 +135763,13 @@ aDf
 awD
 aMk
 aEI
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -135973,13 +135965,13 @@ aAW
 awD
 aCr
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -136175,13 +136167,13 @@ aBd
 awD
 aCs
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -136377,13 +136369,13 @@ aAM
 aAS
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -136579,13 +136571,13 @@ aAN
 aAN
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -136781,13 +136773,13 @@ aAN
 aAN
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -136983,13 +136975,13 @@ aAN
 aAN
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -137185,13 +137177,13 @@ aAN
 aAN
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -137387,13 +137379,13 @@ aAP
 aAT
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -137589,13 +137581,13 @@ aAQ
 aAU
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -137791,13 +137783,13 @@ aVj
 aCq
 aCG
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -137993,13 +137985,13 @@ aMG
 awD
 awD
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -165817,9 +165809,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
+aae
+aae
+aae
 aaa
 aaa
 bUG
@@ -166020,7 +166012,7 @@ aaa
 aaa
 aaa
 aae
-aae
+anq
 aae
 aaa
 aaa
@@ -166221,9 +166213,9 @@ aaa
 aaa
 aaa
 aaa
-aae
-anq
-aae
+aad
+acR
+aad
 aaa
 aaa
 bUG
@@ -166625,7 +166617,7 @@ acR
 acR
 acR
 acR
-acR
+abF
 bfg
 abF
 aae
@@ -206218,9 +206210,9 @@ bSx
 bSx
 acR
 acR
-acR
-acR
-acR
+abF
+abF
+abF
 aaa
 aaa
 duu
@@ -206420,9 +206412,9 @@ xNQ
 bSx
 acR
 acR
-acR
+dpW
 bfg
-acR
+abF
 aaa
 aaa
 duu
