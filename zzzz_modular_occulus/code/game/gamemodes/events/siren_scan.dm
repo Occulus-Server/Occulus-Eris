@@ -93,7 +93,6 @@
 	if(siren_anger <= 0)
 		candidates = shuffle(candidates)//Incorporating Donkie's list shuffle
 
-	var/siren_anger = rand(2, 4)
 	while(siren_anger > 0 && candidates.len)
 		PickSirenPod(candidates[1])
 		used_candidates += candidates[1]
