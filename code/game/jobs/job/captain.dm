@@ -23,7 +23,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	ideal_character_age = 70 // Old geezer captains ftw
 	outfit_type = /decl/hierarchy/outfit/job/captain
 
-	description = "You are the the Captain. <br>\
+	description = "You are the Captain. <br>\
 The assigned supervisor of the vast rusting hulk that is the CEV Northern Light. At least, as long as you keep sending the expedition reports.<br>\
 This ship is a pinnacle of your career, crewed by an alliance of corporations and factions that must cooperate to survive.<br>\
 
