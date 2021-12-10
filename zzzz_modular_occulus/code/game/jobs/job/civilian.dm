@@ -2,11 +2,12 @@
 	wage = WAGE_LABOUR_DUMB //Club workers make less than professional wages and are expected to make up the difference in tips.
 	access = list(access_bar, access_kitchen, access_maint_tunnels, access_theatre)
 	also_known_languages = list(LANGUAGE_JIVE = 0)
+	perks = list(PERK_CLUB, /datum/perk/oddity/empath)
 	stat_modifiers = list(
 		STAT_BIO = 15,
-		STAT_ROB = 10,
-		STAT_TGH = 10,
-		STAT_VIG = 5
+		STAT_ROB = 15,
+		STAT_TGH = 15,
+		STAT_VIG = 10
 	)
 	alt_titles = list("Actor", "Bartender", "Bouncer", "Chef", "Clown", "Cook", "Entertainer", "Mime", "Musician")
 
@@ -14,6 +15,7 @@
 	department_account_access = TRUE
 	outfit_type = /decl/hierarchy/outfit/job/service/manager
 	also_known_languages = list(LANGUAGE_JIVE = 0)
+	perks = list(PERK_CLUB, /datum/perk/oddity/market_prof, /datum/perk/oddity/empath)
 	stat_modifiers = list(
 		STAT_BIO = 15,
 		STAT_ROB = 15,
