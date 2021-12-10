@@ -5,7 +5,6 @@
 	var/search_objects = 0 //If we want to consider objects when searching around, set this to 1. If you want to search for objects while also ignoring mobs until hurt, set it to 2. To completely ignore mobs, even when attacked, set it to 3
 	var/ranged_cooldown_time = 150
 /mob/living/simple_animal/hostile/siren/proc/GiveTarget(var/new_target) //Step 4, give us our selected target
-	..()
 	target = new_target
 	if(target == null)
 		return
