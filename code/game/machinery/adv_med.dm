@@ -382,7 +382,7 @@
 					other_wounds += "[device.get_scanner_name()] implanted"
 				else
 					var/obj/item/weapon/implant/device = I
-					if(!device.scanner_hidden)
+					if(!istype(device) || !device.scanner_hidden) // Occulus Edit - fixes shrapnel breaking body scanners
 						unknown_body = TRUE
 			if(unknown_body)
 				other_wounds += "Unknown body present"
