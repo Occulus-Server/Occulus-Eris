@@ -118,7 +118,7 @@
 	while(points > 0)
 		stats[pick(ALL_STATS)] += 1 // Picks a random stat, if not present it adds it with a value of 1, else it increases the value by 1
 		points--
-	worth -= points*CASH_PER_STAT
+	//worth -= points*CASH_PER_STAT Occulus Edit - No longer do merchants spend money into the ether for stats.
 	update_icon()
 	if(!worth)
 		qdel(src)

@@ -124,26 +124,32 @@
 		return
 	holder.sanity.environment_cap_coeff -= 1
 	var/turf/T = get_turf(holder)
-	var/obj/item/W = pickweight(list(
-				/obj/item/weapon/tool/knife/ritual = 0.5,
-				/obj/item/weapon/tool/sword = 0.2,
-				/obj/item/weapon/tool/sword/katana = 0.2,
-				/obj/item/weapon/tool/knife/dagger/ceremonial = 0.8,
-				/obj/item/weapon/gun/projectile/revolver = 0.4))
+	//Occulus Edit Start
+	var/odditystrength = rand(1,3)
+	var/obj/item/W
+	switch(odditystrength)
+		if(1)
+			W = pick(/obj/item/weapon/gun/projectile/revolver,/obj/item/weapon/gun/projectile/giskard,/obj/item/weapon/gun/projectile/mandella, /obj/item/weapon/gun/projectile/boltgun/serbian)
+		if(2)
+			W = pick(/obj/item/weapon/tool/sword,/obj/item/weapon/tool/sword/katana,/obj/item/weapon/tool/hammer/mace, /obj/item/weapon/shield/riot)
+		if(3)
+			W = pick(/obj/item/weapon/tool/knife/ritual,/obj/item/weapon/tool/knife/dagger/ceremonial, /obj/item/weapon/tool/knife/tacknife)
 	holder.sanity.valid_inspirations += W
 	W = new W(T)
 	W.name = "[holder.family_name] family [W.name]"		//Eclipse edit: Family name, not surname
-	var/oddities = rand(2,4)
+	var/oddities = 3
 	var/list/stats = ALL_STATS
 	var/list/final_oddity = list()
 	for(var/i = 0 to oddities)
 		var/stat = pick(stats)
 		stats.Remove(stat)
 		final_oddity += stat
-		final_oddity[stat] = rand(1,7)
+		final_oddity[stat] = odditystrength
+	//Occulus Edit End
 	W.AddComponent(/datum/component/inspiration, final_oddity)
 	W.AddComponent(/datum/component/atom_sanity, 1, "") //sanity gain by area
 	W.sanity_damage -= 1 //damage by view
+	W.price_tag = 8000
 	spawn(1)
 		holder.equip_to_storage_or_drop(W)
 
