@@ -1,4 +1,4 @@
-//Extreme nerf to backgrounds. No nete bonus
+//Extreme nerf to backgrounds. No net bonus
 
 /datum/category_item/setup_option/background/origin/oberth
 	desc = "You're a soldier by trade, whether with a PMC or actual government. Close-quarters combat isn't unfamiliar to you, but you're more used to having your hands around a rifle. \
