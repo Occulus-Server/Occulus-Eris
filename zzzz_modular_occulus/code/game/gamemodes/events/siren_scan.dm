@@ -7,7 +7,6 @@
 	id = "siren_scan"
 	name = "Siren scan"
 
-
 	event_type = /datum/event/siren_scan
 	event_pools = list(EVENT_LEVEL_MODERATE = POOL_THRESHOLD_MODERATE)
 
