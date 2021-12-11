@@ -453,6 +453,8 @@
 
 /obj/item/weapon/reagent_containers/get_item_cost(export)
 	. = ..()
+	if(!reagents)
+		return
 	for(var/datum/reagent/R in reagents.reagent_list)
 		. += R.volume * R.price_tag
 
