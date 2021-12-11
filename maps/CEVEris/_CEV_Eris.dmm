@@ -35515,7 +35515,6 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/structure/bed/chair/custom/onestar/red,
 /turf/simulated/floor/plating,
 /area/eris/maintenance/substation/section4)
 "bGr" = (
@@ -102169,6 +102168,10 @@
 /obj/spawner/scrap/sparse,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/maintenance/section2deck1port)
+"gjw" = (
+/obj/structure/bed/chair/custom/onestar/red,
+/turf/simulated/wall/r_wall,
+/area/eris/maintenance/substation/section4)
 "gjx" = (
 /obj/machinery/alarm{
 	pixel_y = 26
@@ -174737,7 +174740,7 @@ bCU
 wbZ
 bFH
 bFN
-bFN
+gjw
 aVZ
 bFN
 bFN
