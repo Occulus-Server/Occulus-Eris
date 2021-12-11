@@ -237,7 +237,7 @@
 	icon_aggro = "Replicanttendril"
 	icon_dead = "Replicanttendrildead"
 	mouse_opacity = 2
-	move_to_delay = 3
+	move_to_delay = 0
 	friendly = "buzzes near"
 	vision_range = 10
 	speed = 3
