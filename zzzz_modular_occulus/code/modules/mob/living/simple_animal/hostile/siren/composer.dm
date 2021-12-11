@@ -9,11 +9,8 @@
 	icon_gib = "syndicate_gib"
 	mouse_opacity = 2
 	move_to_delay = 5
-	ranged = 0
 	vision_range = 5
-	density = TRUE
 	aggro_vision_range = 11
-	idle_vision_range = 9
 	speed = 4
 	maxHealth = 80
 	health = 80
@@ -21,9 +18,7 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 30
 	attacktext = "slashed"
-	environment_smash = 0
-	retreat_distance = null
-	minimum_distance = 1
+	environment_smash = ENVIRONMENT_SMASH_NONE
 	var/sounddelay = 0
 	var/skremdelay = 0
 	var/special_ability_cooldown
@@ -31,35 +26,27 @@
 	var/list/soundlist = list('zzzz_modular_occulus/sound/effects/solonely.wav', 'zzzz_modular_occulus/sound/effects/whispers.wav')
 
 
-
 /mob/living/simple_animal/hostile/siren/composer/Life()
 	..()
-
 	soundloop()
 	if(target_mob)
 		skremloop()
 
-
 /mob/living/simple_animal/hostile/siren/composer/proc/skremloop()
-	if( skremdelay == 0)
+	if(skremdelay == 0)
 		special_ability()
 		skremdelay = 40
 		return
 	else
-		skremdelay = (skremdelay --)
-		return
+		skremdelay--
 
 /mob/living/simple_animal/hostile/siren/composer/proc/soundloop()
 	if( sounddelay == 0)
-		visible_emote("mimics a distorted sound!")
-		var/sound = pick(soundlist)
-		playsound(src.loc, sound, 100, 1, 8, 8)
+		visible_emote("emits a distorted sound!")
+		playsound(src.loc, pick(soundlist), 100, 1, 8, 8)
 		sounddelay = 30
-		return
 	else
-		sounddelay = (sounddelay --)
-		return
-
+		sounddelay--
 
 //Shriek stuns our victims and make them deaf for a while
 /mob/living/simple_animal/hostile/siren/composer/proc/special_ability()
@@ -75,18 +62,10 @@
 			if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) && istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
 				continue
 		victim.Weaken(4)
-		to_chat(victim, SPAN_WARNING("You hear loud and terrible scream!"))
+		to_chat(victim, SPAN_WARNING("You hear a loud and terrible scream!"))
 
 /mob/living/simple_animal/hostile/siren/composer/proc/scremicon()
-
 	if(icon_state == "sixleg")
 		icon_state = "sixleg-skrem"
-		spawn(16)
+		sleep(16)
 		icon_state = "sixleg"
-		return
-	return
-
-/mob/living/simple_animal/hostile/siren/composer/New()
-	..()
-
-

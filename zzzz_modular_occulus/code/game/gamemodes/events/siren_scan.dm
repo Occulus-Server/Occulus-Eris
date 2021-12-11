@@ -7,7 +7,6 @@
 	id = "siren_scan"
 	name = "Siren scan"
 
-
 	event_type = /datum/event/siren_scan
 	event_pools = list(EVENT_LEVEL_MODERATE = POOL_THRESHOLD_MODERATE)
 
@@ -66,21 +65,7 @@
 			R.wind_down()
 		command_announcement.Announce("The Anomalous electromagnetic interference has ceased. Engineering inspections reccomended.", "Anomaly Alert", new_sound = 'zzzz_modular_occulus/sound/effects/The_Siren.wav')
 
-
-
-/datum/event/siren_scan/proc/PickSirenPod(var/mob/candidate)
-	var/list/spawnTypes = pick_n_take(spawnLists)
-	SpawnSirenPodInRange(candidate,10,7,spawnTypes)
-
-/datum/event/siren_scan/proc/SpawnSirenPodInRange(atom/origin,outer_range,inner_range,list/spawnTypes)
-	for(var/type in spawnTypes)
-		var/turf/picked = get_random_secure_turf_in_range(origin,10,7)
-		type = pick(spawnTypes)
-		new type(picked)
-
-/datum/event/siren_scan/proc/scanning()	//this proc will eventually be made to locate any players, and spawn a cluster of siren mobs out of view on the ship. Not needed for the event tho.
-
-
+/datum/event/siren_scan/proc/scanning()	//this proc locates players, and spawns a cluster of siren mobs out of view on the ship.
 	var/list/candidates = list()	//list of candidate keys
 	for(var/mob/living/carbon/human/G in GLOB.player_list)
 		if(G.mind && G.stat != DEAD && G.is_client_active(5) && !player_is_antag(G.mind))
@@ -90,14 +75,19 @@
 		return
 	candidates -= used_candidates
 
-	if(siren_anger <= 0)
-		candidates = shuffle(candidates)//Incorporating Donkie's list shuffle
-
 	while(siren_anger > 0 && candidates.len)
-		PickSirenPod(candidates[1])
-		used_candidates += candidates[1]
-		candidates.Remove(candidates[1])
+		var/chosen = pick(candidates)
+		SpawnSirenPod(chosen)
+		used_candidates += chosen
+		candidates -= chosen
 		siren_anger--
+
+/datum/event/siren_scan/proc/SpawnSirenPod(atom/origin)
+	var/list/spawnTypes = pick_n_take(spawnLists)
+	for(var/type in spawnTypes)
+		var/turf/picked = get_random_secure_turf_in_range(origin, 10, 7)
+		type = pick(spawnTypes)
+		new type(picked)
 
 /datum/event/siren_scan/end()
 	used_candidates = list()
