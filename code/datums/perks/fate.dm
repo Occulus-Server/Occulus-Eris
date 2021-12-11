@@ -149,7 +149,7 @@
 	W.AddComponent(/datum/component/inspiration, final_oddity)
 	W.AddComponent(/datum/component/atom_sanity, 1, "") //sanity gain by area
 	W.sanity_damage -= 1 //damage by view
-	W.price_tag = 8000
+	W.price_tag = 8000 //Occulus Edit
 	spawn(1)
 		holder.equip_to_storage_or_drop(W)
 
