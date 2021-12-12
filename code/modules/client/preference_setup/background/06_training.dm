@@ -26,13 +26,20 @@
 	to_file(S["TGHMOD"],pref.TGHMOD)
 	to_file(S["VIGMOD"],pref.VIGMOD)
 
-/datum/category_item/player_setup_item/background/sanitize_character()
+/datum/category_item/player_setup_item/background/education/sanitize_character()
 	pref.BIOMOD             = sanitize_integer(pref.BIOMOD, -10, 15, initial(pref.BIOMOD))
 	pref.COGMOD             = sanitize_integer(pref.COGMOD, -10, 15, initial(pref.COGMOD))
 	pref.MECMOD             = sanitize_integer(pref.MECMOD, -10, 15, initial(pref.MECMOD))
 	pref.ROBMOD             = sanitize_integer(pref.ROBMOD, -10, 15, initial(pref.ROBMOD))
 	pref.TGHMOD             = sanitize_integer(pref.TGHMOD, -10, 15, initial(pref.TGHMOD))
 	pref.VIGMOD             = sanitize_integer(pref.VIGMOD, -10, 15, initial(pref.VIGMOD))
+	if(calculatetotalpoints() > 15)
+		pref.BIOMOD = 0
+		pref.COGMOD = 0
+		pref.MECMOD = 0
+		pref.ROBMOD = 0
+		pref.TGHMOD = 0
+		pref.VIGMOD = 0
 
 /datum/category_item/player_setup_item/background/education/content(var/mob/user)
 	. = list()
@@ -52,45 +59,63 @@
 
 /datum/category_item/player_setup_item/background/education/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["biomod"])
-		var/new_bio = input(user, "Enter a value between -10 and 15 for your biology", CHARACTER_PREFERENCE_INPUT_TITLE, pref.BIOMOD) as num|null
-		if(new_bio && CanUseTopic(user))
-			if(calculatetotalpoints() + text2num(new_bio)<16)
-				pref.BIOMOD = max(min(round(text2num(new_bio)), 15), -10)
+		var/new_bio = 0
+		new_bio = input(user, "Enter a value between -10 and 15 for your biology", CHARACTER_PREFERENCE_INPUT_TITLE, pref.BIOMOD) as num
+		if(CanUseTopic(user))
+			var/old_bio = pref.BIOMOD
+			pref.BIOMOD = max(min(round(new_bio), 15), -10)
+			if(calculatetotalpoints() > 15)
+				pref.BIOMOD = old_bio
 			return TOPIC_REFRESH
 
 	else if(href_list["cogmod"])
-		var/new_cog = input(user, "Enter a value between -10 and 15 for your cognition. (COG half the cost of other stats).", CHARACTER_PREFERENCE_INPUT_TITLE, pref.COGMOD) as num|null
-		if(new_cog && CanUseTopic(user))
-			if(calculatetotalpoints() + round(text2num(new_cog)/2)<16)
-				pref.COGMOD = max(min(round(text2num(new_cog)), 15), -10)
+		var/new_cog = 0
+		new_cog = input(user, "Enter a value between -10 and 15 for your cognition. (Cognition 50% the cost of other stats).", CHARACTER_PREFERENCE_INPUT_TITLE, pref.COGMOD) as num
+		if(CanUseTopic(user))
+			var/old_cog = pref.COGMOD
+			pref.COGMOD = max(min(round(new_cog),15),-10)
+			if(calculatetotalpoints() > 15)
+				pref.COGMOD = old_cog
 			return TOPIC_REFRESH
 
 	else if(href_list["mecmod"])
-		var/new_mec = input(user, "Enter a value between -10 and 15 for your mechanical.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.MECMOD) as num|null
-		if(new_mec && CanUseTopic(user))
-			if(calculatetotalpoints() + text2num(new_mec)<16)
-				pref.MECMOD = max(min(round(text2num(new_mec)), 15), -10)
+		var/new_mec = 0
+		new_mec = input(user, "Enter a value between -10 and 15 for your mechanical.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.MECMOD) as num
+		if(CanUseTopic(user))
+			var/old_mec = pref.MECMOD
+			pref.MECMOD = max(min(round(new_mec), 15), -10)
+			if(calculatetotalpoints() > 15)
+				pref.MECMOD = old_mec
 			return TOPIC_REFRESH
 
 	else if(href_list["robmod"])
-		var/new_rob = input(user, "Enter a value between -10 and 15 for your robustness.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.ROBMOD) as num|null
-		if(new_rob && CanUseTopic(user))
-			if(calculatetotalpoints() + text2num(new_rob)<16)
-				pref.ROBMOD = max(min(round(text2num(new_rob)), 15), -10)
+		var/new_rob = 0
+		new_rob = input(user, "Enter a value between -10 and 15 for your robustness.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.ROBMOD) as num
+		if(CanUseTopic(user))
+			var/old_rob = pref.ROBMOD
+			pref.ROBMOD = max(min(round(new_rob), 15), -10)
+			if(calculatetotalpoints() > 15)
+				pref.ROBMOD = old_rob
 			return TOPIC_REFRESH
 
 	else if(href_list["tghmod"])
-		var/new_tgh = input(user, "Enter a value between -10 and 15 for your toughness.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.TGHMOD) as num|null
-		if(new_tgh && CanUseTopic(user))
-			if(calculatetotalpoints() + text2num(new_tgh)<16)
-				pref.TGHMOD = max(min(round(text2num(new_tgh)), 15), -10)
+		var/new_tgh = 0
+		new_tgh = input(user, "Enter a value between -10 and 15 for your toughness.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.TGHMOD) as num
+		if(CanUseTopic(user))
+			var/old_tgh = pref.TGHMOD
+			pref.TGHMOD = max(min(round(new_tgh), 15), -10)
+			if(calculatetotalpoints() > 15)
+				pref.TGHMOD = old_tgh
 			return TOPIC_REFRESH
 
 	else if(href_list["vigmod"])
-		var/new_vig = input(user, "Enter a value between -10 and 15 for your vigilance.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.VIGMOD) as num|null
-		if(new_vig && CanUseTopic(user))
-			if(calculatetotalpoints() + text2num(new_vig)<16)
-				pref.VIGMOD = max(min(round(text2num(new_vig)), 15), -10)
+		var/new_vig = 0
+		new_vig = input(user, "Enter a value between -10 and 15 for your vigilance.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.VIGMOD) as num
+		if(CanUseTopic(user))
+			var/old_vig = pref.VIGMOD
+			pref.VIGMOD = max(min(round(new_vig), 15), -10)
+			if(calculatetotalpoints() > 15)
+				pref.VIGMOD = old_vig
 			return TOPIC_REFRESH
 
 	return ..()
