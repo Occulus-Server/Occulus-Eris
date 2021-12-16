@@ -2833,6 +2833,7 @@
 #include "zzzz_modular_occulus\code\game\gamemodes\events\weather\rad_storm.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\events\weather\siren_scan.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\occultist\modular_occultist.dm"
+#include "zzzz_modular_occulus\code\game\gamemodes\occultist\occultist_machines.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\occultist\occultist_mind.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\occultist\occultist_powers.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\occultist\occultist_weapons.dm"

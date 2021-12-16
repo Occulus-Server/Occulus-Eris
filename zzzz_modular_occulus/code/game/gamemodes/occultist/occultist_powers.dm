@@ -8,6 +8,56 @@
 
 // T1 Powers
 
+//This first power is how we fix people bitching about how hard it is to get madness. Hope this helps! - Sigma
+//Made 0 cost on okay of Jamini for the above purpose- Sigma
+/datum/power/occultist/shrine
+	name = "Shrine"
+	desc = "Summons a totem that will slowly drain the sanity of all who observe it."
+	madnesscost = 0
+	activecost = 0 //3 Commenting this out for balance testing, see what happens. Make this 4-5 if we run into issues with it, currently trying something to make madness gain a little easier
+	//The idea is that it doesn't cost any madness to make the totem but you need some roaches and a candle.
+	verbpath = /mob/living/carbon/human/proc/Shrine
+
+/mob/living/carbon/human/proc/Shrine()
+	set category = "Occultist"
+	set desc = "Craft a totem from five small roaches and a candle that shows the truth."
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot construct things while unconsious.")
+		return
+	if(spendpoints(0)) //Free, but needs stuff.
+		var/list/stuff = src.loc.contents
+		var/list/roaches = list() //Needs one roach of MOB_MEDIUM or higher or five roaches of MOB_SMALL or lower.
+		var/large_roach = FALSE //For storing if we have a large roach or not
+		var/obj/item/weapon/flame/candle/candle = null //Checking if we have a candle
+		for(var/subject in stuff) //Check for roach
+			if(istype(subject, /mob/living/carbon/superior_animal/roach))
+				var/mob/living/carbon/superior_animal/roach/R = subject
+				if(R.mob_size <= MOB_SMALL) //MOB_SMALL is 10, this checks for anything smaller than MOB_MEDIUM.
+					roaches += R
+				else if(R.mob_size >= MOB_MEDIUM) //MOB_MEDIUM is 20, this checks for anything MOB_MEDIUM or larger.
+					roaches += R
+					large_roach = TRUE
+			if(istype(subject, /obj/item/weapon/flame/candle))
+				candle = subject
+		if(!large_roach && roaches.len < 5) //If we don't have 5 small or one large roach
+			to_chat(src, "You need more roaches!") //Tell them they need more roaches.
+			return
+		if(!candle)
+			to_chat(src, "You have the roaches, but need a candle!")
+			return
+		for(var/R in roaches)
+			qdel(R)
+		for(candle in stuff)
+			qdel(candle)
+		new /obj/machinery/occultist/totem(loc, usr) //If we have roaches and a candle, spawn it.
+			//maker = usr //For claiming the madness points if a totem sees a breakdown.
+		return
+	else to_chat(src, "You lack the madness to craft a totem.")
+
 /datum/power/occultist/voidmother_embrace
 	name = "Embrace of the Voidmother"
 	desc = "Permanently boosts your positive breakdown chance by 20%"
@@ -198,7 +248,7 @@
 
 /mob/living/carbon/human/proc/Faith_of_the_Voidmother()
 	set category = "Occultist"
-	set desc = "Banish nearby roaches from your location"
+	set desc = "Steel your mind against the madness tugging at the back of your eyes. Not yet, not yet."
 
 	if(spendpoints(1))
 		src.sanity.level = 100
@@ -295,6 +345,27 @@
 	else
 		to_chat(src, "You lack the madness to destroy this item.")
 
+/* //Commented out until I can figure out how the fuck walls work --Sigma 9/17/21 Update: Walls still a fuck. Someone else is going to have to decipher that.-Sigma 10/3/21 -- Update2: Can't figure this out 12-3-21
+   //Materials are still the big fucking stupid. We're gonna need another way to get this to work. Maybe a tool that spawns walls on click?
+/datum/power/occultist/builder
+	name = "Unearthly Construction"
+	desc = "Summons material to craft strange walls and floors."
+	activecost = 2 //maybe make 1?
+	verbpath = /mob/living/carbon/human/proc/Builder
+
+/mob/living/carbon/human/proc/Builder()
+	set category = "Occultist"
+	set desc == "Construct a lair worthy of your madness."
+
+	if(stat == DEAD)
+		to_chat(src, "You are dead.")
+		return
+	if(stat == UNCONSCIOUS)
+		to_chat(src, "You cannot perform the rite while unconsious.")
+	if(spendpoints(2))
+		if(src.get_active_hand())
+			//spawn strange material stack here, 120 should do it?
+*/
 
 //T3 Powers
 
@@ -612,3 +683,14 @@
 	//Hood
 	to_chat(usr, SPAN_DANGER("Your eyes have melted, now you can see. Tear open reality and release what is underneath."))
 	usr.replace_in_slot(new /obj/item/clothing/head/space/occulthood, slot_head, skip_covering_check = TRUE)
+
+/datum/power/occultist/monolith
+	name = "Unnatural Sculpting"
+	desc = "Craft a monolith to your madness and show others the truth."
+	activecost = 0
+	madnesscost = 10
+
+/datum/power/occultist/monolith/addPower(var/mob/living/carbon/human/themaster)
+	set category = "Occultist"
+	set desc = "Summons a Monolith at your location."
+	new /obj/machinery/occultist/monolith(themaster.loc)
