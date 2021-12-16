@@ -92,14 +92,7 @@
 	desc = "[desclore] [descdecon]"
 
 //Set the look. Put these in zzzz_modular_occulus/icons/turf/occultist/misc.dmi
-	icon_state = pick(\
-		"totem",
-		"totem2",
-		"totem3",
-		"totem4",
-		"totem5",
-		"totem6"\
-		)
+	icon_state = pick("totem[rand(1,6)]")
 	decontime = pick(timelist)
 
 // This block is supposed to spawn random materials on deconstruction but I can't get the place_sheet proc to work. If someone can get it to work, comment out the above block.
