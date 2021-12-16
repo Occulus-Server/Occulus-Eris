@@ -1,5 +1,8 @@
-/datum/sanity/proc/onMusic()
-	changeLevel(SANITY_GAIN_MUSIC)
+/datum/sanity/proc/onMusic(var/rate)
+	if(!rate)
+		changeLevel(SANITY_GAIN_MUSIC)
+	else
+		changeLevel(rate)
 	if(resting)
 		add_rest(INSIGHT_DESIRE_MUSIC, 0.4)
 
