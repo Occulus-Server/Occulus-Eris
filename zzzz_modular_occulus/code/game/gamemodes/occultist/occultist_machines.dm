@@ -272,6 +272,7 @@
 
 	else if(charge < 0) //debug in case this breaks.
 		to_chat(user, SPAN_NOTICE("This shouldn't happen, you've got fewer than 0 charges in the monolith, ahelp."))
+		crash_with("[src] had less than 0 charges.")
 
 /obj/machinery/occultist/monolith/Process()
 	if((recharge < world.time) && (charge < chargemax)) //Is the recharge delay lapsed and do we have fewer than max charges?

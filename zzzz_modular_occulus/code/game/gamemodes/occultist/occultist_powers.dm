@@ -34,8 +34,7 @@
 		var/large_roach = FALSE //For storing if we have a large roach or not
 		var/obj/item/weapon/flame/candle/candle = null //Checking if we have a candle
 		for(var/subject in stuff) //Check for roach
-			//to_world(R.type) //DEBUG??? I don't know how this is broken, R.type isn't returning anything help
-			if(istype (subject, /mob/living/carbon/superior_animal/roach))
+			if(istype(subject, /mob/living/carbon/superior_animal/roach))
 				var/mob/living/carbon/superior_animal/roach/R = subject
 				if(R.mob_size <= MOB_SMALL) //MOB_SMALL is 10, this checks for anything smaller than MOB_MEDIUM.
 					roaches += R
@@ -688,7 +687,7 @@
 /datum/power/occultist/monolith
 	name = "Unnatural Sculpting"
 	desc = "Craft a monolith to your madness and show others the truth."
-	activecost= 0
+	activecost = 0
 	madnesscost = 10
 
 /datum/power/occultist/monolith/addPower(var/mob/living/carbon/human/themaster)
