@@ -688,7 +688,7 @@
 /datum/power/occultist/monolith
 	name = "Unnatural Sculpting"
 	desc = "Craft a monolith to your madness and show others the truth."
-	activecost= 0
+	activecost = 0
 	madnesscost = 10
 
 /datum/power/occultist/monolith/addPower(var/mob/living/carbon/human/themaster)
