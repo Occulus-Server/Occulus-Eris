@@ -251,14 +251,14 @@
 	armor = list(
 		melee = 25,
 		bullet = 20,
-		energy = 15,
+		energy = 25,
 		bomb = 10,
 		bio = 0,
 		rad = 0
 	) //Sacrifices armor for more storage, also no arms coverage
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	item_flags = DRAG_AND_DROP_UNEQUIP
-	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS
+	heat_protection = UPPER_TORSO|LOWER_TORSO
 	price_tag = 600
 	rarity_value = 60
 

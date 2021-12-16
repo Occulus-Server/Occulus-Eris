@@ -51,5 +51,5 @@
 		/obj/item/weapon/gun/projectile/selfload,
 		/obj/item/weapon/gun/projectile/giskard,
 		/obj/item/weapon/gun/energy/gun/martin,
-		/obj/item/taperoll,
+		/obj/item/taperoll
 	)
