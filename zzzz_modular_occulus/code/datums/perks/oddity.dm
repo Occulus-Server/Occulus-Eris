@@ -13,6 +13,6 @@
 	icon_state = "flowers"
 
 /datum/perk/oddity/surefooting
-	name = "placeholder"
-	desc = "placeholder"
-	icon_state = "null"
+	name = "Sure Footing"
+	desc = "You're so used to the plating in the maintenance shafts of most starships that you can run through them without tripping."
+	icon_state = "null" //I had an icon but it got lost when my github exploded. Someone can make one if they want
