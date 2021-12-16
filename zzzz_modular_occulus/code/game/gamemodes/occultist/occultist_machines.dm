@@ -45,7 +45,7 @@
 		"\proper the thing in the corner of your eye",
 		"\proper the shadow standing behind you",
 		"\proper the smallest infinity",
-		"\proper the greatest nothingness"
+		"\proper the greatest nothingness",
 		"\proper the blood-blister upon spacetime",
 		"\proper the melody of a blue space",
 		"\proper the scent of water on smoke"\
