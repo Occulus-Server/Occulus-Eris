@@ -7,6 +7,7 @@
 	use_power = NO_POWER_USE
 	unacidable = 1
 	anchored = TRUE
+	spawn_blacklisted = TRUE
 	var/maker
 	var/builder //for holding the builder of the totem for seeing sanity later?
 	var/sanrestore = 10 //How much sanity is restored to non-occultists who watch this thing getting taken apart?
@@ -156,6 +157,7 @@
 	use_power = NO_POWER_USE //not a machine proper, like the nuke
 	unacidable = 1 //yeah we don't want it getting eaten, only one spawnable per occultist per round
 	anchored = TRUE
+	spawn_blacklisted = TRUE
 	var/cooldown = 20 MINUTES //For the touch verb. 20 minutes in ticks is 20,000
 	var/recharge = 0 //for storing recharge times
 	var/charge = 1
