@@ -7,7 +7,7 @@
 	use_power = NO_POWER_USE
 	unacidable = 1
 	anchored = TRUE
-	var/maker = /mob/living/carbon/human
+	var/maker
 	var/builder //for holding the builder of the totem for seeing sanity later?
 	var/sanrestore = 10 //How much sanity is restored to non-occultists who watch this thing getting taken apart?
 	var/desclore //For holding the lore portion of the description
@@ -36,8 +36,8 @@
 	var/list/blacklist = list(/material/resin, /material/voxalloy, /material/plastic/holographic, /material/wood/holographic)//A blacklist of materials we don't want spawning, minus the padding because that's handled on deconstruction
 	var/list/partslist //A list of parts for random choosing when it's time to deconstruct.
 
-/obj/machinery/occultist/totem/New(mob/living/carbon/human/creator)
-	maker = creator //Set the owner for remote madness generation
+/obj/machinery/occultist/totem/New(var/loc, var/cultist)
+	maker = cultist //Set the owner for remote madness generation
 	//Pick a name!
 	name = pick(\
 		"\proper the unsettling question",
@@ -128,9 +128,8 @@
 			to_chat(user, SPAN_NOTICE("You dismantle the strange totem."))
 			STOP_PROCESSING(SSmachines, src) //Destroy the associated processing object to stop the san damage.
 			for(var/mob/living/carbon/human/viewer in view(src))
-				if(viewer.mind && player_is_antag_id(viewer.mind, ROLE_OCCULTIST))//does not have an occultist organ, they shouldn't heal from their own totems being destroyed
-					return
-				else viewer.sanity.changeLevel(sanrestore) //Add sanity for taking apart that monstrosity.
+				if(viewer.mind && !player_is_antag_id(viewer.mind, ROLE_OCCULTIST))//does not have an occultist organ, they shouldn't heal from their own totems being destroyed
+					viewer.sanity.changeLevel(sanrestore) //Add sanity for taking apart that monstrosity
 			/* This block is to be reenabled when we get actual randomized scrap working.
 			for(var/obj/P in component_parts)
 				P.forceMove(loc)
@@ -144,8 +143,7 @@
 /obj/machinery/occultist/totem/Process()
 	for(var/mob/living/carbon/human/H in view(src.loc))
 		H.sanity.insight += 0.05 //Insight yes-yes
-		H.sanity.level -= 5
-		H.sanity.environment_cap_coeff = 0 //No environmental cap
+		H.sanity.level -= 2.5 //Halved from 5 because it's really really damaging at 5
 		//todo: add creepy muttering and other spoopy sound effects that play at random?
 
 
@@ -180,9 +178,9 @@
 		)
 	var/namelist_lore = list( //Then define a list of names that have lore significance to the server. We do this so we can attach proper lore in the desc later.
 		"\proper a vessel-shaped hole",
-		"Avimelech",
-		"THE SKIES",
-		"OBJECT/NAME"
+		"\proper Avimelech",
+		"\proper THE SKIES",
+		"\proper OBJECT/NAME"
 		)
 	var/masterlist = list(namelist, namelist_lore)
 
@@ -207,12 +205,12 @@
 		if(name == "\proper a vessel-shaped hole")
 			desc = "A pool-shaped hole where your life will arrive and disappear. Despite the fact there is nothing here, it doesn't matter; \
 			 the objects matter much less than the holes they occupy. This would be comforting, if only you understood."
-		if(name == "Avimelech")
+		if(name == "\proper Avimelech")
 			desc = "It was so beautiful, once. It believed so strongly in the idealism that rested in all living things; it was your greatest ally. \
 			And this is how you repay a lost soul trying to get home?"
-		if(name == "THE SKIES")
+		if(name == "\proper THE SKIES")
 			desc = "THE SKIES ARE BURIED DEEP, AND WHAT IS ABOVE AWAITS BELOW, IF ONLY YOU COULD DRILL THROUGH HELL."
-		if(name == "OBJECT/NAME")
+		if(name == "\proper OBJECT/NAME")
 			desc = "As the world closes and opens again, the only thing you will carry is the knowledge of death and dreams."
 
 	icon_state = pick(\
@@ -231,7 +229,7 @@
 	if(charge > 0) //Can we activate?
 		charge-- //Subtract the charge
 		for(var/mob/living/carbon/human/viewer in view(src.loc)) //Track all things looking at it.
-			if(viewer.mind) //If they have a brain
+			if(viewer.sanity) //If they have a brain
 				if(player_is_antag_id(viewer.mind, ROLE_OCCULTIST)) //And are not an antag
 					to_chat(user, SPAN_DANGER("Your touch causes occult energies to flare to life, stabbing into the minds of others!")) //Occultist won't break down from this, it's their madness.
 
@@ -240,8 +238,7 @@
 					viewer.sanity.level -= viewer.sanity.level //This should set sanity to 0 on click regardless of amount. I hate this. There is a better way to do this but I don't know how.
 
 				/*The following block is not actually causing the breakdown to affect the person. I don't know how to solve this. It only ever creates an unknown owner error or
-				  the beakdown doesn't happen at all. If someone can fix this, please do so. -Sigma, 10/08/21 -- Update: Still broken as of 11/19/21
-				  Update: still broken as of 12/3/21
+				  the beakdown doesn't happen at all. If someone can fix this, please do so. -Sigma, 10/08/21 -- Update: Still broken as of 11/19/21 -- Still broken, 12-10-21
 				//The following is causing two breakdowns, not one. Not sure why. I think this is okay though because it can only happen once every twenty minutes?
 				else
 					var/list/possible_results = subtypesof(/datum/breakdown/negative) //We want only negatives here. Maybe have it remove the absolute most hated?
@@ -257,16 +254,16 @@
 							break
 					*/
 
-		recharge = (world.time + cooldown) //Set recharge. It'll be 12000 ticks from when it's activated.
+		recharge = (world.time + cooldown) //Set recharge. It'll be 12000 ticks (20 minutes) from when it's activated.
 		START_PROCESSING(SSmachines, src) //Add this to the processing objects to check for later.
 	else if(charge == 0) //Working, but sec is coming out the same as min for some reason.
 		var/min //Storage for the use message: minutes.
 		//var/sec //Storage for the use message: seconds. Currently defaults to the value of var/min and I don't know why.
 		var/time //Use this to figure out min and sec
 
-		time = ((recharge - world.time)/10) //Determine how long is actually left on the recharge and turn it into seconds.
+		time = ((recharge - world.time)/10) //Determine how long is actually left on the recharge and turn it into a big number of seconds.
 		min = (FLOOR((time/60), 1)) //Turn the time var into minutes. We don't round this because it's just for display, the seconds come later.
-		//sec = (round((min % time), 0.1)) //seconds are stupid, figure this out later.
+		//sec = (round((min % time), 0.1)) //This should be telling you how many seconds are left until the minute ticks over, but seconds are stupid, figure this out later.
 
 		to_chat(user, SPAN_NOTICE("Even an insane mind realizes the danger in delving too deep too quickly. Wait [min] minutes for your mind to steel itself once more."))
 			//Todo: add "and [sec] seconds" after "minutes" in the description once it's checking seconds correctly. Currently it's just outputting minutes again. -Sigma 10-4-21

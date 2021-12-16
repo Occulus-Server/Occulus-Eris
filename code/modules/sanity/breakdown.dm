@@ -67,12 +67,16 @@
 	//Occulus edit: Occultist Totems should be able to transmit 1 madness point to the builder if they see a breakdown.
 	for(var/obj/machinery/occultist/totem/T in view(holder.owner))
 		var/mob/living/carbon/human/crafter = T.maker
+		to_chat(world, T.maker)
+		to_chat(world, "Assigning crafter works")
 		if(crafter.stat == DEAD) //No madness gain on death, though you get it on unconsciousness.
 			return
 		else
 			for(var/obj/item/organ/internal/brain/occultist/B in crafter.contents) //Get the brain from the owner
 				if(B) //Check if they still have their brain
+					to_chat(world, "Have a brain")
 					B.madnesspoints ++ //Add one madness
+					to_chat(world, "Added madness")
 				to_chat(crafter, "Your totem has harvested madness.")
 	//Occulus edit: Occultist Totem Remote Gain End
 	if(holder.owner.head && istype(holder.owner.head, /obj/item/clothing/head/mindreader))
