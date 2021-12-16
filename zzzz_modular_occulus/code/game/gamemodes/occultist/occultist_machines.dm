@@ -224,8 +224,8 @@
 	if(charge > 0) //Can we activate?
 		charge-- //Subtract the charge
 		for(var/mob/living/carbon/human/viewer in view(src.loc)) //Track all things looking at it.
-			if(viewer.sanity) //If they have a brain
-				if(player_is_antag_id(viewer.mind, ROLE_OCCULTIST)) //And are not an antag
+			if(viewer.sanity)//If they have a brain
+				if(player_is_antag_id(viewer.mind, ROLE_OCCULTIST)) //And are not an occultist
 					to_chat(user, SPAN_DANGER("Your touch causes occult energies to flare to life, stabbing into the minds of others!")) //Occultist won't break down from this, it's their madness.
 
 				//Delete the following block if you're able to get the negative breakdown to work.
