@@ -10927,7 +10927,6 @@
 /obj/item/device/magnetic_lock/security,
 /obj/item/device/magnetic_lock/security,
 /obj/item/device/magnetic_lock/security,
-/obj/item/weapon/tool/hammer/CAS,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "aAm" = (
@@ -130453,7 +130452,7 @@ aad
 dLB
 dUL
 dLB
-aad
+aaa
 dLB
 aoh
 dMt
