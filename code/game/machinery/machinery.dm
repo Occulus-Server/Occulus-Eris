@@ -142,7 +142,8 @@ Class Procs:
 	return ..()
 
 /obj/machinery/Process()//If you dont use process or power why are you here
-	return PROCESS_KILL
+	if(!(use_power || idle_power_usage || active_power_usage)) //Occulus Edit: What the ACTUAL FUCK Eris?
+		return PROCESS_KILL //Occulus Edit: WHAT THE ACTUAL FUCK ERIS?
 
 /obj/machinery/emp_act(severity)
 	if(use_power && !stat)
