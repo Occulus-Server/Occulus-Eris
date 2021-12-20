@@ -1285,6 +1285,20 @@ obj/screen/fire/DEADelize()
 					I = H.overlays_cache[23]
 			add_overlays(I)
 
+		//Occulus Addition Start - Sanity Screen Effects (Currently using the same for oxyloss)
+		if(H.sanity?.max_level > 0)
+			var/image/I
+			switch(H.sanity.level / H.sanity.max_level)
+				if(0.6 to 0.8)
+					I = H.overlays_cache[13]
+				if(0.4 to 0.6)
+					I = H.overlays_cache[14]
+				if(0.2 to 0.4)
+					I = H.overlays_cache[15]
+				if(0 to 0.2)
+					I = H.overlays_cache[16]
+		//Occulus Addition End
+
 /obj/screen/damageoverlay/proc/UpdateVisionState()
 	if(parentmob.eye_blind)
 		underlays |= list(blind_icon)
