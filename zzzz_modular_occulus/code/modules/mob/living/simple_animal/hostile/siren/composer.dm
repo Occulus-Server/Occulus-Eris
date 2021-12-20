@@ -27,7 +27,9 @@
 
 
 /mob/living/simple_animal/hostile/siren/composer/Life()
-	..()
+	. = ..()
+	if(!.)
+		return
 	soundloop()
 	if(target_mob)
 		skremloop()
