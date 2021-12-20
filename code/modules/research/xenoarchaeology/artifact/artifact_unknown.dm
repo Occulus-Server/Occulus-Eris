@@ -232,7 +232,7 @@
 				my_effect.ToggleActivate()
 			if(secondary_effect && secondary_effect.trigger == TRIGGER_TOXIN && prob(25))
 				secondary_effect.ToggleActivate(0)
-	else if(istype(W,/obj/item/weapon/melee/baton) && W:status ||\
+	else if(istype(W,/obj/item/weapon/tool/baton/stun) && W:status ||\
 			istype(W,/obj/item/weapon/melee/energy) ||\
 			istype(W,/obj/item/weapon/card/emag) ||\
 			istype(W,/obj/item/weapon/tool/multitool) ||\
