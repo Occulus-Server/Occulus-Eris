@@ -348,10 +348,13 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/armory)
 "aba" = (
-/obj/structure/closet/l3closet/security,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/storage/casah,
+/obj/item/clothing/suit/storage/casah,
+/obj/item/clothing/suit/storage/casah,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/armory)
 "abb" = (
@@ -365,10 +368,14 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/item/clothing/under/rank/security/turtleneck,
+/obj/item/clothing/under/rank/security/turtleneck,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/armory)
 "abc" = (
 /obj/structure/closet/wardrobe/sec,
+/obj/item/clothing/under/rank/security/turtleneck,
+/obj/item/clothing/under/rank/security/turtleneck,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/armory)
 "abd" = (
@@ -130445,7 +130452,7 @@ aad
 dLB
 dUL
 dLB
-aad
+aaa
 dLB
 aoh
 dMt
