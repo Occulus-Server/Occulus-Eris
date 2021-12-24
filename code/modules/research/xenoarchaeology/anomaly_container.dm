@@ -32,7 +32,7 @@
 /obj/structure/anomaly_container/proc/release()
 	if(!contained)
 		return
-	contained.dropInto(src)
+	contained.forceMove(get_turf(src))
 	contained = null
 	underlays.Cut()
 	desc = initial(desc)
