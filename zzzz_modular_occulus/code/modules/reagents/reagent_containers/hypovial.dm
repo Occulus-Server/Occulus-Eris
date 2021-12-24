@@ -159,4 +159,4 @@
 	icon_state = "hypovial-t"
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/combat
 	rarity_value = 100
-	preloaded_reagents = list("synaptizine" = 5, "hyperzine" = 10, "oxycodone" = 10, "trauma_control_system" = 10, "nanosymbiotes" = 10)
+	preloaded_reagents = list("synaptizine" = 5, "hyperzine" = 10, "paracetamol" = 10, "trauma_control_system" = 10, "nanosymbiotes" = 10)
