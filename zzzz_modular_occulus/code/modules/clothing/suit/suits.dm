@@ -260,7 +260,7 @@
 	item_flags = DRAG_AND_DROP_UNEQUIP
 	heat_protection = UPPER_TORSO|LOWER_TORSO
 	price_tag = 600
-	rarity_value = 60
+	rarity_value = 80
 
 
 /obj/item/clothing/suit/storage/casah/New()
