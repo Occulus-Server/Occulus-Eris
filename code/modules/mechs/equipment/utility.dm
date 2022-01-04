@@ -280,6 +280,7 @@
 
 		if (!inrange)
 			to_chat(user, SPAN_NOTICE("You must be adjacent to [target] to use the mounted drill."))
+			return
 		else
 			if(isobj(target))
 				var/obj/target_obj = target
@@ -321,36 +322,25 @@
 						if(max(W.material.hardness, W.reinf_material ? W.reinf_material.hardness : 0) > drill_head.material.hardness)
 							to_chat(user, "<span class='warning'>\The [target] is too hard to drill through with this drill head.</span>")
 						target.ex_act(2)
+						pickupore(target)
 						drill_head.durability -= 1
 						log_and_message_admins("used [src] on the wall [W].", user, owner.loc)
 					else if(istype(target, /turf/simulated/mineral))
 						for(var/turf/simulated/mineral/M in range(target,1))
 							if(get_dir(owner,M)&owner.dir)
 								M.GetDrilled()
+								pickupore(M)
 								drill_head.durability -= 1
 					else if(istype(target, /turf/simulated/floor/asteroid))
 						for(var/turf/simulated/floor/asteroid/M in range(target,1))
 							if(get_dir(owner,M)&owner.dir)
 								M.gets_dug()
+								pickupore(M)
 								drill_head.durability -= 1
 					else if(target.loc == T)
 						target.ex_act(2)
 						drill_head.durability -= 1
 						log_and_message_admins("[src] used to drill [target].", user, owner.loc)
-
-
-
-
-					if(owner.hardpoints.len) //if this isn't true the drill should not be working to be fair
-						for(var/hardpoint in owner.hardpoints)
-							var/obj/item/I = owner.hardpoints[hardpoint]
-							if(!istype(I))
-								continue
-							var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in I //clamps work, but anythin that contains an ore crate internally is valid
-							if(ore_box)
-								for(var/obj/item/weapon/ore/ore in range(T,1))
-									if(get_dir(owner,ore)&owner.dir)
-										ore.Move(ore_box)
 
 					playsound(src, 'sound/weapons/rapidslice.ogg', 50, 1) // OCCULUS EDIT: more impactful noise
 
@@ -359,6 +349,17 @@
 
 
 			return 1
+
+/obj/item/mech_equipment/drill/proc/pickupore(var/turf/simulated/target)
+	if(owner.hardpoints.len) //if this isn't true the drill should not be working to be fair
+		for(var/hardpoint in owner.hardpoints)
+			var/obj/item/I = owner.hardpoints[hardpoint]
+			if(!istype(I))
+				continue
+			var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in I //clamps work, but anythin that contains an ore crate internally is valid
+			if(ore_box)
+				for(var/obj/item/weapon/ore/ore in target.contents)
+					ore.Move(ore_box)
 		///// OCCULUS EDIT END
 
 /obj/item/mech_equipment/mounted_system/extinguisher
