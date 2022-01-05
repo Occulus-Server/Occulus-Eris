@@ -918,7 +918,7 @@
 		H.Process()
 	if(!overlays_cache)
 		overlays_cache = list()
-		overlays_cache.len = 23
+		overlays_cache.len = 28 // Occulus Edit - Adds Sanity Overlay
 		overlays_cache[1] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage1")
 		overlays_cache[2] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage2")
 		overlays_cache[3] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage3")
@@ -942,6 +942,12 @@
 		overlays_cache[21] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay4")
 		overlays_cache[22] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay5")
 		overlays_cache[23] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay6")
+		
+		overlays_cache[24] = image('zzzz_modular_occulus/icons/mob/screen1_full.dmi', "icon_state" = "psy0") // Occulus Edit Start - Adds Sanity Overlay
+		overlays_cache[25] = image('zzzz_modular_occulus/icons/mob/screen1_full.dmi', "icon_state" = "psy1") 
+		overlays_cache[26] = image('zzzz_modular_occulus/icons/mob/screen1_full.dmi', "icon_state" = "psy2") 
+		overlays_cache[27] = image('zzzz_modular_occulus/icons/mob/screen1_full.dmi', "icon_state" = "psy3") 
+		overlays_cache[28] = image('zzzz_modular_occulus/icons/mob/screen1_full.dmi', "icon_state" = "psy4") // Occulus Edit End
 
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
 		handle_hud_list()

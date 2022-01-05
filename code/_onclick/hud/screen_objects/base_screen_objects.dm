@@ -1289,14 +1289,17 @@ obj/screen/fire/DEADelize()
 		if(H.sanity?.max_level > 0)
 			var/image/I
 			switch(H.sanity.level / H.sanity.max_level)
+				if(0.8 to 1)
+					I = H.overlays_cache[24]
 				if(0.6 to 0.8)
-					I = H.overlays_cache[13]
+					I = H.overlays_cache[25]
 				if(0.4 to 0.6)
-					I = H.overlays_cache[14]
+					I = H.overlays_cache[26]
 				if(0.2 to 0.4)
-					I = H.overlays_cache[15]
+					I = H.overlays_cache[27]
 				if(0 to 0.2)
-					I = H.overlays_cache[16]
+					I = H.overlays_cache[28]
+			add_overlays(I)
 		//Occulus Addition End
 
 /obj/screen/damageoverlay/proc/UpdateVisionState()
