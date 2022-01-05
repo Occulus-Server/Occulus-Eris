@@ -360,6 +360,7 @@
 			if(ore_box)
 				for(var/obj/item/weapon/ore/ore in target.contents)
 					ore.Move(ore_box)
+					CHECK_TICK
 		///// OCCULUS EDIT END
 
 /obj/item/mech_equipment/mounted_system/extinguisher
