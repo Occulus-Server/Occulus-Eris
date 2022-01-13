@@ -22,11 +22,12 @@
 	power = 50
 	ignore_stuttering = TRUE
 
+/*
 /datum/ritual/cruciform/base/relief/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)
 	H.add_chemical_effect(CE_PAINKILLER, 10)
 	set_personal_cooldown(H)
 	return TRUE
-
+*/
 
 /datum/ritual/cruciform/base/soul_hunger
 	name = "Soul Hunger"
@@ -61,6 +62,7 @@
 	set_personal_cooldown(H)
 	return TRUE
 
+/* Occulus Edit: Removal of Reveal
 /datum/ritual/cruciform/occulus/reveal //Occulus Edit, moved to utility
 	name = "Reveal Adversaries"
 	phrase = "Et fumus tormentorum eorum ascendet in saecula saeculorum: nec habent requiem die ac nocte, qui adoraverunt bestiam, et imaginem ejus, et si quis acceperit caracterem nominis ejus."
@@ -100,6 +102,7 @@
 
 	set_personal_cooldown(H)
 	return TRUE
+	End Occulus Edit*/
 
 /datum/ritual/cruciform/occulus/sense_cruciform//Occulus Edit, moved to utility
 	name = "Cruciform sense"
@@ -134,8 +137,8 @@
 	if(!T)
 		fail("No target.", H, C)
 		return FALSE
-	T.hallucination(30,50)	//OCCULUS EDIT - Tweaks to be more in line with mindwipe
-	var/sanity_lost = rand(0,10)	//OCCULUS EDIT - Makes it so that it won't tank someone's sanity, but isn't as powerful
+	T.hallucination(15,30)	//OCCULUS EDIT - Tweaks to be more in line with mindwipe
+	var/sanity_lost = rand(0,25)	//OCCULUS EDIT - Makes it so that it won't tank someone's sanity, but isn't as powerful
 	T.druggy = max(T.druggy, 10)
 	T.sanity.changeLevel(sanity_lost)
 //OCCULUS EDIT START - Add some feedback for the target
@@ -229,7 +232,7 @@
 /datum/ritual/cruciform/base/reincarnation
 	name = "Reincarnation"
 	phrase = "Vetus moritur et onus hoc levaverit"
-	desc = "A reunion of a spirit with it's new body, ritual of activation of a crucifrom, lying on the body. The process requires NeoTheology's special altar on which a body stripped of clothes is to be placed."
+	desc = "This litany calls back the soul of an individual from deep within their cruciform. It must be used after a cruciform is attached."//Occulus Edit
 	var/clone_damage = 60
 
 /datum/ritual/cruciform/base/reincarnation/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
@@ -281,7 +284,7 @@
 /datum/ritual/cruciform/base/install
 	name = "Commitment"
 	phrase = "Unde ipse Dominus dabit vobis signum"
-	desc = "This litany will command cruciform attach to person, so you can perform Reincarnation or Epiphany. Cruciform must lay near them."
+	desc = "This litany attaches a cruciform to a person. The target must be on a Mekhane altar without clothing, and the cruciform must lie on the altar with them."//Occulus Edit
 
 /datum/ritual/cruciform/base/install/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/mob/living/carbon/human/H = get_victim(user)
