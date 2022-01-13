@@ -1285,7 +1285,7 @@ obj/screen/fire/DEADelize()
 					I = H.overlays_cache[23]
 			add_overlays(I)
 
-		//Occulus Addition Start - Sanity Screen Effects (Currently using the same for oxyloss)
+		//Occulus Addition Start - Sanity Screen Effects
 		if(H.sanity?.max_level > 0)
 			var/image/I
 			switch(H.sanity.level / H.sanity.max_level)
