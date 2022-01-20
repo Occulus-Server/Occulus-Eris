@@ -4,7 +4,7 @@
 	can_hold = list(
 		/obj/item/device/scanner/health,
 		/obj/item/weapon/dnainjector,
-		/obj/item/device/radio/headset,
+		/obj/item/device/radio,
 		/obj/item/weapon/reagent_containers/dropper,
 		/obj/item/weapon/reagent_containers/glass/beaker,
 		/obj/item/weapon/reagent_containers/glass/bottle,
@@ -44,7 +44,7 @@
 		/obj/item/weapon/flame/lighter,
 		/obj/item/device/lighting/toggleable/flashlight,
 		/obj/item/modular_computer/pda,
-		/obj/item/device/radio/headset,
+		/obj/item/device/radio,
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
 		/obj/item/weapon/melee,
@@ -53,3 +53,4 @@
 		/obj/item/weapon/gun/energy/gun/martin,
 		/obj/item/taperoll
 	)
+
