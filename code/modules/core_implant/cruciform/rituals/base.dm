@@ -22,7 +22,7 @@
 	power = 50
 	ignore_stuttering = TRUE
 
-/*
+/* Occulus Edit
 /datum/ritual/cruciform/base/relief/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)
 	H.add_chemical_effect(CE_PAINKILLER, 10)
 	set_personal_cooldown(H)
