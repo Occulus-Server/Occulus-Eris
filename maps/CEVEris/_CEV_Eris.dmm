@@ -23278,10 +23278,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/maintenance/section1deck4central)
-"bcZ" = (
-/obj/machinery/chem_master,
-/turf/space,
-/area/space)
 "bda" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 4
@@ -72044,6 +72040,10 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 26
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 11
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/chemistry)
@@ -176933,7 +176933,7 @@ bhb
 aaa
 aaa
 aad
-bcZ
+aaa
 abF
 abF
 cgO
