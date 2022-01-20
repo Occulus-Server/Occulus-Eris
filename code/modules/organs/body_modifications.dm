@@ -36,7 +36,7 @@ var/global/list/modifications_types = list(
 	var/list/body_parts = list(				// For sorting'n'selection optimization.
 		BP_CHEST, "chest2", BP_HEAD, BP_GROIN, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG,\
 		BP_L_FOOT, BP_R_FOOT,\
-		OP_HEART, OP_LUNGS, OP_LIVER, BP_BRAIN, OP_EYES)
+		OP_HEART, OP_LUNGS, OP_LIVER, BP_BRAIN, OP_EYES, OP_STOMACH, OP_KIDNEYS) //Occulus Edit: Allowing unmodified stomaches and kidneys
 	var/list/allowed_species = list("Human")// Species restriction.
 	var/replace_limb = null					// To draw usual limb or not.
 	var/mob_icon = ""
