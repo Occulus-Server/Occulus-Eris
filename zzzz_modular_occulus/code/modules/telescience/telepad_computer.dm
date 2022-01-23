@@ -51,6 +51,7 @@
 	var/totalProgress
 	var/list/delayStages = list()
 	var/obj/effect/telesci_portal_telegraph/telegraph
+	var/obj/effect/telesci_portal_construct/construct
 
 /obj/machinery/computer/telesci_console/Initialize()
 	. = ..()
@@ -131,7 +132,7 @@
 			if(!istype(blocker))
 				continue
 			inhibitorExploded = TRUE
-			playsound(telegraph,'zzzz_modular_occulus/sound/effects/telesci_inhibitor_alarm.ogg', 80, FALSE, 7, extrarange = 10, is_global = FALSE, ignore_walls = TRUE)
+			playsound(blocker,'zzzz_modular_occulus/sound/effects/telesci_inhibitor_alarm.ogg', 80, FALSE, 7, extrarange = 10, is_global = FALSE, ignore_walls = TRUE)
 			blocker.visible_message(SPAN_DANGER("\The [src] sparks violently and begins to shake!"))
 			do_sparks(6, FALSE, get_turf(blocker))
 			addtimer(CALLBACK(blocker, /obj/machinery/telesci_inhibitor/proc/explode), 1 SECOND)
@@ -143,13 +144,16 @@
 
 
 	qdel(telegraph)
+	qdel(construct)
 	telegraph = null
+	construct = null
 	menuOption = BS_MENU_PORTAL
 
 /obj/machinery/computer/telesci_console/proc/closePortal()
 	portalOpened = FALSE
 	if(istype(telepad))
 		telepad.calculating = FALSE
+		telepad.update_icon()
 		for(var/obj/machinery/telesci_relay/relay in telepad.relaysInUse)
 			telepad.relaysInUse -= relay
 			relay.inUse = FALSE
@@ -298,6 +302,8 @@
 	ticking = FALSE
 	menuOption = BS_MENU_SELECT
 	qdel(telegraph)
+	qdel(construct)
+	construct = null
 	telegraph = null
 	for(var/obj/machinery/telesci_relay/relay in telepad.relaysInUse)
 		telepad.relaysInUse -= relay
@@ -330,7 +336,9 @@
 		totalDelay += 2 * baseDelay
 	ticking = TRUE
 	telepad.calculating = TRUE
+	telepad.update_icon()
 	telegraph = new(get_turf(locate(targetX,targetY,targetZ)))
+	construct = new(get_turf(telepad))
 	progressMessage = "Initializing gateway pathing calculations..."
 	return TRUE
 
