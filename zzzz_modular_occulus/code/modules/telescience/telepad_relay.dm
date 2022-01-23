@@ -6,7 +6,7 @@
 	name = "telepad pathing relay"
 	desc = "A pylon with a complicated network of circuitry and a slot for a bluespace crystal."
 	icon = 'zzzz_modular_occulus/icons/obj/telescience.dmi'
-	icon_state = "relay-empty"
+	icon_state = "relay"
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 500
@@ -71,13 +71,13 @@
 		to_chat(user, "<span class='notice'>\The [src]s crystal slot is empty.")
 
 /obj/machinery/telesci_relay/on_update_icon()
+	cut_overlays()
+	if(panel_open)
+		overlays += "relay-panel"
 	if(checkCrystal())
-		icon_state = "relay"
-	else
-		if(panel_open)
-			icon_state = "relay-o"
-		else
-			icon_state = "relay-empty"
+		overlays += "relay-powered"
+	if(inUse)
+		overlays += "relay-calculating"
 
 /obj/machinery/telesci_relay/proc/getCrystalIntegrityPercent()
 	var/percent = stored_crystal.integrity/stored_crystal.max_integrity
@@ -114,7 +114,17 @@
 		if(!checkCrystal())
 			burntOut = TRUE
 	bluespace_entropy(2, get_turf(src), TRUE)
-	FLICK(burntOut ? "relay-pinged-burnout" : "relay-pinged", src)
+	cut_overlays()
+	if(panel_open)
+		overlays += "relay-panel"
+	if(burntOut)
+		overlays += "relay-fried"
+		spawn(4)
+			update_icon()
+	else
+		overlays += "relay-calculating"
+		spawn(4)
+			update_icon()
 
 /obj/machinery/telesci_relay/proc/checkCrystal() //Like pingCrystal(), but without risking damage.
 	if(!stored_crystal)
@@ -127,12 +137,16 @@
 
 /obj/machinery/telesci_relay/proc/chanceExplode()
 	if(prob(30)) //30% chance to just straight up explode.
-		src.visible_message(SPAN_DANGER("\The [src] briefly appears to bend inwards around \the [stored_crystal], before violently exploding!"))
-		var/turf/T = get_turf(src)
-		explosion(T, -1, 1, 2, 5) //Like a landmine but with less flash.
-		qdel(stored_crystal)
-		bluespace_entropy(20, get_turf(src), TRUE)
-		qdel(src)
+		src.visible_message(SPAN_DANGER("\The [src] begins to vibrate, its crystal glowing brightly!"))
+		do_sparks(6, FALSE, get_turf(src))
+		addtimer(CALLBACK(src, /obj/machinery/telesci_relay/proc/explode), 1 SECONDS)
+
+/obj/machinery/telesci_relay/proc/explode()
+	var/turf/T = get_turf(src)
+	explosion(T, -1, 1, 2, 5) //Like a landmine but with less flash.
+	qdel(stored_crystal)
+	bluespace_entropy(20, get_turf(src), TRUE)
+	qdel(src)
 
 /////////////////////////////
 // Occulus Additional Vars //

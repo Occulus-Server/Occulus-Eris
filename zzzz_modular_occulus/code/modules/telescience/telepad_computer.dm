@@ -60,7 +60,10 @@
 	if(istype(W, /obj/item/weapon/tool/multitool))
 		var/obj/item/weapon/tool/multitool/M = W
 		if(M.buffer_object && istype(M.buffer_object, /obj/machinery/telesci_pad))
+			if(istype(telepad))
+				closePortal()
 			telepad = M.buffer_object
+			telepad.boundComputer = src
 			M.buffer_object = null
 			to_chat(user, SPAN_WARNING("You upload the data from the [W.name]'s buffer."))
 	else
@@ -110,7 +113,8 @@
 		for(var/i in 1 to numPings)
 			var/turf/randTurf = get_random_turf_in_range(telegraph, 7, 1)
 			new /obj/effect/telesci_ping(randTurf)
-		playsound(telegraph,'zzzz_modular_occulus/sound/effects/telesci_ping.ogg',50,FALSE,7,is_global = FALSE, ignore_walls = TRUE)
+		playsound(telegraph,'zzzz_modular_occulus/sound/effects/telesci_ping.ogg',50,FALSE, 7, extrarange = 10, is_global = FALSE, ignore_walls = TRUE)
+		playsound(src,'zzzz_modular_occulus/sound/effects/telesci_process.ogg',50,FALSE, 7, is_global = FALSE)
 
 /obj/machinery/computer/telesci_console/proc/addLog(string)
 	teleLog = "\[[stationtime2text()]\] " + string + "<br>" + teleLog
@@ -118,20 +122,18 @@
 /obj/machinery/computer/telesci_console/proc/openPortal()
 	portalOpened = TRUE
 	telepad.openPortal(targetX, targetY, targetZ)
-	if(dangerous)
-		addLog("WHOOP SNOOP")
+	var/area/portalarea = get_area(get_turf(locate(targetX,targetY,targetZ)))
+	if(portalarea.tele_inhibited())
 		for(var/obj/machinery/telesci_relay/relay in telepad.relaysInUse)
-			addLog("BUTTS")
 			relay.chanceExplode()
-		var/area/loc = get_area(get_turf(locate(x,y,z)))
 		var/inhibitorExploded = FALSE
-		for(var/obj/machinery/telesci_inhibitor/blocker in loc.tele_inhibitors)
+		for(var/obj/machinery/telesci_inhibitor/blocker in portalarea.tele_inhibitors)
 			if(!istype(blocker))
 				continue
-			addLog("SCHWEEMUS")
 			inhibitorExploded = TRUE
+			playsound(telegraph,'zzzz_modular_occulus/sound/effects/telesci_inhibitor_alarm.ogg', 80, FALSE, 7, extrarange = 10, is_global = FALSE, ignore_walls = TRUE)
 			blocker.visible_message(SPAN_DANGER("\The [src] sparks violently and begins to shake!"))
-			do_sparks(6, FALSE, get_turf(src))
+			do_sparks(6, FALSE, get_turf(blocker))
 			addtimer(CALLBACK(blocker, /obj/machinery/telesci_inhibitor/proc/explode), 1 SECONDS)
 		
 		if(inhibitorExploded)
@@ -146,12 +148,18 @@
 
 /obj/machinery/computer/telesci_console/proc/closePortal()
 	portalOpened = FALSE
-	telepad.closePortal()
+	if(istype(telepad))
+		telepad.calculating = FALSE
+		for(var/obj/machinery/telesci_relay/relay in telepad.relaysInUse)
+			telepad.relaysInUse -= relay
+			relay.inUse = FALSE
+			relay.update_icon()
+		telepad.closePortal()
 	resetMenus()
 
 /obj/machinery/computer/telesci_console/proc/getDigitRequirement()
 	var/turf/target = get_turf(locate(targetX,targetY,targetZ))
-	var/area/targetArea = get_area(target)
+	var/area/targetArea = target.loc
 	var/turf/origin = get_turf(telepad)
 	if(!isPlayerLevel(targetZ))
 		return BS_DISTANCE_INVALID //Invalid area.
@@ -294,6 +302,7 @@
 	for(var/obj/machinery/telesci_relay/relay in telepad.relaysInUse)
 		telepad.relaysInUse -= relay
 		relay.inUse = FALSE
+		relay.update_icon()
 
 /obj/machinery/computer/telesci_console/proc/startTimer(var/baseDelay = BS_PATHING_DELAY)
 	var/list/obj/machinery/telesci_relay/workingRelays = telepad.findWorkingRelays()
@@ -315,10 +324,12 @@
 			totalDelay += workingRelays[i].pathfinding_speed
 			telepad.relaysInUse += workingRelays[i]
 			workingRelays[i].inUse = TRUE
+			workingRelays[i].update_icon()
 	if(dangerous)
 		delayStages += totalDelay + 2 * baseDelay
 		totalDelay += 2 * baseDelay
 	ticking = TRUE
+	telepad.calculating = TRUE
 	telegraph = new(get_turf(locate(targetX,targetY,targetZ)))
 	progressMessage = "Initializing gateway pathing calculations..."
 	return TRUE
@@ -534,7 +545,7 @@
 	return FALSE
 
 /obj/machinery/computer/telesci_console/Destroy()
-	resetMenus()
+	closePortal()
 	return ..()
 
 // Effects that telegraph the portal to onlookers.
@@ -547,17 +558,20 @@
 /obj/effect/telesci_ping/New(turf/loc)
 	. = ..(loc)
 	FLICK("calc-attempt",src)
+	playsound(src,'zzzz_modular_occulus/sound/effects/telesci_sparkles.ogg',20,FALSE, 7, is_global = FALSE, ignore_walls = FALSE)
 	QDEL_IN(src, 1 SECONDS)
 
 /obj/effect/telesci_portal_telegraph
 	name = "bluespace rift"
 	icon = 'zzzz_modular_occulus/icons/obj/telescience.dmi'
-	icon_state = "portal-telegraph"
+	icon_state = "portal-telegraph-startup"
 	layer = ABOVE_LIGHTING_LAYER
 
-/obj/effect/telesci_portal_telegraph/New(turf/loc)
-	. = ..(loc)
-	FLICK("portal-telegraph-startup",src)
+/obj/effect/telesci_portal_construct
+	name = "bluespace rift"
+	icon = 'zzzz_modular_occulus/icons/obj/telescience.dmi'
+	icon_state = "portal-telegraph"
+	layer = ABOVE_LIGHTING_LAYER
 
 #undef BS_MENU_SELECT
 #undef BS_MENU_MASTERMIND

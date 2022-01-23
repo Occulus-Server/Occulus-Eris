@@ -27,16 +27,10 @@
 	update_icon()
 
 /obj/machinery/telesci_inhibitor/on_update_icon()
-	if(stat & NOPOWER)
-		if(panel_open)
-			icon_state = "inhibitor-panel"
-		else
-			icon_state = "inhibitor"
-	else
-		if(panel_open)
-			icon_state = "inhibitor-on-panel"
-		else
-			icon_state = "inhibitor-on"
+	if(stat & !NOPOWER)
+		overlays += "inhibitor-powered"
+	if(panel_open)
+		overlays += "inhibitor-panel"
 
 /obj/machinery/telesci_inhibitor/Destroy()
 	area.tele_inhibitors -= src

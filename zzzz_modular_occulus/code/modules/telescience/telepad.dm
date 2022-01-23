@@ -6,7 +6,7 @@
 	name = "advanced telepad"
 	desc = "An advanced bluespace telepad used for teleporting objects to and from a location."
 	icon = 'zzzz_modular_occulus/icons/obj/telescience.dmi'
-	icon_state = "telepad"
+	icon_state = "pad"
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = BS_POWER_DRAW
@@ -17,6 +17,8 @@
 	var/power_efficiency = 1.0 //Multiplied by internal power draw, less is better.
 	var/entropy_value = 8
 	var/list/obj/machinery/telesci_relay/relaysInUse = list()
+	var/calculating = FALSE
+	var/obj/machinery/computer/telesci_console/boundComputer = null
 
 /obj/machinery/telesci_pad/RefreshParts()
 	var/maxpow = 0
@@ -48,6 +50,9 @@
 	return ..()
 
 /obj/machinery/telesci_pad/attackby(obj/item/I, mob/user, params)
+	if(calculating)
+		to_chat(user, SPAN_WARNING("Safety interlocks prevent maintenance while the pad is active."))
+		return
 	if(default_deconstruction(I, user))
 		if(panel_open)
 			closePortal()
@@ -56,6 +61,12 @@
 		return
 	if(panel_open)
 		if(istype(I, /obj/item/weapon/tool/multitool))
+			if(istype(boundComputer))
+				to_chat(user, SPAN_WARNING("You unlink the telepad from its console."))
+				boundComputer.closePortal()
+				boundComputer.telepad = null
+				boundComputer = null
+				return
 			var/obj/item/weapon/tool/multitool/M = I
 			M.buffer_object = src
 			to_chat(user, SPAN_WARNING("You save the data in the [I.name]'s buffer."))
@@ -67,10 +78,13 @@
 	return ..()
 
 /obj/machinery/telesci_pad/on_update_icon()
+	cut_overlays()
+	if(stat | !NOPOWER)
+		overlays += "pad-powered"
 	if(panel_open)
-		icon_state = "telepad-o"
-	else
-		icon_state = "telepad"
+		overlays += "pad-panel"
+	if(calculating)
+		overlays += "pad-working"
 
 /obj/machinery/telesci_pad/proc/openPortal(x, y, z)
 	if(panel_open)
@@ -84,6 +98,7 @@
 /obj/machinery/telesci_pad/proc/closePortal()
 	for(var/obj/machinery/telesci_relay/relay in relaysInUse)
 		relay.inUse = FALSE
+		relay.update_icon()
 	relaysInUse = list()
 	if(portal)
 		portal.partner.close()
@@ -120,6 +135,7 @@
 /obj/effect/portal/wormhole/telepad
 	name = "bluespace tunnel"
 	desc = "A hole ripped straight through reality, kept open through massive expenditure of power."
+	layer = ABOVE_LIGHTING_LAYER
 	admin_announce_new = FALSE
 
 /obj/effect/portal/wormhole/telepad/teleport(atom/movable/M as mob|obj)
