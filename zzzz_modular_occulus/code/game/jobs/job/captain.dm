@@ -1,5 +1,13 @@
 /datum/job/hop
 	also_known_languages = list(LANGUAGE_CYRILLIC = 0)
+	stat_modifiers = list(
+		STAT_ROB = 15,
+		STAT_TGH = 15,
+		STAT_BIO = 15,
+		STAT_MEC = 15,
+		STAT_VIG = 15,
+		STAT_COG = 15
+	)
 
 /decl/hierarchy/outfit/job/ensign
 	name = OUTFIT_JOB_NAME("Ensign")
@@ -60,7 +68,7 @@ Should the worst occur, defend your ship, post, and commanders with your life."
 		STAT_ROB = 10,
 		STAT_TGH = 5,
 		STAT_BIO = 5,
-		STAT_MEC = 5,
+		STAT_MEC = 10,
 		STAT_VIG = 20,
 		STAT_COG = 10
 	)

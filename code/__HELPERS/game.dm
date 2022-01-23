@@ -1,11 +1,5 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-#define RANGE_TURFS(RADIUS, CENTER) \
-  block( \
-    locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
-    locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
-  )
-
 /proc/dopage(src, target)
 	var/href_list
 	var/href
@@ -102,7 +96,7 @@
 	var/list/turfs = new/list()
 	var/rsq = radius * (radius+0.5)
 
-	for(var/turf/T in trange(radius, centerturf))
+	for(var/turf/T in RANGE_TURFS(radius, centerturf))
 		var/dx = T.x - centerturf.x
 		var/dy = T.y - centerturf.y
 		if(dx*dx + dy*dy <= rsq)
@@ -568,3 +562,14 @@ datum/projectile_data
 		if(M.client)
 			viewing += M.client
 	flick_overlay(I, viewing, duration, gc_after)
+
+/proc/activate_mobs_in_range(atom/caller , distance)
+	var/turf/starting_point = get_turf(caller)
+	if(!starting_point)
+		return FALSE
+	for(var/mob/living/potential_attacker in SSmobs.mob_living_by_zlevel[starting_point.z])
+		if(!(potential_attacker.stat < DEAD))
+			continue
+		if(!(get_dist(starting_point, potential_attacker) <= distance))
+			continue
+		potential_attacker.try_activate_ai()

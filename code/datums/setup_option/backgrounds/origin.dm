@@ -10,7 +10,6 @@
 	name = "Mercenary"
 	desc = "You're a soldier by trade, whether with a PMC or actual government. Close-quarters combat isn't unfamiliar to you, but you're more used to having your hands around a rifle. \
 			Even if that rifle is more of a shotgun."
-
 	stat_modifiers = list(
 		STAT_ROB = 5,
 		STAT_TGH = 5,

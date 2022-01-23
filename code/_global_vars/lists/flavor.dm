@@ -28,7 +28,8 @@ GLOBAL_LIST_INIT(music_tracks, list(
 	"Hyperspace" = /music_track/hyperspace, //All these Astrometrics tracks are OCCULUS
 	"Hitchhiking" = /music_track/heardofaplace,
 	"Ram it" = /music_track/snout,
-	"Pirate Hunting" = /music_track/starbase
+	"Pirate Hunting" = /music_track/starbase,
+	"You will be Okay" = /music_track/youwillbeokay //Occulus edit
 ))
 
 /proc/setup_music_tracks(var/list/tracks)

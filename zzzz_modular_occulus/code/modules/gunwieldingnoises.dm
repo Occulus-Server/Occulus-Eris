@@ -32,3 +32,11 @@
 /obj/item/weapon/gun/projectile/mk4
 	wieldsound = 'zzzz_modular_occulus/sound/weapons/guns/misc/wieldingnoises/generic_pistol.ogg'
 
+/obj/item/weapon/gun/projectile/automatic/whitenail/blacktalon
+	wieldsound = 'zzzz_modular_occulus/sound/weapons/guns/misc/wieldingnoises/talon_wield.ogg'
+
+// shotguns
+
+/obj/item/weapon/gun/projectile/automatic/whitenail/greyclaw
+	wieldsound = 'zzzz_modular_occulus/sound/weapons/guns/misc/wieldingnoises/claw_wield.ogg'
+

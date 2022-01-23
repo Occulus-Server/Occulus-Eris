@@ -44,16 +44,6 @@
 	name = "\improper Crashed Dropship"
 	icon_state = "A"
 
-/obj/effect/damagedfloor
-	name = "fire"
-
-/obj/effect/damagedfloor/Initialize()
-	..()
-	var/turf/simulated/T = get_turf(src)
-	if(istype(T))
-		T.fire_act(exposed_temperature = T0C + 3000)
-	return INITIALIZE_HINT_QDEL
-
 /obj/item/weapon/paper/marooned/
 	name = "diary page"
 /obj/item/weapon/paper/marooned/note01

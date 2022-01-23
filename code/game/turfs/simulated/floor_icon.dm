@@ -132,7 +132,7 @@ var/list/flooring_cache = list()
 				associate_with_overlays(get_damage_overlay("scorched[n]-[plane]", "scorched[n]"))
 
 	if(update_neighbors)
-		for(var/turf/simulated/floor/F in trange(1, src))
+		for(var/turf/simulated/floor/F in RANGE_TURFS(1, src))
 			if(F == src)
 				continue
 			F.update_icon()

@@ -5,9 +5,12 @@
 		STAT_VIG = 30
 	)
 /datum/job/inspector
+	total_positions = 1
+	spawn_positions = 1
 	stat_modifiers = list(
-		STAT_BIO = 15,
-		STAT_ROB = 15,
+		STAT_BIO = 25,
+		STAT_COG = 10,
+		STAT_ROB = 10,
 		STAT_TGH = 5,
 		STAT_VIG = 25
 	)
@@ -18,9 +21,11 @@
 	)
 	stat_modifiers = list(
 		STAT_BIO = 25,
+		STAT_COG = 5,
+		STAT_ROB = 5,
 		STAT_TGH = 5,
-		STAT_VIG = 20,
-		STAT_ROB = 5
+		STAT_VIG = 20
+
 	)
 	description = "You are a highly trained medical specialist within Aegis. You thusly have a combination of medical and military training. You are not quite as knowledgeable as a civilian career doctor, not quite as much of a fighter as a dedicated Aegis operative.<br>\
 	<br>\

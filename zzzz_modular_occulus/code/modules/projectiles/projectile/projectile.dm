@@ -10,3 +10,13 @@
 		damage_types[i] *= newmult
 	if(agony)
 		agony *= newmult
+
+
+/obj/item/projectile/plasma/blast/on_hit(atom/target)
+	explosion(target, 0, 1, 2, 1)
+	set_light(0)
+	return TRUE
+
+/obj/item/projectile/plasma/blast
+	name = "plasma blast"
+	icon_state = "pulse1_bl"

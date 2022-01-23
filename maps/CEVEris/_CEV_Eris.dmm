@@ -348,10 +348,13 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/armory)
 "aba" = (
-/obj/structure/closet/l3closet/security,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/storage/casah,
+/obj/item/clothing/suit/storage/casah,
+/obj/item/clothing/suit/storage/casah,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/armory)
 "abb" = (
@@ -365,10 +368,14 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/item/clothing/under/rank/security/turtleneck,
+/obj/item/clothing/under/rank/security/turtleneck,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/armory)
 "abc" = (
 /obj/structure/closet/wardrobe/sec,
+/obj/item/clothing/under/rank/security/turtleneck,
+/obj/item/clothing/under/rank/security/turtleneck,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/armory)
 "abd" = (
@@ -17364,7 +17371,9 @@
 /turf/simulated/floor/hull,
 /area/space)
 "aQH" = (
-/obj/map_data/eris,
+/obj/map_data/eris{
+	name = "Northern Light"
+	},
 /turf/space,
 /area/space)
 "aQI" = (
@@ -23269,10 +23278,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/maintenance/section1deck4central)
-"bcZ" = (
-/obj/machinery/chem_master,
-/turf/space,
-/area/space)
 "bda" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 4
@@ -72036,6 +72041,10 @@
 	dir = 8;
 	pixel_x = 26
 	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 11
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/chemistry)
 "dpG" = (
@@ -113259,9 +113268,6 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section2deck1starboard)
-"yay" = (
-/turf/space,
-/area/eris/maintenance/section4deck5starboard)
 "yaG" = (
 /obj/structure/bed/chair/sofa/red/right,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -130446,7 +130452,7 @@ aad
 dLB
 dUL
 dLB
-aad
+aaa
 dLB
 aoh
 dMt
@@ -135158,13 +135164,13 @@ aDf
 aLs
 aMi
 aEI
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -135360,13 +135366,13 @@ aDf
 aLt
 meP
 aEI
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -135562,13 +135568,13 @@ aDf
 aLu
 aMj
 aEI
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -135764,13 +135770,13 @@ aDf
 awD
 aMk
 aEI
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -135966,13 +135972,13 @@ aAW
 awD
 aCr
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -136168,13 +136174,13 @@ aBd
 awD
 aCs
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -136370,13 +136376,13 @@ aAM
 aAS
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -136572,13 +136578,13 @@ aAN
 aAN
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -136774,13 +136780,13 @@ aAN
 aAN
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -136976,13 +136982,13 @@ aAN
 aAN
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -137178,13 +137184,13 @@ aAN
 aAN
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -137380,13 +137386,13 @@ aAP
 aAT
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -137582,13 +137588,13 @@ aAQ
 aAU
 aCt
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -137784,13 +137790,13 @@ aVj
 aCq
 aCG
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -137986,13 +137992,13 @@ aMG
 awD
 awD
 awD
-yay
-yay
-yay
-yay
-yay
-yay
-yay
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -165810,9 +165816,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
+aae
+aae
+aae
 aaa
 aaa
 bUG
@@ -166013,7 +166019,7 @@ aaa
 aaa
 aaa
 aae
-aae
+anq
 aae
 aaa
 aaa
@@ -166214,9 +166220,9 @@ aaa
 aaa
 aaa
 aaa
-aae
-anq
-aae
+aad
+acR
+aad
 aaa
 aaa
 bUG
@@ -166618,7 +166624,7 @@ acR
 acR
 acR
 acR
-acR
+abF
 bfg
 abF
 aae
@@ -176927,7 +176933,7 @@ bhb
 aaa
 aaa
 aad
-bcZ
+aaa
 abF
 abF
 cgO
@@ -206211,9 +206217,9 @@ bSx
 bSx
 acR
 acR
-acR
-acR
-acR
+abF
+abF
+abF
 aaa
 aaa
 duu
@@ -206413,9 +206419,9 @@ xNQ
 bSx
 acR
 acR
-acR
+dpW
 bfg
-acR
+abF
 aaa
 aaa
 duu

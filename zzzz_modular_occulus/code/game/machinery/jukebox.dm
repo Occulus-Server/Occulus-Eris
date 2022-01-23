@@ -1,5 +1,5 @@
 /obj/machinery/media/jukebox/Process()
 	if(playing)
-		for(var/mob/living/carbon/human/listener in range)
-			listener.sanity.onMusic()
-
+		for(var/mob/living/carbon/human/listener in range(7, get_turf(src)))
+			listener.sanity.onMusic(0.5)
+	..()

@@ -39,6 +39,7 @@
 
 
 #define EAT_COOLDOWN_MESSAGE 15 SECONDS
+#define SANITY_MOB_DISTANCE_ACTIVATION 12
 
 #define INSIGHT_DESIRE_MUSIC "music" //Occulus edit
 #define INSIGHT_DESIRE_EXERCISE "exercise" //Occulus edit
@@ -124,23 +125,29 @@
 
 /datum/sanity/proc/handle_view()
 	. = 0
+	activate_mobs_in_range(owner, SANITY_MOB_DISTANCE_ACTIVATION)
 	if(sanity_invulnerability)//Sorry, but that needed to be added here :C
-		for(var/mob/living/L in view(owner.client ? owner.client : owner))
-			L.try_activate_ai()
 		return
 	var/vig = owner.stats.getStat(STAT_VIG)
 	for(var/atom/A in view(owner.client ? owner.client : owner))
 		if(A.sanity_damage) //If this thing is not nice to behold
 			. += SANITY_DAMAGE_VIEW(A.sanity_damage, vig, get_dist(owner, A))
-			if(isliving(A))
-				var/mob/living/L = A
-				L.try_activate_ai()
 
 		if(owner.stats.getPerk(PERK_MORALIST) && istype(A, /mob/living/carbon/human)) //Moralists react negatively to people in distress
 			var/mob/living/carbon/human/H = A
 			if(H.sanity.level < 30 || H.health < 50)
 				. += SANITY_DAMAGE_VIEW(0.1, vig, get_dist(owner, A))
-
+//Occulus Edit Start - Paper Worm springs into action!
+		if(owner.stats.getPerk(PERK_PAPER_WORM) && istype(A, /mob/living/carbon/human)) //Paper Worms are weak in day to day, but spring into action in emergencies!
+			var/mob/living/carbon/human/H = A
+			if(H.sanity.level < 30 || H.health < 50)
+				owner.stats.addTempStat(STAT_MEC, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_COG, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_BIO, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_VIG, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_TGH, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_ROB, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+//Occulus Edit End
 /datum/sanity/proc/handle_area()
 	var/area/my_area = get_area(owner)
 	if(!my_area)

@@ -5,6 +5,13 @@
 /datum/ritual/cruciform/base/relief
 	power = 25
 
+/datum/ritual/cruciform/base/relief/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)
+	var/datum/reagents/R = new /datum/reagents(5, null)
+	R.add_reagent("paracetamol", 5)
+	R.trans_to_mob(H, 5, CHEM_BLOOD)
+	set_personal_cooldown(H)
+	return TRUE
+
 /datum/ritual/cruciform/base/soul_hunger
 	power = 35
 	desc = "Litany of piligrims, helps stave off hunger by generating nutrition at the cost of generating considerable amounts of toxins in the user's bloodstream."
@@ -72,7 +79,9 @@
 		log_and_message_admins("soothed [H]'s pain with the Reprieve litany")
 		to_chat(H, "<span class='info'>A numbing sensation bathes you, soothing your agony.</span>")
 		user.nutrition -= 50
-		H.add_chemical_effect(CE_PAINKILLER, 50)	// Fuggit, lets make it a lot more effective. Basically doesn't do jack otherwise.
+		var/datum/reagents/R = new /datum/reagents(5, null)
+		R.add_reagent("paracetamol", 5)
+		R.trans_to_mob(H, 5, CHEM_BLOOD)
 		return TRUE
 
 /*
@@ -202,6 +211,7 @@ Let there be light! Makes you glow for 5 minutes at a time.
 	price_tag = 0 //no one wants to buy a volatile knife that's more likely to hurt you than your target
 	origin_tech = list(TECH_BIO = 3, TECH_COMBAT = 5, TECH_POWER = 5) // Tech because this is kind of a weird anomaly I guess???
 	var/uses_left = 10
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/knife/dagger/nt/energy/New()
 	..()

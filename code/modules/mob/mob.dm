@@ -1062,7 +1062,7 @@ mob/proc/yank_out_object()
 		if(istype(I,/mob/living/simple_animal/borer))
 			return I
 
-	return 0
+	return FALSE
 
 /mob/proc/updateicon()
 	return
@@ -1180,6 +1180,15 @@ mob/proc/yank_out_object()
 /mob/verb/westfaceperm()
 	set hidden = 1
 	set_face_dir(client.client_dir(WEST))
+
+/mob/verb/change_move_intent()
+	set name = "Change moving intent"
+	set category = "IC"
+	set src = usr
+
+	if(HUDneed["move intent"])
+		var/obj/screen/mov_intent/mov_intent = HUDneed["move intent"]
+		mov_intent.Click()  // Yep , this is all.
 
 /mob/proc/adjustEarDamage()
 	return

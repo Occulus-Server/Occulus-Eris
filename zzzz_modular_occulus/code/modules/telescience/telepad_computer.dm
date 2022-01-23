@@ -198,7 +198,7 @@
 	inputKey = list()
 	for(var/i in 1 to length(input))
 		var/guesschar = copytext(input, i, i+1)
-		if(!guesschar in digits)
+		if(!(guesschar in digits))
 			return FALSE
 		if(guesschar == "0")
 			guesschar = "1"
