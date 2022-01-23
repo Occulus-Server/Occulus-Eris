@@ -119,12 +119,10 @@
 		overlays += "relay-panel"
 	if(burntOut)
 		overlays += "relay-fried"
-		spawn(4)
-			update_icon()
+		addtimer(CALLBACK(src, /atom/proc/update_icon), 4)
 	else
 		overlays += "relay-calculating"
-		spawn(4)
-			update_icon()
+		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
 
 /obj/machinery/telesci_relay/proc/checkCrystal() //Like pingCrystal(), but without risking damage.
 	if(!stored_crystal)
