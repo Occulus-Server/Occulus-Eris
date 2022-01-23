@@ -27,7 +27,7 @@
 	update_icon()
 
 /obj/machinery/telesci_inhibitor/on_update_icon()
-	if(stat & !NOPOWER)
+	if(!(stat & NOPOWER))
 		overlays += "inhibitor-powered"
 	if(panel_open)
 		overlays += "inhibitor-panel"

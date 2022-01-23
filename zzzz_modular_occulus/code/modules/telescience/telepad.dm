@@ -20,6 +20,10 @@
 	var/calculating = FALSE
 	var/obj/machinery/computer/telesci_console/boundComputer = null
 
+/obj/machinery/telesci_inhibitor/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/machinery/telesci_pad/RefreshParts()
 	var/maxpow = 0
 	for(var/obj/item/weapon/stock_parts/capacitor/C in component_parts)
@@ -79,7 +83,7 @@
 
 /obj/machinery/telesci_pad/on_update_icon()
 	cut_overlays()
-	if(stat | !NOPOWER)
+	if(!(stat & NOPOWER))
 		overlays += "pad-powered"
 	if(panel_open)
 		overlays += "pad-panel"
