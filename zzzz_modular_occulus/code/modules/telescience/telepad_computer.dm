@@ -134,7 +134,7 @@
 			playsound(telegraph,'zzzz_modular_occulus/sound/effects/telesci_inhibitor_alarm.ogg', 80, FALSE, 7, extrarange = 10, is_global = FALSE, ignore_walls = TRUE)
 			blocker.visible_message(SPAN_DANGER("\The [src] sparks violently and begins to shake!"))
 			do_sparks(6, FALSE, get_turf(blocker))
-			addtimer(CALLBACK(blocker, /obj/machinery/telesci_inhibitor/proc/explode), 1 SECONDS)
+			addtimer(CALLBACK(blocker, /obj/machinery/telesci_inhibitor/proc/explode), 1 SECOND)
 		
 		if(inhibitorExploded)
 			var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
@@ -559,7 +559,7 @@
 	. = ..(loc)
 	FLICK("calc-attempt",src)
 	playsound(src,'zzzz_modular_occulus/sound/effects/telesci_sparkles.ogg',20,FALSE, 7, is_global = FALSE, ignore_walls = FALSE)
-	QDEL_IN(src, 1 SECONDS)
+	QDEL_IN(src, 1 SECOND)
 
 /obj/effect/telesci_portal_telegraph
 	name = "bluespace rift"

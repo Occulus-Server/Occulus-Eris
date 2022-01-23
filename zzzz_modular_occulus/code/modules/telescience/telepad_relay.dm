@@ -139,7 +139,7 @@
 	if(prob(30)) //30% chance to just straight up explode.
 		src.visible_message(SPAN_DANGER("\The [src] begins to vibrate, its crystal glowing brightly!"))
 		do_sparks(6, FALSE, get_turf(src))
-		addtimer(CALLBACK(src, /obj/machinery/telesci_relay/proc/explode), 1 SECONDS)
+		addtimer(CALLBACK(src, /obj/machinery/telesci_relay/proc/explode), 1 SECOND)
 
 /obj/machinery/telesci_relay/proc/explode()
 	var/turf/T = get_turf(src)
