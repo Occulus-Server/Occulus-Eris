@@ -143,10 +143,8 @@
 			qdel(a)
 
 
-	qdel(telegraph)
-	qdel(construct)
-	telegraph = null
-	construct = null
+	QDEL_NULL(telegraph)
+	QDEL_NULL(construct)
 	menuOption = BS_MENU_PORTAL
 
 /obj/machinery/computer/telesci_console/proc/closePortal()
@@ -301,10 +299,8 @@
 	delayStages = null
 	ticking = FALSE
 	menuOption = BS_MENU_SELECT
-	qdel(telegraph)
-	qdel(construct)
-	construct = null
-	telegraph = null
+	QDEL_NULL(telegraph)
+	QDEL_NULL(construct)
 	for(var/obj/machinery/telesci_relay/relay in telepad.relaysInUse)
 		telepad.relaysInUse -= relay
 		relay.inUse = FALSE
