@@ -102769,6 +102769,7 @@
 /obj/structure/table/standard,
 /obj/item/clothing/glasses/powered/science,
 /obj/item/clothing/glasses/powered/science,
+/obj/item/weapon/tool/baton/stun,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/rnd/anomal)
 "hGU" = (
@@ -106116,7 +106117,6 @@
 /area/eris/rnd/anomalisolone)
 "mFY" = (
 /obj/structure/table/standard,
-/obj/item/weapon/melee/baton,
 /obj/item/stack/nanopaste,
 /obj/item/stack/nanopaste,
 /turf/simulated/floor/tiled/steel/brown_perforated,
