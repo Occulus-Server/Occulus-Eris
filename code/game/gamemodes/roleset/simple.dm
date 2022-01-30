@@ -85,7 +85,7 @@
 	role_id = ROLE_MALFUNCTION
 	req_crew = 15
 
-
+/* OCCULUS EDIT - We don't have the playerbase to support this
 /datum/storyevent/roleset/marshal
 	id = "marshal"
 	name = "marshal"
@@ -117,7 +117,7 @@
 		return 0 //Can't spawn without at least one antag
 
 	return new_weight * max(a_count, 1)
-
+*/
 
 /datum/storyevent/roleset/carrion
 	id = "carrion"
