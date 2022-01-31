@@ -99052,16 +99052,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-<<<<<<< HEAD
 	dir = 4
-=======
-	dir = 10
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	},
 /turf/simulated/open,
 /area/eris/engineering/gravity_generator)
@@ -99378,22 +99369,9 @@
 /turf/simulated/open,
 /area/eris/engineering/gravity_generator)
 "eCv" = (
-<<<<<<< HEAD
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
-=======
-/obj/structure/sign/department/scanner{
-	pixel_x = 32
-	},
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	},
 /turf/simulated/open,
 /area/eris/engineering/gravity_generator)
@@ -99830,8 +99808,9 @@
 /area/eris/quartermaster/misc)
 "eDB" = (
 /obj/structure/catwalk,
-/obj/structure/sign/department/scanner{
-	pixel_x = 32
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25
 	},
 /turf/simulated/open,
 /area/eris/engineering/gravity_generator)
@@ -106501,36 +106480,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-<<<<<<< HEAD
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-=======
-/obj/structure/cable/green{
-	d1 = 32;
-	d2 = 4;
-	icon_state = "32-4"
-	},
-/turf/simulated/open,
-/area/eris/maintenance/section3deck4port)
-"hQs" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel/gray_perforated,
-/area/eris/engineering/long_range_scanner)
-"hQD" = (
-/obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/floor/plating,
-/area/eris/neotheology/chapelritualroom)
-"hRl" = (
-/obj/effect/window_lwall_spawn/smartspawn,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "maint_hatch_nt_garden";
-	layer = 3.3;
-	name = "Maintenance Hatch"
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/chemistry)
@@ -106568,53 +106519,9 @@
 	name = "South APC";
 	pixel_y = -28
 	},
-<<<<<<< HEAD
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
-=======
-/obj/structure/cable/green,
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section3deck5port)
-"iaf" = (
-/obj/structure/multiz/stairs/enter{
-	dir = 1
-	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
-/turf/simulated/floor/tiled/steel,
-/area/eris/hallway/side/eschangarb)
-"idh" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/open,
-/area/eris/engineering/gravity_generator)
-"ifq" = (
-/obj/spawner/pack/machine,
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/crew_quarters/kitchen_storage)
-"ihk" = (
-/obj/machinery/vending/printomat,
-/turf/simulated/floor/tiled/steel,
-/area/eris/hallway/side/section3starboard)
-"ijf" = (
-/obj/structure/table/rack,
-/obj/item/device/last_shelter,
-/obj/machinery/door/blast/shutters/glass{
-	id = "last_shelter"
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -108440,7 +108347,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-<<<<<<< HEAD
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -108468,22 +108374,12 @@
 	id_tag = null;
 	name = "Chemistry Lab";
 	req_access = list(33)
-=======
-/turf/simulated/floor/tiled/steel/bar_light,
-/area/eris/crew_quarters/bar)
-"mxw" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-<<<<<<< HEAD
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -108499,17 +108395,6 @@
 	opacity = 0
 	},
 /obj/structure/disposalpipe/segment,
-=======
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/gray_platform,
-/area/eris/engineering/long_range_scanner)
-"mxI" = (
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -109132,7 +109017,6 @@
 	req_access = list(19)
 	},
 /turf/simulated/floor/tiled/techmaint,
-<<<<<<< HEAD
 /area/eris/maintenance/section1deck2central)
 "qRa" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -109142,25 +109026,6 @@
 /area/eris/quartermaster/hangarsupply)
 "qTX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-=======
-/area/eris/crew_quarters/kitchen_storage)
-"oAL" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/steel/gray_platform,
-/area/eris/engineering/long_range_scanner)
-"oAW" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -109303,7 +109168,6 @@
 /obj/machinery/camera/network/engineering{
 	dir = 8
 	},
-<<<<<<< HEAD
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 10
 	},
@@ -109312,21 +109176,6 @@
 "rir" = (
 /obj/structure/lattice,
 /obj/structure/railing{
-=======
-/turf/simulated/floor/tiled/white/golden,
-/area/eris/neotheology/chapelritualroom)
-"oUD" = (
-/obj/structure/table/standard,
-/obj/item/storage/toolbox/mechanical,
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_y = -28
-	},
-/turf/simulated/floor/tiled/steel/gray_perforated,
-/area/eris/engineering/long_range_scanner)
-"oUI" = (
-/obj/effect/floor_decal/industrial/warning{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	dir = 4
 	},
 /turf/simulated/open,
@@ -109822,7 +109671,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-<<<<<<< HEAD
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck1port)
 "sfI" = (
@@ -109852,23 +109700,6 @@
 "sgz" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
-=======
-/turf/simulated/floor/tiled/techmaint_cargo,
-/area/eris/crew_quarters/kitchen_storage)
-"qSQ" = (
-/obj/structure/catwalk,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25
-	},
-/turf/simulated/open,
-/area/eris/engineering/gravity_generator)
-"qTX" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/surgery)
-"qWY" = (
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -110408,7 +110239,6 @@
 /obj/machinery/disposal/deliveryChute{
 	dir = 1
 	},
-<<<<<<< HEAD
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -110442,33 +110272,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-=======
-/turf/simulated/floor/tiled/steel/bar_dance,
-/area/eris/crew_quarters/bar)
-"rXZ" = (
-/mob/living/simple_animal/cat/fluff/bones,
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/mbo)
-"rYg" = (
-/turf/simulated/floor/tiled/steel/gray_perforated,
-/area/eris/engineering/breakroom)
-"saY" = (
-/obj/spawner/mob/roaches/cluster,
-/turf/simulated/floor/tiled/techmaint_cargo,
-/area/eris/maintenance/section3deck5port)
-"sbX" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/steel/gray_platform,
-/area/eris/engineering/long_range_scanner)
-"seI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/multi_tile/metal/mait{
@@ -110674,7 +110477,6 @@
 	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
-<<<<<<< HEAD
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/medical/medbreak)
 "tpD" = (
@@ -110699,47 +110501,6 @@
 "tqo" = (
 /obj/structure/railing{
 	dir = 1
-=======
-/obj/effect/window_lwall_spawn/plasma/reinforced,
-/turf/simulated/floor/plating,
-/area/eris/rnd/mixing)
-"ssB" = (
-/obj/structure/closet/crate/medical,
-/obj/spawner/firstaid,
-/obj/spawner/firstaid,
-/obj/spawner/firstaid/low_chance,
-/obj/spawner/firstaid/low_chance,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/quartermaster/hangarsupply)
-"ssS" = (
-/obj/structure/table/standard,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/boxes/low_chance,
-/obj/spawner/boxes/low_chance,
-/obj/spawner/boxes/low_chance,
-/obj/landmark/storyevent/potential_unique_oddity_spawn,
-/turf/simulated/floor/tiled/dark/panels,
-/area/eris/maintenance/oldbridge)
-"stu" = (
-/obj/structure/cable/green,
-/obj/machinery/light,
-/obj/machinery/power/apc{
-	name = "South APC";
-	pixel_y = -28
-	},
-/turf/simulated/floor/tiled/steel/gray_perforated,
-/area/eris/engineering/long_range_scanner)
-"stV" = (
-/obj/machinery/door/airlock/gold{
-	name = "Coffins Storage";
-	req_access = list(27)
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	},
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -110796,7 +110557,6 @@
 	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
-<<<<<<< HEAD
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -110804,50 +110564,6 @@
 	layer = 2.6;
 	name = "Medbay Total Lockdown";
 	opacity = 0
-=======
-/turf/simulated/floor/carpet/bcarpet,
-/area/eris/neotheology/office)
-"sAd" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/carpet/bcarpet,
-/area/eris/neotheology/office)
-"sBi" = (
-/obj/spawner/junkfood/rotten/low_chance,
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section3deck5port)
-"sBN" = (
-/obj/structure/table/standard,
-/obj/item/cell/large/high,
-/obj/item/cell/large/high,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25
-	},
-/turf/simulated/floor/tiled/steel/gray_perforated,
-/area/eris/engineering/long_range_scanner)
-"sEG" = (
-/obj/structure/sign/faction/neotheology_cross,
-/turf/simulated/wall/r_wall,
-/area/eris/crew_quarters/hydroponics/garden)
-"sGt" = (
-/obj/effect/shuttle_landmark/merc/sec2east,
-/turf/space,
-/area/space)
-"sGv" = (
-/obj/structure/table/rack,
-/obj/spawner/rations,
-/obj/spawner/rations,
-/obj/spawner/rations,
-/obj/machinery/button/remote/blast_door{
-	id = "kitchen_hatch";
-	name = "Kitchen Hatch Control";
-	pixel_y = -24;
-	req_access = null
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -111736,7 +111452,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-<<<<<<< HEAD
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbay/uppercor)
 "uVW" = (
@@ -111745,35 +111460,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-=======
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white/golden,
-/area/eris/neotheology/churchbooth)
-"uPp" = (
-/obj/structure/table/standard,
-/obj/machinery/button/remote/blast_door{
-	id = "scannerroom";
-	name = "Long Range Scanner Shutters"
-	},
-/turf/simulated/floor/tiled/steel/gray_perforated,
-/area/eris/engineering/long_range_scanner)
-"uVI" = (
-/obj/structure/closet/coffin,
-/obj/structure/sign/faction/neotheology_cross/gold{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/neotheology/storage)
-"uXJ" = (
-/obj/machinery/power/apc{
-	name = "South APC";
-	pixel_y = -28
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -299448,7 +299134,7 @@ eBI
 eCv
 eCr
 eDB
-qSQ
+eCr
 eFe
 dJx
 dLg
@@ -299646,14 +299332,10 @@ abF
 abF
 aaa
 dLg
-<<<<<<< HEAD
 eBJ
-=======
-eAS
-eAS
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 dPX
 eCU
+dLg
 dLg
 dLg
 dLg
@@ -299850,22 +299532,13 @@ abF
 abF
 abF
 abF
-<<<<<<< HEAD
 aaa
 dLg
 dPc
 eFe
 dPq
 dLg
-=======
-peB
-peB
-tCG
-xoq
-mxw
-stu
-peB
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
+aaa
 aaa
 aad
 aaa
@@ -300061,22 +299734,13 @@ abF
 abF
 abF
 abF
-<<<<<<< HEAD
 aaa
 dLg
 dPd
 eFe
 dPr
 dLg
-=======
-peB
-xoq
-kaS
-sbX
-oAL
-hQs
-rlT
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
+aaa
 aaa
 aad
 abF
@@ -300272,22 +299936,13 @@ abF
 abF
 abF
 abF
-<<<<<<< HEAD
 aaa
 dLg
 dPj
 eFe
 esR
 dLg
-=======
-peB
-peB
-xoq
-uPp
-sBN
-oUD
-peB
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
+aaa
 aaa
 aad
 aaa
@@ -300483,23 +300138,14 @@ abF
 abF
 abF
 abF
-<<<<<<< HEAD
 aad
 dLg
 dLg
 dlC
 dLg
 dLg
-=======
-abF
-peB
-rlT
-rlT
-peB
-peB
-peB
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 aad
+aaA
 aaA
 aaA
 aaA
