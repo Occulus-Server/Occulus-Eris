@@ -65,14 +65,14 @@ SUBSYSTEM_DEF(trade)
 		else
 			qdel(s)
 
-	collect_spawn_always()
-		. = list()
-		for(var/path in subtypesof(/datum/trade_station))
-			var/datum/trade_station/s = new path()
-			if(s.spawn_always)
-				. += s
-			else
-				qdel(s)
+/datum/controller/subsystem/trade/proc/collect_spawn_always()
+	. = list()
+	for(var/path in subtypesof(/datum/trade_station))
+		var/datum/trade_station/s = new path()
+		if(s.spawn_always)
+			. += s
+		else
+			qdel(s)
 
 // Get a weighted list of all stations that have not already been spawned
 /datum/controller/subsystem/trade/proc/collect_available_trade_stations()
@@ -99,12 +99,12 @@ SUBSYSTEM_DEF(trade)
 		station = new stype(TRUE)
 	. = station
 
-	init_stations_by_list(list/L)
-		. = list()
-		for(var/i in try_json_decode(L))
-			var/a = init_station(i)
-			if(a)
-				. += a
+/datum/controller/subsystem/trade/proc/init_stations_by_list(list/L)
+	. = list()
+	for(var/i in try_json_decode(L))
+		var/a = init_station(i)
+		if(a)
+			. += a
 
 //Returns cost of an existing object including contents
 /datum/controller/subsystem/trade/proc/get_cost(atom/movable/target)

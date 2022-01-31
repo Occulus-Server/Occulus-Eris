@@ -135,7 +135,7 @@
 		new_event.enter(entering_ship)
 
 /decl/overmap_event_handler/proc/scan_loc(var/obj/effect/overmap/ship/S, var/turf/new_loc, var/can_scan, var/stage_2_width = 1)
-	
+
 	if(!can_scan) // No active scanner
 		// Everything is stage 2 (too far for sensors)
 		for(var/turf/T in range(S.scan_range+1, new_loc))
@@ -375,7 +375,7 @@
 	icon_stages = list("spacehulk", "ship", "poi")
 
 	log_game("Space wrecks point of interest has been scanned and revealed.")
-	overmap_event_handler.jtb_gen.add_specific_junk_field("SpaceWrecks")
+	//overmap_event_handler.jtb_gen.add_specific_junk_field("SpaceWrecks")
 	return
 
 /obj/effect/overmap_event/poi/station
