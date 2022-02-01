@@ -24,7 +24,6 @@
 		SEMI_AUTO_NODELAY,
 		BURST_3_ROUND
 		)
-	spawn_blacklisted = TRUE //until loot rework
 	fire_sound = 'sound/weapons/guns/fire/cal/25.ogg'
 
 /obj/item/weapon/gun/projectile/type_47/on_update_icon()

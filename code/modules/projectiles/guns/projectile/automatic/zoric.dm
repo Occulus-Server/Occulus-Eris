@@ -22,7 +22,6 @@
 	twohanded = FALSE
 	one_hand_penalty = 5 //smg level
 	rarity_value = 32
-	fire_sound = 'sound/weapons/guns/fire/cal/40pistol.ogg'
 
 	init_firemodes = list(
 		FULL_AUTO_300,
