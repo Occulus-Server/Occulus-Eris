@@ -113,7 +113,7 @@
 	base_block_chance = 40
 	item_flags = DRAG_AND_DROP_UNEQUIP
 	shield_integrity = 120
-	var/obj/item/storage/internal/container
+	var/obj/item/weapon/storage/internal/container
 	var/storage_slots = 3
 	var/max_w_class = ITEM_SIZE_HUGE
 	var/list/can_hold = list(
@@ -124,8 +124,31 @@
 		/obj/item/weapon/book/ritual/cruciform,
 		)
 
-/obj/item/weapon/shield/riot/nt/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/melee/baton) || istype(W, /obj/item/weapon/tool/sword/nt) || istype(W, /obj/item/weapon/tool/baton))//Occulus Edit
-		on_bash(W, user)
+/obj/item/weapon/shield/riot/nt/New()
+	container = new /obj/item/weapon/storage/internal(src)
+	container.storage_slots = storage_slots
+	container.can_hold = can_hold
+	container.max_w_class = max_w_class
+	container.master_item = src
+	..()
+
+/obj/item/weapon/shield/riot/nt/proc/handle_attack_hand(mob/user as mob)
+	return container.handle_attack_hand(user)
+
+/obj/item/weapon/shield/riot/nt/proc/handle_mousedrop(var/mob/user, var/atom/over_object)
+	return container.handle_mousedrop(user, over_object)
+
+/obj/item/weapon/shield/riot/nt/MouseDrop(obj/over_object)
+	if(container.handle_mousedrop(usr, over_object))
+		return TRUE
+	return ..()
+
+/obj/item/weapon/shield/riot/nt/attack_hand(mob/user as mob)
+	if (loc == user)
+		container.open(user)
 	else
+		container.close_all()
 		..()
+
+	add_fingerprint(user)
+	return
