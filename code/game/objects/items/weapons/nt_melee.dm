@@ -45,6 +45,7 @@
 	wielded_icon = "nt_halberd_wielded"
 	force = WEAPON_FORCE_ROBUST
 	armor_penetration = ARMOR_PEN_MASSIVE
+	hitsound = 'sound/weapons/melee/heavystab.ogg'
 	w_class = ITEM_SIZE_HUGE
 	slot_flags = SLOT_BACK
 	price_tag = 600
