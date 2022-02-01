@@ -110,6 +110,18 @@
 	spawn_blacklisted = TRUE
 	price_tag = 1000
 	base_block_chance = 40
+	item_flags = DRAG_AND_DROP_UNEQUIP
+	shield_integrity = 120
+	var/obj/item/storage/internal/container
+	var/storage_slots = 3
+	var/max_w_class = ITEM_SIZE_HUGE
+	var/list/can_hold = list(
+		/obj/item/tool/sword/nt/shortsword,
+		/obj/item/tool/sword/nt/spear,
+		/obj/item/tool/knife/dagger/nt,
+		/obj/item/tool/knife/neotritual,
+		/obj/item/book/ritual/cruciform,
+		)
 
 /obj/item/weapon/shield/riot/nt/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/melee/baton) || istype(W, /obj/item/weapon/tool/sword/nt) || istype(W, /obj/item/weapon/tool/baton))//Occulus Edit
