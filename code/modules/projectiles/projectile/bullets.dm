@@ -107,7 +107,6 @@
 			continue
 
 		//pellet hits spread out across different zones, but 'aim at' the targeted zone with higher probability
-		//whether the pellet actually hits the def_zone or a different zone should still be determined by the parent using get_zone_with_miss_chance().
 		var/old_zone = def_zone
 		def_zone = ran_zone(def_zone, spread)
 		//syzygy edit START - this is what makes shotgun buckshot target mobs randomly on the target tile. It adds all mobs on the target mob tile to a list, checks if they're dead or alive, and then hits them randomly.
