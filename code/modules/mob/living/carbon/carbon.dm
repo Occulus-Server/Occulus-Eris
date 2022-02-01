@@ -285,8 +285,8 @@
 		V.update_icon()
 		return
 
-	if (istype(item, /obj/item/grab))
-		var/obj/item/grab/G = item
+	if (istype(item, /obj/item/weapon/grab))
+		var/obj/item/weapon/grab/G = item
 		item = G.throw_held() //throw the person instead of the grab
 		if(!item) return
 		unEquip(G, loc)

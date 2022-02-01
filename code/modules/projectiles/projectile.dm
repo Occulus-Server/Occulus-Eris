@@ -241,7 +241,7 @@
 		if(def_zone)
 			var/spread = max(base_spreading - (spreading_step * distance), 0)
 			var/aim_hit_chance = max(0, projectile_accuracy)
-			
+
 			if(!prob(aim_hit_chance))
 				def_zone = ran_zone(def_zone,spread)
 			last_interact = target_turf
@@ -261,7 +261,7 @@
 	if(check_hit_zone(get_turf(target_mob), distance))
 		if(iscarbon(target_mob))
 			var/mob/living/carbon/C = target_mob
-			var/obj/item/shield/S
+			var/obj/item/weapon/shield/S
 			for(S in get_both_hands(C))
 				if(S && S.block_bullet(C, src, def_zone))
 					on_hit(S,def_zone)
