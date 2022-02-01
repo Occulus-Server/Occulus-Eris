@@ -34,7 +34,7 @@
 	return ..()
 
 /obj/item/projectile/bullet/check_penetrate(var/atom/A)
-	if((!A || !A.density) && !istype(A, /obj/item/shield)) return 1 //if whatever it was got destroyed when we hit it, then I guess we can just keep going
+	if((!A || !A.density) && !istype(A, /obj/item/weapon/shield)) return 1 //if whatever it was got destroyed when we hit it, then I guess we can just keep going
 
 	if(istype(A, /mob/living/exosuit))
 		return 1 //exosuits have their own penetration handling
@@ -50,8 +50,8 @@
 	if(istype(A, /turf/simulated/wall)) // TODO: refactor this from functional into OOP
 		var/turf/simulated/wall/W = A
 		chance = round(penetrating * armor_penetration * 2 / W.material.integrity * 180)
-	else if(istype(A, /obj/item/shield))
-		var/obj/item/shield/S = A
+	else if(istype(A, /obj/item/weapon/shield))
+		var/obj/item/weapon/shield/S = A
 		chance = round(penetrating * armor_penetration * 2 / S.shield_integrity * 180)
 	else if(istype(A, /obj/machinery/door))
 		var/obj/machinery/door/D = A
@@ -78,7 +78,7 @@
 			damage_types[i] *= maintainedVelocity
 		step_delay = min(step_delay / maintainedVelocity, step_delay / 2)
 
-		if(A.opacity || istype(A, /obj/item/shield))
+		if((A.opacity || istype(A, /obj/item/weapon/shield)) && !isarea(A))
 			//display a message so that people on the other side aren't so confused
 			A.visible_message(SPAN_WARNING("\The [src] pierces through \the [A]!"))
 			playsound(A.loc, 'sound/weapons/shield/shieldpen.ogg', 50, 1)

@@ -313,7 +313,7 @@
 	w_class = initial(w_class)
 	update_icon()
 	update_wear_icon()
-
+/*
 //A makeshift knife, for doing all manner of cutting and stabbing tasks in a half-assed manner
 /obj/item/tool/knife/shiv
 	name = "shiv"
@@ -330,7 +330,7 @@
 	degradation = 4 //Gets worse with use
 	max_upgrades = 5 //all makeshift tools get more mods to make them actually viable for mid-late game
 	spawn_tags = SPAWN_TAG_JUNKTOOL
-
+*/
 /obj/item/weapon/tool/spear
 	name = "spear"
 	desc = "A piece of glass tied using cable coil onto two welded rods. Impressive work."

@@ -30,11 +30,11 @@
 		return
 	if(MOVING_QUICKLY(picking_human))
 		item_state_slots = list(slot_l_hand_str = "bastion_left_run",	slot_r_hand_str = "bastion_right_run",	slot_back_str = "bastion_back_run")
-		armor = getArmor(arglist(armor_carry)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
+		//armor = getArmor(arglist(armor_carry)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
 		visible_message("[picking_human] lowers [gender_datums[picking_human.gender].his] [src.name].")
 	else
 		item_state_slots = list(slot_l_hand_str = "bastion_left_walk",	slot_r_hand_str = "bastion_right_walk",	slot_back_str = "bastion_back_walk")
-		armor = getArmor(arglist(armor_brace)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
+		//armor = getArmor(arglist(armor_brace)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
 		visible_message("[picking_human] raises [gender_datums[picking_human.gender].his] [src.name] to cover [gender_datums[picking_human.gender].him]self!")
 	update_wear_icon()
 
@@ -70,7 +70,7 @@
 		icon_state = "barrier_reinforced"
 	else
 		icon_state = "barrier"
-	
+
 /obj/structure/shield_deployed/proc/damage(damage)
 	health -= damage
 	if(health <= 0)
@@ -124,7 +124,7 @@
 	if(istype(mover,/obj/item/projectile))
 		if(locate(/mob/living/) in get_turf(loc))
 			return (check_cover(mover,target))
-		
+
 		var/obj/item/projectile/P = mover
 		var/chance = 40
 		if(get_dist(P.starting, loc) <= 1)
@@ -161,8 +161,8 @@
 		return 1
 	if(get_turf(P.original) == cover)
 		var/chance = 40
-		if(reinforced == TRUE)			
-			chance += 40	
+		if(reinforced == TRUE)
+			chance += 40
 		if(health==0)
 			chance = 0
 		if(prob(chance))
@@ -193,7 +193,7 @@
 	..()
 	if(!CanMouseDrop(over_object))	return
 	if(!(ishuman(usr) || isrobot(usr)))	return
-	if(reinforced)	
+	if(reinforced)
 		to_chat(usr, SPAN_NOTICE("\The [src] needs collapsed first!"))
 		return
 	if(health < max_health)

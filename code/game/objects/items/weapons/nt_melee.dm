@@ -99,13 +99,13 @@
 
 /obj/item/weapon/shield/riot/nt
 	name = "NT Shield"
-	desc = "A saint looking shield, let the God protect you."
+	desc = "A saint looking shield. Comes with various straps for holding items such as swords, daggers, and books."
 	icon = 'icons/obj/nt_melee.dmi'
 	icon_state = "nt_shield"
 	item_state = "nt_shield"
 	force = WEAPON_FORCE_DANGEROUS
 	armor = list(melee = 20, bullet = 30, energy = 30, bomb = 0, bio = 0, rad = 0)
-	armor_brace = list(melee = 20, bullet = 30, energy = 30, bomb = 0, bio = 0, rad = 0) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
+	//armor_brace = list(melee = 20, bullet = 30, energy = 30, bomb = 0, bio = 0, rad = 0) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
 	matter = list(MATERIAL_BIOMATTER = 25, MATERIAL_STEEL = 5, MATERIAL_PLASTEEL = 2)
 	aspects = list(SANCTIFIED)
 	spawn_blacklisted = TRUE
@@ -117,11 +117,11 @@
 	var/storage_slots = 3
 	var/max_w_class = ITEM_SIZE_HUGE
 	var/list/can_hold = list(
-		/obj/item/tool/sword/nt/shortsword,
-		/obj/item/tool/sword/nt/spear,
-		/obj/item/tool/knife/dagger/nt,
-		/obj/item/tool/knife/neotritual,
-		/obj/item/book/ritual/cruciform,
+		/obj/item/weapon/tool/sword/nt/,
+		/obj/item/weapon/tool/sword/nt/longsword,
+		/obj/item/weapon/tool/knife/dagger/nt,
+		/obj/item/weapon/tool/knife/neotritual,
+		/obj/item/weapon/book/ritual/cruciform,
 		)
 
 /obj/item/weapon/shield/riot/nt/attackby(obj/item/weapon/W as obj, mob/user as mob)

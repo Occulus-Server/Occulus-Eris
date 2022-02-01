@@ -35,7 +35,7 @@
 	var/slowdown_time = 1
 	var/shield_integrity = 100
 
-/obj/item/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/weapon/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 
 	if(istype(damage_source, /obj/item/projectile) || (attacker && get_dist(user, attacker) > 1) || user.incapacitated())
 		return 0
@@ -48,7 +48,7 @@
 			return 1
 	return 0
 
-/obj/item/shield/block_bullet(mob/user, var/obj/item/projectile/damage_source, def_zone)
+/obj/item/weapon/shield/block_bullet(mob/user, var/obj/item/projectile/damage_source, def_zone)
 	var/bad_arc = reverse_direction(user.dir)
 	var/list/protected_area = get_protected_area(user)
 	if(protected_area.Find(def_zone) && check_shield_arc(user, bad_arc, damage_source))
@@ -58,7 +58,7 @@
 			return 1
 	return 0
 
-/obj/item/shield/proc/check_shield_arc(mob/user, var/bad_arc, atom/damage_source = null, mob/attacker = null)
+/obj/item/weapon/shield/proc/check_shield_arc(mob/user, var/bad_arc, atom/damage_source = null, mob/attacker = null)
 	//shield direction
 
 	var/shield_dir = 0
@@ -82,7 +82,7 @@
 			return TRUE
 		else
 			return FALSE
-	
+
 
 	if(wielded && !(attack_dir && (attack_dir & bad_arc)))
 		return TRUE
@@ -90,13 +90,13 @@
 		return TRUE
 	return FALSE
 
-/obj/item/shield/proc/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
+/obj/item/weapon/shield/proc/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	return base_block_chance
 
-/obj/item/shield/proc/get_protected_area(mob/user)
+/obj/item/weapon/shield/proc/get_protected_area(mob/user)
 	return BP_ALL_LIMBS
 
-/obj/item/shield/attack(mob/M, mob/user)
+/obj/item/weapon/shield/attack(mob/M, mob/user)
 	if(isliving(M))
 		var/mob/living/L = M
 		if(L.slowdown < slowdown_time * 3)
@@ -135,12 +135,12 @@
 	if(MOVING_DELIBERATELY(user))
 		return base_block_chance
 
-/obj/item/shield/riot/get_protected_area(mob/user)
+/obj/item/weapon/shield/riot/get_protected_area(mob/user)
 	var/list/p_area = list(BP_CHEST, BP_GROIN, BP_HEAD)
-	
+
 	if(user.get_equipped_item(slot_back) == src)
 		return p_area
-	
+
 	if(MOVING_QUICKLY(user))
 		if(user.get_equipped_item(slot_l_hand) == src)
 			p_area = list(BP_L_ARM)
@@ -148,14 +148,14 @@
 			p_area = list(BP_R_ARM)
 	else if(MOVING_DELIBERATELY(user) && wielded)
 		p_area = BP_ALL_LIMBS
-	
+
 	if(user.get_equipped_item(slot_l_hand) == src)
 		p_area.Add(BP_L_ARM)
 	else if(user.get_equipped_item(slot_r_hand) == src)
 		p_area.Add(BP_R_ARM)
 	return p_area
 
-/obj/item/shield/riot/New()
+/obj/item/weapon/shield/riot/New()
 	RegisterSignal(src, COMSIG_ITEM_PICKED, .proc/is_picked)
 	RegisterSignal(src, COMSIG_ITEM_DROPPED, .proc/is_dropped)
 	return ..()
@@ -179,11 +179,11 @@
 		return
 	if(MOVING_QUICKLY(picking_human))
 		item_state = "[initial(item_state)]_run"
-		armor = getArmor(arglist(armor_carry)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
+		//armor = getArmor(arglist(armor_carry)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
 		visible_message("[picking_human] lowers [gender_datums[picking_human.gender].his] [src.name].")
 	else
 		item_state = "[initial(item_state)]_walk"
-		armor = getArmor(arglist(armor_brace)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
+		//armor = getArmor(arglist(armor_brace)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
 		visible_message("[picking_human] raises [gender_datums[picking_human.gender].his] [src.name] to cover [gender_datums[picking_human.gender].him]self!")
 	update_wear_icon()
 
