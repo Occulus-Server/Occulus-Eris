@@ -28,9 +28,11 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/proc/open(mob/user)
 	playsound(loc, 'sound/effects/canopen.ogg', rand(10,50), 1)
+	icon_state += "_open"
 	to_chat(user, SPAN_NOTICE("You open [src] with an audible pop!"))
 	reagent_flags |= OPENCONTAINER
 	verbs += /obj/item/weapon/reagent_containers/food/drinks/proc/gulp_whole
+	update_icon()
 
 /obj/item/weapon/reagent_containers/food/drinks/attack(mob/M as mob, mob/user as mob, def_zone)
 	if(force && !(flags & NOBLUDGEON) && user.a_intent == I_HURT)
@@ -293,12 +295,12 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/mug
 	name = "mug"
-	desc = "A plain white mug."
+	desc = "A plain mug."
 	icon_state = "mug"
 	item_state = "coffee"
 	volume = 30
 	center_of_mass = "x=15;y=13"
-	filling_states = "40;80;100"
+	filling_states = "50;100"
 	base_name = "mug"
 	base_icon = "mug"
 
@@ -364,13 +366,10 @@
 /obj/item/weapon/reagent_containers/food/drinks/mug/teacup
 	name = "cup"
 	desc = "A plain white porcelain teacup."
-	icon_state = "teacup"
-	item_state = "coffee"
-	volume = 20
-	center_of_mass = "x=15;y=13"
-	filling_states = "100"
+	icon_state = "_cup"
 	base_name = "cup"
-	base_icon = "teacup"
+	base_icon = "_cup"
+	filling_states = "100"
 
 /obj/item/weapon/reagent_containers/food/drinks/britcup //Delete this when Clockrigger is done with map changes.
 	name = "mug"
