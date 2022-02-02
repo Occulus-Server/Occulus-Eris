@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(trade)
 	priority = SS_PRIORITY_SUPPLY
 	flags = SS_NO_FIRE
 
-	var/trade_stations_budget = 8 //how many trade stations should spawned
+	var/trade_stations_budget = 7 //how many trade stations should spawned
 
 	var/list/obj/machinery/trade_beacon/sending/beacons_sending = list()
 	var/list/obj/machinery/trade_beacon/receiving/beacons_receiving = list()
@@ -47,43 +47,64 @@ SUBSYSTEM_DEF(trade)
 		weightstationlist.Remove(s)
 	init_stations_by_list(stations2init)
 
-/datum/controller/subsystem/trade/proc
-	collect_trade_stations()
-		. = list()
-		for(var/path in subtypesof(/datum/trade_station))
-			var/datum/trade_station/s = new path()
-			if(!s.spawn_always && s.spawn_probability)
-				.[s] = s.spawn_probability
-			else
-				qdel(s)
+// Add a random trading station after the start of the round among pool of stations not already spawned
+/datum/controller/subsystem/trade/proc/AddStation(var/turf/station_loc)
+	var/list/availablestationlist = collect_available_trade_stations()
 
-	collect_spawn_always()
-		. = list()
-		for(var/path in subtypesof(/datum/trade_station))
+	if(length(availablestationlist))
+		var/datum/trade_station/station_instance = pickweight(availablestationlist)
+		if(istype(station_instance))
+			station_instance.init_src(station_loc, TRUE)  // Spawn at custom location with discovered status
+
+/datum/controller/subsystem/trade/proc/collect_trade_stations()
+	. = list()
+	for(var/path in subtypesof(/datum/trade_station))
+		var/datum/trade_station/s = new path()
+		if(!s.spawn_always && s.spawn_probability)
+			.[s] = s.spawn_probability
+		else
+			qdel(s)
+
+/datum/controller/subsystem/trade/proc/collect_spawn_always()
+	. = list()
+	for(var/path in subtypesof(/datum/trade_station))
+		var/datum/trade_station/s = new path()
+		if(s.spawn_always)
+			. += s
+		else
+			qdel(s)
+
+// Get a weighted list of all stations that have not already been spawned
+/datum/controller/subsystem/trade/proc/collect_available_trade_stations()
+	. = list()
+	for(var/path in subtypesof(/datum/trade_station))
+		var/is_available = TRUE
+		for(var/datum/trade_station/S in SStrade.all_stations)
+			if(istype(S, path))
+				is_available = FALSE
+		if(is_available)
 			var/datum/trade_station/s = new path()
-			if(s.spawn_always)
+			if(s.spawn_probability)
 				. += s
 			else
 				qdel(s)
 
-	init_station(stype)
-		var/datum/trade_station/station
-		if(istype(stype, /datum/trade_station))
-			station = stype
-			if(!station.name)
-				station.init_src()
-		else if(ispath(stype, /datum/trade_station))
-			station = new stype(TRUE)
-		if(station?.linked_with)
-			init_stations_by_list(station.linked_with)
-		. = station
+/datum/controller/subsystem/trade/proc/init_station(stype)
+	var/datum/trade_station/station
+	if(istype(stype, /datum/trade_station))
+		station = stype
+		if(!station.name)
+			station.init_src()
+	else if(ispath(stype, /datum/trade_station))
+		station = new stype(TRUE)
+	. = station
 
-	init_stations_by_list(list/L)
-		. = list()
-		for(var/i in try_json_decode(L))
-			var/a = init_station(i)
-			if(a)
-				. += a
+/datum/controller/subsystem/trade/proc/init_stations_by_list(list/L)
+	. = list()
+	for(var/i in try_json_decode(L))
+		var/a = init_station(i)
+		if(a)
+			. += a
 
 //Returns cost of an existing object including contents
 /datum/controller/subsystem/trade/proc/get_cost(atom/movable/target)
