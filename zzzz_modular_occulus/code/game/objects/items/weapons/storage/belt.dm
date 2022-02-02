@@ -23,7 +23,7 @@
 		/obj/item/weapon/tool/crowbar,
 		/obj/item/device/lighting/toggleable/flashlight,
 		/obj/item/weapon/extinguisher/mini,
-		/obj/item/roller/adv,
+		/obj/item/roller/adv
 	)
 
 /obj/item/weapon/storage/belt/tactical//adds stun baton to belt! Whoop!
