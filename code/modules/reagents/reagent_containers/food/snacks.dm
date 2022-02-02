@@ -387,7 +387,7 @@
 	cooked = TRUE
 	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD)
 
-/obj/item/reagent_containers/food/snacks/shokoloud
+/obj/item/weapon/reagent_containers/food/snacks/shokoloud
 	name = "Shokoloud chocolate bar"
 	desc = "Dark chocolate, love it or hate it."
 	icon_state = "shokoloud"
@@ -403,7 +403,7 @@
 	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
 	taste_tag = list(COCO_FOOD)
 
-/obj/item/reagent_containers/food/snacks/candy_corn
+/obj/item/weapon/reagent_containers/food/snacks/candy_corn
 	name = "candy corn"
 	desc = "It's a handful of candy corn. Cannot be stored in a detective's hat, alas."
 	icon_state = "candy_corn"
@@ -1428,7 +1428,7 @@
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 	taste_tag = list(CHEESE_FOOD)
 
-/obj/item/reagent_containers/food/snacks/wok
+/obj/item/weapon/reagent_containers/food/snacks/wok
 	name = "Wok"
 	icon_state = "wok"
 	desc = "An extra spicy snack originating from Shimatengoku."
@@ -2415,7 +2415,7 @@
 	name = "warm " + name
 	icon_state = "[initial(icon_state)]_hot"
 
-/obj/item/reagent_containers/food/snacks/mre/proc/openmre(mob/user)
+/obj/item/weapon/reagent_containers/food/snacks/mre/proc/openmre(mob/user)
 	icon_state = initial(icon_state) += "_open"
 	desc = "A plethora of steaming beans mixed with meat, ready for consumption."
 	open = TRUE
@@ -2466,18 +2466,18 @@
 	open = FALSE
 	taste_tag = list(COCO_FOOD, SWEET_FOOD)
 
-/obj/item/reagent_containers/food/snacks/proc/open(mob/user)
+/obj/item/weapon/reagent_containers/food/snacks/proc/open(mob/user)
 	open = TRUE
 	icon_state = initial(icon_state) += "_open"
 	update_icon()
 
-/obj/item/reagent_containers/food/snacks/attack_self(mob/user)
+/obj/item/weapon/reagent_containers/food/snacks/attack_self(mob/user)
 	if(!open)
 		open()
 		to_chat(user, SPAN_NOTICE("You tear \the [src] open."))
 		return
 
-/obj/item/reagent_containers/food/snacks/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/weapon/reagent_containers/food/snacks/attack(mob/M as mob, mob/user as mob, def_zone)
 	. = ..()
 	if(!open)
 		open()

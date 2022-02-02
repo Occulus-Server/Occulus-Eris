@@ -325,7 +325,7 @@
 		return
 	..()
 
-/obj/item/reagent_containers/syringe/large
+/obj/item/weapon/reagent_containers/syringe/large
 	name = "large syringe"
 	desc = "A large syringe for those patients who needs a little more"
 	icon = 'icons/obj/large_syringe.dmi'
@@ -341,7 +341,7 @@
 	unacidable = 1 //glass
 	reagent_flags = TRANSPARENT
 
-/obj/item/reagent_containers/syringe/large/on_update_icon()
+/obj/item/weapon/reagent_containers/syringe/large/on_update_icon()
 	cut_overlays()
 
 	var/iconstring = initial(item_state)

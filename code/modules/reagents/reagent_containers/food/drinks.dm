@@ -190,14 +190,14 @@
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 	rarity_value = 15
 
-/obj/item/reagent_containers/food/drinks/dry_ramen/on_update_icon()
-	if(reagent_flags == OPENCONTAINER)	
+/obj/item/weapon/reagent_containers/food/drinks/dry_ramen/on_update_icon()
+	if(reagent_flags == OPENCONTAINER)
 		if(reagents && reagents.total_volume)
 			icon_state = "ramen_open"
 		else
 			icon_state = "ramenempty"
 
-/obj/item/reagent_containers/food/drinks/sillycup
+/obj/item/weapon/reagent_containers/food/drinks/sillycup
 	name = "paper cup"
 	desc = "A paper water cup."
 	icon_state = "water_cup_e"

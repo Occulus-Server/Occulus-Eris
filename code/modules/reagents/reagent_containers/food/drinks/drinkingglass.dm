@@ -11,34 +11,34 @@
 	rarity_value = 20
 	var/morf_glass = TRUE
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/shot
+/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/shot
 	name = "shot"
 	desc = "Your standard drinking glass."
 	icon_state = "shot"
 	volume = 5
 	morf_glass = FALSE
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/mug
+/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/mug
 	name = "glass mug"
 	desc = "Your standard drinking glass."
 	icon_state = "glass_mug"
 	volume = 30
 	morf_glass = FALSE
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/pint
+/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/pint
 	name = "pint"
 	desc = "Your standard drinking glass."
 	icon_state = "pint"
 	volume = 40
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/wineglass
+/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/wineglass
 	name = "wineglass"
 	desc = "Your standard drinking glass."
 	icon_state = "wineglass"
 	volume = 15
 	morf_glass = FALSE
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/double
+/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/double
 	name = "double"
 	desc = "Your standard drinking glass."
 	icon_state = "double"
@@ -46,7 +46,7 @@
 	morf_glass = FALSE
 
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/on_update_icon()
+/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/on_update_icon()
 	name = initial(name)
 	desc = initial(desc)
 	icon_state = initial(icon_state)

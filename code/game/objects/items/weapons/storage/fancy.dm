@@ -329,15 +329,15 @@
 	item_obj = /obj/item/clothing/mask/smokable/cigarette/cigar
 	var/open = FALSE
 
-/obj/item/storage/fancy/cigar/proc/can_interact(mob/user)
+/obj/item/weapon/storage/fancy/cigar/proc/can_interact(mob/user)
 	if((!ishuman(user) && (loc != user)) || user.stat || user.restrained())
 		return 1
-	if(istype(loc, /obj/item/storage))
+	if(istype(loc, /obj/item/weapon/storage))
 		return 2
 	return 0
 
 
-/obj/item/storage/fancy/cigar/verb/quick_open_close(mob/user)
+/obj/item/weapon/storage/fancy/cigar/verb/quick_open_close(mob/user)
 	set name = "Close cigar case"
 	set category = "Object"
 	set src in view(1)
@@ -349,7 +349,7 @@
 	else
 		to_chat(user, SPAN_NOTICE("You cannot open \the [src] while it\'s equipped!"))
 
-/obj/item/storage/fancy/cigar/AltClick(mob/user)
+/obj/item/weapon/storage/fancy/cigar/AltClick(mob/user)
 	if(!is_worn())
 		var/able = can_interact(user)
 
@@ -364,7 +364,7 @@
 	else
 		to_chat(user, SPAN_NOTICE("You cannot open \the [src] while it\'s equipped!"))
 
-/obj/item/storage/fancy/cigar/proc/open_close(mob/living/carbon/human/H, user)
+/obj/item/weapon/storage/fancy/cigar/proc/open_close(mob/living/carbon/human/H, user)
 	close_all()
 	if(!is_worn())
 		if(!open)
@@ -380,26 +380,26 @@
 	else
 		to_chat(user, SPAN_NOTICE("You cannot open \the [src] while it\'s equipped!"))
 
-obj/item/storage/fancy/cigar/attackby(obj/item/W, mob/user)
+obj/item/weapon/storage/fancy/cigar/attackby(obj/item/W, mob/user)
 	if(!open)
 		to_chat(user, SPAN_NOTICE("You try to access \the [src] but it\'s closed!"))
 		return
 	. = ..()
 
-/obj/item/storage/fancy/cigar/open(mob/user)
+/obj/item/weapon/storage/fancy/cigar/open(mob/user)
 	if(!open)
 		to_chat(user, SPAN_NOTICE("\The [src] is closed."))
 		return
 
 	. = ..()
 
-/obj/item/storage/fancy/cigar/populate_contents()
+/obj/item/weapon/storage/fancy/cigar/populate_contents()
 	for(var/i in 1 to storage_slots)
 		new item_obj(src)
 	create_reagents(15 * storage_slots)
 	update_icon()
 
-/obj/item/storage/fancy/cigar/on_update_icon()
+/obj/item/weapon/storage/fancy/cigar/on_update_icon()
 	if(open)
 		icon_state = "[initial(icon_state)][contents.len]"
 	else

@@ -128,7 +128,7 @@
 	desc = "It's worth 1 credit."
 	worth = 1
 
-/obj/item/spacecash/bundle/c5
+/obj/item/weapon/spacecash/bundle/c5
 	name = "5 credits"
 	icon_state = "spacecash5"
 	desc = "It's worth 5 credits."
