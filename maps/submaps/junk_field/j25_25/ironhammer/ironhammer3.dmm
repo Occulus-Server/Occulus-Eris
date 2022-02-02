@@ -320,7 +320,7 @@
 /turf/simulated/floor/tiled/steel/bluecorner/airless,
 /area/template_noop)
 "bs" = (
-/obj/item/weapon/gun/projectile/paco,
+/obj/item/gun/projectile/paco,
 /obj/item/ammo_casing/pistol,
 /turf/simulated/floor/tiled/steel/bluecorner/airless,
 /area/template_noop)
@@ -523,7 +523,7 @@ aB
 ad
 aj
 ae
-aN
+qx
 an
 aY
 ae
