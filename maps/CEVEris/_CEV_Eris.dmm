@@ -44332,10 +44332,6 @@
 /area/eris/crew_quarters/clothingstorage)
 "caI" = (
 /obj/structure/table/glass,
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -26
-	},
 /obj/item/weapon/storage/freezer/medical,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/occulus/medical/surgery)
@@ -105981,6 +105977,10 @@
 /area/eris/quartermaster/storage)
 "mzP" = (
 /obj/structure/medical_stand,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -26
+	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/occulus/medical/surgery)
 "mzQ" = (
