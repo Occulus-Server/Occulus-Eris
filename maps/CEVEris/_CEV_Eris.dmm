@@ -76841,6 +76841,10 @@
 /area/occulus/medical/scanning)
 "dCv" = (
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_medical{
+	name = "Medical Diagnostics";
+	req_access = list(5)
+	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/occulus/medical/trauma)
 "dCx" = (
@@ -77071,6 +77075,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/glass_medical{
+	name = "Medical Diagnostics";
+	req_access = list(5)
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/occulus/medical/trauma)
