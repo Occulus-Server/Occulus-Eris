@@ -1,9 +1,11 @@
 #define EVENT_ENABLED           3
 #define EVENT_DISABLED          4
 #define EVENT_RECONFIGURED      5
-#define PASSIVE_SCAN_RANGE      3
+#define PASSIVE_SCAN_RANGE      6
 #define PASSIVE_SCAN_PERIOD     3 SECONDS
 #define PULSE_PROGRESS_TIME    30  // in decisecond
+#define ACTIVE_SCAN_RANGE      10
+#define ACTIVE_SCAN_DURATION   30 SECONDS
 
 var/list/ship_scanners = list()
 
@@ -26,12 +28,13 @@ var/list/ship_scanners = list()
 	var/max_log_entries = 200			// A safety to prevent players generating endless logs and maybe endangering server memory
 
 	var/scanner_modes = 0				// Enabled scanner mode flags
-	var/scan_range = 3					// Scan range on the overmap
+	var/as_duration_multiplier = 1.0    // Active scan duration multiplier (improve internal components)
+	var/as_energy_multiplier = 1.0      // Active scan energy cost multiplier (improve internal components)
 
 	var/max_energy = 0					// Maximal stored energy. In joules. Depends on the type of used SMES coil when constructing this scanner.
 	var/current_energy = 0				// Current stored energy.
 	var/running = SCANNER_OFF			// Whether the scanner is enabled or not.
-	var/input_cap = 70 KILOWATTS		// Currently set input limit. Set to 0 to disable limits altogether. The shield will try to input this value per tick at most
+	var/input_cap = 1 MEGAWATTS			// Currently set input limit. Set to 0 to disable limits altogether. The shield will try to input this value per tick at most
 	var/upkeep_power_usage = 0			// Upkeep power usage last tick.
 	var/power_usage = 0					// Total power usage last tick.
 	var/overloaded = 0					// Whether the field has overloaded and shut down to regenerate.
@@ -50,38 +53,38 @@ var/list/ship_scanners = list()
 	var/tendrils_deployed = FALSE				// Whether the dummy capacitors are currently extended
 
 
-/obj/machinery/power/long_range_scanner/on_update_icon()
+/obj/machinery/power/long_range_scanner/update_icon()
 	cut_overlays()
 	if(running)
 		set_light(1, 1, "#82C2D8")
-		SetIconState("core_warmup")
+		icon_state = "core_warmup"
 		spawn(20)
 			set_light(2, 2, "#82C2D8")
-			SetIconState("core_active")
+			icon_state = "core_active"
 	else
 		set_light(1, 1, "#82C2D8")
-		SetIconState("core_shutdown")
+		icon_state = "core_shutdown"
 		spawn(20)
 			set_light(0)
-			SetIconState("core_inactive")
+			icon_state = "core_inactive"
 
 	for (var/obj/machinery/scanner_conduit/S in tendrils)
 		if (running)
 			S.dim_light()
-			S.SetIconState("warmup")
+			S.icon_state = "warmup"
 			S.update_icon()
 			spawn(20)
 				S.bright_light()
-				S.SetIconState("speen")
+				S.icon_state = "speen"
 				S.update_icon()
 
 		else
 			S.dim_light()
-			S.SetIconState("shutdown")
+			S.icon_state = "shutdown"
 			S.update_icon()
 			spawn(20)
 				S.no_light()
-				S.SetIconState("inactive")
+				S.icon_state = "inactive"
 				S.update_icon()
 
 
@@ -95,8 +98,7 @@ var/list/ship_scanners = list()
 		S.scanners |= src
 
 	// Link to Eris object on the overmap
-	linked_ship = locate(/obj/effect/overmap/ship/eris)
-
+	linked_ship = (locate(/obj/effect/overmap/ship/eris) in GLOB.ships)
 
 /obj/machinery/power/long_range_scanner/Destroy()
 	toggle_tendrils(FALSE)
@@ -114,8 +116,16 @@ var/list/ship_scanners = list()
 		max_energy += (S.ChargeCapacity / CELLRATE)
 	current_energy = between(0, current_energy, max_energy)
 
+	// Better micro lasers increase the duration of the active scan mode
+	as_duration_multiplier = 1.0 + 0.5 * max_part_rating(/obj/item/weapon/stock_parts/micro_laser)
+	as_duration_multiplier = between(initial(as_duration_multiplier), as_duration_multiplier, 10.0)
 
-// Shuts down the shield, removing all shield segments and unlocking generator settings.
+	// Better capacitors diminish the energy consumption of the active scan mode
+	as_energy_multiplier = 1.0 - 0.1 * max_part_rating(/obj/item/weapon/stock_parts/capacitor)
+	as_energy_multiplier = between(0.0, as_energy_multiplier, initial(as_energy_multiplier))
+
+
+// Shuts down the long range scanner
 /obj/machinery/power/long_range_scanner/proc/shutdown_scanner()
 	running = SCANNER_OFF
 	update_icon()
@@ -139,7 +149,7 @@ var/list/ship_scanners = list()
 			offline_for += 30 //Another minute before it can be turned back on again
 		return
 
-	upkeep_power_usage = ENERGY_UPKEEP_SCANNER * (max(1,scan_range-2) * max(1,scan_range-2)) //35kw
+	upkeep_power_usage = ENERGY_UPKEEP_SCANNER
 
 	if(powernet && !input_cut && (running == SCANNER_RUNNING || running == SCANNER_OFF))
 		var/energy_buffer = 0
@@ -290,16 +300,7 @@ var/list/ship_scanners = list()
 		input_cap = max(0, new_cap) * 1000
 		log_event(EVENT_RECONFIGURED, src)
 		. = 1
-	//Occulus Edit Start
-	if(href_list["set_range"])
-		var/new_range = input(usr, "Enter new field range (1-8). Leave blank to cancel.", "Field Radius Control", scan_range) as num
-		if(!new_range)
-			return
-		scan_range = new_range
-		if(scan_range > 8)
-			scan_range = 8
-		log_event(EVENT_RECONFIGURED, src)
-		. = 1
+
 	ui_interact(usr)
 
 /obj/machinery/power/long_range_scanner/proc/charge_level()
@@ -342,9 +343,9 @@ var/list/ship_scanners = list()
 		if (EVENT_ENABLED to EVENT_RECONFIGURED)
 			switch (event_type)
 				if (EVENT_ENABLED)
-					logstring += "Scanner powered up"//Occulus Edit
+					logstring += "Shield powered up"
 				if (EVENT_DISABLED)
-					logstring += "Scanner powered down"//Occulus Edit
+					logstring += "Shield powered down"
 				if (EVENT_RECONFIGURED)
 					logstring += "Configuration altered"
 				else
@@ -481,8 +482,8 @@ var/list/ship_scanners = list()
 		return FALSE
 
 /obj/machinery/power/long_range_scanner/proc/consume_energy_scan()
-	if(current_energy > round(ENERGY_PER_SCAN))
-		current_energy -= round(ENERGY_PER_SCAN)
+	if(current_energy > round(ENERGY_PER_SCAN * as_energy_multiplier))
+		current_energy -= round(ENERGY_PER_SCAN * as_energy_multiplier)
 		return TRUE
 	return FALSE
 
