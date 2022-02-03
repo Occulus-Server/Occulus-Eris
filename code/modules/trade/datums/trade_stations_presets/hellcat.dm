@@ -51,11 +51,11 @@
 			/obj/item/clothing/suit/armor/vest/security,
 			/obj/item/clothing/head/armor/helmet,
 			/obj/item/clothing/suit/armor/bulletproof,
-			/obj/item/clothing/head/armor/bulletproof/ironhammer_nvg,
+			/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
 			/obj/item/clothing/suit/armor/laserproof/full,
 			/obj/item/clothing/head/armor/laserproof
 		),
 	)
-	
+
 	offer_types = list(
 	)

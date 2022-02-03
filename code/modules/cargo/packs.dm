@@ -259,8 +259,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	name = "IH Ballistic Armor"
 	contains = list(/obj/item/clothing/suit/armor/bulletproof/ironhammer,
 					/obj/item/clothing/suit/armor/bulletproof/ironhammer,
-					/obj/item/clothing/head/armor/bulletproof/ironhammer_nvg,
-					/obj/item/clothing/head/armor/bulletproof/ironhammer_nvg)
+					/obj/item/clothing/head/armor/bulletproof/ironhammer_full,
+					/obj/item/clothing/head/armor/bulletproof/ironhammer_full)
 	cost = 3000
 	containertype = /obj/structure/closet/crate/secure
 	crate_name = "IH Ballistic Armor Pack"
