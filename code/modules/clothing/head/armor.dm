@@ -215,7 +215,7 @@
 
 /obj/item/clothing/head/armor/bulletproof/ironhammer_full
 	name = "full ballistic helmet"
-	desc = "Standard-issue Ironhammer ballistic helmet with a basic HUD included, covers the operator's entire face."
+	desc = "Standard-issue Aegis Security ballistic helmet with a basic HUD included, covers the operator's entire face."
 	icon_state = "ironhammer_full"
 	armor = list(
 		melee = 30,
@@ -334,7 +334,7 @@
  */
 /obj/item/clothing/head/armor/riot_hud
 	name = "heavy operator helmet"
-	desc = "Standard-issue Ironhammer helmet with a basic HUD and targeting system included."
+	desc = "Standard-issue Aegis Security helmet with a basic HUD and targeting system included."
 	icon_state = "light_riot"
 
 	tint = TINT_LOW
