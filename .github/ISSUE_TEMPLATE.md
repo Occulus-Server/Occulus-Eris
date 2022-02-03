@@ -50,4 +50,4 @@ Please check whatever applies. More checkboxes checked increase your chances of 
 - [ ] Issue could be reproduced by different players
 - [ ] Issue could be reproduced in multiple rounds
 - [ ] Issue happened in a recent (less than 7 days ago) round
-- [ ] [Couldn't find an existing issue about this](https://github.com/discordia-space/CEV-Eris/issues)
+- [ ] [Couldn't find an existing issue about this](https://github.com/Occulus-Server/Occulus-Eris/issues)

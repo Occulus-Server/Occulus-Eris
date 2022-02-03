@@ -29,8 +29,8 @@
 
 /mob/observer/ghost/ClickOn(var/atom/A, var/params)
 	var/list/pa = params2list(params)
-	if(check_rights(R_ADMIN)) // Admin click shortcuts
-		if(pa.Find("shift") && pa.Find("ctrl"))
+	if(pa.Find("shift") && pa.Find("ctrl"))//Occulus Edit: Fixes ghostspam
+		if(check_rights(R_ADMIN)) // Admin click shortcuts, fixes ghostspam
 			client.debug_variables(A)
 			return
 

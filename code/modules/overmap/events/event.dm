@@ -3,6 +3,7 @@
 /decl/overmap_event_handler
 	var/list/event_turfs_by_z_level
 	var/last_tick = 0
+	var/obj/jtb_generator/jtb_gen  // jtb generator
 
 /decl/overmap_event_handler/New()
 	..()
@@ -46,6 +47,17 @@
 				event.icon_stages = list(pick(overmap_event.event_icon_stage0), pick(overmap_event.event_icon_stage1), "poi")
 				event.name_stages = overmap_event.event_name_stages
 				event.opacity =  overmap_event.opacity
+
+	spawn_points_of_interest(candidate_turfs)
+
+/decl/overmap_event_handler/proc/spawn_points_of_interest(var/list/candidate_turfs)
+	var/list/pois = list(/obj/effect/overmap_event/poi/debris, /obj/effect/overmap_event/poi/station)
+	for(var/path in pois)
+		if(!candidate_turfs.len)
+			break
+		var/turf/poi_turf = pick(candidate_turfs)
+		candidate_turfs -= poi_turf
+		new path(poi_turf)
 
 /decl/overmap_event_handler/proc/get_event_turfs_by_z_level(var/z_level)
 	var/z_level_text = num2text(z_level)
@@ -122,11 +134,11 @@
 			return
 		new_event.enter(entering_ship)
 
-/decl/overmap_event_handler/proc/scan_loc(var/obj/effect/overmap/ship/S, var/turf/new_loc, var/can_scan)
+/decl/overmap_event_handler/proc/scan_loc(var/obj/effect/overmap/ship/S, var/turf/new_loc, var/can_scan, var/stage_2_width = 1)
 
 	if(!can_scan) // No active scanner
 		// Everything is stage 2 (too far for sensors)
-		for(var/turf/T in range(PASSIVE_SCAN_RANGE+1, new_loc))
+		for(var/turf/T in range(S.scan_range+1, new_loc))
 			for(var/obj/effect/overmap_event/E in T)
 				E.name = E.name_stages[3]
 				E.SetIconState(E.icon_stages[3])
@@ -144,8 +156,7 @@
 					playsound(H.loc, 'sound/effects/fastbeep.ogg', 50, 1)
 
 		// Stage 0 (close range)
-		//Occulus Edit Start
-		for(var/turf/T in range(S.scanrange-1, new_loc))//Occu Edit here
+		for(var/turf/T in circlerange(new_loc, S.scan_range-1))
 			for(var/obj/effect/overmap_event/E in T)
 				E.name = E.name_stages[1]
 				if(!passive_scan)
@@ -160,7 +171,7 @@
 					E.SetIconState(E.icon_stages[1] + "_g")  // Green outline
 
 		// Stage 1 (limit range)
-		for(var/turf/T in getcircle(new_loc, S.scanrange))//Occu Edit here
+		for(var/turf/T in getcircle(new_loc, S.scan_range))
 			for(var/obj/effect/overmap_event/E in T)
 				E.name = E.name_stages[2]
 				E.SetIconState(E.icon_stages[2])
@@ -169,15 +180,50 @@
 				E.SetIconState(E.icon_stages[2])
 
 		// Stage 2 (too far for sensors)
-		for(var/turf/T in getcircle(new_loc, S.scanrange+1))//Occu Edit here
-			for(var/obj/effect/overmap_event/E in T)
-				E.name = E.name_stages[3]
-				E.SetIconState(E.icon_stages[3])
-			for(var/obj/effect/overmap/E in T)
-				E.name = E.name_stages[3]
-				E.SetIconState(E.icon_stages[3])
+		for(var/i in 1 to stage_2_width)
+			for(var/turf/T in getcircle(new_loc, S.scan_range + i))
+				for(var/obj/effect/overmap_event/E in T)
+					E.name = E.name_stages[3]
+					E.SetIconState(E.icon_stages[3])
+				for(var/obj/effect/overmap/E in T)
+					E.name = E.name_stages[3]
+					E.SetIconState(E.icon_stages[3])
 
 	return
+
+// OCCULUS EDIT START - Science points from scanning bits. The core stuff is here!
+
+// Reveal a point of interest if the ship is standing on it on the overmap
+/decl/overmap_event_handler/proc/scan_poi(var/obj/effect/overmap/ship/S, var/turf/my_loc)
+
+	var/total_science
+
+	for(var/obj/effect/overmap_event/E in get_turf(my_loc))
+		if(!E.revealed)
+			total_science += E.science
+		E.reveal()
+
+	for(var/obj/effect/overmap/sector/exoplanet/P in get_turf(my_loc))
+		if(!P.scanned)
+			total_science += (P.science / P.habitability_class)  //Ideal habitability divides by 1, okay divides by 2, bad divides by 3
+			P.scanned = TRUE
+
+	for(var/obj/effect/star/M in get_turf(my_loc))
+		if(!M.scanned)
+			total_science += M.science
+			M.scanned = TRUE
+
+	if(total_science)
+		total_science *= pick(0.9, 1.0, 1.1)	//some variety because why not
+		for(var/obj/machinery/computer/rdconsole/RD in GLOB.computer_list)
+			if(RD.id == 1) // only core gets the science
+				RD.files.research_points +=  total_science
+
+		command_announcement.Announce("Long range scan complete. [total_science] data points have been uploaded to research servers.", "Long Range Scanner")
+
+	return
+
+// OCCULUS EDIT END
 
 // We don't subtype /obj/effect/overmap because that'll create sections one can travel to
 //  And with them "existing" on the overmap Z-level things quickly get odd.
@@ -331,3 +377,79 @@
 	event_icon_stage0 = list("carps_school0", "carps_school1", "carps_school2", "carps_school3")
 	event_icon_stage1 = list("field")
 	event_name_stages = list("carp school", "unknown field", "unknown spatial phenomenon")
+
+
+//////
+// Points of Interest on overmap that the ship has to scan
+//////
+/obj/effect/overmap_event/poi
+	name_stages = list("point of interest", "unknown object", "unknown spatial phenomenon")
+	icon_stages = list("nodata", "nodata", "poi")
+
+
+
+
+// OCCULUS EDIT START - Addition of science points from scanning. Cleans up some of the vars and procs used here.
+
+/obj/effect/overmap_event/proc/reveal()
+	if(revealed)
+		return
+	else
+		revealed = TRUE
+	return
+
+/obj/effect/overmap_event
+	var/revealed = FALSE
+	var/science = 1000
+
+/obj/effect/overmap_event/poi/debris
+
+/obj/effect/overmap_event/poi/debris/reveal()
+	..()
+
+	name_stages = list("space wrecks", "unknown ship", "unknown spatial phenomenon")
+	icon_stages = list("spacehulk", "ship", "poi")
+
+	log_game("Space wrecks point of interest has been scanned and revealed.")
+	//overmap_event_handler.jtb_gen.add_specific_junk_field("SpaceWrecks")
+	return
+
+/obj/effect/overmap_event/poi/station
+	science = 500
+
+/obj/effect/overmap_event/poi/station/reveal()
+	..()
+
+	log_game("Trading station point of interest has been scanned and revealed.")
+	SStrade.AddStation(loc)  // Add a new random station at this location
+	qdel(src)  // Clear the POI effect since there is a trading station at that location now
+	return
+
+/obj/effect/overmap_event/poi/blacksite
+	science = 5000
+	var/obj/effect/overmap/sector/blacksite/linked  // Linked blacksite sector
+
+/obj/effect/overmap_event/poi/blacksite/New(loc, var/obj/effect/overmap/sector/linked_sector)
+	..(loc)
+	linked = linked_sector
+
+/obj/effect/overmap_event/poi/blacksite/Destroy()
+	linked = null
+	. = ..()
+
+/obj/effect/overmap_event/poi/blacksite/reveal()
+	..()
+
+	// Blacksite sector is now known and no longer hidden
+	if(linked)
+		linked.known = 1
+		linked.invisibility = 0
+		linked.update_known()
+		log_game("Blacksite point of interest has been scanned and revealed.")
+	else
+		log_world("## ERROR: Blacksite point of interest was not linked to a sector.")
+
+	qdel(src)  // Clear the POI effect since there is a blacksite revealed at that location now
+	return
+
+// OCCULUS EDIT END

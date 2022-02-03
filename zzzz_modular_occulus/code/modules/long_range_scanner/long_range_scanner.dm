@@ -3,7 +3,6 @@
 
 /obj/effect/overmap/ship/Process()
 	if(scanners)//do we have any scanners in the list?
-		var/x = scanners.len
 		scanrange = 0//if we do, zero out the scan range
 		for(var/obj/machinery/power/long_range_scanner/scanner in scanners)
 			if(scanner.scan_range > scanrange)

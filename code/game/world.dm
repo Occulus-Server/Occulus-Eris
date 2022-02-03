@@ -398,6 +398,6 @@ proc/establish_db_connection()
 
 	fps = new_value
 
-/world/Del() // Occulus Edit - Adds auxtools debugging
+/world/Del()
 	disable_auxtools_debugger() //If we dont do this, we get phantom threads which can crash DD from memory access violations
 	..()

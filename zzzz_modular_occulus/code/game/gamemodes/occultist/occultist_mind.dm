@@ -13,7 +13,7 @@
 	specific_organ_size = 0
 	vital = 1
 	var/list/purchasedpowers = list()
-	var/madnesspoints = 10
+	var/madnesspoints = 15
 
 	owner_verbs = list(
 		/obj/item/organ/internal/brain/occultist/proc/KnowledgeMenu

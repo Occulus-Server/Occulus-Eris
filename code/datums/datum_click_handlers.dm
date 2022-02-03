@@ -103,7 +103,12 @@
 /datum/click_handler/fullauto/MouseDown(object,location,control,params)
 	if(!isturf(owner.mob.loc)) // This stops from firing full auto weapons inside closets or in /obj/effect/dummy/chameleon chameleon projector
 		return FALSE
-	
+	if(owner.mob.in_throw_mode || (owner.mob.Adjacent(location) && owner.mob.a_intent != "harm"))//Occulus Edit Start
+		return TRUE
+	var/list/click_params = params2list(params)
+	if(!click_params || !click_params["left"])
+		return TRUE //Occulus Edit end
+
 	object = resolve_world_target(object)
 	if (object)
 		target = object
