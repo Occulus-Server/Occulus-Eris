@@ -70,7 +70,7 @@
 
 	else if(href_list["cogmod"])
 		var/new_cog = 0
-		new_cog = input(user, "Enter a value between -10 and 15 for your cognition. (Cognition 50% the cost of other stats).", CHARACTER_PREFERENCE_INPUT_TITLE, pref.COGMOD) as num
+		new_cog = input(user, "Enter a value between -10 and 15 for your cognition. (COG is half the cost of other stats).", CHARACTER_PREFERENCE_INPUT_TITLE, pref.COGMOD) as num
 		if(CanUseTopic(user))
 			var/old_cog = pref.COGMOD
 			pref.COGMOD = max(min(round(new_cog),15),-10)
