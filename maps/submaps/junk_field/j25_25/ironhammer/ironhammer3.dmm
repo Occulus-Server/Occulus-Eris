@@ -161,23 +161,13 @@
 /obj/structure/table/rack,
 /obj/spawner/gun_parts,
 /obj/spawner/gun/normal/low_chance,
-<<<<<<< HEAD
-/obj/spawner/gun/normal/low_chance,
-/turf/simulated/floor/tiled/steel/bluecorner,
-=======
 /turf/simulated/floor/tiled/steel/bluecorner/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "aN" = (
 /obj/structure/table/rack,
 /obj/spawner/gun_parts/low_chance,
 /obj/spawner/gun_parts/low_chance,
-<<<<<<< HEAD
-/obj/spawner/gun_parts,
-/turf/simulated/floor/tiled/steel/bluecorner,
-=======
 /turf/simulated/floor/tiled/steel/bluecorner/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "aO" = (
 /obj/machinery/vending/cola,
@@ -230,13 +220,8 @@
 /turf/simulated/wall/r_wall,
 /area/template_noop)
 "ba" = (
-<<<<<<< HEAD
-/obj/item/weapon/paper,
-/turf/simulated/floor/tiled/steel/bluecorner,
-=======
 /obj/item/paper,
 /turf/simulated/floor/tiled/steel/bluecorner/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "bb" = (
 /obj/structure/bed/chair/comfy/blue,
@@ -244,22 +229,6 @@
 /area/template_noop)
 "bc" = (
 /obj/structure/table/reinforced,
-<<<<<<< HEAD
-/obj/item/weapon/pen,
-/turf/simulated/floor/tiled/steel/bluecorner,
-/area/template_noop)
-"bd" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/paper,
-/turf/simulated/floor/tiled/steel/bluecorner,
-/area/template_noop)
-"be" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/obj/item/weapon/paper,
-/turf/simulated/floor/plating/under,
-=======
 /obj/item/pen,
 /turf/simulated/floor/tiled/steel/bluecorner/airless,
 /area/template_noop)
@@ -274,7 +243,6 @@
 /obj/item/pen,
 /obj/item/paper,
 /turf/simulated/floor/plating/under/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "bf" = (
 /obj/structure/table/reinforced,
@@ -289,13 +257,8 @@
 /area/template_noop)
 "bh" = (
 /obj/structure/table/reinforced,
-<<<<<<< HEAD
-/obj/item/weapon/pen,
-/turf/simulated/floor/plating/under,
-=======
 /obj/item/pen,
 /turf/simulated/floor/plating/under/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "bi" = (
 /obj/item/remains/human,
@@ -357,7 +320,7 @@
 /turf/simulated/floor/tiled/steel/bluecorner/airless,
 /area/template_noop)
 "bs" = (
-/obj/item/weapon/gun/projectile/paco,
+/obj/item/gun/projectile/paco,
 /obj/item/ammo_casing/pistol,
 /turf/simulated/floor/tiled/steel/bluecorner/airless,
 /area/template_noop)
@@ -375,15 +338,12 @@
 /obj/spawner/rig_module/rare/low_chance,
 /turf/simulated/floor/tiled/steel/bluecorner/airless,
 /area/template_noop)
-<<<<<<< HEAD
-=======
 "qx" = (
 /obj/structure/table/rack,
 /obj/spawner/gun_parts/low_chance,
 /obj/spawner/gun_parts,
 /turf/simulated/floor/tiled/steel/bluecorner/airless,
 /area/template_noop)
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 "Qv" = (
 /obj/spawner/scrap/dense,
 /turf/simulated/floor/plating/under/airless,
@@ -563,7 +523,7 @@ aB
 ad
 aj
 ae
-aN
+qx
 an
 aY
 ae
