@@ -19,7 +19,7 @@
 	return part_key
 ///// OCCULUS EDIT END /////
 
-/obj/item/organ/external/robotic/update_icon()
+/obj/item/organ/external/robotic/on_update_icon()
 	var/gender = "m"
 	overlays.Cut()	// OCCULUS EDIT - Make sure we're not stacking up redundant overlays
 	if(owner)

@@ -3,7 +3,7 @@
 //
 /obj/machinery/holomap
 	name = "holomap"
-	desc = "A virtual map of the NEV \"Northern Light\"."
+	desc = "A virtual map of the CEV \"Northern Light\"."
 	icon = 'icons/obj/machines/stationmap.dmi'
 	icon_state = "station_map"
 	anchored = TRUE
@@ -120,7 +120,7 @@
 			holomap_datum.station_map.loc = global_hud.holomap  // Put the image on the holomap hud
 			holomap_datum.station_map.alpha = 0 // Set to transparent so we can fade in
 			animate(holomap_datum.station_map, alpha = 255, time = 5, easing = LINEAR_EASING)
-			flick("station_map_activate", src)
+			FLICK("station_map_activate", src)
 			// Wait, if wea re not modifying the holomap_obj... can't it be part of the global hud?
 			user.client.screen |= global_hud.holomap // TODO - HACK! This should be there permenently really.
 			user.client.images |= holomap_datum.station_map
@@ -132,7 +132,7 @@
 			if(bogus)
 				to_chat(user, SPAN_WARNING("The holomap has failed to initialize. This area of space cannot be mapped."))
 			else
-				to_chat(user, SPAN_NOTICE("A hologram of NEV \"Northern Light\" appears before your eyes."))
+				to_chat(user, SPAN_NOTICE("A hologram of CEV \"Northern Light\" appears before your eyes."))
 
 /obj/machinery/holomap/attack_ai(mob/living/silicon/robot/user)
 	return // TODO
@@ -172,16 +172,16 @@
 	stat |= BROKEN
 	update_icon()
 
-/obj/machinery/holomap/update_icon()
+/obj/machinery/holomap/on_update_icon()
 	if(!holomap_datum)
 		return //Not yet.
 
-	overlays.Cut()
+	cut_overlays()
 
 	if(panel_open)
-		overlays += "station_map-panel"
+		add_overlays("station_map-panel")
 	else
-		overlays -= "station_map-panel"
+		remove_overlays("station_map-panel")
 
 	if(wiresexposed)
 		switch(buildstage)
@@ -205,7 +205,7 @@
 			holomap_datum.initialize_holomap_bogus()
 		else
 			small_station_map.icon = SSholomaps.extraMiniMaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"]
-			overlays |= small_station_map
+			associate_with_overlays(small_station_map)
 			holomap_datum.initialize_holomap(get_turf(src))
 
 /obj/machinery/holomap/attackby(obj/item/I, mob/user)

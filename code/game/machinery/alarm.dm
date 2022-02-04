@@ -14,7 +14,7 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 80
 	active_power_usage = 3000 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
-	power_channel = ENVIRON
+	power_channel = STATIC_ENVIRON
 	req_one_access = list(access_atmospherics, access_engine_equip)
 	var/alarm_id = null
 	var/breach_detection = 1 // Whether to use automatic breach detection or not
@@ -54,7 +54,7 @@
 	var/other_dangerlevel = 0
 
 	var/report_danger_level = 1
-	
+
 	// Eclipse added vars
 	var/alarm_audible_cooldown = 1000		//Audible cooldown time, in ticks (1/10sec)
 	var/last_sound_time = 0			//When did the audible last fire?
@@ -78,12 +78,14 @@
 	target_temperature = 90
 
 /obj/machinery/alarm/Destroy()
+	GLOB.alarm_list -= src
 	unregister_radio(src, frequency)
 	qdel(wires)
 	wires = null
 	return ..()
 
 /obj/machinery/alarm/New(loc, dir, building = 0)
+	GLOB.alarm_list += src
 	if(building)
 		if(dir)
 			src.set_dir(dir)
@@ -273,7 +275,7 @@
 		return 1
 	return 0
 
-/obj/machinery/alarm/update_icon()
+/obj/machinery/alarm/on_update_icon()
 	if(wiresexposed)
 		switch(buildstage)
 			if(2)
@@ -940,17 +942,15 @@ FIRE ALARM
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 6
-	power_channel = ENVIRON
+	power_channel = STATIC_ENVIRON
 	var/last_process = 0
 	var/wiresexposed = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
+	var/alarm_audible_cooldown = 1000		//Audible cooldown time, in ticks (1/10sec) Occulus Edit
+	var/last_sound_time = 0			//When did the audible last fire? Occulus Edit
 
-	//eclipse added vars
-	var/alarm_audible_cooldown = 1000		//Audible cooldown time, in ticks (1/10sec)
-	var/last_sound_time = 0			//When did the audible last fire?
-
-/obj/machinery/firealarm/update_icon()
-	overlays.Cut()
+/obj/machinery/firealarm/on_update_icon()
+	cut_overlays()
 
 	if(wiresexposed)
 		switch(buildstage)
@@ -980,7 +980,7 @@ FIRE ALARM
 			var/decl/security_level/sl = security_state.current_security_level
 
 			set_light(sl.light_max_bright, sl.light_inner_range, sl.light_outer_range, 2, sl.light_color_alarm)
-			src.overlays += image('icons/obj/monitors.dmi', sl.overlay_firealarm)
+			src.add_overlays(image('icons/obj/monitors.dmi', sl.overlay_firealarm))
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)
@@ -1100,15 +1100,15 @@ FIRE ALARM
 	if(stat & (NOPOWER|BROKEN))
 		return
 
-	if(src.timing)
-		if(src.time > 0)
-			src.time = src.time - ((world.timeofday - last_process)/10)
+	if(timing)
+		if(time > 0)
+			time -= (world.timeofday - last_process)/10
 		else
-			src.alarm()
-			src.time = 0
-			src.timing = 0
+			alarm()
+			time = 0
+			timing = 0
 			STOP_PROCESSING(SSmachines, src)
-		src.updateDialog()
+		updateDialog()
 	last_process = world.timeofday
 
 	if(locate(/obj/fire) in loc)
@@ -1215,6 +1215,12 @@ FIRE ALARM
 		wiresexposed = 1
 		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
 		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
+
+	GLOB.firealarm_list += src
+
+/obj/machinery/firealarm/Destroy()
+	GLOB.firealarm_list -= src
+	..()
 
 
 //Eclipse proc - added to reduce overhead on Process()
@@ -1335,4 +1341,3 @@ Just a object used in constructing fire alarms
 		var/tp = text2num(href_list["tp"])
 		time += tp
 		time = min(max(round(time), 0), 120)
-

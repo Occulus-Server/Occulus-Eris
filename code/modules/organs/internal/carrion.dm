@@ -30,7 +30,8 @@
 	return TRUE
 
 /obj/item/organ/internal/carrion
-	max_damage = 90 //resilient
+	max_damage = 150 //resilient
+	//scanner_hidden = TRUE //sneaky	// OCCULUS NOTE: We need #5795 for this
 
 /obj/item/organ/internal/carrion/chemvessel
 	name = "chemical vessel"
@@ -259,6 +260,7 @@
 	icon_state = "carrion_maw"
 	organ_efficiency = list(OP_MAW = 100)
 	var/last_call = -5 MINUTES
+	specific_organ_size = 0
 
 	owner_verbs = list(
 		/obj/item/organ/internal/carrion/maw/proc/consume_flesh,
@@ -321,7 +323,7 @@
 		owner.ingested.add_reagent("nutriment", chemgain)
 
 		var/chemvessel_efficiency = owner.get_organ_efficiency(OP_CHEMICALS)
-		if(chemvessel_efficiency)
+		if(chemvessel_efficiency > 1)
 			owner.carrion_stored_chemicals = min(owner.carrion_stored_chemicals + 0.01 * chemvessel_efficiency , 0.5 * chemvessel_efficiency)
 
 		to_chat(owner, SPAN_NOTICE("You consume \the [food], [taste_description]."))

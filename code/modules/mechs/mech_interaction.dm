@@ -206,6 +206,7 @@
 	user.playsound_local(null, 'sound/mechs/nominal.ogg', 50)
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_pilots()
+	on_update_icon()//Eris forgot to tell the icon to update when people enter/leave
 	return 1
 
 /mob/living/exosuit/proc/sync_access()
@@ -239,6 +240,7 @@
 		update_mech_hud_4(user)
 		user.client.eye = user.client.mob
 		user.client.perspective = MOB_PERSPECTIVE
+	on_update_icon()//Occulus Edit: Well that was simple!
 	return 1
 
 /mob/living/exosuit/attackby(obj/item/I, mob/living/user)
@@ -328,7 +330,7 @@
 		if(do_mob(user, src, 30) && coil.use(5))
 			mc.repair_burn_damage(15)
 
-	var/list/usable_qualities = list(QUALITY_PULSING, QUALITY_BOLT_TURNING, QUALITY_WELDING)
+	var/list/usable_qualities = list(QUALITY_PULSING, QUALITY_BOLT_TURNING, QUALITY_WELDING, QUALITY_SCREW_DRIVING) //Occulus Edit, added screwdriving
 
 	var/tool_type = I.get_tool_type(user, usable_qualities, src)
 	switch(tool_type)
@@ -377,6 +379,19 @@
 				visible_message(SPAN_WARNING("\The [mc] has been repaired by [user]!"),"You hear welding.")
 				mc.repair_brute_damage(15)
 				return TRUE
+		//Occulus Edit Start
+		if(QUALITY_SCREW_DRIVING)
+			if(length(pilots))
+				to_chat(user, SPAN_WARNING("You cant press the maintenance button with the pilot inside!"))
+				return TRUE
+			if(!pilots)
+				to_chat(user, SPAN_NOTICE("You carefully start to wedge the screwdriver bit in to activate maintenance mode"))
+				if(!do_mob(user, src, 60))
+					return TRUE
+				to_chat(user, SPAN_NOTICE("You successfully press the emergency maintenance button as the bolt covers retract"))
+				maintenance_protocols = 1
+				return TRUE
+		//Occulus Edit End
 
 		if(ABORT_CHECK)
 			return

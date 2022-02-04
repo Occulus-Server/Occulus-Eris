@@ -1,7 +1,7 @@
 /obj/item/weapon/tool_upgrade/augment/folding
 	name = "Collapsible tool kit"
 	desc = "This small toolkit adjusts a tool so that it can be collapsed down to a smaller size. This reduces the lifespawn of the tool, but makes it take up less space."
-	matter = list(MTERIAL_STEEL = 2, MATERIAL_PLASTIC = 2)
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2)
 	icon = 'zzzz_modular_occulus/icons/obj/tool_upgrades.dmi'
 	icon_state = "foldkit"
 	price_tag = 120
@@ -132,3 +132,5 @@
 	I.required_qualities = list(QUALITY_BOLT_TURNING,QUALITY_PRYING,QUALITY_HAMMERING)
 	I.negative_qualities = list(QUALITY_DIGGING, QUALITY_SHOVELING, QUALITY_EXCAVATION)
 
+/obj/item/weapon/tool_upgrade/productivity/antistaining
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PHORONGLASS = 2)

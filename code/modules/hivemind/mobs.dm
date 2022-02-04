@@ -71,7 +71,7 @@
 //It's second proc, result of our malfunction
 /mob/living/simple_animal/hostile/hivemind/proc/malfunction_result()
 	if(prob(malfunction_chance))
-		apply_damage(rand(10, 25), BURN)
+		apply_damage(rand(5, 30), BURN)
 
 
 //sometimes, players use closets, to staff mobs into it
@@ -135,12 +135,12 @@
 /mob/living/simple_animal/hostile/hivemind/emp_act(severity)
 	switch(severity)
 		if(1)
-			if(malfunction_chance < 20)
-				malfunction_chance = 20
+			if(malfunction_chance < 15)
+				malfunction_chance = 25
 		if(2)
-			if(malfunction_chance < 30)
-				malfunction_chance = 30
-	health -= 20*severity
+			if(malfunction_chance < 25)
+				malfunction_chance = 45
+	health -= 30*severity
 
 
 /mob/living/simple_animal/hostile/hivemind/death()
@@ -159,6 +159,7 @@
 /mob/living/simple_animal/hostile/hivemind/resurrected
 	name = "marionette"
 	malfunction_chance = 10
+	bad_type = /mob/living/simple_animal/hostile/hivemind/resurrected
 
 
 //careful with this proc, it's used to 'transform' corpses into our mobs.
@@ -188,7 +189,7 @@
 	var/icon/infested = new /icon(icon, icon_state)
 	var/icon/covering_mask = new /icon('icons/mob/hivemind.dmi', "covering[rand(1, 3)]")
 	infested.Blend(covering_mask, ICON_MULTIPLY)
-	overlays += infested
+	add_overlays(infested)
 
 	maxHealth = victim.maxHealth * 2 + 10
 	health = maxHealth
@@ -223,7 +224,8 @@
 /////////////////////////////////////STINGER//////////////////////////////////
 //Special ability: none
 //Just another boring mob without any cool abilities
-//High chance of malfunction
+//Low chance of malfunction
+//Faster than average, to the point it could possibly catch up to someone
 //Default speaking chance
 //Appears from dead small mobs or from hive spawner
 //////////////////////////////////////////////////////////////////////////////
@@ -238,7 +240,7 @@
 	malfunction_chance = 15
 	mob_size = MOB_SMALL
 	pass_flags = PASSTABLE
-	speed = 4
+	move_to_delay = 2
 
 	speak = list(
 				"A stitch in time saves nine!",
@@ -266,7 +268,8 @@
 /////////////////////////////////////BOMBER///////////////////////////////////
 //Special ability: none
 //Explode in contact with target
-//High chance of malfunction
+//Extremely low chance of malfunction
+//Very slow
 //Default speaking chance
 //Appears from dead small mobs or from hive spawner
 //////////////////////////////////////////////////////////////////////////////
@@ -276,11 +279,13 @@
 	desc = "This hovering cyborg emits a faint smell of welding fuel."
 	icon_state = "bomber"
 	density = FALSE
-	speak_chance = 3
-	malfunction_chance = 15
+	speak_chance = 4
+	health = 1
+	maxHealth = 1 //extremely fucking fragile, don't try fighting it in melee though
+	malfunction_chance = 1 //1% chance of it exploding, for no reason at all
 	mob_size = MOB_SMALL
 	pass_flags = PASSTABLE
-	speed = 2.5 //explosive, slow, don't ignore it. it can catch up to you
+	move_to_delay = 10 //explosive, slow, don't ignore it. it can catch up to you
 	rarity_value = 25
 	move_to_delay = 10//Syzygy edit
 	speak = list(
@@ -325,7 +330,6 @@
 //Special ability: Can fire 3 projectiles at once for 10 seconds, then overheats
 //Deals no melee damage, but fires projectiles
 //Starts with 10 malfunction chance, malfunction also triggered when overheating
-//Higher speed than normal
 //Slighly higher speaking chance
 //Appears from hive spawner and Mechiver
 //Appears rarely than bomber or stinger
@@ -353,7 +357,6 @@
 	rarity_value = 50
 	mob_size = MOB_SMALL
 	pass_flags = PASSTABLE
-	speed = 8
 	ability_cooldown = 60 SECONDS
 	speak = list(
 				"No more leaks, no more pain!",
@@ -419,7 +422,8 @@
 //							  Splash attack, that slash everything around!
 //High chance of malfunction
 //Default speaking chance
-//Appears from dead cyborgs
+//Slower than average
+//Appears from dead cyborgs and assemblers
 //////////////////////////////////////////////////////////////////////////////
 
 /mob/living/simple_animal/hostile/hivemind/hiborg
@@ -427,13 +431,13 @@
 	desc = "A cyborg covered with something... something alive."
 	icon_state = "hiborg"
 	icon_dead = "hiborg-dead"
-	health = 220
-	maxHealth = 220
-	melee_damage_lower = 10
-	melee_damage_upper = 15
-	attacktext = "claws"
-	speed = 12
-	malfunction_chance = 15
+	health = 350
+	maxHealth = 350 //can take a lot of hits before being obliterated
+	melee_damage_lower = 25
+	melee_damage_upper = 30 //Claws man, they hurt
+	attacktext = "clawed"
+	move_to_delay = 6
+	malfunction_chance = 10 //although it is a complex machine, it is all metal and wires rather than a combination of machinery and flesh
 	mob_size = MOB_MEDIUM
 	rarity_value = 100
 
@@ -491,7 +495,8 @@
 //Hive + Man
 //Special ability: Shriek, that stuns victims
 //Can fool his enemies and pretend to be dead
-//A little bit higher chance of malfunction
+//A little bit higher chance of malfunction than others
+//Slower than average, faster than Hiborg
 //Default speaking chance
 //Appears from dead human corpses
 //////////////////////////////////////////////////////////////////////////////
@@ -508,8 +513,9 @@
 	attacktext = "slashes with claws"
 	malfunction_chance = 10
 	mob_size = MOB_MEDIUM
-	speed = 8
-	ability_cooldown = 30 SECONDS
+	move_to_delay = 5
+	ability_cooldown = 20 SECONDS
+	rarity_value = 75
 	//internals
 	var/fake_dead = FALSE
 	var/fake_dead_wait_time = 0
@@ -542,7 +548,7 @@
 
 
 	//low hp? It's time to play dead
-	if(health < 60 && !fake_dead && world.time > fake_death_cooldown)
+	if(health < 160 && !fake_dead && world.time > fake_death_cooldown)
 		fake_death()
 
 	//shhhh, there an ambush
@@ -595,8 +601,7 @@
 			if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) && istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
 				continue
 
-		victim.Weaken(5)
-		victim.ear_deaf = 40
+		victim.Weaken(4)
 		to_chat(victim, SPAN_WARNING("You hear loud and terrible scream!"))
 	special_ability_cooldown = world.time + ability_cooldown
 
@@ -615,11 +620,12 @@
 	var/mob/living/L = target_mob
 	if(L)
 		L.attack_generic(src, rand(15, 25)) //stealth attack
-		L.Weaken(5)
-		visible_emote("grabs [L]'s legs and force them down to the floor!")
+		L.Weaken(6)
+		visible_emote("suddenly heals its wounds and grabs [L] by the legs, forcing them down onto the floor!") //Nanomachines son!
 		var/msg = pick("MORE! I'M NOT DONE YET!", "MORE PAIN!", "THE DREAMS OVERTAKE ME!", "GOD, YES! HURT ME!")
 		say(msg)
 	destroy_surroundings = TRUE
+	heal_overall_damage(30, 0) //more than 10% of maxhealth
 	icon_state = "himan-damaged"
 	fake_dead = FALSE
 	stance = HOSTILE_STANCE_IDLE
@@ -632,8 +638,9 @@
 //Special ability: Picking up a victim. Sends hallucinations and harm sometimes, then release
 //Can picking up corpses too, rebuild them to living hive mobs, like it wires do
 //Default malfunction chance
-//Default speaking chance, can take pilot and speak with him
-//Very rarely can appears from infested machinery
+//Increased speaking chance, can take pilot and speak with him
+//Dummy thick, slow as fuck
+//Rarely can appear from infested machinery (with a circuit board, like an Autholate)
 //////////////////////////////////////////////////////////////////////////////
 
 /mob/living/simple_animal/hostile/hivemind/mechiver
@@ -642,15 +649,17 @@
 	icon = 'icons/mob/hivemind.dmi'
 	icon_state = "mechiver-closed"
 	icon_dead = "mechiver-dead"
-	health = 450
-	maxHealth = 450
-	melee_damage_lower = 10
-	melee_damage_upper = 15
+	health = 600
+	maxHealth = 600
+	resistance = RESISTANCE_ARMOURED 
+	melee_damage_lower = 25
+	melee_damage_upper = 35
 	mob_size = MOB_LARGE
 	attacktext = "crushes"
 	ability_cooldown = 1 MINUTES
-	speak_chance = 5
-	speed = 16
+	speak_chance = 8
+	move_to_delay = 10
+	rarity_value = 125
 	//internals
 	var/pilot						//Yes, there's no pilot, so we just use var
 	var/mob/living/passenger
@@ -740,26 +749,26 @@
 
 //animations
 //updates every life tick
-/mob/living/simple_animal/hostile/hivemind/mechiver/update_icon()
+/mob/living/simple_animal/hostile/hivemind/mechiver/on_update_icon()
 	if(target_mob && !passenger && (get_dist(target_mob, src) <= 4) && !is_on_cooldown())
 		if(!hatch_closed)
 			return
-		overlays.Cut()
+		cut_overlays()
 		if(pilot)
-			flick("mechiver-opening", src)
+			FLICK("mechiver-opening", src)
 			icon_state = "mechiver-chief"
-			overlays += "mechiver-hands"
+			add_overlays("mechiver-hands")
 		else
-			flick("mechiver-opening_wires", src)
+			FLICK("mechiver-opening_wires", src)
 			icon_state = "mechiver-welcome"
-			overlays += "mechiver-wires"
+			add_overlays("mechiver-wires")
 		hatch_closed = FALSE
 	else
-		overlays.Cut()
+		cut_overlays()
 		hatch_closed = TRUE
 		icon_state = "mechiver-closed"
 		if(passenger)
-			overlays += "mechiver-process"
+			add_overlays("mechiver-process")
 
 
 /mob/living/simple_animal/hostile/hivemind/mechiver/AttackingTarget()
@@ -776,9 +785,9 @@
 /mob/living/simple_animal/hostile/hivemind/mechiver/special_ability(mob/living/target)
 	if(!target_mob && hatch_closed) //when we picking up corpses
 		if(pilot)
-			flick("mechiver-opening", src)
+			FLICK("mechiver-opening", src)
 		else
-			flick("mechiver-opening_wires", src)
+			FLICK("mechiver-opening_wires", src)
 	passenger = target
 	target.loc = src
 	target.canmove = FALSE
@@ -791,9 +800,9 @@
 /mob/living/simple_animal/hostile/hivemind/mechiver/proc/release_passenger(var/safely = FALSE)
 	if(passenger)
 		if(pilot)
-			flick("mechiver-opening", src)
+			FLICK("mechiver-opening", src)
 		else
-			flick("mechiver-opening_wires", src)
+			FLICK("mechiver-opening_wires", src)
 
 		if(istype(passenger, /mob/living/carbon/human))
 			if(!safely) //that was stressful

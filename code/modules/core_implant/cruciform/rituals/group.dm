@@ -146,8 +146,16 @@
 	)
 	effect_type = /datum/group_ritual_effect/cruciform/crusade
 
+/atom/movable/proc/crusade_activated()
+	return
+
+/* /datum/group_ritual_effect/cruciform/crusade/trigger_success(mob/starter, list/participants) Occulus Edit: We don't have scoring
+	..()
+	for(var/atom/movable/A in GLOB.all_faction_items)
+		A.crusade_activated() */
+
 /datum/group_ritual_effect/cruciform/crusade/success(var/mob/living/M, var/cnt)
-	if(cnt < 3) //Eclipse edit - FOUR PEOPLE IS STIL A CRUSADE
+	if(cnt < 2) //Occulus edit
 		return
 	var/obj/item/weapon/implant/core_implant/CI = M.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 	if(CI)
@@ -156,4 +164,6 @@
 		C = /datum/ritual/cruciform/crusader/battle_call
 		CI.known_rituals |= initial(C.name)
 		C = /datum/ritual/cruciform/crusader/flash
+		CI.known_rituals |= initial(C.name)
+		C = /datum/ritual/cruciform/crusader/freeedagger
 		CI.known_rituals |= initial(C.name)

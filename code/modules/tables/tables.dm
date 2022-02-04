@@ -97,6 +97,13 @@ var/list/custom_table_appearance = list(
 		T.update_icon()
 	. = ..()
 
+/obj/structure/table/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(isliving(mover))
+		var/mob/living/L = mover
+		if(L.weakened)
+			return 1
+	return ..()
+
 /obj/structure/table/examine(mob/user)
 	. = ..()
 	if(health < maxhealth)
@@ -124,6 +131,8 @@ var/list/custom_table_appearance = list(
 	switch(tool_type)
 
 		if(QUALITY_SCREW_DRIVING)
+			if(user.a_intent == I_HELP)//Occulus Edit
+				return ..()
 			if(reinforced)
 				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_EASY,  required_stat = STAT_MEC))
 					remove_reinforced(I, user)
@@ -134,6 +143,8 @@ var/list/custom_table_appearance = list(
 			return
 
 		if(QUALITY_PRYING)
+			if(user.a_intent == I_HELP)//Occulus Edit
+				return ..()
 			if(custom_appearance)
 				/*if(custom_appearance[5] && !reinforced) SYZYGY Edit - This was preventing people from modifying the bar tables at all. Fixed!
 					to_chat(user, SPAN_WARNING("This type of design can't be applied to simple tables. Reinforce it first."))
@@ -151,6 +162,8 @@ var/list/custom_table_appearance = list(
 			return
 
 		if(QUALITY_WELDING)
+			if(user.a_intent == I_HELP)//Occulus Edit
+				return ..()
 			if(health < maxhealth)
 				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_EASY,  required_stat = STAT_MEC))
 					user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."),SPAN_NOTICE("You repair some damage to \the [src]."))
@@ -158,6 +171,8 @@ var/list/custom_table_appearance = list(
 			return
 
 		if(QUALITY_BOLT_TURNING)
+			if(user.a_intent == I_HELP)//Occulus Edit
+				return ..()
 			if(!reinforced && !custom_appearance)
 				if(material)
 					if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_EASY,  required_stat = STAT_MEC))
@@ -317,17 +332,17 @@ var/list/custom_table_appearance = list(
 	qdel(src)
 	return shards
 
-/obj/structure/table/update_icon()
+/obj/structure/table/on_update_icon()
 	if(flipped != 1)
 		icon_state = "blank"
-		overlays.Cut()
+		cut_overlays()
 
 		var/image/I
 
 		// Base frame shape. Mostly done for glass/diamond tables, where this is visible.
 		for(var/i = 1 to 4)
 			I = image(icon, dir = 1<<(i-1), icon_state = connections[i])
-			overlays += I
+			add_overlays(I)
 
 		//If there no any custom appearance or its an overlay, we use standard images
 		if(!custom_appearance || (custom_appearance && !(custom_appearance[4] == CUSTOM_TABLE_ICON_REPLACE)))
@@ -338,23 +353,23 @@ var/list/custom_table_appearance = list(
 						I = image(icon, "glass_[connections[i]]", dir = 1<<(i-1))
 						if(material.icon_colour)
 							I.color = material.icon_colour
-						overlays += I
+						add_overlays(I)
 						var/material/glass/G = material
 						if (G.is_reinforced())
 							I = image(icon, "rglass_[connections[i]]", dir = 1<<(i-1))
-							overlays += I
+							add_overlays(I)
 
 				else if (istype(material, /material/wood))
 					for(var/i = 1 to 4)
 						I = image(icon, "wood_[connections[i]]", dir = 1<<(i-1))
-						overlays += I
+						add_overlays(I)
 
 				else
 					for(var/i = 1 to 4)
 						I = image(icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
 						if(material.icon_colour) I.color = material.icon_colour
 						I.alpha = 255 * material.opacity
-						overlays += I
+						add_overlays(I)
 
 			// Reinforcements
 			if(reinforced)
@@ -362,14 +377,14 @@ var/list/custom_table_appearance = list(
 					I = image(icon, "[reinforced.icon_reinf]_[connections[i]]", dir = 1<<(i-1))
 					I.color = material.icon_colour
 					I.alpha = 255 * reinforced.opacity
-					overlays += I
+					add_overlays(I)
 		//Custom appearance
 		if(custom_appearance)
 			for(var/i = 1 to 4)
 				I = image(icon, "[custom_appearance[3]]_[connections[i]]", dir = 1<<(i-1))
-				overlays += I
+				add_overlays(I)
 	else
-		overlays.Cut()
+		cut_overlays()
 		var/type = 0
 		var/tabledirs = 0
 		for(var/direction in list(turn(dir,90), turn(dir,-90)) )
@@ -388,16 +403,16 @@ var/list/custom_table_appearance = list(
 		icon_state = "flip[type]"
 		if(custom_appearance && custom_appearance[4] == CUSTOM_TABLE_ICON_REPLACE)
 			var/image/I = image(icon, "[custom_appearance[3]]_flip[type]")
-			overlays += I
+			add_overlays(I)
 		else if(material)
 			if (istype(material, /material/wood))
 				var/image/I = image(icon, "wood_flip[type]")
-				overlays += I
+				add_overlays(I)
 			else
 				var/image/I = image(icon, "[material.icon_base]_flip[type]")
 				I.color = material.icon_colour
 				I.alpha = 255 * material.opacity
-				overlays += I
+				add_overlays(I)
 			name = "[material.display_name] table"
 		else
 			name = "table frame"
@@ -406,10 +421,10 @@ var/list/custom_table_appearance = list(
 			var/image/I = image(icon, "[reinforced.icon_reinf]_flip[type]")
 			I.color = reinforced.icon_colour
 			I.alpha = 255 * reinforced.opacity
-			overlays += I
+			add_overlays(I)
 
 		if(custom_appearance && custom_appearance[4] == CUSTOM_TABLE_COVERING)
-			overlays += "[custom_appearance[3]]_flip[type]"
+			add_overlays("[custom_appearance[3]]_flip[type]")
 
 // set propagate if you're updating a table that should update tables around it too, for example if it's a new table or something important has changed (like material).
 /obj/structure/table/proc/update_connections(propagate=0)

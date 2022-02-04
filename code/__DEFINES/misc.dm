@@ -43,7 +43,7 @@
 // These define the time taken for the shuttle to get to the space station, and the time before it leaves again.
 
 #define PODS_PREPTIME 	600	//10 mins = 600 sec - hol long pods will wait before launch
-#define PODS_TRANSIT 	120 //2 mins - how long pods takes to get to the centcomm
+#define PODS_TRANSIT 	120 //2 mins - how long pods takes to get to the centcom
 #define PODS_LOCKDOWN	90	//1.5 mins - how long pods stay opened, if evacuation will be cancelled
 
 // Shuttle moving status.
@@ -170,7 +170,7 @@
 #define TOGGLE_INVENTORY_FLAG 2 //0010
 
 // Default name for announsment system
-#define ANNOUNSER_NAME "NEV Northern Light System Announcer"
+#define ANNOUNSER_NAME "CEV Northern Light System Announcer"
 
 
 #define LIST_OF_CONSONANT list("a", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "á", "â", "ã", "ä", "æ", "ç", "é", "ê", "ë", "ì", "í", "ï", "ð", "ñ", "ò", "ô", "õ", "ö", "÷", "ø", "ù")
@@ -197,6 +197,13 @@
 #define CRUCIFORM_OBEY /datum/core_module/cruciform/obey
 #define CRUCIFORM_PRIEST_CONVERT /datum/core_module/activatable/cruciform/priest_convert
 #define CRUCIFORM_OBEY_ACTIVATOR /datum/core_module/activatable/cruciform/obey_activator
+
+#define CUPGRADE_NATURES_BLESSING /obj/item/weapon/cruciform_upgrade/natures_blessing
+#define CUPGRADE_FAITHS_SHIELD /obj/item/weapon/cruciform_upgrade/faiths_shield
+#define CUPGRADE_CLEANSING_PSESENCE /obj/item/weapon/cruciform_upgrade/cleansing_presence
+#define CUPGRADE_MARTYR_GIFT /obj/item/weapon/cruciform_upgrade/martyr_gift
+#define CUPGRADE_WRATH_OF_GOD /obj/item/weapon/cruciform_upgrade/wrath_of_god
+#define CUPGRADE_SPEED_OF_THE_CHOSEN /obj/item/weapon/cruciform_upgrade/speed_of_the_chosen
 
 //https://secure.byond.com/docs/ref/info.html#/atom/var/mouse_opacity
 #define MOUSE_OPACITY_TRANSPARENT 0
@@ -231,10 +238,6 @@
 #define text_starts_with(text, start) (copytext(text, 1, length(start) + 1) == start)
 
 #define attack_animation(A) if(istype(A)) A.do_attack_animation(src)
-
-// Overlays
-// (placeholders for if/when TG overlays system is ported)
-#define cut_overlays(...)			overlays.Cut()
 
 #define sequential_id(key) uniqueness_repository.Generate(/datum/uniqueness_generator/id_sequential, key)
 
@@ -328,3 +331,6 @@
 #define WASHABLE_COLOUR_PRIORITY 	3 //color splashed onto an atom (e.g. paint on turf)
 #define FIXED_COLOUR_PRIORITY 		4 //color inherent to the atom (e.g. blob color)
 #define COLOUR_PRIORITY_AMOUNT      4 //how many priority levels there are.
+
+//Prevent the master controller from starting automatically
+#define NO_INIT_PARAMETER "no-init"

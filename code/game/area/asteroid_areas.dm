@@ -33,7 +33,19 @@
 /area/outpost/abandoned_fortress
 	name = "Abandoned Fortress"
 	icon_state = "yellow"
-	requires_power = 0 //occ modular edit
+
+/area/outpost/blacksite
+	name = "Abandoned Blacksite"
+	icon_state = "away"
+
+/area/outpost/blacksite/small
+	name = "Small Abandoned Blacksite"
+
+/area/outpost/blacksite/medium
+	name = "Medium Abandoned Blacksite"
+
+/area/outpost/blacksite/large
+	name = "Large Abandoned Blacksite"
 
 // Main mining outpost
 /area/outpost/mining_main

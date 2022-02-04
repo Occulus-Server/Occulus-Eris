@@ -43,11 +43,11 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		if (ishuman(body))
 			var/mob/living/carbon/human/H = body
 			icon = H.stand_icon
-			overlays = H.overlays_standing
+			set_overlays(H.overlays_standing)
 		else
 			icon = body.icon
 			icon_state = body.icon_state
-			overlays = body.overlays
+			set_overlays(body.overlays)
 
 		alpha = 127
 
@@ -385,7 +385,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(bootime > world.time) return
 	var/obj/machinery/light/L = locate(/obj/machinery/light) in view(1, src)
 	if(L)
-		L.flicker()
+		L.flick_light()
 		bootime = world.time + 600
 		return
 	//Maybe in the future we can add more <i>spooky</i> code here!
@@ -456,7 +456,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if (spawnpoint)
 		host = new /mob/living/simple_animal/mouse(spawnpoint.loc)
 	else
-		to_chat(src, "<span class='warning'>Unable to find any safe, unwelded vents to spawn mice at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>")
+		to_chat(src, "<span class='warning'>Unable to find any safe, unwelded vents to spawn mice at. The ship must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>")
 
 	if(host)
 		if(config.uneducated_mice)
@@ -470,7 +470,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /proc/find_mouse_near_spawnpoint(var/turf/T)
 	var/obj/machinery/atmospherics/unary/vent_pump/nearest_safe_vent = null
 	var/nearest_dist = 999999
-	for(var/obj/machinery/atmospherics/unary/vent_pump/v in SSmachines.machinery)
+	for(var/obj/machinery/atmospherics/unary/vent_pump/v in GLOB.machines)
 		if(!v.welded && v.z == T.z && !(is_turf_atmos_unsafe(get_turf(v))))
 			var/distance = dist3D(v, T)
 			if (distance < nearest_dist)
@@ -486,7 +486,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	//If we hit the limit without finding a valid one, then the best one we found is selected
 
 	var/list/found_vents = list()
-	for(var/obj/machinery/atmospherics/unary/vent_pump/v in SSmachines.machinery)
+	for(var/obj/machinery/atmospherics/unary/vent_pump/v in GLOB.machines)
 		if(!v.welded && v.z == ZLevel)
 			found_vents.Add(v)
 
@@ -748,6 +748,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Respawn as character"
 	set category = "Ghost"
 	abandon_mob()
+
+/mob/observer/ghost/verb/last_shelter()
+	set name = "Activate Last Shelter"
+	set desc = "Will try to activate Last Shelter artifact and alert preacher."
+	set category = "Ghost"
+	GLOB.last_shelter.active_effect(src, TRUE)
 
 /mob/verb/abandon_mob()
 	set name = "Respawn"

@@ -39,7 +39,7 @@
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
 	max_storage_space = DEFAULT_NORMAL_STORAGE
 
-/obj/item/weapon/storage/bag/trash/update_icon()
+/obj/item/weapon/storage/bag/trash/on_update_icon()
 	if(contents.len == 0)
 		icon_state = "trashbag0"
 	else if(contents.len < 12)
@@ -55,7 +55,7 @@
 	max_storage_space = DEFAULT_BULKY_STORAGE * 2
 	spawn_tags = null
 
-/obj/item/weapon/storage/bag/trash/robot/update_icon()
+/obj/item/weapon/storage/bag/trash/robot/on_update_icon()
 	if(contents.len == 0)
 		icon_state = "trashbag0"
 	else if(contents.len < 24)
@@ -73,6 +73,13 @@
 	max_storage_space = DEFAULT_HUGE_STORAGE * 1.25
 	matter = list(MATERIAL_STEEL = 6, MATERIAL_GOLD = 6, MATERIAL_DIAMOND = 2, MATERIAL_URANIUM = 2)
 	spawn_blacklisted = TRUE
+
+/obj/item/weapon/storage/bag/trash/holding/New()
+	..()
+	bluespace_entropy(4, get_turf(src))
+
+/obj/item/weapon/storage/bag/trash/holding/on_update_icon()
+	return
 
 // -----------------------------
 //        Plastic Bag
@@ -120,6 +127,10 @@
 	                /obj/item/weapon/grown,
 	                /obj/item/weapon/reagent_containers/food/snacks/egg,
 	                /obj/item/weapon/reagent_containers/food/snacks/meat)
+
+/obj/item/weapon/storage/bag/ore/holding/New()
+	..()
+	bluespace_entropy(10, get_turf(src))
 
 // -----------------------------
 //          Produce bag

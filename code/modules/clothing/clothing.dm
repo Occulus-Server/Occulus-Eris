@@ -27,6 +27,8 @@
 
 	var/style = STYLE_NONE
 	var/no_fibers = FALSE	// OCCULUS EDIT: For clothing that should not leave fibers, like detective's gear
+	var/equip_sound = null // OCCULUS EDIT: For playing specific audio files on equip.
+	var/unequip_sound = null // OCCULUS EDIT: For playing specific audio files on unequip.
 
 /obj/item/clothing/Initialize(mapload, ...)
 	. = ..()
@@ -67,6 +69,8 @@
 	if (equip_delay > 0)
 		//If its currently worn, we must be taking it off
 		if (is_worn())
+			if(unequip_sound != null) // OCCULUS EDIT: For playing specific audio files when unequipping the clothing item.
+				playsound(src, unequip_sound, 50, 0)
 			user.visible_message(
 				SPAN_NOTICE("[user] starts taking off \the [src]..."),
 				SPAN_NOTICE("You start taking off \the [src]...")
@@ -75,6 +79,8 @@
 				return TRUE //A nonzero return value will cause the equipping operation to fail
 
 		else if (is_held() && !(slot in unworn_slots))
+			if(equip_sound != null) // OCCULUS EDIT: For playing specific audio files when equipping the clothing item.
+				playsound(src, equip_sound, 50, 0)
 			user.visible_message(
 				SPAN_NOTICE("[user] starts putting on \the [src]..."),
 				SPAN_NOTICE("You start putting on \the [src]...")
@@ -375,9 +381,9 @@ BLIND     // can't see anything
 		to_chat(user, SPAN_NOTICE("You crawl under \the [src]."))
 	return 1
 
-/obj/item/clothing/head/update_icon(mob/user)
+/obj/item/clothing/head/on_update_icon(mob/user)
 
-	overlays.Cut()
+	cut_overlays()
 	var/mob/living/carbon/human/H
 	if(ishuman(user))
 		H = user
@@ -387,7 +393,7 @@ BLIND     // can't see anything
 		// Generate object icon.
 		if(!light_overlay_cache["[light_overlay]_icon"])
 			light_overlay_cache["[light_overlay]_icon"] = image('icons/obj/light_overlays.dmi', light_overlay)
-		overlays |= light_overlay_cache["[light_overlay]_icon"]
+		associate_with_overlays(light_overlay_cache["[light_overlay]_icon"])
 
 		// Generate and cache the on-mob icon, which is used in update_inv_head().
 		var/cache_key = "[light_overlay][H ? "_[H.species.get_bodytype()]" : ""]"
@@ -433,7 +439,7 @@ BLIND     // can't see anything
 	slowdown = SHOES_SLOWDOWN
 	force = 2
 
-	var/can_hold_knife
+	var/can_hold_knife = 0
 	var/obj/item/holding
 	var/noslip = 0
 	var/module_inside = 0
@@ -498,7 +504,8 @@ BLIND     // can't see anything
 			/obj/item/weapon/tool/knife/butterfly,
 			/obj/item/weapon/material/kitchen/utensil,
 			/obj/item/weapon/tool/knife/tacknife,
-			/obj/item/weapon/oddity/common/old_knife //Syzygy change that should have been done forever ago
+			/obj/item/weapon/oddity/common/old_knife, //Syzygy change that should have been done forever ago
+			/obj/item/weapon/tool/shiv,
 		)
 	if(can_hold_knife && is_type_in_list(I, knifes))
 		if(holding)
@@ -525,10 +532,10 @@ BLIND     // can't see anything
 	else to_chat(usr, "You haven't got any accessories in your shoes")
 
 
-/obj/item/clothing/shoes/update_icon()
-	overlays.Cut()
+/obj/item/clothing/shoes/on_update_icon()
+	cut_overlays()
 	if(holding)
-		overlays += image(icon, "[icon_state]_knife")
+		add_overlays(image(icon, "[icon_state]_knife"))
 	return ..()
 
 /obj/item/clothing/shoes/proc/handle_movement(turf/walking, running)
@@ -546,6 +553,7 @@ BLIND     // can't see anything
 		/obj/item/weapon/storage/pouch/,
 		/obj/item/weapon/gun,
 		/obj/item/weapon/melee,
+		/obj/item/weapon/tool,
 		/obj/item/weapon/material,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
@@ -582,7 +590,7 @@ BLIND     // can't see anything
 		slot_l_hand_str = 'icons/mob/items/lefthand_uniforms.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_uniforms.dmi',
 		)
-	name = "under"
+	name = "jumpsuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	permeability_coefficient = 0.90
 	slot_flags = SLOT_ICLOTHING

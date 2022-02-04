@@ -6,6 +6,7 @@
 	w_class = ITEM_SIZE_SMALL
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge
 	volume = 10
+	filling_states = "-10;10;25;50;75;80;100"
 	rarity_value = 30
 	possible_transfer_amounts = list(5,10,15)
 
@@ -158,4 +159,4 @@
 	icon_state = "hypovial-t"
 	bad_type = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/combat
 	rarity_value = 100
-	preloaded_reagents = list("synaptizine" = 5, "hyperzine" = 10, "oxycodone" = 10, "trauma_control_system" = 10, "nanosymbiotes" = 10)
+	preloaded_reagents = list("synaptizine" = 5, "hyperzine" = 10, "paracetamol" = 10, "trauma_control_system" = 10, "nanosymbiotes" = 10)

@@ -148,14 +148,14 @@ Please contact me on #coderbus IRC. ~Carn x
 /mob/living/carbon/human/update_icons()
 	lying_prev = lying	//so we don't update overlays for lying/standing unless our stance changes again
 //	update_hud()		//TODO: remove the need for this
-	overlays.Cut()
+	cut_overlays()
 
 	if (icon_update)
 		icon = stand_icon
 		for(var/image/I in overlays_standing)
-			overlays += I
+			add_overlays(I)
 		if(species.has_floating_eyes)
-			overlays |= species.get_eyes(src)
+			associate_with_overlays(species.get_eyes(src))
 
 var/global/list/damage_icon_parts = list()
 
@@ -195,7 +195,7 @@ var/global/list/damage_icon_parts = list()
 		else
 			DI = damage_icon_parts[cache_index]
 
-		standing_image.overlays += DI
+		standing_image.overlays.Add(DI)
 
 	overlays_standing[DAMAGE_LAYER] = standing_image
 
@@ -346,7 +346,7 @@ var/global/list/damage_icon_parts = list()
 			var/obj/item/underwear/UW = entry
 			var/icon/I = new /icon(get_gender_icon(gender, "underwear"), UW.icon_state)
 			if(UW.color)
-				I.Blend(UW.color, ICON_ADD)
+				I.Blend(UW.color, ICON_MULTIPLY) // OCCULUS EDIT - Fixes undies
 			underwear.Blend(I, ICON_OVERLAY)
 		overlays_standing[UNDERWEAR_LAYER] = image(underwear)
 	if(update_icons)
@@ -380,7 +380,7 @@ var/global/list/damage_icon_parts = list()
 			else
 				facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 			if(facial_hair_style.do_colouration)
-				facial_s.Blend(rgb(r_facial, g_facial, b_facial), facial_hair_style.blend)
+				facial_s.Blend(rgb(r_facial, g_facial, b_facial, species.hair_alpha), facial_hair_style.blend) // OCCULUS EDIT - Slime hair alpha
 
 			face_standing.Blend(facial_s, ICON_OVERLAY)
 
@@ -393,7 +393,16 @@ var/global/list/damage_icon_parts = list()
 			else
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]")
 			if(hair_style.do_colouration)
-				hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.blend)
+				hair_s.Blend(rgb(r_hair, g_hair, b_hair, species.hair_alpha), hair_style.blend) // OCCULUS EDIT - Slime hair alpha
+				// OCCULUS EDIT START - Hair Color Gradients
+				for(var/M in head_organ.markings)
+					var/datum/sprite_accessory/marking/mark_style = head_organ.markings[M]["datum"]
+					if(mark_style.draw_target == 1)
+						var/icon/mark_s = new/icon(mark_style.icon, mark_style.icon_state)
+						mark_s.Blend(hair_s, ICON_AND)
+						mark_s.Blend(head_organ.markings[M]["color"], mark_style.color_blend_mode)
+						hair_s.Blend(mark_s, ICON_OVERLAY)
+				// OCCULUS EDIT END - Hair Color Gradients
 
 			face_standing.Blend(hair_s, ICON_OVERLAY)
 
@@ -422,7 +431,7 @@ var/global/list/damage_icon_parts = list()
 	for(var/mut in mutations)
 		switch(mut)
 			if(LASER)
-				standing.overlays += "lasereyes_s"
+				standing.overlays.Add("lasereyes_s")
 				add_image = 1
 	if(add_image)
 		overlays_standing[MUTATIONS_LAYER]	= standing
@@ -440,7 +449,7 @@ var/global/list/damage_icon_parts = list()
 		if(I.is_external() && I.wearer == src)
 			var/image/mob_icon = I.get_mob_overlay(gender)
 			if(mob_icon)
-				standing.overlays += mob_icon
+				standing.overlays.Add(mob_icon)
 				have_icon = TRUE
 
 	if(have_icon)
@@ -569,6 +578,15 @@ var/global/list/damage_icon_parts = list()
 				under_state = w_uniform.icon_state
 			else
 				under_state = w_uniform.item_state
+
+		//Occulus Edit - Rolldowns
+		if (istype(w_uniform, /obj/item/clothing/under))//Occulus anti-runtime stuff
+			var/obj/item/clothing/under/uniformcheck = w_uniform
+			if (uniformcheck.rolldown)//Are we rolled down?
+				var/icon/originalicon = icon(under_icon, icon_state = under_state)
+				var/icon/rollalpha = icon('zzzz_modular_occulus/icons/inventory/overlays.dmi', icon_state = "rolldown")//If we are, grab the overlay
+				originalicon.Blend(rollalpha, ICON_MULTIPLY)//Then apply the transform to the standing icon. End occulus Edit
+				under_icon = originalicon
 
 		//need to append _s to the icon state for legacy compatibility
 		var/image/standing = image(icon = under_icon, icon_state = under_state)
@@ -739,7 +757,7 @@ var/global/list/damage_icon_parts = list()
 		if(shoes.blood_DNA)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
 			bloodsies.color = shoes.blood_color
-			standing.overlays += bloodsies
+			standing.overlays.Add(bloodsies)
 		standing.color = shoes.color
 		overlays_standing[SHOES_LAYER] = standing
 	else
@@ -831,7 +849,7 @@ var/global/list/damage_icon_parts = list()
 			var/obj/item/clothing/head/hat = head
 			var/cache_key = "[hat.light_overlay]_[species.get_bodytype()]"
 			if(hat.on && light_overlay_cache[cache_key])
-				standing.overlays |= light_overlay_cache[cache_key]
+				standing.overlays |= (light_overlay_cache[cache_key])
 
 		standing.color = head.color
 		overlays_standing[HEAD_LAYER] = standing
@@ -925,7 +943,7 @@ var/global/list/damage_icon_parts = list()
 		var/obj/item/clothing/suit/suit = wear_suit
 		if(istype(suit) && suit.accessories.len)
 			for(var/obj/item/clothing/accessory/A in suit.accessories)
-				standing.overlays |= A.get_mob_overlay()
+				standing.overlays |= (A.get_mob_overlay())
 
 		overlays_standing[SUIT_LAYER]	= standing
 
@@ -1036,7 +1054,7 @@ var/global/list/damage_icon_parts = list()
 			var/obj/item/weapon/rig/rig = back//Maybe add if(rig.installed_modules.len) below this since the code for accessories does that far as I know.
 			for(var/obj/item/rig_module/module in rig.installed_modules)
 				if(module.suit_overlay)
-					standing.overlays += image("icon" = 'icons/mob/rig_modules.dmi', "icon_state" = module.suit_overlay)
+					standing.overlays.Add(image("icon" = 'icons/mob/rig_modules.dmi', "icon_state" = module.suit_overlay))
 
 		//create the image
 		overlays_standing[BACK_LAYER] = standing
@@ -1291,7 +1309,7 @@ var/global/list/damage_icon_parts = list()
 	for(var/obj/item/organ/external/E in organs)
 		if(E.open)
 			var/image/I = image("icon"='icons/mob/surgery.dmi', "icon_state"="[E.name][round(E.open)]", "layer"=-SURGERY_LAYER)
-			total.overlays += I
+			total.overlays.Add(I)
 	overlays_standing[SURGERY_LAYER] = total
 	if(update_icons)   update_icons()
 

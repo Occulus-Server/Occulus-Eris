@@ -187,9 +187,7 @@ There are important things regarding this file:
 /obj/item/projectile/bullet/antim
 	damage_types = list(BRUTE = 70)
 	armor_penetration = 50
-	stun = 3
-	weaken = 3
-	penetrating = 5
+	penetrating = 1
 	hitscan = TRUE //so the PTR isn't useless as a sniper weapon
 
 /obj/item/projectile/bullet/antim/scrap
@@ -230,10 +228,7 @@ There are important things regarding this file:
 	knockback = 0
 
 /obj/item/projectile/bullet/shotgun/incendiary
-	damage_types = list(BRUTE = 10)
-	agony = 5
-	armor_penetration = 0
-	embed = FALSE
+	damage_types = list(BRUTE = 45)
 	knockback = 0
 	var/fire_stacks = 4
 

@@ -12,15 +12,49 @@ var/list/disciples = list()
 	access = list(access_nt_disciple)
 	power = 50
 	max_power = 50
-	power_regen = 0.5
+	power_regen = 2/(1 MINUTES)
 	price_tag = 500
+	var/obj/item/weapon/cruciform_upgrade/upgrade
+
+//	var/righteous_life = 0 Occulus Edit: Be yote
+//	var/max_righteous_life = 100 Occulue Edit: Begone
+
+/*/obj/item/weapon/implant/core_implant/cruciform/auto_restore_power() occulus edit - this is defined in the modular folder for us
+	if(power >= max_power)
+		return
+	var/true_power_regen = power_regen
+	if(GLOB.miracle_points > 0)
+		true_power_regen += GLOB.miracle_points / (1 MINUTES)
+	true_power_regen += max(round(wearer.stats.getStat(STAT_COG) / 4), 0) * (0.1 / 1 MINUTES)
+	true_power_regen +=  power_regen * 1.5 * righteous_life / max_righteous_life
+	restore_power(true_power_regen)
+
+/obj/item/weapon/implant/core_implant/cruciform/proc/register_wearer() Occulus lives free and is happy
+	RegisterSignal(wearer, COMSIG_CARBON_HAPPY, .proc/on_happy, TRUE)
+	RegisterSignal(wearer, COMSIG_GROUP_RITUAL, .proc/on_ritual, TRUE)
+
+/obj/item/weapon/implant/core_implant/cruciform/proc/unregister_wearer()
+	UnregisterSignal(wearer, COMSIG_CARBON_HAPPY)
+	UnregisterSignal(wearer, COMSIG_GROUP_RITUAL) Occulus knows prohibition doesn't work
+
+/obj/item/weapon/implant/core_implant/cruciform/proc/on_happy(datum/reagent/happy, signal)
+	if(istype(happy, /datum/reagent/ethanol))
+		righteous_life = max(righteous_life - 0.1, 0)
+	else if(istype(happy, /datum/reagent/drug))
+		righteous_life = max(righteous_life - 0.5, 0) Occulus seek joy in the oneness that is the Mekhane
+
+/obj/item/weapon/implant/core_implant/cruciform/proc/on_ritual()
+	righteous_life = min(righteous_life + 20, max_righteous_life)We have no desire for this
+*/
 
 /obj/item/weapon/implant/core_implant/cruciform/install(mob/living/target, organ, mob/user)
 	. = ..()
 	if(.)
 		target.stats.addPerk(/datum/perk/sanityboost)
+//		register_wearer() Occulus Edit: Doesn't Exist
 
 /obj/item/weapon/implant/core_implant/cruciform/uninstall()
+//	unregister_wearer() Occulus Edit: We don't use this
 	wearer.stats.removePerk(/datum/perk/sanityboost)
 	return ..()
 
@@ -67,6 +101,21 @@ var/list/disciples = list()
 		eotp.addObservation(50)
 	return TRUE
 
+/obj/item/weapon/implant/core_implant/cruciform/examine(mob/user) 
+	..()
+	var/datum/core_module/cruciform/cloning/data = get_module(CRUCIFORM_CLONING)
+	if(data?.mind) // if there is cloning data and it has a mind
+		to_chat(user, SPAN_NOTICE("This cruciform has been activated."))
+		if(isghost(user) || (user in disciples))
+			var/datum/mind/MN = data.mind
+			if(MN.name) // if there is a mind and it also has a name
+				to_chat(user, SPAN_NOTICE("It contains <b>[MN.name]</b>'s soul."))
+			else
+				to_chat(user, SPAN_DANGER("Something terrible has happened with this soul. Please notify somebody in charge."))
+	else // no cloning data
+		to_chat(user, "This cruciform has not yet been activated.")
+
+
 
 /obj/item/weapon/implant/core_implant/cruciform/deactivate()
 	if(!active || !wearer)
@@ -83,11 +132,11 @@ var/list/disciples = list()
 	if(wearer)
 		if(wearer.stat == DEAD)
 			deactivate()
-		else if(ishuman(wearer)) //Eclipse add
+		else if(ishuman(wearer)) //Occulus Edit Start
 			var/mob/living/carbon/human/H = wearer
 			if(H.genetic_corruption > 49) //SEVEN BY SEVEN
 				H.genetic_corruption -= 1
-
+//Occulus Edit End
 
 /obj/item/weapon/implant/core_implant/cruciform/proc/transfer_soul()
 	if(!wearer || !activated)

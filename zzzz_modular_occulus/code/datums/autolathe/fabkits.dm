@@ -9,3 +9,6 @@
 
 /datum/design/autolathe/fabkit/bag
     build_path = /obj/item/fabkit/bag
+
+/datum/design/autolathe/fabkit/dryrack
+    build_path = /obj/item/fabkit/dryrack

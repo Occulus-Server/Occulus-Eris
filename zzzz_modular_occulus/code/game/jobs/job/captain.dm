@@ -1,26 +1,28 @@
 /datum/job/hop
 	also_known_languages = list(LANGUAGE_CYRILLIC = 0)
+	stat_modifiers = list(
+		STAT_ROB = 15,
+		STAT_TGH = 15,
+		STAT_BIO = 15,
+		STAT_MEC = 15,
+		STAT_VIG = 15,
+		STAT_COG = 15
+	)
 
 /decl/hierarchy/outfit/job/ensign
 	name = OUTFIT_JOB_NAME("Ensign")
 	uniform = /obj/item/clothing/under/rank/ensign
-	l_ear = /obj/item/device/radio/headset/heads/hop
+	l_ear = /obj/item/device/radio/headset/heads/hop/ensign
 	shoes = /obj/item/clothing/shoes/reinforced
 	id_type = /obj/item/weapon/card/id/hop
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/weapon/tool/knife/dagger/ceremonial = 1)
 
-/obj/item/clothing/under/rank/ensign
-	desc = "It's a jumpsuit worn by a low-ranking officer."
-	name = "ensign jumpsuit"
-	icon_state = "genericb"
-	item_state = "b_suit"
-
 /datum/job/ensign
 	flag = ENSIGN
 	department = DEPARTMENT_COMMAND
 	department_flag = COMMAND
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the first officer and captain"
@@ -52,7 +54,7 @@ Should the worst occur, defend your ship, post, and commanders with your life."
 
 
 	software_on_spawn = list(/datum/computer_file/program/comm,
-							 /datum/computer_file/program/card_mod,
+							 /datum/computer_file/program/suit_sensors,
 							 /datum/computer_file/program/camera_monitor,
 							 /datum/computer_file/program/reports)
 
@@ -66,7 +68,7 @@ Should the worst occur, defend your ship, post, and commanders with your life."
 		STAT_ROB = 10,
 		STAT_TGH = 5,
 		STAT_BIO = 5,
-		STAT_MEC = 5,
+		STAT_MEC = 10,
 		STAT_VIG = 20,
 		STAT_COG = 10
 	)

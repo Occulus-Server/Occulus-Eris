@@ -62,7 +62,8 @@
 		if(istype(A, /obj/item))
 			var/obj/item/I = A
 			I.decontaminate()
-		O.make_young()
+//		O.make_young() Occulus Edit: Gootbye, so long my friend, bye bye
+		O.color = "white" //Occulus Edit
 
 /obj/machinery/washing_machine/Process()
 	if(tick > 0 && (state in list(WASHSTATE_BLOODRUNNING, WASHSTATE_RUNNING)))
@@ -131,7 +132,7 @@
 		usr.loc = src.loc
 
 
-/obj/machinery/washing_machine/update_icon()
+/obj/machinery/washing_machine/on_update_icon()
 	icon_state = "wm_[state][panel]"
 
 /obj/machinery/washing_machine/affect_grab(var/mob/user, var/mob/target)

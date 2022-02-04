@@ -1,3 +1,5 @@
+//This entire file is an occulus edit
+
 /obj/vehicle/train/cargo/engine
 	name = "cargo train tug"
 	desc = "A ridable electric car designed for pulling cargo trolleys."
@@ -43,7 +45,7 @@
 	cell = new /obj/item/weapon/cell/large/high(src)
 	key = new(src)
 	var/image/I = new(icon = 'icons/obj/vehicles.dmi', icon_state = "cargo_engine_overlay", layer = layer + 0.2) //over mobs
-	overlays += I
+	add_overlays(I)
 	turn_off()	//so engine verbs are correctly set
 
 /obj/vehicle/train/cargo/engine/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, var/glide_size_override = 0)
@@ -79,7 +81,7 @@
 		return
 	..()
 
-/obj/vehicle/train/cargo/update_icon()
+/obj/vehicle/train/cargo/on_update_icon()
 	if(open)
 		icon_state = initial(icon_state) + "_open"
 	else
@@ -97,11 +99,15 @@
 	update_stats()
 
 /obj/vehicle/train/cargo/engine/Bump(atom/Obstacle)
-	var/obj/machinery/door/D = Obstacle
 	var/mob/living/carbon/human/H = load
-	if(istype(D) && istype(H))
-		D.Bumped(H)		//a little hacky, but hey, it works, and respects access rights
-
+	if(istype(Obstacle, /obj/machinery/door) && istype(H))//Occulus Reefix
+		Obstacle.Bumped(H)		//a little hacky, but hey, it works, and respects access rights
+	if(istype(Obstacle, /obj/structure/multiz/stairs/active))//Occulus Edit Start: Trying to get stairs to work
+		var/init_anc = anchored
+		anchored = FALSE
+		Obstacle.Bumped(src)
+		anchored = init_anc//Occulus Edit end
+		return
 	..()
 
 /obj/vehicle/train/cargo/trolley/Bump(atom/Obstacle)
@@ -259,20 +265,20 @@
 // Loading/unloading procs
 //-------------------------------------------
 /obj/vehicle/train/cargo/trolley
-	var/list/allowed_passengers = list(
+	/*var/list/allowed_passengers = list(
 		/obj/machinery,
 		/obj/structure/closet,
 		/obj/structure/largecrate,
 		/obj/structure/reagent_dispensers,
 		/obj/structure/ore_box,
 		/mob/living/carbon/human
-	)
+	)*/
 
 /obj/vehicle/train/cargo/trolley/load(var/atom/movable/C)
 	if(ismob(C) && !passenger_allowed)
 		return 0
-	if(!is_type_in_list(C, allowed_passengers))
-		return 0
+	//if(!is_type_in_list(C, allowed_passengers))
+	//	return 0 We are going to relax this a tiny bit
 
 	//if there are any items you don't want to be able to interact with, add them to this check
 	// ~no more shielded, emitter armed death trains
@@ -313,7 +319,7 @@
 		C.pixel_y += load_offset_y
 		C.layer = layer
 
-		overlays += C
+		add_overlays(C)
 
 		//we can set these back now since we have already cloned the icon into the overlay
 		C.pixel_x = initial(C.pixel_x)
@@ -326,7 +332,7 @@
 		load = dummy_load.actual_load
 		dummy_load.actual_load = null
 		qdel(dummy_load)
-		overlays.Cut()
+		cut_overlays()
 	..()
 
 //-------------------------------------------

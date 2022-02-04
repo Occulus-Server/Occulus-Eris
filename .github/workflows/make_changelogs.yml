@@ -3,12 +3,11 @@ name: Make changelogs
 on:
   push:
     branches: [master]
-  workflow_dispatch:
 
 jobs:
   MakeCL:
     runs-on: ubuntu-latest
-    if: github.repository == 'Occulus-Server/Occulus-Eris'
+    if: github.repository == 'Occulus-Server/Occulus-Eris' # Occulus Edit - We want this to run
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -26,5 +25,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_EMAIL: "action@github.com"
-          GIT_NAME: "Changelog Automaker" 
+          GIT_NAME: "Nestor Jr." 
         run: python tools/changelog/generate_cl.py

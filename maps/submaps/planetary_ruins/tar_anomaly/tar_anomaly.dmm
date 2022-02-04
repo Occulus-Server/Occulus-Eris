@@ -22,7 +22,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/tar,
 /area/template_noop)
 "g" = (
-/obj/structure/plushie,
+/obj/spawner/toy/plushie,
 /turf/simulated/floor/exoplanet/water/shallow/tar,
 /area/template_noop)
 "h" = (

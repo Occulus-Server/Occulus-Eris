@@ -331,11 +331,11 @@
 	sort_string = "KAAAB"
 	category = CAT_COMP
 
-/datum/design/research/circuit/biogenerator
+/* /datum/design/research/circuit/biogenerator OCCULUS EDIT. Comments out the non-Mekhane Biogenerator for lore reasons
 	name = "biogenerator"
 	build_path = /obj/item/weapon/electronics/circuitboard/biogenerator
 	sort_string = "KBAAA"
-	category = CAT_MEDI
+	category = CAT_MEDI */
 
 /datum/design/research/circuit/miningdrill
 	name = "mining drill head"
@@ -418,6 +418,16 @@
 	req_tech = list(TECH_MAGNET = 3, TECH_POWER = 4)
 	build_path = /obj/item/weapon/electronics/circuitboard/shield_cap
 	sort_string = "VAAAC"*/
+
+// Long range scanner
+/datum/design/research/circuit/lrange_scanner
+	name_category = "long range scanner"
+	category = CAT_MISC
+
+/datum/design/research/circuit/lrange_scanner/hull
+	name = "long range scanner"
+	build_path = /obj/item/weapon/electronics/circuitboard/long_range_scanner
+	sort_string = "VAAAC"
 
 //BS
 /datum/design/research/circuit/telesci/console

@@ -189,112 +189,13 @@
 	bolt.icon_state = "metal-rod-superheated"
 	cell.use(500)
 
-/obj/item/weapon/gun/launcher/crossbow/update_icon()
+/obj/item/weapon/gun/launcher/crossbow/on_update_icon()
 	if(tension > 1)
 		icon_state = "crossbow-drawn"
 	else if(bolt)
 		icon_state = "crossbow-nocked"
 	else
 		icon_state = "crossbow"
-
-
-// Crossbow construction.
-/obj/item/weapon/crossbowframe
-	name = "crossbow frame"
-	desc = "A half-finished crossbow."
-	icon_state = "crossbowframe0"
-	item_state = "crossbow-solid"
-
-	var/buildstate = 0
-
-/obj/item/weapon/crossbowframe/update_icon()
-	icon_state = "crossbowframe[buildstate]"
-
-/obj/item/weapon/crossbowframe/examine(mob/user)
-	..(user)
-	switch(buildstate)
-		if(0) to_chat(user, "Some metal rods would work as a frame." )
-		if(1) to_chat(user, "It has a loose metal rod frame in place. Welding it will secure it.")
-		if(2) to_chat(user, "It has a steel backbone welded in place. It needs some cables to attach the cell to.")
-		if(3) to_chat(user, "It has a steel backbone and a cell mount installed. It needs some plastic to give it a flexible lath.")
-		if(4) to_chat(user, "It has a steel backbone, plastic lath and a cell mount installed. Now it needs some cables for the bowstring.")
-		if(5) to_chat(user, "It has a steel cable loosely strung across the lath. All it needs now is to be tightened up with a screwdriver!")
-
-/obj/item/weapon/crossbowframe/attackby(obj/item/I, mob/user)
-
-
-	var/list/usable_qualities = list()
-	if(buildstate == 1)
-		usable_qualities.Add(QUALITY_WELDING)
-	if(buildstate == 5)
-		usable_qualities.Add(QUALITY_SCREW_DRIVING)
-
-	var/tool_type = I.get_tool_type(user, usable_qualities, src)
-	switch(tool_type)
-
-		if(QUALITY_WELDING)
-			if(buildstate == 1)
-				if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
-					to_chat(user, SPAN_NOTICE("You weld the rods together as a frame."))
-					buildstate++
-					update_icon()
-					return
-			return
-
-		if(QUALITY_SCREW_DRIVING)
-			if(buildstate == 5)
-				if(I.use_tool(user, src, WORKTIME_NEAR_INSTANT, tool_type, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
-					to_chat(user, SPAN_NOTICE("You tighten up the crossbow's components."))
-					new /obj/item/weapon/gun/launcher/crossbow(get_turf(src))
-					qdel(src)
-			return
-
-		if(ABORT_CHECK)
-			return
-
-	if(istype(I,/obj/item/stack/rods))
-		if(buildstate == 0)
-			var/obj/item/stack/rods/R = I
-			if(R.use(3))
-				to_chat(user, SPAN_NOTICE("You bunch the rods around the wooden frame."))
-				buildstate++
-				update_icon()
-			else
-				to_chat(user, SPAN_NOTICE("You need at least three metal rods to reinforce the frame."))
-			return
-
-	else if(istype(I,/obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/C = I
-		if(buildstate == 2)
-			if(C.use(5))
-				to_chat(user, SPAN_NOTICE("You wire a crude cell mount onto the top of the crossbow."))
-				buildstate++
-				update_icon()
-			else
-				to_chat(user, SPAN_NOTICE("You need at least five segments of cable coil to wire the cell mount."))
-			return
-		else if(buildstate == 4)
-			if(C.use(5))
-				to_chat(user, SPAN_NOTICE("You string the steel cable across the lath of the crossbow, making a suitable bowstring."))
-				buildstate++
-				update_icon()
-			else
-				to_chat(user, SPAN_NOTICE("You need at least five segments of cable coil to use for a bowstring."))
-			return
-
-	else if(istype(I,/obj/item/stack/material) && I.get_material_name() == "plastic")
-		if(buildstate == 3)
-			var/obj/item/stack/material/P = I
-			if(P.use(3))
-				to_chat(user, SPAN_NOTICE("You mold the plastic into a lathe and install it onto the crossbow."))
-				buildstate++
-				update_icon()
-			else
-				to_chat(user, SPAN_NOTICE("You need at least three plastic sheets to create the crossbow's lathe."))
-			return
-
-	else
-		..()
 
 /*////////////////////////////
 //	Rapid Crossbow Device	//
@@ -323,7 +224,7 @@
 		update_icon()
 	else
 		to_chat(user, "<span class='warning'>The \'Low Ammo\' light on the device blinks yellow.</span>")
-		flick("[icon_state]-empty", src)
+		FLICK("[icon_state]-empty", src)
 
 /obj/item/weapon/gun/launcher/crossbow/RCD/attack_self(mob/living/user)
 	if(tension)
@@ -357,17 +258,17 @@
 		update_icon()
 		return
 
-/obj/item/weapon/gun/launcher/crossbow/RCD/update_icon()
-	overlays.Cut()
+/obj/item/weapon/gun/launcher/crossbow/RCD/on_update_icon()
+	cut_overlays()
 	if(bolt)
-		overlays += "rxb-bolt"
+		add_overlays("rxb-bolt")
 	var/ratio = 0
 	if(stored_matter < boltcost)
 		ratio = 0
 	else
 		ratio = stored_matter / max_stored_matter
 		ratio = max(round(ratio, 0.25) * 100, 25)
-	overlays += "rxb-[ratio]"
+	add_overlays("rxb-[ratio]")
 	if(tension > 1)
 		icon_state = "rxb-drawn"
 	else
@@ -377,3 +278,9 @@
 	. = ..()
 	if(.)
 		to_chat(user, "It currently holds [stored_matter]/[max_stored_matter] matter-units.")
+
+
+/obj/item/weapon/arrow/ironrod
+	name = "iron rod"
+	desc = "The ultimate ghetto 'deconstruction' implement."
+	throwforce = 6

@@ -3,7 +3,8 @@ var/global/list/modifications_types = list(
 	BP_CHEST = "",  "chest2" = "", BP_HEAD = "",   BP_GROIN = "",
 	BP_L_ARM  = "", BP_R_ARM  = "", BP_L_HAND = "", BP_R_HAND = "",
 	BP_L_LEG  = "", BP_R_LEG  = "", BP_L_FOOT = "", BP_R_FOOT = "",
-	OP_HEART  = "", OP_LUNGS  = "", OP_LIVER  = "", OP_EYES   = ""
+	OP_HEART  = "", OP_LUNGS  = "", OP_LIVER  = "", OP_EYES   = "",
+	OP_KIDNEYS = "", OP_STOMACH = "", BP_BRAIN = ""
 )
 
 /proc/generate_body_modification_lists()
@@ -23,7 +24,7 @@ var/global/list/modifications_types = list(
 		if(MODIFICATION_ORGANIC)
 			return body_modifications["nothing"]
 		if(MODIFICATION_SILICON)
-			return body_modifications["prosthesis_basic"]
+			return body_modifications["robotize_organ"]
 		if(MODIFICATION_REMOVED)
 			return body_modifications["amputated"]
 
@@ -35,7 +36,7 @@ var/global/list/modifications_types = list(
 	var/list/body_parts = list(				// For sorting'n'selection optimization.
 		BP_CHEST, "chest2", BP_HEAD, BP_GROIN, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG,\
 		BP_L_FOOT, BP_R_FOOT,\
-		OP_HEART, OP_LUNGS, OP_LIVER, BP_BRAIN, OP_EYES)
+		OP_HEART, OP_LUNGS, OP_LIVER, BP_BRAIN, OP_EYES, OP_STOMACH, OP_KIDNEYS) //Occulus Edit: Allowing unmodified stomaches and kidneys
 	var/list/allowed_species = list("Human")// Species restriction.
 	var/replace_limb = null					// To draw usual limb or not.
 	var/mob_icon = ""
@@ -46,23 +47,30 @@ var/global/list/modifications_types = list(
 
 /datum/body_modification/proc/get_mob_icon(organ, color="#ffffff", gender = MALE, species)	//Use in setup character only
 	return new/icon('icons/mob/human.dmi', "blank")
-	
+
 /datum/body_modification/proc/is_allowed(organ = "", datum/preferences/P, mob/living/carbon/human/H)
 	if(!organ || !(organ in body_parts))
 		//usr << "[name] isn't useable for [organ]"
 		return FALSE
-	var/list/organ_data = organ_structure[organ]
-	if(organ_data)
-		var/parent_organ = organ_data["parent"]
-		if(parent_organ)
-			var/datum/body_modification/parent = P.get_modification(parent_organ)
-			if(parent.nature == MODIFICATION_REMOVED)
-				to_chat(usr, "[name] can't be attached to [parent.name]")
-				return FALSE
-			if(parent.nature == MODIFICATION_SILICON && nature != MODIFICATION_SILICON)
-				to_chat(usr, "[name] can't be attached to [parent.name]")
-				return FALSE
+	var/parent_organ
+	for(var/organ_parent in organ_structure)
+		var/list/organ_data = organ_structure[organ_parent]
+		if(organ in organ_data["children"])
+			parent_organ = organ_parent
 
+	if(parent_organ)
+		var/datum/body_modification/parent = P.get_modification(parent_organ)
+		if(parent.nature > nature)
+			to_chat(usr, "[name] can't be attached to [parent.name]")
+			return FALSE
+/* OCCULUS EDIT - haha we haven't bothered porting this shit
+	if(department_specific.len)
+		if(H && H.mind)
+			var/department = H.mind.assigned_job.department
+			if(!department || !department_specific.Find(department))
+				to_chat(usr, "This body-mod does not match your chosen department.")
+				return FALSE
+*/
 
 /*
 	if(!allow_nt)
@@ -99,8 +107,8 @@ var/global/list/modifications_types = list(
 		return new OD.default_type(holder,OD)
 
 /datum/body_modification/limb/amputation
-	name = "Amputated"
-	short_name = "Amputated"
+	name = "Removed"
+	short_name = "Removed"
 	id = "amputated"
 	desc = "Organ was removed."
 	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
@@ -179,7 +187,7 @@ var/global/list/modifications_types = list(
 	short_name = "P: assisted"
 	id = "assisted"
 	desc = "Assisted organ."
-	body_parts = list(OP_HEART, OP_LUNGS, OP_LIVER, OP_EYES)
+	body_parts = list(OP_HEART, OP_LUNGS, OP_KIDNEYS, OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES)
 	allow_nt = FALSE
 
 /datum/body_modification/organ/assisted/create_organ(var/mob/living/carbon/holder, var/O, var/color)
@@ -195,7 +203,8 @@ var/global/list/modifications_types = list(
 	short_name = "P: prosthesis"
 	id = "robotize_organ"
 	desc = "Robotic organ."
-	body_parts = list(OP_HEART, OP_LUNGS, OP_LIVER, OP_EYES)
+	body_parts = list(OP_HEART, OP_LUNGS, OP_KIDNEYS, OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES)
+	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
 
 /datum/body_modification/organ/robotize_organ/create_organ(var/mob/living/carbon/holder, O, color)

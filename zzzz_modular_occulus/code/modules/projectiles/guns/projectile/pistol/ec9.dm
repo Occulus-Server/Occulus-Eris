@@ -46,3 +46,6 @@
 /obj/item/weapon/gun/projectile/ec9/Initialize()
 	. = ..()
 	update_icon()
+
+/obj/item/weapon/gun/projectile/automatic/slaught_o_matic
+	name = "FS HG .35 Auto \"Liberator\""

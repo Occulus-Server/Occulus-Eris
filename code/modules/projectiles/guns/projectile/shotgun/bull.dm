@@ -16,7 +16,6 @@
 	var/reload = 1
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 4)
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_PLASTIC = 6)
-	price_tag = 2000 //gives tactical advantage with beanbags, but consumes more ammo and hits less harder with lethal ammo, so Gladstone or Regulator would be better for lethal takedowns in general
 	damage_multiplier = 0.75
 	penetration_multiplier = 0.75
 	one_hand_penalty = 10 //compact shotgun level
@@ -29,6 +28,9 @@
 		list(mode_name="fire one barrel at a time", burst=1, icon="semi"),
 		list(mode_name="fire both barrels at once", burst=2, icon="burst"),
 		)
+
+	spawn_tags = SPANW_TAG_FS_SHOTGUN
+	price_tag = 2000 //gives tactical advantage with beanbags, but consumes more ammo and hits less harder with lethal ammo, so Gladstone or Regulator would be better for lethal takedowns in general
 
 /obj/item/weapon/gun/projectile/shotgun/bull/proc/pump(mob/M as mob)
 	var/turf/newloc = get_turf(src)
@@ -88,9 +90,18 @@
 /obj/item/weapon/gun/projectile/shotgun/bull/proc/update_charge()
 	var/ratio = get_ammo() / (max_shells + 1)//1 in the chamber
 	ratio = round(ratio, 0.25) * 100
-	overlays += "[ratio]_PW"
+	add_overlays("[ratio]_PW")
 
+/obj/item/weapon/gun/projectile/shotgun/bull/on_update_icon()
+	..()
 
-/obj/item/weapon/gun/projectile/shotgun/bull/update_icon()
-	overlays.Cut()
+	var/iconstring = initial(icon_state)
+	var/itemstring = ""
+
+	if(wielded)
+		itemstring += "_doble"
+
+	icon_state = iconstring
+	set_item_state(itemstring)
+	cut_overlays()
 	update_charge()

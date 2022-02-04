@@ -34,7 +34,15 @@
 
 /datum/gear/uniform/tacticalturtleneck
 	display_name = "military turtleneck"
-	path = /obj/item/clothing/under/turtleneck //Coinflip between a green and black one!
+	path = /obj/item/clothing/under/turtleneckloadout //No more coinflip between a green and black one!
+
+/datum/gear/uniform/tacticalturtleneck/New()
+	..()
+	var/turtlenecks = list(
+		"Black"			=	/obj/item/clothing/under/turtleneckloadout/black,
+		"Green"			=	/obj/item/clothing/under/turtleneckloadout,
+	)
+	gear_tweaks += new /datum/gear_tweak/path(turtlenecks)
 
 /datum/gear/uniform/yogapants
 	display_name = "form-fitting athletic outfit"
@@ -44,6 +52,9 @@
 	display_name = "yoga pants"
 	path = /obj/item/clothing/under/yogapants/topless
 
+/datum/gear/uniform/sailor
+	display_name = "sailor uniform"
+	path = /obj/item/clothing/under/rank/sailoruniform
 
 /datum/gear/uniform/solgovblackdress
 	display_name = "solgov dress uniform (black)"

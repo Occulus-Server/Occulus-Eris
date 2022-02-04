@@ -1,5 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 #define DOOR_REPAIR_AMOUNT 50	//amount of health regained per stack amount used
+#define DOOR_AI_ACTIVATION_RANGE 12 // Range in which this door activates AI when opened
 
 /obj/machinery/door
 	name = "Door"
@@ -27,7 +28,6 @@
 	var/hitsound = 'sound/weapons/smash.ogg' //sound door makes when hit with a weapon
 	var/obj/item/stack/material/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
-	var/close_door_at = 0 //When to automatically close the door, if possible
 	var/obj/machinery/filler_object/f5
 	var/obj/machinery/filler_object/f6
 	var/welded = null //Placed here for simplicity, only airlocks can be welded tho
@@ -36,9 +36,26 @@
 	var/width = 1
 
 	var/damage_smoke = FALSE
+	var/tryingToLock = FALSE // for autoclosing
 
 	// turf animation
 	var/atom/movable/overlay/c_animation = null
+
+/obj/machinery/door/New()
+	GLOB.all_doors += src
+	..()
+
+/obj/machinery/door/Destroy()
+	GLOB.all_doors -= src
+	..()
+
+/obj/machinery/door/New()
+	GLOB.all_doors += src
+	..()
+
+/obj/machinery/door/Destroy()
+	GLOB.all_doors -= src
+	..()
 
 /obj/machinery/door/can_prevent_fall()
 	return density
@@ -84,12 +101,7 @@
 	return ..()
 
 /obj/machinery/door/Process()
-	if(close_door_at && world.time >= close_door_at)
-		if(autoclose)
-			close_door_at = next_close_time()
-			close()
-		else
-			close_door_at = 0
+	return PROCESS_KILL
 
 /obj/machinery/door/proc/can_open()
 	if(!density || operating)
@@ -151,15 +163,19 @@
 	return !density
 
 
-/obj/machinery/door/proc/bumpopen(mob/user as mob)
-	if(operating)	return
+/obj/machinery/door/proc/bumpopen(mob/user)
+	if(operating)
+		return FALSE
 	if(user.last_airflow > world.time - vsc.airflow_delay) //Fakkit
-		return
-	src.add_fingerprint(user)
+		return FALSE
+	add_fingerprint(user)
 	if(density)
-		if(allowed(user))	open()
-		else				do_animate("deny")
-	return
+		if(allowed(user))
+			if(open())
+				tryingToLock = TRUE
+		else
+			do_animate("deny")
+	return TRUE
 
 /obj/machinery/door/bullet_act(var/obj/item/projectile/Proj)
 	..()
@@ -362,10 +378,10 @@
 	stat |= BROKEN
 
 	if (health <= 0)
-		visible_message("<span class = 'warning'>\The [src.name] breaks open!</span>")
+		visible_message(SPAN_WARNING("\The [src.name] breaks open!"))
 		open(TRUE)
 	else
-		visible_message("<span class = 'warning'>\The [src.name] breaks!</span>")
+		visible_message(SPAN_WARNING("\The [src.name] breaks!"))
 	update_icon()
 
 
@@ -388,11 +404,8 @@
 	return
 
 
-/obj/machinery/door/update_icon()
-	if(density)
-		icon_state = "door1"
-	else
-		icon_state = "door0"
+/obj/machinery/door/on_update_icon()
+	SetIconState("door[density]")
 	update_openspace()
 
 
@@ -400,36 +413,36 @@
 	switch(animation)
 		if("opening")
 			if(p_open)
-				flick("o_doorc0", src)
+				FLICK("o_doorc0", src)
 			else
-				flick("doorc0", src)
+				FLICK("doorc0", src)
 		if("closing")
 			if(p_open)
-				flick("o_doorc1", src)
+				FLICK("o_doorc1", src)
 			else
-				flick("doorc1", src)
+				FLICK("doorc1", src)
 		if("spark")
 			if(density)
-				flick("door_spark", src)
+				FLICK("door_spark", src)
 		if("deny")
 			if(density && !(stat & (NOPOWER|BROKEN)))
-				flick("door_deny", src)
+				FLICK("door_deny", src)
 				playsound(src.loc, 'sound/machines/Custom_deny.ogg', 50, 0)
 	return
 
 
 /obj/machinery/door/proc/open(var/forced = 0)
 	if(!can_open(forced))
-		return
-	operating = 1
-
+		return FALSE
+	operating = TRUE
+	activate_mobs_in_range(src, 10)
 	set_opacity(0)
 	if(istype(src, /obj/machinery/door/airlock/multi_tile/metal))
 		f5.set_opacity(0)
 		f6.set_opacity(0)
 
 	do_animate("opening")
-	icon_state = "door0"
+	SetIconState("door0")
 	sleep(3)
 	src.density = FALSE
 	update_nearby_tiles()
@@ -438,23 +451,18 @@
 	explosion_resistance = 0
 	update_icon()
 	update_nearby_tiles()
-	operating = 0
-
+	operating = FALSE
 	if(autoclose)
-		close_door_at = next_close_time()
-
-	return 1
-
-/obj/machinery/door/proc/next_close_time()
-	return world.time + (normalspeed ? 150 : 5)
+		var/wait = normalspeed ? 150 : 5
+		addtimer(CALLBACK(src, .proc/close), wait)
+	return TRUE
 
 /obj/machinery/door/proc/close(var/forced = 0)
 	set waitfor = FALSE
 	if(!can_close(forced))
 		return
-	operating = 1
+	operating = TRUE
 
-	close_door_at = 0
 	do_animate("closing")
 	sleep(3)
 	src.density = TRUE
@@ -471,7 +479,7 @@
 		f5.set_opacity(1)
 		f6.set_opacity(1)
 
-	operating = 0
+	operating = FALSE
 
 	//I shall not add a check every x ticks if a door has closed over some fire.
 	var/obj/fire/fire = locate() in loc

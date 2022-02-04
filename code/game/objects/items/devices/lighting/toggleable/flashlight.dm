@@ -255,7 +255,7 @@
 
 			user.visible_message(SPAN_NOTICE("\The [user] directs [src] to [M]'s eyes."), \
 							 	 SPAN_NOTICE("You direct [src] to [M]'s eyes."))
-			if(H == user)	//can't look into your own eyes buster
+			if(H != user)	//can't look into your own eyes buster // OCCULUS Edit - Fixes looking at pupil dilation
 				if(M.stat == DEAD || M.blinded)	//mob is dead or fully blind
 					to_chat(user, SPAN_WARNING("\The [M]'s pupils do not react to the light!"))
 					return
@@ -279,7 +279,7 @@
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //can be used offensively
 			if(M.HUDtech.Find("flash"))
-				flick("flash", M.HUDtech["flash"])
+				FLICK("flash", M.HUDtech["flash"])
 	else
 		return ..()
 
@@ -315,7 +315,7 @@
 	light_spot_radius = 3
 	light_spot_power = 2.5
 
-/obj/item/device/lighting/toggleable/flashlight/seclite/update_icon()
+/obj/item/device/lighting/toggleable/flashlight/seclite/on_update_icon()
 	. = ..()
 
 	if(on)

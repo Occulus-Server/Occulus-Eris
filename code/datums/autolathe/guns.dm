@@ -17,11 +17,11 @@
 
 /datum/design/autolathe/gun/clarissa
 	name = "FS HG .35 \"Clarissa\""
-	build_path = /obj/item/weapon/gun/projectile/clarissa
+	build_path = /obj/item/weapon/gun/projectile/selfload
 
 /datum/design/autolathe/gun/makarov
 	name = "Excelsior .35 \"Makarov\""
-	build_path = /obj/item/weapon/gun/projectile/clarissa/makarov
+	build_path = /obj/item/weapon/gun/projectile/selfload/makarov
 
 /datum/design/autolathe/gun/mk58
 	name = "NT HG .35 \"Mk58\""
@@ -153,12 +153,28 @@
 	build_path = /obj/item/weapon/gun/projectile/automatic/ak47
 
 /datum/design/autolathe/gun/ak47_fs
-	name = "FS AR .30 \"Kalashnikov\""
+	name = "FS AR .30 \"Vipr\""
 	build_path = /obj/item/weapon/gun/projectile/automatic/ak47/fs
+
+/datum/design/autolathe/gun/ak47_fs_ih
+	name = "FS AR .30 \"Venger\""
+	build_path = /obj/item/weapon/gun/projectile/automatic/ak47/fs/ih
+
+/datum/design/autolathe/gun/ak47_sa
+	name = "SA Car .30 \"Krinkov\""
+	build_path = /obj/item/weapon/gun/projectile/automatic/ak47/sa
+
+/datum/design/autolathe/gun/ak47_sa
+	name = "SA Car .30 \"Krinkov\""
+	build_path = /obj/item/weapon/gun/projectile/automatic/ak47/sa
 
 /datum/design/autolathe/gun/sts35
 	name = "STS-35"
 	build_path = /obj/item/weapon/gun/projectile/automatic/sts35
+
+/datum/design/autolathe/gun/kovacs
+	name = "SA BR \"Kovacs\""
+	build_path = /obj/item/weapon/gun/projectile/kovacs
 
 // Heavy
 
@@ -169,6 +185,10 @@
 /datum/design/autolathe/gun/mg_pk
 	name = "SA MG .30 \"Pulemyot Kalashnikova\""
 	build_path = /obj/item/weapon/gun/projectile/automatic/lmg/pk
+
+/datum/design/autolathe/gun/lmg_tk
+	name = "FS LMG .30 \"Takeshi\""
+	build_path = /obj/item/weapon/gun/projectile/automatic/lmg/tk
 
 /datum/design/autolathe/gun/grenade_launcher
 	name = "NT GL \"Protector\""
@@ -210,6 +230,10 @@
 	name = "NT LG \"Lightfall\""
 	build_path = /obj/item/weapon/gun/energy/laser
 
+/datum/design/autolathe/gun/retro
+	name = "OS LG \"Cog\""
+	build_path = /obj/item/weapon/gun/energy/retro
+
 /datum/design/autolathe/gun/ionrifle
 	name = "NT IR \"Halicon\""
 	build_path = /obj/item/weapon/gun/energy/ionrifle
@@ -231,10 +255,6 @@
 /datum/design/autolathe/gun/plasma/cassad
 	name = "FS PR \"Cassad\""
 	build_path = /obj/item/weapon/gun/energy/plasma/cassad
-
-/datum/design/autolathe/gun/plasma/martyr
-	name = "NT PR \"Martyr\""
-	build_path = /obj/item/weapon/gun/energy/plasma/martyr
 
 // Special
 /datum/design/autolathe/gun/reclaimer

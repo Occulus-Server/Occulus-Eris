@@ -5,7 +5,7 @@
 	department = DEPARTMENT_GUILD
 	head_position = 1
 	department_flag = GUILD | COMMAND
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "your greed"
@@ -33,7 +33,7 @@ You do not recieve a salary, but the local Union funds are yours to use. You may
 <br>\
 Things to bear in mind:<br>\
 	-Nobody has a right to free stuff. You are well within your rights to charge for anything you distribute, and you won't make a penny if you don't.<br>\
-	-NEV Northern Light has few laws on contraband. If someone wants something and they can afford it, you get it for them. Don't try to play moral guardian and don't ask questions. You are not responsible for whatever they do with your products.<br>\
+	-CEV Northern Light has few laws on contraband. If someone wants something and they can afford it, you get it for them. Don't try to play moral guardian and don't ask questions. You are not responsible for whatever they do with your products.<br>\
 	-Loyalty is a priceless resource, yet cheap to maintain. Don't screw over the miners and technicians working under you. <br>\
 	-Charity is a weapon. Used correctly, it can do wonders for your public image.  A few gifts spread around makes for good returning customers"
 
@@ -67,12 +67,13 @@ Your second loyalty is to the Union. Ensure it retains good relations with priva
 	flag = GUILDTECH
 	department = DEPARTMENT_GUILD
 	department_flag = GUILD
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Free Trade Union Merchant"
 	selection_color = "#c3b9a6"
 	wage = WAGE_LABOUR_DUMB
+	alt_titles = list("Union Salvage Technician")	// OCCULUS EDIT
 	department_account_access = TRUE
 	outfit_type = /decl/hierarchy/outfit/job/cargo/cargo_tech
 
@@ -110,7 +111,7 @@ Your main duties are to keep the local Union branch operational and profitable. 
 		Your second loyalty is to the merchant, he ensures you're well paid and respected, in a universe where workers are often treated as interchangeable parts."
 
 /obj/landmark/join/start/cargo_tech
-	name = "Union Cargo Technician"	//SYZYGY EDIT - Fixes landmarks
+	name = "Union Cargo Technician"	//OCCULUS EDIT - Fixes landmarks
 	icon_state = "player-beige"
 	join_tag = /datum/job/cargo_tech
 
@@ -119,13 +120,13 @@ Your main duties are to keep the local Union branch operational and profitable. 
 	flag = MINER
 	department = DEPARTMENT_GUILD
 	department_flag = GUILD
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the Free Trade Union Merchant"
 	selection_color = "#c3b9a6"
 	wage = WAGE_LABOUR_HAZARD //The miners union is stubborn
-	alt_titles = list("Union Salvage Technician")	// OCCULUS EDIT
+	alt_titles = list("Union Prospector")	// OCCULUS EDIT
 	outfit_type = /decl/hierarchy/outfit/job/cargo/mining
 
 	description = "You are an asteroid miner, working in resource Procurement for the local branch of the Free Trade Union.<br>\

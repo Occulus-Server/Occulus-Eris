@@ -46,10 +46,10 @@
 		LAZYAPLUS(., padding_material.name, 1)
 
 // Reuse the cache/code from stools, todo maybe unify.
-/obj/structure/bed/update_icon()
+/obj/structure/bed/on_update_icon()
 	// Prep icon.
 	icon_state = ""
-	overlays.Cut()
+	cut_overlays()
 	// Base icon.
 	var/cache_key = "[base_icon]-[material.name]"
 	if(isnull(stool_cache[cache_key]))
@@ -57,7 +57,7 @@
 		if(applies_material_colour)
 			I.color = material.icon_colour
 		stool_cache[cache_key] = I
-	overlays |= stool_cache[cache_key]
+	associate_with_overlays(stool_cache[cache_key])
 	// Padding overlay.
 	if(padding_material)
 		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]"
@@ -65,7 +65,7 @@
 			var/image/I =  image(icon, "[base_icon]_padding")
 			I.color = padding_material.icon_colour
 			stool_cache[padding_cache_key] = I
-		overlays |= stool_cache[padding_cache_key]
+		associate_with_overlays(stool_cache[padding_cache_key])
 
 	// Strings.
 	desc = initial(desc)
@@ -203,12 +203,29 @@
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
-	desc = "For prime comfort during psychiatric evaluations."
+	desc = "For prime comfort during psychiatric evaluations. You seem relaxed at the sight of it."
 	icon_state = "psychbed"
 	base_icon = "psychbed"
+	var/sanity_value = 5	// 5x the strength of an oddity! Wow! (may need balancing)
+
+
+
+
+
+/obj/structure/bed/psych/Initialize()
+	. = ..()
 
 /obj/structure/bed/psych/New(var/newloc)
+	START_PROCESSING(SSobj, src)
 	..(newloc, MATERIAL_WOOD, MATERIAL_LEATHER)
+
+/obj/structure/bed/psych/Process()
+	for(var/mob/living/carbon/human/H in oviewers(1, src))
+		if(H.sanity && H.sanity.level < H.sanity.max_level)
+			H.sanity.level += 5
+
+/obj/structure/bed/psych/Destroy()
+	STOP_PROCESSING(SSobj, src)
 
 /obj/structure/bed/padded/New(var/newloc)
 	..(newloc, MATERIAL_PLASTIC, "cotton")
@@ -231,7 +248,7 @@
 	buckle_pixel_shift = "x=0;y=6"
 	var/item_form_type = /obj/item/roller	//The folded-up object path.
 
-/obj/structure/bed/roller/update_icon()
+/obj/structure/bed/roller/on_update_icon()
 	if(density)
 		icon_state = "up"
 	else

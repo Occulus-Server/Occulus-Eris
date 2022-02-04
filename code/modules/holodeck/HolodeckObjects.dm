@@ -90,7 +90,7 @@
 /turf/simulated/floor/holofloor/desert/New()
 	..()
 	if(prob(10))
-		overlays += "asteroid[rand(0,9)]"
+		add_overlays("asteroid[rand(0,9)]")
 
 /obj/structure/holostool
 	name = "stool"
@@ -167,7 +167,7 @@
 			close()
 
 	else if (src.density)
-		flick(text("[]deny", src.base_state), src)
+		FLICK(text("[]deny", src.base_state), src)
 
 	return
 
@@ -306,10 +306,10 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 6
-	power_channel = ENVIRON
+	power_channel = STATIC_ENVIRON
 
 /obj/machinery/readybutton/attack_ai(mob/user as mob)
-	to_chat(user, "The station AI is not to interact with these devices!")
+	to_chat(user, "The ship AI is not to interact with these devices!")
 	return
 
 /obj/machinery/readybutton/New()
@@ -350,7 +350,7 @@
 	if(numbuttons == numready)
 		begin_event()
 
-/obj/machinery/readybutton/update_icon()
+/obj/machinery/readybutton/on_update_icon()
 	if(ready)
 		icon_state = "auth_on"
 	else

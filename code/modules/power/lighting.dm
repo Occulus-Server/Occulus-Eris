@@ -169,7 +169,7 @@
 	use_power = ACTIVE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 20
-	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
+	power_channel = STATIC_LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	var/on = FALSE					// 1 if on, 0 if off
 	var/on_gs = 0
 	var/autoattach = 0			//If this attaches to a wall automatically
@@ -257,7 +257,7 @@
 //		A.update_lights()
 	. = ..()
 
-/obj/machinery/light/update_icon()
+/obj/machinery/light/on_update_icon()
 
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
@@ -491,7 +491,7 @@
 	var/area/A = get_area(src)
 	return A && A.lightswitch && (!A.requires_power || A.power_light)
 
-/obj/machinery/light/proc/flicker(amount = rand(10, 20))
+/obj/machinery/light/proc/flick_light(amount = rand(10, 20))
 	var/on_s = on // s stands for safety
 	if(flickering)
 		return
@@ -514,7 +514,7 @@
 // ai attack - make lights flicker, because why not
 
 /obj/machinery/light/attack_ai(mob/user)
-	src.flicker(1)
+	flick_light(1)
 	return
 
 // attack with hand - remove tube/bulb
@@ -647,7 +647,7 @@
 
 /obj/machinery/light/Process()
 	if(on)
-		use_power(light_range * LIGHTING_POWER_FACTOR, LIGHT)
+		use_power(light_range * LIGHTING_POWER_FACTOR, STATIC_LIGHT)
 
 
 // called when area power state changes

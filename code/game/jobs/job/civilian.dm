@@ -7,7 +7,7 @@
 	flag = CLUBMANAGER
 	department = DEPARTMENT_CIVILIAN
 	department_flag = SERVICE
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the First Officer"
@@ -15,6 +15,7 @@
 	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 15, LANGUAGE_JIVE = 80)
 	access = list(access_bar, access_kitchen, access_maint_tunnels, access_change_club)
 	initial_balance = 3000
+	perks = list(PERK_CLUB)
 	wage = WAGE_NONE // Makes his own money
 	stat_modifiers = list(
 		STAT_ROB = 15,
@@ -22,7 +23,7 @@
 		STAT_VIG = 15,
 	)
 	outfit_type = /decl/hierarchy/outfit/job/service/bartender //Re-using this.
-	description = "As the Club Manager, you run the club aboard NEV Northern Light. Provide the crewmembers with drinks, food, and entertainment.<br>\
+	description = "As the Club Manager, you run the club aboard CEV Northern Light. Provide the crewmembers with drinks, food, and entertainment.<br>\
 	<br>\
 	Technically you take orders from no one, but the Captain and the Head of Personnel are the ones who hired you and you should strive to please them. Your Club Workers help you run the place and make money. Pay them well!"
 
@@ -42,13 +43,14 @@
 	flag = CLUBWORKER
 	department = DEPARTMENT_CIVILIAN
 	department_flag = SERVICE
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Club Manager"
 	selection_color = "#dddddd"
 	access = list(access_bar, access_kitchen)
 	initial_balance = 750
+	perks = list(PERK_CLUB)
 	wage = WAGE_NONE //They should get paid by the club owner, otherwise you know what to do.
 	stat_modifiers = list(
 		STAT_ROB = 10,
@@ -80,7 +82,7 @@
 	flag = ACTOR
 	department = DEPARTMENT_CIVILIAN
 	department_flag = SERVICE
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Personnel"
@@ -107,7 +109,7 @@
 	flag = BOTANIST
 	department = DEPARTMENT_CIVILIAN
 	department_flag = SERVICE
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Head of Personnel"
@@ -142,7 +144,7 @@
 	flag = JANITOR
 	department = DEPARTMENT_CIVILIAN
 	department_flag = SERVICE
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Personnel"

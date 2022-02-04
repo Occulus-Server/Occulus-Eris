@@ -28,6 +28,7 @@
 	layer = 3
 	pass_flags = PASSTABLE
 	mouse_opacity = 1
+	reagent_flags = DRAINABLE
 
 	var/health = 5
 	var/max_health = 60
@@ -54,7 +55,10 @@
 		plant_controller.remove_plant(src)
 	for(var/obj/effect/plant/neighbor in range(1,src))
 		plant_controller.add_plant(neighbor)
+	if(seed.type == /datum/seed/mushroom/maintshroom)
+		GLOB.all_maintshrooms -= src
 	. = ..()
+
 
 /obj/effect/plant/single
 	spread_chance = 0
@@ -92,6 +96,7 @@
 		if(seed.type == /datum/seed/mushroom/maintshroom)
 			growth_type = 0 // this is maintshroom
 			density = FALSE
+			GLOB.all_maintshrooms += src
 		else if(seed.get_trait(TRAIT_CARNIVOROUS) == 2)
 			growth_type = 1 // WOOOORMS.
 		else if(!(seed.seed_noun in list("seeds","pits")))
@@ -146,7 +151,7 @@
 			if (!near_external)
 				T.ex_act(prob(80) ? 3 : 2)
 
-/obj/effect/plant/update_icon()
+/obj/effect/plant/on_update_icon()
 	//TODO: should really be caching this.
 	refresh_icon()
 

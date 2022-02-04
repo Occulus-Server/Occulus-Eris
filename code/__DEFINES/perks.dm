@@ -35,6 +35,10 @@
 #define PERK_ABSOLUTE_GRAB /datum/perk/oddity/absolute_grab
 #define PERK_SURE_STEP /datum/perk/oddity/sure_step
 #define PERK_MARKET_PROF /datum/perk/oddity/market_prof
+#define PERK_EMPATH /datum/perk/oddity/empath //Occulus edit
+#define PERK_NOTRIP /datum/perk/oddity/surefooting //Occulus edit
 
 //job perks
 #define PERK_ARTIST /datum/perk/job/artist
+#define PERK_SURVIVOR /datum/perk/survivor
+#define PERK_CLUB /datum/perk/job/club

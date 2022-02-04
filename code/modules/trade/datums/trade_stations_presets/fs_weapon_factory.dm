@@ -1,6 +1,6 @@
 /datum/trade_station/fs_factory
-	name_pool = list("FSMS 'Kaida'" = "Frozen Star Manufacturing Station 'Kaida'. They're sending a message. \"Your translocator signal has been recieved. We are currently in full stocks and willing to trade. Prices are non-negotiable.\" ")
-	markup = 0.5
+	name_pool = list("FSTB 'Kaida'" = "Frozen Star Trade Beacon 'Kaida'. Maybe they have an extra batch of weapons?")
+	markup = 0.4
 	assortiment = list(
 		"Projectiles" = list(
 			/obj/item/weapon/gun/projectile/automatic/ak47/fs,
@@ -11,7 +11,7 @@
 			/obj/item/weapon/gun/projectile/automatic/wintermute,
 			/obj/item/weapon/gun/projectile/automatic/z8,
 			/obj/item/weapon/gun/projectile/avasarala,
-			/obj/item/weapon/gun/projectile/clarissa,
+			/obj/item/weapon/gun/projectile/selfload,
 			/obj/item/weapon/gun/projectile/colt,
 			/obj/item/weapon/gun/projectile/giskard,
 			/obj/item/weapon/gun/projectile/lamia,
@@ -38,21 +38,18 @@
 			/obj/item/ammo_magazine/lrifle,
 			/obj/item/ammo_magazine/smg,
 			/obj/item/ammo_magazine/pistol,
-			/obj/item/ammo_magazine/hpistol,
-			/obj/item/ammo_magazine/m12
+			/obj/item/ammo_magazine/hpistol
 		),
-		"Energy" = list(
-			/obj/item/weapon/gun/energy/gun,
-			/obj/item/weapon/gun/energy/gun/martin,
-			/obj/item/weapon/gun/energy/plasma/cassad,
-		),
+		category_data("Projectiles", list(SPAWN_FS_PROJECTILE)),
+		category_data("Shotguns", list(SPAWN_FS_SHOTGUN)),
+		category_data("Energy", list(SPAWN_FS_ENERGY)),
 		"Grenades" = list(
 			/obj/item/weapon/gun/launcher/grenade/lenar,
-			/obj/item/weapon/grenade/chem_grenade/incendiary,
 			/obj/item/weapon/grenade/chem_grenade/teargas,
-			/obj/item/weapon/grenade/empgrenade,
 			/obj/item/weapon/grenade/empgrenade/low_yield,
 			/obj/item/weapon/grenade/flashbang,
-			/obj/item/weapon/grenade/smokebomb,
-		)
+			/obj/item/weapon/grenade/smokebomb
+		),
+	)
+	offer_types = list(
 	)

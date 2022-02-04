@@ -157,7 +157,7 @@
 	var/list/bagholding = teleatom.search_contents_for(/obj/item/weapon/storage/backpack/holding)
 	if(bagholding.len)
 		ofholding += bagholding.len
-	var/list/pouchholding = teleatom.search_contents_for(/obj/item/weapon/storage/pouch/holding/)
+	var/list/pouchholding = teleatom.search_contents_for(/obj/item/weapon/storage/pouch/holding)
 	if(pouchholding.len)
 		ofholding += pouchholding.len
 	var/list/beltholding = teleatom.search_contents_for(/obj/item/weapon/storage/belt/holding)
@@ -171,6 +171,7 @@
 		ofholding += satchelholding.len
 
 	if(ofholding)
+		GLOB.bluespace_entropy += ofholding
 		precision = max(rand(1, 100)*ofholding, 100)
 		if(isliving(teleatom))
 			var/mob/living/MM = teleatom
@@ -185,8 +186,9 @@
 			if(satchelholding.len)
 				to_chat(MM, SPAN_DANGER("The bluespace interface of your satchel of holding interferes with the teleport!"))
 	return 1
-
 /datum/teleport/instant/science/teleportChecks()
+	if(istype(teleatom, /obj/effect/sparks))
+		return 0
 	if(istype(teleatom, /obj/item/weapon/disk/nuclear)) // Don't let nuke disks get teleported --NeoFite
 		teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"))
 		return 0

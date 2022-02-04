@@ -61,18 +61,18 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT
 	w_class = ITEM_SIZE_NORMAL
-	can_dual = 1
-	matter = list(MATERIAL_STEEL = 12)
+	can_dual = TRUE
+	matter = list(MATERIAL_STEEL = 10, MATERIAL_PLASTIC = 15, MATERIAL_GLASS = 5)
 	projectile_type = /obj/item/projectile/beam
 	fire_delay = 10 //old technology
 	zoom_factor = 0
 	damage_multiplier = 1
 	charge_cost = 100
 	price_tag = 2000
-	rarity_value = 10
+	rarity_value = 48
 	init_firemodes = list(
 		WEAPON_NORMAL,
-		WEAPON_CHARGE
+		BURST_2_ROUND
 	)
 	twohanded = TRUE
 
@@ -216,10 +216,11 @@ Occulus Edit End */
 	icon_state = "psychic_lasercannon"
 	item_state = "psychic_lasercannon"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	item_charge_meter = TRUE
+	item_charge_meter = FALSE
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3, TECH_COVERT = 5)
 	projectile_type = /obj/item/projectile/beam/psychic/heavylaser
-	w_class = ITEM_SIZE_HUGE
+	w_class = ITEM_SIZE_NORMAL
+	force = WEAPON_FORCE_NORMAL
 	slot_flags = SLOT_BELT|SLOT_BACK
 	traitor = TRUE
 	pierce_multiplier = 2
@@ -233,5 +234,25 @@ Occulus Edit End */
 		WEAPON_NORMAL,
 		WEAPON_CHARGE
 		)
-	one_hand_penalty = 5
-	twohanded = TRUE
+	twohanded = FALSE
+
+/obj/item/weapon/gun/energy/laser/makeshift
+	name = "makeshift laser carbine"
+	desc = "A makeshift laser carbine, rather wastefull on its chage, but nonetheless reliable"
+	icon = 'icons/obj/guns/energy/makeshift_carbine.dmi'
+	icon_state = "makeshift"//evan, TODO
+	item_state = "makeshift"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 1)
+	matter = list(MATERIAL_STEEL = 20, MATERIAL_PLASTIC = 15)
+	item_charge_meter = TRUE
+	slot_flags = SLOT_BELT
+	w_class = ITEM_SIZE_NORMAL
+	force = WEAPON_FORCE_NORMAL
+	zoom_factor = 0
+	charge_cost = 100 //worst lightfall
+	fire_delay = 10 //ditto
+	price_tag = 500
+	init_firemodes = list(
+		WEAPON_NORMAL
+	)
+	spawn_blacklisted = TRUE

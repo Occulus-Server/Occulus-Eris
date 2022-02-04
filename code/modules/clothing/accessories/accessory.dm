@@ -46,7 +46,7 @@
 		return
 	has_suit = S
 	loc = has_suit
-	has_suit.overlays += get_inv_overlay()
+	has_suit.add_overlays(get_inv_overlay())
 
 	to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [has_suit]."))
 	src.add_fingerprint(user)
@@ -54,7 +54,7 @@
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
 	if(!has_suit)
 		return
-	has_suit.overlays -= get_inv_overlay()
+	has_suit.remove_overlays(get_inv_overlay())
 	has_suit = null
 	if(user)
 		usr.put_in_hands(src)
@@ -95,11 +95,8 @@
 	if(ishuman(M) && isliving(user))
 		if(user.a_intent == I_HELP)
 			var/body_part = parse_zone(user.targeted_organ)
-			if(body_part)
-				var/their = "their"
-				switch(M.gender)
-					if(MALE)	their = "his"
-					if(FEMALE)	their = "her"
+			if(body_part) 
+				var/datum/gender/their = gender_datums[M.identifying_gender].his // OCCULUS EDIT - adjusting for gender rework
 
 				var/sound = "heartbeat"
 				var/sound_strength = "cannot hear"

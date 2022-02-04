@@ -6,6 +6,7 @@
 	This may require engineering to wall them off, or ironhammer to guard them, to prevent unauthorised access
 	If conveniently placed,they may also offer new, rapid transit routes around the ship
 */
+/* OCCULUS EDIT - Disabled since this is inherently broken unlike the bluespace rift event which is literally the same thing but better.
 /datum/storyevent/wormholes
 	id = "wormholes"
 	name = "wormholes"
@@ -14,7 +15,7 @@
 	event_type = /datum/event/wormholes
 	event_pools = list(EVENT_LEVEL_MODERATE = POOL_THRESHOLD_MODERATE)
 	tags = list(TAG_POSITIVE, TAG_COMMUNAL)
-
+*/
 ////////////////////////////////////////////////////////
 /datum/event/wormholes
 	//The duration ranges from fairly long, to basically forever
@@ -42,7 +43,7 @@
 		wormhole_tiles.Add(T)
 
 /datum/event/wormholes/announce()
-	command_announcement.Announce("Space-time anomalies detected on the station. There is no additional data.", "Anomaly Alert", new_sound = 'sound/AI/spanomalies.ogg')
+	command_announcement.Announce("Space-time anomalies detected on the ship. There is no additional data.", "Anomaly Alert", new_sound = 'sound/AI/spanomalies.ogg')
 
 
 /datum/event/wormholes/start()

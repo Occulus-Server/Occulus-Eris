@@ -101,15 +101,15 @@
 
 /datum/multistructure/biogenerator/proc/activate()
 	generator.core.icon_state 	= "core-working"
-	flick("core-starting", generator.core)
+	FLICK("core-starting", generator.core)
 	screen.icon_state 			= "screen-working"
-	flick("screen-starting", screen)
+	FLICK("screen-starting", screen)
 	working = TRUE
 
 
 /datum/multistructure/biogenerator/proc/deactivate()
 	generator.core.icon_state 		= initial(generator.core.icon_state)
-	flick("core-finishing", generator.core)
+	FLICK("core-finishing", generator.core)
 	screen.icon_state 	= initial(screen.icon_state)
 	working = FALSE
 	last_output_power = 0
@@ -232,17 +232,17 @@
 	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/biogen_port
 
 
-/obj/machinery/multistructure/biogenerator_part/port/update_icon()
-	overlays.Cut()
+/obj/machinery/multistructure/biogenerator_part/port/on_update_icon()
+	cut_overlays()
 	if(panel_open)
-		overlays += "port-opened"
+		add_overlays("port-opened")
 		if(pipes_dirtiness)
 			if(pipes_dirtiness == 1)
-				overlays += "port_dirty_low"
+				add_overlays("port_dirty_low")
 			else if(pipes_dirtiness <= 3)
-				overlays += "port_dirty_medium"
+				add_overlays("port_dirty_medium")
 			else
-				overlays += "port_dirty_full"
+				add_overlays("port_dirty_full")
 
 
 /obj/machinery/multistructure/biogenerator_part/port/examine(mob/user)
@@ -267,11 +267,6 @@
 					tank.can_anchor = TRUE
 					set_canister = tank.set_anchored(FALSE)
 					if(set_canister)
-						var/datum/component/plumbing/P = tank.GetComponent(/datum/component/plumbing/supply)
-						if(P)
-							P.disable()
-							P.supply_connects = initial(P.supply_connects)
-							P.demand_connects = initial(P.demand_connects)
 						tank.pixel_x = initial(tank.pixel_x)
 						tank = null
 						playsound(src, 'sound/machines/airlock_ext_open.ogg', 60, 1)
@@ -282,15 +277,9 @@
 						set_canister = tank.set_anchored(TRUE)
 						if(set_canister)
 							tank.can_anchor = FALSE
-							var/datum/component/plumbing/P = tank.GetComponent(/datum/component/plumbing/supply)
-							if(P)
-								P.disable()
-								P.supply_connects = null
-								P.demand_connects = NORTH | SOUTH | EAST | WEST
-								P.enable()
 							tank.pixel_x = 8
 							playsound(src, 'sound/machines/airlock_ext_close.ogg', 60, 1)
-							to_chat(user, SPAN_NOTICE("You attached [tank] to [src]."))	
+							to_chat(user, SPAN_NOTICE("You attached [tank] to [src]."))
 				if(!set_canister)
 					to_chat(user, SPAN_WARNING("Ugh. You done something wrong!"))
 					tank = null
@@ -379,7 +368,7 @@
 	return ..()
 
 
-/obj/machinery/atmospherics/binary/biogen_chamber/update_icon()
+/obj/machinery/atmospherics/binary/biogen_chamber/on_update_icon()
 	if(panel_open)
 		if(wires)
 			icon_state = "chambers-wires"
@@ -497,11 +486,11 @@
 	return ..()
 
 
-/obj/machinery/power/biogenerator_core/update_icon()
-	overlays.Cut()
-	overlays += "core-pipe"
+/obj/machinery/power/biogenerator_core/on_update_icon()
+	cut_overlays()
+	add_overlays("core-pipe")
 	if(!coil_frame)
-		overlays += "core-coil"
+		add_overlays("core-coil")
 
 
 /obj/machinery/power/biogenerator_core/examine(mob/user)

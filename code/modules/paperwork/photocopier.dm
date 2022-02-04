@@ -8,7 +8,7 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 30
 	active_power_usage = 200
-	power_channel = EQUIP
+	power_channel = STATIC_EQUIP
 	var/obj/item/copyitem = null	//what's in the copier!
 	var/copies = 1	//how many copies to print!
 	var/toner = 30 //how much toner is left! woooooo~
@@ -107,7 +107,7 @@
 			copyitem = I
 			I.loc = src
 			to_chat(user, SPAN_NOTICE("You insert \the [I] into \the [src]."))
-			flick(insert_anim, src)
+			FLICK(insert_anim, src)
 			updateUsrDialog()
 		else
 			to_chat(user, SPAN_NOTICE("There is already something in \the [src]."))
@@ -174,7 +174,7 @@
 			img = image('icons/obj/bureaucracy.dmi', "paper_stamp-dots")
 		img.pixel_x = copy.offset_x[j]
 		img.pixel_y = copy.offset_y[j]
-		c.overlays += img
+		c.add_overlays(img)
 	c.updateinfolinks()
 	toner--
 	if(toner == 0)

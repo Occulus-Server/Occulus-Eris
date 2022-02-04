@@ -2,6 +2,7 @@
 	STOP_PROCESSING(SSmobs, src)
 	GLOB.dead_mob_list -= src
 	GLOB.living_mob_list -= src
+	GLOB.mob_list -= src
 	unset_machine()
 	qdel(hud_used)
 	if(client)
@@ -31,6 +32,7 @@
 		GLOB.dead_mob_list += src
 	else
 		GLOB.living_mob_list += src
+	GLOB.mob_list += src
 	move_intent = decls_repository.get_decl(move_intent)
 	. = ..()
 
@@ -211,6 +213,7 @@
 			else
 				client.perspective = EYE_PERSPECTIVE
 				client.eye = loc
+		client.view = world.view  // Reset view range if it has been altered
 
 	if(hud_used)
 		hud_used.updatePlaneMasters(src)
@@ -692,11 +695,12 @@
 
 // facing verbs
 /mob/proc/canface()
-	if(!canmove)						return 0
-	if(stat)							return 0
-	if(anchored)						return 0
-	if(transforming)						return 0
-	return 1
+	// Occulus edit: shuffled order around and added resting check to allow facing and pixelmoving while resting
+	if(stat || anchored || transforming)
+		return FALSE
+	if(incapacitated(INCAPACITATION_STUNNED|INCAPACITATION_UNCONSCIOUS)) // Incapacitated but not resting
+		return FALSE
+	return TRUE
 
 // Not sure what to call this. Used to check if humans are wearing an AI-controlled exosuit and hence don't need to fall over yet.
 /mob/proc/can_stand_overridden()
@@ -896,9 +900,9 @@ All Canmove setting in this proc is temporary. This var should not be set from h
 	return
 
 /mob/living/flash_weak_pain()
-//	flick("weak_pain", flash["pain"])
+//	FLICK("weak_pain", flash["pain"])
 	if(HUDtech.Find("pain"))
-		flick("weak_pain", HUDtech["pain"])
+		FLICK("weak_pain", HUDtech["pain"])
 
 
 /mob/proc/get_visible_implants()
@@ -1010,6 +1014,7 @@ mob/proc/yank_out_object()
 	handle_silent()
 	handle_drugged()
 	handle_slurring()
+	handle_slowdown()
 
 /mob/living/proc/handle_stunned()
 	if(stunned)
@@ -1046,6 +1051,11 @@ mob/proc/yank_out_object()
 		AdjustParalysis(-1)
 	return paralysis
 
+/mob/living/proc/handle_slowdown()
+	if(slowdown)
+		slowdown = max(slowdown-1, 0)
+	return slowdown
+
 //Check for brain worms in head.
 /mob/proc/has_brain_worms()
 
@@ -1053,7 +1063,7 @@ mob/proc/yank_out_object()
 		if(istype(I,/mob/living/simple_animal/borer))
 			return I
 
-	return 0
+	return FALSE
 
 /mob/proc/updateicon()
 	return
@@ -1172,6 +1182,15 @@ mob/proc/yank_out_object()
 	set hidden = 1
 	set_face_dir(client.client_dir(WEST))
 
+/mob/verb/change_move_intent()
+	set name = "Change moving intent"
+	set category = "IC"
+	set src = usr
+
+	if(HUDneed["move intent"])
+		var/obj/screen/mov_intent/mov_intent = HUDneed["move intent"]
+		mov_intent.Click()  // Yep , this is all.
+
 /mob/proc/adjustEarDamage()
 	return
 
@@ -1280,3 +1299,6 @@ mob/proc/yank_out_object()
 /mob/proc/set_stat(var/new_stat)
 	. = stat != new_stat
 	stat = new_stat
+
+/mob/proc/ssd_check()
+	return !client && !teleop

@@ -4,12 +4,12 @@
 	description = "An abandoned ancient STL exploration ship."
 	suffix = "ec_old_crash/ec_old_crash.dmm"
 	cost = 0.5
-/*	apc_test_exempt_areas = list( making functional
+	/*apc_test_exempt_areas = list(
 		/area/map_template/ecship/engine = NO_SCRUBBER|NO_APC,
 		/area/map_template/ecship/cockpit = NO_SCRUBBER|NO_APC
-	)
+	)*/
 	ruin_tags = RUIN_HUMAN|RUIN_WRECK
-*/
+
 /area/map_template/ecship/crew
 	name = "\improper Crew Area"
 	icon_state = "crew_quarters"
@@ -29,7 +29,7 @@
 /area/map_template/ecship/engine
 	name = "\improper Engine Exterior"
 	icon_state = "engine"
-//	area_flags = AREA_FLAG_EXTERNAL Occulus Edit
+	// flags = AREA_FLAG_EXTERNAL
 
 /area/map_template/ecship/cockpit
 	name = "\improper Cockpit"
@@ -58,12 +58,11 @@
 /obj/item/weapon/ecletters
 	name = "bundle of letters"
 	icon = 'icons/obj/bureaucracy.dmi'
-	icon_state = "docs_part"
-	item_state = "paper"
+	icon_state = "paper_words"
 
 /obj/item/weapon/ecletters/Initialize()
 	. = ..()
-	desc = "A bunch of letters from Expeditionary Corps explorers to their family and loved ones, dated [game_year - 142]. They're not hopeful."
+	desc = "A bunch of letters from crewmembers to their family and loved ones, dated [game_year - 142]. They're not hopeful."
 
 /obj/item/weapon/paper/ecrashlog
 	name = "handwritten note"
@@ -95,3 +94,7 @@
 /obj/machinery/alarm/low/Initialize()
 	. = ..()
 	TLV["pressure"] = list(ONE_ATMOSPHERE*0.10,ONE_ATMOSPHERE*0.20,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20)
+
+/obj/machinery/cryopod/broken
+	allow_occupant_types = list()
+	desc = "An old man-sized pod for entering suspended animation. It appears to be broken."

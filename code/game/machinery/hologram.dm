@@ -94,7 +94,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 			if(last_request + 200 < world.time) //don't spam other people with requests either, you jerk!
 				last_request = world.time
 				var/list/holopadlist = list()
-				for(var/obj/machinery/hologram/holopad/H in SSmachines.machinery)
+				for(var/obj/machinery/hologram/holopad/H in GLOB.machines)
 					if(isStationLevel(H.z) && H.operable())
 						holopadlist["[H.loc.loc.name]"] = H	//Define a list and fill it with the area of every holopad in the world
 				holopadlist = sortAssoc(holopadlist)
@@ -241,9 +241,11 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		for(var/datum/data/record/t in data_core.locked)
 			if(t.fields["name"]==caller_id.name)
 				tempicon = t.fields["image"]
-		hologram.overlays += getHologramIcon(icon(tempicon)) // Add the callers image as an overlay to keep coloration!
+		hologram.add_overlays(getHologramIcon(icon(tempicon)))
+		//Add the callers image as an overlay to keep coloration!
 	else
-		hologram.overlays += A.holo_icon // Add the AI's configured holo Icon
+		hologram.add_overlays(A.holo_icon)
+		//Add the AI's configured holo Icon
 	hologram.mouse_opacity = 0//So you can't click on it.
 	hologram.layer = FLY_LAYER//Above all the other objects/mobs. Or the vast majority of them.
 	hologram.anchored = TRUE//So space wind cannot drag it.

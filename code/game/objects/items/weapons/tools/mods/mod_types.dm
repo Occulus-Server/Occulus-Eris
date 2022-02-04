@@ -386,10 +386,20 @@
 //Doesn't work onlarger things like crowbars and drills
 /obj/item/weapon/tool_upgrade/refinement/stabilized_grip
 	name = "gyrostabilized grip"
-	desc = "A fancy mechanical grip that partially floats around a tool, absorbing tremors and shocks. Allows precise work with a shaky hand."
+	desc = "A fancy mechanical grip that partially floats around a tool, absorbing tremors and shocks. Allows precise work with a shaky hand, or shooting more precisely with one hand if the gun isn't intended for one-handed use."
 	icon_state = "stabilizing"
 	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
 	matter = list(MATERIAL_PLASTIC = 3)
+
+/obj/item/weapon/tool_upgrade/refinement/stabilized_grip/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_PEN_MULT = 0.6,
+		GUN_UPGRADE_ONEHANDPENALTY = 0.3
+		)
+	I.gun_loc_tag = GUN_GRIP
+	I.req_gun_tags = list(GUN_PROJECTILE, GUN_GRIP)
 
 /obj/item/weapon/tool_upgrade/refinement/stabilized_grip/New()
 	..()
@@ -536,6 +546,7 @@
 	)
 	I.prefix = "holding"
 	I.req_fuel_cell = REQ_FUEL
+	bluespace_entropy(5, get_turf(src))
 
 //Penalises the tool, but unlocks several more augment slots.
 /obj/item/weapon/tool_upgrade/augment/expansion
@@ -739,7 +750,7 @@
 	GET_COMPONENT(tool_comp, /datum/component/item_upgrade)
 	for(var/upgrade in (tool_comp.tool_upgrades - GLOB.tool_aspects_blacklist))
 		if(isnum(tool_comp.tool_upgrades[upgrade]))
-			tool_comp.tool_upgrades[upgrade] = tool_comp.tool_upgrades[upgrade] * rand(5,15)/10
+			tool_comp.tool_upgrades[upgrade] = tool_comp.tool_upgrades[upgrade] * rand(4,17)/10//occulus edit: from 50-150% to 40-170%. Accounts for expander upgrades allowing 1-5 slots instead of 1-4
 	tool_comp.tool_upgrades[UPGRADE_BULK] = rand(-1,2)
 	QDEL_NULL(spawn_type)
 	QDEL_NULL(CATCH)

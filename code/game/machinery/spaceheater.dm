@@ -4,7 +4,7 @@
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "sheater0"
 	name = "space heater"
-	desc = "Made by Space Amish using traditional space techniques, this heater is guaranteed not to set the station on fire."
+	desc = "Made by Space Amish using traditional space techniques, this heater is guaranteed not to set the ship on fire."
 	var/obj/item/weapon/cell/large/cell
 	var/on = FALSE
 	var/set_temperature = T0C + 50	//K
@@ -25,8 +25,8 @@
 		cell = null
 		update_icon()
 
-/obj/machinery/space_heater/update_icon()
-	overlays.Cut()
+/obj/machinery/space_heater/on_update_icon()
+	cut_overlays()
 	icon_state = "sheater[on]"
 	if(panel_open)
 		overlays  += "sheater-open"

@@ -36,7 +36,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	var/obj/big_item
 	var/list/ways = list("pokes around in", "searches", "scours", "digs through", "rummages through", "goes through","picks through")
 	var/beacon = FALSE // If this junk pile is getting pulled by the junk beacon or not.
-	var/rare_item_chance = 70
+	var/rare_item_chance = 50
 	var/rare_item = FALSE
 	var/prob_make_old = 80
 
@@ -121,15 +121,14 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	for(var/x in 1 to amt)
 		var/rare = FALSE
 		var/rare_items_amt = rand(1,2)
-		if((x >= amt-rare_items_amt) && prob(rare_item_chance))
+		if((x > amt-rare_items_amt) && prob(rare_item_chance))
 			rare = TRUE
 		var/list/loot_tags_copy = loot_tags.Copy()
 		if(rare)
 			loot_tags_copy -= junk_tags
-			loot_tags_copy |= rare_loot
+			loot_tags_copy |= list(pickweight(rare_loot))
 		var/list/true_loot_tags = list()
-		var/min_tags = min(loot_tags_copy.len,2)
-		var/tags_amt = max(round(loot_tags_copy.len*0.3),min_tags)
+		var/tags_amt = max(round(loot_tags_copy.len/3),1)
 		for(var/y in 1 to tags_amt)
 			true_loot_tags += pickweight_n_take(loot_tags_copy)
 		var/list/candidates = SSspawn_data.valid_candidates(true_loot_tags, restricted_tags - rare_loot, FALSE, null, null, TRUE)
@@ -141,9 +140,9 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 			for(var/i in 1 to new_tags_amt)
 				true_loot_tags += pick_n_take(tags)
 			if(rare)
-				top_price = 2000
+				top_price = CHEAP_ITEM_PRICE * 1.5
 				true_loot_tags -= junk_tags
-				true_loot_tags |= rare_loot
+				true_loot_tags |= list(pickweight(rare_loot))
 			candidates = SSspawn_data.valid_candidates(true_loot_tags, restricted_tags - rare_loot, FALSE, 1, top_price, TRUE, list(/obj/item/stash_spawner))
 		var/loot_path = SSspawn_data.pick_spawn(candidates)
 		new loot_path(src)
@@ -244,7 +243,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	I.transform = M
 	return I
 
-/obj/structure/scrap_spawner/update_icon(rebuild_base=FALSE)
+/obj/structure/scrap_spawner/on_update_icon(rebuild_base=FALSE)
 	if(clear_if_empty())
 		return
 
@@ -256,9 +255,9 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 			for(var/i in 1 to num)
 				var/image/I = image(parts_icon,pick(icon_states(parts_icon)))
 				I.color = pick("#996633", "#663300", "#666666", "")
-				base_icon.overlays += randomize_image(I)
+				base_icon.overlays.Add(randomize_image(I))
 			GLOB.scrap_base_cache["[icontype][icon_state][ID]"] = base_icon
-		overlays += GLOB.scrap_base_cache["[icontype][icon_state][ID]"]
+		add_overlays(GLOB.scrap_base_cache["[icontype][icon_state][ID]"])
 	if(loot_generated)
 		underlays.Cut()
 		for(var/obj/O in loot.contents)
@@ -350,17 +349,26 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 
 /obj/structure/scrap_spawner/attackby(obj/item/W, mob/living/carbon/human/user)
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	if((W.has_quality(QUALITY_SHOVELING)) && W.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SHOVELING, FAILCHANCE_VERY_EASY, required_stat = STAT_ROB, forced_sound = "rummage"))
-		user.visible_message(SPAN_NOTICE("[user] [pick(ways)] \the [src]."))
-		user.do_attack_animation(src)
-		if(user.stats.getPerk(PERK_JUNKBORN))
-			rare_item = TRUE
-		else
-			rare_item = FALSE
-		dig_out_lump(user.loc, 0)
-		shuffle_loot()
-		clear_if_empty()
-
+	//Occulus Edit Start
+	var/list/usable_qualities = list(QUALITY_SHOVELING, QUALITY_HAMMERING)
+	var/tool_type = W.get_tool_type(user, usable_qualities, src)
+	switch(tool_type)
+		if(QUALITY_SHOVELING)
+			if(W.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SHOVELING, FAILCHANCE_VERY_EASY, required_stat = STAT_ROB, forced_sound = "rummage"))
+				user.visible_message(SPAN_NOTICE("[user] [pick(ways)] \the [src]."))
+				user.do_attack_animation(src)
+				if(user.stats.getPerk(PERK_JUNKBORN))
+					rare_item = TRUE
+				else
+					rare_item = FALSE
+				dig_out_lump(user.loc, 0)
+				shuffle_loot()
+				clear_if_empty()
+		if(QUALITY_HAMMERING)
+			if(W.use_tool(user,src, WORKTIME_EXTREMELY_LONG, QUALITY_HAMMERING, FAILCHANCE_HARD, required_stat = STAT_ROB, forced_sound = "rummage"))
+				user.visible_message(SPAN_NOTICE("[user] compacts \the [src] into a solid mass!"))
+				make_cube()
+	//Occulus Edit End
 /obj/structure/scrap_spawner/large
 	name = "large scrap pile"
 	opacity = TRUE
@@ -384,10 +392,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		SPAWN_MEDICAL,
 		SPAWN_SURGERY_TOOL,
 		SPAWN_JUNK, SPAWN_CLEANABLE,
-
 		SPAWN_MATERIAL_JUNK
 	)
-
 
 /obj/structure/scrap_spawner/vehicle
 	icontype = "vehicle"
@@ -396,20 +402,21 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	parts_icon = 'icons/obj/structures/scrap/vehicle.dmi'
 	rarity_value = 16.66
 	loot_tags = list(
-		SPAWN_DESING,
+		SPAWN_DESIGN,
 		SPAWN_ELECTRONICS,
 		SPAWN_KNIFE,
 		SPAWN_ITEM,
 		SPAWN_MATERIAL,
 		SPAWN_MECH_QUIPMENT,
 		SPAWN_POWERCELL,
-		SPAWN_ASSEMBLY,SPAWN_STOCK_PARTS,SPAWN_DESING_COMMON,SPAWN_COMPUTER_HARDWERE,
+		SPAWN_ASSEMBLY,SPAWN_STOCK_PARTS,SPAWN_DESIGN_COMMON,SPAWN_COMPUTER_HARDWERE,
 		SPAWN_TOOL, SPAWN_DIVICE, SPAWN_JETPACK, SPAWN_ITEM_UTILITY,SPAWN_TOOL_UPGRADE,SPAWN_TOOLBOX,SPAWN_VOID_SUIT,
 		SPAWN_GUN_UPGRADE,
 		SPAWN_POUCH,
 		SPAWN_MATERIAL_BUILDING = 2,
-		SPAWN_JUNK = 2, SPAWN_CLEANABLE = 2,
-		SPAWN_ORE,SPAWN_MATERIAL_JUNK = 2
+		SPAWN_JUNK = 3, SPAWN_CLEANABLE = 3,
+		SPAWN_ORE,SPAWN_MATERIAL_JUNK = 3,
+		SPAWN_PART_ARMOR = 2
 	)
 
 /obj/structure/scrap_spawner/food
@@ -422,7 +429,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		SPAWN_JUNKFOOD,
 		SPAWN_BOOZE,
 		SPAWN_JUNK, SPAWN_CLEANABLE,
-		SPAWN_MATERIAL_JUNK
+		SPAWN_MATERIAL_JUNK,
+		SPAWN_PART_ARMOR = 0.1
 	)
 
 /obj/structure/scrap_spawner/guns
@@ -432,9 +440,10 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	parts_icon = 'icons/obj/structures/scrap/guns_trash.dmi'
 	loot_min = 7
 	loot_max = 10
-	rarity_value = 100
+	rarity_value = 90
 	loot_tags = list(
-		SPAWN_GUN,
+		SPAWN_GUN = 0.3,
+		SPAWN_PART_GUN = 3,
 		SPAWN_AMMO_S,
 		SPAWN_KNIFE,
 		SPAWN_HOLSTER,
@@ -442,8 +451,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		SPAWN_POWERCELL,
 		SPAWN_MECH_QUIPMENT,
 		SPAWN_TOY_WEAPON,
-		SPAWN_JUNK = 2, SPAWN_CLEANABLE = 2,
-		SPAWN_MATERIAL_JUNK = 2
+		SPAWN_JUNK = 2.5, SPAWN_CLEANABLE = 2.5,
+		SPAWN_MATERIAL_JUNK = 2.5
 	)
 
 /obj/structure/scrap_spawner/science
@@ -453,7 +462,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	parts_icon = 'icons/obj/structures/scrap/science.dmi'
 	rarity_value = 25
 	loot_tags = list(
-		SPAWN_DESING,
+		SPAWN_DESIGN,
 		SPAWN_ELECTRONICS,
 		SPAWN_KNIFE,
 		SPAWN_ITEM,
@@ -461,18 +470,22 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		SPAWN_MECH_QUIPMENT,
 		SPAWN_POWERCELL,
 		SPAWN_ASSEMBLY,SPAWN_STOCK_PARTS,
-		SPAWN_DESING_COMMON,
+		SPAWN_DESIGN_COMMON,
 		SPAWN_COMPUTER_HARDWERE,
 		SPAWN_TOOL, SPAWN_DIVICE,
 		SPAWN_JETPACK,
-		SPAWN_ITEM_UTILITY,
+		SPAWN_ITEM_UTILITY = 0.5,
 		SPAWN_TOOL_UPGRADE,
 		SPAWN_TOOLBOX,
-		SPAWN_VOID_SUIT,
+		SPAWN_VOID_SUIT = 0.5,
 		SPAWN_GUN_UPGRADE,
 		SPAWN_SCIENCE,
 		SPAWN_ORE,
 		SPAWN_RARE_ITEM,
+		SPAWN_JUNK = 4,
+		SPAWN_TOOL_ADVANCED = 0.5,
+		SPAWN_MATERIAL_JUNK = 4,
+		SPAWN_PART_ARMOR = 1
 		)
 	rare_loot = list(SPAWN_ODDITY, SPAWN_RARE_ITEM)
 
@@ -482,7 +495,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	desc = "Pile of second hand clothing for charity."
 	parts_icon = 'icons/obj/structures/scrap/cloth.dmi'
 	rarity_value = 10
-	loot_tags = list(SPAWN_CLOTHING)
+	loot_tags = list(SPAWN_CLOTHING, SPAWN_PART_ARMOR = 0.3)
 	restricted_tags = list(SPAWN_VOID_SUIT)
 	rare_loot = list(SPAWN_RARE_ITEM,SPAWN_VOID_SUIT)
 
@@ -588,12 +601,10 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	base_max = 14
 	base_spread = 16
 	big_item_chance = 50
-	rarity_value = 100
 	spawn_tags = SPAWN_TAG_LARGE_SCRAP
 
 /obj/structure/scrap_spawner/guns/large/beacon
 	beacon = TRUE
-	rarity_value = 100
 	spawn_tags = SPAWN_TAG_BEACON_SCRAP
 
 /obj/structure/scrap_spawner/science/large
@@ -654,7 +665,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	spawn_tags = SPAWN_TAG_BEACON_SCRAP
 
 
-/obj/structure/scrap_spawner/poor/structure/update_icon(rebuild_base=FALSE) //make big trash icon for this
+/obj/structure/scrap_spawner/poor/structure/on_update_icon(rebuild_base=FALSE) //make big trash icon for this
 	..()
 	if(!loot_generated)
 		underlays += image(icon, icon_state = "underlay_big")

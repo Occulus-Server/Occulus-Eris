@@ -150,7 +150,7 @@
 		return FALSE
 
 	if(surge && !emagged)
-		flick("apc-spark", src)
+		FLICK("apc-spark", src)
 		emagged = TRUE
 		locked = FALSE
 		update_icon()
@@ -164,6 +164,8 @@
 /obj/machinery/power/apc/New(turf/loc, var/ndir, var/building=0)
 	..()
 	wires = new(src)
+
+	GLOB.apc_list += src
 
 	// offset 28 pixels in direction of dir
 	// this allows the APC to be embedded in a wall, yet still inside an area
@@ -188,6 +190,7 @@
 /obj/machinery/power/apc/Destroy()
 	update()
 	area.apc = null
+	SEND_SIGNAL(area, COMSIG_AREA_APC_DELETED)
 	area.power_light = 0
 	area.power_equip = 0
 	area.power_environ = 0
@@ -203,6 +206,8 @@
 	// Malf AI, removes the APC from AI's hacked APCs list.
 	if((hacker) && (hacker.hacked_apcs) && (src in hacker.hacked_apcs))
 		hacker.hacked_apcs -= src
+
+	GLOB.apc_list -= src
 
 	return ..()
 
@@ -268,7 +273,7 @@
 
 // update the APC icon to show the three base states
 // also add overlays for indicator lights
-/obj/machinery/power/apc/update_icon()
+/obj/machinery/power/apc/on_update_icon()
 	if (!status_overlays)
 		status_overlays = 1
 		status_overlays_lock = new
@@ -347,19 +352,19 @@
 
 	if(!(update_state & UPDATE_ALLGOOD))
 		if(overlays.len)
-			overlays = 0
+			set_overlays(0)
 			return
 
 	if(update > 1)
 		if(overlays.len)
 			overlays.len = 0
 		if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
-			overlays += status_overlays_lock[locked+1]
-			overlays += status_overlays_charging[charging+1]
+			add_overlays(status_overlays_lock[locked+1])
+			add_overlays(status_overlays_charging[charging+1])
 			if(operating)
-				overlays += status_overlays_equipment[equipment+1]
-				overlays += status_overlays_lighting[lighting+1]
-				overlays += status_overlays_environ[environ+1]
+				add_overlays(status_overlays_equipment[equipment+1])
+				add_overlays(status_overlays_lighting[lighting+1])
+				add_overlays(status_overlays_environ[environ+1])
 
 
 /obj/machinery/power/apc/proc/check_updates()
@@ -701,7 +706,7 @@
 		else if(stat & (BROKEN|MAINT))
 			to_chat(user, "Nothing happens.")
 		else
-			flick("apc-spark", src)
+			FLICK("apc-spark", src)
 			if (do_after(user,6,src))
 				if(prob(50))
 					emagged = TRUE
@@ -1048,9 +1053,9 @@
 		force_update = 1
 		return
 
-	lastused_light = area.usage(LIGHT)
-	lastused_equip = area.usage(EQUIP)
-	lastused_environ = area.usage(ENVIRON)
+	lastused_light = area.usage(STATIC_LIGHT)
+	lastused_equip = area.usage(STATIC_EQUIP)
+	lastused_environ = area.usage(STATIC_ENVIRON)
 	area.clear_usage()
 
 	lastused_total = lastused_light + lastused_equip + lastused_environ

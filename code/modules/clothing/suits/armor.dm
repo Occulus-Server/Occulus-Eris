@@ -22,6 +22,9 @@
 	icon_state = "armor"
 	item_state = "armor"
 	blood_overlay_type = "armor"
+	equip_delay = 2 SECONDS // OCCULUS EDIT
+	equip_sound = 'zzzz_modular_occulus/sound/clothing/vest_on.ogg' // OCCULUS EDIT
+	unequip_sound = 'zzzz_modular_occulus/sound/clothing/vest_off.ogg' // OCCULUS EDIT
 	armor = list(
 		melee = 30,
 		bullet = 30,
@@ -40,6 +43,8 @@
 	desc = "A generic armor vest, but with shoulderpads and knee pads included to cover all parts of the body. Not designed for serious operations."
 	icon_state = "armor_fullbody"
 	blood_overlay_type = "armor"
+	slowdown = 0.1
+	equip_delay = 3 SECONDS // OCCULUS EDIT
 	rarity_value = 30 // little bit rarer than just vests
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS // kneepads and shoulderpads, so it covers arms and legs
 	matter = list(
@@ -94,11 +99,13 @@
 	)
 	price_tag = 150
 	rarity_value = 15
+	spawn_blacklisted = TRUE
 
 /obj/item/clothing/suit/armor/vest/handmade/full
 	name = "full handmade armor vest"
 	desc = "An armored vest of dubious quality. This one has had metal sheets attached to the shoulders and knees to be used as makeshift shoulderpads and kneepads."
 	icon_state = "armor_handmade_fullbody"
+	slowdown = 0.1
 	rarity_value = 20 // bit rarer than the version without kneepads
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS // kneepads and shoulderpads mean more covering
 
@@ -109,6 +116,9 @@
 	icon_state = "flakvest"
 	item_state = "armor"
 	blood_overlay_type = "armor"
+	equip_delay = 2 SECONDS // OCCULUS EDIT
+	equip_sound = 'zzzz_modular_occulus/sound/clothing/vest_on.ogg' // OCCULUS EDIT
+	unequip_sound = 'zzzz_modular_occulus/sound/clothing/vest_off.ogg' // OCCULUS EDIT
 	rarity_value = 18
 	armor = list(
 		melee = 35,
@@ -128,7 +138,9 @@
 	desc = "An armored vest built for protection against high-velocity solid projectiles. This set has had kneepads and shoulderpads attached for more protection."
 	icon_state = "flakvest_fullbody"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS // shoulderpads and kneepads
+	equip_delay = 3 SECONDS // OCCULUS EDIT
 	rarity_value = 25 // rarer than version without pads
+	slowdown = 0.1
 
 /obj/item/clothing/suit/armor/flak/full/green
 	name = "full green flakvest vest"
@@ -140,6 +152,9 @@
 	icon_state = "bulletproof"
 	item_state = "armor"
 	blood_overlay_type = "armor"
+	equip_delay = 2 SECONDS // OCCULUS EDIT
+	equip_sound = 'zzzz_modular_occulus/sound/clothing/vest_on.ogg' // OCCULUS EDIT
+	unequip_sound = 'zzzz_modular_occulus/sound/clothing/vest_off.ogg' // OCCULUS EDIT
 	slowdown = 0.15
 	rarity_value = 6
 	armor = list(
@@ -162,6 +177,7 @@
 	desc = "A vest built for protection against bullets and other high-velocity projectiles. This one has shoulderpads and kneepads for extra coverage."
 	icon_state = "bulletproof_fullbody"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	equip_delay = 3 SECONDS // OCCULUS EDIT
 	rarity_value = 55
 	matter = list(
 		MATERIAL_STEEL = 15, // costs a smidge more steel to cover for shoulder and knees
@@ -214,7 +230,9 @@
 	desc = "A vest built for protection against bullets and other high-velocity projectiles. This one has shoulderpads and kneepads for extra coverage."
 	icon_state = "platecarrier_fullbody"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	equip_delay = 3 SECONDS // OCCULUS EDIT
 	rarity_value = 45
+	slowdown = 0.1
 
 /obj/item/clothing/suit/armor/bulletproof/serbian/full/green
 	name = "full green platecarrier vest"
@@ -224,13 +242,15 @@
 	name = "full tan platecarrier vest"
 	icon_state = "platecarrier_tan_fullbody"
 
-/obj/item/clothing/suit/armor/laserproof
-	name = "ablative armor vest"
+/obj/item/clothing/suit/armor/laserproof/full
+	name = "full ablative armor vest"
 	desc = "A vest that excels in protecting the wearer against energy projectiles."
 	icon_state = "ablative"
 	item_state = "ablative"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	blood_overlay_type = "armor"
 	slowdown = 0.15
+	equip_delay = 3 SECONDS // OCCULUS EDIT
 	rarity_value = 45
 	armor = list(
 		melee = 25,
@@ -250,7 +270,7 @@
 	)
 	//spawn_blacklisted = TRUE//antag_item_targets-crafteable?
 
-/obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack") //TODO: Refactor this all into humandefense
+/obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack") //TODO: Refactor this all into humandefense
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
 		var/obj/item/projectile/P = damage_source
 
@@ -311,7 +331,9 @@
 		bio = 0,
 		rad = 0
 	)
-	equip_delay = 2 SECONDS
+	equip_delay = 3 SECONDS // OCCULUS EDIT
+	equip_sound = 'zzzz_modular_occulus/sound/clothing/vest_on.ogg' // OCCULUS EDIT
+	unequip_sound = 'zzzz_modular_occulus/sound/clothing/vest_off.ogg' // OCCULUS EDIT
 	price_tag = 250
 	rarity_value = 25
 	style = STYLE_NEG_HIGH
@@ -363,6 +385,9 @@
 	name = "webbed armor"
 	desc = "An armored vest used for day-to-day operations. This one has various pouches and straps attached."
 	icon_state = "webvest"
+	equip_delay = 2 SECONDS // OCCULUS EDIT
+	equip_sound = 'zzzz_modular_occulus/sound/clothing/vest_on.ogg' // OCCULUS EDIT
+	unequip_sound = 'zzzz_modular_occulus/sound/clothing/vest_off.ogg' // OCCULUS EDIT
 	price_tag = 250 //Normal vest is worth 200, this one is worth 250 because it also has storage space
 	armor = list( //Same stats as the standard vest only difference is that this one has storage
 		melee = 30,
@@ -404,6 +429,7 @@
 	name = "full heavy armor vest"
 	desc = "A high-quality armor vest in a fetching tan. This one is webbed, and has kneepads and shoulderpads for extra coverage."
 	icon_state = "mercwebvest_fullbody"
+	equip_delay = 3 SECONDS // OCCULUS EDIT
 	rarity_value = 95
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
@@ -488,32 +514,22 @@
 		rad = 0
 	)
 	var/active = 0
+	var/entropy_value = 2
 
-/obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	if(prob(50))
 		user.visible_message(SPAN_DANGER("The reactive teleport system flings [user] clear of the attack!"))
-		var/list/turfs = new/list()
 		var/turf/TLoc = get_turf(user)
-		for(var/turf/T in trange(6, TLoc))
-			if(istype(T,/turf/space)) continue
-			if(T.density) continue
-			if(T.x>world.maxx-6 || T.x<6)	continue
-			if(T.y>world.maxy-6 || T.y<6)	continue
-			turfs += T
-		if(!turfs.len) turfs += pick(/turf in orange(6))
-		var/turf/picked = pick(turfs)
-		if(!isturf(picked)) return
-
+		var/turf/picked = get_random_secure_turf_in_range(src, 7, 1)
+		if(!picked) return
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, user.loc)
 		spark_system.start()
-		playsound(user.loc, "sparks", 50, 1)
-
-		user.loc = picked
+		go_to_bluespace(TLoc, entropy_value, TRUE, user, picked)
 		return PROJECTILE_FORCE_MISS
-	return 0
+	return FALSE
 
-/obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
+/obj/item/clothing/suit/armor/reactive/attack_self(mob/user)
 	src.active = !( src.active )
 	if (src.active)
 		to_chat(user, "\blue The reactive armor is now active.")
@@ -534,7 +550,7 @@
 
 /obj/item/clothing/suit/armor/crusader
 	name = "crusader armor"
-	desc = "God will protect those who belive."
+	desc = "God will protect those who defend his faith."
 	icon_state = "crusader_suit"
 	item_state = "crusader_suit"
 	slowdown = 0.3
@@ -547,5 +563,6 @@
 		bio = 0,
 		rad = 0
 	)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	unacidable = TRUE
 	spawn_blacklisted = TRUE

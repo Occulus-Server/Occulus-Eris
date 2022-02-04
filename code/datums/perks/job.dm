@@ -128,7 +128,7 @@
 		if(CHOICE_TCONTRACT)
 			var/datum/antag_contract/A = pick(GLOB.various_antag_contracts)
 			desc += " You feel like you remembered something important."
-			holder.mind.store_memory("Thanks to your connections, you were tipped off about some suspicious individuals on the station. In particular, you were told that they have a contract: " + A.name + ": " + A.desc)
+			holder.mind.store_memory("Thanks to your connections, you were tipped off about some suspicious individuals on the ship. In particular, you were told that they have a contract: " + A.name + ": " + A.desc)
 		if(CHOICE_STASHPAPER)
 			desc += " You have a special note in your storage."
 			stash.spawn_stash()
@@ -193,7 +193,7 @@
 	name = "Neat"
 	desc = "You're used to see blood and filth in all its forms. Your motto: a clean ship is the first step to enlightenment. \
 			This perk reduces the total sanity damage you can take from what is happening around you. \
-			You can regain sanity by cleaning with your broom."
+			You can regain sanity by cleaning."
 	icon_state = "neat" // https://game-icons.net/1x1/delapouite/broom.html
 
 /datum/perk/neat/assign(mob/living/carbon/human/H)
@@ -217,3 +217,18 @@
 /datum/perk/greenthumb/assign(mob/living/carbon/human/H)
 	..()
 	virtual_scanner.is_virtual = TRUE
+
+/datum/perk/job/club
+	name = "Raising the bar"
+	desc = "You know how to mix drinks and change lives. People near you recover sanity."
+	icon_state = "inspiration"
+
+/datum/perk/job/club/assign(mob/living/carbon/human/H)
+	..()
+	if(holder)
+		holder.sanity_damage -= 2
+
+/datum/perk/job/club/remove()
+	if(holder)
+		holder.sanity_damage += 2
+	..()

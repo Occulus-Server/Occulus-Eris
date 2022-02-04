@@ -243,13 +243,13 @@
 	else if(full_artwork == "artwork_oddity")
 		var/obj/item/weapon/oddity/artwork/O = new(src)
 		var/list/oddity_stats = list(STAT_MEC = rand(0,1), STAT_COG = rand(0,1), STAT_BIO = rand(0,1), STAT_ROB = rand(0,1), STAT_TGH = rand(0,1), STAT_VIG = rand(0,1))//May not be nessecary
-		var/stats_amt = 3
+		var/stats_amt = 1//Occulus Edit - Stat nerf
 		if(ins_used >= 85)//Arbitrary values
-			stats_amt += 3
+			stats_amt += 1//Occulus Edit - Stat Nerf
 		if(ins_used >= 70)
-			stats_amt += 3
+			stats_amt += 1//Occulus Edit - Stat Nerf
 		if(ins_used >= 55)
-			stats_amt += 3//max = 3*4*2+6 = 30 points, min 3*4+6 = 18
+			stats_amt += 1//max = 3*4*2+6 = 30 points, min 3*4+6 = 18 Occulus Edit - Stat Nerf
 		for(var/i in 1 to stats_amt)
 			var/stat = pick(ALL_STATS)
 			oddity_stats[stat] = min(MAX_STAT_VALUE, oddity_stats[stat]+ 1) //Occulus Edit - Nerfing Artist oddity stats a bit!
@@ -270,7 +270,7 @@
 	if(ins_used < min_insight)
 		to_chat(user, SPAN_WARNING("At least 40 insight is needed to use this bench."))
 		return
-	flick("[initial(icon_state)]_work", src)
+	FLICK("[initial(icon_state)]_work", src)
 	working = TRUE
 	if(!do_after(user, 15 * user.stats.getMult(STAT_MEC, STAT_LEVEL_GODLIKE), src))
 		error = "Lost artist."
@@ -319,6 +319,8 @@
 		to_chat(user, SPAN_WARNING("To create this work of art you have sacrificed a part of yourself."))
 	else if(user.sanity.resting)
 		user.sanity.finish_rest()
+	if(user.stats.getPerk(PERK_ARTIST))//Occulus Edit: Custom names for art
+		name_piece(artwork, user)//Occulus Edit: Custom names for art
 
 /obj/machinery/autolathe/artist_bench/can_print(datum/design/design)
 	if(working)

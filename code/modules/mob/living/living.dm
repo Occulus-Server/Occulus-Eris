@@ -164,7 +164,7 @@ default behaviour is:
 		health = 100
 		stat = CONSCIOUS
 	else
-		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss() - halloss
+		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss() - (halloss * agony_coefficient) // OCCULUS EDIT - Adding agony coefficient
 
 
 //This proc is used for mobs which are affected by pressure to calculate the amount of pressure that actually
@@ -841,6 +841,9 @@ default behaviour is:
 		if(A)
 			A.static_overlays |= static_overlay
 			A.client.images |= static_overlay
+	var/turf/T = get_turf(src)
+	if(T)
+		update_z(T.z)
 
 /mob/living/proc/vomit()
 	return

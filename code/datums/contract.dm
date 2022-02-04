@@ -8,7 +8,7 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/device/aicard,
 		"the Chief Engineer's advanced voidsuit control module" = /obj/item/weapon/rig/ce,
-		"the station blueprints" = /obj/item/blueprints,
+		"the ship blueprints" = /obj/item/blueprints,
 		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
 		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
@@ -18,8 +18,8 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"a First Officer's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
 		"the hypospray" = /obj/item/hypospray/mkii/CMO, //Occulus edit
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
-		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"an Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
+		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof/full,
+		"an Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer //Occulus Edit
 	))
 GLOBAL_LIST_INIT(excel_item_targets,list(
 		"a Miller revolver" = /obj/item/weapon/gun/projectile/revolver,
@@ -33,10 +33,10 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		"a Straylight sub machine gun" = /obj/item/weapon/gun/projectile/automatic/straylight,
 		"a Sol carbine" = /obj/item/weapon/gun/projectile/automatic/sol,
 		"a Colt handgun" = /obj/item/weapon/gun/projectile/colt,
-		"a Lenar granade launcher" = /obj/item/weapon/gun/launcher/grenade/lenar,
+		"a Lenar grenade launcher" = /obj/item/weapon/gun/launcher/grenade/lenar,
 		"an RCD" = /obj/item/weapon/rcd,
 		"a cruciform" = /obj/item/weapon/implant/core_implant/cruciform,
-		"the station blueprints" = /obj/item/blueprints,
+		"the ship blueprints" = /obj/item/blueprints,
 		"a hand teleporter" = /obj/item/weapon/hand_tele,
 		"a rocket-powered charge hammer" = /obj/item/weapon/tool/hammer/charge,
 		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
@@ -228,7 +228,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		target = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 		if(!target)
 			target = H.organs_by_name[BP_HEAD]
-		desc = "Assasinate [target_mind.current.real_name] and send [gender_datums[target_mind.current.gender].his] [target.name] via BSDM as a proof."
+		desc = "Assasinate [target_mind.current.real_name] and send [gender_datums[H.identifying_gender].his] [target.name] via BSDM as a proof." // OCCULUS EDIT - adjusting for gender rework
 		//if(H.stats.getPerk(PERK_NOBLE))	//OCCULUS EDIT - Only nobles get targeted now, so might as well just up the base reward
 		//	reward *= 1.5					//OCCULUS EDIT - Only nobles get targeted now, so might as well just up the base reward
 		break

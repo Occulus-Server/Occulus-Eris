@@ -4,7 +4,7 @@
 	head_position = 1
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER | COMMAND
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Captain"
@@ -13,7 +13,7 @@
 	wage = WAGE_COMMAND
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihc
-	
+
 	wl_config_heads = TRUE		//Eclipse edit.
 	wl_config_sec = TRUE		//Eclipse edit.
 
@@ -38,7 +38,7 @@
 							 /datum/computer_file/program/camera_monitor,
 							 /datum/computer_file/program/reports)
 
-	description = "You are the head of the Coblat Aegis Security division contracted to protect and serve aboard the NEV Northern Light. The company contracting you out, Cobalt Aegis Security serves as both an internal security force, and as a guard for expeditions outwith the ship.<br>\
+	description = "You are the head of the Cobalt Aegis Security division contracted to protect and serve aboard the CEV Northern Light. The company contracting you out, Cobalt Aegis Security serves as both an internal security force, and as a guard for expeditions outwith the ship.<br>\
 	<br>\
 	Your goal is to keep everyone aboard the ship as safe as possible, and to eliminate any threats to safety."
 
@@ -65,14 +65,14 @@
 	flag = GUNSERG
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	department_account_access = TRUE
 	wage = WAGE_LABOUR_HAZARD
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/gunserg
@@ -119,13 +119,13 @@
 	flag = INSPECTOR
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/inspector
@@ -176,13 +176,13 @@
 	flag = MEDSPEC
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/medspec
@@ -229,14 +229,14 @@
 	flag = IHOPER
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "NEV Northern Light"
+	faction = "CEV Northern Light"
 	total_positions = 6
 	spawn_positions = 6
 	supervisors = "the Aegis Commander"
 	//alt_titles = list("Aegis Junior Operative")
 	selection_color = "#a7bbc6"
 	wage = WAGE_LABOUR_HAZARD
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihoper

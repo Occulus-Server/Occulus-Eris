@@ -22,7 +22,8 @@
 		OP_KIDNEYS = list(/obj/item/organ/internal/kidneys,20),
 		OP_EYES =    list(/obj/item/organ/internal/eyes,   30),
 		OP_LIVER =   list(/obj/item/organ/internal/liver,  50),
-		OP_STOMACH = list(/obj/item/organ/internal/stomach,50)	// OCCULUS EDIT: Add stomachs to the list
+		OP_STOMACH = list(/obj/item/organ/internal/stomach,50),	// OCCULUS EDIT: Add stomachs to the list
+		BP_BRAIN = list(/obj/item/organ/internal/brain,50)//Occulus Edit
 		)
 
 /obj/machinery/bioprinter/prosthetics
@@ -47,6 +48,7 @@
 		stored_matter -= products[choice][2]
 		var/new_organ = products[choice][1]
 		var/obj/item/organ/O = new new_organ(get_turf(src))
+		O.icon_state += "-prosthetic"//Occulus Edit
 
 		if(prints_prosthetics)
 			O.nature = MODIFICATION_SILICON

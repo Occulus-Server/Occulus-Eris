@@ -17,6 +17,7 @@ var/datum/hivemind/hive_mind_ai
 	var/failure_chance = 45				//how often will be created dummy machines. This chance reduces by 1 each 10 EP
 	var/list/hives = list() 			//all functional hives stored here
 	//i know, whitelist is bad, but it's required here
+
 	var/list/restricted_machineries = list( /obj/machinery/light,					/obj/machinery/atmospherics,
 											/obj/machinery/door,					/obj/machinery/meter,
 											/obj/machinery/camera,					/obj/machinery/light_switch,
@@ -27,7 +28,7 @@ var/datum/hivemind/hive_mind_ai
 											/obj/machinery/floor_light,				/obj/machinery/flasher,
 											/obj/machinery/filler_object,			/obj/machinery/hivemind_machine,
 											/obj/machinery/cryopod, 				/obj/machinery/portable_atmospherics,//Occulus Edit: Restrict Canisters, Pumps, and Portable trays from being converted
-											/obj/machinery/conveyor//Occulus edit: Blacklisted Conveyor objects
+											/obj/machinery/conveyor,				/obj/machinery/power/supermatter//Occulus edit: Blacklisted Conveyor objects
 											)
 	//internals
 	var/list/global_abilities_cooldown = list()

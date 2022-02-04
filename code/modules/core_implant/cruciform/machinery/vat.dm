@@ -191,6 +191,10 @@
 			victim.adjustBruteLoss(- 2 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
 		if(victim.getFireLoss() >= 50)
 			victim.adjustFireLoss(- 2  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+		if(victim.getCloneLoss() > 0 && victim.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform))
+			victim.adjustCloneLoss (-1 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+			adjust_fluid_level(- 5)
+
 	// OCCULUS EDIT END
 		victim.adjustOxyLoss(- 2  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
 		victim.adjustToxLoss(- 1 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
@@ -307,6 +311,12 @@
 		if(CR)
 			I = CR
 			break
+
+	if(!I)//Occulus Edit: Check if someone has a cruciform
+		for(var/stat in ALL_STATS) //If they don't, penalize stats
+			var/reductionamount = min(M.stats.getStat(stat, TRUE)/5, 15) //20% or 15, whichever is lower
+			M.stats.changeStat(stat, -reductionamount) //Stats go dooown
+
 	if(I || M.stable_genes)
 		if(I)
 			I.activate()
@@ -317,6 +327,7 @@
 	else
 		if(M.genetic_corruption < 28) //Even if you had no organs missing and just bled out, don't expect to wake up non-mutated
 			M.genetic_corruption += 28
+			corrupt_dna(victim)
 		M.Weaken(rand(10, 25))
 		M.updatehealth()
 		M.sanity.level = 0
@@ -338,10 +349,11 @@
 	if (user.incapacitated(INCAPACITATION_DEFAULT))
 		return
 	if (victim)
-		user_unbuckle_mob(user)
-		if(ishuman(victim))
+		if(istype(victim, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = victim
 			H.stable_genes = FALSE
+			H.genetic_corruption = 0
+		user_unbuckle_mob(user)
 		return
 /*	if(fluid_level < VAT_FILL_FULL)
 		fluid_level += VAT_FLUID_STEP
@@ -371,16 +383,17 @@
 			break
 	var/corruption_points = 0
 	if(!C && !H.stable_genes)
-		corruption_points = H.genetic_corruption/7
+		corruption_points = H.genetic_corruption
 	else
-		corruption_points = H.genetic_corruption/28 //CHURCH DISCOUNT YEEEEEEEEEEEEEEEEEEAH
-		testing("CHURCH DISCOUNT")
-	if(corruption_points <= 3) //Essentially, regenerating a head shall be safer
+		corruption_points = H.genetic_corruption/2 //The church is more resistant to genetic corruption
+	if(corruption_points <= 7) //If you have under 15 genetic corruption (30 for church members) you incur no penalty
 		return
 
-	while(corruption_points > 0)
-		scramble(TRUE, H, 20 + corruption_points * 2)
-		corruption_points -= 1
+	H.setCloneLoss(corruption_points-7)
+
+	//while(corruption_points > 0)
+	//	scramble(TRUE, H, 20 + corruption_points * 2)
+	//	corruption_points -= 1
 
 
 /obj/machinery/neotheology/clone_vat/attackby(obj/item/O, mob/user)

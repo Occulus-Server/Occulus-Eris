@@ -5,19 +5,19 @@
 #define SANITY_VIEW_DAMAGE_MOD 0.2
 
 // Damage received from unpleasant stuff in view
-#define SANITY_DAMAGE_VIEW(damage, vig, dist) ((damage) * SANITY_VIEW_DAMAGE_MOD * (1.2 - (vig) / STAT_LEVEL_MAX) * (1 - (dist)/15))
+#define SANITY_DAMAGE_VIEW(damage, vig, dist) ((damage) * SANITY_VIEW_DAMAGE_MOD * max(0.1,(1.2 - (vig) / STAT_LEVEL_MAX)) * (1 - (dist)/15))//Occulus Edit
 
 // Damage received from body damage
-#define SANITY_DAMAGE_HURT(damage, vig) (min((damage) / 5 * SANITY_DAMAGE_MOD * (1.2 - (vig) / STAT_LEVEL_MAX), 60))
+#define SANITY_DAMAGE_HURT(damage, vig) (min((damage) / 5 * SANITY_DAMAGE_MOD * max(0.1, (1.2 - (vig) / STAT_LEVEL_MAX)), 60))//Occulus Edit
 
 // Damage received from shock
-#define SANITY_DAMAGE_SHOCK(shock, vig) ((shock) / 50 * SANITY_DAMAGE_MOD * (1.2 - (vig) / STAT_LEVEL_MAX))
+#define SANITY_DAMAGE_SHOCK(shock, vig) ((shock) / 50 * SANITY_DAMAGE_MOD * max(0.1, (1.2 - (vig) / STAT_LEVEL_MAX)))//Occulus Edit
 
 // Damage received from psy effects
-#define SANITY_DAMAGE_PSY(damage, vig) (damage * SANITY_DAMAGE_MOD * (2 - (vig) / STAT_LEVEL_MAX))
+#define SANITY_DAMAGE_PSY(damage, vig) (damage * SANITY_DAMAGE_MOD * max(0.1, (2 - (vig) / STAT_LEVEL_MAX)))//Occulus Edit
 
 // Damage received from seeing someone die
-#define SANITY_DAMAGE_DEATH(vig) (10 * SANITY_DAMAGE_MOD * (1 - (vig) / STAT_LEVEL_MAX))
+#define SANITY_DAMAGE_DEATH(vig) (10 * SANITY_DAMAGE_MOD * max(0.1, (1 - (vig) / STAT_LEVEL_MAX)))//Occulus Edit
 
 #define SANITY_GAIN_SMOKE 0.05 // A full cig restores 300 times that
 #define SANITY_GAIN_SAY 1
@@ -39,6 +39,7 @@
 
 
 #define EAT_COOLDOWN_MESSAGE 15 SECONDS
+#define SANITY_MOB_DISTANCE_ACTIVATION 12
 
 #define INSIGHT_DESIRE_MUSIC "music" //Occulus edit
 #define INSIGHT_DESIRE_EXERCISE "exercise" //Occulus edit
@@ -124,7 +125,8 @@
 
 /datum/sanity/proc/handle_view()
 	. = 0
-	if(sanity_invulnerability)
+	activate_mobs_in_range(owner, SANITY_MOB_DISTANCE_ACTIVATION)
+	if(sanity_invulnerability)//Sorry, but that needed to be added here :C
 		return
 	var/vig = owner.stats.getStat(STAT_VIG)
 	for(var/atom/A in view(owner.client ? owner.client : owner))
@@ -135,7 +137,17 @@
 			var/mob/living/carbon/human/H = A
 			if(H.sanity.level < 30 || H.health < 50)
 				. += SANITY_DAMAGE_VIEW(0.1, vig, get_dist(owner, A))
-
+//Occulus Edit Start - Paper Worm springs into action!
+		if(owner.stats.getPerk(PERK_PAPER_WORM) && istype(A, /mob/living/carbon/human)) //Paper Worms are weak in day to day, but spring into action in emergencies!
+			var/mob/living/carbon/human/H = A
+			if(H.sanity.level < 30 || H.health < 50)
+				owner.stats.addTempStat(STAT_MEC, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_COG, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_BIO, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_VIG, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_TGH, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+				owner.stats.addTempStat(STAT_ROB, STAT_LEVEL_BASIC, 10 SECONDS, "adrenaline")
+//Occulus Edit End
 /datum/sanity/proc/handle_area()
 	var/area/my_area = get_area(owner)
 	if(!my_area)
@@ -240,7 +252,7 @@
 	for(var/stat in stat_change)
 		owner.stats.changeStat(stat, stat_change[stat])
 
-	INVOKE_ASYNC(src, .proc/oddity_stat_up, resting)//Occulus Edit. Artists should still gain stats from perks. 
+	INVOKE_ASYNC(src, .proc/oddity_stat_up, resting)//Occulus Edit. Artists should still gain stats from perks.
 
 	if(owner.stats.getPerk(PERK_ARTIST))
 		to_chat(owner, SPAN_NOTICE("You have created art and improved your stats."))

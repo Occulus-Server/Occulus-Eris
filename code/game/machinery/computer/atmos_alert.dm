@@ -6,7 +6,7 @@ var/global/list/minor_air_alarms = list()
 
 /obj/machinery/computer/atmos_alert
 	name = "atmospheric alert computer"
-	desc = "Used to access the station's atmospheric sensors."
+	desc = "Used to access the ship's atmospheric sensors."
 	circuit = /obj/item/weapon/electronics/circuitboard/atmos_alert
 	icon_keyboard = "atmos_key"
 	icon_screen = "alert:0"
@@ -46,7 +46,7 @@ var/global/list/minor_air_alarms = list()
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/computer/atmos_alert/update_icon()
+/obj/machinery/computer/atmos_alert/on_update_icon()
 	if(!(stat & (NOPOWER|BROKEN)))
 		if(atmosphere_alarm.has_major_alarms(get_z(src)))
 			icon_screen = "alert:2"

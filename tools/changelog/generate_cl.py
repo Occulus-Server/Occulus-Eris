@@ -28,7 +28,7 @@ from pathlib import Path
 from ruamel import yaml
 from github import Github, InputGitAuthor
 
-CL_BODY = re.compile(r"```changelog(.+)?\r\n((.|\n|\r)+?)\r\n```", re.MULTILINE)
+CL_BODY = re.compile(r"```changelog(.+)?\r\n((.|\n|\r)+?)\r\n```", re.MULTILINE) # Occulus Edit - Keeps the changelog start as ```changelog
 CL_SPLIT = re.compile(r"(^\w+):\s+(\w.+)", re.MULTILINE)
 
 git_email = os.getenv("GIT_EMAIL")
@@ -60,8 +60,7 @@ try:
     cl_list = CL_SPLIT.findall(cl.group(2))
 except AttributeError:
     print("No CL found!")
-
-    exit(0)
+    exit(0) # Change to '0' if you do not want the action to fail when no CL is provided
 
 
 if cl.group(1) is not None:
@@ -90,7 +89,7 @@ if write_cl['changes']:
         cl_contents.seek(0)
 
         #Push the newly generated changelog to the master branch so that it can be compiled
-        repo.create_file(f"html/changelogs/AutoChangeLog-pr-{pr_number}.yml", f"Automatic changelog generation for PR #{pr_number} [ci skip]", content=f'{cl_contents.read()}', branch='changelog', committer=InputGitAuthor(git_name, git_email))
+        repo.create_file(f"html/changelogs/AutoChangeLog-pr-{pr_number}.yml", f"Automatic changelog generation for PR #{pr_number} [ci skip]", content=f'{cl_contents.read()}', branch='master', committer=InputGitAuthor(git_name, git_email))
     print("Done!")
 else:
     print("No CL changes detected!")

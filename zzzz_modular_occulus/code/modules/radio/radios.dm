@@ -44,7 +44,7 @@
 	icon_state = "xpryellow"
 	desc = "A basic two-way radio. This one in particular is heavy-duty yellow."
 
-/obj/item/device/radio/color/green		//CentComm
+/obj/item/device/radio/color/green		//CentCom
 	icon_state = "xprgreen"
 	desc = "A basic two-way radio. This one in particular is a commanding green."
 

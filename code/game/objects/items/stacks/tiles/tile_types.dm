@@ -95,31 +95,7 @@
 /obj/item/stack/tile/carpet/oracarpet
 	name = "orange carpet"
 	icon_state = "tile_oracarpet"
-//occulus additions start for carpet crate packs
-/obj/item/stack/tile/carpet/cpack
-	amount = 30
 
-/obj/item/stack/tile/carpet/bcarpet/cpack
-	amount = 30
-
-/obj/item/stack/tile/carpet/blucarpet/cpack
-	amount = 30
-
-/obj/item/stack/tile/carpet/turcarpet/cpack
-	amount = 30
-
-/obj/item/stack/tile/carpet/sblucarpet/cpack
-	amount = 30
-
-/obj/item/stack/tile/carpet/gaycarpet/cpack
-	amount = 30
-
-/obj/item/stack/tile/carpet/purcarpet/cpack
-	amount = 30
-
-/obj/item/stack/tile/carpet/oracarpet/cpack
-	amount = 30
-//Occulus addition end
 /*
  * Flooring parent
  */
@@ -216,6 +192,17 @@
 /*
  * Steel
  */
+
+ // Cyborg tile stack can copy steel tiles by clicking on them (for easy reconstruction)
+/obj/item/stack/tile/floor/steel/attackby(obj/item/I, mob/living/user)
+	if(istype(I, /obj/item/stack/tile/floor/cyborg))
+		var/obj/item/stack/tile/floor/cyborg/C = I
+		C.stacktype = src.type
+		C.build_type = src.type
+		to_chat(usr, SPAN_NOTICE("You will now build [C.name]"))
+	else
+		..()
+
 /obj/item/stack/tile/floor/steel
 	name = "steel floor tile"
 	singular_name = "steel floor tile"

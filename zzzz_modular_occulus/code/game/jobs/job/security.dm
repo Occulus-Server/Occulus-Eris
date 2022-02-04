@@ -5,19 +5,43 @@
 		STAT_VIG = 30
 	)
 /datum/job/inspector
+	total_positions = 1
+	spawn_positions = 1
 	stat_modifiers = list(
-		STAT_BIO = 15,
-		STAT_ROB = 15,
+		STAT_BIO = 25,
+		STAT_COG = 10,
+		STAT_ROB = 10,
 		STAT_TGH = 5,
 		STAT_VIG = 25
 	)
 /datum/job/medspec
+	access = list(
+		access_security, access_brig, access_moebius, access_sec_doors, access_medspec, access_morgue,
+		access_maint_tunnels, access_medical_equip, access_engine, access_mailsorting, access_external_airlocks, access_eva
+	)
 	stat_modifiers = list(
 		STAT_BIO = 25,
-		STAT_TGH = 10,
-		STAT_VIG = 15
+		STAT_COG = 5,
+		STAT_ROB = 5,
+		STAT_TGH = 5,
+		STAT_VIG = 20
+
 	)
+	description = "You are a highly trained medical specialist within Aegis. You thusly have a combination of medical and military training. You are not quite as knowledgeable as a civilian career doctor, not quite as much of a fighter as a dedicated Aegis operative.<br>\
+	<br>\
+	Within Aegis, you have the following roles<br>\
+	<br>\
+	1. Field Medic. <br>\
+	You are expected to serve directly behind the frontlines in a combat situation, treating and stabilising the wounded. You may need to perform emergency trauma surgery and are equipped to do so. You are not expected nor qualified to act as a civilian doctor. <br>\
+	<br>\
+	2. Fire Support.<br>\
+	Often you will be assigned alongside an operative or inspector as a partner. In those situations you may act as fire support for your partner. Try and minimize risk to yourself, as your skill set is invaluable and you are not able to help others while incapacitated or dead.<br>\
+	<br>\
+	3. Brig Support. <br>\
+	During quiet times, you are responsible for assisting other support roles in Aegis. You are also capable of performing lab work alongside the Inspector and should ensure the well-being of prisoners under the care of the Gunnery Sergeant."
+
 /datum/job/ihoper
+	alt_titles = list("Aegis Recruit")
 	stat_modifiers = list(
 		STAT_ROB = 20,
 		STAT_TGH = 20,
@@ -40,7 +64,6 @@
 	belt = /obj/item/weapon/storage/belt/tactical
 
 /obj/structure/closet/secure_closet/personal/security/populate_contents()
-	new /obj/item/weapon/gun/energy/gun/martin(src)
 	if(prob(50))
 		new /obj/item/weapon/storage/backpack/ironhammer(src)
 	else
@@ -53,16 +76,13 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud/tactical(src)
 	new /obj/item/ammo_magazine/ihclrifle/rubber(src)
 	new /obj/item/ammo_magazine/ihclrifle/rubber(src)
-	new /obj/item/weapon/gun/projectile/automatic/sol(src)
 	new /obj/item/ammo_magazine/pistol/rubber(src)
 	new /obj/item/ammo_magazine/pistol/rubber(src)
-	new	/obj/item/weapon/gun/projectile/paco(src)
 	new /obj/item/weapon/storage/pouch/pistol_holster(src)
 	new /obj/item/weapon/storage/pouch/baton_holster(src)
 
 
 /obj/structure/closet/secure_closet/medspec/populate_contents()
-	new /obj/item/weapon/gun/energy/gun/martin(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/tactical(src)
 	new /obj/item/clothing/mask/gas/ihs(src)
 	new /obj/item/taperoll/police(src)
@@ -74,10 +94,10 @@
 	new /obj/item/weapon/cell/medium/high(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/medspec(src)
 	new /obj/item/ammo_magazine/smg/rubber(src)
-	new /obj/item/weapon/gun/projectile/automatic/molly(src)
 	new /obj/item/weapon/storage/pouch/pistol_holster(src)
 	new /obj/item/weapon/storage/briefcase/crimekit(src)
 	new /obj/item/weapon/storage/box/autoinjectors/tricordrazine(src)
+	new /obj/item/weapon/storage/pouch/medical_supply
 
 /obj/structure/closet/secure_closet/detective/populate_contents()
 	new /obj/item/clothing/under/rank/det(src)
@@ -105,7 +125,6 @@
 	new /obj/item/ammo_magazine/slmagnum/rubber(src)
 	new /obj/item/ammo_magazine/slmagnum/rubber(src)
 	new /obj/item/weapon/storage/pouch/pistol_holster(src)
-	new /obj/item/weapon/gun/energy/gun/martin(src)
 	new /obj/item/weapon/storage/box/gloves(src)
 
 /obj/structure/closet/secure_closet/warden/populate_contents()
@@ -125,16 +144,13 @@
 	new /obj/item/weapon/storage/box/flashbangs(src)
 	new /obj/item/ammo_magazine/pistol/rubber(src)
 	new /obj/item/ammo_magazine/pistol/rubber(src)
-	new	/obj/item/weapon/gun/projectile/paco(src)
 	new /obj/item/ammo_magazine/ihclrifle/rubber(src)
 	new /obj/item/ammo_magazine/ihclrifle/rubber(src)
-	new /obj/item/weapon/gun/projectile/automatic/sol(src)
 	new /obj/item/weapon/storage/box/holobadge(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
 	new /obj/item/weapon/storage/pouch/pistol_holster(src)
 	new /obj/item/weapon/storage/pouch/baton_holster(src)
 	new /obj/item/clothing/suit/armor/vest/ironhammer(src)
-	new /obj/item/weapon/gun/energy/gun/martin(src)
 
 /obj/structure/closet/secure_closet/reinforced/hos/populate_contents()
 	new /obj/item/weapon/gun/projectile/lamia(src)

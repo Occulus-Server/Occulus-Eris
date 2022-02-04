@@ -99,6 +99,8 @@
 	var/foodtarget = 0
 	//Used to control how often ian scans for nearby food
 
+	sanity_damage = -0.01
+
 	mob_classification = CLASSIFICATION_ORGANIC
 
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
@@ -159,14 +161,16 @@
 			to_chat(user, SPAN_DANGER("It looks starving!"))
 		else if (nutrition < max_nutrition *0.49)
 			to_chat(user, SPAN_NOTICE("It looks hungry."))
-		else if (nutrition > max_nutrition *0.5)
-			to_chat(user, "It looks satisfied.")
-		else if (nutrition > max_nutrition *0.8)
-			to_chat(user, "It looks full!")
-	if (health < maxHealth * 0.5)
-		to_chat(user, SPAN_DANGER("It looks badly wounded!"))
+		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
+			to_chat(user, "It looks full and contented.")
+	if (health < maxHealth * 0.25)
+		to_chat(user, SPAN_DANGER("It's grievously wounded!"))
+	else if (health < maxHealth * 0.50)
+		to_chat(user, SPAN_DANGER("It's badly wounded!"))
+	else if (health < maxHealth * 0.75)
+		to_chat(user, SPAN_WARNING("It's wounded."))
 	else if (health < maxHealth)
-		to_chat(user, SPAN_WARNING("It looks wounded."))
+		to_chat(user, SPAN_WARNING("It's a bit wounded."))
 
 /mob/living/simple_animal/Life()
 	.=..()
@@ -426,7 +430,7 @@
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
 		if (HUDtech.Find("flash"))
-			flick("flash", HUDtech["flash"])
+			FLICK("flash", HUDtech["flash"])
 	switch (severity)
 		if (1.0)
 			adjustBruteLoss(500)

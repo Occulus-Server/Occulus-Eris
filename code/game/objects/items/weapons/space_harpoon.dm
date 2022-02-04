@@ -3,7 +3,7 @@
 
 /obj/item/weapon/bluespace_harpoon
 	name = "NT BSD \"Harpoon\""
-	desc = "One of the last things developed by old Nanotrasen, this harpoon serves as a tool for short and accurate teleportation of cargo and personnel through bluespace."
+	desc = "The pride of Nanotrasen's Bluespace research efforts, this 'harpoon' serves as a tool for short and accurate teleportation of both cargo and personnel through Bluespace." // OCCULUS EDIT - Better description
 	icon_state = "harpoon-1"
 	icon = 'icons/obj/items.dmi'
 	w_class = ITEM_SIZE_NORMAL
@@ -13,13 +13,16 @@
 	price_tag = 4000
 	matter = list(MATERIAL_SILVER = 10, MATERIAL_GOLD = 5, MATERIAL_PHORON = 20, MATERIAL_PLASTIC = 20)
 	spawn_blacklisted = TRUE
+	var/entropy_value = 2
 	var/mode = MODE_TRANSMIT
 	var/transforming = FALSE	// mode changing takes some time
-	var/offset_chance = 5		//chance to teleport things in wrong place
+	var/offset_chance = 10		//chance to teleport things in wrong place	// OCCULUS EDIT - Doubled since COG now affects it
 	var/teleport_offset = 8		//radius of wrong place
 	var/obj/item/weapon/cell/cell
 	var/suitable_cell = /obj/item/weapon/cell/medium
 	var/Using = FALSE				//If its being used
+	var/range = 14 //OCCULUS EDIT - allow for more z-level traversal
+	slot_flags = SLOT_BACK //OCCULUS EDIT
 
 /obj/item/weapon/bluespace_harpoon/Initialize()
 	. = ..()
@@ -35,14 +38,34 @@
 		cell = null
 		update_icon()
 
-/obj/item/weapon/bluespace_harpoon/afterattack(atom/A, mob/user as mob)
+/obj/item/weapon/bluespace_harpoon/afterattack(atom/A, mob/user)
+	if(get_dist(A, user) > range)
+		return ..()
+//	if(!(A in view(user))) // OCCULUS EDIT - This prevents z-level traversal somehow, so eh.
+//		return ..()
 	if(istype(A, /obj/item/weapon/storage/))
 		return ..()
 	else if(istype(A, /obj/structure/table/) && (get_dist(A, user) <= 1))
 		return ..()
+
+	var/turf/AtomTurf = get_turf(A)
+	var/turf/UserTurf = get_turf(user)
+	var/dense_check
+	switch(mode)
+		if(MODE_TRANSMIT)
+			if(istype(AtomTurf, /turf/simulated/open) && !AtomTurf.is_solid_structure()) //OCCULUS EDIT - now gracefully lands you when traversing Zs
+				AtomTurf = GetBelow(AtomTurf)
+			dense_check = iswall(AtomTurf) //OCCULUS EDIT
+		if(MODE_RECEIVE)
+			dense_check = iswall(UserTurf) //OCCULUS EDIT - Dense objects includes a lot of things such as yourself, which breaks receiving mode
+	if(dense_check)
+		to_chat(user, SPAN_WARNING("Wall detected on receiving terrain. Safety interlocks engaged.")) //OCCULUS EDIT
+		return //No actual telefragging, wasn't allowed to do that at the time
 	if(!Using)
 		Using = TRUE
-		if(do_after(user, 4 SECONDS - user.stats.getMult(STAT_COG, STAT_LEVEL_GODLIKE/20, src)))
+		user.visible_message(SPAN_WARNING("\The [user] holds \the [src] steady, preparing to fire it!")) //OCCULUS EDIT - Notify us
+		to_chat(user,SPAN_WARNING("You hold \the [src] steady, preparing to fire it!")) //OCCULUS EDIT
+		if(do_after(user, 1 SECONDS + 3 SECONDS * user.stats.getMult(STAT_COG, STAT_LEVEL_GODLIKE), src)) //OCCULUS EDIT - Fixing up this statcheck, adds a minimum 1 second firing time
 			Using = FALSE
 			if(!cell || !cell.checked_use(100))
 				to_chat(user, SPAN_WARNING("\The [src]'s battery is dead or missing."))
@@ -50,45 +73,43 @@
 			if(!user || !A || user.machine)
 				return
 			if(transforming)
-				to_chat(user, SPAN_WARNING("You can't fire \the [src] while transforming!"))
+				to_chat(user, SPAN_WARNING("You can't fire \the [src] while it is transforming!"))
 				return
 
 			playsound(user, 'sound/weapons/wave.ogg', 60, 1)
 
 			user.visible_message(SPAN_WARNING("\The [user] fires \the [src]!"))
-			to_chat(user,SPAN_WARNING("You fire from [src]"))
+			to_chat(user,SPAN_WARNING("You fire \the [src]"))
 			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 			s.set_up(4, 1, A)
 			s.start()
 
-			var/turf/AtomTurf = get_turf(A)
-			var/turf/UserTurf = get_turf(user)
-
-			if(mode)
-				teleport(UserTurf, AtomTurf)
-			else
-				teleport(AtomTurf, UserTurf)
+			switch(mode)
+				if(MODE_TRANSMIT)
+					teleport(UserTurf, AtomTurf, user) //OCCULUS EDIT - parse the user's info into here
+				if(MODE_RECEIVE)
+					teleport(AtomTurf, UserTurf, user) //OCCULUS EDIT - parse the user's info into here
 		else
-			to_chat(user, SPAN_WARNING("Error, do not move!"))
+			to_chat(user, SPAN_WARNING("Error, user movement detected. Cancelling lock-on!")) //OCCULUS EDIT - Was too vague, now its descriptive.
 			Using = FALSE
 	else
-		to_chat(user, SPAN_WARNING("Error, single destination only!"))
+		to_chat(user, SPAN_WARNING("Error, unable to lock-on to more than a single location at a time!")) //OCCULUS EDIT - Was too vague, now its descriptive.
 
 
-/obj/item/weapon/bluespace_harpoon/proc/teleport(var/turf/source, var/turf/target)
+/obj/item/weapon/bluespace_harpoon/proc/teleport(turf/source, turf/target, mob/living/user as mob) //OCCULUS EDIT - parse the user's info into here
 	for(var/atom/movable/AM in source)
 		if(istype(AM, /mob/shadow))
 			continue
 		if(!AM.anchored)
-			if(prob(offset_chance))
-				AM.forceMove(get_turf(pick(orange(teleport_offset,source))))
+			if(prob(offset_chance * user.stats.getMult(STAT_COG, STAT_LEVEL_GODLIKE))) // OCCULUS  EDIT - Make it less likely to offset you with better stats
+				go_to_bluespace(source, entropy_value, TRUE, AM, get_turf(pick(orange(teleport_offset,source))))
 			else
-				AM.forceMove(target)
+				go_to_bluespace(source, entropy_value, TRUE, AM, target)
 
 /obj/item/weapon/bluespace_harpoon/attack_self(mob/living/user as mob)
 	return change_fire_mode(user)
 
-/obj/item/weapon/bluespace_harpoon/verb/change_fire_mode(mob/user as mob)
+/obj/item/weapon/bluespace_harpoon/verb/change_fire_mode(mob/user)
 	set name = "Change fire mode"
 	set category = "Object"
 	set src in oview(1)
@@ -98,11 +119,11 @@
 	transforming = TRUE
 	to_chat(user, SPAN_NOTICE("You change [src] mode to [mode ? "transmiting" : "receiving"]."))
 	update_icon()
-	flick("harpoon-[mode]-change", src)
-	spawn(13)	//Average length of transforming animation
+	FLICK("harpoon-[mode]-change", src)
+	spawn(6)	//Average length of transforming animation //OCCULUS EDIT - Updated to new sprite's values
 		transforming = FALSE
 
-/obj/item/weapon/bluespace_harpoon/update_icon()
+/obj/item/weapon/bluespace_harpoon/on_update_icon()
 	icon_state = "harpoon-[mode]"
 
 /obj/item/weapon/bluespace_harpoon/examine(var/mob/user, var/dist = -1)
@@ -147,7 +168,7 @@
 /obj/item/weapon/bluespace_harpoon/mounted/proc/get_external_cell()
 	return loc.get_cell()
 
-/obj/item/weapon/bluespace_harpoon/mounted/update_icon()
+/obj/item/weapon/bluespace_harpoon/mounted/on_update_icon()
 	icon_state = "harpoon-mounted-[mode]"
 
 /obj/item/weapon/bluespace_harpoon/mounted/blitz
@@ -156,5 +177,5 @@
 	icon_state = "harpoon-mounted-blitz-1"
 	spawn_tags = null
 
-/obj/item/weapon/bluespace_harpoon/mounted/blitz/update_icon()
+/obj/item/weapon/bluespace_harpoon/mounted/blitz/on_update_icon()
 	icon_state = "harpoon-mounted-blitz-[mode]"

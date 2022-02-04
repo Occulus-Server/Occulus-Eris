@@ -105,7 +105,7 @@
 	else
 		placement_dir = reverse_dir[placement_dir]
 		for(var/t_dir in cardinal)
-			if(!t_dir&placement_dir) continue
+			if(!(t_dir & placement_dir)) continue
 			if(iswall(get_step(W, t_dir)))
 				if(iswall(get_step(W, placement_dir-t_dir)))
 					break
@@ -136,7 +136,7 @@
 		else if(placement_dir&EAST)
 			pixel_x = -32
 		anchored = TRUE
-		flick("poster_being_set", src)
+		FLICK("poster_being_set", src)
 		playsound(W, 'sound/items/poster_being_created.ogg', 100, 1)
 		design.set_design(src)
 

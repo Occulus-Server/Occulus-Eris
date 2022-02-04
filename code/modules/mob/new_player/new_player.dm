@@ -335,7 +335,7 @@
 	dat += "<b>Welcome, [name].<br></b>"
 	dat += "Round Duration: [roundduration2text()]<br>"
 
-	if(evacuation_controller.has_evacuated()) //In case Nanotrasen decides reposess CentComm's shuttles.
+	if(evacuation_controller.has_evacuated()) //In case Nanotrasen decides reposess CentCom's shuttles.
 		dat += "<font color='red'><b>The vessel has been evacuated.</b></font><br>"
 	else if(evacuation_controller.is_evacuating())
 		if(evacuation_controller.emergency_evacuation) // Emergency shuttle is past the point of no recall
@@ -397,13 +397,13 @@
 	if(mind)
 		mind.active = 0//we wish to transfer the key manually
 		mind.original = new_character
-		if(client.prefs.relations.len)
+		/* if(client.prefs.relations.len) // OCCULUS REMOVE - Pausing matchmaking
 			for(var/T in client.prefs.relations)
 				var/TT = matchmaker.relation_types[T]
 				var/datum/relation/R = new TT
 				R.holder = mind
 				R.info = client.prefs.relations_info[T]
-			mind.gen_relations_info = client.prefs.relations_info["general"]
+			mind.gen_relations_info = client.prefs.relations_info["general"] */
 		mind.transfer_to(new_character)					//won't transfer key since the mind is not active
 
 	if(SSticker.random_players)

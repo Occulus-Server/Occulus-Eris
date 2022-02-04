@@ -17,6 +17,7 @@
 #define PARALYZE  "paralize"
 #define IRRADIATE "irradiate"
 #define AGONY     "agony"     // Added in PAIN!
+#define PSY       "sanity"	//Sanity damage - Occulus Edit
 #define SLUR      "slur"
 #define STUTTER   "stutter"
 #define EYE_BLUR  "eye_blur"
@@ -75,6 +76,7 @@
 
 // Unique carrion Organs.
 #define BP_SPCORE   "spider core"
+#define BP_BRAIN_CULTIST "twisted mind"//Occultist brain object
 
 //Augmetations
 #define BP_AUGMENT_R_ARM         "right arm augment"

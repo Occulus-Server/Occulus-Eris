@@ -1,6 +1,3 @@
-#define SANITIZE_LATHE_COST(n) round(n * mat_efficiency, 0.01)
-
-
 #define ERR_OK 0
 #define ERR_NOTFOUND "not found"
 #define ERR_NOMATERIAL "no material"
@@ -48,9 +45,9 @@
 	var/show_rconfig = FALSE
 	var/activated = FALSE
 
-	var/STEEL_REQ = 10
-	var/PLASTEEL_REQ = 3
-	var/NANITE_REQ = 9
+	var/STEEL_REQ = 3
+	var/PLASTEEL_REQ = 1
+	var/NANITE_REQ = 1
 	var/ROUND_FRACTION = 0.1
 
 /obj/machinery/nanite_reconstitution_apparatus/Initialize() //initializing

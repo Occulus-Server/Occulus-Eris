@@ -165,7 +165,7 @@
 	if(!.)
 		return
 	if(init_update())
-		var/datum/gender/G = gender_datums[holder.owner.gender]
+		var/datum/gender/G = gender_datums[holder.owner.identifying_gender] // OCCULUS EDIT - adjusting for gender rework
 		if(prob(50))
 			var/emote = pick(list(
 				"screams incoherently!",

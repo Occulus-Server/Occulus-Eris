@@ -11,6 +11,7 @@
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_COVERT = 4, TECH_MAGNET = 4)
 	suitable_cell = /obj/item/weapon/cell/small
+	spawn_blacklisted = TRUE
 	var/can_use = 1
 	var/obj/effect/dummy/chameleon/active_dummy
 	var/saved_item = /obj/item/trash/cigbutt
@@ -59,7 +60,7 @@
 		to_chat(usr, SPAN_NOTICE("You deactivate the [src]."))
 		var/obj/effect/overlay/T = new(get_turf(src))
 		T.icon = 'icons/effects/effects.dmi'
-		flick("emppulse",T)
+		FLICK("emppulse",T)
 		STOP_PROCESSING(SSobj, src)
 		spawn(8) qdel(T)
 	else
@@ -72,7 +73,7 @@
 		to_chat(usr, SPAN_NOTICE("You activate the [src]."))
 		var/obj/effect/overlay/T = new/obj/effect/overlay(get_turf(src))
 		T.icon = 'icons/effects/effects.dmi'
-		flick("emppulse",T)
+		FLICK("emppulse",T)
 		START_PROCESSING(SSobj, src)
 		spawn(8) qdel(T)
 
@@ -108,7 +109,7 @@
 	desc = O.desc
 	icon = new_icon
 	icon_state = new_iconstate
-	overlays = new_overlays
+	set_overlays(new_overlays)
 	set_dir(O.dir)
 	M.loc = src
 	master = C
@@ -157,3 +158,8 @@
 /obj/effect/dummy/chameleon/Destroy()
 	master.disrupt(0)
 	. = ..()
+
+/obj/effect/dummy/chameleon/Crossed(AM as mob|obj)
+	if(isobj(AM) || isliving(AM))
+		master.disrupt()
+	..()

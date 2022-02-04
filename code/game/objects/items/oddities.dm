@@ -40,6 +40,7 @@
 			for(var/stat in oddity_stats)
 				oddity_stats[stat] = rand(1, oddity_stats[stat])
 		AddComponent(/datum/component/inspiration, oddity_stats, perk)
+
 /* Occulus Edit - This exists in the inspiration component examine code
 /obj/item/weapon/oddity/examine(user)
 	..()
@@ -319,6 +320,65 @@ End Occulus Edit */
 	icon_state = "techno_part[rand(1,7)]"
 	.=..()
 
+/obj/item/weapon/oddity/broken_necklace
+	name = "Broken necklace"
+	desc = "A broken necklace that has a blue crystal as a trinket."
+	icon_state = "broken_necklace"
+	origin_tech = list(TECH_BLUESPACE = 9)
+	oddity_stats = list(
+		STAT_COG = 9,
+		STAT_VIG = 9,
+		STAT_ROB = 9,
+		STAT_TGH = 9,
+		STAT_BIO = 9,
+		STAT_MEC = 9
+	)
+	var/cooldown
+	var/entropy_value = 5
+	var/blink_range = 8
+
+/obj/item/weapon/oddity/broken_necklace/New()
+	..()
+	GLOB.bluespace_gift += 1
+	GLOB.bluespace_entropy -= rand(30, 50)
+
+/obj/item/weapon/oddity/broken_necklace/Destroy()
+	var/turf/T = get_turf(src)
+	if(T)
+		bluespace_entropy(80,T)
+		new /obj/item/bluespace_dust(T)
+	GLOB.bluespace_gift -= 1
+	. = ..()
+
+/obj/item/weapon/oddity/broken_necklace/attack_self(mob/user)
+	if(world.time < cooldown)
+		return
+	cooldown = world.time + 3 SECONDS
+	user.visible_message(SPAN_WARNING("[user] crushes [src]!"), SPAN_DANGER("You crush [src]!"))
+	var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
+	sparks.set_up(3, 0, get_turf(user))
+	sparks.start()
+	var/turf/T = get_random_secure_turf_in_range(user, blink_range, 2)
+	go_to_bluespace(get_turf(user), entropy_value, TRUE, user, T)
+	for(var/obj/item/weapon/grab/G in user.contents)
+		if(G.affecting)
+			go_to_bluespace(get_turf(user), entropy_value, FALSE, G.affecting, locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z))
+	if(prob(1))
+		qdel(src)
+
+/obj/item/weapon/oddity/broken_necklace/throw_impact(atom/movable/hit_atom)
+	if(!..()) // not caught in mid-air
+		visible_message(SPAN_NOTICE("[src] fizzles upon impact!"))
+		var/turf/T = get_turf(hit_atom)
+		var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
+		sparks.set_up(3, 0, T)
+		sparks.start()
+		if(!hit_atom.anchored)
+			var/turf/NT = get_random_turf_in_range(hit_atom, blink_range, 2)
+			go_to_bluespace(T, entropy_value, TRUE, hit_atom, NT)
+		if(prob(1))
+			qdel(src)
+
 /obj/item/weapon/oddity/common/photo_crime
 	name = "crime scene photo"
 	desc = "It is unclear whether this is a victim of suicide or murder. His face is frozen in a look of agony and terror, and you shudder to think at what his last moments might have been."
@@ -409,3 +469,58 @@ End Occulus Edit */
 	)
 	price_tag = 8000
 	perk = /datum/perk/nt_oddity/holy_light
+
+//Hivemind oddity
+/obj/item/weapon/oddity/hivemind
+	name = "Hivemind Oddity"
+	desc = "You shouldn't be seeing this. Report to your nearest reeducation camp comrade (report it on discord)."
+	spawn_blacklisted = TRUE
+	bad_type = /obj/item/weapon/oddity/hivemind
+
+/obj/item/weapon/oddity/hivemind/old_radio
+	name = "warped radio"
+	desc = "An old radio covered in growths. You can hear nothing from it, nothing but the sound of machinery and souls begging for release."
+	icon_state = "warped_radio"
+	oddity_stats = list(
+		STAT_COG = 8,
+		STAT_VIG = 8,
+		STAT_MEC = 7,
+	)
+
+/obj/item/weapon/oddity/hivemind/old_pda
+	name = "abnormal pda"
+	desc = "An old Nanotrasen era PDA covered in growths. Is the hive Nanotrasen's creation, or made by something worse?"
+	icon_state = "abnormal_pda"
+	oddity_stats = list(
+		STAT_COG = 8,
+		STAT_MEC = 8,
+		STAT_VIG = 7
+	)
+
+/obj/item/weapon/oddity/hivemind/hive_core
+	name = "makeshift datapad"
+	desc = "A makeshift datapad covered in growths. Whatever data was stored here is now gone, part of it transferred to an unknown source, the rest simply wiped."
+	icon_state = "hivemind_core"
+	w_class = ITEM_SIZE_NORMAL
+	random_stats = FALSE
+	oddity_stats = list(
+		STAT_COG = 8,
+		STAT_VIG = 8,
+		STAT_MEC = 8,
+		STAT_BIO = 8
+	)
+	perk = /datum/perk/oddity/hive_born
+
+//i copied the entire thing because beforehand it just did not work
+/obj/item/weapon/oddity/hivemind/hive_core/Initialize()
+	. = ..()
+	AddComponent(/datum/component/atom_sanity, sanity_value, "")
+//	(!perk && prob(prob_perk))
+// 		perk = get_oddity_perk()  - we don't have this proc on occulus lol
+
+	if(oddity_stats)
+		if(random_stats)
+			for(var/stat in oddity_stats)
+				oddity_stats[stat] = rand(1, oddity_stats[stat])
+		AddComponent(/datum/component/inspiration, oddity_stats, perk)
+	set_light(2, 1, COLOR_BLUE_LIGHT)

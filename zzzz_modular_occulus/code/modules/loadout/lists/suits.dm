@@ -20,20 +20,23 @@
 
 /datum/gear/suit/mekhanejacket
 	display_name = "Mekhane jacket"
-	path = /obj/item/clothing/suit/neotheology_jacket
+	path = /obj/item/clothing/suit/storage/neotheology_jacket
 	cost = 1
 	allowed_roles = list("Chaplain","Mekhane Acolyte","Mekhane Agrolyte","Mekhane Custodian")
 
 /datum/gear/suit/solgovdress
 	display_name = "solgov dress jacket"
+	path = /obj/item/clothing/suit/storage/solgov/dressnco
 	cost = 1
 
 /datum/gear/suit/solgovdresswo
 	display_name = "solgov warrant officer dress jacket"
 	allowed_roles = list(JOBS_SECURITY)
 	cost = 1
+	path = /obj/item/clothing/suit/storage/solgov/wo
 
 /datum/gear/suit/solgovdressco
 	display_name = "solgov commander dress jacket"
 	allowed_roles = list(JOBS_COMMAND)
 	cost = 1
+	path = /obj/item/clothing/suit/storage/solgov/ltcdr

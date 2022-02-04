@@ -11,7 +11,7 @@
 	var/flickering = 0
 	var/ticks_before_next_summon = 2
 	var/mobgenlist = list(
-		/mob/living/simple_animal/hostile/bear,
+		/mob/living/simple_animal/hostile/minerbot, //Occulus edit
 		/mob/living/simple_animal/hostile/carp,
 		/mob/living/simple_animal/hostile/carp,
 		/mob/living/simple_animal/hostile/carp/pike,
@@ -116,7 +116,7 @@
 		victims_to_teleport += E
 
 	for(var/mob/living/M in victims_to_teleport)
-		M.forceMove(get_turf(target))
+		go_to_bluespace(get_turf(src), 3, FALSE, M, get_turf(target))
 
 	new /obj/structure/scrap_spawner/science/large(src.loc)
 
@@ -128,28 +128,28 @@
 	qdel(src)
 
 
-/obj/rogue/teleporter/update_icon()
-	overlays.Cut()
+/obj/rogue/teleporter/on_update_icon()
+	cut_overlays()
 
 	if(charging && charge < 10)
-		overlays.Add(image(icon, icon_state = "charging_1"))
+		add_overlays(image(icon, icon_state = "charging_1"))
 		return
 
 	if(charging & charge < 25)
-		overlays.Add(image(icon, icon_state = "charging_2"))
+		add_overlays(image(icon, icon_state = "charging_2"))
 		return
 
 	if(charging & charge < charge_max)
-		overlays.Add(image(icon, icon_state = "charging_3"))
+		add_overlays(image(icon, icon_state = "charging_3"))
 		return
 
 	if(charge >= charge_max)
-		overlays.Add(image(icon, icon_state = "charged_portal"))
-		overlays.Add(image(icon, icon_state = "beam"))
+		add_overlays(image(icon, icon_state = "charged_portal"))
+		add_overlays(image(icon, icon_state = "beam"))
 		return
 
 /obj/rogue/teleporter/proc/portal_burst()
-	overlays.Add(image(icon, icon_state = "portal_on"))
+	add_overlays(image(icon, icon_state = "portal_on"))
 	visible_message("A shimmering portal appears!")
 	sleep(100)
 	update_icon()
@@ -160,13 +160,13 @@
 				A.stasis = FALSE
 				A.activate_ai()
 
-	overlays.Add(image(icon, icon_state = "portal_failing"))
+	add_overlays(image(icon, icon_state = "portal_failing"))
 	visible_message("The portal starts flickering!")
 	flickering = 1
 	sleep(100)
 	update_icon()
 
-	overlays.Add(image(icon, icon_state = "portal_pop"))
+	add_overlays(image(icon, icon_state = "portal_pop"))
 	visible_message("The portal bursts!")
 
 	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
@@ -182,18 +182,18 @@
 				continue
 			flash_time *= H.species.flash_mod
 			var/eye_efficiency = H.get_organ_efficiency(OP_EYES)
-			if(!eye_efficiency)
+			if(eye_efficiency < 2)
 				return
 			if(eye_efficiency < 50 && prob(100 - eye_efficiency  + 20))
 				if (O.HUDtech.Find("flash"))
-					flick("e_flash", O.HUDtech["flash"])
+					FLICK("e_flash", O.HUDtech["flash"])
 
 		else
 			if(!O.blinded)
 				if (istype(O,/mob/living/silicon/ai))
 					return
 				if (O.HUDtech.Find("flash"))
-					flick("flash", O.HUDtech["flash"])
+					FLICK("flash", O.HUDtech["flash"])
 		O.Weaken(flash_time)
 
 		sleep(1)
@@ -218,7 +218,7 @@
 
 
 
-/obj/rogue/telebeacon/attack_hand(var/mob/user as mob)
+/obj/rogue/telebeacon/attack_hand(mob/user)
 	if(!target)
 		target = locate(/obj/crawler/teleport_marker)
 	if(!active)
@@ -236,11 +236,10 @@
 
 		for(var/mob/living/silicon/robot/R in range(8, src))//Borgs too
 			victims_to_teleport += R
-
-		for(var/mob/living/M in victims_to_teleport)
-			M.x = target.x
-			M.y = target.y
-			M.z = target.z
+		for(var/obj/structure/closet/C in range(8, src))//Clostes as well, for transport and storage
+			victims_to_teleport += C
+		for(var/atom/movable/M in victims_to_teleport)
+			go_to_bluespace(get_turf(src), 3, FALSE, M, get_turf(target))
 			sleep(1)
 			var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
 			sparks.set_up(3, 0, get_turf(loc))
@@ -252,7 +251,7 @@
 	desc = "A metallic pylon, covered in rust. It seems still operational. Barely."
 
 
-/obj/rogue/telebeacon/return_beacon/attack_hand(var/mob/user as mob)
+/obj/rogue/telebeacon/return_beacon/attack_hand(mob/user)
 	if(!target)
 		target = locate(/obj/crawler/teleport_marker)
 	if(!active)
@@ -264,7 +263,7 @@
 			to_chat(user, "The beacon has no destination, Ahelp this.")
 	else if(active)
 		to_chat(user, "You reach out and touch the beacon. A strange feeling envelops you.")
-		user.forceMove(get_turf(target))
+		go_to_bluespace(get_turf(src), 3, FALSE, user, get_turf(target))
 		sleep(1)
 		var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
 		sparks.set_up(3, 0, get_turf(user))

@@ -25,7 +25,6 @@
 	if(!possible_transfer_amounts)
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
 	anchored = bolt
-	AddComponent(/datum/component/plumbing/supply/all, anchored, FALSE)
 	var/turf/T = get_turf(src)
 	T?.levelupdate()
 
@@ -153,7 +152,7 @@
 			usr.visible_message(SPAN_NOTICE("\The [usr] detaches \the [rig] from \the [src]."), SPAN_NOTICE("You detach [rig] from \the [src]"))
 			rig.loc = get_turf(usr)
 			rig = null
-			overlays = new/list()
+			set_overlays(new/list())
 
 /obj/structure/reagent_dispensers/fueltank/attackby(obj/item/I, mob/user)
 	src.add_fingerprint(user)
@@ -186,7 +185,7 @@
 			var/icon/test = getFlatIcon(I)
 			test.Shift(NORTH,1)
 			test.Shift(EAST,6)
-			overlays += test
+			add_overlays(test)
 
 	var/obj/item/weapon/tool/T = I
 	if(istype(T) && T.use_fuel_cost)
@@ -367,7 +366,7 @@
 		. = ..()
 	update_icon()
 
-/obj/structure/reagent_dispensers/bidon/update_icon()
+/obj/structure/reagent_dispensers/bidon/on_update_icon()
 	cut_overlays()
 	if(lid)
 		var/mutable_appearance/lid_icon = mutable_appearance(icon, "[icon_state]_lid")

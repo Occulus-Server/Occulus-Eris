@@ -1,4 +1,4 @@
-/obj/machinery/biogenerator
+/* /obj/machinery/biogenerator OCCULUS EDIT. Comments out the non-Mekhane Biogenerator for lore reasons
 	name = "Biogenerator"
 	desc = ""
 	icon = 'icons/obj/biogenerator.dmi'
@@ -52,7 +52,7 @@
 /obj/machinery/biogenerator/on_reagent_change()			//When the reagents change, change the icon as well.
 	update_icon()
 
-/obj/machinery/biogenerator/update_icon()
+/obj/machinery/biogenerator/on_update_icon()
 	if(!beaker)
 		icon_state = "biogen-empty"
 	else if(!processing)
@@ -260,3 +260,4 @@
 
 	build_eff = man_rating
 	eat_eff = bin_rating
+*/

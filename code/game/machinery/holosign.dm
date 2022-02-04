@@ -32,7 +32,7 @@
 	use_power = lit ? 2 : 1
 	update_icon()
 
-/obj/machinery/holosign/update_icon()
+/obj/machinery/holosign/on_update_icon()
 	if (!lit)
 		icon_state = "sign_off"
 	else
@@ -65,7 +65,7 @@
 	active = !active
 	icon_state = "light[active]"
 
-	for(var/obj/machinery/holosign/M in SSmachines.machinery)
+	for(var/obj/machinery/holosign/M in GLOB.machines)
 		if (M.id == src.id)
 			spawn( 0 )
 				M.toggle()

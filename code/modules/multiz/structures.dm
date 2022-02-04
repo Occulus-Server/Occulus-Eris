@@ -138,6 +138,8 @@
 		attack_hand(user)
 
 /obj/structure/multiz/ladder/attack_hand(var/mob/M)
+	if (M.buckled)//Occulus Edit: Prevents buckled mobs from getting stuck on ladders
+		return//Occulus Edit
 	if (isrobot(M) && !isdrone(M))
 		var/mob/living/silicon/robot/R = M
 		climb(M, (climb_delay)/R.speed_factor) //Robots are not built for climbing, they should go around where possible	// OCCULUS EDIT - Removed the *6 multiplier from robot climb delay
@@ -220,7 +222,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("You can't do it right now."))
 		return
-	else 
+	else
 		user.client.eye = user.client.mob
 		user.client.perspective = MOB_PERSPECTIVE
 		user.hud_used.updatePlaneMasters(user)
@@ -313,7 +315,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("You can't do it right now."))
 		return
-	else 
+	else
 		user.client.eye = user.client.mob
 		user.client.perspective = MOB_PERSPECTIVE
 		user.hud_used.updatePlaneMasters(user)
@@ -339,7 +341,7 @@
 
 /obj/structure/multiz/ladder/up/deepmaint/climb()
 	if(!target)
-		var/obj/structure/burrow/my_burrow = pick(all_burrows)
+		var/obj/structure/burrow/my_burrow = pick(GLOB.all_burrows)
 		var/obj/structure/multiz/ladder/burrow_hole/my_hole = new /obj/structure/multiz/ladder/burrow_hole(my_burrow.loc)
 		my_burrow.deepmaint_entry_point = FALSE
 		target = my_hole

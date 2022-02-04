@@ -25,6 +25,15 @@ GLOBAL_DATUM_INIT(maps_data, /datum/maps_data, new)
 	var/turf/T = get_turf(A)
 	return T && isContactLevel(T.z)
 
+//OCCULUS EDIT - checks for sealed Z-levels.
+/proc/isSealedLevel(level)
+	return level in GLOB.maps_data.sealed_levels
+
+/proc/isOnSealedLevel(atom/A)
+	var/turf/T = get_turf(A)
+	return T && isSealedLevel(T.z)
+//END OCCULUS EDIT.
+
 /proc/isAdminLevel(level)
 	return level in GLOB.maps_data.admin_levels
 
@@ -108,8 +117,8 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 						)
 
 	var/overmap_z
-	var/overmap_size = 50
-	var/overmap_event_areas = 40
+	var/overmap_size = 50 * 4
+	var/overmap_event_areas = 40 * 16
 
 	var/emergency_shuttle_docked_message = "The escape pods are now armed. You have approximately %ETD% to board the escape pods."
 	var/emergency_shuttle_leaving_dock = "The escape pods have been launched, arriving at rendezvous point in %ETA%."
@@ -121,7 +130,7 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 	var/shuttle_called_message = "Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
 	var/shuttle_recall_message = "Jump sequence aborted, return to normal operating conditions."
 
-	var/list/usable_email_tlds = list("nev_northern_light.org","northern_light.scg","northern_light.net")
+	var/list/usable_email_tlds = list("cev_northern_light.org","northern_light.scg","northern_light.net")
 	var/path = "eris"
 
 	var/access_modify_region = list(
@@ -225,7 +234,7 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 
 /datum/maps_data/proc/get_empty_zlevel()
 	if(empty_levels == null)
-		world.maxz++
+		world.incrementMaxZ()
 		empty_levels = list(world.maxz)
 
 		add_z_level(world.maxz, world.maxz, 1)

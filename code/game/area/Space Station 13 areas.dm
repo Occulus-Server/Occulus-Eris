@@ -34,9 +34,6 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	var/power_equip = 1
 	var/power_light = 1
 	var/power_environ = 1
-	var/used_equip = 0
-	var/used_light = 0
-	var/used_environ = 0
 	var/area_light_color		//Used by lights to create different light on different departments and locations
 
 	var/has_gravity = 1
@@ -50,7 +47,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	var/list/forced_ambience
 	var/sound_env = STANDARD_STATION
 	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
-	var/vessel = "NEV Northern Light" //The ship or station this area is on. This is so far just for the benefit of shield generators
+	var/vessel = "CEV Northern Light" //The ship or station this area is on. This is so far just for the benefit of shield generators
 	var/holomap_color // Color of this area on station holomap
 
 	//Consoles can only control shields on the same vessel as them

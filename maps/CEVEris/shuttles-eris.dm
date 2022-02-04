@@ -76,7 +76,7 @@
 	default_docking_controller = "vasiliy_dokuchaev_shuttle"
 	current_location = "nav_dock_expl"
 	landmark_transition = "nav_transit_expl"
-	range = 4
+	range = INFINITY  // Can go anywhere on overmap to avoidance depending on the jobs with bridge access to direct the ship
 	fuel_consumption = 3
 
 /obj/effect/shuttle_landmark/eris/dock/exploration_shuttle
@@ -101,7 +101,7 @@
 	default_docking_controller = "hulk_shuttle"
 	current_location = "nav_dock_hulk"
 	landmark_transition = "nav_transit_hulk"
-	range = 2
+	range = INFINITY  // Can go anywhere on overmap to avoidance depending on the jobs with bridge access to direct the ship
 	fuel_consumption = 4
 
 /obj/effect/shuttle_landmark/eris/dock/hulk
@@ -133,7 +133,7 @@
 	dock_target = "skipjack_shuttle"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_transition"
-	announcer = "NEV Northern Light Sensor Array"
+	announcer = "CEV Northern Light Sensor Array"
 	home_waypoint = "nav_skipjack_start"
 	arrival_message = "Attention, vessel detected entering vessel proximity."
 	departure_message = "Attention, vessel detected leaving vessel proximity."
@@ -194,7 +194,7 @@
 	default_docking_controller = "merc_shuttle"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_transition"
-	announcer = "NEV Northern Light Sensor Array"
+	announcer = "CEV Northern Light Sensor Array"
 	home_waypoint = "nav_merc_start"
 	arrival_message = "Attention, unidentified vessel detected on long range sensors. \nVessel is approaching on an intercept course. \nHailing frequencies open."
 	departure_message = "Attention, unknown vessel has departed"

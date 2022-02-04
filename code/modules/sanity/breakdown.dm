@@ -46,11 +46,34 @@
 /datum/breakdown/proc/occur_animation()
 	var/image/img = image('icons/effects/insanity_statuses.dmi', holder.owner)
 	holder.owner << img
-	flick(icon_state, img)
+	FLICK(icon_state, img)
 
 /datum/breakdown/proc/occur()
 	occur_animation()
 	holder.owner.playsound_local(get_turf(holder.owner), breakdown_sound, 100)
+	//Occulus Edit Start - Occultists gain madness here
+	for(var/mob/living/carbon/human/viewer in view(holder.owner, 7))
+		if(viewer.mind)
+			if(player_is_antag_id(viewer.mind, ROLE_OCCULTIST))
+				var/madnessgain
+				if(viewer == holder.owner)
+					madnessgain = 1
+				else
+					madnessgain = 4
+				var/obj/item/organ/internal/brain/occultist/B = viewer.random_organ_by_process(BP_BRAIN_CULTIST)
+				if(B)
+					B.madnesspoints += madnessgain
+	//Occulus edit end... for now
+	//Occulus edit: Occultist Totems should be able to transmit 1 madness point to the builder if they see a breakdown.
+	for(var/obj/machinery/occultist/totem/T in view(holder.owner))
+		var/mob/living/carbon/human/crafter = T.maker
+		if(crafter.stat == DEAD) //No madness gain on death, though you get it on unconsciousness.
+			return
+		for(var/obj/item/organ/internal/brain/occultist/B in crafter.contents) //Get the brain from the owner
+			if(B) //Check if they still have their brain
+				B.madnesspoints ++ //Add one madness
+			to_chat(crafter, "Your totem has harvested madness.")
+	//Occulus edit: Occultist Totem Remote Gain End
 	if(holder.owner.head && istype(holder.owner.head, /obj/item/clothing/head/mindreader))
 		var/obj/item/clothing/head/mindreader/MR = holder.owner.head
 		MR.extract_memory(holder.owner)

@@ -1,47 +1,159 @@
+#define SOFTCRIT_TRAUMATIC_SHOCK	50
+#define HARDCRIT_TRAUMATIC_SHOCK	100
+#define SHOCK_STAGE_BUFFER			50
+
 /mob/living/var/traumatic_shock = 0
 /mob/living/carbon/var/shock_stage = 0
 
 // proc to find out in how much pain the mob is at the moment
 /mob/living/carbon/proc/updateshock()
-	if (species && (species.flags & NO_PAIN))
-		src.traumatic_shock = 0
+	if(species && (species.flags & NO_PAIN))
+		traumatic_shock = 0
 		return 0
 
-	src.traumatic_shock = 			\
-	1	* src.getOxyLoss() + 		\
-	0.5	* src.getToxLoss() + 		\
-	1	* src.getPainFromDam() +	\
-	1.7	* src.getCloneLoss() + 		\
-	2	* src.halloss + 			\
-	-1	* src.analgesic
+	traumatic_shock = get_constant_pain() + get_dynamic_pain() - get_painkiller()
 
-	if(src.slurring)
-		src.traumatic_shock -= 20
+	if(slurring)
+		traumatic_shock -= 10
 
-	if(src.traumatic_shock < 0)
-		src.traumatic_shock = 0
-
-	return src.traumatic_shock
-
-/mob/living/carbon/proc/getPainFromDam()
-	return src.getFireLoss() + src.getBruteLoss()
-
-// broken or ripped off organs will add quite a bit of pain
-/mob/living/carbon/human/updateshock()
-	..()
-	for(var/obj/item/organ/external/organ in organs)
-		if(organ && (organ.is_broken() || (!BP_IS_ROBOTIC(organ) && organ.open)))
-			traumatic_shock += 30
+	if(traumatic_shock < 0)
+		traumatic_shock = 0
 
 	return traumatic_shock
 
-/mob/living/carbon/human/getPainFromDam()
-	var/value = 0
+/mob/living/carbon/var/last_tick_pain
+
+/mob/living/carbon/proc/get_constant_pain()
+	var/hard_crit_threshold = HARDCRIT_TRAUMATIC_SHOCK + min(stats.getStat(STAT_TGH), 100)
+	if(stats.getPerk(PERK_BALLS_OF_PLASTEEL))
+		hard_crit_threshold += 20
+
+	. = 						\
+	0.9	* get_limb_damage() + 	\
+	0.6	* getOxyLoss() + 		\
+	0.5	* getToxLoss() + 		\
+	1.5	* getCloneLoss()
+
+
+	//Constant Pain above 80% of the crit treshold gets converted to dynamic pain (hallos)
+	//Damage from the last tick gets saved as last_tick_pain and compared to current pain, if the current pain is larger hallos gets applied again
+	if(. > 0.8 * hard_crit_threshold)
+		if(. > last_tick_pain)
+			adjustHalLoss((. - last_tick_pain) * 0.75)	// 0.75 * 1.33 modifier from hallos to dynamic pain convesion is roughly 1
+		last_tick_pain = .
+		. = 0.8 * hard_crit_threshold
+		return
+
+	last_tick_pain = .
+
+/mob/living/carbon/proc/get_limb_damage()
+	. = getFireLoss() + getBruteLoss()
+
+/mob/living/carbon/human/get_limb_damage()
 	for(var/obj/item/organ/external/organ in organs)
-		value += organ.burn_dam
-		value += organ.brute_dam
-		value *= max((get_specific_organ_efficiency(OP_NERVE, organ.organ_tag)/100), 0.5)
-	return value
+		. += organ.burn_dam
+		. += organ.brute_dam
+		if(organ && (organ.is_broken() || (!BP_IS_ROBOTIC(organ) && organ.open)))
+			. += 25
+		. *= max((get_specific_organ_efficiency(OP_NERVE, organ.organ_tag)/100), 0.5)
+//		if(!organ.vital)	// OCCULUS EDIT - Non-vital organs hurt 20% less ON SECOND THOUGHT, NAH
+//			. *= 0.8
+
+/mob/living/carbon/proc/get_dynamic_pain()
+	. = 1.33 * halloss
+
+/mob/living/carbon/proc/get_painkiller()
+	. = analgesic
 
 /mob/living/carbon/proc/handle_shock()
 	updateshock()
+
+/mob/living/carbon/human/handle_shock()
+	..()
+	if(status_flags & GODMODE)	//godmode
+		return 0
+	if(species && species.flags & NO_PAIN)
+		return
+	if(status_flags & HARDCRIT)	//already in hardcrit
+		return
+
+	//Get crit treshold
+	var/soft_crit_threshold = SOFTCRIT_TRAUMATIC_SHOCK + stats.getStat(STAT_TGH)
+	var/hard_crit_threshold = HARDCRIT_TRAUMATIC_SHOCK + stats.getStat(STAT_TGH)
+	if(stats.getPerk(PERK_BALLS_OF_PLASTEEL))
+		soft_crit_threshold += 20
+		hard_crit_threshold += 20
+
+	//Get shock speed
+	var/shock_stage_speed = 1
+	if(traumatic_shock > soft_crit_threshold + SHOCK_STAGE_BUFFER)
+		shock_stage_speed = 2
+
+	//Handle shock
+	if(shock_stage <= traumatic_shock)	//Shock stage slowly climbs to traumatic shock
+		shock_stage = min(shock_stage + shock_stage_speed, traumatic_shock)
+
+		if(shock_stage <= round(traumatic_shock * 0.6 / 2) * 2)	//If the difference is too big shock stage jumps to 60% of traumatic shock
+			shock_stage = (traumatic_shock * 0.6)
+			shock_stage = round(shock_stage / 2) * 2 //rounded to the nearest even sumber, so messages show up
+
+	else
+		shock_stage = max(shock_stage - shock_stage_speed, 0)
+		return
+
+	if(shock_resist || soft_crit_threshold > traumatic_shock)
+		shock_stage = min(shock_stage, 58)
+
+	sanity.onShock(shock_stage)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// OCCULUS EDIT START - Tori's Shock Stage Butchering to make things less whacky. Stuttering at 30 brute? Heck that.
+//
+	if(shock_stage == 10)
+		to_chat(src, "<span class='danger'>[pick("The pain is bearable", "It hurts a little")]!</span>")
+
+	if(shock_stage == 30)
+		to_chat(src, "<span class='danger'>[pick("The pain is starting to get unbearable", "It hurts quite a bit")]!</span>")
+
+	if(shock_stage == 40)
+		to_chat(src, "<span class='danger'>[pick("The pain is uncomfortable", "It hurts", "You could go for some paracetamol right about now")]!</span>")
+
+	if (shock_stage >= 60)
+		stuttering = max(stuttering, 5)
+		if (shock_stage == 60)
+			to_chat(src, "<span class='danger'>[pick("The pain is unbearable", "It hurts a lot")]!</span>")
+
+	if(shock_stage >= 80)
+		if(shock_stage == 80)
+			emote("me",1,"is having trouble keeping their eyes open.")
+		if (prob(5 - clamp((stats.getStat(STAT_TGH) / 10), 0, 3))) //Weaken chance reduction caps out at 30 TGH
+			to_chat(src, "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>")
+			Weaken(10)
+
+	if(shock_stage >= hard_crit_threshold)
+		enter_hard_crit()
+
+/mob/living/carbon/human/proc/enter_hard_crit()
+	var/upperbounds = 30 - clamp((stats.getStat(STAT_TGH) / 10), 0, 15) //Upper knockout time range reduction caps out at 150 TGH
+	var/knockout_time = rand(15 SECONDS, upperbounds SECONDS)
+	to_chat(src, SPAN_DANGER("[pick("You are knocked out", "You can't feel anything anymore", "You just can't keep going anymore")]!"))
+	visible_message(SPAN_DANGER("[src] [species.knockout_message]"))
+	Weaken(knockout_time)
+	Paralyse(knockout_time)
+	status_flags |= HARDCRIT
+
+	addtimer(CALLBACK(src, .proc/exit_hard_crit), knockout_time)
+
+/mob/living/carbon/human/proc/exit_hard_crit()
+	if(status_flags & HARDCRIT)
+		setHalLoss(clamp(halloss, 0, 75)) // Retain some halloss so we aren't just good as new upon waking up
+		SetWeakened(5) // So you don't immediately get up after waking up
+		SetParalysis(0)
+		shock_stage = 0
+		status_flags &= ~HARDCRIT
+//
+// OCCULUS EDIT END
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#undef SOFTCRIT_TRAUMATIC_SHOCK
+#undef HARDCRIT_TRAUMATIC_SHOCK
+#undef SHOCK_STAGE_BUFFER

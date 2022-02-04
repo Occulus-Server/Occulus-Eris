@@ -8,6 +8,7 @@
 	var/list/hud_list[10]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/weapon/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_lying_buckled_and_verb_status() call.
+	var/obj/item/weapon/gun/using_scope // This is not very good either, because I've copied it. Sorry.
 
 /mob/living/carbon/human/New(var/new_loc, var/new_species)
 
@@ -94,11 +95,11 @@
 			stat(null, "Suit charge: [cell_status]")
 
 		var/chemvessel_efficiency = get_organ_efficiency(OP_CHEMICALS)
-		if(chemvessel_efficiency)
+		if(chemvessel_efficiency > 1)
 			stat("Chemical Storage", "[carrion_stored_chemicals]/[round(0.5 * chemvessel_efficiency)]")
 
 		var/maw_efficiency = get_organ_efficiency(OP_MAW)
-		if(maw_efficiency > 0)
+		if(maw_efficiency > 1)
 			stat("Gnawing hunger", "[carrion_hunger]/[round(maw_efficiency/10)]")
 
 		var/obj/item/weapon/implant/core_implant/cruciform/C = get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
@@ -108,7 +109,7 @@
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
 		if (HUDtech.Find("flash"))
-			flick("flash", HUDtech["flash"])
+			FLICK("flash", HUDtech["flash"])
 
 	var/shielded = 0
 	var/b_loss
@@ -196,6 +197,8 @@
 			dat += "<BR><A href='?src=\ref[src];item=internals'>Toggle internals.</A>"
 
 	// Other incidentals.
+	if(istype(suit) && suit.has_sensor == 1) //Occulus Edit start
+		dat += "<BR><A href='?src=\ref[src];item=sensors'>Set sensors</A>" //Occulus edit end
 	if(handcuffed)
 		dat += "<BR><A href='?src=\ref[src];item=[slot_handcuffed]'>Handcuffed</A>"
 	if(legcuffed)
@@ -613,7 +616,7 @@ var/list/rank_prefix = list(\
 		return FLASH_PROTECTION_MAJOR
 
 	var/eye_efficiency = get_organ_efficiency(OP_EYES)
-	if(eye_efficiency <= 0)
+	if(eye_efficiency <= 1)
 		return FLASH_PROTECTION_MAJOR
 
 	return flash_protection
@@ -876,6 +879,12 @@ var/list/rank_prefix = list(\
 	// This will ignore any prosthetics in the prefs currently.
 	rebuild_organs()
 
+// OCCULUS EDIT START - Reinstall our core implant if we had one, because rebuild_organs() has that bit of code gutted from it
+	var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
+	if(I)
+		I.apply(src)
+// OCCULUS EDIT END
+
 	if(!client || !key) //Don't boot out anyone already in the mob.
 		for(var/obj/item/organ/internal/brain/H in world)
 			if(H.brainmob)
@@ -978,6 +987,7 @@ var/list/rank_prefix = list(\
 			if(feet_blood_DNA && feet_blood_DNA.len)
 				feet_blood_color = null
 				feet_blood_DNA.Cut()
+				feet_blood_DNA = null //OCCULUS EDIT: Overlays remain if DNA is anything other than null. Cut sets it to empty list.
 				update_inv_shoes()
 
 	return
@@ -1040,6 +1050,12 @@ var/list/rank_prefix = list(\
 	data["desires"] = sanity.desires
 	data["rest"] = sanity.resting
 	data["insight_rest"] = sanity.insight_rest
+
+//	var/obj/item/weapon/implant/core_implant/cruciform/C = get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)Occulus Edit: Simple way to get rid of this part of the UI
+//	if(C)
+//		data["cruciform"] = TRUE
+//		data["righteous_life"] = C.righteous_life Occulus Edit: Simple way to get rid of this part of the UI
+
 	return data
 
 /mob/living/carbon/human/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
@@ -1183,24 +1199,28 @@ var/list/rank_prefix = list(\
 		for(var/obj/item/organ/internal/carrion/C in internal_organs)
 			C.removed_mob()
 			organs_to_readd += C
-/*	OCCULUS EDIT - Remove now redundant core implant spawning bits, these are now handled in core_implants.dm with the apply proc
-	var/obj/item/weapon/implant/core_implant/CI = get_core_implant()
-	var/checkprefcruciform = FALSE	// To reset the cruciform to original form
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// OCCULUS EDIT START - Spaghetti to make rejuv less crap, and also fix the weird eye bug
+	var/obj/item/weapon/implant/core_implant/CI = get_core_implant(null, FALSE)
+	//var/checkprefcruciform = FALSE	// To reset the cruciform to original form //wtf does this even mean???
 	if(CI)
-		checkprefcruciform = TRUE
+		//checkprefcruciform = TRUE
 		qdel(CI)
-*/
+
+// OCCULUS EDIT START - Spaghetti to make rejuv less crap, and also fix the weird eye bug
 	for(var/obj/item/organ/organ in (organs|internal_organs))//Occulus Edit - Moving this out so the cloner stops breaking
 		qdel(organ)//Occulus Edit
+	if(organs.len)
+		organs.Cut()
+	if(internal_organs.len)
+		internal_organs.Cut()
+	if(organs_by_name.len)
+		organs_by_name.Cut()
+	if(internal_organs_by_efficiency.len)
+		internal_organs_by_efficiency.Cut()
 
 	if(from_preference)
-
-		if(organs.len)
-			organs.Cut()
-		if(internal_organs.len)
-			internal_organs.Cut()
-		if(organs_by_name.len)
-			organs_by_name.Cut()
 		var/datum/preferences/Pref
 		if(istype(from_preference, /datum/preferences))
 			Pref = from_preference
@@ -1214,9 +1234,9 @@ var/list/rank_prefix = list(\
 		for(var/tag in species.has_limbs)
 			BM = Pref.get_modification(tag)
 			var/datum/organ_description/OD = species.has_limbs[tag]
-			var/datum/body_modification/PBM = Pref.get_modification(OD.parent_organ_base)
-			if(PBM && (PBM.nature == MODIFICATION_SILICON || PBM.nature == MODIFICATION_REMOVED))
-				BM = PBM
+//			var/datum/body_modification/PBM = Pref.get_modification(OD.parent_organ_base)
+//			if(PBM && (PBM.nature == MODIFICATION_SILICON || PBM.nature == MODIFICATION_REMOVED))
+//				BM = PBM
 			if(BM.is_allowed(tag, Pref, src))
 				BM.create_organ(src, OD, Pref.modifications_colors[tag])
 			else
@@ -1229,15 +1249,13 @@ var/list/rank_prefix = list(\
 			else
 				var/organ_type = species.has_process[tag]
 				new organ_type(src)
-/*	OCCULUS EDIT - Remove now redundant core implant spawning bits, these are now handled in core_implants.dm with the apply proc
+/* haha this spaghetti just made things 100x worse
+//	OCCULUS EDIT START - Spaghetti to fix spaghetti
 		var/datum/category_item/setup_option/core_implant/I = Pref.get_option("Core implant")
-		if(I.implant_type && (!mind || mind.assigned_role != "Robot"))
-			var/obj/item/weapon/implant/core_implant/C = new I.implant_type
-			C.install(src)
-			C.activate()
-			if(mind)
-				C.install_default_modules_by_job(mind.assigned_job)
-				C.access.Add(mind.assigned_job.cruciform_access)	*/
+		if(I)
+			I.apply(src)
+//	OCCULUS EDIT END
+*/
 	else
 		var/organ_type
 
@@ -1246,6 +1264,8 @@ var/list/rank_prefix = list(\
 			var/obj/item/I = organs_by_name[limb_tag]
 			if(I && I.type == OD.default_type)
 				continue
+			else if(I)
+				qdel(I)
 			OD.create_organ(src)
 
 		for(var/organ_tag in species.has_process)
@@ -1253,16 +1273,16 @@ var/list/rank_prefix = list(\
 			var/obj/item/I = random_organ_by_process(organ_tag)
 			if(I && I.type == organ_type)
 				continue
+			else if(I)
+				qdel(I)
 			new organ_type(src)
-/*	OCCULUS EDIT - Remove now redundant core implant spawning bits, these are now handled in core_implants.dm with the apply proc
+/* guess this isn't working out after all
+//	OCCULUS EDIT START - Spaghetti to fix spaghetti
 		if(checkprefcruciform)
 			var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
-			if(I.implant_type)
-				var/obj/item/weapon/implant/core_implant/C = new I.implant_type
-				C.install(src)
-				C.activate()
-				C.install_default_modules_by_job(mind.assigned_job)
-				C.access.Add(mind.assigned_job.cruciform_access)
+			if(I)
+				I.apply(src)
+//	OCCULUS EDIT END
 */
 	for(var/obj/item/organ/internal/carrion/C in organs_to_readd)
 		C.replaced(get_organ(C.parent_organ_base))
@@ -1272,13 +1292,15 @@ var/list/rank_prefix = list(\
 
 	update_body()
 
-/mob/living/carbon/human/proc/post_prefinit()
+/mob/living/carbon/human/proc/post_prefinit()	//OCCULUS EDIT - This proc is completely redundant.
+	return
+	/*
 	var/obj/item/weapon/implant/core_implant/C = locate() in src
 	if(C)
 		C.install(src)
 		C.activate()
 		C.install_default_modules_by_job(mind.assigned_job)
-		C.access |= mind.assigned_job.cruciform_access
+		C.access |= mind.assigned_job.cruciform_access*/
 
 /mob/living/carbon/human/proc/bloody_doodle()
 	set category = "IC"
@@ -1637,3 +1659,41 @@ var/list/rank_prefix = list(\
 /mob/living/carbon/human/proc/set_remoteview(var/atom/A)
 	remoteview_target = A
 	reset_view(A)
+
+/mob/living/carbon/human/proc/resuscitate()
+	var/obj/item/organ/internal/heart_organ = random_organ_by_process(OP_HEART)
+	var/obj/item/organ/internal/brain_organ = random_organ_by_process(BP_BRAIN)
+
+	if(!(heart_organ && brain_organ) || (heart_organ.is_broken() || brain_organ.is_broken()))//Occulus Edit: is_asystole is ALWAYS going to get called on a dead mob. Because they are DEAD. DIMWITS
+		return 0
+
+	if(world.time >= (timeofdeath + NECROZTIME))
+		return 0
+
+	var/oxyLoss = getOxyLoss()
+	if(oxyLoss > 20)
+		setOxyLoss(20)
+
+	if(health <= (HEALTH_THRESHOLD_DEAD - oxyLoss))
+		visible_message(SPAN_WARNING("\The [src] twitches a bit, but their body is too damaged to sustain life!"))
+		//timeofdeath = 0 Occulus yeet
+		return 0
+
+	visible_message(SPAN_NOTICE("\The [src] twitches a bit as their heart restarts!"))
+	pulse = PULSE_NORM
+	handle_pulse()
+	tod = null
+	//timeofdeath = 0 Occulus yeet
+	stat = UNCONSCIOUS
+	jitteriness += 3 SECONDS
+	updatehealth()
+	switch_from_dead_to_living_mob_list()
+	if(mind)
+		for(var/mob/observer/ghost/G in GLOB.player_list)
+			if(G.can_reenter_corpse && G.mind == mind)
+				if(alert("Do you want to enter your body?","Resuscitate","OH YES","No, thank you") == "OH YES") //Removed Eris insulting players who decline
+					G.reenter_corpse()
+					break
+				else
+					break
+	return 1

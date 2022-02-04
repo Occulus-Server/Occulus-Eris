@@ -16,8 +16,13 @@
 
 /obj/machinery/computer/Initialize()
 	. = ..()
+	GLOB.computer_list += src
 	power_change()
 	update_icon()
+
+/obj/machinery/computer/Destroy()
+	GLOB.computer_list -= src
+	..()
 
 /obj/machinery/computer/Process()
 	if(stat & (NOPOWER|BROKEN))
@@ -59,24 +64,24 @@
 		set_broken()
 	..()
 
-/obj/machinery/computer/update_icon()
-	overlays.Cut()
+/obj/machinery/computer/on_update_icon()
+	cut_overlays()
 	if(stat & NOPOWER)
 		set_light(0)
 		if(icon_keyboard)
-			overlays += image(icon,"[icon_keyboard]_off")
+			add_overlays(image(icon,"[icon_keyboard]_off"))
 		update_openspace()
 		return
 	else
 		set_light(light_range_on, light_power_on)
 
 	if(stat & BROKEN)
-		overlays += image(icon,"[icon_state]_broken")
+		add_overlays(image(icon,"[icon_state]_broken"))
 	else
-		overlays += image(icon,icon_screen)
+		add_overlays(image(icon,icon_screen))
 
 	if(icon_keyboard)
-		overlays += image(icon, icon_keyboard)
+		add_overlays(image(icon, icon_keyboard))
 	update_openspace()
 
 /obj/machinery/computer/power_change()

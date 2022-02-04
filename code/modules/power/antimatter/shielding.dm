@@ -107,15 +107,15 @@
 	return FALSE
 
 
-/obj/machinery/am_shielding/update_icon()
-	overlays.Cut()
+/obj/machinery/am_shielding/on_update_icon()
+	cut_overlays()
 	for(var/direction in alldirs)
 		var/machine = locate(/obj/machinery, get_step(loc, direction))
 		if((istype(machine, /obj/machinery/am_shielding) && machine:control_unit == control_unit)||(istype(machine, /obj/machinery/power/am_control_unit) && machine == control_unit))
-			overlays += "shield_[direction]"
+			add_overlays("shield_[direction]")
 
 	if(core_check())
-		overlays += "core"
+		add_overlays("core")
 		if(!processing) setup_core()
 	else if(processing) shutdown_core()
 
@@ -149,7 +149,7 @@
 
 /obj/machinery/am_shielding/proc/setup_core()
 	processing = 1
-	SSmachines.machinery.Add(src)
+	GLOB.machines += src
 	if(!control_unit)	return
 	control_unit.linked_cores.Add(src)
 	control_unit.reported_core_efficiency += efficiency

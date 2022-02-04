@@ -1134,15 +1134,15 @@
 		H.show(source.owner)
 
 
-/datum/admin_topic/centcommfaxreply
-	keyword = "CentcommFaxReply"
+/datum/admin_topic/centcomfaxreply
+	keyword = "CentcomFaxReply"
 
-/datum/admin_topic/centcommfaxreply/Run(list/input)
-	var/mob/sender = locate(input["CentcommFaxReply"])
+/datum/admin_topic/centcomfaxreply/Run(list/input)
+	var/mob/sender = locate(input["CentcomFaxReply"])
 	var/obj/machinery/photocopier/faxmachine/fax = locate(input["originfax"])
 
 	//todo: sanitize
-	var/msg = input(source.owner, "Please enter a message to reply to [key_name(sender)] via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "") as message|null
+	var/msg = input(source.owner, "Please enter a message to reply to [key_name(sender)] via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcom", "") as message|null
 	if(!msg)
 		return
 
@@ -1160,7 +1160,7 @@
 	if(!P.stamped)
 		P.stamped = new
 	P.stamped += /obj/item/weapon/stamp
-	P.overlays += stampoverlay
+	P.add_overlays(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(fax.recievefax(P))

@@ -10,7 +10,6 @@
 	name = "Mercenary"
 	desc = "You're a soldier by trade, whether with a PMC or actual government. Close-quarters combat isn't unfamiliar to you, but you're more used to having your hands around a rifle. \
 			Even if that rifle is more of a shotgun."
-
 	stat_modifiers = list(
 		STAT_ROB = 5,
 		STAT_TGH = 5,
@@ -114,7 +113,7 @@
 /datum/category_item/setup_option/background/origin/first_expeditionary_fleet
 	name = "Activist"
 	desc = "You have a strong set of beliefs, and stick to them. You're not afraid to clash with authority when push comes to shove. \
-			Maybe you're even on the NEV Northern Light because you're running from the law. Either way, you're still carrying out your campaign for justice."
+			Maybe you're even on the CEV Northern Light because you're running from the law. Either way, you're still carrying out your campaign for justice."
 
 	stat_modifiers = list(
 		STAT_ROB = 5,

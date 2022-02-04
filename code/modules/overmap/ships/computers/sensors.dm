@@ -19,7 +19,7 @@
 	. = ..()
 
 /obj/machinery/computer/sensors/proc/find_sensors()
-	for(var/obj/machinery/shipsensors/S in SSmachines.machinery)
+	for(var/obj/machinery/shipsensors/S in GLOB.machines)
 		if (S.z in GetConnectedZlevels(z))
 			sensors = S
 			break
@@ -149,7 +149,7 @@
 			return 0
 	return 1
 
-/obj/machinery/shipsensors/update_icon()
+/obj/machinery/shipsensors/on_update_icon()
 	if(use_power)
 		icon_state = "sensors"
 	else

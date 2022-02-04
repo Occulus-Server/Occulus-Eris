@@ -171,7 +171,7 @@ var/list/_client_preferences_by_type
 /datum/client_preference/floating_messages
 	description ="Floating chat messages"
 	key = "FLOATING_CHAT"
-	options = list(GLOB.PREF_HIDE, GLOB.PREF_SHOW)
+	options = list(GLOB.PREF_SHOW, GLOB.PREF_HIDE)
 
 /datum/client_preference/browser_style
 	description = "Fake NanoUI Browser Style"
@@ -280,3 +280,11 @@ var/list/_client_preferences_by_type
 	options = list(GLOB.PREF_SHOW, GLOB.PREF_HIDE)
 	default_value = GLOB.PREF_HIDE
 	flags = R_ADMIN|R_DEBUG
+
+//OCCULUS EDIT BELOW THIS LINE
+
+/datum/client_preference/area_info_blurb
+	description = "Show area narration."
+	key = "AREA_INFO"
+
+//OCCULUS EDIT END

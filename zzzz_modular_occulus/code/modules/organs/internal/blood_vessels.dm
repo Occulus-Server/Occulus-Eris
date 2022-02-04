@@ -1,3 +1,9 @@
+/obj/item/organ/internal/blood_vessel
+	specific_organ_size = 0.25
+
+/obj/item/organ/internal/nerve
+	specific_organ_size = 0.25
+
 /obj/item/organ/internal/blood_vessel/handle_blood()
 	if(BP_IS_ROBOTIC(src) || !owner)
 		return

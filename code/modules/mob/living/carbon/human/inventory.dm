@@ -66,7 +66,10 @@ This saves us from having to call add_fingerprint() any time something is put in
 
 //Puts the item into our active hand if possible. returns 1 on success.
 /mob/living/carbon/human/put_in_active_hand(var/obj/item/W)
-	return (hand ? put_in_l_hand(W) : put_in_r_hand(W))
+	var/value = hand ? put_in_l_hand(W) : put_in_r_hand(W)
+	if(value)
+		W.swapped_to(src)
+	return value
 
 //Puts the item into our inactive hand if possible. returns 1 on success.
 /mob/living/carbon/human/put_in_inactive_hand(var/obj/item/W)
@@ -254,6 +257,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 	return 1
 
 /mob/living/carbon/human/proc/get_active_hand_organ()
+	RETURN_TYPE(/obj/item/organ/external) // Occulus Edit - Linting Fix
 	if(hand)
 		return get_organ(BP_L_HAND)
 	else
@@ -449,16 +453,14 @@ This saves us from having to call add_fingerprint() any time something is put in
 /mob/living/carbon/human/get_max_w_class()
 	var/get_max_w_class = 0
 	for(var/obj/item/clothing/C in get_equipped_items())
-		if(C)
-			if(C.w_class > ITEM_SIZE_TINY)
-				get_max_w_class = C.w_class
+		if(C.w_class > get_max_w_class)
+			get_max_w_class = C.w_class
 	return get_max_w_class
 
 /mob/living/carbon/human/get_total_style()
 	var/style_factor = 0
 	for(var/obj/item/clothing/C in get_equipped_items())
-		if(C)
-			style_factor += C.get_style()
+		style_factor += C.get_style()
 	if(restrained())
 		style_factor -= 1
 	if(feet_blood_DNA)

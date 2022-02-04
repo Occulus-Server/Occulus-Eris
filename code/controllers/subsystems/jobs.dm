@@ -20,7 +20,7 @@ SUBSYSTEM_DEF(job)
 		LoadJobs("config/jobs.txt")
 	return ..()
 
-/datum/controller/subsystem/job/proc/SetupOccupations(faction = "NEV Northern Light")
+/datum/controller/subsystem/job/proc/SetupOccupations(faction = "CEV Northern Light")
 	occupations.Cut()
 	occupations_by_name.Cut()
 	for(var/J in subtypesof(/datum/job))
@@ -474,6 +474,14 @@ SUBSYSTEM_DEF(job)
 		D = new
 		if(H.equip_to_storage(D))
 			--D.inv_spawn_count
+	//Occulus Edit, Right here! Custom skills. Near the end of equipping folks
+	H.stats.changeStat(STAT_BIO, H.client.prefs.BIOMOD)
+	H.stats.changeStat(STAT_COG, H.client.prefs.COGMOD)
+	H.stats.changeStat(STAT_MEC, H.client.prefs.MECMOD)
+	H.stats.changeStat(STAT_ROB, H.client.prefs.ROBMOD)
+	H.stats.changeStat(STAT_TGH, H.client.prefs.TGHMOD)
+	H.stats.changeStat(STAT_VIG, H.client.prefs.VIGMOD)
+	// This could be cleaner and better, however it should apply your stats once on spawn properly if here. If anyone wants to do this in a cleaner manner be my guest.
 
 	BITSET(H.hud_updateflag, ID_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)

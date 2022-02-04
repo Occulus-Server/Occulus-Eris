@@ -33,6 +33,12 @@
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
 	rarity_value = 5
 
+/obj/item/ammo_magazine/pistol/scrap
+	name = "standard magazine (old .35 Auto)"
+	icon_state = "pistol_s"
+	ammo_type = /obj/item/ammo_casing/pistol/scrap
+	rarity_value = 5
+	spawn_tags = SPAWN_AMMO_COMMON
 
 /////////////HighCap/////////////
 /obj/item/ammo_magazine/hpistol
@@ -108,6 +114,12 @@
 	ammo_color = "-r"
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
 
+/obj/item/ammo_magazine/smg/scrap
+	name = "smg magazine (old .35 Auto)"
+	icon_state = "smg_s"
+	ammo_type = /obj/item/ammo_casing/pistol/scrap
+	spawn_tags = SPAWN_AMMO_COMMON
+
 /////////////.40 SMG/////////////
 
 /obj/item/ammo_magazine/msmg
@@ -146,6 +158,12 @@
 	ammo_color = "-r"
 	ammo_type = /obj/item/ammo_casing/magnum/rubber
 
+/obj/item/ammo_magazine/msmg/scrap
+	name = "smg magazine (old .40 Magnum)"
+	icon_state = "msmg_s"
+	ammo_type = /obj/item/ammo_casing/magnum/scrap
+	spawn_tags = SPAWN_AMMO_COMMON
+
 ///////////// .40 pistol ///////////
 
 /obj/item/ammo_magazine/magnum
@@ -167,22 +185,29 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/magnum/practice
-	name = "magazine (40 Magnum practice)"
+	name = "magazine (.40 Magnum practice)"
 	icon_state = "magnum_p"
 	ammo_type = /obj/item/ammo_casing/magnum/practice
 	spawn_tags = null
 
 /obj/item/ammo_magazine/magnum/hv
-	name = "magazine (40 Magnum high-velocity)"
+	name = "magazine (.40 Magnum high-velocity)"
 	icon_state = "magnum_hv"
 	ammo_type = /obj/item/ammo_casing/magnum/hv
 	spawn_tags = null
 
 /obj/item/ammo_magazine/magnum/rubber
-	name = "magazine (40 Magnum rubber)"
+	name = "magazine (.40 Magnum rubber)"
 	icon_state = "magnum_r"
 	ammo_type = /obj/item/ammo_casing/magnum/rubber
 	rarity_value = 3
+
+/obj/item/ammo_magazine/magnum/scrap
+	name = "magazine (old .40 Magnum)"
+	icon_state = "magnum_s"
+	ammo_type = /obj/item/ammo_casing/magnum/scrap
+	rarity_value = 3
+	spawn_tags = SPAWN_AMMO_COMMON
 
 ///////////// .20 RIFLE /////////////
 
@@ -217,6 +242,12 @@
 	name = "magazine (.20 Rifle rubber)"
 	icon_state = "srifle_r"
 	ammo_type = /obj/item/ammo_casing/srifle/rubber
+
+/obj/item/ammo_magazine/srifle/scrap
+	name = "magazine (old .20 Rifle)"
+	icon_state = "srifle_s"
+	ammo_type = /obj/item/ammo_casing/srifle/scrap
+	spawn_tags = SPAWN_AMMO_COMMON
 
 ////////// .25 RIFLE ///////////
 
@@ -265,7 +296,11 @@
 	icon_state = "ihclrifle_r"
 	ammo_type = /obj/item/ammo_casing/clrifle/rubber
 
-
+/obj/item/ammo_magazine/ihclrifle/scrap
+	name = "magazine (old .25 Caseless Rifle)"
+	icon_state = "ihclrifle_s"
+	ammo_type = /obj/item/ammo_casing/clrifle/scrap
+	spawn_tags = SPAWN_AMMO_COMMON
 
 ////////// .25 PISTOL //////////
 
@@ -317,7 +352,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/lrifle/pk
-	name = "PK munitions box (.30 Rifle)"
+	name = "LMG munitions box (.30 Rifle)"
 	icon_state = "pk_box"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
@@ -328,7 +363,7 @@
 	max_ammo = 80
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/ammobox/lrifle/pk/update_icon()
+/obj/item/ammo_magazine/ammobox/lrifle/pk/on_update_icon()
 	if (!stored_ammo.len)
 		icon_state = "pk_box-0"
 		return
@@ -375,6 +410,12 @@
 	icon_state = "lrifle_r"
 	ammo_type = /obj/item/ammo_casing/lrifle/rubber
 
+/obj/item/ammo_magazine/lrifle/scrap
+	name = "long magazine (old .30 Rifle)"
+	icon_state = "lrifle_s"
+	ammo_type = /obj/item/ammo_casing/lrifle/scrap
+	spawn_tags = SPAWN_AMMO_COMMON
+
 /obj/item/ammo_magazine/maxim
 	name = "pan magazine (.30 Rifle)"
 	icon_state = "maxim"
@@ -400,6 +441,10 @@
 	multiple_sprites = 1
 	rarity_value = 6.66
 
+/obj/item/ammo_magazine/slpistol/empty
+	icon_state = "slpistol"
+	initial_ammo = 0
+
 /obj/item/ammo_magazine/slpistol/practice
 	name = "speed loader (.35 Special practice)"
 	icon_state = "slpistol_p"
@@ -417,6 +462,13 @@
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
 	rarity_value = 5
 
+/obj/item/ammo_magazine/slpistol/scrap
+	name = "speed loader (old .35 Special)"
+	icon_state = "slpistol_s"
+	ammo_type = /obj/item/ammo_casing/pistol/scrap
+	rarity_value = 5
+	spawn_tags = SPAWN_AMMO_COMMON
+
 //////// .40 SPEEDLOADERS //////////
 
 /obj/item/ammo_magazine/slmagnum
@@ -430,6 +482,10 @@
 	multiple_sprites = 1
 	spawn_tags = SPAWN_TAG_AMMO_IH
 	rarity_value = 5
+
+/obj/item/ammo_magazine/slmagnum/empty
+	icon_state = "slmagnum"
+	initial_ammo = 0
 
 /obj/item/ammo_magazine/slmagnum/practice
 	name = "speed loader (.40 Magnum practice)"
@@ -447,6 +503,12 @@
 	name = "speed loader (.40 Magnum rubber)"
 	icon_state = "slmagnum_r"
 	ammo_type = /obj/item/ammo_casing/magnum/rubber
+
+/obj/item/ammo_magazine/slmagnum/scrap
+	name = "speed loader (old .40 Magnum)"
+	icon_state = "slmagnum_s"
+	ammo_type = /obj/item/ammo_casing/magnum/scrap
+	spawn_tags = SPAWN_AMMO_COMMON
 
 //////// .30 RIFLE SPEEDLOADERS ////////
 /obj/item/ammo_magazine/sllrifle
@@ -491,7 +553,7 @@
 	name = "ammo drum (.50 slug)"
 	icon_state = "m12_slug"
 	mag_type = MAGAZINE
-	mag_well =  MAG_WELL_RIFLE
+	mag_well = MAG_WELL_RIFLE
 	caliber = CAL_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun
 	matter = list(MATERIAL_STEEL = 6)

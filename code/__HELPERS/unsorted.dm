@@ -753,7 +753,7 @@ proc/GaussRandRound(var/sigma, var/roundto)
 					X.set_dir(old_dir1)
 					X.icon_state = old_icon_state1
 					X.icon = old_icon1 //Shuttle floors are in shuttle.dmi while the defaults are floors.dmi
-					X.overlays = old_overlays
+					X.set_overlays(old_overlays)
 					X.underlays = old_underlays
 					X.decals = old_decals
 					X.opacity = old_opacity
@@ -938,7 +938,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 					X.set_dir(old_dir1)
 					X.icon_state = old_icon_state1
 					X.icon = old_icon1 //Shuttle floors are in shuttle.dmi while the defaults are floors.dmi
-					X.overlays = old_overlays
+					X.set_overlays(old_overlays)
 					X.underlays = old_underlays
 
 					var/list/objs = new/list()
@@ -1265,3 +1265,20 @@ var/list/FLOORITEMS = list(
 		return 1
 	else
 		return 0
+
+//datum may be null, but it does need to be a typed var
+#define NAMEOF(datum, X) (#X || ##datum.##X)
+
+#define VARSET_LIST_CALLBACK(target, var_name, var_value) CALLBACK(GLOBAL_PROC, /proc/___callbackvarset, ##target, ##var_name, ##var_value)
+//dupe code because dm can't handle 3 level deep macros
+#define VARSET_CALLBACK(datum, var, var_value) CALLBACK(GLOBAL_PROC, /proc/___callbackvarset, ##datum, NAMEOF(##datum, ##var), ##var_value)
+
+/proc/___callbackvarset(list_or_datum, var_name, var_value)
+	if(length(list_or_datum))
+		list_or_datum[var_name] = var_value
+		return
+	var/datum/D = list_or_datum
+	// if(IsAdminAdvancedProcCall())
+	// 	D.vv_edit_var(var_name, var_value) //same result generally, unless badmemes
+	// else
+	D.vars[var_name] = var_value

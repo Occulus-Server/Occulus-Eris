@@ -4,13 +4,13 @@ var/global/list/limb_icon_cache = list()
 	return
 
 /obj/item/organ/external/proc/compile_icon()
-	overlays.Cut()
+	cut_overlays()
 	 // This is a kludge, only one icon has more than one generation of children though.
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
-				overlays += child.mob_icon
-		overlays += organ.mob_icon
+				add_overlays(child.mob_icon)
+		add_overlays(organ.mob_icon)
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	skin_tone = null
@@ -58,7 +58,7 @@ var/global/list/limb_icon_cache = list()
 
 	part_key += "[dna.GetUIState(DNA_UI_GENDER)]"
 	part_key += "[skin_tone]"
-	part_key += rgb(s_col[1], s_col[2], s_col[3])
+	part_key += rgb(s_col[1], s_col[2], s_col[3], species.body_alpha)
 	part_key += model
 
 	if(!appearance_test.special_update)
@@ -81,13 +81,13 @@ var/global/list/limb_icon_cache = list()
 	update_icon(1)
 	..()
 
-/obj/item/organ/external/head/update_icon()
+/obj/item/organ/external/head/on_update_icon()
 
 	..()
 	if(!appearance_test.special_update)
 		return mob_icon
 
-	overlays.Cut()
+	cut_overlays()
 	if(!owner || !owner.species)
 		return
 
@@ -105,30 +105,40 @@ var/global/list/limb_icon_cache = list()
 			if(facial_hair_style && facial_hair_style.species_allowed && (species.get_bodytype() in facial_hair_style.species_allowed))
 				var/icon/facial = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 				if(facial_hair_style.do_colouration)
-					facial.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)
-				overlays |= facial
+					facial.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial, owner.species.hair_alpha), ICON_ADD) // OCCULUS EDIT - hair alpha for slimes
+				associate_with_overlays(facial)
 
 		if(owner.h_style && !(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR)))
 			var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[owner.h_style]
 			if(hair_style && (species.get_bodytype() in hair_style.species_allowed))
 				var/icon/hair = new/icon(hair_style.icon, hair_style.icon_state)
 				if(hair_style.do_colouration)
-					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair), ICON_MULTIPLY)	//Eclipse edit.
-				overlays |= hair
+					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair, owner.species.hair_alpha), ICON_MULTIPLY)	//Eclipse edit. // OCCULUS EDIT - hair alpha for slimes
+			// OCCULUS EDIT START - Hair Color Gradients
+					for(var/M in markings)
+						var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
+						if(mark_style.draw_target == 1)
+							var/icon/mark_s = new/icon(mark_style.icon, mark_style.icon_state)
+							mark_s.Blend(hair, ICON_AND)
+							mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
+							hair.Blend(mark_s, ICON_OVERLAY)
+			// OCCULUS EDIT END - Hair Color Gradients
+				associate_with_overlays(hair)
 
 ///// OCCULUS EDIT START - delete the laggy old markings system
 	for(var/M in markings)
 		var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-		var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
-		mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
-		add_overlay(mark_s) //So when it's not on your body, it has icons
-		mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
+		if(!mark_style.draw_target)
+			var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
+			mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
+			add_overlay(mark_s) //So when it's not on your body, it has icons
+			mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
 		//icon_cache_key += "[M][markings[M]["color"]]"	//This is implemented in get_cache_keys() instead
 ///// OCCULUS EDIT END /////
 
 	return mob_icon
 
-/obj/item/organ/external/update_icon(regenerate = 0)
+/obj/item/organ/external/on_update_icon(regenerate = 0)
 	var/gender = "_m"
 
 	overlays.Cut()	// OCCULUS EDIT - Make sure we're not stacking up redundant overlays
@@ -177,7 +187,7 @@ var/global/list/limb_icon_cache = list()
 				mob_icon.Blend(rgb(-skin_tone,  -skin_tone,  -skin_tone), ICON_SUBTRACT)
 		else
 			if(s_col)
-				mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_MULTIPLY)
+				mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3], species.body_alpha), ICON_MULTIPLY) // OCCULUS EDIT - body alpha for slimes
 
 	///// OCCULUS EDIT START - Delete the laggy body marking system /////
 	if(!istype(src,/obj/item/organ/external/head))

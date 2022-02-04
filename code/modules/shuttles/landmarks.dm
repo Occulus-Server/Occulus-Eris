@@ -74,6 +74,10 @@
 			return TRUE //dense turf
 	return FALSE
 
+// Generic function that is called when a shuttle starts traveling to a shuttle landmark
+/obj/effect/shuttle_landmark/proc/trigger_landmark()
+	return TRUE
+
 //Self-naming/numbering ones.
 /obj/effect/shuttle_landmark/automatic
 	name = "Navpoint"
@@ -91,7 +95,6 @@
 /obj/effect/shuttle_landmark/automatic/proc/add_to_sector(var/obj/effect/overmap/O, var/tag_only)
 	if(!istype(O))
 		return
-	name = "[O.name] - [name]"
 	if(shuttle_restricted)
 		if(!O.restricted_waypoints[shuttle_restricted])
 			O.restricted_waypoints[shuttle_restricted] = list()
@@ -141,9 +144,9 @@
 	T.hotspot_expose(1500, 5)
 	update_icon()
 
-/obj/item/device/spaceflare/update_icon()
+/obj/item/device/spaceflare/on_update_icon()
 	if(active)
-		icon_state = "bluflare_on"
+		SetIconState("bluflare_on")
 		set_light(l_range = 6, l_power = 3)
 
 

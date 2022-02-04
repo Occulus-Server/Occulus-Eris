@@ -305,10 +305,10 @@
 
 	var/obj/item/weapon/secbot_assembly/Sa = new /obj/item/weapon/secbot_assembly(Tsec)
 	Sa.build_step = 1
-	Sa.overlays += image('icons/obj/aibots.dmi', "hs_hole")
+	Sa.add_overlays(image('icons/obj/aibots.dmi', "hs_hole"))
 	Sa.created_name = name
 	new /obj/item/device/assembly/prox_sensor(Tsec)
-	new /obj/item/weapon/melee/baton(Tsec)
+	new /obj/item/weapon/tool/baton/stun(Tsec)//Occulus Edit
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
 
@@ -511,7 +511,7 @@
 	if((QUALITY_WELDING in I.tool_qualities) && !build_step)
 		if(QUALITY_WELDING in I.tool_qualities)
 			build_step = 1
-			overlays += image('icons/obj/aibots.dmi', "hs_hole")
+			add_overlays(image('icons/obj/aibots.dmi', "hs_hole"))
 			to_chat(user, "You weld a hole in \the [src].")
 
 	else if(is_proximity_sensor(I) && (build_step == 1))
@@ -519,7 +519,7 @@
 		build_step = 2
 		to_chat(user, "You add \the [I] to [src].")
 		playsound(src.loc, 'sound/effects/insert.ogg', 50, 1)
-		overlays += image('icons/obj/aibots.dmi', "hs_eye")
+		add_overlays(image('icons/obj/aibots.dmi', "hs_eye"))
 		name = "helmet/signaler/prox sensor assembly"
 		qdel(I)
 
@@ -529,10 +529,10 @@
 		to_chat(user, "You add \the [I] to [src].")
 		playsound(src.loc, 'sound/effects/insert.ogg', 50, 1)
 		name = "helmet/signaler/prox sensor/robot arm assembly"
-		overlays += image('icons/obj/aibots.dmi', "hs_arm")
+		add_overlays(image('icons/obj/aibots.dmi', "hs_arm"))
 		qdel(I)
 
-	else if(istype(I, /obj/item/weapon/melee/baton) && build_step == 3)
+	else if((istype(I, /obj/item/weapon/melee/baton)||istype(I,/obj/item/weapon/tool/baton/stun)) && build_step == 3)//Occulus Edit
 		user.drop_item()
 		to_chat(user, "You complete the Securitron! Beep boop.")
 		playsound(src.loc, 'sound/effects/insert.ogg', 50, 1)

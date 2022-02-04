@@ -123,7 +123,7 @@
 	required_tech_levels = list()
 	cost = 1500
 
-	unlocks_designs = list(/datum/design/research/circuit/shield/hull)
+	unlocks_designs = list(/datum/design/research/circuit/shield/hull, /datum/design/research/circuit/telesci/inhibit) //OCCULUS EDIT: Adds inhibitors to bluespace research.
 
 /datum/technology/teleportation
 	name = "Teleportation"
@@ -138,7 +138,8 @@
 	required_tech_levels = list()
 	cost = 1500
 
-	unlocks_designs = list(/datum/design/research/circuit/teleconsole)
+	unlocks_designs = list(/datum/design/research/circuit/teleconsole,
+	                       /datum/design/research/circuit/lrange_scanner/hull)
 
 /datum/technology/adv_spatial_scan
 	name = "Advanced Spatial Analyzing"
@@ -154,6 +155,7 @@
 
 	unlocks_designs = list(	/datum/design/research/circuit/telesci/console,
 							/datum/design/research/circuit/telesci/hub,
+							/datum/design/research/circuit/telesci/relay, //OCCULUS EDIT: Adds relays to BS tech.
 							/datum/design/research/item/part/artificialbscrystal,
 							/datum/design/research/circuit/bssilk/hub,
 							/datum/design/research/circuit/bssilk/console,

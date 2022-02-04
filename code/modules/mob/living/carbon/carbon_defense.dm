@@ -34,7 +34,7 @@ true, and the mob is not yet deleted, so we need to check that as well*/
 		return TRUE
 
 	//Melee weapon embedded object code.
-	if (I && I.damtype == BRUTE && !I.anchored && !is_robot_module(I))
+	if (I && I.damtype == BRUTE && !I.anchored && !I.wielded && !is_robot_module(I)) // Occulus edit: !I.wielded - wielded weapons don't embed
 		var/damage = effective_force
 
 		//blunt objects should really not be embedding in things unless a huge amount of force is involved
@@ -97,7 +97,7 @@ true, and the mob is not yet deleted, so we need to check that as well*/
 			playsound(loc, W.hitsound, 50, 1, -1)
 
 	G.last_action = world.time
-	flick(G.hud.icon_state, G.hud)
+	FLICK(G.hud.icon_state, G.hud)
 
 	user.attack_log += "\[[time_stamp()]\]<font color='red'> Knifed [name] ([ckey]) with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])</font>"
 	src.attack_log += "\[[time_stamp()]\]<font color='orange'> Got knifed by [user.name] ([user.ckey]) with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])</font>"

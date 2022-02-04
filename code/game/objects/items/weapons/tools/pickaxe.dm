@@ -52,6 +52,7 @@
 	matter = list(MATERIAL_STEEL = 4, MATERIAL_PLATINUM = 2, MATERIAL_DIAMOND = 2)
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_POWER = 3)
 	switched_on_force = WEAPON_FORCE_ROBUST
+	switched_off_force = WEAPON_FORCE_DANGEROUS//Occulus Edit
 	tool_qualities = list(QUALITY_EXCAVATION = 15, QUALITY_PRYING = 25)
 	switched_off_qualities = list(QUALITY_EXCAVATION = 15, QUALITY_PRYING = 25)
 	switched_on_qualities = list(QUALITY_DIGGING = 40, QUALITY_PRYING = 20)
