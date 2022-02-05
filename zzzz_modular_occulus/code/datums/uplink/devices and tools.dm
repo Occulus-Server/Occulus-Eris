@@ -78,3 +78,9 @@
 	desc = "An older radio hacked apart and modified to create subspace noise. Primarily for blocking subspace communications, preventing the use of headsets and PDAs. Also masks suit sensors."
 	item_cost = 5
 	path = /obj/item/device/radio_jammer
+
+/datum/uplink_item/item/stealth_items/pickpocket
+	name = "Nano-Swift gloves"
+	desc = "A intricately crafted set of gloves designed to allow ear pickpocketing."
+	item_cost = 1
+	path = /obj/item/clothing/gloves/sneak

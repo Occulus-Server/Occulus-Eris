@@ -12,7 +12,7 @@
 	switch(slot_to_strip)
 		// Handle things that are part of this interface but not removing/replacing a given item.
 		if("pockets")
-			if(!user.stats.getPerk(PERK_FAST_FINGERS) || istype(user.get_equipped_item(slot_glove), /obj/item/clothing/gloves/sneak)) //occulist edit
+			if(!user.stats.getPerk(PERK_FAST_FINGERS) || istype(user.get_equipped_item(slot_gloves), /obj/item/clothing/gloves/sneak)) //occulist edit
 				visible_message(SPAN_DANGER("\The [user] is trying to empty \the [src]'s pockets!"))
 			else
 				to_chat(user, SPAN_NOTICE("You silently try to empty \the [src]'s pockets."))
@@ -70,12 +70,12 @@
 		stripping = 1
 
 	if(stripping)
-		if((target_slot == r_hand || target_slot == l_hand) && (user.stats.getPerk(PERK_FAST_FINGERS)) || istype(user.get_equipped_item(slot_glove), /obj/item/clothing/gloves/sneak)) //occulist pickpocket glove edit
+		if((target_slot == r_hand || target_slot == l_hand) && (user.stats.getPerk(PERK_FAST_FINGERS)) || istype(user.get_equipped_item(slot_gloves), /obj/item/clothing/gloves/sneak)) //occulist pickpocket glove edit
 			to_chat(user, SPAN_NOTICE("You silently try to remove \the [src]'s [target_slot.name]."))
 		else
 			visible_message(SPAN_DANGER("\The [user] is trying to remove \the [src]'s [target_slot.name]!"))
 	else
-		if((slot_to_strip == r_hand || slot_to_strip == l_hand) && user.stats.getPerk(PERK_FAST_FINGERS) || istype(user.get_equipped_item(slot_glove), /obj/item/clothing/gloves/sneak)) //occulist pickpocket glove edit
+		if((slot_to_strip == r_hand || slot_to_strip == l_hand) && user.stats.getPerk(PERK_FAST_FINGERS) || istype(user.get_equipped_item(slot_gloves), /obj/item/clothing/gloves/sneak)) //occulist pickpocket glove edit
 			to_chat(user, SPAN_NOTICE("You silently try to put \a [held] on \the [src]."))
 		else
 			visible_message(SPAN_DANGER("\The [user] is trying to put \a [held] on \the [src]!"))
