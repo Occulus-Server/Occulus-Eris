@@ -40,7 +40,7 @@ var/global/list/active_radio_jammers = list()
 	var/active_state = "jammer1"
 	var/on = 0
 	var/jam_range = 7
-	var/tick_cost = 1
+	var/tick_cost = 2
 	origin_tech = list(TECH_ILLEGAL = 4, TECH_BLUESPACE = 4) //Such technology! Subspace jamming!
 
 
@@ -149,8 +149,8 @@ var/global/list/active_radio_jammers = list()
 	name = "'Stonecrash' mining gauntlets"
 	desc = "An obsolete form of mining"
 	icon = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
-	icon_state = "powerfist"
-	item_state = "powerfist"
+	icon_state = "fist"
+	item_state = "fist"
 	flags = CONDUCT
 	force = 20
 	throwforce = 10
@@ -177,7 +177,6 @@ var/global/list/active_radio_jammers = list()
 				to_chat(user, "<span class='warning'>[IT] is too small for [src].</span>")
 				return
 			updateTank(W, 0, user)
-			return
 	if(QUALITY_BOLT_TURNING in W.tool_qualities)
 		switch(fisto_setting)
 			if(1)
@@ -204,6 +203,7 @@ var/global/list/active_radio_jammers = list()
 		tank.forceMove(get_turf(user))
 		user.put_in_hands(tank)
 		tank = null
+		cut_overlays()
 	if(!removing)
 		if(tank)
 			to_chat(user, "<span class='warning'>[src] already has a tank.</span>")
@@ -213,6 +213,7 @@ var/global/list/active_radio_jammers = list()
 		to_chat(user, "<span class='notice'>You hook [thetank] up to [src].</span>")
 		tank = thetank
 		thetank.forceMove(src)
+		update_gauge()
 
 
 /obj/item/clothing/gloves/powerfist/examine(mob/user)
@@ -226,6 +227,7 @@ var/global/list/active_radio_jammers = list()
 
 /obj/item/clothing/gloves/powerfist/Touch(mob/living/L, var/proximity)
 	var/mob/living/user = loc
+	var/tankpressure = tank.air_contents.return_pressure()
 	if(!tank)
 		to_chat(user, "<span class='warning'>[src] can't operate without a source of gas!</span>")
 		return
@@ -233,9 +235,15 @@ var/global/list/active_radio_jammers = list()
 		return ..()
 	if(isrobot(L))
 		return ..()
+	if(tank && tankpressure < 1)
+		to_chat(user, "<span class='warning'>[src]'s piston-ram lets out a weak hiss, it needs more gas!</span>")
+		playsound(loc, 'sound/effects/refill.ogg', 50, 1)
+		update_gauge()
+		return
 	if(tank && !tank.air_contents.remove(gasperfist * fisto_setting))
 		to_chat(user, "<span class='warning'>[src]'s piston-ram lets out a weak hiss, it needs more gas!</span>")
 		playsound(loc, 'sound/effects/refill.ogg', 50, 1)
+		update_gauge()
 		return
 
 
@@ -267,6 +275,31 @@ var/global/list/active_radio_jammers = list()
 	user.attack_log += "\[[time_stamp()]\] <font color='red'>punched [key_name(L)] with [src]</font>"
 	L.attack_log += "\[[time_stamp()]\] <font color='orange'>Was punched by [key_name(L)] with [src]</font>"
 
+	update_gauge()
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		H.forcesay(hit_appends)
+
+/obj/item/clothing/gloves/powerfist/proc/update_gauge()
+	var/last_gauge_pressure
+	var/gauge_pressure
+	if(tank.air_contents)
+		gauge_pressure = tank.air_contents.return_pressure()
+
+	if(gauge_pressure == last_gauge_pressure)
+		return
+
+	last_gauge_pressure = gauge_pressure
+
+	var/indicator
+	if(gauge_pressure >= 600)
+		indicator = "full"
+	else if (gauge_pressure >= 400 && gauge_pressure < 600)
+		indicator = "half"
+	else if (gauge_pressure >= 5 && gauge_pressure < 400)
+		indicator = "low"
+	else if (gauge_pressure == 0 && gauge_pressure < 5)
+		indicator = "empty"
+	cut_overlays()
+	add_overlays("tank")
+	add_overlays("[indicator]")
