@@ -1,11 +1,46 @@
 /obj/item/twohanded/garrote // 12TC traitor item
 	name = "fiber wire"
 	desc = "A length of razor-thin wire with an elegant wooden handle on either end.<br>You suspect you'd have to be behind the target to use this weapon effectively."
+	icon = 'zzzz_Modular_occulus/icons/obj/weapons.dmi'
 	icon_state = "garrot_wrap"
-		w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_TINY
 	var/mob/living/carbon/human/strangling
 	var/improvised = 0
 	var/garrote_time
+
+
+/mob/living/proc/grabbedby(mob/living/carbon/user, supress_message = FALSE)
+	if(user == src || anchored)
+		return 0
+	if(!(status_flags & CANPUSH))
+		return 0
+
+	for(var/obj/item/weapon/grab/G in grabbed_by)
+		if(G.assailant == user)
+			to_chat(user, "<span class='notice'>You already grabbed [src].</span>")
+			return
+
+
+	var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(user, src)
+	if(buckled)
+		to_chat(user, "<span class='notice'>You cannot grab [src]; they are buckled in!</span>")
+	if(!G)	//the grab will delete itself in New if src is anchored
+		return 0
+	user.put_in_active_hand(G)
+	G.synch()
+	LAssailant = user
+
+	playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+	/*if(user.dir == src.dir)
+		G.state = GRAB_AGGRESSIVE
+		G.last_upgrade = world.time
+		if(!supress_message)
+			visible_message("<span class='warning'>[user] has grabbed [src] from behind!</span>")
+	else*///This is an example of how you can make special types of grabs simply based on direction.
+	if(!supress_message)
+		visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
+
+	return G
 
 /obj/item/twohanded/garrote/Destroy()
 	strangling = null
@@ -52,7 +87,7 @@
 
 	var/mob/living/carbon/human/U = user
 
-	if(!wielded)
+	if(wielded)
 		to_chat(user, "<span class = 'warning'>You must use both hands to garrote [M]!</span>")
 		return
 
@@ -64,19 +99,17 @@
 		to_chat(user, "<span class='warning'>You cannot use [src] on [M] from that angle!</span>")
 		return
 
-	if(improvised && ((M.head && (M.head.flags_cover & HEADCOVERSMOUTH)) || (M.wear_mask && (M.wear_mask.flags_cover & MASKCOVERSMOUTH)))) // Improvised garrotes are blocked by mouth-covering items.
-		to_chat(user, "<span class = 'warning'>[M]'s neck is blocked by something [M.p_theyre()] wearing!</span>")
+	if(improvised && (M.targeted_organ == BP_HEAD && length(user.get_covering_equipped_items(HEAD))) || (M.wear_mask && (M.targeted_organ == BP_MOUTH))) // Improvised garrotes are blocked by mouth-covering items.
+		to_chat(user, "<span class = 'warning'>[M]'s neck is blocked by something they're wearing!</span>")
 
 	if(strangling)
 		to_chat(user, "<span class = 'warning'>You cannot use [src] on two people at once!</span>")
 		return
 
 	unwield(U)
-
 	U.swap_hand() // For whatever reason the grab will not properly work if we don't have the free hand active.
-	var/obj/item/grab/G = M.grabbedby(U, 1)
+	var/obj/item/weapon/grab/G = M.grabbedby(U, 1)
 	U.swap_hand()
-
 	if(G && istype(G))
 		if(improvised) // Improvised garrotes start you off with a passive grab, but keep you stunned like an agressive grab.
 			M.Stun(1)
@@ -84,7 +117,7 @@
 			G.state = GRAB_NECK
 			G.hud.icon_state = "kill"
 			G.hud.name = "kill"
-			M.AdjustSilence(1)
+			M.silent = max(M.silent, 10)
 
 	garrote_time = world.time + 10
 	START_PROCESSING(SSobj, src)
@@ -99,7 +132,7 @@
 
 	return
 
-/obj/item/twohanded/garrote/process()
+/obj/item/twohanded/garrote/Process()
 	if(!strangling)
 		// Our mark got gibbed or similar
 		update_icon()
@@ -114,16 +147,16 @@
 		return
 
 	var/mob/living/carbon/human/user = loc
-	var/obj/item/grab/G
+	var/obj/item/weapon/grab/G
 
-	if(src == user.r_hand && istype(user.l_hand, /obj/item/grab))
+	if(src == user.r_hand && istype(user.l_hand, /obj/item/weapon/grab))
 		G = user.l_hand
 
-	else if(src == user.l_hand && istype(user.r_hand, /obj/item/grab))
+	else if(src == user.l_hand && istype(user.r_hand, /obj/item/weapon/grab))
 		G = user.r_hand
 
 	else
-		user.visible_message("<span class='warning'>[user] loses [user.p_their()] grip on [strangling]'s neck.</span>", \
+		user.visible_message("<span class='warning'>[user] loses their grip on [strangling]'s neck.</span>", \
 				 "<span class='warning'>You lose your grip on [strangling]'s neck.</span>")
 
 		strangling = null
@@ -133,7 +166,7 @@
 		return
 
 	if(!G.affecting)
-		user.visible_message("<span class='warning'>[user] loses [user.p_their()] grip on [strangling]'s neck.</span>", \
+		user.visible_message("<span class='warning'>[user] loses their grip on [strangling]'s neck.</span>", \
 				"<span class='warning'>You lose your grip on [strangling]'s neck.</span>")
 
 		strangling = null
@@ -151,11 +184,5 @@
 		return
 
 
-	strangling.Silence(3) // Non-improvised effects
+	strangling.silent = max(strangling.silent, 10) // Non-improvised effects
 	strangling.apply_damage(4, OXY, "head")
-
-
-/obj/item/twohanded/garrote/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is wrapping the [src] around [user.p_their()] neck and pulling the handles! It looks like [user.p_theyre()] trying to commit suicide.</span>")
-	playsound(src.loc, 'sound/weapons/cablecuff.ogg', 15, 1, -1)
-	return OXYLOSS

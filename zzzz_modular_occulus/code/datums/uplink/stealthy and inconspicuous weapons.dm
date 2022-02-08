@@ -17,7 +17,13 @@
 	path = /obj/item/device/lighting/toggleable/flashlight/emp
 
 /datum/uplink_item/item/stealthy_weapons/pizzabomb
-	name = "Pizza bomb"
+	name = "Pizza Bomb"
 	item_cost = 6
 	desc = "A pizza with an explosive surprise. Contains enough explosives to turn a person into red mist and meat."
 	path = /obj/item/pizza_bomb
+
+/datum/uplink_item/item/stealthy_weapons/garrote
+	name = "Fiber Wire Garrote"
+	item_cost = 12
+	desc = "A garrote made of razor thin fiber wire. Used to choke and silence victims. Must be applied directly from behind. "
+	path = /obj/item/twohanded/garrote
