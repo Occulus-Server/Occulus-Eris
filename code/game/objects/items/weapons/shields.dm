@@ -143,16 +143,16 @@
 
 	if(MOVING_QUICKLY(user))
 		if(user.get_equipped_item(slot_l_hand) == src)
-			p_area = list(BP_L_ARM)
+			p_area = list(BP_L_ARM, BP_L_HAND)
 		else if(user.get_equipped_item(slot_r_hand) == src)
-			p_area = list(BP_R_ARM)
+			p_area = list(BP_R_ARM, BP_R_HAND)
 	else if(MOVING_DELIBERATELY(user) && wielded)
 		p_area = BP_ALL_LIMBS
 
 	if(user.get_equipped_item(slot_l_hand) == src)
-		p_area.Add(BP_L_ARM)
+		p_area.Add(BP_L_ARM, BP_L_HAND)
 	else if(user.get_equipped_item(slot_r_hand) == src)
-		p_area.Add(BP_R_ARM)
+		p_area.Add(BP_R_ARM, BP_R_HAND)
 	return p_area
 
 /obj/item/weapon/shield/riot/New()
