@@ -81,6 +81,7 @@
 	desc = "Prosthesis with white polymer casing with blue holo-displays."
 	force_icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_main.dmi'
 	price_tag = 600
+	bad_type = /obj/item/organ/external/robotic/bishop
 
 CREATE_PROSTHESIS_VARIETIES_FULL(bishop, "Bishop")
 
@@ -90,6 +91,7 @@ CREATE_PROSTHESIS_VARIETIES_FULL(bishop, "Bishop")
 	desc = "Prosthesis with militaristic black and green casing with gold stripes."
 	force_icon = 'icons/mob/human_races/cyberlimbs/hephaestus/hephaestus_main.dmi'
 	price_tag = 500
+	bad_type = /obj/item/organ/external/robotic/hesphaistos
 
 CREATE_PROSTHESIS_VARIETIES_FULL(hesphaistos, "Hesphaistos")
 
@@ -99,6 +101,7 @@ CREATE_PROSTHESIS_VARIETIES_FULL(hesphaistos, "Hesphaistos")
 	desc = "Prosthesis with rubbery fleshtone covering with visible seams."
 	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_main.dmi'
 	price_tag = 400
+	bad_type = /obj/item/organ/external/robotic/zenghu
 
 CREATE_PROSTHESIS_VARIETIES_FULL(zenghu, "Zeng-Hu")
 
@@ -108,6 +111,7 @@ CREATE_PROSTHESIS_VARIETIES_FULL(zenghu, "Zeng-Hu")
 	desc = "Prosthesis with minimalist black and red casing."
 	force_icon = 'icons/mob/human_races/cyberlimbs/xion/xion_main.dmi'
 	price_tag = 500
+	bad_type = /obj/item/organ/external/robotic/xion
 
 CREATE_PROSTHESIS_VARIETIES_FULL(xion, "Xion")
 
@@ -115,36 +119,43 @@ CREATE_PROSTHESIS_VARIETIES_FULL(xion, "Xion")
 
 /obj/item/organ/external/robotic/asters
 	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/asters.dmi'
+	bad_type = /obj/item/organ/external/robotic/asters
 
 CREATE_PROSTHESIS_HANDSFEET(asters, "Asters")
 
 /obj/item/organ/external/robotic/serbian
 	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/serbian.dmi'
+	bad_type = /obj/item/organ/external/robotic/serbian
 
 CREATE_PROSTHESIS_HANDSFEET(serbian, "Serbian")
 
 /obj/item/organ/external/robotic/frozen_star
 	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/frozen_star.dmi'
+	bad_type = /obj/item/organ/external/robotic/frozen_star
 
 CREATE_PROSTHESIS_HANDSFEET(frozen_star, "Frozen Star")
 
 /obj/item/organ/external/robotic/technomancer
 	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/technomancer.dmi'
+	bad_type = /obj/item/organ/external/robotic/technomancer
 
 CREATE_PROSTHESIS_HANDSFEET(technomancer, "Technomancer")
 
 /obj/item/organ/external/robotic/moebius
 	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/moebius.dmi'
+	bad_type = /obj/item/organ/external/robotic/moebius
 
 CREATE_PROSTHESIS_HANDSFEET(moebius, "Moebius")
 
 /obj/item/organ/external/robotic/excelsior
 	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/excelsior.dmi'
+	bad_type = /obj/item/organ/external/robotic/excelsior
 
 CREATE_PROSTHESIS_HANDSFEET(excelsior, "Excelsior")
 
 /obj/item/organ/external/robotic/one_star
 	force_icon = 'zzzz_modular_occulus/icons/eris_prosthesis/one_star.dmi'
+	bad_type = /obj/item/organ/external/robotic/one_star
 
 CREATE_PROSTHESIS_HANDSFEET(one_star, "One Star")
 

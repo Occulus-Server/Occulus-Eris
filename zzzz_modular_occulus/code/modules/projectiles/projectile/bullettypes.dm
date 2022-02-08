@@ -53,7 +53,7 @@
 	damage_types = list(BRUTE = 2) //The official consensus is that getting PB'd by rubbers should be an owie.
 	agony = 8 //Whoever the hell had this at 15 is going to suffer multiple shots to the groin.
 
-// white nail bullet types
+// nanite bullet types
 
 /obj/item/projectile/bullet/whitenail
 	damage_types = list(BRUTE = 25)
@@ -69,6 +69,40 @@
 	armor_penetration = 0
 	penetrating = 0
 	sharp = FALSE
+
+/obj/item/projectile/bullet/greyclaw
+	name = "grey claw slug"
+	icon_state = "slug"
+	damage_types = list(BRUTE = 58)
+	armor_penetration = 20
+	knockback = 1
+	step_delay = 1.1
+	sharp = TRUE
+	can_ricochet = FALSE
+	embed = FALSE
+
+/obj/item/projectile/bullet/greyclaw/rubber
+	name = "grey claw rubber slug"
+	damage_types = list(BRUTE = 15)
+	agony = 60
+	armor_penetration = 0
+	penetrating = 0
+	sharp = FALSE
+
+/obj/item/projectile/bullet/pellet/shotgun/greyclaw
+	damage_types = list(BRUTE = 6)
+	pellets = 7
+	armor_penetration = 20
+	penetrating = 1
+	sharp = TRUE
+	can_ricochet = FALSE 
+	embed = FALSE
+
+/obj/item/projectile/bullet/pellet/shotgun/greyclaw/rubber
+	damage_types = list(BRUTE = 1)
+	agony = 7
+	sharp = FALSE
+
 
 //Should do about 75 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding

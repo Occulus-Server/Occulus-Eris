@@ -26,7 +26,7 @@
 /obj/item/toy/tennis/throw_impact()
 	if(istype(thrower, /mob/living/carbon/human))
 		var/mob/living/carbon/human/tosser = thrower
-		tosser.sanity.onExercise(0.4)
+		tosser.sanity.onExercise(8)
 
 /obj/item/toy/tennis/attack_self(mob/user as mob) //Hjonk
 	if (spam_flag == 0)

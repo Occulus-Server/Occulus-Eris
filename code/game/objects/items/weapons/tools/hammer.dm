@@ -8,7 +8,7 @@
 	worksound = WORKSOUND_HAMMER
 	flags = CONDUCT
 	origin_tech = list(TECH_ENGINEERING = 1)
-	tool_qualities = list(QUALITY_HAMMERING = 20)
+	tool_qualities = list(QUALITY_HAMMERING = 30)//Occulus Edit: Buffing up to normal tool levels
 	matter = list(MATERIAL_STEEL = 4, MATERIAL_WOOD = 2)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked","flattened","pulped")
 	rarity_value = 5
@@ -25,7 +25,7 @@
 	force_wielded = WEAPON_FORCE_ROBUST
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEM_SIZE_HUGE
-	tool_qualities = list(QUALITY_HAMMERING = 15)
+	tool_qualities = list(QUALITY_HAMMERING = 30)//Occulus Edit: Buffing up to the same as a regular hammer.
 	matter = list(MATERIAL_STEEL = 15, MATERIAL_PLASTIC = 1)
 	max_upgrades = 5
 	spawn_tags = SPAWN_TAG_JUNKTOOL
@@ -40,7 +40,7 @@
 	armor_penetration = ARMOR_PEN_DEEP
 	force = WEAPON_FORCE_DANGEROUS
 	w_class = ITEM_SIZE_HUGE
-	tool_qualities = list(QUALITY_HAMMERING = 30)
+	tool_qualities = list(QUALITY_HAMMERING = 50)//Occulus Edit: Buffing up to other power tools
 	matter = list(MATERIAL_STEEL = 5, MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 1)
 	degradation = 0.7
 	use_power_cost = 2

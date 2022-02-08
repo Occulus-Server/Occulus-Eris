@@ -112,7 +112,7 @@ var/intercom_range_display_status = 0
 
 	if(intercom_range_display_status)
 		for(var/obj/item/device/radio/intercom/I in world)
-			for(var/turf/T in trange(7, I))
+			for(var/turf/T in RANGE_TURFS(7, I))
 				var/obj/effect/debugging/marker/F = new(T)
 				if (!(F in view(7, I.loc)))
 					qdel(F)
@@ -131,7 +131,7 @@ var/list/debug_verbs = list (
 	,/client/proc/cmd_assume_direct_control
 //	,/client/proc/jump_to_dead_group
 	,/client/proc/startSinglo
-	,/client/proc/ticklag
+	,/client/proc/set_server_fps
 	,/client/proc/cmd_admin_grantfullaccess
 	,/client/proc/kaboom
 	,/client/proc/cmd_admin_areatest
@@ -148,7 +148,6 @@ var/list/debug_verbs = list (
 	,/client/proc/disable_movement
 	,/client/proc/Zone_Info
 	,/client/proc/Test_ZAS_Connection
-	,/client/proc/rebootAirMaster
 	,/client/proc/hide_debug_verbs
 	,/client/proc/testZAScolors
 	,/client/proc/testZAScolors_remove
@@ -241,7 +240,7 @@ ADMIN_VERB_ADD(/client/proc/enable_debug_verbs, R_DEBUG, FALSE)
 				continue
 			recurse_zone(connected,1)
 
-	for(var/turf/T in trange(25, location))
+	for(var/turf/T in RANGE_TURFS(25, location))
 		if(T in testZAScolors_turfs)
 			continue
 		images += image(red, T, "zasdebug", LIGHTING_LAYER)
@@ -258,14 +257,6 @@ ADMIN_VERB_ADD(/client/proc/enable_debug_verbs, R_DEBUG, FALSE)
 		for(var/image/i in images)
 			if(i.icon_state == "zasdebug")
 				images.Remove(i)
-
-/client/proc/rebootAirMaster()
-	set category = "ZAS"
-	set name = "Reboot ZAS"
-
-	if(alert("This will destroy and remake all zone geometry on the whole map.","Reboot ZAS","Reboot ZAS","Nevermind") == "Reboot ZAS")
-		SSair.reboot()
-
 
 /client/proc/count_objects_on_z_level()
 	set category = "Mapping"

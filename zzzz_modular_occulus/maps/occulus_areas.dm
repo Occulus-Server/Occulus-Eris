@@ -60,3 +60,6 @@
 
 /area/outpost/abandoned_fortress
 	requires_power = 0
+
+/area/deepmaint
+	forced_ambience = list('sound/ambience/maintambience.ogg', 'zzzz_modular_occulus/sound/ambience/scaryambience.ogg')

@@ -1,10 +1,11 @@
 /obj/item/weapon/gun/projectile/revolver/saa
-	name = "FS SAR .40 Magnum \"Liberty\""
+	name = "FS SAR .35 Magnum \"Liberty\""
 	desc = "An unorthodox and somewhat dated Single Action Revolver that is incompatible with speedloaders as it lacks a swing-out cylinder. \
 	Has a longer firing interval than regular revolvers due to needing to cock the hammer after every shot. \
 	The simplistic design allows for tighter tolerances between the cylinder and barrel, causing less gasses to escape during firing and increasing muzzle velocity."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/saa.dmi'
 	icon_state = "saa"
+	caliber = CAL_PISTOL
 	fire_sound = 'zzzz_modular_occulus/sound/weapons/guns/fire/saarevolverfire.ogg'
 	drawChargeMeter = FALSE
 	w_class = ITEM_SIZE_SMALL
@@ -15,9 +16,9 @@
 	price_tag = 1000
 	rarity_value = 30
 	damage_multiplier = 2.1 // aprox. 70 damage
-	penetration_multiplier = 1 // ends up being about equal AP to the Havelock
+	penetration_multiplier = 1.4
 	proj_step_multiplier = 0.8 // faster boolets
 	recoil_buildup = 8
-	fire_delay = 10 // 3x longer than regular revolvers
+	fire_delay = 6 // 2x longer than regular revolvers
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE

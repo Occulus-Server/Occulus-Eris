@@ -45,7 +45,8 @@
 		if(shoes)
 			tally += shoes.slowdown
 
-	tally += min((shock_stage / 100) * 3, 3) //Scales from 0 to 3 over 0 to 100 shock stage
+	//tally += min((shock_stage / 100) * 3, 3) //Scales from 0 to 3 over 0 to 100 shock stage
+	tally += max(min((get_dynamic_pain() - get_painkiller()) / 40, 3),0) // Occulus Edit: Eris still doesn't test their shit. Added a minimum bound for analgisc speeboosts.
 
 	if (bodytemperature < 283.222)
 		tally += (283.222 - bodytemperature) / 10 * 1.75

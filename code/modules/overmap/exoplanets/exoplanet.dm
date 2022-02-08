@@ -47,6 +47,9 @@
 	name_stages = list("exoplanet", "unknown planet", "unknown spatial phenomenon")
 	icon_stages = list("generic", "planet", "poi")
 
+	var/science = 15000  // OCCULUS EDIT - Science point rewards for overmap scanning with the LRS
+	var/scanned = FALSE
+
 /obj/effect/overmap/sector/exoplanet/proc/generate_habitability()
 	var/roll = rand(1,100)
 	switch(roll)

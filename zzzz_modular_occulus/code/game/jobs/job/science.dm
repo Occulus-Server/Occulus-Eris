@@ -1,7 +1,8 @@
 /datum/job/scientist
+	alt_titles = list("Xenobiologist", "Xenoflorist", "Research Intern", "Anomalist", "Xenoarchologist")
 	stat_modifiers = list(
-		STAT_MEC = 10,
-		STAT_COG = 30,
+		STAT_MEC = 20,
+		STAT_COG = 20,
 		STAT_BIO = 20
 	)
 	access = list(
@@ -28,4 +29,9 @@
 		access_robotics, access_xenobiology, access_ai_upload, access_tech_storage, access_eva, access_external_airlocks,
 		access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network, access_research_equipment,
 		access_change_research, access_maint_tunnels
+	)
+	stat_modifiers = list(
+		STAT_MEC = 25,
+		STAT_COG = 40,
+		STAT_BIO = 25,
 	)

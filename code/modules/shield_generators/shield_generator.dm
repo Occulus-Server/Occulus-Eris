@@ -123,7 +123,7 @@
 		toggle_flag(DM)
 
 	// Link to Eris object on the overmap
-	linked_ship = locate(/obj/effect/overmap/ship/eris)
+	linked_ship = (locate(/obj/effect/overmap/ship/eris) in GLOB.ships)
 
 /obj/machinery/power/shield_generator/Destroy()
 	toggle_tendrils(FALSE)
@@ -610,7 +610,7 @@
 	var/list/base_turfs = get_base_turfs()
 
 	for(var/turf/gen_turf in base_turfs)
-		for(var/turf/T in trange(field_radius, gen_turf))
+		for(var/turf/T in RANGE_TURFS(field_radius, gen_turf))
 			if(istype(T, /turf/space))
 				continue
 

@@ -1,6 +1,7 @@
 /obj/item/device/mental_imprinter
 	name = "mental imprinter"
 	desc = "A device that is applied to an eye to imprint skills into one's mind."
+	icon = 'zzzz_modular_occulus/icons/obj/device.dmi'
 	icon_state = "mental_imprinter"
 	origin_tech = list(TECH_BIO = 5, TECH_COVERT = 2)
 	matter = list(MATERIAL_STEEL = 4, MATERIAL_GLASS = 2)

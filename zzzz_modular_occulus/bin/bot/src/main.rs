@@ -1,7 +1,7 @@
 mod bot;
 mod byond_topic;
 
-use bot::{new, Settings};
+use bot::{new, Settings, quotes::QuoteDatabase};
 use std::fs::File;
 use std::io::Write;
 
@@ -19,6 +19,14 @@ async fn main() -> Result<(), bot::Error> {
             panic!("Error: {}", e);
         }
     });
+
+    if let Err(e) = File::open("quotes.db") {
+        if e.kind() == std::io::ErrorKind::NotFound {
+            QuoteDatabase::init()?;
+        } else {
+            panic!("Error: {}", e);
+        }
+    }
 
     log::info!("Starting bot now.");
     new(settings_file).await?.start().await?;

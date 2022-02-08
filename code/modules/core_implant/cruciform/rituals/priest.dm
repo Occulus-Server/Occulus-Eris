@@ -14,7 +14,7 @@
 /datum/ritual/cruciform/priest/epiphany
 	name = "Epiphany"
 	phrase = "In nomine Patris et Filii et Spiritus sancti"
-	desc = "Mekhane's principal sacrament is a ritual of baptism and merging with the Core Implant. A body, relieved of clothes should be placed on NeoTheology's special altar."
+	desc = "The litany for the activation of a cruciform and baptism of a new church member. The cruciform must be already installed in an individual before use."//Occulus Edit
 
 /datum/ritual/cruciform/priest/epiphany/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform, FALSE)
@@ -54,7 +54,7 @@
 /datum/ritual/cruciform/priest/ejection
 	name = "Deprivation"
 	phrase = "Et revertatur pulvis in terram suam unde erat et spiritus redeat ad Deum qui dedit illum"
-	desc = "This litany will command the Core Implant to detach from bearer, if the one bearing it is dead. You will be able to use it in scanner for Resurrection."
+	desc = "This litany will command a cruciform to detach from the target if they are dead."//Occulus Edit
 
 /datum/ritual/cruciform/priest/ejection/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform, FALSE)

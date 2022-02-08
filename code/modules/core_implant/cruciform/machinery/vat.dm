@@ -313,9 +313,9 @@
 			break
 
 	if(!I)//Occulus Edit: Check if someone has a cruciform
-		for(var/datum/stat/S in M.stats)//If they don't, penalize stats
-			var/reductionamount = min(S.value/5, 15)//20% or 15, whichever is lower
-			S -= reductionamount//Stats go dooown
+		for(var/stat in ALL_STATS) //If they don't, penalize stats
+			var/reductionamount = min(M.stats.getStat(stat, TRUE)/5, 15) //20% or 15, whichever is lower
+			M.stats.changeStat(stat, -reductionamount) //Stats go dooown
 
 	if(I || M.stable_genes)
 		if(I)
