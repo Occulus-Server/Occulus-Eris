@@ -274,7 +274,7 @@
 	helmet = /obj/item/clothing/head/space/void/science
 	rarity_value = 50
 	spawn_blacklisted = TRUE
-
+/*	OCCULUS EDIT - Disabled ricochets for fun reasons
 /obj/item/clothing/suit/space/void/science/handle_shield(mob/user, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
 		var/obj/item/projectile/P = damage_source
@@ -294,7 +294,7 @@
 			P.redirect(new_x, new_y, curloc, user)
 
 			return PROJECTILE_CONTINUE // complete projectile permutation
-
+*/
 /obj/item/clothing/head/space/void/riggedvoidsuit
 	name = "makeshift armored Helmet"
 	desc = "A makeshift armored helmet you can see the glue holding it, just close enough to be airtight."

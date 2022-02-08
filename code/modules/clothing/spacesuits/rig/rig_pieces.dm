@@ -49,9 +49,10 @@
 	supporting_limbs = list()
 	retract_while_active = FALSE
 	spawn_tags = null
+	var/will_ricochet = FALSE	// OCCULUS EDIT - Make ricochets a toggleable thing for future development
 
 /obj/item/clothing/suit/space/rig/handle_shield(mob/user, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
-	if(istype(damage_source, /obj/item/projectile/bullet))
+	if(istype(damage_source, /obj/item/projectile/bullet) && will_ricochet)	// OCCULUS EDIT - Make ricochets a toggleable thing for future development
 		var/obj/item/projectile/bullet/B = damage_source
 
 		var/chance = max(round(armor.getRating(ARMOR_BULLET) - B.armor_penetration), 0)
