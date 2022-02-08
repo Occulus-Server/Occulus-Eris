@@ -5,17 +5,18 @@
 "bl" = (/obj/machinery/door/blast/regular{density = 0; dir = 4; icon_state = "pdoor0"; opacity = 0},/obj/structure/low_wall,/obj/item/weapon/material/shard,/turf/simulated/floor/reinforced,/area/deepmaint)
 "bm" = (/turf/simulated/floor/tiled/steel/brown_perforated,/area/deepmaint)
 "bt" = (/obj/structure/table/glass,/obj/structure/closet/wall_mounted/blood{pixel_x = 32},/obj/spawner/surgery_tool/low_chance,/obj/spawner/surgery_tool/low_chance,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
+"bu" = (/obj/structure/salvageable/implant_container,/turf/simulated/floor/tiled/steel,/area/deepmaint)
 "cb" = (/obj/machinery/light{dir = 8},/obj/effect/decal/cleanable/generic,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
-"cy" = (/obj/machinery/optable,/obj/effect/decal/cleanable/dirt,/obj/item/remains/human,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
+"cy" = (/obj/machinery/optable,/obj/effect/decal/cleanable/dirt,/obj/item/remains/human,/obj/machinery/light,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
 "cP" = (/turf/simulated/floor/carpet/purcarpet,/area/deepmaint)
 "de" = (/obj/structure/table/standard,/obj/spawner/tool_upgrade/rare/low_chance,/obj/spawner/tool,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
 "dE" = (/obj/item/weapon/material/shard/phoron,/obj/item/weapon/material/shard/phoron{pixel_x = -8; pixel_y = 8},/obj/structure/disposalpipe/broken,/obj/effect/damagedfloor/rust,/turf/simulated/floor/plating,/area/deepmaint)
 "dJ" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
 "dQ" = (/obj/machinery/light{dir = 4; icon_state = "tube1"},/obj/spawner/mob/roaches/cluster/beacon,/obj/spawner/techpart/low_chance,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
-"ef" = (/obj/spawner/mob/roaches/cluster/beacon,/turf/simulated/floor/reinforced,/area/deepmaint)
+"ef" = (/obj/machinery/light/small{dir = 4},/turf/simulated/floor/carpet/purcarpet,/area/deepmaint)
 "ei" = (/obj/structure/table/glass,/obj/structure/defibcabinet{pixel_x = 28},/obj/spawner/surgery_tool/low_chance,/obj/spawner/surgery_tool/low_chance,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
-"eo" = (/obj/machinery/optable,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
-"eB" = (/obj/spawner/pack/machine,/turf/simulated/floor/tiled/steel,/area/deepmaint)
+"eo" = (/obj/machinery/optable,/obj/effect/decal/cleanable/dirt,/obj/machinery/light,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
+"eB" = (/obj/structure/salvageable/data,/turf/simulated/floor/tiled/steel,/area/deepmaint)
 "eN" = (/obj/effect/floor_decal/industrial/danger{dir = 1},/obj/spawner/techpart/low_chance,/obj/effect/decal/cleanable/cobweb,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
 "fu" = (/obj/structure/bed/chair,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
 "fJ" = (/obj/effect/decal/cleanable/dirt,/obj/spawner/techpart/low_chance,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
@@ -25,7 +26,7 @@
 "hf" = (/obj/structure/table/standard,/mob/living/carbon/superior_animal/roach/nanite,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
 "hv" = (/obj/structure/bed/chair{dir = 8},/obj/structure/sign/department/rnd{pixel_y = -30},/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
 "hw" = (/obj/structure/table/standard,/obj/item/weapon/storage/toolbox/mechanical{pixel_x = 2; pixel_y = 3},/obj/item/weapon/storage/toolbox/mechanical{pixel_x = -2; pixel_y = -1},/obj/item/weapon/storage/belt/utility,/obj/item/weapon/tool/crowbar,/obj/item/clothing/glasses/welding,/turf/simulated/floor/tiled/dark/gray_perforated,/area/deepmaint)
-"im" = (/mob/living/carbon/superior_animal/roach/nanite,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
+"im" = (/obj/machinery/light/small{dir = 8},/turf/simulated/floor/carpet/purcarpet,/area/deepmaint)
 "io" = (/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled/white,/area/deepmaint)
 "iu" = (/turf/simulated/floor/tiled/steel/bar_light,/area/deepmaint)
 "iC" = (/mob/living/carbon/superior_animal/roach/nanite,/turf/simulated/floor/tiled/steel,/area/deepmaint)
@@ -46,7 +47,7 @@
 "lb" = (/obj/spawner/mob/roaches/cluster/beacon,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
 "lf" = (/obj/effect/floor_decal/industrial/danger{dir = 1},/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
 "lI" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/deepmaint)
-"lX" = (/obj/effect/decal/cleanable/dirt,/obj/spawner/mob/roaches/cluster/beacon,/obj/effect/decal/cleanable/generic,/turf/simulated/floor/tiled/white,/area/deepmaint)
+"lX" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/generic,/turf/simulated/floor/tiled/white,/area/deepmaint)
 "mJ" = (/obj/structure/table/reinforced,/obj/item/weapon/storage/box/monkeycubes,/obj/item/weapon/extinguisher{pixel_x = 4; pixel_y = 3},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
 "nA" = (/obj/machinery/door/airlock/freezer{icon_state = "door_locked"; locked = 1; name = "sterile airlock"},/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
 "oa" = (/turf/simulated/floor/tiled/white/bluecorner,/area/deepmaint)
@@ -68,18 +69,19 @@
 "ug" = (/obj/spawner/mob/roaches/cluster/beacon,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
 "uV" = (/obj/spawner/closet/tech,/turf/simulated/floor/tiled/steel,/area/deepmaint)
 "vp" = (/obj/effect/decal/cleanable/blood/gibs/limb,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
+"vJ" = (/obj/effect/decal/cleanable/dirt,/obj/spawner/mob/roaches/cluster/beacon,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
 "vS" = (/obj/effect/window_lwall_spawn/smartspawnphoron,/obj/machinery/door/blast/shutters,/turf/simulated/floor/tiled/white/cargo,/area/deepmaint)
 "wg" = (/obj/spawner/techpart/low_chance,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
 "wm" = (/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
 "wr" = (/obj/item/weapon/material/shard,/obj/item/weapon/material/shard{pixel_x = 6; pixel_y = -3},/turf/simulated/floor/reinforced,/area/deepmaint)
 "ws" = (/obj/structure/low_wall,/obj/item/weapon/material/shard/phoron{pixel_x = -8; pixel_y = 8},/obj/item/weapon/material/shard/phoron{pixel_x = -11; pixel_y = -6},/obj/item/weapon/material/shard/phoron,/turf/simulated/floor/tiled/white/cargo,/area/deepmaint)
 "wI" = (/obj/item/weapon/gun/energy/stalwart,/obj/structure/table/rack,/obj/machinery/door/blast/shutters/glass{id = "Armoury"; name = "Armoury showcase"},/turf/simulated/floor/tiled/white/bluecorner,/area/deepmaint)
-"wY" = (/mob/living/carbon/human/monkey,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
+"wY" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/vending/wallmed{pixel_y = 28},/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
 "xd" = (/obj/effect/floor_decal/industrial/danger,/obj/structure/sign/biohazard{icon_state = "bio-danger"; pixel_y = -30},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/rubble,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
-"xg" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/steel,/area/deepmaint)
+"xg" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light_construct{dir = 4},/turf/simulated/floor/tiled/steel,/area/deepmaint)
 "xu" = (/obj/spawner/pack/machine,/obj/effect/floor_decal/industrial/warning{dir = 9},/turf/simulated/floor/tiled/dark/gray_platform,/area/deepmaint)
 "yo" = (/obj/spawner/closet/tech,/turf/simulated/floor/carpet/purcarpet,/area/deepmaint)
-"yF" = (/obj/spawner/mob/roaches/cluster/low_chance,/obj/structure/sign/biohazard{icon_state = "bio-danger"; pixel_y = -30},/turf/simulated/floor/tiled/steel,/area/deepmaint)
+"yF" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small{dir = 1},/obj/machinery/vending/cola,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
 "yM" = (/mob/living/carbon/superior_animal/roach/nanite,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/deepmaint)
 "yN" = (/turf/simulated/floor/tiled/dark,/area/deepmaint)
 "zT" = (/obj/effect/floor_decal/industrial/danger{dir = 1},/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
@@ -105,15 +107,18 @@
 "HE" = (/obj/effect/decal/cleanable/blood/gibs/core,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
 "HW" = (/obj/machinery/door/airlock/freezer{name = "Computing Center"},/turf/simulated/floor/tiled/white/cargo,/area/deepmaint)
 "In" = (/obj/structure/reagent_dispensers/water_cooler,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
-"KK" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/rubble,/turf/simulated/floor/tiled/steel,/area/deepmaint)
+"KK" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/rubble,/obj/machinery/light_construct{dir = 4},/turf/simulated/floor/tiled/steel,/area/deepmaint)
 "KT" = (/obj/spawner/mob/roaches/cluster/beacon,/turf/simulated/floor/tiled/white,/area/deepmaint)
 "Lo" = (/obj/item/weapon/material/shard/shrapnel/scrap,/turf/simulated/floor/tiled/white,/area/deepmaint)
 "Lx" = (/obj/effect/window_lwall_spawn/smartspawn,/obj/machinery/door/blast/regular,/turf/simulated/floor/reinforced,/area/deepmaint)
-"LF" = (/obj/spawner/mob/roaches/cluster/beacon,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/reinforced,/area/deepmaint)
+"LF" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/vending/wallmed{pixel_y = 28},/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
+"LT" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light{dir = 8},/turf/simulated/floor/reinforced,/area/deepmaint)
 "Ma" = (/obj/item/weapon/material/shard,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/reinforced,/area/deepmaint)
 "Ml" = (/turf/simulated/wall/r_wall,/area/deepmaint)
 "Mn" = (/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
+"MP" = (/obj/effect/decal/cleanable/dirt,/obj/spawner/mob/roaches/cluster/beacon,/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
 "Ns" = (/obj/spawner/junk/low_chance,/turf/simulated/floor/tiled/steel,/area/deepmaint)
+"Or" = (/obj/structure/salvageable/server,/turf/simulated/floor/tiled/steel,/area/deepmaint)
 "OL" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/bluecorner,/area/deepmaint)
 "Px" = (/obj/machinery/door/airlock/external{icon_state = "door_locked"; locked = 1; name = "sealed airlock"},/obj/machinery/door/blast/regular/open,/turf/simulated/floor/tiled/steel/bar_flat,/area/deepmaint)
 "PH" = (/obj/structure/table/reinforced,/obj/machinery/reagentgrinder/portable,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
@@ -123,10 +128,12 @@
 "QK" = (/obj/effect/decal/cleanable/rubble,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
 "QZ" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/deepmaint)
 "Rb" = (/obj/effect/floor_decal/industrial/danger,/obj/structure/sign/department/gene{pixel_x = -32},/obj/effect/decal/cleanable/dirt,/obj/spawner/techpart/low_chance,/turf/simulated/floor/tiled/white/violetcorener,/area/deepmaint)
+"Rz" = (/obj/spawner/pack/junk_machine,/obj/machinery/light/small,/turf/simulated/floor/tiled/steel,/area/deepmaint)
 "RI" = (/obj/structure/grille/broken,/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/deepmaint)
-"RJ" = (/mob/living/carbon/superior_animal/roach/nanite,/obj/structure/bed/chair,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
+"RJ" = (/obj/structure/bed/chair,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
 "RY" = (/obj/machinery/light/small,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/deepmaint)
 "Sq" = (/obj/structure/table/glass,/obj/item/stack/medical/advanced/bruise_pack,/obj/spawner/surgery_tool/low_chance,/obj/spawner/surgery_tool/low_chance,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/brown_perforated,/area/deepmaint)
+"Sy" = (/mob/living/carbon/superior_animal/roach/nanite,/turf/simulated/floor/tiled/steel/brown_perforated,/area/deepmaint)
 "SF" = (/obj/machinery/door/airlock/glass_security{id_tag = "BrigFoyer"; layer = 2.8; name = "Brig"; req_access = list(63)},/turf/simulated/floor/tiled/dark/cargo,/area/deepmaint)
 "TH" = (/obj/machinery/door/blast/regular{density = 0; dir = 4; icon_state = "pdoor0"; opacity = 0},/obj/machinery/door/window/eastleft,/obj/machinery/door/window/westleft,/turf/simulated/floor/tiled/steel,/area/deepmaint)
 "TQ" = (/obj/machinery/door/airlock/freezer{icon_state = "door_locked"; locked = 1; name = "sterile airlock"},/turf/simulated/floor/tiled/steel/bar_flat,/area/deepmaint)
@@ -156,25 +163,25 @@
 "ZN" = (/obj/structure/table/standard,/obj/machinery/reagentgrinder/portable,/turf/simulated/floor/tiled/dark/gray_perforated,/area/deepmaint)
 
 (1,1,1) = {"
-sOsOsOsOsOsJBZpPUBsOsOsOswGAyFsOiCsONsjDNs
+sOsOsOsOsOsOBZpPUBsOsOsOswGABZsOsOsONsjDNs
 sOMlMlMlMlMlMlMlMlPxMlPxMlMlMlMlMlMlMlMlsO
 sOMlXGOLFhMlWTErMlWajRiuMljVowjVMlcPjVMlsO
-sOMlFVVroaSFPIioiPiujRAQMlcPcPcPMlcPowMlsO
+sOMlFVVroaSFPIioiPiujRAQMlcPcPefMlimowMlsO
 sOMlwIoajgMlRYAIMliuiuiuMltUcPcPMlcPyoMlsO
 iCMlMlkKMlMlMlMlMlTQMlTQMlMlMlqmMlqmMlMlsO
-sOMldJEEUKkadedeMleNlfzTMlVHdJdJHywmkHMlsO
-sOMlimXsEMlbvpXsqmHEMnXsqmaByMaBlXbbEHMlsO
+sOMlwYEEUKkadedeMleNlfzTMlVHyFdJHywmkHMlsO
+sOMlwmXsEMlbvpXsqmHEMnXsqmaByMaBlXbbEHMlsO
 NsMldJfuoKDARJfuMlcbEwdQMlrphfhvYeVHInMlsO
 sOMlMlwsdEqmWkgBMlwgXQXsMlMlMlMlHWvSMlMlsO
-sOMlQHaBLofPaBbtMlZdQZRIMlXdlIYOlIyNXEMlsJ
-sJMljmaBKTCXseeiMlXsHEEwvSyNZNjLhwyNqqMliC
+sOMlQHaBLofPaBbtMlZdQZRIMlXdlIYOlIyNXEMlsO
+sJMljmaBKTCXseeiMlXsHEEwvSyNZNjLhwyNqqMlsO
 iCMlSqeoPIaBcySqMlRbxdAkYbyNyNyNyNyNZgMlsO
 sOMlMlMlMlMlMlMlMlnAMlnAMlWGAPZlZlxuUeMlsO
-sOMlaXLFqYpIjjXsZoMnXsEMMlMlMlMlMlMlMlMlsO
-sOMlsGMawrbljjfJwYMnugEwxgMlQvQveBeBDMMlsO
-sOMlsGsGaXTHjjEwXsMnugXshbUibmbmbmbmsOMlNs
-sOMlsGsGsGLxiNXsQKXsMnMnEXUibmbmbmbmsOMlsO
-sOMlefaXsGLxsYkGPHkLbdmJKKMlQvQvXyuVChMlsO
+sOMlaXsGqYpIjjLFZoMnMPEMMlMlMlMlMlMlMlMlsO
+sOMlLTMawrbljjfJXsMnMnEwxgMlQvbueBOrDMMlsO
+sOMlsGsGaXTHjjEwvJMnugXshbUibmbmSybmsOMlNs
+sOMlLTsGsGLxiNXsQKXsMnMnEXUibmbmbmSysOMlsO
+sOMlaXaXsGLxsYkGPHkLbdmJKKMlRzQvXyuVChMlsO
 sOMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlsO
-NssOsOsOsOiCsOsJsOsOsOsOsONssOsOsOsOsOsOsO
+NssOsOsOsOiCsOsOsOsOsOsOsONssOsOsOsOsOsOsO
 "}
