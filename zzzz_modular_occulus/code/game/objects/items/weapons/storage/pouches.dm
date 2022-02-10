@@ -41,6 +41,7 @@
 		/obj/item/device/radio,
 		/obj/item/clothing/mask,
 		/obj/item/weapon/tool/sword/katana,
+		/obj/item/weapon/tool/sword/improvised,
 		/obj/item/weapon/storage/sheath)
 
 /obj/item/weapon/storage/sheath
