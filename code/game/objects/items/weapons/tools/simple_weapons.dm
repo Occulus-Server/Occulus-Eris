@@ -201,6 +201,7 @@
 /obj/item/weapon/tool/sword/katana/nano/turn_off(mob/user)
 	..()
 	embed_mult = initial(embed_mult)
+	armor_penetration = initial(armor_penetration)
 	playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 
 /obj/item/weapon/tool/sword/katana/nano/on_update_icon()
