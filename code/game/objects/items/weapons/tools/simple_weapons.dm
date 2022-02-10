@@ -168,7 +168,7 @@
 	slot_flags = SLOT_BELT | SLOT_BACK | SLOT_HOLSTER
 	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_STEEL = 5, MATERIAL_DIAMOND = 1) //sharpened using diamond dust or whatever
 	force = WEAPON_FORCE_DANGEROUS * 1.5
-	armor_penetration = ARMOR_PEN_MODERATE
+	armor_penetration = ARMOR_PEN_DEEP
 	rarity_value = 35
 
 /obj/item/weapon/tool/sword/katana/nano
