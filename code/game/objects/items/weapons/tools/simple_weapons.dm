@@ -195,6 +195,7 @@
 	.=..()
 	if(.)
 		embed_mult = 0
+		armor_penetration = ARMOR_PEN_EXTREME
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 
 /obj/item/weapon/tool/sword/katana/nano/turn_off(mob/user)
