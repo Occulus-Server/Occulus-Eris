@@ -6,11 +6,11 @@
 	var/capacity = 300
 	var/stored_charge = 0
 	var/effect_id = ""
-
+/*
 /obj/item/weapon/anobattery/New()
-	. = ..()
+//	. = ..()
 	battery_effect = new()
-
+*/
 /obj/item/weapon/anobattery/proc/UpdateSprite()
 	var/p = (stored_charge/capacity)*100
 	p = min(p, 100)
@@ -31,7 +31,7 @@
 	var/last_process = 0
 	var/obj/item/weapon/anobattery/inserted_battery
 	var/turf/archived_loc
-	var/energy_consumed_on_touch = 100
+	var/energy_consumed_on_touch = 5
 
 /obj/item/weapon/anodevice/New()
 	..()
@@ -57,7 +57,7 @@
 		if(activated)
 			dat += "Device active.<br>"
 
-		dat += "[inserted_battery] inserted, anomaly ID: [inserted_battery.battery_effect.artifact_id ? inserted_battery.battery_effect.artifact_id : "NA"]<BR>"
+		dat += "[inserted_battery] inserted, anomaly ID: [(inserted_battery.battery_effect?.artifact_id) ? inserted_battery.battery_effect.artifact_id : "NA"]<BR>"
 		dat += "<b>Charge:</b> [inserted_battery.stored_charge] / [inserted_battery.capacity]<BR>"
 		dat += "<b>Time left activated:</b> [round(max((time_end - last_process) / 10, 0))]<BR>"
 		if(activated)
@@ -112,7 +112,7 @@
 						inserted_battery.use_power(energy_consumed_on_touch)
 					else
 						//consume power equal to time passed
-						inserted_battery.use_power(world.time - last_process)
+						inserted_battery.use_power(5)//world.time - last_process) //occulus edit
 
 				else if(inserted_battery.battery_effect.effect == EFFECT_PULSE)
 					inserted_battery.battery_effect.chargelevel = inserted_battery.battery_effect.chargelevelmax
@@ -122,7 +122,7 @@
 
 				else
 					//consume power equal to time passed
-					inserted_battery.use_power(world.time - last_process)
+					inserted_battery.use_power(5)//world.time - last_process) //occulus edit
 
 				last_activation = world.time
 
@@ -146,6 +146,8 @@
 		activated = 0
 		if(inserted_battery.battery_effect.activated)
 			inserted_battery.battery_effect.ToggleActivate(1)
+		if(inserted_battery.stored_charge <= 0)
+			inserted_battery.battery_effect = null
 
 /obj/item/weapon/anodevice/Topic(href, href_list)
 

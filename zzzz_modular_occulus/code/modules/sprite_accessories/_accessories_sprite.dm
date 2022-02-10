@@ -247,67 +247,95 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
-//Syzygy Markings
+//Occulus Markings
 
-/datum/sprite_accessory/marking/syzygy
+
+
+/datum/sprite_accessory/marking/occulus
 	icon = 'zzzz_modular_occulus/icons/mob/jamini-markings.dmi'
 
-
-
-/datum/sprite_accessory/marking/syzygy/skull
+/datum/sprite_accessory/marking/occulus/skull
 	name = "Skull mask"
 	icon_state = "skull"
 	body_parts = list(BP_HEAD)
 
-/datum/sprite_accessory/marking/syzygy/leaves
+/datum/sprite_accessory/marking/occulus/leaves
 	name = "Leaves"
 	icon_state = "diona_leaves"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST,BP_HEAD)
 
-/datum/sprite_accessory/marking/syzygy/thorns
+/datum/sprite_accessory/marking/occulus/thorns
 	name = "Thorns"
 	icon_state = "diona_thorns"
 	body_parts = list(BP_HEAD,BP_CHEST)
 
-/datum/sprite_accessory/marking/syzygy/flowers
+/datum/sprite_accessory/marking/occulus/flowers
 	name = "Flowers"
 	icon_state = "diona_flowers"
 	body_parts = list(BP_HEAD,BP_CHEST)
 
-/datum/sprite_accessory/marking/syzygy/moss
+/datum/sprite_accessory/marking/occulus/moss
 	name = "Moss"
 	icon_state = "diona_moss"
 	body_parts = list(BP_HEAD,BP_CHEST)
 
-/datum/sprite_accessory/marking/syzygy/mushroom
+/datum/sprite_accessory/marking/occulus/mushroom
 	name = "Mushroom"
 	icon_state = "diona_mushroom"
 	body_parts = list(BP_HEAD)
 
-/datum/sprite_accessory/marking/syzygy/jackal
+/datum/sprite_accessory/marking/occulus/jackal
 	name = "Jackal Bare Back"
 	icon_state = "jackal_bareback"
 	body_parts = list(BP_CHEST, BP_GROIN, BP_L_ARM, BP_R_ARM)
 	color_blend_mode = ICON_MULTIPLY
 
-/datum/sprite_accessory/marking/syzygy/jackalspotted
+/datum/sprite_accessory/marking/occulus/jackalspotted
 	name = "Jackal Back Markings"
 	icon_state = "jackal_backpattern"
 	body_parts = list(BP_CHEST, BP_L_ARM, BP_R_ARM)
 	color_blend_mode = ICON_MULTIPLY
 
-/datum/sprite_accessory/marking/syzygy/antlermark
+/datum/sprite_accessory/marking/occulus/antlermark
 	name = "Antlers"
 	icon_state = "antlermark"
 	body_parts = list(BP_HEAD)
 	color_blend_mode = ICON_MULTIPLY
-	
-/datum/sprite_accessory/marking/syzygy/antlermarksmall
+
+/datum/sprite_accessory/marking/occulus/antlermarksmall
 	name = "Small Antlers"
 	icon_state = "antlermarksmall"
 	body_parts = list(BP_HEAD)
 	color_blend_mode = ICON_MULTIPLY
 
+/datum/sprite_accessory/marking/occulus/thirdeye
+	name = "Third Eye"
+	icon_state = "thirdeye"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/occulus/vulp_patch
+	name = "Eye Patch"
+	icon_state = "vulp_facial_patch"
+	color_blend_mode = ICON_MULTIPLY
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/occulus/vulp_ruff
+	name = "Ruff"
+	icon_state = "vulp_facial_ruff"
+	color_blend_mode = ICON_MULTIPLY
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/occulus/vulp_swift
+	name = "Vulp Swift"
+	icon_state = "vulp_facial_swift"
+	color_blend_mode = ICON_MULTIPLY
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/occulus/vulp_vulp
+	name = "Vulp Vulpine"
+	icon_state = "vulp_facial_vulpine"
+	color_blend_mode = ICON_MULTIPLY
+	body_parts = list(BP_HEAD)
 //Old Polaris stuff
 
 /datum/sprite_accessory/marking/old

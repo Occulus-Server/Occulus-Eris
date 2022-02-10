@@ -3,14 +3,15 @@
 	desc = "A military grade micro bio-explosive. Highly dangerous."
 	var/elevel = "Localized Limb"
 	var/phrase = "supercalifragilisticexpialidocious"
-	icon_state = "implant_evil"
-	implant_color = "r"
+	icon_state = "implant_explosive"
+	implant_overlay = "implantstorage_explosive"
 	is_legal = FALSE
 	origin_tech = list(TECH_MATERIAL=2, TECH_COMBAT=3, TECH_BIO=4, TECH_COVERT=4)
 
 /obj/item/weapon/implant/explosive/New()
 	..()
 	add_hearing()
+	update_icon()
 
 /obj/item/weapon/implant/explosive/Destroy()
 	remove_hearing()
