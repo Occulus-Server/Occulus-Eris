@@ -40,6 +40,7 @@
 		/obj/item/weapon/reagent_containers/spray,
 		/obj/item/device/radio,
 		/obj/item/clothing/mask,
+		/obj/item/weapon/tool/sword/katana,
 		/obj/item/weapon/storage/sheath)
 
 /obj/item/weapon/storage/sheath
