@@ -2866,6 +2866,7 @@
 #include "zzzz_modular_occulus\code\game\machinery\computer\medical.dm"
 #include "zzzz_modular_occulus\code\game\machinery\telecomms\presets.dm"
 #include "zzzz_modular_occulus\code\game\objects\objs.dm"
+#include "zzzz_modular_occulus\code\game\objects\effects\effects.dm"
 #include "zzzz_modular_occulus\code\game\objects\effects\temporary_visual.dm"
 #include "zzzz_modular_occulus\code\game\objects\effects\decals\cleanable\humans.dm"
 #include "zzzz_modular_occulus\code\game\objects\effects\decals\cleanable\misc_occulus.dm"

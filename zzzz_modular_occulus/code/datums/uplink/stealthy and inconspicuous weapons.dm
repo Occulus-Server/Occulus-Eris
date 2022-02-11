@@ -27,3 +27,10 @@
 	item_cost = 12
 	desc = "A garrote made of razor thin fiber wire. Used to choke and silence victims. Must be applied directly from behind. "
 	path = /obj/item/twohanded/garrote
+
+/datum/uplink_item/item/stealthy_weapons/energydagger
+	name = "Energy Dagger"
+	item_cost = 2
+	desc = "A pen mightier then the sword. Also happens to be a disguised energy dagger."
+	path = /obj/item/weapon/pen/edagger
+

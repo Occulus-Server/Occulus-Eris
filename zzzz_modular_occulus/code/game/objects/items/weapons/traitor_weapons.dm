@@ -186,3 +186,45 @@
 
 	strangling.silent = max(strangling.silent, 10) // Non-improvised effects
 	strangling.apply_damage(4, OXY, "head")
+
+/obj/item/weapon/pen/edagger
+	origin_tech = "combat=3;syndicate=1"
+	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut") //these wont show up if the pen is off
+	var/on = 0
+	var/brightness_on = 2
+	light_color = "#B40000"
+
+/obj/item/weapon/pen/edagger/attack_self(mob/living/user)
+	if(on)
+		on = 0
+		force = initial(force)
+		sharp = 0
+		w_class = initial(w_class)
+		name = initial(name)
+		hitsound = initial(hitsound)
+		embed_mult = initial(embed_mult)
+		throwforce = initial(throwforce)
+		playsound(user, 'sound/weapons/saberoff.ogg', 5, 1)
+		to_chat(user, "<span class='warning'>[src] can now be concealed.</span>")
+		set_light(0)
+	else
+		on = 1
+		force = 18
+		sharp = 1
+		w_class = ITEM_SIZE_NORMAL
+		name = "energy dagger"
+		hitsound = 'sound/weapons/blade1.ogg'
+		embed_mult = 40 //rule of cool
+		throwforce = 35
+		playsound(user, 'sound/weapons/saberon.ogg', 5, 1)
+		to_chat(user, "<span class='warning'>[src] is now active.</span>")
+		set_light(brightness_on, 1)
+	update_icon()
+
+/obj/item/weapon/pen/edagger/update_icon()
+	if(on)
+		icon_state = "epen"
+		item_state = "epen"
+	else
+		icon_state = initial(icon_state) //looks like a normal pen when off.
+		item_state = initial(item_state)
