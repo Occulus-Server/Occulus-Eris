@@ -165,7 +165,7 @@
 /obj/machinery/empbomb
 	name = "Z-6 Ion Charge"
 	icon = 'zzzz_modular_occulus/icons/obj/bomb.dmi'
-	icon_state = "syndicate-bomb"
+	icon_state = "emp-bomb"
 	desc = "A large and menacing device known for disabling electronic equipment in a wide radius. Can be bolted down with a wrench."
 	anchored = FALSE
 	density = FALSE
