@@ -13,7 +13,7 @@
 /datum/uplink_item/item/stealthy_weapons/empflashlight
 	name = "EMP Flashlight"
 	item_cost = 2
-	desc = "A Flashlight modified to emit an EMP pulse on use. Requires near pointblank range."
+	desc = "A Flashlight modified to emit an EMP pulse on use. Must be next to the target to use."
 	path = /obj/item/device/lighting/toggleable/flashlight/emp
 
 /datum/uplink_item/item/stealthy_weapons/pizzabomb
