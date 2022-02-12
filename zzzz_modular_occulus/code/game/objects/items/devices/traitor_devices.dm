@@ -46,12 +46,12 @@ var/global/list/active_radio_jammers = list()
 
 /obj/item/device/radio_jammer/Initialize()
 	. = ..()
-	START_PROCESSING(SSobj, src)
 
 /obj/item/device/radio_jammer/Destroy()
 	if(on)
 		turn_off()
 	QDEL_NULL(cell)
+	STOP_PROCESSING(SSobj, src)
 	return ..()
 
 /obj/item/device/radio_jammer/proc/turn_off(mob/user)
@@ -105,7 +105,7 @@ var/global/list/active_radio_jammers = list()
 
 
 /obj/item/device/lighting/toggleable/flashlight/emp
-	origin_tech = "magnets=3;syndicate=1"
+	origin_tech = list(TECH_MAGNET =3, TECH_COVERT = 3)
 
 	var/emp_max_charges = 4
 	var/emp_cur_charges = 4
@@ -123,15 +123,14 @@ var/global/list/active_radio_jammers = list()
 /obj/item/device/lighting/toggleable/flashlight/emp/Process()
 	charge_tick++
 	if(charge_tick < 10)
-		return FALSE
+		return
 	charge_tick = 0
 	emp_cur_charges = min(emp_cur_charges+1, emp_max_charges)
-	return TRUE
+	return
 
 /obj/item/device/lighting/toggleable/flashlight/emp/attack(mob/living/M as mob, mob/living/user as mob)
 	if(on && user.targeted_organ == BP_EYES) // call original attack proc only if aiming at the eyes
 		..()
-	return
 
 /obj/item/device/lighting/toggleable/flashlight/emp/afterattack(atom/A as mob|obj, mob/user, proximity)
 	if(!proximity) return
@@ -143,7 +142,6 @@ var/global/list/active_radio_jammers = list()
 		A.emp_act(1)
 	else
 		to_chat(user, "<span class='warning'>\The [src] needs time to recharge!</span>")
-	return
 
 /obj/item/clothing/gloves/powerfist
 	name = "'Stonecrash' mining gauntlets"
@@ -156,7 +154,7 @@ var/global/list/active_radio_jammers = list()
 	throwforce = 10
 	throw_range = 7
 	w_class = ITEM_SIZE_NORMAL
-	origin_tech = "combat=5;powerstorage=3;syndicate=3"
+	origin_tech = list(TECH_COMBAT = 5, TECH_COVERT = 3, TECH_POWER = 3)
 	var/click_delay = 1.5
 	var/fisto_setting = 1
 	var/gasperfist = 3
@@ -165,6 +163,7 @@ var/global/list/active_radio_jammers = list()
 	rarity_value = 99
 	var/stunforce = 2
 	var/agonyforce = 0
+
 /obj/item/clothing/gloves/powerfist/Destroy()
 	QDEL_NULL(tank)
 	return ..()
@@ -177,6 +176,7 @@ var/global/list/active_radio_jammers = list()
 				to_chat(user, "<span class='warning'>[IT] is too small for [src].</span>")
 				return
 			updateTank(W, 0, user)
+
 	if(QUALITY_BOLT_TURNING in W.tool_qualities)
 		switch(fisto_setting)
 			if(1)
@@ -204,6 +204,7 @@ var/global/list/active_radio_jammers = list()
 		user.put_in_hands(tank)
 		tank = null
 		cut_overlays()
+
 	if(!removing)
 		if(tank)
 			to_chat(user, "<span class='warning'>[src] already has a tank.</span>")
@@ -231,15 +232,19 @@ var/global/list/active_radio_jammers = list()
 	if(!tank)
 		to_chat(user, "<span class='warning'>[src] can't operate without a source of gas!</span>")
 		return
+
 	if(!istype(L) || !proximity)
 		return ..()
+
 	if(isrobot(L))
 		return ..()
+
 	if(tank && tankpressure < 1)
 		to_chat(user, "<span class='warning'>[src]'s piston-ram lets out a weak hiss, it needs more gas!</span>")
 		playsound(loc, 'sound/effects/refill.ogg', 50, 1)
 		update_gauge()
 		return
+
 	if(tank && !tank.air_contents.remove(gasperfist * fisto_setting))
 		to_chat(user, "<span class='warning'>[src]'s piston-ram lets out a weak hiss, it needs more gas!</span>")
 		playsound(loc, 'sound/effects/refill.ogg', 50, 1)

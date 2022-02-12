@@ -31,10 +31,10 @@
 
 	// Shouldn't be required, but there have been surplus crate-related bugs in the past (Convair880).
 /obj/item/cloak_gen/attackby(obj/item/W as obj, mob/user as mob)
-	if (!W || !istype(W, /obj/item/remote/cloak_gen/))
+	if (!W || !istype(W, /obj/item/remote/cloak_gen))
 		..()
 		return
-	if (istype(W, /obj/item/remote/cloak_gen/))
+	if (istype(W, /obj/item/remote/cloak_gen))
 		var/obj/item/remote/cloak_gen/R = W
 		if (!R.my_gen)
 			to_chat(user, "Connection to [src.name] established")
@@ -58,16 +58,15 @@
 /obj/item/cloak_gen/proc/turn_on()
 	if (active) return
 
-	if (!isturf(loc))
-		if (usr && ismob(usr))
-			to_chat(usr, SPAN_NOTICE( "<span class='alert'>The field generator must be on the floor to be activated.</span>"))
+	if (!isturf(loc) && usr && ismob(usr))
+		to_chat(usr, SPAN_NOTICE( "<span class='alert'>The field generator must be on the floor to be activated.</span>"))
 		return
 
 	active = 1
 	anchored = 1
 
 	if (usr && ismob(usr))
-	to_chat(usr, SPAN_NOTICE( "<span class='notice'>You activate the cloak field generator.</span>"))
+		to_chat(usr, SPAN_NOTICE( "<span class='notice'>You activate the cloak field generator.</span>"))
 
 	for(var/turf/T in range(range,src))
 		if(!isturf(T)) continue
@@ -85,7 +84,7 @@
 	active = 0
 	anchored = 0
 	if (usr && ismob(usr))
-		to_chat(usr, SPAN_NOTICE( "<span class='notice'>You deactivate the cloak field generator.</span>"))
+		to_chat(usr, SPAN_NOTICE( "You deactivate the cloak field generator."))
 	for(var/A in fields)
 		qdel(A)
 

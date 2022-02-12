@@ -8,6 +8,9 @@
 	var/improvised = 0
 	var/garrote_time
 
+/obj/item/twohanded/garrote/Destroy()
+	strangling = null
+	return ..()
 
 /mob/living/proc/grabbedby(mob/living/carbon/user, supress_message = FALSE)
 	if(user == src || anchored)
@@ -31,20 +34,11 @@
 	LAssailant = user
 
 	playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-	/*if(user.dir == src.dir)
-		G.state = GRAB_AGGRESSIVE
-		G.last_upgrade = world.time
-		if(!supress_message)
-			visible_message("<span class='warning'>[user] has grabbed [src] from behind!</span>")
-	else*///This is an example of how you can make special types of grabs simply based on direction.
 	if(!supress_message)
 		visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
 
 	return G
 
-/obj/item/twohanded/garrote/Destroy()
-	strangling = null
-	return ..()
 
 /obj/item/twohanded/garrote/update_icon()
 	if(strangling) // If we're strangling someone we want our icon to stay wielded
@@ -82,7 +76,7 @@
 	if(garrote_time > world.time) // Cooldown
 		return
 
-	if(!istype(user, /mob/living/carbon/human)) // spap_hand is a proc of /mob/living, user is simply /mob
+	if(!istype(user, /mob/living/carbon/human)) // swap_hand is a proc of /mob/living, user is simply /mob
 		return
 
 	var/mob/living/carbon/human/U = user
@@ -191,6 +185,7 @@
 	icon = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
 	origin_tech = "combat=3;syndicate=1"
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut") //these wont show up if the pen is off
+	sharp = 0
 	var/on = 0
 	var/brightness_on = 2
 	light_color = "#B40000"

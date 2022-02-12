@@ -11,6 +11,10 @@
 	var/correct_wire
 	var/armer //Used for admin purposes
 
+/obj/item/pizza_bomb/New()
+	..()
+	correct_wire = pick(wires)
+
 /obj/item/pizza_bomb/attack_self(mob/user)
 	if(disarmed)
 		to_chat(user, "<span class='notice'>\The [src] is disarmed.</span>")
@@ -54,7 +58,7 @@
 		return
 	to_chat(usr, "Enjoy the pizza!")
 	src.visible_message("<span class='userdanger'>\The [src] violently explodes!</span>")
-	explosion(src.loc,0,2,4,) //Identical to a minibomb
+	explosion(src.loc,0,2,4) //Identical to a minibomb
 	qdel(src)
 
 /obj/item/pizza_bomb/attackby(obj/item/I, mob/user, params)
@@ -92,10 +96,6 @@
 			qdel(src)
 		return
 	..()
-
-/obj/item/pizza_bomb/New()
-	..()
-	correct_wire = pick(wires)
 
 /obj/item/pizza_bomb/autoarm
 	timer_set = 1

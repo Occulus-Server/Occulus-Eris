@@ -6,7 +6,7 @@
 	name = "X-12 Charge"
 	icon = 'zzzz_modular_occulus/icons/obj/bomb.dmi'
 	icon_state = "syndicate-bomb"
-	desc = "A large and extremely dangerious explosive device. Can be bolted down with a wrench."
+	desc = "A large and extremely dangerous explosive device. Can be bolted down with a wrench."
 
 	anchored = FALSE
 	density = FALSE
@@ -140,7 +140,7 @@
 	if(in_range(src, user) && isliving(user)) //No running off and setting bombs from across the station
 		timer_set = clamp(new_timer, minimum_timer, maximum_timer)
 		loc.visible_message("<span class='notice'>[icon2html(src, viewers(src))] timer set for [timer_set] seconds.</span>")
-	if(alert(user,"Would you like to start the countdown now?",,"Yes","No") == "Yes" && in_range(src, user) && isliving(user))
+	if(alert(user,"Would you like to start the countdown now?",,"No","Yes") == "Yes" && in_range(src, user) && isliving(user))
 		if(defused || active)
 			if(defused)
 				visible_message("<span class='warning'>[icon2html(src, viewers(src))] Device error: User intervention required.</span>")
@@ -153,8 +153,7 @@
 
 
 /obj/machinery/bomb/proc/try_detonate(ignore_active = FALSE)
-	. = (active || ignore_active) && !defused
-	if(.)
+	if((active || ignore_active) && !defused)
 		explosion(src, 1, 5, 11, 20)
 
 

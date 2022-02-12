@@ -87,6 +87,6 @@
 
 /datum/uplink_item/item/stealth_items/pickpocket
 	name = "Nano-Swift gloves"
-	desc = "A intricately crafted set of gloves designed to allow ear pickpocketing."
+	desc = "A intricately crafted set of gloves designed to allow pickpocketing."
 	item_cost = 1
 	path = /obj/item/clothing/gloves/sneak

@@ -1,13 +1,13 @@
 /datum/uplink_item/item/stealthy_weapons/bombsmall
 	name = "Remote Explosive"
 	item_cost = 6
-	desc = "A disguised remote explosive. Comes with a Zippo-like activator."
+	desc = "A disguised remote explosive. Comes with an activator disguised as a Zippo lighter."
 	path = /obj/item/weapon/syndie/c4explosive
 
 /datum/uplink_item/item/stealthy_weapons/bomblarge
 	name = "Large Remote Explosive"
 	item_cost = 11
-	desc = "A heavy duty remote explosive. Comes with a Zippo-like activator."
+	desc = "A heavy duty remote explosive. Comes with an activator disguised as a Zippo lighter."
 	path = /obj/item/weapon/syndie/c4explosive/heavy
 
 /datum/uplink_item/item/stealthy_weapons/empflashlight
@@ -25,7 +25,7 @@
 /datum/uplink_item/item/stealthy_weapons/garrote
 	name = "Fiber Wire Garrote"
 	item_cost = 12
-	desc = "A garrote made of razor thin fiber wire. Used to choke and silence victims. Must be applied directly from behind. "
+	desc = "A garrote made of razor thin fiber wire. Used to choke and silence victims. Must be applied from behind. "
 	path = /obj/item/twohanded/garrote
 
 /datum/uplink_item/item/stealthy_weapons/energydagger
