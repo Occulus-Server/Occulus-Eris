@@ -188,6 +188,7 @@
 	strangling.apply_damage(4, OXY, "head")
 
 /obj/item/weapon/pen/edagger
+	icon = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
 	origin_tech = "combat=3;syndicate=1"
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut") //these wont show up if the pen is off
 	var/on = 0

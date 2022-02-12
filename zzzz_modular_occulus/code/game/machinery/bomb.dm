@@ -193,6 +193,7 @@
 	. = (active || ignore_active) && !defused
 	if(.)
 		empulse(get_turf(src), 14, 17, TRUE)
+	qdel(src)
 
 
 
@@ -278,6 +279,7 @@
 
 	else if((QUALITY_WIRE_CUTTING in I.tool_qualities) && open_panel)
 		wires.Interact(user)
+	update_icon()
 
 
 /obj/machinery/empbomb/attack_hand(mob/user)
@@ -299,6 +301,7 @@
 	next_beep = world.time + 10
 	detonation_timer = world.time + (timer_set * 10)
 	playsound(loc, 'sound/machines/click.ogg', 30, 1)
+	update_icon()
 
 /obj/machinery/empbomb/proc/settings(mob/user)
 	var/new_timer = input(user, "Please set the timer.", "Timer", "[timer_set]") as num

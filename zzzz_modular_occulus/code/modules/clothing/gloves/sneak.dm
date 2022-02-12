@@ -1,6 +1,7 @@
 /obj/item/clothing/gloves/sneak //pickpocketting code in stripping.dm. Just checks for sneakgloves in gloves slot.
 	name = "slick looking gloves"
 	desc = "These inconspicuous gloves are fitted with Nanomemory fibers, aiding in pickpocketting"
+	icon_state = "black"
 	icon = 'icons/inventory/hands/icon.dmi'
 	spawn_tags = SPAWN_TAG_GLOVES
 	body_parts_covered = HANDS
