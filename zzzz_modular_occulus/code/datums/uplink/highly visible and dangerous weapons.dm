@@ -18,6 +18,6 @@
 
 /datum/uplink_item/item/visible_weapons/stonecrasher
 	name = "'Stonecrash' mining gauntlets"
-	desc = "An obsolete form of mining equipment from moghes,it's now known for crushing chests rather then rocks. Pressure settings can be adjusted with a wrench, and tanks removed with a screw driver."
+	desc = "An obsolete form of mining equipment from Moghes. It's now known for crushing chests rather then rocks. Pressure settings can be adjusted with a wrench, and tanks removed with a screwdriver."
 	item_cost = 6
 	path = /obj/item/clothing/gloves/powerfist
