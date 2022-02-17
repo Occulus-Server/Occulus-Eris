@@ -198,26 +198,15 @@ SUBSYSTEM_DEF(trade)
 	station.generate_offer()
 
 
-/datum/controller/subsystem/trade/proc/collect_price_for_list(list/shopList, datum/trade_station/tradeStation = null)
-	. = 0
-	for(var/categoryName in shopList)
-		var/category = shopList[categoryName]
-		if(length(category))
-			for(var/path in category)
-				. += get_import_cost(path, tradeStation) * category[path]
-
-/datum/controller/subsystem/trade/proc/buy(obj/machinery/trade_beacon/receiving/senderBeacon, datum/money_account/account, list/shopList, datum/trade_station/station)
-	if(QDELETED(senderBeacon) || !istype(senderBeacon) || !account || !recursiveLen(shopList) || !istype(station))
+/datum/controller/subsystem/trade/proc/buy(obj/machinery/trade_beacon/receiving/beacon, datum/money_account/account, list/shoppinglist, datum/trade_station/station)
+	if(QDELETED(beacon) || !account || !length(shoppinglist))
 		return
 
-	var/obj/structure/closet/crate/C
-	var/count_of_all = collect_counts_from(shopList)
-	var/price_for_all = collect_price_for_list(shopList, station)
-	if(isnum(count_of_all) && count_of_all > 1)
-		price_for_all += station.commision
-		C = senderBeacon.drop(/obj/structure/closet/crate)
-	if(price_for_all && get_account_credits(account) < price_for_all)
-		return
+	var/cost = 0
+	for(var/category_name in shoppinglist)
+		var/list/category = shoppinglist[category_name]
+		for(var/path in category)
+			cost += get_import_cost(path, station) * category[path]
 
 	if(get_account_credits(account) < cost)
 		return
