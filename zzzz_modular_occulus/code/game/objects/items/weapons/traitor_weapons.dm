@@ -5,7 +5,7 @@
 	icon_state = "garrot_wrap"
 	w_class = ITEM_SIZE_TINY
 	var/mob/living/carbon/human/strangling
-	var/improvised = 0
+	var/improvised = FALSE
 	var/garrote_time
 
 /obj/item/twohanded/garrote/Destroy()
@@ -51,7 +51,7 @@
 	name = "garrote"
 	desc = "A length of cable with a shoddily-carved wooden handle tied to either end.<br>You suspect you'd have to be behind the target to use this weapon effectively."
 	icon_state = "garrot_I_wrap"
-	improvised = 1
+	improvised = TRUE
 
 /obj/item/twohanded/garrote/improvised/update_icon()
 	if(strangling)
@@ -85,7 +85,7 @@
 		to_chat(user, "<span class = 'warning'>You must use both hands to garrote [M]!</span>")
 		return
 
-	if(!istype(M, /mob/living/carbon/human))
+	if(!ishuman(M))
 		to_chat(user, "<span class = 'warning'>You don't think that garroting [M] would be very effective...</span>")
 		return
 
@@ -134,7 +134,7 @@
 		return
 
 
-	if(!istype(loc, /mob/living/carbon/human))
+	if(!ishuman(loc))
 		strangling = null
 		update_icon()
 		STOP_PROCESSING(SSobj, src)
@@ -183,16 +183,16 @@
 
 /obj/item/weapon/pen/edagger
 	icon = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
-	origin_tech = "combat=3;syndicate=1"
+	origin_tech = list(TECH_COMBAT = 3, TECH_ILLEGAL = 1)
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut") //these wont show up if the pen is off
 	sharp = 0
-	var/on = 0
+	var/on = TRUE
 	var/brightness_on = 2
 	light_color = "#B40000"
 
 /obj/item/weapon/pen/edagger/attack_self(mob/living/user)
 	if(on)
-		on = 0
+		on = FALSE
 		force = initial(force)
 		sharp = 0
 		w_class = initial(w_class)
@@ -204,7 +204,7 @@
 		to_chat(user, "<span class='warning'>[src] can now be concealed.</span>")
 		set_light(0)
 	else
-		on = 1
+		on = TRUE
 		force = 18
 		sharp = 1
 		w_class = ITEM_SIZE_NORMAL

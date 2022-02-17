@@ -14,15 +14,15 @@
 var/global/list/active_radio_jammers = list()
 
 /proc/is_jammed(var/obj/radio)
-	var/turf/Tr = get_turf(radio)
-	if(!Tr) return 0 //Nullspace radios don't get jammed.
+	var/turf/Turfradio = get_turf(radio)
+	if(!Turfradio) return FALSE //Nullspace radios don't get jammed.
 
 	for(var/jammer in active_radio_jammers)
 		var/obj/item/device/radio_jammer/J = jammer
-		var/turf/Tj = get_turf(J)
+		var/turf/Turfjammer = get_turf(J)
 
-		if(J.on && Tj.z == Tr.z) //If we're on the same Z, it's worth checking.
-			var/dist = get_dist(Tj,Tr)
+		if(J.on && Turfjammer.z == Turfradio.z) //If we're on the same Z, it's worth checking.
+			var/dist = get_dist(Turfjammer,Turfradio)
 			if(dist <= J.jam_range)
 				return list("jammer" = J, "distance" = dist)
 
@@ -38,7 +38,7 @@ var/global/list/active_radio_jammers = list()
 	w_class = ITEM_SIZE_SMALL
 	spawn_blacklisted = TRUE
 	var/active_state = "jammer1"
-	var/on = 0
+	var/on = FALSE
 	var/jam_range = 7
 	var/tick_cost = 2
 	origin_tech = list(TECH_ILLEGAL = 4, TECH_BLUESPACE = 4) //Such technology! Subspace jamming!

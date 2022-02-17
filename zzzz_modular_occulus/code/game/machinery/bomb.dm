@@ -62,9 +62,8 @@
 		update_icon()
 		try_detonate(TRUE)
 	//Counter terrorists win
-	else if(!active || defused)
-		if(defused)
-			STOP_PROCESSING(SSmachines, src)
+	else if(defused)
+		STOP_PROCESSING(SSmachines, src)
 
 /obj/machinery/bomb/Initialize()
 	. = ..()
@@ -141,9 +140,8 @@
 		timer_set = clamp(new_timer, minimum_timer, maximum_timer)
 		loc.visible_message("<span class='notice'>[icon2html(src, viewers(src))] timer set for [timer_set] seconds.</span>")
 	if(alert(user,"Would you like to start the countdown now?",,"No","Yes") == "Yes" && in_range(src, user) && isliving(user))
-		if(defused || active)
-			if(defused)
-				visible_message("<span class='warning'>[icon2html(src, viewers(src))] Device error: User intervention required.</span>")
+		if(defused)
+			visible_message("<span class='warning'>[icon2html(src, viewers(src))] Device error: User intervention required.</span>")
 			return
 		else
 			visible_message("<span class='danger'>[icon2html(src, viewers(loc))] [timer_set] seconds until detonation, please clear the area.</span>")
