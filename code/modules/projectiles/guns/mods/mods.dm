@@ -120,6 +120,7 @@
 	I.gun_loc_tag = GUN_TRIGGER
 	I.breakable = FALSE
 	I.removal_difficulty = FAILCHANCE_VERY_HARD
+	spawn_blacklisted = TRUE //Occulus Edit
 
 /obj/item/weapon/gun_upgrade/mechanism
 	bad_type = /obj/item/weapon/gun_upgrade/mechanism
