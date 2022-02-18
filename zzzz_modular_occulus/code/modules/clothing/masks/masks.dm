@@ -19,3 +19,28 @@
 	name = "red shemaugh"
 	icon_state = "shemaugh-red"
 	item_state = "shemaugh-red"
+
+/obj/item/clothing/mask/scarf/shemaugh/purple
+	name = "purple shemaugh"
+	icon_state = "shemaugh-purple"
+	item_state = "shemaugh-purple"	
+
+/obj/item/clothing/mask/scarf/shemaugh/brown
+	name = "brown shemaugh"
+	icon_state = "shemaugh-brown"
+	item_state = "shemaugh-brown"
+
+/obj/item/clothing/mask/scarf/shemaugh/orange
+	name = "orange shemaugh"
+	icon_state = "shemaugh-orange"
+	item_state = "shemaugh-orange"
+
+/obj/item/clothing/mask/scarf/shemaugh/green
+	name = "green shemaugh"
+	icon_state = "shemaugh-green"
+	item_state = "shemaugh-green"
+
+/obj/item/clothing/mask/scarf/shemaugh/cyan
+	name = "cyan shemaugh"
+	icon_state = "shemaugh-cyan"
+	item_state = "shemaugh-cyan"
