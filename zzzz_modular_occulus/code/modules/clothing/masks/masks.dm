@@ -44,3 +44,23 @@
 	name = "cyan shemaugh"
 	icon_state = "shemaugh-cyan"
 	item_state = "shemaugh-cyan"
+
+/obj/item/clothing/mask/scarf/shemaugh/teal
+	name = "teal shemaugh"
+	icon_state = "shemaugh-teal"
+	item_state = "shemaugh-teal"
+
+/obj/item/clothing/mask/scarf/shemaugh/silver
+	name = "silver shemaugh"
+	icon_state = "shemaugh-silver"
+	item_state = "shemaugh-silver"
+
+/obj/item/clothing/mask/scarf/shemaugh/charcoal
+	name = "charcoal shemaugh"
+	icon_state = "shemaugh-charcoal"
+	item_state = "shemaugh-charcoal"
+
+/obj/item/clothing/mask/scarf/shemaugh/crimson
+	name = "crimson shemaugh"
+	icon_state = "shemaugh-crimson"
+	item_state = "shemaugh-crimson"
