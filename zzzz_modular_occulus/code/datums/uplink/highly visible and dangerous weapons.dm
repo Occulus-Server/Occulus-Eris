@@ -14,7 +14,7 @@
 	name = "Z-6 Ion Charge"
 	desc = "An ionic pulse charge capable of generating a large EMP burst. Can be bolted down with a wrench."
 	item_cost = 11
-	path = /obj/machinery/empbomb
+	path = /obj/machinery/bomb/emp
 
 /datum/uplink_item/item/visible_weapons/stonecrasher
 	name = "'Stonecrash' mining gauntlets"

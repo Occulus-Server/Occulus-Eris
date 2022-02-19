@@ -2826,7 +2826,6 @@
 #include "zzzz_modular_occulus\code\datums\uplink\medical.dm"
 #include "zzzz_modular_occulus\code\datums\uplink\stealthy and inconspicuous weapons.dm"
 #include "zzzz_modular_occulus\code\datums\wires\bomb.dm"
-#include "zzzz_modular_occulus\code\datums\wires\empbomb.dm"
 #include "zzzz_modular_occulus\code\game\occulus-lore-fixes.dm"
 #include "zzzz_modular_occulus\code\game\antagonist\outer\blitzshell\blitzshell.dm"
 #include "zzzz_modular_occulus\code\game\antagonist\outer\mercenary\mercenary.dm"
