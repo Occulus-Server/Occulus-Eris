@@ -25,8 +25,8 @@
 	var/postStartTicks 		= 0
 	var/list/spawnLists
 	var/list/used_candidates = list()
-	//two_part = 1
-	//ic_name = "radiation"
+    req_crew = 6
+    max_crew_diff_lower = 3
 	var/siren_anger
 
 /datum/event/siren_scan/announce()
