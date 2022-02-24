@@ -176,6 +176,9 @@ var/global/list/active_radio_jammers = list()
 				to_chat(user, "<span class='warning'>[IT] is too small for [src].</span>")
 				return
 			updateTank(W, 0, user)
+		else
+			to_chat(user, "<span class='warning'>[src] already has a tank.</span>")
+			return
 
 	if(QUALITY_BOLT_TURNING in W.tool_qualities)
 		switch(fisto_setting)

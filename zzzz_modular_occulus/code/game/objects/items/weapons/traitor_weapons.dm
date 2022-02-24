@@ -185,7 +185,7 @@
 	icon = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
 	origin_tech = list(TECH_COMBAT = 3, TECH_ILLEGAL = 1)
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut") //these wont show up if the pen is off
-	sharp = 0
+	sharp = TRUE
 	var/on = TRUE
 	var/brightness_on = 2
 	light_color = "#B40000"
@@ -194,7 +194,7 @@
 	if(on)
 		on = FALSE
 		force = initial(force)
-		sharp = 0
+		sharp = FALSE
 		w_class = initial(w_class)
 		name = initial(name)
 		hitsound = initial(hitsound)
@@ -206,7 +206,7 @@
 	else
 		on = TRUE
 		force = 18
-		sharp = 1
+		sharp = TRUE
 		w_class = ITEM_SIZE_NORMAL
 		name = "energy dagger"
 		hitsound = 'sound/weapons/blade1.ogg'

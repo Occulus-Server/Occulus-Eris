@@ -2797,7 +2797,6 @@
 #include "zzzz_modular_occulus\code\__HELPERS\icons.dm"
 #include "zzzz_modular_occulus\code\__HELPERS\turfs.dm"
 #include "zzzz_modular_occulus\code\_DEFINES\spawner\_spawner.dm"
-#include "zzzz_modular_occulus\code\_global_vars\lists\objects.dm"
 #include "zzzz_modular_occulus\code\controllers\multiline_me.dm"
 #include "zzzz_modular_occulus\code\controllers\pixelshift.dm"
 #include "zzzz_modular_occulus\code\controllers\subsystems\staverbs.dm"

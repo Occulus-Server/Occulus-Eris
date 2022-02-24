@@ -1,1 +1,0 @@
-GLOBAL_LIST_INIT(active_jammers, list())             // List of active radio jammers

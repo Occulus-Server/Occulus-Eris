@@ -173,7 +173,3 @@
 	if(.)
 		empulse(get_turf(src), 14, 17, TRUE)
 	qdel(src)
-
-
-/obj/machinery/bomb/emp/update_icon()
-	icon_state = "[initial(icon_state)][active ? "-active" : "-inactive"][open_panel ? "-wires" : ""]"
