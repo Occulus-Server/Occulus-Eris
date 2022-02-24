@@ -3,3 +3,8 @@
 /datum/gear/head/christmas
 	display_name = "christmas hat"
 	path = /obj/item/clothing/head/christmas
+
+/datum/gear/head/fashionrets
+	display_name = "fashionable beret selection"
+	path = /obj/item/clothing/head/beret/fashion
+	flags = GEAR_HAS_TYPE_SELECTION
