@@ -213,9 +213,9 @@
 	if(!..(user, 1))
 		return
 	if(junk_food)
-		to_chat(user, SPAN_WARNING("\The [src] its a junk food!"))
+		to_chat(user, SPAN_WARNING("\The [src] is a junk food!"))  //OCCULUS EDIT - Grammar fixes
 	else if(taste_tag.len)
-		to_chat(user, SPAN_NOTICE("\The [src] this tastes like [english_list(taste_tag)]"))
+		to_chat(user, SPAN_NOTICE("\The [src] tastes like [english_list(taste_tag)]")) //OCCULUS EDIT - Grammar fixes
 	if (bitecount==0)
 		return
 	else if (bitecount==1)
