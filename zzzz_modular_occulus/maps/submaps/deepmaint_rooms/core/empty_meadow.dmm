@@ -1,0 +1,1457 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aB" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"aX" = (
+/turf/simulated/floor/reinforced,
+/area/deepmaint)
+"bb" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"bd" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/monkeycubes,
+/obj/item/weapon/storage/box/monkeycubes,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"bl" = (
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	opacity = 0
+	},
+/obj/structure/low_wall,
+/obj/item/weapon/material/shard,
+/turf/simulated/floor/reinforced,
+/area/deepmaint)
+"bm" = (
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/deepmaint)
+"bt" = (
+/obj/structure/table/glass,
+/obj/structure/closet/wall_mounted/blood{
+	pixel_x = 32
+	},
+/obj/spawner/surgery_tool/low_chance,
+/obj/spawner/surgery_tool/low_chance,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"bu" = (
+/obj/structure/salvageable/implant_container,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"cb" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"cy" = (
+/obj/machinery/optable,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/remains/human,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"cP" = (
+/turf/simulated/floor/carpet/purcarpet,
+/area/deepmaint)
+"de" = (
+/obj/structure/table/standard,
+/obj/spawner/tool_upgrade/rare/low_chance,
+/obj/spawner/tool,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"dE" = (
+/obj/item/weapon/material/shard/phoron,
+/obj/item/weapon/material/shard/phoron{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/structure/disposalpipe/broken,
+/obj/effect/damagedfloor/rust,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"dJ" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"dQ" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/spawner/mob/roaches/cluster/beacon,
+/obj/spawner/techpart/low_chance,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"ef" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/purcarpet,
+/area/deepmaint)
+"ei" = (
+/obj/structure/table/glass,
+/obj/structure/defibcabinet{
+	pixel_x = 28
+	},
+/obj/spawner/surgery_tool/low_chance,
+/obj/spawner/surgery_tool/low_chance,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"eo" = (
+/obj/machinery/optable,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"eB" = (
+/obj/structure/salvageable/data,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"eN" = (
+/obj/effect/floor_decal/industrial/danger{
+	dir = 1
+	},
+/obj/spawner/techpart/low_chance,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"fu" = (
+/obj/structure/bed/chair,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"fJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/techpart/low_chance,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"fP" = (
+/obj/item/weapon/material/shard/phoron{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"gB" = (
+/obj/structure/low_wall,
+/turf/simulated/floor/tiled/white/cargo,
+/area/deepmaint)
+"hb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/techpart/low_chance,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"hf" = (
+/obj/structure/table/standard,
+/mob/living/carbon/superior_animal/roach/nanite,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"hv" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/department/rnd{
+	pixel_y = -30
+	},
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"hw" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/toolbox/mechanical{
+	pixel_x = -2;
+	pixel_y = -1
+	},
+/obj/item/weapon/storage/belt/utility,
+/obj/item/weapon/tool/crowbar,
+/obj/item/clothing/glasses/welding,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"im" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/purcarpet,
+/area/deepmaint)
+"io" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"iu" = (
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/deepmaint)
+"iC" = (
+/mob/living/carbon/superior_animal/roach/nanite,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"iN" = (
+/obj/effect/floor_decal/industrial/danger{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"iP" = (
+/obj/effect/window_lwall_spawn/smartspawnphoron,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"jg" = (
+/obj/item/remains/human,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/bluecorner,
+/area/deepmaint)
+"jj" = (
+/obj/effect/floor_decal/industrial/danger{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"jm" = (
+/obj/structure/table/glass,
+/obj/structure/defibcabinet{
+	pixel_x = -28
+	},
+/obj/spawner/surgery_tool/low_chance,
+/obj/spawner/surgery_tool/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"jD" = (
+/obj/spawner/junk/low_chance,
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"jL" = (
+/obj/machinery/chemical_dispenser/industrial,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"jR" = (
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/deepmaint)
+"jV" = (
+/obj/structure/bed/padded,
+/obj/item/weapon/bedsheet/purple,
+/turf/simulated/floor/carpet/purcarpet,
+/area/deepmaint)
+"ka" = (
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/tool_upgrade/rare/low_chance,
+/obj/spawner/tool/advanced/onestar,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"kG" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/gun/projectile/automatic/whitenail/blacktalon,
+/obj/item/ammo_magazine/blacktalon,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"kH" = (
+/mob/living/carbon/superior_animal/roach/nanite,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"kK" = (
+/obj/machinery/door/airlock/security{
+	name = "Brig";
+	req_access = list(63)
+	},
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"kL" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"lb" = (
+/obj/spawner/mob/roaches/cluster/beacon,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"lf" = (
+/obj/effect/floor_decal/industrial/danger{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"lI" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/deepmaint)
+"lX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"mJ" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/monkeycubes,
+/obj/item/weapon/extinguisher{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"nA" = (
+/obj/machinery/door/airlock/freezer{
+	icon_state = "door_locked";
+	locked = 1;
+	name = "sterile airlock"
+	},
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"oa" = (
+/turf/simulated/floor/tiled/white/bluecorner,
+/area/deepmaint)
+"ow" = (
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/carpet/purcarpet,
+/area/deepmaint)
+"oK" = (
+/obj/structure/bed/chair,
+/obj/item/weapon/material/shard/phoron,
+/obj/item/remains/human,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"pI" = (
+/obj/structure/low_wall,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	opacity = 0
+	},
+/obj/item/weapon/material/shard,
+/obj/item/weapon/material/shard{
+	pixel_x = 6;
+	pixel_y = -3
+	},
+/turf/simulated/floor/reinforced,
+/area/deepmaint)
+"pP" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"qm" = (
+/obj/machinery/door/airlock/freezer{
+	name = "Dormitory"
+	},
+/turf/simulated/floor/tiled/white/cargo,
+/area/deepmaint)
+"qq" = (
+/obj/structure/salvageable/os/console{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"qY" = (
+/obj/item/weapon/material/shard{
+	pixel_x = -5;
+	pixel_y = -9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced,
+/area/deepmaint)
+"rp" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"se" = (
+/obj/item/weapon/material/shard/shrapnel/scrap,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"sw" = (
+/obj/structure/sign/department/xenolab{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"sG" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced,
+/area/deepmaint)
+"sJ" = (
+/obj/spawner/mob/roaches/cluster/low_chance,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"sO" = (
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"sY" = (
+/obj/effect/floor_decal/industrial/danger{
+	dir = 8
+	},
+/obj/structure/reagent_dispensers/watertank/huge,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"tU" = (
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/purcarpet,
+/area/deepmaint)
+"ug" = (
+/obj/spawner/mob/roaches/cluster/beacon,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"uV" = (
+/obj/spawner/closet/tech,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"vp" = (
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"vJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/mob/roaches/cluster/beacon,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"vS" = (
+/obj/effect/window_lwall_spawn/smartspawnphoron,
+/obj/machinery/door/blast/shutters,
+/turf/simulated/floor/tiled/white/cargo,
+/area/deepmaint)
+"wg" = (
+/obj/spawner/techpart/low_chance,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"wm" = (
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"wr" = (
+/obj/item/weapon/material/shard,
+/obj/item/weapon/material/shard{
+	pixel_x = 6;
+	pixel_y = -3
+	},
+/turf/simulated/floor/reinforced,
+/area/deepmaint)
+"ws" = (
+/obj/structure/low_wall,
+/obj/item/weapon/material/shard/phoron{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/item/weapon/material/shard/phoron{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/weapon/material/shard/phoron,
+/turf/simulated/floor/tiled/white/cargo,
+/area/deepmaint)
+"wI" = (
+/obj/item/weapon/gun/energy/stalwart,
+/obj/structure/table/rack,
+/obj/machinery/door/blast/shutters/glass{
+	id = "Armoury";
+	name = "Armoury showcase"
+	},
+/turf/simulated/floor/tiled/white/bluecorner,
+/area/deepmaint)
+"wY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/vending/wallmed{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"xd" = (
+/obj/effect/floor_decal/industrial/danger,
+/obj/structure/sign/biohazard{
+	icon_state = "bio-danger";
+	pixel_y = -30
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/rubble,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"xg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light_construct{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"xu" = (
+/obj/spawner/pack/machine,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"yo" = (
+/obj/spawner/closet/tech,
+/turf/simulated/floor/carpet/purcarpet,
+/area/deepmaint)
+"yF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/vending/cola,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"yM" = (
+/mob/living/carbon/superior_animal/roach/nanite,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"yN" = (
+/turf/simulated/floor/tiled/dark,
+/area/deepmaint)
+"zT" = (
+/obj/effect/floor_decal/industrial/danger{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"Ak" = (
+/obj/effect/floor_decal/industrial/danger,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/rubble,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"AI" = (
+/obj/machinery/button/remote/blast_door{
+	pixel_x = 28
+	},
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"AP" = (
+/obj/machinery/autolathe/mechfab,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"AQ" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/deepmaint)
+"BZ" = (
+/obj/structure/sign/biohazard{
+	icon_state = "bio-danger";
+	pixel_y = -30
+	},
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"Ch" = (
+/obj/spawner/closet,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"CX" = (
+/obj/spawner/techpart/low_chance,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"DA" = (
+/obj/item/weapon/material/shard/phoron,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"DM" = (
+/obj/structure/salvageable/os/server,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"Er" = (
+/obj/item/modular_computer/console/preset/research,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"Ew" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"EE" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"EH" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/spawner/tank,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"EM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"EX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"Fh" = (
+/obj/spawner/pack/junk_machine,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/danger,
+/area/deepmaint)
+"FV" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white/bluecorner,
+/area/deepmaint)
+"GA" = (
+/obj/machinery/light,
+/mob/living/carbon/superior_animal/roach/nanite,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"Hy" = (
+/obj/item/device/radio/intercom{
+	pixel_y = 24
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"HE" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"HW" = (
+/obj/machinery/door/airlock/freezer{
+	name = "Computing Center"
+	},
+/turf/simulated/floor/tiled/white/cargo,
+/area/deepmaint)
+"In" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"KK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/rubble,
+/obj/machinery/light_construct{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"KT" = (
+/obj/spawner/mob/roaches/cluster/beacon,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"Lo" = (
+/obj/item/weapon/material/shard/shrapnel/scrap,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"Lx" = (
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/regular,
+/turf/simulated/floor/reinforced,
+/area/deepmaint)
+"LF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/vending/wallmed{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"LT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/deepmaint)
+"Ma" = (
+/obj/item/weapon/material/shard,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced,
+/area/deepmaint)
+"Ml" = (
+/turf/simulated/wall/r_wall,
+/area/deepmaint)
+"Mn" = (
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"MP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/mob/roaches/cluster/beacon,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"Ns" = (
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"Or" = (
+/obj/structure/salvageable/server,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"OL" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/bluecorner,
+/area/deepmaint)
+"Px" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1;
+	name = "sealed airlock"
+	},
+/obj/machinery/door/blast/regular/open,
+/turf/simulated/floor/tiled/steel/bar_flat,
+/area/deepmaint)
+"PH" = (
+/obj/structure/table/reinforced,
+/obj/machinery/reagentgrinder/portable,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"PI" = (
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"Qv" = (
+/obj/spawner/pack/junk_machine,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"QH" = (
+/obj/structure/table/glass,
+/obj/structure/closet/wall_mounted/blood{
+	pixel_x = -32
+	},
+/obj/spawner/surgery_tool/low_chance,
+/obj/spawner/surgery_tool/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"QK" = (
+/obj/effect/decal/cleanable/rubble,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"QZ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"Rb" = (
+/obj/effect/floor_decal/industrial/danger,
+/obj/structure/sign/department/gene{
+	pixel_x = -32
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/techpart/low_chance,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"Rz" = (
+/obj/spawner/pack/junk_machine,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"RI" = (
+/obj/structure/grille/broken,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"RJ" = (
+/obj/structure/bed/chair,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"RY" = (
+/obj/machinery/light/small,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"Sq" = (
+/obj/structure/table/glass,
+/obj/item/stack/medical/advanced/bruise_pack,
+/obj/spawner/surgery_tool/low_chance,
+/obj/spawner/surgery_tool/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"Sy" = (
+/mob/living/carbon/superior_animal/roach/nanite,
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/deepmaint)
+"SF" = (
+/obj/machinery/door/airlock/glass_security{
+	id_tag = "BrigFoyer";
+	layer = 2.8;
+	name = "Brig";
+	req_access = list(63)
+	},
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"TH" = (
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	opacity = 0
+	},
+/obj/machinery/door/window/eastleft,
+/obj/machinery/door/window/westleft,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"TQ" = (
+/obj/machinery/door/airlock/freezer{
+	icon_state = "door_locked";
+	locked = 1;
+	name = "sterile airlock"
+	},
+/turf/simulated/floor/tiled/steel/bar_flat,
+/area/deepmaint)
+"Ue" = (
+/obj/spawner/pack/machine,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"Ui" = (
+/obj/machinery/door/airlock/freezer{
+	icon_state = "door_locked";
+	locked = 1;
+	name = "Data Storage"
+	},
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"UB" = (
+/obj/structure/sign/department/rnd{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"UK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/tank,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"Vr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/bluecorner,
+/area/deepmaint)
+"VH" = (
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/deepmaint)
+"Wa" = (
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/deepmaint)
+"Wk" = (
+/obj/effect/window_lwall_spawn/smartspawnphoron,
+/turf/simulated/floor/tiled/white/cargo,
+/area/deepmaint)
+"WG" = (
+/obj/spawner/pack/junk_machine,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"WT" = (
+/obj/structure/table/steel,
+/obj/item/weapon/storage/fancy/cigarettes/homeless,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"Xd" = (
+/obj/machinery/button/remote/blast_door{
+	id = "deepmaint_core_computers1";
+	pixel_x = -28
+	},
+/obj/spawner/rig_module,
+/turf/simulated/floor/tiled/dark,
+/area/deepmaint)
+"Xs" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"Xy" = (
+/obj/structure/salvageable/os/data,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"XE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/structure/table/standard,
+/obj/machinery/centrifuge,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"XG" = (
+/obj/structure/table/rack/shelf,
+/obj/item/weapon/gun/energy/taser{
+	pixel_y = 10
+	},
+/obj/item/weapon/gun/energy/taser{
+	pixel_y = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/bluecorner,
+/area/deepmaint)
+"XQ" = (
+/obj/structure/firedoor_assembly,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"Yb" = (
+/obj/effect/window_lwall_spawn/smartspawnphoron,
+/obj/machinery/door/blast/shutters{
+	id = "deepmaint_core_computers1"
+	},
+/turf/simulated/floor/tiled/white/cargo,
+/area/deepmaint)
+"Ye" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"YO" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/deepmaint)
+"Zd" = (
+/obj/spawner/mob/roaches/cluster/beacon,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"Zg" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/deepmaint)
+"Zl" = (
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/deepmaint)
+"Zo" = (
+/obj/item/weapon/material/shard,
+/obj/item/weapon/material/shard{
+	pixel_x = -5;
+	pixel_y = -9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/violetcorener,
+/area/deepmaint)
+"ZN" = (
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder/portable,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+
+(1,1,1) = {"
+sO
+sO
+sO
+sO
+sO
+iC
+sO
+sO
+Ns
+sO
+sO
+sJ
+iC
+sO
+sO
+sO
+sO
+sO
+sO
+sO
+Ns
+"}
+(2,1,1) = {"
+sO
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+sO
+"}
+(3,1,1) = {"
+sO
+Ml
+XG
+FV
+wI
+Ml
+wY
+wm
+dJ
+Ml
+QH
+jm
+Sq
+Ml
+aX
+LT
+sG
+LT
+aX
+Ml
+sO
+"}
+(4,1,1) = {"
+sO
+Ml
+OL
+Vr
+oa
+kK
+EE
+Xs
+fu
+ws
+aB
+aB
+eo
+Ml
+sG
+Ma
+sG
+sG
+aX
+Ml
+sO
+"}
+(5,1,1) = {"
+sO
+Ml
+Fh
+oa
+jg
+Ml
+UK
+EM
+oK
+dE
+Lo
+KT
+PI
+Ml
+qY
+wr
+aX
+sG
+sG
+Ml
+sO
+"}
+(6,1,1) = {"
+sO
+Ml
+Ml
+SF
+Ml
+Ml
+ka
+lb
+DA
+qm
+fP
+CX
+aB
+Ml
+pI
+bl
+TH
+Lx
+Lx
+Ml
+iC
+"}
+(7,1,1) = {"
+BZ
+Ml
+WT
+PI
+RY
+Ml
+de
+vp
+RJ
+Wk
+aB
+se
+cy
+Ml
+jj
+jj
+jj
+iN
+sY
+Ml
+sO
+"}
+(8,1,1) = {"
+pP
+Ml
+Er
+io
+AI
+Ml
+de
+Xs
+fu
+gB
+bt
+ei
+Sq
+Ml
+LF
+fJ
+Ew
+Xs
+kG
+Ml
+sO
+"}
+(9,1,1) = {"
+UB
+Ml
+Ml
+iP
+Ml
+Ml
+Ml
+qm
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Zo
+Xs
+vJ
+QK
+PH
+Ml
+sO
+"}
+(10,1,1) = {"
+sO
+Px
+Wa
+iu
+iu
+TQ
+eN
+HE
+cb
+wg
+Zd
+Xs
+Rb
+nA
+Mn
+Mn
+Mn
+Xs
+kL
+Ml
+sO
+"}
+(11,1,1) = {"
+sO
+Ml
+jR
+jR
+iu
+Ml
+lf
+Mn
+Ew
+XQ
+QZ
+HE
+xd
+Ml
+MP
+Mn
+ug
+Mn
+bd
+Ml
+sO
+"}
+(12,1,1) = {"
+sO
+Px
+iu
+AQ
+iu
+TQ
+zT
+Xs
+dQ
+Xs
+RI
+Ew
+Ak
+nA
+EM
+Ew
+Xs
+Mn
+mJ
+Ml
+sO
+"}
+(13,1,1) = {"
+sw
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+qm
+Ml
+Ml
+Ml
+vS
+Yb
+Ml
+Ml
+xg
+hb
+EX
+KK
+Ml
+sO
+"}
+(14,1,1) = {"
+GA
+Ml
+jV
+cP
+tU
+Ml
+VH
+aB
+rp
+Ml
+Xd
+yN
+yN
+WG
+Ml
+Ml
+Ui
+Ui
+Ml
+Ml
+Ns
+"}
+(15,1,1) = {"
+BZ
+Ml
+ow
+cP
+cP
+Ml
+yF
+yM
+hf
+Ml
+lI
+ZN
+yN
+AP
+Ml
+Qv
+bm
+bm
+Rz
+Ml
+sO
+"}
+(16,1,1) = {"
+sO
+Ml
+jV
+ef
+cP
+qm
+dJ
+aB
+hv
+Ml
+YO
+jL
+yN
+Zl
+Ml
+bu
+bm
+bm
+Qv
+Ml
+sO
+"}
+(17,1,1) = {"
+sO
+Ml
+Ml
+Ml
+Ml
+Ml
+Hy
+lX
+Ye
+HW
+lI
+hw
+yN
+Zl
+Ml
+eB
+Sy
+bm
+Xy
+Ml
+sO
+"}
+(18,1,1) = {"
+sO
+Ml
+cP
+im
+cP
+qm
+wm
+bb
+VH
+vS
+yN
+yN
+yN
+xu
+Ml
+Or
+bm
+Sy
+uV
+Ml
+sO
+"}
+(19,1,1) = {"
+Ns
+Ml
+jV
+ow
+yo
+Ml
+kH
+EH
+In
+Ml
+XE
+qq
+Zg
+Ue
+Ml
+DM
+sO
+sO
+Ch
+Ml
+sO
+"}
+(20,1,1) = {"
+jD
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+Ml
+sO
+"}
+(21,1,1) = {"
+Ns
+sO
+sO
+sO
+sO
+sO
+sO
+sO
+sO
+sO
+sO
+sO
+sO
+sO
+sO
+sO
+Ns
+sO
+sO
+sO
+sO
+"}
