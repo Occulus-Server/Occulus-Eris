@@ -208,7 +208,7 @@ var/global/list/active_radio_jammers = list()
 		tank = null
 		cut_overlays()
 
-	if(!removing)
+	else
 		if(tank)
 			to_chat(user, "<span class='warning'>[src] already has a tank.</span>")
 			return
@@ -255,8 +255,6 @@ var/global/list/active_radio_jammers = list()
 		return
 
 
-	var/agony = agonyforce
-	var/stun = stunforce
 	var/obj/item/organ/external/affecting = null
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
@@ -264,7 +262,7 @@ var/global/list/active_radio_jammers = list()
 
 	//stun effects
 	if(affecting)
-		visible_message("<span class='danger'>[user]'s powerfist lets out a loud hiss as they punch [L] in the [affecting] !</span>")
+		visible_message("<span class='danger'>[user]'s Stonecrash gauntlet lets out a loud hiss as they punch [L] in the [affecting] !</span>")
 		to_chat(L, "<span class='userdanger'>You cry out in pain as [user]'s punch flings you backwards!</span>")
 	else
 		visible_message(SPAN_DANGER("[L] has been power punched with [src] by [user]!"))
@@ -278,7 +276,7 @@ var/global/list/active_radio_jammers = list()
 
 	var/atom/throw_target = get_edge_target_turf(L, get_dir(src, get_step_away(L, src)))
 	L.throw_at(throw_target, 5 * fisto_setting, 0.2)
-	L.stun_effect_act(stun, agony, user.targeted_organ, src)
+	L.stun_effect_act(stunforce, agonyforce, user.targeted_organ, src)
 	msg_admin_attack("[key_name(user)] punched [key_name(L)] with the [src].")
 	user.attack_log += "\[[time_stamp()]\] <font color='red'>punched [key_name(L)] with [src]</font>"
 	L.attack_log += "\[[time_stamp()]\] <font color='orange'>Was punched by [key_name(L)] with [src]</font>"

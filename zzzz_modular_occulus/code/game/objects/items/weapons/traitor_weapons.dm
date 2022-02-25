@@ -12,7 +12,7 @@
 	strangling = null
 	return ..()
 
-/mob/living/proc/grabbedby(mob/living/carbon/user, supress_message = FALSE)
+/mob/living/proc/grabbedby(mob/living/carbon/human/user, supress_message = FALSE)
 	if(user == src || anchored)
 		return 0
 	if(!(status_flags & CANPUSH))
@@ -60,7 +60,7 @@
 
 	icon_state = "garrot_I_[wielded ? "un" : ""]wrap"
 
-/obj/item/twohanded/garrote/wield(mob/living/carbon/user)
+/obj/item/twohanded/garrote/wield(mob/living/carbon/human/user)
 	if(strangling)
 		user.visible_message("<span class='info'>[user] removes the [src] from [strangling]'s neck.</span>", \
 				"<span class='warning'>You remove the [src] from [strangling]'s neck.</span>")
@@ -72,11 +72,11 @@
 	else
 		..()
 
-/obj/item/twohanded/garrote/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/twohanded/garrote/attack(mob/living/carbon/human/M as mob, mob/user as mob)
 	if(garrote_time > world.time) // Cooldown
 		return
 
-	if(!istype(user, /mob/living/carbon/human)) // swap_hand is a proc of /mob/living, user is simply /mob
+	if(!ishuman(user)) // swap_hand is a proc of /mob/living, user is simply /mob
 		return
 
 	var/mob/living/carbon/human/U = user

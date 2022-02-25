@@ -170,14 +170,13 @@
 		my_gen.turn_on()
 	to_chat(usr, SPAN_NOTICE("<span class='notice'>You set the range to [my_gen.range].</span>"))
 
-/obj/item/remote/cloak_gen/verb/turn_on()
-	set src in view(1)
-	if (!isliving(usr) || !my_gen || my_gen.active) return
-	my_gen.turn_on()
-	to_chat(usr, SPAN_NOTICE("<span class='notice'>You turn the cloaking field generator on.</span>"))
-
-/obj/item/remote/cloak_gen/verb/turn_off()
+/obj/item/remote/cloak_gen/verb/toggle_on()
 	set src in view(1)
 	if (!isliving(usr) || !my_gen || !my_gen.active) return
-	my_gen.turn_off()
-	to_chat(usr, SPAN_NOTICE("<span class='notice'>You turn the cloaking field generator off.</span>"))
+	if(my_gen.active = TRUE)
+		my_gen.turn_off()
+		to_chat(usr, SPAN_NOTICE("<span class='notice'>You turn the cloaking field generator off.</span>"))
+	else
+		my_gen.turn_on()
+		to_chat(usr, SPAN_NOTICE("<span class='notice'>You turn the cloaking field generator on.</span>"))
+
