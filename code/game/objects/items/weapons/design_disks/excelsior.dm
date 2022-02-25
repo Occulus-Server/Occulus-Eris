@@ -19,7 +19,7 @@
 		/datum/design/autolathe/circuit/reconstructor_excelsior,
 		/datum/design/autolathe/circuit/diesel_excelsior,
 		/datum/design/autolathe/circuit/excelsior_boombox,
-		///datum/design/autolathe/circuit/turret_excelsior,
+		///datum/design/autolathe/circuit/turret_excelsior, Occulus Edit
 		/datum/design/autolathe/circuit/autolathe_disk_cloner,
 		/datum/design/research/item/part/basic_capacitor,
 		/datum/design/research/item/part/micro_mani,				//machine parts
