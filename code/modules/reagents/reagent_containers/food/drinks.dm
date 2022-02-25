@@ -28,9 +28,11 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/proc/open(mob/user)
 	playsound(loc, 'sound/effects/canopen.ogg', rand(10,50), 1)
+	icon_state += "_open"
 	to_chat(user, SPAN_NOTICE("You open [src] with an audible pop!"))
 	reagent_flags |= OPENCONTAINER
 	verbs += /obj/item/weapon/reagent_containers/food/drinks/proc/gulp_whole
+	update_icon()
 
 /obj/item/weapon/reagent_containers/food/drinks/attack(mob/M as mob, mob/user as mob, def_zone)
 	if(force && !(flags & NOBLUDGEON) && user.a_intent == I_HURT)
@@ -153,9 +155,9 @@
 /obj/item/weapon/reagent_containers/food/drinks/coffee
 	name = "Robust Coffee"
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
-	icon_state = "cup"
+	icon_state = "coffee"
 	center_of_mass = list("x"=15, "y"=10)
-	base_icon = "cup"
+	base_icon = "coffee"
 	filling_states = "100"
 	preloaded_reagents = list("coffee" = 30)
 
@@ -172,7 +174,7 @@
 	name = "Dutch Hot Coco"
 	desc = "Made in Space South America."
 	icon_state = "hot_coco"
-	item_state = "coffee"
+	item_state = "hot_coco"
 	center_of_mass = list("x"=15, "y"=13)
 	preloaded_reagents = list("hot_coco" = 30)
 
@@ -181,11 +183,19 @@
 	desc = "Just add 10ml water, self heats! A taste that reminds you of your school years."
 	icon_state = "ramen"
 	center_of_mass = list("x"=16, "y"=11)
+	reagent_flags = NONE //starts closed
 	base_icon = "cup"
 	filling_states = "100"
 	preloaded_reagents = list("dry_ramen" = 30)
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 	rarity_value = 15
+
+/obj/item/weapon/reagent_containers/food/drinks/dry_ramen/on_update_icon()
+	if(reagent_flags == OPENCONTAINER)
+		if(reagents && reagents.total_volume)
+			icon_state = "ramen_open"
+		else
+			icon_state = "ramenempty"
 
 /obj/item/weapon/reagent_containers/food/drinks/sillycup
 	name = "paper cup"
@@ -293,12 +303,12 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/mug
 	name = "mug"
-	desc = "A plain white mug."
+	desc = "A plain mug."
 	icon_state = "mug"
-	item_state = "coffee"
+	item_state = "cup_old"
 	volume = 30
 	center_of_mass = "x=15;y=13"
-	filling_states = "40;80;100"
+	filling_states = "100"
 	base_name = "mug"
 	base_icon = "mug"
 
@@ -364,13 +374,10 @@
 /obj/item/weapon/reagent_containers/food/drinks/mug/teacup
 	name = "cup"
 	desc = "A plain white porcelain teacup."
-	icon_state = "teacup"
-	item_state = "coffee"
-	volume = 20
-	center_of_mass = "x=15;y=13"
-	filling_states = "100"
+	icon_state = "_cup"
 	base_name = "cup"
-	base_icon = "teacup"
+	base_icon = "_cup"
+	filling_states = "100"
 
 /obj/item/weapon/reagent_containers/food/drinks/britcup //Delete this when Clockrigger is done with map changes.
 	name = "mug"
@@ -386,12 +393,12 @@
 /obj/item/weapon/reagent_containers/food/drinks/tea
 	name = "cup of tea master item"
 	desc = "A tall plastic cup full of the concept and ideal of tea."
-	icon_state = "cup"
-	item_state = "coffee"
+	icon_state = "tea"
+	item_state = "tea"
 	center_of_mass = "x=16;y=14"
 	filling_states = "100"
-	base_name = "cup"
-	base_icon = "cup"
+	base_name = "tea"
+	base_icon = "tea"
 
 /obj/item/weapon/reagent_containers/food/drinks/tea/black
 	name = "cup of black tea"
