@@ -2,7 +2,7 @@
 #define TURRET_SECONDARY_TARGET 1
 #define TURRET_NOT_TARGET 0
 
-/*
+/* Occulus Edit
 /obj/machinery/porta_turret/excelsior
 	icon = 'icons/obj/machines/excelsior/turret.dmi'
 	desc = "A fully automated anti infantry platform. Fires 7.62mm rounds"
