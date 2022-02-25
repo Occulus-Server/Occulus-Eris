@@ -69,8 +69,8 @@
 		/datum/design/autolathe/ammo/lrifle_ammobox_small/rubber,
 		/datum/design/autolathe/ammo/lrifle,						//AK ammo
 		/datum/design/autolathe/ammo/lrifle/rubber,
-		///datum/design/autolathe/ammo/maxim,							//Maxim ammo
-		///datum/design/autolathe/ammo/maxim/rubber,
+		///datum/design/autolathe/ammo/maxim,							//Maxim ammo Occulus Edit
+		///datum/design/autolathe/ammo/maxim/rubber, Occulus Edit
 		/datum/design/autolathe/ammo/lrifle_ammobox,
 		/datum/design/autolathe/sec/silencer,						//misc
 		/datum/design/autolathe/clothing/excelsior_armor,
