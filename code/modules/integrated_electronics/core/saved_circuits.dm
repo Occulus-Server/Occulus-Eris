@@ -241,9 +241,9 @@
 	var/assembly_path = all_assemblies[assembly_params["type"]]
 	var/obj/item/I = cached_assemblies[assembly_path]
 	var/obj/item/device/electronic_assembly/assembly = I
-	if(istype(I, /obj/item/implant/integrated_circuit))
+/*	if(istype(I, /obj/item/implant/integrated_circuit))
 		var/obj/item/implant/integrated_circuit/implant = I
-		assembly = implant.IC
+		assembly = implant.IC*/
 	if(!assembly)
 		return "Invalid assembly type."
 
@@ -341,9 +341,9 @@
 	var/assembly_path = all_assemblies[assembly_params["type"]]
 	var/obj/item/I = new assembly_path(null)
 	var/obj/item/device/electronic_assembly/assembly = I
-	if(istype(I, /obj/item/implant/integrated_circuit))
-		var/obj/item/implant/integrated_circuit/implant = I
-		assembly = implant.IC
+//	if(istype(I, /obj/item/implant/integrated_circuit))
+//		var/obj/item/implant/integrated_circuit/implant = I
+//		assembly = implant.IC
 	assembly.load(assembly_params)
 
 

@@ -109,14 +109,14 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 /obj/item/integrated_circuit/proc/get_power_cell(atom/movable/AM)
 	var/efficient = 1
-	var/obj/item/cell/small/cell
+	var/obj/item/weapon/cell/small/cell
 	// add below cell getting code from device to get correct cell
 	if(isrobot(AM))
 		var/mob/living/silicon/robot/R = AM
 		efficient = 0.9
 		cell = R.cell
 
-	else if(istype(AM, /obj/item/cell/small))
+	else if(istype(AM, /obj/item/weapon/cell/small))
 		cell = AM
 
 	else if(istype(AM, /obj/machinery/power/apc))
@@ -127,8 +127,8 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		var/obj/machinery/mining/drill/hdrill = AM
 		cell = hdrill.cell
 
-	else if(istype(AM, /obj/item/gun/energy))
-		var/obj/item/gun/energy/WEP = AM
+	else if(istype(AM, /obj/item/weapon/gun/energy))
+		var/obj/item/weapon/gun/energy/WEP = AM
 		cell = WEP.cell
 		efficient = 0.6
 

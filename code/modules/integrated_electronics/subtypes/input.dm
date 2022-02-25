@@ -954,7 +954,7 @@
 	if(!check_then_do_work())
 		return FALSE
 	var/ignore_bags = get_pin_data(IC_INPUT, 1)
-	if(ignore_bags && istype(A, /obj/item/storage))
+	if(ignore_bags && istype(A, /obj/item/weapon/storage))
 		return FALSE
 	set_pin_data(IC_OUTPUT, 1, weakref(A))
 	push_data()
@@ -986,7 +986,7 @@
 	if(!check_then_do_work())
 		return FALSE
 	var/ignore_bags = get_pin_data(IC_INPUT, 1)
-	if(ignore_bags && istype(A, /obj/item/storage))
+	if(ignore_bags && istype(A, /obj/item/weapon/storage))
 		return FALSE
 	set_pin_data(IC_OUTPUT, 1, weakref(A))
 	push_data()
@@ -1083,7 +1083,7 @@
 	set_pin_data(IC_OUTPUT, 3, null)
 	if(AM)
 		var/list/power_cell_list = get_power_cell(AM)
-		var/obj/item/cell/small/C = power_cell_list[1]
+		var/obj/item/weapon/cell/small/C = power_cell_list[1]
 		if(istype(C))
 			var/turf/A = get_turf(src)
 			if(get_turf(AM) in view(A))
@@ -1124,7 +1124,7 @@
 		)
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 40
-	var/list/mtypes = list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_SILVER, MATERIAL_GOLD, MATERIAL_DIAMOND, MATERIAL_PLASMA, MATERIAL_URANIUM, MATERIAL_PLASTEEL, MATERIAL_TITANIUM, MATERIAL_GLASS, MATERIAL_PLASTIC)
+	var/list/mtypes = list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_SILVER, MATERIAL_GOLD, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM, MATERIAL_PLASTEEL, MATERIAL_TITANIUM, MATERIAL_GLASS, MATERIAL_PLASTIC)
 
 /obj/item/integrated_circuit/input/matscan/do_work()
 	var/obj/O = get_pin_data_as_type(IC_INPUT, 1, /obj)
@@ -1167,7 +1167,7 @@
 	)
 
 /obj/item/integrated_circuit/input/data_card_reader/attackby_react(obj/item/I, mob/living/user, intent)
-	var/obj/item/card/data/card = I
+	var/obj/item/weapon/card/data/card = I
 	var/write_mode = get_pin_data(IC_INPUT, 3)
 	if(istype(card))
 		if(write_mode == TRUE)
@@ -1270,8 +1270,8 @@
 	power_draw_per_use = 85
 
 /obj/item/integrated_circuit/input/storage_examiner/do_work()
-	var/obj/item/storage/storage = get_pin_data_as_type(IC_INPUT, 1, /obj/item/storage)
-	if(!istype(storage, /obj/item/storage))
+	var/obj/item/weapon/storage/storage = get_pin_data_as_type(IC_INPUT, 1, /obj/item/weapon/storage)
+	if(!istype(storage, /obj/item/weapon/storage))
 		return
 
 	var/list/inv = storage.return_inv()

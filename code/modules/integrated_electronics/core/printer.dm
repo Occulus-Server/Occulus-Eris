@@ -201,7 +201,7 @@
 
 	HTML += "Identity-lock: "
 	if(idlock)
-		var/obj/item/card/id/id = idlock.resolve()
+		var/obj/item/weapon/card/id/id = idlock.resolve()
 		HTML+= "[id.name] | <A href='?src=\ref[src];id-lock=TRUE'>Reset</a><br>"
 	else
 		HTML += "None | Reset<br>"
@@ -281,9 +281,9 @@
 		else if(ispath(build_type, /obj/item/integrated_circuit))
 			var/obj/item/integrated_circuit/IC = SScircuit.cached_components[build_type]
 			cost = IC.matter
-		else if(ispath(build_type, /obj/item/implant/integrated_circuit))
-			var/obj/item/device/electronic_assembly/implant/E = SScircuit.cached_assemblies[/obj/item/device/electronic_assembly/implant]
-			cost = E.matter
+//		else if(ispath(build_type, /obj/item/implant/integrated_circuit))
+//			var/obj/item/device/electronic_assembly/implant/E = SScircuit.cached_assemblies[/obj/item/device/electronic_assembly/implant]
+//			cost = E.matter
 		else if(!(build_type in SScircuit.circuit_fabricator_recipe_list["Tools"]))
 			log_href_exploit(usr)
 			return
@@ -294,13 +294,13 @@
 		var/obj/item/built = new build_type(get_turf(src))
 		usr.put_in_hands(built)
 
-		if(istype(built, /obj/item/device/electronic_assembly) || istype(built, /obj/item/implant/integrated_circuit))
+		if(istype(built, /obj/item/device/electronic_assembly))// || istype(built, /obj/item/implant/integrated_circuit))
 			var/obj/item/device/electronic_assembly/E
-			if(istype(built, /obj/item/implant/integrated_circuit))
-				var/obj/item/implant/integrated_circuit/IC = built
-				E = IC.IC
-			else
-				E = built
+//			if(istype(built, /obj/item/implant/integrated_circuit))
+//				var/obj/item/implant/integrated_circuit/IC = built
+//				E = IC.IC
+//			else
+			E = built
 			E.creator = key_name(usr)
 			E.opened = TRUE
 			E.update_icon()

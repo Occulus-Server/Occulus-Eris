@@ -1,4 +1,4 @@
-/obj/item/implant/integrated_circuit
+/*/obj/item/implant/integrated_circuit
 	name = "electronic implant"
 	desc = "It's a case, for building electronics with."
 	icon = 'icons/obj/electronic_assemblies.dmi'
@@ -50,3 +50,4 @@
 
 /obj/item/implant/integrated_circuit/hear_talk(mob/M, var/msg, verb, datum/language/speaking, speech_volume)
 	IC.hear_talk(M, msg, speaking, speech_volume = speech_volume)
+*/

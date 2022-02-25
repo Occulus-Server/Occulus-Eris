@@ -295,7 +295,7 @@
 		message_before_tts = "Your antenna reciving signal: "
 	if(ishuman(L))
 		var/mob/living/carbon/human/h = L
-		var/obj/item/implant/core_implant/cruciform/S = h.get_core_implant(/obj/item/implant/core_implant/cruciform)
+		var/obj/item/weapon/implant/core_implant/cruciform/S = h.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 		if(S)
 			message_before_tts = "Your [S] reciving signal: "
 	if(istext(message_before_tts))

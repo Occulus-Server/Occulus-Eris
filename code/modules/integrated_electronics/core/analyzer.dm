@@ -11,9 +11,9 @@
 	var/obj/item/device/electronic_assembly/EA
 	if(istype(A, /obj/item/device/electronic_assembly))
 		EA = A
-	else if(istype(A, /obj/item/implant/integrated_circuit))
-		var/obj/item/implant/integrated_circuit/I = A
-		EA = I.IC
+//
+//		var/obj/item/implant/integrated_circuit/I = A
+//		EA = I.IC
 	else
 		return
 	if(EA.idlock)

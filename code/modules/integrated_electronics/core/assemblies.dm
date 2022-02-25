@@ -13,8 +13,8 @@
 	var/max_components = IC_MAX_SIZE_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
 	var/opened = TRUE
-	var/obj/item/cell/small/battery // Internal cell which most circuits need to work.
-	var/cell_type = /obj/item/cell/small
+	var/obj/item/weapon/cell/small/battery // Internal cell which most circuits need to work.
+	var/cell_type = /obj/item/weapon/cell/small
 	var/can_charge = TRUE //Can it be charged in a recharger?
 	var/can_fire_equipped = FALSE //Can it fire/throw weapons when the assembly is being held?
 	var/charge_sections = 4
@@ -23,7 +23,7 @@
 	var/use_cyborg_cell = TRUE
 	var/ext_next_use = 0
 	var/atom/collw
-	var/obj/item/card/id/access_card
+	var/obj/item/weapon/card/id/access_card
 	var/allowed_circuit_action_flags = IC_ACTION_COMBAT | IC_ACTION_LONG_RANGE //which circuit flags are allowed
 	var/combat_circuits = 0 //number of combat cicuits in the assembly, used for diagnostic hud
 	var/long_range_circuits = 0 //number of long range cicuits in the assembly, used for diagnostic hud
@@ -640,7 +640,7 @@
 	update_icon()
 	return TRUE
 
-/obj/item/device/electronic_assembly/proc/welder_act(mob/living/user, obj/item/tool/weldingtool/I)
+/obj/item/device/electronic_assembly/proc/welder_act(mob/living/user, obj/item/weapon/tool/weldingtool/I)
 	var/type_to_use
 
 	if(!I.is_hot())
@@ -743,7 +743,7 @@
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
 
-	else if(istype(I, /obj/item/cell/small))
+	else if(istype(I, /obj/item/weapon/cell/small))
 		if(!opened)
 			to_chat(user, SPAN_WARNING("[src]'s hatch is closed, so you can't access \the [src]'s power supplier."))
 			for(var/obj/item/integrated_circuit/input/S in assembly_components)
@@ -1154,7 +1154,7 @@
 	bad_type = /obj/item/device/electronic_assembly/implant
 	spawn_frequency = 0
 
-/obj/item/device/electronic_assembly/implant/on_update_icon()
+/*/obj/item/device/electronic_assembly/implant/on_update_icon()
 	..()
 	implant.icon_state = icon_state
 	implant.overlays = overlays
@@ -1166,3 +1166,4 @@
 
 /obj/item/device/electronic_assembly/implant/nano_host()
 	return implant || src // if implant doesn't exist it's bug, but an user will not see difference until he use it to implant :)
+*/

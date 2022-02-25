@@ -69,7 +69,7 @@
 		accepting_refs = FALSE
 
 	else if(copy_id && proximity)
-		if(istype(target,/obj/item/card/id))
+		if(istype(target,/obj/item/weapon/card/id))
 			src.idlock = weakref(target)
 			to_chat(user, SPAN_NOTICE("You set \the [src]'s card memory to [target.name].  The id card scanner is \
 			now off."))

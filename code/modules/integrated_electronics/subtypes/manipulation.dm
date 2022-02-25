@@ -24,7 +24,7 @@
 		"Switch mode"	= IC_PINTYPE_PULSE_IN,
 		"On fired"		= IC_PINTYPE_PULSE_OUT
 	)
-	var/obj/item/gun/energy/installed_gun = null
+	var/obj/item/weapon/gun/energy/installed_gun = null
 	spawn_flags = IC_SPAWN_RESEARCH
 	action_flags = IC_ACTION_COMBAT
 	power_draw_per_use = 0
@@ -37,8 +37,8 @@
 	return ..()
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/gun/energy))
-		var/obj/item/gun/energy/gun = O
+	if(istype(O, /obj/item/weapon/gun/energy))
+		var/obj/item/weapon/gun/energy/gun = O
 		if(installed_gun)
 			to_chat(user, SPAN("warning", "There's already a weapon installed."))
 			return
@@ -146,7 +146,7 @@
 	activators = list("prime grenade" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_RESEARCH
 	action_flags = IC_ACTION_COMBAT
-	var/obj/item/grenade/attached_grenade
+	var/obj/item/weapon/grenade/attached_grenade
 	var/pre_attached_grenade_type
 	demands_object_input = TRUE	// You can put stuff in once the circuit is in assembly,passed down from additem and handled by attackby()
 
@@ -162,7 +162,7 @@
 	detach_grenade()
 	return ..()
 
-/obj/item/integrated_circuit/manipulation/grenade/attackby(obj/item/grenade/G, mob/user)
+/obj/item/integrated_circuit/manipulation/grenade/attackby(obj/item/weapon/grenade/G, mob/user)
 	if(istype(G))
 		if(attached_grenade)
 			to_chat(user, SPAN("warning", "There is already a grenade attached!"))
@@ -191,14 +191,14 @@
 			dt = clamp(detonation_time.data, 1, 12)*10
 		else
 			dt = 15
-		addtimer(CALLBACK(attached_grenade, /obj/item/grenade.proc/activate), dt)
+		addtimer(CALLBACK(attached_grenade, /obj/item/weapon/grenade.proc/activate), dt)
 		var/atom/holder = loc
 		var/atom/A = get_object()
 		A.investigate_log("activated grenade with [src].", INVESTIGATE_CIRCUIT)
 		log_and_message_admins("activated a grenade assembly. Last touches: Assembly: [holder.fingerprintslast] Circuit: [fingerprintslast] Grenade: [attached_grenade.fingerprintslast]")
 
 // These procs do not relocate the grenade, that's the callers responsibility
-/obj/item/integrated_circuit/manipulation/grenade/proc/attach_grenade(obj/item/grenade/G)
+/obj/item/integrated_circuit/manipulation/grenade/proc/attach_grenade(obj/item/weapon/grenade/G)
 	if(istype(G))
 		attached_grenade = G
 		G.forceMove(src)
@@ -307,7 +307,7 @@
 
 /obj/item/integrated_circuit/manipulation/seed_extractor/do_work()
 	..()
-	var/obj/item/reagent_containers/food/snacks/grown/O = get_pin_data_as_type(IC_INPUT, 1, /obj/item/reagent_containers/food/snacks/grown)
+	var/obj/item/weapon/reagent_containers/food/snacks/grown/O = get_pin_data_as_type(IC_INPUT, 1, /obj/item/weapon/reagent_containers/food/snacks/grown)
 	if(!check_target(O))
 		push_data()
 		activate_pin(2)
@@ -361,10 +361,10 @@
 	var/obj/item/I = get_object()
 	var/obj/item/AM = get_pin_data_as_type(IC_INPUT, 1, /obj/item)
 	if(AM && !QDELETED(AM) && !istype(AM, /obj/item/device/electronic_assembly) && \
-	!istype(AM, /obj/item/integrated_circuit) && !istype(AM, /obj/item/device/transfer_valve) && !istype(assembly.loc, /obj/item/implant/compressed) \
+	!istype(AM, /obj/item/integrated_circuit) && !istype(AM, /obj/item/device/transfer_valve) && !istype(assembly.loc, /obj/item/weapon/implant/compressed) \
 	&& isturf(assembly.loc))
-		if(istype(AM, /obj/item/storage))
-			var/obj/item/storage/S = AM
+		if(istype(AM, /obj/item/weapon/storage))
+			var/obj/item/weapon/storage/S = AM
 			for(var/obj/item/device/electronic_assembly/EA in S.return_inv())
 				S.remove_from_storage(EA, get_turf(I))
 		switch(mode)
@@ -531,10 +531,10 @@
 	var/target_y_rel = round(get_pin_data(IC_INPUT, 2))
 	var/obj/item/A = get_pin_data_as_type(IC_INPUT, 3, /obj/item)
 
-	if(!A || A.anchored || A.throwing || A == assembly || istype(A, /obj/item/twohanded) || istype(A, /obj/item/device/transfer_valve))
+	if(!A || A.anchored || A.throwing || A == assembly || istype(A, /obj/item/weapon/twohanded) || istype(A, /obj/item/device/transfer_valve))
 		return
 
-	if(istype(assembly.loc, /obj/item/implant/compressed)) //Prevents the more abusive form of chestgun.
+	if(istype(assembly.loc, /obj/item/weapon/implant/compressed)) //Prevents the more abusive form of chestgun.
 		return
 
 	if(A.w_class > assembly.w_class)
@@ -652,7 +652,7 @@
 	if(distance > 1 || distance < 0)
 		return
 
-	var/obj/item/storage/container = get_pin_data_as_type(IC_INPUT, 2, /obj/item/storage)
+	var/obj/item/weapon/storage/container = get_pin_data_as_type(IC_INPUT, 2, /obj/item/weapon/storage)
 	var/mode = get_pin_data(IC_INPUT, 3)
 	if(assembly && istype(container) && istype(target_obj) && isnum_safe(mode))
 		switch(mode)
@@ -661,7 +661,7 @@
 					return
 
 				// The circuit is smarter than people that does this
-				if(istype(container, /obj/item/storage/backpack/holding) && istype(target_obj, /obj/item/storage/backpack/holding))
+				if(istype(container, /obj/item/weapon/storage/backpack/holding) && istype(target_obj, /obj/item/weapon/storage/backpack/holding))
 					return
 
 				container.handle_item_insertion(target_obj)
