@@ -78,6 +78,8 @@
 #define GUN_UPGRADE_EXPLODE "self destruct"
 #define GUN_UPGRADE_RIGGED "rigged"
 #define GUN_UPGRADE_BAYONET "bayonet"
+#define GUN_UPGRADE_GILDED "gilded"
+#define GUN_UPGRADE_DNALOCK "biocoded"
 
 //Location Tag defines
 
