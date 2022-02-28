@@ -10,6 +10,7 @@
  *
  * The world /New() is the root of where a round itself begins
  */
+
 /world
 	mob = /mob/new_player
 	turf = /turf/space
