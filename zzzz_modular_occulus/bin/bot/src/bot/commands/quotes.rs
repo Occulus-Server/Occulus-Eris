@@ -21,8 +21,11 @@ async fn quote(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
     };
 
     if args.is_empty() {
-        msg.channel_id.say(&ctx.http, "Usage: `add <quote>` to add a quote, or type in keywords to attempt to search for a specific quote. You can also search by user by typing `user <user>`.").await?;
-        return Ok(());
+        if let Some(quote) = db.get_random_quote()?.get(0) {
+            msg.channel_id
+                .say(&ctx.http, quote.process(&ctx.http, msg).await?)
+                .await?;
+        }
     }
 
     let quotes = db.get_quotes(args.rest().to_string())?;

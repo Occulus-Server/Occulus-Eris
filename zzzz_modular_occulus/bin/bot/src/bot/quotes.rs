@@ -120,6 +120,10 @@ impl QuoteDatabase {
         Ok(rows.map(|r| r.unwrap()).collect::<Vec<QuoteResult>>())
     }
 
+    pub fn get_random_quote(&self) -> Result<Vec<QuoteResult>, Error> {
+        self.get_quote_vec("SELECT * FROM quotes ORDER BY RANDOM() LIMIT 1", [])
+    }
+
     pub fn get_quotes(&self, quote_fragment: String) -> Result<Vec<QuoteResult>, Error> {
         self.get_quote_vec(
             "SELECT quote_id, user_id, quote FROM quotes WHERE like(:fragment, quote)",
