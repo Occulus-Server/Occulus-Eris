@@ -31,7 +31,7 @@ impl TypeMapKey for BotUserContainer {
 struct General;
 
 #[group]
-#[commands(spola, sanity, quote)]
+#[commands(spola, sanity, quote, rtd)]
 #[summary = "Fun commands"]
 struct Fun;
 
