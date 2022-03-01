@@ -26,6 +26,8 @@ async fn quote(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
                 .say(&ctx.http, quote.process(&ctx.http, msg).await?)
                 .await?;
         }
+
+        return Ok(());
     }
 
     let quotes = db.get_quotes(args.rest().to_string())?;
