@@ -61,7 +61,7 @@ async fn rtd(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
         let mut out = String::new();
 
         // don't wanna spam an entire channel with usize::MAX dice now, do we?
-        if die_count < 32 {
+        if die_count < 11 {
             for (die, res) in res.iter() {
                 out.push_str(&format!("Die {}: {}\n", die, res));
             }
