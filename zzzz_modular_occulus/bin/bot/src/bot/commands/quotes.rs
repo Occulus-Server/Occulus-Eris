@@ -23,7 +23,7 @@ async fn quote(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
     if args.is_empty() {
         if let Some(quote) = db.get_random_quote()?.get(0) {
             msg.channel_id
-                .say(&ctx.http, quote.process(&ctx.http, msg).await?)
+                .say(&ctx.http, quote.process(&ctx.http, &msg.guild_id).await?)
                 .await?;
         }
 
@@ -40,7 +40,7 @@ async fn quote(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
         let quote = quotes.choose(&mut rng).unwrap();
 
         msg.channel_id
-            .say(&ctx.http, quote.process(&ctx.http, msg).await?)
+            .say(&ctx.http, quote.process(&ctx.http, &msg.guild_id).await?)
             .await?;
     }
 
@@ -86,7 +86,7 @@ async fn user(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
         let quote = quotes.choose(&mut rng).unwrap();
 
         msg.channel_id
-            .say(&ctx.http, quote.process(&ctx.http, msg).await?)
+            .say(&ctx.http, quote.process(&ctx.http, &msg.guild_id).await?)
             .await?;
     }
 
