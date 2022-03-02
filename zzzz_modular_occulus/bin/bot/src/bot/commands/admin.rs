@@ -7,6 +7,7 @@ use std::sync::Arc;
 
 #[command]
 #[description = "Add a task to this specific channel. A certain task can only be active once in the entire guild."]
+#[only_in(guilds)]
 #[allowed_roles("Webmin")]
 async fn add_task(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult {
     let task = match args.current() {
@@ -30,6 +31,7 @@ async fn add_task(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult
 
 #[command]
 #[description = "Removes a task from active use."]
+#[only_in(guilds)]
 #[allowed_roles("Webmin")]
 async fn remove_task(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
     let task = match args.current() {
