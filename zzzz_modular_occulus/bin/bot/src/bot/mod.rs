@@ -41,7 +41,8 @@ struct Fun;
     set_notification_channel,
     set_notification_group,
     set_primary_guild,
-    add_task
+    add_task,
+    remove_task
 )]
 #[summary = "Webmin commands"]
 struct Webmin;
