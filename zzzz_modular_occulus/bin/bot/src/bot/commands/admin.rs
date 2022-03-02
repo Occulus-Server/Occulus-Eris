@@ -1,4 +1,4 @@
-use super::tasks::add_task as add_task_internal;
+use super::tasks::{add_task as add_task_internal, remove_task as remove_task_internal};
 use super::util::{get_settings, set_settings};
 use serenity::framework::standard::{macros::command, Args, CommandResult};
 use serenity::model::prelude::*;
@@ -7,6 +7,7 @@ use std::sync::Arc;
 
 #[command]
 #[description = "Add a task to this specific channel. A certain task can only be active once in the entire guild."]
+#[allowed_roles("Webmin")]
 async fn add_task(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult {
     let task = match args.current() {
         Some(task) => task.to_string(),
@@ -19,6 +20,26 @@ async fn add_task(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult
     let delay: usize = args.parse()?;
 
     add_task_internal(ctx, task.clone(), *msg.channel_id.as_u64(), delay).await?;
+
+    msg.channel_id
+        .say(&ctx.http, format!("Added task {}.", task))
+        .await?;
+
+    Ok(())
+}
+
+#[command]
+#[description = "Removes a task from active use."]
+#[allowed_roles("Webmin")]
+async fn remove_task(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult {
+    let task = match args.current() {
+        Some(task) => task.to_string(),
+        None => {
+            return Err("Malformed arguments.".into());
+        }
+    };
+
+    remove_task_internal(ctx, task.clone()).await?;
 
     msg.channel_id
         .say(&ctx.http, format!("Added task {}.", task))

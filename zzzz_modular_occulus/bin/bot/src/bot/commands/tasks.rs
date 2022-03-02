@@ -41,3 +41,35 @@ pub async fn add_task(
 
     Ok(())
 }
+
+pub async fn remove_task(ctx: &Context, handler: String) -> Result<(), Error> {
+    let tasks = {
+        ctx.data
+            .read()
+            .await
+            .get::<TaskScheduler>()
+            .unwrap()
+            .clone()
+    };
+
+    if tasks.is_active(&handler).await {
+        let mut settings = get_settings(ctx).await?;
+        let settings_mut = Arc::make_mut(&mut settings);
+
+        let mut index = None;
+        for task in settings_mut.active_tasks.iter().enumerate() {
+            if task.1.handler == handler {
+                index = Some(task.0);
+            }
+        }
+
+        if let Some(i) = index {
+            let task = settings_mut.active_tasks.remove(i);
+            tasks.stop_task(&task.handler).await;
+
+            set_settings(ctx, Arc::new(settings_mut.clone())).await?;
+        }
+    }
+
+    Ok(())
+}

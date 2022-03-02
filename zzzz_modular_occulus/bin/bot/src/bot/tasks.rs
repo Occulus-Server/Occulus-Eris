@@ -1,5 +1,5 @@
 use super::{quotes::QuoteDatabase, Settings};
-use futures_util::future::BoxFuture;
+use futures_util::future::{AbortHandle, Abortable, BoxFuture};
 use serde::{Deserialize, Serialize};
 use serenity::{
     http::client::Http,
@@ -45,7 +45,7 @@ pub struct TaskScheduler {
     tasks: Arc<TaskStorage>,
     discord_http: Arc<Http>,
     bot_data: Arc<RwLock<TypeMap>>,
-    active_tasks: Arc<RwLock<HashSet<String>>>,
+    active_tasks: Arc<RwLock<HashMap<String, AbortHandle>>>,
 }
 
 impl TypeMapKey for TaskScheduler {
@@ -82,7 +82,7 @@ impl TaskScheduler {
             tasks,
             discord_http,
             bot_data,
-            active_tasks: Arc::new(RwLock::new(HashSet::new())),
+            active_tasks: Arc::new(RwLock::new(HashMap::new())),
         }
     }
 
@@ -92,13 +92,17 @@ impl TaskScheduler {
         }
     }
 
+    pub async fn is_active(&self, handler: &String) -> bool {
+        self.active_tasks.read().await.contains_key(handler)
+    }
+
     pub async fn start_task(&self, handler: &String) {
         info!("starting task {} now", handler);
         if let Some(settings) = self.bot_data.read().await.get::<Settings>() {
             for task in &settings.active_tasks {
                 if handler == &task.handler {
                     {
-                        if self.active_tasks.read().await.contains(handler) {
+                        if self.active_tasks.read().await.contains_key(handler) {
                             info!("task {} was in active tasks", handler);
                             return;
                         }
@@ -106,17 +110,27 @@ impl TaskScheduler {
 
                     if let Some(func) = self.tasks.tasks.get(handler) {
                         let delay = Duration::from_secs(task.delay_secs as u64);
-                        Self::spawn_inner(
+                        let handle = Self::spawn_inner(
                             self.discord_http.clone(),
                             self.bot_data.clone(),
                             *func,
                             task.clone(),
                             delay,
                         );
-                        self.active_tasks.write().await.insert(handler.clone());
+                        self.active_tasks
+                            .write()
+                            .await
+                            .insert(handler.clone(), handle);
                     }
                 }
             }
+        }
+    }
+
+    pub async fn stop_task(&self, handler: &String) {
+        info!("stopping task {} now", handler);
+        if let Some(handle) = self.active_tasks.write().await.remove(handler) {
+            handle.abort();
         }
     }
 
@@ -126,14 +140,20 @@ impl TaskScheduler {
         func: TaskHandler,
         info: TaskInfo,
         delay: Duration,
-    ) {
+    ) -> AbortHandle {
+        let (handle, reg) = AbortHandle::new_pair();
         info!("spawning tokio task now");
-        tokio::spawn(async move {
-            loop {
-                tokio::time::sleep(delay).await;
-                func(info.clone(), http.clone(), data.clone()).await;
-            }
-        });
+        tokio::spawn(Abortable::new(
+            async move {
+                loop {
+                    tokio::time::sleep(delay).await;
+                    func(info.clone(), http.clone(), data.clone()).await;
+                }
+            },
+            reg,
+        ));
+
+        handle
     }
 }
 
