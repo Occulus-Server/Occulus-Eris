@@ -31,7 +31,7 @@ async fn add_task(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult
 #[command]
 #[description = "Removes a task from active use."]
 #[allowed_roles("Webmin")]
-async fn remove_task(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult {
+async fn remove_task(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
     let task = match args.current() {
         Some(task) => task.to_string(),
         None => {
@@ -42,7 +42,7 @@ async fn remove_task(ctx: &Context, msg: &Message, mut args: Args) -> CommandRes
     remove_task_internal(ctx, task.clone()).await?;
 
     msg.channel_id
-        .say(&ctx.http, format!("Added task {}.", task))
+        .say(&ctx.http, format!("Removed task {}.", task))
         .await?;
 
     Ok(())
