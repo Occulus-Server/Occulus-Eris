@@ -9,8 +9,9 @@
 
 	event_type = /datum/event/siren_scan
 	event_pools = list(EVENT_LEVEL_MODERATE = POOL_THRESHOLD_MODERATE)
-
-	tags = list(TAG_SCARY, TAG_COMMUNAL)
+	req_crew = 6
+	max_crew_diff_lower = 3
+	tags = list(TAG_SCARY, TAG_COMMUNAL, TAG_COMBAT)
 
 
 
@@ -25,8 +26,6 @@
 	var/postStartTicks 		= 0
 	var/list/spawnLists
 	var/list/used_candidates = list()
-    req_crew = 6
-    max_crew_diff_lower = 3
 	var/siren_anger
 
 /datum/event/siren_scan/announce()

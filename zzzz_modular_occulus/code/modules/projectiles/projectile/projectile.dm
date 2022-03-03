@@ -20,3 +20,13 @@
 /obj/item/projectile/plasma/blast
 	name = "plasma blast"
 	icon_state = "pulse1_bl"
+	pass_flags = PASSGRILLE
+
+/obj/item/projectile/beam/siren
+	name = "energy beam"
+	icon_state = "laser"
+	agony = 30
+	damage_types = list(BURN = 10)
+	muzzle_type = /obj/effect/projectile/laser/muzzle
+	tracer_type = /obj/effect/projectile/laser/tracer
+	impact_type = /obj/effect/projectile/laser/impact

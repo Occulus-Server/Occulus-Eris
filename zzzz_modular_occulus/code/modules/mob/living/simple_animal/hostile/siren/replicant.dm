@@ -239,6 +239,7 @@
 	mouse_opacity = 2
 	move_to_delay = 0
 	friendly = "buzzes near"
+	pass_flags = PASSTABLE | PASSGRILLE
 	vision_range = 10
 	speed = 3
 	maxHealth = 35
