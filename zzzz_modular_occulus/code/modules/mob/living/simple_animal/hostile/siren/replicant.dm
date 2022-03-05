@@ -91,7 +91,6 @@
 	return FALSE
 
 /mob/living/simple_animal/hostile/siren/bullet_act(obj/item/projectile/P, def_zone)
-	..()
 	if(shieldcharge >= 1)
 		visible_message(SPAN_DANGER("\The [src] repells \the [P] with it's shield!"))
 
@@ -103,8 +102,7 @@
 		updateicon()
 		chargerate = world.time + chargedelay
 		return PROJECTILE_FORCE_MISS
-
-
+	..()
 ////////////////////////
 ////	Replicant
 ////
