@@ -49,6 +49,9 @@ It will also bring a hoard of roaches with it.
 		failure = TRUE
 
 /datum/event/kaiser/start()
+	if(prob(1))			// occulus kaiserin start edit
+		spawn_kaiserin()
+		return			// occulus kaiserin end edit
 	spawn_mobs()
 
 /datum/event/kaiser/proc/spawn_mobs()

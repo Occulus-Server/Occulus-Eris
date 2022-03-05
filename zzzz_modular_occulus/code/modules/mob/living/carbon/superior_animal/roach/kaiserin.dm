@@ -98,3 +98,23 @@
 		if(counter < 1)
 			counter = 16
 		shoot_projectile(start_turf, counter * 22.5)
+
+/datum/event/kaiser/proc/spawn_kaiserin()
+	new /mob/living/carbon/superior_animal/roach/kaiser/kaiserin(enter_burrow)
+	for(var/R in kaiser_rutinue)
+		new R(enter_burrow)
+
+	var/list/floors = list()
+	for(var/turf/simulated/floor/F in dview(2, exit_burrow.loc))
+		if(!F.is_wall && !F.is_hole)
+			floors.Add(F)
+
+	var/i = floors.len
+	for(i, i>0, i--)
+		var/obj/structure/scrap_spawner/scrap = pick(reward)
+		var/turf/simulated/floor/floor = pick(floors)
+		new scrap(floor)
+		floors.Remove(floor) // To avoid multiple scrap piles on one tile
+
+	enter_burrow.migrate_to(exit_burrow, 1, 0)
+	log_and_message_admins("Sending Kaiserin to [jumplink(exit_burrow)]")
