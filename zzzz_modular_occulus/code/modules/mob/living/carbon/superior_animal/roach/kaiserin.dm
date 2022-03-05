@@ -22,6 +22,7 @@
 
 
 	wander = FALSE //No more sleepwalking
+	projectilesound = 'zzzz_modular_occulus/sound/weapons/guns/fire/minigun_fire.ogg'
 	projectiletype = /obj/item/projectile/bullet/srifle/nomuzzle
 
 
@@ -52,11 +53,15 @@
 /mob/living/carbon/superior_animal/roach/kaiser/kaiserin/OpenFire()
 	ranged_cooldown = world.time + 120
 	if(prob(50))
+		visible_message(SPAN_DANGER(" [src] minigun turret starts to spin up!"))
+		spawn(5)
 		visible_message(SPAN_DANGER(" [src] minigun turret fires a hail of bullets around it!"))
 		spiral_shoot()
 		move_to_delay = initial(move_to_delay)
 		return
 	else
+		visible_message(SPAN_DANGER(" [src] minigun turret starts to spin up!"))
+		spawn(5)
 		visible_message(SPAN_DANGER(" [src] minigun turret unleashes a torrent of bullets in front of it!"))
 		wave_shots()
 		move_to_delay = initial(move_to_delay)
@@ -78,6 +83,7 @@
 		return
 	var/turf/startloc = get_turf(src)
 	var/obj/item/projectile/P = new projectiletype(startloc)
+	playsound(usr, projectilesound, 100, 1)
 	P.firer = src
 	if(target_mob)
 		P.original = target_mob
