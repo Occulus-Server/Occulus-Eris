@@ -9,17 +9,17 @@
 
 	event_type = /datum/event/siren_scan
 	event_pools = list(EVENT_LEVEL_MODERATE = POOL_THRESHOLD_MODERATE)
-	req_crew = 6
+	req_crew = 8
 	max_crew_diff_lower = 3
 	tags = list(TAG_SCARY, TAG_COMMUNAL, TAG_COMBAT)
 
 
 
 /datum/event/siren_scan	//The siren calls
-	var/const/enterBelt		= 20
+	var/const/enterBelt		= 40
 	var/const/scanInterval 	= 5
-	var/const/leaveBelt		= 60
-	var/const/revokeAccess	= 70
+	var/const/leaveBelt		= 80
+	var/const/revokeAccess	= 90
 	startWhen				= 2
 	announceWhen			= 1
 	endWhen					= revokeAccess
@@ -82,11 +82,22 @@
 		siren_anger--
 
 /datum/event/siren_scan/proc/SpawnSirenPod(atom/origin)
-	var/list/spawnTypes = pick_n_take(spawnLists)
-	for(var/type in spawnTypes)
+	var/list/spawnTypes = pick_n_take(spawnLists)	//picking random mob out of the siren pod list
+	var/attempts = 5	//attempts to spawn number
+	spawnattempt		//loop node
+	if(attempts > 0)		//Attempts have no failed for the target, keep going!
 		var/turf/picked = get_random_secure_turf_in_range(origin, 10, 7)
-		type = pick(spawnTypes)
-		new type(picked)
+		if(/mob/living/carbon/human in view(6, picked))
+			attempts--
+			goto(spawnattempt)    //effort to prevent mob from spawning atop another player
+		for(var/type in spawnTypes)//spawn mobs from list till list is empty
+			type = pick_n_take(spawnTypes)
+			var/spawnloc = get_random_secure_turf_in_range(picked, 3, 0)
+			do_sparks(3, 0, spawnloc)
+			new type(spawnloc)
+	if(attempts == 0)	//refunds the point because it failed to spawn anything
+		siren_anger++
+		return
 
 /datum/event/siren_scan/end()
 	used_candidates = list()

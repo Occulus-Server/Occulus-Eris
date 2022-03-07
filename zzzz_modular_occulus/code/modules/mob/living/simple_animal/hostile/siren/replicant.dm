@@ -72,15 +72,6 @@
 		else
 			walk_to(src, target_mob, minimum_distance, move_to_delay)//Otherwise, get to our minimum distance so we chase them
 		return
-
-	if(target_mob.loc && get_dist(src, target_mob.loc) <= vision_range)//We can't see our target, but he's in our vision range still
-		if(environment_smash && FindHidden(target_mob))//Check if he tried to hide in something to lose us
-			var/atom/A = target_mob.loc
-			walk_to(src, A, move_to_delay, minimum_distance)
-			if(A.Adjacent(src))
-				A.attack_generic(src)
-			return
-
 	LostTarget()
 
 /mob/living/simple_animal/hostile/siren/proc/FindHidden(var/atom/hidden_target)	//THERE IS NO ESCAPE

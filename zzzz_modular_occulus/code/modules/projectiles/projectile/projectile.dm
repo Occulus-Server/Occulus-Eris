@@ -13,7 +13,7 @@
 
 
 /obj/item/projectile/plasma/blast/on_hit(atom/target)
-	explosion(target, 0, 1, 2, 1)
+	explosion(target, 0, 0, 2, 1)
 	set_light(0)
 	return TRUE
 
@@ -21,6 +21,7 @@
 	name = "plasma blast"
 	icon_state = "pulse1_bl"
 	pass_flags = PASSGRILLE
+	step_delay = 2
 
 /obj/item/projectile/beam/siren
 	name = "energy beam"

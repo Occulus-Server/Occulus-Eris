@@ -22,6 +22,7 @@
 	fire_verb = "fires a bolt strange energy" //reminder that the attack message is "\red <b>[src]</b> [fire_verb] at [target]!"
 	projectiletype = /obj/item/projectile/beam/siren
 	var/atom/tele_target
+	var/structure_capacity = 6
 	var/loot_table = list(/obj/spawner/material/building,
 						/obj/spawner/tool_upgrade/rare,
 						/obj/spawner/material/resources/rare)
@@ -41,7 +42,7 @@
 /mob/living/simple_animal/hostile/siren/conservator/Life()
 	..()
 	if(stance == HOSTILE_STANCE_IDLE)
-		if(prob(30))
+		if(prob(20) && (structure_capacity >= 1))
 			if(!(locate(/obj/item/weapon/shocktrap) in get_turf(src)) && !(locate(/obj/structure/sirencade) in get_turf(src)))
 				src.visible_message(SPAN_NOTICE("\The [src] begins to construct some sort of energy structure."))
 				stop_automated_movement = 1
@@ -49,7 +50,8 @@
 				spawn(40)
 					var/list/conservatorconstruct = list(/obj/item/weapon/shocktrap, /obj/structure/sirencade)
 					var/chosen = safepick(conservatorconstruct)
-						new chosen(src.loc)
+					new chosen(src.loc)
+					structure_capacity--
 					stop_automated_movement = 0
 
 /obj/item/weapon/shocktrap
@@ -68,7 +70,7 @@
 	var/last_armed
 
 /obj/item/weapon/shocktrap/Crossed(AM as mob|obj)
-	if(isliving(AM))
+	if(ishuman(AM))
 		if(world.time > cooldown_timer)
 			shock(AM, FALSE)
 			visible_message(SPAN_DANGER("The energetic latch pulses violently!"))
