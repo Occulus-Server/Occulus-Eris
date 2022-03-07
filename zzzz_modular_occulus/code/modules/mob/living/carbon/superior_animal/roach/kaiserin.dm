@@ -1,6 +1,6 @@
 /mob/living/carbon/superior_animal/roach/kaiser/kaiserin
 	name = "Kaiserin Roach"
-	desc = "The empress her self. A weapon to surpass metal gear."
+	desc = "The empress herself. A weapon to surpass metal gear."
 	icon = 'zzzz_modular_occulus/icons/mob/kaiserin.dmi'
 	icon_state = "kaiserin_roach"
 	icon_living = "kaiserin_roach"
@@ -24,31 +24,6 @@
 	wander = FALSE //No more sleepwalking
 	projectilesound = 'zzzz_modular_occulus/sound/weapons/guns/fire/minigun_fire.ogg'
 	projectiletype = /obj/item/projectile/bullet/srifle/nomuzzle
-
-
-
-/mob/living/carbon/superior_animal/roach/kaiser/kaiserin/handle_ai()
-	if(!..())
-		return FALSE
-
-	if(can_call_reinforcements())
-		new /obj/spawner/mob/roaches/cluster(get_turf(src)) //Occulus Edit: More. More. More
-		distress_call()
-
-	gas_sac.add_reagent("blattedin", 1)
-	if(prob(7))
-		gas_attack()
-
-	if(target_mob && prob(5) && nanite_swarms.len < max_swarms)//Occulus Edit Start - Kaiser Nanites
-		var/sound/screech = pick('sound/machines/robots/robot_talk_light1.ogg','sound/machines/robots/robot_talk_light2.ogg','sound/machines/robots/robot_talk_heavy4.ogg')
-		playsound(src, screech, 30, 1, -3)
-		nanite_swarms.Add(new /mob/living/simple_animal/hostile/naniteswarm(get_turf(src), src))
-		nanite_swarms.Add(new /mob/living/simple_animal/hostile/naniteswarm(get_turf(src), src))
-		nanite_swarms.Add(new /mob/living/simple_animal/hostile/naniteswarm(get_turf(src), src))
-		nanite_swarms.Add(new /mob/living/simple_animal/hostile/naniteswarm(get_turf(src), src))
-		nanite_swarms.Add(new /mob/living/simple_animal/hostile/naniteswarm(get_turf(src), src))
-		say("01000001 01110100 01110100 01100001 01100011 01101011 00100001")
-
 
 /mob/living/carbon/superior_animal/roach/kaiser/kaiserin/OpenFire()
 	ranged_cooldown = world.time + 120
@@ -104,23 +79,3 @@
 		if(counter < 1)
 			counter = 16
 		shoot_projectile(start_turf, counter * 22.5)
-
-/datum/event/kaiser/proc/spawn_kaiserin()
-	new /mob/living/carbon/superior_animal/roach/kaiser/kaiserin(enter_burrow)
-	for(var/R in kaiser_rutinue)
-		new R(enter_burrow)
-
-	var/list/floors = list()
-	for(var/turf/simulated/floor/F in dview(2, exit_burrow.loc))
-		if(!F.is_wall && !F.is_hole)
-			floors.Add(F)
-
-	var/i = floors.len
-	for(i, i>0, i--)
-		var/obj/structure/scrap_spawner/scrap = pick(reward)
-		var/turf/simulated/floor/floor = pick(floors)
-		new scrap(floor)
-		floors.Remove(floor) // To avoid multiple scrap piles on one tile
-
-	enter_burrow.migrate_to(exit_burrow, 1, 0)
-	log_and_message_admins("Sending Kaiserin to [jumplink(exit_burrow)]")
