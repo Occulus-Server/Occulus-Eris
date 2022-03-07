@@ -10,6 +10,7 @@
 	event_type = /datum/event/siren_scan
 	event_pools = list(EVENT_LEVEL_MODERATE = POOL_THRESHOLD_MODERATE)
 	req_crew = 8
+	weight = 0.5
 	max_crew_diff_lower = 3
 	tags = list(TAG_SCARY, TAG_COMMUNAL, TAG_COMBAT)
 
@@ -43,7 +44,6 @@
 /datum/event/siren_scan/start()
 	SSweather.run_weather(/datum/weather/siren_scan)
 	runThisOnEventStartup()
-	weight = 0.5
 	siren_anger = rand(2, 4)
 
 /datum/event/siren_scan/tick()
