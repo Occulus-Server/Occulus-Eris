@@ -43,6 +43,7 @@
 /datum/event/siren_scan/start()
 	SSweather.run_weather(/datum/weather/siren_scan)
 	runThisOnEventStartup()
+	weight = 0.5
 	siren_anger = rand(2, 4)
 
 /datum/event/siren_scan/tick()
