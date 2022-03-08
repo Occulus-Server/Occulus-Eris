@@ -1,6 +1,7 @@
 /datum/technology/basic_nonlethal
 	unlocks_designs = list(	/datum/design/research/item/flash,
-							/datum/design/research/item/holochip/warrant)
+							/datum/design/research/item/holochip/warrant,
+							/datum/design/research/item/rubberfrag)
 
 
 /datum/technology/combatholochips

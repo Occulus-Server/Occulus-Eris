@@ -30,5 +30,3 @@
 	build_path = /obj/item/weapon/grenade/frag/rubber
 	category = CAT_WEAPON
 
-/datum/technology/basic_nonlethal	//modular override to add stinger grenades to the basic nonlethal node
-	unlocks_designs = list(/datum/design/research/item/flash, /datum/design/research/item/rubberfrag)

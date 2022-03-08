@@ -42,14 +42,18 @@
 	product_ads = "The healthiest!;Award-winning chocolate bars!;Mmm! So good!;Oh my god it's so juicy!;Have a snack.;Snacks are good for you!;Have some more. Getmore!;Best quality snacks straight from mars.;We love chocolate!;Try our new jerky!;We are legally required to disclose that we are under investigation by the Solarian Federal Bureau of Labor Protection."
 	icon_state = "snack"
 	vendor_department = DEPARTMENT_CIVILIAN
-	products = list(/obj/item/weapon/reagent_containers/food/snacks/candy = 6,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 6,/obj/item/weapon/reagent_containers/food/snacks/chips =6,
+	products = list(/obj/item/weapon/reagent_containers/food/snacks/shokoloud = 6,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 6,/obj/item/weapon/reagent_containers/food/snacks/chips =6,
 					/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 6,/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 6,/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 6,
 					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 6, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 6)
-	contraband = list(/obj/item/weapon/reagent_containers/food/snacks/syndicake = 8, /obj/item/weapon/storage/ration_pack = 1)
-	prices = list(/obj/item/weapon/reagent_containers/food/snacks/candy = 60,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 80,/obj/item/weapon/reagent_containers/food/snacks/chips = 70,
+
+	contraband = list(/obj/item/weapon/reagent_containers/food/snacks/wok = 8, /obj/item/weapon/storage/ration_pack = 1)
+
+	premium = list(/obj/item/weapon/reagent_containers/food/snacks/syndicake = 2)
+
+	prices = list(/obj/item/weapon/reagent_containers/food/snacks/shokoloud = 60,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 80,/obj/item/weapon/reagent_containers/food/snacks/chips = 70,
 					/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 75,/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 80,/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 60,
 					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 90, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 100,
-					/obj/item/weapon/reagent_containers/food/snacks/syndicake = 80, /obj/item/weapon/storage/ration_pack = 500)
+					/obj/item/weapon/reagent_containers/food/snacks/wok = 80, /obj/item/weapon/storage/ration_pack = 500)
 
 /obj/machinery/vending/cola
 	products = list(/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
@@ -272,11 +276,11 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 200,
 		/obj/item/stack/medical/advanced/ointment = 200,
 		/obj/item/stack/nanopaste = 1000,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin = 100, 
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin = 100,
 		/obj/item/weapon/reagent_containers/syringe/antitoxin = 200,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine = 150, 
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine = 150,
 		/obj/item/weapon/reagent_containers/syringe/tricordrazine = 300,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin = 100, 
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin = 100,
 		/obj/item/weapon/reagent_containers/syringe/spaceacillin = 200,
 		/obj/item/weapon/implantcase/death_alarm = 500,
 		/obj/item/weapon/implanter = 50,
@@ -337,17 +341,17 @@
 					/obj/item/weapon/cell/medium/hyper = 3,
 					/obj/item/weapon/cell/small/hyper = 3
 					)
-	prices = list(/obj/item/weapon/cell/large = 500, 
-					/obj/item/weapon/cell/large/high = 700, 
-					/obj/item/weapon/cell/medium = 300, 
-					/obj/item/weapon/cell/medium/high = 400, 
-					/obj/item/weapon/cell/small = 100, 
+	prices = list(/obj/item/weapon/cell/large = 500,
+					/obj/item/weapon/cell/large/high = 700,
+					/obj/item/weapon/cell/medium = 300,
+					/obj/item/weapon/cell/medium/high = 400,
+					/obj/item/weapon/cell/small = 100,
 					/obj/item/weapon/cell/small/high = 200,
-					/obj/item/weapon/cell/large/super = 1200, 
-					/obj/item/weapon/cell/medium/super = 700, 
-					/obj/item/weapon/cell/small/super = 350, 
-					/obj/item/weapon/cell/large/hyper = 1700, 
-					/obj/item/weapon/cell/medium/hyper = 1000, 
+					/obj/item/weapon/cell/large/super = 1200,
+					/obj/item/weapon/cell/medium/super = 700,
+					/obj/item/weapon/cell/small/super = 350,
+					/obj/item/weapon/cell/large/hyper = 1700,
+					/obj/item/weapon/cell/medium/hyper = 1000,
 					/obj/item/weapon/cell/small/hyper = 500
 					)
 
@@ -357,8 +361,8 @@
 	premium = list(
 					/obj/item/weapon/storage/belt/utility/neotheology = 3,
 					/obj/item/weapon/storage/belt/tactical/neotheology = 3)
-	prices = list(/obj/item/weapon/book/ritual/cruciform = 500, 
-					/obj/item/weapon/storage/fancy/candle_box = 200, 
+	prices = list(/obj/item/weapon/book/ritual/cruciform = 500,
+					/obj/item/weapon/storage/fancy/candle_box = 200,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors = 250,
 					/obj/item/weapon/implant/core_implant/cruciform = 1000,
 					/obj/item/weapon/storage/belt/utility/neotheology = 150,

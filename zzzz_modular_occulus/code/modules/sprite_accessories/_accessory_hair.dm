@@ -1,11 +1,10 @@
 /*
 ///////////////////////////////
 /  =-----------------------=  /
-/  =Syzygy Hair Definitions=  /
+/  =Occulus Hair Definitions=  /
 /  =-----------------------=  /
 ///////////////////////////////
 
-~Let the snow fall~
 */
 
 
@@ -132,3 +131,22 @@
 	name = "Teshari Fluffy Mohawk"
 	icon = 'zzzz_modular_occulus/icons/mob/jamini-hair.dmi'
 	icon_state = "teshari_fluffymohawk_s"
+
+//Should fix coloration for vulp facial hair. Yes vulp have special facial hair. THESE SHOULD PROBABLY BE MARKINGS
+
+/datum/sprite_accessory/facial_hair/vulp_blaze
+	blend = ICON_MULTIPLY
+/datum/sprite_accessory/facial_hair/vulp_vulpine
+	blend = ICON_MULTIPLY
+/datum/sprite_accessory/facial_hair/vulp_earfluff
+	blend = ICON_MULTIPLY
+/datum/sprite_accessory/facial_hair/vulp_mask
+	blend = ICON_MULTIPLY
+/datum/sprite_accessory/facial_hair/vulp_patch
+	blend = ICON_MULTIPLY
+/datum/sprite_accessory/facial_hair/vulp_ruff
+	blend = ICON_MULTIPLY
+/datum/sprite_accessory/facial_hair/vulp_kita
+	blend = ICON_MULTIPLY
+/datum/sprite_accessory/facial_hair/vulp_swift
+	blend = ICON_MULTIPLY
