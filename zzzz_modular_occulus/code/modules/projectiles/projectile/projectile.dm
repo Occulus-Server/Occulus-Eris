@@ -13,10 +13,21 @@
 
 
 /obj/item/projectile/plasma/blast/on_hit(atom/target)
-	explosion(target, 0, 1, 2, 1)
+	explosion(target, 0, 0, 2, 1)
 	set_light(0)
 	return TRUE
 
 /obj/item/projectile/plasma/blast
 	name = "plasma blast"
 	icon_state = "pulse1_bl"
+	pass_flags = PASSGRILLE
+	step_delay = 2
+
+/obj/item/projectile/beam/siren
+	name = "energy beam"
+	icon_state = "laser"
+	agony = 30
+	damage_types = list(BURN = 10)
+	muzzle_type = /obj/effect/projectile/laser/muzzle
+	tracer_type = /obj/effect/projectile/laser/tracer
+	impact_type = /obj/effect/projectile/laser/impact

@@ -20,6 +20,7 @@
 	maxshieldcharge = 10
 	shieldcharge = 10
 	maxHealth = 50
+	mob_bomb_defense = 25
 	health = 50
 	harm_intent_damage = 5
 	attacktext = "lashes out at"
