@@ -80,3 +80,15 @@
 #define isstructure(A) (istype(A, /obj/structure))
 
 #define ismachinery(A) (istype(A, /obj/machinery))
+
+#define isWrench(A) istype(A, /obj/item/weapon/tool/wrench)
+
+#define isWelder(A) istype(A, /obj/item/weapon/tool/weldingtool)
+
+#define isWirecutter(A) istype(A, /obj/item/weapon/tool/wirecutters)
+
+#define isScrewdriver(A) istype(A, /obj/item/weapon/tool/screwdriver)
+
+#define isMultitool(A) istype(A, /obj/item/weapon/tool/multitool)
+
+#define isCrowbar(A) istype(A, /obj/item/weapon/tool/crowbar)

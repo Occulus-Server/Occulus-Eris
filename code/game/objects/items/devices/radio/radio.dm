@@ -52,7 +52,7 @@ var/global/list/default_medbay_channels = list(
 	var/syndie = 0//Holder to see if it's a syndicate encrypted radio
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
-	
+
 	//Eclipse-added vars
 	var/freqlock = FALSE		//Eclipse Edit: Should we lock the frequency to prevent people from changing the channel?
 
@@ -72,7 +72,7 @@ var/global/list/default_medbay_channels = list(
 	if(syndie)
 		internal_channels += unique_internal_channels.Copy()
 	add_hearing()
-	
+
 	//eclipse addition
 	if(audible_squelch_enabled)		//if it's disabled, should stay as null.ogg. Prevents it from playing squelch in the event another if-check fails.
 		audible_squelch_type = pick(all_radio_squelch_sounds)		//radios get a semi-unique radio squelch sound. granted, there's four sounds total, but if one radio receives it should maintain the same squelch sound all the time.
@@ -319,6 +319,7 @@ var/global/list/default_medbay_channels = list(
 
 	var/turf/position = get_turf(src)
 
+
 	//#### Tagging the signal with all appropriate identity values ####//
 
 	// ||-- The mob's name identity --||
@@ -331,6 +332,7 @@ var/global/list/default_medbay_channels = list(
 
 
 	var/jobname // the mob's "job"
+
 
 	// --- Human: use their actual job ---
 	if (ishuman(M))
@@ -411,6 +413,11 @@ var/global/list/default_medbay_channels = list(
 		signal.frequency = connection.frequency // Quick frequency set
 
 	  //#### Sending the signal to all subspace receivers ####//
+		var/list/jamming = is_jammed(src)	//Occulus edit start- Jammer code
+		if(jamming)
+			var/distance = jamming["distance"]
+			to_chat(M, "<span class='danger'> You hear the [distance <= 2 ? "loud hiss" : "soft hiss"] of static.</span>")
+			return FALSE	//occulus edit end- Jammer code
 
 		for(var/obj/machinery/telecomms/receiver/R in telecomms_list)
 			R.receive_signal(signal)
@@ -517,6 +524,8 @@ var/global/list/default_medbay_channels = list(
 		return -1
 	if(!listening)
 		return -1
+	if(is_jammed(src))	//occulus edit
+		return -1		//occulus edit
 	if(!(0 in level))
 		var/turf/position = get_turf(src)
 		if(!position || !(position.z in level))

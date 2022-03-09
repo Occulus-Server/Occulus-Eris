@@ -28,6 +28,8 @@
 		list(mode_name="fire one barrel at a time", burst=1, icon="semi"),
 		list(mode_name="fire both barrels at once", burst=2, icon="burst"),
 		)
+	saw_off = TRUE
+	sawn = /obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn
 
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
@@ -82,19 +84,3 @@
 	if(!bolt_open)
 		return
 	..()
-
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(QUALITY_SAWING in A.tool_qualities)
-		to_chat(user, SPAN_NOTICE("You begin to shorten the barrel of \the [src]."))
-		if(loaded.len)
-			for(var/i in 1 to max_shells)
-				afterattack(user, user)	//will this work? //it will. we call it twice, for twice the FUN
-				playsound(user, fire_sound, 50, 1)
-			user.visible_message(SPAN_DANGER("The shotgun goes off!"), SPAN_DANGER("The shotgun goes off in your face!"))
-			return
-		if(A.use_tool(user, src, WORKTIME_FAST, QUALITY_SAWING, FAILCHANCE_NORMAL, required_stat = STAT_COG))
-			qdel(src)
-			new /obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn(usr.loc)
-			to_chat(user, SPAN_WARNING("You shorten the barrel of \the [src]!"))
-	else
-		..()

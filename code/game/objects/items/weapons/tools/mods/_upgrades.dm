@@ -19,6 +19,8 @@
 	var/destroy_on_removal = FALSE
 	//The upgrade can be applied to a tool that has any of these qualities
 	var/list/required_qualities = list()
+	var/removable = TRUE
+	var/breakable = TRUE //Some mods meant to be tamper-resistant and should be removed only in a hard way
 
 	//The upgrade can not be applied to a tool that has any of these qualities
 	var/list/negative_qualities = list()
@@ -323,6 +325,17 @@
 	if(weapon_upgrades[GUN_UPGRADE_ONEHANDPENALTY])
 		G.one_hand_penalty *= weapon_upgrades[GUN_UPGRADE_ONEHANDPENALTY]
 
+	if(weapon_upgrades[GUN_UPGRADE_DNALOCK])
+		G.dna_compare_samples = TRUE
+		if(G.dna_lock_sample == "not_set")
+			G.dna_lock_sample = usr.real_name
+
+	if(G.dna_compare_samples == FALSE)
+		G.dna_lock_sample = "not_set"
+
+	if(G.dna_lock_sample == "not_set") //that may look stupid, but without it previous two lines won't trigger on DNALOCK removal.
+		G.dna_compare_samples = FALSE
+	
 	if(!isnull(weapon_upgrades[GUN_UPGRADE_FORCESAFETY]))
 		G.restrict_safety = TRUE
 		G.safety = weapon_upgrades[GUN_UPGRADE_FORCESAFETY]
@@ -491,6 +504,9 @@
 			to_chat(user, SPAN_WARNING("Disables the safety toggle of the weapon."))
 		else if(weapon_upgrades[GUN_UPGRADE_FORCESAFETY] == 1)
 			to_chat(user, SPAN_WARNING("Forces the safety toggle of the weapon to always be on."))
+		
+		if(weapon_upgrades[GUN_UPGRADE_DNALOCK] == 1)
+			to_chat(user, SPAN_WARNING("Adds a biometric scanner to the weapon."))
 
 		if(weapon_upgrades[GUN_UPGRADE_CHARGECOST])
 			var/amount = weapon_upgrades[GUN_UPGRADE_CHARGECOST]
@@ -604,6 +620,27 @@
 				upgrade_loc.refresh_upgrades()
 				user.update_action_buttons()
 				return 1
+			else
+				//You failed the check, lets see what happens
+				if(IU.breakable == FALSE)
+					to_chat(user, SPAN_DANGER("You failed to remove \the [toremove]."))
+					upgrade_loc.refresh_upgrades()
+					user.update_action_buttons()
+				else if(prob(50))
+					//50% chance to break the upgrade and remove it
+					to_chat(user, SPAN_DANGER("You successfully remove \the [toremove], but destroy it in the process."))
+					SEND_SIGNAL(toremove, COMSIG_REMOVE, parent)
+					QDEL_NULL(toremove)
+					upgrade_loc.refresh_upgrades()
+					user.update_action_buttons()
+					return 1
+				else if(T && T.degradation) //Because robot tools are unbreakable
+					//otherwise, damage the host tool a bit, and give you another try
+					to_chat(user, SPAN_DANGER("You only managed to damage \the [upgrade_loc], but you can retry."))
+					T.adjustToolHealth(-(5 * T.degradation), user) // inflicting 4 times use damage
+					upgrade_loc.refresh_upgrades()
+					user.update_action_buttons()
+					return 1
 	return 0
 
 /obj/item/weapon/tool_upgrade

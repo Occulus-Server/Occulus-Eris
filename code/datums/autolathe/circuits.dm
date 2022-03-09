@@ -93,9 +93,9 @@
 	name = "excelsior long-range teleporter"
 	build_path = /obj/item/weapon/electronics/circuitboard/excelsior_teleporter
 
-/datum/design/autolathe/circuit/turret_excelsior
-	name = "excelsior turret"
-	build_path = /obj/item/weapon/electronics/circuitboard/excelsior_turret
+///datum/design/autolathe/circuit/turret_excelsior Occulus Edit
+//	name = "excelsior turret" Occulus Edit
+//	build_path = /obj/item/weapon/electronics/circuitboard/excelsior_turret Occulus Edit
 
 /datum/design/autolathe/circuit/autolathe_excelsior
 	name = "excelsior autolathe"
