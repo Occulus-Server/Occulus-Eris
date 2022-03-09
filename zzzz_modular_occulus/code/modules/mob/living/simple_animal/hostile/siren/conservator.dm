@@ -186,8 +186,3 @@
 			health -= 25
 			if(health <= 0)
 				visible_message(SPAN_DANGER("\The [src] is blown apart!"))
-
-#undef SPINNING_WEB
-#undef LAYING_EGGS
-#undef MOVING_TO_TARGET
-#undef SPINNING_COCOON
