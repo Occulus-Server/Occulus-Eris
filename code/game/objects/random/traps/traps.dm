@@ -16,6 +16,8 @@
 		else if(can_spawn_trap(loc, trap))
 			continue
 		possible_traps -= trap
+	if(possible_traps.len == 0)//Occulus edit - fixing CI on wire fix
+		possible_traps += /obj/item/weapon/beartrap //Occulus edit - fixing CI on wire fix
 	return possible_traps
 
 /obj/spawner/traps/low_chance
