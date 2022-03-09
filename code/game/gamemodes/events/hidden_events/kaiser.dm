@@ -52,7 +52,12 @@ It will also bring a hoard of roaches with it.
 	spawn_mobs()
 
 /datum/event/kaiser/proc/spawn_mobs()
-	new /mob/living/carbon/superior_animal/roach/kaiser(enter_burrow)
+	var/spawnedroach
+	if(prob(1))
+		spawnedroach = /mob/living/carbon/superior_animal/roach/kaiser/kaiserin
+	else
+		spawnedroach = /mob/living/carbon/superior_animal/roach/kaiser
+	new spawnedroach(enter_burrow)
 	for(var/R in kaiser_rutinue)
 		new R(enter_burrow)
 
