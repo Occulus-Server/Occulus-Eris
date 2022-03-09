@@ -290,6 +290,11 @@
 	item_flags = THICKMATERIAL | COVER_PREVENT_MANIPULATION
 	price_tag = 150
 	rarity_value = 25
+	matter = list(
+		MATERIAL_STEEL = 6, // more covered by helmet
+		MATERIAL_PLASTEEL = 2,
+		MATERIAL_GLASS = 6,
+	)
 
 /obj/item/clothing/head/armor/faceshield/Initialize()
 	. = ..()

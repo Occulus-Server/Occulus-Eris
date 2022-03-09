@@ -16,9 +16,14 @@
 	var/mob/M = owner.wearer
 	var/area/t = get_area(M)
 	var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
+	for(var/obj/item/device/radio_jammer/jammer in view(M))
+		if(jammer.on == TRUE)
+			a.autosay("[M.real_name] [fail_message]", "[M.real_name]'s [name]")
+			return
 	a.autosay("[M.real_name] [squawk_message] [t.name]!", "[M.real_name]'s [name]")
 	qdel(a)
 	active = FALSE
+
 	if(!activates)	// Is this something we have to trigger manually?
 		uninstall()	// If not, lets assume this is a single-use automatic death alarm.
 
@@ -54,6 +59,7 @@
 	cooldown_delay = 120 SECONDS
 	uses_energy = TRUE
 	energy_cost = 50
+	can_activate_while_incapacitated = FALSE	//No more  unconscious heads of staff helpmainting
 
 /datum/soulcrypt_module/squawk/help_maint/stat_text()
 	return "Trigger Emergency Beacon"
