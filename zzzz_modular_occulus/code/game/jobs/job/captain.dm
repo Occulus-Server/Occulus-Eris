@@ -28,7 +28,7 @@
 	supervisors = "the first officer and captain"
 	selection_color = "#ddddff"
 	wage = WAGE_LABOUR
-	alt_titles = list("Helmsman", "Communications Officer")
+	alt_titles = list("Helmsman", "Communications Officer","UTSM Observer")
 	perks = list(/datum/perk/sommelier)
 	ideal_character_age = 30
 
@@ -61,7 +61,7 @@ Should the worst occur, defend your ship, post, and commanders with your life."
 
 	access = list(
 		access_maint_tunnels, access_heads, access_RC_announce, access_sec_doors, access_tcomsat,
-		access_moebius, access_tech_storage, access_teleporter
+		access_moebius, access_tech_storage, access_teleporter, access_bar, access_kitchen, access_engine
 	)
 
 	stat_modifiers = list(
