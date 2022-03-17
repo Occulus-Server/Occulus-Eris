@@ -3,11 +3,12 @@ mod files;
 mod framework;
 pub mod quotes;
 mod rpc;
+mod tasks;
 
 use commands::{admin::*, general::*, quotes::*, rand::*};
 use serenity::{
     framework::standard::{macros::group, StandardFramework},
-    model::user::CurrentUser,
+    model::{id::GuildId, user::CurrentUser},
     prelude::*,
 };
 use std::sync::Arc;
@@ -31,12 +32,18 @@ impl TypeMapKey for BotUserContainer {
 struct General;
 
 #[group]
-#[commands(spola, sanity, quote)]
+#[commands(spola, sanity, quote, rtd)]
 #[summary = "Fun commands"]
 struct Fun;
 
 #[group]
-#[commands(set_notification_channel, set_notification_group)]
+#[commands(
+    set_notification_channel,
+    set_notification_group,
+    set_primary_guild,
+    add_task,
+    remove_task
+)]
 #[summary = "Webmin commands"]
 struct Webmin;
 
@@ -78,6 +85,14 @@ pub async fn new(mut settings_reader: impl std::io::Read) -> Result<Client, Erro
     .await;
     let messages = Arc::new(files::RandomMessages::load());
     let quotedb = Arc::new(quotes::QuoteDatabase::open()?);
+    let tasks = Arc::new(tasks::TaskStorage::new());
+    let task_scheduler = Arc::new(tasks::TaskScheduler::new(
+        tasks.clone(),
+        discord_client.cache_and_http.http.clone(),
+        discord_client.data.clone(),
+    ));
+
+    task_scheduler.start_all().await;
 
     {
         let user = Arc::new(
@@ -93,6 +108,8 @@ pub async fn new(mut settings_reader: impl std::io::Read) -> Result<Client, Erro
         data.insert::<files::RandomMessages>(messages);
         data.insert::<quotes::QuoteDatabase>(quotedb);
         data.insert::<BotUserContainer>(user);
+        data.insert::<tasks::TaskStorage>(tasks);
+        data.insert::<tasks::TaskScheduler>(task_scheduler);
     }
 
     Ok(discord_client)
@@ -126,6 +143,13 @@ pub struct Settings {
     pub notification_channel: u64,
     pub notification_group: u64,
 
+    // this is public as well, since we need a guild
+    // id for all tasks to use: primitive implementation,
+    // but this is only really meant for a single server
+    // to use so *shrug?*
+    pub primary_guild: u64,
+    pub active_tasks: Vec<tasks::TaskInfo>,
+
     token: String,
     bot_port: u16,
     dream_daemon_port: u16,
@@ -137,6 +161,8 @@ impl Default for Settings {
             bot_name: "roachbot".to_string(),
             notification_channel: 0,
             notification_group: 0,
+            primary_guild: 0,
+            active_tasks: Vec::new(),
             token: "REPLACE_ME".to_string(),
             bot_port: 3621,
             dream_daemon_port: 0,

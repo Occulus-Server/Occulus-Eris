@@ -768,8 +768,9 @@ dependencies = [
 
 [[package]]
 name = "occulus-discord-bot"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
+ "futures-util",
  "jsonrpc-core",
  "jsonrpc-derive",
  "jsonrpc-tcp-server",

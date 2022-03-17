@@ -4,7 +4,10 @@ use r2d2_sqlite::rusqlite::{Connection, OptionalExtension, Params};
 use r2d2_sqlite::SqliteConnectionManager;
 use serenity::{
     http::client::Http,
-    model::{channel::Message, id::UserId},
+    model::{
+        channel::Message,
+        id::{GuildId, UserId},
+    },
     prelude::TypeMapKey,
 };
 use std::fmt;
@@ -27,10 +30,10 @@ impl fmt::Debug for QuoteResult {
 }
 
 impl QuoteResult {
-    pub async fn process(&self, http: &Http, msg: &Message) -> Result<String, Error> {
+    pub async fn process(&self, http: &Http, guild_id: &Option<GuildId>) -> Result<String, Error> {
         let user: String;
 
-        if let Some(id) = msg.guild_id {
+        if let Some(id) = guild_id {
             if let Ok(m) = id.member(&http, self.user_id).await {
                 user = m.nick.unwrap_or(m.user.name);
             } else {
@@ -118,6 +121,10 @@ impl QuoteDatabase {
         })?;
 
         Ok(rows.map(|r| r.unwrap()).collect::<Vec<QuoteResult>>())
+    }
+
+    pub fn get_random_quote(&self) -> Result<Vec<QuoteResult>, Error> {
+        self.get_quote_vec("SELECT * FROM quotes ORDER BY RANDOM() LIMIT 1", [])
     }
 
     pub fn get_quotes(&self, quote_fragment: String) -> Result<Vec<QuoteResult>, Error> {
