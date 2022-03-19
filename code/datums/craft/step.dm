@@ -152,6 +152,10 @@
 			return
 
 	else if(reqed_quality)
+		if (!(istype(I, /obj/item)))//Occulus Edit Sanity checking for a bug. If we get a turf passed in here, just exit cleanly
+			to_chat(user, SPAN_WARNING("Something bad happened, Work aborted"))
+			building = FALSE
+			return//End Occulus Edit
 		var/q = I.get_tool_quality(reqed_quality)
 		if(!q)
 			to_chat(user, SPAN_WARNING("Wrong type of tool. You need a tool with [reqed_quality] quality"))
