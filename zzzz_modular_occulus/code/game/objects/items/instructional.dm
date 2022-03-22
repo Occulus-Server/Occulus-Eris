@@ -30,7 +30,7 @@
 	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_BIO = 1)
 	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_BIO
-	spawn_blacklisted = TRUE
+	bad_type = /obj/item/weapon/oddity/instructional/common/bio
 
 /obj/item/weapon/oddity/instructional/common/bio/pamphlet
 	name = "Medical Instructional Pamphlet"
@@ -55,7 +55,7 @@
 	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_COG = 1)
 	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_COG
-	spawn_blacklisted = TRUE
+	bad_type = /obj/item/weapon/oddity/instructional/common/cog
 
 /obj/item/weapon/oddity/instructional/common/cog/book
 	name = "Theorems on Entrope and Rhinemann Manifolds in Non-Euclidian Space"
@@ -80,7 +80,7 @@
 	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_MEC = 1)
 	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_MEC
-	spawn_blacklisted = TRUE
+	bad_type = /obj/item/weapon/oddity/instructional/common/mec
 
 /obj/item/weapon/oddity/instructional/common/mec/pamphlet
 	name = "Screwdriving Monthly"
@@ -110,7 +110,7 @@
 	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_ROB = 1)
 	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_ROB
-	spawn_blacklisted = TRUE
+	bad_type = /obj/item/weapon/oddity/instructional/common/rob
 
 /obj/item/weapon/oddity/instructional/common/rob/aegis
 	name = "Aegis Hand-to-Hand Combat Manual"
@@ -135,7 +135,7 @@
 	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_TGH = 1)
 	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_TGH
-	spawn_blacklisted = TRUE
+	bad_type = /obj/item/weapon/oddity/instructional/common/tgh
 
 /obj/item/weapon/oddity/instructional/common/tgh/slip
 	name = "Steadying Yourself"
@@ -160,7 +160,7 @@
 	icon_state = "instructional_debug"
 	oddity_stats = list(STAT_VIG = 1)
 	spawn_tags = SPAWN_TAG_INSTRUCTIONAL_VIG
-	spawn_blacklisted = TRUE
+	bad_type = /obj/item/weapon/oddity/instructional/common/vig
 
 /obj/item/weapon/oddity/instructional/common/vig/ross
 	name = "Happy Little Accidents"
