@@ -109,3 +109,12 @@
 	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob_fem.dmi'
 	icon_state = "ees"
 	item_state = "ees"
+
+/obj/item/clothing/under/maid
+	name = "maid costume"
+	desc = "Feather duster not inclided."
+	icon = 'zzzz_modular_occulus/icons/inventory/uniform/maid.dmi'
+	icon_state = "maid"
+	item_state = "maid"
+	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob_fem.dmi'
