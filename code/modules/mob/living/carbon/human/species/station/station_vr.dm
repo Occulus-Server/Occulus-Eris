@@ -347,4 +347,4 @@
 
 
 /datum/species/human/vatgrown
-	spawn_flags = SPECIES_IS_RESTRICTED
+	spawn_flags = CAN_JOIN //Occulus Hotfix
