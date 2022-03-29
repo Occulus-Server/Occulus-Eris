@@ -1,5 +1,5 @@
 /datum/job/scientist
-	alt_titles = list("Xenobiologist", "Xenoflorist", "Research Intern", "Anomalist", "Xenoarchologist")
+	alt_titles = list("Xenobiologist", "Xenoflorist", "Research Intern", "Anomalist", "Xenoarchologist", "Federal Scientist")
 	stat_modifiers = list(
 		STAT_MEC = 20,
 		STAT_COG = 20,
