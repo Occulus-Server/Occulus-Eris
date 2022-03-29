@@ -3,45 +3,45 @@
 	var/target_name
 
 	var/global/possible_items[] = list(
-		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
-		"a hand teleporter" = /obj/item/weapon/hand_tele,
-		"an RCD" = /obj/item/weapon/rcd,
-		"a jetpack" = /obj/item/weapon/tank/jetpack,
+		"the captain's antique laser gun" = /obj/item/gun/energy/captain,
+		"a hand teleporter" = /obj/item/hand_tele,
+		"an RCD" = /obj/item/rcd,
+		"a jetpack" = /obj/item/tank/jetpack,
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/device/aicard,
-		"the Chief Engineer's advanced voidsuit control module" = /obj/item/weapon/rig/ce,
+		"the Chief Engineer's advanced voidsuit control module" = /obj/item/rig/ce,
 		"the ship blueprints" = /obj/item/blueprints,
-		"28 moles of phoron (full tank)" = /obj/item/weapon/tank,
+		"28 moles of phoron (full tank)" = /obj/item/tank,
 		"a sample of slime extract" = /obj/item/slime_extract,
-		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
+		"a piece of corgi meat" = /obj/item/reagent_containers/food/snacks/meat/corgi,
 		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
 		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant,
 		"a Chief Medical Officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
 		"a Cobalt Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
 		"a Head of Personnel's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
-		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
-		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
+		"the hypospray" = /obj/item/reagent_containers/hypospray,
+		"the captain's pinpointer" = /obj/item/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"a Cobalt Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer,
+		"a Cobalt Aegis hardsuit control module" = /obj/item/rig/combat/ironhammer,
 		"a Lazarus Carbon Reclaimer" = /obj/item/biosyphon,
-		"a S REV .35 Auto \"Sky Driver\"" = /obj/item/weapon/gun/projectile/revolver/sky_driver,
+		"a S REV .35 Auto \"Sky Driver\"" = /obj/item/gun/projectile/revolver/sky_driver,
 		"Von-Krabin Stimulator" = /obj/item/device/von_krabin,
-		"Molitor-Riedel Enricher" = /obj/item/weapon/reagent_containers/enricher,
-		"an Ancient Maneki Neko" = /obj/item/weapon/maneki_neko,
-		"a Reality Complicator" = /obj/item/weapon/complicator,
+		"Molitor-Riedel Enricher" = /obj/item/reagent_containers/enricher,
+		"an Ancient Maneki Neko" = /obj/item/maneki_neko,
+		"a Reality Complicator" = /obj/item/complicator,
 		"a Techno-Tribalism Enforcer" = /obj/item/device/techno_tribalism,
 		"an Random wave radio" = /obj/item/device/radio/random_radio,
-		"the Sword of Truth" = /obj/item/weapon/tool/sword/nt_sword,
+		"the Sword of Truth" = /obj/item/tool/sword/nt_sword,
 		"the Last Shelter" = /obj/item/device/last_shelter,
-		"an Atomic Distillery" = /obj/item/weapon/reagent_containers/atomic_distillery,
-		"the Laurelin bonsai" = /obj/item/weapon/reagent_containers/bonsai
+		"an Atomic Distillery" = /obj/item/reagent_containers/atomic_distillery,
+		"the Laurelin bonsai" = /obj/item/reagent_containers/bonsai
 	)
 
 	var/global/possible_items_special[] = list(
-		"nuclear gun" = /obj/item/weapon/gun/energy/gun/nuclear,
-		"diamond drill" = /obj/item/weapon/tool/pickaxe/diamonddrill,
-		"bag of holding" = /obj/item/weapon/storage/backpack/holding,
-		"hyper-capacity cell" = /obj/item/weapon/cell/large/hyper,
+		"nuclear gun" = /obj/item/gun/energy/gun/nuclear,
+		"diamond drill" = /obj/item/tool/pickaxe/diamonddrill,
+		"bag of holding" = /obj/item/storage/backpack/holding,
+		"hyper-capacity cell" = /obj/item/cell/large/hyper,
 		"10 diamonds" = /obj/item/stack/material/diamond,
 		"50 gold bars" = /obj/item/stack/material/gold,
 		"25 refined uranium bars" = /obj/item/stack/material/uranium,
@@ -89,12 +89,12 @@
 			return found_amount >= target_amount
 
 		if("50 coins (in bag)")
-			var/obj/item/weapon/moneybag/B = locate() in all_items
+			var/obj/item/moneybag/B = locate() in all_items
 
 			if(B)
 				var/target = text2num(target_name)
 				var/found_amount = 0.0
-				for(var/obj/item/weapon/coin/C in B)
+				for(var/obj/item/coin/C in B)
 					found_amount++
 				return found_amount>=target
 

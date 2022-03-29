@@ -1,7 +1,7 @@
-/obj/item/weapon/gun
+/obj/item/gun
 	var/knockback_change = 0 //allows the switching between boolean knockbacks - to-do: rewrite knockback
 
-/obj/item/weapon/gun/ui_data(mob/user)
+/obj/item/gun/ui_data(mob/user)
 	var/list/data = list()
 	data["damage_multiplier"] = damage_multiplier
 	data["pierce_multiplier"] = pierce_multiplier
@@ -42,7 +42,7 @@
 
 	return data
 
-/obj/item/weapon/gun/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+/obj/item/gun/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(!user || !target) return
 
 	if(world.time < next_fire_time)

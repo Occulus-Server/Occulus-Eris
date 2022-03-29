@@ -11,7 +11,7 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 500
 	density = 1
-	circuit = /obj/item/weapon/electronics/circuitboard/telesci_relay
+	circuit = /obj/item/electronics/circuitboard/telesci_relay
 	var/pathfinding_speed = 20
 	var/crystal_degradation_chance = 10 // Percent
 
@@ -19,10 +19,10 @@
 	var/obj/item/bluespace_crystal/stored_crystal = null
 
 /obj/machinery/telesci_relay/RefreshParts()
-	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
+	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		crystal_degradation_chance = max(BASE_DEGRADATION_CHANCE - COMPONENT_RATING_MULTIPLIER * M.rating, 0)
-	
-	for(var/obj/item/weapon/stock_parts/micro_laser/L in component_parts)
+
+	for(var/obj/item/stock_parts/micro_laser/L in component_parts)
 		pathfinding_speed = max(BASE_PATHFINDING_SPEED - COMPONENT_RATING_MULTIPLIER * L.rating, 0)
 
 /obj/machinery/telesci_relay/attackby(obj/item/I, mob/user, params)

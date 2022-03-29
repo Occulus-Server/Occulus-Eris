@@ -257,11 +257,11 @@
 /area/template_noop)
 "xb" = (
 /obj/structure/table/onestar,
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/food/drinks/drinkingglass{
 	pixel_x = -5;
 	pixel_y = 2
 	},
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/food/drinks/drinkingglass{
 	pixel_x = 5;
 	pixel_y = 2
 	},
@@ -277,7 +277,7 @@
 "zo" = (
 /obj/structure/table/onestar,
 <<<<<<< HEAD
-/obj/item/weapon/deck/cards,
+/obj/item/deck/cards,
 /turf/simulated/floor/dirt,
 =======
 /obj/item/deck/cards,
@@ -327,7 +327,7 @@
 /area/template_noop)
 "DP" = (
 <<<<<<< HEAD
-/obj/item/weapon/beach_ball/holoball,
+/obj/item/beach_ball/holoball,
 /turf/simulated/floor/dirt,
 =======
 /obj/item/beach_ball/holoball,

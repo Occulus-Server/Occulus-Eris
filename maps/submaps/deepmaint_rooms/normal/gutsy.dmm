@@ -1,0 +1,849 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aG" = (
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/deepmaint)
+"bd" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"bC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"cx" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"cJ" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"cX" = (
+/obj/structure/table/standard,
+/obj/machinery/door/window/westleft{
+	dir = 2;
+	req_access = list(23)
+	},
+/obj/machinery/door/window/westleft{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/deepmaint)
+"dg" = (
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -22
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"eI" = (
+/obj/effect/window_lwall_spawn/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"eL" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering";
+	req_access = list(10)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"fM" = (
+/obj/machinery/alarm{
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"iD" = (
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"jh" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering";
+	req_access = list(10)
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"lx" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"lN" = (
+/obj/machinery/nanite_reconstitution_apparatus/loaded,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"lP" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"mT" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"nr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/turf/simulated/wall,
+/area/deepmaint)
+"on" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering";
+	req_access = list(10)
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"pD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"qb" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/deepmaint)
+"qh" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"qO" = (
+/obj/structure/closet/crate,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/item/craft_frame/guns,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"qV" = (
+/obj/machinery/autolathe/loaded,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"ra" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/camera/network/engineering{
+	dir = 4
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "North APC";
+	pixel_y = 28
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"rJ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering";
+	req_access = list(10)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"sq" = (
+/obj/effect/window_lwall_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/deepmaint)
+"sZ" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"tL" = (
+/obj/structure/closet/crate,
+/obj/machinery/camera/network/engineering,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/spawner/gun_parts,
+/obj/item/craft_frame/guns,
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"vV" = (
+/obj/structure/multiz/ladder/up,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"wO" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering";
+	req_access = list(10)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"yj" = (
+/obj/structure/table/standard,
+/obj/item/stack/material/plastic{
+	amount = 120
+	},
+/obj/item/stack/material/plastic{
+	amount = 120
+	},
+/obj/item/stack/material/glass{
+	amount = 120
+	},
+/obj/item/stack/material/glass{
+	amount = 120
+	},
+/obj/item/stack/material/glass{
+	amount = 120
+	},
+/obj/item/stack/material/glass{
+	amount = 120
+	},
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/deepmaint)
+"Aj" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/camera/network/engineering{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"Bp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"BF" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"BG" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"Cu" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"CG" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"CP" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"CW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"Ed" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"GQ" = (
+/obj/structure/table/standard,
+/obj/machinery/smartfridge/disks,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/deepmaint)
+"Hq" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering";
+	req_access = list(10)
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"KY" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"Lr" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Tech Storage";
+	req_access = list(23)
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/deepmaint)
+"LM" = (
+/obj/structure/table/standard,
+/obj/item/stack/material/glass/reinforced{
+	amount = 50;
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/stack/material/plasteel{
+	amount = 50
+	},
+/obj/item/stack/material/plasteel{
+	amount = 50
+	},
+/obj/item/stack/material/steel{
+	amount = 120
+	},
+/obj/item/stack/material/steel{
+	amount = 120
+	},
+/obj/item/stack/material/steel{
+	amount = 120
+	},
+/obj/item/stack/material/steel{
+	amount = 120
+	},
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/deepmaint)
+"Mi" = (
+/obj/structure/closet/crate,
+/obj/item/electronics/airlock{
+	pixel_x = 2;
+	pixel_y = -5
+	},
+/obj/item/electronics/airlock{
+	pixel_x = 2;
+	pixel_y = -5
+	},
+/obj/item/electronics/airlock{
+	pixel_x = 2;
+	pixel_y = -5
+	},
+/obj/item/electronics/airlock{
+	pixel_x = 2;
+	pixel_y = -5
+	},
+/obj/item/electronics/airlock{
+	pixel_x = 2;
+	pixel_y = -5
+	},
+/obj/item/electronics/airlock{
+	pixel_x = 2;
+	pixel_y = -5
+	},
+/obj/item/electronics/airlock{
+	pixel_x = 2;
+	pixel_y = -5
+	},
+/obj/item/electronics/airlock{
+	pixel_x = 2;
+	pixel_y = -5
+	},
+/obj/item/electronics/circuitboard/autolathe,
+/obj/item/electronics/firealarm,
+/obj/item/electronics/firealarm,
+/obj/item/electronics/firealarm,
+/obj/item/electronics/firealarm,
+/obj/item/electronics/firealarm,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"MA" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/deepmaint)
+"NE" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"On" = (
+/obj/effect/window_lwall_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"Ox" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"OO" = (
+/obj/structure/closet/crate,
+/obj/spawner/powercell,
+/obj/spawner/powercell,
+/obj/spawner/powercell,
+/obj/spawner/powercell,
+/obj/spawner/powercell,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"PZ" = (
+/obj/item/modular_computer/console/preset/engineering/alarms{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"Qo" = (
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/deepmaint)
+"Ra" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"Rc" = (
+/obj/structure/cable/green{
+	d1 = 16;
+	d2 = 0;
+	icon_state = "16-0"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
+/obj/machinery/atmospherics/pipe/zpipe/up/supply,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 27
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"RD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"RT" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"SG" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"Vb" = (
+/turf/simulated/wall,
+/area/deepmaint)
+"Vi" = (
+/turf/simulated/wall/r_wall,
+/area/deepmaint)
+"Wk" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"WG" = (
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "East APC";
+	pixel_x = 28
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/deepmaint)
+"Xq" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"Xu" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"YY" = (
+/obj/structure/table/standard,
+/obj/item/computer_hardware/hard_drive/portable/design/tools,
+/obj/item/computer_hardware/hard_drive/portable/design/adv_tools,
+/obj/item/computer_hardware/hard_drive/portable/design/circuits,
+/obj/item/computer_hardware/hard_drive/portable/design/devices,
+/obj/item/computer_hardware/hard_drive/portable/design/misc,
+/obj/item/computer_hardware/hard_drive/portable/design/robustcells,
+/obj/item/computer_hardware/hard_drive/portable/design/components,
+/obj/item/computer_hardware/hard_drive/portable/design/conveyors,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/deepmaint)
+"Zt" = (
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
+"ZL" = (
+/obj/structure/closet/crate/radiation,
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/deepmaint)
+
+(1,1,1) = {"
+aG
+Qo
+Qo
+Qo
+Qo
+Qo
+WG
+Qo
+MA
+aG
+aG
+"}
+(2,1,1) = {"
+Vi
+Vi
+Vi
+Vi
+Vi
+Vi
+Vi
+on
+Hq
+Vi
+Vi
+"}
+(3,1,1) = {"
+iD
+wO
+Zt
+Zt
+Zt
+dg
+Xq
+Ra
+CG
+Vb
+Vb
+"}
+(4,1,1) = {"
+sZ
+eL
+Aj
+CP
+cx
+cx
+lP
+BF
+cJ
+jh
+lx
+"}
+(5,1,1) = {"
+RT
+Vb
+Vb
+Lr
+Vb
+Vb
+Vb
+vV
+Xu
+on
+Zt
+"}
+(6,1,1) = {"
+KY
+Vb
+ra
+SG
+Bp
+lN
+Vb
+Rc
+Cu
+Vb
+Vb
+"}
+(7,1,1) = {"
+iD
+On
+Mi
+pD
+CW
+qV
+Vb
+on
+rJ
+Vb
+Vb
+"}
+(8,1,1) = {"
+iD
+cX
+Ox
+RD
+YY
+GQ
+Vb
+BG
+qh
+ZL
+Vb
+"}
+(9,1,1) = {"
+iD
+sq
+PZ
+bd
+qb
+LM
+Vb
+mT
+Wk
+ZL
+Vb
+"}
+(10,1,1) = {"
+Ed
+eI
+OO
+tL
+qO
+yj
+Vb
+fM
+NE
+Vb
+Vb
+"}
+(11,1,1) = {"
+bC
+nr
+Vb
+Vb
+Vb
+Vb
+Vb
+Zt
+CG
+Zt
+Zt
+"}

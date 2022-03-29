@@ -1,5 +1,5 @@
-/obj/item/weapon/tool/sword/nt/longsword
+/obj/item/tool/sword/nt/longsword
     w_class = ITEM_SIZE_NORMAL
 
-/obj/item/weapon/holyvacuum
+/obj/item/holyvacuum
 	desc = "An advanced vacuum cleaner that compresses trash into reusable biomatter bricks. It looks more like a ghost-busting gun than an actual vacuum cleaner. There is no safety switch."

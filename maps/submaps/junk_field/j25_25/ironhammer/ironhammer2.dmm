@@ -145,8 +145,8 @@
 "oS" = (
 /obj/structure/table/rack,
 <<<<<<< HEAD
-/obj/item/weapon/storage/belt/tactical/ironhammer,
-/obj/item/weapon/gun/energy/gun/martin,
+/obj/item/storage/belt/tactical/ironhammer,
+/obj/item/gun/energy/gun/martin,
 /turf/simulated/floor/tiled/dark/cargo,
 =======
 /obj/item/storage/belt/tactical/ironhammer,
@@ -161,8 +161,8 @@
 "pb" = (
 /obj/structure/table/woodentable,
 <<<<<<< HEAD
-/obj/item/weapon/material/ashtray,
-/obj/item/weapon/storage/fancy/cigarettes/dromedaryco,
+/obj/item/material/ashtray,
+/obj/item/storage/fancy/cigarettes/dromedaryco,
 /turf/simulated/floor/carpet,
 =======
 /obj/item/material/ashtray,
@@ -224,8 +224,8 @@
 "wg" = (
 /obj/structure/table/woodentable,
 <<<<<<< HEAD
-/obj/item/weapon/storage/briefcase,
-/obj/item/weapon/storage/briefcase,
+/obj/item/storage/briefcase,
+/obj/item/storage/briefcase,
 /turf/simulated/floor/carpet,
 =======
 /obj/item/storage/briefcase,
@@ -260,8 +260,8 @@
 "xO" = (
 /obj/structure/table/woodentable,
 <<<<<<< HEAD
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/wood,
 =======
 /obj/item/paper_bin,
@@ -279,7 +279,7 @@
 /area/template_noop)
 "zc" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/book/manual/wiki/security_ironparagraphs,
+/obj/item/book/manual/wiki/security_ironparagraphs,
 /obj/structure/noticeboard{
 	pixel_x = 30
 	},
@@ -290,7 +290,7 @@
 /turf/simulated/floor/tiled/steel/bluecorner/airless,
 /area/template_noop)
 "zC" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /obj/spawner/junkfood/rotten,
 /turf/simulated/floor/tiled/steel/orangecorner/airless,
 /area/template_noop)
@@ -307,7 +307,7 @@
 "Ax" = (
 /obj/structure/table/woodentable,
 <<<<<<< HEAD
-/obj/item/weapon/folder/blue,
+/obj/item/folder/blue,
 /turf/simulated/floor/wood,
 =======
 /obj/item/folder/blue,
@@ -375,7 +375,7 @@
 "Hc" = (
 /obj/structure/bed/padded,
 <<<<<<< HEAD
-/obj/item/weapon/bedsheet/orange,
+/obj/item/bedsheet/orange,
 /turf/simulated/floor/tiled/steel/orangecorner,
 =======
 /obj/item/bedsheet/orange,
@@ -419,8 +419,8 @@
 "KI" = (
 /obj/structure/table/rack,
 <<<<<<< HEAD
-/obj/item/weapon/storage/box/handcuffs,
-/obj/item/weapon/storage/box/flashbangs,
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/flashbangs,
 /turf/simulated/floor/tiled/dark/cargo,
 =======
 /obj/item/storage/box/handcuffs,
@@ -433,7 +433,7 @@
 /turf/simulated/floor/carpet/airless,
 /area/template_noop)
 "La" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/steel/orangecorner/airless,
 /area/template_noop)
@@ -458,7 +458,7 @@
 "Mf" = (
 /obj/structure/table/woodentable,
 <<<<<<< HEAD
-/obj/item/weapon/book/manual/wiki/security_ironparagraphs,
+/obj/item/book/manual/wiki/security_ironparagraphs,
 /turf/simulated/floor/wood,
 =======
 /obj/item/book/manual/wiki/security_ironparagraphs,
@@ -582,8 +582,8 @@
 "Wp" = (
 /obj/structure/table/reinforced,
 <<<<<<< HEAD
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 =======
 /obj/item/paper_bin,
@@ -605,8 +605,8 @@
 /area/template_noop)
 "Yy" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/drinks/flask/detflask,
-/obj/item/weapon/reagent_containers/food/drinks/flask/detflask,
+/obj/item/reagent_containers/food/drinks/flask/detflask,
+/obj/item/reagent_containers/food/drinks/flask/detflask,
 /obj/spawner/lowkeyrandom,
 /turf/simulated/floor/carpet/airless,
 /area/template_noop)

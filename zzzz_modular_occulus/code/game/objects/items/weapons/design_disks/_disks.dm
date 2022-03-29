@@ -1,11 +1,11 @@
 /datum/design/autolathe/tool/fibertape
 	name = "fiber tape"
-	build_path = /obj/item/weapon/tool/tape_roll/fiber
+	build_path = /obj/item/tool/tape_roll/fiber
 
-/obj/item/weapon/tool/tape_roll/fiber
+/obj/item/tool/tape_roll/fiber
 	matter = list(MATERIAL_PLASTEEL = 1, MATERIAL_PLASTIC = 20)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic
+/obj/item/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic
 	disk_name = "Generic - Alternate Civilian Pack"
 	designs = list(
 		/datum/design/autolathe/gun/mk4 = 3,
@@ -17,7 +17,7 @@
 		/datum/design/autolathe/ammo/pistol_ammobox/rubber
 		)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/fabkits
+/obj/item/computer_hardware/hard_drive/portable/design/fabkits
 	disk_name = "EES FabKit Designs"
 	icon_state = "technomancers"
 	rarity_value = 182
@@ -29,7 +29,7 @@
 		/datum/design/autolathe/fabkit/dryrack
 		)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/coins
+/obj/item/computer_hardware/hard_drive/portable/design/coins
 	disk_name = "FTU Coinpress Disk"
 	icon_state = "guild"
 	rarity_value = 247
@@ -41,5 +41,5 @@
 		/datum/design/autolathe/coin/diamond
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/retro
+/obj/item/computer_hardware/hard_drive/portable/design/guns/retro
 	disk_name = "FS LG \"Cog\""

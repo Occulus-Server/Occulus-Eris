@@ -1,4 +1,4 @@
-/obj/item/weapon/implant/carrion_spider/injector
+/obj/item/implant/carrion_spider/injector
 	name = "injector spider"
 	desc = "A tiny spider with a clear abdomen. Its maw is not but a sharp hypodermic needle."
 	icon = 'zzzz_modular_occulus/icons/obj/carrion_spiders.dmi'
@@ -8,10 +8,10 @@
 	spider_price = 30
 	var/volume = 30
 
-/obj/item/weapon/implant/carrion_spider/injector/Initialize()
+/obj/item/implant/carrion_spider/injector/Initialize()
 	create_reagents(volume)
 
-/obj/item/weapon/implant/carrion_spider/injector/activate()
+/obj/item/implant/carrion_spider/injector/activate()
 	if(wearer)
 		reagents.trans_to_mob(wearer, reagents.total_volume, CHEM_BLOOD)
 		to_chat(wearer, "You feel a slight pinch.")

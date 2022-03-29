@@ -191,7 +191,7 @@
 			victim.adjustBruteLoss(- 2 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
 		if(victim.getFireLoss() >= 50)
 			victim.adjustFireLoss(- 2  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
-		if(victim.getCloneLoss() > 0 && victim.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform))
+		if(victim.getCloneLoss() > 0 && victim.get_core_implant(/obj/item/implant/core_implant/cruciform))
 			victim.adjustCloneLoss (-1 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
 			adjust_fluid_level(- 5)
 
@@ -306,8 +306,8 @@
 	M.failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
 
 	M.emote("gasp")
-	var/obj/item/weapon/implant/core_implant/cruciform/I
-	for(var/obj/item/weapon/implant/core_implant/cruciform/CR in M) //get_core_implant needs activated implants (and alive holder)
+	var/obj/item/implant/core_implant/cruciform/I
+	for(var/obj/item/implant/core_implant/cruciform/CR in M) //get_core_implant needs activated implants (and alive holder)
 		if(CR)
 			I = CR
 			break
@@ -376,8 +376,8 @@
 
 
 /obj/machinery/neotheology/clone_vat/proc/corrupt_dna(mob/living/carbon/human/H)
-	var/obj/item/weapon/implant/core_implant/cruciform/C
-	for(var/obj/item/weapon/implant/core_implant/cruciform/CR in H) //get_core_implant needs activated implants (and alive holder)
+	var/obj/item/implant/core_implant/cruciform/C
+	for(var/obj/item/implant/core_implant/cruciform/CR in H) //get_core_implant needs activated implants (and alive holder)
 		if(CR)
 			C = CR
 			break
@@ -434,8 +434,8 @@
 		return
 
 	if(O.is_open_container())
-		if(istype(O, /obj/item/weapon/reagent_containers))
-			var/obj/item/weapon/reagent_containers/C = O
+		if(istype(O, /obj/item/reagent_containers))
+			var/obj/item/reagent_containers/C = O
 			//Containers with any reagents will get dumped in
 			if(C.reagents.total_volume)
 				var/wine_value = 0
@@ -465,7 +465,7 @@
 				user.visible_message("[user.name] pours the contents of [C.name] into \the [src].", "[message]")
 				return
 
-	if(istype(O, /obj/item/weapon/implant/core_implant/cruciform))
+	if(istype(O, /obj/item/implant/core_implant/cruciform))
 		if(victim)
 			to_chat(usr, SPAN_WARNING("\The [src] is already occupied!"))
 			return
@@ -474,7 +474,7 @@
 			to_chat(user, "The vat does not have enough fluids to restore the body!")
 			return
 
-		var/obj/item/weapon/implant/core_implant/cruciform/I = O
+		var/obj/item/implant/core_implant/cruciform/I = O
 		var/datum/core_module/cruciform/cloning/R = I.get_module(CRUCIFORM_CLONING)
 		if(!R.dna)
 			to_chat(user, "\The [src] is rejected by the vat!")

@@ -145,12 +145,12 @@
 /obj/machinery/body_scanconsole
 	var/obj/machinery/bodyscanner/connected
 	var/known_implants = list(
-		/obj/item/weapon/implant/chem,
-		/obj/item/weapon/implant/death_alarm,
-		/obj/item/weapon/implant/tracking,
-		/obj/item/weapon/implant/core_implant/cruciform,
-		/obj/item/weapon/implant/excelsior,
-		/obj/item/weapon/implant/core_implant/soulcrypt		//SYZYGY EDIT - Makes soulcrypts show up properly on scanners
+		/obj/item/implant/chem,
+		/obj/item/implant/death_alarm,
+		/obj/item/implant/tracking,
+		/obj/item/implant/core_implant/cruciform,
+		/obj/item/implant/excelsior,
+		/obj/item/implant/core_implant/soulcrypt		//SYZYGY EDIT - Makes soulcrypts show up properly on scanners
 	)
 	var/delete
 	var/temphtml
@@ -213,7 +213,7 @@
 		if (!ishuman(occupant))
 			to_chat(usr, "\icon[src]<span class='warning'>The body scanner cannot scan that lifeform.</span>")
 			return
-		var/obj/item/weapon/paper/R = new(src.loc)
+		var/obj/item/paper/R = new(src.loc)
 		R.name = "[occupant.get_visible_name()] scan report"
 		R.info = format_occupant_data(src.connected.get_occupant_data())
 		R.update_icon()
@@ -378,10 +378,10 @@
 			var/unknown_body = FALSE
 			for(var/I in e.implants)
 				if(is_type_in_list(I,known_implants))
-					var/obj/item/weapon/implant/device = I
+					var/obj/item/implant/device = I
 					other_wounds += "[device.get_scanner_name()] implanted"
 				else
-					var/obj/item/weapon/implant/device = I
+					var/obj/item/implant/device = I
 					if(!istype(device) || !device.scanner_hidden) // Occulus Edit - fixes shrapnel breaking body scanners
 						unknown_body = TRUE
 			if(unknown_body)

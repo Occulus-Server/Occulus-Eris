@@ -1,10 +1,10 @@
-/obj/item/weapon
+/obj/item
 	name = "weapon"
 	icon = 'icons/obj/weapons.dmi'
 	hitsound = "swing_hit"
-	bad_type = /obj/item/weapon
+	bad_type = /obj/item
 
-/obj/item/weapon/Bump(mob/M)
+/obj/item/Bump(mob/M)
 	spawn(0)
 		..()
 	return

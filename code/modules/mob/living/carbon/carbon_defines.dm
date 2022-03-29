@@ -33,7 +33,7 @@
 
 	var/is_watching = TRUE  //used for remote viewing of multiz structures
 
-	var/obj/item/weapon/tank/internal = null//Human/Monkey
+	var/obj/item/tank/internal = null//Human/Monkey
 
 
 	bad_type = /mob/living/carbon

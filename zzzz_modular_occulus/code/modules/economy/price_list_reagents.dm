@@ -126,13 +126,13 @@
 /datum/supply_pack/nanites
 	cost = 1000
 	contains = list(
-		/obj/item/weapon/reagent_containers/glass/beaker/vial/nanites,
-		/obj/item/weapon/reagent_containers/glass/beaker/vial/nanites
+		/obj/item/reagent_containers/glass/beaker/vial/nanites,
+		/obj/item/reagent_containers/glass/beaker/vial/nanites
 	)
 
 /datum/supply_pack/uncapnanites
 	cost = 1500
 	contains = list(
-		/obj/item/weapon/reagent_containers/glass/beaker/vial/uncapnanites,
-		/obj/item/weapon/reagent_containers/glass/beaker/vial/uncapnanites
+		/obj/item/reagent_containers/glass/beaker/vial/uncapnanites,
+		/obj/item/reagent_containers/glass/beaker/vial/uncapnanites
 	)

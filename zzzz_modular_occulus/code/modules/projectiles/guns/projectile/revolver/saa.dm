@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/revolver/saa
+/obj/item/gun/projectile/revolver/saa
 	name = "FS SAR .35 Magnum \"Liberty\""
 	desc = "An unorthodox and somewhat dated Single Action Revolver that is incompatible with speedloaders as it lacks a swing-out cylinder. \
 	Has a longer firing interval than regular revolvers due to needing to cock the hammer after every shot. \

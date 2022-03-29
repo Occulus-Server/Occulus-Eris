@@ -1,4 +1,4 @@
-/obj/item/weapon/tool/baton/stun
+/obj/item/tool/baton/stun
 	name = "stunbaton"
 	desc = "A stun baton for incapacitating people with."
 	icon = 'icons/obj/weapons.dmi'
@@ -17,7 +17,7 @@
 	price_tag = 500
 
 	glow_color = COLOR_LIGHTING_ORANGE_BRIGHT
-	suitable_cell = /obj/item/weapon/cell/medium
+	suitable_cell = /obj/item/cell/medium
 	passive_power_cost = 1
 	use_power_cost = 0.8
 	toggleable = TRUE
@@ -28,24 +28,24 @@
 	var/stunforce = 0
 	var/agonyforce = 40
 	var/hitcost = 100
-	var/obj/item/weapon/cell/starting_cell = /obj/item/weapon/cell/medium/high
+	var/obj/item/cell/starting_cell = /obj/item/cell/medium/high
 
 	structure_damage_factor = STRUCTURE_DAMAGE_BLUNT
 	max_upgrades = 2
 
-/obj/item/weapon/tool/baton/stun/New()
+/obj/item/tool/baton/stun/New()
 	if(!cell && suitable_cell && starting_cell)
 		cell = new starting_cell(src)
 	update_icon()
 	..()
 
-/obj/item/weapon/tool/baton/stun/proc/deductcharge(var/power_drain)
+/obj/item/tool/baton/stun/proc/deductcharge(var/power_drain)
 	if(cell)
 		. = cell.checked_use(power_drain) //try to use enough power
 		if(!cell.check_charge(hitcost))	//do we have enough power for another hit?
 			turn_off()
 
-/obj/item/weapon/tool/baton/stun/on_update_icon()
+/obj/item/tool/baton/stun/on_update_icon()
 	if(switched_on)
 		icon_state = "[initial(icon_state)]_active"
 	else if(!cell)
@@ -58,7 +58,7 @@
 	else
 		set_light(0)
 
-/obj/item/weapon/tool/baton/stun/attack_self(mob/user)
+/obj/item/tool/baton/stun/attack_self(mob/user)
 	if(cell && cell.check_charge(hitcost))
 		playsound(loc, "sparks", 75, 1, -1)
 	else
@@ -70,13 +70,13 @@
 	add_fingerprint(user)
 	..()
 
-/obj/item/weapon/tool/baton/stun/turn_on(mob/user)
+/obj/item/tool/baton/stun/turn_on(mob/user)
 	.=..()
 	if(.)
 		playsound(loc, "sparks", 75, 1, -1)
 //		START_PROCESSING(SSobj, src)
 
-/obj/item/weapon/tool/baton/stun/attack(mob/M, mob/user)
+/obj/item/tool/baton/stun/attack(mob/M, mob/user)
 	if(switched_on && (CLUMSY in user.mutations) && prob(50))
 		to_chat(user, SPAN_DANGER("You accidentally hit yourself with the [src]!"))
 		user.Weaken(30)
@@ -84,7 +84,7 @@
 		return
 	return ..()
 
-/obj/item/weapon/tool/baton/stun/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+/obj/item/tool/baton/stun/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	if(isrobot(target))
 		return ..()
 
@@ -128,26 +128,26 @@
 			var/mob/living/carbon/human/H = target
 			H.forcesay(hit_appends)
 
-/obj/item/weapon/tool/baton/stun/emp_act(severity)
+/obj/item/tool/baton/stun/emp_act(severity)
 	if(cell)
 		cell.emp_act(severity)	//let's not duplicate code everywhere if we don't have to please.
 	..()
 
-/obj/item/weapon/tool/baton/stun/robot
-	bad_type = /obj/item/weapon/melee/baton/robot
+/obj/item/tool/baton/stun/robot
+	bad_type = /obj/item/melee/baton/robot
 
-/obj/item/weapon/tool/baton/stun/robot/attack_self(mob/user)
+/obj/item/tool/baton/stun/robot/attack_self(mob/user)
 	//try to find our power cell
 	var/mob/living/silicon/robot/R = loc
 	if (istype(R))
 		cell = R.cell
 	return ..()
 
-/obj/item/weapon/tool/baton/stun/robot/attackby(obj/item/weapon/W, mob/user)
+/obj/item/tool/baton/stun/robot/attackby(obj/item/W, mob/user)
 	return
 
 //Makeshift stun baton.
-/obj/item/weapon/tool/baton/stun/improvised
+/obj/item/tool/baton/stun/improvised
 	name = "stunprod"
 	desc = "An improvised stun baton."
 	icon_state = "stunprod"
@@ -162,7 +162,7 @@
 	starting_cell = null
 	structure_damage_factor = STRUCTURE_DAMAGE_NORMAL
 
-/obj/item/weapon/tool/baton/stun/excel
+/obj/item/tool/baton/stun/excel
 	name = "Expropriator"
 	desc = "A cheap and effective way to feed the red tide."
 	icon_state = "sovietbaton"
@@ -177,4 +177,4 @@
 	slot_flags = SLOT_BELT
 	structure_damage_factor = STRUCTURE_DAMAGE_NORMAL
 	matter = list(MATERIAL_STEEL = 15, MATERIAL_PLASTEEL = 5)
-	starting_cell = /obj/item/weapon/cell/medium/excelsior
+	starting_cell = /obj/item/cell/medium/excelsior

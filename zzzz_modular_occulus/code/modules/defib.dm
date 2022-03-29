@@ -41,8 +41,8 @@
 	origin_tech = list(TECH_BIO = 4, TECH_POWER = 2)
 	action_button_name = "Remove/Replace Paddles"
 
-	var/obj/item/weapon/shockpaddles/linked/paddles
-	var/obj/item/weapon/cell/bcell = null
+	var/obj/item/shockpaddles/linked/paddles
+	var/obj/item/cell/bcell = null
 	var/cooldown = 45 SECONDS
 	var/cooldown_timer
 
@@ -117,7 +117,7 @@
 	QDEL_NULL(bcell)
 
 /obj/item/device/defib_kit/loaded //starts with a cell
-	bcell = /obj/item/weapon/cell/large/high
+	bcell = /obj/item/cell/large/high
 
 
 /obj/item/device/defib_kit/update_icon()
@@ -167,7 +167,7 @@
 /obj/item/device/defib_kit/attackby(obj/item/I, mob/user, params)
 	if(I == paddles)
 		reattach_paddles(user)
-	else if(istype(I, /obj/item/weapon/cell))
+	else if(istype(I, /obj/item/cell))
 		if(bcell)
 			to_chat(user, "<span class='notice'>\the [src] already has a cell.</span>")
 		else
@@ -289,18 +289,18 @@
 		)
 
 /obj/item/device/defib_kit/compact/loaded
-	bcell = /obj/item/weapon/cell/large/high
+	bcell = /obj/item/cell/large/high
 
 
 /obj/item/device/defib_kit/compact/combat
 	name = "Combat Defibrillator Belt"
 	desc = "A belt-equipped blood-red defibrillator that can be rapidly deployed. Does not have the restrictions or safeties of conventional defibrillators and can revive through space suits."
-	paddles = /obj/item/weapon/shockpaddles/linked/combat
+	paddles = /obj/item/shockpaddles/linked/combat
 
 /obj/item/device/defib_kit/compact/combat/loaded
-	bcell = /obj/item/weapon/cell/large/high
+	bcell = /obj/item/cell/large/high
 
-/obj/item/weapon/shockpaddles/linked/combat
+/obj/item/shockpaddles/linked/combat
 	combat = 1
 	safety = 0
 	chargetime = (10)
@@ -308,7 +308,7 @@
 
 //paddles
 
-/obj/item/weapon/shockpaddles
+/obj/item/shockpaddles
 	name = "defibrillator paddles"
 	desc = "A pair of plastic-gripped paddles with flat metal surfaces that are used to deliver powerful electric shocks."
 	icon = 'zzzz_modular_occulus/icons/obj/ErisDefib.dmi'
@@ -344,7 +344,7 @@
 	var/cooldown = 0
 	var/busy = 0
 
-/obj/item/weapon/shockpaddles/attack_self(mob/user) //Toggle overcharge on and off.
+/obj/item/shockpaddles/attack_self(mob/user) //Toggle overcharge on and off.
 	if(!safety) // Check if the safety has been disabled yet.
 		if (check_overchargecell()) // Check if cell is good enough.
 			if (!overcharge)
@@ -362,7 +362,7 @@
 		to_chat(user, SPAN_NOTICE("The unit's safety features prevent you from setting the charge above the safety-locked limit."))
 
 
-/obj/item/weapon/shockpaddles/update_wield_icon()
+/obj/item/shockpaddles/update_wield_icon()
 	..()
 	if(wielded && wielded_icon)
 		item_state_slots = list(
@@ -370,7 +370,7 @@
 			slot_r_hand_str = "[wielded_icon]",
 			)
 
-/obj/item/weapon/shockpaddles/update_unwield_icon()
+/obj/item/shockpaddles/update_unwield_icon()
 	..()
 	if(!wielded && wielded_icon)
 		item_state_slots = list(
@@ -378,7 +378,7 @@
 			slot_r_hand_str = "defibpaddles_right",
 			)
 
-/obj/item/weapon/shockpaddles/proc/set_cooldown(var/delay)
+/obj/item/shockpaddles/proc/set_cooldown(var/delay)
 	cooldown = 1
 	update_icon()
 
@@ -390,7 +390,7 @@
 			make_announcement("beeps, \"Unit is re-energized.\"", "notice")
 			playsound(src, 'sound/machines/defib_ready.ogg', 50, 0)
 
-/obj/item/weapon/shockpaddles/update_held_icon()
+/obj/item/shockpaddles/update_held_icon()
 	var/mob/living/M = loc
 	if(istype(M) && M.item_is_in_hands(src) && !M.hands_are_full())
 		held = 1
@@ -401,13 +401,13 @@
 	update_icon()
 	..()
 
-/obj/item/weapon/shockpaddles/update_icon()
+/obj/item/shockpaddles/update_icon()
 	icon_state = "defibpaddles[held]"
 	item_state = "defibpaddles[held]"
 	if(cooldown)
 		icon_state = "defibpaddles[held]_cooldown"
 
-/obj/item/weapon/shockpaddles/proc/can_use(mob/user, mob/M)
+/obj/item/shockpaddles/proc/can_use(mob/user, mob/M)
 	if(busy)
 		return 0
 	if(!wielded && !isrobot(user))
@@ -422,7 +422,7 @@
 	return 1
 
 //Checks for various conditions to see if the mob is revivable
-/obj/item/weapon/shockpaddles/proc/can_defib(mob/living/carbon/human/H) //This is checked before doing the defib operation
+/obj/item/shockpaddles/proc/can_defib(mob/living/carbon/human/H) //This is checked before doing the defib operation
 
 //Syzygy edit. These are checks for Polaris snowflake species that can't be defibbed; disabled for now.
 /*
@@ -442,7 +442,7 @@
 
 	return null
 
-/obj/item/weapon/shockpaddles/proc/can_revive(mob/living/carbon/human/H) //This is checked right before attempting to revive
+/obj/item/shockpaddles/proc/can_revive(mob/living/carbon/human/H) //This is checked right before attempting to revive
 	var/deadtime = world.time - H.timeofdeath
 	if (deadtime > DEFIB_TIME_LIMIT && !H.isSynthetic())
 		return "buzzes, \"Resuscitation failed - Excessive neural degeneration. Further attempts futile.\""
@@ -466,14 +466,14 @@
 
 	return null
 
-/obj/item/weapon/shockpaddles/proc/check_contact(mob/living/carbon/human/H)
+/obj/item/shockpaddles/proc/check_contact(mob/living/carbon/human/H)
 	if(!combat)
 		for(var/obj/item/clothing/cloth in list(H.wear_suit, H.w_uniform))
 			if((cloth.body_parts_covered & UPPER_TORSO) && (cloth.item_flags & THICKMATERIAL))
 				return FALSE
 	return TRUE
 
-/obj/item/weapon/shockpaddles/proc/check_vital_organs(mob/living/carbon/human/H)
+/obj/item/shockpaddles/proc/check_vital_organs(mob/living/carbon/human/H)
 	for(var/organ_tag in H.species.has_process)
 		var/obj/item/organ/O = H.species.has_process[organ_tag]
 		var/name = initial(O.name)
@@ -486,7 +486,7 @@
 				return "buzzes, \"Resuscitation failed - Excessive damage to vital organ ([name]). Further attempts futile.\""
 	return null
 
-/obj/item/weapon/shockpaddles/proc/check_blood_level(mob/living/carbon/human/H)
+/obj/item/shockpaddles/proc/check_blood_level(mob/living/carbon/human/H)
 	if(!H.should_have_process(OP_HEART))
 		return FALSE
 
@@ -503,40 +503,40 @@
 		blood_volume *= 0.8
 	return blood_volume < H.species.blood_volume * H.total_blood_req / 100
 
-/obj/item/weapon/shockpaddles/linked/check_overchargecell() // Check if the cell is large enough to allow overcharge.
+/obj/item/shockpaddles/linked/check_overchargecell() // Check if the cell is large enough to allow overcharge.
 	return(base_unit.bcell.maxcharge >= overchargecost)
 
-/obj/item/weapon/shockpaddles/proc/check_overchargecell()
+/obj/item/shockpaddles/proc/check_overchargecell()
 	return 0
 
-/obj/item/weapon/shockpaddles/linked/check_overchargecharge() // Check if the cell has enough charge to allow overcharge.
+/obj/item/shockpaddles/linked/check_overchargecharge() // Check if the cell has enough charge to allow overcharge.
 	return(base_unit.bcell.charge >= overchargecost)
 
-/obj/item/weapon/shockpaddles/proc/check_overchargecharge()
+/obj/item/shockpaddles/proc/check_overchargecharge()
 	return 0
 
-/obj/item/weapon/shockpaddles/linked/overchargedrain() // Drain the charge from the battery after an overcharge shock.
+/obj/item/shockpaddles/linked/overchargedrain() // Drain the charge from the battery after an overcharge shock.
 	base_unit.bcell.use(overchargecost)
 	base_unit.update_icon()
 
-/obj/item/weapon/shockpaddles/proc/overchargedrain()
+/obj/item/shockpaddles/proc/overchargedrain()
 	return 0
 
-/obj/item/weapon/shockpaddles/proc/check_charge(var/charge_amt)
+/obj/item/shockpaddles/proc/check_charge(var/charge_amt)
 	return 0
 
-/obj/item/weapon/shockpaddles/proc/checked_use(var/charge_amt)
+/obj/item/shockpaddles/proc/checked_use(var/charge_amt)
 	return 0
 
-/obj/item/weapon/shockpaddles/proc/defib_oxygain()
+/obj/item/shockpaddles/proc/defib_oxygain()
 	return 10
 
-/obj/item/weapon/shockpaddles/examine(mob/user)
+/obj/item/shockpaddles/examine(mob/user)
 	..()
 	if(world.time - cooldown_timer < overchargecooldown)
 		to_chat(user, text(SPAN_WARNING("\The [src] are still scorching hot!")))
 
-/obj/item/weapon/shockpaddles/attack(mob/living/M, mob/living/user, var/target_zone)
+/obj/item/shockpaddles/attack(mob/living/M, mob/living/user, var/target_zone)
 	var/mob/living/carbon/human/H = M
 	var/obj/item/organ/internal/heart/L = H.random_organ_by_process(OP_HEART)
 
@@ -615,7 +615,7 @@
 	return 1
 
 //Since harm-intent now skips the delay for deliberate placement, you have to be able to hit them in combat in order to shock people.
-/obj/item/weapon/shockpaddles/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+/obj/item/shockpaddles/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	if(ishuman(target) && can_use(user, target))
 		busy = 1
 		update_icon()
@@ -630,7 +630,7 @@
 	return ..()
 
 // This proc is used so that we can return out of the revive process while ensuring that busy and update_icon() are handled
-/obj/item/weapon/shockpaddles/proc/do_revive(mob/living/carbon/human/H, mob/user)
+/obj/item/shockpaddles/proc/do_revive(mob/living/carbon/human/H, mob/user)
 	var/mob/observer/ghost/ghost = H.get_ghost()
 	if(ghost)
 		ghost.notify_revive("Someone is trying to resuscitate you. Re-enter your body if you want to be revived!", 'sound/effects/genetics.ogg', source = src)
@@ -686,7 +686,7 @@
 	make_alive(H)
 
 	//Reactivate the patient's cruciform, if they have one
-	var/obj/item/weapon/implant/core_implant/cruciform/CI = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform, FALSE)
+	var/obj/item/implant/core_implant/cruciform/CI = H.get_core_implant(/obj/item/implant/core_implant/cruciform, FALSE)
 	if(CI)
 		to_chat(CI.wearer, "<span class='info'>Your Core Implant vibrates and warms up.</span>")
 		CI.activate()
@@ -694,7 +694,7 @@
 	log_and_message_admins("used \a [src] to revive [key_name(H)].")
 
 
-/obj/item/weapon/shockpaddles/proc/do_electrocute(mob/living/carbon/human/H, mob/user, var/target_zone)
+/obj/item/shockpaddles/proc/do_electrocute(mob/living/carbon/human/H, mob/user, var/target_zone)
 	var/obj/item/organ/external/affecting = H.get_organ(target_zone)
 	if(!affecting)
 		to_chat(user, "<span class='warning'>They are missing that body part!</span>")
@@ -733,7 +733,7 @@
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Shocked [H.name] using [name] ([H.ckey])</font>")
 	msg_admin_attack("[key_name(user)] shocked [key_name(H)]")
 
-/obj/item/weapon/shockpaddles/proc/make_alive(mob/living/carbon/human/M) //This revives the mob
+/obj/item/shockpaddles/proc/make_alive(mob/living/carbon/human/M) //This revives the mob
 	var/deadtime = world.time - M.timeofdeath
 
 	GLOB.dead_mob_list.Remove(M)
@@ -753,7 +753,7 @@
 	M.updatehealth()
 	apply_brain_damage(M, deadtime)
 
-/obj/item/weapon/shockpaddles/proc/apply_brain_damage(mob/living/carbon/human/H, var/deadtime)
+/obj/item/shockpaddles/proc/apply_brain_damage(mob/living/carbon/human/H, var/deadtime)
 	if(deadtime < DEFIB_TIME_LOSS) return
 
 	if(!H.should_have_process(BP_BRAIN)) return //no brain
@@ -764,10 +764,10 @@
 	var/brain_damage = CLAMP((deadtime - DEFIB_TIME_LOSS)/(DEFIB_TIME_LIMIT - DEFIB_TIME_LOSS)*brain.max_damage, H.getBrainLoss(), brain.max_damage)
 	H.setBrainLoss(brain_damage)
 
-/obj/item/weapon/shockpaddles/proc/make_announcement(var/message, var/msg_class)
+/obj/item/shockpaddles/proc/make_announcement(var/message, var/msg_class)
 	audible_message("<b>\The [src]</b> [message]", "\The [src] vibrates slightly.")
 
-/obj/item/weapon/shockpaddles/emag_act(mob/user)
+/obj/item/shockpaddles/emag_act(mob/user)
 	if(safety)
 		safety = 0
 		to_chat(user, "<span class='warning'>You silently disable \the [src]'s safety protocols with the cryptographic sequencer.</span>")
@@ -779,7 +779,7 @@
 		update_icon()
 		return 1
 
-/obj/item/weapon/shockpaddles/emp_act(severity)
+/obj/item/shockpaddles/emp_act(severity)
 	var/new_safety = rand(0, 1)
 	if(safety != new_safety)
 		safety = new_safety
@@ -792,7 +792,7 @@
 		update_icon()
 	..()
 
-/obj/item/weapon/shockpaddles/robot
+/obj/item/shockpaddles/robot
 	name = "defibrillator paddles"
 	desc = "A pair of advanced shockpaddles powered by a robot's internal power cell, able to penetrate thick clothing."
 	chargecost = 50
@@ -801,17 +801,17 @@
 	item_state = "defibpaddles0"
 	cooldowntime = (30)
 
-/obj/item/weapon/shockpaddles/robot/check_charge(var/charge_amt)
+/obj/item/shockpaddles/robot/check_charge(var/charge_amt)
 	if(isrobot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
 		return (R.cell && R.cell.check_charge(charge_amt))
 
-/obj/item/weapon/shockpaddles/robot/checked_use(var/charge_amt)
+/obj/item/shockpaddles/robot/checked_use(var/charge_amt)
 	if(isrobot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
 		return (R.cell && R.cell.checked_use(charge_amt))
 
-/obj/item/weapon/shockpaddles/robot/combat
+/obj/item/shockpaddles/robot/combat
 	name = "combat defibrillator paddles"
 	desc = "A pair of advanced shockpaddles powered by a robot's internal power cell, able to penetrate thick clothing.  This version \
 	appears to be optimized for combat situations, foregoing the safety inhabitors in favor of a faster charging time."
@@ -821,15 +821,15 @@
 
 	//Shockpaddles that are linked to a base unit
 
-/obj/item/weapon/shockpaddles/linked
+/obj/item/shockpaddles/linked
 	var/obj/item/device/defib_kit/base_unit
 	canremove = FALSE
 
-/obj/item/weapon/shockpaddles/linked/New(newloc, obj/item/device/defib_kit/defib)
+/obj/item/shockpaddles/linked/New(newloc, obj/item/device/defib_kit/defib)
 	base_unit = defib
 	..(newloc)
 
-/obj/item/weapon/shockpaddles/linked/Destroy()
+/obj/item/shockpaddles/linked/Destroy()
 	if(base_unit)
 		//ensure the base unit's icon updates
 		if(base_unit.paddles == src)
@@ -838,49 +838,49 @@
 		base_unit = null
 	return ..()
 
-/obj/item/weapon/shockpaddles/linked/dropped(mob/user)
+/obj/item/shockpaddles/linked/dropped(mob/user)
 	..() //update twohanding
 	if(base_unit)
 		base_unit.reattach_paddles(user) //paddles attached to a base unit should never exist outside of their base unit or the mob equipping the base unit
 
-/obj/item/weapon/shockpaddles/linked/check_charge(var/charge_amt)
+/obj/item/shockpaddles/linked/check_charge(var/charge_amt)
 	return (base_unit.bcell && base_unit.bcell.check_charge(charge_amt))
 
-/obj/item/weapon/shockpaddles/linked/checked_use(var/charge_amt)
+/obj/item/shockpaddles/linked/checked_use(var/charge_amt)
 	return (base_unit.bcell && base_unit.bcell.checked_use(charge_amt))
 
-/obj/item/weapon/shockpaddles/linked/defib_oxygain()
+/obj/item/shockpaddles/linked/defib_oxygain()
 	if(base_unit)
 		return base_unit.oxygain
 	. = ..()
 
-/obj/item/weapon/shockpaddles/linked/make_announcement(var/message, var/msg_class)
+/obj/item/shockpaddles/linked/make_announcement(var/message, var/msg_class)
 	base_unit.audible_message("<b>\The [base_unit]</b> [message]", "\The [base_unit] vibrates slightly.")
 
 /*
 	Standalone Shockpaddles
 */
 
-/obj/item/weapon/shockpaddles/standalone
+/obj/item/shockpaddles/standalone
 	desc = "A pair of shockpaddles powered by an experimental miniaturized reactor" //Inspired by the advanced e-gun
 	var/fail_counter = 0
 
-/obj/item/weapon/shockpaddles/standalone/Destroy()
+/obj/item/shockpaddles/standalone/Destroy()
 	. = ..()
 	if(fail_counter)
 		STOP_PROCESSING(SSobj, src)
 
-/obj/item/weapon/shockpaddles/standalone/check_charge(var/charge_amt)
+/obj/item/shockpaddles/standalone/check_charge(var/charge_amt)
 	return 1
 
-/obj/item/weapon/shockpaddles/standalone/checked_use(var/charge_amt)
+/obj/item/shockpaddles/standalone/checked_use(var/charge_amt)
 // Radiation commented out until Eris adds working radiation.
 /*
 	SSradiation.radiate(src, charge_amt/12) //just a little bit of radiation. It's the price you pay for being powered by magic I guess
 */
 	return 1
 
-/obj/item/weapon/shockpaddles/standalone/Process()
+/obj/item/shockpaddles/standalone/Process()
 	if(fail_counter > 0)
 // Radiation commented out until Eris adds working radiation.
 /*
@@ -889,7 +889,7 @@
 	else
 		STOP_PROCESSING(SSobj, src)
 
-/obj/item/weapon/shockpaddles/standalone/emp_act(severity)
+/obj/item/shockpaddles/standalone/emp_act(severity)
 	..()
 	var/new_fail = 0
 	switch(severity)
@@ -907,7 +907,7 @@
 
 //From the Bay port, this doesn't seem to have a sprite.
 /*
-/obj/item/weapon/shockpaddles/standalone/traitor
+/obj/item/shockpaddles/standalone/traitor
 	name = "defibrillator paddles"
 	desc = "A pair of unusual looking paddles powered by an experimental miniaturized reactor. It possesses both the ability to penetrate armor and to deliver powerful shocks."
 	icon = 'icons/obj/weapons.dmi'
@@ -925,18 +925,18 @@
 	icon_state = "jumperunit"
 	item_state = "defibunit"
 //	item_state = "jumperunit"
-	paddles = /obj/item/weapon/shockpaddles/linked/jumper
+	paddles = /obj/item/shockpaddles/linked/jumper
 
 /obj/item/device/defib_kit/jumper_kit/loaded
-	bcell = /obj/item/weapon/cell/large/high
+	bcell = /obj/item/cell/large/high
 
-/obj/item/weapon/shockpaddles/linked/jumper
+/obj/item/shockpaddles/linked/jumper
 	name = "jumper cables"
 	icon_state = "jumperpaddles"
 	item_state = "jumperpaddles"
 	use_on_synthetic = 1
 
-/obj/item/weapon/shockpaddles/robot/jumper
+/obj/item/shockpaddles/robot/jumper
 	name = "jumper cables"
 	desc = "A pair of advanced shockpaddles powered by a robot's internal power cell, able to penetrate thick clothing."
 	icon_state = "jumperpaddles0"

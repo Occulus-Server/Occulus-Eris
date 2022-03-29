@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/xray
+/obj/item/gun/energy/xray
 	name = "xray laser gun"
 	desc = "A high-power laser gun capable of expelling concentrated xray blasts."
 	icon = 'icons/obj/guns/energy/xray.dmi'
@@ -11,4 +11,3 @@
 	charge_cost = 100
 	fire_delay = 1
 	twohanded = TRUE
-	

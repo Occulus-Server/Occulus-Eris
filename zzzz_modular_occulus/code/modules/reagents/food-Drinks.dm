@@ -1,7 +1,7 @@
 /datum/reagent/drink/dr_gibb
 	taste_tag = list(TASTE_SWEET, TASTE_LIGHT)
 
-/obj/item/weapon/reagent_containers/food/snacks/brownies
+/obj/item/reagent_containers/food/snacks/brownies
 	name = "Brownies"
 	icon_state = "crackersbox"
 	desc = "Ovenless Brownies!"
@@ -13,5 +13,5 @@
 	preloaded_reagents = list("sugar" = 2, "coco" = 2)
 	taste_tag = list(SWEET_FOOD, COCO_FOOD)
 
-/obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/kaiser
+/obj/item/reagent_containers/food/snacks/meat/roachmeat/kaiser
 	preloaded_reagents = list("protein" = 6, "seligitillin" = 6, "kaisertophin" = 12, "diplopterum" = 6)

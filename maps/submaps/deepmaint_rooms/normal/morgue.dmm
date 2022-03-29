@@ -64,12 +64,12 @@
 /area/deepmaint)
 "m" = (
 /obj/structure/table/standard,
-/obj/item/weapon/autopsy_scanner{
+/obj/item/autopsy_scanner{
 	pixel_x = 1;
 	pixel_y = 1
 	},
-/obj/item/weapon/tool/scalpel,
-/obj/item/weapon/tool/cautery{
+/obj/item/tool/scalpel,
+/obj/item/tool/cautery{
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark/panels,

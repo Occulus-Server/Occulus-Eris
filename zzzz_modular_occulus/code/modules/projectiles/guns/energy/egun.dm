@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/gun/glasgow
+/obj/item/gun/energy/gun/glasgow
 	name = "DSS PDW \"Glasgow\""
 	desc = "The Glasgow is Deepflare Security Solution's shameless knockoff of the Martin. It is heavier, bulkier, more prone to deviation, burns through battery life, can't be easily concealed, and it has no indication when you're running out of charge...but it packs a hell of a punch. "
 	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/glasgow.dmi'
@@ -14,21 +14,21 @@
 	damage_multiplier = 1.4
 	rarity_value = 8
 	modifystate = null
-	suitable_cell = /obj/item/weapon/cell/small
-	cell_type = /obj/item/weapon/cell/small
+	suitable_cell = /obj/item/cell/small
+	cell_type = /obj/item/cell/small
 
-/obj/item/weapon/gun/energy/gun/glasgow/proc/update_mode()
+/obj/item/gun/energy/gun/glasgow/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	if(current_mode.name == "stun")
 		overlays += "stun_overlay"
 	else
 		overlays += "lethal_overlay"
 
-/obj/item/weapon/gun/energy/gun/glasgow/update_icon()
+/obj/item/gun/energy/gun/glasgow/update_icon()
 	overlays.Cut()
 	if(cell && cell.charge >= charge_cost) //no overlay if we dont have any power
 		update_mode()
 
-/obj/item/weapon/gun/energy/retro
+/obj/item/gun/energy/retro
 	name = "FS LG \"Cog\""
 	desc = "A cheaply produced laser gun. In the distant past - this was the main weapon of low-rank police forces, billions of copies of this gun were made. They are ubiquitous."

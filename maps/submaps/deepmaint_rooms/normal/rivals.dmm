@@ -1,0 +1,347 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"c" = (
+/turf/simulated/wall,
+/area/deepmaint)
+"d" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/grille/broken,
+/turf/simulated/floor/plating/under/airless,
+/area/deepmaint)
+"e" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating/under/airless,
+/area/deepmaint)
+"g" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"h" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"i" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"j" = (
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "West APC";
+	pixel_x = -28
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"k" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating/under/airless,
+/area/deepmaint)
+"m" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/sign/atmos_waste{
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating/under/airless,
+/area/deepmaint)
+"o" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating/under/airless,
+/area/deepmaint)
+"p" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating/under/airless,
+/area/deepmaint)
+"r" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"s" = (
+/turf/simulated/wall/r_wall,
+/area/deepmaint)
+"t" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating/under/airless,
+/area/deepmaint)
+"u" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"v" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating/under/airless,
+/area/deepmaint)
+"w" = (
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"x" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating/under/airless,
+/area/deepmaint)
+"y" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating/under/airless,
+/area/deepmaint)
+"z" = (
+/obj/effect/window_lwall_spawn/reinforced,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"I" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating/under/airless,
+/area/deepmaint)
+"S" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating/under/airless,
+/area/deepmaint)
+"W" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/wall,
+/area/deepmaint)
+
+(1,1,1) = {"
+c
+c
+w
+w
+w
+w
+w
+w
+w
+c
+c
+"}
+(2,1,1) = {"
+c
+c
+c
+c
+s
+s
+z
+s
+c
+c
+W
+"}
+(3,1,1) = {"
+w
+c
+c
+k
+t
+t
+o
+t
+t
+x
+I
+"}
+(4,1,1) = {"
+w
+c
+c
+v
+c
+c
+c
+c
+c
+d
+I
+"}
+(5,1,1) = {"
+w
+c
+c
+v
+c
+c
+c
+c
+c
+d
+I
+"}
+(6,1,1) = {"
+w
+c
+c
+m
+t
+t
+t
+t
+t
+y
+I
+"}
+(7,1,1) = {"
+w
+c
+c
+d
+c
+c
+c
+c
+c
+v
+W
+"}
+(8,1,1) = {"
+w
+c
+c
+e
+t
+t
+t
+p
+t
+S
+I
+"}
+(9,1,1) = {"
+w
+c
+c
+c
+c
+c
+c
+z
+c
+c
+c
+"}
+(10,1,1) = {"
+c
+c
+w
+w
+g
+i
+j
+u
+w
+c
+c
+"}
+(11,1,1) = {"
+c
+c
+w
+w
+h
+i
+i
+r
+w
+c
+c
+"}

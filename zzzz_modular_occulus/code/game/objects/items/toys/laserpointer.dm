@@ -12,9 +12,9 @@
 	var/turf/pointer_loc
 	var/max_energy = 5
 	var/effectchance = 33
-	var/obj/item/weapon/stock_parts/micro_laser/diode //used for upgrading!
-	var/obj/item/weapon/cell/cell
-	var/suitable_cell = /obj/item/weapon/cell/small
+	var/obj/item/stock_parts/micro_laser/diode //used for upgrading!
+	var/obj/item/cell/cell
+	var/suitable_cell = /obj/item/cell/small
 
 /obj/item/laser_pointer/Initialize()
 	. = ..()
@@ -56,10 +56,10 @@
 
 /obj/item/laser_pointer/upgraded/New()
 	..()
-	diode = new /obj/item/weapon/stock_parts/micro_laser/ultra
+	diode = new /obj/item/stock_parts/micro_laser/ultra
 
 /obj/item/laser_pointer/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/weapon/stock_parts/micro_laser))
+	if(istype(W, /obj/item/stock_parts/micro_laser))
 		if(!diode && insert_item(W, user))
 			diode = W
 			to_chat(user, "<span class='notice'>You install a [diode.name] in [src].</span>")

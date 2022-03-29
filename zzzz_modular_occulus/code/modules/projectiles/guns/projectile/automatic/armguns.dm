@@ -1,6 +1,6 @@
 // .35 Auto Hurricane.
 
-/obj/item/weapon/gun/projectile/automatic/armsmg/hurricane
+/obj/item/gun/projectile/automatic/armsmg/hurricane
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/hurricane.dmi'
 	icon_state = "hurricane"
 	item_state = "hurricane"
@@ -27,7 +27,7 @@
 		FULL_AUTO_400
 		)
 
-/obj/item/weapon/gun/projectile/automatic/armsmg/hurricane/update_icon()
+/obj/item/gun/projectile/automatic/armsmg/hurricane/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -47,11 +47,11 @@
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/hurricane.dmi'
 	icon_state = "hurricane_slide"
 	allowed_organs = list(BP_R_ARM, BP_L_ARM)
-	holding_type = /obj/item/weapon/gun/projectile/automatic/armsmg/hurricane
+	holding_type = /obj/item/gun/projectile/automatic/armsmg/hurricane
 
 // .40 Typhoon
 
-/obj/item/weapon/gun/projectile/automatic/armsmg/typhoon
+/obj/item/gun/projectile/automatic/armsmg/typhoon
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/typhoon.dmi'
 	icon_state = "typhoon"
 	item_state = "typhoon"
@@ -78,7 +78,7 @@
 		list(mode_name="full auto",  mode_type = /datum/firemode/automatic, fire_delay=3  , icon="auto")
 		)
 
-/obj/item/weapon/gun/projectile/automatic/armsmg/typhoon/update_icon()
+/obj/item/gun/projectile/automatic/armsmg/typhoon/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -98,11 +98,11 @@
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/typhoon.dmi'
 	icon_state = "typhoon_slide"
 	allowed_organs = list(BP_R_ARM, BP_L_ARM)
-	holding_type = /obj/item/weapon/gun/projectile/automatic/armsmg/typhoon
+	holding_type = /obj/item/gun/projectile/automatic/armsmg/typhoon
 
 // .25 Caseless Tornado
 
-/obj/item/weapon/gun/projectile/automatic/armsmg/tornado
+/obj/item/gun/projectile/automatic/armsmg/tornado
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/tornado.dmi'
 	icon_state = "tornado"
 	item_state = "tornado"
@@ -129,7 +129,7 @@
 		FULL_AUTO_400
 		)
 
-/obj/item/weapon/gun/projectile/automatic/armsmg/tornado/update_icon()
+/obj/item/gun/projectile/automatic/armsmg/tornado/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -149,4 +149,4 @@
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/tornado.dmi'
 	icon_state = "tornado_slide"
 	allowed_organs = list(BP_R_ARM, BP_L_ARM)
-	holding_type = /obj/item/weapon/gun/projectile/automatic/armsmg/tornado
+	holding_type = /obj/item/gun/projectile/automatic/armsmg/tornado

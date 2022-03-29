@@ -1,11 +1,11 @@
-/obj/item/weapon/implant/carrion_spider/sleeping
+/obj/item/implant/carrion_spider/sleeping
 	name = "Narcolepsy spider"
 	desc = "A spiderling with a few small chem sacks, occasionally pulsing with a blue chemical"
 	icon = 'zzzz_modular_occulus/icons/obj/carrion_spiders.dmi'
 	icon_state = "spiderling_sleeping"
-	spider_price = 25 
+	spider_price = 25
 
-/obj/item/weapon/implant/carrion_spider/sleeping/activate()
+/obj/item/implant/carrion_spider/sleeping/activate()
 	..()
 	if(wearer)
 		wearer.reagents.add_reagent("stoxin", 5)

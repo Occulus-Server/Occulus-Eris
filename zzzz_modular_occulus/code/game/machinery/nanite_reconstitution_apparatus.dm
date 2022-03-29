@@ -9,7 +9,7 @@
 	desc = "Machine used for restoring old equipment and items."
 	icon = 'zzzz_modular_occulus/icons/obj/machine.dmi'
 	icon_state = "nra"
-	circuit = /obj/item/weapon/electronics/circuitboard/nanite_reconstitution_apparatus
+	circuit = /obj/item/electronics/circuitboard/nanite_reconstitution_apparatus
 	density = TRUE
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
@@ -32,7 +32,7 @@
 	var/busy = FALSE
 	var/have_reagents = TRUE
 	var/have_materials = TRUE
-	var/obj/item/weapon/reagent_containers/glass/container = null
+	var/obj/item/reagent_containers/glass/container = null
 	//var/forbidden_materials = list(MATERIAL_CARDBOARD, MATERIAL_WOOD, MATERIAL_BIOMATTER)
 	var/allowed_materials = list(MATERIAL_STEEL, MATERIAL_PLASTEEL)
 	var/can_fix = FALSE
@@ -235,7 +235,7 @@
 
 	//And if there's any remainder, we eject that as a shard
 	if(remainder)
-		new /obj/item/weapon/material/shard(drop_location(), material, _amount = remainder)
+		new /obj/item/material/shard(drop_location(), material, _amount = remainder)
 
 	//The stored material gets the amount (whole+remainder) subtracted
 	stored_material[material] -= amount
@@ -245,14 +245,14 @@
 
 	var/manipulator_rating = 0
 	var/manipulator_count = 0
-	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
+	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		manipulator_rating += M.rating
 		++manipulator_count
 
 	speed = initial(speed)*(manipulator_rating/manipulator_count)
 
 	var/scanner_rating = 0
-	for(var/obj/item/weapon/stock_parts/scanning_module/SM in component_parts)
+	for(var/obj/item/stock_parts/scanning_module/SM in component_parts)
 		scanner_rating = SM.rating
 
 	if (scanner_rating > 1)
@@ -262,7 +262,7 @@
 
 	var/mb_rating = 0
 	var/mb_count = 0
-	for(var/obj/item/weapon/stock_parts/matter_bin/MB in component_parts)
+	for(var/obj/item/stock_parts/matter_bin/MB in component_parts)
 		mb_rating += MB.rating
 		++mb_count
 
@@ -285,7 +285,7 @@
 		eat(user, I)
 		return
 
-	if(istype(I, /obj/item/weapon/reagent_containers/glass/beaker))							//Unique insert for beakers.
+	if(istype(I, /obj/item/reagent_containers/glass/beaker))							//Unique insert for beakers.
 		insert_beaker(user, I)
 		return
 
@@ -313,7 +313,7 @@
 	user.set_machine(src)
 	ui_interact(user)
 
-/obj/machinery/nanite_reconstitution_apparatus/proc/insert_beaker(mob/living/user, obj/item/weapon/reagent_containers/glass/beaker)
+/obj/machinery/nanite_reconstitution_apparatus/proc/insert_beaker(mob/living/user, obj/item/reagent_containers/glass/beaker)
 	if(!beaker && istype(user))
 		beaker = user.get_active_hand()
 
@@ -569,16 +569,16 @@
 
 		return 1
 
-/obj/item/weapon/electronics/circuitboard/nanite_reconstitution_apparatus
+/obj/item/electronics/circuitboard/nanite_reconstitution_apparatus
 	name = T_BOARD("nanite reconstitution apparatus")
 	build_path = /obj/machinery/nanite_reconstitution_apparatus
 	board_type = "machine"
 	origin_tech = list(TECH_ENGINEERING = 6, TECH_DATA = 6, TECH_MATERIAL = 6)
 	req_components = list(
-		/obj/item/weapon/stock_parts/scanning_module = 1,
-		/obj/item/weapon/stock_parts/manipulator = 2,
-		/obj/item/weapon/stock_parts/matter_bin = 2,
-		/obj/item/weapon/stock_parts/console_screen = 1
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/stock_parts/matter_bin = 2,
+		/obj/item/stock_parts/console_screen = 1
 	)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -593,7 +593,7 @@
 
 /obj/machinery/nanite_reconstitution_apparatus/loaded/Initialize()
 	. = ..()
-	container = new /obj/item/weapon/reagent_containers/glass/beaker(src)
+	container = new /obj/item/reagent_containers/glass/beaker(src)
 	container.reagents.add_reagent("nanites", 30)
 
 // You (still) can't flicker overlays in BYOND, and this is a vis_contents hack to provide the same functionality.

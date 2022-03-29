@@ -89,10 +89,10 @@
 
 /obj/item/clothing/suit/space/void/merc/equipped
 	boots = /obj/item/clothing/shoes/magboots
-	tank = /obj/item/weapon/tank/oxygen
+	tank = /obj/item/tank/oxygen
 	accompanying_object = null
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/suit/space/void/merc/boxed
-	tank = /obj/item/weapon/tank/emergency_oxygen/double
+	tank = /obj/item/tank/emergency_oxygen/double
 	spawn_blacklisted = TRUE

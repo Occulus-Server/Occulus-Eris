@@ -195,7 +195,7 @@
 	name = ".60 Anti material"
 	desc = "A box full of .60 AMR bullets. Have 5 bullets inside."
 	item_cost = 3
-	path = /obj/item/weapon/storage/box/sniperammo
+	path = /obj/item/storage/box/sniperammo
 
 /datum/uplink_item/item/ammo/darts
 	name = "Darts"
@@ -207,14 +207,14 @@
 /datum/uplink_item/item/ammo/cell/small
 	name = "Small Power Cell"
 	item_cost = 3
-	path = /obj/item/weapon/cell/small/hyper
+	path = /obj/item/cell/small/hyper
 
 /datum/uplink_item/item/ammo/cell/medium
 	name = "Medium Power Cell"
 	item_cost = 4
-	path = /obj/item/weapon/cell/medium/hyper
+	path = /obj/item/cell/medium/hyper
 
 /datum/uplink_item/item/ammo/cell/large
 	name = "Large Power Cell"
 	item_cost = 5
-	path = /obj/item/weapon/cell/large/hyper
+	path = /obj/item/cell/large/hyper

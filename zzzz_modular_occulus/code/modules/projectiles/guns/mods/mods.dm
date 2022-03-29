@@ -1,10 +1,10 @@
-/obj/item/weapon/gun_upgrade/barrel/diffuser
+/obj/item/gun_upgrade/barrel/diffuser
 	name = "MEK \"DIFFUSER\" micro lens"
 	desc = "A point of light in the distance."
 	icon_state = "Excruciator"
 	rarity_value = 50
 
-/obj/item/weapon/gun_upgrade/barrel/diffuser/New()
+/obj/item/gun_upgrade/barrel/diffuser/New()
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
@@ -16,4 +16,4 @@
 
 /datum/design/autolathe/diffuser
 	name = "Mekhane \"DIFFUSER\" micro lens"
-	build_path = /obj/item/weapon/gun_upgrade/barrel/diffuser
+	build_path = /obj/item/gun_upgrade/barrel/diffuser

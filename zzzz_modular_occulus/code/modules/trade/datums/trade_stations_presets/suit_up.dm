@@ -4,7 +4,7 @@
 	assortiment = list(
 		"Spacesuits" = list(
 			/obj/item/clothing/suit/space/void/atmos,
-			/obj/item/weapon/rig/eva,
+			/obj/item/rig/eva,
 			/obj/item/clothing/suit/space/void/dss
 
 		),

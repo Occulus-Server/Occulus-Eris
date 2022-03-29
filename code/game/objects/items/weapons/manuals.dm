@@ -1,12 +1,12 @@
 /*********************MANUALS (BOOKS)***********************/
 
-/obj/item/weapon/book/manual
+/obj/item/book/manual
 	icon = 'icons/obj/library.dmi'
 	due_date = 0 // Game time in 1/10th seconds
 	unique = TRUE   // FALSE - Normal book, TRUE - Should not be treated as normal book, unable to be copied, unable to be modified
 
 
-/obj/item/weapon/book/manual/chef_recipes
+/obj/item/book/manual/chef_recipes
 	name = "Chef Recipes"
 	icon_state = "cooked_book"
 	author = "Victoria Ponsonby"
@@ -65,7 +65,7 @@
 			"}
 
 
-/obj/item/weapon/book/manual/barman_recipes
+/obj/item/book/manual/barman_recipes
 	name = "Barman Recipes"
 	icon_state = "barbook"
 	author = "Sir John Rose"
@@ -121,7 +121,7 @@
 
 /////Consider Everything from this point down an Occulus Change/////
 
-/obj/item/weapon/book/manual/nuclear
+/obj/item/book/manual/nuclear
 	name = "Fission Mailed: Nuclear Sabotage 101"
 	desc = "An information manual for mercenary operatives on the usage of nuclear devices to destroy whatever might need a nuke. How did this get here?."
 	icon_state = "book_nuclear"
@@ -174,7 +174,7 @@
 			"}
 
 
-/obj/item/weapon/book/manual/security_aegisparagraphs //Occulus edit
+/obj/item/book/manual/security_aegisparagraphs //Occulus edit
 	name = "Cobalt Aegis Paragraphs"
 	desc = "A set of corporate guidelines for keeping order on privately-owned space assets."
 	icon_state = "book_ironparagraphs"
@@ -255,17 +255,17 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/wiki
+/obj/item/book/manual/wiki
 	var/page_link = ""
 	window_size = "970x710"
-	bad_type = /obj/item/weapon/book/manual/wiki
+	bad_type = /obj/item/book/manual/wiki
 
-/obj/item/weapon/book/manual/wiki/attack_self()
+/obj/item/book/manual/wiki/attack_self()
 	if(!dat)
 		initialize_wikibook()
 	return ..()
 
-/obj/item/weapon/book/manual/wiki/proc/initialize_wikibook()
+/obj/item/book/manual/wiki/proc/initialize_wikibook()
 	if(config.wikiurl)
 		dat = {"
 			<html><head>
@@ -289,42 +289,42 @@
 			"}
 
 //engineering
-/obj/item/weapon/book/manual/wiki/engineering_guide
+/obj/item/book/manual/wiki/engineering_guide
 	name = "Engineering Textbook"
 	icon_state = "book_engineering"
 	author = "Engineering Encyclopedia"
 	title = "Engineering Textbook"
 	page_link = "Guide_to_Engineering"
 
-/obj/item/weapon/book/manual/wiki/engineering_construction
+/obj/item/book/manual/wiki/engineering_construction
 	name = "Station Repairs and Construction"
 	icon_state = "book_construction"
 	author = "Engineering Encyclopedia"
 	title = "Station Repairs and Construction"
 	page_link = "Guide_to_Construction"
 
-/obj/item/weapon/book/manual/wiki/engineering_atmos
+/obj/item/book/manual/wiki/engineering_atmos
 	name = "Pipes and You: Getting To Know Your Scary Tools"
 	icon_state = "book_atmos"
 	author = "Maria Crash, Senior Atmospherics Technician"
 	title = "Pipes and You: Getting To Know Your Scary Tools"
 	page_link = "Guide_to_Atmospherics"
 
-/obj/item/weapon/book/manual/wiki/engineering_hacking
+/obj/item/book/manual/wiki/engineering_hacking
 	name = "Hacking"
 	icon_state = "book_hacking"
 	author = "Engineering Encyclopedia"
 	title = "Hacking"
 	page_link = "Guide_to_Hacking"
 
-/obj/item/weapon/book/manual/wiki/engineering_singularity
+/obj/item/book/manual/wiki/engineering_singularity
 	name = "Singularity Safety in Special Circumstances"
 	icon_state = "book_singularity"
 	author = "Engineering Encyclopedia"
 	title = "Singularity Safety in Special Circumstances"
 	page_link = "Guide_to_Singularity"
 
-/obj/item/weapon/book/manual/wiki/engineering_supermatter
+/obj/item/book/manual/wiki/engineering_supermatter
 	name = "Supermatter Engine Operating Manual"
 	icon_state = "book_supermatter"
 	author = "Central Engineering Division"
@@ -332,14 +332,14 @@
 	page_link = "Guide_to_Supermatter"
 
 //science
-/obj/item/weapon/book/manual/wiki/science_research
+/obj/item/book/manual/wiki/science_research
 	name = "Research and Development 101"
 	icon_state = "book_rnd"
 	author = "Dr. L. Ight"
 	title = "Research and Development 101"
 	page_link = "Guide_to_Research_and_Development"
 
-/obj/item/weapon/book/manual/wiki/science_robotics
+/obj/item/book/manual/wiki/science_robotics
 	name = "Cyborgs for Dummies"
 	icon_state = "book_borg"
 	author = "XISC"
@@ -347,7 +347,7 @@
 	page_link = "Guide_to_Robotics"
 
 //security
-/obj/item/weapon/book/manual/wiki/security_ironparagraphs
+/obj/item/book/manual/wiki/security_ironparagraphs
 	name = "Cobalt Aegis Paragraphs"
 	desc = "A set of corporate guidelines for keeping order on privately-owned space assets."
 	icon_state = "book_ironparagraphs"
@@ -355,7 +355,7 @@
 	title = "Cobalt Aegis Paragraphs"
 	page_link = "Agreement"
 
-/obj/item/weapon/book/manual/wiki/security_detective
+/obj/item/book/manual/wiki/security_detective
 	name = "The Film Noir: Proper Procedures for Investigations"
 	icon_state = "book_forensics"
 	author = "The Company"
@@ -363,7 +363,7 @@
 	page_link = "Guide_to_Forensics"
 
 //medical
-/obj/item/weapon/book/manual/wiki/medical_guide
+/obj/item/book/manual/wiki/medical_guide
 	name = "Medical Diagnostics Manual"
 	desc = "First, do no harm. A detailed medical practitioner's guide."
 	icon_state = "book_medical"
@@ -371,7 +371,7 @@
 	title = "Medical Diagnostics Manual"
 	page_link = "Guide_to_Medical"
 
-/obj/item/weapon/book/manual/wiki/medical_chemistry
+/obj/item/book/manual/wiki/medical_chemistry
 	name = "Chemistry Textbook"
 	icon_state = "book"//TODO: Add icon
 	author = "Medical Journal, volume 2"
@@ -379,7 +379,7 @@
 	page_link = "Guide_to_Chemistry"
 
 //neotheology
-/obj/item/weapon/book/manual/wiki/neotheology_cloning //TODO: Completely change this to be NT-oriented.
+/obj/item/book/manual/wiki/neotheology_cloning //TODO: Completely change this to be NT-oriented.
 	name = "Cloning Rituals"
 	icon_state = "book"//TODO: Add icon
 	author = "The Church"
@@ -387,21 +387,21 @@
 	page_link = "Guide_to_Cloning"
 
 //service
-/obj/item/weapon/book/manual/wiki/barman_recipes
+/obj/item/book/manual/wiki/barman_recipes
 	name = "Barman Recipes"
 	icon_state = "book"
 	author = "Sir John Rose"
 	title = "Barman Recipes"
 	page_link = "Guide_to_Food_and_Drinks"
 
-/obj/item/weapon/book/manual/wiki/chef_recipes
+/obj/item/book/manual/wiki/chef_recipes
 	name = "Chef Recipes"
 	icon_state = "chefbook"
 	author = "Victoria Ponsonby"
 	title = "Chef Recipes"
 	page_link = "Guide_to_Food_and_Drinks"
 
-/obj/item/weapon/paper/enginenotes
+/obj/item/paper/enginenotes
 	name = "paper- 'Engine Setup Guide'"
 	icon_state = "paper_words_crumpled"
 	info = {"Quick reminder if you're setting up the engine, follow these steps.
@@ -418,7 +418,7 @@
 	<br>
 	6. DON'T FORGET TO TWEAK THE RCON SETTINGS!"}
 
-/obj/item/weapon/paper/forensicguide
+/obj/item/paper/forensicguide
 	name = "paper- 'CSI Basics'"
 	icon_state = "paper_words_crumpled"
 	info = {"Small refresher for our newer forensics contractors and how not to fuck up an investigation scene.

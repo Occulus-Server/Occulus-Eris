@@ -127,7 +127,7 @@
 /area/deepmaint)
 "A" = (
 /obj/structure/catwalk,
-/obj/item/weapon/gun/energy/plasma/brigador,
+/obj/item/gun/energy/plasma/brigador,
 /turf/simulated/floor/plating/under,
 /area/deepmaint)
 "B" = (

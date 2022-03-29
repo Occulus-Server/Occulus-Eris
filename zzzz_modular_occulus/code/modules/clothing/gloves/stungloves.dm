@@ -11,7 +11,7 @@
 	siemens_coefficient = 1.3 // Siemens Coef 0 is shock proof. 1 is full shock damage. If anything it should be set to 1.3, for extra shock, Not commented out, as that makes you take less shock via normal glove coef
 	stunforce = 0
 	agonyforce = 15 //Maint gremlins not as good as Aegis. Glove stuns at over 100 Halloss. Req 7 consequetive hits to knock unconscious at 15 agony.
-	suitable_cell = /obj/item/weapon/cell/medium
+	suitable_cell = /obj/item/cell/medium
 	status = FALSE		//whether the thing is on or not
 	hitcost = 85		//power cost. Makeshift uses less power, due to shoddy craftsmanship. Jamini: Shouldn't this be more? Most makeshift things are less effecient
 	var/icon_state_active = "stunglove_active"

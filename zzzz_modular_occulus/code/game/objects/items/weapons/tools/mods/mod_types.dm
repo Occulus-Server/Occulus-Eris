@@ -1,4 +1,4 @@
-/obj/item/weapon/tool_upgrade/augment/folding
+/obj/item/tool_upgrade/augment/folding
 	name = "Collapsible tool kit"
 	desc = "This small toolkit adjusts a tool so that it can be collapsed down to a smaller size. This reduces the lifespawn of the tool, but makes it take up less space."
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2)
@@ -6,7 +6,7 @@
 	icon_state = "foldkit"
 	price_tag = 120
 
-/obj/item/weapon/tool_upgrade/augment/folding/New()
+/obj/item/tool_upgrade/augment/folding/New()
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
@@ -16,7 +16,7 @@
 	I.prefix = "collapsible"
 
 
-/obj/item/weapon/tool_upgrade/augment/blade_addon
+/obj/item/tool_upgrade/augment/blade_addon
 	name = "sharp edge"
 	icon = 'zzzz_modular_occulus/icons/obj/tool_upgrades.dmi'
 	icon_state = "edge"
@@ -25,7 +25,7 @@
 	rarity_value = 20
 
 
-/obj/item/weapon/tool_upgrade/augment/blade_addon/New()
+/obj/item/tool_upgrade/augment/blade_addon/New()
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
@@ -35,7 +35,7 @@
 	I.prefix = "edged"
 	I.negative_qualities = list(QUALITY_CUTTING, QUALITY_WIRE_CUTTING)
 
-/obj/item/weapon/tool_upgrade/augment/wrench_addon
+/obj/item/tool_upgrade/augment/wrench_addon
 	name = "bolt gripper"
 	icon = 'zzzz_modular_occulus/icons/obj/tool_upgrades.dmi'
 	icon_state = "wrenching"
@@ -44,7 +44,7 @@
 	rarity_value = 20
 
 
-/obj/item/weapon/tool_upgrade/augment/wrench_addon/New()
+/obj/item/tool_upgrade/augment/wrench_addon/New()
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
@@ -54,7 +54,7 @@
 	I.prefix = "wrenching"
 	I.negative_qualities = list(QUALITY_BOLT_TURNING)
 
-/obj/item/weapon/tool_upgrade/augment/multitool_addon
+/obj/item/tool_upgrade/augment/multitool_addon
 	name = "multitool attachment"
 	icon = 'zzzz_modular_occulus/icons/obj/tool_upgrades.dmi'
 	icon_state = "pulsing"
@@ -63,7 +63,7 @@
 	rarity_value = 20
 
 
-/obj/item/weapon/tool_upgrade/augment/multitool_addon/New()
+/obj/item/tool_upgrade/augment/multitool_addon/New()
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
@@ -73,7 +73,7 @@
 	I.prefix = "technical"
 	I.negative_qualities = list(QUALITY_PULSING)
 
-/obj/item/weapon/tool_upgrade/augment/prying_addon
+/obj/item/tool_upgrade/augment/prying_addon
 	name = "prying head"
 	icon = 'zzzz_modular_occulus/icons/obj/tool_upgrades.dmi'
 	icon_state = "prying"
@@ -82,7 +82,7 @@
 	rarity_value = 20
 
 
-/obj/item/weapon/tool_upgrade/augment/prying_addon/New()
+/obj/item/tool_upgrade/augment/prying_addon/New()
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
@@ -93,7 +93,7 @@
 	I.required_qualities = list(QUALITY_BOLT_TURNING,QUALITY_HAMMERING,QUALITY_SHOVELING,QUALITY_DIGGING, QUALITY_EXCAVATION)
 	I.negative_qualities = list(QUALITY_PRYING)
 
-/obj/item/weapon/tool_upgrade/augment/screw_addon
+/obj/item/tool_upgrade/augment/screw_addon
 	name = "screwdriver attachment"
 	icon = 'zzzz_modular_occulus/icons/obj/tool_upgrades.dmi'
 	icon_state = "screwdriver"
@@ -102,7 +102,7 @@
 	rarity_value = 20
 
 
-/obj/item/weapon/tool_upgrade/augment/screw_addon/New()
+/obj/item/tool_upgrade/augment/screw_addon/New()
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
@@ -112,7 +112,7 @@
 	I.prefix = "screwdriving"
 	I.negative_qualities = list(QUALITY_SCREW_DRIVING)
 
-/obj/item/weapon/tool_upgrade/augment/digging_addon
+/obj/item/tool_upgrade/augment/digging_addon
 	name = "adze head"
 	icon = 'zzzz_modular_occulus/icons/obj/tool_upgrades.dmi'
 	icon_state = "digging"
@@ -121,7 +121,7 @@
 	rarity_value = 20
 
 
-/obj/item/weapon/tool_upgrade/augment/digging_addon/New()
+/obj/item/tool_upgrade/augment/digging_addon/New()
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
@@ -132,5 +132,5 @@
 	I.required_qualities = list(QUALITY_BOLT_TURNING,QUALITY_PRYING,QUALITY_HAMMERING)
 	I.negative_qualities = list(QUALITY_DIGGING, QUALITY_SHOVELING, QUALITY_EXCAVATION)
 
-/obj/item/weapon/tool_upgrade/productivity/antistaining
+/obj/item/tool_upgrade/productivity/antistaining
 	matter = list(MATERIAL_STEEL = 3, MATERIAL_PHORONGLASS = 2)

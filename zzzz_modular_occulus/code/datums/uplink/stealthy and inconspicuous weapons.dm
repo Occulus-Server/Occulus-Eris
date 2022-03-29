@@ -2,13 +2,13 @@
 	name = "Remote Explosive"
 	item_cost = 6
 	desc = "A disguised remote explosive. Comes with an activator disguised as a Zippo lighter."
-	path = /obj/item/weapon/syndie/c4explosive
+	path = /obj/item/syndie/c4explosive
 
 /datum/uplink_item/item/stealthy_weapons/bomblarge
 	name = "Large Remote Explosive"
 	item_cost = 11
 	desc = "A heavy duty remote explosive. Comes with an activator disguised as a Zippo lighter."
-	path = /obj/item/weapon/syndie/c4explosive/heavy
+	path = /obj/item/syndie/c4explosive/heavy
 
 /datum/uplink_item/item/stealthy_weapons/empflashlight
 	name = "EMP Flashlight"
@@ -32,5 +32,5 @@
 	name = "Energy Dagger"
 	item_cost = 2
 	desc = "A pen mightier then the sword. Also happens to be a disguised energy dagger."
-	path = /obj/item/weapon/pen/edagger
+	path = /obj/item/pen/edagger
 

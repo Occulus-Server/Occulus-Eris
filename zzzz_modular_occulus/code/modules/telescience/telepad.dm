@@ -10,7 +10,7 @@
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = BS_POWER_DRAW
-	circuit = /obj/item/weapon/electronics/circuitboard/telesci_pad
+	circuit = /obj/item/electronics/circuitboard/telesci_pad
 	var/obj/effect/portal/wormhole/telepad/portal = null
 	var/stored_power = 0
 	var/max_power = BS_CAPACITOR_POWER
@@ -26,7 +26,7 @@
 
 /obj/machinery/telesci_pad/RefreshParts()
 	var/maxpow = 0
-	for(var/obj/item/weapon/stock_parts/capacitor/C in component_parts)
+	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		maxpow += C.rating * BS_CAPACITOR_POWER
 	var/eff = 0.5
 	for(var/obj/item/bluespace_crystal/crystal in component_parts)
@@ -45,7 +45,7 @@
 		idle_power_usage = 0
 	else
 		idle_power_usage = initial(idle_power_usage)
-	
+
 	if(stored_power <= 0 && istype(portal))
 		closePortal()
 
@@ -64,19 +64,19 @@
 	if(default_part_replacement(I, user))
 		return
 	if(panel_open)
-		if(istype(I, /obj/item/weapon/tool/multitool))
+		if(istype(I, /obj/item/tool/multitool))
 			if(istype(boundComputer))
 				to_chat(user, SPAN_WARNING("You unlink the telepad from its console."))
 				boundComputer.closePortal()
 				boundComputer.telepad = null
 				boundComputer = null
 				return
-			var/obj/item/weapon/tool/multitool/M = I
+			var/obj/item/tool/multitool/M = I
 			M.buffer_object = src
 			to_chat(user, SPAN_WARNING("You save the data in the [I.name]'s buffer."))
 			return
 	else
-		if(istype(I, /obj/item/weapon/tool/multitool))
+		if(istype(I, /obj/item/tool/multitool))
 			to_chat(user, SPAN_WARNING("You should open [src]'s maintenance panel first."))
 			return
 	return ..()

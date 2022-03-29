@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/automatic/vector
+/obj/item/gun/projectile/automatic/vector
 	name = "VK-00b"
 	desc = "The VK-00b is an innovative SMG that features a unique recoil reduction mechanism. \
 			Its low stopping power is offset by its blistering firerate and ability to be held on target easily. \
@@ -28,7 +28,7 @@
 		SEMI_AUTO_NODELAY,
 		)	//haha vector go BRRRRRT
 
-/obj/item/weapon/gun/projectile/automatic/vector/update_icon()
+/obj/item/gun/projectile/automatic/vector/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -47,13 +47,13 @@
 	icon_state = iconstring
 	set_item_state(itemstring)
 
-/obj/item/weapon/gun/projectile/automatic/vector/Initialize()
+/obj/item/gun/projectile/automatic/vector/Initialize()
 	. = ..()
 	update_icon()
 
 /datum/design/research/item/weapon/vk00b
 	name = "VK-00b"
-	build_path = /obj/item/weapon/gun/projectile/automatic/vector
+	build_path = /obj/item/gun/projectile/automatic/vector
 
 /datum/design/research/item/ammo/rubber35
 	name = "35 Auto Rubber SMG Magazine"

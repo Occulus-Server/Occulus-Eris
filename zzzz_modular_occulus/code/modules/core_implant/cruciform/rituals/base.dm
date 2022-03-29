@@ -5,7 +5,7 @@
 /datum/ritual/cruciform/base/relief
 	power = 25
 
-/datum/ritual/cruciform/base/relief/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/base/relief/perform(mob/living/carbon/human/H, obj/item/implant/core_implant/C)
 	var/datum/reagents/R = new /datum/reagents(5, null)
 	R.add_reagent("paracetamol", 5)
 	R.trans_to_mob(H, 5, CHEM_BLOOD)
@@ -32,7 +32,7 @@
 	desc = "Stabilizes the health of a person in front of you. Equivalent to Inaprovaline autoinjectors. Works instantly so long as the target is directly in front of you."
 	power = 35
 
-/datum/ritual/cruciform/base/absolution/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
+/datum/ritual/cruciform/base/absolution/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C,list/targets)
 	var/mob/living/carbon/human/T = get_front_human_in_range(user, 1)
 	if(!T)
 		fail("No target in front of you.", user, C)
@@ -56,7 +56,7 @@
 	desc = "Relieve a person of their agony, even if they are not a disciple. Requires the user to touch the target. Drastically more effective than Relief, about equivalent to one dose of Tramadol. Consumes nutrition when performed."
 	power = 40
 
-/datum/ritual/cruciform/base/relief_other/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
+/datum/ritual/cruciform/base/relief_other/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C,list/targets)
 
 	var/mob/living/carbon/human/H = get_victim(user)
 
@@ -94,7 +94,7 @@ Soul hunger except it works on anyone!
 	desc = "Stave off the hunger of an adjacent person, even if they are not a disciple. Requires the user to touch the target. The user will experience some mild toxicity."
 	power = 50
 
-/datum/ritual/cruciform/base/saturation/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
+/datum/ritual/cruciform/base/saturation/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C,list/targets)
 
 	var/mob/living/carbon/human/H = get_victim(user)
 
@@ -134,7 +134,7 @@ Let there be light! Makes you glow for 5 minutes at a time.
 	cooldown_category = "glow"
 	power = 50
 
-/datum/ritual/cruciform/occulus/enkindle/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/occulus/enkindle/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
 	var/list/glowy_doods = list()	// Initialize a list of who's getting affected!
 	glowy_doods.Add(user)	// Add the caster to the list
 	user.nutrition -= 25
@@ -167,20 +167,20 @@ Let there be light! Makes you glow for 5 minutes at a time.
 	desc = "Unleashes the latent power hidden within a Mekhanite dagger held within your hands, augmenting its offensive capabilities and also turning it into a dangerous projectile when thrown. An unleashed dagger will burn the user's hand when used to attack, and will also disintegrate in 10 hits, or upon being thrown."
 	power = 50
 
-/datum/ritual/cruciform/crusader/freeedagger/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
+/datum/ritual/cruciform/crusader/freeedagger/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C,list/targets)
 	var/success = FALSE
 	if(user.l_hand)
-		var/obj/item/weapon/tool/knife/dagger/nt/pls = user.l_hand
-		if(istype(pls, /obj/item/weapon/tool/knife/dagger/nt))
+		var/obj/item/tool/knife/dagger/nt/pls = user.l_hand
+		if(istype(pls, /obj/item/tool/knife/dagger/nt))
 			qdel(user.l_hand)
-			var/obj/item/weapon/tool/knife/dagger/nt/energy/created = new /obj/item/weapon/tool/knife/dagger/nt/energy(usr.loc)
+			var/obj/item/tool/knife/dagger/nt/energy/created = new /obj/item/tool/knife/dagger/nt/energy(usr.loc)
 			user.put_in_l_hand(created)
 			success = TRUE
 	if(user.r_hand)
-		var/obj/item/weapon/tool/knife/dagger/nt/pls = user.r_hand
-		if(istype(pls, /obj/item/weapon/tool/knife/dagger/nt))
+		var/obj/item/tool/knife/dagger/nt/pls = user.r_hand
+		if(istype(pls, /obj/item/tool/knife/dagger/nt))
 			qdel(user.r_hand)
-			var/obj/item/weapon/tool/knife/dagger/nt/energy/created = new /obj/item/weapon/tool/knife/dagger/nt/energy(usr.loc)
+			var/obj/item/tool/knife/dagger/nt/energy/created = new /obj/item/tool/knife/dagger/nt/energy(usr.loc)
 			user.put_in_r_hand(created)
 			success = TRUE
 	if(!success)
@@ -190,7 +190,7 @@ Let there be light! Makes you glow for 5 minutes at a time.
 		return TRUE
 
 // haha lets put the weapon define here because why not | okay this was a horrible idea this is the most spaghetti and overworked thing I have seen in months
-/obj/item/weapon/tool/knife/dagger/nt/energy
+/obj/item/tool/knife/dagger/nt/energy
 	name = "unleashed Mekhanite dagger"
 	desc = "It seems to burn intensely with an otherwordly energy of some sort. It's already falling apart, and you're likely to hurt yourself using this. Can be thrown for a crowd controlling detonation."
 	icon = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
@@ -213,11 +213,11 @@ Let there be light! Makes you glow for 5 minutes at a time.
 	var/uses_left = 10
 	spawn_blacklisted = TRUE
 
-/obj/item/weapon/tool/knife/dagger/nt/energy/New()
+/obj/item/tool/knife/dagger/nt/energy/New()
 	..()
 	set_light(l_range = 2, l_power = 2, l_color = COLOR_YELLOW) //make it glow
 
-/obj/item/weapon/tool/knife/dagger/nt/energy/afterattack(obj/target, mob/living/carbon/human/user, proximity)
+/obj/item/tool/knife/dagger/nt/energy/afterattack(obj/target, mob/living/carbon/human/user, proximity)
 	..()
 	if(proximity && target && istype(target,/mob/living)) //only works on adjacent mobs so you don't get burnt for clicking on a mouse 7 tiles away
 		user.get_active_hand_organ().take_damage(0,5) //0 brute 5 burn
@@ -226,10 +226,10 @@ Let there be light! Makes you glow for 5 minutes at a time.
 			visible_message(SPAN_DANGER("\The [src] disintegrates!"))
 			qdel(src)
 
-/obj/item/weapon/tool/knife/dagger/nt/energy/throw_impact(atom/hit_atom)
+/obj/item/tool/knife/dagger/nt/energy/throw_impact(atom/hit_atom)
 	..()
 	for(var/mob/living/carbon/M in hear(3, get_turf(src))) //half the range of what the SoT does
-		var/obj/item/weapon/implant/core_implant/I = M.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+		var/obj/item/implant/core_implant/I = M.get_core_implant(/obj/item/implant/core_implant/cruciform)
 		if(I && I.active && I.wearer)
 			continue
 		bang(get_turf(src), M)
@@ -247,7 +247,7 @@ Let there be light! Makes you glow for 5 minutes at a time.
 
 //Holy copypasta, batman! This is bad. Real bad. But whatever.
 
-/obj/item/weapon/tool/knife/dagger/nt/energy/proc/bang(var/turf/T , var/mob/living/carbon/M)					// Added a new proc called 'bang' that takes a location and a person to be banged.
+/obj/item/tool/knife/dagger/nt/energy/proc/bang(var/turf/T , var/mob/living/carbon/M)					// Added a new proc called 'bang' that takes a location and a person to be banged.
 	to_chat(M, SPAN_DANGER(pick("HOLY LIGHT!", "GOD HAVE MERCY!", "HOLY HAVEN!", "YOU SEE THE LIGHT!")))								// Called during the loop that bangs people in lockers/containers and when banging
 	playsound(loc, 'sound/effects/bang.ogg', 50, 1, 5)		// people in normal view.  Could theroetically be called during other explosions.
 																// -- Polymorph

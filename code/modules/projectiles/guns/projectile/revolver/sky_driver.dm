@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/revolver/sky_driver
+/obj/item/gun/projectile/revolver/sky_driver
 	name = "S REV .35 Auto \"Sky Driver\""
 	desc = "A prototype revolver, captured as a trophy from a raided Syndicate research base. Uses .35 special rounds."
 	icon = 'icons/obj/guns/projectile/sky_driver.dmi'
@@ -19,4 +19,4 @@
 	recoil_buildup = 6
 	spawn_frequency = 0
 	spawn_blacklisted = TRUE
-	gun_parts = list(/obj/item/weapon/gun_upgrade/barrel/gauss = 3, /obj/item/stack/material/plasteel = 2)
+	gun_parts = list(/obj/item/gun_upgrade/barrel/gauss = 3, /obj/item/stack/material/plasteel = 2)

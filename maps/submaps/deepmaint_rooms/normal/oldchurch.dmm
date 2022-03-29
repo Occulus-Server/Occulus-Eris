@@ -18,12 +18,12 @@
 /area/deepmaint)
 "f" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/gun/projectile/revolver/deckard,
+/obj/item/gun/projectile/revolver/deckard,
 /turf/simulated/floor/carpet/bcarpet,
 /area/deepmaint)
 "g" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/book/ritual/cruciform{
+/obj/item/book/ritual/cruciform{
 	desc = "Contains holy litany and religious prayers. This one has the phrase 'THE SKIES ARE BURIED DEEP' scrawled all over it...";
 	name = "Defaced Mekhane book"
 	},

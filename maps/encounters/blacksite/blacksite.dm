@@ -163,24 +163,24 @@
 /////
 // Custom paper notes
 /////
-/obj/item/weapon/paper/blacksite/medium
+/obj/item/paper/blacksite/medium
 	name = "incident log"
 	spawn_blacklisted = TRUE
 
-/obj/item/weapon/paper/blacksite/medium/note01
+/obj/item/paper/blacksite/medium/note01
 	info = "<B>Automated Situation Report</B><br> H+0:\
 	        <br> # Warning, contamination, 4 subjects breaked from their cells.\
 	        <br> # Warning, 10 guards failed to pacify subjects.\
 			<br> # Death report: 9 guards, 3 science personnel, 2 engineers, 1 office clerk.\
 			<br> # Bolting the prison door."
 
-/obj/item/weapon/paper/blacksite/medium/note02
+/obj/item/paper/blacksite/medium/note02
 	info = "<B>Automated Situation Report</B><br> H+1:\
 	        <br> # Door is sustaining damage. Probability of successful containement under acceptable value.\
 	        <br> # Preparing for evacuation and ship conservation.\
 			<br> # Distress signal sent."
 
-/obj/item/weapon/paper/blacksite/medium/note03
+/obj/item/paper/blacksite/medium/note03
 	info = "<B>Automated Situation Report</B><br> H+2:\
 	        <br> # Prison door has been breached.\
 	        <br> # 3 subjects entered through the door and are facing security robots.\
@@ -190,7 +190,7 @@
 			<br> # Warning, a loose subject is heading to the office with 4 people inside.\
 			<br> # Bolting the office."
 
-/obj/item/weapon/paper/blacksite/medium/note04
+/obj/item/paper/blacksite/medium/note04
 	info = "<B>Automated Situation Report</B><br> H+3:\
 	        <br> # Warning: guard number 2 skin turned yellow, muscle tissue increased 1.5 times and he became aggressive.\
 			<br> # Bolting room and 2 medics and 1 scientist inside.\
@@ -203,13 +203,13 @@
 	        <br> # Locking down all lockers.\
 	        <br> # Activating additional security bots."
 
-/obj/item/weapon/paper/blacksite/medium/note05
+/obj/item/paper/blacksite/medium/note05
 	info = "<B>Automated Situation Report</B><br> H+4:\
 	        <br> # Subject is eliminated. Security guard eliminated. 2 security bots lost, 1 still active.\
 	        <br> # All possibly infected personnel eliminated.\
 	        <br> # Beginning clean up procedures."
 
-/obj/item/weapon/paper/blacksite/medium/note06
+/obj/item/paper/blacksite/medium/note06
 	info = "<B>Automated Situation Report</B><br> H+9:\
 	        <br> # Security bots burnt all corpses and cleaning bots cleaned up all the blood.\
 	        <br> # Activating sleeping mode. Minimal machinery and bot have for energy preservation.\

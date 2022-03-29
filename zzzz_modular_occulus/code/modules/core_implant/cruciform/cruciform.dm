@@ -1,8 +1,8 @@
-/obj/item/weapon/implant/core_implant/cruciform
+/obj/item/implant/core_implant/cruciform
 	power_regen = 0.25 //Voted by community.
 
 // Nerfs cruciforms by making them weak against EMPs
-/obj/item/weapon/implant/core_implant/cruciform/emp_act()
+/obj/item/implant/core_implant/cruciform/emp_act()
 	if(get_module(CRUCIFORM_INQUISITOR))
 		return	//Make inquisitors immune to EMPs. Because they're stronk!
 
@@ -17,7 +17,7 @@
 
 //Replacement for the proc over on Eris. Recovers 0.25 base power, increases by 0.01 per point of cog up to 1
 
-/obj/item/weapon/implant/core_implant/cruciform/auto_restore_power()
+/obj/item/implant/core_implant/cruciform/auto_restore_power()
 	if(power >= max_power)
 		power = max_power
 		return

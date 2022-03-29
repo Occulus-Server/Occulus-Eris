@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/shrapnel/corsair/enforcer
+/obj/item/gun/energy/shrapnel/corsair/enforcer
 	name = "CAT \"Enforcer\""
 	desc = "A \"Catalyzer\" energy gun, The Enforcer uses a catalytic conversion system to turn energy into a hard, rubbery mass"
 	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/enforcer.dmi'
@@ -9,7 +9,7 @@
 		list(mode_name="Auto shot", projectile_type=/obj/item/projectile/bullet/pistol/rubber, mode_type = /datum/firemode/automatic, fire_delay=1.5  , charge_cost=125, icon="auto"),
 	)
 
-/obj/item/weapon/gun/energy/shrapnel/corsair/enforcer/emag_act(var/remaining_charges, var/mob/user)
+/obj/item/gun/energy/shrapnel/corsair/enforcer/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		emagged = 1
 		init_firemodes = list(

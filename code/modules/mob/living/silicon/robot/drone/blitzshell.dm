@@ -1,7 +1,7 @@
 /mob/living/silicon/robot/drone/blitzshell
 	icon_state = "blitzshell"
 	law_type = /datum/ai_laws/blitzshell
-	module_type = /obj/item/weapon/robot_module/drone/rogue //Occulus Edit
+	module_type = /obj/item/robot_module/drone/rogue //Occulus Edit
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_size = ITEM_SIZE_HUGE
@@ -30,7 +30,7 @@
 	UnlinkSelf()
 
 /mob/living/silicon/robot/drone/blitzshell/GetIdCard()
-	var/obj/ID = locate(/obj/item/weapon/card/id/syndicate) in module.modules
+	var/obj/ID = locate(/obj/item/card/id/syndicate) in module.modules
 	return ID
 
 /mob/living/silicon/robot/drone/blitzshell/request_player()
@@ -45,59 +45,59 @@
 
 //Occulus Edit - Completely changing the loadout for rogue drones
 
-/obj/item/weapon/robot_module/drone/rogue
+/obj/item/robot_module/drone/rogue
 	networks = list()
 	health = 90 //Able to take 3-4 bullets
 	speed_factor = 1.2
 	hide_on_manifest = TRUE
 
-/obj/item/weapon/robot_module/drone/rogue/New(var/mob/living/silicon/robot/R)
+/obj/item/robot_module/drone/rogue/New(var/mob/living/silicon/robot/R)
 	modules += new /obj/item/device/nanite_container(src)
-	modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src)
-	modules += new /obj/item/weapon/hatton/robot(src)
+	modules += new /obj/item/gun/energy/taser/mounted/cyborg(src)
+	modules += new /obj/item/hatton/robot(src)
 	modules += new /obj/item/device/drone_uplink(src)
 	..(R)
 
 /*
-/obj/item/weapon/robot_module/blitzshell
+/obj/item/robot_module/blitzshell
 	networks = list()
 	health = 90 //Able to take 3-4 bullets
 	speed_factor = 1.2
 	hide_on_manifest = TRUE
 
 
-/obj/item/weapon/robot_module/blitzshell/New()
-	modules += new /obj/item/weapon/gun/energy/laser/mounted/blitz(src) //Deemed too strong for initial loadout
-	modules += new /obj/item/weapon/gun/energy/plasma/mounted/blitz(src)
-	modules += new /obj/item/weapon/tool/knife/tacknife(src) //For claiming heads for assassination missions
+/obj/item/robot_module/blitzshell/New()
+	modules += new /obj/item/gun/energy/laser/mounted/blitz(src) //Deemed too strong for initial loadout
+	modules += new /obj/item/gun/energy/plasma/mounted/blitz(src)
+	modules += new /obj/item/tool/knife/tacknife(src) //For claiming heads for assassination missions
 	Objective stuff
-	modules += new /obj/item/weapon/storage/bsdm/permanent(src) //for sending off item contracts
-	modules += new /obj/item/weapon/gripper/antag(src) //For picking up item contracts
-	modules += new /obj/item/weapon/reagent_containers/syringe/blitzshell(src) //Blood extraction
+	modules += new /obj/item/storage/bsdm/permanent(src) //for sending off item contracts
+	modules += new /obj/item/gripper/antag(src) //For picking up item contracts
+	modules += new /obj/item/reagent_containers/syringe/blitzshell(src) //Blood extraction
 	modules += new /obj/item/device/drone_uplink(src)
 	Misc equipment
-	modules += new /obj/item/weapon/card/id/syndicate(src) //This is our access. Scan cards to get better access
+	modules += new /obj/item/card/id/syndicate(src) //This is our access. Scan cards to get better access
 	modules += new /obj/item/device/nanite_container(src) //For self repair. Get more charges via the contract system
 	..()
 	Occulus Edit End
 	*/
 
-/obj/item/weapon/gripper/antag
+/obj/item/gripper/antag
 	name = "Objective Gripper"
 	desc = "A special grasping tool specialized in 'dirty' work. Can rip someone's head off if you need it."
 	can_hold = list(
-		/obj/item/weapon/implanter,
+		/obj/item/implanter,
 		/obj/item/device/spy_sensor,
-		/obj/item/weapon/computer_hardware/hard_drive,
-		/obj/item/weapon/reagent_containers,
-		/obj/item/weapon/spacecash,
+		/obj/item/computer_hardware/hard_drive,
+		/obj/item/reagent_containers,
+		/obj/item/spacecash,
 		/obj/item/device/mind_fryer,
 		/obj/item/organ/external/head,
-		/obj/item/weapon/oddity/secdocs,
+		/obj/item/oddity/secdocs,
 		/obj/item/stack/telecrystal //To reload the uplink
 		)
 
-/obj/item/weapon/gripper/antag/afterattack(var/atom/target, var/mob/living/user, proximity, params)
+/obj/item/gripper/antag/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 	..()
 	if(istype(target, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = target
@@ -116,7 +116,7 @@
 		else
 			to_chat(user, SPAN_DANGER("You cannot rip someone head while they alive!"))
 
-/obj/item/weapon/gripper/antag/New()
+/obj/item/gripper/antag/New()
 	..()
 	for(var/i in GLOB.antag_item_targets)
 		can_hold |= GLOB.antag_item_targets[i]

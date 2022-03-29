@@ -9,7 +9,7 @@
 	price_tag = 300
 	var/req_parts = 15
 	var/core_type = 1
-	var/part_type = /obj/item/weapon/stock_parts/manipulator
+	var/part_type = /obj/item/stock_parts/manipulator
 	var/complete = FALSE
 
 /obj/item/guncore/examine(user, distance)
@@ -37,22 +37,22 @@
 			return
 		if(core_type == 1)
 			core_type = 2
-			part_type = /obj/item/weapon/stock_parts/matter_bin
+			part_type = /obj/item/stock_parts/matter_bin
 			to_chat(user, SPAN_WARNING("[src] is attuned to Rubber"))
 			return
 		if(core_type == 2)
 			core_type = 3
-			part_type = /obj/item/weapon/stock_parts/capacitor
+			part_type = /obj/item/stock_parts/capacitor
 			to_chat(user, SPAN_WARNING("[src] is attuned to Plasma"))
 			return
 		if(core_type == 3)
 			core_type = 4
-			part_type = /obj/item/weapon/stock_parts/micro_laser
+			part_type = /obj/item/stock_parts/micro_laser
 			to_chat(user, SPAN_WARNING("[src] is attuned to Lasers"))
 			return
 		if(core_type == 4)
 			core_type = 1
-			part_type = /obj/item/weapon/stock_parts/manipulator
+			part_type = /obj/item/stock_parts/manipulator
 			to_chat(user, SPAN_WARNING("[src] is attuned to Shrapnel"))
 			return
 	if(istype(I, part_type))
@@ -139,13 +139,13 @@
 
 /obj/item/gunchassis/proc/generate_gun()
 	if(istype(core, /obj/item/guncore/shrapnel))
-		gun_result = /obj/item/weapon/gun/energy/shrapnel/corsair
+		gun_result = /obj/item/gun/energy/shrapnel/corsair
 	if(istype(core, /obj/item/guncore/rubber))
-		gun_result = /obj/item/weapon/gun/energy/shrapnel/corsair/enforcer
+		gun_result = /obj/item/gun/energy/shrapnel/corsair/enforcer
 	if(istype(core, /obj/item/guncore/plasma))
-		gun_result = /obj/item/weapon/gun/energy/plasma/didact
+		gun_result = /obj/item/gun/energy/plasma/didact
 	if(istype(core, /obj/item/guncore/laser))
-		gun_result = /obj/item/weapon/gun/energy/laser/sentinel
+		gun_result = /obj/item/gun/energy/laser/sentinel
 
 /obj/item/gunchassis/examine(user, distance)
 	. = ..()
@@ -195,4 +195,3 @@
 			qdel(src)
 	return ..()
 
-	

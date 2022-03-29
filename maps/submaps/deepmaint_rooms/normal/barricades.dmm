@@ -33,7 +33,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "i" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /turf/simulated/floor/tiled/techmaint_perforated,
 /area/deepmaint)
 "j" = (

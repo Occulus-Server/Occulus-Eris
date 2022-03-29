@@ -1,4 +1,4 @@
-/obj/item/weapon/implant/carrion_spider/mending
+/obj/item/implant/carrion_spider/mending
 	name = "mending spider"
 	desc = "A small spider with a vividly red abdomen. A dark medical cross emblazons its facing side"
 	icon = 'zzzz_modular_occulus/icons/obj/carrion_spiders.dmi'
@@ -6,7 +6,7 @@
 	spider_price = 50
 	gene_price = 1
 
-/obj/item/weapon/implant/carrion_spider/mending/activate()
+/obj/item/implant/carrion_spider/mending/activate()
 	..()
 	if(wearer)
 		wearer.reagents.add_reagent("kyphotorin", 5)

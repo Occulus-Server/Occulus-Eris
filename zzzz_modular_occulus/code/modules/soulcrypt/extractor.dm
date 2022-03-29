@@ -1,4 +1,4 @@
-/obj/item/weapon/soulextract
+/obj/item/soulextract
 	name = "emergency soulcrypt extractor"
 	desc = "An device used to extract Soulcrypts from degraded cadavers. \
 			Does not function if alternate means of resuscitation are possible to prevent forking incidents."
@@ -6,10 +6,10 @@
 	icon_state = "extract"
 	var/emagged = FALSE
 
-/obj/item/weapon/soulextract/afterattack(atom/A, mob/living/user)
+/obj/item/soulextract/afterattack(atom/A, mob/living/user)
 	if(istype(A, /mob/living/carbon/human))
 		var/mob/living/carbon/human/person = A
-		var/obj/item/weapon/implant/core_implant/soulcrypt/crypt = person.crypt
+		var/obj/item/implant/core_implant/soulcrypt/crypt = person.crypt
 		if(!crypt)
 			to_chat(user, SPAN_WARNING("[person] doesn't have a Soulcrypt to extract."))
 			return
@@ -35,18 +35,18 @@
 				A.visible_message(SPAN_NOTICE("[user] awkwardly pulls \the [src] out of [person]'s chest."),\
 				SPAN_NOTICE("You awkwardly pull \the [src] out of [person]'s chest."))
 
-/obj/item/weapon/soulextract/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/weapon/card/emag))
+/obj/item/soulextract/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/card/emag))
 		emag_act(user)
 	..()
 
-/obj/item/weapon/soulextract/emag_act(mob/user)
+/obj/item/soulextract/emag_act(mob/user)
 	if(!emagged)
 		emagged = TRUE
 		playsound(loc, "sparks", 75, 1, -1)
 		to_chat(user, SPAN_NOTICE("You use the cryptographic sequencer on the [name]. It will now forcibly extract soulcrypts from living persons."))
 
-/obj/item/weapon/soulextract/proc/can_revive(mob/living/carbon/human/H)	//copypasta from defibs
+/obj/item/soulextract/proc/can_revive(mob/living/carbon/human/H)	//copypasta from defibs
 	if(!H.is_dead())
 		return TRUE	//counterintuitive but it's needed to make sure the thingy won't work on live people
 

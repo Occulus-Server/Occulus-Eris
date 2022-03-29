@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/gyropistol
+/obj/item/gun/projectile/gyropistol
 	name = "NT GP \"Zeus\""
 	desc = "A bulky pistol designed to fire self-propelled rounds."
 	icon = 'icons/obj/guns/projectile/gyropistol.dmi'
@@ -21,7 +21,7 @@
 	reload_sound 	= 'sound/weapons/guns/interact/hpistol_magin.ogg'
 	cocked_sound 	= 'sound/weapons/guns/interact/hpistol_cock.ogg'
 
-/obj/item/weapon/gun/projectile/gyropistol/on_update_icon()
+/obj/item/gun/projectile/gyropistol/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "gyropistolloaded"

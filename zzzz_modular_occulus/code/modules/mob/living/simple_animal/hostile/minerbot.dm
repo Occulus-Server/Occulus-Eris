@@ -39,7 +39,7 @@
 
 	mob_classification = CLASSIFICATION_SYNTHETIC
 
-	var/loot_table = list(/obj/item/weapon/computer_hardware/hard_drive/portable/research_points)
+	var/loot_table = list(/obj/item/computer_hardware/hard_drive/portable/research_points)
 
 /mob/living/simple_animal/hostile/minerbot/death()
 	..()

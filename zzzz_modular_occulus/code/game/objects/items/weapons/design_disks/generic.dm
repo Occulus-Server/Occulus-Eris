@@ -1,14 +1,14 @@
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools
+/obj/item/computer_hardware/hard_drive/portable/design/tools
 	disk_name = "Basic Tool Pack"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc
+/obj/item/computer_hardware/hard_drive/portable/design/misc
 	disk_name = "Miscellaneous Pack"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/devices
+/obj/item/computer_hardware/hard_drive/portable/design/devices
 	disk_name = "Devices and Instruments"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/robustcells
+/obj/item/computer_hardware/hard_drive/portable/design/robustcells
 	disk_name = "Robustcells"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/asters
+/obj/item/computer_hardware/hard_drive/portable/design/armor/asters
 	disk_name = "Enforcement Armor Pack"

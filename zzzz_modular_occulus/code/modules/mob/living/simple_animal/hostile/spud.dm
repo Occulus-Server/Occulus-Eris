@@ -44,7 +44,7 @@
 	spawn_tags = SPAWN_SPUD
 	rarity_value = 5
 
-	var/loot_table = list(/obj/item/weapon/computer_hardware/hard_drive/portable/research_points)
+	var/loot_table = list(/obj/item/computer_hardware/hard_drive/portable/research_points)
 
 /mob/living/simple_animal/hostile/spud/death()
 	..()
@@ -75,7 +75,7 @@
 	faction = "bosstown"
 	spawn_tags = SPAWN_ROOMBATTLER
 	rarity_value = 100
-	loot_table = list(/obj/item/weapon/computer_hardware/hard_drive/portable/research_points,
+	loot_table = list(/obj/item/computer_hardware/hard_drive/portable/research_points,
 					/obj/spawner/tool/advanced/onestar)
 
 /mob/living/simple_animal/hostile/spud/syndi/infiltrator //Infiltrator unit designed to synergize with local hostile fauna

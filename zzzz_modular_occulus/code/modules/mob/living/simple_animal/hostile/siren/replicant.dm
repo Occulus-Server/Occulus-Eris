@@ -132,7 +132,7 @@
 	set_light(2, 2, "#007fff")
 
 /mob/living/simple_animal/hostile/siren/replicant/death()
-	new /obj/item/weapon/replicant_core(src.loc)
+	new /obj/item/replicant_core(src.loc)
 	..()
 
 /mob/living/simple_animal/hostile/siren/replicant/OpenFire(var/the_target)
@@ -181,7 +181,7 @@
 		empulse(get_turf(src), emp_range, emp_range, TRUE)
 /////////////////Defensive EMP burst ENDS here///////////////////////
 
-/obj/item/weapon/replicant_core
+/obj/item/replicant_core
 	name = "replicant core"
 	desc = "All that remains of a creature, it seems to be what remains of it's core. It still seems to glow somewhat."
 	icon = 'icons/obj/food.dmi'
@@ -190,7 +190,7 @@
 	var/active = FALSE
 	var/det_time = 4 SECONDS
 
-/obj/item/weapon/replicant_core/attack_self(mob/user as mob)
+/obj/item/replicant_core/attack_self(mob/user as mob)
 	if(!charges)
 		to_chat(user, SPAN_NOTICE("\The [src] clicks, but doesn't activate. It must be out of charge."))
 	activate(user)
@@ -199,7 +199,7 @@
 		var/mob/living/carbon/C = user
 		C.throw_mode_on()
 
-/obj/item/weapon/replicant_core/proc/activate(mob/user as mob)
+/obj/item/replicant_core/proc/activate(mob/user as mob)
 	if(active)
 		return
 	if(user)

@@ -1,4 +1,4 @@
-/obj/item/weapon/soulmanip
+/obj/item/soulmanip
 	name = "soulcrypt manipulation tool"
 	desc = "An experimental device used to repair Soulcrypts, or extract them from cadavers. \
 			Automatically switches between repair and extraction modes depending on the state of the target. \
@@ -7,10 +7,10 @@
 	icon_state = "repair"
 	var/emagged = FALSE
 
-/obj/item/weapon/soulmanip/afterattack(atom/A, mob/living/user)
+/obj/item/soulmanip/afterattack(atom/A, mob/living/user)
 	if(istype(A, /mob/living/carbon/human))
 		var/mob/living/carbon/human/person = A
-		var/obj/item/weapon/implant/core_implant/soulcrypt/crypt = person.crypt
+		var/obj/item/implant/core_implant/soulcrypt/crypt = person.crypt
 		if(!crypt)
 			to_chat(user, SPAN_WARNING("[person] doesn't have a Soulcrypt to manipulate."))
 			return
@@ -49,13 +49,13 @@
 					playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
 
 
-/obj/item/weapon/soulmanip/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/weapon/card/emag))
+/obj/item/soulmanip/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/card/emag))
 		emag_act(user)
 
 	..()
 
-/obj/item/weapon/soulmanip/emag_act(mob/user)
+/obj/item/soulmanip/emag_act(mob/user)
 	if(!emagged)
 		emagged = TRUE
 		playsound(loc, "sparks", 75, 1, -1)
