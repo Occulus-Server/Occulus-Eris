@@ -1,7 +1,7 @@
 /obj/structure/catwalk
 	layer = TURF_LAYER + 0.5
 	icon = 'icons/turf/catwalks.dmi'
-	icon_state = "catwalk"
+	icon_state = "catwalk" //test
 	name = "catwalk"
 	desc = "Cats really don't like these things."
 	density = FALSE
