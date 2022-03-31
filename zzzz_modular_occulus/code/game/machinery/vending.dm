@@ -368,6 +368,35 @@
 					/obj/item/weapon/storage/belt/utility/neotheology = 150,
 					/obj/item/weapon/storage/belt/tactical/neotheology = 150)
 
+//Updated Dinnerware
+/obj/machinery/vending/dinnerware
+	name = "Dinnerware"
+	desc = "A kitchen and restaurant equipment vendor."
+	product_ads = "Mm, food stuffs!;Food and food accessories.;Get your plates!;You like forks?;I like forks.;Woo, utensils.;You don't really need these..."
+	icon_state = "dinnerware"
+	products = list(
+	/obj/item/weapon/tray = 8,
+	/obj/item/weapon/material/kitchen/utensil/fork = 6,
+	/obj/item/weapon/tool/knife = 6, /obj/item/weapon/material/kitchen/utensil/spoon = 6,
+	/obj/item/weapon/tool/knife = 3,
+	/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 10,
+	/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/shot = 10,
+	/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/mug = 10,
+	/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/pint = 10,
+	/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/wineglass = 10,
+	/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/double = 4,
+	/obj/item/clothing/suit/chef/classic = 2,
+	/obj/item/weapon/storage/lunchbox = 3,
+	/obj/item/weapon/storage/lunchbox/rainbow = 3,
+	/obj/item/weapon/storage/lunchbox/cat = 3,
+	/obj/item/weapon/reagent_containers/food/drinks/pitcher = 3,
+	/obj/item/weapon/reagent_containers/food/drinks/teapot = 3,
+	/obj/item/weapon/reagent_containers/food/drinks/mug = 3,
+	/obj/item/weapon/reagent_containers/food/drinks/mug/teacup = 10,
+	/obj/item/trash/plate = 5)//Adding more plates so people can make meals.
+	contraband = list(/obj/item/weapon/material/kitchen/rollingpin = 2, /obj/item/weapon/tool/knife/butch = 2)
+	auto_price = FALSE
+
 //all these are just to update the bill validator lights
 /obj/machinery/vending/serbomat/New()
 	..()
