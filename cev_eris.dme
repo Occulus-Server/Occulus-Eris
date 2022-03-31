@@ -3006,6 +3006,7 @@
 #include "zzzz_modular_occulus\code\modules\clothing\under\jobs\civilian.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\under\jobs\medsci.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\under\jobs\security.dm"
+#include "zzzz_modular_occulus\code\modules\cooking\meal.dm"
 #include "zzzz_modular_occulus\code\modules\cooking\salad.dm"
 #include "zzzz_modular_occulus\code\modules\cooking\snacks.dm"
 #include "zzzz_modular_occulus\code\modules\core_implant\cruciform\cruciform.dm"
