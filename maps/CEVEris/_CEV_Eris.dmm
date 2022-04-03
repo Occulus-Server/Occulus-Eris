@@ -24192,8 +24192,8 @@
 /area/eris/maintenance/section3deck1central)
 "bfw" = (
 /obj/structure/table/standard,
-/obj/machinery/newscaster{
-	pixel_x = -32
+/obj/machinery/camera/network/medbay{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/occulus/medical/surgeryhall)
@@ -50293,13 +50293,14 @@
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/crew_quarters/hydroponics/garden)
 "cpC" = (
-/obj/machinery/door/airlock/glass_medical{
-	name = "Medical Surgery Hallway";
-	req_access = list(5)
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/airlock/glass_medical{
+	id_tag = "MedbaySurgery1";
+	name = "Medical Surgery Hallway";
+	req_access = list(5)
 	},
 /turf/simulated/floor/tiled/white/cargo,
 /area/occulus/medical/surgeryhall)
@@ -75898,20 +75899,6 @@
 	},
 /turf/simulated/wall,
 /area/eris/maintenance/section1deck2central)
-"dAm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/medbay{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white/brown_platform,
-/area/occulus/medical/surgeryhall)
 "dAn" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
@@ -76770,11 +76757,7 @@
 /area/occulus/medical/scanning)
 "dCv" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_medical{
-	name = "Medical Diagnostics";
-	req_access = list(5)
-	},
-/turf/simulated/floor/tiled/white/brown_platform,
+/turf/simulated/floor/tiled/white/brown_perforated,
 /area/occulus/medical/trauma)
 "dCx" = (
 /obj/structure/closet/oldstyle,
@@ -77005,11 +76988,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/glass_medical{
-	name = "Medical Diagnostics";
-	req_access = list(5)
-	},
-/turf/simulated/floor/tiled/white/brown_platform,
+/turf/simulated/floor/tiled/white/brown_perforated,
 /area/occulus/medical/trauma)
 "dCV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -107015,6 +106994,7 @@
 /area/eris/crew_quarters/hydroponics/garden)
 "nTB" = (
 /obj/machinery/door/airlock/glass_medical{
+	id_tag = "MedbaySurgery1";
 	name = "Medical Surgery Hallway";
 	req_access = list(5)
 	},
@@ -110429,6 +110409,13 @@
 /obj/structure/disposalpipe/sortjunction/flipped{
 	name = "medbay sorting junction";
 	tag = "Medbay"
+	},
+/obj/machinery/button/remote/airlock{
+	desc = "A remote control switch.";
+	id = "MedbaySurgery1";
+	name = "Medbay Exit Button";
+	pixel_x = 26;
+	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/occulus/medical/surgeryhall)
@@ -209949,7 +209936,7 @@ ePL
 beo
 dBG
 dxx
-dAm
+eBq
 sRq
 ggL
 eBq
