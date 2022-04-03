@@ -11,15 +11,20 @@
 	embed = FALSE
 	sharp = FALSE
 
-/obj/item/projectile/bullet/pellet/shotgun/rubber/stinger	//used for the stinger grenade
+/obj/item/projectile/bullet/pellet/fragment/rubber/stinger	//used for the stinger grenade
+	name = "rubber pellet"
+	icon_state = "birdshot-1"
 	damage_types = list(BRUTE = 2)
 	agony = 18
 	pellets = 4
-	base_spread = 0 //causes it to be treated as a shrapnel explosion instead of cone
-	spread_step = 20
-	silenced = 1 //embedding messages are still produced so it's kind of weird when enabled.
-	no_attack_log = 1
-	muzzle_type = null
+	armor_penetration = 0
+	knockback = 0
+	embed = FALSE
+	sharp = FALSE
+
+/obj/item/projectile/bullet/pellet/fragment/rubber/stinger/weak
+	agony = 10
+	pellets = 2
 
 //Rubberizing rubber rounds
 
