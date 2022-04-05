@@ -3001,6 +3001,7 @@
 #include "zzzz_modular_occulus\code\modules\clothing\storage\backpack.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\suit\hooded.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\suit\mekhane.dm"
+#include "zzzz_modular_occulus\code\modules\clothing\suit\miscellaneous.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\suit\suits.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\under\under.dm"
 #include "zzzz_modular_occulus\code\modules\clothing\under\jobs\civilian.dm"
