@@ -56,7 +56,7 @@
 /datum/design/research/item/custom_circuit_assembly/printer
 	name = "Integrated circuit printer"
 	desc = "A portable(ish) machine made to print tiny modular circuitry out of metal."
-	build_path = /obj/item/disk/integrated_circuit/upgrade/advanced
+	build_path = /obj/item/device/integrated_circuit_printer
 	sort_string = "VCAAF"
 
 /datum/design/research/item/custom_circuit_assembly/advanced_designs
