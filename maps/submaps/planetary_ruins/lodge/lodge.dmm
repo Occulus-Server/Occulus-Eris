@@ -21,7 +21,7 @@
 /area/template_noop)
 "f" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /mob/living/simple_animal/hostile/roomba/slayer,
 /turf/simulated/floor/carpet/turcarpet,
 /area/template_noop)
@@ -31,7 +31,7 @@
 /area/template_noop)
 "h" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/board,
+/obj/item/board,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "i" = (
@@ -46,10 +46,10 @@
 /area/template_noop)
 "k" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/material/kitchen/utensil/fork/plastic,
-/obj/item/weapon/material/kitchen/utensil/fork/plastic,
-/obj/item/weapon/material/kitchen/utensil/fork/plastic,
-/obj/item/weapon/tool/knife,
+/obj/item/material/kitchen/utensil/fork/plastic,
+/obj/item/material/kitchen/utensil/fork/plastic,
+/obj/item/material/kitchen/utensil/fork/plastic,
+/obj/item/tool/knife,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
@@ -57,8 +57,8 @@
 /area/template_noop)
 "l" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/tool/knife,
-/obj/item/weapon/tool/knife,
+/obj/item/tool/knife,
+/obj/item/tool/knife,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 1
@@ -98,8 +98,8 @@
 /area/template_noop)
 "q" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/deck/cards,
+/obj/item/paper_bin,
+/obj/item/deck/cards,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "r" = (
@@ -114,7 +114,7 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/item/weapon/tool/knife/butch,
+/obj/item/tool/knife/butch,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "t" = (
@@ -205,7 +205,7 @@
 /area/template_noop)
 "I" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
 /obj/spawner/ammo/shotgun,
 /turf/simulated/floor/wood,
 /area/template_noop)

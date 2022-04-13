@@ -114,8 +114,8 @@
 "bt" = (
 /obj/structure/table/onestar,
 <<<<<<< HEAD
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 =======
 /obj/item/paper_bin,
@@ -147,8 +147,8 @@
 	},
 /obj/structure/table/onestar,
 <<<<<<< HEAD
-/obj/item/weapon/stamp/denied,
-/obj/item/weapon/pen,
+/obj/item/stamp/denied,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 =======
 /obj/item/stamp/denied,
@@ -169,7 +169,7 @@
 /obj/structure/table/onestar,
 /obj/item/remains/human,
 <<<<<<< HEAD
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 =======
 /obj/item/pen,
@@ -186,7 +186,7 @@
 	dir = 8
 	},
 <<<<<<< HEAD
-/obj/item/weapon/folder/red,
+/obj/item/folder/red,
 /turf/simulated/floor/tiled/dark/techfloor,
 =======
 /obj/item/folder/red,
@@ -255,7 +255,7 @@
 	dir = 8
 	},
 <<<<<<< HEAD
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_platform,
 =======
 /obj/item/pen,
@@ -272,7 +272,7 @@
 /area/template_noop)
 "nC" = (
 <<<<<<< HEAD
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_platform,
 =======
 /obj/item/pen,
@@ -316,7 +316,7 @@
 	},
 /obj/structure/table/onestar,
 <<<<<<< HEAD
-/obj/item/weapon/stamp/chameleon,
+/obj/item/stamp/chameleon,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 =======
 /obj/item/stamp/chameleon,
@@ -420,7 +420,7 @@
 	dir = 4
 	},
 <<<<<<< HEAD
-/obj/item/weapon/folder/red,
+/obj/item/folder/red,
 /turf/simulated/floor/tiled/dark/techfloor,
 =======
 /obj/item/folder/red,
@@ -494,7 +494,7 @@
 "Ej" = (
 /obj/structure/table/onestar,
 <<<<<<< HEAD
-/obj/item/weapon/phone,
+/obj/item/phone,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 =======
 /obj/item/phone,
@@ -538,7 +538,7 @@
 	dir = 1
 	},
 /obj/structure/table/onestar,
-/obj/item/weapon/stamp/denied,
+/obj/item/stamp/denied,
 /obj/structure/barricade,
 /turf/simulated/floor/tiled/dark/brown_perforated/airless,
 /area/template_noop)
@@ -548,7 +548,7 @@
 	},
 /obj/structure/table/onestar,
 <<<<<<< HEAD
-/obj/item/weapon/stamp/denied,
+/obj/item/stamp/denied,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 =======
 /obj/item/stamp/denied,
@@ -573,10 +573,10 @@
 	dir = 8
 	},
 /obj/structure/table/onestar,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/item/weapon/gun/projectile/handmade_pistol,
+/obj/item/gun/projectile/handmade_pistol,
 /obj/spawner/ammo,
 /turf/simulated/floor/tiled/dark/brown_perforated/airless,
 /area/template_noop)
@@ -614,8 +614,8 @@
 	},
 /obj/structure/table/onestar,
 <<<<<<< HEAD
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 =======
 /obj/item/paper_bin,
@@ -666,7 +666,7 @@
 /obj/structure/table/onestar,
 /obj/machinery/light/floor,
 <<<<<<< HEAD
-/obj/item/weapon/storage/lunchbox/rainbow,
+/obj/item/storage/lunchbox/rainbow,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 =======
 /obj/item/storage/lunchbox/rainbow,
@@ -694,7 +694,7 @@
 	},
 /obj/structure/table/onestar,
 <<<<<<< HEAD
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 =======
 /obj/item/paper_bin,
@@ -742,7 +742,7 @@
 	dir = 4
 	},
 <<<<<<< HEAD
-/obj/item/weapon/lipstick/black,
+/obj/item/lipstick/black,
 /turf/simulated/floor/tiled/dark/brown_platform,
 =======
 /obj/item/lipstick/black,
@@ -758,13 +758,13 @@
 	},
 /obj/structure/table/onestar,
 <<<<<<< HEAD
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/template_noop)
 "Xm" = (
 /obj/structure/table/onestar,
-/obj/item/weapon/pen/reagent/sleepy,
-/obj/item/weapon/newspaper,
+/obj/item/pen/reagent/sleepy,
+/obj/item/newspaper,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 =======
 /obj/item/paper_bin,
@@ -788,7 +788,7 @@
 /area/template_noop)
 "Yy" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/medical,
+/obj/item/bedsheet/medical,
 /obj/spawner/medical,
 /obj/machinery/light_construct,
 /turf/simulated/floor/tiled/derelict/red_white_edges/airless,

@@ -29,5 +29,5 @@
 		for(var/obj/item/organ/internal/blood_vessel/BV in H.internal_organs)
 			BV.heal_damage(((0.2 + BV.damage * 0.05) * effect_multiplier), FALSE)
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector
+/obj/item/reagent_containers/hypospray/autoinjector
 	preloaded_reagents = list("inaprovaline" = 9, "quickclot" = 1)

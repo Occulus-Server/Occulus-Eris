@@ -163,7 +163,7 @@ for reference:
 
 	icon_state = "barrier[locked]"
 
-/obj/machinery/deployable/barrier/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/deployable/barrier/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.GetIdCard())
 		if(allowed(user))
 			if	(emagged < 2.0)
@@ -183,7 +183,7 @@ for reference:
 				visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 				return
 		return
-	else if(istype(W, /obj/item/weapon/tool/wrench))
+	else if(istype(W, /obj/item/tool/wrench))
 		if(health < maxhealth)
 			health = maxhealth
 			emagged = 0

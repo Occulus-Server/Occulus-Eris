@@ -1,129 +1,129 @@
 //Disks
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_mk58
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_mk58
 	disk_name = "Frozen Star - .35 MK58 Handgun Pack"
 	icon_state = "frozenstar"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_regulator
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_regulator
 	disk_name = "Frozen Star - .50 Regulator Shotgun"
 	icon_state = "frozenstar"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_heavysniper
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_heavysniper
 	disk_name = "Serbian Arms - .60 Penetrator AMR"
 	icon_state = "serbian"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_protector
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_protector
 	disk_name = "Frozen Star - Protector Grenade Launcher"
 	icon_state = "frozenstar"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_counselor
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_counselor
 	disk_name = "Frozen Star - Councelor PDW E"
 	icon_state = "frozenstar"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_nemesis
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_nemesis
 	disk_name = "Serbian Arms - Nemesis Energy Crossbow"
 	icon_state = "serbian"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_themis
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_themis
 	disk_name = "Serbian Arms - Themis Energy Crossbow"
 	icon_state = "serbian"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_lightfall
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_lightfall
 	disk_name = "Mekhane Armory - Lightfall Laser Gun"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_valkirye
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_valkirye
 	disk_name = "Mekhane Armory - Valkyrie Energy Rifle"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_halicon
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_halicon
 	disk_name = "Frozen Star - Halicon Ion Rifle"
 	icon_state = "frozenstar"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_dominion
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_dominion
 	disk_name = "Mekhane Armory - Dominion Plasma Rifle"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_purger
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_purger
 	disk_name = "Mekhane Armory - Purger Plasma Rifle"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic
+/obj/item/computer_hardware/hard_drive/portable/design/armor/generic
 	disk_name = "Aegis Combat Equipment - Standard Armor"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/bulletproof
+/obj/item/computer_hardware/hard_drive/portable/design/armor/generic/bulletproof
 	disk_name = "Aegis Combat Equipment - Bulletproof Armor"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/ablative
+/obj/item/computer_hardware/hard_drive/portable/design/armor/generic/ablative
 	disk_name = "Aegis Combat Equipment - Laserproof Armor"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih
+/obj/item/computer_hardware/hard_drive/portable/design/armor/ih
 	disk_name = "Aegis Combat Equipment - Operator Armor"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih/bulletproof
+/obj/item/computer_hardware/hard_drive/portable/design/armor/ih/bulletproof
 	disk_name = "Aegis Combat Equipment - Bulletproof Operator Armor"
 
 //Guns&Armor
-/obj/item/weapon/gun/projectile/mk58
+/obj/item/gun/projectile/mk58
 	name = "FS HG .35 Auto \"Mk58\""
 	desc = "The FS Mk58 is a cheap, ubiquitous sidearm, that was produced by Frozen Star. Uses standard .35 and high capacity magazines."
 
-/obj/item/weapon/gun/projectile/mk58/wood
+/obj/item/gun/projectile/mk58/wood
 	name = "FS HG .35 Auto \"Mk58-C\""
 	desc = "The FS Mk58 is a cheap, ubiquitous sidearm, produced by Frozen Star. This one has a sweet wooden grip. Uses standard .35 Auto mags."
 
-/obj/item/weapon/gun/projectile/shotgun/pump/regulator
+/obj/item/gun/projectile/shotgun/pump/regulator
 	name = "FS SG \"Regulator 1000\""
 	desc = "Designed for close quarters combat, the Regulator is widely regarded as a weapon of choice for repelling boarders. \
 			Some may say that it's too old, but it actually proved itself useful. Can hold up to 7 shells in tube magazine."
 
-/obj/item/weapon/gun/launcher/grenade
+/obj/item/gun/launcher/grenade
 	name = "FS GL \"Protector\""
 	desc = "A bulky pump-action grenade launcher. Holds up to 6 grenades in a revolving magazine."
 
-/obj/item/weapon/gun/energy/taser
+/obj/item/gun/energy/taser
 	name = "FS SP \"Counselor\""
 	desc = "The NT SP \"Counselor\" is a taser gun used for non-lethal takedowns."
 
-/obj/item/weapon/gun/energy/stunrevolver
+/obj/item/gun/energy/stunrevolver
 	name = "FS SP \"Zeus\""
 	desc = "Also know as stunrevolver. Older and less precise solution for non-lethal takedowns. This gun has smaller capacity in exchange for S-cells use."
 	icon = 'icons/obj/guns/energy/stunrevolver.dmi'
 
-/obj/item/weapon/gun/energy/laser
+/obj/item/gun/energy/laser
 	name = "MK LG \"Lightfall\""
 	desc = "\"Mekhane\" brand laser carbine. Deadly and radiant, like the ire of zealotry it represents."
 
-/obj/item/weapon/gun/energy/laser/practice
+/obj/item/gun/energy/laser/practice
 	name = "MK LG \"Lightfall\" - P"
 	desc = "A modified version of \"Mekhane\" brand laser carbine, this one fires less concentrated energy bolts, designed for target practice."
 
-/obj/item/weapon/gun/energy/crossbow
+/obj/item/gun/energy/crossbow
 	name = "SA EC \"Nemesis\""
 	desc = "Mini energy crossbow, produced by Serbian Arms, discontinued now. A weapon favored by many mercenary stealth specialists."
 	icon = 'icons/obj/guns/energy/crossbow.dmi'
 
-/obj/item/weapon/gun/energy/crossbow/largecrossbow
+/obj/item/gun/energy/crossbow/largecrossbow
 	name = "SA EC \"Themis\""
 	desc = "Energy crossbow, produced by Serbian Arms, discontinued now. A weapon favored by mercenary infiltration teams."
 
-/obj/item/weapon/gun/energy/ionrifle
+/obj/item/gun/energy/ionrifle
 	name = "FS IR \"Halicon\""
 	desc = "The FS IR Halicon is a man-portable anti-armor weapon designed to disable mechanical threats, produced by Frozen Star. Not the best of its type, but gets the job done."
 
-/obj/item/weapon/gun/energy/nt_svalinn
+/obj/item/gun/energy/nt_svalinn
 	name = "MK LP \"Svalinn\""
 	desc = "\"Mekhane\" brand laser pistol. Small and easily concealable, it's still a reasonable punch for a laser weapon."
 
-/obj/item/weapon/gun/energy/plasma
+/obj/item/gun/energy/plasma
 	name = "MK PR \"Dominion\""
 	desc = "A \"Mekhane\" weapon that uses advanced plasma generation technology to emit highly controllable blasts of energized matter. Due to its complexity and cost, it is rarely seen in use, except by specialists."
 
-/obj/item/weapon/gun/energy/plasma/destroyer
+/obj/item/gun/energy/plasma/destroyer
 	name = "MK PR \"Purger\""
 	desc = "A more recent \"Mekhane\" brand plasma rifle, developed in direct response to compete against the highly successful \"Cassad\" design."
 
-/obj/item/weapon/gun/energy/plasma/martyr // or should it be  Zealot
+/obj/item/gun/energy/plasma/martyr // or should it be  Zealot
 	name = "MK PR \"Martyr\""
 	desc = "A \"Mekhane\" weapon that uses advanced biomass conversion controllable blasts of energized matter. is a disposable side arm, good enough to save you and be recycled."
 
-/obj/item/weapon/gun/energy/sniperrifle
+/obj/item/gun/energy/sniperrifle
 	name = "MK MER \"Valkyrie\""
 	desc = "\"Valkyrie\" is an older design of Mekhane, \"Lightfall\" was based on it. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon for killing from a distance."
 
@@ -134,14 +134,14 @@
 /obj/item/clothing/suit/armor/vest/full/ironhammer
 	desc = "An armored vest painted in Aegis Security colors. This one has shoulderpads and knee pads included to protect all parts of the body."
 
-/obj/item/weapon/tool/knife/neotritual
+/obj/item/tool/knife/neotritual
 	name = "Mekhane ritual knife"
 
 
 /obj/item/clothing/head/armor/bulletproof/ironhammer_full
 	desc = "Standard-issue Aegis ballistic helmet with a basic HUD included, covers the operator's entire face."
 
-/obj/item/weapon/emp_mine
+/obj/item/emp_mine
 	name = "SDF EMP Mine"
 	desc = "Self-rechargeable EMP Skrellian mine. Not just a small holoplant."
 
@@ -180,7 +180,7 @@
 	name = "Kampfer Roach"
 	desc = "A monstrous, dog-sized cockroach. These huge mutants can be found everywhere on the ship."
 
-/obj/item/weapon/tool_upgrade/augment/randomizer
+/obj/item/tool_upgrade/augment/randomizer
 	name = "Anomolous liquid metal"
 	desc = "This unidentified tar-like liquid warps and bends reality around it. Applying it to a tool may have unexpected results."
 	matter = list(MATERIAL_PHORON = 4, MATERIAL_URANIUM = 4)
@@ -190,7 +190,7 @@
 	name = "Mekhane Bioprinter"
 	desc = "Mekhane's machine for printing things using biomass."
 
-/obj/item/weapon/grenade/frag
+/obj/item/grenade/frag
 	name = "FS DFG \"Pomme\""
 
 //Machines
@@ -204,12 +204,12 @@
 	name = "One star"
 	desc = "Advanced, extremly resileant and mobile prosthetic. Far beyond today's robotics advancements."
 
-/obj/item/weapon/tool/pickaxe/onestar
+/obj/item/tool/pickaxe/onestar
 	name = "One Star pickaxe"
 	desc = "A standard One Star basic tool. Uses advanced technology which makes it powerful and energy-efficent at the same time."
 
 
-/obj/item/weapon/tool/pickaxe/jackhammer/onestar
+/obj/item/tool/pickaxe/jackhammer/onestar
 	name = "One Star jackhammer"
 	desc = "A heavy One Star tool that cracks rocks with blasts, perfect for killing flimsy organics"
 

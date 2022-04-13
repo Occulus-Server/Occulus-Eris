@@ -5,12 +5,12 @@
 
 /datum/gear/box
 	display_name = "A box"
-	path = /obj/item/weapon/storage/box
+	path = /obj/item/storage/box
 	cost = 2
 
 /datum/gear/baton_holster
 	display_name = "baton sheath"
-	path = /obj/item/weapon/storage/pouch/baton_holster
+	path = /obj/item/storage/pouch/baton_holster
 	cost = 2
 	allowed_roles = list("Aegis Operative","Aegis Commander","Aegis Gunnery Sergeant","Captain","Head of Personnel","Quartermaster","Aegis Inspector","Aegis Medical Specialist")	//SYZYGY EDIT - Added medspec to list
 

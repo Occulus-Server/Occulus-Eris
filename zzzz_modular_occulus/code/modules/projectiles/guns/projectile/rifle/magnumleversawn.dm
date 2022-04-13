@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/shotgun/leveraction/sawn/magnum
+/obj/item/gun/projectile/shotgun/leveraction/sawn/magnum
 	name = "sawn-off lever-action rifle"
 	desc = "Why would you do this? This is the definition of undercompensating."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/magnumleversawn.dmi'

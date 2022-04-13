@@ -1,36 +1,36 @@
-/obj/item/weapon/paper/roaches
+/obj/item/paper/roaches
 	name = "paper- 'Lost Journal Page'"
 	info = {"It's been a few days since *il$%#. $UARTTEolgov shipping contract was more than we were told. Especially with all the secrecy and ha$###@!d warnings slapped on. Security says they'll commit a full team to rounding them up but they're probably ALREADY BEYOND Helhip.
 	<br>
 	Te\[b\]DON'T LOOK FOR ME\[/b\]"}
 
-/obj/item/weapon/paper/godhead
+/obj/item/paper/godhead
 	name = "paper- 'Lost Letter'"
 	info = {"Father *illegible*, I'm not so sure how long we can keep hiding. Ever since the Church declared secession and our new God's divinity other faithful have been dragged to the brig and aren't seen from again. I don't know what some brutish ship security want from us, but I think they're afraid of us or blindly loyal to their governments. We should leave this ship at next port and flee with the other faithful to Deus Capitis.
 	<br>
 	Yours Faithfully, Acolyte *illegible*"}
 
-/obj/item/weapon/paper/runtimes
+/obj/item/paper/runtimes
 	name = "paper- 'Runti%%%%ors'"
 	info = {"Boss, the rest of the t\[b\]HE TEAM\[/b\]iktgl gEt ing gocnern abou$%%%%T^Known Onboard Anti-Toxins in the logs. Not too sure what to make abouKnown Onboard Anti-Toxin: might be worth looking into? Definitely not normal behav$$$r f$$$$$$$$$$21%$$$$r DRIVING metal DRIVER BLUE YELLOW RED YELLOW GREY SPIRAL
 	<br>
 	-*illegible* Tech Wilkins."}
 
-/obj/item/weapon/paper/spiders
+/obj/item/paper/spiders
 	name = "paper- 'Really?'"
 	info = {"\[b\]Security OffiTHr\[/b\]at's R&D's great plan to handle what the supply team let loose? All because one guy in security went missing? I swear they put drugs in the air because only someone high or stupid would think two giant bugs aboard is a good idea."}
 
-/obj/item/weapon/paper/skies
+/obj/item/paper/skies
 	name = "paper- 'The Skies are Buried Deep?'"
 	info = {"I see it wherever I look. Etched into the week later, we were on a special Observation with someone will hear the signal.<br>The dullness of those dogs face justick to MREs for now.<br>I guess I'll started acting weird.t. Written in roach guts on the floor. Muttered between crewmen when no one's looking. What does it mean!? What are they hiding!?"}
 
-/obj/item/weapon/paper/email
+/obj/item/paper/email
 	name = "paper- 'RE: Drive Issues'"
 	info = {"Rest assured Captain *illegible*, your engineering team is either sharing around some very good drugs or needs more rest. The *WEVFERY THING IS FGINE EVERYTHING IS FINEFather *illegible*, I'm not so sure how is safe and under all tests the lab environment stayed at a co a refund or a joke it's in very poor taste either way.
 	<br>
 	Director of Marketing, *illegible*"}
 
-/obj/item/weapon/paper/gospel
+/obj/item/paper/gospel
 	name = "paper- 'Excerpt from The Cockroach King’s gospel: Martin 2:13'"
 	info = {"...and I feel the roaches surrounding me,
 	crawling all over my body,
@@ -52,21 +52,21 @@
 	<br>
 	The skies are buried deep."}
 
-/obj/item/weapon/paper/solgov
+/obj/item/paper/solgov
 	name = "paper- 'RE: Our Cargo'"
 	info = {"Captain \[i\]*illeg%$^$%ABRAHAM\[/i\] you have no idea what you've just done. If you want to keep your vessel and freedom you will submitKnown Onboard Anti-Toxin:VIALS \[i\]THIRTY TWO and FIVE,\[/i\]you what happens if you don't comply.
 	<br>
 	-Defense Minister *illegible*"}
 
-/obj/item/weapon/paper/bioweapon
+/obj/item/paper/bioweapon
     name = "paper- 'Experiment Log Conclusion'"
     info = {"As the above tests suggest, the bioweapon is still roughly as potent as *illegible* claimed it would be when we received it. The fact that it's difficult to contain makes it both terrifying to work with and extremely fascinating. Thank God these windows are reinforced; I think if they weren't, the more dangerous strains would claw right through them. Maybe we should consider setting up electric grilles...?"}
 
-/obj/item/weapon/paper/forensic
+/obj/item/paper/forensic
 	name = "paper- 'Forensic Report'"
 	info = {"From what we found left of officer *illegible* I think we can safely assume this wasn't murder, at least by another crewmember. The state we found his remains and soulcrypt in the pile of *illegible* suggest that they ate him, these things are much more dangerous than we were clearly told, and a security team trying to capture them - alive no less is unviable."}
 
-/obj/item/weapon/paper/hivemind
+/obj/item/paper/hivemind
 	name = "paper- 'Unsent Letter'"
 	info = {"NanoTrasen Science Division
 	4/12/*illegible*
@@ -89,7 +89,7 @@
 	NanoTrasen Chief Science Officer
 	CEV Northern Light"}
 
-/obj/item/weapon/paper/oscarreport
+/obj/item/paper/oscarreport
 	name = "paper- 'Exterminator Report'"
 	info = {"<b>Maudy & Martin's Extermination Services</b>
 	1/19/21
@@ -105,7 +105,7 @@
 	CEV Northern Light"}
 
 
-/obj/item/weapon/paper/nice
+/obj/item/paper/nice
 	name = "paper- 'N.I.C.E'"
 	info = {"<b>CENTRAL PRINT READOUT</b>
 	6/26/21

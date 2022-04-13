@@ -30,7 +30,7 @@
 /datum/uplink_item/item/tools/blitz_cell_upgrade/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/living/user)
 	if(user && istype(user, /mob/living/silicon/robot/drone/blitzshell))
 		var/mob/living/silicon/robot/drone/blitzshell/BS = user
-		var/obj/item/weapon/cell/C = BS.get_cell()
+		var/obj/item/cell/C = BS.get_cell()
 		if(C)
 			C.maxcharge *= 1.5
 			to_chat(BS, SPAN_NOTICE("Your cell's maximum charge has been augmented."))

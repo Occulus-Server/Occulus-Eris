@@ -54,7 +54,7 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/deepmaint)
 "n" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/deepmaint)
 "o" = (

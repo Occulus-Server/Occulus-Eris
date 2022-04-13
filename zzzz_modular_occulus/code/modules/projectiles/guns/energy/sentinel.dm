@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/laser/sentinel
+/obj/item/gun/energy/laser/sentinel
 	name = "CAT \"Sentinel\""
 	desc = "A \"Catalyzer\" gun designed around most popular laser weaponry. Its unique core grants it an extended charging limit."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/sentinel.dmi'
@@ -15,8 +15,8 @@
 	zoom_factor = 0
 	damage_multiplier = 0.5
 	charge_cost = 125
-	suitable_cell = /obj/item/weapon/cell/large
-	cell_type = /obj/item/weapon/cell/large
+	suitable_cell = /obj/item/cell/large
+	cell_type = /obj/item/cell/large
 	recoil_buildup = 2
 	price_tag = 2500
 	rarity_value = 12
@@ -31,7 +31,7 @@
 	spawn_blacklisted = TRUE
 	var/emagged = 0
 
-/obj/item/weapon/gun/energy/laser/sentinel/emag_act(var/remaining_charges, var/mob/user)
+/obj/item/gun/energy/laser/sentinel/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		emagged = 1
 		init_firemodes = list(
@@ -44,7 +44,7 @@
 	else
 		to_chat(user, SPAN_WARNING("It is already emagged!"))
 
-/obj/item/weapon/gun/energy/laser/sentinel/on_update_icon()
+/obj/item/gun/energy/laser/sentinel/on_update_icon()
 	cut_overlays()
 	var/ratio = 0
 
@@ -55,7 +55,7 @@
 			add_overlay("[initial(icon_state)]-0")
 		else
 			add_overlay("[initial(icon_state)]-[ratio]")
-			
+
 	if(wielded)
 		item_state_slots[slot_l_hand_str] = "lefthand"  + wielded_item_state
 		item_state_slots[slot_r_hand_str] = "righthand" + wielded_item_state

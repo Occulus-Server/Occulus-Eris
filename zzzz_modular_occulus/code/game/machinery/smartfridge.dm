@@ -10,7 +10,7 @@
 	anchored = FALSE
 
 /obj/machinery/smartfridge/disks/accept_check(var/obj/item/O as obj)
-	if(istype(O, /obj/item/weapon/computer_hardware/hard_drive/portable/))
+	if(istype(O, /obj/item/computer_hardware/hard_drive/portable/))
 		return 1
 	else
 		return 0

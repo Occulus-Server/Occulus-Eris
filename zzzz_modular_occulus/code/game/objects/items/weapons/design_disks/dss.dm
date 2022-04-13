@@ -4,31 +4,31 @@
 
 /datum/design/autolathe/gun/stalwart
 	name = "DSS Stalwart"
-	build_path = /obj/item/weapon/gun/energy/stalwart
+	build_path = /obj/item/gun/energy/stalwart
 
 /datum/design/autolathe/gun/resolute
 	name = "DSS Resolute"
-	build_path = /obj/item/weapon/gun/energy/resolute
+	build_path = /obj/item/gun/energy/resolute
 
 /datum/design/autolathe/gun/gemini
 	name = "DSS Gemini"
-	build_path = /obj/item/weapon/gun/energy/gun/gemini
+	build_path = /obj/item/gun/energy/gun/gemini
 
 /datum/design/autolathe/gun/glasgow
 	name = "DSS Glasgow"
-	build_path = /obj/item/weapon/gun/energy/gun/glasgow
+	build_path = /obj/item/gun/energy/gun/glasgow
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss
+/obj/item/computer_hardware/hard_drive/portable/design/guns/dss
 	disk_name = "Deepflare Security - blank"
 	icon = 'zzzz_modular_occulus/icons/obj/discs.dmi'
 	icon_state = "DSSDisk"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
-	bad_type = /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss
+	bad_type = /obj/item/computer_hardware/hard_drive/portable/design/guns/dss
 	rarity_value = 30
 	designs = list(
 		)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss/stalwart
+/obj/item/computer_hardware/hard_drive/portable/design/guns/dss/stalwart
 	disk_name = "Deepflare Security - Stalwart Energy Scatter Gun"
 	rarity_value = 20
 	license = 12
@@ -37,7 +37,7 @@
 		/datum/design/autolathe/cell/medium/high,
 		)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss/resolute
+/obj/item/computer_hardware/hard_drive/portable/design/guns/dss/resolute
 	disk_name = "Deepflare Security - Resolute Energy Carbine"
 	rarity_value = 20
 	license = 12
@@ -46,7 +46,7 @@
 		/datum/design/autolathe/cell/medium/high,
 		)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss/assault
+/obj/item/computer_hardware/hard_drive/portable/design/guns/dss/assault
 	disk_name = "Deepflare Security - Assault Voidsuit"
 	rarity_value = 15
 	license = 12
@@ -54,7 +54,7 @@
 		/datum/design/autolathe/tool/voidsuit/dss = 6, // "DSS assault suit"
 		)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss/glasgow
+/obj/item/computer_hardware/hard_drive/portable/design/guns/dss/glasgow
 	disk_name = "Deepflare Security - Glasgow Energy Personal Defense Weapon"
 	rarity_value = 20
 	license = 9
@@ -64,7 +64,7 @@
 		/datum/design/autolathe/cell/small/high = 2,
 		)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dss/gemini
+/obj/item/computer_hardware/hard_drive/portable/design/guns/dss/gemini
 	disk_name = "Deepflare Security - Gemini Energy personal Defense Weapon"
 	rarity_value = 30
 	license = 9

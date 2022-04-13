@@ -130,7 +130,7 @@
 	name = "biogenerator screen"
 	icon_state = "screen-working"
 
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/biogen_console
+	circuit = /obj/item/electronics/circuitboard/neotheology/biogen_console
 
 	//we store it here and update with special proc
 	var/list/metrics = list("operational" = FALSE,
@@ -229,7 +229,7 @@
 	var/wearout_cycle = 1200
 	var/pipes_dirtiness = 0
 
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/biogen_port
+	circuit = /obj/item/electronics/circuitboard/neotheology/biogen_port
 
 
 /obj/machinery/multistructure/biogenerator_part/port/on_update_icon()
@@ -297,7 +297,7 @@
 				if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_NORMAL,  required_stat = STAT_MEC))
 					dismantle()
 
-	if(panel_open && (istype(I, /obj/item/weapon/soap) || istype(I, /obj/item/weapon/reagent_containers/glass/rag)))
+	if(panel_open && (istype(I, /obj/item/soap) || istype(I, /obj/item/reagent_containers/glass/rag)))
 		if(pipes_dirtiness)
 			pipes_dirtiness--
 			if(pipes_dirtiness < 0)
@@ -323,7 +323,7 @@
 	var/obj/machinery/atmospherics/binary/biogen_chamber/chamber
 	var/obj/machinery/power/biogenerator_core/core
 
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/biogen
+	circuit = /obj/item/electronics/circuitboard/neotheology/biogen
 
 
 /obj/machinery/multistructure/biogenerator_part/generator/New()

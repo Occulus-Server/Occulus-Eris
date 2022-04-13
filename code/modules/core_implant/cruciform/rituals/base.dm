@@ -1,7 +1,7 @@
 /datum/ritual/cruciform/base
 	name = "cruciform"
 	phrase = null
-	implant_type = /obj/item/weapon/implant/core_implant/cruciform
+	implant_type = /obj/item/implant/core_implant/cruciform
 	success_message = "On the verge of audibility you hear pleasant music, your mind clears up and the spirit grows stronger. Your prayer was heard."
 	fail_message = "The Cruciform feels cold against your chest."
 	category = "Common"
@@ -11,7 +11,7 @@
 /datum/ritual/targeted/cruciform/base
 	name = "cruciform targeted"
 	phrase = null
-	implant_type = /obj/item/weapon/implant/core_implant/cruciform
+	implant_type = /obj/item/implant/core_implant/cruciform
 	category = "Common"
 
 
@@ -23,7 +23,7 @@
 	ignore_stuttering = TRUE
 
 /* Occulus Edit
-/datum/ritual/cruciform/base/relief/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/base/relief/perform(mob/living/carbon/human/H, obj/item/implant/core_implant/C)
 	H.add_chemical_effect(CE_PAINKILLER, 10)
 	set_personal_cooldown(H)
 	return TRUE
@@ -35,7 +35,7 @@
 	desc = "Litany of piligrims, helps better withstand hunger."
 	power = 50
 
-/datum/ritual/cruciform/base/soul_hunger/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/base/soul_hunger/perform(mob/living/carbon/human/H, obj/item/implant/core_implant/C)
 	H.nutrition += 100
 	H.adjustToxLoss(10)	// OCCULUS EDIT - NERF THE FREE NUTRITION
 //	set_personal_cooldown(H) Occulus Edit Haha no funni cooldown
@@ -49,12 +49,12 @@
 	power = 50
 	ignore_stuttering = TRUE
 
-/datum/ritual/cruciform/occulus/entreaty/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)//Occulus Edit, moved to utility
+/datum/ritual/cruciform/occulus/entreaty/perform(mob/living/carbon/human/H, obj/item/implant/core_implant/C)//Occulus Edit, moved to utility
 	for(var/mob/living/carbon/human/target in disciples)
 		if(target == H)
 			continue
 
-		var/obj/item/weapon/implant/core_implant/cruciform/CI = target.get_core_implant()
+		var/obj/item/implant/core_implant/cruciform/CI = target.get_core_implant()
 		var/area/t = get_area(H)
 
 		if((istype(CI) && CI.get_module(CRUCIFORM_PRIEST)) || prob(50))
@@ -69,7 +69,7 @@
 	desc = "Gain knowledge of your surroundings, to reveal evil in people and places. Can tell you about hostile creatures around you, rarely can help you spot traps, and sometimes let you sense a carrion."
 	power = 35
 
-/datum/ritual/cruciform/occulus/reveal/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)//Occulus Edit, moved to utility
+/datum/ritual/cruciform/occulus/reveal/perform(mob/living/carbon/human/H, obj/item/implant/core_implant/C)//Occulus Edit, moved to utility
 	var/was_triggired = FALSE
 	log_and_message_admins("performed reveal litany")
 	if(prob(20)) //Aditional fail chance that hidded from user
@@ -110,13 +110,13 @@
 	desc = "Very short litany to identify NeoTheology followers. Targets individuals directly in front of caster or being grabbed by caster."
 	power = 20
 
-/datum/ritual/cruciform/occulus/sense_cruciform/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)//Occulus Edit, moved to utility
+/datum/ritual/cruciform/occulus/sense_cruciform/perform(mob/living/carbon/human/H, obj/item/implant/core_implant/C)//Occulus Edit, moved to utility
 	var/list/mob/living/carbon/human/humans = list()
 	for(var/mob/living/carbon/human/T in view(7, get_turf(H)))
 		humans.Add(T)
 	if(humans.len)
 		for(var/mob/living/carbon/human/T in humans)
-			var/obj/item/weapon/implant/core_implant/cruciform/CI = T.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+			var/obj/item/implant/core_implant/cruciform/CI = T.get_core_implant(/obj/item/implant/core_implant/cruciform)
 			if(CI)
 				to_chat(H, "<span class='rose'>[T] has a cruciform installed.</span>")
 	else
@@ -131,7 +131,7 @@
 	desc = "A person close to you will have a vision that could increase their sanity... or that's what you hope will happen."
 	power = 50
 
-/datum/ritual/cruciform/base/revelation/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/base/revelation/perform(mob/living/carbon/human/H, obj/item/implant/core_implant/C)
 	var/mob/living/carbon/human/T = get_front_human_in_range(H, 4)
 	//if(!T || !T.client)
 	if(!T)
@@ -156,9 +156,9 @@
 	desc = "This litany will command a cruciform upgrade to attach to follower's cruciform. Follower must lie on altar and upgrade must be near them."
 	power = 20
 
-/datum/ritual/cruciform/base/install_upgrade/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/base/install_upgrade/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
 	var/mob/living/carbon/human/H = get_victim(user)
-	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform, FALSE)
+	var/obj/item/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/implant/core_implant/cruciform, FALSE)
 	if(!CI)
 		fail("[H] don't have a cruciform installed.", user, C)
 		return FALSE
@@ -168,7 +168,7 @@
 
 	var/list/L = get_front(user)
 
-	var/obj/item/weapon/cruciform_upgrade/CU = locate(/obj/item/weapon/cruciform_upgrade) in L
+	var/obj/item/cruciform_upgrade/CU = locate(/obj/item/cruciform_upgrade) in L
 
 	if(!CU)
 		fail("There is no cruciform upgrade nearby.", user, C)
@@ -206,9 +206,9 @@
 	desc = "This litany will command cruciform uprgrade to detach from cruciform."
 	power = 20
 
-/datum/ritual/cruciform/base/uninstall_upgrade/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/base/uninstall_upgrade/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
 	var/mob/living/carbon/human/H = get_victim(user)
-	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform, FALSE)
+	var/obj/item/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/implant/core_implant/cruciform, FALSE)
 	var/list/L = get_front(user)
 
 	if(!CI)
@@ -235,8 +235,8 @@
 	desc = "This litany calls back the soul of an individual from deep within their cruciform. It must be used after a cruciform is attached."//Occulus Edit
 	var/clone_damage = 60
 
-/datum/ritual/cruciform/base/reincarnation/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
-	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform, FALSE)
+/datum/ritual/cruciform/base/reincarnation/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
+	var/obj/item/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/implant/core_implant/cruciform, FALSE)
 
 	if(!CI)
 		fail("There is no cruciform on this one", user, C)
@@ -286,16 +286,16 @@
 	phrase = "Unde ipse Dominus dabit vobis signum"
 	desc = "This litany attaches a cruciform to a person. The target must be on a Mekhane altar without clothing, and the cruciform must lie on the altar with them."//Occulus Edit
 
-/datum/ritual/cruciform/base/install/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/base/install/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
 	var/mob/living/carbon/human/H = get_victim(user)
-	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform, FALSE)
+	var/obj/item/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/implant/core_implant/cruciform, FALSE)
 	if(CI)
 		fail("[H] already have a cruciform installed.", user, C)
 		return FALSE
 
 	var/list/L = get_front(user)
 
-	CI = locate(/obj/item/weapon/implant/core_implant/cruciform) in L
+	CI = locate(/obj/item/implant/core_implant/cruciform) in L
 
 	if(!CI)
 		fail("There is no cruciform on this one", user, C)

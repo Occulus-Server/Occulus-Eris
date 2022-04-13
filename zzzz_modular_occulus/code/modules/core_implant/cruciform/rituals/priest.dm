@@ -11,7 +11,7 @@ A copypasta of Convalescence, but with half the effects and no pain removal. Als
 	cooldown_time = 120
 	power = 35
 
-/datum/ritual/cruciform/priest/selfheal/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C,list/targets)
+/datum/ritual/cruciform/priest/selfheal/perform(mob/living/carbon/human/H, obj/item/implant/core_implant/C,list/targets)
 	to_chat(H, "<span class='info'>A sensation of relief bathes you, washing away your pain.</span>")
 	log_and_message_admins("healed himself with the Recuperation litany.")
 	H.nutrition -= 50
@@ -34,8 +34,8 @@ Ditto but for Succour
 	cooldown_time = 120
 	power = 45
 
-/datum/ritual/cruciform/priest/heal_other/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C,list/targets)
-	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform)
+/datum/ritual/cruciform/priest/heal_other/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C,list/targets)
+	var/obj/item/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/implant/core_implant/cruciform)
 
 	if(!CI || !CI.active || !CI.wearer)
 		fail("Cruciform not found.", user, C)
@@ -83,7 +83,7 @@ A big universal AOE heal
 	cooldown_category = "mass_heal"
 	power = 80	//Can only be performed with the Red Light upgrade.
 
-/datum/ritual/cruciform/priest/mass_heal/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/priest/mass_heal/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
 	user.visible_message("[user] gets on their knees, arms outstretched torwards the ceiling, as they utter some prayers.", "You kneel down, arms outstretched torwards the ceiling, and begin reciting several incantations of healing.")
 	if (do_after(user, 50, user, TRUE))
 		var/list/people_around = list()
@@ -121,7 +121,7 @@ Call all church members to wherever you are. Basically Entreaty but it isn't a c
 	desc = "Call all cruciform bearers to wherever you happen to be. Great for holding events or important meetings."
 	power = 25
 
-/datum/ritual/cruciform/priest/liturgy/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/priest/liturgy/perform(mob/living/carbon/human/H, obj/item/implant/core_implant/C)
 	for(var/mob/living/carbon/human/target in disciples)
 		var/area/t = get_area(H)
 		to_chat(target, SPAN_DANGER("[H]'s cry echoes out into the void! The presence of all cruciform bearers is requested at [t.name]!"))

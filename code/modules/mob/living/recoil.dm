@@ -1,4 +1,4 @@
-/mob/living/proc/handle_recoil(var/obj/item/weapon/gun/G)
+/mob/living/proc/handle_recoil(var/obj/item/gun/G)
 	if(G.one_hand_penalty)//If the gun has a two handed penalty and is not weilded.
 		if(!G.wielded)
 			recoil += G.one_hand_penalty //Then the one hand penalty wil lbe added to the recoil.
@@ -31,7 +31,7 @@
 	return round(1+((recoil/10)/calc_reduction()))
 
 //Called after setting recoil
-/mob/living/proc/update_recoil(var/obj/item/weapon/gun/G)
+/mob/living/proc/update_recoil(var/obj/item/gun/G)
 	if(recoil <= 0)
 		recoil = 0
 		last_recoil_update = 0

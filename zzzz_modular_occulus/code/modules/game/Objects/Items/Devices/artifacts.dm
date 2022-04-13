@@ -3,14 +3,14 @@
 
 /obj/item/biosyphon/Process()
 	if(world.time >= (last_produce + cooldown))
-		var/path = pick(/obj/item/weapon/reagent_containers/food/snacks/donut/stat_buff/mec,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/stat_buff/cog,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/stat_buff/bio,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/stat_buff/rob,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/stat_buff/tgh,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/stat_buff/vig)
+		var/path = pick(/obj/item/reagent_containers/food/snacks/donut/stat_buff/mec,
+		/obj/item/reagent_containers/food/snacks/donut/stat_buff/cog,
+		/obj/item/reagent_containers/food/snacks/donut/stat_buff/bio,
+		/obj/item/reagent_containers/food/snacks/donut/stat_buff/rob,
+		/obj/item/reagent_containers/food/snacks/donut/stat_buff/tgh,
+		/obj/item/reagent_containers/food/snacks/donut/stat_buff/vig)
 
-		var/obj/item/weapon/reagent_containers/food/snacks/donut/stat_buff/D = new path(get_turf(src))
+		var/obj/item/reagent_containers/food/snacks/donut/stat_buff/D = new path(get_turf(src))
 		visible_message(SPAN_NOTICE("[name] dispenses [D]."))
 		last_produce = world.time
 

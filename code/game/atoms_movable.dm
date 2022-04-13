@@ -24,7 +24,7 @@
 	var/spawn_tags
 	var/rarity_value = 1 //min:1
 	var/spawn_frequency = 0 //min:0
-	var/accompanying_object	//path or text "obj/item/weapon,/obj/item/device"
+	var/accompanying_object	//path or text "obj/item,/obj/item/device"
 	var/prob_aditional_object = 100
 	var/spawn_blacklisted = FALSE
 	var/bad_type //path
@@ -404,7 +404,7 @@
 /atom/movable/proc/onTransitZ(old_z, new_z)//uncomment when something is receiving this signal
 	/*SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_z, new_z)
 	for(var/atom/movable/AM in src) // Notify contents of Z-transition. This can be overridden IF we know the items contents do not care.
-		AM.onTransitZ(old_z,new_z)*/ 
+		AM.onTransitZ(old_z,new_z)*/
 
 /mob/living/proc/update_z(new_z) // 1+ to register, null to unregister
 	if (registered_z != new_z)

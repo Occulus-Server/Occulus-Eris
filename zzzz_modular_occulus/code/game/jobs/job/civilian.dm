@@ -38,9 +38,9 @@
 /decl/hierarchy/outfit/job/service/actor/actor
 	name = OUTFIT_JOB_NAME("Actor")
 	uniform = /obj/item/clothing/under/waiter
-	id_type = /obj/item/weapon/card/id/white
+	id_type = /obj/item/card/id/white
 	pda_type = /obj/item/modular_computer/pda/club_worker
-	backpack_contents = list(/obj/item/weapon/bananapeel = 1, /obj/item/weapon/storage/fancy/crayons = 1, /obj/item/toy/waterflower = 1, /obj/item/weapon/stamp/clown = 1, /obj/item/weapon/handcuffs/fake = 1)
+	backpack_contents = list(/obj/item/bananapeel = 1, /obj/item/storage/fancy/crayons = 1, /obj/item/toy/waterflower = 1, /obj/item/stamp/clown = 1, /obj/item/handcuffs/fake = 1)
 
 /obj/item/modular_computer/pda/club_worker
-	scanner_type = /obj/item/weapon/computer_hardware/scanner/reagent
+	scanner_type = /obj/item/computer_hardware/scanner/reagent

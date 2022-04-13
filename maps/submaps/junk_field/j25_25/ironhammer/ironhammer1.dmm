@@ -200,7 +200,7 @@
 /area/template_noop)
 "qA" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/blue,
+/obj/item/bedsheet/blue,
 /obj/spawner/junk,
 /turf/simulated/floor/tiled/dark/gray_platform/airless,
 /area/template_noop)
@@ -233,7 +233,7 @@
 /turf/simulated/floor/tiled/dark/gray_platform/airless,
 /area/template_noop)
 "sg" = (
-/obj/item/weapon/soap/deluxe,
+/obj/item/soap/deluxe,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -246,8 +246,8 @@
 /area/template_noop)
 "sF" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/handcuffs,
-/obj/item/weapon/handcuffs,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
 /obj/item/device/flash,
 /turf/simulated/floor/wood/airless,
 /area/template_noop)
@@ -286,7 +286,7 @@
 /turf/simulated/floor/tiled/dark/cargo/airless,
 /area/template_noop)
 "wX" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /obj/spawner/soda/low_chance,
 /obj/machinery/light{
 	dir = 8
@@ -295,9 +295,9 @@
 /area/template_noop)
 "xb" = (
 /obj/structure/table/standard,
-/obj/item/weapon/dice,
-/obj/item/weapon/dice,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer{
+/obj/item/dice,
+/obj/item/dice,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer{
 	pixel_x = -6;
 	pixel_y = 5
 	},
@@ -329,7 +329,7 @@
 /turf/simulated/floor/tiled/dark/gray_perforated/airless,
 /area/template_noop)
 "zM" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /obj/spawner/junkfood/rotten/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated/airless,
 /area/template_noop)
@@ -467,7 +467,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "Pa" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /obj/spawner/soda/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated/airless,
 /area/template_noop)
@@ -540,9 +540,9 @@
 /area/template_noop)
 "Yp" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/gun/martin,
-/obj/item/weapon/gun/energy/gun/martin,
-/obj/item/weapon/gun/energy/gun/martin,
+/obj/item/gun/energy/gun/martin,
+/obj/item/gun/energy/gun/martin,
+/obj/item/gun/energy/gun/martin,
 /obj/machinery/light{
 	dir = 8
 	},

@@ -4,7 +4,7 @@
 	objectname = input(user, "What will you name this piece?", "Name", "")
 	if(objectname)
 		artwork.name = objectname
-	if(!istype(artwork, /obj/item/weapon/gun/projectile/revolver))
+	if(!istype(artwork, /obj/item/gun/projectile/revolver))
 		objectdesc = input(user, "Describe your artwork!", "Description", "")
 		if(objectdesc)
 			artwork.desc = objectdesc

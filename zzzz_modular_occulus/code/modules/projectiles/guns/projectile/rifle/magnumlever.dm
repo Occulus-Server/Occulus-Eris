@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/shotgun/leveraction/magnum
+/obj/item/gun/projectile/shotgun/leveraction/magnum
 	name = ".40 lever-action rifle"
 	desc = "A vintage USARC design. Old, yet reliable. Uses .40 Magnum Ammo."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/magnumlever.dmi'
@@ -15,14 +15,14 @@
 	armor_penetration = 1.35 //A hair over 20 armor pen.
 	recoil_buildup = 20
 	one_hand_penalty = 15 //full sized shotgun level
-	sawn_result = /obj/item/weapon/gun/projectile/shotgun/leveraction/sawn/magnum
+	sawn_result = /obj/item/gun/projectile/shotgun/leveraction/sawn/magnum
 	cansaw = TRUE
 
 /datum/design/autolathe/gun/leveraction/magnum
 	name = "lever-action rifle"
-	build_path = /obj/item/weapon/gun/projectile/shotgun/leveraction/magnum
+	build_path = /obj/item/gun/projectile/shotgun/leveraction/magnum
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_leveraction_rifle
+/obj/item/computer_hardware/hard_drive/portable/design/guns/fs_leveraction_rifle
 	disk_name = "Frozen Star - .40 Lever-Action Rifle"
 	icon_state = "frozenstar"
 

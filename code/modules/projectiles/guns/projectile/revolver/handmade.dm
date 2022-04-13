@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/revolver/handmade
+/obj/item/gun/projectile/revolver/handmade
 	name = "handmade revolver"
 	desc = "Handmade revolver, made from gun parts. and some duct tap, will it even hold up?"
 	icon = 'icons/obj/guns/projectile/handmade_revolver.dmi'
@@ -12,7 +12,7 @@
 	recoil_buildup = 7
 	spawn_blacklisted = TRUE
 
-/obj/item/weapon/gun/projectile/revolver/handmade/attackby(obj/item/W, mob/user)
+/obj/item/gun/projectile/revolver/handmade/attackby(obj/item/W, mob/user)
 	if(QUALITY_SCREW_DRIVING in W.tool_qualities)
 		to_chat(user, SPAN_NOTICE("You begin to rechamber \the [src]."))
 		if(loaded.len == 0 && W.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SCREW_DRIVING, FAILCHANCE_NORMAL, required_stat = STAT_MEC))

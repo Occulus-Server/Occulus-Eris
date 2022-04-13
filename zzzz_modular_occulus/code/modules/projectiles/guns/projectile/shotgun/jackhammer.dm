@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/shotgun/bojevic/jackhammer //yes im this lazy
+/obj/item/gun/projectile/shotgun/bojevic/jackhammer //yes im this lazy
 	name = "FS SG \"Ironhammer\""
 	desc = "An icon. A symbol of power. The hammer that will strike down your foes. \
 			It's a fully automatic magazine-fed shotgun designed for subduing unarmored threats. \

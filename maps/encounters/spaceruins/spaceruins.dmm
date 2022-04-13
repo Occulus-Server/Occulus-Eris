@@ -8,7 +8,7 @@
 /area/asteroid/rogue)
 "am" = (
 /obj/structure/table/onestar,
-/obj/item/weapon/tool/screwdriver/combi_driver/onestar,
+/obj/item/tool/screwdriver/combi_driver/onestar,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "aG" = (
@@ -29,7 +29,7 @@
 "bb" = (
 /obj/structure/bed,
 /obj/item/remains,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "by" = (
@@ -53,7 +53,7 @@
 /turf/space,
 /area/asteroid/rogue)
 "cj" = (
-/obj/item/weapon/soap,
+/obj/item/soap,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "ct" = (
@@ -150,7 +150,7 @@
 /area/asteroid/rogue)
 "gc" = (
 /obj/structure/table/onestar,
-/obj/item/weapon/tool/saw/circular/advanced,
+/obj/item/tool/saw/circular/advanced,
 /obj/spawner/powercell/small,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
@@ -159,7 +159,7 @@
 	pixel_x = -32
 	},
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "gB" = (
@@ -260,7 +260,7 @@
 	pixel_x = 31
 	},
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "iV" = (
@@ -275,7 +275,7 @@
 "jh" = (
 /obj/structure/bed,
 /obj/machinery/light/small,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "jA" = (
@@ -334,7 +334,7 @@
 /area/asteroid/rogue)
 "kV" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "kY" = (
@@ -355,8 +355,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/weapon/pen,
-/obj/item/weapon/paper_bin,
+/obj/item/pen,
+/obj/item/paper_bin,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "lM" = (
@@ -373,7 +373,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/derelict/white_red_edges,
 /area/asteroid/rogue)
 "mh" = (
@@ -404,7 +404,7 @@
 /area/asteroid/rogue)
 "mU" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
 "mV" = (
@@ -417,7 +417,7 @@
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "nm" = (
-/obj/item/weapon/melee/energy/sword/sabre,
+/obj/item/melee/energy/sword/sabre,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "no" = (
@@ -780,7 +780,7 @@
 /area/asteroid/rogue)
 "yD" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "yM" = (
@@ -939,7 +939,7 @@
 /area/asteroid/rogue)
 "En" = (
 /obj/structure/table/onestar,
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "Ep" = (
@@ -1177,9 +1177,9 @@
 /area/asteroid/rogue)
 "JZ" = (
 /obj/structure/table/onestar,
-/obj/item/weapon/tool/pickaxe,
+/obj/item/tool/pickaxe,
 /obj/item/clothing/mask/breath,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/asteroid,
 /area/asteroid/rogue)
 "Ke" = (
@@ -1286,7 +1286,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "OB" = (
@@ -1346,7 +1346,7 @@
 "Qb" = (
 /obj/structure/lattice,
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/space,
 /area/asteroid/rogue)
 "Qg" = (
@@ -1381,12 +1381,12 @@
 /area/asteroid/rogue)
 "RY" = (
 /obj/structure/table/onestar,
-/obj/item/weapon/tool/crowbar/onestar,
+/obj/item/tool/crowbar/onestar,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "Sb" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/derelict,
 /area/asteroid/rogue)
 "Sd" = (
@@ -1401,7 +1401,7 @@
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "Sp" = (
-/obj/item/weapon/tool/screwdriver/combi_driver/onestar,
+/obj/item/tool/screwdriver/combi_driver/onestar,
 /turf/simulated/floor/tiled/derelict,
 /area/asteroid/rogue)
 "St" = (
@@ -1572,7 +1572,7 @@
 "VR" = (
 /obj/effect/floor_decal/asteroid,
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "VU" = (

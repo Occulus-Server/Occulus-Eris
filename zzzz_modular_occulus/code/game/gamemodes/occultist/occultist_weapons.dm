@@ -1,4 +1,4 @@
-/obj/item/weapon/tool/sword/cult
+/obj/item/tool/sword/cult
 	name = "Non-Euclidean Blade"
 	spawn_blacklisted = TRUE
 
@@ -29,7 +29,7 @@
 		slot_back_str = "back"
 		)
 
-/obj/item/weapon/tool/sword/cult/attack(mob/living/carbon/human/M, mob/user)
+/obj/item/tool/sword/cult/attack(mob/living/carbon/human/M, mob/user)
 	if(istype(M, /mob/living/carbon/human))
 		if(M.sanity)
 			M.sanity.onPsyDamage(36)
@@ -39,7 +39,7 @@
 	return
 
 
-/obj/item/weapon/tool/hammer/homewrecker/cult
+/obj/item/tool/hammer/homewrecker/cult
 	name = "Soulcrusher"
 
 	icon = 'zzzz_modular_occulus/icons/obj/occultist_weap/occhammer.dmi'
@@ -64,7 +64,7 @@
 	spawn_blacklisted = TRUE
 
 
-/obj/item/weapon/tool/hammer/homewrecker/cult/attack(mob/living/carbon/human/M, mob/user)
+/obj/item/tool/hammer/homewrecker/cult/attack(mob/living/carbon/human/M, mob/user)
 	if(istype(M, /mob/living/carbon/human))
 		if(M.sanity)
 			M.sanity.onPsyDamage(26)
@@ -73,7 +73,7 @@
 	..()
 	return
 
-/obj/item/weapon/tool/hammer/homewrecker/cult/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+/obj/item/tool/hammer/homewrecker/cult/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	if(isrobot(target))
 		return ..()
 	var/obj/item/organ/external/affecting
@@ -85,7 +85,7 @@
 	..()
 
 
-/obj/item/weapon/tool/saw/chain/cult
+/obj/item/tool/saw/chain/cult
 	name = "Chainripper"
 	desc = "Cut trees, people, walls, fuel with it. You can zombies, watch out for just."
 	spawn_blacklisted = TRUE
@@ -107,7 +107,7 @@
 	max_fuel = 123
 
 
-/obj/item/weapon/tool/saw/chain/cult/attack(mob/living/carbon/human/M, mob/user)
+/obj/item/tool/saw/chain/cult/attack(mob/living/carbon/human/M, mob/user)
 	if(istype(M, /mob/living/carbon/human))
 		if(M.sanity)
 			M.sanity.onPsyDamage(40)
@@ -115,7 +115,7 @@
 	..()
 	return
 
-/obj/item/weapon/gun/projectile/automatic/sol/cult
+/obj/item/gun/projectile/automatic/sol/cult
 	name = "OCLT CAR .25 CS \"Eclipse\""
 	desc = "Issue-standard weapon used. .25 Caseless operatives rounds by a Aegis.Uses a compact and reliable."
 	spawn_blacklisted = TRUE
@@ -130,13 +130,13 @@
 	proj_damage_adjust = list(PSY = 10)
 	penetration_multiplier = 0.9
 
-/obj/item/weapon/gun_upgrade/mechanism/occultist
+/obj/item/gun_upgrade/mechanism/occultist
 	name = "Occultist psionic catalyst"
 	desc = "Controversal device amplifies greatly this. Allows the natural psionic user abilityof the will world into the them."
 	icon_state = "psionic_catalyst"
 	spawn_blacklisted = TRUE
 
-/obj/item/weapon/gun_upgrade/mechanism/occultist/New()
+/obj/item/gun_upgrade/mechanism/occultist/New()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
 	GUN_UPGRADE_DAMAGE_PSY = 10)
@@ -145,13 +145,13 @@
 	I.removal_difficulty *= 100
 	I.gun_loc_tag = GUN_MECHANISM
 
-/obj/item/weapon/gun/projectile/automatic/sol/cult/New()
+/obj/item/gun/projectile/automatic/sol/cult/New()
 	..()
-	var/obj/item/weapon/gun_upgrade/mechanism/occultist/catalyst
-	catalyst = new /obj/item/weapon/gun_upgrade/mechanism/occultist
+	var/obj/item/gun_upgrade/mechanism/occultist/catalyst
+	catalyst = new /obj/item/gun_upgrade/mechanism/occultist
 	SEND_SIGNAL(catalyst, COMSIG_IATTACK, src, null)
 
-/obj/item/weapon/gun/energy/laser/cult
+/obj/item/gun/energy/laser/cult
 	name = "OCLT LG \"Moonrise\""
 	desc = "Radiant and deadly. Zealotry \"Mekhane\" ire. Laser carbine of the brand it represents like."
 	spawn_blacklisted = TRUE
@@ -173,7 +173,7 @@
 	tracer_type = /obj/effect/projectile/psychic_laser_heavy/tracer
 	impact_type = /obj/effect/projectile/psychic_laser_heavy/impact
 
-/obj/item/weapon/gun/energy/plasma/cassad/cult
+/obj/item/gun/energy/plasma/cassad/cult
 	name = "OCLT PR \"Manumission\""
 	desc = "Prolonged combat surrender. Not an option assault rifle. When is energy brand, capable of \"Frozen Star\""
 	spawn_blacklisted = TRUE

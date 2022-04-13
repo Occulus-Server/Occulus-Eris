@@ -11,20 +11,20 @@
 	for(var/obj/item/W in passenger) // For every object (that we call W) on the passenger...
 		if (istype(W, /obj/item/modular_computer/pda)) // If the object is a PDA...
 			var/obj/item/modular_computer/pda/found_pda = W // Give it the "found_pda" variable...
-			if (found_pda.card_slot.stored_card != null && istype(found_pda.card_slot.stored_card, /obj/item/weapon/card/id/captains_spare)) // Check that there is an ID inside AND it is the captain's spare...
+			if (found_pda.card_slot.stored_card != null && istype(found_pda.card_slot.stored_card, /obj/item/card/id/captains_spare)) // Check that there is an ID inside AND it is the captain's spare...
 				found_pda.card_slot.stored_card.forceMove(lostFound) // If so, move it to the Lost and Found unit.
 			else if (found_pda.card_slot.stored_card != null) // If the ID is NOT a captain's spare, but there is an ID inside the PDA...
-				var/obj/item/weapon/card/id/PDA_ID = found_pda.card_slot.stored_card // This is required to get qdel to work...
+				var/obj/item/card/id/PDA_ID = found_pda.card_slot.stored_card // This is required to get qdel to work...
 				found_pda.card_slot.stored_card = null // Set it to NULL (or else it won't delete properly...)
 				qdel(PDA_ID) // And delete it.
-		else if (istype(W, /obj/item/weapon/implant)) // If the object is an implant...
-			var/obj/item/weapon/implant/found_implant = W // Give it a variable name...
+		else if (istype(W, /obj/item/implant)) // If the object is an implant...
+			var/obj/item/implant/found_implant = W // Give it a variable name...
 			found_implant.uninstall() // Uninstall first, since we can't delete it without doing this first...
 			qdel(found_implant) // Then delete it.
-		else if (istype(W, /obj/item/weapon/storage || /obj/item/clothing/suit/storage)) //If the object is either a bag or suit with storage...
+		else if (istype(W, /obj/item/storage || /obj/item/clothing/suit/storage)) //If the object is either a bag or suit with storage...
 			for(var/T in preserve_items) // We assign every preserved item to the variable T...
 				for (var/obj/item/w_storage in W.contents) //We assign the variable "w_storage" to every singe item inside the bag or suit...
-					if (istype(w_storage, /obj/item/weapon/storage)) // If the item in the bag turns out to be a storage container...
+					if (istype(w_storage, /obj/item/storage)) // If the item in the bag turns out to be a storage container...
 						for (var/obj/item/ww_storage in w_storage.contents) // We assign all items inside the storage container to "ww_storage"...
 							if (istype(ww_storage, T)) // Check if the item in that container is part of the preserved items...
 								passenger.drop_from_inventory(ww_storage) // If so, drop it.
@@ -84,18 +84,18 @@
 	density = FALSE
 	interact_offline = 1
 	var/list/preserve_items = list(
-		/obj/item/weapon/hand_tele,
-		/obj/item/weapon/card/id/captains_spare,
+		/obj/item/hand_tele,
+		/obj/item/card/id/captains_spare,
 		/obj/item/device/aicard,
 		/obj/item/device/mmi,
 		/obj/item/device/paicard,
-		/obj/item/weapon/gun,
-		/obj/item/weapon/pinpointer,
+		/obj/item/gun,
+		/obj/item/pinpointer,
 		/obj/item/clothing/suit,
 		/obj/item/clothing/shoes/magboots,
 		/obj/item/blueprints,
 		/obj/item/clothing/head/space,
-		/obj/item/weapon/storage/internal
+		/obj/item/storage/internal
 		)
 
 
@@ -112,18 +112,18 @@
 	var/cooldown_timer
 	var/elevator_moving = FALSE // This is the variable that checks against the world timer and is TRUE only while the elevator is in transit.
 	var/list/preserve_items = list(
-		/obj/item/weapon/hand_tele,
-		/obj/item/weapon/card/id/captains_spare,
+		/obj/item/hand_tele,
+		/obj/item/card/id/captains_spare,
 		/obj/item/device/aicard,
 		/obj/item/device/mmi,
 		/obj/item/device/paicard,
-		/obj/item/weapon/gun,
-		/obj/item/weapon/pinpointer,
+		/obj/item/gun,
+		/obj/item/pinpointer,
 		/obj/item/clothing/suit,
 		/obj/item/clothing/shoes/magboots,
 		/obj/item/blueprints,
 		/obj/item/clothing/head/space,
-		/obj/item/weapon/storage/internal
+		/obj/item/storage/internal
 	)
 	var/obj/item/device/radio/intercom/announce
 	var/on_store_message = "has clocked out of their shift and returned to the dormitories."

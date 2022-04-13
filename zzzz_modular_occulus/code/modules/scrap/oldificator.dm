@@ -1,9 +1,9 @@
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/make_old()
+/obj/item/computer_hardware/hard_drive/portable/design/make_old()
 	.=..()
 	if(license > 0 && prob(90))
 		license = rand(3, (license - 3))
 
-/obj/item/weapon/gun/make_old()
+/obj/item/gun/make_old()
 	. = ..()
 	if(prob(50))
 		fire_delay += rand(0,3)
@@ -16,7 +16,7 @@
 	if(prob(40))
 		init_offset += rand(0,10)
 
-/obj/item/weapon/tool/make_old()
+/obj/item/tool/make_old()
 	. = ..()
 	if(.)
 		if(prob(50))

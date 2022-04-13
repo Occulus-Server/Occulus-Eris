@@ -63,7 +63,7 @@
 	spawn_blacklisted = TRUE	//no random captain shit in maint
 
 /obj/item/clothing/suit/space/void/captain/equipped
-	tank = /obj/item/weapon/tank/jetpack/oxygen
+	tank = /obj/item/tank/jetpack/oxygen
 	boots = /obj/item/clothing/shoes/magboots
 
 /obj/item/clothing/suit/storage/toggle/labcoat/cmo
@@ -265,7 +265,7 @@
 
 /obj/item/clothing/suit/storage/casah/New()
 	..()
-	pockets = new/obj/item/weapon/storage/internal(src)
+	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 3	//three
 	pockets.max_w_class = ITEM_SIZE_SMALL		//fit only pocket sized items
 	pockets.max_storage_space = 4

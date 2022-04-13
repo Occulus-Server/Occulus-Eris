@@ -6,7 +6,7 @@
 	desc = "The peak of Nanotrasen's biochemical brain research, this device has become renown for halting fits of madness and hysteria by inducing alpha waves."
 	icon = 'zzzz_modular_occulus/icons/obj/device.dmi'
 	icon_state = "neuroinducer"
-	suitable_cell = /obj/item/weapon/cell/medium
+	suitable_cell = /obj/item/cell/medium
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_BIO = 5, TECH_COVERT = 2)
@@ -75,7 +75,7 @@
 	desc = "This device used to be Nanotrasen's top of the line in mental health, but has been perversely modified to fluctuate brain-waves wildly, causing severe mental distress."
 	icon = 'zzzz_modular_occulus/icons/obj/device.dmi'
 	icon_state = "evilneuroinducer"
-	suitable_cell = /obj/item/weapon/cell/medium
+	suitable_cell = /obj/item/cell/medium
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_BIO = 5, TECH_COVERT = 2)

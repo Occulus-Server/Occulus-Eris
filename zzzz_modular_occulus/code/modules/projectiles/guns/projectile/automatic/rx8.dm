@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/automatic/rx8
+/obj/item/gun/projectile/automatic/rx8
 	name = "PCC .35 Auto \"RX8\""
 	desc = "An experimental Pistol Caliber Carbine, designed as a low cost and easy to deploy alternative to full sized rifles. \
 			Primarily employed in CQC scenarios or as a self defence tool. \
@@ -29,7 +29,7 @@
 		SEMI_AUTO_NODELAY,
 		)
 
-/obj/item/weapon/gun/projectile/automatic/rx8/update_icon()
+/obj/item/gun/projectile/automatic/rx8/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -42,6 +42,6 @@
 
 	icon_state = iconstring
 
-/obj/item/weapon/gun/projectile/automatic/rx8/Initialize()
+/obj/item/gun/projectile/automatic/rx8/Initialize()
 	. = ..()
 	update_icon()

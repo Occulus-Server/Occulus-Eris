@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/revolver/tauceti
+/obj/item/gun/projectile/revolver/tauceti
 	name = "OR REV \"Tau Ceti Special\""
 	desc = "The iconic weapon of the Oberth Republic, and homeland security's nightmare. A five-chamber revolver that fires .50 caliber shotgun shells, made entirely of plastic polymers to foil security sensors. Due to its small size, it's concealable in nearly any pocket or case. Because of its origin, it has no official name, but is called the 'Tau Ceti Special' by those in the Republic, named after the 2421 terrorist attack on Tau Ceti where it was prominently used in mass-executions."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/taucetispecial.dmi'

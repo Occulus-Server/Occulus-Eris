@@ -1,4 +1,4 @@
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/medical
+/obj/item/computer_hardware/hard_drive/portable/design/medical
 	disk_name = "NT Medical Designs"
 	designs = list(
 		/datum/design/autolathe/gun/syringe_gun,
@@ -23,21 +23,21 @@
 //		/datum/design/autolathe/container/syringe/large, Occulus Edit Not ported
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/computer
+/obj/item/computer_hardware/hard_drive/portable/design/computer
 	disk_name = "NT Computer Parts"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/ms_dartgun
+/obj/item/computer_hardware/hard_drive/portable/design/guns/ms_dartgun
 	disk_name = "NT Scientifica - Z-H P Artemis Dartgun"
 	rarity_value = 12.5
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_lightfall
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_lightfall
 	disk_name = "NT Scientifica - Lightfall Laser Gun"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_valkirye
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_valkirye
 	disk_name = "NT Scientifica - Valkyrie Energy Rifle"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_halicon
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_halicon
 	disk_name = "NT Scientifica - Halicon Ion Rifle"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_counselor
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_counselor
 	disk_name = "NT Scientifica - Councelor PDW E"

@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/kovacs
+/obj/item/gun/projectile/kovacs
 	name = "SA BR .20 \"Kovacs\""
 	desc = "The \"Kovacs\" is a refined battle rifle fit for taking down heavily armoured targets. \
 			This extremely efficient rifle design has gone into disuse over the years but still sees use by mercenaries. \
@@ -23,11 +23,11 @@
 	damage_multiplier = 1.4 //35
 	penetration_multiplier = 1.6 //40
 	recoil_buildup = 1.5
-	one_hand_penalty = 20 //full sized rifle 
+	one_hand_penalty = 20 //full sized rifle
 	zoom_factor = 0.6
 	fire_delay = 6
 
-/obj/item/weapon/gun/projectile/kovacs/on_update_icon()
+/obj/item/gun/projectile/kovacs/on_update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -42,6 +42,6 @@
 	icon_state = iconstring
 	set_item_state(itemstring)
 
-/obj/item/weapon/gun/projectile/kovacs/Initialize()
+/obj/item/gun/projectile/kovacs/Initialize()
 	. = ..()
 	update_icon()

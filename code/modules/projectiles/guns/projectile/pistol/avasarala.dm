@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/avasarala
+/obj/item/gun/projectile/avasarala
 	name = "NT HG .40 Magnum \"Avasarala\""
 	desc = "An obvious replica of an old Earth \"Desert Eagle\". Robust and straight, this is a gun for a leader, not just an officer."
 
@@ -29,7 +29,7 @@
 	price_tag = 1600
 //	spawn_tags = SPAWN_TAG_FS_PROJECTILE We don't have this yet Occulus Edit
 
-/obj/item/weapon/gun/projectile/avasarala/on_update_icon()
+/obj/item/gun/projectile/avasarala/on_update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -39,6 +39,6 @@
 
 	SetIconState(iconstring)
 
-/obj/item/weapon/gun/projectile/avasarala/Initialize()
+/obj/item/gun/projectile/avasarala/Initialize()
 	. = ..()
 	update_icon()

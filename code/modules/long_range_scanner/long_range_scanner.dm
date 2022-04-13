@@ -17,7 +17,7 @@ var/list/ship_scanners = list()
 	density = TRUE
 	anchored = FALSE
 
-	circuit = /obj/item/weapon/electronics/circuitboard/long_range_scanner
+	circuit = /obj/item/electronics/circuitboard/long_range_scanner
 
 
 
@@ -112,16 +112,16 @@ var/list/ship_scanners = list()
 
 /obj/machinery/power/long_range_scanner/RefreshParts()
 	max_energy = 0
-	for(var/obj/item/weapon/stock_parts/smes_coil/S in component_parts)
+	for(var/obj/item/stock_parts/smes_coil/S in component_parts)
 		max_energy += (S.ChargeCapacity / CELLRATE)
 	current_energy = between(0, current_energy, max_energy)
 
 	// Better micro lasers increase the duration of the active scan mode
-	as_duration_multiplier = 1.0 + 0.5 * max_part_rating(/obj/item/weapon/stock_parts/micro_laser)
+	as_duration_multiplier = 1.0 + 0.5 * max_part_rating(/obj/item/stock_parts/micro_laser)
 	as_duration_multiplier = between(initial(as_duration_multiplier), as_duration_multiplier, 10.0)
 
 	// Better capacitors diminish the energy consumption of the active scan mode
-	as_energy_multiplier = 1.0 - 0.1 * max_part_rating(/obj/item/weapon/stock_parts/capacitor)
+	as_energy_multiplier = 1.0 - 0.1 * max_part_rating(/obj/item/stock_parts/capacitor)
 	as_energy_multiplier = between(0.0, as_energy_multiplier, initial(as_energy_multiplier))
 
 

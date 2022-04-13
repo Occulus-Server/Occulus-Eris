@@ -32,7 +32,7 @@ var/global/obj/machinery/power/eotp/eotp
 							/obj/item/stack/material/plasteel = 120,
 							/obj/item/stack/material/silver = 60)
 	var/list/disk_types = list()
-	var/list/unneeded_disk_types = list(/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/melee, /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/firstaid) // OCCULUS EDIT - disable the superior medkit thing from spawning
+	var/list/unneeded_disk_types = list(/obj/item/computer_hardware/hard_drive/portable/design/nt/melee, /obj/item/computer_hardware/hard_drive/portable/design/nt/firstaid) // OCCULUS EDIT - disable the superior medkit thing from spawning
 
 	var/list/mob/living/carbon/human/scanned = list()
 	var/max_power = 100
@@ -58,7 +58,7 @@ var/global/obj/machinery/power/eotp/eotp
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/obj/item/weapon/implant/core_implant/I = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+		var/obj/item/implant/core_implant/I = H.get_core_implant(/obj/item/implant/core_implant/cruciform)
 		if(I && I.active && I.wearer)
 			var/comment = "Power level: [power]/[max_power]."
 			comment += "\nObservation level: [observation]/[max_observation]."
@@ -79,7 +79,7 @@ var/global/obj/machinery/power/eotp/eotp
 			last_rescan = world.time
 			updatePower()
 			return
-		var/obj/item/weapon/implant/core_implant/I = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+		var/obj/item/implant/core_implant/I = H.get_core_implant(/obj/item/implant/core_implant/cruciform)
 		if(I && I.active && I.wearer)
 			eotp.removeObservation(20)
 		else if(is_carrion(H))
@@ -119,7 +119,7 @@ var/global/obj/machinery/power/eotp/eotp
 		power_release()
 
 /obj/machinery/power/eotp/proc/disk_reward_update()
-	disk_types =  subtypesof(/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt) - unneeded_disk_types
+	disk_types =  subtypesof(/obj/item/computer_hardware/hard_drive/portable/design/nt) - unneeded_disk_types
 
 /obj/machinery/power/eotp/proc/power_release()
 	var/type_release = pick(rewards)
@@ -171,7 +171,7 @@ var/global/obj/machinery/power/eotp/eotp
 					H.sanity.breakdown(TRUE)
 
 	else if(type_release == ODDITY)
-		var/oddity_reward = pick(subtypesof(/obj/item/weapon/oddity/nt))
+		var/oddity_reward = pick(subtypesof(/obj/item/oddity/nt))
 		var/obj/item/_item = new oddity_reward(get_turf(src))
 		visible_message(SPAN_NOTICE("The [_item.name] appears in a flash of light near the [src]!"))	//OCCULUS EDIT - Typo fix, and some lore changing
 

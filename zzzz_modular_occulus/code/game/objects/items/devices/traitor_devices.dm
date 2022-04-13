@@ -32,7 +32,7 @@ var/global/list/active_radio_jammers = list()
 	icon = 'zzzz_modular_occulus/icons/obj/device.dmi'
 	icon_state = "jammer0"
 	slot_flags = SLOT_BELT
-	suitable_cell = /obj/item/weapon/cell/medium
+	suitable_cell = /obj/item/cell/medium
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEM_SIZE_SMALL
@@ -158,7 +158,7 @@ var/global/list/active_radio_jammers = list()
 	var/click_delay = 1.5
 	var/fisto_setting = 1
 	var/gasperfist = 3
-	var/obj/item/weapon/tank/tank  //Tank used for the gauntlet's piston-ram.
+	var/obj/item/tank/tank  //Tank used for the gauntlet's piston-ram.
 	price_tag = 5000
 	rarity_value = 99
 	var/stunforce = 2
@@ -169,9 +169,9 @@ var/global/list/active_radio_jammers = list()
 	return ..()
 
 /obj/item/clothing/gloves/powerfist/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/weapon/tank))
+	if(istype(W, /obj/item/tank))
 		if(!tank)
-			var/obj/item/weapon/tank/IT = W
+			var/obj/item/tank/IT = W
 			if(IT.volume <= 3)
 				to_chat(user, "<span class='warning'>[IT] is too small for [src].</span>")
 				return
@@ -197,7 +197,7 @@ var/global/list/active_radio_jammers = list()
 		updateTank(tank, 1, user)
 	return ..()
 
-/obj/item/clothing/gloves/powerfist/proc/updateTank(var/obj/item/weapon/tank/thetank, removing = 0, mob/living/carbon/human/user)
+/obj/item/clothing/gloves/powerfist/proc/updateTank(var/obj/item/tank/thetank, removing = 0, mob/living/carbon/human/user)
 	if(removing)
 		if(!tank)
 			to_chat(user, "<span class='notice'>[src] currently has no tank attached to it.</span>")

@@ -2,10 +2,10 @@
 
 /obj/structure/closet/secure_closet/personal/engineering_personal/populate_contents()
 	if(prob(50))
-		new /obj/item/weapon/storage/backpack/industrial(src)
+		new /obj/item/storage/backpack/industrial(src)
 	else
-		new /obj/item/weapon/storage/backpack/satchel/industrial(src)
-	new /obj/item/weapon/storage/toolbox/mechanical(src)
+		new /obj/item/storage/backpack/satchel/industrial(src)
+	new /obj/item/storage/toolbox/mechanical(src)
 	new /obj/item/clothing/under/rank/engineer(src)
 	new /obj/item/clothing/head/beret/engineering/ees(src)
 	new /obj/item/clothing/head/welding(src)

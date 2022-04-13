@@ -1,9 +1,9 @@
-/obj/item/weapon/implant/carrion_spider/flashbang
+/obj/item/implant/carrion_spider/flashbang
 	name = "flashbang spider"
 	icon_state = "spiderling_flashbang"
 	spider_price = 15
 
-/obj/item/weapon/implant/carrion_spider/flashbang/activate()
+/obj/item/implant/carrion_spider/flashbang/activate()
 	..()
 	if(wearer)
 		wearer.apply_damage(10, BURN, part)

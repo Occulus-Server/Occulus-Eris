@@ -62,7 +62,7 @@
 	result_amount = 0
 	on_reaction(var/datum/reagents/holder, var/created_volume)
 		for(var/i = 0; i < 3; i++)
-			new /obj/item/weapon/reagent_containers/food/snacks/brownies(get_turf(holder.my_atom))
+			new /obj/item/reagent_containers/food/snacks/brownies(get_turf(holder.my_atom))
 		return
 /datum/chemical_reaction/babelizine
 	result = "babelizine"

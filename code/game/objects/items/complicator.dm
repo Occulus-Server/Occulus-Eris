@@ -1,4 +1,4 @@
-/obj/item/weapon/complicator
+/obj/item/complicator
 	name = "Reality Complicator"
 	desc = "Weird device of unknown origin. It can be activated and has a cooldown of 30 minutes."
 	icon = 'icons/obj/faction_item.dmi'
@@ -12,7 +12,7 @@
 	var/last_summon = -30 MINUTES
 	var/cooldown = 30 MINUTES
 
-/obj/item/weapon/complicator/attack_self()
+/obj/item/complicator/attack_self()
 	var/mob/living/carbon/human/user = src.loc
 	if(world.time >= (last_summon + cooldown))
 		var/mod = pick(EVENT_LEVEL_MUNDANE, EVENT_LEVEL_MODERATE, EVENT_LEVEL_MAJOR, EVENT_LEVEL_ROLESET)

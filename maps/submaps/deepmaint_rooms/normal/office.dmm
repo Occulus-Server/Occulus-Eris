@@ -16,7 +16,7 @@
 /area/deepmaint)
 "e" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/deepmaint)
 "f" = (

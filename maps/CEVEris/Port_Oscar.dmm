@@ -123,7 +123,7 @@
 /turf/space,
 /area/eris/engineering/engine_room)
 "adA" = (
-/obj/item/weapon/reagent_containers/food/snacks/roachcube/kraftwerk,
+/obj/item/reagent_containers/food/snacks/roachcube/kraftwerk,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "adP" = (
@@ -245,7 +245,7 @@
 	pixel_y = 26
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper{
+/obj/item/paper{
 	info = "Hey! \[br\] \[br\] Sorry I wasn't able to respond to your email; I've been busy as heck the past few days with these bug-things the last lot brought in. I'll go over the new setup real quick for you, though. \[br\] \[br\] I'm sure you already know how TEGs and pipes work, and all that, so I'll skip to the important stuff; power goes from the TEG's outside, through the room with the pumps downstairs, and into our SMES farm. \[br\] \[br\] Only thing else I really have to say is that you probably shouldn't max out the fuel and oxidizer valves AND set their injectors to max. That seems to bust this girl open real easy. Good luck!"
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
@@ -587,7 +587,7 @@
 /turf/simulated/floor/plating,
 /area/eris/engineering/engineering_monitoring)
 "ang" = (
-/obj/item/weapon/bikehorn/rubberducky,
+/obj/item/bikehorn/rubberducky,
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/eris/crew_quarters/fitness)
 "ani" = (
@@ -896,9 +896,9 @@
 /obj/spawner/toolbox,
 /obj/spawner/toolbox,
 /obj/spawner/toolbox,
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/storage/belt/utility,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
@@ -1442,12 +1442,12 @@
 	id = "ElevatorDorms";
 	pixel_x = 26
 	},
-/obj/item/weapon/tool/crowbar{
+/obj/item/tool/crowbar{
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/weapon/tool/crowbar,
-/obj/item/weapon/tool/crowbar{
+/obj/item/tool/crowbar,
+/obj/item/tool/crowbar{
 	pixel_x = -4;
 	pixel_y = -4
 	},
@@ -2120,7 +2120,7 @@
 /area/eris/maintenance/section4deck5port)
 "aTl" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/fancy/vials,
+/obj/item/storage/fancy/vials,
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/eris/medical/virology)
 "aTM" = (
@@ -2317,7 +2317,7 @@
 /obj/structure/fireaxecabinet{
 	pixel_x = -32
 	},
-/obj/item/weapon/paper/oscarreport,
+/obj/item/paper/oscarreport,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -2625,10 +2625,10 @@
 	})
 "bet" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/devices,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/components,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/circuits,
+/obj/item/computer_hardware/hard_drive/portable/design/tools,
+/obj/item/computer_hardware/hard_drive/portable/design/devices,
+/obj/item/computer_hardware/hard_drive/portable/design/components,
+/obj/item/computer_hardware/hard_drive/portable/design/circuits,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/command/exultant/quarters)
 "bey" = (
@@ -2760,7 +2760,7 @@
 	name = "Deck 3 Unmapped Maintenance"
 	})
 "biu" = (
-/obj/item/weapon/storage/box/monkeycubes,
+/obj/item/storage/box/monkeycubes,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/genetics)
 "biy" = (
@@ -3026,11 +3026,11 @@
 /area/eris/engineering/engine_airlock)
 "blG" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/weapon/storage/briefcase/inflatable{
+/obj/item/storage/briefcase/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/weapon/storage/briefcase/inflatable,
+/obj/item/storage/briefcase/inflatable,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -3271,9 +3271,9 @@
 /area/space)
 "brn" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/electrical,
-/obj/item/weapon/storage/toolbox/electrical,
-/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
@@ -3308,8 +3308,8 @@
 	dir = 4
 	},
 /obj/structure/table/woodentable,
-/obj/item/weapon/paper/forensicguide,
-/obj/item/weapon/book/manual/security_aegisparagraphs,
+/obj/item/paper/forensicguide,
+/obj/item/book/manual/security_aegisparagraphs,
 /turf/simulated/floor/carpet,
 /area/eris/security/inspectors_office)
 "brL" = (
@@ -4507,15 +4507,15 @@
 /area/eris/command/commander)
 "bSH" = (
 /obj/structure/table/rack,
-/obj/item/weapon/electronics/circuitboard/powermonitor{
+/obj/item/electronics/circuitboard/powermonitor{
 	pixel_x = -2;
 	pixel_y = 2
 	},
-/obj/item/weapon/electronics/circuitboard/stationalert{
+/obj/item/electronics/circuitboard/stationalert{
 	pixel_x = 1;
 	pixel_y = -1
 	},
-/obj/item/weapon/electronics/circuitboard/atmos_alert{
+/obj/item/electronics/circuitboard/atmos_alert{
 	pixel_x = 3;
 	pixel_y = -3
 	},
@@ -4736,7 +4736,7 @@
 "bYy" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/weapon/storage/belt/utility,
+/obj/item/storage/belt/utility,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
 "bYW" = (
@@ -4942,7 +4942,7 @@
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/engineering/engineering_monitoring)
 "cdE" = (
-/obj/item/weapon/reagent_containers/syringe/drugs_recreational,
+/obj/item/reagent_containers/syringe/drugs_recreational,
 /obj/spawner/booze/low_chance,
 /turf/simulated/floor/plating/under,
 /area/awaymission)
@@ -5086,7 +5086,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/weapon/melee/baton,
+/obj/item/melee/baton,
 /turf/simulated/floor/tiled/techmaint_panels,
 /area/eris/maintenance/section4deck2port{
 	name = "Deck 1 Central Maintenance"
@@ -5331,7 +5331,7 @@
 	})
 "ckN" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/disks,
+/obj/item/storage/box/disks,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -5415,7 +5415,7 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/snacks/mysterysoup,
+/obj/item/reagent_containers/food/snacks/mysterysoup,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -5494,15 +5494,15 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/oddity/common/old_newspaper,
+/obj/item/oddity/common/old_newspaper,
 /turf/simulated/floor/tiled/steel/panels,
 /area/eris/maintenance/section4deck5port)
 "com" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/oddity/common/paper_bundle,
-/obj/item/weapon/oddity/common/paper_crumpled,
+/obj/item/oddity/common/paper_bundle,
+/obj/item/oddity/common/paper_crumpled,
 /turf/simulated/floor/tiled/steel,
 /area/eris/maintenance/section4deck5port)
 "cox" = (
@@ -5834,7 +5834,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/reagent_containers/food/drinks/coffee{
+/obj/item/reagent_containers/food/drinks/coffee{
 	desc = "Old cup of coffee. Very cold.  ";
 	name = "Old Robust Coffee"
 	},
@@ -6770,8 +6770,8 @@
 	})
 "cOp" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/weapon/tool/tape_roll/fiber,
-/obj/item/weapon/tool/weldingtool/improvised,
+/obj/item/tool/tape_roll/fiber,
+/obj/item/tool/weldingtool/improvised,
 /turf/simulated/floor/wood/usedup,
 /area/eris/maintenance/section4deck2starboard{
 	name = "Deck 4 Engine Maintenance"
@@ -6868,7 +6868,7 @@
 "cQk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/table/woodentable,
-/obj/item/weapon/storage/fancy/cigarettes/dromedaryco,
+/obj/item/storage/fancy/cigarettes/dromedaryco,
 /turf/simulated/floor/carpet,
 /area/eris/security/inspectors_office)
 "cQq" = (
@@ -7115,7 +7115,7 @@
 /obj/landmark/storyevent/midgame_stash_spawn{
 	navigation = "Deck 1, on the platform with the couches and tables overlooking the pool. It's underneath the table that has the poster."
 	},
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "bsposter15";
 	pixel_y = 32
 	},
@@ -7232,7 +7232,7 @@
 "cXl" = (
 /obj/machinery/light,
 /obj/structure/table/standard,
-/obj/item/weapon/oddity/instructional/common/rob/aegis,
+/obj/item/oddity/instructional/common/rob/aegis,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/security/brig)
 "cXp" = (
@@ -7314,8 +7314,8 @@
 /area/awaymission)
 "cYM" = (
 /obj/structure/table/standard,
-/obj/item/weapon/deck/cards,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer{
+/obj/item/deck/cards,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer{
 	pixel_x = -6;
 	pixel_y = 5
 	},
@@ -7332,8 +7332,8 @@
 /area/eris/neotheology/office)
 "cZk" = (
 /obj/structure/table/rack/shelf,
-/obj/item/weapon/storage/box/evidence,
-/obj/item/weapon/storage/box/fingerprints,
+/obj/item/storage/box/evidence,
+/obj/item/storage/box/fingerprints,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
 "cZv" = (
@@ -7556,14 +7556,14 @@
 /area/eris/neotheology/office)
 "dem" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/office)
 "deq" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/tool/knife/neotritual,
-/obj/item/weapon/book/ritual/cruciform/priest,
+/obj/item/tool/knife/neotritual,
+/obj/item/book/ritual/cruciform/priest,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/office)
 "det" = (
@@ -7852,7 +7852,7 @@
 /area/awaymission)
 "dnd" = (
 /obj/structure/closet/cabinet,
-/obj/item/weapon/storage/firstaid/fire,
+/obj/item/storage/firstaid/fire,
 /obj/item/clothing/gloves/thick,
 /obj/item/device/lighting/toggleable/flashlight,
 /obj/machinery/alarm{
@@ -8505,7 +8505,7 @@
 /area/eris/quartermaster/disposaldrop)
 "dCL" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/weapon/electronics/ai_module/corp,
+/obj/item/electronics/ai_module/corp,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/turret_protected/ai)
 "dCQ" = (
@@ -8700,8 +8700,8 @@
 /area/eris/engineering/atmos)
 "dIv" = (
 /obj/machinery/light/small,
-/obj/item/weapon/mop,
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/mop,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/cafe,
 /area/awaymission)
 "dIy" = (
@@ -8889,9 +8889,9 @@
 /obj/spawner/toolbox,
 /obj/spawner/toolbox,
 /obj/spawner/toolbox,
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/storage/belt/utility,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/awaymission)
@@ -9057,11 +9057,11 @@
 /area/eris/engineering/engineering_monitoring)
 "dPC" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/weapon/storage/firstaid/fire{
+/obj/item/storage/firstaid/fire{
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/item/weapon/storage/firstaid/fire,
+/obj/item/storage/firstaid/fire,
 /obj/machinery/camera/network/engineering{
 	dir = 8
 	},
@@ -9337,12 +9337,12 @@
 /area/turret_protected/ai)
 "dWc" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/ce,
+/obj/item/bedsheet/ce,
 /turf/simulated/floor/wood,
 /area/eris/command/exultant/quarters)
 "dWg" = (
 /obj/structure/closet/secure_closet/personal/agrolyte,
-/obj/item/weapon/paper{
+/obj/item/paper{
 	name = "Seed Alien1 Growth Stage Value:"
 	},
 /turf/simulated/floor/wood,
@@ -9451,7 +9451,7 @@
 /area/eris/engineering/engineering_monitoring)
 "dZs" = (
 /obj/structure/table/glass,
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -9499,12 +9499,12 @@
 /area/eris/engineering/locker_room)
 "eam" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/weapon/inflatable_dispenser{
+/obj/item/inflatable_dispenser{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/weapon/inflatable_dispenser,
-/obj/item/weapon/inflatable_dispenser{
+/obj/item/inflatable_dispenser,
+/obj/item/inflatable_dispenser{
 	pixel_x = -2;
 	pixel_y = -2
 	},
@@ -9566,7 +9566,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/weapon/contraband/poster,
+/obj/item/contraband/poster,
 /turf/simulated/floor/tiled/white,
 /area/eris/hallway/side/hydroponicshallway)
 "ecC" = (
@@ -9892,7 +9892,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/oddity/instructional/common/tgh/book,
+/obj/item/oddity/instructional/common/tgh/book,
 /turf/simulated/open,
 /area/eris/quartermaster/misc)
 "ekC" = (
@@ -10029,14 +10029,14 @@
 /area/eris/quartermaster/disposaldrop)
 "eog" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
-/obj/item/weapon/storage/fancy/egg_box,
-/obj/item/weapon/storage/fancy/egg_box,
-/obj/item/weapon/reagent_containers/food/drinks/soymilk,
-/obj/item/weapon/reagent_containers/food/drinks/soymilk,
-/obj/item/weapon/reagent_containers/food/drinks/soymilk,
-/obj/item/weapon/reagent_containers/food/drinks/milk,
-/obj/item/weapon/reagent_containers/food/drinks/milk,
-/obj/item/weapon/reagent_containers/food/drinks/milk,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/kitchen)
 "eot" = (
@@ -10412,9 +10412,9 @@
 /area/eris/quartermaster/disposaldrop)
 "ewr" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/folder/red,
+/obj/item/folder/red,
 /obj/item/device/flash,
-/obj/item/weapon/handcuffs,
+/obj/item/handcuffs,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	pixel_x = -22
@@ -10497,7 +10497,7 @@
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/quartermaster/storage)
 "exl" = (
-/obj/item/weapon/material/harpoon,
+/obj/item/material/harpoon,
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
 /area/eris/maintenance/section4deck5starboard{
@@ -10554,7 +10554,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/virusdish/random,
+/obj/item/virusdish/random,
 /turf/simulated/floor/tiled/white,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -11061,7 +11061,7 @@
 	})
 "eJZ" = (
 /obj/effect/decal/cleanable/vomit,
-/obj/item/weapon/tool_upgrade/productivity/red_paint,
+/obj/item/tool_upgrade/productivity/red_paint,
 /obj/spawner/medical,
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/maintenance/section4deck5starboard{
@@ -11302,10 +11302,10 @@
 "eOo" = (
 /obj/structure/table/standard,
 /obj/item/clothing/mask/smokable/cigarette/cigar,
-/obj/item/weapon/oddity/instructional/common/rob/paul{
+/obj/item/oddity/instructional/common/rob/paul{
 	pixel_x = -7
 	},
-/obj/item/weapon/oddity/instructional/common/rob/vaggie{
+/obj/item/oddity/instructional/common/rob/vaggie{
 	pixel_x = 8
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
@@ -11333,7 +11333,7 @@
 	})
 "eON" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/purple,
+/obj/item/bedsheet/purple,
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -11689,7 +11689,7 @@
 /area/eris/maintenance/section2deck1starboard)
 "eVc" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -11915,7 +11915,7 @@
 /area/eris/maintenance/disposal)
 "eYo" = (
 /obj/structure/table/standard,
-/obj/item/weapon/tool/pickaxe/drill,
+/obj/item/tool/pickaxe/drill,
 /obj/item/stack/flag/green,
 /obj/item/stack/flag/red,
 /obj/item/stack/flag/yellow,
@@ -12045,7 +12045,7 @@
 	pixel_y = 32
 	},
 /obj/structure/table/woodentable,
-/obj/item/weapon/oddity/instructional/common/vig/audio,
+/obj/item/oddity/instructional/common/vig/audio,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
 "fbc" = (
@@ -12242,10 +12242,10 @@
 	pixel_y = -22
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/holochip/command/deathalarm,
-/obj/item/weapon/holochip/command/deathalarm,
-/obj/item/weapon/holochip/command/deathalarm,
-/obj/item/weapon/storage/box/cdeathalarm_kit,
+/obj/item/holochip/command/deathalarm,
+/obj/item/holochip/command/deathalarm,
+/obj/item/holochip/command/deathalarm,
+/obj/item/storage/box/cdeathalarm_kit,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/barracks{
 	name = "Aegis Barracks"
@@ -12596,12 +12596,12 @@
 	pixel_x = -5;
 	pixel_y = 3
 	},
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/storage/toolbox/mechanical,
-/obj/item/weapon/storage/toolbox/mechanical,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/atmos/storage)
 "fns" = (
@@ -12623,10 +12623,10 @@
 "fnu" = (
 /obj/structure/table/reinforced,
 /obj/item/device/t_scanner,
-/obj/item/weapon/tank/emergency_oxygen{
+/obj/item/tank/emergency_oxygen{
 	pixel_x = -8
 	},
-/obj/item/weapon/tank/emergency_oxygen{
+/obj/item/tank/emergency_oxygen{
 	pixel_x = -8
 	},
 /obj/item/clothing/mask/breath{
@@ -12870,7 +12870,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/oddity/instructional/common/tgh/soldier{
+/obj/item/oddity/instructional/common/tgh/soldier{
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/steel/panels,
@@ -13238,11 +13238,11 @@
 /area/eris/engineering/atmos/storage)
 "fCs" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/o2{
+/obj/item/storage/firstaid/o2{
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/item/weapon/storage/firstaid/o2,
+/obj/item/storage/firstaid/o2,
 /obj/structure/sign/nosmoking_2{
 	pixel_x = 32
 	},
@@ -13459,7 +13459,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section3deck3starboard)
 "fGp" = (
-/obj/item/weapon/reagent_containers/blood/empty{
+/obj/item/reagent_containers/blood/empty{
 	pixel_x = 1;
 	pixel_y = -4
 	},
@@ -13518,7 +13518,7 @@
 /area/eris/medical/genetics)
 "fGO" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/green,
+/obj/item/bedsheet/green,
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/eris/medical/virology)
 "fGR" = (
@@ -13780,14 +13780,14 @@
 /area/eris/maintenance/section3deck3starboard)
 "fMu" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/bodybags{
+/obj/item/storage/box/bodybags{
 	pixel_x = -12
 	},
-/obj/item/weapon/storage/box/gloves,
-/obj/item/weapon/storage/box/masks{
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/masks{
 	pixel_x = 12
 	},
-/obj/item/weapon/soulextract,
+/obj/item/soulextract,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/lab)
 "fME" = (
@@ -14378,8 +14378,8 @@
 /area/eris/maintenance/section3deck3starboard)
 "gaa" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/trackimp,
-/obj/item/weapon/storage/box/chemimp{
+/obj/item/storage/box/trackimp,
+/obj/item/storage/box/chemimp{
 	pixel_x = 4;
 	pixel_y = 3
 	},
@@ -14391,13 +14391,13 @@
 	icon_state = "tube1"
 	},
 /obj/structure/table/steel,
-/obj/item/weapon/tool/crowbar/improvised,
-/obj/item/weapon/tool/crowbar,
-/obj/item/weapon/tool/crowbar{
+/obj/item/tool/crowbar/improvised,
+/obj/item/tool/crowbar,
+/obj/item/tool/crowbar{
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/weapon/tool/crowbar{
+/obj/item/tool/crowbar{
 	pixel_x = -4;
 	pixel_y = -4
 	},
@@ -14554,7 +14554,7 @@
 /area/eris/security/checkpoint)
 "gdE" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/green,
+/obj/item/bedsheet/green,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -14794,8 +14794,8 @@
 /area/eris/hallway/side/hydroponicshallway)
 "gjz" = (
 /obj/structure/closet/secure_closet/medicine,
-/obj/item/weapon/storage/pill_bottle/bicaridine,
-/obj/item/weapon/storage/pill_bottle/dermaline,
+/obj/item/storage/pill_bottle/bicaridine,
+/obj/item/storage/pill_bottle/dermaline,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -15160,7 +15160,7 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/outpost/museum)
 "gqN" = (
-/obj/item/weapon/tool_upgrade/productivity/red_paint,
+/obj/item/tool_upgrade/productivity/red_paint,
 /turf/simulated/floor/wood,
 /area/outpost/museum)
 "gqW" = (
@@ -15358,7 +15358,7 @@
 /area/eris/maintenance/section3deck3starboard)
 "gxK" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/hos,
+/obj/item/bedsheet/hos,
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "gxQ" = (
@@ -15505,7 +15505,7 @@
 	pixel_y = 32
 	},
 /obj/structure/table/woodentable,
-/obj/item/weapon/oddity/instructional/common/vig/mek,
+/obj/item/oddity/instructional/common/vig/mek,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
 "gAp" = (
@@ -15807,8 +15807,8 @@
 	pixel_y = 29
 	},
 /obj/structure/mopbucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/mop,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/mop,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/bioreactor)
 "gKk" = (
@@ -15825,14 +15825,14 @@
 	})
 "gKz" = (
 /obj/structure/table/standard,
-/obj/item/weapon/tool/wrench{
+/obj/item/tool/wrench{
 	pixel_y = -8
 	},
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes{
+/obj/item/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes{
 	pixel_x = -6;
 	pixel_y = 8
 	},
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/melee{
+/obj/item/computer_hardware/hard_drive/portable/design/nt/melee{
 	pixel_x = 6;
 	pixel_y = 8
 	},
@@ -15909,15 +15909,15 @@
 /obj/machinery/camera/network/third_section{
 	dir = 4
 	},
-/obj/item/weapon/soap/nanotrasen,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors{
+/obj/item/soap/nanotrasen,
+/obj/item/reagent_containers/food/drinks/bottle/ntcahors{
 	pixel_x = -9;
 	pixel_y = 6
 	},
-/obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors{
+/obj/item/reagent_containers/food/drinks/bottle/ntcahors{
 	pixel_y = 6
 	},
-/obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors{
+/obj/item/reagent_containers/food/drinks/bottle/ntcahors{
 	pixel_x = 9;
 	pixel_y = 6
 	},
@@ -15931,7 +15931,7 @@
 /area/eris/neotheology/chapelritualroom)
 "gNy" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /obj/item/device/scanner/health,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/chapelritualroom)
@@ -16199,7 +16199,7 @@
 	dir = 8
 	},
 /obj/structure/table/woodentable,
-/obj/item/weapon/oddity/instructional/common/vig/ross,
+/obj/item/oddity/instructional/common/vig/ross,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
 "gSI" = (
@@ -16236,7 +16236,7 @@
 	dir = 10
 	},
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/yellow,
+/obj/item/bedsheet/yellow,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -16248,8 +16248,8 @@
 /area/eris/crew_quarters/janitor)
 "gTK" = (
 /obj/structure/mopbucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/mop,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/mop,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/crew_quarters/janitor)
@@ -16261,7 +16261,7 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/crew_quarters/janitor)
 "gUe" = (
-/obj/item/weapon/holyvacuum,
+/obj/item/holyvacuum,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/crew_quarters/janitor)
@@ -16569,7 +16569,7 @@
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/bioreactor)
 "hcu" = (
-/obj/item/weapon/inflatable_duck,
+/obj/item/inflatable_duck,
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/eris/crew_quarters/fitness)
 "hcz" = (
@@ -16849,7 +16849,7 @@
 /area/awaymission)
 "hgU" = (
 /obj/structure/table/standard,
-/obj/item/weapon/material/kitchen/rollingpin,
+/obj/item/material/kitchen/rollingpin,
 /turf/simulated/floor/tiled/cafe,
 /area/awaymission)
 "hhL" = (
@@ -16927,11 +16927,11 @@
 /area/eris/neotheology/bioreactor)
 "hiJ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/folder/cyan,
-/obj/item/weapon/folder/cyan,
-/obj/item/weapon/hand_labeler,
-/obj/item/weapon/reagent_containers/syringe,
-/obj/item/weapon/storage/box/gloves,
+/obj/item/folder/cyan,
+/obj/item/folder/cyan,
+/obj/item/hand_labeler,
+/obj/item/reagent_containers/syringe,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -17081,7 +17081,7 @@
 /area/awaymission)
 "hmn" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/condiment/enzyme{
+/obj/item/reagent_containers/food/condiment/enzyme{
 	layer = 5
 	},
 /obj/spawner/soda,
@@ -17211,10 +17211,10 @@
 /turf/simulated/floor/tiled/techmaint_perforated,
 /area/eris/maintenance/disposal)
 "hpb" = (
-/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
 /obj/structure/closet/custodial,
-/obj/item/weapon/tool/sword/nt,
-/obj/item/weapon/storage/sheath,
+/obj/item/tool/sword/nt,
+/obj/item/storage/sheath,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/crew_quarters/janitor)
 "hpf" = (
@@ -17227,10 +17227,10 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/grenade/chem_grenade/cleaner/nt_cleaner,
-/obj/item/weapon/grenade/chem_grenade/cleaner/nt_cleaner,
-/obj/item/weapon/grenade/chem_grenade/cleaner/nt_cleaner,
-/obj/item/weapon/beartrap,
+/obj/item/grenade/chem_grenade/cleaner/nt_cleaner,
+/obj/item/grenade/chem_grenade/cleaner/nt_cleaner,
+/obj/item/grenade/chem_grenade/cleaner/nt_cleaner,
+/obj/item/beartrap,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/crew_quarters/janitor)
 "hpH" = (
@@ -17327,25 +17327,25 @@
 	})
 "hrg" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/glass/beaker{
+/obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
-/obj/item/weapon/material/kitchen/rollingpin,
-/obj/item/weapon/tool/knife,
+/obj/item/material/kitchen/rollingpin,
+/obj/item/tool/knife,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
 	})
 "hrl" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
-/obj/item/weapon/storage/fancy/egg_box,
-/obj/item/weapon/storage/fancy/egg_box,
-/obj/item/weapon/reagent_containers/food/drinks/soymilk,
-/obj/item/weapon/reagent_containers/food/drinks/soymilk,
-/obj/item/weapon/reagent_containers/food/drinks/soymilk,
-/obj/item/weapon/reagent_containers/food/drinks/milk,
-/obj/item/weapon/reagent_containers/food/drinks/milk,
-/obj/item/weapon/reagent_containers/food/drinks/milk,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -17463,7 +17463,7 @@
 /area/eris/neotheology/bioreactor)
 "huw" = (
 /obj/structure/table/standard,
-/obj/item/weapon/soap/deluxe,
+/obj/item/soap/deluxe,
 /obj/structure/cable/yellow{
 	d2 = 8;
 	icon_state = "0-8"
@@ -17548,8 +17548,8 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/reinforced/hos,
-/obj/item/weapon/rig/combat/ironhammer/equipped,
-/obj/item/weapon/gun/projectile/revolver/sky_driver,
+/obj/item/rig/combat/ironhammer/equipped,
+/obj/item/gun/projectile/revolver/sky_driver,
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "hvP" = (
@@ -17594,7 +17594,7 @@
 	pixel_x = -22
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/bodybags{
+/obj/item/storage/box/bodybags{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -17839,7 +17839,7 @@
 	name = "Deck 3 Unmapped Maintenance"
 	})
 "hBK" = (
-/obj/item/weapon/newspaper,
+/obj/item/newspaper,
 /obj/structure/defibcabinet{
 	pixel_y = 32
 	},
@@ -18180,8 +18180,8 @@
 	})
 "hIX" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/holochip/security/warrant,
-/obj/item/weapon/holochip/security/combat{
+/obj/item/holochip/security/warrant,
+/obj/item/holochip/security/combat{
 	pixel_x = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -18199,8 +18199,8 @@
 /area/eris/maintenance/section3deck3port)
 "hJO" = (
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/reagent_containers/food/condiment/enzyme{
+/obj/item/packageWrap,
+/obj/item/reagent_containers/food/condiment/enzyme{
 	layer = 5
 	},
 /turf/simulated/floor/tiled/cafe,
@@ -18231,7 +18231,7 @@
 	name = "Deck 3 Unmapped Maintenance"
 	})
 "hKr" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -18580,11 +18580,11 @@
 	})
 "hQZ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/snacks/mint,
-/obj/item/weapon/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/food/snacks/mint,
+/obj/item/reagent_containers/food/condiment/saltshaker{
 	pixel_x = -3
 	},
-/obj/item/weapon/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/food/condiment/peppermill{
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled/cafe,
@@ -18755,7 +18755,7 @@
 /area/eris/neotheology/chapelritualroom)
 "hUY" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/jetpack,
+/obj/item/tank/jetpack,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -19190,7 +19190,7 @@
 "ihU" = (
 /obj/machinery/light,
 /obj/structure/table/standard,
-/obj/item/weapon/oddity/instructional/common/mec/pamphlet,
+/obj/item/oddity/instructional/common/mec/pamphlet,
 /turf/simulated/floor/tiled/dark/orangecorner,
 /area/eris/engineering/locker_room)
 "iih" = (
@@ -19300,7 +19300,7 @@
 /area/eris/neotheology/storage)
 "ijC" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/yellow,
+/obj/item/bedsheet/yellow,
 /turf/simulated/floor/wood,
 /area/eris/neotheology/storage)
 "ijU" = (
@@ -19796,7 +19796,7 @@
 /area/eris/maintenance/section3deck3port)
 "ivh" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/yellow,
+/obj/item/bedsheet/yellow,
 /obj/landmark/storyevent/midgame_stash_spawn{
 	navigation = "Deck three, under one of the beds in the Church bedrooms."
 	},
@@ -20391,7 +20391,7 @@
 /area/eris/maintenance/section3deck3port)
 "iJg" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/weapon/reagent_containers/food/snacks/meatballsoup,
+/obj/item/reagent_containers/food/snacks/meatballsoup,
 /obj/spawner/junkfood/low_chance,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/crew_quarters/kitchen)
@@ -20600,7 +20600,7 @@
 /turf/simulated/floor/tiled,
 /area/eris/maintenance/section3deck3port)
 "iNV" = (
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "bsposter31"
 	},
 /turf/simulated/wall/r_wall,
@@ -20626,7 +20626,7 @@
 	name = "Deck 3 Unmapped Maintenance"
 	})
 "iOA" = (
-/obj/item/weapon/tool/knife/ritual,
+/obj/item/tool/knife/ritual,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -20734,7 +20734,7 @@
 	name = "Deck 3 Unmapped Maintenance"
 	})
 "iSg" = (
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/maintenance/section4deck5starboard{
@@ -20849,7 +20849,7 @@
 /area/eris/maintenance/section3deck3port)
 "iUs" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/weapon/electronics/ai_module/protectStation,
+/obj/item/electronics/ai_module/protectStation,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/turret_protected/ai)
 "iUx" = (
@@ -20964,7 +20964,7 @@
 	name = "Deck 3 Unmapped Maintenance"
 	})
 "iWt" = (
-/obj/item/weapon/tool/knife/butch,
+/obj/item/tool/knife/butch,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -21340,8 +21340,8 @@
 /area/eris/maintenance/section3deck3port)
 "jeo" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/bag/ore,
-/obj/item/weapon/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
 /obj/spawner/material/resources/rare,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section3deck3port)
@@ -21702,8 +21702,8 @@
 	})
 "jma" = (
 /obj/structure/table/standard,
-/obj/item/weapon/pen/blue,
-/obj/item/weapon/paper_bin,
+/obj/item/pen/blue,
+/obj/item/paper_bin,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -21764,7 +21764,7 @@
 	})
 "jmP" = (
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/packageWrap,
 /obj/spawner/lathe_disk/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/maintenance/section3deck3port)
@@ -22403,10 +22403,10 @@
 /area/awaymission)
 "jBY" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/belt/medical{
+/obj/item/storage/belt/medical{
 	pixel_y = 2
 	},
-/obj/item/weapon/storage/belt/medical{
+/obj/item/storage/belt/medical{
 	pixel_y = 2
 	},
 /obj/item/clothing/accessory/stethoscope,
@@ -22418,21 +22418,21 @@
 "jCa" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/tablet/lease/preset/medical,
-/obj/item/weapon/reagent_containers/glass/bottle/toxin{
+/obj/item/reagent_containers/glass/bottle/toxin{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/weapon/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/stoxin,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
 	})
 "jCd" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/tank/emergency_oxygen/double,
-/obj/item/weapon/tank/emergency_oxygen/double,
-/obj/item/weapon/tank/emergency_oxygen/double,
-/obj/item/weapon/extinguisher{
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/extinguisher{
 	pixel_x = 4;
 	pixel_y = 3
 	},
@@ -22630,7 +22630,7 @@
 	name = "Deck 3 Unmapped Maintenance"
 	})
 "jHD" = (
-/obj/item/weapon/tool/pickaxe,
+/obj/item/tool/pickaxe,
 /turf/simulated/floor/asteroid,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -22825,7 +22825,7 @@
 	})
 "jLa" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/donut,
+/obj/item/storage/box/donut,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/barracks{
 	name = "Aegis Barracks"
@@ -22983,7 +22983,7 @@
 /area/eris/engineering/breakroom)
 "jPj" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /obj/landmark/join/start/assistant,
 /turf/simulated/floor/carpet,
 /area/eris/maintenance/section4deck5starboard{
@@ -23987,10 +23987,10 @@
 "knM" = (
 /obj/structure/table/reinforced,
 /obj/item/device/t_scanner,
-/obj/item/weapon/tank/emergency_oxygen{
+/obj/item/tank/emergency_oxygen{
 	pixel_x = -8
 	},
-/obj/item/weapon/tank/emergency_oxygen{
+/obj/item/tank/emergency_oxygen{
 	pixel_x = -8
 	},
 /obj/item/clothing/mask/breath{
@@ -24041,7 +24041,7 @@
 /area/shuttle/research/station)
 "koB" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/donut,
+/obj/item/storage/box/donut,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "7,18"
 	},
@@ -24054,7 +24054,7 @@
 /area/shuttle/research/station)
 "koN" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "9,18"
 	},
@@ -24248,8 +24248,8 @@
 /area/shuttle/research/station)
 "kub" = (
 /obj/structure/closet/secure_closet/personal/security,
-/obj/item/weapon/gun/projectile/automatic/straylight,
-/obj/item/weapon/gun/projectile/paco,
+/obj/item/gun/projectile/automatic/straylight,
+/obj/item/gun/projectile/paco,
 /obj/item/ammo_magazine/smg/rubber,
 /obj/item/ammo_magazine/smg/rubber,
 /obj/item/ammo_magazine/pistol/rubber,
@@ -24303,8 +24303,8 @@
 	})
 "kuH" = (
 /obj/machinery/light/small,
-/obj/item/weapon/mop,
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/mop,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/cafeteria)
 "kuI" = (
@@ -24378,14 +24378,14 @@
 /area/shuttle/mining/station)
 "kwu" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "5,17"
 	},
 /area/shuttle/mining/station)
 "kwy" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "6,17"
 	},
@@ -24642,12 +24642,12 @@
 /area/shuttle/mining/station)
 "kCO" = (
 /obj/structure/table/rack,
-/obj/item/weapon/electronics/circuitboard/secure_data{
+/obj/item/electronics/circuitboard/secure_data{
 	pixel_x = -2;
 	pixel_y = 2
 	},
-/obj/item/weapon/electronics/circuitboard/scan_consolenew,
-/obj/item/weapon/electronics/circuitboard/med_data{
+/obj/item/electronics/circuitboard/scan_consolenew,
+/obj/item/electronics/circuitboard/med_data{
 	pixel_x = 3;
 	pixel_y = -3
 	},
@@ -24739,7 +24739,7 @@
 /area/shuttle/research/station)
 "kEU" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /obj/machinery/camera/network/research_outpost,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "6,15"
@@ -24782,7 +24782,7 @@
 /area/shuttle/research/station)
 "kFx" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /obj/machinery/camera/network/research_outpost,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "10,15"
@@ -24805,7 +24805,7 @@
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/locker_room)
 "kFO" = (
-/obj/item/weapon/reagent_containers/bonsai,
+/obj/item/reagent_containers/bonsai,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/baroscar)
 "kFR" = (
@@ -25347,7 +25347,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/item/weapon/stool/custom/bar_special,
+/obj/item/stool/custom/bar_special,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -25696,10 +25696,10 @@
 /area/outpost/museum)
 "lbk" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/toxin,
-/obj/item/weapon/storage/firstaid/fire,
-/obj/item/weapon/storage/firstaid/o2,
-/obj/item/weapon/storage/firstaid/regular,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/regular,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "11,12"
 	},
@@ -26080,14 +26080,14 @@
 /area/shuttle/mining/station)
 "lkt" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "5,11"
 	},
 /area/shuttle/mining/station)
 "lkw" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "6,11"
 	},
@@ -26144,7 +26144,7 @@
 /area/shuttle/mining/station)
 "llr" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/briefcase/crimekit,
+/obj/item/storage/briefcase/crimekit,
 /obj/machinery/recharger,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
@@ -26459,7 +26459,7 @@
 /area/shuttle/research/station)
 "luM" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/archaeology,
+/obj/item/storage/belt/archaeology,
 /obj/item/clothing/mask/breath,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "11,9"
@@ -26535,17 +26535,17 @@
 /area/shuttle/mining/station)
 "lwW" = (
 /obj/structure/table/steel,
-/obj/item/weapon/tool/pickaxe,
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/storage/toolbox/mechanical,
-/obj/item/weapon/tool/multitool,
+/obj/item/tool/pickaxe,
+/obj/item/storage/belt/utility,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/tool/multitool,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "4,9"
 	},
 /area/shuttle/mining/station)
 "lxh" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/shotgunammo/slug,
+/obj/item/storage/box/shotgunammo/slug,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "7,9"
 	},
@@ -26708,7 +26708,7 @@
 /area/shuttle/research/station)
 "lBQ" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/archaeology,
+/obj/item/storage/belt/archaeology,
 /obj/item/clothing/mask/breath,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "11,8"
@@ -26890,23 +26890,23 @@
 /area/shuttle/research/station)
 "lFW" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/ansible,
-/obj/item/weapon/stock_parts/subspace/ansible,
-/obj/item/weapon/stock_parts/subspace/crystal,
-/obj/item/weapon/stock_parts/subspace/crystal,
-/obj/item/weapon/stock_parts/subspace/crystal,
-/obj/item/weapon/stock_parts/subspace/treatment,
-/obj/item/weapon/stock_parts/subspace/treatment,
-/obj/item/weapon/stock_parts/subspace/treatment,
-/obj/item/weapon/stock_parts/micro_laser,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/capacitor,
-/obj/item/weapon/stock_parts/matter_bin,
-/obj/item/weapon/stock_parts/matter_bin,
-/obj/item/weapon/stock_parts/matter_bin,
+/obj/item/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "lGa" = (
@@ -26984,7 +26984,7 @@
 /area/shuttle/research/station)
 "lIi" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/archaeology,
+/obj/item/storage/belt/archaeology,
 /obj/item/clothing/mask/breath,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "11,7"
@@ -27363,9 +27363,9 @@
 /area/shuttle/mining/station)
 "lQp" = (
 /obj/structure/table/steel,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
+/obj/item/cell/large/high,
+/obj/item/cell/large/high,
+/obj/item/cell/large/high,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "3,6"
 	},
@@ -27385,7 +27385,7 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck1central)
 "lQW" = (
-/obj/item/weapon/toolbox_tiles_sensor,
+/obj/item/toolbox_tiles_sensor,
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/outpost/museum)
@@ -27507,7 +27507,7 @@
 /turf/simulated/floor/tiled/techmaint_perforated,
 /area/eris/maintenance/section2deck2port)
 "lUo" = (
-/obj/item/weapon/bananapeel,
+/obj/item/bananapeel,
 /obj/structure/table/woodentable,
 /turf/simulated/floor/exoplanet/snow,
 /area/outpost/museum)
@@ -27607,9 +27607,9 @@
 	},
 /area/shuttle/research/station)
 "lWi" = (
-/obj/item/weapon/tool/pickaxe/excavation,
-/obj/item/weapon/tool/pickaxe,
-/obj/item/weapon/tool/wrench,
+/obj/item/tool/pickaxe/excavation,
+/obj/item/tool/pickaxe,
+/obj/item/tool/wrench,
 /obj/item/device/measuring_tape,
 /obj/item/stack/flag/green,
 /obj/structure/table/steel,
@@ -27938,9 +27938,9 @@
 	},
 /area/shuttle/research/station)
 "mdV" = (
-/obj/item/weapon/tool/pickaxe/excavation,
-/obj/item/weapon/tool/pickaxe,
-/obj/item/weapon/tool/wrench,
+/obj/item/tool/pickaxe/excavation,
+/obj/item/tool/pickaxe,
+/obj/item/tool/wrench,
 /obj/item/device/measuring_tape,
 /obj/item/stack/flag/green,
 /obj/structure/table/steel,
@@ -28080,7 +28080,7 @@
 /area/shuttle/mining/station)
 "mgk" = (
 /obj/structure/table/steel,
-/obj/item/weapon/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
 /obj/machinery/camera/network/mining,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "10,4"
@@ -28290,9 +28290,9 @@
 	},
 /area/shuttle/research/station)
 "mlj" = (
-/obj/item/weapon/tool/pickaxe/excavation,
-/obj/item/weapon/tool/pickaxe,
-/obj/item/weapon/tool/wrench,
+/obj/item/tool/pickaxe/excavation,
+/obj/item/tool/pickaxe,
+/obj/item/tool/wrench,
 /obj/item/device/measuring_tape,
 /obj/structure/table/steel,
 /obj/item/stack/flag/yellow,
@@ -28370,8 +28370,8 @@
 /area/shuttle/mining/station)
 "mmW" = (
 /obj/structure/table/steel,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -28400,8 +28400,8 @@
 /area/shuttle/mining/station)
 "mnn" = (
 /obj/structure/table/steel,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -28570,7 +28570,7 @@
 	name = "South APC";
 	pixel_y = -28
 	},
-/obj/item/weapon/stool/custom/bar_special,
+/obj/item/stool/custom/bar_special,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -28583,9 +28583,9 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/awaymission)
 "mru" = (
-/obj/item/weapon/tool/pickaxe/excavation,
-/obj/item/weapon/tool/pickaxe,
-/obj/item/weapon/tool/wrench,
+/obj/item/tool/pickaxe/excavation,
+/obj/item/tool/pickaxe,
+/obj/item/tool/wrench,
 /obj/item/device/measuring_tape,
 /obj/structure/table/steel,
 /obj/item/stack/flag/yellow,
@@ -28651,7 +28651,7 @@
 /area/shuttle/mining/station)
 "msR" = (
 /obj/structure/table/steel,
-/obj/item/weapon/tool/crowbar,
+/obj/item/tool/crowbar,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "7,2"
 	},
@@ -28789,7 +28789,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/eris/maintenance/section3deck3port)
 "mvH" = (
-/obj/item/weapon/inflatable_dispenser,
+/obj/item/inflatable_dispenser,
 /turf/simulated/floor/airless,
 /area/awaymission)
 "mvP" = (
@@ -30267,8 +30267,8 @@
 /area/eris/quartermaster/misc)
 "njA" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/weapon/reagent_containers/food/snacks/meat/carp,
-/obj/item/weapon/reagent_containers/food/snacks/meat/carp,
+/obj/item/reagent_containers/food/snacks/meat/carp,
+/obj/item/reagent_containers/food/snacks/meat/carp,
 /obj/spawner/junkfood/low_chance,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/crew_quarters/kitchen)
@@ -30314,18 +30314,18 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/item/weapon/storage/firstaid/o2{
+/obj/item/storage/firstaid/o2{
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/item/weapon/storage/firstaid/o2,
+/obj/item/storage/firstaid/o2,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
 "nkH" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/weapon/reagent_containers/food/snacks/meat,
-/obj/item/weapon/reagent_containers/food/snacks/meat,
-/obj/item/weapon/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/crew_quarters/kitchen)
@@ -30351,8 +30351,8 @@
 	req_access = null
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone,
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
+/obj/item/reagent_containers/glass/beaker/cryoxadone,
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
 	pixel_x = 7;
 	pixel_y = 1
 	},
@@ -30386,9 +30386,9 @@
 /area/eris/engineering/workshop)
 "nmb" = (
 /obj/structure/table/rack,
-/obj/item/weapon/inflatable_dispenser,
-/obj/item/weapon/inflatable_dispenser,
-/obj/item/weapon/inflatable_dispenser,
+/obj/item/inflatable_dispenser,
+/obj/item/inflatable_dispenser,
+/obj/item/inflatable_dispenser,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/engineering/workshop)
 "nmg" = (
@@ -30400,11 +30400,11 @@
 /area/eris/hallway/side/hydroponicshallway)
 "nmj" = (
 /obj/structure/table/rack,
-/obj/item/weapon/electronics/airlock,
-/obj/item/weapon/electronics/airlock,
-/obj/item/weapon/electronics/airlock,
-/obj/item/weapon/electronics/airlock,
-/obj/item/weapon/electronics/airlock,
+/obj/item/electronics/airlock,
+/obj/item/electronics/airlock,
+/obj/item/electronics/airlock,
+/obj/item/electronics/airlock,
+/obj/item/electronics/airlock,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/engineering/workshop)
 "nnA" = (
@@ -30463,7 +30463,7 @@
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/locker_room)
 "npa" = (
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "bsposter52";
 	pixel_y = 32
 	},
@@ -30505,11 +30505,11 @@
 "nqt" = (
 /obj/structure/table/steel,
 /obj/machinery/smartfridge/disks,
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "bsposter13";
 	pixel_y = 32
 	},
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools,
+/obj/item/computer_hardware/hard_drive/portable/design/tools,
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/eris/hallway/main/section2{
 	name = "Courtyard"
@@ -30553,8 +30553,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/weapon/holochip/medical/suitsensors,
-/obj/item/weapon/holochip/medical/suitsensors,
+/obj/item/holochip/medical/suitsensors,
+/obj/item/holochip/medical/suitsensors,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
 "nro" = (
@@ -30582,19 +30582,19 @@
 /area/eris/medical/reception)
 "nrz" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/regular{
+/obj/item/storage/firstaid/regular{
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/item/weapon/storage/firstaid/regular{
+/obj/item/storage/firstaid/regular{
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/item/weapon/storage/firstaid/adv{
+/obj/item/storage/firstaid/adv{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/weapon/storage/firstaid/adv{
+/obj/item/storage/firstaid/adv{
 	pixel_x = -2
 	},
 /obj/structure/cable/yellow{
@@ -30743,18 +30743,18 @@
 	})
 "nws" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/carpet,
 /area/eris/quartermaster/misc)
 "nwK" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /obj/spawner/pack/cloth,
 /turf/simulated/floor/carpet,
 /area/eris/quartermaster/misc)
 "nwN" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
@@ -30777,7 +30777,7 @@
 /area/eris/medical/surgery)
 "nxr" = (
 /obj/structure/table/standard,
-/obj/item/weapon/hand_labeler,
+/obj/item/hand_labeler,
 /obj/item/device/eftpos{
 	eftpos_name = "Medbay EFTPOS scanner"
 	},
@@ -30835,11 +30835,11 @@
 /area/eris/crew_quarters/cafeteria)
 "nyx" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/toxin{
+/obj/item/storage/firstaid/toxin{
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/item/weapon/storage/firstaid/toxin{
+/obj/item/storage/firstaid/toxin{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -30879,9 +30879,9 @@
 "nze" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
-/obj/item/weapon/cell/small,
-/obj/item/weapon/cell/small,
-/obj/item/weapon/cell/small,
+/obj/item/cell/small,
+/obj/item/cell/small,
+/obj/item/cell/small,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -31215,7 +31215,7 @@
 /area/eris/crew_quarters/kitchen)
 "nDX" = (
 /obj/structure/table/glass,
-/obj/item/weapon/reagent_containers/spray/sterilizine,
+/obj/item/reagent_containers/spray/sterilizine,
 /obj/structure/noticeboard{
 	pixel_y = 30
 	},
@@ -31241,11 +31241,11 @@
 /area/eris/medical/reception)
 "nEd" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/fire{
+/obj/item/storage/firstaid/fire{
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/item/weapon/storage/firstaid/fire{
+/obj/item/storage/firstaid/fire{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -31470,7 +31470,7 @@
 /obj/structure/table/glass,
 /obj/item/stack/medical/advanced/bruise_pack,
 /obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/weapon/soulextract,
+/obj/item/soulextract,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "nKP" = (
@@ -31526,7 +31526,7 @@
 	name = "Reception Door";
 	req_access = list(5)
 	},
-/obj/item/weapon/access_update_tool,
+/obj/item/access_update_tool,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/reception)
 "nMA" = (
@@ -31579,8 +31579,8 @@
 	dir = 1;
 	pixel_y = -23
 	},
-/obj/item/weapon/holochip/security/tough,
-/obj/item/weapon/access_update_tool,
+/obj/item/holochip/security/tough,
+/obj/item/access_update_tool,
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "nNt" = (
@@ -32323,7 +32323,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/oddity/instructional/common/tgh/slip{
+/obj/item/oddity/instructional/common/tgh/slip{
 	pixel_x = 8;
 	pixel_y = 3
 	},
@@ -32419,7 +32419,7 @@
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/neotheology/chapelritualroom)
 "ocy" = (
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "bsposter49";
 	pixel_y = 32
 	},
@@ -32654,8 +32654,8 @@
 /area/eris/engineering/locker_room)
 "ogJ" = (
 /obj/structure/closet/secure_closet/engineering_welding,
-/obj/item/weapon/weldpack,
-/obj/item/weapon/weldpack,
+/obj/item/weldpack,
+/obj/item/weldpack,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/locker_room)
 "ogM" = (
@@ -32838,7 +32838,7 @@
 	dir = 4
 	},
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/yellow,
+/obj/item/bedsheet/yellow,
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
@@ -32846,7 +32846,7 @@
 /area/eris/engineering/locker_room)
 "okW" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/yellow,
+/obj/item/bedsheet/yellow,
 /obj/machinery/alarm{
 	pixel_y = 26
 	},
@@ -32967,8 +32967,8 @@
 /area/eris/quartermaster/misc)
 "omO" = (
 /obj/structure/table/glass,
-/obj/item/weapon/reagent_containers/spray/sterilizine,
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/reagent_containers/spray/sterilizine,
+/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "omS" = (
@@ -32980,7 +32980,7 @@
 /area/eris/medical/surgery)
 "omT" = (
 /obj/structure/table/glass,
-/obj/item/weapon/storage/freezer/medical,
+/obj/item/storage/freezer/medical,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "onm" = (
@@ -32990,44 +32990,44 @@
 	name = "South APC";
 	pixel_y = -28
 	},
-/obj/item/weapon/storage/box/masks{
+/obj/item/storage/box/masks{
 	pixel_x = 12
 	},
-/obj/item/weapon/storage/box/gloves,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "ono" = (
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/maintenance/section4deck1central)
 "onp" = (
-/obj/item/weapon/reagent_containers/blood/AMinus{
+/obj/item/reagent_containers/blood/AMinus{
 	pixel_x = -7;
 	pixel_y = -3
 	},
-/obj/item/weapon/reagent_containers/blood/APlus{
+/obj/item/reagent_containers/blood/APlus{
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/item/weapon/reagent_containers/blood/empty{
+/obj/item/reagent_containers/blood/empty{
 	pixel_x = 1;
 	pixel_y = -4
 	},
-/obj/item/weapon/reagent_containers/blood/empty{
+/obj/item/reagent_containers/blood/empty{
 	pixel_x = 1;
 	pixel_y = -4
 	},
-/obj/item/weapon/reagent_containers/blood/BMinus{
+/obj/item/reagent_containers/blood/BMinus{
 	pixel_y = 4
 	},
-/obj/item/weapon/reagent_containers/blood/BPlus{
+/obj/item/reagent_containers/blood/BPlus{
 	pixel_x = 5;
 	pixel_y = 3
 	},
-/obj/item/weapon/reagent_containers/blood/OMinus{
+/obj/item/reagent_containers/blood/OMinus{
 	pixel_x = -5;
 	pixel_y = -1
 	},
-/obj/item/weapon/reagent_containers/blood/OPlus{
+/obj/item/reagent_containers/blood/OPlus{
 	pixel_x = 4;
 	pixel_y = 2
 	},
@@ -33364,12 +33364,12 @@
 	dir = 4
 	},
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/yellow,
+/obj/item/bedsheet/yellow,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/locker_room)
 "oua" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/yellow,
+/obj/item/bedsheet/yellow,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/locker_room)
 "oue" = (
@@ -33377,10 +33377,10 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/oddity/instructional/common/mec/ees{
+/obj/item/oddity/instructional/common/mec/ees{
 	pixel_x = -7
 	},
-/obj/item/weapon/oddity/instructional/common/mec/tape{
+/obj/item/oddity/instructional/common/mec/tape{
 	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/dark/orangecorner,
@@ -33526,7 +33526,7 @@
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/hallway/main/section1)
 "oxd" = (
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "poster7";
 	pixel_y = 32
 	},
@@ -33602,7 +33602,7 @@
 	dir = 1
 	},
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/medical,
+/obj/item/bedsheet/medical,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/patients_rooms)
 "oyr" = (
@@ -33622,8 +33622,8 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/patients_rooms)
 "oyB" = (
-/obj/item/weapon/storage/toolbox/mechanical,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/locker_room)
@@ -33631,7 +33631,7 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/patients_rooms)
 "oyW" = (
-/obj/item/weapon/bedsheet/medical,
+/obj/item/bedsheet/medical,
 /obj/structure/bed/padded,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/patients_rooms)
@@ -33648,11 +33648,11 @@
 	pixel_x = 24
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/holochip/engineering/alarm_mon,
-/obj/item/weapon/reagent_containers/spray/cleaner,
-/obj/item/weapon/holochip/engineering/alarm_mon,
-/obj/item/weapon/holochip/engineering/alarm_mon,
-/obj/item/weapon/holochip/engineering/alarm_mon,
+/obj/item/holochip/engineering/alarm_mon,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/holochip/engineering/alarm_mon,
+/obj/item/holochip/engineering/alarm_mon,
+/obj/item/holochip/engineering/alarm_mon,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/locker_room)
 "ozH" = (
@@ -33946,7 +33946,7 @@
 /area/eris/medical/patients_rooms)
 "oCR" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/locker_room)
 "oDk" = (
@@ -33985,8 +33985,8 @@
 "oEd" = (
 /obj/structure/table/standard,
 /obj/item/device/antibody_scanner,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/extinguisher,
+/obj/item/storage/box/monkeycubes,
+/obj/item/extinguisher,
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_y = 32
@@ -34024,8 +34024,8 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/syringe,
-/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/syringe,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/virology)
 "oFd" = (
@@ -34116,7 +34116,7 @@
 	name = "Courtyard"
 	})
 "oFZ" = (
-/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
 /obj/item/device/lighting/glowstick/flare{
 	pixel_y = -8
 	},
@@ -34301,7 +34301,7 @@
 /area/eris/medical/patients_rooms)
 "oJB" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/medical,
+/obj/item/bedsheet/medical,
 /obj/machinery/power/apc{
 	name = "South APC";
 	pixel_y = -28
@@ -34378,7 +34378,7 @@
 	name = "Courtyard"
 	})
 "oLp" = (
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section4deck5starboard{
@@ -34671,13 +34671,13 @@
 /obj/item/clothing/under/rank/clown,
 /obj/item/clothing/under/rank/clown,
 /obj/item/clothing/under/rank/clown,
-/obj/item/weapon/storage/backpack/clown,
-/obj/item/weapon/storage/backpack/clown,
-/obj/item/weapon/storage/backpack/clown,
+/obj/item/storage/backpack/clown,
+/obj/item/storage/backpack/clown,
+/obj/item/storage/backpack/clown,
 /obj/item/clothing/mask/gas/clown_hat,
 /obj/item/clothing/mask/gas/clown_hat,
 /obj/item/clothing/mask/gas/clown_hat,
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "poster6";
 	pixel_x = -32
 	},
@@ -34688,20 +34688,20 @@
 /area/eris/maintenance/section1deck2central)
 "oRF" = (
 /obj/structure/closet/wardrobe/color/pink,
-/obj/item/weapon/bikehorn,
-/obj/item/weapon/bikehorn,
-/obj/item/weapon/bikehorn,
-/obj/item/weapon/bikehorn,
-/obj/item/weapon/bikehorn,
-/obj/item/weapon/bikehorn,
-/obj/item/weapon/bikehorn,
-/obj/item/weapon/bikehorn,
-/obj/item/weapon/bikehorn,
-/obj/item/weapon/bikehorn,
-/obj/item/weapon/reagent_containers/spray/waterflower,
-/obj/item/weapon/reagent_containers/spray/waterflower,
-/obj/item/weapon/storage/fancy/crayons,
-/obj/item/weapon/storage/fancy/crayons,
+/obj/item/bikehorn,
+/obj/item/bikehorn,
+/obj/item/bikehorn,
+/obj/item/bikehorn,
+/obj/item/bikehorn,
+/obj/item/bikehorn,
+/obj/item/bikehorn,
+/obj/item/bikehorn,
+/obj/item/bikehorn,
+/obj/item/bikehorn,
+/obj/item/reagent_containers/spray/waterflower,
+/obj/item/reagent_containers/spray/waterflower,
+/obj/item/storage/fancy/crayons,
+/obj/item/storage/fancy/crayons,
 /obj/item/device/pda/clown,
 /obj/item/device/pda/clown,
 /obj/item/clothing/mask/gas/plaguedoctor,
@@ -35058,7 +35058,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "pah" = (
-/obj/item/weapon/storage/box/monkeycubes,
+/obj/item/storage/box/monkeycubes,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/virology)
 "paj" = (
@@ -36192,7 +36192,7 @@
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/quartermaster/disposaldrop)
 "pzD" = (
-/obj/item/weapon/paper/crumpled,
+/obj/item/paper/crumpled,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -36337,9 +36337,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/table/steel,
 /obj/machinery/smartfridge/disks,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/devices,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
+/obj/item/computer_hardware/hard_drive/portable/design/tools,
+/obj/item/computer_hardware/hard_drive/portable/design/devices,
+/obj/item/computer_hardware/hard_drive/portable/design/misc,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/office)
 "pDo" = (
@@ -36884,7 +36884,7 @@
 "pPD" = (
 /obj/structure/table/woodentable,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/item/weapon/oddity/instructional/common/vig/ross,
+/obj/item/oddity/instructional/common/vig/ross,
 /turf/simulated/floor/carpet,
 /area/eris/crew_quarters/baroscar)
 "pPE" = (
@@ -36897,7 +36897,7 @@
 /turf/simulated/floor/carpet,
 /area/eris/crew_quarters/baroscar)
 "pPH" = (
-/obj/item/weapon/stool/custom/bar_special,
+/obj/item/stool/custom/bar_special,
 /turf/simulated/floor/carpet,
 /area/eris/crew_quarters/baroscar)
 "pPP" = (
@@ -36921,8 +36921,8 @@
 	},
 /obj/structure/table/marble,
 /obj/structure/disposalpipe/segment,
-/obj/item/weapon/reagent_containers/food/drinks/shaker,
-/obj/item/weapon/reagent_containers/food/drinks/shaker{
+/obj/item/reagent_containers/food/drinks/shaker,
+/obj/item/reagent_containers/food/drinks/shaker{
 	pixel_x = -7;
 	pixel_y = 2
 	},
@@ -37268,13 +37268,13 @@
 "pWL" = (
 /obj/structure/table/woodentable,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/weapon/oddity/instructional/common/tgh/soldier,
+/obj/item/oddity/instructional/common/tgh/soldier,
 /turf/simulated/floor/carpet,
 /area/eris/crew_quarters/baroscar)
 "pWT" = (
 /obj/structure/table/woodentable,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/weapon/oddity/instructional/common/bio/aid,
+/obj/item/oddity/instructional/common/bio/aid,
 /turf/simulated/floor/carpet,
 /area/eris/crew_quarters/baroscar)
 "pXg" = (
@@ -37720,7 +37720,7 @@
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/prison)
 "qgl" = (
-/obj/item/weapon/tool/wrench,
+/obj/item/tool/wrench,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/prison)
 "qgu" = (
@@ -37752,7 +37752,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/item/weapon/stool/custom/bar_special,
+/obj/item/stool/custom/bar_special,
 /turf/simulated/floor/carpet,
 /area/eris/crew_quarters/baroscar)
 "qgR" = (
@@ -38161,11 +38161,11 @@
 /area/turret_protected/ai)
 "qpX" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/snacks/mint,
-/obj/item/weapon/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/food/snacks/mint,
+/obj/item/reagent_containers/food/condiment/saltshaker{
 	pixel_x = -3
 	},
-/obj/item/weapon/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/food/condiment/peppermill{
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled/cafe,
@@ -38259,8 +38259,8 @@
 /area/eris/hallway/main/section1)
 "qsd" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/storage/fancy/crayons,
-/obj/item/weapon/storage/fancy/candle_box,
+/obj/item/storage/fancy/crayons,
+/obj/item/storage/fancy/candle_box,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/hallway/main/section1)
 "qsm" = (
@@ -38285,7 +38285,7 @@
 /area/eris/crew_quarters/locker)
 "qsN" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "bsposter10";
 	pixel_y = 32
 	},
@@ -38304,7 +38304,7 @@
 /turf/simulated/floor/tiled/white/techfloor,
 /area/eris/crew_quarters/locker)
 "qti" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /turf/simulated/floor/tiled/white/panels,
 /area/eris/crew_quarters/locker)
 "qtr" = (
@@ -38424,7 +38424,7 @@
 /area/eris/security/prison)
 "qvG" = (
 /obj/structure/table/standard,
-/obj/item/weapon/tool/wrench,
+/obj/item/tool/wrench,
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/security/prison)
@@ -38837,11 +38837,11 @@
 /area/eris/medical/virology)
 "qCG" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/gloves{
+/obj/item/storage/box/gloves{
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/item/weapon/storage/secure/briefcase,
+/obj/item/storage/secure/briefcase,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
 "qCL" = (
@@ -38935,7 +38935,7 @@
 /turf/simulated/floor/tiled/dark/monofloor,
 /area/eris/hallway/main/section1)
 "qEV" = (
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "bsposter52";
 	pixel_y = 32
 	},
@@ -39590,11 +39590,11 @@
 /area/eris/crew_quarters/locker)
 "qPo" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/toxin{
+/obj/item/storage/firstaid/toxin{
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/item/weapon/storage/firstaid/toxin,
+/obj/item/storage/firstaid/toxin,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
 "qPr" = (
@@ -39931,10 +39931,10 @@
 "qWf" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/item/weapon/reagent_containers/glass/beaker{
+/obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
-/obj/item/weapon/tool/knife,
+/obj/item/tool/knife,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/kitchen)
 "qWh" = (
@@ -39966,7 +39966,7 @@
 /turf/simulated/floor/carpet,
 /area/eris/crew_quarters/baroscar)
 "qXE" = (
-/obj/item/weapon/soap/deluxe,
+/obj/item/soap/deluxe,
 /turf/simulated/floor/tiled/white,
 /area/eris/crew_quarters/locker)
 "qXG" = (
@@ -40309,7 +40309,7 @@
 /area/eris/hallway/main/section1)
 "rfW" = (
 /obj/structure/closet/secure_closet/personal,
-/obj/item/weapon/oddity/common/towel,
+/obj/item/oddity/common/towel,
 /obj/item/toy/balloon,
 /obj/item/toy/balloon,
 /obj/item/toy/balloon,
@@ -40355,9 +40355,9 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/paper,
-/obj/item/weapon/paper,
-/obj/item/weapon/pen{
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/pen{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -40426,7 +40426,7 @@
 /area/eris/maintenance/section1deck1central)
 "riT" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing,
+/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck1central)
 "riV" = (
@@ -40448,17 +40448,17 @@
 	})
 "rjn" = (
 /obj/structure/table/glass,
-/obj/item/weapon/storage/fancy/cigarettes{
+/obj/item/storage/fancy/cigarettes{
 	pixel_y = 2
 	},
-/obj/item/weapon/flame/lighter{
+/obj/item/flame/lighter{
 	pixel_x = 4;
 	pixel_y = 2
 	},
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/weapon/material/ashtray,
+/obj/item/material/ashtray,
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/hallway/main/section1)
 "rjo" = (
@@ -40678,7 +40678,7 @@
 /obj/machinery/shower{
 	dir = 4
 	},
-/obj/item/weapon/soap/deluxe,
+/obj/item/soap/deluxe,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/security/prison)
 "rok" = (
@@ -41103,7 +41103,7 @@
 /area/eris/security/vacantoffice)
 "rwF" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/cups,
+/obj/item/storage/box/cups,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/vacantoffice)
@@ -41119,10 +41119,10 @@
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/item/weapon/storage/fancy/cigarettes{
+/obj/item/storage/fancy/cigarettes{
 	pixel_x = 6
 	},
-/obj/item/weapon/flame/lighter,
+/obj/item/flame/lighter,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/vacantoffice)
 "rwO" = (
@@ -41622,7 +41622,7 @@
 /turf/simulated/open,
 /area/eris/maintenance/section1deck1central)
 "rGo" = (
-/obj/item/weapon/storage/box/donut,
+/obj/item/storage/box/donut,
 /obj/structure/table/standard,
 /obj/spawner/lowkeyrandom,
 /turf/simulated/floor/tiled/steel/gray_platform,
@@ -41645,8 +41645,8 @@
 	pixel_x = 1;
 	pixel_y = 5
 	},
-/obj/item/weapon/tool/crowbar,
-/obj/item/weapon/tool/crowbar,
+/obj/item/tool/crowbar,
+/obj/item/tool/crowbar,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/crew_quarters/sleep/cryo)
 "rHa" = (
@@ -42126,12 +42126,12 @@
 "rRF" = (
 /obj/structure/bed,
 /obj/spawner/junk/low_chance,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/security/prison)
 "rRG" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/security/prison)
 "rRN" = (
@@ -42239,7 +42239,7 @@
 /area/eris/maintenance/section1deck1central)
 "rUh" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/weapon/reagent_containers/food/snacks/meat/human,
+/obj/item/reagent_containers/food/snacks/meat/human,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/crew_quarters/kitchen)
 "rUy" = (
@@ -42392,7 +42392,7 @@
 	name = "West APC";
 	pixel_x = -28
 	},
-/obj/item/weapon/tool/tape_roll,
+/obj/item/tool/tape_roll,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -42683,9 +42683,9 @@
 "sfs" = (
 /obj/machinery/smartfridge/disks,
 /obj/structure/table/standard,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/devices,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools,
+/obj/item/computer_hardware/hard_drive/portable/design/misc,
+/obj/item/computer_hardware/hard_drive/portable/design/devices,
+/obj/item/computer_hardware/hard_drive/portable/design/tools,
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/storage/primary)
 "sfu" = (
@@ -42813,7 +42813,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/eris/elevator)
 "shU" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /obj/landmark/join/start/ihoper,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/barracks{
@@ -42936,7 +42936,7 @@
 /area/eris/crew_quarters/fitness)
 "skb" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/drinks/flask/detflask,
+/obj/item/reagent_containers/food/drinks/flask/detflask,
 /turf/simulated/floor/carpet,
 /area/eris/security/inspectors_office)
 "sko" = (
@@ -43033,7 +43033,7 @@
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/hallway/main/section1)
 "slG" = (
-/obj/item/weapon/tool/weldingtool,
+/obj/item/tool/weldingtool,
 /turf/simulated/floor/plating,
 /area/awaymission)
 "slH" = (
@@ -43132,7 +43132,7 @@
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/crew_quarters/fitness)
 "spr" = (
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "bsposter29";
 	pixel_y = 32
 	},
@@ -43191,7 +43191,7 @@
 	name = "Deck 3 Unmapped Maintenance"
 	})
 "srV" = (
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "bsposter57";
 	pixel_y = 32
 	},
@@ -43200,7 +43200,7 @@
 	name = "Deck Two Starboard Maintenance"
 	})
 "ssg" = (
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "bsposter54";
 	pixel_y = 32
 	},
@@ -43372,7 +43372,7 @@
 "sxf" = (
 /obj/structure/table/standard,
 /obj/item/device/aicard,
-/obj/item/weapon/phone{
+/obj/item/phone{
 	pixel_x = -3;
 	pixel_y = 3
 	},
@@ -43382,10 +43382,10 @@
 	})
 "sxD" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/handcuffs,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/extinguisher,
-/obj/item/weapon/melee/baton,
+/obj/item/handcuffs,
+/obj/item/storage/box/monkeycubes,
+/obj/item/extinguisher,
+/obj/item/melee/baton,
 /turf/simulated/floor/tiled/white/danger,
 /area/eris/medical/genetics)
 "sxU" = (
@@ -43419,8 +43419,8 @@
 	})
 "syn" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/electrical,
-/obj/item/weapon/tool/multitool,
+/obj/item/storage/toolbox/electrical,
+/obj/item/tool/multitool,
 /obj/machinery/camera/network/command,
 /turf/simulated/floor/tiled/steel,
 /area/turret_protected/ai_upload_foyer{
@@ -43473,7 +43473,7 @@
 /area/eris/command/meo)
 "szE" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/weapon/electronics/ai_module/asimov,
+/obj/item/electronics/ai_module/asimov,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/turret_protected/ai)
 "szM" = (
@@ -43523,8 +43523,8 @@
 	})
 "sBj" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/reagent_containers/glass/beaker/large,
-/obj/item/weapon/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/rnd/scient)
@@ -43849,19 +43849,19 @@
 /area/awaymission)
 "sJo" = (
 /obj/structure/closet/oldstyle,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/weapon/tank/jetpack/carbondioxide,
-/obj/item/weapon/pinpointer,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/pinpointer,
 /obj/spawner/firstaid/low_chance,
 /turf/simulated/floor/tiled/steel/panels,
 /area/awaymission)
 "sJq" = (
 /obj/structure/closet/oldstyle,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/weapon/tank/jetpack/carbondioxide,
-/obj/item/weapon/pinpointer,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/pinpointer,
 /obj/spawner/gun/normal/low_chance,
 /turf/simulated/floor/tiled/steel/panels,
 /area/awaymission)
@@ -43880,7 +43880,7 @@
 /area/eris/hallway/side/morguehallway)
 "sJW" = (
 /obj/structure/table/standard,
-/obj/item/weapon/hand_tele{
+/obj/item/hand_tele{
 	pixel_x = 8;
 	pixel_y = -4
 	},
@@ -43900,7 +43900,7 @@
 /area/eris/command/meo)
 "sKN" = (
 /obj/structure/table/rack,
-/obj/item/weapon/rig/hazmat/equipped,
+/obj/item/rig/hazmat/equipped,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/command/meo)
 "sKO" = (
@@ -44002,7 +44002,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "bsposter33";
 	pixel_y = 32
 	},
@@ -44098,19 +44098,19 @@
 /area/eris/engineering/locker_room)
 "sNy" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/regular{
+/obj/item/storage/firstaid/regular{
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/item/weapon/storage/firstaid/regular{
+/obj/item/storage/firstaid/regular{
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/item/weapon/storage/firstaid/adv{
+/obj/item/storage/firstaid/adv{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/weapon/storage/firstaid/adv{
+/obj/item/storage/firstaid/adv{
 	pixel_x = -2
 	},
 /obj/machinery/light{
@@ -44204,15 +44204,15 @@
 /area/eris/rnd/scient)
 "sPe" = (
 /obj/structure/table/standard,
-/obj/item/weapon/rcd_ammo{
+/obj/item/rcd_ammo{
 	pixel_y = 4
 	},
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo{
+/obj/item/rcd_ammo,
+/obj/item/rcd_ammo{
 	pixel_x = -5;
 	pixel_y = 3
 	},
-/obj/item/weapon/rcd,
+/obj/item/rcd,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "sPf" = (
@@ -44224,8 +44224,8 @@
 /area/eris/medical/medbay)
 "sPy" = (
 /obj/structure/table/glass,
-/obj/item/weapon/reagent_containers/food/snacks/meatsteak,
-/obj/item/weapon/material/kitchen/utensil/fork,
+/obj/item/reagent_containers/food/snacks/meatsteak,
+/obj/item/material/kitchen/utensil/fork,
 /turf/simulated/floor/tiled/dark/orangecorner,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -44358,8 +44358,8 @@
 /area/eris/command/meo)
 "sRY" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/tool/tape_roll,
+/obj/item/paper_bin,
+/obj/item/tool/tape_roll,
 /turf/simulated/floor/carpet/purcarpet,
 /area/eris/command/meo)
 "sSe" = (
@@ -44953,7 +44953,7 @@
 /turf/simulated/floor/tiled/steel/panels,
 /area/awaymission)
 "tbw" = (
-/obj/item/weapon/implant/freedom,
+/obj/item/implant/freedom,
 /obj/spawner/mob/spiders/cluster,
 /turf/simulated/floor/tiled/steel/panels,
 /area/awaymission)
@@ -45326,19 +45326,19 @@
 /area/eris/rnd/lab)
 "tjQ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/virusdish/random{
+/obj/item/virusdish/random{
 	pixel_x = -8;
 	pixel_y = 4
 	},
-/obj/item/weapon/virusdish/random{
+/obj/item/virusdish/random{
 	pixel_x = -2;
 	pixel_y = 10
 	},
-/obj/item/weapon/virusdish/random{
+/obj/item/virusdish/random{
 	pixel_x = -8;
 	pixel_y = -5
 	},
-/obj/item/weapon/storage/lockbox/vials,
+/obj/item/storage/lockbox/vials,
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/eris/medical/virology)
 "tjV" = (
@@ -45460,13 +45460,13 @@
 /obj/landmark/storyevent/midgame_stash_spawn{
 	navigation = "Section 4, floor 4. East side fo the ship, in space, ship hulll near Gravitation Generator. Grab yourself a suit."
 	},
-/obj/item/weapon/oddity/instructional/common/cog/nt,
+/obj/item/oddity/instructional/common/cog/nt,
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/eris/hallway/main/section1)
 "tlW" = (
 /obj/structure/table/standard,
 /obj/spawner/junk/low_chance,
-/obj/item/weapon/oddity/instructional/common/cog/python,
+/obj/item/oddity/instructional/common/cog/python,
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/eris/hallway/main/section1)
 "tmf" = (
@@ -45659,7 +45659,7 @@
 /area/awaymission)
 "toC" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/item/weapon/paper/monitorkey,
+/obj/item/paper/monitorkey,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/command/meo)
 "toO" = (
@@ -45675,11 +45675,11 @@
 /area/eris/command/meo)
 "toU" = (
 /obj/structure/table/standard,
-/obj/item/weapon/electronics/circuitboard/aicore{
+/obj/item/electronics/circuitboard/aicore{
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/item/weapon/electronics/circuitboard/aicore,
+/obj/item/electronics/circuitboard/aicore,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/command/meo)
 "tpb" = (
@@ -45705,7 +45705,7 @@
 /area/awaymission)
 "tpI" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/xenobiology)
 "tpL" = (
@@ -45754,12 +45754,12 @@
 "tsc" = (
 /obj/structure/table/standard,
 /obj/machinery/light,
-/obj/item/weapon/oddity/instructional/common/cog/book,
+/obj/item/oddity/instructional/common/cog/book,
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/eris/hallway/main/section1)
 "tsH" = (
 /obj/structure/table/standard,
-/obj/item/weapon/contraband/poster,
+/obj/item/contraband/poster,
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/eris/hallway/main/section1)
 "tsN" = (
@@ -45995,7 +45995,7 @@
 /turf/simulated/floor/plating,
 /area/eris/rnd/xenobiology)
 "tya" = (
-/obj/item/weapon/storage/box/donut,
+/obj/item/storage/box/donut,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section4deck2port{
@@ -46036,7 +46036,7 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/xenobiology)
 "tyI" = (
-/obj/item/weapon/paper/crumpled/neo,
+/obj/item/paper/crumpled/neo,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/maintenance/section4deck5starboard{
 	name = "Deck 3 Unmapped Maintenance"
@@ -46508,21 +46508,21 @@
 /area/eris/rnd/lab)
 "tHY" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/matter_bin,
-/obj/item/weapon/stock_parts/matter_bin,
-/obj/item/weapon/stock_parts/matter_bin,
-/obj/item/weapon/stock_parts/scanning_module,
-/obj/item/weapon/stock_parts/scanning_module,
-/obj/item/weapon/stock_parts/scanning_module,
-/obj/item/weapon/stock_parts/capacitor,
-/obj/item/weapon/stock_parts/capacitor,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/micro_laser,
-/obj/item/weapon/stock_parts/micro_laser,
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/stock_parts/console_screen,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/scanning_module,
+/obj/item/stock_parts/scanning_module,
+/obj/item/stock_parts/scanning_module,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
 /obj/spawner/pack/tech_loot/low_chance,
 /obj/spawner/pack/tech_loot/low_chance,
 /obj/spawner/pack/tech_loot/low_chance,
@@ -46562,7 +46562,7 @@
 /area/eris/command/tcommsat/chamber)
 "tIA" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/weapon/electronics/ai_module/reset,
+/obj/item/electronics/ai_module/reset,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/turret_protected/ai)
 "tIQ" = (
@@ -46581,7 +46581,7 @@
 /area/eris/rnd/xenobiology)
 "tJm" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
 /obj/item/stack/material/phoron{
 	layer = 2.9
 	},
@@ -46609,13 +46609,13 @@
 "tJt" = (
 /obj/structure/table/reinforced,
 /obj/item/device/scanner/xenobio,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/extinguisher{
+/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/monkeycubes,
+/obj/item/extinguisher{
 	pixel_x = 4;
 	pixel_y = 3
 	},
-/obj/item/weapon/extinguisher{
+/obj/item/extinguisher{
 	pixel_x = 4;
 	pixel_y = 3
 	},
@@ -46671,7 +46671,7 @@
 /obj/item/stack/material/steel{
 	amount = 120
 	},
-/obj/item/weapon/reagent_containers/glass/beaker,
+/obj/item/reagent_containers/glass/beaker,
 /obj/item/stack/material/plastic{
 	amount = 120
 	},
@@ -46681,8 +46681,8 @@
 	id = "RDWindowsLockdown";
 	name = "RND Window Blast Doors Control"
 	},
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/components,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/medical,
+/obj/item/computer_hardware/hard_drive/portable/design/components,
+/obj/item/computer_hardware/hard_drive/portable/design/medical,
 /turf/simulated/floor/tiled/white/gray_perforated,
 /area/eris/rnd/lab)
 "tMl" = (
@@ -46691,16 +46691,16 @@
 /area/eris/rnd/lab)
 "tMx" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/mechanical{
+/obj/item/storage/toolbox/mechanical{
 	pixel_x = 2;
 	pixel_y = 3
 	},
-/obj/item/weapon/storage/toolbox/mechanical{
+/obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
 	pixel_y = -1
 	},
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/tool/crowbar,
+/obj/item/storage/belt/utility,
+/obj/item/tool/crowbar,
 /obj/item/clothing/glasses/welding,
 /turf/simulated/floor/tiled/white/gray_perforated,
 /area/eris/rnd/lab)
@@ -46743,12 +46743,12 @@
 /area/eris/command/tcommsat/chamber)
 "tND" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/folder{
+/obj/item/folder{
 	desc = "A folder. It's completely empty aside from messy, furious scribblings on the back that seem to be some sort of complex math equation.";
 	pixel_x = 6;
 	pixel_y = 7
 	},
-/obj/item/weapon/folder/yellow{
+/obj/item/folder/yellow{
 	desc = "A yellow folder. It's filled with papers that are written in a language that vaguely resembles Sol Common."
 	},
 /turf/simulated/floor/wood,
@@ -46773,22 +46773,22 @@
 /area/eris/security/prison)
 "tOj" = (
 /obj/structure/closet/crate/hydroponics,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/xenobiology)
 "tOn" = (
 /obj/structure/closet/crate/hydroponics,
-/obj/item/weapon/plantspray/pests,
-/obj/item/weapon/reagent_containers/spray/plantbgone{
+/obj/item/plantspray/pests,
+/obj/item/reagent_containers/spray/plantbgone{
 	pixel_x = 13;
 	pixel_y = 5
 	},
-/obj/item/weapon/reagent_containers/spray/plantbgone{
+/obj/item/reagent_containers/spray/plantbgone{
 	pixel_y = 3
 	},
-/obj/item/weapon/reagent_containers/spray/plantbgone{
+/obj/item/reagent_containers/spray/plantbgone{
 	pixel_x = 8;
 	pixel_y = 8
 	},
@@ -46820,8 +46820,8 @@
 /area/eris/hallway/side/hydroponicshallway)
 "tOU" = (
 /obj/structure/table/standard,
-/obj/item/weapon/autopsy_scanner,
-/obj/item/weapon/tool/saw/circular,
+/obj/item/autopsy_scanner,
+/obj/item/tool/saw/circular,
 /turf/simulated/floor/tiled,
 /area/eris/rnd/xenobiology)
 "tOZ" = (
@@ -47195,8 +47195,8 @@
 /area/eris/rnd/xenobiology)
 "tUm" = (
 /obj/structure/table/standard,
-/obj/item/weapon/tool/wrench,
-/obj/item/weapon/storage/box/data_disk/basic,
+/obj/item/tool/wrench,
+/obj/item/storage/box/data_disk/basic,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/xenobiology)
 "tUA" = (
@@ -47426,7 +47426,7 @@
 "tYx" = (
 /obj/structure/closet/secure_closet/personal/scientist,
 /obj/item/clothing/gloves/latex,
-/obj/item/weapon/hand_labeler,
+/obj/item/hand_labeler,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -47597,8 +47597,8 @@
 /area/eris/rnd/lab)
 "ubM" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/storage/belt/utility,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
 /obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding,
 /obj/item/device/robotanalyzer,
@@ -47616,9 +47616,9 @@
 /obj/structure/table/standard,
 /obj/item/device/mmi,
 /obj/item/device/mmi,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
+/obj/item/cell/large/high,
+/obj/item/cell/large/high,
+/obj/item/cell/large/high,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/rnd/lab)
 "ubX" = (
@@ -47669,8 +47669,8 @@
 /area/eris/command/tcommsat/chamber)
 "udj" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/beakers,
-/obj/item/weapon/storage/box/syringes{
+/obj/item/storage/box/beakers,
+/obj/item/storage/box/syringes{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -47785,7 +47785,7 @@
 	pixel_x = 28
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/lab)
 "ugv" = (
@@ -47817,7 +47817,7 @@
 /area/eris/command/tcommsat/chamber)
 "uhA" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/gun/projectile/revolver/tauceti,
+/obj/item/gun/projectile/revolver/tauceti,
 /obj/machinery/door/blast/shutters/glass,
 /turf/simulated/floor/wood,
 /area/outpost/museum)
@@ -48599,7 +48599,7 @@
 /obj/item/stack/material/phoron{
 	amount = 25
 	},
-/obj/item/weapon/tool/wrench,
+/obj/item/tool/wrench,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/crew_quarters/cafeteria)
 "uzg" = (
@@ -48611,8 +48611,8 @@
 /area/eris/crew_quarters/cafeteria)
 "uzs" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tool/knife,
-/obj/item/weapon/material/kitchen/rollingpin,
+/obj/item/tool/knife,
+/obj/item/material/kitchen/rollingpin,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/cafeteria)
 "uzw" = (
@@ -48762,7 +48762,7 @@
 	})
 "uDO" = (
 /obj/structure/closet/secure_closet/freezer/meat,
-/obj/item/weapon/tool/knife/butch,
+/obj/item/tool/knife/butch,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/crew_quarters/cafeteria)
 "uDS" = (
@@ -48813,14 +48813,14 @@
 /area/eris/crew_quarters/cafeteria)
 "uEK" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
-/obj/item/weapon/storage/fancy/egg_box,
-/obj/item/weapon/storage/fancy/egg_box,
-/obj/item/weapon/reagent_containers/food/drinks/soymilk,
-/obj/item/weapon/reagent_containers/food/drinks/soymilk,
-/obj/item/weapon/reagent_containers/food/drinks/soymilk,
-/obj/item/weapon/reagent_containers/food/drinks/milk,
-/obj/item/weapon/reagent_containers/food/drinks/milk,
-/obj/item/weapon/reagent_containers/food/drinks/milk,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/cafeteria)
 "uEL" = (
@@ -48840,13 +48840,13 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/weapon/reagent_containers/glass/beaker{
+/obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
-/obj/item/weapon/reagent_containers/glass/beaker{
+/obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
-/obj/item/weapon/reagent_containers/food/condiment/enzyme{
+/obj/item/reagent_containers/food/condiment/enzyme{
 	layer = 5
 	},
 /turf/simulated/floor/tiled/cafe,
@@ -48907,11 +48907,11 @@
 /area/eris/crew_quarters/cafeteria)
 "uGs" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/snacks/mint,
-/obj/item/weapon/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/food/snacks/mint,
+/obj/item/reagent_containers/food/condiment/saltshaker{
 	pixel_x = -3
 	},
-/obj/item/weapon/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/food/condiment/peppermill{
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled/cafe,
@@ -49136,7 +49136,7 @@
 /obj/item/stack/material/phoron{
 	amount = 25
 	},
-/obj/item/weapon/tool/wrench,
+/obj/item/tool/wrench,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/awaymission)
 "uLS" = (
@@ -49155,8 +49155,8 @@
 /area/awaymission)
 "uLX" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tool/knife,
-/obj/item/weapon/material/kitchen/rollingpin,
+/obj/item/tool/knife,
+/obj/item/material/kitchen/rollingpin,
 /turf/simulated/floor/tiled/cafe,
 /area/awaymission)
 "uMk" = (
@@ -49352,7 +49352,7 @@
 /area/awaymission)
 "uQn" = (
 /obj/structure/closet/secure_closet/freezer/meat,
-/obj/item/weapon/tool/knife/butch,
+/obj/item/tool/knife/butch,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/awaymission)
 "uQS" = (
@@ -49415,14 +49415,14 @@
 /area/awaymission)
 "uSh" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
-/obj/item/weapon/storage/fancy/egg_box,
-/obj/item/weapon/storage/fancy/egg_box,
-/obj/item/weapon/reagent_containers/food/drinks/soymilk,
-/obj/item/weapon/reagent_containers/food/drinks/soymilk,
-/obj/item/weapon/reagent_containers/food/drinks/soymilk,
-/obj/item/weapon/reagent_containers/food/drinks/milk,
-/obj/item/weapon/reagent_containers/food/drinks/milk,
-/obj/item/weapon/reagent_containers/food/drinks/milk,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
 /turf/simulated/floor/tiled/cafe,
 /area/awaymission)
 "uSi" = (
@@ -49473,13 +49473,13 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/weapon/reagent_containers/glass/beaker{
+/obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
-/obj/item/weapon/reagent_containers/glass/beaker{
+/obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
-/obj/item/weapon/reagent_containers/food/condiment/enzyme{
+/obj/item/reagent_containers/food/condiment/enzyme{
 	layer = 5
 	},
 /turf/simulated/floor/tiled/cafe,
@@ -49541,11 +49541,11 @@
 /area/awaymission)
 "uUC" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/snacks/mint,
-/obj/item/weapon/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/food/snacks/mint,
+/obj/item/reagent_containers/food/condiment/saltshaker{
 	pixel_x = -3
 	},
-/obj/item/weapon/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/food/condiment/peppermill{
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled/cafe,
@@ -49670,8 +49670,8 @@
 /area/eris/engineering/locker_room)
 "uZd" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/toolbox/mechanical,
-/obj/item/weapon/tool/multitool,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/tool/multitool,
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
@@ -49680,8 +49680,8 @@
 "uZD" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
+/obj/item/cell/large/high,
+/obj/item/cell/large/high,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -49692,10 +49692,10 @@
 /area/eris/command/exultant/quarters)
 "uZN" = (
 /obj/structure/closet/secure_closet/reinforced/engineering_chief,
-/obj/item/weapon/hatton_magazine,
-/obj/item/weapon/hatton_magazine,
-/obj/item/weapon/hatton_magazine,
-/obj/item/weapon/hatton,
+/obj/item/hatton_magazine,
+/obj/item/hatton_magazine,
+/obj/item/hatton_magazine,
+/obj/item/hatton,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/command/exultant/quarters)
 "uZS" = (
@@ -49790,7 +49790,7 @@
 "vca" = (
 /obj/structure/table/reinforced,
 /obj/item/clothing/gloves/insulated,
-/obj/item/weapon/storage/belt/utility,
+/obj/item/storage/belt/utility,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/command/exultant/quarters)
@@ -49954,7 +49954,7 @@
 /area/eris/command/fo/quarters)
 "vfj" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/hop,
+/obj/item/bedsheet/hop,
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
@@ -49962,7 +49962,7 @@
 /area/eris/command/fo/quarters)
 "vfm" = (
 /obj/structure/closet/secure_closet/reinforced/hop,
-/obj/item/weapon/stamp/hop,
+/obj/item/stamp/hop,
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo/quarters)
 "vfv" = (
@@ -50138,7 +50138,7 @@
 "vjn" = (
 /obj/structure/table/woodentable,
 /obj/item/modular_computer/tablet/lease/preset/command,
-/obj/item/weapon/hand_tele,
+/obj/item/hand_tele,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -50152,7 +50152,7 @@
 /area/eris/command/captain)
 "vjv" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/tool/tape_roll,
+/obj/item/tool/tape_roll,
 /obj/item/device/eftpos{
 	eftpos_name = "Command EFTPOS scanner"
 	},
@@ -50202,8 +50202,8 @@
 /area/eris/security/brig)
 "vjZ" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/access_update_tool,
+/obj/item/paper_bin,
+/obj/item/access_update_tool,
 /obj/machinery/recharger,
 /turf/simulated/floor/wood,
 /area/eris/command/fo/quarters)
@@ -50251,7 +50251,7 @@
 /area/eris/command/fo/quarters)
 "vkI" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/storage/box/donut,
+/obj/item/storage/box/donut,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -50281,26 +50281,26 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/freezer,
-/obj/item/weapon/reagent_containers/blood/OPlus{
+/obj/item/reagent_containers/blood/OPlus{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/weapon/reagent_containers/blood/OMinus{
+/obj/item/reagent_containers/blood/OMinus{
 	pixel_x = -5;
 	pixel_y = -1
 	},
-/obj/item/weapon/reagent_containers/blood/BPlus{
+/obj/item/reagent_containers/blood/BPlus{
 	pixel_x = 5;
 	pixel_y = 3
 	},
-/obj/item/weapon/reagent_containers/blood/BMinus{
+/obj/item/reagent_containers/blood/BMinus{
 	pixel_y = 4
 	},
-/obj/item/weapon/reagent_containers/blood/APlus{
+/obj/item/reagent_containers/blood/APlus{
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/item/weapon/reagent_containers/blood/AMinus{
+/obj/item/reagent_containers/blood/AMinus{
 	pixel_x = -7;
 	pixel_y = -3
 	},
@@ -50374,18 +50374,18 @@
 "vnh" = (
 /obj/structure/table/standard,
 /obj/machinery/camera/network/medbay,
-/obj/item/weapon/holochip/medical/surgery,
-/obj/item/weapon/holochip/medical/surgery,
-/obj/item/weapon/holochip/medical/surgery,
+/obj/item/holochip/medical/surgery,
+/obj/item/holochip/medical/surgery,
+/obj/item/holochip/medical/surgery,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbreak)
 "vnt" = (
 /obj/structure/table/standard,
-/obj/item/weapon/folder/cyan,
-/obj/item/weapon/folder/cyan,
-/obj/item/weapon/hand_labeler,
-/obj/item/weapon/reagent_containers/syringe,
-/obj/item/weapon/storage/box/gloves,
+/obj/item/folder/cyan,
+/obj/item/folder/cyan,
+/obj/item/hand_labeler,
+/obj/item/reagent_containers/syringe,
+/obj/item/storage/box/gloves,
 /obj/machinery/alarm{
 	pixel_y = 26
 	},
@@ -50393,19 +50393,19 @@
 /area/eris/medical/medbreak)
 "vnB" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/belt/medical{
+/obj/item/storage/belt/medical{
 	pixel_y = 2
 	},
-/obj/item/weapon/storage/belt/medical{
+/obj/item/storage/belt/medical{
 	pixel_y = 2
 	},
-/obj/item/weapon/storage/belt/medical{
+/obj/item/storage/belt/medical{
 	pixel_y = 2
 	},
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/clothing/mask/muzzle,
-/obj/item/weapon/cane,
-/obj/item/weapon/cane,
+/obj/item/cane,
+/obj/item/cane,
 /obj/item/bodybag/cryobag{
 	pixel_x = 5
 	},
@@ -50432,11 +50432,11 @@
 "voq" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/tablet/lease/preset/medical,
-/obj/item/weapon/reagent_containers/glass/bottle/toxin{
+/obj/item/reagent_containers/glass/bottle/toxin{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/weapon/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/stoxin,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -50648,8 +50648,8 @@
 	})
 "vrY" = (
 /obj/structure/closet/secure_closet/reinforced/CMOcculus,
-/obj/item/weapon/stamp/cmo,
-/obj/item/weapon/autopsy_scanner,
+/obj/item/stamp/cmo,
+/obj/item/autopsy_scanner,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/command/mbo)
 "vsc" = (
@@ -50664,15 +50664,15 @@
 /area/eris/command/mbo)
 "vsr" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/obj/item/weapon/pen{
+/obj/item/pen{
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/weapon/stamp/cmo,
+/obj/item/stamp/cmo,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/command/mbo)
 "vsE" = (
@@ -51116,7 +51116,7 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/outpost/museum)
 "vAB" = (
-/obj/item/weapon/tool/pickaxe/drill,
+/obj/item/tool/pickaxe/drill,
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/quartermaster/misc)
 "vAC" = (
@@ -51144,13 +51144,13 @@
 /area/eris/command/mbo)
 "vAQ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/computer_hardware/scanner/reagent{
+/obj/item/computer_hardware/scanner/reagent{
 	pixel_y = 2
 	},
-/obj/item/weapon/computer_hardware/scanner/reagent,
+/obj/item/computer_hardware/scanner/reagent,
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/clothing/glasses/hud/health,
-/obj/item/weapon/soulmanip,
+/obj/item/soulmanip,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/command/mbo)
 "vAX" = (
@@ -51527,7 +51527,7 @@
 	})
 "vIL" = (
 /obj/structure/table/rack,
-/obj/item/weapon/reagent_containers/enricher,
+/obj/item/reagent_containers/enricher,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Enricher"
 	},
@@ -51717,15 +51717,15 @@
 /area/eris/medical/genetics_cloning)
 "vMi" = (
 /obj/structure/table/glass,
-/obj/item/weapon/storage/firstaid/adv{
+/obj/item/storage/firstaid/adv{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/weapon/storage/firstaid/adv{
+/obj/item/storage/firstaid/adv{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/weapon/storage/firstaid/o2{
+/obj/item/storage/firstaid/o2{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -51766,8 +51766,8 @@
 	})
 "vMW" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/gloves,
-/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/storage/box/gloves,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/medbay/uppercor{
 	name = "Medbay Coridor"
@@ -51842,7 +51842,7 @@
 "vOw" = (
 /obj/spawner/rig_module/low_chance,
 /obj/structure/table/rack,
-/obj/item/weapon/rig/medical/equipped,
+/obj/item/rig/medical/equipped,
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/medical/paramedic)
 "vOy" = (
@@ -51871,10 +51871,10 @@
 /area/eris/engineering/workshop)
 "vPA" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
+/obj/item/cell/large/high,
+/obj/item/cell/large/high,
+/obj/item/cell/large/high,
+/obj/item/cell/large/high,
 /obj/machinery/newscaster{
 	pixel_x = -27;
 	pixel_y = 1
@@ -51956,12 +51956,12 @@
 	})
 "vQB" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/access_update_tool,
+/obj/item/access_update_tool,
 /turf/simulated/floor/carpet/oracarpet,
 /area/eris/command/meeting_room)
 "vQQ" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/storage/box/donut,
+/obj/item/storage/box/donut,
 /turf/simulated/floor/carpet/oracarpet,
 /area/eris/command/meeting_room)
 "vQR" = (
@@ -51995,7 +51995,7 @@
 /area/eris/crew_quarters/sleep)
 "vRE" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -52031,7 +52031,7 @@
 /obj/machinery/door/blast/shutters/glass{
 	id = "maneki_neko"
 	},
-/obj/item/weapon/maneki_neko,
+/obj/item/maneki_neko,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/quartermaster/artistoffice{
 	name = "\improper Guild Merchant Office"
@@ -52041,7 +52041,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/item/weapon/storage/box/bodybags,
+/obj/item/storage/box/bodybags,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -52072,10 +52072,10 @@
 	})
 "vSG" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/condiment/enzyme{
+/obj/item/reagent_containers/food/condiment/enzyme{
 	layer = 5
 	},
-/obj/item/weapon/material/kitchen/rollingpin,
+/obj/item/material/kitchen/rollingpin,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/kitchen)
 "vSN" = (
@@ -52162,7 +52162,7 @@
 	id = "captain_laser"
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/captain,
+/obj/item/gun/energy/captain,
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/command/captain)
 "vVl" = (
@@ -52201,8 +52201,8 @@
 /area/eris/engineering/workshop)
 "vWt" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko,
-/obj/item/weapon/reagent_containers/food/snacks/fishburger,
+/obj/item/reagent_containers/food/drinks/cans/thirteenloko,
+/obj/item/reagent_containers/food/snacks/fishburger,
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/engineering/workshop)
 "vWC" = (
@@ -52213,9 +52213,9 @@
 /area/eris/engineering/workshop)
 "vWJ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/spray/cleaner,
-/obj/item/weapon/holochip/engineering/alarm_mon,
-/obj/item/weapon/holochip/engineering/alarm_mon,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/holochip/engineering/alarm_mon,
+/obj/item/holochip/engineering/alarm_mon,
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/engineering/workshop)
 "vWN" = (
@@ -52261,7 +52261,7 @@
 /area/eris/command/meeting_room)
 "vYj" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/deck/cards,
+/obj/item/deck/cards,
 /turf/simulated/floor/tiled/dark/bluecorner,
 /area/eris/security/brig)
 "vYI" = (
@@ -52284,7 +52284,7 @@
 /area/eris/medical/genetics)
 "vYR" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/storage/freezer/contains_food,
+/obj/item/storage/freezer/contains_food,
 /turf/simulated/floor/carpet/oracarpet,
 /area/eris/quartermaster/misc)
 "vZh" = (
@@ -52353,8 +52353,8 @@
 	})
 "wad" = (
 /obj/structure/table/glass,
-/obj/item/weapon/reagent_containers/spray/cleaner,
-/obj/item/weapon/implanter,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/implanter,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -52411,11 +52411,11 @@
 /area/eris/crew_quarters/kitchen)
 "wbj" = (
 /obj/structure/table/glass,
-/obj/item/weapon/implant/core_implant/soulcrypt,
-/obj/item/weapon/implant/core_implant/soulcrypt,
-/obj/item/weapon/implant/core_implant/soulcrypt,
-/obj/item/weapon/implant/core_implant/soulcrypt,
-/obj/item/weapon/implant/core_implant/soulcrypt,
+/obj/item/implant/core_implant/soulcrypt,
+/obj/item/implant/core_implant/soulcrypt,
+/obj/item/implant/core_implant/soulcrypt,
+/obj/item/implant/core_implant/soulcrypt,
+/obj/item/implant/core_implant/soulcrypt,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/genetics_cloning)
 "wbl" = (
@@ -52559,9 +52559,9 @@
 /obj/structure/table/rack,
 /obj/item/roller/adv,
 /obj/item/roller/adv,
-/obj/item/weapon/holochip/medical/celerity,
-/obj/item/weapon/holochip/medical/celerity,
-/obj/item/weapon/holochip/medical/celerity,
+/obj/item/holochip/medical/celerity,
+/obj/item/holochip/medical/celerity,
+/obj/item/holochip/medical/celerity,
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/medical/paramedic)
 "wdA" = (
@@ -52695,11 +52695,11 @@
 /area/eris/command/meeting_room)
 "wgV" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/holochip/command/helpmaint,
-/obj/item/weapon/holochip/command/helpmaint,
-/obj/item/weapon/holochip/command/helpmaint,
-/obj/item/weapon/holochip/command/helpmaint,
-/obj/item/weapon/holochip/command/helpmaint,
+/obj/item/holochip/command/helpmaint,
+/obj/item/holochip/command/helpmaint,
+/obj/item/holochip/command/helpmaint,
+/obj/item/holochip/command/helpmaint,
+/obj/item/holochip/command/helpmaint,
 /turf/simulated/floor/carpet/oracarpet,
 /area/eris/command/meeting_room)
 "wgZ" = (
@@ -52712,15 +52712,15 @@
 /area/eris/security/brig)
 "whg" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet/oracarpet,
 /area/eris/command/meeting_room)
 "whj" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/tool/tape_roll,
-/obj/item/weapon/flame/lighter/zippo,
+/obj/item/tool/tape_roll,
+/obj/item/flame/lighter/zippo,
 /turf/simulated/floor/carpet/oracarpet,
 /area/eris/command/meeting_room)
 "whp" = (
@@ -52920,7 +52920,7 @@
 /area/eris/medical/paramedic)
 "wkd" = (
 /obj/structure/closet/secure_closet/reinforced/captains,
-/obj/item/weapon/pinpointer,
+/obj/item/pinpointer,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	pixel_x = -22
@@ -52935,7 +52935,7 @@
 /area/eris/command/captain)
 "wkC" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/captain,
+/obj/item/bedsheet/captain,
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/command/captain)
 "wkH" = (
@@ -53758,7 +53758,7 @@
 /area/eris/engineering/workshop)
 "wus" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/workshop)
 "wuz" = (
@@ -53811,13 +53811,13 @@
 /area/eris/engineering/workshop)
 "wuY" = (
 /obj/structure/table/standard,
-/obj/item/weapon/electronics/airlock,
-/obj/item/weapon/electronics/airlock{
+/obj/item/electronics/airlock,
+/obj/item/electronics/airlock{
 	pixel_x = 2;
 	pixel_y = -5
 	},
-/obj/item/weapon/electronics/airlock,
-/obj/item/weapon/electronics/airlock,
+/obj/item/electronics/airlock,
+/obj/item/electronics/airlock,
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/workshop)
 "wvo" = (
@@ -53965,30 +53965,30 @@
 "wwZ" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
-/obj/item/weapon/oddity/instructional/common/bio/aid,
+/obj/item/oddity/instructional/common/bio/aid,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/medical/medbay/uppercor{
 	name = "Medbay Coridor"
 	})
 "wxa" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb{
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb{
 	pixel_x = -3;
 	pixel_y = -1
 	},
-/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb{
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb{
 	pixel_x = 4;
 	pixel_y = 3
 	},
-/obj/item/weapon/oddity/instructional/common/bio/pamphlet,
+/obj/item/oddity/instructional/common/bio/pamphlet,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/medical/medbay/uppercor{
 	name = "Medbay Coridor"
 	})
 "wxi" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/freezer/contains_food,
-/obj/item/weapon/oddity/instructional/common/bio/primer,
+/obj/item/storage/freezer/contains_food,
+/obj/item/oddity/instructional/common/bio/primer,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/medical/medbay/uppercor{
 	name = "Medbay Coridor"
@@ -54018,8 +54018,8 @@
 /area/eris/maintenance/section3deck3starboard)
 "wzs" = (
 /obj/structure/table/rack,
-/obj/item/weapon/pinpointer,
-/obj/item/weapon/disk/nuclear{
+/obj/item/pinpointer,
+/obj/item/disk/nuclear{
 	pixel_x = -5;
 	pixel_y = -6
 	},
@@ -54055,7 +54055,7 @@
 /area/eris/maintenance/section2deck2port)
 "wAS" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/workshop)
 "wAT" = (
@@ -54141,8 +54141,8 @@
 /area/eris/medical/chemistry)
 "wCH" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/plasma/brigador,
-/obj/item/weapon/gun/energy/plasma/brigador,
+/obj/item/gun/energy/plasma/brigador,
+/obj/item/gun/energy/plasma/brigador,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/captain)
 "wCR" = (
@@ -54356,13 +54356,13 @@
 /area/awaymission)
 "wHg" = (
 /obj/structure/closet/secure_closet/chemical,
-/obj/item/weapon/storage/fancy/vials,
-/obj/item/weapon/storage/fancy/vials,
-/obj/item/weapon/storage/fancy/vials,
-/obj/item/weapon/storage/box/pillbottles,
-/obj/item/weapon/storage/box/pillbottles,
-/obj/item/weapon/storage/box/pillbottles,
-/obj/item/weapon/reagent_containers/spray/cleaner{
+/obj/item/storage/fancy/vials,
+/obj/item/storage/fancy/vials,
+/obj/item/storage/fancy/vials,
+/obj/item/storage/box/pillbottles,
+/obj/item/storage/box/pillbottles,
+/obj/item/storage/box/pillbottles,
+/obj/item/reagent_containers/spray/cleaner{
 	desc = "Someone has crossed out the 'Space' from Space Cleaner and written in Chemistry. Scrawled on the back is, 'Okay, whoever filled this with polytrinic acid, it was only funny the first time. It was hard enough replacing the CMO's first cat!'";
 	name = "Chemistry Cleaner"
 	},
@@ -54404,10 +54404,10 @@
 	dir = 8
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
-/obj/item/weapon/cell/small/high,
+/obj/item/cell/small/high,
+/obj/item/cell/small/high,
+/obj/item/cell/small/high,
+/obj/item/cell/small/high,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/captain)
 "wHT" = (
@@ -54554,13 +54554,13 @@
 /area/eris/engineering/engineering_monitoring)
 "wMA" = (
 /obj/structure/table/rack,
-/obj/item/weapon/electronics/circuitboard/rdserver{
+/obj/item/electronics/circuitboard/rdserver{
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/item/weapon/electronics/circuitboard/destructive_analyzer,
-/obj/item/weapon/electronics/circuitboard/protolathe,
-/obj/item/weapon/electronics/circuitboard/aifixer,
+/obj/item/electronics/circuitboard/destructive_analyzer,
+/obj/item/electronics/circuitboard/protolathe,
+/obj/item/electronics/circuitboard/aifixer,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -54643,8 +54643,8 @@
 	name = "plastic table frame"
 	},
 /obj/item/device/scanner/mass_spectrometer/adv,
-/obj/item/weapon/reagent_containers/glass/beaker/large,
-/obj/item/weapon/tool/knife/butch,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/tool/knife/butch,
 /obj/machinery/button/remote/blast_door{
 	id = "maint_hatch_medchem";
 	name = "Maintenance Hatch Control";
@@ -54676,7 +54676,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/fabkits,
+/obj/item/computer_hardware/hard_drive/portable/design/fabkits,
 /obj/spawner/lathe_disk,
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/eris/hallway/main/section2{
@@ -54698,36 +54698,36 @@
 /area/eris/engineering/workshop)
 "wRc" = (
 /obj/structure/table/rack,
-/obj/item/weapon/electronics/circuitboard/autolathe{
+/obj/item/electronics/circuitboard/autolathe{
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/circuits,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/components,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/devices,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
+/obj/item/computer_hardware/hard_drive/portable/design/circuits,
+/obj/item/computer_hardware/hard_drive/portable/design/components,
+/obj/item/computer_hardware/hard_drive/portable/design/devices,
+/obj/item/computer_hardware/hard_drive/portable/design/tools,
+/obj/item/computer_hardware/hard_drive/portable/design/misc,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "wRe" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
-/obj/item/weapon/cell/large/high,
+/obj/item/cell/large/high,
+/obj/item/cell/large/high,
+/obj/item/cell/large/high,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /obj/machinery/camera/network/fourth_section{
 	dir = 4
 	},
-/obj/item/weapon/cell/medium,
-/obj/item/weapon/cell/medium,
-/obj/item/weapon/cell/medium,
-/obj/item/weapon/cell/medium,
-/obj/item/weapon/cell/small,
-/obj/item/weapon/cell/small,
-/obj/item/weapon/cell/small,
-/obj/item/weapon/cell/small,
-/obj/item/weapon/cell/small,
+/obj/item/cell/medium,
+/obj/item/cell/medium,
+/obj/item/cell/medium,
+/obj/item/cell/medium,
+/obj/item/cell/small,
+/obj/item/cell/small,
+/obj/item/cell/small,
+/obj/item/cell/small,
+/obj/item/cell/small,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "wRr" = (
@@ -54811,10 +54811,10 @@
 "wTF" = (
 /obj/structure/table/standard,
 /obj/item/stack/material/phoron,
-/obj/item/weapon/reagent_containers/dropper{
+/obj/item/reagent_containers/dropper{
 	pixel_y = -4
 	},
-/obj/item/weapon/reagent_containers/spray/cleaner{
+/obj/item/reagent_containers/spray/cleaner{
 	desc = "Someone has crossed out the 'Space' from Space Cleaner and written in Chemistry. Scrawled on the back is, 'Okay, whoever filled this with polytrinic acid, it was only funny the first time. It was hard enough replacing the CMO's first cat!'";
 	name = "Chemistry Cleaner"
 	},
@@ -54888,12 +54888,12 @@
 	})
 "wUJ" = (
 /obj/structure/table/rack,
-/obj/item/weapon/electronics/circuitboard/telecomms/processor,
-/obj/item/weapon/electronics/circuitboard/telecomms/receiver,
-/obj/item/weapon/electronics/circuitboard/telecomms/server,
-/obj/item/weapon/electronics/circuitboard/telecomms/bus,
-/obj/item/weapon/electronics/circuitboard/telecomms/broadcaster,
-/obj/item/weapon/electronics/circuitboard/message_monitor{
+/obj/item/electronics/circuitboard/telecomms/processor,
+/obj/item/electronics/circuitboard/telecomms/receiver,
+/obj/item/electronics/circuitboard/telecomms/server,
+/obj/item/electronics/circuitboard/telecomms/bus,
+/obj/item/electronics/circuitboard/telecomms/broadcaster,
+/obj/item/electronics/circuitboard/message_monitor{
 	pixel_y = -5
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
@@ -54989,11 +54989,11 @@
 "wWR" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/weapon/storage/box/syringes{
+/obj/item/storage/box/syringes{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/weapon/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
 "wWU" = (
@@ -55024,11 +55024,11 @@
 	},
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/weapon/storage/box/syringes{
+/obj/item/storage/box/syringes{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/weapon/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
 "wXr" = (
@@ -55105,14 +55105,14 @@
 	name = "East APC";
 	pixel_x = 28
 	},
-/obj/item/weapon/storage/toolbox/electrical{
+/obj/item/storage/toolbox/electrical{
 	pixel_x = 1;
 	pixel_y = -1
 	},
 /obj/item/clothing/gloves/insulated,
 /obj/item/device/t_scanner,
-/obj/item/weapon/tool/multitool,
-/obj/item/weapon/tool/multitool,
+/obj/item/tool/multitool,
+/obj/item/tool/multitool,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
@@ -55309,7 +55309,7 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1starboard)
 "xcA" = (
-/obj/item/weapon/reagent_containers/food/snacks/bananabreadslice,
+/obj/item/reagent_containers/food/snacks/bananabreadslice,
 /obj/structure/table/woodentable,
 /turf/simulated/floor/exoplanet/snow,
 /area/outpost/museum)
@@ -55414,19 +55414,19 @@
 /area/eris/storage/tech)
 "xfG" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/analyzer,
-/obj/item/weapon/stock_parts/subspace/analyzer,
-/obj/item/weapon/stock_parts/subspace/analyzer,
-/obj/item/weapon/stock_parts/subspace/amplifier,
-/obj/item/weapon/stock_parts/subspace/amplifier,
-/obj/item/weapon/stock_parts/subspace/amplifier,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/transmitter,
-/obj/item/weapon/stock_parts/subspace/transmitter,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/transmitter,
+/obj/item/stock_parts/subspace/transmitter,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "xfI" = (
@@ -55574,14 +55574,14 @@
 /area/eris/engineering/workshop)
 "xjf" = (
 /obj/structure/table/rack,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/devices,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/components,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/circuits,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/fabkits,
+/obj/item/computer_hardware/hard_drive/portable/design/misc,
+/obj/item/computer_hardware/hard_drive/portable/design/tools,
+/obj/item/computer_hardware/hard_drive/portable/design/devices,
+/obj/item/computer_hardware/hard_drive/portable/design/components,
+/obj/item/computer_hardware/hard_drive/portable/design/conveyors,
+/obj/item/computer_hardware/hard_drive/portable/design/circuits,
+/obj/item/computer_hardware/hard_drive/portable/design/adv_tools,
+/obj/item/computer_hardware/hard_drive/portable/design/fabkits,
 /obj/item/stack/material/plasteel{
 	amount = 20
 	},
@@ -55676,7 +55676,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/awaymission)
 "xlp" = (
-/obj/item/weapon/contraband/poster/placed{
+/obj/item/contraband/poster/placed{
 	icon_state = "bsposter36";
 	pixel_y = 32
 	},
@@ -56053,7 +56053,7 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1starboard)
 "xsB" = (
-/obj/item/weapon/tool/broken_bottle,
+/obj/item/tool/broken_bottle,
 /turf/simulated/floor/plating,
 /area/awaymission)
 "xsD" = (
@@ -56325,20 +56325,20 @@
 /area/eris/crew_quarters/hydroponics/garden)
 "xxW" = (
 /obj/structure/closet/crate/hydroponics,
-/obj/item/weapon/tool/screwdriver,
-/obj/item/weapon/tool/wrench,
-/obj/item/weapon/tool/minihoe,
-/obj/item/weapon/tool/minihoe,
-/obj/item/weapon/tool/shovel/spade,
-/obj/item/weapon/tool/shovel/spade,
-/obj/item/weapon/reagent_containers/spray/plantbgone,
-/obj/item/weapon/reagent_containers/spray/plantbgone,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/tool/wirecutters,
-/obj/item/weapon/plantspray/pests,
+/obj/item/tool/screwdriver,
+/obj/item/tool/wrench,
+/obj/item/tool/minihoe,
+/obj/item/tool/minihoe,
+/obj/item/tool/shovel/spade,
+/obj/item/tool/shovel/spade,
+/obj/item/reagent_containers/spray/plantbgone,
+/obj/item/reagent_containers/spray/plantbgone,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/tool/wirecutters,
+/obj/item/plantspray/pests,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics/garden)
 "xyk" = (
@@ -56499,10 +56499,10 @@
 /area/eris/maintenance/section2deck1starboard)
 "xDJ" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/shotgunammo/slug,
-/obj/item/weapon/storage/box/shotgunammo/slug,
-/obj/item/weapon/storage/box/shotgunammo/slug,
-/obj/item/weapon/storage/box/shotgunammo/slug,
+/obj/item/storage/box/shotgunammo/slug,
+/obj/item/storage/box/shotgunammo/slug,
+/obj/item/storage/box/shotgunammo/slug,
+/obj/item/storage/box/shotgunammo/slug,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
@@ -56541,8 +56541,8 @@
 /obj/item/ammo_magazine/pistol,
 /obj/item/ammo_magazine/pistol,
 /obj/item/ammo_magazine/pistol,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/lethal_ammo,
+/obj/item/computer_hardware/hard_drive/portable/design/nonlethal_ammo,
+/obj/item/computer_hardware/hard_drive/portable/design/lethal_ammo,
 /obj/item/ammo_magazine/ammobox/srifle,
 /obj/item/ammo_magazine/ammobox/srifle,
 /obj/item/ammo_magazine/ammobox/srifle,
@@ -56674,7 +56674,7 @@
 	pixel_y = 30
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/handcuffs,
+/obj/item/handcuffs,
 /obj/item/device/binoculars{
 	pixel_x = 9
 	},
@@ -56695,8 +56695,8 @@
 	pixel_y = 28
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/trackimp,
-/obj/item/weapon/storage/box/chemimp{
+/obj/item/storage/box/trackimp,
+/obj/item/storage/box/chemimp{
 	pixel_x = 4;
 	pixel_y = 3
 	},
@@ -56735,7 +56735,7 @@
 /area/eris/security/lobby)
 "xHC" = (
 /obj/structure/table/standard,
-/obj/item/weapon/folder/red,
+/obj/item/folder/red,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/security/lobby)
 "xHE" = (
@@ -56779,8 +56779,8 @@
 /area/eris/engineering/workshop)
 "xHH" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/dice,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer{
+/obj/item/dice,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer{
 	pixel_x = -6;
 	pixel_y = 5
 	},
@@ -56803,10 +56803,10 @@
 /area/awaymission)
 "xHS" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/holochip/security/warrant,
-/obj/item/weapon/holochip/security/warrant,
-/obj/item/weapon/holochip/security/warrant,
-/obj/item/weapon/deck/cards,
+/obj/item/holochip/security/warrant,
+/obj/item/holochip/security/warrant,
+/obj/item/holochip/security/warrant,
+/obj/item/deck/cards,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/barracks{
 	name = "Aegis Barracks"
@@ -56975,7 +56975,7 @@
 /area/eris/rnd/lab)
 "xLT" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/projectile/automatic/z8,
+/obj/item/gun/projectile/automatic/z8,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
@@ -57105,7 +57105,7 @@
 /area/eris/maintenance/section1deck1central)
 "xOC" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /obj/effect/decal/cleanable/dirt,
 /obj/spawner/lowkeyrandom,
 /turf/simulated/floor/tiled/dark/gray_platform,
@@ -57152,7 +57152,7 @@
 	dir = 9
 	},
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/yellow,
+/obj/item/bedsheet/yellow,
 /obj/machinery/camera/network/engineering{
 	dir = 1
 	},
@@ -57220,22 +57220,22 @@
 /area/eris/security/prison)
 "xSx" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/teargas,
-/obj/item/weapon/storage/box/teargas,
-/obj/item/weapon/storage/box/smokes,
-/obj/item/weapon/storage/box/smokes,
-/obj/item/weapon/storage/box/flashbangs,
-/obj/item/weapon/storage/box/flashbangs,
+/obj/item/storage/box/teargas,
+/obj/item/storage/box/teargas,
+/obj/item/storage/box/smokes,
+/obj/item/storage/box/smokes,
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/flashbangs,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
-/obj/item/weapon/grenade/frag,
-/obj/item/weapon/grenade/frag,
-/obj/item/weapon/grenade/frag,
-/obj/item/weapon/grenade/frag,
-/obj/item/weapon/grenade/frag,
-/obj/item/weapon/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "xSy" = (
@@ -57262,18 +57262,18 @@
 /obj/item/stack/material/plasteel{
 	amount = 10
 	},
-/obj/item/weapon/reagent_containers/glass/beaker,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/security,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc,
+/obj/item/reagent_containers/glass/beaker,
+/obj/item/computer_hardware/hard_drive/portable/design/security,
+/obj/item/computer_hardware/hard_drive/portable/design/misc,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "xSU" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/cell/medium/high,
-/obj/item/weapon/cell/medium/high,
-/obj/item/weapon/cell/medium/high,
-/obj/item/weapon/cell/medium/high,
-/obj/item/weapon/cell/medium/high,
+/obj/item/cell/medium/high,
+/obj/item/cell/medium/high,
+/obj/item/cell/medium/high,
+/obj/item/cell/medium/high,
+/obj/item/cell/medium/high,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "xTk" = (
@@ -57605,8 +57605,8 @@
 /area/eris/maintenance/section2deck1starboard)
 "xZc" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/projectile/shotgun/bull,
-/obj/item/weapon/gun/projectile/shotgun/bull,
+/obj/item/gun/projectile/shotgun/bull,
+/obj/item/gun/projectile/shotgun/bull,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
@@ -57641,7 +57641,7 @@
 /area/eris/maintenance/section2deck1starboard)
 "xZE" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/gun/projectile/shotgun/bojevic,
+/obj/item/gun/projectile/shotgun/bojevic,
 /obj/machinery/door/blast/shutters/glass,
 /turf/simulated/floor/wood,
 /area/outpost/museum)
@@ -57750,7 +57750,7 @@
 /area/eris/security/checkpoint)
 "ycS" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/maintenance/section1deck1central)
 "ydj" = (
@@ -57849,12 +57849,12 @@
 	})
 "yfu" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun_upgrade/mechanism/weintraub,
-/obj/item/weapon/gun_upgrade/mechanism/weintraub,
-/obj/item/weapon/gun_upgrade/mechanism/weintraub,
-/obj/item/weapon/gun/projectile/automatic/sol,
-/obj/item/weapon/gun/projectile/automatic/sol,
-/obj/item/weapon/gun/projectile/automatic/sol,
+/obj/item/gun_upgrade/mechanism/weintraub,
+/obj/item/gun_upgrade/mechanism/weintraub,
+/obj/item/gun_upgrade/mechanism/weintraub,
+/obj/item/gun/projectile/automatic/sol,
+/obj/item/gun/projectile/automatic/sol,
+/obj/item/gun/projectile/automatic/sol,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
@@ -57863,9 +57863,9 @@
 /area/eris/security/warden)
 "yfK" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/projectile/automatic/atreides,
-/obj/item/weapon/gun/projectile/automatic/atreides,
-/obj/item/weapon/gun/projectile/automatic/atreides,
+/obj/item/gun/projectile/automatic/atreides,
+/obj/item/gun/projectile/automatic/atreides,
+/obj/item/gun/projectile/automatic/atreides,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
@@ -57882,8 +57882,8 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/item/weapon/gun/projectile/automatic/wintermute,
-/obj/item/weapon/gun/projectile/automatic/wintermute,
+/obj/item/gun/projectile/automatic/wintermute,
+/obj/item/gun/projectile/automatic/wintermute,
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/security/warden)
 "yfU" = (
@@ -57918,8 +57918,8 @@
 /area/eris/crew_quarters/kitchen)
 "ygJ" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/ionrifle,
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/gun/energy/ionrifle,
+/obj/item/gun/energy/ionrifle,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
@@ -57928,7 +57928,7 @@
 /area/eris/security/warden)
 "ygO" = (
 /obj/structure/closet/secure_closet/warden,
-/obj/item/weapon/gun/projectile/shotgun/bojevic/jackhammer,
+/obj/item/gun/projectile/shotgun/bojevic/jackhammer,
 /obj/item/ammo_magazine/m12/beanbag,
 /obj/item/ammo_magazine/m12/beanbag,
 /obj/item/ammo_magazine/m12/pellet,
@@ -58003,7 +58003,7 @@
 /area/eris/security/lobby)
 "yiJ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/folder/blue,
+/obj/item/folder/blue,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/security/lobby)
 "yiQ" = (
@@ -58042,11 +58042,11 @@
 	dir = 1;
 	pixel_y = -23
 	},
-/obj/item/weapon/holochip/security/tough,
-/obj/item/weapon/holochip/security/tough,
-/obj/item/weapon/holochip/security/tough,
-/obj/item/weapon/holochip/security/tough,
-/obj/item/weapon/holochip/security/tough,
+/obj/item/holochip/security/tough,
+/obj/item/holochip/security/tough,
+/obj/item/holochip/security/tough,
+/obj/item/holochip/security/tough,
+/obj/item/holochip/security/tough,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/barracks{
@@ -58060,8 +58060,8 @@
 /area/turret_protected/ai)
 "yjG" = (
 /obj/structure/closet/secure_closet/personal/security,
-/obj/item/weapon/gun/projectile/automatic/straylight,
-/obj/item/weapon/gun/projectile/paco,
+/obj/item/gun/projectile/automatic/straylight,
+/obj/item/gun/projectile/paco,
 /obj/item/ammo_magazine/smg/rubber,
 /obj/item/ammo_magazine/smg/rubber,
 /obj/item/ammo_magazine/pistol/rubber,
@@ -58082,7 +58082,7 @@
 "yjZ" = (
 /obj/structure/table/reinforced,
 /obj/item/device/flash,
-/obj/item/weapon/handcuffs,
+/obj/item/handcuffs,
 /obj/item/device/binoculars{
 	pixel_x = 9
 	},
@@ -58134,7 +58134,7 @@
 "ylG" = (
 /obj/spawner/flora/low_chance,
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/maintenance/section1deck1central)
 "ylZ" = (
@@ -58151,10 +58151,10 @@
 	name = "ammo crate";
 	req_access = list(63)
 	},
-/obj/item/weapon/storage/box/shotgunammo/beanbags,
-/obj/item/weapon/storage/box/shotgunammo/beanbags,
-/obj/item/weapon/storage/box/shotgunammo/beanbags,
-/obj/item/weapon/storage/box/shotgunammo/beanbags,
+/obj/item/storage/box/shotgunammo/beanbags,
+/obj/item/storage/box/shotgunammo/beanbags,
+/obj/item/storage/box/shotgunammo/beanbags,
+/obj/item/storage/box/shotgunammo/beanbags,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 

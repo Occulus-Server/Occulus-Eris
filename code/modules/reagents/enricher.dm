@@ -1,4 +1,4 @@
-/obj/item/weapon/reagent_containers/enricher
+/obj/item/reagent_containers/enricher
 	name = "Molitor-Riedel Enricher"
 	desc = "Produces incredibly rare cardiac stimulant if you inject it with nutrients, outputs it in bottles ready to use."
 	icon = 'icons/obj/faction_item.dmi'
@@ -17,7 +17,7 @@
 	matter = list(MATERIAL_GLASS = 3, MATERIAL_STEEL = 2, MATERIAL_PHORON = 5, MATERIAL_BIOMATTER = 50)
 	var/resuscitator_amount = 0
 
-/obj/item/weapon/reagent_containers/enricher/attack_self()
+/obj/item/reagent_containers/enricher/attack_self()
 	if(reagents.total_volume)
 		for(var/datum/reagent/reagent in reagents.reagent_list)
 			var/reagent_amount = 0
@@ -31,7 +31,7 @@
 				reagent.remove_self(reagent_amount) //Purge useless reagents out
 
 		if(resuscitator_amount)
-			var/obj/item/weapon/reagent_containers/glass/bottle/bottle = new /obj/item/weapon/reagent_containers/glass/bottle(get_turf(src))
+			var/obj/item/reagent_containers/glass/bottle/bottle = new /obj/item/reagent_containers/glass/bottle(get_turf(src))
 			bottle.reagents.add_reagent("resuscitator", resuscitator_amount)
 			bottle.name = "resuscitator bottle"
 			resuscitator_amount = 0
@@ -42,7 +42,7 @@
 	else
 		visible_message("\The [src] beeps, \"Insufficient reagents to produce blood.\".")
 
-/obj/item/weapon/reagent_containers/enricher/pre_attack(atom/A, mob/user, params)
+/obj/item/reagent_containers/enricher/pre_attack(atom/A, mob/user, params)
 	if(user.a_intent == I_HURT)
 		if(standard_splash_mob(user, A))
 			return TRUE
@@ -57,7 +57,7 @@
 			return TRUE
 	return ..()
 
-/obj/item/weapon/reagent_containers/enricher/afterattack(var/obj/target, var/mob/user, var/flag)
+/obj/item/reagent_containers/enricher/afterattack(var/obj/target, var/mob/user, var/flag)
 	if(!flag)
 		return
 	if(standard_pour_into(user, target))

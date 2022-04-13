@@ -45,7 +45,7 @@
 	if(!assembly && !assembly.battery)
 		return FALSE // Pointless to do everything else if there's no battery to draw from.
 	var/list/power_cell_list = get_power_cell(AM)
-	var/obj/item/weapon/cell/small/cell = power_cell_list[1]
+	var/obj/item/cell/small/cell = power_cell_list[1]
 	if(istype(cell))
 		var/transfer_amount = amount_to_move
 		var/turf/A = get_turf(src)
@@ -188,7 +188,7 @@
 		return
 
 	//Second clamp: set the number between what the battery and powernet allows
-	var/obj/item/weapon/cell/small/battery = assembly.battery
+	var/obj/item/cell/small/battery = assembly.battery
 	amount_to_move = clamp(amount_to_move, -connected_cable.powernet.avail, battery.charge)
 
 	if(amount_to_move > 0)

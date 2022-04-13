@@ -53,15 +53,15 @@
 /area/deepmaint)
 "k" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
 	pixel_x = 7;
 	pixel_y = 1
 	},
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
 	pixel_x = 0;
 	pixel_y = 0
 	},
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone,
+/obj/item/reagent_containers/glass/beaker/cryoxadone,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/deepmaint)
 "l" = (
@@ -83,9 +83,9 @@
 "o" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHEAST)";
+	dir = 5;
 	icon_state = "intact";
-	dir = 5
+	tag = "icon-intact (NORTHEAST)"
 	},
 /turf/simulated/floor/plating/under,
 /area/deepmaint)
@@ -101,9 +101,9 @@
 /area/deepmaint)
 "r" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHWEST)";
+	dir = 9;
 	icon_state = "intact";
-	dir = 9
+	tag = "icon-intact (NORTHWEST)"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
@@ -128,8 +128,8 @@
 /area/deepmaint)
 "v" = (
 /obj/machinery/sleeper{
-	icon_state = "sleeper_0";
-	dir = 4
+	dir = 4;
+	icon_state = "sleeper_0"
 	},
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/deepmaint)

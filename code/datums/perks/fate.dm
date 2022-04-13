@@ -70,10 +70,10 @@
 			var/datum/reagent/drug = new drugtype
 			holder.metabolism_effects.addiction_list.Add(drug)
 			for(var/j= 1 to 2)
-				var/obj/item/weapon/storage/pill_bottle/PB = new /obj/item/weapon/storage/pill_bottle(T)
+				var/obj/item/storage/pill_bottle/PB = new /obj/item/storage/pill_bottle(T)
 				PB.name = "bottle of happiness"
 				for(var/i=1 to 7)
-					var/obj/item/weapon/reagent_containers/pill/pill = new /obj/item/weapon/reagent_containers/pill(T)
+					var/obj/item/reagent_containers/pill/pill = new /obj/item/reagent_containers/pill(T)
 					pill.reagents.add_reagent(drug.id, pill.volume)
 					pill.name = "happy pill"
 					PB.handle_item_insertion(pill)
@@ -129,11 +129,11 @@
 	var/obj/item/W
 	switch(odditystrength)
 		if(1)
-			W = pick(/obj/item/weapon/gun/projectile/revolver, /obj/item/weapon/gun/projectile/giskard, /obj/item/weapon/gun/projectile/mandella, /obj/item/weapon/gun/projectile/boltgun/serbian)
+			W = pick(/obj/item/gun/projectile/revolver, /obj/item/gun/projectile/giskard, /obj/item/gun/projectile/mandella, /obj/item/gun/projectile/boltgun/serbian)
 		if(2)
-			W = pick(/obj/item/weapon/tool/sword, /obj/item/weapon/tool/sword/katana, /obj/item/weapon/tool/hammer/mace, /obj/item/weapon/shield/riot)
+			W = pick(/obj/item/tool/sword, /obj/item/tool/sword/katana, /obj/item/tool/hammer/mace, /obj/item/shield/riot)
 		if(3)
-			W = pick(/obj/item/weapon/tool/knife/ritual, /obj/item/weapon/tool/knife/dagger/ceremonial, /obj/item/weapon/tool/knife/tacknife)
+			W = pick(/obj/item/tool/knife/ritual, /obj/item/tool/knife/dagger/ceremonial, /obj/item/tool/knife/tacknife)
 	holder.sanity.valid_inspirations += W
 	W = new W(T)
 	W.name = "[holder.family_name] family [W.name]"		//Eclipse edit: Family name, not surname

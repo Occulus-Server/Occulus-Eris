@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/gun
+/obj/item/gun/energy/gun
 	name = "FS PDW E \"Spider Rose\""
 	desc = "Spider Rose is a versatile energy based sidearm, capable of switching between low and high capacity projectile settings. In other words: Stun or Kill."
 	icon = 'icons/obj/guns/energy/egun.dmi'
@@ -23,7 +23,7 @@
 		WEAPON_CHARGE,
 		)
 
-/obj/item/weapon/gun/energy/gun/mounted
+/obj/item/gun/energy/gun/mounted
 	name = "mounted energy gun"
 	self_recharge = TRUE
 	use_external_power = TRUE
@@ -31,7 +31,7 @@
 	restrict_safety = TRUE
 	spawn_blacklisted = TRUE
 
-/obj/item/weapon/gun/energy/gun/martin
+/obj/item/gun/energy/gun/martin
 	name = "FS PDW E \"Martin\""
 	desc = "Martin is essentialy downscaled Spider Rose, made for Aegis employees and civilians to use it as personal self defence weapon."
 	icon = 'icons/obj/guns/energy/pdw.dmi'
@@ -46,19 +46,19 @@
 	price_tag = 1000
 	rarity_value = 8
 	modifystate = null
-	suitable_cell = /obj/item/weapon/cell/small
-	cell_type = /obj/item/weapon/cell/small
+	suitable_cell = /obj/item/cell/small
+	cell_type = /obj/item/cell/small
 
 	spawn_tags = SPAWN_TAG_FS_ENERGY
 
-/obj/item/weapon/gun/energy/gun/martin/proc/update_mode()
+/obj/item/gun/energy/gun/martin/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	if(current_mode.name == "stun")
 		add_overlays("taser_pdw")
 	else
 		add_overlays("lazer_pdw")
 
-/obj/item/weapon/gun/energy/gun/martin/on_update_icon()
+/obj/item/gun/energy/gun/martin/on_update_icon()
 	cut_overlays()
 	if(cell && cell.charge >= charge_cost) //no overlay if we dont have any power
 		update_mode()

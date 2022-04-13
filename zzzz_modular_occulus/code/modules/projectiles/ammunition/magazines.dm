@@ -4,10 +4,10 @@
 
 //Rubbershot
 
-/obj/item/weapon/storage/box/shotgunammo/rubbershot
+/obj/item/storage/box/shotgunammo/rubbershot
 	name = "box of rubbershot shells"
 
-/obj/item/weapon/storage/box/shotgunammo/rubbershot/populate_contents()
+/obj/item/storage/box/shotgunammo/rubbershot/populate_contents()
 	for(var/i in 1 to 7)
 		new /obj/item/ammo_casing/shotgun/pellet/rubber/prespawned(src)
 
@@ -21,7 +21,7 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet/rubber
 	rarity_value = 10
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo/Initialize()	//modular override to add rubbershot to the nonlethal ammo disk
+/obj/item/computer_hardware/hard_drive/portable/design/nonlethal_ammo/Initialize()	//modular override to add rubbershot to the nonlethal ammo disk
 	designs += list(/datum/design/autolathe/ammo/shotgun_rubbershot)	// add the designs we want on the disk
 	. = ..()	// then let it install the data onto the disk properly
 

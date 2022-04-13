@@ -7,7 +7,7 @@
 	density = 1
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5000
-	circuit = /obj/item/weapon/electronics/circuitboard/tele_inhibitor
+	circuit = /obj/item/electronics/circuitboard/tele_inhibitor
 	var/area/area
 
 /obj/machinery/telesci_inhibitor/proc/explode()

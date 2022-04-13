@@ -1,4 +1,4 @@
-/obj/item/weapon/shield/riot/bastion
+/obj/item/shield/riot/bastion
 	name = "Prototype: Bastion Shield"
 	desc = "A Project inspired by an idea for a true deployable barrier, the \"Bastion Shield\" came as surprisingly successful idea, both light enough to carry as a shield, and expands out into a combat barrier when deployed. Bow before the Cobalt Aegis."
 	icon = 'zzzz_modular_occulus/icons/obj/bastion.dmi'
@@ -25,7 +25,7 @@
 	attack_verb = list("shoved", "bashed")
 	var/structure_form_type = /obj/structure/shield_deployed
 
-/obj/item/weapon/shield/riot/bastion/update_state()
+/obj/item/shield/riot/bastion/update_state()
 	if(!picking_human)
 		return
 	if(MOVING_QUICKLY(picking_human))
@@ -38,10 +38,10 @@
 		visible_message("[picking_human] raises [gender_datums[picking_human.gender].his] [src.name] to cover [gender_datums[picking_human.gender].him]self!")
 	update_wear_icon()
 
-/obj/item/weapon/shield/riot/bastion/attack_self(mob/user)
+/obj/item/shield/riot/bastion/attack_self(mob/user)
 	deploy(user)
 
-/obj/item/weapon/shield/riot/bastion/proc/deploy(var/mob/user)
+/obj/item/shield/riot/bastion/proc/deploy(var/mob/user)
 	var/turf/T = get_turf(src) //When held, this will still find the user's location
 	if (istype(T))
 		var/obj/structure/shield_deployed/R = new structure_form_type(user.loc)
@@ -63,14 +63,14 @@
 	var/max_health = 500
 	var/health = 500
 	var/reinforced = FALSE
-	var/item_form_type = /obj/item/weapon/shield/riot/bastion
+	var/item_form_type = /obj/item/shield/riot/bastion
 
 /obj/structure/shield_deployed/update_icon()
 	if(reinforced)
 		icon_state = "barrier_reinforced"
 	else
 		icon_state = "barrier"
-	
+
 /obj/structure/shield_deployed/proc/damage(damage)
 	health -= damage
 	if(health <= 0)
@@ -124,7 +124,7 @@
 	if(istype(mover,/obj/item/projectile))
 		if(locate(/mob/living/) in get_turf(loc))
 			return (check_cover(mover,target))
-		
+
 		var/obj/item/projectile/P = mover
 		var/chance = 40
 		if(get_dist(P.starting, loc) <= 1)
@@ -161,8 +161,8 @@
 		return 1
 	if(get_turf(P.original) == cover)
 		var/chance = 40
-		if(reinforced == TRUE)			
-			chance += 40	
+		if(reinforced == TRUE)
+			chance += 40
 		if(health==0)
 			chance = 0
 		if(prob(chance))
@@ -193,7 +193,7 @@
 	..()
 	if(!CanMouseDrop(over_object))	return
 	if(!(ishuman(usr) || isrobot(usr)))	return
-	if(reinforced)	
+	if(reinforced)
 		to_chat(usr, SPAN_NOTICE("\The [src] needs collapsed first!"))
 		return
 	if(health < max_health)

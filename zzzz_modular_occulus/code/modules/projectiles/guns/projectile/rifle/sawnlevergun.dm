@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/shotgun/leveraction/sawn
+/obj/item/gun/projectile/shotgun/leveraction/sawn
 	name = "sawn-off lever-action shotgun"
 	desc = "A favourite of bootleggers everywhere."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/sawnlevergun.dmi'

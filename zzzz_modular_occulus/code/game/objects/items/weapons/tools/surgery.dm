@@ -1,22 +1,22 @@
-/obj/item/weapon/tool/retractor
+/obj/item/tool/retractor
 	tool_qualities = list(QUALITY_RETRACTING = 30, QUALITY_BOLT_TURNING = 5)
 
-/obj/item/weapon/tool/bonesetter
+/obj/item/tool/bonesetter
 	tool_qualities = list(QUALITY_BONE_SETTING = 30, QUALITY_BOLT_TURNING = 5)
 
-/obj/item/weapon/tool/surgicaldrill
+/obj/item/tool/surgicaldrill
 	tool_qualities = list(QUALITY_DRILLING = 30, QUALITY_SCREW_DRIVING = 5)
 
-/obj/item/weapon/tool/hemostat
+/obj/item/tool/hemostat
 	tool_qualities = list(QUALITY_CLAMPING = 30, QUALITY_BOLT_TURNING = 5)
 
-/obj/item/weapon/tool/scalpel
+/obj/item/tool/scalpel
 	max_health = 100
 
-/obj/item/weapon/tool/scalpel/laser
+/obj/item/tool/scalpel/laser
 	spawn_blacklisted = TRUE
 
-/obj/item/weapon/tool/incisionmanager
+/obj/item/tool/incisionmanager
 	name = "incision management system"
 	desc = "This advanced surgical tool greatly simplifies and speeds up most surgical procedures as well as providing a small heads-up display with helpful tips for novice and experienced practitioners alike"
 	hitsound = WORKSOUND_DRIVER_TOOL
@@ -29,7 +29,7 @@
 	max_upgrades = 2
 
 	use_power_cost = 0.1
-	suitable_cell = /obj/item/weapon/cell/small
+	suitable_cell = /obj/item/cell/small
 
 	icon = 'zzzz_modular_occulus/icons/obj/_tools.dmi'
 	icon_state = "ims_icon"
