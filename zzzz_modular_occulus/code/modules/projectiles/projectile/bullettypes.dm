@@ -15,16 +15,15 @@
 	name = "rubber pellet"
 	icon_state = "birdshot-1"
 	damage_types = list(BRUTE = 2)
-	agony = 18
-	pellets = 4
+	agony = 10
 	armor_penetration = 0
 	knockback = 0
 	embed = FALSE
 	sharp = FALSE
 
 /obj/item/projectile/bullet/pellet/fragment/rubber/stinger/weak
-	agony = 10
-	pellets = 2
+	damage_types = list(BRUTE = 1)
+	agony = 5
 
 //Rubberizing rubber rounds
 
