@@ -14,8 +14,8 @@
 /obj/item/projectile/bullet/pellet/fragment/rubber/stinger	//used for the stinger grenade
 	name = "rubber pellet"
 	icon_state = "birdshot-1"
-	damage_types = list(BRUTE = 2)
-	agony = 10
+	damage_types = list(BRUTE = 1)
+	agony = 17
 	armor_penetration = 0
 	knockback = 0
 	embed = FALSE
