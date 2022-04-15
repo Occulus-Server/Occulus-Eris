@@ -1,8 +1,8 @@
 /obj/item/projectile/bullet/pellet/shotgun/rubber
 	name = "rubber pellet"
 	icon_state = "birdshot-1"
-	damage_types = list(BRUTE = 1) //No more crew skeeting without medkits!
-	agony = 9 //Whoever the hell had this at 15 is going to suffer multiple shots to the groin.
+	damage_types = list(BRUTE = 2) //No more crew skeeting without medkits!
+	agony = 8 //Whoever the hell had this at 15 is going to suffer multiple shots to the groin.
 	pellets = 8
 	range_step = 2
 	spread_step = 10
@@ -52,10 +52,6 @@
 /obj/item/projectile/bullet/pistol/rubber
 	damage_types = list(BRUTE = 6)
 	agony = 22
-
-/obj/item/projectile/bullet/pellet/shotgun/rubber
-	damage_types = list(BRUTE = 2) //The official consensus is that getting PB'd by rubbers should be an owie.
-	agony = 8 //Whoever the hell had this at 15 is going to suffer multiple shots to the groin.
 
 // nanite bullet types
 
