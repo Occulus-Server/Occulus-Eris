@@ -15,11 +15,6 @@
 	matter = list(MATERIAL_STEEL = 3)
 	var/list/carrying = list() // List of things on the tray. - Doohl
 	var/max_carry = 15
-	var/cleanpickup = FALSE
-
-/obj/item/tray/AltClick(mob/living/carbon/user)
-	cleanpickup = TRUE
-	pickup(mob/user)
 
 /obj/item/tray/attack(mob/living/carbon/M, mob/living/carbon/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)	//Occulus Edit- NO INSTANT MURDERING PEOPLE WITH A RAPID TRAY SPAM
@@ -178,9 +173,6 @@
 
 /obj/item/tray/pickup(mob/user)	//occulus edit: Prepickup just returns True in the code. I don't know how it works, but it certainly /doesn't/ work here. Reverted to using standard pickup.
 	if(!isturf(loc))
-		return ..()
-	if(cleanpickup == TRUE)
-		cleanpickup = FALSE
 		return ..()
 
 	for(var/obj/item/I in loc)
