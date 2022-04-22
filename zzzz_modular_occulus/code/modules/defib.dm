@@ -482,7 +482,7 @@
 			O = H.random_organ_by_process(organ_tag)
 			if(!O)
 				return "buzzes, \"Resuscitation failed - Patient is missing vital organ ([name]). Further attempts futile.\""
-			if(O.damage > O.max_damage)
+			if(O.damage >= (O.max_damage * 0.75))//Organs can't go past max_damage in erismed3. If an organ has less than 25% health left, this step now fails.
 				return "buzzes, \"Resuscitation failed - Excessive damage to vital organ ([name]). Further attempts futile.\""
 	return null
 
