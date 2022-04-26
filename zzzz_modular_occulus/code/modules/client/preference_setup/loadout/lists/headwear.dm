@@ -10,6 +10,7 @@
 	flags = GEAR_HAS_TYPE_SELECTION
 
 /datum/gear/head/fishing
-	display_name = "Fishing hat"
+	display_name = "fishing hat"
 	path = /obj/item/clothing/head/fishing
+	flags = GEAR_HAS_TYPE_SELECTION
 	cost = 2
