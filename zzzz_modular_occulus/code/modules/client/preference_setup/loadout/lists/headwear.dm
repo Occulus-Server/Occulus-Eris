@@ -8,3 +8,8 @@
 	display_name = "fashionable beret selection"
 	path = /obj/item/clothing/head/beret/fashion
 	flags = GEAR_HAS_TYPE_SELECTION
+
+/datum/gear/head/fishing
+	display_name = "Fishing hat"
+	path = /obj/item/clothing/head/fishing
+	cost = 2

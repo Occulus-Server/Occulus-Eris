@@ -2,13 +2,13 @@
 /obj/item/clothing/head/fishing
 	name = "fishing hat"
 	desc = "It's a peaked cap with a quirky slogan."
-	icon = 'icons/inventory/head/item_fishing.dmi'
+	icon = 'zzzz_modular_occulus/icons/inventory/head/item_fishing.dmi'
 	icon_state = "greensoft0"
 	item_state_slots = list(slot_r_hand_str = "helmet", slot_l_hand_str = "helmet", slot_head_str = "greensoft0")
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_hats.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_hats.dmi',
-		slot_head_str = 'icons/inventory/head/mob_fishing.dmi'
+		slot_head_str = 'zzzz_modular_occulus/icons/inventory/head/mob_fishing.dmi'
 		)
 	siemens_coefficient = 0.9
 	rarity_value = 7

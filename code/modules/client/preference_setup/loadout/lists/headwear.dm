@@ -156,8 +156,3 @@
 		"Gray"		=	/obj/item/clothing/head/armor/helmet/tanker/gray,
 	)
 	gear_tweaks += new /datum/gear_tweak/path(tanker_helmet)
-
-/datum/gear/head/fishing
-	display_name = "Fishing hat"
-	path = /obj/item/clothing/head/fishing
-	cost = 2
