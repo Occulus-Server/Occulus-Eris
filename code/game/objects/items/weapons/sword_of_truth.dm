@@ -1,4 +1,4 @@
-/obj/item/weapon/tool/sword/nt_sword
+/obj/item/tool/sword/nt_sword
 	name = "Sword of Truth"
 	desc = "Sword out of unknown alloy, humming from unknown power source."
 	icon = 'icons/obj/faction_item.dmi'
@@ -14,34 +14,34 @@
 	var/flash_cooldown = 1 MINUTES
 	var/last_use = 0
 
-/obj/item/weapon/tool/sword/nt_sword/crusade_activated()
+/obj/item/tool/sword/nt_sword/crusade_activated()
 	force += crusade_force - initial(force)
 
-/* /obj/item/weapon/tool/sword/nt_sword/New()
+/* /obj/item/tool/sword/nt_sword/New()
 	..()
 	GLOB.all_faction_items[src] = GLOB.department_church
 
- /obj/item/weapon/tool/sword/nt_sword/Destroy()
+ /obj/item/tool/sword/nt_sword/Destroy()
 	for(var/mob/living/carbon/human/H in viewers(get_turf(src)))
 		SEND_SIGNAL(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
 	GLOB.all_faction_items -= src
 	GLOB.neotheology_faction_item_loss++
 	..() */ //This is scoring. Uncomment this if you port scoring. - Bear
 
-/obj/item/weapon/tool/sword/nt_sword/attackby(obj/item/I, mob/user, params)
+/obj/item/tool/sword/nt_sword/attackby(obj/item/I, mob/user, params)
 	if(nt_sword_attack(I, user))
 		return FALSE
 	..()
 
-/obj/item/weapon/tool/sword/nt_sword/wield(mob/living/user)
+/obj/item/tool/sword/nt_sword/wield(mob/living/user)
 	..()
 	set_light(l_range = 1.7, l_power = 1.3, l_color = COLOR_YELLOW)
 
-/obj/item/weapon/tool/sword/nt_sword/unwield(mob/living/user)
+/obj/item/tool/sword/nt_sword/unwield(mob/living/user)
 	..()
 	set_light(l_range = 0, l_power = 0, l_color = COLOR_YELLOW)
 
-/obj/item/weapon/tool/sword/nt_sword/attack_self(mob/user)
+/obj/item/tool/sword/nt_sword/attack_self(mob/user)
 	if(isBroken)
 		to_chat(user, SPAN_WARNING("\The [src] is broken."))
 		return
@@ -58,14 +58,14 @@
 	for(var/obj/structure/closet/L in hear(7, get_turf(src)))
 		if(locate(/mob/living/carbon/, L))
 			for(var/mob/living/carbon/M in L)
-				var/obj/item/weapon/implant/core_implant/I = M.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+				var/obj/item/implant/core_implant/I = M.get_core_implant(/obj/item/implant/core_implant/cruciform)
 				if(I && I.active && I.wearer)
 					continue
 				bang(get_turf(src), M)
 
 
 	for(var/mob/living/carbon/M in hear(7, get_turf(src)))
-		var/obj/item/weapon/implant/core_implant/I = M.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+		var/obj/item/implant/core_implant/I = M.get_core_implant(/obj/item/implant/core_implant/cruciform)
 		if(I && I.active && I.wearer)
 			continue
 		bang(get_turf(src), M)
@@ -80,7 +80,7 @@
 	last_use = world.time
 	return
 
-/obj/item/weapon/tool/sword/nt_sword/proc/bang(var/turf/T , var/mob/living/carbon/M)					// Added a new proc called 'bang' that takes a location and a person to be banged.
+/obj/item/tool/sword/nt_sword/proc/bang(var/turf/T , var/mob/living/carbon/M)					// Added a new proc called 'bang' that takes a location and a person to be banged.
 	to_chat(M, SPAN_DANGER(pick("HOLY LIGHT!", "GOD HAVE MERCY!", "HOLY HAVEN!", "YOU SEE THE LIGHT!")))								// Called during the loop that bangs people in lockers/containers and when banging
 	playsound(loc, 'sound/effects/bang.ogg', 50, 1, 5)		// people in normal view.  Could theroetically be called during other explosions.
 																// -- Polymorph
@@ -155,11 +155,11 @@
 	anchored = TRUE
 	density = TRUE
 	breakable = FALSE
-	var/obj/item/weapon/tool/sword/nt_sword/sword = null
+	var/obj/item/tool/sword/nt_sword/sword = null
 
 /obj/structure/nt_pedestal/New(var/loc, var/turf/anchor)
 	..()
-	sword = new /obj/item/weapon/tool/sword/nt_sword(src)
+	sword = new /obj/item/tool/sword/nt_sword(src)
 	update_icon()
 
 /obj/structure/nt_pedestal/attackby(obj/item/I, mob/user)
@@ -172,7 +172,7 @@
 			if(I.use_tool(user, src, WORKTIME_NEAR_INSTANT, QUALITY_BOLT_TURNING, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
 				to_chat(user, SPAN_NOTICE("You've unsecured the [src] assembly!"))
 				anchored = FALSE
-	if(istype(I, /obj/item/weapon/tool/sword/nt_sword))
+	if(istype(I, /obj/item/tool/sword/nt_sword))
 		if(sword)
 			to_chat(user, SPAN_WARNING("[src] already has a sword in it!"))
 		insert_item(I, user)
@@ -184,7 +184,7 @@
 	..()
 	if(sword && istype(user, /mob/living/carbon))
 		var/mob/living/carbon/H = user
-		var/obj/item/weapon/implant/core_implant/I = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+		var/obj/item/implant/core_implant/I = H.get_core_implant(/obj/item/implant/core_implant/cruciform)
 		if(I && I.active && I.wearer)
 			H.put_in_hands(sword)
 			visible_message(SPAN_NOTICE("[user] removed [sword] from the [src]."))
@@ -207,7 +207,7 @@
 /obj/structure/nt_pedestal/on_update_icon()
 	icon_state = "nt_pedestal[sword?"1":"0"]"
 
-/obj/item/weapon/storage/pouch/nt_sheath
+/obj/item/storage/pouch/nt_sheath
 	name = "Sword of Truth sheath"
 	desc = "Can hold a Sword of Truth."
 	icon = 'icons/obj/faction_item.dmi'
@@ -220,12 +220,12 @@
 	max_w_class = ITEM_SIZE_BULKY
 
 	can_hold = list(
-		/obj/item/weapon/tool/sword/nt_sword
+		/obj/item/tool/sword/nt_sword
 		)
 
 	sliding_behavior = TRUE
 
-/obj/item/weapon/storage/pouch/nt_sheath/update_icon()
+/obj/item/storage/pouch/nt_sheath/update_icon()
 	icon_state = "nt_sheath[contents.len?"1":"0"]"
 	item_state = "nt_sheath[contents.len?"1":"0"]"
 	..()

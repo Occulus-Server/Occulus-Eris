@@ -108,12 +108,12 @@
 				if(!ispath(obj_path))
 					continue
 				all_accompanying_obj_by_path[path] += list(obj_path)
-		if(ispath(path, /obj/item/weapon/gun/energy))
-			var/obj/item/weapon/gun/energy/E = A
+		if(ispath(path, /obj/item/gun/energy))
+			var/obj/item/gun/energy/E = A
 			if(!initial(E.use_external_power) && !initial(E.self_recharge))
 				all_accompanying_obj_by_path[path] += list(initial(E.suitable_cell))
-		else if(ispath(path, /obj/item/weapon/gun/projectile))
-			var/obj/item/weapon/gun/projectile/P = A
+		else if(ispath(path, /obj/item/gun/projectile))
+			var/obj/item/gun/projectile/P = A
 			if(initial(P.magazine_type))
 				all_accompanying_obj_by_path[path] += list(initial(P.magazine_type))
 
@@ -153,8 +153,8 @@
 	if(with_accompaying_obj && all_accompanying_obj_by_path[path])
 		for(var/a_obj in all_accompanying_obj_by_path[path])
 			. += get_spawn_price(a_obj, FALSE)
-	if(ispath(path, /obj/item/weapon/stock_parts))//see /obj/item/weapon/stock_parts/get_item_cost(export)
-		var/obj/item/weapon/stock_parts/S = path
+	if(ispath(path, /obj/item/stock_parts))//see /obj/item/stock_parts/get_item_cost(export)
+		var/obj/item/stock_parts/S = path
 		. *= initial(S.rating)
 	else if(ispath(path, /obj/item/stack))///obj/item/stack/get_item_cost(export)
 		var/obj/item/stack/S = path
@@ -162,8 +162,8 @@
 	else if(ispath(path, /obj/item/ammo_casing))///obj/item/ammo_casing/get_item_cost(export)
 		var/obj/item/ammo_casing/AC = path
 		. *= initial(AC.amount)
-	else if(ispath(path, /obj/item/weapon/handcuffs))///obj/item/weapon/handcuffs/get_item_cost(export)
-		var/obj/item/weapon/handcuffs/H = path
+	else if(ispath(path, /obj/item/handcuffs))///obj/item/handcuffs/get_item_cost(export)
+		var/obj/item/handcuffs/H = path
 		. += initial(H.breakouttime) / 20
 	else if(ispath(path, /obj/structure/reagent_dispensers))///obj/machinery/get_item_cost(export)
 		var/obj/structure/reagent_dispensers/R = path
@@ -174,20 +174,20 @@
 		if(isnull(amount))
 			amount = initial(M.max_ammo)
 		. += amount * get_spawn_price(initial(M.ammo_type))
-	else if(ispath(path, /obj/item/weapon/tool))
-		var/obj/item/weapon/tool/T = path
+	else if(ispath(path, /obj/item/tool))
+		var/obj/item/tool/T = path
 		if(initial(T.suitable_cell))
 			. += get_spawn_price(initial(T.suitable_cell))
-	else if(ispath(path, /obj/item/weapon/storage/box))
-		var/obj/item/weapon/storage/box/B = path
+	else if(ispath(path, /obj/item/storage/box))
+		var/obj/item/storage/box/B = path
 		if(initial(B.initial_amount) > 0 && initial(B.spawn_type))
 			. += initial(B.initial_amount) * get_spawn_price(initial(B.spawn_type))
-	else if(ispath(path, /obj/item/weapon/storage/fancy))
-		var/obj/item/weapon/storage/fancy/F = path
+	else if(ispath(path, /obj/item/storage/fancy))
+		var/obj/item/storage/fancy/F = path
 		if(initial(F.item_obj) && initial(F.storage_slots))
 			. += initial(F.storage_slots) * get_spawn_price(initial(F.item_obj))
-	else if(ispath(path, /obj/item/weapon/storage/pill_bottle))
-		var/obj/item/weapon/storage/pill_bottle/PB = path
+	else if(ispath(path, /obj/item/storage/pill_bottle))
+		var/obj/item/storage/pill_bottle/PB = path
 		if(initial(PB.initial_amt) && initial(PB.pill_type))
 			. += initial(PB.initial_amt) * get_spawn_price(initial(PB.pill_type))
 	else if(ispath(path, /obj/item/clothing))
@@ -199,8 +199,8 @@
 				. += get_spawn_price(initial(V.tank))
 			if(initial(V.boots))
 				. += get_spawn_price(initial(V.boots))
-	else if(ispath(path, /obj/item/weapon/cell))
-		var/obj/item/weapon/cell/C = path
+	else if(ispath(path, /obj/item/cell))
+		var/obj/item/cell/C = path
 		if(initial(C.price_tag))
 			var/bonus = initial(C.maxcharge)/(initial(C.price_tag)*2)
 			if(initial(C.autorecharging))
@@ -212,8 +212,8 @@
 		var/obj/item/device/D = path
 		if(initial(D.starting_cell) && initial(D.suitable_cell))
 			. += get_spawn_price(initial(D.suitable_cell))
-	else if(ispath(path, /obj/item/weapon/reagent_containers/glass/beaker))
-		var/obj/item/weapon/reagent_containers/glass/beaker/B = path
+	else if(ispath(path, /obj/item/reagent_containers/glass/beaker))
+		var/obj/item/reagent_containers/glass/beaker/B = path
 		. += initial(B.volume)/100
 
 /datum/controller/subsystem/spawn_data/proc/spawn_by_tag(list/tags)

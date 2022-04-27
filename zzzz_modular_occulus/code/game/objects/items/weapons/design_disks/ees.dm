@@ -1,10 +1,10 @@
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/components
+/obj/item/computer_hardware/hard_drive/portable/design/components
 	disk_name = "EES-ARK-034 Components"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools
+/obj/item/computer_hardware/hard_drive/portable/design/adv_tools
 	disk_name = "EES-IJIRO-451 Advanced Tools"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools
+/obj/item/computer_hardware/hard_drive/portable/design/adv_tools
 	designs = list(
 		/datum/design/autolathe/tool/big_wrench,
 		/datum/design/autolathe/tool/pneumatic_crowbar,
@@ -28,8 +28,8 @@
 		/datum/design/autolathe/tool/fibertape
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/circuits
+/obj/item/computer_hardware/hard_drive/portable/design/circuits
 	disk_name = "EES-ESPO-830 Circuits"
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors
+/obj/item/computer_hardware/hard_drive/portable/design/conveyors
 	disk_name = "EES-LAT-018 Logistics"

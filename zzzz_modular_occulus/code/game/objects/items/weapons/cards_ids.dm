@@ -1,7 +1,7 @@
-/obj/item/weapon/card/id
+/obj/item/card/id
 	var/datum/gender/pronouns = "\[UNSET\]"
 
-/mob/living/carbon/human/set_id_info(var/obj/item/weapon/card/id/id_card)
+/mob/living/carbon/human/set_id_info(var/obj/item/card/id/id_card)
 	id_card.pronouns 			= gender_datums[get_gender()]
 	id_card.age 				= age
 	id_card.registered_name		= real_name
@@ -14,7 +14,7 @@
 		id_card.fingerprint_hash= md5(dna.uni_identity)
 	id_card.update_name()
 
-/obj/item/weapon/card/id/dat()
+/obj/item/card/id/dat()
 	var/dat = ("<table><tr><td>")
 	dat += text("Name: []</A><BR>", registered_name)
 	dat += text("Sex: []</A><BR>\n", sex)

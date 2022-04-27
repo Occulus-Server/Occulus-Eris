@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/personal/miner/populate_contents()
-	new /obj/item/weapon/storage/backpack/industrial(src)
-	new /obj/item/weapon/storage/backpack/satchel/industrial(src)
+	new /obj/item/storage/backpack/industrial(src)
+	new /obj/item/storage/backpack/satchel/industrial(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/clothing/under/rank/miner(src)
 	new /obj/item/clothing/gloves/thick(src)

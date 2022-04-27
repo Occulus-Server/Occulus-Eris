@@ -12,7 +12,7 @@
 	melee_damage_upper = 5
 	spawn_blacklisted = TRUE
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/roachmeat
 	meat_amount = 1
 
 	probability_egg_laying = 0
@@ -33,7 +33,7 @@
 					spawn_type = /mob/living/carbon/superior_animal/roach/fuhrer
 			else
 				spawn_type = /obj/spawner/mob/roaches
-			
+
 			if (ispath(spawn_type, /obj/spawner))
 				new spawn_type(src.loc, src, list("friends" = src.friends.Copy()))
 			else if(ispath(spawn_type, /mob))

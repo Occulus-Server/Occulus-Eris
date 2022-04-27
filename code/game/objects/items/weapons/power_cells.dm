@@ -1,5 +1,5 @@
 //BIG CELLS - for APC, borgs and machinery.
-/obj/item/weapon/cell/large
+/obj/item/cell/large
 	name = "\"Robustcell 1000L\""
 	desc = "A Rechargeable L-standardized power cell. This one is the cheapest you can find."
 	icon_state = "b_st"
@@ -8,7 +8,7 @@
 	price_tag = 200
 	spawn_tags = SPAWN_TAG_POWERCELL_LARGE
 
-/obj/item/weapon/cell/large/high
+/obj/item/cell/large/high
 	name = "\"Robustcell 5000L\""
 	desc = "A Rechargeable L-standardized power cell. The Popular and reliable version."
 	icon_state = "b_hi"
@@ -16,7 +16,7 @@
 	maxcharge = 5000
 	rarity_value = 5.5
 
-/obj/item/weapon/cell/large/super
+/obj/item/cell/large/super
 	name = "\"Robustcell 15000L\""
 	desc = "A Rechargeable L-standardized power cell. This advanced version can store even more energy."
 	icon_state = "b_sup"
@@ -24,7 +24,7 @@
 	maxcharge = 15000
 	rarity_value = 10
 
-/obj/item/weapon/cell/large/hyper
+/obj/item/cell/large/hyper
 	name = "\"Robustcell-X 20000L\""
 	desc = "A Rechargeable L-standardized power cell. Looks like this is a rare and powerful prototype."
 	icon_state = "b_hy"
@@ -32,14 +32,14 @@
 	maxcharge = 20000
 	rarity_value = 22.5
 
-/obj/item/weapon/cell/large/moebius
+/obj/item/cell/large/moebius
 	name = "\"Power-Geyser 2000L\""
 	desc = "An Experimental rechargeable L-standardized power cell. This one is cheap, yet better than the normal model for same price."
 	icon_state = "meb_b_st"
 	maxcharge = 2000
 	rarity_value = 5.5
 
-/obj/item/weapon/cell/large/moebius/high
+/obj/item/cell/large/moebius/high
 	name = "\"Power-Geyser 7000L\""
 	desc = "An experimental rechargeable L-standardized power cell. Popular and reliable version."
 	icon_state = "meb_b_hi"
@@ -47,7 +47,7 @@
 	maxcharge = 7000
 	rarity_value = 6.5
 
-/obj/item/weapon/cell/large/moebius/super
+/obj/item/cell/large/moebius/super
 	name = "\"Power-Geyser 13000L\""
 	desc = "An experimental L-standardized power cell. This advanced version can store even more energy."
 	icon_state = "meb_b_sup"
@@ -55,7 +55,7 @@
 	maxcharge = 13000
 	rarity_value = 9
 
-/obj/item/weapon/cell/large/moebius/hyper
+/obj/item/cell/large/moebius/hyper
 	name = "\"Power-Geyser 18000L\""
 	desc = "An Experimental rechargeable L-standardized power cell. Looks like this is rare and powerful prototype."
 	icon_state = "meb_b_hy"
@@ -63,7 +63,7 @@
 	maxcharge = 18000
 	rarity_value = 22.5
 
-/obj/item/weapon/cell/large/moebius/nuclear
+/obj/item/cell/large/moebius/nuclear
 	name = "\"Atomcell 13000L\""
 	desc = "An Experimental rechargeable L-standardized power cell. This version able to recharge itself over time."
 	icon_state = "meb_b_nu"
@@ -73,7 +73,7 @@
 	maxcharge = 13000
 	rarity_value = 45
 
-/obj/item/weapon/cell/large/excelsior
+/obj/item/cell/large/excelsior
 	name = "\"Zarya 8000L\""
 	desc = "An Rechargeable L-standardized power cell. Power to the people!"
 	icon_state = "exs_l"
@@ -84,7 +84,7 @@
 
 //Meme cells - for fun and cancer
 
-/obj/item/weapon/cell/large/potato
+/obj/item/cell/large/potato
 	name = "potato battery"
 	desc = "A rechargable starch based power cell."
 	origin_tech = list(TECH_POWER = 1)
@@ -95,7 +95,7 @@
 	minor_fault = 1
 	spawn_blacklisted = TRUE
 
-/obj/item/weapon/cell/large/slime
+/obj/item/cell/large/slime
 	name = "charged slime core"
 	desc = "A yellow slime core infused with phoron, it crackles with power."
 	origin_tech = list(TECH_POWER = 2, TECH_BIO = 4)
@@ -107,7 +107,7 @@
 
 //MEDIUM CELLS - for energy weapons and large devices
 
-/obj/item/weapon/cell/medium
+/obj/item/cell/medium
 	name = "\"Robustcell 600M\""
 	desc = "A rechargeable M-standardized power cell. This one is the cheapest you can find."
 	icon_state = "m_st"
@@ -120,7 +120,7 @@
 	price_tag = 100
 	spawn_tags = SPAWN_TAG_POWERCELL_MEDIUM
 
-/obj/item/weapon/cell/medium/high
+/obj/item/cell/medium/high
 	name = "\"Robustcell 800M\""
 	desc = "A rechargeable M-standardized power cell. Popular and reliable version."
 	icon_state = "m_hi"
@@ -129,7 +129,7 @@
 	rarity_value = 5.5
 	spawn_tags = SPAWN_TAG_POWERCELL_MEDIUM_IH_AMMO
 
-/obj/item/weapon/cell/medium/super
+/obj/item/cell/medium/super
 	name = "\"Robustcell 1000M\""
 	desc = "A rechargeable M-standardized power cell. This advanced version can store even more energy."
 	icon_state = "m_sup"
@@ -137,7 +137,7 @@
 	maxcharge = 1000
 	rarity_value = 8
 
-/obj/item/weapon/cell/medium/hyper
+/obj/item/cell/medium/hyper
 	name = "\"Robustcell-X 1500M\""
 	desc = "A rechargeable M-standardized power cell. Looks like this is a rare and powerful prototype."
 	icon_state = "m_hy"
@@ -145,14 +145,14 @@
 	maxcharge = 1500
 	rarity_value = 30
 
-/obj/item/weapon/cell/medium/moebius
+/obj/item/cell/medium/moebius
 	name = "\"Power-Geyser 700M\""
 	desc = "An Experimental rechargeable M-standardized power cell. This one is cheap, yet better than the normal model for the same price."
 	icon_state = "meb_m_st"
 	maxcharge = 700
 	rarity_value = 5.5
 
-/obj/item/weapon/cell/medium/moebius/high
+/obj/item/cell/medium/moebius/high
 	name = "\"Power-Geyser 900M\""
 	desc = "An Experimental rechargeable M-standardized power cell. Popular and reliable version."
 	icon_state = "meb_m_hi"
@@ -161,7 +161,7 @@
 	rarity_value = 6.5
 
 
-/obj/item/weapon/cell/medium/moebius/super
+/obj/item/cell/medium/moebius/super
 	name = "\"Power-Geyser 1000M\""
 	desc = "An experimental rechargeable M-standardized power cell. This advanced version can store even more energy."
 	icon_state = "meb_m_sup"
@@ -169,7 +169,7 @@
 	maxcharge = 1000
 	rarity_value = 9
 
-/obj/item/weapon/cell/medium/moebius/hyper
+/obj/item/cell/medium/moebius/hyper
 	name = "\"Power-Geyser 1300M\""
 	desc = "An experimental rechargeable M-standardized power cell. Looks like this is rare and powerful prototype."
 	icon_state = "meb_m_hy"
@@ -177,7 +177,7 @@
 	maxcharge = 1300
 	rarity_value = 22.5
 
-/obj/item/weapon/cell/medium/moebius/nuclear
+/obj/item/cell/medium/moebius/nuclear
 	name = "\"Atomcell 1000M\""
 	desc = "An experimental rechargeable M-standardized power cell. This version able to recharge itself over time."
 	icon_state = "meb_m_nu"
@@ -187,7 +187,7 @@
 	maxcharge = 1000
 	rarity_value = 45
 
-/obj/item/weapon/cell/medium/excelsior
+/obj/item/cell/medium/excelsior
 	name = "\"Zarya 800M\""
 	desc = "A rechargeable M-standardized power cell. Power to the people!"
 	icon_state = "exs_m"
@@ -198,7 +198,7 @@
 
 
 //SMALL CELLS - for small devices, such as flashlights, analyzers and HUDs.
-/obj/item/weapon/cell/small
+/obj/item/cell/small
 	name = "\"Robustcell 100S\""
 	desc = "A rechargeable S-standardized power cell. This one is the cheapest you can find."
 	icon_state = "s_st"
@@ -212,7 +212,7 @@
 	spawn_tags = SPAWN_TAG_POWERCELL_SMALL
 	rarity_value = 3
 
-/obj/item/weapon/cell/small/high
+/obj/item/cell/small/high
 	name = "\"Robustcell 200S\""
 	desc = "A rechargeable S-standardized power cell. Popular and reliable version."
 	icon_state = "s_hi"
@@ -220,7 +220,7 @@
 	maxcharge = 200
 	rarity_value = 4
 
-/obj/item/weapon/cell/small/super
+/obj/item/cell/small/super
 	name = "\"Robustcell 300S\""
 	desc = "A rechargeable S-standardized power cell. This advanced version can store even more energy."
 	icon_state = "s_sup"
@@ -228,7 +228,7 @@
 	maxcharge = 300
 	rarity_value = 7
 
-/obj/item/weapon/cell/small/hyper
+/obj/item/cell/small/hyper
 	name = "\"Robustcell-X 500S\""
 	desc = "A rechargeable S-standardized power cell. Looks like this is a rare and powerful prototype."
 	icon_state = "s_hy"
@@ -236,14 +236,14 @@
 	maxcharge = 500
 	rarity_value = 20
 
-/obj/item/weapon/cell/small/moebius
+/obj/item/cell/small/moebius
 	name = "NanoTrasen \"Power-Geyser 120S\""
 	desc = "NanoTrasen Laboratories branded rechargeable S-standardized power cell. This one is cheap, yet better than Aster model for same price."
 	icon_state = "meb_s_st"
 	maxcharge = 120
 	rarity_value = 4
 
-/obj/item/weapon/cell/small/moebius/high
+/obj/item/cell/small/moebius/high
 	name = "\"Power-Geyser 250S\""
 	desc = "An experimental rechargeable S-standardized power cell. Popular and reliable version."
 	icon_state = "meb_s_hi"
@@ -251,7 +251,7 @@
 	maxcharge = 250
 	rarity_value = 5
 
-/obj/item/weapon/cell/small/moebius/super
+/obj/item/cell/small/moebius/super
 	name = "\"Power-Geyser 300S\""
 	desc = "An experimental rechargeable S-standardized power cell. This advanced version can store even more energy."
 	icon_state = "meb_s_sup"
@@ -259,7 +259,7 @@
 	maxcharge = 300
 	rarity_value = 6
 
-/obj/item/weapon/cell/small/moebius/hyper
+/obj/item/cell/small/moebius/hyper
 	name = "\"Power-Geyser 400S\""
 	desc = "An experimental rechargeable S-standardized power cell. Looks like this is rare and powerful prototype."
 	icon_state = "meb_s_hy"
@@ -267,7 +267,7 @@
 	maxcharge = 400
 	rarity_value = 16
 
-/obj/item/weapon/cell/small/moebius/nuclear
+/obj/item/cell/small/moebius/nuclear
 	name = "\"Atomcell 300S\""
 	desc = "An experimental rechargeable S-standardized microreactor cell. Recharges itself over time."
 	icon_state = "meb_s_nu"
@@ -277,7 +277,7 @@
 	maxcharge = 300
 	rarity_value = 40
 
-/obj/item/weapon/cell/small/moebius/pda
+/obj/item/cell/small/moebius/pda
 	name = "\"Atomcell 50S\""
 	desc = "An experimental branded S-standardized microreactor cell. Recharges itself over time."
 	icon_state = "meb_pda"
@@ -291,7 +291,7 @@
 	spawn_blacklisted = TRUE
 	rarity_value = 40
 
-/obj/item/weapon/cell/small/excelsior
+/obj/item/cell/small/excelsior
 	name = "\"Zarya 250S\""
 	desc = "A rechargeable S-standardized power cell. Power to the people!"
 	icon_state = "exs_s"
@@ -300,7 +300,7 @@
 	maxcharge = 300
 	rarity_value = 80
 
-/obj/item/weapon/cell/disposable
+/obj/item/cell/disposable
 	name = "a disposable cell"
 	desc = "just steel for this one!"
 	icon_state = "s_st"

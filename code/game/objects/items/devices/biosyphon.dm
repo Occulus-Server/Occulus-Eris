@@ -27,6 +27,6 @@
 
 /obj/item/biosyphon/Process()
 	if(world.time >= (last_produce + cooldown))
-		var/obj/item/weapon/storage/box/donut/D = new /obj/item/weapon/storage/box/donut(src.loc)
+		var/obj/item/storage/box/donut/D = new /obj/item/storage/box/donut(src.loc)
 		visible_message(SPAN_NOTICE("[name] dispenses [D]."))
 		last_produce = world.time

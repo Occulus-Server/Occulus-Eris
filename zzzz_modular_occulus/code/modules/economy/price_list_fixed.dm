@@ -64,16 +64,16 @@
 /datum/reagent/drink/hot_coco
 	price_tag = 1
 
-/obj/item/weapon/reagent_containers/food
+/obj/item/reagent_containers/food
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/coffee
+/obj/item/reagent_containers/food/drinks/coffee
 	price_tag = 0//Trash
 
-/obj/item/weapon/reagent_containers/food/drinks/tea
+/obj/item/reagent_containers/food/drinks/tea
 	price_tag = 0//It's trash
 
-/obj/item/weapon/reagent_containers/food/drinks/h_chocolate
+/obj/item/reagent_containers/food/drinks/h_chocolate
 	price_tag = 0//No bottle returns
 
 
@@ -332,28 +332,28 @@
 
 // From the machine //
 
-/obj/item/weapon/reagent_containers/food/drinks/cans/cola
+/obj/item/reagent_containers/food/drinks/cans/cola
 	price_tag = 1
 
-/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind
+/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind
 	price_tag = 1
 
-/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb
 	price_tag = 1
 
-/obj/item/weapon/reagent_containers/food/drinks/cans/starkist
+/obj/item/reagent_containers/food/drinks/cans/starkist
 	price_tag = 1
 
-/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle
+/obj/item/reagent_containers/food/drinks/cans/waterbottle
 	price_tag = 1
 
-/obj/item/weapon/reagent_containers/food/drinks/cans/space_up
+/obj/item/reagent_containers/food/drinks/cans/space_up
 	price_tag = 1
 
-/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea
+/obj/item/reagent_containers/food/drinks/cans/iced_tea
 	price_tag = 1
 
-/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice
+/obj/item/reagent_containers/food/drinks/cans/grape_juice
 	price_tag = 1
 
 
@@ -363,102 +363,102 @@
 
 // Juices, soda and similar //
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/cola
+/obj/item/reagent_containers/food/drinks/bottle/cola
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/space_up
+/obj/item/reagent_containers/food/drinks/bottle/space_up
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/space_mountain_wind
+/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/orangejuice
+/obj/item/reagent_containers/food/drinks/bottle/orangejuice
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/cream
+/obj/item/reagent_containers/food/drinks/bottle/cream
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice
+/obj/item/reagent_containers/food/drinks/bottle/tomatojuice
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice
+/obj/item/reagent_containers/food/drinks/bottle/limejuice
 	price_tag = 10
 
 
 // Beer //
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer
+/obj/item/reagent_containers/food/drinks/bottle/small/beer
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale
+/obj/item/reagent_containers/food/drinks/bottle/small/ale
 	price_tag = 10
 
 
 // Spirituous Liquors //
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe
+/obj/item/reagent_containers/food/drinks/bottle/absinthe
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/bluecuracao
+/obj/item/reagent_containers/food/drinks/bottle/bluecuracao
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/gin
+/obj/item/reagent_containers/food/drinks/bottle/gin
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/kahlua
+/obj/item/reagent_containers/food/drinks/bottle/kahlua
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/melonliquor
+/obj/item/reagent_containers/food/drinks/bottle/melonliquor
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/rum
+/obj/item/reagent_containers/food/drinks/bottle/rum
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla
+/obj/item/reagent_containers/food/drinks/bottle/tequilla
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka
+/obj/item/reagent_containers/food/drinks/bottle/vodka
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey
+/obj/item/reagent_containers/food/drinks/bottle/whiskey
 	price_tag = 10
 
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/patron
+/obj/item/reagent_containers/food/drinks/bottle/patron
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/goldschlager
+/obj/item/reagent_containers/food/drinks/bottle/goldschlager
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing
+/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing
 	price_tag = 10
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/grenadine
+/obj/item/reagent_containers/food/drinks/bottle/grenadine
 	price_tag = 10
 
 
 // Wines //
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/wine
+/obj/item/reagent_containers/food/drinks/bottle/wine
 	price_tag = 20
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/cognac
+/obj/item/reagent_containers/food/drinks/bottle/cognac
 	price_tag = 20
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth
+/obj/item/reagent_containers/food/drinks/bottle/vermouth
 	price_tag = 20
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/pwine
+/obj/item/reagent_containers/food/drinks/bottle/pwine
 	price_tag = 20
 
-/obj/item/weapon/reagent_containers/get_item_cost(export)
+/obj/item/reagent_containers/get_item_cost(export)
 	. = ..()
 	if(!reagents)
 		return
 	for(var/datum/reagent/R in reagents.reagent_list)
 		. += R.volume * R.price_tag
 
-/obj/item/weapon/tool/
+/obj/item/tool/
 	price_tag = 5 //THIS IS MULTIPLIED BY (TOTAL TOOL_QUALITIES/5+1)
 /obj/item/ammo_casing/
 	price_tag = 2
@@ -525,5 +525,5 @@
 /obj/item/clothing/suit/space/void/excelsior
 	price_tag = 300
 
-/obj/item/weapon/rig
+/obj/item/rig
 	price_tag = 3000

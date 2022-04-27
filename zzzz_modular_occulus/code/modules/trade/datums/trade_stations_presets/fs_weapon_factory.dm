@@ -2,19 +2,19 @@
 	name_pool = list("FSTB 'Kaida'" = "Frozen Star Trade Beacon 'Kaida'. Maybe they have an extra batch of weapons?")
 	markup = 0.8
 	offer_types = list(
-		/obj/item/weapon/emp_mine,
-		/obj/item/weapon/grenade/empgrenade,
-		/obj/item/weapon/grenade/frag,
-		/obj/item/weapon/grenade/flashbang,
-		/obj/item/weapon/gun/energy/plasma/brigador,
-		/obj/item/weapon/gun/energy/lasercannon,
-		/obj/item/weapon/gun/energy/stunrevolver/moebius,
-		/obj/item/weapon/gun/projectile/automatic/c20r/moebius,
-		/obj/item/weapon/gun/projectile/automatic/whitenail,
-		/obj/item/weapon/gun_upgrade/barrel/mag_accel,
-		/obj/item/weapon/gun_upgrade/barrel/overheat,
-		/obj/item/weapon/mine,
-		/obj/item/weapon/tool/sword/katana/nano,
-		/obj/item/weapon/tool_upgrade/productivity/antistaining,
-		/obj/item/weapon/tool_upgrade/refinement/vibcompensator
+		/obj/item/emp_mine,
+		/obj/item/grenade/empgrenade,
+		/obj/item/grenade/frag,
+		/obj/item/grenade/flashbang,
+		/obj/item/gun/energy/plasma/brigador,
+		/obj/item/gun/energy/lasercannon,
+		/obj/item/gun/energy/stunrevolver/moebius,
+		/obj/item/gun/projectile/automatic/c20r/moebius,
+		/obj/item/gun/projectile/automatic/whitenail,
+		/obj/item/gun_upgrade/barrel/mag_accel,
+		/obj/item/gun_upgrade/barrel/overheat,
+		/obj/item/mine,
+		/obj/item/tool/sword/katana/nano,
+		/obj/item/tool_upgrade/productivity/antistaining,
+		/obj/item/tool_upgrade/refinement/vibcompensator
 	)

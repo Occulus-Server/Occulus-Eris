@@ -1,6 +1,6 @@
 // This whole file is an Occulus Edit
 
-/obj/item/weapon/emp_mine
+/obj/item/emp_mine
 	name = "OS Type - 183 \"Hei'an\""
 	desc = "Self-rechargeable EMP mine. It still works."
 	icon = 'icons/obj/weapons.dmi'
@@ -16,28 +16,28 @@
 	var/cooldown_timer = 0
 
 
-/obj/item/weapon/emp_mine/proc/arm()
+/obj/item/emp_mine/proc/arm()
 	armed = TRUE
 	//START_PROCESSING(SSobj, src)
 	update_icon()
 
 
-/obj/item/weapon/emp_mine/proc/disarm()
+/obj/item/emp_mine/proc/disarm()
 	armed = FALSE
 	//STOP_PROCESSING(SSobj, src)
 	update_icon()
 
 
-/obj/item/weapon/emp_mine/on_update_icon()
+/obj/item/emp_mine/on_update_icon()
 	icon_state = "empmine[armed ? "1":"0"]"
 
 
-/obj/item/weapon/emp_mine/Crossed(mob/AM)
+/obj/item/emp_mine/Crossed(mob/AM)
 	if(world.time - cooldown_timer > cooldown && isliving(AM) && armed == TRUE)
 		cooldown_timer = world.time
 		empulse(get_turf(src), emp_range, emp_range, TRUE)
 
-/obj/item/weapon/emp_mine/attack_self(mob/user as mob)
+/obj/item/emp_mine/attack_self(mob/user as mob)
 	src.add_fingerprint(user)
 	if(armed)
 		disarm()
@@ -47,7 +47,7 @@
 		arm()
 		to_chat(user, SPAN_WARNING("You arm \the [src]! You have 10 seconds to run away."))
 
-/obj/item/weapon/emp_mine/attackby(obj/item/I, mob/user)
+/obj/item/emp_mine/attackby(obj/item/I, mob/user)
 	if(QUALITY_PULSING in I.tool_qualities)
 
 		if (armed)
@@ -77,7 +77,7 @@
 				empulse(get_turf(src), emp_range, emp_range, TRUE)
 		return
 
-/obj/item/weapon/emp_mine/attack_hand(mob/user as mob)
+/obj/item/emp_mine/attack_hand(mob/user as mob)
 	if (armed)
 		user.visible_message(
 				SPAN_DANGER("[user] extends its hand to reach the [src]!"),
@@ -94,7 +94,7 @@
 	.=..()
 
 //Pre-armed mine
-/obj/item/weapon/emp_mine/armed/New()
+/obj/item/emp_mine/armed/New()
 	..()
 	arm()
 

@@ -4,13 +4,13 @@
 	allows a faithful acolyte to retain their mind and soul even in death.<br>\
 	Signifies your dedication and loyalty to Children of The Mekhane.<br>\
 	Ostensibly provided for free to new inductees."	// OCCULUS EDIT - hammering out the lore
-	implant_type = /obj/item/weapon/implant/core_implant/cruciform
+	implant_type = /obj/item/implant/core_implant/cruciform
 	restricted_depts = IRONHAMMER | COMMAND
 	allowed_depts = CHURCH
 	allow_modifications = TRUE
 
 /datum/category_item/setup_option/core_implant/cruciform/apply(mob/living/carbon/human/character)
-	var/obj/item/weapon/implant/core_implant/cruciform/C = new implant_type
+	var/obj/item/implant/core_implant/cruciform/C = new implant_type
 	C.install(character)
 	C.activate()
 	if(character.mind.assigned_job)
@@ -26,7 +26,7 @@
 	The Soulcrypt not only saves a DNA profile of you,<br>\
 	but also a scan of your entire brain allowing you to be reborn in the event of death!<br>\
 	Features a very steep price tag and requires a subscription to function, but employers tend to subsidize their installation and usage."	// OCCULUS EDIT - hammering out the lore
-	implant_type = /obj/item/weapon/implant/core_implant/soulcrypt
+	implant_type = /obj/item/implant/core_implant/soulcrypt
 	allow_modifications = TRUE
 
 /datum/category_item/setup_option/core_implant/soulcrypt/apply(mob/living/carbon/human/character)

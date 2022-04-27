@@ -368,6 +368,7 @@
 					/obj/item/storage/belt/utility/neotheology = 150,
 					/obj/item/storage/belt/tactical/neotheology = 150)
 
+
 //Updated Dinnerware
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
@@ -396,6 +397,8 @@
 	/obj/item/trash/plate = 5)//Adding more plates so people can make meals.
 	contraband = list(/obj/item/material/kitchen/rollingpin = 2, /obj/item/tool/knife/butch = 2)
 	auto_price = FALSE
+
+
 
 //all these are just to update the bill validator lights
 /obj/machinery/vending/serbomat/New()

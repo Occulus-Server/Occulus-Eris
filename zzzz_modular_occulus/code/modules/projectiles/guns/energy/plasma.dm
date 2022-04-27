@@ -1,26 +1,26 @@
-/obj/item/weapon/gun/energy/plasma/brigador/update_icon()
+/obj/item/gun/energy/plasma/brigador/update_icon()
 	overlays.Cut()
 	..()
 	if(cell)
-		if(istype(cell, /obj/item/weapon/cell/small/excelsior))
+		if(istype(cell, /obj/item/cell/small/excelsior))
 			overlays += image(icon, "cell_excelsior")
 			return TRUE
-		if(istype(cell, /obj/item/weapon/cell/small/moebius/nuclear) || istype(cell, /obj/item/weapon/cell/small/moebius/pda))
+		if(istype(cell, /obj/item/cell/small/moebius/nuclear) || istype(cell, /obj/item/cell/small/moebius/pda))
 			overlays += image(icon, "cell_nuclear")
 			return TRUE
-		if(istype(cell, /obj/item/weapon/cell/small/moebius/hyper) || istype(cell, /obj/item/weapon/cell/small/hyper))
+		if(istype(cell, /obj/item/cell/small/moebius/hyper) || istype(cell, /obj/item/cell/small/hyper))
 			overlays += image(icon, "cell_hyper")
 			return TRUE
-		if(istype(cell, /obj/item/weapon/cell/small/moebius/super) || istype(cell, /obj/item/weapon/cell/small/super))
+		if(istype(cell, /obj/item/cell/small/moebius/super) || istype(cell, /obj/item/cell/small/super))
 			overlays += image(icon, "cell_super")
 			return TRUE
-		if(istype(cell, /obj/item/weapon/cell/small/moebius/high) || istype(cell, /obj/item/weapon/cell/small/high))
+		if(istype(cell, /obj/item/cell/small/moebius/high) || istype(cell, /obj/item/cell/small/high))
 			overlays += image(icon, "cell_moebius")
 			return TRUE
 		overlays += image(icon, "cell_guild")
 		return TRUE
 
-/obj/item/weapon/gun/energy/nt_svalinn
+/obj/item/gun/energy/nt_svalinn
 	name = "MEK PP \"Svalinn\""
 	desc = "\"Mekhane\" brand plasma pistol. Small and easily concealable, it only can fire low-impact stun blasts. Ideal for personal defense."
 	fire_sound='sound/weapons/Taser.ogg'
@@ -32,7 +32,7 @@
 	)
 
 
-/obj/item/weapon/gun/energy/plasma/brigador
+/obj/item/gun/energy/plasma/brigador
 	name = "Frozen Star PP \"Brigador\""
 	desc = "\"Frozen Star\" brand energy pistol, for personal overprotection without the bulk of the Cassad."
 	icon = 'icons/obj/guns/energy/brigador.dmi'

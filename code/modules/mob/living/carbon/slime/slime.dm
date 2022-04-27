@@ -7,8 +7,8 @@
 	speak_emote = list("chirps")
 
 	layer = 5
-	maxHealth = 40 //eclipse edit, used to be 80
-	health = 40 //eclipse edit ditto
+	maxHealth = 80
+	health = 80
 	gender = NEUTER
 
 	update_icon = 0
@@ -278,7 +278,7 @@
 		if (I_GRAB)
 			if (M == src || anchored)
 				return
-			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, src)
 
 			M.put_in_active_hand(G)
 

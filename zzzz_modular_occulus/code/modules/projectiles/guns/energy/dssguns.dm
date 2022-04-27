@@ -1,11 +1,11 @@
-/obj/item/weapon/gun/energy/resolute
+/obj/item/gun/energy/resolute
 	name = "DSS ECAR \"Resolute\""
 	desc = "\"DeepFlare Security System\" energy carbine. The byzantine internal capacitor design requires this gun to fire in bursts of three. It has notably become a go-to firearm for station security forces due to it's stun capabilities."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/resolute.dmi'
 	item_state = "vulprifle"
 	icon_state = "vulprifle"
 	item_charge_meter = TRUE
-	suitable_cell = /obj/item/weapon/cell/medium
+	suitable_cell = /obj/item/cell/medium
 	w_class = ITEM_SIZE_BULKY
 	force = WEAPON_FORCE_PAINFUL
 	twohanded = TRUE
@@ -23,14 +23,14 @@
 		list(mode_name="kill", burst=3, projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg', fire_delay=8, charge_cost=60, icon="kill", projectile_color = "#8bbdd9"),
 		)
 
-/obj/item/weapon/gun/energy/stalwart
+/obj/item/gun/energy/stalwart
 	name = "DSS ESG \"Stalwart\""
 	desc = "\"DeepFlare Security System\" tri-barrel energy scattergun. The stalwart comes with a built in bayonet and fires short triple bursts of energized particles. "
 	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/stalwart.dmi'
 	item_state = "vulpshotty"
 	icon_state = "vulpshotty"
 	item_charge_meter = TRUE
-	suitable_cell = /obj/item/weapon/cell/medium
+	suitable_cell = /obj/item/cell/medium
 	w_class = ITEM_SIZE_BULKY
 	force = WEAPON_FORCE_ROBUST
 	one_hand_penalty = 10

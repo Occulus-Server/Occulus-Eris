@@ -14,9 +14,9 @@
 	uniform = /obj/item/clothing/under/rank/ensign
 	l_ear = /obj/item/device/radio/headset/heads/hop/ensign
 	shoes = /obj/item/clothing/shoes/reinforced
-	id_type = /obj/item/weapon/card/id/hop
+	id_type = /obj/item/card/id/hop
 	pda_type = /obj/item/modular_computer/pda/heads/hop
-	backpack_contents = list(/obj/item/weapon/tool/knife/dagger/ceremonial = 1)
+	backpack_contents = list(/obj/item/tool/knife/dagger/ceremonial = 1)
 
 /datum/job/ensign
 	flag = ENSIGN

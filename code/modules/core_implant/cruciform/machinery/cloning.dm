@@ -16,7 +16,7 @@
 	density = TRUE
 	anchored = TRUE
 	layer = 2.8
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/cloner
+	circuit = /obj/item/electronics/circuitboard/neotheology/cloner
 
 	frame_type = FRAME_VERTICAL
 
@@ -57,7 +57,7 @@
 /obj/machinery/neotheology/cloner/RefreshParts()
 	var/mn_rating = 0
 	var/mn_ammount = 0
-	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
+	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		mn_rating += M.rating
 		mn_ammount++
 	if (mn_ammount != 0) // Fail-check so we wont divide by 0 in future and get runtimes
@@ -123,7 +123,7 @@
 		occupant = null
 	else
 		if(progress >= CLONING_MEAT)
-			new /obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new /obj/item/reagent_containers/food/snacks/meat(loc)
 
 	update_icon()
 
@@ -229,7 +229,7 @@
 
 
 		if(progress >= CLONING_MEAT && !occupant)
-			var/obj/item/weapon/implant/core_implant/soulcrypt/R = reader.implant
+			var/obj/item/implant/core_implant/soulcrypt/R = reader.implant
 			if(!R)
 				open_anim()
 				stop()
@@ -378,7 +378,7 @@
 	icon_state = "biocan"
 	density = TRUE
 	anchored = TRUE
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/biocan
+	circuit = /obj/item/electronics/circuitboard/neotheology/biocan
 
 	var/biomass_capacity = 600
 
@@ -408,7 +408,7 @@
 
 /obj/machinery/neotheology/biomass_container/RefreshParts()
 	var/T = 0
-	for(var/obj/item/weapon/stock_parts/matter_bin/M in component_parts)
+	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
 		T += M.rating * 200
 	biomass_capacity = T
 
@@ -453,8 +453,8 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [B.name] is exhausted and can't be melted to biomatter. "))
 
-	if(istype(I, /obj/item/weapon/reagent_containers) && I.is_open_container())
-		var/obj/item/weapon/reagent_containers/container = I
+	if(istype(I, /obj/item/reagent_containers) && I.is_open_container())
+		var/obj/item/reagent_containers/container = I
 		if(container.reagents.get_reagent_amount("biomatter") == container.reagents.total_volume)
 			container.reagents.trans_to_holder(reagents, container.amount_per_transfer_from_this)
 			to_chat(user, SPAN_NOTICE("You transfer some of biomatter from \the [container] to \the [name]."))
@@ -473,9 +473,9 @@
 	icon_state = "reader_off"
 	density = TRUE
 	anchored = TRUE
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/reader
+	circuit = /obj/item/electronics/circuitboard/neotheology/reader
 
-	var/obj/item/weapon/implant/core_implant/soulcrypt/implant
+	var/obj/item/implant/core_implant/soulcrypt/implant
 	var/reading = FALSE
 
 
@@ -487,8 +487,8 @@
 	if(default_part_replacement(I, user))
 		return
 
-	if(istype(I, /obj/item/weapon/implant/core_implant/soulcrypt))
-		var/obj/item/weapon/implant/core_implant/soulcrypt/C = I
+	if(istype(I, /obj/item/implant/core_implant/soulcrypt))
+		var/obj/item/implant/core_implant/soulcrypt/C = I
 		user.drop_item()
 		C.forceMove(src)
 		implant = C

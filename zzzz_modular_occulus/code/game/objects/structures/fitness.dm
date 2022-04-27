@@ -32,7 +32,7 @@
 	var/weight = 1
 	var/list/qualifiers = list("with ease", "without any trouble", "with great effort")
 
-/obj/structure/fitness/weightlifter/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/fitness/weightlifter/attackby(obj/item/W as obj, mob/user as mob)
 	if(QUALITY_BOLT_TURNING in W.tool_qualities)
 		if(W.use_tool(user, src, WORKTIME_FAST, QUALITY_BOLT_TURNING, FAILCHANCE_EASY, required_stat = STAT_MEC))
 			playsound(src, 'sound/items/Deconstruct.ogg', 75, 1)

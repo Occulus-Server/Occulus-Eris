@@ -9,42 +9,42 @@
 		/obj/item/organ_module/armor,
 		/obj/item/part/armor,
 		/obj/item/part/gun,
-		/obj/item/weapon/beartrap,
-		/obj/item/weapon/bluespace_harpoon,
-		/obj/item/weapon/emp_mine,
-		/obj/item/weapon/grenade/empgrenade,
-		/obj/item/weapon/grenade/frag,
-		/obj/item/weapon/grenade/flashbang,
-		/obj/item/weapon/gun/energy/captain,
-		/obj/item/weapon/gun/energy/chameleon,
-		/obj/item/weapon/gun/projectile/automatic/c20r/moebius,
-		/obj/item/weapon/gun/projectile/automatic/whitenail,
-		/obj/item/weapon/gun_upgrade/barrel/isotope_diffuser,
-		/obj/item/weapon/gun_upgrade/barrel/mag_accel,
-		/obj/item/weapon/gun_upgrade/barrel/overheat,
-		/obj/item/weapon/gun_upgrade/barrel/toxin_coater,
-		/obj/item/weapon/gun_upgrade/mechanism/battery_shunt,
-		/obj/item/weapon/gun_upgrade/mechanism/overdrive,
-		/obj/item/weapon/hand_tele,
-		/obj/item/weapon/hatton,
-		/obj/item/weapon/mine,
-		/obj/item/weapon/tool/sword/katana/nano
+		/obj/item/beartrap,
+		/obj/item/bluespace_harpoon,
+		/obj/item/emp_mine,
+		/obj/item/grenade/empgrenade,
+		/obj/item/grenade/frag,
+		/obj/item/grenade/flashbang,
+		/obj/item/gun/energy/captain,
+		/obj/item/gun/energy/chameleon,
+		/obj/item/gun/projectile/automatic/c20r/moebius,
+		/obj/item/gun/projectile/automatic/whitenail,
+		/obj/item/gun_upgrade/barrel/isotope_diffuser,
+		/obj/item/gun_upgrade/barrel/mag_accel,
+		/obj/item/gun_upgrade/barrel/overheat,
+		/obj/item/gun_upgrade/barrel/toxin_coater,
+		/obj/item/gun_upgrade/mechanism/battery_shunt,
+		/obj/item/gun_upgrade/mechanism/overdrive,
+		/obj/item/hand_tele,
+		/obj/item/hatton,
+		/obj/item/mine,
+		/obj/item/tool/sword/katana/nano
 
 	)
 	assortiment = list(
 		"Ballistics" = list(
-			/obj/item/weapon/gun/projectile/selfload,
-			/obj/item/weapon/gun/projectile/automatic/c20r = custom_good_amount_range(list(-3, 1)),
-			/obj/item/weapon/gun/energy/crossbow = custom_good_amount_range(list(-3, 1))
+			/obj/item/gun/projectile/selfload,
+			/obj/item/gun/projectile/automatic/c20r = custom_good_amount_range(list(-3, 1)),
+			/obj/item/gun/energy/crossbow = custom_good_amount_range(list(-3, 1))
 		),
 		"Useful stuff" = list(
-			/obj/item/weapon/reagent_containers/hypospray/autoinjector/hyperzine,
+			/obj/item/reagent_containers/hypospray/autoinjector/hyperzine,
 			/obj/item/clothing/glasses/powered/night,
 			/obj/item/clothing/suit/space/void/merc = custom_good_amount_range(list(-3, 1)),
-			/obj/item/weapon/rig/merc/empty = custom_good_amount_range(list(-3, 1))
+			/obj/item/rig/merc/empty = custom_good_amount_range(list(-3, 1))
 		),
 		"Energy" = list(
-			/obj/item/weapon/gun/energy/resolute,
-			/obj/item/weapon/gun/energy/stalwart,
+			/obj/item/gun/energy/resolute,
+			/obj/item/gun/energy/stalwart,
 		),
 	)

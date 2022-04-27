@@ -68,7 +68,7 @@
 /turf/simulated/floor/tiled/techmaint_panels,
 /area/deepmaint)
 "r" = (
-/obj/item/weapon/inflatable_dispenser,
+/obj/item/inflatable_dispenser,
 /turf/simulated/floor/tiled/techmaint_panels,
 /area/deepmaint)
 "s" = (
@@ -84,7 +84,7 @@
 /turf/simulated/floor/reinforced,
 /area/deepmaint)
 "u" = (
-/obj/item/weapon/storage/box/matches,
+/obj/item/storage/box/matches,
 /turf/simulated/floor/reinforced,
 /area/deepmaint)
 "v" = (

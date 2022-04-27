@@ -18,13 +18,13 @@
 	if(!(status_flags & CANPUSH))
 		return 0
 
-	for(var/obj/item/weapon/grab/G in grabbed_by)
+	for(var/obj/item/grab/G in grabbed_by)
 		if(G.assailant == user)
 			to_chat(user, "<span class='notice'>You already grabbed [src].</span>")
 			return
 
 
-	var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(user, src)
+	var/obj/item/grab/G = new /obj/item/grab(user, src)
 	if(buckled)
 		to_chat(user, "<span class='notice'>You cannot grab [src]; they are buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if src is anchored
@@ -102,7 +102,7 @@
 
 	unwield(U)
 	U.swap_hand() // For whatever reason the grab will not properly work if we don't have the free hand active.
-	var/obj/item/weapon/grab/G = M.grabbedby(U, 1)
+	var/obj/item/grab/G = M.grabbedby(U, 1)
 	U.swap_hand()
 	if(G && istype(G))
 		if(improvised) // Improvised garrotes start you off with a passive grab, but keep you stunned like an agressive grab.
@@ -141,12 +141,12 @@
 		return
 
 	var/mob/living/carbon/human/user = loc
-	var/obj/item/weapon/grab/G
+	var/obj/item/grab/G
 
-	if(src == user.r_hand && istype(user.l_hand, /obj/item/weapon/grab))
+	if(src == user.r_hand && istype(user.l_hand, /obj/item/grab))
 		G = user.l_hand
 
-	else if(src == user.l_hand && istype(user.r_hand, /obj/item/weapon/grab))
+	else if(src == user.l_hand && istype(user.r_hand, /obj/item/grab))
 		G = user.r_hand
 
 	else
@@ -181,7 +181,7 @@
 	strangling.silent = max(strangling.silent, 10) // Non-improvised effects
 	strangling.apply_damage(4, OXY, "head")
 
-/obj/item/weapon/pen/edagger
+/obj/item/pen/edagger
 	icon = 'zzzz_modular_occulus/icons/obj/weapons.dmi'
 	origin_tech = list(TECH_COMBAT = 3, TECH_ILLEGAL = 1)
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut") //these wont show up if the pen is off
@@ -190,7 +190,7 @@
 	var/brightness_on = 2
 	light_color = "#B40000"
 
-/obj/item/weapon/pen/edagger/attack_self(mob/living/user)
+/obj/item/pen/edagger/attack_self(mob/living/user)
 	if(on)
 		on = FALSE
 		force = initial(force)
@@ -217,7 +217,7 @@
 		set_light(brightness_on, 1)
 	update_icon()
 
-/obj/item/weapon/pen/edagger/update_icon()
+/obj/item/pen/edagger/update_icon()
 	if(on)
 		icon_state = "epen"
 		item_state = "epen"

@@ -1,6 +1,6 @@
 GLOBAL_LIST_EMPTY(active_mindboil_spiders)
 
-/obj/item/weapon/implant/carrion_spider/mindboil
+/obj/item/implant/carrion_spider/mindboil
 	name = "mindboil spider"
 	icon_state = "spiderling_mindboil"
 	spider_price = 30
@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(active_mindboil_spiders)
 	var/datum/antag_contract/derail/contract
 	var/attack_from
 
-/obj/item/weapon/implant/carrion_spider/mindboil/activate()
+/obj/item/implant/carrion_spider/mindboil/activate()
 	if(active)
 		active = FALSE
 		GLOB.active_mindboil_spiders -= src
@@ -20,9 +20,9 @@ GLOBAL_LIST_EMPTY(active_mindboil_spiders)
 		GLOB.active_mindboil_spiders += src
 		to_chat(owner_mob, SPAN_NOTICE("\The [src] is active."))
 	..()
-	
 
-/obj/item/weapon/implant/carrion_spider/mindboil/Process()
+
+/obj/item/implant/carrion_spider/mindboil/Process()
 	..()
 
 	if(active)
@@ -39,12 +39,12 @@ GLOBAL_LIST_EMPTY(active_mindboil_spiders)
 		if(owner_mob && !contract)
 			find_contract()
 
-/obj/item/weapon/implant/carrion_spider/mindboil/Destroy()
+/obj/item/implant/carrion_spider/mindboil/Destroy()
 	GLOB.active_mindboil_spiders -= src
 	. = ..()
-	
 
-/obj/item/weapon/implant/carrion_spider/mindboil/proc/find_contract()
+
+/obj/item/implant/carrion_spider/mindboil/proc/find_contract()
 	for(var/datum/antag_contract/derail/C in GLOB.various_antag_contracts)
 		if(C.completed)
 			continue
@@ -52,7 +52,7 @@ GLOBAL_LIST_EMPTY(active_mindboil_spiders)
 		victims = list()
 		break
 
-/obj/item/weapon/implant/carrion_spider/mindboil/proc/reg_break(mob/living/carbon/human/victim)
+/obj/item/implant/carrion_spider/mindboil/proc/reg_break(mob/living/carbon/human/victim)
 /*  Occulus Edit Start
 	if(victim.get_species() != "Human")
 		return

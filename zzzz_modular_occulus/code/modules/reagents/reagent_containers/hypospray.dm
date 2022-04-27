@@ -8,26 +8,26 @@
 #define COMBAT_WAIT_INJECT 0
 #define COMBAT_SELF_INJECT 0
 
-/obj/item/weapon/storage/pouch/medical_supply
+/obj/item/storage/pouch/medical_supply
 	can_hold = list(
 		/obj/item/device/scanner/health,
-		/obj/item/weapon/dnainjector,
-		/obj/item/weapon/reagent_containers/dropper,
-		/obj/item/weapon/reagent_containers/glass/beaker,
-		/obj/item/weapon/reagent_containers/glass/bottle,
-		/obj/item/weapon/reagent_containers/pill,
-		/obj/item/weapon/reagent_containers/syringe,
-		/obj/item/weapon/storage/pill_bottle,
+		/obj/item/dnainjector,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle,
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,
 		/obj/item/clothing/mask/surgical,
 		/obj/item/clothing/head/surgery,
 		/obj/item/clothing/gloves/latex,
-		/obj/item/weapon/reagent_containers/hypospray,
+		/obj/item/reagent_containers/hypospray,
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/hypospray/mkii,
 		)
 
-/obj/item/weapon/reagent_containers/hypospray
+/obj/item/reagent_containers/hypospray
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 
 //A vial-loaded hypospray. Cartridge-based!
@@ -41,10 +41,10 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	var/amount_per_transfer_from_this
 	var/emagged = FALSE
-	var/list/allowed_containers = list(/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/tiny,
-		/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small)
-	var/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/vial
-	var/start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small
+	var/list/allowed_containers = list(/obj/item/reagent_containers/glass/beaker/hypocartridge/tiny,
+		/obj/item/reagent_containers/glass/beaker/hypocartridge/small)
+	var/obj/item/reagent_containers/glass/beaker/hypocartridge/vial
+	var/start_vial = /obj/item/reagent_containers/glass/beaker/hypocartridge/small
 	var/spawnwithvial = TRUE
 	var/inject_wait = WAIT_INJECT
 	var/inject_self = SELF_INJECT
@@ -57,27 +57,27 @@
 	var/scan_data
 
 /obj/item/hypospray/mkii/brute
-	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/polystem
+	start_vial = /obj/item/reagent_containers/glass/beaker/hypocartridge/small/polystem
 
 /obj/item/hypospray/mkii/toxin
-	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/antitoxin
+	start_vial = /obj/item/reagent_containers/glass/beaker/hypocartridge/small/antitoxin
 
 /obj/item/hypospray/mkii/oxygen
-	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/dexalin
+	start_vial = /obj/item/reagent_containers/glass/beaker/hypocartridge/small/dexalin
 
 /obj/item/hypospray/mkii/burn
-	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/kelotane
+	start_vial = /obj/item/reagent_containers/glass/beaker/hypocartridge/small/kelotane
 
 /obj/item/hypospray/mkii/tricord
-	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/tricord
+	start_vial = /obj/item/reagent_containers/glass/beaker/hypocartridge/small/tricord
 
 /obj/item/hypospray/mkii/CMO
 	name = "MID 'Hecate'"
-	allowed_containers = list(/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/tiny, /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small, /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large)
+	allowed_containers = list(/obj/item/reagent_containers/glass/beaker/hypocartridge/tiny, /obj/item/reagent_containers/glass/beaker/hypocartridge/small, /obj/item/reagent_containers/glass/beaker/hypocartridge/large)
 	icon_state = "cmohypo"
 	desc = "The  original Medical Injection Device 'Hecate'. It was found onboard the Northern Light, and its origins are unknown. It can take 90-unit cartridges, acts faster and delivers more reagents per spray then its copied counterparts. The Hecate has a built in scanner to check patients current reagents and prevent overdoses. It seems to have anomalous properties."
 	unacidable = 1
-	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/CMO
+	start_vial = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/CMO
 	inject_wait = DELUXE_WAIT_INJECT
 	inject_self = DELUXE_SELF_INJECT
 
@@ -85,8 +85,8 @@
 	name = "MID 'Ares'"
 	desc = "A combat-ready copy of the MID 'Hecate', the Ares has had it's safety protocals torn out, allowing it to act almost instantly. It can be tactically reloaded by using a vial on it. Designed for military engagements, patent pending."
 	icon_state = "combathypo"
-	allowed_containers = list(/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/tiny, /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small,/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/combat)
-	start_vial = /obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/small/combat
+	allowed_containers = list(/obj/item/reagent_containers/glass/beaker/hypocartridge/tiny, /obj/item/reagent_containers/glass/beaker/hypocartridge/small,/obj/item/reagent_containers/glass/beaker/hypocartridge/small/combat)
+	start_vial = /obj/item/reagent_containers/glass/beaker/hypocartridge/small/combat
 	emagged = TRUE
 	inject_wait = COMBAT_WAIT_INJECT
 	inject_self = COMBAT_SELF_INJECT
@@ -132,8 +132,8 @@
 		to_chat(user, SPAN_NOTICE("This [src] isn't loaded!</span>"))
 		return
 
-/obj/item/hypospray/mkii/attackby(obj/item/weapon/reagent_containers/glass/beaker/B, mob/living/user)
-	var/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/H = B
+/obj/item/hypospray/mkii/attackby(obj/item/reagent_containers/glass/beaker/B, mob/living/user)
+	var/obj/item/reagent_containers/glass/beaker/hypocartridge/H = B
 	if(!istype(H))
 		to_chat(user, SPAN_NOTICE("This doesn't fit in [src].</span>"))
 		return FALSE
@@ -190,7 +190,7 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
 		var/obj/item/clothing/suit/space/SS = H.get_equipped_item(slot_wear_suit)
-		var/obj/item/weapon/rig/RIG = H.get_equipped_item(slot_back)
+		var/obj/item/rig/RIG = H.get_equipped_item(slot_back)
 		if((istype(RIG) && RIG.suit_is_deployed()) || istype(SS))
 			injtime = RIG_WAIT_INJECT
 			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)

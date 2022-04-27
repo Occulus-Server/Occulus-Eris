@@ -4,7 +4,7 @@
 GLOBAL_LIST_INIT(random_chem_interaction_blacklist, list(
 	/datum/reagent/adminordrazine,
 	/datum/reagent/nanites,
-	/datum/reagent/water/holywater,
+	// /datum/reagent/water/holywater,This doesn't exist. Occulus Edit
 	/datum/reagent/chloralhydrate/beer2,
 	/datum/reagent/tobacco,
 	/datum/reagent/drink,

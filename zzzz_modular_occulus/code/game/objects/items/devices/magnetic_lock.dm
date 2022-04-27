@@ -27,8 +27,8 @@
 	var/obj/machinery/door/airlock/target_node1 = null
 	var/obj/machinery/door/airlock/target_node2 = null
 	var/obj/machinery/door/airlock/target = null
-	var/obj/item/weapon/cell/powercell
-	var/obj/item/weapon/cell/internal_cell
+	var/obj/item/cell/powercell
+	var/obj/item/cell/internal_cell
 	var/datum/effect/effect/system/spark_spread/spark_system
 	spawn_blacklisted = TRUE
 
@@ -57,8 +57,8 @@
 /obj/item/device/magnetic_lock/Initialize()
 	. = ..()
 
-	powercell = new /obj/item/weapon/cell/large/high()
-	internal_cell = new /obj/item/weapon/cell/medium()
+	powercell = new /obj/item/cell/large/high()
+	internal_cell = new /obj/item/cell/medium()
 
 	if (istext(department))
 		desc += " It is painted with [department] colors."
@@ -130,7 +130,7 @@
 		to_chat(user, "<span class='danger'>[src] is broken beyond repair!</span>")
 		return
 
-	if (istype(I, /obj/item/weapon/card/id))
+	if (istype(I, /obj/item/card/id))
 		if (!constructionstate && !hacked)
 			if (check_access(I))
 				locked = !locked
@@ -164,7 +164,7 @@
 		return
 	switch (constructionstate)
 		if (0)
-			if (istype(I, /obj/item/weapon/card/emag))
+			if (istype(I, /obj/item/card/emag))
 				visible_message("<span class='danger'>[src] sparks and falls off the door!</span>", "<span class='danger'>You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!</span>")
 
 				status = STATUS_BROKEN
@@ -200,7 +200,7 @@
 				return
 
 		if (1)
-			if (istype(I, /obj/item/weapon/cell/large))
+			if (istype(I, /obj/item/cell/large))
 				if (powercell)
 					to_chat(user, SPAN_NOTICE("There's already a powercell in \the [src]."))
 				return
@@ -227,7 +227,7 @@
 					setconstructionstate(0)
 					return
 
-			if (istype(I, /obj/item/weapon/cell/large))
+			if (istype(I, /obj/item/cell/large))
 				if (!powercell)
 					to_chat(user, SPAN_NOTICE("You place the [I] inside \the [src]."))
 					user.drop_from_inventory(I,src)
@@ -260,8 +260,8 @@
 /obj/item/device/magnetic_lock/Process()
 	if(!processpower)
 		return
-	var/obj/item/weapon/cell/C = powercell // both of these are for viewing ease
-	var/obj/item/weapon/cell/BU = internal_cell
+	var/obj/item/cell/C = powercell // both of these are for viewing ease
+	var/obj/item/cell/BU = internal_cell
 	var/delta_sec = (world.time - last_process_time) / 10
 	var/drainamount = drain_per_second * delta_sec
 	if (C)

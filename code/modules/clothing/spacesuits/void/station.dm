@@ -34,17 +34,17 @@
 	)
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	extra_allowed = list(
-		/obj/item/weapon/storage/toolbox,
-		/obj/item/weapon/storage/briefcase/inflatable,
+		/obj/item/storage/toolbox,
+		/obj/item/storage/briefcase/inflatable,
 		/obj/item/device/t_scanner,
-		/obj/item/weapon/rcd
+		/obj/item/rcd
 	)
 	helmet = /obj/item/clothing/head/space/void/engineering
 	rarity_value = 10.1
 
 /obj/item/clothing/suit/space/void/engineering/equipped
 	boots = /obj/item/clothing/shoes/magboots
-	tank = /obj/item/weapon/tank/jetpack/oxygen
+	tank = /obj/item/tank/jetpack/oxygen
 	accompanying_object = null
 	spawn_blacklisted = TRUE
 
@@ -111,7 +111,7 @@
 	item_state = "medical_voidsuit"
 	slowdown = 0.15
 	extra_allowed = list(
-		/obj/item/weapon/storage/firstaid,
+		/obj/item/storage/firstaid,
 		/obj/item/device/scanner/health,
 		/obj/item/stack/medical,
 		/obj/item/roller
@@ -173,7 +173,7 @@
 
 /obj/item/clothing/suit/space/void/security/equipped
 	boots = /obj/item/clothing/shoes/magboots
-	tank = /obj/item/weapon/tank/jetpack/oxygen
+	tank = /obj/item/tank/jetpack/oxygen
 	accompanying_object = null
 	spawn_blacklisted = TRUE
 

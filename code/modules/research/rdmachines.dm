@@ -39,7 +39,7 @@ var/list/default_material_composition = list(MATERIAL_STEEL = 0, MATERIAL_GLASS 
 	name = "protolathe"
 	desc = "A machine used for construction of advanced prototypes. Operated from an R\&D console."
 	icon_state = "protolathe"
-	circuit = /obj/item/weapon/electronics/circuitboard/protolathe
+	circuit = /obj/item/electronics/circuitboard/protolathe
 
 	build_type = PROTOLATHE
 	storage_capacity = 120
@@ -49,7 +49,7 @@ var/list/default_material_composition = list(MATERIAL_STEEL = 0, MATERIAL_GLASS 
 	name = "circuit imprinter"
 	desc = "A machine used for printing advanced circuit boards. Operated from an R\&D console."
 	icon_state = "imprinter"
-	circuit = /obj/item/weapon/electronics/circuitboard/circuit_imprinter
+	circuit = /obj/item/electronics/circuitboard/circuit_imprinter
 
 	build_type = IMPRINTER
 	storage_capacity = 60
@@ -73,4 +73,4 @@ var/list/default_material_composition = list(MATERIAL_STEEL = 0, MATERIAL_GLASS 
 
 /obj/machinery/autolathe/rnd/imprinter/loaded/Initialize()
 	. = ..()
-	container = new /obj/item/weapon/reagent_containers/glass/beaker/silicon(src)
+	container = new /obj/item/reagent_containers/glass/beaker/silicon(src)

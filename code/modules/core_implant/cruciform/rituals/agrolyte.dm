@@ -16,7 +16,7 @@
 
 	var/boost_value = 1.5  // How much the aging process of the plant is sped up
 
-/datum/ritual/cruciform/agrolyte/accelerated_growth/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
+/datum/ritual/cruciform/agrolyte/accelerated_growth/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
 
 	var/list/plants_around = list()
 	for(var/obj/machinery/portable_atmospherics/hydroponics/H in view(user))

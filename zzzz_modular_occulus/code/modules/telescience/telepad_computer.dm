@@ -21,7 +21,7 @@
 	desc = "Controls the advanced telepad."
 	icon_screen = "teleport"
 	light_color = "#6496fa"
-	circuit = /obj/item/weapon/electronics/circuitboard/telesci_console
+	circuit = /obj/item/electronics/circuitboard/telesci_console
 	var/obj/machinery/telesci_pad/telepad = null
 
 	// VARIABLES //
@@ -58,8 +58,8 @@
 	addLog("Hawker-Nayala Bluespace Tunnel Console initialized. Welcome.")
 
 /obj/machinery/computer/telesci_console/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/weapon/tool/multitool))
-		var/obj/item/weapon/tool/multitool/M = W
+	if(istype(W, /obj/item/tool/multitool))
+		var/obj/item/tool/multitool/M = W
 		if(M.buffer_object && istype(M.buffer_object, /obj/machinery/telesci_pad))
 			if(istype(telepad))
 				closePortal()
@@ -82,7 +82,7 @@
 		portalOpened = FALSE
 		addLog("Telepad unable to maintain bluespace tunnel. Tunnel closed.")
 		resetMenus()
-	
+
 	if(ticking)
 		totalProgress++
 		if(totalProgress >= totalDelay)
@@ -90,7 +90,7 @@
 			progressMessage = "Pathfinding complete. Opening bluespace tunnel."
 			openPortal()
 			return TRUE
-		
+
 		currentStage = 1
 		for(var/i in 1 to delayStages.len)
 			if(totalProgress > delayStages[i])
@@ -99,7 +99,7 @@
 			ticking = FALSE
 			progressMessage = "Pathfinding complete. Opening bluespace tunnel."
 			openPortal()
-		
+
 		if(currentStage <= 1)
 			if(tracking_beacon)
 				progressMessage = "Coordinating with selected beacon for pathing."
@@ -109,7 +109,7 @@
 			progressMessage = "Querying Relay [currentStage-1] for calculations."
 		if(currentStage > 5)
 			progressMessage = "Bypassing bluespace interference."
-		
+
 		var/numPings = rand(5, 15)
 		for(var/i in 1 to numPings)
 			var/turf/randTurf = get_random_turf_in_range(telegraph, 7, 1)
@@ -136,7 +136,7 @@
 			blocker.visible_message(SPAN_DANGER("\The [src] sparks violently and begins to shake!"))
 			do_sparks(6, FALSE, get_turf(blocker))
 			addtimer(CALLBACK(blocker, /obj/machinery/telesci_inhibitor/proc/explode), 1 SECOND)
-		
+
 		if(inhibitorExploded)
 			var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
 			a.autosay("ALERT: Extreme bluespace disruption detected in [loc]. Equipment failure imm-m-...", "Bluespace Inhibition Node")
@@ -220,7 +220,7 @@
 	if(!mastermindKey || mastermindKey.len <= 0)
 		addLog("Critical error encountered while routing course. Please contact a system administrator.")
 		return FALSE
-	
+
 	if(!inputKey || inputKey.len <= 0)
 		return FALSE
 
@@ -228,13 +228,13 @@
 		inputKey = list()
 		addLog("Input path length [inputKey.len < mastermindKey.len ? "insufficient for" : "exceeds"] optimal path.")
 		return FALSE
-	
+
 	var/list/obj/machinery/telesci_relay/workingRelays = telepad.findWorkingRelays()
-	
+
 	if(workingRelays.len <= 0)
 		addLog("No available relays detected. Please check to ensure at least one relay is aligned with the telepad on the X/Y axis, and has a bluespace crystal loaded.")
 		return FALSE
-	
+
 	if(mastermindKey.len == 5 && workingRelays.len < 4)
 		addLog("Bluespace interference detected at target location. Four available relays are required to isolate accurate path.")
 		return FALSE
@@ -247,7 +247,7 @@
 		if(inputKey[i] == keyContents[i])
 			bulls++
 			keyContents[i] = null
-	
+
 	for(var/i in 1 to inputContents.len)
 		for(var/n in 1 to keyContents.len)
 			if(inputContents[i] == keyContents[n])
@@ -270,7 +270,7 @@
 			failedAttempts++
 		else
 			workingRelays[i].pingCrystal()
-	
+
 	if(failedAttempts > 0)
 		addLog("Warning: Insufficient crystals aligned with telepad. [failedAttempts] crystalline metastructure fault[failedAttempts == 1 ? "" : "s"] detected as a result of this pathing attempt.")
 	properInput = TRUE
@@ -460,22 +460,22 @@
 				tracking_beacon = FALSE
 				addLog("Manual coordinate input detected. Cancelling beacon tracking.")
 			targetZ = CLAMP(round(new_z), 1, 25)
-		
+
 		if(getDigitRequirement() == BS_DISTANCE_STRESSFUL)
 			dangerous = TRUE
 		else
 			dangerous = FALSE
-		
+
 		if(getDigitRequirement() == BS_DISTANCE_INVALID)
 			invalid = TRUE
 		else
 			invalid = FALSE
-		
+
 		if(href_list["unselectBeacon"])
 			tracked_beacon = null
 			tracking_beacon = FALSE
 			addLog("Beacon deselected. Resuming relay-based calculations.")
-		
+
 		if(href_list["selectBeacon"])
 			var/obj/item/L = temp_beacons_list[href_list["selectBeacon"]]
 			temp_beacons_list = null
@@ -486,7 +486,7 @@
 				addLog("Selected beacon at ([T.x],[T.y],[T.z]). Offloading pathfinding calculations.")
 			else
 				addLog("Beacon selection failed. Contact a system administrator for further assistance.")
-		
+
 		if(href_list["toggleBeaconPanel"])
 			beaconPanel = !beaconPanel
 
@@ -502,7 +502,7 @@
 			else
 				addLog("Beginning manual calculations for bluespace tunnel to ([targetX],[targetY],[targetZ]).")
 				startMastermind()
-	
+
 	if(menuOption == BS_MENU_MASTERMIND)
 		if(href_list["keyInput"])
 			var/new_key = input("Please input a path to test.", name) as text
@@ -510,7 +510,7 @@
 				return
 			if(!storeInputKey(new_key))
 				addLog("Invalid key input. Please input instructions in the format of digits 1-9.")
-		
+
 		if(href_list["tryCalc"])
 			if(compareKeys())
 				startPathfinding()
@@ -544,7 +544,7 @@
 		else
 			addLog("Closing bluespace tunnel by user request.")
 			closePortal()
-	
+
 	ui_interact(user)
 	return FALSE
 

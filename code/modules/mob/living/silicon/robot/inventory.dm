@@ -94,7 +94,7 @@
 		return 1
 	else
 		return 0
-	
+
 
 //Helper procs for cyborg modules on the UI.
 //These are hackish but they help clean up code elsewhere.
@@ -280,7 +280,7 @@
 //Attempt to grip the item in a gripper.
 //Parent call will drop it on the floor if gripper can't hold it
 /mob/living/silicon/robot/put_in_hands(var/obj/item/W)
-	var/obj/item/weapon/gripper/G = locate() in list(module_state_1, module_state_2, module_state_3)
+	var/obj/item/gripper/G = locate() in list(module_state_1, module_state_2, module_state_3)
 	if (G && G.grip_item(W, src, 1))
 		return 1
 	else
@@ -290,6 +290,6 @@
 /mob/living/silicon/robot/canUnEquip(obj/item/I) //Force overrides NODROP for things like wizarditis and admin undress.
 	if(!I || !I.loc)
 		return TRUE
-	if (istype(I.loc, /obj/item/weapon/gripper)) //Robots are allowed to drop the things in their gripper
+	if (istype(I.loc, /obj/item/gripper)) //Robots are allowed to drop the things in their gripper
 		return TRUE
 	return ..(I) //This will be false for things directly equipped

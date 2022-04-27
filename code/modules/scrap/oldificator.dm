@@ -80,12 +80,12 @@
 			origin_tech = list()
 		siemens_coefficient += 0.3
 
-/obj/item/weapon/tool/make_old()
+/obj/item/tool/make_old()
 	.=..()
 	if(.)
 		adjustToolHealth(-(rand(40, 150) * degradation))
 
-/obj/item/weapon/storage/make_old()
+/obj/item/storage/make_old()
 	.=..()
 	if(.)
 		var/del_count = rand(0, contents.len)
@@ -100,17 +100,17 @@
 			max_storage_space = max_storage_space / 2
 
 //Old pill bottles get a name that disguises their contents
-/obj/item/weapon/storage/pill_bottle/make_old()
+/obj/item/storage/pill_bottle/make_old()
 	GET_COMPONENT(oldified, /datum/component/oldficator)
 	if(!oldified && prob(85))
 		name = "bottle of [pick("generic ", "unknown ", "")]pills"
 		desc = "Contains pills of some kind. The label has long since worn away"
-		for(var/obj/item/weapon/reagent_containers/pill/P in contents)
+		for(var/obj/item/reagent_containers/pill/P in contents)
 			P.make_old()
 	.=..()
 
 //Make sure old pills always hide their contents too
-/obj/item/weapon/reagent_containers/pill/make_old()
+/obj/item/reagent_containers/pill/make_old()
 	GET_COMPONENT(oldified, /datum/component/oldficator)
 	if(!oldified)
 		name = "pill"
@@ -123,7 +123,7 @@
 		for(var/datum/reagent/R in reagents.reagent_list)
 			reagents.remove_reagent(R.id,rand(0, R.volume),TRUE)
 
-/obj/item/weapon/reagent_containers/make_old()
+/obj/item/reagent_containers/make_old()
 	.=..()
 	if(.)
 		var/actual_volume = reagents.total_volume
@@ -132,7 +132,7 @@
 		reagents.add_reagent("toxin", rand(0, actual_volume - reagents.total_volume))
 
 //Sealed survival food, always edible
-/obj/item/weapon/reagent_containers/food/snacks/liquidfood/make_old()
+/obj/item/reagent_containers/food/snacks/liquidfood/make_old()
 	return
 
 /obj/item/ammo_magazine/make_old()
@@ -143,7 +143,7 @@
 		QDEL_NULL(removed_item)
 	..()
 
-/obj/item/weapon/cell/make_old()
+/obj/item/cell/make_old()
 	.=..()
 	if(.)
 		// It's silly to have old self-charging cells spawn partially discharged
@@ -153,7 +153,7 @@
 		if(prob(10))
 			rigged = TRUE
 
-/obj/item/weapon/stock_parts/make_old()
+/obj/item/stock_parts/make_old()
 	.=..()
 	if(.)
 		var/degrade = pick(0,1,1,1,2)
@@ -166,30 +166,30 @@
 /obj/item/stack/rods/make_old()
 	return
 
-/obj/item/weapon/ore/make_old()
+/obj/item/ore/make_old()
 	return
 
-/obj/item/weapon/grenade/make_old()
+/obj/item/grenade/make_old()
 	. =..()
 	if(.)
 		det_time = RAND_DECIMAL(0, det_time)
 
-/obj/item/weapon/tank/make_old()
+/obj/item/tank/make_old()
 	.=..()
 	if(.)
 		air_contents.remove(pick(0.2, 0.4 ,0.6, 0.8))
 
-/obj/item/weapon/electronics/circuitboard/make_old()
+/obj/item/electronics/circuitboard/make_old()
 	.=..()
 	if(. && prob(75))
 		name = T_BOARD("unknown")
 		build_path = pick(/obj/machinery/washing_machine, /obj/machinery/shower, /obj/machinery/holoposter, /obj/machinery/holosign) //Occulus Eris: Fixing yet another dumb eris design
 
 
-/obj/item/weapon/electronics/ai_module/make_old()
+/obj/item/electronics/ai_module/make_old()
 	GET_COMPONENT(oldified, /datum/component/oldficator)
-	if(!oldified && prob(75) && !istype(src, /obj/item/weapon/electronics/ai_module/broken))
-		var/obj/item/weapon/electronics/ai_module/brokenmodule = new /obj/item/weapon/electronics/ai_module/broken(loc)
+	if(!oldified && prob(75) && !istype(src, /obj/item/electronics/ai_module/broken))
+		var/obj/item/electronics/ai_module/brokenmodule = new /obj/item/electronics/ai_module/broken(loc)
 		brokenmodule.name = src.name
 		brokenmodule.desc = src.desc
 		brokenmodule.make_old()
@@ -225,7 +225,7 @@
 			equip_delay += rand(0, 6 SECONDS)
 		style += STYLE_NEG_LOW
 
-/obj/item/weapon/electronics/ai_module/broken
+/obj/item/electronics/ai_module/broken
 	name = "\improper broken core AI module"
 	desc = "broken Core AI Module: 'Reconfigures the AI's core laws.'"
 /* Occulus Edit - LELELELELE ISN'T GIBBING PEOPLE RANDOMLY FUNNY LEL:ELELELE. No. Fuck off.
@@ -241,14 +241,14 @@
 /obj/machinery/broken/make_old()
 	return
 End Occulus Edit*/
-/obj/item/weapon/electronics/ai_module/broken/transmitInstructions(mob/living/silicon/ai/target, mob/sender)
+/obj/item/electronics/ai_module/broken/transmitInstructions(mob/living/silicon/ai/target, mob/sender)
 	..()
 	IonStorm(0)
 	explosion(sender.loc, 1, 1, 1, 3)
 	sender.drop_from_inventory(src)
 	QDEL_NULL(src)
 
-/obj/item/weapon/dnainjector/make_old()
+/obj/item/dnainjector/make_old()
 	.=..()
 	if(.)
 		if(prob(75))

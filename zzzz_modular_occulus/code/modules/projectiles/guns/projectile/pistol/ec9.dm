@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/ec9
+/obj/item/gun/projectile/ec9
 	name = "SMG .35 Auto \"EC9\""
 	desc = "The EC9 is a generic replica of an old and infamous SMG. An extremely cheap design made to look more intimidating than it actually is. \
 			It is incapable of firing in full auto due to its excessively simplified trigger mechanism. Uses .35 Auto Hi-Cap and SMG magazines."
@@ -27,7 +27,7 @@
 		SEMI_AUTO_NODELAY,
 		)
 
-/obj/item/weapon/gun/projectile/ec9/update_icon()
+/obj/item/gun/projectile/ec9/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -43,9 +43,9 @@
 	icon_state = iconstring
 	set_item_state(itemstring)
 
-/obj/item/weapon/gun/projectile/ec9/Initialize()
+/obj/item/gun/projectile/ec9/Initialize()
 	. = ..()
 	update_icon()
 
-/obj/item/weapon/gun/projectile/automatic/slaught_o_matic
+/obj/item/gun/projectile/automatic/slaught_o_matic
 	name = "FS HG .35 Auto \"Liberator\""

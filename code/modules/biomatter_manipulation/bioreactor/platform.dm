@@ -13,7 +13,7 @@
 	active_power_usage = 400
 	var/make_glasswalls_after_creation = FALSE
 
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/bioreactor_platform
+	circuit = /obj/item/electronics/circuitboard/neotheology/bioreactor_platform
 
 
 /obj/machinery/multistructure/bioreactor_part/platform/Initialize()
@@ -234,8 +234,8 @@
 
 
 /obj/structure/window/reinforced/bioreactor/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/weapon/mop) || istype(I, /obj/item/weapon/soap))
-		if(istype(I, /obj/item/weapon/mop))
+	if(istype(I, /obj/item/mop) || istype(I, /obj/item/soap))
+		if(istype(I, /obj/item/mop))
 			if(I.reagents && !I.reagents.total_volume)
 				to_chat(user, SPAN_WARNING("Your [I] is dry!"))
 				return

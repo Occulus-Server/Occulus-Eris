@@ -1,4 +1,4 @@
-/obj/item/weapon/tool/weldingtool/electric
+/obj/item/tool/weldingtool/electric
 	name = "electric welding tool"
 	desc = "an electric welding tool used for welding or cutting things. Required a lot of power compared to other tools in order to produce sufficiant heat."
 	icon_state = "welder"
@@ -10,7 +10,7 @@
 	eye_hazard = TRUE
 
 	use_power_cost = 2.4
-	suitable_cell = /obj/item/weapon/cell/medium
+	suitable_cell = /obj/item/cell/medium
 	use_fuel_cost = 0
 	max_fuel = 0
 

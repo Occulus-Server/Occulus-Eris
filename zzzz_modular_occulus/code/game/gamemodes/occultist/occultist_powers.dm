@@ -32,7 +32,7 @@
 		var/list/stuff = src.loc.contents
 		var/list/roaches = list() //Needs one roach of MOB_MEDIUM or higher or five roaches of MOB_SMALL or lower.
 		var/large_roach = FALSE //For storing if we have a large roach or not
-		var/obj/item/weapon/flame/candle/candle = null //Checking if we have a candle
+		var/obj/item/flame/candle/candle = null //Checking if we have a candle
 		for(var/subject in stuff) //Check for roach
 			if(istype(subject, /mob/living/carbon/superior_animal/roach))
 				var/mob/living/carbon/superior_animal/roach/R = subject
@@ -41,7 +41,7 @@
 				else if(R.mob_size >= MOB_MEDIUM) //MOB_MEDIUM is 20, this checks for anything MOB_MEDIUM or larger.
 					roaches += R
 					large_roach = TRUE
-			if(istype(subject, /obj/item/weapon/flame/candle))
+			if(istype(subject, /obj/item/flame/candle))
 				candle = subject
 		if(!large_roach && roaches.len < 5) //If we don't have 5 small or one large roach
 			to_chat(src, "You need more roaches!") //Tell them they need more roaches.
@@ -121,21 +121,21 @@
 	set category = "Occultist"
 	set desc = "Construct a weapon"
 
-	var/obj/item/weapon/oddity/active = null
+	var/obj/item/oddity/active = null
 	if(get_active_hand())
-		if(istype(get_active_hand(), /obj/item/weapon/oddity))
+		if(istype(get_active_hand(), /obj/item/oddity))
 			active = get_active_hand()
 			if(!active.oddity_stats)
 				to_chat(src, "This oddity has no aspects to build a weapon from!")
 				return
 			var/list/LStats = active.oddity_stats
-			var/obj/item/weapon/cultweaponchoice = pickweight(list(
-				/obj/item/weapon/tool/sword/cult = (1 + LStats[STAT_ROB]),
-				/obj/item/weapon/gun/projectile/automatic/sol/cult = (1 + LStats[STAT_VIG]),
-				/obj/item/weapon/gun/energy/laser/cult = (1 + LStats[STAT_COG]),
-				/obj/item/weapon/tool/hammer/homewrecker/cult= (1 + LStats[STAT_TGH]),
-				/obj/item/weapon/gun/energy/plasma/cassad/cult = (1 + LStats[STAT_BIO]),
-				/obj/item/weapon/tool/saw/chain/cult = (1 + LStats[STAT_MEC])))
+			var/obj/item/cultweaponchoice = pickweight(list(
+				/obj/item/tool/sword/cult = (1 + LStats[STAT_ROB]),
+				/obj/item/gun/projectile/automatic/sol/cult = (1 + LStats[STAT_VIG]),
+				/obj/item/gun/energy/laser/cult = (1 + LStats[STAT_COG]),
+				/obj/item/tool/hammer/homewrecker/cult= (1 + LStats[STAT_TGH]),
+				/obj/item/gun/energy/plasma/cassad/cult = (1 + LStats[STAT_BIO]),
+				/obj/item/tool/saw/chain/cult = (1 + LStats[STAT_MEC])))
 			playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 50, 1, -3)
 			var/turf/T = get_turf(src)
 			var/obj/effect/decal/cleanable/blood/writing/sign = new /obj/effect/decal/cleanable/blood/writing(T)
@@ -548,7 +548,7 @@
 					continue
 				if(istype(objects, /obj/parallax))
 					continue
-				if(istype(objects, /obj/item/weapon/grab))
+				if(istype(objects, /obj/item/grab))
 					continue
 				else
 					objects.make_old()

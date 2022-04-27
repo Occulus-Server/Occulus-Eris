@@ -43,18 +43,18 @@
 	..()
 	if(stance == HOSTILE_STANCE_IDLE)
 		if(prob(20) && (structure_capacity >= 1))
-			if(!(locate(/obj/item/weapon/shocktrap) in get_turf(src)) && !(locate(/obj/structure/sirencade) in get_turf(src)))
+			if(!(locate(/obj/item/shocktrap) in get_turf(src)) && !(locate(/obj/structure/sirencade) in get_turf(src)))
 				src.visible_message(SPAN_NOTICE("\The [src] begins to construct some sort of energy structure."))
 				stop_automated_movement = 1
 				stunned = 5
 				spawn(40)
-					var/list/conservatorconstruct = list(/obj/item/weapon/shocktrap, /obj/structure/sirencade)
+					var/list/conservatorconstruct = list(/obj/item/shocktrap, /obj/structure/sirencade)
 					var/chosen = safepick(conservatorconstruct)
 					new chosen(src.loc)
 					structure_capacity--
 					stop_automated_movement = 0
 
-/obj/item/weapon/shocktrap
+/obj/item/shocktrap
 	name = "energetic latch"
 	gender = PLURAL
 	icon = 'zzzz_modular_occulus/icons/obj/traps.dmi'
@@ -69,7 +69,7 @@
 	var/cooldown = 5 SECONDS
 	var/last_armed
 
-/obj/item/weapon/shocktrap/Crossed(AM as mob|obj)
+/obj/item/shocktrap/Crossed(AM as mob|obj)
 	if(ishuman(AM))
 		if(world.time > cooldown_timer)
 			shock(AM, FALSE)
@@ -77,7 +77,7 @@
 			flashbang_without_the_bang(src.loc, AM)
 			cooldown_timer = world.time + cooldown
 
-/obj/item/weapon/shocktrap/proc/shock(mob/user as mob, using_hands = TRUE)
+/obj/item/shocktrap/proc/shock(mob/user as mob, using_hands = TRUE)
 	if(in_range(src, user))//To prevent TK and mech users from getting shocked
 		electrocute_mob(user, get_area(src), src, 0.7)
 		var/area/temp_area = get_area(src)
@@ -89,7 +89,7 @@
 			to_chat(user, SPAN_WARNING("You touch the energetic latch and got electrocuted!"))
 			return TRUE
 
-/obj/item/weapon/shocktrap/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/shocktrap/attackby(obj/item/W as obj, mob/user as mob)
 	if(QUALITY_PULSING in W.tool_qualities)
 		user.visible_message(
 			SPAN_DANGER("[user] starts to carefully disarm \the [src]."),
@@ -100,7 +100,7 @@
 			SPAN_DANGER("[user] has disarmed \the [src]."),
 			SPAN_DANGER("You have disarmed \the [src]!"))
 
-/obj/item/weapon/shocktrap/attack_hand(mob/user as mob)
+/obj/item/shocktrap/attack_hand(mob/user as mob)
 	if(prob(50))
 		if(world.time > cooldown_timer)
 			visible_message(SPAN_DANGER("The energetic latch pulses violently!"))

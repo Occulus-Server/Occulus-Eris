@@ -99,8 +99,8 @@
 	)
 	item_flags = STOPPRESSUREDAMAGE|THICKMATERIAL|AIRTIGHT //make these like spacesuit so it can be a real spacesuit
 
-/obj/item/clothing/gloves/occultgloves/attackby(obj/item/weapon/W, mob/user) //Overwrite the gloves clip proc because we don't want these clipped off at all.
-	if(istype(W, /obj/item/weapon/tool/wirecutters) || istype(W, /obj/item/weapon/tool/scalpel)) //Same check as normal gloves.
+/obj/item/clothing/gloves/occultgloves/attackby(obj/item/W, mob/user) //Overwrite the gloves clip proc because we don't want these clipped off at all.
+	if(istype(W, /obj/item/tool/wirecutters) || istype(W, /obj/item/tool/scalpel)) //Same check as normal gloves.
 		to_chat(user, SPAN_NOTICE("Your tool bends away from the [src] impossibly.")) //These are made of something that shouldn't exist, no snip for you. Using [src] for later modularness.
 
 /obj/item/clothing/shoes/occultgreaves

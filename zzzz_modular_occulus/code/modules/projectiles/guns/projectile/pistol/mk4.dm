@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/mk4
+/obj/item/gun/projectile/mk4
 	name = "HG .35 Auto \"Mk4\""
 	desc = "The Mk4 is a generic specification for a integrally silenced handgun, originally developed by a long since defunct company. Uses standard .35 and high capacity magazines."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/mk4.dmi'
@@ -18,7 +18,7 @@
 	recoil_buildup = 2
 	rarity_value = 9.6
 
-/obj/item/weapon/gun/projectile/mk4/update_icon()
+/obj/item/gun/projectile/mk4/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -31,6 +31,6 @@
 
 	icon_state = iconstring
 
-/obj/item/weapon/gun/projectile/mk4/Initialize()
+/obj/item/gun/projectile/mk4/Initialize()
 	. = ..()
 	update_icon()

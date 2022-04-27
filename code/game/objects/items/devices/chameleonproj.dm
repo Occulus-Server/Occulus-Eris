@@ -10,7 +10,7 @@
 	throw_range = 5
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_COVERT = 4, TECH_MAGNET = 4)
-	suitable_cell = /obj/item/weapon/cell/small
+	suitable_cell = /obj/item/cell/small
 	spawn_blacklisted = TRUE
 	var/can_use = 1
 	var/obj/effect/dummy/chameleon/active_dummy
@@ -39,10 +39,10 @@
 		toggle()
 
 /obj/item/device/chameleon/afterattack(atom/target, mob/user , proximity)
-	if (istype(target, /obj/item/weapon/storage)) return
+	if (istype(target, /obj/item/storage)) return
 	if(!proximity) return
 	if(!active_dummy)
-		if(istype(target,/obj/item) && !istype(target, /obj/item/weapon/disk/nuclear))
+		if(istype(target,/obj/item) && !istype(target, /obj/item/disk/nuclear))
 			playsound(get_turf(src), 'sound/weapons/flash.ogg', 100, 1, -6)
 			to_chat(user, SPAN_NOTICE("Scanned [target]."))
 			saved_item = target.type

@@ -27,7 +27,7 @@
 	var/pipes_opened = FALSE
 	var/pipes_cleanness = 100
 
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/bioreactor_biotank
+	circuit = /obj/item/electronics/circuitboard/neotheology/bioreactor_biotank
 
 
 /obj/machinery/multistructure/bioreactor_part/biotank_platform/Initialize()
@@ -72,7 +72,7 @@
 
 
 /obj/machinery/multistructure/bioreactor_part/biotank_platform/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/weapon/mop))
+	if(istype(I, /obj/item/mop))
 		var/dirtiness_lvl = get_dirtiness_level()
 		to_chat(user, SPAN_NOTICE("You begin cleaning pipes with [I]... O-of, what a smell!"))
 		if(do_after(user, CLEANING_TIME * dirtiness_lvl, src))

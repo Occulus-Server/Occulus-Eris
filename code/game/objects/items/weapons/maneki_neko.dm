@@ -1,4 +1,4 @@
-/obj/item/weapon/maneki_neko
+/obj/item/maneki_neko
 	name = "Ancient Maneki Neko"
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "maneki_neko"
@@ -18,39 +18,39 @@
 	matter = list(MATERIAL_GLASS = 5, MATERIAL_GOLD = 7, MATERIAL_SILVER = 5, MATERIAL_DIAMOND = 1)
 	var/list/mob/living/carbon/human/followers = list()
 
-/obj/item/weapon/maneki_neko/Destroy()
+/obj/item/maneki_neko/Destroy()
 	STOP_PROCESSING(SSobj, src)
-	if(!istype(src.loc, /obj/item/weapon/storage/bsdm))
+	if(!istype(src.loc, /obj/item/storage/bsdm))
 		destroy_lifes()
 	..()
-/obj/item/weapon/maneki_neko/New()
+/obj/item/maneki_neko/New()
 	START_PROCESSING(SSobj, src)
 	..()
 
-/obj/item/weapon/maneki_neko/Process()
+/obj/item/maneki_neko/Process()
 	for(var/list/mob/living/carbon/human/affected in oviewers(affect_radius, src))
 		followers |= affected
 
-/obj/item/weapon/maneki_neko/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/maneki_neko/attackby(obj/item/W as obj, mob/user as mob)
 	if(QUALITY_HAMMERING in W.tool_qualities)
 		if(W.use_tool(user, src, WORKTIME_INSTANT, QUALITY_HAMMERING, FAILCHANCE_EASY, required_stat = STAT_ROB))
 			playsound(src, "shatter", 70, 1)
 			new /obj/item/clothing/head/collectable/kitty(get_turf(src))
 			qdel(src)
 
-/obj/item/weapon/maneki_neko/afterattack(obj/target, mob/user, var/flag)
+/obj/item/maneki_neko/afterattack(obj/target, mob/user, var/flag)
 	if(user.a_intent == I_HURT)
 		playsound(src, "shatter", 70, 1)
 		new /obj/item/clothing/head/collectable/kitty(get_turf(src))
 		qdel(src)
 
-/obj/item/weapon/maneki_neko/throw_impact(atom/hit_atom)
+/obj/item/maneki_neko/throw_impact(atom/hit_atom)
 	..()
 	playsound(src, "shatter", 70, 1)
 	new /obj/item/clothing/head/collectable/kitty(get_turf(src))
 	qdel(src)
 
-/obj/item/weapon/maneki_neko/proc/destroy_lifes()
+/obj/item/maneki_neko/proc/destroy_lifes()
 	for(var/mob/living/carbon/human/H in followers)
 		H.sanity.insight = 0
 		H.sanity.environment_cap_coeff = 0

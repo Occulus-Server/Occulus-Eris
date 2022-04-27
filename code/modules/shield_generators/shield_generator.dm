@@ -12,7 +12,7 @@
 	density = TRUE
 	anchored = FALSE
 
-	circuit = /obj/item/weapon/electronics/circuitboard/shield_generator
+	circuit = /obj/item/electronics/circuitboard/shield_generator
 
 	var/needs_update = FALSE //If true, will update in process
 
@@ -137,12 +137,12 @@
 
 /obj/machinery/power/shield_generator/RefreshParts()
 	max_energy = 0
-	for(var/obj/item/weapon/stock_parts/smes_coil/S in component_parts)
+	for(var/obj/item/stock_parts/smes_coil/S in component_parts)
 		max_energy += (S.ChargeCapacity / (CELLRATE * 5))//Occulus Edit
 	current_energy = between(0, current_energy, max_energy)
 
 	mitigation_max = MAX_MITIGATION_BASE
-	for(var/obj/item/weapon/stock_parts/capacitor/C in component_parts)
+	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		mitigation_max += MAX_MITIGATION_RESEARCH * C.rating
 	mitigation_em = between(0, mitigation_em, mitigation_max)
 	mitigation_physical = between(0, mitigation_physical, mitigation_max)
@@ -153,7 +153,7 @@
 
 /obj/machinery/power/shield_generator/proc/boost_field()
 	max_energy = 0
-	for(var/obj/item/weapon/stock_parts/smes_coil/S in component_parts)
+	for(var/obj/item/stock_parts/smes_coil/S in component_parts)
 		max_energy += (S.ChargeCapacity / (CELLRATE * 5))
 	current_energy = min(current_energy + (max_energy/3), max_energy)
 
@@ -326,7 +326,7 @@
 		wrench(user, O)
 		return
 
-	if(istype(O, /obj/item/weapon/tool))
+	if(istype(O, /obj/item/tool))
 		return src.attack_hand(user)
 
 

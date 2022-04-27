@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/colt
+/obj/item/gun/projectile/colt
 	name = "FS HG .35 Auto \"Colt M1911\""
 	desc = "A cheap knock-off of a Colt M1911. Uses standard .35 and high capacity magazines."
 	icon = 'icons/obj/guns/projectile/colt.dmi'
@@ -16,7 +16,7 @@
 	recoil_buildup = 17
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 
-/obj/item/weapon/gun/projectile/colt/on_update_icon()
+/obj/item/gun/projectile/colt/on_update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -26,6 +26,6 @@
 
 	icon_state = iconstring
 
-/obj/item/weapon/gun/projectile/colt/Initialize()
+/obj/item/gun/projectile/colt/Initialize()
 	. = ..()
 	update_icon()

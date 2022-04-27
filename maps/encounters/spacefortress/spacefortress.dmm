@@ -107,7 +107,7 @@
 /area/outpost/abandoned_fortress)
 "aw" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/outpost/abandoned_fortress)
 "ax" = (
@@ -121,7 +121,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "az" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aB" = (
@@ -156,7 +156,7 @@
 /area/outpost/abandoned_fortress)
 "aH" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/carpet/bcarpet,
 /area/outpost/abandoned_fortress)
 "aI" = (
@@ -612,7 +612,7 @@
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/outpost/abandoned_fortress)
 "dj" = (
-/obj/item/weapon/inflatable_dispenser,
+/obj/item/inflatable_dispenser,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "dk" = (
@@ -1025,7 +1025,7 @@
 /turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
 "jX" = (
-/obj/item/weapon/material/shard/phoron,
+/obj/item/material/shard/phoron,
 /turf/simulated/floor/tiled/derelict,
 /area/outpost/abandoned_fortress)
 "ka" = (
@@ -1265,7 +1265,7 @@
 /obj/spawner/surgery_tool/low_chance,
 /obj/spawner/surgery_tool/low_chance,
 /obj/structure/table/onestar,
-/obj/item/weapon/tool/saw/circular/advanced,
+/obj/item/tool/saw/circular/advanced,
 /turf/simulated/floor/tiled/techmaint,
 /area/outpost/abandoned_fortress)
 "nH" = (
@@ -1402,7 +1402,7 @@
 /area/outpost/abandoned_fortress)
 "pX" = (
 /obj/structure/table/rack/shelf,
-/obj/item/weapon/tool/weldingtool/onestar,
+/obj/item/tool/weldingtool/onestar,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/outpost/abandoned_fortress)
 "qc" = (
@@ -1435,7 +1435,7 @@
 /turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
 "qD" = (
-/obj/item/weapon/caution,
+/obj/item/caution,
 /turf/simulated/floor/tiled/derelict,
 /area/outpost/abandoned_fortress)
 "qE" = (
@@ -1450,7 +1450,7 @@
 /turf/simulated/floor/grass,
 /area/outpost/abandoned_fortress)
 "qL" = (
-/obj/item/weapon/material/shard/phoron,
+/obj/item/material/shard/phoron,
 /turf/simulated/floor/carpet,
 /area/outpost/abandoned_fortress)
 "qN" = (
@@ -1701,7 +1701,7 @@
 /area/outpost/abandoned_fortress)
 "uz" = (
 /obj/structure/low_wall/onestar,
-/obj/item/weapon/material/shard/phoron,
+/obj/item/material/shard/phoron,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "uB" = (
@@ -1737,7 +1737,7 @@
 /area/outpost/abandoned_fortress)
 "vm" = (
 /obj/structure/mopbucket,
-/obj/item/weapon/mop,
+/obj/item/mop,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/outpost/abandoned_fortress)
 "vq" = (
@@ -1820,7 +1820,7 @@
 /area/outpost/abandoned_fortress)
 "xh" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/snacks/sliceable/applecake{
+/obj/item/reagent_containers/food/snacks/sliceable/applecake{
 	desc = "A cake centered with apples. It's covered in dust, but looks entirely fresh and ready to eat. Do you dare...?";
 	name = "Perfectly Preserved Apple Cake";
 	nutriment_desc = list("death" = 10, "dust" = 10, "regret" = 15)
@@ -1916,7 +1916,7 @@
 /area/outpost/abandoned_fortress)
 "yD" = (
 /obj/structure/mopbucket,
-/obj/item/weapon/mop,
+/obj/item/mop,
 /turf/simulated/floor/tiled/derelict,
 /area/outpost/abandoned_fortress)
 "yE" = (
@@ -2967,12 +2967,12 @@
 /turf/simulated/floor/grass,
 /area/outpost/abandoned_fortress)
 "PF" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /turf/simulated/floor/tiled/derelict,
 /area/outpost/abandoned_fortress)
 "PP" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/item/weapon/material/shard/phoron,
+/obj/item/material/shard/phoron,
 /turf/simulated/floor/grass,
 /area/outpost/abandoned_fortress)
 "PQ" = (
@@ -3001,7 +3001,7 @@
 /turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
 "Qm" = (
-/obj/item/weapon/tool/screwdriver/combi_driver/onestar,
+/obj/item/tool/screwdriver/combi_driver/onestar,
 /turf/simulated/floor/tiled/derelict,
 /area/outpost/abandoned_fortress)
 "Qp" = (
@@ -3057,7 +3057,7 @@
 /turf/simulated/floor/grass,
 /area/outpost/abandoned_fortress)
 "Rm" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/outpost/abandoned_fortress)
 "Ro" = (
@@ -3356,7 +3356,7 @@
 /turf/simulated/floor/tiled/derelict,
 /area/outpost/abandoned_fortress)
 "Vt" = (
-/obj/item/weapon/caution/cone,
+/obj/item/caution/cone,
 /turf/simulated/floor/tiled/derelict,
 /area/outpost/abandoned_fortress)
 "Vu" = (

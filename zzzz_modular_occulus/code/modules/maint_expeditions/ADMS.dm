@@ -9,12 +9,12 @@
 	desc = "A large piece of equipment for gathering data from anomalous regions."
 	icon_state = "ADMS"
 
-	circuit = /obj/item/weapon/electronics/circuitboard/ADMS
+	circuit = /obj/item/electronics/circuitboard/ADMS
 	var/soundcooldown = 5
 	var/active = FALSE
-	var/obj/item/weapon/computer_hardware/hard_drive/portable/inserted_disk //Any portable drive works. When inserted, the ADMS installs the research point program
+	var/obj/item/computer_hardware/hard_drive/portable/inserted_disk //Any portable drive works. When inserted, the ADMS installs the research point program
 	var/datum/computer_file/binary/research_points/inserted_disk_file //A ref to the research_points program
-	var/obj/item/weapon/cell/large/cell
+	var/obj/item/cell/large/cell
 	//Upgrades
 	var/harvest_speed //Modified by internal scanner and laser
 	var/charge_use //modified by capacitor. Better capacitor = slower cell drain
@@ -126,7 +126,7 @@
 		number--
 	return
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/research_points/adms //any research disk works in the ADMS, but it starts with an empty one!
+/obj/item/computer_hardware/hard_drive/portable/research_points/adms //any research disk works in the ADMS, but it starts with an empty one!
 	min_points = 0
 	max_points = 0
 
@@ -144,16 +144,16 @@
 		return TRUE
 	return FALSE
 
-/obj/item/weapon/electronics/circuitboard/ADMS
+/obj/item/electronics/circuitboard/ADMS
 	name = T_BOARD("Anomalous Data Measurement System")
 	build_path = /obj/machinery/exploration/ADMS
 	board_type = "machine"
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	req_components = list(
-		/obj/item/weapon/stock_parts/capacitor = 1,
-		/obj/item/weapon/stock_parts/micro_laser = 1,
-		/obj/item/weapon/stock_parts/scanning_module = 1,
-		/obj/item/weapon/cell/large = 1
+		/obj/item/stock_parts/capacitor = 1,
+		/obj/item/stock_parts/micro_laser = 1,
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/cell/large = 1
 	)
 
 /obj/machinery/exploration/ADMS/RefreshParts()
@@ -161,21 +161,21 @@
 	harvest_speed = 0
 	charge_use = 50
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/micro_laser))
+	for(var/obj/item/stock_parts/P in component_parts)
+		if(istype(P, /obj/item/stock_parts/micro_laser))
 			harvest_speed = P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		if(istype(P, /obj/item/stock_parts/capacitor))
 			charge_use -= 10 * (P.rating - harvest_speed)
 			charge_use = max(charge_use, 0)
-		if(istype(P, /obj/item/weapon/stock_parts/scanning_module))
+		if(istype(P, /obj/item/stock_parts/scanning_module))
 			harvest_speed += P.rating
 		harvest_speed = harvest_speed/2
-	cell = locate(/obj/item/weapon/cell/large) in component_parts
+	cell = locate(/obj/item/cell/large) in component_parts
 
 
 /obj/machinery/exploration/ADMS/attackby(obj/item/I, mob/user as mob)
 	..()
-	if(istype(I, /obj/item/weapon/computer_hardware/hard_drive/portable))//if the item is a portable disk
+	if(istype(I, /obj/item/computer_hardware/hard_drive/portable))//if the item is a portable disk
 		if(inserted_disk)//and we already have a portable disk
 			to_chat(user, "The ADMS already has a disk inserted.")//fail out
 		else
@@ -202,7 +202,7 @@
 	if(!panel_open || active)
 		return ..()
 
-	if(istype(I, /obj/item/weapon/cell/large))
+	if(istype(I, /obj/item/cell/large))
 		if(cell)
 			to_chat(user, "The ADMS already has a cell installed.")
 		else
@@ -268,6 +268,6 @@
 
 /datum/design/research/circuit/adms
 	name = "Anomalous Data Measurement System"
-	build_path = /obj/item/weapon/electronics/circuitboard/ADMS
+	build_path = /obj/item/electronics/circuitboard/ADMS
 	sort_string = "HAAAG"
 	category = CAT_COMP

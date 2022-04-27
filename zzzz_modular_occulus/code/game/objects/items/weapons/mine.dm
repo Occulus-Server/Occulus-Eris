@@ -1,4 +1,4 @@
-/obj/item/weapon/mine/
+/obj/item/mine/
 	name = "landmine"
 	explosion_d_size = 0
 	explosion_h_size = 0
@@ -7,13 +7,13 @@
 	num_fragments = 8
 	price_tag = 200
 
-/obj/item/weapon/emp_mine
+/obj/item/emp_mine
 	price_tag = 400
 
-/obj/item/weapon/beartrap
+/obj/item/beartrap
 	price_tag = 100
 
-/obj/item/weapon/mine/armed
+/obj/item/mine/armed
 	deployed = TRUE
 	anchored = TRUE
 	armed = TRUE
@@ -23,7 +23,7 @@
 
 
 
-/obj/item/weapon/emp_mine/armed
+/obj/item/emp_mine/armed
 	rarity_value = 150
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_TRAP_ARMED

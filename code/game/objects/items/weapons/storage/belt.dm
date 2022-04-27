@@ -1,4 +1,4 @@
-/obj/item/weapon/storage/belt
+/obj/item/storage/belt
 	name = "belt"
 	desc = "Can hold various things."
 	icon = 'icons/inventory/belt/icon.dmi'
@@ -9,18 +9,18 @@
 	slot_flags = SLOT_BELT
 	matter = list(MATERIAL_BIOMATTER = 4, MATERIAL_PLASTIC = 5)
 	attack_verb = list("whipped", "lashed", "disciplined")
-	bad_type = /obj/item/weapon/storage/belt
+	bad_type = /obj/item/storage/belt
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_BELT
 
 	var/show_above_suit = 0
 
-/obj/item/weapon/storage/belt/Initialize()
+/obj/item/storage/belt/Initialize()
 	. = ..()
 	if (!item_state)
 		item_state = icon_state
 
-/obj/item/weapon/storage/belt/verb/toggle_layer()
+/obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
 	set category = "Object"
 
@@ -30,21 +30,21 @@
 	show_above_suit = !show_above_suit
 	update_icon()
 
-/obj/item/weapon/storage/on_update_icon()
+/obj/item/storage/on_update_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_belt()
 
 
-/obj/item/weapon/storage/belt/utility
+/obj/item/storage/belt/utility
 	name = "tool belt"
 	desc = "Can hold various tools."
 	icon_state = "utility"
 	spawn_tags = SPAWN_TAG_BELT_UTILITY
 	can_hold = list(
-		/obj/item/weapon/tool,
+		/obj/item/tool,
 		/obj/item/device/lightreplacer,
-		/obj/item/weapon/rcd,
+		/obj/item/rcd,
 		/obj/item/device/lighting/toggleable/flashlight,
 		/obj/item/device/radio,
 		/obj/item/stack/cable_coil,
@@ -52,131 +52,131 @@
 		/obj/item/device/scanner/gas,
 		/obj/item/taperoll/engineering,
 		/obj/item/device/robotanalyzer,
-		/obj/item/weapon/tool/minihoe,
-		/obj/item/weapon/tool/hatchet,
+		/obj/item/tool/minihoe,
+		/obj/item/tool/hatchet,
 		/obj/item/device/scanner/plant,
-		/obj/item/weapon/extinguisher/mini,
-		/obj/item/weapon/hand_labeler,
+		/obj/item/extinguisher/mini,
+		/obj/item/hand_labeler,
 		/obj/item/clothing/gloves,
 		/obj/item/clothing/glasses,
-		/obj/item/weapon/flame/lighter,
-		/obj/item/weapon/cell/small,
-		/obj/item/weapon/cell/medium,
-		/obj/item/weapon/grenade/chem_grenade/cleaner,
-		/obj/item/weapon/grenade/chem_grenade/antiweed,
-		/obj/item/weapon/grenade/chem_grenade/metalfoam
+		/obj/item/flame/lighter,
+		/obj/item/cell/small,
+		/obj/item/cell/medium,
+		/obj/item/grenade/chem_grenade/cleaner,
+		/obj/item/grenade/chem_grenade/antiweed,
+		/obj/item/grenade/chem_grenade/metalfoam
 	)
 	price_tag = 200
-/obj/item/weapon/storage/belt/utility/full
+/obj/item/storage/belt/utility/full
 	rarity_value = 50
 
-/obj/item/weapon/storage/belt/utility/full/populate_contents()
-	new /obj/item/weapon/tool/screwdriver(src)
-	new /obj/item/weapon/tool/wrench(src)
-	new /obj/item/weapon/tool/weldingtool(src)
-	new /obj/item/weapon/tool/crowbar(src)
-	new /obj/item/weapon/tool/wirecutters(src)
+/obj/item/storage/belt/utility/full/populate_contents()
+	new /obj/item/tool/screwdriver(src)
+	new /obj/item/tool/wrench(src)
+	new /obj/item/tool/weldingtool(src)
+	new /obj/item/tool/crowbar(src)
+	new /obj/item/tool/wirecutters(src)
 	new /obj/item/stack/cable_coil/random(src)
 
-/obj/item/weapon/storage/belt/utility/neotheology
+/obj/item/storage/belt/utility/neotheology
 	name = "mekhane utility belt"
 	desc = "Waist-held holy items."
 	icon_state = "utility_neotheology"
 	rarity_value = 20
 	can_hold_extra = list(
-		/obj/item/weapon/book/ritual/cruciform,
-		/obj/item/weapon/implant/core_implant/cruciform,
-		/obj/item/weapon/soap,
-		/obj/item/weapon/reagent_containers/spray/cleaner
+		/obj/item/book/ritual/cruciform,
+		/obj/item/implant/core_implant/cruciform,
+		/obj/item/soap,
+		/obj/item/reagent_containers/spray/cleaner
 	)
 	spawn_blacklisted = TRUE
 
-/obj/item/weapon/storage/belt/medical
+/obj/item/storage/belt/medical
 	name = "medical belt"
 	desc = "Can hold various medical equipment."
 	icon_state = "medicalbelt"
 	item_state = "medical"
 	can_hold = list(
 		/obj/item/device/scanner/health,
-		/obj/item/weapon/dnainjector,
+		/obj/item/dnainjector,
 		/obj/item/device/radio/headset,
-		/obj/item/weapon/reagent_containers/dropper,
-		/obj/item/weapon/reagent_containers/glass/beaker,
-		/obj/item/weapon/reagent_containers/glass/bottle,
-		/obj/item/weapon/reagent_containers/pill,
-		/obj/item/weapon/reagent_containers/syringe,
-		/obj/item/weapon/flame/lighter,
-		/obj/item/weapon/cell/small,
-		/obj/item/weapon/storage/fancy/cigarettes,
-		/obj/item/weapon/storage/pill_bottle,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle,
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/flame/lighter,
+		/obj/item/cell/small,
+		/obj/item/storage/fancy/cigarettes,
+		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,
 		/obj/item/clothing/mask/surgical,
 		/obj/item/clothing/head/surgery,
 		/obj/item/clothing/gloves,
-		/obj/item/weapon/reagent_containers/hypospray,
+		/obj/item/reagent_containers/hypospray,
 		/obj/item/clothing/glasses,
-		/obj/item/weapon/tool/crowbar,
+		/obj/item/tool/crowbar,
 		/obj/item/device/lighting/toggleable/flashlight,
-		/obj/item/weapon/extinguisher/mini
+		/obj/item/extinguisher/mini
 	)
 	rarity_value = 15
 
-/obj/item/weapon/storage/belt/medical/emt
+/obj/item/storage/belt/medical/emt
 	name = "EMT utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
 
-/obj/item/weapon/storage/belt/tactical
+/obj/item/storage/belt/tactical
 	name = "tactical belt"
 	desc = "Can hold various military and security equipment."
 	icon_state = "tactical"
 	rarity_value = 20
 	can_hold = list(
-		/obj/item/weapon/grenade,
-		/obj/item/weapon/reagent_containers/spray/pepper,
-		/obj/item/weapon/handcuffs,
-		/obj/item/weapon/tool/crowbar,
+		/obj/item/grenade,
+		/obj/item/reagent_containers/spray/pepper,
+		/obj/item/handcuffs,
+		/obj/item/tool/crowbar,
 		/obj/item/device/flash,
 		/obj/item/clothing/gloves,
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing,
 		/obj/item/ammo_magazine,
-		/obj/item/weapon/cell/small,
-		/obj/item/weapon/cell/medium,
-		/obj/item/weapon/reagent_containers/food/snacks/donut, //meme, but fine
-		/obj/item/weapon/flame/lighter,
+		/obj/item/cell/small,
+		/obj/item/cell/medium,
+		/obj/item/reagent_containers/food/snacks/donut, //meme, but fine
+		/obj/item/flame/lighter,
 		/obj/item/device/lighting/toggleable/flashlight,
 		/obj/item/modular_computer/pda,
 		/obj/item/device/radio/headset,
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
-		/obj/item/weapon/melee,
-		/obj/item/weapon/gun/projectile/selfload,
-		/obj/item/weapon/gun/projectile/giskard,
-		/obj/item/weapon/gun/energy/gun/martin,
+		/obj/item/melee,
+		/obj/item/gun/projectile/selfload,
+		/obj/item/gun/projectile/giskard,
+		/obj/item/gun/energy/gun/martin,
 		/obj/item/taperoll
 	)
 
-/obj/item/weapon/storage/belt/tactical/ironhammer
+/obj/item/storage/belt/tactical/ironhammer
 	name = "aegis tactical belt"
 	icon_state = "tactical_ironhammer"
 	spawn_blacklisted = TRUE
 
-/obj/item/weapon/storage/belt/tactical/neotheology
+/obj/item/storage/belt/tactical/neotheology
 	name = "mekhane tactical belt"
 	desc = "Can hold various military and security equipment."
 	icon_state = "tactical_neotheology"
 	rarity_value = 40
 	can_hold_extra = list(
-		/obj/item/weapon/book/ritual/cruciform,
-		/obj/item/weapon/implant/core_implant/cruciform,
-		/obj/item/weapon/tool/knife/neotritual,
-		/obj/item/weapon/gun/energy/crossbow
+		/obj/item/book/ritual/cruciform,
+		/obj/item/implant/core_implant/cruciform,
+		/obj/item/tool/knife/neotritual,
+		/obj/item/gun/energy/crossbow
 	)
 	spawn_blacklisted = TRUE
 
-/obj/item/weapon/storage/belt/champion
+/obj/item/storage/belt/champion
 	name = "championship belt"
 	desc = "Proves to the world that you are the strongest!"
 	icon_state = "championbelt"
@@ -187,7 +187,7 @@
 	)
 	spawn_blacklisted = TRUE
 
-/obj/item/weapon/storage/belt/holding
+/obj/item/storage/belt/holding
 	name = "belt of holding"
 	desc = "The greatest in pants-supporting bluespace technology."
 	icon_state = "holdingbelt"
@@ -199,6 +199,6 @@
 	origin_tech = list(TECH_BLUESPACE = 4)
 	spawn_blacklisted = TRUE
 
-/obj/item/weapon/storage/belt/holding/New()
+/obj/item/storage/belt/holding/New()
 	..()
 	bluespace_entropy(4, get_turf(src))

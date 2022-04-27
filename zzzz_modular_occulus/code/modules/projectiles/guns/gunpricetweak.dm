@@ -1,45 +1,45 @@
-/obj/item/weapon/gun/energy/nt_svalinn
+/obj/item/gun/energy/nt_svalinn
 	price_tag = 600
-/obj/item/weapon/gun/energy/lasersmg
+/obj/item/gun/energy/lasersmg
 	price_tag = 600
 	damage_multiplier = 0.33 //makeshift laser
 	recoil_buildup = 2
 	init_offset = 3 // bad accuracy even on the first shot
-/obj/item/weapon/gun/energy/taser
+/obj/item/gun/energy/taser
 	price_tag = 1000
-/obj/item/weapon/gun/energy/retro
+/obj/item/gun/energy/retro
 	price_tag = 1000
-/obj/item/weapon/gun/launcher/grenade
+/obj/item/gun/launcher/grenade
 	price_tag = 3000
-/obj/item/weapon/gun/projectile/avasarala
+/obj/item/gun/projectile/avasarala
 	price_tag = 2500
-/obj/item/weapon/gun/projectile/revolver/deckard
+/obj/item/gun/projectile/revolver/deckard
 	price_tag = 2000
-/obj/item/weapon/gun/projectile/revolver/mateba
+/obj/item/gun/projectile/revolver/mateba
 	price_tag = 2000
-/obj/item/weapon/gun/projectile/revolver
+/obj/item/gun/projectile/revolver
 	price_tag = 1500
-/obj/item/weapon/gun/projectile/revolver/consul
+/obj/item/gun/projectile/revolver/consul
 	price_tag = 1200
-/obj/item/weapon/gun/projectile/paco
+/obj/item/gun/projectile/paco
 	price_tag = 1000
-/obj/item/weapon/gun/projectile/mk58
+/obj/item/gun/projectile/mk58
 	price_tag = 900
-/obj/item/weapon/gun/projectile/colt
+/obj/item/gun/projectile/colt
 	price_tag = 900
-/obj/item/weapon/gun/projectile/selfload
+/obj/item/gun/projectile/selfload
 	price_tag = 900
-/obj/item/weapon/gun/projectile/olivaw
+/obj/item/gun/projectile/olivaw
 	price_tag = 600
-/obj/item/weapon/gun/projectile/revolver/havelock
+/obj/item/gun/projectile/revolver/havelock
 	price_tag = 600
-/obj/item/weapon/gun/projectile/shotgun/bull
+/obj/item/gun/projectile/shotgun/bull
 	price_tag = 2500
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel
+/obj/item/gun/projectile/shotgun/doublebarrel
 	price_tag = 800
-/obj/item/weapon/gun/projectile/shotgun/pump
+/obj/item/gun/projectile/shotgun/pump
 	price_tag = 1400
-/obj/item/weapon/gun/projectile/shotgun/pump/regulator
+/obj/item/gun/projectile/shotgun/pump/regulator
 	price_tag = 1800
-/obj/item/weapon/gun/projectile/shotgun/pump/gladstone
+/obj/item/gun/projectile/shotgun/pump/gladstone
 	price_tag = 2500

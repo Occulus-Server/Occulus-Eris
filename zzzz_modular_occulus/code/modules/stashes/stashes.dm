@@ -3,11 +3,11 @@
 
 /datum/stash/valueable/eridian
 	contents_list_extra = list(/obj/item/clothing/suit/space/void/mining = 1,
-	/obj/item/weapon/holochip/science/jive = 1,
-	/obj/item/weapon/holochip/science/sol = 1,
-	/obj/item/weapon/holochip/science/yiff = 1,
-	/obj/item/weapon/implant/core_implant/soulcrypt = 2,
-	/obj/item/weapon/implanter = 1)
+	/obj/item/holochip/science/jive = 1,
+	/obj/item/holochip/science/sol = 1,
+	/obj/item/holochip/science/yiff = 1,
+	/obj/item/implant/core_implant/soulcrypt = 2,
+	/obj/item/implanter = 1)
 	lore = "The colony is safe, but C.T. says we should not go back. We are stuck on the Eridian Light.<br>\
  Our split of the payment is at %D.<br>\
  We do not know what sector the BSD will send us to. <br>\
@@ -18,7 +18,7 @@
 /datum/stash/junk/clowning
 	contents_list_extra = list(/obj/item/clothing/under/rank/clown = 1,
 	/obj/item/clothing/shoes/clown_shoes = 1,
-	/obj/item/weapon/bananapeel = 8,
+	/obj/item/bananapeel = 8,
 	/obj/item/clothing/mask/gas/clown_hat = 1)
 	lore = "Killed that tee-totaling bastard good, we did.<br>\
 	<br>\
@@ -44,11 +44,11 @@
 	lore = "They had me pull out her crypt, Karen. They pulled it out and smashed it in front of me.<br>\
  	My oath may be to do no harm, but I will not stand by and let them annihilate any more souls.<br>\
  	I have stashed a few vials and weapons at %D. Distribute them to the crew, they will know what to do."
-	contents_list_extra = list(/obj/item/weapon/storage/pill_bottle/bicaridine = 1,
-	/obj/item/weapon/storage/pill_bottle/dermaline = 1,
-	/obj/item/weapon/storage/pill_bottle/dexalin_plus = 1,
-	/obj/item/weapon/storage/pill_bottle/dylovene = 1,
-	/obj/item/weapon/storage/pill_bottle/tramadol = 1)
+	contents_list_extra = list(/obj/item/storage/pill_bottle/bicaridine = 1,
+	/obj/item/storage/pill_bottle/dermaline = 1,
+	/obj/item/storage/pill_bottle/dexalin_plus = 1,
+	/obj/item/storage/pill_bottle/dylovene = 1,
+	/obj/item/storage/pill_bottle/tramadol = 1)
 
 /datum/stash/junk/oddity
 	contents_list_extra = list(/obj/spawner/oddities = 4)
@@ -64,7 +64,7 @@
 
 /datum/stash/junk/music
 	contents_list_extra = list(/obj/item/device/synthesized_instrument/guitar = 1,
-	/obj/item/weapon/storage/box/donkpockets = 1)
+	/obj/item/storage/box/donkpockets = 1)
 	lore = "The main halls are too noisy with the import of the new specimins. <br>\
 	How am I supposed to think, much less COMPOSE with those giant cockroaches they have in the pens screeching at all hours? <br>\
 	Seriously, screw solgov and this stupid project. <br>\
@@ -159,20 +159,20 @@
 			I'll stick it here, %D, come back to it later when Aegis isn't so far up my ass they can see out my mouth."
 	contents_list_random = list(/obj/item/clothing/head/space/capspace = 70,
 		/obj/item/clothing/suit/space/void/captain = 70,
-		/obj/item/weapon/tank/jetpack/oxygen = 55,
-		/obj/item/weapon/tool/chainofcommand = 65,
-		/obj/item/weapon/reagent_containers/food/drinks/flask = 50,
-		/obj/item/weapon/gun/energy/captain = 65,
-		/obj/item/weapon/card/id/captains_spare = 10,
+		/obj/item/tank/jetpack/oxygen = 55,
+		/obj/item/tool/chainofcommand = 65,
+		/obj/item/reagent_containers/food/drinks/flask = 50,
+		/obj/item/gun/energy/captain = 65,
+		/obj/item/card/id/captains_spare = 10,
 		/obj/item/clothing/under/captainformal = 65,
 		/obj/item/clothing/head/caphat/formal = 65,
-		/obj/item/weapon/bedsheet/captain = 30,
-		/obj/item/weapon/storage/backpack/satchel/captain = 40,
+		/obj/item/bedsheet/captain = 30,
+		/obj/item/storage/backpack/satchel/captain = 40,
 		/obj/item/clothing/mask/smokable/cigarette/cigar/havana = 15,
 		/obj/item/modular_computer/tablet/lease/preset/command = 25,
-		/obj/item/weapon/stamp/captain = 35,
-		/obj/item/weapon/disk/nuclear = 15,
-		/obj/item/weapon/melee/telebaton = 15,
+		/obj/item/stamp/captain = 35,
+		/obj/item/disk/nuclear = 15,
+		/obj/item/melee/telebaton = 15,
 		/obj/item/clothing/suit/storage/greatcoat = 15)
 
 /datum/stash/command/CMOstash //This is the CMO stash.
@@ -184,21 +184,21 @@
 		/obj/item/clothing/suit/storage/toggle/labcoat/cmo = 1)
 	contents_list_random = list(/obj/item/clothing/suit/bio_suit/cmo = 70,
 		/obj/item/clothing/head/bio_hood/cmo = 70,
-		/obj/item/weapon/tank/emergency_oxygen = 30,
+		/obj/item/tank/emergency_oxygen = 30,
 		/obj/item/device/flash = 65,
-		/obj/item/weapon/gun/projectile/dartgun = 65,
+		/obj/item/gun/projectile/dartgun = 65,
 		/obj/item/ammo_magazine/chemdart = 65,
 		/obj/item/ammo_magazine/chemdart = 65,
-		/obj/item/weapon/card/id/cmo = 10,
+		/obj/item/card/id/cmo = 10,
 		/obj/item/clothing/head/surgery/green = 65,
 		/obj/item/clothing/gloves/latex/nitrile = 55,
-		/obj/item/weapon/bedsheet/medical = 30,
-		/obj/item/weapon/storage/backpack/satchel/medical = 40,
+		/obj/item/bedsheet/medical = 30,
+		/obj/item/storage/backpack/satchel/medical = 40,
 		/obj/item/hypospray/mkii/CMO = 30,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/drugs = 30,
-		/obj/item/weapon/reagent_containers/glass/beaker/hypocartridge/large/CMO = 30,
+		/obj/item/reagent_containers/hypospray/autoinjector/drugs = 30,
+		/obj/item/reagent_containers/glass/beaker/hypocartridge/large/CMO = 30,
 		/obj/item/modular_computer/tablet/lease/preset/medical = 25,
-		/obj/item/weapon/stamp/cmo = 35)
+		/obj/item/stamp/cmo = 35)
 
 /datum/stash/command/CEstash //This is the CE stash
 	contents_list_external = list(/obj/item/remains/human = 1)
@@ -208,18 +208,18 @@
 			%D, so I don't forget."
 	contents_list_base = list(/obj/item/clothing/under/rank/exultant = 1,
 		/obj/item/clothing/head/hardhat/white = 1)
-	contents_list_random = list(/obj/item/weapon/rig/ce = 70,
+	contents_list_random = list(/obj/item/rig/ce = 70,
 		/obj/item/stack/material/plasteel/random = 55,
-		/obj/item/weapon/tool/wrench/big_wrench = 65,
+		/obj/item/tool/wrench/big_wrench = 65,
 		/obj/item/stack/material/steel/random = 65,
-		/obj/item/weapon/card/id/ce = 10,
-		/obj/item/weapon/bedsheet/ce = 30,
-		/obj/item/weapon/storage/backpack/satchel/industrial = 40,
-		/obj/item/weapon/hatton = 15,
-		/obj/item/weapon/rcd = 15,
+		/obj/item/card/id/ce = 10,
+		/obj/item/bedsheet/ce = 30,
+		/obj/item/storage/backpack/satchel/industrial = 40,
+		/obj/item/hatton = 15,
+		/obj/item/rcd = 15,
 		/obj/item/blueprints = 65,
 		/obj/item/stack/material/glass/random = 65,
-		/obj/item/weapon/stamp/ce = 35,
+		/obj/item/stamp/ce = 35,
 		/obj/spawner/tool_upgrade = 70,
 		/obj/spawner/tool_upgrade = 25,
 		/obj/spawner/tool_upgrade = 25,
@@ -232,25 +232,25 @@
 			God I hope this shit works."
 	contents_list_base = list(/obj/item/clothing/under/rank/ih_commander = 1,
 		/obj/item/clothing/head/beret/sec/navy/hos = 1)
-	contents_list_random = list(/obj/item/weapon/gun/projectile/avasarala = 70,
+	contents_list_random = list(/obj/item/gun/projectile/avasarala = 70,
 		/obj/item/clothing/head/HoS = 70,
 		/obj/item/clothing/gloves/stungloves = 55,
 		/obj/item/clothing/gloves/security/tactical = 30,
-		/obj/item/weapon/rig/combat = 65,
+		/obj/item/rig/combat = 65,
 		/obj/item/clothing/suit/storage/greatcoat/ironhammer = 50,
-		/obj/item/weapon/card/id/hos = 10,
-		/obj/item/weapon/bedsheet/hos = 30,
-		/obj/item/weapon/storage/box/handcuffs = 60,
-		/obj/item/weapon/storage/backpack/satchel/security = 40,
-		/obj/item/weapon/storage/belt/tactical/ironhammer = 15,
+		/obj/item/card/id/hos = 10,
+		/obj/item/bedsheet/hos = 30,
+		/obj/item/storage/box/handcuffs = 60,
+		/obj/item/storage/backpack/satchel/security = 40,
+		/obj/item/storage/belt/tactical/ironhammer = 15,
 		/obj/item/clothing/accessory/holster/waist = 25,
-		/obj/item/weapon/stamp/hos = 35,
-		/obj/item/weapon/gun/projectile/revolver/sky_driver = 15,
+		/obj/item/stamp/hos = 35,
+		/obj/item/gun/projectile/revolver/sky_driver = 15,
 		/obj/item/ammo_magazine/magnum = 80,
 		/obj/item/ammo_magazine/magnum = 80,
 		/obj/item/ammo_magazine/magnum = 80,
-		/obj/item/weapon/reagent_containers/food/snacks/hotdog = 10,
-		/obj/item/weapon/melee/telebaton = 15)
+		/obj/item/reagent_containers/food/snacks/hotdog = 10,
+		/obj/item/melee/telebaton = 15)
 
 /datum/stash/command/RDstash //RD's stuff
 	lore = "I told you, I told you! Call me mad one more time and I'll show you a mad scientist! <br>\
@@ -262,19 +262,19 @@
 		/obj/item/clothing/gloves/color/brown = 1)
 	contents_list_random = list(/obj/item/clothing/suit/space/void/science= 70,
 		/obj/item/clothing/head/space/void/science = 70,
-		/obj/item/weapon/tank/jetpack/oxygen = 55,
+		/obj/item/tank/jetpack/oxygen = 55,
 		/obj/item/device/flash = 65,
 		/obj/item/stack/material/uranium/random = 50,
 		/obj/item/stack/material/plasteel/random = 65,
-		/obj/item/weapon/card/id/rd = 10,
+		/obj/item/card/id/rd = 10,
 		/obj/item/clothing/shoes/leather = 70,
 		/obj/item/clothing/head/collectable/rabbitears = 10,
 		/obj/item/clothing/head/collectable/slime = 65,
-		/obj/item/weapon/bedsheet/rd = 30,
-		/obj/item/weapon/storage/backpack/satchel/purple/scientist = 40,
-		/obj/item/weapon/hand_tele = 15,
+		/obj/item/bedsheet/rd = 30,
+		/obj/item/storage/backpack/satchel/purple/scientist = 40,
+		/obj/item/hand_tele = 15,
 		/obj/item/device/chameleon = 25,
-		/obj/item/weapon/stamp/rd = 35,
+		/obj/item/stamp/rd = 35,
 		/obj/item/stack/material/diamond/random = 15,
 		/obj/item/stack/material/platinum/random = 15)
 
@@ -288,15 +288,15 @@
 		/obj/item/clothing/glasses/powered/meson = 1)
 	contents_list_random = list(/obj/item/clothing/suit/space/void/mining= 70,
 		/obj/item/clothing/head/space/void/mining = 70,
-		/obj/item/weapon/tank/jetpack/oxygen = 55,
-		/obj/item/weapon/reagent_containers/food/drinks/flask = 50,
-		/obj/item/weapon/gun/projectile/shotgun/pump = 65,
+		/obj/item/tank/jetpack/oxygen = 55,
+		/obj/item/reagent_containers/food/drinks/flask = 50,
+		/obj/item/gun/projectile/shotgun/pump = 65,
 		/obj/item/ammo_casing/shotgun/beanbag/prespawned = 80,
 		/obj/item/ammo_casing/shotgun/beanbag/prespawned = 80,
-		/obj/item/weapon/bedsheet/brown = 30,
-		/obj/item/weapon/storage/backpack/satchel/leather = 40,
+		/obj/item/bedsheet/brown = 30,
+		/obj/item/storage/backpack/satchel/leather = 40,
 		/obj/item/device/scanner/price = 25,
-		/obj/item/weapon/stamp/qm = 35,
+		/obj/item/stamp/qm = 35,
 		/obj/spawner/credits/c100 = 90,
 		/obj/spawner/credits/c500 = 90,
 		/obj/spawner/credits/c1000 = 75,
@@ -318,24 +318,24 @@
 	contents_list_base = list(/obj/item/clothing/under/rank/first_officer = 1)
 	contents_list_random = list(/obj/item/clothing/suit/armor/vest = 70,
 		/obj/item/clothing/glasses/sunglasses = 55,
-		/obj/item/weapon/reagent_containers/food/drinks/flask = 50,
-		/obj/item/weapon/gun/projectile/avasarala = 65,
+		/obj/item/reagent_containers/food/drinks/flask = 50,
+		/obj/item/gun/projectile/avasarala = 65,
 		/obj/item/ammo_magazine/magnum = 80,
 		/obj/item/ammo_magazine/magnum = 80,
-		/obj/item/weapon/cartridge/ce = 35,
-		/obj/item/weapon/cartridge/hop = 35,
-		/obj/item/weapon/cartridge/hos = 35,
-		/obj/item/weapon/cartridge/rd = 35,
-		/obj/item/weapon/cartridge/cmo = 35,
+		/obj/item/cartridge/ce = 35,
+		/obj/item/cartridge/hop = 35,
+		/obj/item/cartridge/hos = 35,
+		/obj/item/cartridge/rd = 35,
+		/obj/item/cartridge/cmo = 35,
 		/obj/item/device/pda/heads = 50,
 		/obj/item/device/pda/heads = 50,
 		/obj/item/device/pda/heads = 50,
-		/obj/item/weapon/card/id/hop = 10,
-		/obj/item/weapon/storage/box/ids = 65,
-		/obj/item/weapon/bedsheet/hop = 30,
-		/obj/item/weapon/storage/backpack/satchel/leather/withwallet = 40,
+		/obj/item/card/id/hop = 10,
+		/obj/item/storage/box/ids = 65,
+		/obj/item/bedsheet/hop = 30,
+		/obj/item/storage/backpack/satchel/leather/withwallet = 40,
 		/obj/item/modular_computer/tablet/lease/preset/command = 25,
-		/obj/item/weapon/stamp/hop = 35)
+		/obj/item/stamp/hop = 35)
 
 /datum/stash/command/Chaplainstash //Mekhane chaplain stuff
 	lore = "Ave. May your soul find the peace in the afterlife you did not allow it in this, o sorrowful leader. <br>\
@@ -348,16 +348,16 @@
 	contents_list_base = list(/obj/item/clothing/under/rank/preacher = 1,
 		/obj/item/clothing/head/preacher = 1)
 	contents_list_random = list(/obj/item/clothing/suit/storage/neotheology_jacket = 70,
-		/obj/item/weapon/book/ritual/cruciform = 55,
-		/obj/item/weapon/tool/knife/dagger/nt = 65,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors = 50,
-		/obj/item/weapon/gun/energy/nt_svalinn = 65,
-		/obj/item/weapon/card/id/chaplain = 10,
+		/obj/item/book/ritual/cruciform = 55,
+		/obj/item/tool/knife/dagger/nt = 65,
+		/obj/item/reagent_containers/food/drinks/bottle/ntcahors = 50,
+		/obj/item/gun/energy/nt_svalinn = 65,
+		/obj/item/card/id/chaplain = 10,
 		/obj/item/clothing/under/rank/church/sport = 65,
-		/obj/item/weapon/storage/belt/tactical/neotheology = 30,
-		/obj/item/weapon/storage/backpack/satchel/neotheology = 40,
-		/obj/item/weapon/storage/fancy/candle_box = 15,
-		/obj/item/weapon/implant/core_implant/cruciform = 25,
-		/obj/item/weapon/deck/tarot = 35,
-		/obj/item/weapon/tool/sword/nt/longsword = 15,
+		/obj/item/storage/belt/tactical/neotheology = 30,
+		/obj/item/storage/backpack/satchel/neotheology = 40,
+		/obj/item/storage/fancy/candle_box = 15,
+		/obj/item/implant/core_implant/cruciform = 25,
+		/obj/item/deck/tarot = 35,
+		/obj/item/tool/sword/nt/longsword = 15,
 		/obj/item/clothing/suit/storage/neotheosports = 15)

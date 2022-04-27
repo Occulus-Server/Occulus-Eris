@@ -47,7 +47,7 @@
 		radio.autosay("Synthetic entities detected at [english_list(areanames)]." , "Mk.XIV Synthetic Entity Detector", "Engineering")
 		for (var/datum/coords/skree in coordinateslist) // while we still have stuff in our coordinates list...
 			papertextoutput.Add(skree.get_text()) // convert the coordinates to a human readable format and add them to this handy dandy list
-		new /obj/item/weapon/paper(user.loc, papertextoutput.Join("\n"), "SED Location Report") // finally, convert the list of human readable coordinates into a human readable form!
+		new /obj/item/paper(user.loc, papertextoutput.Join("\n"), "SED Location Report") // finally, convert the list of human readable coordinates into a human readable form!
 	else
 		to_chat(user, SPAN_WARNING("The [src] needs time to recharge!"))
 
@@ -75,7 +75,7 @@
 
 	return pick(possible)
 
-/obj/item/weapon/paper/eessed
+/obj/item/paper/eessed
 	name = "paper - 'EES Memorandum 1R-1574'"
 	info = {"As per Memorandum 5A-8994, the robotic entities that have been procured by management are to be recovered or otherwise liquidated effective immediately.
 	The usage of the Mk.XIV device will be instrumental in carrying out this task. The wherewithal to support any and all relevant staff that can assist in this endeavour may be freely dispensed."}
