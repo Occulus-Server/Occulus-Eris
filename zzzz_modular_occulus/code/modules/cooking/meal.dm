@@ -30,7 +30,7 @@
 	var/list/ingredients = list()
 
 /obj/item/reagent_containers/food/snacks/meal/attackby(obj/item/W as obj, mob/user as mob)
-	if(src.contents.len > sandwich_limit)
+	if(src.contents.len > sandwichlimit)
 		to_chat(user, SPAN_WARNING("The [src] plate is full!"))
 		return
 	if(istype(W, /obj/item/reagent_containers/food/snacks/meal) || istype(W, /obj/item/reagent_containers/food/snacks/csalad)) //Quick check to not make these recursive.
