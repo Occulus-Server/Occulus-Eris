@@ -223,7 +223,7 @@ default behaviour is:
 /mob/living/proc/adjustBruteLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	bruteloss = min(max(bruteloss + amount, 0),(maxHealth*2))
+	bruteloss = min(max(bruteloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies
 
 /mob/living/proc/getOxyLoss()
 	return oxyloss
@@ -231,7 +231,7 @@ default behaviour is:
 /mob/living/proc/adjustOxyLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	oxyloss = min(max(oxyloss + amount, 0),(maxHealth*2))
+	oxyloss = min(max(oxyloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies
 
 /mob/living/proc/setOxyLoss(var/amount)
 	if(status_flags & GODMODE)
@@ -244,7 +244,7 @@ default behaviour is:
 /mob/living/proc/adjustToxLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	toxloss = min(max(toxloss + amount, 0),(maxHealth*2))
+	toxloss = min(max(toxloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies
 
 /mob/living/proc/setToxLoss(var/amount)
 	if(status_flags & GODMODE)
@@ -257,7 +257,7 @@ default behaviour is:
 /mob/living/proc/adjustFireLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	fireloss = min(max(fireloss + amount, 0),(maxHealth*2))
+	fireloss = min(max(fireloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies
 
 /mob/living/proc/getCloneLoss()
 	return cloneloss
@@ -265,7 +265,7 @@ default behaviour is:
 /mob/living/proc/adjustCloneLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	cloneloss = min(max(cloneloss + amount, 0),(maxHealth*2))
+	cloneloss = min(max(cloneloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies
 
 /mob/living/proc/setCloneLoss(var/amount)
 	if(status_flags & GODMODE)
@@ -278,7 +278,7 @@ default behaviour is:
 /mob/living/proc/adjustBrainLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	brainloss = min(max(brainloss + amount, 0),(maxHealth*2))
+	brainloss = min(max(brainloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies. Even if this doesn't really matter
 
 /mob/living/proc/setBrainLoss(var/amount)
 	if(status_flags & GODMODE)
@@ -291,7 +291,7 @@ default behaviour is:
 /mob/living/proc/adjustHalLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	halloss = min(max(halloss + amount, 0),(maxHealth*2))
+	halloss = min(max(halloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies. Just doing this for good measure
 
 /mob/living/proc/setHalLoss(var/amount)
 	if(status_flags & GODMODE)

@@ -21,7 +21,7 @@
 		return "I cannot feed on other slimes..."
 	if (!Adjacent(M))
 		return "This subject is too far away..."
-	if (iscarbon(M) && M.getFireLoss() >= M.maxHealth * 1.5 || isanimal(M) && M.stat == DEAD)
+	if (iscarbon(M) && M.getCloneLoss() >= M.maxHealth - HEALTH_THRESHOLD_DEAD || isanimal(M) && M.stat == DEAD)
 		return "This subject does not have an edible life energy..."
 	for(var/mob/living/carbon/slime/met in view())
 		if(met.Victim == M && met != src)
@@ -43,7 +43,7 @@
 			UpdateFeed(M)
 
 			if(iscarbon(M))
-				Victim.adjustFireLoss(rand(5,6))
+				Victim.adjustCloneLoss(rand(5,6))
 				Victim.adjustToxLoss(rand(1,2))
 				if(Victim.health <= 0)
 					Victim.adjustToxLoss(rand(2,4))
@@ -66,10 +66,7 @@
 					if (!(C.species && (C.species.flags & NO_PAIN)))
 						to_chat(M, SPAN_DANGER("[painMes]"))
 
-			if(Victim.isMonkey()) //eclipse edit
-				gain_nutrition(rand(20,25)) //eclipse edit
-			else
-				gain_nutrition(rand(20,25) * 0.1) //eclipse edit
+			gain_nutrition(rand(20,25))
 
 			adjustOxyLoss(-8) //Heal yourself
 			adjustBruteLoss(-8)
@@ -120,7 +117,7 @@
 	if(!is_adult)
 		if(amount_grown >= 10)
 			is_adult = 1
-			maxHealth = 80 //eclipse edit, used to be 150
+			maxHealth = 150
 			amount_grown = 0
 			regenerate_icons()
 			name = text("[colour] [is_adult ? "adult" : "baby"] slime ([number])")
