@@ -3046,6 +3046,7 @@
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\human\inventory.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\human\species\species.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\human\species\station.dm"
+#include "zzzz_modular_occulus\code\modules\mob\living\carbon\superior_animal\defense.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\superior_animal\giant_spider\giant_spider.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\superior_animal\roach\blattedin.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\superior_animal\roach\kaiserin.dm"

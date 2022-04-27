@@ -8,9 +8,9 @@
 	item_state = "frggrenade"
 	loadable = TRUE
 
-	fragment_type = /obj/item/projectile/bullet/pellet/shotgun/rubber/stinger
+	fragment_type = /obj/item/projectile/bullet/pellet/fragment/rubber/stinger
 	num_fragments = 100  //total number of fragments produced by the grenade
-	fragment_damage = 0
+	fragment_damage = 1
 
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_STEEL = 2)
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
