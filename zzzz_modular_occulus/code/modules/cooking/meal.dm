@@ -3,7 +3,7 @@
 	name = "plate"
 	desc = "A standard plate. This one is empty."
 
-/obj/item/trash/plate/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/trash/plate/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/material/shard) || istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/meal/M = new(get_turf(src))
 		M.attackby(W,user)
