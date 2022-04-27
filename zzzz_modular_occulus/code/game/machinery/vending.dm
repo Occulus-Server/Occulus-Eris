@@ -397,8 +397,6 @@
 	contraband = list(/obj/item/material/kitchen/rollingpin = 2, /obj/item/tool/knife/butch = 2)
 	auto_price = FALSE
 
-
-
 //all these are just to update the bill validator lights
 /obj/machinery/vending/serbomat/New()
 	..()
