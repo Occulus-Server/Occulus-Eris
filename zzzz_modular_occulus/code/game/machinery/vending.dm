@@ -368,7 +368,6 @@
 					/obj/item/storage/belt/utility/neotheology = 150,
 					/obj/item/storage/belt/tactical/neotheology = 150)
 
-
 //Updated Dinnerware
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
