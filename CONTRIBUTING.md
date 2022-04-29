@@ -7,6 +7,10 @@
 * If pull request contains map files changes, it should be previously proccessed by mapmerger tool (see /tool/mapmerger/install.txt for additional info). Pull request description should contain screenshots of map changes if it's not obvious from map files diff.
 * If pull request contains icon files changes, it should be previously proccessed by icon merger tool (see /tool/dmitool/merging.txt for additional info). Pull request description should contain screenshots of changed icon files.
 * If you have the permissions, please set appropriate labels on your PRs. Including, at the very least, Ready for Review to indicate that its done.
+* Although you're not required to run unit tests locally, make sure your code compiles and you've playtested your code in-game before making the PR.
+* If your PR changes something visually, you should provide screenshots of how it looks ingame.
+* If your PR adds a new feature, you should try to provide a screenshot or video of it functioning properly ingame.
+
 
 # Advice for new recruits
 Start small! Make your first couple of PRs focus on bugfixes or small balance tweaks until you get used to the system. The repo is littered with failed projects from people who got overambitious and burned out.
