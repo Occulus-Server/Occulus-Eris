@@ -1,3 +1,6 @@
+/obj/item/clothing
+	var/ear_protection = 0
+
 /obj/item/clothing/under
 	var/rolldown = FALSE
 

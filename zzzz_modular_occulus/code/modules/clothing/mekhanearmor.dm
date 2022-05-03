@@ -8,6 +8,8 @@
         bio = 200,
         rad = 75
     )
+	ear_protection = 1
+
 
 /obj/item/clothing/suit/armor/crusader
 	desc = "Mekhane will protect those who belive."

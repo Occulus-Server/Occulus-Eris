@@ -117,6 +117,7 @@
 		bio = 100,
 		rad = 75
 	)
+	ear_protection = 1
 
 /obj/item/clothing/suit/space/void/security
 	name = "CAS combat voidsuit"
@@ -140,6 +141,7 @@
 		bio = 100,
 		rad = 75
 	)
+	ear_protection = 1
 
 /obj/item/clothing/suit/space/void/science
 	name = "NT combat voidsuit"
@@ -173,6 +175,7 @@
 		rad = 75
 	)
 	siemens_coefficient = 0.7
+	ear_protection = 1
 
 /obj/item/clothing/suit/space/void/dss
 	name = "deepflare assault voidsuit"

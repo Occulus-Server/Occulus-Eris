@@ -1,3 +1,6 @@
+/obj/item/clothing/head/armor
+	ear_protection = 1
+
 /obj/item/clothing/head/armor/bulletproof/ironhammer_nvg
 	spawn_blacklisted = TRUE
 
