@@ -70,7 +70,7 @@
 	total_health = 125 //Unathi level
 	brute_mod = 1.1 //Normalized to .1 delta
 	burn_mod = 0.9 // ditto
-	spawn_flags = CAN_JOIN //duh
+	spawn_flags = CAN_JOIN | NO_SLIP //duh
 	siemens_coefficient = 3 //conductive | left untouched from regular slimes
 	darksight = 3
 	blood_volume = SPECIES_BLOOD_DEFAULT * 1.25
@@ -92,7 +92,8 @@
 	has_process = list(
 		OP_HEART =    /obj/item/organ/internal/heart/slime,
 		BP_BRAIN = /obj/item/organ/internal/brain/slime,
-		OP_EYES =     /obj/item/organ/internal/eyes/slime
+		OP_EYES =     /obj/item/organ/internal/eyes/slime,
+		OP_STOMACH = /obj/item/organ/internal/stomach/slime
 		)
 
 	has_limbs = list(
@@ -122,6 +123,10 @@
 /obj/item/organ/internal/eyes/slime
 	name = "slime photoreceptors"
 	desc = "A pulsating complex of jelly-like orbs."
+
+/obj/item/organ/internal/stomach/slime
+	name = "slime digestive sack"
+	desc = "a pulsating sack that contains especially heavy acids and sand."
 
 /datum/species // Instead of using snowflake slime sprites, we just tweak their alpha down
 	var/body_alpha = 255
