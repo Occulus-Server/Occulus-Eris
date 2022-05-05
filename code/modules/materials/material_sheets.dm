@@ -352,7 +352,7 @@
 	name = "reinforced borosilicate glass"
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
 	singular_name = "reinforced borosilicate glass sheet"
-	icon_state = "sheet-plasmaglass"
+	icon_state = "sheet-plasmarglass"
 	default_type = MATERIAL_RPHORONGLASS
 	price_tag = 12
 	novariants = FALSE
