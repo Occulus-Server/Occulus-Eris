@@ -316,6 +316,7 @@
 	icon_state = "sheet-glass"
 	default_type = MATERIAL_GLASS
 	price_tag = 2
+	novariants = FALSE
 
 /obj/item/stack/material/glass/random
 	rand_min = 3
@@ -330,6 +331,7 @@
 	name = "reinforced glass"
 	icon_state = "sheet-rglass"
 	default_type = MATERIAL_RGLASS
+	novariants = FALSE
 
 /obj/item/stack/material/glass/phoronglass
 	name = "borosilicate glass"
@@ -338,6 +340,7 @@
 	icon_state = "sheet-plasmaglass"
 	default_type = MATERIAL_PHORONGLASS
 	price_tag = 10
+	novariants = FALSE
 
 /obj/item/stack/material/glass/phoronglass/random
 	rand_min = 3
@@ -352,6 +355,7 @@
 	icon_state = "sheet-plasmaglass"
 	default_type = MATERIAL_RPHORONGLASS
 	price_tag = 12
+	novariants = FALSE
 
 /obj/item/stack/material/biomatter
 	name = "biomatter"
