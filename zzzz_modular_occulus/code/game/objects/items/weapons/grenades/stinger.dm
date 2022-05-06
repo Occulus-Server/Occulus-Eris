@@ -13,6 +13,7 @@
 	fragment_damage = 1
 
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_STEEL = 2)
+	matter_reagents = list("ammonium_nitrate" = 5)
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 
 /obj/item/storage/box/frag/rubber
