@@ -50,6 +50,12 @@ datum/reagent/nitrate
 	reagent_state = LIQUID
 	color = "#E1CFE3"
 
+/datum/reagent/ammonium_nitrate
+	id = "ammonium_nitrate"
+	name = "Ammonium Nitrate"
+	description = "Ammonium Nitrate, even more interesting!"
+	reagent_state = LIQUID
+	color = "#d0bcd2"
 
 /datum/reagent/babelizine
 	id = "babelizine"
