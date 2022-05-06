@@ -31,3 +31,6 @@
 /datum/design/bioprinter/carpet/oracarpet
 	name = "orange carpet"
 	build_path = /obj/item/stack/tile/carpet/oracarpet
+
+/datum/design/bioprinter/medical/advanced
+	materials = list(MATERIAL_BIOMATTER = 35)

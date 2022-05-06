@@ -26,7 +26,7 @@
 		for(var/organ in process_list)
 			var/obj/item/organ/internal/I = organ
 			effective_efficiency += I.get_process_eficiency(process_define)
-		
+
 	return effective_efficiency ? effective_efficiency : 1
 
 /mob/living/carbon/human/get_specific_organ_efficiency(process_define, parent_organ_tag)
@@ -41,7 +41,7 @@
 			var/obj/item/organ/internal/I = organ
 			if(process_define in I.organ_efficiency)
 				effective_efficiency += I.get_process_eficiency(process_define)
-	
+
 	return effective_efficiency ? effective_efficiency : 1
 
 /mob/living/carbon/human/proc/eye_process()
@@ -143,19 +143,24 @@
 	var/blood_bad = total_blood_req + BLOOD_VOLUME_BAD_MODIFIER
 
 	if(blood_volume < total_blood_req)
+		eye_blurry = max(eye_blurry,24)//Occulus Edit: Blurry vision stays
+		adjustOxyLoss(8) //Occulus Edit: At this point you should pretty much mcfuckingdie
 		status_flags |= BLEEDOUT
 		if(prob(15))
 			to_chat(src, SPAN_WARNING("Your organs feel extremely heavy"))
 
 	else if(blood_volume < blood_bad)
-		adjustOxyLoss(2)
-		adjustToxLoss(1)
+		eye_blurry = max(eye_blurry,12)//Occulus Edit: Blurry vision stays
+		adjustOxyLoss(5) //Occulus Edit: Bloodloss uncaps here
+		adjustBrainLoss(1)//Occulus Edit: You start getting brain damage here.
+		//Occulus Edit: Toxin damage is handled in bleedout now. adjustToxLoss(1)
 		if(prob(15))
 			to_chat(src, SPAN_WARNING("You feel extremely [pick("dizzy","woosey","faint")]"))
 
 	else if(blood_volume < blood_okay)
 		eye_blurry = max(eye_blurry,6)
-		adjustOxyLoss(1)
+		if(getOxyLoss() < 50)//Occulus Edit
+			adjustOxyLoss(3)//Occulus Edit: Bumping up over automatic oxyloss recovery
 		if(prob(15))
 			Paralyse(rand(1,3))
 			to_chat(src, SPAN_WARNING("You feel extremely [pick("dizzy","woosey","faint")]"))
@@ -164,9 +169,9 @@
 		if(prob(1))
 			to_chat(src, SPAN_WARNING("You feel [pick("dizzy","woosey","faint")]"))
 		if(getOxyLoss() < 10)
-			adjustOxyLoss(1)
+			adjustOxyLoss(3)//Occulus Edit: Bumping up over automatic oxyloss recovery
 
-	if(blood_volume > total_blood_req)	
+	if(blood_volume > total_blood_req)
 		status_flags &= ~BLEEDOUT
 
 	//Blood regeneration if there is some space
