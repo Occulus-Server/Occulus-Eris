@@ -14,6 +14,7 @@
 		rad = 50
 	)
 	siemens_coefficient = 0.7
+	ear_protection = 1
 
 /obj/item/clothing/head/christmas
 	name = "christmas hat"

@@ -5,7 +5,8 @@
 #define add_clothing_protection(A)	\
 	var/obj/item/clothing/C = A; \
 	flash_protection += C.flash_protection; \
-	equipment_tint_total += C.tint;
+	ear_protection += C.ear_protection; \
+	equipment_tint_total += C.tint; // Occulus edit, added ear_protection
 
 /mob/living/carbon/human/can_eat(var/food, var/feedback = 1)
 	var/list/status = can_eat_status()
@@ -42,6 +43,7 @@
 #undef HUMAN_EATING_BLOCKED_MOUTH
 
 /mob/living/carbon/human/proc/update_equipment_vision()
+	ear_protection = 0 //Occulus edit
 	flash_protection = 0
 	equipment_tint_total = 0
 	equipment_see_invis	= 0

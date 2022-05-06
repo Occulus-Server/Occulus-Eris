@@ -48,6 +48,7 @@
 		rad = 50
 	)
 	siemens_coefficient = 0.4
+	ear_protection = 1
 	spawn_blacklisted = TRUE
 	item_flags = STOPPRESSUREDAMAGE|THICKMATERIAL|AIRTIGHT
 

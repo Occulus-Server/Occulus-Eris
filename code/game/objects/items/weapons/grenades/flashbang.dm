@@ -19,7 +19,8 @@
 
 	for(var/mob/living/carbon/human/thermal_user in orange(9, loc))
 		if(!thermal_user.glasses)
-			return
+			//return //Occulus edit
+			continue
 		var/obj/item/clothing/glasses/potential_thermals = thermal_user.glasses
 		if(potential_thermals.overlay == global_hud.thermal)
 			flashbang_without_the_bang(get_turf(src), thermal_user)
@@ -68,13 +69,14 @@
 	var/ear_stun_mult = 1
 	if(iscarbon(M))
 		eye_safety = M.eyecheck()
+		ear_safety = M.earcheck() //Occulus edit
 		if(ishuman(M))
 			if(istype(M:l_ear, /obj/item/clothing/ears/earmuffs) || istype(M:r_ear, /obj/item/clothing/ears/earmuffs))
 				ear_safety += 2
 			if(HULK in M.mutations)
 				ear_safety += 1
-			if(istype(M:head, /obj/item/clothing/head/armor/helmet))
-				ear_safety += 1
+			//if(istype(M:head, /obj/item/clothing/head/armor/helmet))
+				//ear_safety += 1 //Occulus edit
 			if(M.stats.getPerk(PERK_EAR_OF_QUICKSILVER))
 				ear_stun_mult *= 2
 
