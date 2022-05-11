@@ -31,7 +31,7 @@
 
 /obj/item/clothing/head/fishing/orange
 	name = "orange fishing hat"
-	colourtype = "blue"
+	colourtype = "orange"
 
 /obj/item/clothing/head/fishing/grey
 	name = "grey fishing hat"
