@@ -21,6 +21,7 @@
 	minimum_distance = 3
 	fire_verb = "fires a bolt strange energy" //reminder that the attack message is "\red <b>[src]</b> [fire_verb] at [target]!"
 	projectiletype = /obj/item/projectile/beam/siren
+	var/constructing = 0
 	var/atom/tele_target
 	var/structure_capacity = 6
 	var/loot_table = list(/obj/spawner/material/building,
@@ -43,16 +44,19 @@
 	..()
 	if(stance == HOSTILE_STANCE_IDLE)
 		if(prob(20) && (structure_capacity >= 1))
-			if(!(locate(/obj/item/shocktrap) in get_turf(src)) && !(locate(/obj/structure/sirencade) in get_turf(src)))
-				src.visible_message(SPAN_NOTICE("\The [src] begins to construct some sort of energy structure."))
-				stop_automated_movement = 1
-				stunned = 5
-				spawn(40)
-					var/list/conservatorconstruct = list(/obj/item/shocktrap, /obj/structure/sirencade)
-					var/chosen = safepick(conservatorconstruct)
-					new chosen(src.loc)
-					structure_capacity--
-					stop_automated_movement = 0
+			if(constructing == 0)
+				if(!(locate(/obj/item/shocktrap) in get_turf(src)) && !(locate(/obj/structure/sirencade) in get_turf(src)))
+					src.visible_message(SPAN_NOTICE("\The [src] begins to construct some sort of energy structure."))
+					stop_automated_movement = 1
+					stunned = 5
+					constructing = 1
+					spawn(40)
+						var/list/conservatorconstruct = list(/obj/item/shocktrap, /obj/structure/sirencade)
+						var/chosen = safepick(conservatorconstruct)
+						new chosen(src.loc)
+						structure_capacity--
+						stop_automated_movement = 0
+						constructing = 0
 
 /obj/item/shocktrap
 	name = "energetic latch"
@@ -94,11 +98,11 @@
 		user.visible_message(
 			SPAN_DANGER("[user] starts to carefully disarm \the [src]."),
 			SPAN_DANGER("You begin to carefully disarm \the [src]."))
-		spawn(50)
-		qdel(src)
-		user.visible_message(
-			SPAN_DANGER("[user] has disarmed \the [src]."),
-			SPAN_DANGER("You have disarmed \the [src]!"))
+		if(do_after(user,5 SECONDS))
+			qdel(src)
+			user.visible_message(
+				SPAN_DANGER("[user] has disarmed \the [src]."),
+				SPAN_DANGER("You have disarmed \the [src]!"))
 
 /obj/item/shocktrap/attack_hand(mob/user as mob)
 	if(prob(50))
@@ -119,6 +123,7 @@
 	icon_state = "barricade"
 	anchored = TRUE
 	density = TRUE
+	var/stage = 0
 	var/health = 250
 	var/maxhealth = 250
 
@@ -142,6 +147,28 @@
 		return
 	..()
 
+/obj/structure/sirencade/attackby(obj/item/W as obj, mob/user as mob)
+	if(QUALITY_PULSING in W.tool_qualities)
+		if(stage == 0)
+			to_chat(user, "<span class='notice'>You're unable to deactivate \the [src] with it's cover in place.</span>")
+		if(stage == 1)
+			user.visible_message(
+				SPAN_DANGER("[user] starts to carefully shutdown \the [src]."),
+				SPAN_DANGER("You begin to carefully shutdown \the [src]."))
+			if(do_after(user,5 SECONDS))
+				qdel(src)
+				user.visible_message(
+					SPAN_DANGER("[user] has shutdown \the [src]."),
+					SPAN_DANGER("You have shutdown \the [src]!"))
+	if(QUALITY_BOLT_TURNING in W.tool_qualities)
+		if(stage == 0)
+			user.visible_message(
+			SPAN_DANGER("[user] struggles to unbolt the cover of \the [src]."),
+			SPAN_DANGER("You struggles to unbolt the cover of \the [src]."))
+			if(do_after(user,2 SECONDS))
+				stage = 1
+		if(stage == 1)
+			to_chat(user, "<span class='notice'>The cover of \the [src] has already been removed</span>")
 /obj/structure/sirencade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
 		return 1
