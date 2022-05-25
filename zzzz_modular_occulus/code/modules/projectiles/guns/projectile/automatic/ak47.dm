@@ -1,7 +1,7 @@
 // God forgive my sins.
 
 obj/item/gun/projectile/automatic/ak47/cursed
-	name = "Modified AR .30 \"Kov\""
+	name = "Modified AR .30 \"Kalamiti\""
 	desc = "You've taken it too far, this time. \
 			This is a ruined copy of an ancient semi-automatic rifle. Extensive modification has removed the stock, added a non-magnifying scope, and a fun-switch. \
 			Any added accuracy from the sights are ruined by the fact that you lack a buttstock, and the gun is significantly lighter. \
@@ -21,7 +21,7 @@ obj/item/gun/projectile/automatic/ak47/cursed
 
 /obj/item/gun/projectile/automatic/ak47/cursed/attackby(obj/item/W, mob/user)
 	if(QUALITY_SCREW_DRIVING in W.tool_qualities)
-		to_chat(user, SPAN_NOTICE("You begin to rechamber \the [src]. Why? Why are you doing this??"))
+		to_chat(user, SPAN_NOTICE("You begin to rechamber \the [src]."))
 		if(!ammo_magazine && W.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SCREW_DRIVING, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
 			if(caliber == CAL_LRIFLE)
 				caliber = CAL_SRIFLE

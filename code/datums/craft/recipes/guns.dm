@@ -111,7 +111,7 @@
 	)
 
 /datum/craft_recipe/gun/kalashbutworse //nonmodular occulus edit: cursed AK time
-	name = "Modified AR .30 \"Kalash\""
+	name = "Modified AR .30 \"Kalamiti\""
 	result = /obj/item/gun/projectile/automatic/ak47/cursed
 	steps = list(
 		list(/obj/item/gun/projectile/automatic/ak47/makeshift, 1),
