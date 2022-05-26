@@ -47389,7 +47389,7 @@
 /obj/structure/table/standard,
 /obj/item/device/lighting/toggleable/lamp,
 /turf/simulated/floor/tiled/techmaint_panels,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "cig" = (
 /obj/structure/multiz/stairs/active/bottom{
 	dir = 1
@@ -83623,7 +83623,7 @@
 	req_access = list(12)
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "dSi" = (
 /obj/spawner/junk/low_chance,
 /obj/spawner/junk/low_chance,
@@ -100818,14 +100818,14 @@
 /turf/simulated/floor/hull,
 /area/space)
 "eNK" = (
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
-/area/space)
+/obj/structure/inflatable/door,
+/turf/simulated/floor/plating,
+/area/eris/maintenance/section4deck2starboard)
 "eNO" = (
 /obj/spawner/junk/low_chance,
 /obj/structure/table/rack/shelf,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "eOC" = (
 /obj/spawner/pack/machine,
 /turf/simulated/floor/plating/under,
@@ -101283,8 +101283,8 @@
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "fqV" = (
-/turf/simulated/floor/tiled/techmaint,
-/area/space)
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section4deck2starboard)
 "frq" = (
 /obj/item/stool,
 /turf/simulated/floor/carpet,
@@ -102411,7 +102411,7 @@
 "heP" = (
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/plating/under,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "heQ" = (
 /obj/machinery/light,
 /obj/structure/cable/green{
@@ -102958,9 +102958,6 @@
 	},
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/chapel)
-"hQp" = (
-/turf/simulated/floor/tiled/techmaint_panels,
-/area/space)
 "hQw" = (
 /obj/structure/table/standard,
 /obj/spawner/electronics,
@@ -103137,7 +103134,7 @@
 /obj/structure/inflatable/door,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "ifz" = (
 /obj/machinery/vending/serbomat,
 /turf/simulated/floor/tiled/steel/gray_perforated,
@@ -104107,7 +104104,7 @@
 "jBS" = (
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled/techmaint_panels,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "jDO" = (
 /obj/structure/bookcase,
 /turf/simulated/floor/tiled/steel/gray_perforated,
@@ -104172,7 +104169,7 @@
 	req_access = list(12)
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "jHj" = (
 /obj/structure/railing{
 	dir = 1;
@@ -104424,10 +104421,6 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
-"kcC" = (
-/obj/spawner/pack/machine,
-/turf/simulated/floor/tiled/techmaint,
-/area/space)
 "kcK" = (
 /obj/machinery/floor_light/prebuilt{
 	color = "#8F00FF";
@@ -105503,7 +105496,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "lOA" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -107144,7 +107137,7 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating/under,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "nPo" = (
 /obj/structure/table/rack/shelf,
 /turf/simulated/floor/tiled/steel/gray_platform,
@@ -107445,7 +107438,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint_panels,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "oih" = (
 /obj/machinery/firealarm{
 	pixel_y = 28
@@ -107547,10 +107540,6 @@
 /obj/spawner/pack/gun_loot,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/maintenance/section2deck1port)
-"ooV" = (
-/obj/spawner/pack/machine,
-/turf/simulated/floor/tiled/techmaint_panels,
-/area/space)
 "oqg" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -107846,7 +107835,7 @@
 /obj/item/clothing/head/fishing/green,
 /obj/item/clothing/head/fishing/red,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "oHW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
@@ -108533,7 +108522,7 @@
 	dir = 1
 	},
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "pGF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -108664,7 +108653,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating/under,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "pSi" = (
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/mechanical,
@@ -109802,7 +109791,7 @@
 "rxr" = (
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/techmaint_panels,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "ryN" = (
 /obj/item/stack/rods/random,
 /obj/landmark/storyevent/midgame_stash_spawn{
@@ -110647,7 +110636,7 @@
 /obj/item/reagent_containers/food/snacks/meat/carp,
 /obj/item/reagent_containers/food/snacks/meat/carp,
 /turf/simulated/floor/tiled/techmaint_panels,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "sOX" = (
 /obj/machinery/camera/network/third_section{
 	dir = 8
@@ -111671,7 +111660,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint_panels,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "ufx" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 4
@@ -111812,9 +111801,6 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
-"ulZ" = (
-/turf/simulated/wall,
-/area/space)
 "umg" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -112121,7 +112107,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating/under,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "uPZ" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
@@ -112399,7 +112385,7 @@
 /obj/item/clothing/head/fishing/black,
 /obj/item/clothing/head/fishing/blue,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "vkt" = (
 /obj/machinery/door/window/eastright{
 	name = "Research Desk";
@@ -112758,7 +112744,7 @@
 /obj/spawner/junk/low_chance,
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/techmaint_panels,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "vTT" = (
 /obj/structure/multiz/stairs/active/bottom{
 	dir = 4
@@ -114168,7 +114154,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/cubancarp,
 /turf/simulated/floor/tiled/techmaint_panels,
-/area/space)
+/area/eris/maintenance/section4deck2starboard)
 "xZK" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -259517,9 +259503,9 @@ eFe
 eFM
 dLg
 abF
-aae
-ane
-ane
+dLf
+fqV
+fqV
 dLf
 dri
 dLf
@@ -259719,7 +259705,7 @@ dMz
 dLg
 dLg
 abF
-aae
+dLf
 heP
 heP
 dLf
@@ -259921,10 +259907,10 @@ dLg
 dLg
 abF
 abF
-aae
+dLf
 heP
 heP
-ulZ
+dOV
 abF
 abF
 abF
@@ -260123,14 +260109,14 @@ abF
 abF
 abF
 eNI
-aae
-ulZ
-ulZ
-aae
-aae
-aae
-aae
-aae
+dLf
+dOV
+dOV
+dLf
+dLf
+dLf
+dLf
+dLf
 abF
 abF
 eNI
@@ -260314,21 +260300,21 @@ drP
 jaJ
 btI
 sim
-aae
-aae
-aae
-aae
-aae
-aae
-aae
-aae
-aae
-aae
-aae
-aae
+dLf
+dLf
+dLf
+dLf
+dLf
+dLf
+dLf
+dLf
+dLf
+dLf
+dLf
+dLf
 vkm
 oHU
-aae
+dLf
 eNO
 eNO
 lKE
@@ -260518,22 +260504,22 @@ wir
 abF
 jGC
 ify
-eNK
-eNK
-eNK
-eNK
-eNK
-eNK
-eNK
-eNK
-eNK
+dOR
+dOR
+dOR
+dOR
+dOR
+dOR
+dOR
+dOR
+dOR
 uPs
-eNK
-eNK
+dOR
+dOR
 dSh
-fqV
-fqV
-fqV
+dMq
+dMq
+dMq
 pQV
 abF
 abF
@@ -260718,24 +260704,24 @@ eDi
 aCf
 btI
 sim
-aae
-kcC
-fqV
-fqV
-fqV
-fqV
-fqV
-fqV
-fqV
-fqV
-fqV
-fqV
-fqV
-fqV
-aae
-hQp
-hQp
-hQp
+dLf
+dqo
+dMq
+dMq
+dMq
+dMq
+dMq
+dMq
+dMq
+dMq
+dMq
+dMq
+dMq
+dMq
+dLf
+ehf
+ehf
+ehf
 pQV
 abF
 eNI
@@ -260920,8 +260906,8 @@ btI
 vMs
 btI
 uWR
-aae
-ooV
+dLf
+duV
 ohV
 jBS
 cif
@@ -260929,15 +260915,15 @@ xZv
 ufs
 ohV
 rxr
-pKI
+eNK
 rxr
 sOU
 rxr
-pKI
-aae
+eNK
+dLf
 vSf
-hQp
-hQp
+ehf
+ehf
 pQV
 abF
 abF
@@ -261123,24 +261109,24 @@ eDo
 btI
 uWR
 pEU
-aae
-aae
+dLf
+dLf
 pQV
 pQV
 pQV
 pQV
-aae
-aae
-pKI
+dLf
+dLf
+eNK
 nOm
 nOm
 nOm
-pKI
-aae
+eNK
+dLf
 pQV
 pQV
 pQV
-aae
+dLf
 abF
 abF
 abF
