@@ -16,7 +16,7 @@
 	projectilesound = 'sound/weapons/pulse.ogg'
 	projectiletype = /obj/item/projectile/plasma/blast
 	speed = 3
-	ranged_cooldown = 4 SECONDS
+	ranged_cooldown = 6 SECONDS
 	maxshieldcharge = 10
 	shieldcharge = 10
 	maxHealth = 50
@@ -25,8 +25,8 @@
 	harm_intent_damage = 5
 	attacktext = "lashes out at"
 	throw_message = "falls right through the strange body of the"
-	retreat_distance = 4
-	minimum_distance = 3
+	retreat_distance = 5
+	minimum_distance = 4
 	pass_flags = PASSTABLE
 
 /mob/living/simple_animal/hostile/siren/augmentor/New()
