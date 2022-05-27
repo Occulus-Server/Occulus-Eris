@@ -30,6 +30,28 @@
 
 /obj/item/computer_hardware/hard_drive/portable/design/circuits
 	disk_name = "EES-ESPO-830 Circuits"
+	designs = list(
+		/datum/design/autolathe/circuit/airlockmodule = 0,
+		/datum/design/autolathe/circuit/airlockmodule/secure,
+		/datum/design/autolathe/circuit/airalarm = 0,
+		/datum/design/autolathe/circuit/firealarm = 0,
+		/datum/design/autolathe/circuit/powermodule = 0,
+		/datum/design/autolathe/circuit/recharger,
+		/datum/design/research/circuit/autolathe,
+		/datum/design/autolathe/circuit/autolathe_disk_cloner = 3,
+		/datum/design/autolathe/circuit/vending,
+		/datum/design/research/circuit/arcade_battle,
+		/datum/design/research/circuit/arcade_orion_trail,
+		/datum/design/research/circuit/teleconsole,
+		/datum/design/research/circuit/operating,
+		/datum/design/autolathe/circuit/helm,
+		/datum/design/autolathe/circuit/nav,
+		/datum/design/autolathe/circuit/centrifuge,
+		/datum/design/autolathe/circuit/electrolyzer,
+		/datum/design/autolathe/circuit/reagentgrinder,
+		/datum/design/autolathe/circuit/industrialgrinder = 2,		
+		/datum/design/autolathe/circuit/chemheater = 2,
+	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/conveyors
 	disk_name = "EES-LAT-018 Logistics"
