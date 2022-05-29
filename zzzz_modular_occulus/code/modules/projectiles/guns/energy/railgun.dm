@@ -25,6 +25,7 @@
 	init_firemodes = list(
 		list(mode_name="slug", mode_desc="fires a large metal chunk at light speeds", projectile_type=/obj/item/projectile/bullet/shotgun/railgun, icon="kill"),
 		list(mode_name="non-lethal", mode_desc="fires a rubber pellet at light speed", projectile_type=/obj/item/projectile/bullet/shotgun/beanbag/railgun, icon="stun"),
+		list(mode_name="grenade", mode_desc="fires an explosive synth-shell", projectile_type=/obj/item/projectile/bullet/grenade, charge_cost=30000, icon="grenade")
 	)
 	var/consume_cell = FALSE
 	price_tag = 2250
@@ -119,7 +120,6 @@
 			stored_matter += amount
 			to_chat(user, "<span class='notice>You load [amount] [matter_type] into \the [src].</span>")
 	else
-		to_chat(user, "It errored, I don't know why")
 		return ..()
 
 /obj/item/gun/energy/laser/railgun/gauss/consume_next_projectile(mob/user)
@@ -164,6 +164,6 @@
 	var/mob/living/L = loc
 	if(istype(L))
 		if(L.hand == L.l_hand) // Are we using the left arm?
-			L.apply_damage(overheat_damage, BURN, def_zone = BP_L_ARM)
+			L.apply_damage(overheat_damage, BURN, def_zone = BP_L_HAND)
 		else // If not then it must be the right arm.
-			L.apply_damage(overheat_damage, BURN, def_zone = BP_R_ARM)
+			L.apply_damage(overheat_damage, BURN, def_zone = BP_R_HAND)
