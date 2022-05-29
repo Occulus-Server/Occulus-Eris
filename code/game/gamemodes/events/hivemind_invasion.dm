@@ -22,7 +22,8 @@
 
 /datum/event/hivemind/announce()
 	level_seven_announcement()
-	command_announcement.Announce("Abnormal biomechanical signatures detected in [get_area(start_location)]. All personnel are advised to proceed with caution.", "Anomaly Alert")	// OCCULUS EDIT - announce the room in which the hivemind core spawned
+	command_announcement.Announce("Abnormal biomechaniC#al signatures detecte#@d. Internal s##sors off1l1ne. Area unknown.", "An!om#!aly AlerT")
+	//command_announcement.Announce("Abnormal biomechanical signatures detected in [get_area(start_location)]. All personnel are advised to proceed with caution.", "Anomaly Alert")	// OCCULUS EDIT - announce the room in which the hivemind core spawned // SECOND OCCULUS EDIT: emojiocracy says 'no don't say where it spawned' so uhhhh-
 
 
 /datum/event/hivemind/start()

@@ -102564,9 +102564,9 @@
 /area/eris/command/mbo)
 "hwD" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/lrifle/pk,
-/obj/item/ammo_magazine/lrifle/pk,
-/obj/item/gun/projectile/automatic/lmg/tk,
+/obj/item/gun/projectile/rpg,
+/obj/item/ammo_casing/rocket,
+/obj/item/ammo_casing/rocket,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
