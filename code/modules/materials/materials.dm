@@ -776,3 +776,10 @@ var/list/name_to_material
 	flags = MATERIAL_PADDING
 	ignition_point = T0C+232
 	melting_point = T0C+300
+
+/material/refined_scrap
+	name = MATERIAL_RSCRAP
+	stack_type = /obj/item/stack/material/refined_scrap
+	icon_colour = "B7410E"
+	sheet_singular_name = "piece"
+	sheet_plural_name = "pieces"

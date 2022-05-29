@@ -119,3 +119,40 @@
 /obj/item/projectile/bullet/pellet/energy/Initialize()
 	. = ..()
 	icon_state = "flux-[rand(1,3)]"
+
+// railgun
+
+/obj/item/projectile/bullet/shotgun/railgun
+	damage_types = list(BRUTE = 35)
+	armor_penetration = 35
+	hitscan = TRUE // it's a railgun
+	nocap_structures = TRUE
+
+/obj/item/projectile/bullet/shotgun/beanbag/railgun
+	hitscan = TRUE // it's a railgun
+	damage_types = list(BRUTE = 12) // It's a railgun, it's GOING to hurt
+	agony = 27 // Hurts, owie.
+	armor_penetration = 10
+
+// GAUSS
+
+/obj/item/projectile/bullet/gauss
+	name = "gauss"
+	icon_state = "gauss"
+	mob_hit_sound = list('sound/effects/gore/sear.ogg')
+	hitsound_wall = 'sound/weapons/guns/misc/ric4.ogg'
+	damage_types = list(BRUTE = 42)
+	armor_penetration = 35
+	check_armour = ARMOR_BULLET
+	hitscan = TRUE
+	nocap_structures = TRUE
+	embed = FALSE
+	can_ricochet = FALSE
+	sharp = FALSE
+
+/obj/item/projectile/bullet/gauss/hyper
+	name = "gauss"
+	icon_state = "gauss"
+	damage_types = list(BRUTE = 54) //Nyooom
+	armor_penetration = 50
+	sharp = TRUE
