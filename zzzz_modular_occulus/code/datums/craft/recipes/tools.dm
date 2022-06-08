@@ -59,3 +59,15 @@
 		list(/obj/item/tool/shovel, 1, "time" = 30),
 		list(QUALITY_SAWING, 10, 150),
 	)
+
+/datum/craft_recipe/tool/handloom
+	name = "Hand Loom"
+	result = /obj/item/handloom
+	steps = list(
+		list(CRAFT_MATERIAL, 5, MATERIAL_WOOD),
+		list(QUALITY_SAWING, 10, 150),
+		list(QUALITY_HAMMERING, 10, 150),
+		list(CRAFT_MATERIAL, 2, MATERIAL_PLASTIC),
+		list(QUALITY_WIRE_CUTTING, 10, 150),
+		list(QUALITY_SCREW_DRIVING, 10, 150)
+	)
