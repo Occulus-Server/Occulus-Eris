@@ -285,7 +285,7 @@
 		holder.owner.playsound_local(holder.owner, 'sound/effects/alert.ogg')
 
 
-
+/* Occulus Removal Start - By popular opinion, this is a bad breakdown.
 /datum/breakdown/negative/fabric
 	name = "The Fabric"
 	duration = 3 MINUTES
@@ -325,7 +325,7 @@
 	holder.owner.client?.images |= I
 
 /datum/breakdown/negative/fabric/proc/update_client_images()
-	holder.owner.client?.images |= images
+	holder.owner.client?.images |= images */ Occulus Removal End
 
 
 /datum/breakdown/negative/spiral
