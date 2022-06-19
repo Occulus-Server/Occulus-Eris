@@ -325,7 +325,8 @@
 	holder.owner.client?.images |= I
 
 /datum/breakdown/negative/fabric/proc/update_client_images()
-	holder.owner.client?.images |= images */ Occulus Removal End
+	holder.owner.client?.images |= images 
+*/ // Occulus Removal End
 
 
 /datum/breakdown/negative/spiral
