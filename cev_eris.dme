@@ -2832,6 +2832,7 @@
 #include "zzzz_modular_occulus\code\datums\autolathe\fabkits.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\guns.dm"
 #include "zzzz_modular_occulus\code\datums\craft\crafting_items.dm"
+#include "zzzz_modular_occulus\code\datums\craft\recipes\clothing.dm"
 #include "zzzz_modular_occulus\code\datums\craft\recipes\furniture.dm"
 #include "zzzz_modular_occulus\code\datums\craft\recipes\guns.dm"
 #include "zzzz_modular_occulus\code\datums\craft\recipes\machinery.dm"
