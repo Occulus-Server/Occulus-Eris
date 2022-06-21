@@ -15,6 +15,7 @@
 	throw_speed = 5
 	throw_range = 20
 	max_amount = 60
+	spawn_blacklisted = TRUE
 	attack_verb = list("hit", "slapped", "smacked")
 	price_tag = 1
 
@@ -41,6 +42,7 @@
 	throw_speed = 5
 	throw_range = 20
 	max_amount = 60
+	spawn_blacklisted = TRUE
 	attack_verb = list("hit", "slapped", "smacked")
 	price_tag = 2
 
@@ -59,6 +61,7 @@
 	throw_speed = 5
 	throw_range = 20
 	max_amount = 60
+	spawn_blacklisted = TRUE
 	attack_verb = list("hit", "slapped", "smacked")
 	price_tag = 5
 
@@ -140,6 +143,7 @@
 	throw_speed = 5
 	throw_range = 20
 	max_amount = 60
+	spawn_blacklisted = TRUE
 	attack_verb = list("hit", "slapped", "smacked")
 	price_tag = 10
 
