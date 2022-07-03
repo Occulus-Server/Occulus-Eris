@@ -118,3 +118,12 @@
 	item_state = "maid"
 	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
 	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob_fem.dmi'
+
+/obj/item/clothing/under/wedding
+	desc = "It's a custom-talored wedding dress."
+	name = "wedding dress"
+	icon = 'zzzz_modular_occulus/icons/mob/uniform.dmi'
+	icon_state = "bride_white_s"
+	item_state = "bride_white_s"
+	icon_override = 'zzzz_modular_occulus/icons/mob/uniform.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/mob/uniform_fem.dmi'

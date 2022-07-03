@@ -67,3 +67,7 @@
 /datum/gear/uniform/solgovcommdress
 	display_name = "solgov dress uniform (white skirt)"
 	path = /obj/item/clothing/under/rank/solgov/whiteserviceskirt
+
+/datum/gear/uniform/wedding
+	display_name = "wedding dress"
+	path = /obj/item/clothing/under/wedding
