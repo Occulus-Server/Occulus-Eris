@@ -127,3 +127,26 @@
 	item_state = "bride_white_s"
 	icon_override = 'zzzz_modular_occulus/icons/mob/uniform.dmi'
 	icon_override_female = 'zzzz_modular_occulus/icons/mob/uniform_fem.dmi'
+
+/obj/item/clothing/under/webcovs
+	name = "webspun covers"
+	desc = "A roughly thrown together cover made with webly silk. Its still slightly tacky, but when public decency is needed, it... does its job."
+	icon = 'zzzz_modular_occulus/icons/inventory/uniform/silkstuff.dmi'
+	icon_state = "webcov"
+	item_state = "webcov"
+	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	has_sensor = 0
+	price_tag = 10
+	spawn_blacklisted = TRUE
+
+/obj/item/clothing/under/silkwear
+	name = "silken covers"
+	desc = "A refined set of covers carefully stitched together with silk. Its almost reminiscent of a dancers gown and comfy enough to match, now with vital sensors"
+	icon = 'zzzz_modular_occulus/icons/inventory/uniform/silkstuff.dmi'
+	icon_state = "silkwear"
+	item_state = "silkwear"
+	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	price_tag = 75
+	spawn_blacklisted = TRUE
