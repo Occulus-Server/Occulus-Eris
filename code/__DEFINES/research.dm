@@ -1,4 +1,4 @@
-#define SHEET_MATERIAL_AMOUNT 1 //Occult Edit 2k -> 1
+#define SHEET_MATERIAL_AMOUNT 1
 
 #define TECH_MATERIAL "materials"
 #define TECH_ENGINEERING "engineering"
