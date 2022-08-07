@@ -7,7 +7,7 @@
 		list(QUALITY_WIRE_CUTTING, 15, 70)
 	)
 
-/datum/craft_recipe/clothing/webcov
+/datum/craft_recipe/clothing/silkcov
 	name = "silken covers"
 	result = /obj/item/clothing/under/silkwear
 	steps = list(
