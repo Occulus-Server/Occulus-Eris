@@ -6,7 +6,8 @@
 		list(QUALITY_SCREW_DRIVING, 10, 5), //opening the casing
 		list(/obj/item/stack/cable_coil, 15, "time" = 20), //getting some wires ready
 		list(QUALITY_WIRE_CUTTING, 10, 20), //adjusting and putting wires in place
-		list(CRAFT_MATERIAL, 5, MATERIAL_STEEL), //making casing and stuff
+		list(CRAFT_MATERIAL, 5, MATERIAL_GOLD),//adding conductors to the core
+		list(CRAFT_MATERIAL, 10, MATERIAL_STEEL), //making casing and stuff
 		list(QUALITY_SCREW_DRIVING, 10, "time" = 20) //screwing it all together
 	)
 
@@ -17,6 +18,7 @@
 		list(CRAFT_MATERIAL, 10, MATERIAL_PLASTEEL), //Starting with sheet metal
 		list(QUALITY_WELDING, 10, 20), //Cutting it to spec
 		list(QUALITY_PRYING, 10, 15), //Getting it in place
+		list(CRAFT_MATERIAL, 3, MATERIAL_SILVER),//adding conductive material to the frame
 		list(QUALITY_SCREW_DRIVING, 10, 20), //Screwing it in place
 		list(/obj/item/stack/cable_coil, 15, 20), //Wires for other parts you add
 		list(CRAFT_MATERIAL, 5, MATERIAL_STEEL), //Getting the external shroud ready
