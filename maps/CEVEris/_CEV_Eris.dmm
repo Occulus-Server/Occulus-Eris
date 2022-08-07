@@ -101572,9 +101572,6 @@
 	pixel_x = 5
 	},
 /obj/item/bodybag/cryobag,
-/obj/item/clothing/suit/straight_jacket,
-/obj/item/clothing/suit/straight_jacket,
-/obj/item/clothing/mask/muzzle,
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = 28
