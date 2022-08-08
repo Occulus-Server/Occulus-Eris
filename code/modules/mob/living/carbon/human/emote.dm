@@ -323,6 +323,10 @@
 				if (!muzzled)
 					message = "laughs."
 					m_type = 2
+					if(gender != MALE)//Occulus Edit: Cit laughs
+						playsound(src, 'zzzz_modular_occulus/sound/voice/womanlaugh.ogg', 50, 1, -1)//Occulus Edit: Cit laughs
+					else//Occulus Edit: Cit laughs
+						playsound(src, pick('zzzz_modular_occulus/sound/voice/manlaugh1.ogg','zzzz_modular_occulus/sound/voice/manlaugh2.ogg'), 50, 1, -1)//Occulus Edit: Cit laughs
 				else
 					message = "makes a noise."
 					m_type = 2
@@ -615,15 +619,65 @@
 			message = "bleats."
 			m_type = 2
 			playsound(src, 'zzzz_modular_occulus/sound/voice/baa2.ogg', 50, 1, -1)
-
+		if("purr")
+			message = "purrs."
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/cat_purr.ogg', 50, 1, -1)
+		if("purrlong")
+			message = "purrs."
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/cat_purr_long.ogg', 50, 1, -1)
+		if("coyawoo")
+			message = "lets out a howl!"
+			m_type = 2
+			var/soundpick = pick('zzzz_modular_occulus/sound/voice/coyoteawoo.ogg','zzzz_modular_occulus/sound/voice/coyoteawoo2.ogg', 'zzzz_modular_occulus/sound/voice/coyoteawoo3.ogg','zzzz_modular_occulus/sound/voice/coyoteawoo4.ogg','zzzz_modular_occulus/sound/voice/coyoteawoo5.ogg')
+			playsound(src, soundpick, 50, 1, -1)
+		if("foxbark")
+			message = "lets out a foxy bark!"
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/foxbark.ogg', 50, 1, -1)
+		if("gecker")
+			message = "geckers!"
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/geck.ogg', 50, 1, -1)
+		if("growl")
+			message = "growls!"
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/growl.ogg', 50, 1, -1)
+		if("yowl")
+			message = "yowls!"
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/lynx.ogg', 50, 1, -1)
+		if("merp")
+			message = "merps."
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/merp.ogg', 50, 1, -1)
+		if("weh")
+			message = "wehs!"
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/weh_1.ogg', 50, 1, -1)
+		if("wolfhowl")
+			message = "howls!"
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/wolfhowl.ogg', 50, 1, -1)
+		if("yap")
+			message = "yaps!"
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/yap.ogg', 50, 1, -1)
+		if("cackle")
+			message = "cackles worryingly!"
+			m_type = 2
+			playsound(src, 'zzzz_modular_occulus/sound/voice/YeenCackle.ogg', 50, 1, -1)
 ///////////// OCCULUS EDIT END - Fun emotes!
 
 		if ("help")
-			to_chat(src, {"blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, collapse, cough,
-cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob,
-grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug,
-sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper,
-wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag"})
+			to_chat(src, {"baa, bark, bleat,  blink, blink_r,blush, bork, bow-(none)/mob, burp, cackle, choke, chuckle,
+clap, collapse, cough, coyawoo, cry, custom, deathgasp, drool, eyebrow,fastsway/qwag, foxbark,
+frown, gasp, gecker, giggle, growl, groan, grumble, handshake, hiss, hug-(none)/mob,
+glare-(none)/mob, grin, laugh, look-(none)/mob, merp, moan, mumble, mrow, nod, pale,
+point-atom, purr, purrlong, raise, rattle, salute, shake, shiver, shrug, squeak, sigh,
+signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, stopsway/swag, sway/wag, swish,
+tremble, twitch, twitch_s, whimper, wink, wolfhowl, yawn, yap, yowl."})//Occulus Edit
 
 		else
 			to_chat(src, "\blue Unusable emote '[act]'. Say *help for a list.")
