@@ -637,7 +637,7 @@
 			m_type = 2
 			playsound(src, 'zzzz_modular_occulus/sound/voice/foxbark.ogg', 50, 1, -1)
 		if("gecker")
-			message = "getckers!"
+			message = "geckers!"
 			m_type = 2
 			playsound(src, 'zzzz_modular_occulus/sound/voice/geck.ogg', 50, 1, -1)
 		if("growl")
