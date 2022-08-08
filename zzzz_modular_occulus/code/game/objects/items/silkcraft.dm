@@ -20,12 +20,19 @@
 	price_tag = 1
 
 /obj/item/stack/unrefinedsilk/attack_self(mob/user)
+	if((locate(/obj/effect/spider/stickyweb) in get_turf(src)))
+		to_chat(user, SPAN_WARNING("There's already webbing here!"))
+		return
 	if(!(locate(/obj/effect/spider/stickyweb) in get_turf(src)))
 		to_chat(user, SPAN_NOTICE("You start creating a webby mess"))
 		if(do_after(user, 40, src))
+			if((locate(/obj/effect/spider/stickyweb) in get_turf(src)))
+				to_chat(user, SPAN_WARNING("There's already webbing here!"))
+				return
 			new /obj/effect/spider/stickyweb(user.loc)
 			update_openspace()
-			use(3)
+			use(1)
+			return
 
 /obj/item/stack/refinedsilk
 	name = "silk strands"
