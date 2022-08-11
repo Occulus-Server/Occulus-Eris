@@ -129,6 +129,32 @@
 
 /obj/structure/sirencade/attackby(obj/item/W as obj, mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(QUALITY_BOLT_TURNING in W.tool_qualities)
+		if(stage == 0)
+			user.visible_message(
+			SPAN_DANGER("[user] struggles to unbolt the cover of \the [src]."),
+			SPAN_DANGER("You struggles to unbolt the cover of \the [src]."))
+			if(do_after(user,2 SECONDS))
+				stage = 1
+				user.visible_message(
+					SPAN_DANGER("[user] to unbolts the cover of \the [src]."))
+				return
+		if(stage == 1)
+			to_chat(user, "<span class='notice'>The cover of \the [src] has already been removed</span>")
+
+	if(QUALITY_PULSING in W.tool_qualities)
+		if(stage == 0)
+			to_chat(user, "<span class='notice'>You're unable to deactivate \the [src] with it's cover in place.</span>")
+		if(stage == 1)
+			user.visible_message(
+				SPAN_DANGER("[user] starts to carefully shutdown \the [src]."),
+				SPAN_DANGER("You begin to carefully shutdown \the [src]."))
+			if(do_after(user,5 SECONDS))
+				qdel(src)
+				user.visible_message(
+					SPAN_DANGER("[user] has shutdown \the [src]."),
+					SPAN_DANGER("You have shutdown \the [src]!"))
+				return
 	switch(W.damtype)
 		if("fire")
 			health -= W.force * 1
@@ -147,28 +173,6 @@
 		return
 	..()
 
-/obj/structure/sirencade/attackby(obj/item/W as obj, mob/user as mob)
-	if(QUALITY_PULSING in W.tool_qualities)
-		if(stage == 0)
-			to_chat(user, "<span class='notice'>You're unable to deactivate \the [src] with it's cover in place.</span>")
-		if(stage == 1)
-			user.visible_message(
-				SPAN_DANGER("[user] starts to carefully shutdown \the [src]."),
-				SPAN_DANGER("You begin to carefully shutdown \the [src]."))
-			if(do_after(user,5 SECONDS))
-				qdel(src)
-				user.visible_message(
-					SPAN_DANGER("[user] has shutdown \the [src]."),
-					SPAN_DANGER("You have shutdown \the [src]!"))
-	if(QUALITY_BOLT_TURNING in W.tool_qualities)
-		if(stage == 0)
-			user.visible_message(
-			SPAN_DANGER("[user] struggles to unbolt the cover of \the [src]."),
-			SPAN_DANGER("You struggles to unbolt the cover of \the [src]."))
-			if(do_after(user,2 SECONDS))
-				stage = 1
-		if(stage == 1)
-			to_chat(user, "<span class='notice'>The cover of \the [src] has already been removed</span>")
 /obj/structure/sirencade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
 		return 1
