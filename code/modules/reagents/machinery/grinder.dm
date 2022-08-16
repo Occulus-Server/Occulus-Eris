@@ -19,6 +19,8 @@
 /obj/machinery/reagentgrinder/MouseDrop_T(atom/movable/I, mob/user, src_location, over_location, src_control, over_control, params)
 	if(!Adjacent(user) || !I.Adjacent(user) || user.incapacitated())
 		return ..()
+	if(istype(I,/obj/item/tool) || istype(I,/obj/item/storage/part_replacer)) //Occulus edit: Grinders no longer attempt to grind tools
+		return ..() //Occulus Edit: Grinders no longer attempt to grind tools
 	insert(I, user)
 	. = ..()
 
@@ -26,9 +28,11 @@
 	if(default_deconstruction(I, user))
 		return
 	//Useability tweak for borgs
-	if (istype(I,/obj/item/gripper))
+	if (istype(I,/obj/item/gripper) && istype(I,/obj/item/storage/part_replacer))
 		ui_interact(user)
 		return
+	if(istype(I,/obj/item/tool) || istype(I,/obj/item/storage/part_replacer)) //Occulus edit: Grinders no longer attempt to grind tools
+		return  //Occulus Edit: Grinders no longer attempt to grind tools
 	return insert(I, user)
 
 /obj/machinery/reagentgrinder/proc/insert(obj/item/I, mob/user)
