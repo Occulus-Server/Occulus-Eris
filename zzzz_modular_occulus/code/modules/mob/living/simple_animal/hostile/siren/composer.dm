@@ -28,9 +28,10 @@
 
 /mob/living/simple_animal/hostile/siren/composer/Life()
 	. = ..()
-	soundloop()
-	if(target_mob)
-		skremloop()
+	if(health >=15)
+		soundloop()
+		if(target_mob)
+			skremloop()
 
 /mob/living/simple_animal/hostile/siren/composer/proc/skremloop()
 	if(skremdelay == 0)
