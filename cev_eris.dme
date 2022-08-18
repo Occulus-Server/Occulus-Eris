@@ -3101,6 +3101,7 @@
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\energy\sentinel.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\matter\launcher\nt_sprayer.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\mods\mods.dm"
+#include "zzzz_modular_occulus\code\modules\projectiles\guns\mods\research_mods.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\automatic\ak47.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\automatic\armguns.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\guns\projectile\automatic\atreides.dm"
