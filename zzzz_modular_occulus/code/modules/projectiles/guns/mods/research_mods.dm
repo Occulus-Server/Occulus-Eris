@@ -12,3 +12,4 @@
 	GUN_UPGRADE_CHARGECOST = 0.15)
 	I.req_fuel_cell = REQ_CELL
 	I.gun_loc_tag = GUN_MECHANISM
+
