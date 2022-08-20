@@ -11,6 +11,7 @@
 	slot_flags = SLOT_BELT
 	ammo_type = /obj/item/ammo_casing/pistol
 	burst_delay = 2
+	fire_delay = 6
 	fire_sound = 'sound/weapons/guns/fire/smg_fire.ogg'
 	unload_sound = 'sound/weapons/guns/interact/smg_magout.ogg'
 	reload_sound = 'sound/weapons/guns/interact/smg_magin.ogg'
