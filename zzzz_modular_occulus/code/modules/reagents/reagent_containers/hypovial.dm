@@ -10,13 +10,10 @@
 	rarity_value = 30
 	possible_transfer_amounts = list(5,10,15)
 
-/obj/item/reagent_containers/glass/beaker/hypocartridge/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/reagent_containers))
-		return 	..()
-
 /obj/item/reagent_containers/glass/beaker/hypocartridge/Initialize()
 	. = ..()
 	update_icon()
+	update_name_label()
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/update_icon()
 	cut_overlays()
