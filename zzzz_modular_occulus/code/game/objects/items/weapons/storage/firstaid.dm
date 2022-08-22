@@ -157,4 +157,16 @@
 /obj/item/storage/pill_bottle/prosurgeon
 	icon_state = "pill_black"
 
+/obj/item/storage/pill_bottle/happy
+	icon_state = "pill_rainbow"
+
+/obj/item/storage/pill_bottle/zoom
+	icon_state = "pill_black"
+
+/obj/item/storage/pill_bottle/methylphenidate
+	icon_state = "pill_white"
+
+/obj/item/storage/pill_bottle/delight
+	icon_state = "pill_rainbow"
+
 #undef CUSTOM_PILL_MODELS
