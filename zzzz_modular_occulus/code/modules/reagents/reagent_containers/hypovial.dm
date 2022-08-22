@@ -26,6 +26,7 @@
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/Initialize()
 	. = ..()
 	update_icon()
+	update_name_label()
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/update_icon()
 	cut_overlays()
@@ -126,36 +127,42 @@
 	icon_state = "hypoviallarge"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/CMO
 	preloaded_reagents = list("nanosymbiotes" = 15, "oxyrush" = 15, "trauma_control_system" = 15)
+	label_text = "nanites"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/polystem
-	name = "mid 'hecate' cartridge (polystem)"
+	name = "mid 'hecate' cartridge"
 	icon_state = "hypoviallarge"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/polystem
 	preloaded_reagents = list("polystem" = 45)
+	label_text = "polystem"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/antitoxin
-	name = "mid 'hecate' cartridge (anti-tox)"
+	name = "mid 'hecate' cartridge"
 	icon_state = "hypoviallarge"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/antitoxin
 	preloaded_reagents = list("anti_toxin" = 45)
+	label_text = "anti-tox"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/kelotane
-	name = "mid 'hecate' cartridge (kelotane)"
+	name = "mid 'hecate' cartridge"
 	icon_state = "hypoviallarge"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/kelotane
 	preloaded_reagents = list("kelotane" = 45)
+	label_text = "kelotane"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/dexalin
-	name = "mid 'hecate' cartridge (dexalin)"
+	name = "mid 'hecate' cartridge"
 	icon_state = "hypoviallarge"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/dexalin
 	preloaded_reagents = list("dexalin" = 45)
+	label_text = "dexalin"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/tricord
-	name = "mid 'hecate' cartridge (tricord)"
+	name = "mid 'hecate' cartridge"
 	icon_state = "hypoviallarge"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/tricord
 	preloaded_reagents = list("tricordrazine" = 45)
+	label_text = "tricord"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/small/combat
 	name = "combat mid 'ares' cartridge"
