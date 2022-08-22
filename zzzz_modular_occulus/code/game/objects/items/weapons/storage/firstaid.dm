@@ -1,4 +1,4 @@
-#define CUSTOM_PILL_MODELS list("Orange" = "pill_orange", "Red" = "pill_red")
+#define CUSTOM_PILL_MODELS list("Dark Red" = "pill_dred", "Red" = "pill_red", "Pink" = "pill_pink",  "Orange" = "pill_orange", "Yellow" = "pill_yellow", "Green" = "pill_green", "Blue" = "pill_blue", "White" = "pill_white", "Black" = "pill_black", "Rainbow" = "pill_rainbow")
 
 /obj/item/storage/hypospraykit
 	name = "mid 'apollo' kit"
@@ -117,7 +117,7 @@
 /obj/item/storage/pill_bottle/verb/remodel()
 	set name = "Remodel Bottle"
 	set category = "Object"
-	set src in oview(1)
+	set src in usr
 
 	var/choice = input(usr, "How do you want the [src] to look?", "Bottle Remodeling", null) in CUSTOM_PILL_MODELS
 	if(!choice)
