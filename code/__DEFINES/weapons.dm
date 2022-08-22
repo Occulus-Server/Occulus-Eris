@@ -46,11 +46,11 @@
 #define STRUCTURE_DAMAGE_DESTRUCTIVE 	2.0
 #define STRUCTURE_DAMAGE_BORING 		3
 
-//Quick defines for fire modes
-#define FULL_AUTO_300		list(mode_name="full auto",  mode_type = /datum/firemode/automatic, fire_delay=2  , icon="auto")
-#define FULL_AUTO_400		list(mode_name="full auto",  mode_type = /datum/firemode/automatic, fire_delay=1.5, icon="auto")
-#define FULL_AUTO_600		list(mode_name="full auto",  mode_type = /datum/firemode/automatic, fire_delay=1  , icon="auto")
-#define FULL_AUTO_800		list(mode_name="full auto",  mode_type = /datum/firemode/automatic, fire_delay=0.8, icon="auto")
+//Quick defines for fire modes Occulus Edit: Adjusted fire_delay
+#define FULL_AUTO_300		list(mode_name="full auto",  mode_type = /datum/firemode/automatic, fire_delay=2.5  , icon="auto")
+#define FULL_AUTO_400		list(mode_name="full auto",  mode_type = /datum/firemode/automatic, fire_delay=2  , icon="auto")
+#define FULL_AUTO_600		list(mode_name="full auto",  mode_type = /datum/firemode/automatic, fire_delay=1.5  , icon="auto")
+#define FULL_AUTO_800		list(mode_name="full auto",  mode_type = /datum/firemode/automatic, fire_delay=1  , icon="auto")
 
 #define SEMI_AUTO_NODELAY	list(mode_name="semiauto", burst=1, fire_delay=0, move_delay=null, icon="semi")
 
