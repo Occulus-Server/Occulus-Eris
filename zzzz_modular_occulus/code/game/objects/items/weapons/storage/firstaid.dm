@@ -124,4 +124,37 @@
 		return
 	icon_state = CUSTOM_PILL_MODELS[choice]
 
+/obj/item/storage/pill_bottle/antitox
+	icon_state = "pill_green"
+
+/obj/item/storage/pill_bottle/bicaridine
+	icon_state = "pill_red"
+
+/obj/item/storage/pill_bottle/dexalin_plus
+	icon_state = "pill_blue"
+
+/obj/item/storage/pill_bottle/dermaline
+	icon_state = "pill_yellow"
+
+/obj/item/storage/pill_bottle/dylovene
+	icon_state = "pill_green"
+
+/obj/item/storage/pill_bottle/inaprovaline
+	icon_state = "pill_orange"
+
+/obj/item/storage/pill_bottle/kelotane
+	icon_state = "pill_yellow"
+
+/obj/item/storage/pill_bottle/spaceacillin
+	icon_state = "pill_white"
+
+/obj/item/storage/pill_bottle/tramadol
+	icon_state = "pill_pink"
+
+/obj/item/storage/pill_bottle/citalopram
+	icon_state = "pill_pink"
+
+/obj/item/storage/pill_bottle/prosurgeon
+	icon_state = "pill_black"
+
 #undef CUSTOM_PILL_MODELS
