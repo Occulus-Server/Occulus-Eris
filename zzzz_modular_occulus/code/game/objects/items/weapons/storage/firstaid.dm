@@ -1,4 +1,4 @@
-#define CUSTOM_PILL_MODELS list("Orange" = pill_canister")
+#define CUSTOM_PILL_MODELS list("Orange" = "pill_orange", "Red" = "pill_red")
 
 /obj/item/storage/hypospraykit
 	name = "mid 'apollo' kit"
@@ -110,7 +110,11 @@
 	new /obj/item/reagent_containers/glass/beaker/hypocartridge/large/dexalin(src)
 	new /obj/item/reagent_containers/glass/beaker/hypocartridge/large/kelotane(src)
 
-obj/item/storage/pill_bottle/verb/remodel()
+/obj/item/storage/pill_bottle
+	icon_state = "pill_orange"
+	icon = 'zzzz_modular_occulus/icons/obj/chemical.dmi'
+
+/obj/item/storage/pill_bottle/verb/remodel()
 	set name = "Remodel Bottle"
 	set category = "Object"
 	set src in oview(1)
@@ -118,6 +122,6 @@ obj/item/storage/pill_bottle/verb/remodel()
 	var/choice = input(usr, "How do you want the [src] to look?", "Bottle Remodeling", null) in CUSTOM_PILL_MODELS
 	if(!choice)
 		return
-	icon_type = CUSTOM_VENDOMAT_MODELS[choice]
+	icon_state = CUSTOM_PILL_MODELS[choice]
 
 #undef CUSTOM_PILL_MODELS
