@@ -1,3 +1,5 @@
+#define CUSTOM_PILL_MODELS list("Dark Red" = "pill_dred", "Red" = "pill_red", "Pink" = "pill_pink",  "Orange" = "pill_orange", "Yellow" = "pill_yellow", "Green" = "pill_green", "Blue" = "pill_blue", "White" = "pill_white", "Black" = "pill_black", "Rainbow" = "pill_rainbow")
+
 /obj/item/storage/hypospraykit
 	name = "mid 'apollo' kit"
 	desc = "It's a kit containing a miu 'apollo' and specific treatment chemical-filled vials."
@@ -107,3 +109,64 @@
 	new /obj/item/reagent_containers/glass/beaker/hypocartridge/large/polystem(src)
 	new /obj/item/reagent_containers/glass/beaker/hypocartridge/large/dexalin(src)
 	new /obj/item/reagent_containers/glass/beaker/hypocartridge/large/kelotane(src)
+
+/obj/item/storage/pill_bottle
+	icon_state = "pill_orange"
+	icon = 'zzzz_modular_occulus/icons/obj/chemical.dmi'
+
+/obj/item/storage/pill_bottle/verb/remodel()
+	set name = "Remodel Bottle"
+	set category = "Object"
+	set src in usr
+
+	var/choice = input(usr, "How do you want the [src] to look?", "Bottle Remodeling", null) in CUSTOM_PILL_MODELS
+	if(!choice)
+		return
+	icon_state = CUSTOM_PILL_MODELS[choice]
+
+/obj/item/storage/pill_bottle/antitox
+	icon_state = "pill_green"
+
+/obj/item/storage/pill_bottle/bicaridine
+	icon_state = "pill_red"
+
+/obj/item/storage/pill_bottle/dexalin_plus
+	icon_state = "pill_blue"
+
+/obj/item/storage/pill_bottle/dermaline
+	icon_state = "pill_yellow"
+
+/obj/item/storage/pill_bottle/dylovene
+	icon_state = "pill_green"
+
+/obj/item/storage/pill_bottle/inaprovaline
+	icon_state = "pill_orange"
+
+/obj/item/storage/pill_bottle/kelotane
+	icon_state = "pill_yellow"
+
+/obj/item/storage/pill_bottle/spaceacillin
+	icon_state = "pill_white"
+
+/obj/item/storage/pill_bottle/tramadol
+	icon_state = "pill_pink"
+
+/obj/item/storage/pill_bottle/citalopram
+	icon_state = "pill_pink"
+
+/obj/item/storage/pill_bottle/prosurgeon
+	icon_state = "pill_black"
+
+/obj/item/storage/pill_bottle/happy
+	icon_state = "pill_rainbow"
+
+/obj/item/storage/pill_bottle/zoom
+	icon_state = "pill_black"
+
+/obj/item/storage/pill_bottle/methylphenidate
+	icon_state = "pill_white"
+
+/obj/item/storage/pill_bottle/delight
+	icon_state = "pill_rainbow"
+
+#undef CUSTOM_PILL_MODELS
