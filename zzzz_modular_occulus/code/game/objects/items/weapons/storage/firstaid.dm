@@ -1,3 +1,5 @@
+#define CUSTOM_PILL_MODELS list("Orange" = pill_canister")
+
 /obj/item/storage/hypospraykit
 	name = "mid 'apollo' kit"
 	desc = "It's a kit containing a miu 'apollo' and specific treatment chemical-filled vials."
@@ -107,3 +109,15 @@
 	new /obj/item/reagent_containers/glass/beaker/hypocartridge/large/polystem(src)
 	new /obj/item/reagent_containers/glass/beaker/hypocartridge/large/dexalin(src)
 	new /obj/item/reagent_containers/glass/beaker/hypocartridge/large/kelotane(src)
+
+obj/item/storage/pill_bottle/verb/remodel()
+	set name = "Remodel Bottle"
+	set category = "Object"
+	set src in oview(1)
+
+	var/choice = input(usr, "How do you want the [src] to look?", "Bottle Remodeling", null) in CUSTOM_PILL_MODELS
+	if(!choice)
+		return
+	icon_type = CUSTOM_VENDOMAT_MODELS[choice]
+
+#undef CUSTOM_PILL_MODELS
