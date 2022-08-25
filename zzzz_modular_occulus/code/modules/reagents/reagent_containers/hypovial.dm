@@ -10,13 +10,10 @@
 	rarity_value = 30
 	possible_transfer_amounts = list(5,10,15)
 
-/obj/item/reagent_containers/glass/beaker/hypocartridge/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/reagent_containers))
-		return 	..()
-
 /obj/item/reagent_containers/glass/beaker/hypocartridge/Initialize()
 	. = ..()
 	update_icon()
+	update_name_label()
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/update_icon()
 	cut_overlays()
@@ -29,6 +26,7 @@
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/Initialize()
 	. = ..()
 	update_icon()
+	update_name_label()
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/update_icon()
 	cut_overlays()
@@ -82,40 +80,46 @@
 	icon_state = "hypoviallargebs"
 */
 /obj/item/reagent_containers/glass/beaker/hypocartridge/small/polystem
-	name = "red mid cartridge (polystem)"
+	name = "red mid cartridge"
 	icon_state = "hypovial-b"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/small/polystem
 	preloaded_reagents = list("polystem" = 45)
+	label_text = "polystem"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/small/paracetamol
-	name = "grey mid cartridge (paracetamol)"
+	name = "grey mid cartridge"
 	icon_state = "hypovial-t"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/small/paracetamol
 	preloaded_reagents = list("paracetamol" = 45)
+	label_text = "paracetamol"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/small/antitoxin
-	name = "green mid cartridge (anti-Tox)"
+	name = "green mid cartridge"
 	icon_state = "hypovial-a"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/small/antitoxin
 	preloaded_reagents = list("anti_toxin" = 45)
+	label_text = "anti-tox"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/small/kelotane
-	name = "orange mid cartridge (kelotane)"
+	name = "orange mid cartridge"
 	icon_state = "hypovial-k"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/small/kelotane
 	preloaded_reagents = list("kelotane" = 45)
+	label_text = "kelotane"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/small/dexalin
-	name = "blue mid cartridge (dexalin)"
+	name = "blue mid cartridge"
 	icon_state = "hypovial-d"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/small/dexalin
 	preloaded_reagents = list("dexalin" = 45)
+	label_text = "dexalin"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/small/tricord
-	name = "mid cartridge (tricordrazine)"
+	name = "mid cartridge"
 	icon_state = "hypovial"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/small/tricord
 	preloaded_reagents = list("tricordrazine" = 45)
+	label_text = "tricord"
 
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/CMO
@@ -123,36 +127,42 @@
 	icon_state = "hypoviallarge"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/CMO
 	preloaded_reagents = list("nanosymbiotes" = 15, "oxyrush" = 15, "trauma_control_system" = 15)
+	label_text = "nanites"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/polystem
-	name = "mid 'hecate' cartridge (polystem)"
+	name = "mid 'hecate' cartridge"
 	icon_state = "hypoviallarge"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/polystem
 	preloaded_reagents = list("polystem" = 45)
+	label_text = "polystem"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/antitoxin
-	name = "mid 'hecate' cartridge (anti-tox)"
+	name = "mid 'hecate' cartridge"
 	icon_state = "hypoviallarge"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/antitoxin
 	preloaded_reagents = list("anti_toxin" = 45)
+	label_text = "anti-tox"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/kelotane
-	name = "mid 'hecate' cartridge (kelotane)"
+	name = "mid 'hecate' cartridge"
 	icon_state = "hypoviallarge"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/kelotane
 	preloaded_reagents = list("kelotane" = 45)
+	label_text = "kelotane"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/dexalin
-	name = "mid 'hecate' cartridge (dexalin)"
+	name = "mid 'hecate' cartridge"
 	icon_state = "hypoviallarge"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/dexalin
 	preloaded_reagents = list("dexalin" = 45)
+	label_text = "dexalin"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/tricord
-	name = "mid 'hecate' cartridge (tricord)"
+	name = "mid 'hecate' cartridge"
 	icon_state = "hypoviallarge"
 	bad_type = /obj/item/reagent_containers/glass/beaker/hypocartridge/large/tricord
 	preloaded_reagents = list("tricordrazine" = 45)
+	label_text = "tricord"
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/small/combat
 	name = "combat mid 'ares' cartridge"
