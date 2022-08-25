@@ -24,13 +24,13 @@
 /obj/machinery/bsd/Process()
 	for(var/mob/living/carbon/human/H in oviewers(5, src))
 		H.apply_effect(30, IRRADIATE) //Radiation suits should protect from this.
-		if(H.glasses && istype(H.glasses, /obj/item/clothing/glasses/powered/science))
+		if(H.glasses && istype(H.glasses, /obj/item/clothing/glasses/powered))
 			if(prob(1))
 				if(prob(1))
 					to_chat(H, "You feel uneasy.")
 		else
-			H.adjust_hallucination(40, 40)
-			H.sanity.onPsyDamage(10)
+			H.adjust_hallucination(10, 10)
+			H.sanity.onPsyDamage(5)
 			if(prob(1))
 				to_chat(H, pick("Your teeth itch.", "Your eye twitches.", "Your mouth is dry.", "Everything is wrong."))
 
