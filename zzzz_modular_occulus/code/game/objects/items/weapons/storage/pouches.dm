@@ -52,7 +52,7 @@
 	cant_hold = list(
 		/obj/item/tool/sword/nt/halberd)
 	slot_flags = SLOT_BELT | SLOT_POCKET | SLOT_BACK
-	icon = "zzzz_modular_occulus/icons/inventory/pockets/sheath.dmi"
+	icon = 'zzzz_modular_occulus/icons/inventory/pockets/sheath.dmi'
 
 /obj/item/tool/sword
 	w_class = ITEM_SIZE_BULKY
