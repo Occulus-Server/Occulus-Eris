@@ -9,8 +9,7 @@
 	all_vars = duplicate_vars(parent)
 	if(isitem(parent))
 		var/obj/item/I = parent
-		if(!istype(I, /obj/item/clothing/head/fishing)) //Occulus edit: if not fish hat, put in armor list
-			armor = I.armor.getList()
+		armor = I.armor.getList()
 
 /datum/component/oldficator/proc/make_young()
 	for(var/V in all_vars)
@@ -208,7 +207,7 @@
 	if(.)
 		if(prob(30))
 			slowdown += pick(0.5, 0.5, 1, 1.5)
-		if(prob(40) && (islist(armor)))/* //Occulus edit: if not armor, don't do this (only applies to fishing hats)
+		if(prob(40))/*
 			if(islist(armor)) //Possible to run before the initialize proc, thus having to modify the armor list
 				var/list/armorList = armor	// Typecasting to a list from datum
 				for(var/i in armorList)

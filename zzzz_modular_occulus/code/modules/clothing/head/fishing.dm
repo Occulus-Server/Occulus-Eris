@@ -53,7 +53,7 @@
 	name = "black fishing hat"
 	colourtype = "black"
 
-/obj/item/clothing/head/fishing/Initialize() //Hey, uh, i'm like 75% sure this breaks ui initialize in clothing.dm
+/obj/item/clothing/head/fishing/Initialize()
 	//short phrases that women and fish may have about you
 	var/feelings = list("love me",
 						"fear me",
