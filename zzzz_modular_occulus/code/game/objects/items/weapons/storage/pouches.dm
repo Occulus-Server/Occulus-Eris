@@ -5,6 +5,7 @@
 /obj/item/storage/pouch/medium_generic
 	desc = "Can hold a fair number of small objects."
 	price_tag = 1000
+	max_w_class = ITEM_SIZE_SMALL
 
 /obj/item/storage/pouch/large_generic
 	price_tag = 1500
