@@ -87,6 +87,18 @@
 
 /obj/item/storage/pouch/tubular
 	price_tag = 600
+	can_hold = list(
+		/obj/item/device/lighting/glowstick,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/glass/beaker/vial,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/pen,
+		/obj/item/storage/pill_bottle,
+		/obj/item/hatton_magazine,
+		/obj/item/ammo_casing/rocket,
+		/obj/item/ammo_casing/grenade,
+		/obj/item/reagent_containers/glass/beaker/hypocartridge
+		)
 
 /obj/item/storage/pouch/pistol_holster
 	price_tag = 200
