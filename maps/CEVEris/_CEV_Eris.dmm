@@ -21098,16 +21098,12 @@
 "aZd" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay{
-	name = "Auxiliary Research"
-	})
+/area/eris/rnd/lab)
 "aZe" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/camera/network/research,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay{
-	name = "Auxiliary Research"
-	})
+/area/eris/rnd/lab)
 "aZf" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/firealarm{
@@ -21115,18 +21111,14 @@
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay{
-	name = "Auxiliary Research"
-	})
+/area/eris/rnd/lab)
 "aZg" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay{
-	name = "Auxiliary Research"
-	})
+/area/eris/rnd/lab)
 "aZh" = (
 /obj/structure/table/rack,
 /obj/machinery/door/blast/shutters/glass{
@@ -21143,15 +21135,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay{
-	name = "Auxiliary Research"
-	})
-"aZj" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay{
-	name = "Auxiliary Research"
-	})
+/area/eris/rnd/lab)
 "aZk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -24865,9 +24849,7 @@
 "bhc" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall,
-/area/eris/rnd/podbay{
-	name = "Auxiliary Research"
-	})
+/area/eris/rnd/lab)
 "bhd" = (
 /obj/machinery/door/airlock/multi_tile/metal/mait{
 	name = "Service Maintenance"
@@ -25045,17 +25027,13 @@
 	dir = 8
 	},
 /turf/simulated/open,
-/area/eris/rnd/podbay{
-	name = "Auxiliary Research"
-	})
+/area/eris/rnd/lab)
 "bhy" = (
 /obj/structure/multiz/stairs/enter{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay{
-	name = "Auxiliary Research"
-	})
+/area/eris/rnd/lab)
 "bhz" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/phoron,
@@ -28869,9 +28847,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay{
-	name = "Tractor Beacon"
-	})
+/area/eris/rnd/lab)
 "bqp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/steel/gray_perforated,
@@ -29221,9 +29197,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/eris/rnd/podbay{
-	name = "Tractor Beacon"
-	})
+/area/eris/rnd/lab)
 "brk" = (
 /obj/machinery/atmospherics/pipe/zpipe/up{
 	dir = 1
@@ -177624,7 +177598,7 @@ cIA
 cIA
 aQx
 bdX
-kwz
+bhb
 bhx
 bhx
 bhb
@@ -177826,7 +177800,7 @@ cIA
 avY
 aSm
 bdY
-kwz
+bhb
 bhy
 bhy
 bhb
@@ -178028,7 +178002,7 @@ cIA
 avZ
 aSK
 bdZ
-kwz
+bhb
 aZd
 aZg
 bhb
@@ -178230,7 +178204,7 @@ cIA
 cIA
 aUE
 bec
-kwz
+bhb
 aZe
 aZi
 brj
@@ -178434,7 +178408,7 @@ aWl
 bee
 bhc
 aZf
-aZj
+aZs
 bqo
 aZs
 aZs
