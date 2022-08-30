@@ -36,7 +36,7 @@
 
 /obj/machinery/bsd/attackby(obj/item/I, mob/user)
 	..()
-	user.visible_message(SPAN_NOTICE("[user] hits [src] with [I] and disappears!"), SPAN_NOTICE("You hit [src] with [I] disappear!"))
+	user.visible_message(SPAN_NOTICE("[user] hits [src] with [I] and disappears!"), SPAN_NOTICE("You hit [src] with [I] and disappear!"))
 	user.drop_item()
 	go_to_bluespace(get_turf(src), 8, TRUE, I, src, aprecision=16)
 	go_to_bluespace(get_turf(src), 8, TRUE, user, src, aprecision=16)
