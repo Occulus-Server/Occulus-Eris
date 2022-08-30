@@ -28,7 +28,7 @@
 	if(default_deconstruction(I, user))
 		return
 	//Useability tweak for borgs
-	if (istype(I,/obj/item/gripper) && istype(I,/obj/item/storage/part_replacer))
+	if (istype(I,/obj/item/gripper))
 		ui_interact(user)
 		return
 	if(istype(I,/obj/item/tool) || istype(I,/obj/item/storage/part_replacer)) //Occulus edit: Grinders no longer attempt to grind tools
