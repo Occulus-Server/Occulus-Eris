@@ -10,7 +10,7 @@
 	density = TRUE
 	anchored = TRUE
 	use_power = NO_POWER_USE
-	unacidable = 1
+	unacidable = TRUE
 
 /obj/machinery/bsd/ex_act(severity, target) //immune to explosions. Make this do very bad things later.
 	return
