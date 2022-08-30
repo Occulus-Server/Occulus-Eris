@@ -55,6 +55,3 @@
 		go_to_bluespace(get_turf(src), 8, TRUE, AM, src, aprecision=16)
 
 
-/obj/machinery/bsd/Destroy()
-	//STOP_PROCESSING(SSobj, src)
-	..()
