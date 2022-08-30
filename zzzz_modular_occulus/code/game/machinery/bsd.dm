@@ -16,7 +16,6 @@
 	return
 
 /obj/machinery/bsd/New() //Don't look at it
-	//START_PROCESSING(SSobj, src)
 	bound_width = world.icon_size*2
 	bound_height = world.icon_size*2
 	..()
