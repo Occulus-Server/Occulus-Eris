@@ -1,4 +1,4 @@
-//Makes the medical belt able to fit the advanced rollerbed in it! and hypospray.
+//Makes the medical belt able to fit the advanced rollerbed and the hypospray in it!
 
 /obj/item/storage/belt/medical
 	can_hold = list(
