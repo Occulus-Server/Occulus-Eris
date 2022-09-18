@@ -102,6 +102,7 @@
 #define GUN_CALIBRE_35 "caliber .35"
 
 #define GUN_SOL "Is a FS CAR .25 CS \"Sol\""
+#define GUN_PACO "Is this an FS HG .35 Auto \"Paco\""
 
 // A rare, random item
 #define RANDOM_RARE_ITEM list(\

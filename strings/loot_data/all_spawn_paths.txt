@@ -1475,6 +1475,7 @@
 /obj/item/weapon/gun_upgrade/mechanism/overshooter
 /obj/item/weapon/gun_upgrade/mechanism/glass_widow
 /obj/item/weapon/gun_upgrade/mechanism/weintraub
+/obj/item/weapon/gun_upgrade/mechanism/funswitch
 /obj/item/weapon/gun_upgrade/mechanism/reverse_loader
 /obj/item/weapon/gun_upgrade/mechanism/battery_shunt
 /obj/item/weapon/gun_upgrade/mechanism/overdrive
