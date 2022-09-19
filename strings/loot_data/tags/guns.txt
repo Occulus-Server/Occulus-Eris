@@ -125,7 +125,6 @@
 /obj/item/weapon/gun_upgrade/mechanism/overshooter    blacklisted=0    spawn_value=4.54545   spawn_price=100   prob_accompanying_obj=100    accompanying_objs=nothing
 /obj/item/weapon/gun_upgrade/mechanism/glass_widow    blacklisted=1    spawn_value=1.92308   spawn_price=100   prob_accompanying_obj=100    accompanying_objs=nothing
 /obj/item/weapon/gun_upgrade/mechanism/weintraub    blacklisted=0    spawn_value=3.125   spawn_price=100   prob_accompanying_obj=100    accompanying_objs=nothing
-/obj/item/weapon/gun_upgrade/mechanism/funswitch    blacklisted=0    spawn_value=3.125   spawn_price=100   prob_accompanying_obj=100    accompanying_objs=nothing 
 /obj/item/weapon/gun_upgrade/mechanism/reverse_loader    blacklisted=1    spawn_value=8.33333   spawn_price=100   prob_accompanying_obj=100    accompanying_objs=nothing
 /obj/item/weapon/gun_upgrade/mechanism/battery_shunt    blacklisted=1    spawn_value=8.33333   spawn_price=100   prob_accompanying_obj=100    accompanying_objs=nothing
 /obj/item/weapon/gun_upgrade/mechanism/overdrive    blacklisted=1    spawn_value=8.33333   spawn_price=100   prob_accompanying_obj=100    accompanying_objs=nothing
