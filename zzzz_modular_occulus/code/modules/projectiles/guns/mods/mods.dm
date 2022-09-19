@@ -29,7 +29,7 @@
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
 		GUN_UPGRADE_FULLAUTO = TRUE,	//Makes the Paco able to fire full auto when installed
-		GUN_UPGRADE_RECOIL = 3			//But also makes it horrific to control
+		GUN_UPGRADE_RECOIL = 3,			//But also makes it horrific to control
 		GUN_UPGRADE_DAMAGE_MULT = 0.7	//Reduction in damage, explained by "reduced muzzle velocity due to the breach not fully sealing before the hammer falls again"
 	)
 	I.req_gun_tags = list(GUN_PACO)
