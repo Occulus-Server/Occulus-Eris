@@ -21,7 +21,7 @@
 	damage_multiplier = 0.8
 	recoil_buildup = 4
 	one_hand_penalty = 5 //smg level
-	gun_tags = list(GUN_SILENCABLE, GUN_GILDABLE)
+	gun_tags = list(GUN_SILENCABLE) //Occulus Edit: No gilding code
 	wield_delay = 0.5 SECOND
 	wield_delay_factor = 0.1 // 10 vig for instant
 
@@ -36,9 +36,9 @@
 	var/iconstring = initial(icon_state)
 	var/itemstring = ""
 
-	if(gilded)
-		iconstring += "_gold"
-		itemstring += "_gold"
+//	if(gilded)
+//		iconstring += "_gold"
+//		itemstring += "_gold"
 
 	if (ammo_magazine)
 		iconstring += "_mag"
