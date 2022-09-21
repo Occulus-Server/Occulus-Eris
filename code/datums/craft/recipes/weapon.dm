@@ -285,7 +285,7 @@
 		list(/obj/item/beartrap/makeshift, 1),
 		list(CRAFT_MATERIAL, 10, MATERIAL_STEEL),
 		list(QUALITY_WELDING, 10, "time" = 20),
-		list(CRAFT_MATERIAL, 5, MATERIAL_PLASMA),//as the explosive
+		list(CRAFT_MATERIAL, 5, MATERIAL_PHORON),//as the explosive
 		list(/obj/item/device/assembly/igniter, 2),
 		list(/obj/item/stack/cable_coil, 5, "time" = 20)
 	)
