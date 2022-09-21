@@ -183,20 +183,9 @@
 		if(locate(/obj/structure/multiz/stairs) in get_turf(loc))
 			visible_message(SPAN_DANGER("\The [src]'s triggering mechanism is disrupted by the slope and does not go off."))
 			return ..()
-<<<<<<< HEAD
-		if (isliving(AM))
-			prob_explode = initial(prob_explode)
-			prob_explode -= AM.skill_to_evade_traps(prob_explode)
-			if(prob(prob_explode) && !is_excelsior(AM))
-=======
 		if(isliving(AM))
-			if(excelsior)
-				for(var/datum/antagonist/A in AM.mind.antagonist)
-					if(A.id == ROLE_EXCELSIOR_REV)
-						return
 			var/true_prob_explode = prob_explode - AM.skill_to_evade_traps()
 			if(prob(true_prob_explode))
->>>>>>> d6532a13a... Adds in new varieties of land mines (#6515)
 				explode()
 				return
 	.=..()
