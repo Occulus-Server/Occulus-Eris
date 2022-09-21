@@ -210,8 +210,11 @@
 	icon_state = "pill3"
 	preloaded_reagents = list("prosurgeon" = 10)
 
-
-
+/obj/item/reagent_containers/pill/meralyne
+	name = "Meralyne pill"
+	desc = "Contains a powerful medicine that is used to treat severe physical trauma."
+	icon_state = "pill3"
+	preloaded_reagents = list("meralyne" = 10)
 
 //Pills with random content
 /obj/item/reagent_containers/pill/floorpill
