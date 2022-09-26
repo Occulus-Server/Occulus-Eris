@@ -248,8 +248,9 @@
 
 	var/exact_amount = FALSE
 
-	if (user.stats.getStat(STAT_COG) >= minimum_cog || is_silicon)
-		exact_amount = TRUE
+	if (user.stats)
+		if (user.stats.getStat(STAT_COG) >= minimum_cog || is_silicon)
+			exact_amount = TRUE
 
 	var/desc_amount = "a lot"
 
