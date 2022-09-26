@@ -267,17 +267,19 @@
 				desc_amount = "A lot"
 
 	// Next, see if the user's BIO is greater than or equal to the reagent's minimum identification.
-
-	if (user.stats.getStat(STAT_BIO) >= minimum_identification || is_silicon)
-		if (exact_amount)
-			to_chat(user, "<span class='notice'>[volume] units of [name]</span>")
+	if(user.stats)
+		if (user.stats.getStat(STAT_BIO) >= minimum_identification || is_silicon)
+			if (exact_amount)
+				to_chat(user, "<span class='notice'>[volume] units of [name]</span>")
+			else
+				to_chat(user, "<span class='notice'>[desc_amount] of [name]</span>")
 		else
-			to_chat(user, "<span class='notice'>[desc_amount] of [name]</span>")
+			// don't know what it be
+			if (exact_amount)
+				to_chat(user, "<span class='notice'>[volume] units of something.</span>")
+			else
+				to_chat(user, "<span class='notice'>[desc_amount] of something.</span>")
 	else
-		// don't know what it be
-		if (exact_amount)
-			to_chat(user, "<span class='notice'>[volume] units of something.</span>")
-		else
-			to_chat(user, "<span class='notice'>[desc_amount] of something.</span>")
+		to_chat(user, "<span class='notice'>[volume] units of [name]</span>")
 
 // OCCULUS EDIT END
