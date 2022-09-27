@@ -80,8 +80,8 @@
 			var/obj/effect/decal/cleanable/blood/gibs/gore = new victim.species.single_gib_type(get_turf(victim))
 			if(victim.species.flesh_color)
 				gore.fleshcolor = victim.species.flesh_color
-			if(victim.species.blood_color)
-				gore.basecolor = victim.species.blood_color
+			if(victim.blood_color) //Occulus Edit - For colored blood
+				gore.basecolor = victim.blood_color //Occulus Edit - For colored blood
 			gore.update_icon()
 			gore.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(1,3),30)
 

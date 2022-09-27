@@ -536,7 +536,7 @@ its easier to just keep the beam vertical.
 			M.dna.real_name = M.real_name
 		M.check_dna()
 		if (M.species)
-			blood_color = M.species.blood_color
+			blood_color = M.blood_color  //Occulus Edit - For colored blood
 	. = TRUE
 	return TRUE
 

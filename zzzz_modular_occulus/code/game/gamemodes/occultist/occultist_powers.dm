@@ -446,13 +446,13 @@
 		var/datum/effect/effect/system/smoke_spread/bad/smoke
 		smoke = new
 		playsound(loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.species.blood_color)
-		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.species.blood_color)
-		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.species.blood_color)
+		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.blood_color)
+		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.blood_color)
+		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.blood_color)
 		for(var/turf/simulated/floor/T in orange(5, src))
 			if(prob(20))
-				new /obj/effect/gibspawner/human(T, src.dna, src.species.flesh_color, src.species.blood_color)
-				new /obj/effect/gibspawner/human(T, src.dna, src.species.flesh_color, src.species.blood_color)
+				new /obj/effect/gibspawner/human(T, src.dna, src.species.flesh_color, src.blood_color)
+				new /obj/effect/gibspawner/human(T, src.dna, src.species.flesh_color, src.blood_color)
 				var/datum/effect/effect/system/smoke_spread/bad/smoke2
 				smoke2 = new
 				smoke2.set_up(3, 0, T)
@@ -463,7 +463,7 @@
 			if(prob(1))
 				var/obj/effect/decal/cleanable/blood/writing/sign = new /obj/effect/decal/cleanable/blood/writing(T)
 				sign.message = sanity.pick_quote_20()
-				sign.color = src.species.blood_color
+				sign.color = src.blood_color
 		smoke.set_up(3, 0, src.loc)
 		smoke.attach(src)
 		spawn(0)
