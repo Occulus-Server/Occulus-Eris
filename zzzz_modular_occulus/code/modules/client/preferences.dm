@@ -95,6 +95,7 @@
 	character.appearance_flags	-= fuzzy*PIXEL_SCALE
 
 	character.body_markings = body_markings
+	character.species.blood_color = blood_color
 
 	QDEL_NULL_LIST(character.worn_underwear)
 	character.worn_underwear = list()
