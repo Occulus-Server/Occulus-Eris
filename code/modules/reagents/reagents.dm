@@ -248,7 +248,7 @@
 
 	var/exact_amount = FALSE
 
-	if (user.stats.getStat(STAT_COG) >= minimum_cog || is_silicon)
+	if (user.stats && user.stats.getStat(STAT_COG) >= minimum_cog || is_silicon)
 		exact_amount = TRUE
 
 	var/desc_amount = "a lot"
@@ -268,7 +268,7 @@
 
 	// Next, see if the user's BIO is greater than or equal to the reagent's minimum identification.
 
-	if (user.stats.getStat(STAT_BIO) >= minimum_identification || is_silicon)
+	if (user.stats && user.stats.getStat(STAT_BIO) >= minimum_identification || is_silicon)
 		if (exact_amount)
 			to_chat(user, "<span class='notice'>[volume] units of [name]</span>")
 		else

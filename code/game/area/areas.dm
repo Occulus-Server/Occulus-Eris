@@ -341,6 +341,11 @@ var/list/mob/living/forced_ambiance_list = new
 	if(istype(get_turf(mob), /turf/space)) // Can't fall onto nothing.
 		return
 
+	if(istype(get_turf(mob), /turf/simulated/open))
+		var/turf/simulated/open/O = get_turf(mob)
+		O.fallThrough(mob)
+		return
+
 	if(istype(mob,/mob/living/carbon/human/))
 		var/mob/living/carbon/human/H = mob
 		if(istype(H.shoes, /obj/item/clothing/shoes/magboots) && (H.shoes.item_flags & NOSLIP))
@@ -414,4 +419,3 @@ var/list/mob/living/forced_ambiance_list = new
 	A.Entered(T, old_area)
 	for(var/atom/movable/AM in T)
 		A.Entered(AM, old_area) // Note: this will _not_ raise moved or entered events. If you change this, you must also change everything which uses them.
-
