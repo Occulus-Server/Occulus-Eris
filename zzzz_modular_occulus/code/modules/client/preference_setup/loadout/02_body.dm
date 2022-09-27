@@ -90,3 +90,4 @@ datum/preferences
 			pref.blood_color = (S && S.blood_color) ? S.blood_color : "A10808"
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	return ..()
+	
