@@ -1,4 +1,4 @@
-datum/preferences
+/datum/preferences
 	var/blood_color = "#A10808"
 
 /datum/category_item/player_setup_item/physical/body/load_character(var/savefile/S)
