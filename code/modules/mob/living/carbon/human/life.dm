@@ -1139,15 +1139,15 @@
 	for(var/N in organs_by_name)
 		var/obj/item/organ/external/O = organs_by_name[N]
 		O.markings.Cut()
+	if(client)
+		for(var/M in client.prefs.body_markings)
+			var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
+			var/mark_color = "[body_markings[M]]"
 
-	for(var/M in client.prefs.body_markings)
-		var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
-		var/mark_color = "[body_markings[M]]"
-
-		for(var/BP in mark_datum.body_parts)
-			var/obj/item/organ/external/O = organs_by_name[BP]
-			if(O)
-				O.markings[M] = list("color" = mark_color, "datum" = mark_datum)
+			for(var/BP in mark_datum.body_parts)
+				var/obj/item/organ/external/O = organs_by_name[BP]
+				if(O)
+					O.markings[M] = list("color" = mark_color, "datum" = mark_datum)
 	..()
 
 /mob/living/carbon/human/handle_vision()
