@@ -436,7 +436,7 @@
 
 			var/datum/reagent/B = H.take_blood(beaker,amount)
 			if (B)
-				beaker.reagents.reagent_list |= B
+				beaker.reagents.add_reagent(B.id, B.volume, B.data)  //Oculous Edit - Fix obnoxious IV reagent list bug
 				beaker.reagents.update_total()
 				beaker.on_reagent_change()
 				beaker.reagents.handle_reactions()
