@@ -1,0 +1,152 @@
+2020-10-01:
+  Ikmachek:
+  - tweak: modularization a past change, changes some oddities' desc text.
+  Jamini:
+  - imageadd: Ported a number of cit/skyrat/tg sprites here
+  - imageadd: added thedobe tail
+  - tweak: doubled large drill mining radius
+  - bugfix: Hematite and Carbon ore now spawn
+  - bugfix: Hematite and Carbon ore now use the correct sprites
+  - bugfix: Phoron glass can once again be made in the smelter (Alloy of glass and
+      phoron)
+  - bugfix: Directional windows for phoron and reinforced phoron glass are no longer
+      invisible.
+2020-10-05:
+  CEV-Eris Developers:
+  - rscadd: Added new toolmods (engineering research node)
+  - rscadd: Added new gunmods (combat research node)
+  - rscadd: Moebius combat voidsuit.
+  Crosarius:
+  - rscadd: Adds Lever-Action Shotguns
+  - bugfix: Fixed Captain's Greatcoat sprite
+  Toriate:
+  - bugfix: Second section blastdoor is no longer dislodged from its frame and seemingly
+      shut.
+  - rscadd: Surplus gun parts crates are now available to order from cargo!
+  bearrrrrrrr:
+  - tweak: un-edgifies the frozen star vendors
+  - tweak: lookout storyteller fixes.
+  cebutris:
+  - admin: De-admins now receive adminhelps, if there are no admins online
+  - rscadd: Names for the giant spiders!
+2020-10-06:
+  CEV-Eris Developers:
+  - bugfix: An absolute truckload of runtimes and odd bugs have been fixed.
+2020-10-07:
+  CEV-Eris Developers:
+  - rscadd: More bluespace storage items for RnD
+  - balance: Tasers now no longer ignore armor
+  Jamini:
+  - balance: added base pay for club workers
+  - balance: increased starting union account value
+  - balance: adjusted booze export values to be somewhat in line with prices IRL.
+      Booze is valued between 100-400cr a bottle
+  - bugfix: fixed reagent calculations for exports.
+  - tweak: club manager now can access the civilian account
+  - tweak: civilian account now has funds
+2020-10-08:
+  Michiyamenotehifunana:
+  - rscadd: Added a vote to power the ship
+  Toriate:
+  - rscadd: medspecs can now select sunglasses in the loadout
+  - rscadd: Soulcrypts now show up properly in medical scanner reports
+  - rscadd: Acolytes now get proper access on their IDs, and they also get the preacher's
+      cruciform upgrades as compensation for preacher being unselectable
+  - bugfix: All clothing items should now have their proper sprites.
+2020-10-12:
+  CEV-Eris Developers:
+  - rscadd: Heads can now modify IDs with access for their department.
+  - bugfix: Hopefully fixed the E hotkey bagging all your items instead of properly
+      stowing them away
+  - rscadd: Eris will now randomly start at 1 of 3 locations.
+  - rscadd: Lines in config file to determine starting location.
+  - rscdel: Asteroid loses its default location.
+  Toriate:
+  - rscadd: Countless hours of research has resulted in an innovative new SMG design
+      nicknamed the "Vector", featuring a blisteringly high rate of fire! Seek it
+      out at your nearest science department.
+  - rscadd: Science can now print non-lethals!
+  - rscadd: You can now press M to open up a multiline Me textbox.
+  - tweak: Maximum message length has been doubled from 1024 characters to 2048 characters.
+  - admin: Admin PMs to players are now a multiline textbox.
+2020-10-14:
+  Jamini:
+  - bugfix: Fixed asteroid turfs. Again.
+  Trilbyspaceclone:
+  - bugfix: Aloe now needs irishcream rather then whiskey and cream to make
+  - rscadd: Telecom keys are now mapped into the game
+  - rscadd: Autopsy scanner are now mapped into the game - Yay RnD!
+  - tweak: Rnd has had a shuffle ruffle making it be less of a cluttered mess, even
+      got a new window!
+  - tweak: Cargo lobby floor has better use in space and such.
+2020-10-15:
+  Michiyamenotehifunana:
+  - bugfix: CMO and virology airlock access has been fixed
+  - bugfix: Bandanas now show up properly when worn
+  Toriate:
+  - bugfix: non-hotkeymode is now playable
+  - rscadd: Ported loot rework from upstream
+  - rscadd: Ported sanity rework from upstream
+  Trilbyspaceclone:
+  - tweak: All randomness of what can and cant spawn has been now updated to be the
+      same as what Eris has done.
+2020-10-17:
+  Jamini:
+  - imageadd: added several new markings
+2020-10-19:
+  Toriate:
+  - tweak: Captain's voidsuit and CMO's labcoat has been blacklisted from the loot
+      tables
+  - balance: Sawn off lever action shotgun has been nerfed further
+  - bugfix: Bandana now shows ears and hair through
+  - rscadd: Ported Erismed bones from Eris, ported hand/feet bone stuff from Eclipse
+  - rscadd: Ported a ton of updates from upstream
+  Trilbyspaceclone:
+  - tweak: the path to cryo maints can now be accessed by anyone.
+  - tweak: the monitor key for telecoms will no longer spawn in maints
+  - balance: maints loot will now not spawn ninja, blood red and stealth rigs
+  - bugfix: Cargo chute has been corrected
+  - bugfix: Aloe drink can now be mixed 2x - Turned on file addition
+2020-10-23:
+  Jamini:
+  - balance: made trashed tools actually bad
+  - balance: made trashed guns actually bad
+  - balance: made durability matter more
+  - balance: made very strong power tools a little less oppressively strong.
+  ZeroNetAlpha:
+  - balance: Balances the old disks to not be as good as just a regular, untarnished
+      disks,
+2020-10-26:
+  Jamini:
+  - bugfix: EFTPOS no longer break when inputting a department account.
+  - rscadd: department account cards. Heads, The Club Manager, and Mekhane acolytes
+      spawn with them.
+  - tweak: slightly modified the club manager loadout. Added account cards to loadouts
+2020-10-27:
+  Michiyamenotehifunana:
+  - bugfix: Gun tags have been fixed, meaning ergonomic grips and such should actually
+      fit on guns now.
+  Toriate:
+  - rscadd: Ported plumbing from upstream
+  Trilbyspaceclone:
+  - balance: Most of RnD guns are now RnD only.
+  - balance: RPG and Exl guns are now blacklisted
+  - balance: Both Reclamer and the Cleaning sudd gun thing
+  - balance: hyper cells are now much rarer as well as the XL line
+  - balance: Both nuke disk and warez disk are now strange console only
+  - balance: most deferred crates will now not spawn if they did at all
+  - balance: AMR will no longer spawn randomly if it did at all
+  - balance: captain gun will no longer spawn in maints if they did at all
+2020-10-29:
+  Jamini:
+  - bugfix: Cleaner reactions work properly
+  - bugfix: Gibs should no longer be invisible
+  - rscadd: quick cash option on ATMs
+  Toriate:
+  - rscadd: Ported the Church Update from Eclipse
+  - tweak: cruciforms now reactivated by defibs
+  - bugfix: defib timers now function, no more defibbing 5 hour old rotting corpses
+  - balance: defibs will now heal oxyloss
+  - rscadd: Ported new prosthesis stuff from upstream, added actual hands and feet
+      for them
+  - rscadd: Ported an update for the church update

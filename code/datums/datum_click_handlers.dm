@@ -77,7 +77,8 @@
 /datum/click_handler/fullauto
 	var/atom/target = null
 	var/firing = FALSE
-	var/obj/item/gun/reciever //The thing we send firing signals to.
+	var/obj/item/gun/reciever // The thing we send firing signals to
+	var/time_since_last_init // Time since last start of full auto fire , used to prevent ANGRY smashing of M1 to fire faster.
 	//Todo: Make this work with callbacks
 
 /datum/click_handler/fullauto/Click()
@@ -108,11 +109,14 @@
 	var/list/click_params = params2list(params)
 	if(!click_params || !click_params["left"])
 		return TRUE //Occulus Edit end
+	if(time_since_last_init > world.time)
+		return FALSE
 
 	object = resolve_world_target(object)
 	if (object)
 		target = object
 		shooting_loop()
+		time_since_last_init = world.time + reciever.burst_delay
 	return TRUE
 
 /datum/click_handler/fullauto/proc/shooting_loop()

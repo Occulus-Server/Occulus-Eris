@@ -112,7 +112,7 @@
 		update_icon()
 		owner.update_icon()
 
-/obj/item/mech_equipment/light/on_update_icon()
+/obj/item/mech_equipment/light/update_icon()
 	. = ..()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
@@ -215,31 +215,25 @@
 
 /obj/item/material/drill_head/Initialize()
 	. = ..()
-	// OCCULUS EDIT -- durability was not being properly applied because material during this proc is null
+
 	//durability = 2 * (material ? material.integrity : 1)
 
-///// OCCULUS EDIT BEGIN
-// Drills crafted from the crafting menu actually call Created().
-// var/creator is a dummy var to avoid any issues with the call.
-
 /obj/item/material/drill_head/Created(var/creator)
-	src.ApplyDurability()
-
-///// OCCULUS EDIT END
+	ApplyDurability()
 
 /obj/item/material/drill_head/steel/New(var/newloc)
 	..(newloc,MATERIAL_STEEL)
-	src.ApplyDurability()	// OCCULUS EDIT -- apply durability to drills properly
+	ApplyDurability()
 
 /obj/item/material/drill_head/plasteel/New(var/newloc)
 	..(newloc,MATERIAL_PLASTEEL)
-	src.ApplyDurability()	// OCCULUS EDIT -- apply durability to drills properly
+	ApplyDurability()
 
 /obj/item/material/drill_head/diamond/New(var/newloc)
 	..(newloc,MATERIAL_DIAMOND)
-	src.ApplyDurability()	// OCCULUS EDIT -- apply durability to drills properly
+	ApplyDurability()
 
-///// OCCULUS EDIT -- handy verb to prevent copy/pasting durability in each New proc
+
 /obj/item/material/drill_head/verb/ApplyDurability()
 	durability = 2 * (material ? material.integrity : 1)
 
@@ -260,7 +254,7 @@
 /obj/item/mech_equipment/drill/Initialize()
 	. = ..()
 	drill_head = new /obj/item/material/drill_head(src, "steel")//You start with a basic steel head
-	drill_head.ApplyDurability()	// OCCULUS EDIT -- apply durability to drills properly
+	drill_head.ApplyDurability()
 
 /obj/item/mech_equipment/drill/attack_self(var/mob/user)
 	. = ..()
@@ -373,7 +367,6 @@
 	max_water = 4000 //Good is gooder
 	icon_state = "mech_exting"
 	overlaylist = list()
-	spawn_frequency = 0
 
 /obj/item/extinguisher/mech/get_hardpoint_maptext()
 	return "[reagents.total_volume]/[max_water]"

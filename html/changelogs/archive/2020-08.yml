@@ -1,0 +1,246 @@
+2020-08-04:
+  Chatter42:
+  - rscadd: wearing a space suit will prevent trash piles from cutting your hands
+  - bugfix: trash piles will correctly cut your hands instead of your arms when you
+      are digging through them
+  Fernandos33:
+  - tweak: mines are now overlayed like traps
+  - balance: frag from excels mines where lowered
+  "Kurgis, Pr\xE8s de l'oiseau":
+  - rscadd: Brand new collectable figurines, winnable from the arcade as per usual.
+  - rscdel: Removed the farwa plushie, removed the unused (and broken) therapy dolls.
+  - imageadd: "Pr\xE8s de l'oiseau's new figurine sprites."
+  - imagedel: Deleted some unused objects from toys.dmi, they will not be missed.
+  SirSiggles:
+  - rscdel: Removed Eris mentions.
+  - tweak: Rewrote Species Blurbs.
+  drexample:
+  - tweak: Standing mobs can't hide behind organs anymore.
+  - balance: Blitzshell nanorepair now have 5 minutes cooldown.
+  - tweak: Priest and acolyte jacket should at least protect as much as a labcoat
+      from bio damage
+  - bugfix: No more powder piles and chem splashes in open space.
+  - bugfix: Deconstruction of lattice, catwalk and railings would drop items under
+      your feet.
+  - tweak: spawning in should no longer make you stunned for as long.
+  - tweak: Borgs/Drones light replacer recharges faster
+  - tweak: it should no longer be possible to spam player-made wire splices
+  - bugfix: making splices bigger is now properly functional
+  - bugfix: noexcutite now can be made again
+  - bugfix: mirc will now properly display boxer recipe
+  - balance: Re-adjusted the Lasblender's damage values, remember to use weapon attachments
+      to increase its power.
+  - tweak: Adjusted the speed of Serbian shuttle travel time from 7 minutes to 3.
+  - bugfix: You are able to throw things and mobs over open space now.
+2020-08-13:
+  martinlyra:
+  - config: Automatic changelog generation has been enabled for SyzygyStation/Syzygy-Eris
+2020-08-14:
+  martinlyra:
+  - code_imp: Auto-CL now looks for codeblocks annotated with "changelog" instead
+      of emoji.
+  - rscadd: Add the autodoc machinery
+  - tweak: Limited creature candidates for the infestation event (now it's just mice,
+      spiders, bats, spiders, and slimes)
+  - balance: Disabled "spacevine" event
+  - balance: Disabled "wallrot" event
+  - balance: Lowered "grid_check" event weight lowered the maximum failure time from
+      1600 seconds down to 800 seconds for APCs. SMES' failure times are lot lower.
+2020-08-16:
+  martinlyra:
+  - rscadd: Great-/overcoats now have pocket-like storage
+  - refactor: Great-/overcoats changed from `armor` subtypes to `storage`
+  - rscadd: Added operative gloves to security equipment lockers
+  - rscadd: Added tactical gloves to warden equipment locker
+  - rscadd: Added security & operative gloves to loadout, available for all security
+      jobs only
+  - tweak: Language limit increased from 2 to 3
+  - rscdel: Movement is no longer affected by hunger
+  - bugfix: Fix a layering issue related to holodecks not copying plane values properly
+  - rscdel: Removed some unused code related to languages
+  - rscdel: 'Removed following languages that had definitions: `Birdsong` and `High
+      Skrellian`'
+  - balance: Gloves now always will protect against cutting on scrap when rummaging
+      in them
+  - balance: Ghost -> Mob spawn delay changed from 5 to 2 minutes
+  - balance: Ghost -> Drone spawn delay changed from 10 to 3 minutes
+  - bugfix: The warning displayed when clicking on lobby's Observe button now show
+      the actual delay as set by the configuration
+  - tweak: Gave the RD's headset access to the `AI Private` channel
+  - bugfix: The CMO's headset now have their own encryption key to differentiate from
+      RD's headset.
+  - rscadd: Drones (maintenance, construction, and biltzshell) now have the ability
+      to ventcrawl.
+  - bugfix: Alt-clicking for robots; including cyborgs and drones, had incorrect flow.
+      It now will activate ventcrawl if they have the ability to.
+  - balance: Maintenance drones can now pull `ITEM_SIZE_HUGE` items, was `ITEM_SIZE_NORMAL`
+  - balance: Construction drones can now pull `ITEM_SIZE_COLOSSAL` items, was `ITEM_SIZE_HUGE`
+2020-08-19:
+  Luxspectra:
+  - rscadd: empty autoinjectors
+  - tweak: autoinjectors now hold/mostly come with 10 units of reagents.
+  - tweak: '''autoinjector/drugs'' now displays as ''autoinjector (sedative)'''
+  - tweak: '''autoinjector/drugs'' now contains sedatives'
+  martinlyra:
+  - bugfix: Aegis Medical Specialist now has access to the permabrig & holding cells
+  - rscadd: Added flare to survival boxes
+  - tweak: Renamed "Chemist" to "Pharmacist"
+  - bugfix: NanoUI images for CEV Eris map have been updated
+2020-08-20:
+  Luxspectra:
+  - rscadd: boxes of tricord and empty autoinjectors
+  - tweak: old autoinjector box name/description clarified
+2020-08-22:
+  Luxspectra:
+  - rscadd: Box of tricord injectors in Aegis Medical Specialist's lockers
+  - rscadd: 2 boxes of empty injectors in chemistry locker
+  - rscadd: Extra vial pouch in chemistry locker
+  - rscadd: Sedative injector in CMO's locker
+  - rscdel: Redundant pill bottles in chemistry locker
+  Torque4607:
+  - balance: changes values of knives in accordance to the debate in dev channel
+  - spellcheck: fixed some spelling and grammar in knife examine text
+  Warbidon:
+  - rscadd: more flavor text
+2020-08-23:
+  SirSiggles:
+  - bugfix: Hopefully fixed the colorsheeting of languages and fixed the date.
+  - tweak: Replaced an Eris mention on the overmap.
+2020-08-25:
+  CEV-Eris Developers:
+  - rscadd: Neon tracksuits in four colours, available NOW in your loadout!
+  - rscadd: Added NT LP "Svalinn", new NeoTheology brand laser pistol. Preacher, Acolytes
+      and Custodians lockers are now supplemented with one, as well as NT Energy Pack
+      comes with two laser pistols.
+  - bugfix: Fix runtime in item_attack.dm
+  - bugfix: Fix runtime in preferences_spawnpoints.dm
+  - bugfix: Fix runtime in sound.dm
+  - bugfix: Fix runtime in artifact.dm
+  - bugfix: Fix runtime in uplink.dm
+  - bugfix: Fix runtime in lungs.dm
+  - rscadd: Adds two new jumpsuits to the loadout
+  - imageadd: Adds new shoe icons.
+  - bugfix: fixes a bug that made tunnel snake jackets look all the same, the 3 variants
+      are now visible when you are wearing it
+  - rscadd: Added inhands to a lot of tools.
+  - tweak: you can now sample 3 times before killing the plant (no more RNG) and 4th
+      will kill it and sample one last seed
+  - bugfix: wire cutters can be used to sample from tray now
+  - bugfix: plant b gone now kills everything in Hydroponic trays
+  - tweak: mines now anchor when deployed
+  - tweak: deployed mines can now be disarmed with multitool
+  - tweak: Increase the limit of pills created by amount to 15
+  - tweak: Add a limit to pills created by volume, also 15 pills.
+  - rscadd: There is a light tile recipe in the Floor tab of the crafting menu.
+  - balance: Changed the size of hypersaws and chainsaws so they can't fit in belts
+      anymore.
+  - bugfix: antagonists have an extra 50% telecrystals when targeting a Noble.
+  - tweak: slightly improved feedback when eating.
+  - bugfix: added a "kill" option to the "sampling" radial menu for maintenance shrooms/vines
+      when using a proper cutting tool.
+  - tweak: using harm intent on maintenance shrooms/vines automatically uses the "kill"
+      option.
+  - bugfix: fixed incorrect ejection of bullet shells from bolt rifles
+  - rscadd: Added a new law to the AI in regards to vagabonds not being crew.
+  - rscadd: You now spawn in with your ID already inside your PDA. Also, Moves the
+      PDA to the ID slot so you don't have to do this every single time.
+  - bugfix: The Tray shield is now crafted exactly as stated on the recipe with a
+      single tool belt vs two.
+  - bugfix: NT LP "Svalinn" autolathe disk has been fixed
+  - bugfix: Cleaning a voidsuit with a washing machine now cleans the attached components
+  martinlyra:
+  - rscdel: Removed hairstyles with no icons; Angelique, Elize, Flipped, Gumshoe,
+      Kanaya, Keanu, Long 3, Mia, Protagonist, and Sharp Ponytail
+  - bugfix: Floorlength braid was being overriden by a Virgo variant, the latter was
+      removed
+  - bugfix: Colouring should now be applied to Sergal, Tajara, and Vulpkanin-exclusive
+      hairstyles
+  - bugfix: Colouring should now be applied to Citheronia, Cobra Hood, "Ponytail 6
+      but fixed" (sic), Shoulder-length Messy, and Twin-drills
+  - imageadd: 'Added missing icons for following styles: Amazon, Beach Wave, Celeb
+      Curls, Family Man, Glossy, Jessica, Mary Sue, Miles, New You, and Vivi'
+  - bugfix: Atoms no longer fall through catwalks when they are spawned ontop of catwalks
+  - bugfix: Catwalks no longer block falling from the z-level above them
+  - bugfix: Open spaces now properly update when catwalks have been removed
+2020-08-26:
+  Ashturian:
+  - tweak: made handcuff timers read in seconds.
+  - balance: made handcuff resist timers floor at 0.2 of their original timer.
+  - balance: made handcuffing attempts visible to mobs in view
+  - tweak: reduced lobby music volume from 85 to 40
+  CEV-Eris Developers:
+  - rscadd: Added Carrion, a new antagonist to replace changelings
+  - rscdel: Changelings and most changeling references in code
+  - imageadd: all carrion related sprites (All hail Megatron)
+  - imageadd: nice UI backround (TonnyJest)
+  - code_imp: some organ code and rebuild_orgnas got tweaked, everything should work
+      fine
+  - code_imp: flashbang bang proc made into an item proc and can be used on more items
+  - bugfix: Carrions can now properly use old spiders when transitioning to a new
+      body.
+  - bugfix: Carrion maw now gives gene points instead of sometimes taking them away.
+  - bugfix: Breeding spider now works only on human bodies.
+  - bugfix: carrion powers should not randomly disappear
+  - bugfix: breeding spider is now truly fixed
+  - bugfix: regen stasis should work on the body it was activated on
+  - balance: Spider call now has a 5 minute cooldown, costs a bit more chem points,
+      but makes more spiders.
+  - balance: Infection spider does 33% less agony damage.
+  - balance: Breeding spider creates a bit less spiders.
+  - bugfix: Added a popup window to make sure that the player really want's to exit
+      the body as a spider core.
+  - bugfix: It should now be impossible to convert carrions to carrions.
+  - bugfix: Infection spider should stop giving you pain if it failed.
+  - tweak: carrion spiders can't attach to robots anymore
+  - balance: control spider has a 5 minute cooldown on each mob controled
+  - balance: control spiders can't control other carrions
+  - bugfix: fixes https://github.com/discordia-space/CEV-Eris/issues/5250
+  - bugfix: agent ID and mental imprinters should be aveliable for other antags except
+      carrion
+  - bugfix: Spider shouldn't eat carrions anymore.
+  NEV-Eclipse Developers:
+  - rscadd: Gives heads soulcrypt access editors
+  - rscadd: Adds relevant soulcrypt modules to medical and engineering
+  - tweak: Moves cloning from the church to medbay
+  - balance: Rebalanced sanity. Now it should suffer 50% less from environment and
+      restore ~30% faster.
+  - bugfix: Fixed several suit sprites missing
+  - bugfix: Fixed faction item sprites missing
+  - bugfix: Paramedics now spawn where all other doctors spawn instead of being locked
+      in a room
+  - tweak: Updated soulcrypt and cloner console sprites and flavour
+  - tweak: Grammar fixes in oddities
+  - tweak: Better sprite for kitchen knife
+  Torque4607:
+  - tweak: Added and removed some tips, tweaked others to better fit our lore.
+  - spellcheck: Corrected the spelling of some other tips.
+  martinlyra:
+  - code_imp: MC is now verbose and will tell players at where MC has failed and SoftReset,
+      and what the states were.
+2020-08-27:
+  Ashturian:
+  - balance: reduced hivemind bomber health and speed, only explodes when attacking,
+      gives more warning of attack.
+  SirSiggles:
+  - bugfix: Replaced inks to the Eclipse Discord with the Syzygy Forum.
+  bearrrrrrrr:
+  - rscadd: message while laying down carrion spider next
+  - spellcheck: fixed a few carrion typos
+  - rscadd: Carrions can spin webs for 2 chemicals.
+2020-08-29:
+  Luxspectra:
+  - tweak: Changed stock of Frozen Star, BulletHeaven, and medbay lobby vendors.
+  - balance: Changed prices of products in above.
+  martinlyra:
+  - bugfix: Breaking the gulp-down wind-up now will splash on the mob and fail the
+      act
+  - bugfix: Fixed Alt-clicking being called twice for robot mobs; not showing users
+      any Turf-tabs
+  - refactor: Alt-clicking for vent-crawling is now handled by vents & scrubbers
+  - bugfix: Fixed a runtime caused by saving character preferences when not in lobby
+  - bugfix: Fixes gravity generator attempting to play the screen-shake effect to
+      players sitting in lobby
+  - bugfix: Patched a leak to the space in the Medical cloning room
+2020-08-30:
+  SirSiggles:
+  - tweak: Fixed a couple of years.
