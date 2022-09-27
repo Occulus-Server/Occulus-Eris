@@ -22,7 +22,7 @@
 	damage_multiplier = 1.5
 	penetration_multiplier = 0.9
 	recoil_buildup = 3
-	gun_tags = list(GUN_SILENCABLE)
+	gun_tags = list(GUN_SILENCABLE, GUN_PACO)
 
 //	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 
