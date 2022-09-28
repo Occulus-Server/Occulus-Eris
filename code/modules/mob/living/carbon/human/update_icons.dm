@@ -186,11 +186,12 @@ var/global/list/damage_icon_parts = list()
 		O.update_damstate()
 		if(O.damage_state == "00") continue
 		var/icon/DI
-		var/cache_index = "[O.damage_state]/[O.organ_tag]/[blood_color]/[species.get_bodytype()]" //Occulus Edit - For colored blood
+		var/held_blood_color = blood_color ? blood_color : species.blood_color
+		var/cache_index = "[O.damage_state]/[O.organ_tag]/[held_blood_color]/[species.get_bodytype()]" //Occulus Edit - For colored blood
 		if(damage_icon_parts[cache_index] == null)
 			DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
 			DI.Blend(new /icon(species.damage_mask, O.organ_tag), ICON_MULTIPLY)	// mask with this organ's pixels
-			DI.Blend(blood_color, ICON_MULTIPLY) //Occulus Edit - For colored blood
+			DI.Blend(held_blood_color, ICON_MULTIPLY) //Occulus Edit - For colored blood
 			damage_icon_parts[cache_index] = DI
 		else
 			DI = damage_icon_parts[cache_index]
