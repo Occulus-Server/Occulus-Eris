@@ -79,7 +79,7 @@
 
 	var/datum/species/S = all_species[pref.species]
 
-	if (href_list["blood_color"])
+	if(href_list["blood_color"])
 		var/color = input(user, "Choose your character's blood color:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.blood_color) as color|null
 		if(color && CanUseTopic(user))
 			pref.blood_color = color
