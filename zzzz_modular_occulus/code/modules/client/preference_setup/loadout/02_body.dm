@@ -75,7 +75,7 @@
 	. += "</td></tr></table>"
 
 
-/datum/category_item/player_setup_item/physical/body/OnTopic(var/href,var/list/href_list, var/mob/user)
+/datum/category_item/player_setup_item/physical/body/OnTopic(var/href, var/list/href_list, var/mob/user)
 
 	var/datum/species/S = all_species[pref.species]
 
