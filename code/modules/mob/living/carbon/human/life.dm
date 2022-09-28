@@ -1136,10 +1136,12 @@
 	sanity.setLevel(sanity.max_level)
 	restore_blood()
 //OCCULUS EDIT - Resets bodymarkings when we rejuv
+	if(!client)
+		..()
+		return
 	for(var/N in organs_by_name)
 		var/obj/item/organ/external/O = organs_by_name[N]
 		O.markings.Cut()
-
 	for(var/M in client.prefs.body_markings)
 		var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
 		var/mark_color = "[body_markings[M]]"
