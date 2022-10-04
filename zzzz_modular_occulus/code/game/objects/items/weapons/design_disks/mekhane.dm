@@ -113,11 +113,10 @@ ARMOR_PEN_MASSIVE			30
 
 /obj/item/tool/hammer/mek
 	name = "Mekhane Electro-Mace"
-	desc = "A carefully crafted, beautiful blunt instrument of destruction."
-	icon_state = "electromace0"
-	item_state = "electromace"
-	wielded_icon = "electromace1"
-	force = WEAPON_FORCE_ROBUST
+	desc = "The pinnacle of Mekhane's might, a symbol of His justice. This thunderous weapon is passively powered via arcane machinations so long as the user is wielding it securely."
+	icon = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi'
+	icon_state = "electromace"
+	force = WEAPON_FORCE_ROBUST // gets 10 more agony damage when wielded, plus whatever wielding bonus it receives
 	structure_damage_factor = STRUCTURE_DAMAGE_HEAVY
 	armor_penetration = ARMOR_PEN_EXTREME
 	aspects = list(SANCTIFIED)
@@ -125,22 +124,46 @@ ARMOR_PEN_MASSIVE			30
 	w_class = ITEM_SIZE_HUGE
 	tool_qualities = list(QUALITY_HAMMERING = 30)
 	matter = list(MATERIAL_BIOMATTER = 75, MATERIAL_STEEL = 20, MATERIAL_PLASTEEL = 5, MATERIAL_PLATINUM = 5)
-	suitable_cell = /obj/item/cell/medium
 	degradation = 0.7
-	use_power_cost = 2
-	icon = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi'
-	icon_state = "mek_mace"
-	item_state = "chargehammer"
 	item_icons = list(
 		slot_l_hand_str = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi',
 		slot_r_hand_str = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi',
 		slot_back_str = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi'
 		)
 	item_state_slots = list(
-		slot_l_hand_str = "lefthand",
-		slot_r_hand_str = "righthand",
-		slot_back_str = "back"
+		slot_l_hand_str = "left",
+		slot_r_hand_str = "right",
+		slot_back_str = "backnew"
 		)
+
+/obj/item/tool/hammer/mek/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone) //crappy copypasta of baton code
+	if(wielded)
+		target.stun_effect_act(0, 10, hit_zone, src)	//magic numbers, 0 duration stun, 10 agony damage which is a quarter of a baton's
+		playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
+	. = ..()
+
+/obj/item/tool/hammer/mek/update_icon()
+	..()
+	if(wielded)
+		icon_state = "electromace_on"
+	else
+		icon_state = "electromace"
+
+/obj/item/tool/hammer/mek/update_wield_icon() // Janky snowflake override to remain modular
+	if(wielded)
+		item_state_slots = list(
+			slot_l_hand_str = "doblelefton",
+			slot_r_hand_str = "doblerighton",
+			slot_back_str = "backnew"
+			)
+
+/obj/item/tool/hammer/mek/update_unwield_icon()
+	if(!wielded)
+		item_state_slots = list(
+			slot_l_hand_str = "left",
+			slot_r_hand_str = "right",
+			slot_back_str = "backnew"
+			)
 
 /datum/design/autolathe/sword/mek_hammer
 	name = "Mekhane Electro-Mace"
