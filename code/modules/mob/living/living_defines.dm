@@ -79,6 +79,8 @@
 	var/noise_coeff = 1 //noise coefficient
 
 	var/agony_coefficient = 1 // OCCULUS EDIT - Making mobs selectively stronger against non-lethals
+	var/can_multiz_pb = FALSE
+	var/is_watching = FALSE
 
 	spawn_frequency = 10
 	bad_type = /mob/living

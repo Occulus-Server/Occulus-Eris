@@ -1480,6 +1480,7 @@
 					/obj/item/gun/projectile/kovacs = 5,
 					/obj/item/ammo_magazine/srifle = 20,
 					/obj/item/gun/projectile/boltgun/serbian = 10,
+					/obj/item/ammo_magazine/sllrifle = 20,
 					/obj/item/ammo_magazine/ammobox/lrifle_small = 30,
 					/obj/item/storage/ration_pack = 10,
 					/obj/item/clothing/mask/balaclava = 50

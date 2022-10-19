@@ -1,4 +1,3 @@
-// BEGIN_INTERNALS
 // END_INTERNALS
 // BEGIN_FILE_DIR
 #define FILE_DIR .
@@ -3196,3 +3195,5 @@
 #include "zzzz_modular_occulus\prosthesis\prosthesis_brands.dm"
 #include "zzzz_modular_occulus\prosthesis\prosthesis_parts.dm"
 // END_INCLUDE
+// BEGIN_INTERNALS
+// END_INTERNALS

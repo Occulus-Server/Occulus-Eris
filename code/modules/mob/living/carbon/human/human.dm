@@ -259,6 +259,7 @@ var/list/rank_prefix = list(\
 	"Aegis Inspector" = "Inspector",\
 	"Aegis Gunnery Sergeant" = "Sergeant",\
 	"Aegis Commander" = "Lieutenant",\
+	"Aegis Medical Specialist" = "Specialist",\
 	"Captain" = "Captain",\
 	"Medical Doctor" = "Doctor",\
 	"Chief Medical Officer" = "Doctor",\
@@ -1454,6 +1455,18 @@ var/list/rank_prefix = list(\
 	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & NOSLIP)))
 		return 0
 	..(slipped_on,stun_duration)
+
+/mob/living/carbon/human/trip(tripped_on, stun_duration)
+	if(buckled)
+		return FALSE
+	if(lying)
+		return FALSE // No tripping while crawling
+	stop_pulling()
+	if (tripped_on)
+		playsound(src, 'sound/effects/bang.ogg', 50, 1)
+		to_chat(src, SPAN_WARNING("You tripped over!"))
+	Weaken(stun_duration)
+	return TRUE
 
 /mob/living/carbon/human/proc/undislocate()
 	set category = "Object"
