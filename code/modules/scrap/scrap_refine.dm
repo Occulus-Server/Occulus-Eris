@@ -51,7 +51,6 @@
 	max_amount = 30
 	amount = 1
 	default_type = MATERIAL_RSCRAP
-	var/matter_type = MATERIAL_RSCRAP
 
 /obj/item/stack/material/refined_scrap/random
 	rand_min = 1

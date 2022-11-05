@@ -60,8 +60,7 @@
 /obj/item/gun/energy/laser/railgun/gauss
 	name = "NT \"Helios\" gauss rifle"
 	desc = "A rather heavy rifle sporting a cell-loading mount, a adjustable recoil-compensating stock, a hand-crank to manually chamber the next round and a series of coils lining its front. \
-	This strange gauss coil rifle has valves along the large, external coil mounts. To fire this gun it requires common venting lest it overheat. \
-	At the stock a large script-styled 'M' appears to be engraved into it, a form of signature from its designer along with a Moebius logo."
+	This strange gauss coil rifle has valves along the large, external coil mounts. To fire this gun it requires common venting lest it overheat."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/gauss.dmi' // Sprite by Rebel0
 	icon_state = "gauss"
 	item_state = "gauss"
@@ -80,7 +79,7 @@
 	slowdown_hold = 1.5
 	init_firemodes = list(
 		list(mode_name="powered-rod", mode_desc="fires a metal rod at incredible speeds", projectile_type=/obj/item/projectile/bullet/gauss, icon="kill"),
-		list(mode_name="High-velocity scrap", mode_desc="fires a brittle, sharp piece of metal at high velocity", projectile_type=/obj/item/projectile/bullet/gauss/hyper, charge_cost=10000, icon="grenade"),
+		list(mode_name="High-velocity scrap", mode_desc="fires a brittle, sharp piece of metal at high velocity", projectile_type=/obj/item/projectile/bullet/gauss/hyper, charge_cost=13000, icon="grenade"),
 	)
 	consume_cell = FALSE
 	price_tag = 6000
@@ -96,7 +95,7 @@
 
 /obj/item/gun/energy/laser/railgun/gauss/Initialize()
 	..()
-	AddComponent(/datum/component/heat, COMSIG_CLICK_CTRL, TRUE,  50,  60,  20, 0.01, 2)
+	AddComponent(/datum/component/heat, COMSIG_CLICK_CTRL, TRUE,  50,  55,  23, 0.01, 2)
 	RegisterSignal(src, COMSIG_HEAT_VENT, .proc/ventEvent) //this sould just be a fluff message, proc can be anything
 	RegisterSignal(src, COMSIG_HEAT_OVERHEAT, .proc/handleoverheat) //this can damge the user/melt the gun/whatever. this will never proc as the gun cannot fire above the special heat threshold and the special heat threshold should be smaller than the overheat threshold
 	update_icon()
@@ -114,11 +113,11 @@
 	else if(!istype(I,/obj/item/stack/material))
 		..()
 	var/obj/item/stack/material/M = I
-	if(istype(M) && M.name == matter_type)
+	if(istype(M) && M.material.name == matter_type)
 		var/amount = min(M.get_amount(), round(max_stored_matter - stored_matter))
 		if(M.use(amount))
 			stored_matter += amount
-			to_chat(user, "<span class='notice>You load [amount] [matter_type] into \the [src].</span>")
+		to_chat(user, "<span class='notice>You load [amount] [matter_type] into \the [src].</span>")
 	else
 		return ..()
 
@@ -126,10 +125,18 @@
 	if(stored_matter < projectile_cost) return null
 	if(!cell) return null
 	if(!ispath(projectile_type)) return null
-	if(!cell.checked_use(charge_cost)) return null
+	if(consume_cell && !cell.checked_use(charge_cost))
+		visible_message(SPAN_WARNING("\The [cell] of \the [src] burns out!"))
+		qdel(cell)
+		cell = null
+		playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
+		new /obj/effect/decal/cleanable/ash(get_turf(src))
+		return new projectile_type(src)
+	else if(!consume_cell && !cell.checked_use(charge_cost))
+		return null
 
 	var/datum/component/heat/H = GetComponent(/datum/component/heat)
-	if((H.currentHeat > H.heatThresholdSpecial ||stored_matter < projectile_cost || !..()))
+	if((H.currentHeat > H.heatThresholdSpecial || stored_matter < projectile_cost || !..()))
 		to_chat(user, "The [src] is currently overheating!")
 		handleoverheat()
 		return null

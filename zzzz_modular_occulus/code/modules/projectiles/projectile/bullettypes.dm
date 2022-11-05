@@ -141,7 +141,7 @@
 	icon_state = "gauss"
 	mob_hit_sound = list('sound/effects/gore/sear.ogg')
 	hitsound_wall = 'sound/weapons/guns/misc/ric4.ogg'
-	damage_types = list(BRUTE = 42)
+	damage_types = list(BRUTE = 32)
 	armor_penetration = 35
 	check_armour = ARMOR_BULLET
 	hitscan = TRUE
