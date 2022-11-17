@@ -56,5 +56,6 @@
 
 /datum/gear/implanter
 	display_name = "dummy implanter"
+	description = "For implanting custom implants, destroy after use."
 	path = /obj/item/implanter
-	cost = 0
+	cost = 1
