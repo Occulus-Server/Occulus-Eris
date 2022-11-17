@@ -35,3 +35,26 @@
 		"Purple"		=	/obj/item/toy/tennis/purple
 	)
 	gear_tweaks += new /datum/gear_tweak/path(balls)
+
+/datum/gear/implant/generic
+	display_name = "implant, generic, primary"
+	description = "An implant with no obvious purpose."
+	path = /obj/item/implant
+	cost = 1
+
+/datum/gear/implant/generic/second
+	display_name = "implant, generic, secondary"
+	description = "An implant with no obvious purpose."
+	path = /obj/item/implant
+	cost = 1
+
+/datum/gear/implant/generic/third
+	display_name = "implant, generic, tertiary"
+	description = "An implant with no obvious purpose."
+	path = /obj/item/implant
+	cost = 1
+
+/datum/gear/implanter
+	display_name = "dummy implanter"
+	path = /obj/item/implanter
+	cost = 0
