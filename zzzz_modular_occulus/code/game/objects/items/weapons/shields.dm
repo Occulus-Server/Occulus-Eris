@@ -131,7 +131,7 @@
 			return 1
 
 		var/bad_arc = reverse_direction(dir)  // Arc of directions from which we cannot block.
-		if(!check_parry_arc(src, bad_arc, P)) // This is actually for mobs but it will work for our purposes as well.
+		if(!check_shield_arc(src, bad_arc, P)) // This is actually for mobs but it will work for our purposes as well.
 			return 1
 
 		if(health >= 1)
@@ -166,7 +166,7 @@
 		return 1
 
 	var/bad_arc = reverse_direction(dir)  // Arc of directions from which we cannot block.
-	if(!check_parry_arc(src, bad_arc, P)) // This is actually for mobs but it will work for our purposes as well.
+	if(!check_shield_arc(src, bad_arc, P)) // This is actually for mobs but it will work for our purposes as well.
 		return 1
 
 	var/chance = 40
