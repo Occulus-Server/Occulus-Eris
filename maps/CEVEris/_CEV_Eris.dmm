@@ -15513,6 +15513,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "West APC";
+	pixel_x = -28
+	},
+/obj/structure/cable/green,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck5port)
 "aMJ" = (
@@ -15620,12 +15626,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/structure/catwalk,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "West APC";
-	pixel_x = -28
-	},
-/obj/structure/cable/green,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck5port)
 "aMZ" = (
