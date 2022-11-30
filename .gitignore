@@ -1,10 +1,37 @@
-#ignore misc BYOND files
-Thumbs.db
-*.sav
-*.log
-*.int
-*.rsc
+###Files and folders specified here will never be tracked.
+
+#Ignore everything in datafolder and subdirectories
+/data/**/*
+/tmp/**/*
+
+#Ignore byond config folder.
+/cfg/**/*
+
+#Ignore cached sound files.
+/sound/tts_cache/**/*
+/sound/tts_scrambled/**/*
+
+#Ignore IDE files we don't need in the repo.
+/.vs/**/*
+/tgstation/FileContentIndex/**/*
+/FileContentIndex/**/*
+/v17/**/*
+/v18/**/*
+/v19/**/*
+/v20/**/*
+/v21/**/*
+/v22/**/*
+
+# Ignore compiled linux libs in the root folder, e.g. librust_g.so
+/*.so
+
+#Ignore compiled files and other files generated during compilation.
+*.mdme
+*.mdme.*
 *.dmb
+*.rsc
+*.m.dme
+*.test.dme
 *.lk
 *.backup
 *.before
@@ -16,6 +43,55 @@ tmp/
 build_log.txt
 __pycache__
 
-#vscode
-.vscode
-.history
+#Sublime
+*.sublime-project
+*.sublime-workspace
+
+#Visual studio stuff
+*.vscode/*
+/tools/MapAtmosFixer/MapAtmosFixer/obj/*
+/tools/MapAtmosFixer/MapAtmosFixer/bin/*
+/tools/CreditsTool/bin/*
+/tools/CreditsTool/obj/*
+
+#GitHub Atom
+.atom-build.json
+
+#KDevelop and Kate
+*.kdev4*
+*.kate-swp
+
+#extra map stuff
+/maps/**/backup/
+/maps/templates.dm
+
+#dmdoc default folder
+/dmdoc
+
+# Ignore custom music and title screens (amend as appropriate)
+/config/jukebox_music/sounds/*
+!/config/jukebox_music/sounds/exclude
+/config/title_music/sounds/*
+!/config/title_music/sounds/exclude
+/config/title_screens/images/*
+!/config/title_screens/images/exclude
+
+#Linux docker
+/tools/LinuxOneShot/SetupProgram/obj/*
+/tools/LinuxOneShot/SetupProgram/bin/*
+/tools/LinuxOneShot/SetupProgram/.vs
+/tools/LinuxOneShot/Database
+/tools/LinuxOneShot/TGS_Config
+/tools/LinuxOneShot/TGS_Instances
+/tools/LinuxOneShot/TGS_Logs
+
+# Built auxtools libraries and intermediate files
+aux*.dll
+libaux*.so
+aux*.pdb
+
+# JavaScript tools
+**/node_modules
+
+# Screenshot tests
+/artifacts

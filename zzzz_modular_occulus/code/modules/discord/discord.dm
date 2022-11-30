@@ -30,7 +30,7 @@ var/datum/discord_bot/discord_bot = new
 	switch (Master.current_runlevel) // got lazy trying to convert from base 10 to 2
 		if(0)
 			s = STATUS_SETUP
-		if(1 || 2)
+		if(1, 2)
 			s = STATUS_LOBBY
 		if(3)
 			if (evacuation_controller.state != 0 && !evacuation_controller.emergency_evacuation)

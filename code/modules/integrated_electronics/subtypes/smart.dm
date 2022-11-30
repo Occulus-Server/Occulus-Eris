@@ -194,7 +194,7 @@
 	if(installed_brain)
 		can_be_asked_input = TRUE
 		installed_brain.forceMove(get_turf(src))
-		set_pin_data(IC_OUTPUT, 1, weakref(null))
+		set_pin_data(IC_OUTPUT, 1, WEAKREF(null))
 
 //Brain changes
 /mob/living/carbon/brain/ClickOn(atom/A, params)
@@ -226,7 +226,7 @@
 			check_bot_self = TRUE
 
 			if(holdingassembly.opened)
-				holdingassembly.ui_interact(src)
+				holdingassembly.nano_ui_interact(src)
 			holdingassembly.attack_self(src)
 			check_bot_self = FALSE
 			return
@@ -312,7 +312,7 @@
 	if(installed_pai)
 		can_be_asked_input = TRUE
 		installed_pai.forceMove(get_turf(src))
-		set_pin_data(IC_OUTPUT, 1, weakref(null))
+		set_pin_data(IC_OUTPUT, 1, WEAKREF(null))
 
 
 //pAI changes
@@ -350,7 +350,7 @@
 			check_bot_self = TRUE
 
 			if(holdingassembly.opened)
-				holdingassembly.ui_interact(src)
+				holdingassembly.nano_ui_interact(src)
 			holdingassembly.attack_self(src)
 			check_bot_self = FALSE
 			return
@@ -434,7 +434,7 @@
 	if(installed_brain)
 		can_be_asked_input = TRUE
 		installed_brain.forceMove(get_turf(src))
-		set_pin_data(IC_OUTPUT, 1, weakref(null))
+		set_pin_data(IC_OUTPUT, 1, WEAKREF(null))
 
 //AI changes
 /mob/living/silicon/ai/ClickOn(atom/A, params)
@@ -466,7 +466,7 @@
 			check_bot_self = TRUE
 
 			if(holdingassembly.opened)
-				holdingassembly.ui_interact(src)
+				holdingassembly.nano_ui_interact(src)
 			holdingassembly.attack_self(src)
 			check_bot_self = FALSE
 			return

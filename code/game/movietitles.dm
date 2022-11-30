@@ -52,7 +52,7 @@ client
 	set name = "Stop End Titles"
 	set category = "OOC"
 	verbs -= /client/proc/ClearCredits
-	QDEL_NULL_LIST(credits)
+	QDEL_LIST(credits)
 	mob.clear_fullscreen("fishbed")
 	mob.clear_fullscreen("fadeout")
 //	sound_to(mob, sound(null, channel = GLOB.lobby_sound_channel)) Don't stop the music bby!

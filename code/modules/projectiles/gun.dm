@@ -560,7 +560,7 @@
 
 
 /obj/item/gun/proc/initialize_firemodes()
-	QDEL_CLEAR_LIST(firemodes)
+	QDEL_LIST(firemodes)
 
 	for(var/i in 1 to init_firemodes.len)
 		var/list/L = init_firemodes[i]
@@ -719,7 +719,7 @@
 
 	toggle_carry_state(usr)
 
-/obj/item/gun/ui_data(mob/user)
+/obj/item/gun/nano_ui_data(mob/user)
 	var/list/data = list()
 	data["damage_multiplier"] = damage_multiplier
 	data["pierce_multiplier"] = pierce_multiplier
@@ -762,11 +762,11 @@
 	if(item_upgrades.len)
 		data["attachments"] = list()
 		for(var/atom/A in item_upgrades)
-			data["attachments"] += list(list("name" = A.name, "icon" = getAtomCacheFilename(A)))
+			data["attachments"] += list(list("name" = A.name, "icon" = SSassets.transport.get_asset_url(A)))
 
 	return data
 
-/obj/item/gun/Topic(href, href_list, datum/topic_state/state)
+/obj/item/gun/Topic(href, href_list, datum/nano_topic_state/state)
 	if(..(href, href_list, state))
 		return 1
 

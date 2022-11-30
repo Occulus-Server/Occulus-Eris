@@ -11,3 +11,10 @@ GLOBAL_DATUM(lobbyScreen, /datum/lobbyscreen)
 // WORLD TOPIC CACHING //
 GLOBAL_VAR(topic_status_lastcache)
 GLOBAL_LIST(topic_status_cache)
+
+// LOGGING  MOVE ME //
+GLOBAL_VAR(log_directory)
+GLOBAL_PROTECT(log_directory)
+
+// TGUI MOVE ME //
+GLOBAL_DATUM(changelog_tgui, /datum/changelog)

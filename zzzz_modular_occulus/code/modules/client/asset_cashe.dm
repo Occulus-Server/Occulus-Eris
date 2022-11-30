@@ -1,6 +1,4 @@
-
-/datum/asset/directories/nanoui
-	isTrivial = FALSE
+/datum/asset/simple/directories/nanoui
 	dirs = list(
 		"nano/js/",
 		"nano/css/",

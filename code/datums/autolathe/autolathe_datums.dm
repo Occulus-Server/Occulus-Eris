@@ -15,7 +15,7 @@
 	var/time = 0					//How many ticks it requires to build. If 0, calculated from the amount of materials used.
 	var/starts_unlocked = FALSE		//If the design starts unlocked.
 
-	var/list/ui_data			//Pre-generated UI data, to be sent into NanoUI/TGUI interfaces.
+	var/list/nano_ui_data			//Pre-generated UI data, to be sent into NanoUI/TGUI interfaces.
 
 	// An MPC file containing this design. You can use it directly, but only if it doesn't interact with the rest of MPC system. If it does, use copies.
 	var/datum/computer_file/binary/design/file
@@ -127,11 +127,10 @@
 	id = type
 
 /datum/design/proc/AssembleDesignUIData()
-	ui_data = list(
+	nano_ui_data = list(
 		"id" = "[id]", "name" = name, "desc" = desc, "time" = time,
 		"category" = category, "adjust_materials" = adjust_materials
 	)
-	// ui_data["icon"] is set in asset code.
 
 	if(length(materials))
 		var/list/RS = list()
@@ -140,7 +139,7 @@
 			var/material/material_datum = get_material_by_name(material)
 			RS.Add(list(list("id" = material, "name" = material_datum.display_name, "req" = materials[material])))
 
-		ui_data["materials"] = RS
+		nano_ui_data["materials"] = RS
 
 	if(length(chemicals))
 		var/list/RS = list()
@@ -149,12 +148,12 @@
 			var/datum/reagent/reagent_datum = GLOB.chemical_reagents_list[reagent]
 			RS.Add(list(list("id" = reagent, "name" = reagent_datum.name, "req" = chemicals[reagent])))
 
-		ui_data["chemicals"] = RS
+		nano_ui_data["chemicals"] = RS
 
 
-/datum/design/ui_data()
+/datum/design/nano_ui_data()
 	RETURN_TYPE(/list)
-	return ui_data
+	return nano_ui_data
 
 //Returns a new instance of the item for this design
 //This is to allow additional initialization to be performed, including possibly additional contructor arguments.
