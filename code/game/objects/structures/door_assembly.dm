@@ -313,6 +313,7 @@
 
 /obj/structure/door_assembly/multi_tile
 	icon = 'icons/obj/doors/door_assembly2x1.dmi'
+	icon_state = "door_as_m0"
 	dir = EAST
 	var/width = 1
 	base_icon_state = "g" //Remember to delete this line when reverting MATERIAL_GLASS var to 1.

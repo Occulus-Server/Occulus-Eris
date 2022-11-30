@@ -1,3 +1,7 @@
+/datum/perk/fate
+	desc = "You shouldn't ever see this! Report it to a coder."
+	icon_state = "error" // https://game-icons.net/1x1/lorc/uncertainty.html
+
 /datum/perk/fate/paper_worm
 	name = "Paper Worm"
 	desc = "You always look at the bright side of life but seems there's something you'd forgotten"

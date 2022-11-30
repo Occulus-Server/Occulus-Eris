@@ -33,6 +33,7 @@
 *.m.dme
 *.test.dme
 *.lk
+*.int
 *.backup
 *.before
 *~Stashed changes

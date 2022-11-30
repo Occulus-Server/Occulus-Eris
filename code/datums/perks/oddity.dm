@@ -1,5 +1,7 @@
 /datum/perk/oddity
 	gain_text = "You feel different. Exposure to oddities has changed you. Now you can't go back."
+	desc = "You shouldn't ever see this! Report it to a coder."
+	icon_state = "error" // https://game-icons.net/1x1/lorc/uncertainty.html
 
 /datum/perk/oddity/fast_walker
 	name = "Fast Walker"
@@ -86,7 +88,7 @@
 /datum/perk/oddity/horrible_deeds
 	name = "Horrible Deeds"
 	desc = " The twitch. The blood. They see the truth in your actions and are horrified."
-	icon_state = "bad_breath" // https://game-icons.net
+	icon_state = "bad_breath" // https://game-icons.net/1x1/delapouite/bad-breath.html
 
 /datum/perk/oddity/horrible_deeds/assign(mob/living/carbon/human/H)
 	..()
@@ -101,7 +103,7 @@
 /datum/perk/oddity/chaingun_smoker
 	name = "Chaingun smoker"
 	desc = "The cigarette is a way of life. Literally - it makes you feel less sick and tougher when you chomp on cigars."
-	icon_state = "cigarette" // https://game-icons.net
+	icon_state = "cigarette" // https://game-icons.net/1x1/delapouite/cigarette.html
 
 /datum/perk/oddity/nightcrawler
 	name = "Nightcrawler"
@@ -117,7 +119,7 @@
 /datum/perk/oddity/quiet_as_mouse
 	name = "Quiet as a mouse"
 	desc = "Being deadly, easy. Silent? Even easier now."
-	icon_state = "footsteps" // https://game-icons.net
+	icon_state = "footsteps" // https://game-icons.net/1x1/skoll/footsteps.html
 
 /datum/perk/oddity/quiet_as_mouse/assign(mob/living/carbon/human/H)
 	..()
@@ -132,17 +134,17 @@
 /datum/perk/oddity/balls_of_plasteel
 	name = "Balls of plasteel"
 	desc = "Pain comes and goes. Better to have less of it."
-	icon_state = "golem" // https://game-icons.net
+	icon_state = "golem" // https://game-icons.net/1x1/delapouite/rock-golem.html
 
 /datum/perk/oddity/junkborn
 	name = "Junkborn"
 	desc = "And they said you couldn't find a grail in the garbage!"
-	icon_state = "treasure" // https://game-icons.net
+	icon_state = "treasure" // https://game-icons.net/1x1/lorc/treasure-map.html
 
 /datum/perk/oddity/ass_of_concrete
 	name = "Ass of Concrete"
 	desc = "I can't take it anymore! What..how did I land on my feet?! I feel immovable! No one can push me around anymore!"
-	icon_state = "muscular" // https://game-icons.net
+	icon_state = "muscular" // https://game-icons.net/1x1/delapouite/muscular-torso.html
 
 /datum/perk/oddity/ass_of_concrete/assign(mob/living/carbon/human/H)
 	..()
@@ -157,7 +159,7 @@
 /datum/perk/oddity/toxic_revenger
 	name = "Toxic Revenger"
 	desc = "A heart of gold does not matter when blood is toxic. Those who breathe your air, share your fate."
-	icon_state = "Hazmat" // https://game-icons.net
+	icon_state = "Hazmat" // https://game-icons.net/1x1/delapouite/hazmat-suit.html
 	var/cooldown = 10 MINUTES //Occulus edit: Reducing the spam
 	var/initial_time
 
@@ -187,12 +189,12 @@
 /datum/perk/oddity/absolute_grab
 	name = "Absolute Grab"
 	desc = "It pays to be a predator. You don't grab, You lunge."
-	icon_state = "grab" // https://game-icons.net
+	icon_state = "grab" // https://game-icons.net/1x1/lorc/grab.html
 
 /datum/perk/oddity/sure_step
 	name = "Sure step"
 	desc = " You are more likely to avoid traps."
-	icon_state = "mantrap"
+	icon_state = "mantrap" // https://game-icons.net/1x1/lorc/mantrap.html
 
 /datum/perk/oddity/market_prof
 	name = "Market Professional"
@@ -211,6 +213,9 @@
 
 /datum/perk/nt_oddity
 	gain_text = "God chose you to expand his will."
+	desc = "You shouldn't ever see this! Report it to a coder."
+	icon_state = "error" // https://game-icons.net/1x1/lorc/uncertainty.html
+
 
 /datum/perk/nt_oddity/holy_light
 	name = "Holy Light"
@@ -239,6 +244,10 @@
 				continue
 			H.adjustBruteLoss(-healing_power)
 			H.adjustFireLoss(-healing_power)
+
+/datum/perk/hive_oddity
+	desc = "You shouldn't ever see this! Report it to a coder."
+	icon_state = "error" // https://game-icons.net/1x1/lorc/uncertainty.html
 
 /datum/perk/hive_oddity/hive_born
 	name = "Hiveborn"

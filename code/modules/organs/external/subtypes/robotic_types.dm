@@ -72,18 +72,23 @@
 
 /obj/item/organ/external/robotic/moebius/l_arm
 	default_description = /datum/organ_description/arm/left
+	icon_state = "l_arm"
 
 /obj/item/organ/external/robotic/moebius/r_arm
 	default_description = /datum/organ_description/arm/right
+	icon_state = "r_arm"
 
 /obj/item/organ/external/robotic/moebius/l_leg
 	default_description = /datum/organ_description/leg/left
+	icon_state = "l_leg"
 
 /obj/item/organ/external/robotic/moebius/r_leg
 	default_description = /datum/organ_description/leg/right
+	icon_state = "r_leg"
 
 /obj/item/organ/external/robotic/moebius/groin
 	default_description = /datum/organ_description/groin
+	icon_state = "groin_m"
 
 /obj/item/organ/external/robotic/excelsior
 	name = "Excelsior"

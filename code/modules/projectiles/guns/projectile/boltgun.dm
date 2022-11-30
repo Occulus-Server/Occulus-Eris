@@ -42,9 +42,7 @@
 		itemstring += "[item_suffix]"
 
 	if (bolt_open)
-		iconstring += "_open"
-	else
-		iconstring += "_closed"
+		iconstring += "_o"
 
 	icon_state = iconstring
 	set_item_state(itemstring)

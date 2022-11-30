@@ -480,11 +480,11 @@
 					var/atom/item = initial(CS.reqed_type)
 					var/icon_file = initial(item.icon)
 					var/icon_state = initial(item.icon_state)
-					#ifdef UNIT_TESTS
-					if(!(icon_state in icon_states(icon_file)))
-						warning("crafting step [CS] with icon '[icon_file]' missing state '[icon_state]'")
-						continue
-					#endif
+					// #ifdef UNIT_TESTS
+					// if(!(icon_state in icon_states(icon_file)))
+					// 	warning("crafting step [CS] with icon '[icon_file]' missing state '[icon_state]'")
+					// 	continue
+					// #endif
 					var/icon/I = icon(icon_file, icon_state, SOUTH)
 
 					assets[filename] = I

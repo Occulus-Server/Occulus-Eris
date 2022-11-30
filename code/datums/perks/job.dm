@@ -13,10 +13,15 @@
 		holder.sanity.death_view_multiplier *= 2
 	..()
 
+/datum/perk/job
+	desc = "You shouldn't ever see this! Report it to a coder."
+	icon_state = "error"
+
 /datum/perk/job/artist
 	name = "Artist"
 	desc = "You have a lot of expertise in making works of art. You gain 150% insight from all sources but can only level \
 			up by creating works of art."
+	icon_state = "artist" // https://game-icons.net/1x1/delapouite/palette.html
 	var/old_max_insight = INFINITY
 	var/old_max_resting = INFINITY
 	var/old_insight_rest_gain_multiplier = 1

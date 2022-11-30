@@ -4,7 +4,7 @@
 	throw_range = 1
 	gender = PLURAL
 	icon = 'icons/obj/traps.dmi'
-	icon_state = "beartrap"
+	icon_state = "beartrap0"
 	desc = "A mechanically activated leg trap. Low-tech, but reliable. Looks like it could really hurt if you set it off."
 	throwforce = 0
 	w_class = ITEM_SIZE_NORMAL
@@ -392,7 +392,7 @@ Very rarely it might escape
 	base_difficulty = 80
 	name = "jury-rigged mechanical trap"
 	desc = "A wicked looking construct of spiky bits of metal and wires. Will snap shut on anyone who steps in it. It'll do some nasty damage."
-	icon_state = "sawtrap"
+	icon_state = "sawtrap0"
 	matter = list(MATERIAL_STEEL = 15)
 	var/integrity = 100
 

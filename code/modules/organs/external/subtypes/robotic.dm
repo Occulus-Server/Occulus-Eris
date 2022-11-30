@@ -92,37 +92,48 @@
 
 /obj/item/organ/external/robotic/l_arm
 	default_description = /datum/organ_description/arm/left
+	icon_state = "l_arm"
 
 /obj/item/organ/external/robotic/r_arm
 	default_description = /datum/organ_description/arm/right
+	icon_state = "r_arm"
 
 /obj/item/organ/external/robotic/l_leg
 	default_description = /datum/organ_description/leg/left
+	icon_state = "l_leg"
 
 /obj/item/organ/external/robotic/r_leg
 	default_description = /datum/organ_description/leg/right
+	icon_state = "r_leg"
 
 /obj/item/organ/external/robotic/groin
 	default_description = /datum/organ_description/groin
+	icon_state = "groin_m"
 
 /obj/item/organ/external/robotic/head
 	default_description = /datum/organ_description/head
+	icon_state = "head_m"
 
 /obj/item/organ/external/robotic/chest
 	default_description = /datum/organ_description/chest
+	icon_state = "torso_m"
 
 /obj/item/organ/external/robotic/l_hand
 	default_description = /datum/organ_description/hand/left
+	icon_state = "l_hand"
 	w_class = ITEM_SIZE_SMALL
 
 /obj/item/organ/external/robotic/r_hand
 	default_description = /datum/organ_description/hand/right
+	icon_state = "r_hand"
 	w_class = ITEM_SIZE_SMALL
 
 /obj/item/organ/external/robotic/l_foot
 	default_description = /datum/organ_description/foot/left
+	icon_state = "l_foot"
 	w_class = ITEM_SIZE_SMALL
 
 /obj/item/organ/external/robotic/r_foot
 	default_description = /datum/organ_description/foot/right
+	icon_state = "r_foot"
 	w_class = ITEM_SIZE_SMALL
