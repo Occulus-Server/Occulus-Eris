@@ -36,23 +36,17 @@
 	)
 	gear_tweaks += new /datum/gear_tweak/path(balls)
 
-/datum/gear/implant/generic
+/datum/gear/implant
 	display_name = "implant, generic, primary"
 	description = "An implant with no obvious purpose."
 	path = /obj/item/implant
 	cost = 1
 
-/datum/gear/implant/generic/second
+/datum/gear/implant/second
 	display_name = "implant, generic, secondary"
-	description = "An implant with no obvious purpose."
-	path = /obj/item/implant
-	cost = 1
 
-/datum/gear/implant/generic/third
+/datum/gear/implant/third
 	display_name = "implant, generic, tertiary"
-	description = "An implant with no obvious purpose."
-	path = /obj/item/implant
-	cost = 1
 
 /datum/gear/implanter
 	display_name = "dummy implanter"
