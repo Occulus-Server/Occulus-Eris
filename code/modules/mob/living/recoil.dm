@@ -1,15 +1,12 @@
 /mob/living/proc/handle_recoil(var/obj/item/gun/G)
+	deltimer(recoil_reduction_timer)
 	if(G.one_hand_penalty)//If the gun has a two handed penalty and is not weilded.
 		if(!G.wielded)
 			recoil += G.one_hand_penalty //Then the one hand penalty wil lbe added to the recoil.
 	if(G.recoil_buildup)
 		recoil += G.recoil_buildup
-		update_recoil(G)
+		update_recoil()
 
-/mob/living/proc/calc_reduction()
-	return max(BASE_ACCURACY_REGEN + stats.getStat(STAT_VIG)*VIG_ACCURACY_REGEN, MIN_ACCURACY_REGEN)
-
-//Called to get current recoil value
 /mob/living/proc/calc_recoil()
 
 	if(recoil >= 10)
@@ -24,20 +21,7 @@
 	update_cursor()
 
 //Called after setting recoil
-/mob/living/proc/update_recoil(var/obj/item/gun/G)
-	if(recoil <= 0)
-		recoil = 0
-		last_recoil_update = 0
-	else
-		if(last_recoil_update)
-			calc_recoil()
-		else
-			last_recoil_update = world.time
-	deltimer(recoil_timer)
-	recoil_timer = null
-	update_recoil_cursor(G)
-
-/mob/living/proc/update_recoil_cursor()
+/mob/living/proc/update_recoil()
 	update_cursor()
 	recoil_reduction_timer = addtimer(CALLBACK(src, .proc/calc_recoil), 0.3 SECONDS, TIMER_STOPPABLE)
 
@@ -47,7 +31,7 @@
 		return
 	if(client)
 		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
-		var/offset = min(round(calc_recoil()), MAX_ACCURACY_OFFSET)
+		var/offset = min(round(recoil), MAX_ACCURACY_OFFSET)
 		var/icon/base = find_cursor_icon('icons/obj/gun_cursors/standard/standard.dmi', offset)
 		ASSERT(isicon(base))
 		client.mouse_pointer_icon = base

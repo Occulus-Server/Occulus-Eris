@@ -116,8 +116,8 @@
 	var/storage_slots = 3
 	var/max_w_class = ITEM_SIZE_HUGE
 	var/list/can_hold = list(
-		/obj/item/tool/sword/nt/shortsword,
-		/obj/item/tool/sword/nt/spear,
+		/obj/item/tool/sword/nt,//Occulus Cleanup
+//		/obj/item/tool/sword/nt/spear, Occulus not ported
 		/obj/item/tool/knife/dagger/nt,
 		/obj/item/tool/knife/neotritual,
 		/obj/item/book/ritual/cruciform,

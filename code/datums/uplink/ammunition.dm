@@ -173,13 +173,13 @@
 	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/ammo_magazine/sllrifle
 
-/datum/uplink_item/item/ammo/sl_lrifle/highvelocity
+/*/datum/uplink_item/item/ammo/sl_lrifle/highvelocity
 	name = ".30 Rifle HV ammo strip"
 	desc = "An High Velocity ammo strip designed for bolt action rifles. Contains 5 rounds."
 	item_cost = 2
 	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
-	path = /obj/item/ammo_magazine/sllrifle/hv
-	
+	path = /obj/item/ammo_magazine/sllrifle/hv*/
+
 //// HV ammo packets ////
 
 /datum/uplink_item/item/ammo/pistol_hv
@@ -250,13 +250,13 @@
 ////special////
 
 /datum/uplink_item/item/ammo/sniperammo
-<	name = ".60 Anti material \"Penetrator\""
+	name = ".60 Anti material \"Penetrator\""
 	desc = "A box full of .60 AMR shells. Have 5 shells inside."
 	item_cost = 2
 	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/box/sniperammo
 
-/datum/uplink_item/item/ammo/sniperammo/emp
+/*/datum/uplink_item/item/ammo/sniperammo/emp
 	name = ".60 Anti material \"Blackout\""
 	desc = "A box full of .60 AMR EMP shells. EMP shells release an electromagnetic pulse on impact. Have 5 shells inside."
 	item_cost = 3
@@ -275,7 +275,7 @@
 	desc = "A box full of low velocity .60 AMR breaching shells, designed not to pierce, but to destroy structures from a distance. Close-ranged shots have less destructive power. Have 5 shells inside."
 	item_cost = 3
 	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
-	path = /obj/item/storage/box/sniperammo/breach
+	path = /obj/item/storage/box/sniperammo/breach*/
 
 /datum/uplink_item/item/ammo/sniperammo/large
 	name = ".60 Anti material \"Penetrator\" crate"
