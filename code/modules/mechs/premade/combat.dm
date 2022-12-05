@@ -84,7 +84,7 @@
 	action_delay = 10
 	max_damage = 100
 	power_use = 50
-	matter = list(MATERIAL_STEEL = 15, MATERIAL_PLASTEEL = 5, MATERIAL_PLASMA = 4, MATERIAL_DIAMOND = 2)
+	matter = list(MATERIAL_STEEL = 15, MATERIAL_PLASTEEL = 5, MATERIAL_PHORON = 4, MATERIAL_DIAMOND = 2)
 
 /obj/item/mech_component/propulsion/combat
 	name = "combat legs"
@@ -97,4 +97,4 @@
 	turn_delay = 1 // Better than light , turns fast and costs a lot
 	max_damage = 100
 	power_use = 25
-	matter = list(MATERIAL_STEEL = 15, MATERIAL_PLASTEEL = 5, MATERIAL_PLASMA = 5, MATERIAL_DIAMOND = 2) // Expensive because durable.
+	matter = list(MATERIAL_STEEL = 15, MATERIAL_PLASTEEL = 5, MATERIAL_PHORON = 5, MATERIAL_DIAMOND = 2) // Expensive because durable.

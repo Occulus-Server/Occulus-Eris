@@ -41,7 +41,7 @@
 	desc = "This plating is built to shrug off laser impacts and block electromagnetic pulses, but is rather vulnerable to brute trauma."
 	armor = list(melee = 50, bullet = 25, energy = 100, bomb = 10, bio = 100, rad = 60)
 	origin_tech = list(TECH_MATERIAL = 3)
-	matter = list(MATERIAL_STEEL = 15, MATERIAL_PLASMA = 5)
+	matter = list(MATERIAL_STEEL = 15, MATERIAL_PHORON = 5)
 
 /obj/item/robot_parts/robot_component/armour/exosuit/combat
 	name = "heavy combat exosuit plating"
