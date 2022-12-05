@@ -1489,6 +1489,7 @@
 #include "code\modules\clothing\accessories\armband.dm"
 #include "code\modules\clothing\accessories\badges.dm"
 #include "code\modules\clothing\accessories\holster.dm"
+#include "code\modules\clothing\accessories\lenses.dm"
 #include "code\modules\clothing\accessories\lockets.dm"
 #include "code\modules\clothing\glasses\glasses.dm"
 #include "code\modules\clothing\glasses\hud.dm"
@@ -3194,7 +3195,6 @@
 #include "zzzz_modular_occulus\prosthesis\implementation.dm"
 #include "zzzz_modular_occulus\prosthesis\prosthesis_brands.dm"
 #include "zzzz_modular_occulus\prosthesis\prosthesis_parts.dm"
-#include "code/modules/clothing/accessories/lenses.dm"
 // END_INCLUDE
 // BEGIN_INTERNALS
 // END_INTERNALS
