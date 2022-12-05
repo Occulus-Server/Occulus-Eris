@@ -63,3 +63,22 @@
 						   /datum/design/research/item/weapon/greyclaw/greyclawmag/rubber,
 						   )
 
+// Railguns
+
+/datum/technology/railguns
+	name = "Hyper Velocity Weaponry"
+	desc = "Prototype weaponry that uses electromagnetic propulsion to send projectiles."
+	tech_type = RESEARCH_COMBAT
+
+	x = 0.6
+	y = 0.7
+	icon = "railgun"
+
+	required_technologies = list(/datum/technology/temp)
+	required_tech_levels = list(RESEARCH_ENGINEERING = 5, RESEARCH_POWERSTORAGE = 4)
+	cost = 6000
+
+	unlocks_designs = list(/datum/design/research/item/weapon/railgun,
+							/datum/design/research/item/weapon/gauss
+							)
+
