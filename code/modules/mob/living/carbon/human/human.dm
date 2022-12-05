@@ -886,7 +886,7 @@ var/list/rank_prefix = list(\
 	rebuild_organs()
 
 // OCCULUS EDIT START - Reinstall our core implant if we had one, because rebuild_organs() has that bit of code gutted from it
-	var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
+	var/datum/category_item/setup_option/core_implant/I = client ? client.prefs.get_option("Core implant") : null
 	if(I)
 		I.apply(src)
 // OCCULUS EDIT END

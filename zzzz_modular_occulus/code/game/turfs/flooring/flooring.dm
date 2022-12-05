@@ -9,6 +9,8 @@
 	//BSTs need this or they generate tons of soundspam while flying through the ship
 	if(!ishuman(M)|| M.incorporeal_move || !has_gravity(get_turf(M)) || M.stats.getPerk(PERK_NOTRIP)) //This should check if the person has the perk that makes you not trip on underplating
 		return
+	if(M.check_shoegrip()) // If they have NOSLIP shoes or magboots, they don't trip.
+		return
 	if(MOVING_QUICKLY(M))//Don't knock them over if they're an engineer?
 		if(prob(5))
 			M.adjustBruteLoss(5)

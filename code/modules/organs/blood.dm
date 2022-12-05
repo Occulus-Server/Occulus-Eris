@@ -39,7 +39,7 @@
 	for(var/datum/reagent/R in reagents.reagent_list)
 		temp_chem[R.type] = R.volume
 	data["trace_chem"] = temp_chem
-	data["blood_colour"] = species.blood_color
+	data["blood_colour"] = blood_color //Occulus Edit - For colored blood
 	data["resistances"] = null
 	data["carrion"] = is_carrion(src)
 	return data
@@ -48,7 +48,8 @@
 /mob/living/carbon/human/proc/fixblood()
 	for(var/datum/reagent/organic/blood/B in vessel.reagent_list)
 		if(B.id == "blood")
-			var/data = list("donor"=src,"viruses"=null,"species"=species.name,"blood_DNA"=dna.unique_enzymes,"blood_colour"= species.blood_color,"blood_type"=dna.b_type,	\
+			 //Occulus edit - For custom blood color
+			var/data = list("donor"=src,"viruses"=null,"species"=species.name,"blood_DNA"=dna.unique_enzymes,"blood_colour"= blood_color,"blood_type"=dna.b_type,	\
 							"resistances"=null,"trace_chem"=null, "virus2" = null, "antibodies" = list())
 			B.initialize_data(data)
 
