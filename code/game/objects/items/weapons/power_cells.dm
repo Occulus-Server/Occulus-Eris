@@ -312,3 +312,14 @@
 	matter = list(MATERIAL_STEEL = 1)  //some cost just in case you manage to get this in a disk or something
 	maxcharge = 100  //small cause if someone manage to get this shouldn't be that usefull. and 100 is a nice number to work with.
 	spawn_blacklisted = TRUE
+
+//Irremovable cells for exosuit energy weapons
+
+/obj/item/cell/medium/mech
+	name = "mech gun electrical component"
+	desc = "An electrical component for exosuit energy guns."
+	icon_state = "m_st"
+	maxcharge = 1000
+	bad_type = /obj/item/cell/medium/mech
+	matter = list()
+	spawn_blacklisted = TRUE

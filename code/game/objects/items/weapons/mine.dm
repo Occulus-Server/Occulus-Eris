@@ -56,7 +56,7 @@
 	name = "makeshift mine"
 	desc = "An improvised explosive mounted in a bear trap. Dangerous to step on, but easy to defuse."
 	icon_state = "mine_improv"
-	matter = list(MATERIAL_STEEL = 25, MATERIAL_PLASMA = 5)
+	matter = list(MATERIAL_STEEL = 25, MATERIAL_PHORON = 5)
 	prob_explode = 75
 	pulse_difficulty = FAILCHANCE_ZERO
 	explosion_h_size = 0

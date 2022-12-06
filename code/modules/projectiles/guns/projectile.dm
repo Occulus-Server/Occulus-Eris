@@ -219,13 +219,23 @@
 			inserted_casing.maxamount = C.maxamount
 			if(ispath(inserted_casing.projectile_type) && C.BB)
 				inserted_casing.BB = new inserted_casing.projectile_type(inserted_casing)
-//			if(inserted_casing.sprite_update_spawn)
-//				var/matrix/rotation_matrix = matrix()
-//				rotation_matrix.Turn(round(45 * rand(0, inserted_casing.sprite_max_rotate) / 2))
-//				if(inserted_casing.sprite_use_small)
-//					C.transform = rotation_matrix * inserted_casing.sprite_scale
-//				else
-//					C.transform = rotation_matrix
+
+			inserted_casing.sprite_use_small = C.sprite_use_small
+			inserted_casing.sprite_max_rotate = C.sprite_max_rotate
+			inserted_casing.sprite_scale = C.sprite_scale
+			inserted_casing.sprite_update_spawn = C.sprite_update_spawn
+
+			if(inserted_casing.sprite_update_spawn)
+				var/matrix/rotation_matrix = matrix()
+				rotation_matrix.Turn(round(45 * rand(0, inserted_casing.sprite_max_rotate) / 2))
+				if(inserted_casing.sprite_use_small)
+					inserted_casing.transform = rotation_matrix * inserted_casing.sprite_scale
+				else
+					inserted_casing.transform = rotation_matrix
+
+			inserted_casing.is_caseless = C.is_caseless	//How did someone forget this before!?!?!?
+			inserted_casing.shell_color = C.shell_color
+
 			C.update_icon()
 			inserted_casing.update_icon()
 			loaded.Insert(1, inserted_casing)
