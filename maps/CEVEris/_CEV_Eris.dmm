@@ -15153,7 +15153,7 @@
 "aLJ" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 4;
-	name = "O2 to Propulsion"
+	name = "Oxygen to Propulsion"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/atmos)
@@ -15398,7 +15398,7 @@
 "aMr" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8;
-	name = "N2 to Core"
+	name = "Nitrogen to Core"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/atmos)
@@ -81539,14 +81539,14 @@
 "dNe" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 1;
-	name = "Oxygen Suplly  (Chamber)"
+	name = "Oxygen Supply (Chamber)"
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/propulsion/left)
 "dNf" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 1;
-	name = "phoron Suplly (Chamber)"
+	name = "Phoron Supply (Chamber)"
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/propulsion/left)
@@ -81695,14 +81695,14 @@
 "dNt" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 1;
-	name = "Oxygen Suplly  (Chamber)"
+	name = "Oxygen Supply (Port)"
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/propulsion/right)
 "dNu" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 1;
-	name = "phoron Suplly (Chamber)"
+	name = "Phoron Supply (Chamber)"
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/propulsion/right)
@@ -95833,7 +95833,7 @@
 "evP" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 1;
-	name = "phoron Suplly (Port)"
+	name = "Phoron Supply (Port)"
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
@@ -97684,7 +97684,7 @@
 "ezS" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8;
-	name = "phoron Suplly (General)"
+	name = "Phoron Supply (General)"
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
@@ -97995,7 +97995,7 @@
 "eAx" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8;
-	name = "Oxygen Suplly (General)"
+	name = "Oxygen Supply (General)"
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
@@ -100527,7 +100527,7 @@
 "eJw" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 1;
-	name = "phoron Suplly (Port)"
+	name = "Phoron Supply (Port)"
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/right)
@@ -100578,7 +100578,7 @@
 "eKi" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 4;
-	name = "phoron Suplly (General)"
+	name = "Phoron Supply (General)"
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/right)
@@ -100630,7 +100630,7 @@
 "eKH" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 4;
-	name = "Oxygen Suplly (General)"
+	name = "Oxygen Supply (General)"
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/right)
@@ -110205,6 +110205,13 @@
 /obj/structure/railing,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck5central)
+"rXu" = (
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 1;
+	name = "Oxygen Supply (Chamber)"
+	},
+/turf/simulated/floor/tiled/steel/techfloor_grid,
+/area/eris/engineering/propulsion/right)
 "rXW" = (
 /obj/structure/multiz/stairs/enter{
 	dir = 4
@@ -112089,6 +112096,13 @@
 	},
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/genetics_cloning)
+"uyr" = (
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 1;
+	name = "Oxygen Supply (Port)"
+	},
+/turf/simulated/floor/tiled/steel/techfloor_grid,
+/area/eris/engineering/propulsion/left)
 "uyJ" = (
 /obj/structure/low_wall,
 /obj/structure/curtain/open/bed{
@@ -291586,7 +291600,7 @@ dJZ
 dKh
 dKD
 dLP
-dNe
+uyr
 ewH
 eAb
 eAy
@@ -301484,7 +301498,7 @@ eDX
 eEa
 eEa
 dMY
-dNt
+rXu
 eKn
 eKm
 eKU
