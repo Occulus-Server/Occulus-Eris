@@ -62,9 +62,9 @@
 				O.implants -= src // Remove from implants and spawn the roachling on the ground
 				src.loc = O.owner ? O.owner.loc : O.loc
 			if(prob(2)) // Begin Occulus edit - 1 in 50 chance for a marked roach from an IC experiment
-         		var/spawn_type = /mob/living/carbon/superior_animal/roach/roachling/marked
-     		else
-         		spawn_type = /mob/living/carbon/superior_animal/roach/roachling // End Occulus edit
+				var/spawn_type = /mob/living/carbon/superior_animal/roach/roachling/marked
+			else
+				spawn_type = /mob/living/carbon/superior_animal/roach/roachling // End Occulus edit
 			new spawn_type(src.loc, src)
 			qdel(src)
 		else
