@@ -3073,6 +3073,8 @@
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\superior_animal\roach\blattedin.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\superior_animal\roach\kaiserin.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\carbon\superior_animal\roach\roach.dm"
+#include "zzzz_modular_occulus\code\modules\mob\living\carbon\superior_animal\roach\roachlingmarked.dm"
+#include "zzzz_modular_occulus\code\modules\mob\living\carbon\superior_animal\roach\roachmarked.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\new_player\new_player.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\new_player\preferences_setup.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\silicon\robot\inventory.dm"
