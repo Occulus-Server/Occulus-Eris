@@ -362,7 +362,7 @@
 					/obj/item/storage/belt/utility/neotheology = 3,
 					/obj/item/storage/belt/tactical/neotheology = 3)
 	prices = list(/obj/item/book/ritual/cruciform = 500,
-					/obj/item/storage/fancy/candle_box = 200,
+					/obj/item/storage/fancy/candle_box/mek = 200,
 					/obj/item/reagent_containers/food/drinks/bottle/ntcahors = 250,
 					/obj/item/implant/core_implant/cruciform = 1000,
 					/obj/item/storage/belt/utility/neotheology = 150,

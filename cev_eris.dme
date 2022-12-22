@@ -2926,6 +2926,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\augmentor.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\cards_ids.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\cigs_lighters.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\mekcandle.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\mine.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\nt_weps.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\secrets.dm"
