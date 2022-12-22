@@ -23,8 +23,8 @@
 	new /obj/item/clothing/under/rank/church/sport(src)
 	new /obj/item/clothing/suit/storage/neotheosports(src)
 	new /obj/item/clothing/gloves/thick(src)
-	new /obj/item/storage/fancy/candle_box(src)
-	new /obj/item/storage/fancy/candle_box(src)
+	new /obj/item/storage/fancy/candle_box/mek(src)//Occulus Edit
+	new /obj/item/storage/fancy/candle_box/mek(src)//Occulus Edit
 	new /obj/item/deck/tarot(src)
 	new /obj/item/storage/box/headset/church
 	new /obj/item/computer_hardware/hard_drive/portable/design/nt_boards (src)
