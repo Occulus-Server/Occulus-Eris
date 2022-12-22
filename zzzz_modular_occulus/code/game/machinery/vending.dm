@@ -358,6 +358,10 @@
 //Mekhane Theomat
 
 /obj/machinery/vending/theomat
+	products = list(
+					/obj/item/book/ritual/cruciform = 10,
+					/obj/item/storage/fancy/candle_box/mek = 10,
+					/obj/item/reagent_containers/food/drinks/bottle/ntcahors = 20)
 	premium = list(
 					/obj/item/storage/belt/utility/neotheology = 3,
 					/obj/item/storage/belt/tactical/neotheology = 3)
