@@ -41,8 +41,7 @@
 
 /obj/item/gun/projectile/shotgun/pump/grenade/proc/unload_underslung(mob/user)
 	if(chambered)
-		var/turf/turf = get_turf(src)
-		chambered.forceMove(turf)
+		user.put_in_hands(chambered)
 		to_chat(user, "You remove \a [chambered] from [src].")
 		chambered = null
 
