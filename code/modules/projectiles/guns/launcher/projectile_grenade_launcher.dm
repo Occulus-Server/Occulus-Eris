@@ -80,7 +80,7 @@
 
 /obj/item/gun/projectile/shotgun/pump/grenade/makeshift
 	name = "makeshift grenade launcher"
-	desc = "Your own, homemade, China Lake."
+	desc = "Your own homemade China Lake."
 	icon = 'icons/obj/guns/launcher/makeshift.dmi'
 	icon_state = "makeshift"
 	item_state = "makeshift"
