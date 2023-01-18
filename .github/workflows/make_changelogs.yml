@@ -23,7 +23,8 @@ jobs:
           pip install ruamel.yaml PyGithub
       - name: Make CL
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }
+          GITHUB_TOKEN: ${{ secrets.CL_TOKEN }}    # Occulus Edit / Allows this to create changelog files
           GIT_EMAIL: "action@github.com"
           GIT_NAME: "Nestor Jr." 
         run: python tools/changelog/generate_cl.py

@@ -61,8 +61,11 @@
 					O.owner.apply_damage(1, BRUTE, O.organ_tag, used_weapon = src)
 				O.implants -= src // Remove from implants and spawn the roachling on the ground
 				src.loc = O.owner ? O.owner.loc : O.loc
-
-			var/spawn_type = /mob/living/carbon/superior_animal/roach/roachling
+			var/spawn_type // Begin Occulus edit - the placement of this prior was driving someone bonkers.
+			if(prob(2)) // 1 in 50 chance for a marked roach from an IC experiment
+				spawn_type = /mob/living/carbon/superior_animal/roach/roachling/marked
+			else
+				spawn_type = /mob/living/carbon/superior_animal/roach/roachling // End Occulus edit
 			new spawn_type(src.loc, src)
 			qdel(src)
 		else
