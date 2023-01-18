@@ -22,9 +22,8 @@
 	price_tag = 3000
 
 /obj/item/gun/projectile/shotgun/pump/grenade/examine(mob/user)
-	if(..(user, 2))
-		if(chambered)
-			to_chat(user, "\A [chambered] is chambered.")
+	if(..(user, 2) && chambered)
+		to_chat(user, "\A [chambered] is chambered.")
 
 /obj/item/gun/projectile/shotgun/pump/grenade/handle_post_fire(mob/user)
 	log_and_message_admins("fired a grenade ([chambered]) from ([src]).")
