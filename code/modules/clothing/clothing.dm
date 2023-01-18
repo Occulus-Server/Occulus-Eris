@@ -504,8 +504,8 @@ BLIND     // can't see anything
 			/obj/item/tool/knife/butterfly,
 			/obj/item/material/kitchen/utensil,
 			/obj/item/tool/knife/tacknife,
-			/obj/item/oddity/common/old_knife, //Syzygy change that should have been done forever ago
-			/obj/item/tool/shiv,
+			/obj/item/oddity/common/old_knife, //Occulus Edit
+			//obj/item/tool/shiv,
 		)
 	if(can_hold_knife && is_type_in_list(I, knifes))
 		if(holding)

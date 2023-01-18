@@ -4,10 +4,10 @@
 	icon = 'icons/obj/guns/projectile/colt.dmi'
 	icon_state = "colt"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_PLASTIC = 6)
-	price_tag = 1200
-	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
-	can_dual = 1
+	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_WOOD = 6)
+	price_tag = 900
+	fire_sound = 'sound/weapons/guns/fire/cal/35pistol.ogg'
+	can_dual = TRUE
 	caliber = CAL_PISTOL
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_PISTOL|MAG_WELL_H_PISTOL
@@ -15,6 +15,8 @@
 	damage_multiplier = 1.5
 	recoil_buildup = 17
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	wield_delay = 0.1 SECOND
+	wield_delay_factor = 0.05 // 5 vig
 
 /obj/item/gun/projectile/colt/on_update_icon()
 	..()

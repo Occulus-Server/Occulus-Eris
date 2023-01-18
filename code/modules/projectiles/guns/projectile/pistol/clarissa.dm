@@ -9,8 +9,8 @@
 	silenced = 0
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_PLASTIC = 6)
-	price_tag = 1200
-	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
+	price_tag = 1000
+	fire_sound = 'sound/weapons/guns/fire/cal/35pistol.ogg'
 	caliber = CAL_PISTOL
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_PISTOL|MAG_WELL_H_PISTOL
@@ -32,7 +32,10 @@
 
 	rarity_value = 16
 	price_tag = 1200
-	//spawn_tags = SPAWN_TAG_FS_PROJECTILE Occulus edit : We don't have those tags yet
+	wield_delay = 0.1 SECOND
+	wield_delay_factor = 0.05 // 5 vig
+
+	//spawn_tags = SPAWN_TAG_FS_PROJECTILE
 
 /obj/item/gun/projectile/selfload/on_update_icon()
 	..()

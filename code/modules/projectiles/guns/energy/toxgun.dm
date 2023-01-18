@@ -10,3 +10,5 @@
 	can_dual = 1
 	price_tag = 2500
 	projectile_type = /obj/item/projectile/energy/phoron
+	wield_delay = 0.2 SECOND
+	wield_delay_factor = 0.2 // 20 vig

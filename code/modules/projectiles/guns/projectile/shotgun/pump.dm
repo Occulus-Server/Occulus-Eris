@@ -14,8 +14,8 @@
 	load_method = SINGLE_CASING
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	handle_casings = HOLD_CASINGS
-	fire_sound = 'sound/weapons/guns/fire/shotgunp_fire.ogg'
-	bulletinsert_sound 	= 'sound/weapons/guns/interact/shotgun_insert.ogg'
+	fire_sound = 'sound/weapons/guns/fire/cal/shotgun.ogg'
+	bulletinsert_sound = 'sound/weapons/guns/interact/shotgun_insert.ogg'
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 10)
 	price_tag = 1000
 	rarity_value = 16
@@ -24,6 +24,8 @@
 	spawn_tags = SPANW_TAG_FS_SHOTGUN
 	saw_off = TRUE
 	sawn = /obj/item/gun/projectile/shotgun/pump/sawn
+	wield_delay = 0.6 SECOND
+	wield_delay_factor = 0.3 // 40 vig
 
 /obj/item/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)

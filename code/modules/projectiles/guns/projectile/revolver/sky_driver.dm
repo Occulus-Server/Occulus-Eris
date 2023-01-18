@@ -19,3 +19,7 @@
 	spawn_frequency = 0
 	spawn_blacklisted = TRUE
 	gun_parts = list(/obj/item/gun_upgrade/barrel/gauss = 3, /obj/item/stack/material/plasteel = 2)
+	wield_delay = 1 SECOND
+	wield_delay_factor = 0.3 // 30 vig , heavy pistol
+	fire_sound = 'sound/weapons/guns/fire/cal/sky_driver.ogg'
+

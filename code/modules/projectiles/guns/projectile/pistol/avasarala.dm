@@ -21,13 +21,16 @@
 	penetration_multiplier = 1.35
 	recoil_buildup = 5
 
-	fire_sound = 'sound/weapons/guns/fire/hpistol_fire.ogg'
+	fire_sound = 'sound/weapons/guns/fire/cal/40pistol.ogg'
 	unload_sound = 'sound/weapons/guns/interact/hpistol_magout.ogg'
 	reload_sound = 'sound/weapons/guns/interact/hpistol_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/hpistol_cock.ogg'
 
 	price_tag = 1600
-//	spawn_tags = SPAWN_TAG_FS_PROJECTILE We don't have this yet Occulus Edit
+	//gun_tags = list(GUN_GILDABLE) Occulus Edit: No gilding code
+	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	wield_delay = 0.4 SECOND
+	wield_delay_factor = 0.4 // 40 vig
 
 /obj/item/gun/projectile/avasarala/on_update_icon()
 	..()
