@@ -1088,7 +1088,7 @@
 /obj/item/mech_component/price_tag = 150
 /obj/item/mech_equipment/price_tag = 200
 
-/obj/item/gun/launcher/grenade/price_tag = 1500
+/obj/item/gun/projectile/shotgun/pump/grenade/price_tag = 1500
 
 /obj/item/storage/briefcase/inflatable/price_tag = 50
 

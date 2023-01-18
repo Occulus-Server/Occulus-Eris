@@ -707,10 +707,10 @@
 	name = "ammo crate";
 	req_access = list(63)
 	},
-/obj/item/storage/box/shotgunammo/beanbags,
-/obj/item/storage/box/shotgunammo/beanbags,
-/obj/item/storage/box/shotgunammo/beanbags,
-/obj/item/storage/box/shotgunammo/beanbags,
+/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
+/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
+/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
+/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "abW" = (
@@ -18006,8 +18006,8 @@
 /area/eris/maintenance/section1deck4central)
 "aSp" = (
 /obj/structure/table/rack,
-/obj/item/gun/launcher/grenade/lenar,
-/obj/item/gun/launcher/grenade/lenar,
+/obj/item/gun/projectile/shotgun/pump/grenade/lenar,
+/obj/item/gun/projectile/shotgun/pump/grenade/lenar,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
@@ -18287,22 +18287,19 @@
 /area/eris/neotheology/bioreactor)
 "aSW" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/teargas,
-/obj/item/storage/box/teargas,
-/obj/item/storage/box/smokes,
-/obj/item/storage/box/smokes,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
-/obj/item/grenade/frag,
-/obj/item/grenade/frag,
-/obj/item/grenade/frag,
-/obj/item/grenade/frag,
-/obj/item/grenade/frag,
-/obj/item/grenade/frag,
+/obj/item/storage/box/baton_rounds,
+/obj/item/storage/box/baton_rounds,
+/obj/item/storage/box/sting_rounds,
+/obj/item/storage/box/sting_rounds,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "aSX" = (
@@ -250771,7 +250768,7 @@ hmo
 mQl
 ayg
 ayg
-aaa
+abF
 aCM
 sek
 oOH
@@ -250973,7 +250970,7 @@ hmo
 xjM
 wcj
 dHk
-aaa
+abF
 aCM
 dgM
 djx
@@ -251584,8 +251581,8 @@ cAO
 ylt
 djB
 cAO
-aad
-aad
+abF
+abF
 aad
 aad
 aad

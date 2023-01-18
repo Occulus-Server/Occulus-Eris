@@ -29,6 +29,7 @@
 	)
 	var/consume_cell = FALSE
 	price_tag = 2250
+	spawn_blacklisted = TRUE
 
 /obj/item/gun/energy/laser/railgun/consume_next_projectile()
 	if(!cell) return null
