@@ -213,7 +213,7 @@
 			else
 				client.perspective = EYE_PERSPECTIVE
 				client.eye = loc
-		usr.client.view = world.view  // Reset view range if it has been altered
+		client.view = world.view  // Reset view range if it has been altered
 
 	if(hud_used)
 		hud_used.updatePlaneMasters(src)
