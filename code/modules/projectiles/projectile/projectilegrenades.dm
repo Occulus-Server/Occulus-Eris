@@ -65,3 +65,16 @@
 
 /obj/item/projectile/bullet/grenade/emp/grenade_effect(target)
 	empulse(target, heavy_emp_range, light_emp_range)
+
+// Occ Edit below
+
+/obj/item/projectile/bullet/grenade/frag/sting
+	name = "Sting shell"
+	range = 7
+	f_type = /obj/item/projectile/bullet/pellet/fragment/rubber/stinger
+	f_amount = 18
+	f_damage = 5
+	f_step = 3
+
+/obj/item/projectile/bullet/grenade/frag/sting/grenade_effect(target)
+	fragment_explosion(target, range, f_type, f_amount, f_damage, f_step, same_turf_hit_chance)

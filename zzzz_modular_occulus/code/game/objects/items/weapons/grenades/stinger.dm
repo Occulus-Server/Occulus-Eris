@@ -6,7 +6,6 @@
 	icon = 'zzzz_modular_occulus/icons/obj/stinger.dmi'
 	icon_state = "stinger"
 	item_state = "frggrenade"
-	loadable = TRUE
 
 	fragment_type = /obj/item/projectile/bullet/pellet/fragment/rubber/stinger
 	num_fragments = 100  //total number of fragments produced by the grenade
@@ -18,7 +17,7 @@
 
 /obj/item/storage/box/frag/rubber
 	name = "box of Stinger grenades"
-	desc = "A box containing 4 Stinger grenades. Designed for use on unruly crowds"
+	desc = "A box containing 4 Sting grenades. Designed for use on unruly crowds"
 	icon_state = "box_security"
 	illustration = "flashbang"
 

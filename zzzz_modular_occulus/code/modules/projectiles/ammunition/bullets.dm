@@ -72,3 +72,12 @@
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/greyclaw/rubber
 	is_caseless = TRUE
 	maxamount = 1
+
+// Sting Shell
+
+/obj/item/ammo_casing/grenade/sting
+	name = "sting grenade shell"
+	desc = "A frag grenade shell, designed to be fired from grenade launchers"
+	icon_state = "baton-round"
+	projectile_type = /obj/item/projectile/bullet/grenade/frag/sting
+	rarity_value = 25

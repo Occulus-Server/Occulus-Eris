@@ -73,7 +73,7 @@
 	desc = "Designed for close quarters combat, the Regulator is widely regarded as a weapon of choice for repelling boarders. \
 			Some may say that it's too old, but it actually proved itself useful. Can hold up to 7 shells in tube magazine."
 
-/obj/item/gun/launcher/grenade
+/obj/item/gun/projectile/shotgun/pump/grenade
 	name = "FS GL \"Protector\""
 	desc = "A bulky pump-action grenade launcher. Holds up to 6 grenades in a revolving magazine."
 

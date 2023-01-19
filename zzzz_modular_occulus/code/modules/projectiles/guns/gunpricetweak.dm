@@ -9,7 +9,7 @@
 	price_tag = 1000
 /obj/item/gun/energy/retro
 	price_tag = 1000
-/obj/item/gun/launcher/grenade
+/obj/item/gun/projectile/shotgun/pump/grenade
 	price_tag = 3000
 /obj/item/gun/projectile/avasarala
 	price_tag = 2500
