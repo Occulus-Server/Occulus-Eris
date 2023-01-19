@@ -104422,6 +104422,14 @@
 /area/eris/rnd/podbay{
 	name = "Auxiliary Research"
 	})
+"jYC" = (
+/obj/structure/table/rack,
+/obj/item/holochip/command/deathalarm,
+/obj/item/holochip/command/deathalarm,
+/obj/item/holochip/command/deathalarm,
+/obj/item/storage/box/cdeathalarm_kit,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/security/armory)
 "kan" = (
 /obj/machinery/door/window/brigdoor/southright{
 	req_access = list(12)
@@ -105074,14 +105082,6 @@
 /obj/item/handcuffs/zipties,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
-"kYR" = (
-/obj/structure/table/rack,
-/obj/item/holochip/command/deathalarm,
-/obj/item/holochip/command/deathalarm,
-/obj/item/holochip/command/deathalarm,
-/obj/item/storage/box/cdeathalarm_kit,
-/turf/simulated/floor/tiled/dark/cargo,
-/area/eris/security/armory)
 "lal" = (
 /obj/structure/railing{
 	dir = 1
@@ -114158,7 +114158,7 @@
 /area/eris/maintenance/section1deck5central)
 "xLz" = (
 /obj/structure/closet/wardrobe{
-	icon_door = blue;
+	icon_door = "blue";
 	name = "security wardrobe"
 	},
 /obj/item/clothing/under/netrunner,
@@ -135970,7 +135970,7 @@ adS
 aer
 cUl
 ivn
-kYR
+jYC
 aaR
 aaa
 aaa
