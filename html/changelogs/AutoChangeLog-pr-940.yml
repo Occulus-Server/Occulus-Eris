@@ -1,0 +1,4 @@
+author: Shadow-Quill
+delete-after: true
+changes:
+  - admin: Admin messages will now correctly state who received an email.
