@@ -1,7 +1,0 @@
-author: Mocha-Not-Latte
-delete-after: true
-changes:
-  - rscadd: new boxes for cased grenades
-  - tweak: grenade launchers now use cased grenades
-  - bugfix: the holes in the club have been patched
-  - bugfix: railguns are now blacklisted in maint loot
