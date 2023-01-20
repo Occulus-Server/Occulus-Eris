@@ -2153,6 +2153,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/rig/combat/ironhammer/equipped,
 /obj/item/rig_module/cape/hos,
+/obj/item/clothing/accessory/halfcape/wo,
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "afw" = (
@@ -52480,6 +52481,7 @@
 	},
 /obj/structure/closet/secure_closet/reinforced/RD,
 /obj/item/bluespace_harpoon,
+/obj/item/clothing/accessory/halfcape/cro,
 /turf/simulated/floor/carpet/purcarpet,
 /area/eris/command/meo)
 "cvj" = (
@@ -56327,6 +56329,7 @@
 /obj/spawner/booze,
 /obj/spawner/pack/rare,
 /obj/structure/closet/secure_closet/reinforced/quartermaster,
+/obj/item/clothing/accessory/halfcape/ceo,
 /turf/simulated/floor/carpet,
 /area/eris/quartermaster/office)
 "cEg" = (
@@ -67043,6 +67046,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
+/obj/item/clothing/accessory/halfcape/captain,
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/command/captain)
 "deH" = (
@@ -87138,6 +87142,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/item/clothing/accessory/halfcape/chaplain,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/office)
 "eaP" = (
@@ -99783,6 +99788,7 @@
 /obj/item/hatton,
 /obj/item/hatton_magazine,
 /obj/item/hatton_magazine,
+/obj/item/clothing/accessory/halfcape/gm,
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/command/exultant)
 "eEH" = (
@@ -101630,6 +101636,7 @@
 /obj/item/soulmanip,
 /obj/item/rig_module/cape/cmo,
 /obj/structure/closet/secure_closet/reinforced/CMOcculus,
+/obj/item/clothing/accessory/halfcape/cbo,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/command/mbo)
 "fUN" = (
