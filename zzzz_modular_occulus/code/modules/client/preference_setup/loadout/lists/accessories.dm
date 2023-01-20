@@ -7,7 +7,6 @@
 /datum/gear/accessory/mekhanecape
 	display_name = "mekhane cape selection"
 	path = /obj/item/clothing/accessory/job/cape/church/small
-	cost = 0
 	allowed_roles = list("Chaplain","Mekhane Acolyte","Mekhane Agrolyte","Mekhane Custodian")
 	flags = GEAR_HAS_TYPE_SELECTION
 
