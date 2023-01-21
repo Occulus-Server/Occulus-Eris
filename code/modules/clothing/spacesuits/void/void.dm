@@ -47,6 +47,7 @@
 	var/obj/item/clothing/head/armor/helmet/helmet = /obj/item/clothing/head/space/void   // Deployable helmet, if any.
 	var/obj/item/tank/tank              // Deployable tank, if any.
 
+
 /obj/item/clothing/suit/space/void/Initialize()
 	. = ..()
 	if(boots && ispath(boots))
