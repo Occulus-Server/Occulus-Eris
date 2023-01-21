@@ -12,7 +12,7 @@
 	var/mob/living/silicon/ai/master = owner.current
 
 	for(var/mob/living/silicon/robot/R in GLOB.player_list)
-		if(R.connected_ai)
+		if(R.connected_ai || isdrone(R))
 			continue
 		R.connect_to_ai(master)
 		R.lawupdate = TRUE
