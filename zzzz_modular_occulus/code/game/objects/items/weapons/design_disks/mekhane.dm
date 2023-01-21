@@ -113,34 +113,74 @@ ARMOR_PEN_MASSIVE			30
 
 /obj/item/tool/hammer/mek
 	name = "Mekhane Electro-Mace"
-	desc = "A carefully crafted, beautiful blunt instrument of destruction."
-	icon_state = "electromace0"
-	item_state = "electromace"
-	wielded_icon = "electromace1"
-	force = WEAPON_FORCE_ROBUST
+	desc = "The pinnacle of Mekhane's might, this thunderous weapon is amped up when the user is wielding it securely. Takes medium size cells. Its electrifying effects are affected by modifications."
+	icon = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi'
+	icon_state = "electromace"
+	force = WEAPON_FORCE_ROBUST // gets 10 more agony damage when wielded, plus whatever wielding bonus it receives
 	structure_damage_factor = STRUCTURE_DAMAGE_HEAVY
 	armor_penetration = ARMOR_PEN_EXTREME
 	aspects = list(SANCTIFIED)
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEM_SIZE_HUGE
 	tool_qualities = list(QUALITY_HAMMERING = 30)
-	matter = list(MATERIAL_BIOMATTER = 75, MATERIAL_STEEL = 20, MATERIAL_PLASTEEL = 5, MATERIAL_PLATINUM = 5)
-	suitable_cell = /obj/item/cell/medium
+	matter = list(MATERIAL_BIOMATTER = 75, MATERIAL_STEEL = 20, MATERIAL_PLASTEEL = 5)
 	degradation = 0.7
+	suitable_cell = /obj/item/cell/medium
 	use_power_cost = 2
-	icon = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi'
-	icon_state = "mek_mace"
-	item_state = "chargehammer"
 	item_icons = list(
 		slot_l_hand_str = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi',
 		slot_r_hand_str = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi',
 		slot_back_str = 'zzzz_modular_occulus/icons/obj/mek_melee.dmi'
 		)
 	item_state_slots = list(
-		slot_l_hand_str = "lefthand",
-		slot_r_hand_str = "righthand",
-		slot_back_str = "back"
+		slot_l_hand_str = "left",
+		slot_r_hand_str = "right",
+		slot_back_str = "backnew"
 		)
+
+/obj/item/tool/hammer/mek/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone) //crappy copypasta of baton code
+	var/battery_consumption = use_power_cost * 25
+	var/modified_shocky_damage = force / 2.6
+
+	if(wielded && cell)
+		if(cell.checked_use(battery_consumption))
+			target.stun_effect_act(0, modified_shocky_damage, hit_zone, src)	//magic numbers, 0 duration stun, 10 agony damage which is a quarter of a baton's
+			playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
+	. = ..()
+
+/obj/item/tool/hammer/mek/update_icon()
+	..()
+	var/battery_consumption = use_power_cost * 25
+	if(!cell)
+		icon_state = "nobattery"
+	else if(wielded && cell.checked_use(battery_consumption))
+		icon_state = "electromace_on"
+	else
+		icon_state = "electromace"
+
+/obj/item/tool/hammer/mek/update_wield_icon() // Janky snowflake override to remain modular
+	var/battery_consumption = use_power_cost * 25
+	if(wielded && cell)
+		if(cell.checked_use(battery_consumption))
+			item_state_slots = list(
+				slot_l_hand_str = "doblelefton",
+				slot_r_hand_str = "doblerighton",
+				slot_back_str = "backnew"
+				)
+	else
+		item_state_slots = list(
+			slot_l_hand_str = "dobleleft",
+			slot_r_hand_str = "dobleright",
+			slot_back_str = "backnew"
+			)
+
+/obj/item/tool/hammer/mek/update_unwield_icon()
+	if(!wielded)
+		item_state_slots = list(
+			slot_l_hand_str = "left",
+			slot_r_hand_str = "right",
+			slot_back_str = "backnew"
+			)
 
 /datum/design/autolathe/sword/mek_hammer
 	name = "Mekhane Electro-Mace"
