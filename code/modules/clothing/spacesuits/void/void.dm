@@ -47,8 +47,6 @@
 	var/obj/item/clothing/head/armor/helmet/helmet = /obj/item/clothing/head/space/void   // Deployable helmet, if any.
 	var/obj/item/tank/tank              // Deployable tank, if any.
 
-	valid_accessory_slots = list() // occ
-	restricted_accessory_slots = list() // occ
 
 /obj/item/clothing/suit/space/void/Initialize()
 	. = ..()

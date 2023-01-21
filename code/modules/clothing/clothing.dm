@@ -578,9 +578,6 @@ BLIND     // can't see anything
 	var/list/extra_allowed = list()
 	style = STYLE_HIGH
 
-	valid_accessory_slots = list("armband","decor") // occ
-	restricted_accessory_slots = list("utility", "armband") // occ
-
 /obj/item/clothing/suit/Initialize(mapload, ...)
 	.=..()
 	allowed |= extra_allowed

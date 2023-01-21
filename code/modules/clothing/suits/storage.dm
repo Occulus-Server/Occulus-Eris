@@ -4,7 +4,6 @@
 	spawn_tags = SPAWN_TAG_CLOTHING_SUIT_STORAGE
 	rarity_value = 10
 	var/obj/item/storage/internal/pockets
-	var/cant_hold = list(/obj/item/clothing/accessory) // occ
 
 /obj/item/clothing/suit/storage/New()
 	..()
