@@ -35,4 +35,6 @@
 /obj/item/clothing/suit/space/void/merc
 	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_PLASTEEL = 4, MATERIAL_PHORONGLASS = 1)
 	
-	
+/obj/item/clothing/suit/space/void
+	valid_accessory_slots = list() 
+	restricted_accessory_slots = list() 
