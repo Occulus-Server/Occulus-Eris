@@ -1,5 +1,0 @@
-author: Shadow-Quill
-delete-after: true
-changes:
-  - bugfix: Maintenence drones will no longer be force synced to a AI if it becomes
-      an antag.

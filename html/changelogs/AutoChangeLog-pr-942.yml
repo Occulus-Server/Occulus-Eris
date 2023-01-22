@@ -1,5 +1,0 @@
-author: Shadow-Quill
-delete-after: true
-changes:
-  - tweak: The vote panel is now styled, instead of plain HTML.
-  - bugfix: Vote panel will now close when you tell it to.
