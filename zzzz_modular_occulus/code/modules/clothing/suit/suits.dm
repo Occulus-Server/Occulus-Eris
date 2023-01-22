@@ -269,3 +269,34 @@
 	pockets.storage_slots = 3	//three
 	pockets.max_w_class = ITEM_SIZE_SMALL		//fit only pocket sized items
 	pockets.max_storage_space = 4
+
+/obj/item/clothing/suit/storage/casah/verb/toggle_style()
+	set name = "Adjust Style"
+	set category = "Object"
+	set src in usr
+
+	if(!isliving(loc))
+		return
+
+	var/mob/M = usr
+	var/list/options = list()
+	options["Assault Harness"] = "casah"
+	options["Webbed Vest"] = "webvest_ironhammer"
+
+	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in options
+
+	if(choice == "Webbed Vest")
+		icon = 'icons/inventory/suit/icon.dmi'
+		icon_override = 'icons/inventory/suit/mob.dmi'
+	else
+		icon = 'zzzz_modular_occulus/icons/inventory/suit/icon.dmi'
+		icon_override = 'zzzz_modular_occulus/icons/inventory/suit/mob.dmi'
+
+	if(src && choice && !M.incapacitated() && Adjacent(M))
+		icon_state = options[choice]
+		item_state = options[choice]
+		to_chat(M, "You adjusted your attire's style into [choice] mode.")
+		update_icon()
+		update_wear_icon()
+		usr.update_action_buttons()
+		return 1
