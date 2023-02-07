@@ -40,7 +40,7 @@
 	var/rigged = FALSE
 	var/fire_sound_text = "gunshot"
 	var/recoil_buildup = 2 //How quickly recoil builds up
-	var/list/gun_parts = list(/obj/item/part/gun = 1 ,/obj/item/stack/material/steel = 4)
+	var/list/gun_parts = list(/obj/item/part/gun = 3 ,/obj/item/stack/material/steel = 6)
 
 	var/muzzle_flash = 3
 	var/dual_wielding
