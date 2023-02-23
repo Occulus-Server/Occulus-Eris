@@ -280,7 +280,7 @@ var/list/mob_hat_cache = list()
 //Drones killed by damage will gib.
 /mob/living/silicon/robot/drone/handle_regular_status_updates()
 	//var/turf/T = get_turf(src)
-	if(health <= 0 && src.stat != 2) // Occulus Time! drones should explode properly now
+	if(health <= 0 && src.stat != DEAD) // Occulus Time! drones should explode properly now
 		timeofdeath = world.time //Occulus fix
 		death() //Oh boy fixes
 		gib() //Still Occulus
