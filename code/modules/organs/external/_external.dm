@@ -319,6 +319,10 @@
 			to_chat(usr, SPAN_DANGER("There is \a [I] sticking out of it."))
 	return
 
+
+
+#define MAX_MUSCLE_SPEED -0.5
+
 /obj/item/organ/external/proc/get_tally()
 	if(is_broken() && !(status & ORGAN_SPLINTED))
 		. += 3
