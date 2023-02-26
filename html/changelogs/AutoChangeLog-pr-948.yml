@@ -1,4 +1,0 @@
-author: Jamini
-delete-after: true
-changes:
-  - bugfix: drones once again gib at 0 health.
