@@ -68567,6 +68567,12 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "pharmashutter";
+	name = "chemistry shutter switch";
+	pixel_x = 24;
+	pixel_y = 26
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbay/uppercor)
 "dhW" = (
@@ -72064,6 +72070,11 @@
 	layer = 2.6;
 	name = "Medbay Total Lockdown";
 	opacity = 0
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "pharmashutter";
+	name = "Chemistry Shutters"
 	},
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/medical/medbay/uppercor)
@@ -105680,6 +105691,11 @@
 	name = "North APC";
 	pixel_y = 28
 	},
+/obj/machinery/button/windowtint{
+	id = "chemisttint";
+	pixel_x = -16;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/chemistry)
 "lUl" = (
@@ -109495,7 +109511,7 @@
 /obj/structure/table/reinforced,
 /obj/item/storage/firstaid/toxin,
 /obj/structure/sign/department/chem{
-	pixel_x = -32
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/hallway/main/section2)
@@ -111343,6 +111359,11 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "pharmashutter";
+	name = "Chemistry Shutters"
 	},
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/medical/medbay/uppercor)
@@ -113931,6 +113952,14 @@
 	},
 /turf/simulated/open,
 /area/eris/quartermaster/misc)
+"xuf" = (
+/obj/machinery/door/firedoor,
+/obj/structure/low_wall,
+/obj/structure/window/reinforced/polarized/full{
+	id = "chemisttint"
+	},
+/turf/simulated/floor/plating,
+/area/eris/medical/chemistry)
 "xuA" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -253376,7 +253405,7 @@ dcs
 hyy
 vgI
 stn
-ozX
+xuf
 qxZ
 neR
 dtI
@@ -253578,7 +253607,7 @@ dcs
 hyy
 qkV
 ofp
-ozX
+xuf
 fhN
 kFJ
 xCA
@@ -253780,7 +253809,7 @@ ycS
 xiv
 qkV
 ofp
-ozX
+xuf
 dsg
 euV
 dty
@@ -254386,7 +254415,7 @@ utr
 qLL
 liQ
 uqY
-ozX
+xuf
 wSR
 euV
 wWB
