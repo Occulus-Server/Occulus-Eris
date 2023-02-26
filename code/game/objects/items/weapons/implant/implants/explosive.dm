@@ -147,7 +147,7 @@
 /obj/item/implantcase/explosive
 	name = "glass case - 'explosive'"
 	desc = "A case containing an explosive implant."
-	implant = new /obj/item/implant/explosive
+	implant = /obj/item/implant/explosive
 
 
 /obj/item/implanter/explosive

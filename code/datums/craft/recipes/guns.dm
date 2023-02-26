@@ -127,6 +127,7 @@
 	steps = list(
 		list(/obj/item/tool/wirecutters, 1),
 		list(CRAFT_MATERIAL, 10, MATERIAL_STEEL),
+		list(QUALITY_WIRE_CUTTING, 10, 20),
 		list(QUALITY_WELDING, 10, 20),
 		list(CRAFT_MATERIAL, 5, MATERIAL_CARDBOARD),
 		list(QUALITY_ADHESIVE, 15, 70)

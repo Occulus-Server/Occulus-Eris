@@ -16,5 +16,4 @@
 	rarity_value = 24
 	twohanded = FALSE
 	saw_off = FALSE
-	wield_delay = 1 SECOND
-	wield_delay_factor = 0.2 // 20 vig
+

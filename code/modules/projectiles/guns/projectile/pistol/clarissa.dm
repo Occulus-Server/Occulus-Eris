@@ -10,7 +10,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_PLASTIC = 6)
 	price_tag = 1000
-	fire_sound = 'sound/weapons/guns/fire/cal/35pistol.ogg'
+	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
 	caliber = CAL_PISTOL
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_PISTOL|MAG_WELL_H_PISTOL
@@ -25,15 +25,6 @@
 		FULL_AUTO_800
 		)
 
-	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
-
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_PLASTIC = 6)
-
-	rarity_value = 16
-	price_tag = 1200
-	wield_delay = 0.1 SECOND
-	wield_delay_factor = 0.05 // 5 vig
 
 	//spawn_tags = SPAWN_TAG_FS_PROJECTILE
 

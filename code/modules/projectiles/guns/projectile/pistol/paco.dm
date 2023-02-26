@@ -18,13 +18,11 @@
 	price_tag = 1500
 	rarity_value = 24
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
-	fire_sound = 'sound/weapons/guns/fire/cal/35pistol.ogg'
+	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
 	damage_multiplier = 1.5
 	penetration_multiplier = 0.9
 	recoil_buildup = 3
 	gun_tags = list(GUN_SILENCABLE, GUN_PACO) //Occulus Edit: WHOEVER MADE THE FUN SWITCH IS GETTING A PADDLIN'
-	wield_delay = 0.2 SECOND
-	wield_delay_factor = 0.1 // 10 vig
 
 //	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 

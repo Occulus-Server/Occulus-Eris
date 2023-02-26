@@ -25,7 +25,7 @@
 	if(process_list && process_list.len)
 		for(var/organ in process_list)
 			var/obj/item/organ/internal/I = organ
-			effective_efficiency += I.get_process_eficiency(process_define)
+			effective_efficiency += I.get_process_efficiency(process_define)
 
 	return effective_efficiency ? effective_efficiency : 1
 
@@ -40,7 +40,7 @@
 		for(var/organ in parent_organ.internal_organs)
 			var/obj/item/organ/internal/I = organ
 			if(process_define in I.organ_efficiency)
-				effective_efficiency += I.get_process_eficiency(process_define)
+				effective_efficiency += I.get_process_efficiency(process_define)
 
 	return effective_efficiency ? effective_efficiency : 1
 
@@ -162,7 +162,7 @@
 		if(getOxyLoss() < 50)//Occulus Edit
 			adjustOxyLoss(3)//Occulus Edit: Bumping up over automatic oxyloss recovery
 		if(prob(15))
-			Paralyse(rand(1,3))
+			Weaken(rand(1,3))
 			to_chat(src, SPAN_WARNING("You feel extremely [pick("dizzy","woosey","faint")]"))
 
 	else if(blood_volume < blood_safe)

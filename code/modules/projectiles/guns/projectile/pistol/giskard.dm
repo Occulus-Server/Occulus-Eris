@@ -4,7 +4,7 @@
 	icon = 'icons/obj/guns/projectile/giskard.dmi'
 	icon_state = "giskard"
 	item_state = "pistol"
-	fire_sound = 'sound/weapons/guns/fire/cal/35pistol.ogg'
+	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
 	gun_tags = list(GUN_SILENCABLE)
 	caliber = CAL_PISTOL
 	w_class = ITEM_SIZE_SMALL
@@ -21,8 +21,6 @@
 	penetration_multiplier = 0.8
 	recoil_buildup = 2
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
-	wield_delay = 0.1 SECOND
-	wield_delay_factor = 0.05 // 5 vig
 
 /obj/item/gun/projectile/giskard/on_update_icon()
 	..()

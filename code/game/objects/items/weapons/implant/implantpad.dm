@@ -20,6 +20,7 @@
 	else
 		icon_state = "implantpad-0"
 
+
 /obj/item/implantpad/attack_hand(mob/living/user)
 	if ((src.case && (user.l_hand == src || user.r_hand == src)))
 		user.put_in_active_hand(case)

@@ -20,7 +20,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 10
 	magazine_type = /obj/item/ammo_magazine/lrifle
-	fire_sound = 'sound/weapons/guns/fire/cal/30rifle.ogg'
+	fire_sound = 'sound/weapons/guns/fire/sniper_fire.ogg'
 	reload_sound = 'sound/weapons/guns/interact/rifle_load.ogg'
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_PLASTIC = 10)
 	price_tag = 1600
@@ -32,8 +32,6 @@
 	sawn = /obj/item/gun/projectile/boltgun/obrez
 	var/bolt_open = 0
 	var/item_suffix = ""
-	wield_delay = 0.3 SECOND
-	wield_delay_factor = 0.2 // 20 vig
 
 /obj/item/gun/projectile/boltgun/on_update_icon()
 	..()
@@ -153,7 +151,7 @@
 	penetration_multiplier = 1.3
 	recoil_buildup = 9 // joonk gun
 	max_shells = 5
-	fire_sound = 'sound/weapons/guns/fire/cal/30rifle.ogg'
+	fire_sound = 'sound/weapons/guns/fire/sniper_fire.ogg'
 	reload_sound = 'sound/weapons/guns/interact/rifle_load.ogg'
 	price_tag = 800
 	one_hand_penalty = 30 //don't you dare to one hand this
