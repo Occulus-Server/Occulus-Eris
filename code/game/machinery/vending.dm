@@ -1604,7 +1604,7 @@
 
 /obj/machinery/vending/Merc_clothing_vendor
 	name = "Merc'ury Clothing Solutions"
-	desc = "Your one Stop Shop for Surplus Military Equipment"
+	desc = "Your one stop shop for Surplus Military Equipment"
 	product_slogans = "Go gettem!"
 	product_ads = "YOU WANNA LIVE FOREVER!; One hundred percent Kevlar!; Not rated for giant Mantas Invasions.; Market research shows that flak vests will replace shirts entirely in a few years. Get ahead of the fashion!"
 	icon_state = "serbomat" // Placeholder till I can make a new one -R
