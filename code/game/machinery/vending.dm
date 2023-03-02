@@ -1333,7 +1333,7 @@
 	icon_deny = "tool-deny"
 	products = list(/obj/item/stack/cable_coil/random = 10,/obj/item/tool/crowbar = 5,/obj/item/tool/weldingtool = 5,/obj/item/tool/wirecutters = 3, /obj/item/tool/wirecutters/pliers = 3,
 					/obj/item/tool/wrench = 5,/obj/item/tool/hammer = 5,/obj/item/device/scanner/gas = 5,/obj/item/device/t_scanner = 5, /obj/item/tool/screwdriver = 5, /obj/item/clothing/gloves/insulated/cheap  = 2, /obj/item/clothing/gloves/insulated = 1,
-					/obj/item/storage/pouch/engineering_tools = 2, /obj/item/storage/pouch/engineering_supply = 2)
+					/obj/item/storage/pouch/engineering_tools = 2, /obj/item/storage/pouch/engineering_supply = 2,)
 	prices = list(/obj/item/tool/hammer = 30,/obj/item/stack/cable_coil/random = 100,/obj/item/tool/crowbar = 30,/obj/item/tool/weldingtool = 50,/obj/item/tool/wirecutters = 30, /obj/item/tool/wirecutters/pliers = 30,
 					/obj/item/tool/wrench = 30,/obj/item/device/scanner/gas = 50,/obj/item/device/t_scanner = 50, /obj/item/tool/screwdriver = 30, /obj/item/clothing/gloves/insulated/cheap  = 80, /obj/item/clothing/gloves/insulated = 600,
 					/obj/item/storage/pouch/engineering_tools = 300, /obj/item/storage/pouch/engineering_supply = 600)
@@ -1403,11 +1403,23 @@
 	product_ads = "Praise!;Pray!;Obey!"
 	icon_state = "teomat"
 	vendor_department = DEPARTMENT_CHURCH
-	products = list(/obj/item/book/ritual/cruciform = 10, /obj/item/storage/fancy/candle_box = 10, /obj/item/reagent_containers/food/drinks/bottle/ntcahors = 20)
+	products = list(
+		/obj/item/book/ritual/cruciform = 10, 
+		/obj/item/storage/fancy/candle_box = 10, 
+		/obj/item/reagent_containers/food/drinks/bottle/ntcahors = 20, 
+		/obj/item/clothing/accessory/job/cape/church/small = 5, 
+		/obj/item/clothing/accessory/job/cape/church/small/red = 5,
+		/obj/item/clothing/accessory/job/cape/church/small/white = 5
+		)
 	contraband = list(/obj/item/implant/core_implant/cruciform = 3)
-	prices = list(/obj/item/book/ritual/cruciform = 500, /obj/item/storage/fancy/candle_box = 200, /obj/item/reagent_containers/food/drinks/bottle/ntcahors = 250,
-				/obj/item/implant/core_implant/cruciform = 1000)
-
+	prices = list(
+		/obj/item/book/ritual/cruciform = 500, 
+		/obj/item/storage/fancy/candle_box = 200, 
+		/obj/item/reagent_containers/food/drinks/bottle/ntcahors = 250, 
+		/obj/item/clothing/accessory/job/cape/church/small = 200, 
+		/obj/item/clothing/accessory/job/cape/church/small/red = 200,
+		/obj/item/clothing/accessory/job/cape/church/small/white = 200,
+	)
 /obj/machinery/vending/powermat
 	name = "Power-Mat"
 	desc = "Trust is power, and there's no power you can trust like Robustcell."
@@ -1589,5 +1601,241 @@
 	if(choice)
 		SetName(choice)
 
+/obj/machinery/vending/Merc_clothing_vendor
+	name = "Merc'ury Clothing Solutions"
+	desc = "Your one Stop Shop for Surplus Military Equipment"
+	product_slogans = "Go gettem!"
+	product_ads = "YOU WANNA LIVE FOREVER!; One hundred percent Kevlar!; Not rated for giant Mantas Invasions.; Market research shows that flak vests will replace shirts entirely in a few years. Get ahead of the fashion!"
+	icon_state = "serbomat" // Placeholder till I can make a new one -R
+	no_criminals = FALSE
+	products = list( 
+					/obj/item/clothing/under/serbiansuit = 4,
+					/obj/item/clothing/under/serbiansuit/brown = 4,
+					/obj/item/clothing/under/serbiansuit/black = 4,
+					/obj/item/clothing/head/soft/green2soft = 4,
+					/obj/item/clothing/head/soft/tan2soft = 4,
+					/obj/item/clothing/suit/armor/flak = 2,
+					/obj/item/clothing/suit/armor/flak/green = 2,
+					/obj/item/clothing/suit/armor/flak/full = 2,
+					/obj/item/clothing/suit/armor/flak/full/green = 2,
+					/obj/item/clothing/suit/armor/bulletproof/serbian = 2,
+					/obj/item/clothing/suit/armor/bulletproof/serbian/green = 2,
+					/obj/item/clothing/suit/armor/bulletproof/serbian/tan = 2,
+					/obj/item/clothing/suit/armor/bulletproof/serbian/full = 2,
+					/obj/item/clothing/suit/armor/bulletproof/serbian/full/green = 2,
+					/obj/item/clothing/suit/armor/bulletproof/serbian/full/tan = 2,
+					/obj/item/clothing/head/armor/helmet = 4 
+					)
+	premium = list(/obj/item/clothing/suit/storage/vest/merc = 2, /obj/item/clothing/suit/storage/vest/merc/full = 2)
+	prices = list(	
+					/obj/item/clothing/under/serbiansuit = 200,
+					/obj/item/clothing/under/serbiansuit/brown = 200,
+					/obj/item/clothing/under/serbiansuit/black = 200,
+					/obj/item/clothing/head/soft/green2soft = 200,
+					/obj/item/clothing/head/soft/tan2soft = 200,
+					/obj/item/clothing/suit/armor/flak = 1800,
+					/obj/item/clothing/suit/armor/flak/green = 1800,
+					/obj/item/clothing/suit/armor/flak/full = 1900,
+					/obj/item/clothing/suit/armor/flak/full/green = 1900,
+					/obj/item/clothing/suit/armor/bulletproof/serbian = 1800,
+					/obj/item/clothing/suit/armor/bulletproof/serbian/green = 1800,
+					/obj/item/clothing/suit/armor/bulletproof/serbian/tan = 1800,
+					/obj/item/clothing/suit/armor/bulletproof/serbian/full = 1900,
+					/obj/item/clothing/suit/armor/bulletproof/serbian/full/green = 1900,
+					/obj/item/clothing/suit/armor/bulletproof/serbian/full/tan = 1900,
+					/obj/item/clothing/head/armor/helmet = 1000, 
+					/obj/item/clothing/suit/storage/vest/merc = 2300,
+					/obj/item/clothing/suit/storage/vest/merc/full = 2500
+				)
+/obj/machinery/vending/clothing_vendor
+	name = "Forever 2421"
+	desc = "All your clothes shopping needs, and you dont even need to go to the mall!"
+	product_slogans = "That is SOOO Your look~"
+	product_ads = "New Clothes, New you!; That is totally your look.; Did you try the ripped jeans look?"
+	icon_state = "generic" // Placeholder till I can make a new one -R
+	no_criminals = FALSE
+	products = list( 
+					/obj/item/clothing/under/genericr = 5,
+					/obj/item/clothing/under/genericw = 5,
+					/obj/item/clothing/under/genericb = 5,
+					/obj/item/clothing/under/neon/red = 5,
+					/obj/item/clothing/under/neon/blue = 5,
+					/obj/item/clothing/under/neon/yellow = 5,
+					/obj/item/clothing/under/neon = 5,
+					/obj/item/clothing/under/leisure/pullover = 5,
+					/obj/item/clothing/under/leisure/white = 5,
+					/obj/item/clothing/under/leisure = 5,
+					/obj/item/clothing/under/dress = 5,
+					/obj/item/clothing/under/dress/blue = 5,
+					/obj/item/clothing/under/dress/red = 5,
+					/obj/item/clothing/under/suit_jacket = 5,
+					/obj/item/clothing/under/suit_jacket/red = 5,
+					/obj/item/clothing/under/tuxedo = 5,
+					/obj/item/clothing/under/shorts = 5,
+					/obj/item/clothing/under/shorts/red = 5,
+					/obj/item/clothing/under/shorts/green = 5,
+					/obj/item/clothing/under/shorts/blue = 5,
+					/obj/item/clothing/under/shorts/black = 5,
+					/obj/item/clothing/under/shorts/grey = 5
+					)
+	
+	prices = list(	
+					/obj/item/clothing/under/genericr = 200,
+					/obj/item/clothing/under/genericw = 200,
+					/obj/item/clothing/under/genericb = 200,
+					/obj/item/clothing/under/neon/red = 200,
+					/obj/item/clothing/under/neon/blue = 200,
+					/obj/item/clothing/under/neon/yellow = 200,
+					/obj/item/clothing/under/neon = 200,
+					/obj/item/clothing/under/leisure/pullover = 200,
+					/obj/item/clothing/under/leisure/white = 200,
+					/obj/item/clothing/under/leisure = 200,
+					/obj/item/clothing/under/dress = 200,
+					/obj/item/clothing/under/dress/blue = 200,
+					/obj/item/clothing/under/dress/red = 200,
+					/obj/item/clothing/under/suit_jacket = 200,
+					/obj/item/clothing/under/suit_jacket/red = 200,
+					/obj/item/clothing/under/tuxedo = 200,
+					/obj/item/clothing/under/shorts = 200,
+					/obj/item/clothing/under/shorts/red = 200,
+					/obj/item/clothing/under/shorts/green = 200,
+					/obj/item/clothing/under/shorts/blue = 200,
+					/obj/item/clothing/under/shorts/black = 200,
+					/obj/item/clothing/under/shorts/grey = 200
+				)
 
+/obj/machinery/vending/Hat_vendor
+	name = "Hat_Fort"
+	desc = "Its a hat vendor, There is a large bald man with a minigun on the front of it!"
+	product_ads = "We also accept Refined Scrap!; Dont just stand there!; Get a hat!; *glasses sold here too*"
+	icon_state = "generic" // Placeholder till I can make a new one -R
+	no_criminals = FALSE
+	products = list( 
+					/obj/item/clothing/head/beret/fashion = 5,
+					/obj/item/clothing/head/beret/fashion/grey = 5,
+					/obj/item/clothing/head/beret/fashion/pink = 5,
+					/obj/item/clothing/head/beret/fashion/red = 5,
+					/obj/item/clothing/head/beret/fashion/brown = 5,
+					/obj/item/clothing/head/beret/fashion/copper = 5,
+					/obj/item/clothing/head/beret/fashion/orange = 5,
+					/obj/item/clothing/head/beret/fashion/yellow = 5,
+					/obj/item/clothing/head/beret/fashion/lime = 5,
+					/obj/item/clothing/head/beret/fashion/cyan = 5,
+					/obj/item/clothing/head/beret/fashion/ice = 5,
+					/obj/item/clothing/head/beret/fashion/blue = 5,
+					/obj/item/clothing/head/beret/fashion/purple = 5,
+					/obj/item/clothing/head/fedora = 5,
+					/obj/item/clothing/head/hairflower = 5,
+					/obj/item/clothing/glasses/regular/scanners = 5,
+					/obj/item/clothing/glasses/regular/goggles = 5,
+					/obj/item/clothing/glasses/regular/goggles/black = 5,
+					/obj/item/clothing/glasses/gglasses = 5
+					)
+	premium = list(/obj/item/clothing/glasses/sunglasses = 2)
+	prices = list(	
+					/obj/item/clothing/head/beret/fashion = 200,
+					/obj/item/clothing/head/beret/fashion/grey = 200,
+					/obj/item/clothing/head/beret/fashion/pink = 200,
+					/obj/item/clothing/head/beret/fashion/red = 200,
+					/obj/item/clothing/head/beret/fashion/brown = 200,
+					/obj/item/clothing/head/beret/fashion/copper = 200,
+					/obj/item/clothing/head/beret/fashion/orange = 200,
+					/obj/item/clothing/head/beret/fashion/yellow = 200,
+					/obj/item/clothing/head/beret/fashion/lime = 200,
+					/obj/item/clothing/head/beret/fashion/cyan = 200,
+					/obj/item/clothing/head/beret/fashion/ice = 200,
+					/obj/item/clothing/head/beret/fashion/blue = 200,
+					/obj/item/clothing/head/beret/fashion/purple = 200,
+					/obj/item/clothing/head/fedora = 200,
+					/obj/item/clothing/head/hairflower = 200,
+					/obj/item/clothing/glasses/regular/scanners = 200,
+					/obj/item/clothing/glasses/regular/goggles = 200,
+					/obj/item/clothing/glasses/regular/goggles/black = 200,
+					/obj/item/clothing/glasses/gglasses = 200,
+					/obj/item/clothing/glasses/sunglasses = 500
+				)
+
+/obj/machinery/vending/Assc_vendor
+	name = "Fashion crime"
+	desc = "For when you're going to be an *accessory* to crime!"
+	product_ads = "Dont commit Fashion crimes!"
+	icon_state = "generic" // Placeholder till I can make a new one -R
+	no_criminals = FALSE
+	products = list( 
+					/obj/item/clothing/accessory/cloak = 5, 
+					/obj/item/clothing/accessory/cloak/copper = 5,
+					/obj/item/clothing/accessory/cloak/red = 5,
+					/obj/item/clothing/accessory/cloak/lime = 5,
+					/obj/item/clothing/accessory/cloak/blue = 5,
+					/obj/item/clothing/accessory/cloak/purple = 5,
+					/obj/item/clothing/accessory/shemaugh/blue = 5,
+					/obj/item/clothing/accessory/shemaugh/brown = 5,
+					/obj/item/clothing/accessory/shemaugh/camo = 5,
+					/obj/item/clothing/accessory/shemaugh/copper = 5,
+					/obj/item/clothing/accessory/shemaugh/cyan = 5,
+					/obj/item/clothing/accessory/shemaugh/grey = 5,
+					/obj/item/clothing/accessory/shemaugh/ice = 5,
+					/obj/item/clothing/accessory/shemaugh/lime = 5,
+					/obj/item/clothing/accessory/shemaugh/orange = 5,
+					/obj/item/clothing/accessory/shemaugh/pink = 5,
+					/obj/item/clothing/accessory/shemaugh/purple = 5,
+					/obj/item/clothing/accessory/shemaugh/red = 5,
+					/obj/item/clothing/accessory/shemaugh/yellow = 5,
+					/obj/item/clothing/accessory/shemaugh = 5,
+					/obj/item/clothing/mask/scarf = 5,
+					/obj/item/clothing/mask/scarf/stripedblue = 5,
+					/obj/item/clothing/mask/scarf/red = 5,
+					/obj/item/clothing/mask/scarf/stripedred = 5,
+					/obj/item/clothing/mask/scarf/redwhite = 5,
+					/obj/item/clothing/mask/scarf/green = 5,
+					/obj/item/clothing/mask/scarf/stripedgreen = 5,
+					/obj/item/clothing/mask/scarf/ninja = 5,
+					/obj/item/clothing/mask/bandana/red = 5,
+					/obj/item/clothing/mask/bandana/blue = 5,
+					/obj/item/clothing/mask/bandana/green = 5,
+					/obj/item/clothing/mask/bandana/gold = 5,
+					/obj/item/clothing/mask/bandana/orange = 5,
+					/obj/item/clothing/mask/bandana/purple = 5,
+					/obj/item/clothing/mask/bandana/camo = 5,
+					/obj/item/clothing/mask/bandana/skull = 5
+					)
+	
+	prices = list(	
+					/obj/item/clothing/accessory/cloak = 100, 
+					/obj/item/clothing/accessory/cloak/copper = 100,
+					/obj/item/clothing/accessory/cloak/red = 100,
+					/obj/item/clothing/accessory/cloak/lime = 100,
+					/obj/item/clothing/accessory/cloak/blue = 100,
+					/obj/item/clothing/accessory/cloak/purple = 100,
+					/obj/item/clothing/accessory/shemaugh/blue = 100,
+					/obj/item/clothing/accessory/shemaugh/brown = 100,
+					/obj/item/clothing/accessory/shemaugh/camo = 100,
+					/obj/item/clothing/accessory/shemaugh/copper = 100,
+					/obj/item/clothing/accessory/shemaugh/cyan = 100,
+					/obj/item/clothing/accessory/shemaugh/grey = 100,
+					/obj/item/clothing/accessory/shemaugh/ice = 100,
+					/obj/item/clothing/accessory/shemaugh/lime = 100,
+					/obj/item/clothing/accessory/shemaugh/orange = 100,
+					/obj/item/clothing/accessory/shemaugh/pink = 100,
+					/obj/item/clothing/accessory/shemaugh/purple = 100,
+					/obj/item/clothing/accessory/shemaugh/red = 100,
+					/obj/item/clothing/accessory/shemaugh/yellow = 100,
+					/obj/item/clothing/accessory/shemaugh = 100,
+					/obj/item/clothing/mask/scarf = 100,
+					/obj/item/clothing/mask/scarf/stripedblue = 100,
+					/obj/item/clothing/mask/scarf/red = 100,
+					/obj/item/clothing/mask/scarf/stripedred = 100,
+					/obj/item/clothing/mask/scarf/redwhite = 100,
+					/obj/item/clothing/mask/scarf/green = 100,
+					/obj/item/clothing/mask/scarf/stripedgreen = 100,
+					/obj/item/clothing/mask/scarf/ninja = 100,
+					/obj/item/clothing/mask/bandana/red = 100,
+					/obj/item/clothing/mask/bandana/blue = 100,
+					/obj/item/clothing/mask/bandana/green = 100,
+					/obj/item/clothing/mask/bandana/gold = 100,
+					/obj/item/clothing/mask/bandana/orange = 100,
+					/obj/item/clothing/mask/bandana/purple = 100,
+					/obj/item/clothing/mask/bandana/camo = 100,
+					/obj/item/clothing/mask/bandana/skull = 100
+	)
 #undef CUSTOM_VENDOMAT_MODELS
