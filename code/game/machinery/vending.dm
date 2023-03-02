@@ -1333,7 +1333,7 @@
 	icon_deny = "tool-deny"
 	products = list(/obj/item/stack/cable_coil/random = 10,/obj/item/tool/crowbar = 5,/obj/item/tool/weldingtool = 5,/obj/item/tool/wirecutters = 3, /obj/item/tool/wirecutters/pliers = 3,
 					/obj/item/tool/wrench = 5,/obj/item/tool/hammer = 5,/obj/item/device/scanner/gas = 5,/obj/item/device/t_scanner = 5, /obj/item/tool/screwdriver = 5, /obj/item/clothing/gloves/insulated/cheap  = 2, /obj/item/clothing/gloves/insulated = 1,
-					/obj/item/storage/pouch/engineering_tools = 2, /obj/item/storage/pouch/engineering_supply = 2,)
+					/obj/item/storage/pouch/engineering_tools = 2, /obj/item/storage/pouch/engineering_supply = 2)
 	prices = list(/obj/item/tool/hammer = 30,/obj/item/stack/cable_coil/random = 100,/obj/item/tool/crowbar = 30,/obj/item/tool/weldingtool = 50,/obj/item/tool/wirecutters = 30, /obj/item/tool/wirecutters/pliers = 30,
 					/obj/item/tool/wrench = 30,/obj/item/device/scanner/gas = 50,/obj/item/device/t_scanner = 50, /obj/item/tool/screwdriver = 30, /obj/item/clothing/gloves/insulated/cheap  = 80, /obj/item/clothing/gloves/insulated = 600,
 					/obj/item/storage/pouch/engineering_tools = 300, /obj/item/storage/pouch/engineering_supply = 600)
@@ -1419,6 +1419,7 @@
 		/obj/item/clothing/accessory/job/cape/church/small = 200, 
 		/obj/item/clothing/accessory/job/cape/church/small/red = 200,
 		/obj/item/clothing/accessory/job/cape/church/small/white = 200,
+		/obj/item/implant/core_implant/cruciform = 1000
 	)
 /obj/machinery/vending/powermat
 	name = "Power-Mat"
@@ -1690,12 +1691,12 @@
 					/obj/item/clothing/under/leisure/pullover = 200,
 					/obj/item/clothing/under/leisure/white = 200,
 					/obj/item/clothing/under/leisure = 200,
-					/obj/item/clothing/under/dress = 200,
-					/obj/item/clothing/under/dress/blue = 200,
-					/obj/item/clothing/under/dress/red = 200,
-					/obj/item/clothing/under/suit_jacket = 200,
-					/obj/item/clothing/under/suit_jacket/red = 200,
-					/obj/item/clothing/under/tuxedo = 200,
+					/obj/item/clothing/under/dress = 300,
+					/obj/item/clothing/under/dress/blue = 300,
+					/obj/item/clothing/under/dress/red = 300,
+					/obj/item/clothing/under/suit_jacket = 300,
+					/obj/item/clothing/under/suit_jacket/red = 300,
+					/obj/item/clothing/under/tuxedo = 300,
 					/obj/item/clothing/under/shorts = 200,
 					/obj/item/clothing/under/shorts/red = 200,
 					/obj/item/clothing/under/shorts/green = 200,
