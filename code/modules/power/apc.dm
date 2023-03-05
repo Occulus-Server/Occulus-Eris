@@ -1225,7 +1225,10 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 /obj/machinery/power/apc/emp_act(severity)
 	// Fail for 8-12 minutes (divided by severity)
 	// Division by 2 is required, because machinery ticks are every two seconds. Without it we would fail for 16-24 minutes.
-	energy_fail(round(rand(240, 360) / severity))
+	if(is_critical)//Occulus Edit
+		energy_fail(round(rand(12, 24) / severity))//Occulus Edit
+	else//Occulus edit
+		energy_fail(round(rand(240, 360) / severity))//Occulus edit
 	if(cell)
 		cell.emp_act(severity+1)
 	update_icon()
