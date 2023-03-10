@@ -111,3 +111,8 @@
 /obj/item/clothing/head/beret/fashion/purple
 	name = "purple beret"
 	icon_state = "beret-purple"
+
+/obj/item/clothing/head/beret/fashion/blueshield
+	name = "bodyguard beret"
+	desc = "A beret normally worn by officers on bodyguard duty."
+	icon_state = "blueshield_beret"

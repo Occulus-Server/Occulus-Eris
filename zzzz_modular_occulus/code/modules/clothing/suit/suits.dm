@@ -300,3 +300,22 @@
 		update_wear_icon()
 		usr.update_action_buttons()
 		return 1
+
+/obj/item/clothing/suit/armor/vest/full/blueshield
+	name = "\improper Guardian Tactical Vest"
+	desc = "An intricately designed suit of armor made to be as light as possible while still providing full coverage protection. Typically used by bodyguards escorting clients through high risk areas."
+	icon = 'zzzz_modular_occulus/icons/inventory/suit/icon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/mob.dmi'
+	icon_state = "blueshield_armor"
+	item_state = "blueshield_armor"
+	slowdown = 0
+	rarity_value = 40 // rarer than just full vests
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS // kneepads and shoulderpads, so it covers arms and legs
+	armor = list(
+		melee = 30,
+		bullet = 30,
+		energy = 25,
+		bomb = 10,
+		bio = 0,
+		rad = 0
+	)

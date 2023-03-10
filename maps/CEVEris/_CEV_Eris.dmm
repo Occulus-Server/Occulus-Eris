@@ -75388,13 +75388,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/item/clothing/suit/storage/vest{
-	pixel_y = 10
+/obj/item/clothing/suit/armor/vest/full/blueshield{
+	pixel_y = -6;
+	pixel_x = 8
 	},
-/obj/item/clothing/suit/storage/vest{
-	pixel_y = 5
+/obj/item/clothing/suit/armor/vest/full/blueshield,
+/obj/item/clothing/suit/armor/vest/full/blueshield{
+	pixel_y = 10;
+	pixel_x = -5
 	},
-/obj/item/clothing/suit/storage/vest,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dyY" = (
@@ -75405,13 +75407,15 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/head/armor/faceshield/altyn/black{
-	pixel_y = 10
+/obj/item/clothing/head/armor/faceshield/riot/blueshield{
+	pixel_y = -6;
+	pixel_x = 4
 	},
-/obj/item/clothing/head/armor/faceshield/altyn/black{
-	pixel_y = 5
+/obj/item/clothing/head/armor/faceshield/riot/blueshield,
+/obj/item/clothing/head/armor/faceshield/riot/blueshield{
+	pixel_y = 6;
+	pixel_x = -4
 	},
-/obj/item/clothing/head/armor/faceshield/altyn/black,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dyZ" = (

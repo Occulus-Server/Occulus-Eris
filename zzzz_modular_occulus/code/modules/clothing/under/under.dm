@@ -87,6 +87,12 @@
 	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
 	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob_fem.dmi'
 
+/obj/item/clothing/under/rank/ensign/blueshield		//based off the ensign since they're just a alt job title
+	name = "bodyguard jumpsuit"
+	desc = "Standard uniform for maritime naval officers designated as bodyguards."
+	icon_state = "blueshield_uniform"
+	item_state = "blueshield_uniform"
+
 /obj/item/clothing/under/turtleneckloadout //This is so you can choose the one at the loadout. Heck eris
 	name = "green turtleneck"
 	desc = "Military style turtleneck, for operating in cold environments. Typically worn underneath armour"
