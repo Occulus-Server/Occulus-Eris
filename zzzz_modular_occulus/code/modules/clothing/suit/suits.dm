@@ -308,11 +308,11 @@
 	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/mob.dmi'
 	icon_state = "blueshield_armor"
 	item_state = "blueshield_armor"
-	slowdown = 0	//no slowdown so blueshields can keep up with their marks
-	rarity_value = 80 // way rarer than just full vests
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS // full coverage as inherited from the full vests, just for reference
+	slowdown = 0
+	rarity_value = 40 // rarer than just full vests
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS // kneepads and shoulderpads, so it covers arms and legs
 	armor = list(
-		melee = 40,
+		melee = 30,
 		bullet = 30,
 		energy = 25,
 		bomb = 10,

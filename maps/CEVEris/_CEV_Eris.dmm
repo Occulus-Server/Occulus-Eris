@@ -74657,50 +74657,9 @@
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/maintenance/oldbridge)
 "dxa" = (
-/obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/ak47/fs/ih{
-	pixel_y = 4
-	},
-/obj/item/gun/projectile/automatic/ak47/fs/ih{
-	pixel_y = 11
-	},
-/obj/item/ammo_magazine/lrifle/rubber{
-	pixel_y = -3;
-	pixel_x = -10
-	},
-/obj/item/ammo_magazine/lrifle/rubber{
-	pixel_y = -3;
-	pixel_x = -10
-	},
-/obj/item/ammo_magazine/lrifle/rubber{
-	pixel_y = -3;
-	pixel_x = -10
-	},
-/obj/item/ammo_magazine/lrifle/rubber{
-	pixel_y = -3;
-	pixel_x = -10
-	},
-/obj/item/ammo_magazine/lrifle{
-	pixel_y = -3;
-	pixel_x = 7
-	},
-/obj/item/ammo_magazine/lrifle{
-	pixel_y = -3;
-	pixel_x = 7
-	},
-/obj/item/ammo_magazine/lrifle{
-	pixel_y = -3;
-	pixel_x = 7
-	},
-/obj/item/ammo_magazine/lrifle{
-	pixel_y = -3;
-	pixel_x = 7
-	},
-/obj/machinery/door/blast/shutters/glass{
-	id = "BridgeArmoury";
-	name = "Armoury showcase"
-	},
-/turf/simulated/floor/tiled/dark/gray_perforated,
+/obj/machinery/light,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "dxb" = (
 /obj/structure/table/woodentable,
@@ -101011,19 +100970,18 @@
 /area/eris/medical/reception)
 "eWj" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/ammobox/lrifle/rubber,
 /obj/item/ammo_magazine/magnum/rubber,
 /obj/item/ammo_magazine/magnum/rubber,
 /obj/item/ammo_magazine/magnum/rubber,
 /obj/item/ammo_magazine/magnum/rubber,
 /obj/item/ammo_magazine/magnum/rubber,
-/obj/item/ammo_magazine/magnum/rubber,
-/obj/item/ammo_magazine/ammobox/magnum/rubber,
-/obj/item/ammo_magazine/ammobox/magnum/rubber,
 /obj/machinery/door/blast/shutters/glass{
 	id = "BridgeArmoury";
 	name = "Armoury showcase"
 	},
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "eWP" = (
@@ -101999,19 +101957,18 @@
 /area/eris/maintenance/section4deck1central)
 "gxs" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/ammobox/lrifle,
 /obj/item/ammo_magazine/magnum,
 /obj/item/ammo_magazine/magnum,
 /obj/item/ammo_magazine/magnum,
 /obj/item/ammo_magazine/magnum,
 /obj/item/ammo_magazine/magnum,
 /obj/item/ammo_magazine/magnum,
-/obj/item/ammo_magazine/ammobox/magnum,
-/obj/item/ammo_magazine/ammobox/magnum,
 /obj/machinery/door/blast/shutters/glass{
 	id = "BridgeArmoury";
 	name = "Armoury showcase"
 	},
+/obj/item/ammo_magazine/ammobox/magnum,
+/obj/item/ammo_magazine/ammobox/magnum,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "gyb" = (
@@ -113976,11 +113933,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/occulus/medical/trauma)
-"xry" = (
-/obj/structure/closet/emcloset,
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/command/bridge)
 "xsT" = (
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/segment{
@@ -296648,7 +296600,7 @@ dFp
 dVP
 dVP
 dVP
-dVP
+pxT
 dVw
 abF
 abF
@@ -296849,8 +296801,8 @@ dvH
 dvQ
 aSe
 dwI
-dvH
-xry
+dxa
+dVw
 dVw
 abF
 abF
@@ -297053,7 +297005,7 @@ dVw
 dVw
 dVw
 dVw
-dVw
+abF
 abF
 abF
 doD
@@ -297253,9 +297205,9 @@ mQf
 wuY
 cHg
 cHg
-cHg
 mmd
 dVw
+abF
 abF
 abF
 doD
@@ -297456,8 +297408,8 @@ eWj
 gxs
 xUa
 qty
-dxa
 dVw
+abF
 abF
 abF
 doD
@@ -297659,7 +297611,7 @@ dVw
 dVw
 dVw
 dVw
-dVw
+abF
 abF
 abF
 doD
