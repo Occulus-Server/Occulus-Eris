@@ -30,6 +30,8 @@
 
 /obj/structure/closet/secure_closet/personal/ensign/populate_contents()
 	new /obj/item/clothing/under/rank/ensign(src)
+	new /obj/item/clothing/under/rank/ensign/blueshield(src)
+	new /obj/item/clothing/head/beret/fashion/blueshield(src)
 	new /obj/item/device/radio/headset/heads/hop/ensign(src)
 	new /obj/item/clothing/shoes/leather(src)
 	new /obj/item/storage/backpack/satchel/leather(src)

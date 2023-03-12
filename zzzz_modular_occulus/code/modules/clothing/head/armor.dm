@@ -42,3 +42,16 @@
 		bio = 0,
 		rad = 10
 	)
+
+/obj/item/clothing/head/armor/faceshield/riot/blueshield
+	name = "\improper Guardian Tactical Helmet"
+	desc = "It's a helmet specifically designed to retain visual acuity with the visor down. Typically used by bodyguards escorting their clients."
+	icon = 'zzzz_modular_occulus/icons/inventory/head/icon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/head/mob.dmi'
+	icon_state = "blueshield_helm"
+	armor_up = list(melee = 35, bullet = 25, energy = 20, bomb = 20, bio = 0, rad = 0)
+	armor_down = list(melee = 40, bullet = 40, energy = 35, bomb = 35, bio = 0, rad = 0)
+	item_flags = THICKMATERIAL | COVER_PREVENT_MANIPULATION
+	tint_down = TINT_NONE
+	price_tag = 200
+	rarity_value = 30
