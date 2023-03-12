@@ -1,0 +1,7 @@
+author: Roguenoob
+delete-after: true
+changes:
+  - rscadd: Vendors for Clothing, Hats, Accessories, Military surplus
+  - rscadd: cloaks
+  - tweak: Serbomat sprite
+  - bugfix: Syntax errors
