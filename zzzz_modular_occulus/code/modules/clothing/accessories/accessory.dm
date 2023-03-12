@@ -220,3 +220,36 @@
 	name = "white Mekhane cloak"
 	icon_state = "churchcloakwhite"
 	desc = "A sleek, luxurious white cloak with golden trim."
+//Cloaks
+/obj/item/clothing/accessory/cloak
+	name = "grey cloak"
+	icon_state = "cloakgrey"
+	item_icons = "cloakgrey"
+	desc = "A sleek, grey cloak with golden trim."
+	icon = 'zzzz_modular_occulus/icons/inventory/accessory/icon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/accessory/mob.dmi'
+/obj/item/clothing/accessory/cloak/copper
+	name = "copper cloak"
+	icon_state = "cloakcopper"
+	item_icons = "cloakcopper"
+	desc = "A sleek, copper cloak with silver trim."
+/obj/item/clothing/accessory/cloak/red
+	name = "red cloak"
+	icon_state = "cloakred"
+	item_icons = "cloakred"
+	desc = "A glossy, red cloak with silver trim."
+/obj/item/clothing/accessory/cloak/lime
+	name = "lime cloak"
+	icon_state = "cloaklime"
+	item_icons = "cloaklime"
+	desc = "A sleek, lime cloak with golden trim."
+/obj/item/clothing/accessory/cloak/blue
+	name = "blue cloak"
+	icon_state = "cloakblue"
+	item_icons = "cloakblue"
+	desc = "A sleek, blue cloak with golden trim."
+/obj/item/clothing/accessory/cloak/purple
+	name = "purple cloak"
+	icon_state = "cloakpurple"
+	item_icons = "cloakpurple"
+	desc = "A sleek, purple cloak with sliver trim."

@@ -59726,12 +59726,6 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/mining/station)
-"cMw" = (
-/obj/machinery/computer/guestpass{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/steel,
-/area/eris/crew_quarters/fitness)
 "cMx" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/steel/gray_perforated,
@@ -103835,6 +103829,10 @@
 /obj/structure/table/rack/shelf,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/quartermaster/storage)
+"iYG" = (
+/obj/machinery/vending/clothing_vendor,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/crew_quarters/fitness)
 "jak" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/structure/cable/yellow{
@@ -107408,6 +107406,10 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck3port)
+"nZA" = (
+/obj/machinery/vending/Hat_vendor,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/crew_quarters/fitness)
 "nZP" = (
 /obj/structure/reagent_dispensers/fueltank/huge,
 /turf/simulated/floor,
@@ -108912,6 +108914,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
+"pXO" = (
+/obj/machinery/vending/Merc_clothing_vendor,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section1deck4central)
 "pYo" = (
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/crew_quarters/library{
@@ -109457,6 +109463,10 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/medical/chemstor)
+"qGW" = (
+/obj/machinery/vending/Assc_vendor,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/crew_quarters/fitness)
 "qHy" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -112109,6 +112119,10 @@
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/bluegrid,
 /area/eris/crew_quarters/bar)
+"uxj" = (
+/obj/machinery/vending/Merc_clothing_vendor,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/maintenance/section3deck1central)
 "uxK" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -165516,7 +165530,7 @@ csS
 csS
 csS
 vUj
-hsA
+pXO
 qZD
 hsA
 csS
@@ -253427,13 +253441,13 @@ cDr
 eaq
 cDi
 cDu
-cDi
+qGW
+nZA
+iYG
 cIR
 cJR
 cKm
 cLa
-cMw
-cDi
 cDi
 eqJ
 cDi
@@ -295048,7 +295062,7 @@ cNH
 aRM
 cNH
 boS
-bfe
+uxj
 bvj
 bvj
 bvj
