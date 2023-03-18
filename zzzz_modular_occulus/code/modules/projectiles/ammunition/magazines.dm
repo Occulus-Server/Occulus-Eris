@@ -15,6 +15,9 @@
 	name = "shotgun shells (rubbershot)"
 	build_path = /obj/item/ammo_casing/shotgun/pellet/rubber/prespawned
 
+/obj/item/ammo_magazine/ammobox/shotgun
+	matter = list(MATERIAL_CARDBOARD = 1)
+
 /obj/item/ammo_magazine/ammobox/shotgun/rubbershot
 	name = "ammunition box (rubbershot shell)"
 	icon_state = "shot_r"

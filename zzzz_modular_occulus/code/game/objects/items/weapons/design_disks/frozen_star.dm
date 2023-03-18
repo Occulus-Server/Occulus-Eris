@@ -23,5 +23,19 @@
 		/datum/design/autolathe/ammo/shotgun_blanks,
 	)
 
+/obj/item/computer_hardware/hard_drive/portable/design/ammo_boxes_shotgun
+	disk_name = "Frozen Star Shotgun Ammunition"
+	icon_state = "frozenstar"
+	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED_COMMON
+	license = 20
+	designs = list(
+		/datum/design/autolathe/ammo/shotgunbox,
+		/datum/design/autolathe/ammo/shotgunbox_buckshot,
+		/datum/design/autolathe/ammo/shotgunbox_beanbag,
+		/datum/design/autolathe/ammo/shotgunbox_rubbershot,
+		/datum/design/autolathe/ammo/shotgunbox_flash,
+		/datum/design/autolathe/ammo/shotgunbox_blanks = 0,
+	)
+
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_regulator
 	disk_name = "Frozen Star - .50 Regulator Shotgun"
