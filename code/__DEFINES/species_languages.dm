@@ -55,6 +55,7 @@
 #define LANGUAGE_VOX "Vox-Pidgin"
 #define LANGUAGE_AKHANI "Akhani"
 #define LANGUAGE_SAGARU "Sagaru"
+#define LANGUAGE_SHOUDIN "Shoudin"
 
 // Species flags.
 #define SPECIES_FLAG_NO_MINOR_CUT               0x0001  // Can step on broken glass with no ill-effects. Either thick skin (diona/vox), cut resistant (slimes) or incorporeal (shadows)

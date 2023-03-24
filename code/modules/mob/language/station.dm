@@ -278,3 +278,14 @@
 	colour = "birdsongc"
 	key = "G"
 	syllables = list ("cheep", "peep", "tweet")
+
+/datum/language/shoudin
+	name = LANGUAGE_SHOUDIN
+	desc = "A language spoken by Shucan. It is very tongue-heavy and dependent on intonations of the same syllables."
+	speech_verb = "sings"
+	exclaim_verb = "chimes"
+	colour = "skrell" // can't figure how this colour thing works, so it'll use the same as the skrell's for now
+	key = "s"
+	syllables = list ("shisa", "catrin", "sia", "disa", "shae", "shiena", "sae", "soa", "shoca", "cassin", "cassova", "konta", "shii", "aesha", \
+	 "eesha", "iisha", "oousha", "sa", "shissinoro", "shisaente", "kokae","saro", "cantan", "shiso", "kala'e", "shi'ra", "shi'va", "soa'to", "vera", \
+	 "aeshaouda", "oushidino", "shuuca", "shisino", "shaeshae", "shiddin")
