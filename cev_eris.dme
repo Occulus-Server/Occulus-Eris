@@ -2830,6 +2830,7 @@
 #include "zzzz_modular_occulus\code\controllers\subsystems\staverbs.dm"
 #include "zzzz_modular_occulus\code\controllers\subsystems\vote.dm"
 #include "zzzz_modular_occulus\code\datums\datacore.dm"
+#include "zzzz_modular_occulus\code\datums\autolathe\ammo.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\biomatter.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\circuits.dm"
 #include "zzzz_modular_occulus\code\datums\autolathe\coins.dm"

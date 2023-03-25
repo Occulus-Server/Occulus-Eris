@@ -48,11 +48,12 @@
 
 	contraband = list(/obj/item/reagent_containers/food/snacks/wok = 8, /obj/item/storage/ration_pack = 1)
 
-	premium = list(/obj/item/reagent_containers/food/snacks/syndicake = 2)
+	premium = list(/obj/item/reagent_containers/food/snacks/syndicake = 2, /obj/item/storage/box/donut = 1)
 
 	prices = list(/obj/item/reagent_containers/food/snacks/shokoloud = 60,/obj/item/reagent_containers/food/drinks/dry_ramen = 80,/obj/item/reagent_containers/food/snacks/chips = 70,
 					/obj/item/reagent_containers/food/snacks/sosjerky = 75,/obj/item/reagent_containers/food/snacks/no_raisin = 80,/obj/item/reagent_containers/food/snacks/spacetwinkie = 60,
 					/obj/item/reagent_containers/food/snacks/cheesiehonkers = 90, /obj/item/reagent_containers/food/snacks/tastybread = 100,
+					/obj/item/reagent_containers/food/snacks/syndicake = 30, /obj/item/storage/box/donut = 100,
 					/obj/item/reagent_containers/food/snacks/wok = 80, /obj/item/storage/ration_pack = 500)
 
 /obj/machinery/vending/cola
@@ -305,6 +306,13 @@
 
 /obj/machinery/vending/engineering
 	vendor_department = DEPARTMENT_ENGINEERING
+	premium = list(
+		/obj/item/storage/hcases/parts = 3,
+		/obj/item/storage/hcases/engi = 3,
+		/obj/item/storage/hcases/ammo = 3,
+		/obj/item/storage/hcases/med = 3,
+		/obj/item/weldpack/canister = 3
+	)
 
 /obj/machinery/vending/tool
 	vendor_department = DEPARTMENT_ENGINEERING
@@ -354,6 +362,35 @@
 					/obj/item/cell/medium/hyper = 1000,
 					/obj/item/cell/small/hyper = 500
 					)
+
+/obj/machinery/vending/printomat
+	premium = list(/obj/item/computer_hardware/hard_drive/portable/design/ammo_boxes_rifle = 3,
+					/obj/item/computer_hardware/hard_drive/portable/design/ammo_boxes_shotgun = 3,
+					/obj/item/computer_hardware/hard_drive/portable/design/ammo_boxes_smallarms = 3,
+					/obj/item/computer_hardware/hard_drive/portable/advanced = 10,)
+	prices = list(/obj/item/computer_hardware/hard_drive/portable = 50,
+					/obj/item/storage/box/data_disk/basic = 100,
+					/obj/item/computer_hardware/hard_drive/portable/design/misc = 300,
+					/obj/item/computer_hardware/hard_drive/portable/design/devices = 400,
+					/obj/item/computer_hardware/hard_drive/portable/design/tools = 400,
+					/obj/item/computer_hardware/hard_drive/portable/design/components = 500,
+					/obj/item/computer_hardware/hard_drive/portable/design/adv_tools = 1800,
+					/obj/item/computer_hardware/hard_drive/portable/design/circuits = 600,
+					/obj/item/computer_hardware/hard_drive/portable/design/conveyors = 400,
+					/obj/item/computer_hardware/hard_drive/portable/design/medical = 400,
+					/obj/item/computer_hardware/hard_drive/portable/design/computer = 500,
+					/obj/item/computer_hardware/hard_drive/portable/design/security = 600,
+					/obj/item/computer_hardware/hard_drive/portable/design/armor/asters = 900,
+					/obj/item/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns = 3000,
+					/obj/item/computer_hardware/hard_drive/portable/design/nonlethal_ammo = 700,
+					/obj/item/electronics/circuitboard/autolathe = 700,
+					/obj/item/electronics/circuitboard/autolathe_disk_cloner = 1000,
+					/obj/item/electronics/circuitboard/vending = 500,
+					/obj/item/computer_hardware/hard_drive/portable/design/lethal_ammo = 1200,
+					/obj/item/computer_hardware/hard_drive/portable/design/ammo_boxes_rifle = 900,
+					/obj/item/computer_hardware/hard_drive/portable/design/ammo_boxes_shotgun = 900,
+					/obj/item/computer_hardware/hard_drive/portable/design/ammo_boxes_smallarms = 900,
+					/obj/item/computer_hardware/hard_drive/portable/advanced = 75,)
 
 //Mekhane Theomat
 
