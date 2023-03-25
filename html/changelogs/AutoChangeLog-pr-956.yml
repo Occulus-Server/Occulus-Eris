@@ -1,0 +1,6 @@
+author: Zenitheevee
+delete-after: true
+changes:
+  - rscadd: More vendors have coinslots now.
+  - rscadd: Frozen Star started releasing shotgun ammo box designs in disk form.
+  - tweak: Shotgun ammo box has been material-swapped to just 1 cardboard
