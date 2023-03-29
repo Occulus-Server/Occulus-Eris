@@ -228,7 +228,7 @@
 #define SPECIES_MONKEY_UNATHI	"Stok"
 
 //species defines
-#define SPECIES_AKULA			"Akula"
+#define SPECIES_AKULA			"Shucan"
 #define SPECIES_ALRAUNE			"Alraune"
 #define SPECIES_NEVREAN			"Nevrean"
 #define SPECIES_PROTEAN			"Protean"
