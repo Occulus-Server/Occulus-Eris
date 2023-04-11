@@ -1,4 +1,0 @@
-author: Jamini
-delete-after: true
-changes:
-  - tweak: Critical APCs now have significantly lower short timers.
