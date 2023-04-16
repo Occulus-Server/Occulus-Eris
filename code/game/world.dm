@@ -386,6 +386,16 @@ proc/establish_db_connection()
 	else
 		return 1
 
+//Toggles whether the server is visible to the hub or not.
+/world/proc/update_hub_visibility(new_visibility)
+	if(new_visibility == GLOB.hub_visibility)
+		return
+	GLOB.hub_visibility = new_visibility
+	if(GLOB.hub_visibility)
+		hub_password = "kMZy3U5jJHSiBQjr"
+	else
+		hub_password = "SORRYNOPASSWORD"
+
 /world/proc/incrementMaxZ()
 	maxz++
 	SSmobs.MaxZChanged()
