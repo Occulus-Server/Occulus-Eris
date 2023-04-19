@@ -2972,6 +2972,7 @@
 #include "zzzz_modular_occulus\code\game\objects\structures\curtains.dm"
 #include "zzzz_modular_occulus\code\game\objects\structures\evacsign.dm"
 #include "zzzz_modular_occulus\code\game\objects\structures\fitness.dm"
+#include "zzzz_modular_occulus\code\game\objects\structures\signs.dm"
 #include "zzzz_modular_occulus\code\game\objects\structures\crates_lockers\closets\secure\captain.dm"
 #include "zzzz_modular_occulus\code\game\objects\structures\crates_lockers\closets\secure\cargo.dm"
 #include "zzzz_modular_occulus\code\game\objects\structures\crates_lockers\closets\secure\engineering.dm"
