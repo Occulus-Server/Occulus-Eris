@@ -50,6 +50,7 @@
 	light_range = 3
 	light_color = COLOR_LIGHTING_BLUE_BRIGHT
 	mob_classification = CLASSIFICATION_SYNTHETIC
+	bloodcolor = "#030303"
 
 	ranged = 1 //will it shoot?
 	rapid = 0 //will it shoot fast?
@@ -61,6 +62,11 @@
 	acceptableTargetDistance = 6
 	kept_distance = 3
 
+/mob/living/carbon/superior_animal/stalker/death()
+	. = ..()
+	visible_message("Critical components of \the [src] blow apart!")
+	new /obj/effect/decal/cleanable/blood/gibs/robot(loc)
+	do_sparks(3, TRUE, src)
 
 /mob/living/carbon/superior_animal/stalker/dual
 	name = "OneStar Stalker Mk2"
