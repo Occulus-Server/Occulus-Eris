@@ -1221,3 +1221,19 @@ ADMIN_VERB_ADD(/datum/admins/proc/paralyze_mob, R_ADMIN, FALSE)
 			return 0
 		return 1
 	return 0
+
+
+//Whether the server is visible to the hub or not. No other good place for this to go, unfortunately.
+GLOBAL_VAR_INIT(hub_visibility, FALSE)
+
+//Toggle the hub visibility of the server.
+ADMIN_VERB_ADD(/datum/admins/proc/toggle_hub, R_SERVER, FALSE)
+/datum/admins/proc/toggle_hub()
+	set category = "Server"
+	set name = "Toggle Hub"
+
+	world.update_hub_visibility(!GLOB.hub_visibility)
+
+	log_and_message_admins("[key_name_admin(usr)] has toggled the server's hub status for the round, it is now [(GLOB.hub_visibility?"on":"off")] the hub.")
+	if (GLOB.hub_visibility && !world.reachable)
+		message_admins("WARNING: The server will not show up on the hub because byond is detecting that a filewall is blocking incoming connections.")
