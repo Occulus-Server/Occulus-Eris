@@ -43,7 +43,7 @@
 
 /obj/item/reagent_containers/food/snacks/candiedapple/mordant
 	name = "oddly-preserved Candied Apple"
-	desc = "An apple coated in what looks like caramel but smells like nothing. It's disturbingly well-preserved, with a thin layer of dust covering the stick stuck on it...but none on the \"candied\" apple itself. Do you dare...?"
+	desc = "An apple coated in what looks like caramel but smells like nothing. It's disturbingly well-preserved. There's a thin layer of dust covering the stick stuck into it...but none on the \"candied\" apple itself. Do you dare...?"
 	nutriment_desc = list("plastic" = 20, "dust" = 10, "raw onion" = 15)
 	preloaded_reagents = list("stoxin" = 3,"plasticide" = 4)
 
@@ -58,7 +58,7 @@
 	nutriment_desc = list("death" = 10, "dust" = 10, "regret" = 15)
 	nutriment_amt = 15
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
-	preloaded_reagents = list("stoxin" = 10)
+	preloaded_reagents = list("stoxin" = 10, "vomitol" = 5)
 
 /obj/item/reagent_containers/food/snacks/applecakeslice/mordant
 	nutriment_desc = list("death" = 10, "dust" = 10, "regret" = 15)
