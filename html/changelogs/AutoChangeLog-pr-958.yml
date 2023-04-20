@@ -1,6 +1,0 @@
-author: Shadow-Quill
-delete-after: true
-changes:
-  - admin: Unwhitelisted players can no longer observe.
-  - server: Hub visibility can be toggled with the "Toggle Hub" verb in the Server
-      tab.
