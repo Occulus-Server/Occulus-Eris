@@ -2794,6 +2794,7 @@
 #include "maps\dungeons\crawler\crawler.dm"
 #include "maps\dungeons\deepmaint\deepmaint.dm"
 #include "maps\encounters\asteroid\asteroid.dm"
+#include "maps\encounters\biofacility\biofacility.dm"
 #include "maps\encounters\blacksite\blacksite.dm"
 #include "maps\encounters\spacefortress\spacefortress.dm"
 #include "maps\encounters\spaceruins\spaceruins.dm"
