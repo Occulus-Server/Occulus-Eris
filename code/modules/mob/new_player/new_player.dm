@@ -143,6 +143,9 @@
 		new_player_panel_proc()
 
 	if(href_list["observe"])
+		if(!is_player_whitelisted(src))
+			discord_redirect(usr)//AEIOU addition
+			return 0
 
 		if(alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] before being able join the crew! But you can play as a mouse or drone immediately.","Player Setup","Yes","No") == "Yes")
 			if(!client)	return 1
