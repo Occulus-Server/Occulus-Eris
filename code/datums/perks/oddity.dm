@@ -38,7 +38,8 @@
 
 /datum/perk/oddity/space_asshole
 	name = "Space Asshole"
-	desc = "Bombs, holes, falling in holes, being hit with bombs, I'm just used to it by now."
+	desc = "Holes, gravity, falling, tumbling. It's all the same. \
+			You take less damage from falling and can dive into disposal chutes. Disposals deal no damage to you."
 	icon_state = "bomb" // https://game-icons.net
 
 /datum/perk/oddity/space_asshole/assign(mob/living/carbon/human/H)
@@ -141,7 +142,9 @@
 
 /datum/perk/oddity/ass_of_concrete
 	name = "Ass of Concrete"
-	desc = "I can't take it anymore! What..how did I land on my feet?! I feel immovable! No one can push me around anymore!"
+	desc = "Years of training your body made you a hulk of a person. No more pushing around. \
+			Nobody can move past you, even on help intent. You won\'t slip in gravity. \
+			You deal more damage to windows when you dive into them."
 	icon_state = "muscular" // https://game-icons.net
 
 /datum/perk/oddity/ass_of_concrete/assign(mob/living/carbon/human/H)
