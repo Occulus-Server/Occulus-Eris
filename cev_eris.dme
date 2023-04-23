@@ -2863,6 +2863,7 @@
 #include "zzzz_modular_occulus\code\game\antagonist\outer\mercenary\mercenary.dm"
 #include "zzzz_modular_occulus\code\game\antagonist\station\occultist.dm"
 #include "zzzz_modular_occulus\code\game\antagonist\station\traitor.dm"
+#include "zzzz_modular_occulus\code\game\antagonist\station\traitor_employers.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\changeling\modularchangeling.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\events\blob.dm"
 #include "zzzz_modular_occulus\code\game\gamemodes\events\siren_scan.dm"
