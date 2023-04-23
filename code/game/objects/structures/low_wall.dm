@@ -160,7 +160,7 @@
 		P.check_hit_zone(loc, distance)
 
 		var/targetzone = check_zone(P.def_zone)
-		if (targetzone in list(BP_R_LEG, BP_L_LEG, BP_GROIN))
+		if (targetzone in list(BP_R_LEG, BP_L_LEG, BP_GROIN, BP_L_FOOT, BP_R_FOOT)) //OCCULUS EDIT: ADDED FEET
 			valid = TRUE //The lower body is always concealed
 		if (ismob(P.original))
 			var/mob/M = P.original
