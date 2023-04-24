@@ -285,7 +285,7 @@
 	speech_verb = "sings"
 	exclaim_verb = "chimes"
 	colour = "skrell" // can't figure how this colour thing works, so it'll use the same as the skrell's for now
-	key = "9"
+	key = "s"
 	syllables = list ("shisa", "catrin", "sia", "disa", "shae", "shiena", "sae", "soa", "shoca", "cassin", "cassova", "konta", "shii", "aesha", \
 	 "eesha", "iisha", "oousha", "sa", "shissinoro", "shisaente", "kokae","saro", "cantan", "shiso", "kala'e", "shi'ra", "shi'va", "soa'to", "vera", \
 	 "aeshaouda", "oushidino", "shuuca", "shisino", "shaeshae", "shiddin")
