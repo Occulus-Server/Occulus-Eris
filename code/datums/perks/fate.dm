@@ -86,7 +86,7 @@
 
 /datum/perk/fate/alcoholic/assign(mob/living/carbon/human/H)
 	..()
-	var/ethanoltype = pick(subtypesof(/datum/reagent/ethanol))
+	var/ethanoltype = pick(subtypesof(/datum/reagent/alcohol))
 	if(!(ethanoltype in holder.metabolism_effects.addiction_list))
 		var/datum/reagent/alcohol = new ethanoltype
 		holder.metabolism_effects.addiction_list.Add(alcohol)
