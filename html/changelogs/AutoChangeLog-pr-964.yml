@@ -1,7 +1,0 @@
-author: Jamini
-delete-after: true
-changes:
-  - balance: Benzin roach spawn reduced to 33%
-  - balance: Benzin roaches no longer have welding fuel
-  - balance: Benzin roaches no longer spill welding fuel on death
-  - balance: halved Benzin roach explosion chance
