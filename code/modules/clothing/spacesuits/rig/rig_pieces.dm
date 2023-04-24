@@ -49,7 +49,7 @@
 	supporting_limbs = list()
 	retract_while_active = FALSE
 	spawn_tags = null
-
+/* OCCULUS EDIT: Disable riggochets
 /obj/item/clothing/suit/space/rig/handle_shield(mob/user, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	if(istype(damage_source, /obj/item/projectile/bullet))
 		var/obj/item/projectile/bullet/B = damage_source
@@ -66,7 +66,7 @@
 			var/new_y =  sourceloc.y + ( rand(0, distance) * prob(50) ? -1 : 1 )
 			B.redirect(new_x, new_y, get_turf(user), user)
 			return PROJECTILE_CONTINUE // complete projectile permutation
-
+*/
 //TODO: move this to modules
 /obj/item/clothing/head/space/rig/proc/prevent_track()
 	return 0
