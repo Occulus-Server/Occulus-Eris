@@ -1136,7 +1136,7 @@
 /datum/reagent/alcohol/touch_mob(mob/living/L, amount)
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 15)
-
+/* OCCULUS EDIT: disable individual objectives stuff
 /datum/reagent/alcohol/on_mob_add(mob/living/L)
 	..()
 	SEND_SIGNAL(L, COMSIG_CARBON_HAPPY, src, MOB_ADD_DRUG)
@@ -1144,7 +1144,7 @@
 /datum/reagent/alcohol/on_mob_delete(mob/living/L)
 	..()
 	SEND_SIGNAL(L, COMSIG_CARBON_HAPPY, src, MOB_DELETE_DRUG)
-
+*/
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.adjustToxLoss(0.2 * toxicity * (issmall(M) ? effect_multiplier * 2 : effect_multiplier))
 	M.add_chemical_effect(CE_PAINKILLER, max(35 - (strength / 2), 1))	//Vodka 32.5 painkiller, beer 15
@@ -1167,7 +1167,7 @@
 		M.adjust_hallucination(halluci, halluci)
 
 	apply_sanity_effect(M, effect_multiplier)
-	SEND_SIGNAL(M, COMSIG_CARBON_HAPPY, src, ON_MOB_DRUG)
+	//SEND_SIGNAL(M, COMSIG_CARBON_HAPPY, src, ON_MOB_DRUG) //OCCULUS EDIT: disabling individual objectives stuff
 
 /datum/reagent/alcohol/touch_obj(obj/O)
 	if(istype(O, /obj/item/paper))
@@ -1503,7 +1503,7 @@
 	M.adjust_hallucination(-0.9 * effect_multiplier)
 	M.adjustToxLoss(-0.5 * effect_multiplier)
 
-/datum/reagent/ethanol/ntcahors/activated
+/datum/reagent/alcohol/ntcahors/activated
 	name = "Saint's Wing Cahors"
 	id = "ntcahors_active"
 	description = "Sweet church wine, that seems to bubble and move around by itself, as if alive."
@@ -1513,7 +1513,7 @@
 
 	glass_desc = "It looks like wine, but more dark. The liquid seems to move around by itself."
 
-/datum/reagent/ethanol/ntcahors/activated/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
+/datum/reagent/alcohol/ntcahors/activated/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	..()
 	M.adjust_hallucination(-0.9 * effect_multiplier)
 	M.adjustToxLoss(-0.5 * effect_multiplier)
