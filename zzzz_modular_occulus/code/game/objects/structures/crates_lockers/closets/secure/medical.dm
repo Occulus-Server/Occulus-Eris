@@ -68,3 +68,9 @@
 	new /obj/item/reagent_containers/blood/OPlus(src)
 	new /obj/item/reagent_containers/blood/OMinus(src)
 	new /obj/item/reagent_containers/blood/empty(src)
+
+/obj/structure/closet/secure_closet/personal/paramedic/populate_contents()
+	..()
+	new /obj/item/gun/projectile/selfload/moebius(src)
+	new /obj/item/ammo_magazine/pistol/rubber(src)
+	new /obj/item/modular_computer/tablet/moebius/preset(src)
