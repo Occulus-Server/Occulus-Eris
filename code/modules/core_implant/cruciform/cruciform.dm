@@ -38,7 +38,7 @@ var/list/disciples = list()
 	UnregisterSignal(wearer, COMSIG_GROUP_RITUAL) Occulus knows prohibition doesn't work
 
 /obj/item/implant/core_implant/cruciform/proc/on_happy(datum/reagent/happy, signal)
-	if(istype(happy, /datum/reagent/ethanol))
+	if(istype(happy, /datum/reagent/ethanol) && happy.id != "ntcahors")
 		righteous_life = max(righteous_life - 0.1, 0)
 	else if(istype(happy, /datum/reagent/drug))
 		righteous_life = max(righteous_life - 0.5, 0) Occulus seek joy in the oneness that is the Mekhane
