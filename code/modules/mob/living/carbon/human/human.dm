@@ -1715,3 +1715,12 @@ var/list/rank_prefix = list(\
 				else
 					break
 	return 1
+
+/mob/living/carbon/human/verb/switch_tail_layer()
+	set name = "Switch Tail Layer"
+	set desc = "Put your tail above or below some clothing types."
+	set category = "IC"
+
+	tail_alted = !tail_alted
+	update_tail_showing()
+	to_chat(src, SPAN_NOTICE("Your tail is now on the [tail_alted ? "alternate" : "default"] layer."))
