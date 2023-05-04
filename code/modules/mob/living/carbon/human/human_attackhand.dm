@@ -256,6 +256,13 @@
 				w_uniform.add_fingerprint(M)
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(M.targeted_organ))
 
+// OCCULUS EDIT START: adds bonking
+			if((M.targeted_organ == BP_HEAD))
+				M.visible_message(SPAN_NOTICE("[M] bonks [src]'s head."), \
+									SPAN_NOTICE("You bonk [src]'s head."))
+				playsound(loc, 'zzzz_modular_occulus/sound/weapons/klonk.ogg', 50, 1, -1)
+// OCCULUS EDIT END: adds bonking
+
 			var/list/holding = list(get_active_hand() = 40, get_inactive_hand = 20)
 
 			//See if they have any guns that might go off
