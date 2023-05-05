@@ -1,5 +1,0 @@
-author: Michiyamenotehifunana
-delete-after: true
-changes:
-  - rscadd: You can now bonk by disarming someone's head. Note that you will still
-      disarm them as usual, despite the sound effect and message.
