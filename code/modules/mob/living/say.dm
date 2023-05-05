@@ -180,8 +180,8 @@ var/list/channel_to_radio_key = new
 	message = trim_left(message)
 	var/message_pre_stutter = message
 
-	message = formatSpeech(message, "/", "<i>", "</i>") // OCCULUS EDIT: Speech formating
-	message = formatSpeech(message, "*", "<b>", "</b>") // OCCULUS EDIT: Speec formating
+	message = formatSpeech(message, "|", "<i>", "</i>") // OCCULUS EDIT: Speech formating, symbols as suggested by driftingpaws
+	message = formatSpeech(message, "+", "<b>", "</b>") // OCCULUS EDIT: Speech formating, symbols as suggested by driftingpaws
 
 	if(!(speaking && speaking.flags&NO_STUTTER))
 
