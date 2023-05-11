@@ -48,9 +48,7 @@
 		for(var/obj/item/organ/internal/I in H.internal_organs)
 			var/valid_organs = list(OP_BLOOD_VESSEL, OP_NERVE, OP_MUSCLE) 
 			for(var/C in valid_organs)
-				world << "C [C]" 
 				if(C in I.organ_efficiency)
-					world << "hi"
 					if(I.damage > 0 && !BP_IS_ROBOTIC(I))
 						I.heal_damage((0.2 + I.damage * 0.05) * effect_multiplier)
 
