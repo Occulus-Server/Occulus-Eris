@@ -41,6 +41,17 @@
 /datum/reagent/medicine/polystem/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.heal_organ_damage(0.4 * effect_multiplier, 0, 3 * effect_multiplier)
 	M.add_chemical_effect(CE_BLOODCLOT, min(1,0.1 * effect_multiplier))
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		
+		for(var/obj/item/organ/internal/I in H.internal_organs)
+			var/valid_organs = list(OP_BLOOD_VESSEL, OP_NERVE, OP_MUSCLE) // Only heal soft tissues
+			for(var/C in valid_organs)
+				world << "C [C]" 
+				if(C in I.organ_efficiency)
+					world << "hi"
+					if(I.damage > 0 && !BP_IS_ROBOTIC(I))
+						I.heal_damage((0.2 + I.damage * 0.05) * effect_multiplier)
 
 /datum/reagent/medicine/tricordrazine/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.adjustOxyLoss(-0.4 * effect_multiplier)
