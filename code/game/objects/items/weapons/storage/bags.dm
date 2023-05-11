@@ -149,7 +149,6 @@
 		/obj/item/reagent_containers/food/snacks/egg,
 		/obj/item/reagent_containers/food/snacks/meat)
 
-
 // -----------------------------
 //        Sheet Snatcher
 // -----------------------------

@@ -134,6 +134,8 @@
 	req_access = list(access_chemistry)
 
 /obj/structure/closet/secure_closet/chemical/populate_contents()
+	new /obj/item/storage/bag/chemistry(src) // Occulus Edit
+	new /obj/item/storage/bag/chemistry(src) // Occulus edit
 	new /obj/item/storage/pouch/tubular/vial(src)
 	new /obj/item/storage/pouch/tubular/vial(src)
 	new /obj/item/storage/box/autoinjectors/empty(src)
