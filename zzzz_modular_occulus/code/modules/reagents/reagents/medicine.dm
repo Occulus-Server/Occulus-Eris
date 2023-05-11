@@ -44,8 +44,9 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		
+		// Only heal soft tissues, give it a niche as a supplement before peridaxon are widely available instead of just worse bicaridine
 		for(var/obj/item/organ/internal/I in H.internal_organs)
-			var/valid_organs = list(OP_BLOOD_VESSEL, OP_NERVE, OP_MUSCLE) // Only heal soft tissues
+			var/valid_organs = list(OP_BLOOD_VESSEL, OP_NERVE, OP_MUSCLE) 
 			for(var/C in valid_organs)
 				world << "C [C]" 
 				if(C in I.organ_efficiency)
