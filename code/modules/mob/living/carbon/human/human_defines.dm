@@ -115,3 +115,5 @@
 
 	var/genetic_corruption = 0  //Eclipse add - Mekhanite's vat genetic corruption
 	var/stable_genes = FALSE //Eclipse add - Genetic stability
+	
+	var/tail_alted = FALSE	//OCCULUS EDIT: Toggle for alternate tail layer
