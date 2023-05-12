@@ -1,5 +1,0 @@
-author: WeNeedMorePhoron
-delete-after: true
-changes:
-  - rscadd: Ported Chemistry Bag from Paradise. The station starts out with two in
-      the Chemistry closet.

@@ -1,6 +1,0 @@
-author: WeNeedMorePhoron
-delete-after: true
-changes:
-  - tweak: Xenoarch - Measuring Tape no longer displays excav depth as 2x of what
-      it actually is. If you entered a depth of 10cm, then the excavation level is
-      10, you will see 10cm displayed as the depth instead of 20cm.
