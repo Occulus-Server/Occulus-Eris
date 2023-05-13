@@ -109,7 +109,7 @@
 		var/obj/item/device/measuring_tape/P = I
 		user.visible_message("<span class='notice'>[user] extends [P] towards [src].","\blue You extend [P] towards [src].</span>")
 		if(do_after(user,40,src))
-			to_chat(user, SPAN_NOTICE("[src] has been excavated to a depth of [2*src.excavation_level]cm."))
+			to_chat(user, SPAN_NOTICE("[src] has been excavated to a depth of [src.excavation_level]cm.")) // Occulus Edit. Used to be 2* excavation level
 		return
 
 /obj/structure/boulder/Bumped(AM)

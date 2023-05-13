@@ -2962,6 +2962,7 @@
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\mending_spider.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\sleep_spider.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\implant\implants\carrion\smoker_spider.dm"
+#include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\bags.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\belt.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\firstaid.dm"
 #include "zzzz_modular_occulus\code\game\objects\items\weapons\storage\pouches.dm"

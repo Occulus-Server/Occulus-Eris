@@ -253,7 +253,7 @@
 		var/obj/item/device/measuring_tape/P = I
 		user.visible_message(SPAN_NOTICE("\The [user] extends [P] towards [src]."),SPAN_NOTICE("You extend [P] towards [src]."))
 		if(do_after(user,25, src))
-			to_chat(user, SPAN_NOTICE("\icon[P] [src] has been excavated to a depth of [2*excavation_level]cm."))
+			to_chat(user, SPAN_NOTICE("\icon[P] [src] has been excavated to a depth of [excavation_level]cm."))  // Occulus Edit. Used to be 2* excavation level
 		return
 
 	else
