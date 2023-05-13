@@ -95,7 +95,7 @@
 
 /obj/item/clothing/under/rank/bioengineer
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has a bio-engineer rank stripe on it."
-	name = "moebius doctor's jumpsuit"
+	name = "doctor's jumpsuit" //Occulus edit: delete moebius
 	icon_state = "medical"
 	item_state = "medical"
 	permeability_coefficient = 0.50
