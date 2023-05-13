@@ -11,14 +11,14 @@
 	materials = list(MATERIAL_BIOMATTER = 20)
 	build_path = /obj/item/organ/internal/lungs
 
-/datum/design/organ/kidney_left
+/datum/design/organ/kidneys	// OCCULUS EDIT: Single kidney only
 	materials = list()
-	build_path = /obj/item/organ/internal/kidney/left
-
+	build_path = /obj/item/organ/internal/kidneys
+/*
 /datum/design/organ/kidney_right
 	materials = list()
 	build_path = /obj/item/organ/internal/kidney/right
-
+*/
 /datum/design/organ/liver
 	materials = list(MATERIAL_BIOMATTER = 30)
 	build_path = /obj/item/organ/internal/liver

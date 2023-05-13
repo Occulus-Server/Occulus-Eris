@@ -34,7 +34,7 @@
 	spawn_tags = SPAWN_TAG_ABERRANT_VENDOR_ORGANS
 	spawn_frequency = 10
 	rarity_value = 40
-	vendor_department = DEPARTMENT_OFFSHIP
+	//vendor_department = DEPARTMENT_OFFSHIP	//OCCULUS EDIT: We haven't ported the stuff that adds this yet.
 	var/icon_on = "organfridge"
 	var/icon_off = "organfridge-off"
 	var/icon_panel = "organfridge-panel"
