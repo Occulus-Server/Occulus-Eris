@@ -73,15 +73,16 @@
 	nerve_system_accumulations = 50
 
 /datum/reagent/medicine/myosynaptizine/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		// Only heal soft tissues, give it a niche as a supplement before peridaxon are widely available instead of just worse bicaridine
-		for(var/obj/item/organ/internal/I in H.internal_organs)
-			var/valid_organs = list(OP_NERVE, OP_MUSCLE) // Don't take over quickclot niche 
-			for(var/C in valid_organs)
-				if(C in I.organ_efficiency)
-					if(I.damage > 0 && !BP_IS_ROBOTIC(I))
-						I.heal_damage((0.2 + I.damage * 0.05) * effect_multiplier)
+	if(!ishuman(M))
+		return
+	var/mob/living/carbon/human/H = M
+	// Only heal soft tissues, give it a niche as a supplement before peridaxon are widely available instead of just worse bicaridine
+	var/valid_organs = list(OP_NERVE, OP_MUSCLE) // Don't take over quickclot niche 
+	for(var/obj/item/organ/internal/I in H.internal_organs)
+		for(var/C in valid_organs)
+			if(C in I.organ_efficiency)
+				if(I.damage > 0 && !BP_IS_ROBOTIC(I))
+					I.heal_damage((0.2 + I.damage * 0.05) * effect_multiplier)
 
 /datum/chemical_reaction/myosynaptizine
 	result = "myosynaptizine"
