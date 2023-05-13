@@ -41,16 +41,6 @@
 /datum/reagent/medicine/polystem/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.heal_organ_damage(0.4 * effect_multiplier, 0, 3 * effect_multiplier)
 	M.add_chemical_effect(CE_BLOODCLOT, min(1,0.1 * effect_multiplier))
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		
-		// Only heal soft tissues, give it a niche as a supplement before peridaxon are widely available instead of just worse bicaridine
-		for(var/obj/item/organ/internal/I in H.internal_organs)
-			var/valid_organs = list(OP_BLOOD_VESSEL, OP_NERVE, OP_MUSCLE) 
-			for(var/C in valid_organs)
-				if(C in I.organ_efficiency)
-					if(I.damage > 0 && !BP_IS_ROBOTIC(I))
-						I.heal_damage((0.2 + I.damage * 0.05) * effect_multiplier)
 
 /datum/reagent/medicine/tricordrazine/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.adjustOxyLoss(-0.4 * effect_multiplier)
@@ -69,6 +59,34 @@
 	affects_dead = 1
 	metabolism = REM * 2
 	price_tag = 50
+
+/datum/reagent/medicine/myosynaptizine
+	name = "Myosynaptizine"
+	id = "myosynaptizine"
+	description = "A combination of polystem and synaptizine that heals muscle and nerves damage slowly without need for surgery. Dangerous in large amount"
+	taste_description = "bitterness"
+	reagent_state = LIQUID
+	color = "#BCD2C8" // Midway between Polystem and Synaptizine
+	scannable = 1
+	metabolism = REM / 2
+	overdose = REAGENTS_OVERDOSE / 2
+	nerve_system_accumulations = 50
+
+/datum/reagent/medicine/myosynaptizine/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		// Only heal soft tissues, give it a niche as a supplement before peridaxon are widely available instead of just worse bicaridine
+		for(var/obj/item/organ/internal/I in H.internal_organs)
+			var/valid_organs = list(OP_NERVE, OP_MUSCLE) // Don't take over quickclot niche 
+			for(var/C in valid_organs)
+				if(C in I.organ_efficiency)
+					if(I.damage > 0 && !BP_IS_ROBOTIC(I))
+						I.heal_damage((0.2 + I.damage * 0.05) * effect_multiplier)
+
+/datum/chemical_reaction/myosynaptizine
+	result = "myosynaptizine"
+	required_reagents = list("synaptizine" = 1, "polystem" = 1)
+	result_amount = 2
 
 /datum/chemical_reaction/reconstructive_nanites
 	result = "res nanites"
