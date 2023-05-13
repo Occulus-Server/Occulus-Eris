@@ -71,7 +71,7 @@
 	if(!O.owner || LAZYLEN(O.item_upgrades) > 1)
 		return FALSE
 
-	O.owner.mutation_index++
+	//O.owner.mutation_index++
 
 /datum/component/modification/organ/apply_values(obj/item/organ/internal/holder)
 	ASSERT(holder)
@@ -171,7 +171,7 @@
 	if(!O.owner || LAZYLEN(O.item_upgrades))
 		return
 
-	O.owner.mutation_index--
+	//O.owner.mutation_index--
 
 /datum/component/modification/organ/on_examine(mob/user)
 	var/using_sci_goggles = FALSE

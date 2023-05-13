@@ -87,7 +87,7 @@
 		/datum/design/autolathe/gun/dart_gun = 3, // Z-H P Artemis"
 		/datum/design/autolathe/ammo/dart_mag,
 	)
-
+/*
 /obj/item/computer_hardware/hard_drive/portable/design/medical/genetics
 	disk_name = "Moebius Scientifica - Genetics"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
@@ -99,7 +99,7 @@
 		/datum/design/research/circuit/moeballs_printer,
 		/datum/design/research/item/dna_scanner
 	)
-
+*/
 /obj/item/computer_hardware/hard_drive/portable/design/medical/viscera
 	disk_name = "Moebius Scientifica - Viscera"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
