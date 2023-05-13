@@ -96,8 +96,8 @@
 /obj/item/pen/crayon/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(istype(M) && M == user)
 		to_chat(M, "You take a bite of the crayon and swallow it.")
-		M.nutrition += 1
-		M.reagents.add_reagent("crayon_dust",min(5,uses)/3)
+		M.adjustNutrition(1)
+		M.ingested.add_reagent("crayon_dust",min(5,uses)/3)
 		if(uses)
 			uses -= 5
 			if(uses <= 0)
