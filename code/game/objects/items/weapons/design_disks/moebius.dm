@@ -32,7 +32,7 @@
 /obj/item/computer_hardware/hard_drive/portable/design/surgery
 	disk_name = "Back Alley Organs"
 	icon_state = "moebius"
-	license = 5
+	license = 10
 	designs = list(
 		/datum/design/organ/back_alley/ex_lungs,
 		/datum/design/organ/back_alley/huge_heart,
