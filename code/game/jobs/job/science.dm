@@ -161,6 +161,7 @@ Lastly, though they're not commonly used, you have the facilities to construct m
 	icon_state = "player-purple"
 	join_tag = /datum/job/roboticist
 
+/*OCCULUS EDIT: Delete Eris' sciencechiatrist
 /datum/job/psychiatrist
 	title = "Moebius Psychiatrist"
 	flag = PSYCHIATRIST
@@ -197,3 +198,4 @@ Lastly, though they're not commonly used, you have the facilities to construct m
 	name = "Moebius Psychiatrist"
 	icon_state = "player-purple"
 	join_tag = /datum/job/psychiatrist
+*/
