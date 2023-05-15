@@ -137,7 +137,14 @@ var/list/slot_equipment_priority = list(
 			return TRUE
 	if(quick_equip_belt(Item))
 		return TRUE
+	if(quick_equip_s_store(Item)) //occy edit start
+		return TRUE
+	if(quick_equip_l_store(Item))
+		return TRUE
+	if(quick_equip_r_store(Item))
+		return TRUE //occy edit end
 	return FALSE
+
 /mob/living/carbon/human/proc/quick_equip_belt(obj/item/Item)
 	if(istype(src.belt,/obj/item/storage/))
 		var/obj/item/storage/B= src.belt
