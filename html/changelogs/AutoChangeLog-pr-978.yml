@@ -1,0 +1,7 @@
+author: WeNeedMorePhoron
+delete-after: true
+changes:
+  - rscadd: Clonexadone now has a 10% probability of unhusking per tick (Works on
+      the dead)
+  - bugfix: Unhusking (Done by Wine Basin and Clonexadone) now works on mob without
+      a client
