@@ -1,5 +1,0 @@
-author: Michiyamenotehifunana
-delete-after: true
-changes:
-  - rscadd: You can now use speechformatting tags in /me emotes. Bold with +me+ and
-      italic with |me|. Huzzah!
