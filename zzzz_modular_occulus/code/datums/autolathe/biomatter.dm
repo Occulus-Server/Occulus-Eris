@@ -34,3 +34,15 @@
 
 /datum/design/bioprinter/medical/advanced
 	materials = list(MATERIAL_BIOMATTER = 35)
+
+/datum/design/bioprinter/storage/holster
+	name = "pistol holster"
+	build_path = /obj/item/storage/pouch/pistol_holster
+
+/datum/design/bioprinter/storage/dpistol_holster
+	name = "dual pistol holster"
+	build_path = /obj/item/storage/pouch/dpistol_holster
+
+/datum/design/bioprinter/storage/fanny
+	name = "fannypack"
+	build_path = /obj/item/storage/pouch/fanny
