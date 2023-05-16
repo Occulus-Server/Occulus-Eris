@@ -190,6 +190,9 @@
 		if(foundUnlocatedFracture)
 			dat += SPAN_WARNING("Bone fractures detected. Advanced scanner required for location.")
 
+		if(HUSK in H.mutations) // Occu Edit - QOL for Medical telling if someone's husked
+			dat += SPAN_WARNING("Severe tissue damage detected. Resuscitation is impossible") 
+
 		for(var/obj/item/organ/external/e in H.organs)
 			if(!e)
 				continue
