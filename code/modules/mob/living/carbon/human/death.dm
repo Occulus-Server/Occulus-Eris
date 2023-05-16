@@ -143,9 +143,9 @@
 /mob/living/carbon/human/proc/UnHusk()
 	if(!(HUSK in mutations))	return FALSE
 
-	if(f_style)
+	if(f_style && client?.prefs?.f_style) // Occulus Edit null check for client prefs
 		f_style = client.prefs.f_style	//we only change the icon_state of the hair datum, so it doesn't mess up their UI/UE
-	if(h_style)
+	if(h_style && client?.prefs?.h_style) // Occulus Edit null check for client prefs
 		h_style = client.prefs.h_style
 	update_hair(0)
 
