@@ -181,6 +181,10 @@
 		M.add_chemical_effect(CE_PULSE, -2)
 		if(M.stat == DEAD)//Occulus Edit
 			M.timeofdeath += 20//Occulus Edit
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			if(prob(10)) // Occulus Edit - gives Medbay a way to unhusk people
+				H.UnHusk()
 
 /* Painkillers */
 

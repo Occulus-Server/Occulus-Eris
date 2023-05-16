@@ -239,6 +239,61 @@ CHURCH DISKS
 
 /obj/item/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes
 	disk_name = "Mekhane Bio-Fabric Designs"
+	designs = list(
+		/datum/design/bioprinter/nt_clothes/acolyte_armor,
+		/datum/design/bioprinter/nt_clothes/agrolyte_armor,
+		/datum/design/bioprinter/nt_clothes/custodian_armor,
+		/datum/design/bioprinter/nt_clothes/NTvoid,
+
+		/datum/design/bioprinter/nt_clothes/acolyte_armor_head,
+		/datum/design/bioprinter/nt_clothes/agrolyte_armor_head,
+		/datum/design/bioprinter/nt_clothes/custodian_armor_head,
+
+		/datum/design/bioprinter/nt_clothes/preacher_coat,
+		/datum/design/bioprinter/nt_clothes/acolyte_jacket,
+		/datum/design/bioprinter/nt_clothes/sports_jacket,
+
+		/datum/design/bioprinter/nt_clothes/acolyte_uniform,
+		/datum/design/bioprinter/nt_clothes/sports_uniform,
+		/datum/design/bioprinter/nt_clothes/church_uniform,
+
+		/datum/design/bioprinter/belt/security/neotheology,
+		/datum/design/bioprinter/belt/utility/neotheology,
+
+		/datum/design/bioprinter/satchel,
+		/datum/design/bioprinter/leather_jacket,
+		/datum/design/bioprinter/wallet,
+		/datum/design/bioprinter/botanic_leather,
+
+		/datum/design/bioprinter/belt/utility,
+		/datum/design/bioprinter/belt/medical,
+		/datum/design/bioprinter/belt/security,
+		/datum/design/bioprinter/belt/medical/emt,
+		/datum/design/bioprinter/belt/misc/champion,
+
+		/datum/design/bioprinter/leather/holster,
+		/datum/design/bioprinter/leather/holster/armpit,
+		/datum/design/bioprinter/leather/holster/waist,
+		/datum/design/bioprinter/leather/holster/hip,
+
+		/datum/design/bioprinter/small_generic,
+		/datum/design/bioprinter/medium_generic,
+		/datum/design/bioprinter/large_generic,
+		/datum/design/bioprinter/medical_supply,
+		/datum/design/bioprinter/engineering_tools,
+		/datum/design/bioprinter/engineering_supply,
+		/datum/design/bioprinter/ammo,
+		/datum/design/bioprinter/tubular,
+		/datum/design/bioprinter/tubular/vial,
+		/datum/design/bioprinter/part,
+
+   		/datum/design/autolathe/device/headset_church,
+		/datum/design/bioprinter/leather/cash_bag,
+
+		/datum/design/bioprinter/storage/holster,
+		/datum/design/bioprinter/storage/dpistol_holster,
+		/datum/design/bioprinter/storage/fanny
+	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/nt/excruciator
 	disk_name = "Mekhane Armory - MEK Energy Weapons"
