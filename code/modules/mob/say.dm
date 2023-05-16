@@ -51,6 +51,8 @@
 		return
 
 	message = sanitize(message)
+	message = formatSpeech(message, "|", "<i>", "</i>") // OCCULUS EDIT: Emote formating, symbols as suggested by driftingpaws
+	message = formatSpeech(message, "+", "<b>", "</b>") // OCCULUS EDIT: Emote formating, symbols as suggested by driftingpaws
 
 	set_typing_indicator(FALSE)
 	if(use_me)
