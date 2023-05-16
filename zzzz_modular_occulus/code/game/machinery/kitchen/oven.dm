@@ -1,7 +1,6 @@
 /obj/machinery/appliance/cooker/oven
 	name = "oven"
 	desc = "Cookies are ready, dear. Alt-click to open or close the oven door."
-	desc_info = "Control-click this to change its temperature."
 	icon_state = "ovenopen"
 	cook_type = "baked"
 	appliancetype = OVEN
@@ -18,7 +17,7 @@
 
 	maindamage = 30
 	altdamage = 30
-	alt_damage_type = OXYLOSS
+	alt_damage_type = OXY
 	alt_affected_organ = OP_LUNGS
 
 	starts_with = list(
@@ -43,7 +42,7 @@
 
 /obj/item/electronics/circuitboard/oven
 	name = "Circuit board (Plancha)"
-	build_path = /obj/machinery/appliance/oven
+	build_path = /obj/machinery/appliance/cooker/oven
 	origin_tech = list(TECH_DATA = 2)
 
 
@@ -69,8 +68,8 @@
 	try_toggle_door(usr)
 
 /obj/machinery/appliance/cooker/oven/proc/try_toggle_door(mob/user)
-	if(use_check_and_message(user))
-		return
+//	if(!use_check(user))
+//		return
 	open = !open
 	playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)
 	update_icon()
@@ -89,7 +88,7 @@
 		return ..()
 
 /obj/machinery/appliance/cooker/oven/can_remove_items(var/mob/user)
-	if (!open)
+	if(!open)
 		to_chat(user, SPAN_WARNING("You can't take anything out while the door is closed!"))
 		return FALSE
 	return ..()
@@ -98,7 +97,7 @@
 //If a combine target is set the oven will do it instead of checking recipes
 /obj/machinery/appliance/cooker/oven/finish_cooking(var/datum/cooking_item/CI)
 	if(CI.combine_target)
-		visible_message("<b>[src]</b> pings!", intent_message = PING_SOUND)
+		visible_message(SPAN_NOTICE("<b>[src]</b> pings!"))
 		combination_cook(CI)
 		return
 	..()

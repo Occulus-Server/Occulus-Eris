@@ -25,7 +25,6 @@
 
 	var/sanity_gain = 0.2 //per nutriment
 	var/junk_food = FALSE //if TRUE, sanity gain per nutriment will be zero
-	var/cooked = FALSE
 	var/list/taste_tag = list(BLAND_FOOD)
 
 /obj/item/reagent_containers/food/snacks/Initialize()
@@ -735,6 +734,7 @@
 	preloaded_reagents = list("protein" = 3, "sodiumchloride" = 1, "blackpepper" = 1)
 	cooked = TRUE
 	taste_tag = list(SALTY_FOOD,SPICY_FOOD)
+
 /obj/item/reagent_containers/food/snacks/boiledegg
 	name = "Boiled egg"
 	desc = "A hard boiled egg."

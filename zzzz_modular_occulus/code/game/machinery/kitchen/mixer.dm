@@ -14,6 +14,8 @@ fundamental differences
 	active_power_usage = 3000
 	idle_power_usage = 50
 	appliancetype = 0
+	icon = 'zzzz_modular_occulus/icons/obj/machines/kitchen.dmi'
+	icon_state = "mixer_off"
 
 /obj/item/electronics/circuitboard/mixer
 	name = "Circuit board (Mixer)"
@@ -37,8 +39,8 @@ fundamental differences
 	set name = "Choose output"
 	set category = "Object"
 
-	if (use_check_and_message(usr))
-		return
+//	if (!use_check(usr))
+//		return
 
 	if(isemptylist(output_options))
 		return
@@ -100,7 +102,7 @@ fundamental differences
 		CI.combine_target = selected_option
 	get_cooking_work(cooking_objs[1])
 
-/obj/machinery/appliance/mixer/TRUE(var/obj/item/I, var/mob/user)
+/obj/machinery/appliance/mixer/can_cook(var/obj/item/I, var/mob/user)
 	if (!stat)
 		to_chat(user, SPAN_WARNING("You can't add items while [src] is running. Wait for it to finish or turn the power off to abort"))
 		return FALSE
@@ -121,7 +123,7 @@ fundamental differences
 		icon_state = off_icon
 
 
-/obj/machinery/appliance/mixer/machinery_process()
+/obj/machinery/appliance/mixer/Process()
 	if (!stat)
 		for (var/i in cooking_objs)
 			do_cooking_tick(i)

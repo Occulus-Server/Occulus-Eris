@@ -1,4 +1,18 @@
 // see code/datums/recipe.dm
+/datum/recipe/hotdog
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/sausage
+	)
+	result = /obj/item/reagent_containers/food/snacks/hotdog
+
+/datum/recipe/classichotdog
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/meat/corgi
+	)
+	result = /obj/item/reagent_containers/food/snacks/classichotdog
+
 /datum/recipe/humanburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/human,
@@ -47,20 +61,6 @@
 		/obj/item/reagent_containers/food/snacks/tofu
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/tofu
-
-/datum/recipe/hotdog
-	items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/sausage
-	)
-	result = /obj/item/reagent_containers/food/snacks/hotdog
-
-/datum/recipe/classichotdog
-	items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat/corgi
-	)
-	result = /obj/item/reagent_containers/food/snacks/classichotdog
 
 /datum/recipe/humankabob
 	items = list(
@@ -113,14 +113,26 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/sandwich
-/*
+
 /datum/recipe/bunbun
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
 		/obj/item/reagent_containers/food/snacks/bun
 	)
 	result = /obj/item/reagent_containers/food/snacks/bunbun
-*/
+
+/datum/recipe/reubensandwich
+	reagents = list(/datum/reagent/organic/nutriment/mayonnaise = 5, /datum/reagent/organic/nutriment/ketchup = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/toast,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/sauerkraut,
+		/obj/item/reagent_containers/food/snacks/cutlet,
+		/obj/item/reagent_containers/food/snacks/toast
+	)
+	reagent_mix = RECIPE_REAGENT_MIN
+	result = /obj/item/reagent_containers/food/snacks/reubensandwich
+
 /datum/recipe/superbiteburger
 	fruit = list("tomato" = 1)
 	reagents = list(/datum/reagent/other/sodiumchloride = 5, /datum/reagent/organic/blackpepper = 5)
@@ -177,6 +189,14 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/jellysandwich/cherry
 
+/datum/recipe/pbjsandwich
+	reagents = list(/datum/reagent/organic/nutriment/cherryjelly = 5, /datum/reagent/organic/nutriment/peanutbutter = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/pbjsandwich
+
 /datum/recipe/tossedsalad
 	fruit = list("cabbage" = 2, "tomato" = 1, "carrot" = 1, "apple" = 1)
 	result = /obj/item/reagent_containers/food/snacks/salad/tossedsalad
@@ -209,7 +229,7 @@
 //in some foods. Many require the space spice reagent/condiment
 //to reduce the risk of future recipe conflicts.
 /////////////////////////////////////////////////////////////
-/*	//Occulus Edit: we no longer have spacebears, therefore no meat to get this from.
+/*	//Occulus edit: Removed because space bears are deprecated.
 /datum/recipe/bearburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
@@ -319,4 +339,11 @@
 		/obj/item/reagent_containers/food/snacks/spreads/lard
 	)
 	result = /obj/item/reagent_containers/food/snacks/lardwich
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/sauerkraut
+	appliance = MIX
+	fruit = list("cabbage" = 1)
+	reagents = list(/datum/reagent/organic/enzyme = 5)
+	result = /obj/item/reagent_containers/food/snacks/sauerkraut
 	reagent_mix = RECIPE_REAGENT_REPLACE

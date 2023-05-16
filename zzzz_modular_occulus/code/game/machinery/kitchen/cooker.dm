@@ -3,7 +3,7 @@
 	//desc = "A flat-topped grill for cooking things like hamburgers or steaks on."
 	icon_state = "null"
 	cooking_power = 0
-	var/optimal_power = 1.1//cooking power at 100%
+	optimal_power = 1.1//cooking power at 100%
 
 	var/light_x = 0
 	var/light_y = 0
@@ -11,6 +11,7 @@
 	cooking_power = 0
 	flags = null
 	var/starts_with = list()
+	power_verb = "turn on"
 
 
 /obj/machinery/appliance/cooker/MouseEntered(location, control, params)
@@ -67,15 +68,16 @@
 		cooking_objs.Add(CI)
 	cooking = 0
 
-	queue_icon_update()
+	update_icon()
 
 /obj/machinery/appliance/cooker/attempt_toggle_power(mob/user)
 	. = ..()
 	switch(use_power)
-		if(on)
+		if(ACTIVE_POWER_USE)
 			hot = TRUE
-		if(off)
+		if(IDLE_POWER_USE)
 			hot = FALSE	//I wish I could call this cold, but I can't
+	playsound(src, 'sound/machines/click.ogg', 20, 1)
 	update_icon()
 
 /obj/machinery/appliance/cooker/update_icon()
@@ -89,27 +91,29 @@
 	light.pixel_y = light_y
 	overlays += light
 
-/obj/machinery/appliance/cooker/machinery_process()
+/obj/machinery/appliance/cooker/Process()
 	if(!stat)
 		update_cooking_power() // update!
 	for(var/cooking_obj in cooking_objs)
 		var/datum/cooking_item/CI = cooking_obj
-		if((CI.container.flags && NOREACT) || isemptylist(CI.container?.reagents.reagent_volumes))
+		if((CI.container.flags && NO_REACT) || isemptylist(CI.container.reagents.reagent_list))
 			continue
-		CI.container.reagents.set_temperature(min(temperature, CI.container.reagents.get_temperature() + 10*SIGN(temperature - CI.container.reagents.get_temperature()))) // max of 5C per second
+		CI.container.reagents.chem_temp += 5	//Increment by 5C per second?
+		//CI.container.reagents.set_temperature(min(temperature, CI.container?.chem_temp + 10*SIGN(temperature - CI.container.chem_temp))) // max of 5C per second
 	return ..()
 
 /obj/machinery/appliance/cooker/power_change()
 	. = ..()
-	queue_icon_update()
+	update_icon()
 
-/*
+
 /obj/machinery/appliance/cooker/update_cooking_power()
 	if(hot)
 		cooking_power = optimal_power
+		//temperature =
 	if(!hot)
 		cooking_power = 0
-*/
+		//temperature = T20C
 
 //Cookers do differently, they use containers
 /obj/machinery/appliance/cooker/has_space(var/obj/item/I)
@@ -130,3 +134,18 @@
 	if (CI && CI.combine_target)
 		to_chat(user, "[I] will be used to make a [selected_option]. Output selection is returned to default for future items.")
 		selected_option = null
+/*
+/obj/machinery/appliance/cooker/proc/heat_up()
+	if (temperature < set_temp)
+		if (use_power == POWER_USE_IDLE && ((set_temp - temperature) > 5))
+			playsound(src, 'sound/machines/click.ogg', 20, 1)
+			update_use_power(POWER_USE_ACTIVE)
+			update_icon()
+		temperature += heating_power / resistance
+		update_cooking_power()
+		return TRUE
+	if (use_power == POWER_USE_ACTIVE)
+		update_use_power(POWER_USE_IDLE)
+		playsound(src, 'sound/machines/click.ogg', 20, 1)
+		update_icon()
+*/

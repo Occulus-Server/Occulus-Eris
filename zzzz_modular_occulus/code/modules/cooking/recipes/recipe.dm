@@ -1,6 +1,6 @@
 /*
  *  Functions you need:
- *  /decl/recipe/proc/make(var/obj/container as obj)
+ *  /datum/recipe/proc/make(var/obj/container as obj)
  *    Creates result inside container,
  *    deletes prerequisite reagents,
  *    transfers reagents from prerequisite objects,
@@ -13,26 +13,47 @@
  *
  *
  *  Functions you do not need to call directly but could:
- *  /decl/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
- *  /decl/recipe/proc/check_items(var/obj/container as obj)
+ *  /datum/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
+ *  /datum/recipe/proc/check_items(var/obj/container as obj)
  *
  * */
 
+/datum/reagents/proc/trans_type_to(var/target, var/rtype, var/amount = 1)
+	if (!target)
+		return
+
+	var/datum/reagent/transfering_reagent = rtype
+
+	if (istype(target, /atom))
+		var/atom/A = target
+		if (!A.reagents || !A.simulated)
+			return
+
+	amount = min(amount, REAGENT_VOLUME(src, rtype))
+
+	if(!amount)
+		return
 
 
-/decl/recipe
+	var/datum/reagents/F = new /datum/reagents(amount)
+	var/tmpdata = REAGENT_DATA(src, rtype)
+	F.add_reagent(rtype, amount, tmpdata)
+	remove_reagent(rtype, amount)
+
+
+	if (istype(target, /atom))
+		return F.trans_to(target, amount) // Let this proc check the atom's type
+	else if (istype(target, /datum/reagents))
+		return F.trans_to_holder(target, amount)
+
+
+/datum/recipe
 	var/display_name
-	var/list/reagents // example: = list(/decl/reagent/drink/berryjuice = 5) // do not list same reagent twice
-	var/list/items    // example: = list(/obj/item/crowbar, /obj/item/welder) // place /foo/bar before /foo
-	var/list/fruit    // example: = list("fruit" = 3)
-	var/coating = null//Required coating on all items in the recipe. The default value of null explitly requires no coating
-	//A value of -1 is permissive and cares not for any coatings
-	//Any typepath indicates a specific coating that should be present
-	//Coatings are used for batter, breadcrumbs, beer-batter, colonel's secret coating, etc
-
-	var/result        // example: = /obj/item/reagent_containers/food/snacks/donut/normal
+	var/coating = null	//Required coating on all items in the recipe. The default value of null explitly requires no coating
+						//A value of -1 is permissive and cares not for any coatings
+						//Any typepath indicates a specific coating that should be present
+						//Coatings are used for batter, breadcrumbs, beer-batter, colonel's secret coating, etc
 	var/result_quantity = 1 //number of instances of result that are created.
-	var/time = 100    // 1/10 part of second
 
 	#define RECIPE_REAGENT_REPLACE		0 //Reagents in the ingredients are discarded.
 	//Only the reagents present in the result at compiletime are used
@@ -56,7 +77,7 @@
 	*/
 	//This is a bitfield, more than one type can be used
 
-/decl/recipe/proc/get_appliance_names()
+/datum/recipe/proc/get_appliance_names()
 	var/list/appliance_names
 	if(appliance & GRILL) // this comes first in the proc because it's the most important - geeves
 		LAZYADD(appliance_names, "a grill")
@@ -74,7 +95,7 @@
 		LAZYADD(appliance_names, "a pot")
 	return english_list(appliance_names, and_text = " or ")
 
-/decl/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
+/datum/recipe/proc/cook_check_reagents(var/datum/reagents/avail_reagents)
 	if (isemptylist(reagents))
 		return avail_reagents?.total_volume ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
 
@@ -90,11 +111,11 @@
 		else
 			return COOK_CHECK_FAIL
 
-	if ((reagents?length(reagents):0) < length(avail_reagents.reagent_volumes))
+	if ((reagents?length(reagents):0) < length(avail_reagents.reagent_list))
 		return COOK_CHECK_EXTRA
 	return .
 
-/decl/recipe/proc/check_fruit(var/obj/container)
+/datum/recipe/proc/cook_check_fruit(var/obj/container)
 	if (isemptylist(fruit))
 		var/obj/item/reagent_containers/food/snacks/grown/G = locate() in container
 		return G ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
@@ -107,11 +128,11 @@
 			if(!G.seed || !G.seed.kitchen_tag)
 				continue
 			use_tag = G.dry ? "dried [G.seed.kitchen_tag]" : G.seed.kitchen_tag
-		else if(istype(S, /obj/item/reagent_containers/food/snacks/fruit_slice))
+/*		else if(istype(S, /obj/item/reagent_containers/food/snacks/fruit_slice))
 			var/obj/item/reagent_containers/food/snacks/fruit_slice/FS = S
 			if(!FS.seed || !FS.seed.kitchen_tag)
 				continue
-			use_tag = "[FS.seed.kitchen_tag] slice"
+			use_tag = "[FS.seed.kitchen_tag] slice"*/
 		use_tag = "[S.dry ? "dried " : ""][use_tag]"
 		if(isnull(checklist[use_tag]))
 			continue
@@ -126,7 +147,7 @@
 				break
 	return .
 
-/decl/recipe/proc/check_items(var/obj/container as obj)
+/datum/recipe/proc/cook_check_items(var/obj/container as obj)
 	if (isemptylist(items))
 		return container?.contents.len ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
 	. = COOK_CHECK_EXACT
@@ -152,8 +173,9 @@
 
 	return .
 
+
 //This is called on individual items within the container.
-/decl/recipe/proc/check_coating(var/obj/item/reagent_containers/food/snacks/S)
+/datum/recipe/proc/check_coating(var/obj/item/reagent_containers/food/snacks/S)
 	if(!istype(S))
 		return TRUE//Only snacks can be battered
 
@@ -162,19 +184,8 @@
 
 	return !coating || (S.coating == coating)
 
-//general version
-/decl/recipe/proc/make(var/obj/container as obj)
-	var/obj/result_obj = new result(container)
-	for (var/obj/O in (container.contents-result_obj))
-		O.reagents.trans_to_obj(result_obj, O.reagents.total_volume)
-		qdel(O)
-	container.reagents.clear_reagents()
-
-	return result_obj
-
-// food-related
 //This proc is called under the assumption that the container has already been checked and found to contain the necessary ingredients
-/decl/recipe/proc/make_food(var/obj/container as obj)
+/datum/recipe/proc/cook_food(var/obj/container as obj)
 	if(!result)
 		return
 
@@ -248,7 +259,7 @@
 		if (RECIPE_REAGENT_MAX)
 			//We want the highest of each.
 			//Iterate through everything in buffer. If the target has less than the buffer, then top it up
-			for (var/_R in buffer.reagent_volumes)
+			for (var/_R in buffer.reagent_list)
 				var/rvol = REAGENT_VOLUME(holder, _R)
 				var/bvol = REAGENT_VOLUME(buffer, _R)
 				if (rvol < bvol)
@@ -258,7 +269,7 @@
 		if (RECIPE_REAGENT_MIN)
 			//Min is slightly more complex. We want the result to have the lowest from each side
 			//But zero will not count. Where a side has zero its ignored and the side with a nonzero value is used
-			for (var/_R in buffer.reagent_volumes)
+			for (var/_R in buffer.reagent_list)
 				var/rvol = REAGENT_VOLUME(holder, _R)
 				var/bvol = REAGENT_VOLUME(buffer, _R)
 				if (rvol == 0) //If the target has zero of this reagent
@@ -281,16 +292,22 @@
 
 	return results
 
+//The following is used for sorting recipes by complexity for recipe selection.
+/proc/cmp_recipe_complexity_dsc(datum/recipe/A, datum/recipe/B)
+	var/a_score = LAZYLEN(A.items) + LAZYLEN(A.reagents) + LAZYLEN(A.fruit)
+	var/b_score = LAZYLEN(B.items) + LAZYLEN(B.reagents) + LAZYLEN(B.fruit)
+	return b_score - a_score
+
 //When exact is false, extraneous ingredients are ignored
 //When exact is true, extraneous ingredients will fail the recipe
 //In both cases, the full complement of required inredients is still needed
-/proc/select_recipe(var/obj/obj as obj, var/exact = COOK_CHECK_EXTRA, var/appliance = null)
+/proc/select_cooking_recipe(var/obj/obj as obj, var/exact = COOK_CHECK_EXTRA, var/appliance = null)
 	if(!appliance)
 		CRASH("Null appliance flag passed to select_recipe!")
-	var/list/available_recipes = decls_repository.get_decls_of_subtype(/decl/recipe)
+	var/list/available_recipes = subtypesof(/datum/recipe)
 	var/list/possible_recipes = list()
 	for (var/R in available_recipes)
-		var/decl/recipe/recipe = decls_repository.get_decl(R)
+		var/datum/recipe/recipe = pick(available_recipes)
 		if(!(appliance & recipe.appliance))
 			continue
 		if((recipe.check_reagents(obj.reagents) < exact) || (recipe.check_items(obj) < exact) || (recipe.check_fruit(obj) < exact))

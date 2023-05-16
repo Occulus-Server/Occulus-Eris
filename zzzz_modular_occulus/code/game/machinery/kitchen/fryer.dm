@@ -2,7 +2,7 @@
 	name = "deep fryer"
 	desc = "A deep-fat frying unit. A label on the side warns to not fry cereals."
 	icon_state = "fryer_off"
-	can_cook_mobs = 1
+	//can_cook_mobs = 1
 	cook_type = "deep fried"
 	on_icon = "fryer_on"
 	off_icon = "fryer_off"
@@ -27,7 +27,7 @@
 
 	maindamage = 30
 	altdamage = 30
-	alt_damage_type = OXYLOSS
+	alt_damage_type = OXY
 	alt_affected_organ = OP_LUNGS
 
 /obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
@@ -44,25 +44,27 @@
 	if (prob(20))
 		//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
 		variance = rand()*0.5
-	oil.add_reagent(/decl/reagent/nutriment/triglyceride/oil/corn, optimal_oil*(1 - variance))
-
+	oil.add_reagent(/datum/reagent/organic/nutriment/cornoil, optimal_oil*(1 - variance))
+/*
 /obj/machinery/appliance/cooker/fryer/heat_up()
 	if (..())
 		//Set temperature of oil
 		oil.set_temperature(temperature)
+*/	//We want things to just be on or off, heating up is annoying.
 
-/obj/machinery/appliance/cooker/fryer/machinery_process()
+/obj/machinery/appliance/cooker/fryer/Process()
 	. = ..()
-	//Set temperature of oil
-	oil.set_temperature(temperature)
+	//Set temperature of oil, used to be a set temperature proc
+	if(!oil.chem_temp == src.temperature)
+		oil.chem_temp = src.temperature
 
 /obj/machinery/appliance/cooker/fryer/update_cooking_power()
 	..()//In addition to parent temperature calculation
 	//Fryer efficiency also drops when oil levels arent optimal
-	var/oil_level = 0
-	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
+	var/oil_level = oil
+	var/datum/reagent/organic/nutriment/cornoil/OL = oil.get_master_reagent()
 	if (OL && istype(OL))
-		oil_level = oil.reagent_volumes[OL.type]
+		oil_level = oil.reagent_list[OL.type]
 
 	var/oil_efficiency = 0
 	if (oil_level)
@@ -98,18 +100,18 @@
 	var/total_oil = 0
 	var/total_our_oil = 0
 	var/total_removed = 0
-	var/decl/reagent/our_oil = oil.get_primary_reagent_decl()
+	var/datum/reagent/our_oil = oil.get_master_reagent()
 
 	for (var/obj/item/I in CI.container)
 		if (I.reagents && I.reagents.total_volume)
-			for (var/_R in I.reagents.reagent_volumes)
-				if (ispath(_R, /decl/reagent/nutriment/triglyceride/oil))
-					total_oil += I.reagents.reagent_volumes[_R]
+			for (var/_R in I.reagents.reagent_list)
+				if (ispath(_R, /datum/reagent/organic/nutriment/cornoil))
+					total_oil += I.reagents.reagent_list[_R]
 					if (_R != our_oil.type)
-						total_removed += I.reagents.reagent_volumes[_R]
-						I.reagents.remove_reagent(_R, I.reagents.reagent_volumes[_R])
+						total_removed += I.reagents.reagent_list[_R]
+						I.reagents.remove_reagent(_R, I.reagents.reagent_list[_R])
 					else
-						total_our_oil += I.reagents.reagent_volumes[_R]
+						total_our_oil += I.reagents.reagent_list[_R]
 
 	if (total_removed > 0 || total_oil != CI.max_oil)
 		total_oil = min(total_oil, CI.max_oil)
@@ -126,9 +128,9 @@
 			for (var/thing in CI.container)
 				var/obj/item/I = thing
 				if (I.reagents && I.reagents.total_volume)
-					for (var/_R in I.reagents.reagent_volumes)
+					for (var/_R in I.reagents.reagent_list)
 						if (_R == our_oil.type)
-							I.reagents.remove_reagent(_R, I.reagents.reagent_volumes[_R]*portion)
+							I.reagents.remove_reagent(_R, I.reagents.reagent_list[_R]*portion)
 					I.reagents.set_temperature(T0C + 40 + rand(-5, 5)) // warm, but not hot; avoiding aftereffects of the hot oil
 
 /obj/machinery/appliance/cooker/fryer/attackby(var/obj/item/I, var/mob/user)
@@ -143,10 +145,10 @@
 	//That would really require coding some sort of filter or better replacement mechanism first
 	//So for now, restrict to oil only
 		var/amount = 0
-		for (var/_R in I.reagents.reagent_volumes)
-			if (ispath(_R, /decl/reagent/nutriment/triglyceride/oil))
-				var/delta = REAGENTS_FREE_SPACE(oil)
-				delta = min(delta, I.reagents.reagent_volumes[_R])
+		for (var/_R in I.reagents.reagent_list)
+			if (ispath(_R, /datum/reagent/organic/nutriment/cornoil))
+				var/delta = oil.maximum_volume - oil.total_volume
+				delta = min(delta, I.reagents.reagent_list[_R])
 				oil.add_reagent(_R, delta)
 				I.reagents.remove_reagent(_R, delta)
 				amount += delta

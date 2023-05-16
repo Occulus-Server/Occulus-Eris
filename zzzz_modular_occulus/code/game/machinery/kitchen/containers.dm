@@ -1,9 +1,9 @@
 /obj/item/reagent_containers/cooking_container
-	icon = 'icons/obj/cooking_machines.dmi'
+	icon = 'zzzz_modular_occulus/icons/obj/machines/kitchen.dmi'
 	var/shortname
 	var/place_verb = "into"
-	var/max_space = 20//Maximum sum of w-classes of foods in this container at once
-	volume = 80//Maximum units of reagents
+	var/max_space = 20	//Maximum sum of w-classes of foods in this container at once
+	volume = 80			//Maximum units of reagents
 	flags = OPENCONTAINER
 	var/list/insertable = list(
 		/obj/item/reagent_containers/food/snacks,
@@ -13,8 +13,17 @@
 		/obj/item/stack/rods,
 		/obj/item/organ/internal/brain
 		)
-	var/appliancetype // Bitfield, uses the same as appliances
+	var/appliancetype	// Bitfield, uses the same as appliances
 	w_class = ITEM_SIZE_NORMAL
+	contents = list()
+/*
+/obj/item/reagent_containers/cooking_container/proc/use_check(var/mob/user)
+	if(isrobot(user))
+		return FALSE
+	if(user.stat == DEAD || user.stat == UNCONSCIOUS)
+		return FALSE
+	return TRUE
+*/
 
 /obj/item/reagent_containers/cooking_container/examine(var/mob/user)
 	. = ..()
@@ -59,7 +68,7 @@
 			return
 		I.forceMove(src)
 		to_chat(user, SPAN_NOTICE("You put [I] [place_verb] [src]."))
-		return
+		return ..()
 
 /obj/item/reagent_containers/cooking_container/verb/empty()
 	set src in oview(1)
@@ -70,8 +79,8 @@
 	do_empty(usr)
 
 /obj/item/reagent_containers/cooking_container/proc/do_empty(mob/user)
-	if (use_check_and_message(user))
-		return
+//	if (!use_check(user))
+//		return
 
 	if (isemptylist(contents))
 		to_chat(user, SPAN_WARNING("There's nothing in [src] you can remove!"))
@@ -115,7 +124,7 @@
 		var/obj/O = locate() in contents
 		return . + O.name //Just append the name of the first object
 	else if (reagents.total_volume > 0)
-		var/decl/reagent/R = reagents.get_primary_reagent_decl()
+		var/datum/reagent/R = reagents.get_master_reagent()
 		return . + R.name//Append name of most voluminous reagent
 	return . + "empty"
 
@@ -170,7 +179,7 @@
 
 /obj/item/reagent_containers/cooking_container/skillet/Initialize(var/mapload, var/mat_key)
 	. = ..(mapload)
-	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	var/material/material = get_material_by_name(MATERIAL_STEEL)
 	if(!material)
 		return
 	if(material.name != MATERIAL_STEEL)
@@ -191,7 +200,7 @@
 
 /obj/item/reagent_containers/cooking_container/saucepan/Initialize(var/mapload, var/mat_key)
 	. = ..(mapload)
-	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	var/material/material = get_material_by_name(MATERIAL_STEEL)
 	if(!material)
 		return
 	if(material.name != MATERIAL_STEEL)
@@ -211,14 +220,14 @@
 	appliancetype = "POT"
 	w_class = ITEM_SIZE_BULKY
 
-/obj/item/reagent_containers/cooking_container/pot/Initialize(mapload, mat_key)
+/obj/item/reagent_containers/cooking_container/pot/Initialize(var/mapload, var/mat_key)
 	. = ..(mapload)
-	var/material/m = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
-	if(!m)
+	var/material/material = get_material_by_name(MATERIAL_STEEL)
+	if(!material)
 		return
 	if(mat_key && mat_key != MATERIAL_STEEL)
 		color = material.icon_colour
-	name = "[m.display_name] [initial(name)]"
+	name = "[material.display_name] [initial(name)]"
 
 /obj/item/reagent_containers/cooking_container/fryer
 	name = "fryer basket"
@@ -260,11 +269,11 @@
 		to_chat(user, SPAN_NOTICE("To attempt cooking; click and hold, then drag this onto your character"))
 
 /obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
-	if(over_obj != usr || use_check(usr))
+	if(over_obj != usr)
 		return ..()
 	if(!(length(contents) || reagents?.total_volume))
 		return ..()
-	var/decl/recipe/recipe = select_recipe(src, appliance = appliancetype)
+	var/datum/recipe/recipe = select_recipe(src, appliance = appliancetype)
 	if(!recipe)
 		return
 	var/list/obj/results = recipe.make_food(src)

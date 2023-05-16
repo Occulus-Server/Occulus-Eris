@@ -1,6 +1,29 @@
 /datum/reagent/drink/dr_gibb
 	taste_tag = list(TASTE_SWEET, TASTE_LIGHT)
 
+/datum/reagent/organic/nutriment/spacespice
+	name = "Space Spice"
+	description = "A blend of exotic herbs and spices brought to you by the Harkonnen corporation."
+	reagent_state = SOLID
+	color = "#e08702"
+	taste_description = "spices"
+	taste_mult = 1.5
+	taste_tag = list(TASTE_SPICY)
+/*
+	condiment_name = "bottle of space spice"
+	condiment_icon_state = "spacespicebottle"
+	condiment_center_of_mass = list("x"=16, "y"=10)
+*/
+/datum/reagent/organic/nutriment/mayonnaise
+
+
+/datum/reagent/organic/nutriment/peanutbutter
+
+
+/datum/reagent/organic/nutriment/batter
+
+/datum/reagent/organic/nutriment/beerbatter
+
 /obj/item/reagent_containers/food/snacks/brownies
 	name = "Brownies"
 	icon_state = "crackersbox"
