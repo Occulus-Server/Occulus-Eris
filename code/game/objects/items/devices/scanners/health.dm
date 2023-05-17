@@ -108,6 +108,11 @@
 	dat += span("highlight", "Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)")
 	if(M.timeofdeath && (M.stat == DEAD || (M.status_flags & FAKEDEATH)))
 		dat += span("highlight", "Time of Death: [worldtime2stationtime(M.timeofdeath)]")
+		var/tdelta = round(world.time - M.timeofdeath) // Occulus Edit, Defib QOL
+		if(tdelta < DEFIB_TIME_LIMIT)
+			dat += span("danger", "Subject died [DisplayTimeText(tdelta)] ago, defibrillation may be possible!")
+			// Occulus edit end
+
 	if(ishuman(M) && mode == 1)
 		var/mob/living/carbon/human/H = M
 		var/list/damaged = H.get_damaged_organs(1, 1)
@@ -190,7 +195,7 @@
 		if(foundUnlocatedFracture)
 			dat += SPAN_WARNING("Bone fractures detected. Advanced scanner required for location.")
 
-		if(HUSK in H.mutations) // Occu Edit - QOL for Medical telling if someone's husked
+		if(HUSK in H.mutations) // Occulus Edit - QOL for Medical telling if someone's husked
 			dat += SPAN_WARNING("Severe tissue damage detected. Resuscitation is impossible") 
 
 		for(var/obj/item/organ/external/e in H.organs)
