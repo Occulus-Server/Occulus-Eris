@@ -129,11 +129,11 @@
 	var/obj/item/W
 	switch(odditystrength)
 		if(1)
-			W = pick(/obj/item/gun/projectile/revolver, /obj/item/gun/projectile/giskard, /obj/item/gun/projectile/mandella, /obj/item/gun/projectile/boltgun/serbian)
+			W = pick(/obj/item/gun/projectile/revolver/noble, /obj/item/gun/projectile/colt/noble, /obj/item/gun/projectile/mandella/noble, /obj/item/gun/projectile/boltgun/fs/noble)
 		if(2)
-			W = pick(/obj/item/tool/sword, /obj/item/tool/sword/katana, /obj/item/tool/hammer/mace, /obj/item/shield/riot)
+			W = pick(/obj/item/tool/sword/noble, /obj/item/tool/sword/katana/noble, /obj/item/tool/hammer/mace/noble)
 		if(3)
-			W = pick(/obj/item/tool/knife/ritual, /obj/item/tool/knife/dagger/ceremonial, /obj/item/tool/knife/tacknife)
+			W = pick(/obj/item/tool/knife/ritual/noble, /obj/item/tool/knife/dagger/ceremonial, /obj/item/tool/knife/tacknife/noble)
 	holder.sanity.valid_inspirations += W
 	W = new W(T)
 	W.name = "[holder.family_name] family [W.name]"		//Eclipse edit: Family name, not surname

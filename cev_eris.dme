@@ -2989,6 +2989,7 @@
 #include "zzzz_modular_occulus\code\modules\gunkits.dm"
 #include "zzzz_modular_occulus\code\modules\gunwieldingnoises.dm"
 #include "zzzz_modular_occulus\code\modules\loot_spawn_blacklist.dm"
+#include "zzzz_modular_occulus\code\modules\noble_sprites.dm"
 #include "zzzz_modular_occulus\code\modules\admin\verbs\sdql_2\sdql_2_std.dm"
 #include "zzzz_modular_occulus\code\modules\cargo\packs.dm"
 #include "zzzz_modular_occulus\code\modules\client\asset_cashe.dm"
