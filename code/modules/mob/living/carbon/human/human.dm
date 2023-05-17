@@ -1700,7 +1700,6 @@ var/list/rank_prefix = list(\
 	visible_message(SPAN_NOTICE("\The [src] twitches a bit as their heart restarts!"))
 	pulse = PULSE_NORM
 	handle_pulse()
-	tod = null
 	//timeofdeath = 0 Occulus yeet
 	stat = UNCONSCIOUS
 	jitteriness += 3 SECONDS
