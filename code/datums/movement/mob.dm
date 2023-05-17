@@ -226,7 +226,7 @@
 // Along with more physical checks
 /datum/movement_handler/mob/physically_capable/MayMove(var/mob/mover)
 	// We only check physical capability if the host mob tried to do the moving
-	return ((mover && mover != mob) || !mob.incapacitated(INCAPACITATION_DISABLED & ~INCAPACITATION_FORCELYING)) ? MOVEMENT_PROCEED : MOVEMENT_STOP
+	return ((mover && mover != mob) || !mob.incapacitated(INCAPACITATION_DISABLED)) ? MOVEMENT_PROCEED : MOVEMENT_STOP
 
 // Is anything physically preventing movement?
 /datum/movement_handler/mob/physically_restrained/MayMove(var/mob/mover)
@@ -296,6 +296,9 @@
 	var/old_turf = get_turf(mob)
 	step(mob, direction)
 
+//	if(!MOVING_DELIBERATELY(mob))
+//		mob.handle_movement_recoil()
+	mob.add_momentum(direction)
 	// Something with pulling things
 	var/extra_delay = HandleGrabs(direction, old_turf)
 	mob.add_move_cooldown(extra_delay)
