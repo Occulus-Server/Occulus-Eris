@@ -127,7 +127,7 @@
 	//Occulus Edit Start
 	var/odditystrength = rand(1,3)
 	var/obj/item/W
-	switch(odditystrength)
+	switch(odditystrength)                         // Occulus edit: these noble paths points to Occulus' modular folder (zzz_modular_occulus) in noble_sprites.dm
 		if(1)
 			W = pick(/obj/item/gun/projectile/revolver/noble, /obj/item/gun/projectile/colt/noble, /obj/item/gun/projectile/mandella/noble, /obj/item/gun/projectile/boltgun/fs/noble)
 		if(2)
