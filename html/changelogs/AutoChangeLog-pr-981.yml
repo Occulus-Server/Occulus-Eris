@@ -1,8 +1,0 @@
-author: WeNeedMorePhoron
-delete-after: true
-changes:
-  - bugfix: Time of death now display properly on health analyzer. Report if time
-      is very off.
-  - tweak: Health Analyzer now displays husked corpse as "Severe tissue damage detected.
-      Resuscitation not possible."
-  - tweak: Health analyzer now displays in big red text when you can defib someone.
