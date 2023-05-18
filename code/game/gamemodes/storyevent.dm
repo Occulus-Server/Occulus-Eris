@@ -32,7 +32,8 @@
 
 	var/req_stage = -1
 
-	var/max_crew_diff_lower = 10	//Maximum difference between above values and real crew distribution. If difference is greater, weight will be 0
+	// var/max_crew_diff_lower = 10		// Occulus Edit: Removed since this is no longer used as the original
+	// And it was causing required crew to be unexpectedly low (reduced by 10) on all events, leading to coder confusion and unintentional event firing
 	var/max_crew_diff_higher = 10
 
 	var/max_stage_diff_lower = 0

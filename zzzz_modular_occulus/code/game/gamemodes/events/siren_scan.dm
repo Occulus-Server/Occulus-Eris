@@ -9,9 +9,8 @@
 
 	event_type = /datum/event/siren_scan
 	event_pools = list(EVENT_LEVEL_MODERATE = POOL_THRESHOLD_MODERATE)
-	req_crew = 8
-	weight = 0.5
-	max_crew_diff_lower = 3
+	req_crew = 12
+	weight = 0.25
 	tags = list(TAG_SCARY, TAG_COMMUNAL, TAG_COMBAT)
 
 
