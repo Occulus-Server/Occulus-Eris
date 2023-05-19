@@ -39,3 +39,18 @@
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_regulator
 	disk_name = "Frozen Star - .50 Regulator Shotgun"
+
+/obj/item/computer_hardware/hard_drive/portable/design/guns/stoat
+	disk_name = "Frozen Star - .50 Stoat Shotgun"
+	icon_state = "frozenstar"
+	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
+	license = 12
+	designs = list(
+		/datum/design/autolathe/gun/stoat = 3,
+		/datum/design/autolathe/ammo/s5_practice = 0,
+		/datum/design/autolathe/ammo/s5_empty = 0,
+		/datum/design/autolathe/ammo/s5_rubbershot,
+		/datum/design/autolathe/ammo/s5_beanbag,
+		/datum/design/autolathe/ammo/s5_pellet,
+		/datum/design/autolathe/ammo/s5_slug,
+	)

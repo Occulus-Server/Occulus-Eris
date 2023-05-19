@@ -34,15 +34,15 @@
 	name = "short magazine (.50)"
 	desc = "A small, 5 shot magazine designed for shotgun shells."
 	icon = 'zzzz_modular_occulus/icons/obj/magazines.dmi'
-	icon_state = "s5mag"
+	icon_state = "s5mag_l"
 	mag_type = MAGAZINE
 	mag_well = MAG_WELL_SMG
 	caliber = CAL_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun
 	matter = list(MATERIAL_STEEL = 6)
 	max_ammo = 5
-	ammo_color = ""
-	initial_ammo = 0
+	ammo_color = "-l"
+	initial_ammo = 5
 
 /obj/item/ammo_magazine/s5mag/on_update_icon()
 	cut_overlays()
@@ -58,30 +58,32 @@
 	name = "short magazine (.50 beanbag)"
 	icon_state = "s5mag_r"
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	initial_ammo = 5
 	ammo_color = "-r"
 
 /obj/item/ammo_magazine/s5mag/rubbershot
 	name = "short magazine (.50 rubbershot)"
 	icon_state = "s5mag_r"
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet/rubber
-	initial_ammo = 5
 	ammo_color = "-r"
 
 /obj/item/ammo_magazine/s5mag/slug
 	name = "short magazine (.50 slug)"
 	icon_state = "s5mag_hv"
 	ammo_type = /obj/item/ammo_casing/shotgun
-	matter = list(MATERIAL_STEEL = 6)
-	initial_ammo = 5
 	ammo_color = "-hv"
 
-/obj/item/ammo_magazine/s5mag/pellet
-	name = "ammo drum (.50 pellet)"
-	icon_state = "s5mag_l"
-	ammo_type = /obj/item/ammo_casing/shotgun/pellet
-	initial_ammo = 5
-	ammo_color = "-l"
+/obj/item/ammo_magazine/s5mag/empty
+	name = "short magazine (.50)"
+	icon_state = "s5mag"
+	matter = list(MATERIAL_STEEL = 1)
+	initial_ammo = 0
+	ammo_color = ""
+
+/obj/item/ammo_magazine/s5mag/practice
+	name = "short magazine (.50 practice)"
+	icon_state = "s5mag_p"
+	ammo_type = /obj/item/ammo_casing/shotgun/practice
+	ammo_color = "-p"
 
 // nail magazines
 
