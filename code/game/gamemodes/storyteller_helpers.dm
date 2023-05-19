@@ -28,7 +28,7 @@
 		GLOB.storyteller.points = oldST.points.Copy()//Transfer over points
 		//TODO: Cleanup and handover
 	
-	// Occulus Edit: If it was voted in, then add in the votedpoints
+	// Occulus Edit: If it was voted in, then add in the voted_points
 
 	if(voted)
 		GLOB.storyteller.add_voted_points() 
