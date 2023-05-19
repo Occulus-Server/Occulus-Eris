@@ -1,0 +1,4 @@
+author: WeNeedMorePhoron
+delete-after: true
+changes:
+  - tweak: Dice now have examine text for how to use them and can be operated by alt-click.
