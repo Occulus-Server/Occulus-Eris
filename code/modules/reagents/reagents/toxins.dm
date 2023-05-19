@@ -741,20 +741,9 @@
 			spill_biomass(T)
 		remove_self(volume)
 		return TRUE
-
-// Occulus Edit redundant def
-// /datum/reagent/toxin/biomatter
-// 	name = "Biomatter"
-// 	id = "biomatter"
-// 	description = "A goo of unknown to you origin. Its better to stay that way."
-// 	taste_description = "vomit"
-// 	reagent_state = LIQUID
-// 	color = "#527f4f"
-// 	strength = 0.3
-
 /datum/reagent/toxin/chlorine
 	name = "Chlorine"
-	id = "chlorine" // Occulus Edit: add missing id
+	id = "chlorine"
 	description = "A highly poisonous liquid. Smells strongly of bleach."
 	reagent_state = LIQUID
 	taste_description = "bleach"
@@ -763,7 +752,7 @@
 
 /datum/reagent/toxin/tar
 	name = "Tar"
-	id = "tar" // Occulus Edit: add missing id
+	id = "tar"
 	description = "A dark, viscous liquid."
 	taste_description = "petroleum"
 	color = "#140b30"
