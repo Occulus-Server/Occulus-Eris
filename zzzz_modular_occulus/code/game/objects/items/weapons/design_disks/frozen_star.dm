@@ -21,7 +21,16 @@
 		/datum/design/autolathe/ammo/lrifle/practice,
 		//shells
 		/datum/design/autolathe/ammo/shotgun_blanks,
+		/datum/design/autolathe/ammo/s5_practice
 	)
+
+/obj/item/computer_hardware/hard_drive/portable/design/nonlethal_ammo/Initialize()	//modular override to add rubbershot to the nonlethal ammo disk
+	designs += list(/datum/design/autolathe/ammo/shotgun_rubbershot, /datum/design/autolathe/ammo/s5_rubbershot, /datum/design/autolathe/ammo/s5_beanbag)	// add the designs we want on the disk
+	. = ..()	// then let it install the data onto the disk properly
+
+/obj/item/computer_hardware/hard_drive/portable/design/lethal_ammo/Initialize()	
+	designs += list(/datum/design/autolathe/ammo/s5_pellet, /datum/design/autolathe/ammo/s5_slug)	// add the designs we want on the disk
+	. = ..()	
 
 /obj/item/computer_hardware/hard_drive/portable/design/ammo_boxes_shotgun
 	disk_name = "Frozen Star Shotgun Ammunition"

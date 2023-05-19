@@ -24,10 +24,6 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet/rubber
 	rarity_value = 10
 
-/obj/item/computer_hardware/hard_drive/portable/design/nonlethal_ammo/Initialize()	//modular override to add rubbershot to the nonlethal ammo disk
-	designs += list(/datum/design/autolathe/ammo/shotgun_rubbershot)	// add the designs we want on the disk
-	. = ..()	// then let it install the data onto the disk properly
-
 // S5 Mags: 5 shot Shotgun magazines
 
 /obj/item/ammo_magazine/s5mag
@@ -38,7 +34,7 @@
 	mag_type = MAGAZINE
 	mag_well = MAG_WELL_SMG
 	caliber = CAL_SHOTGUN
-	ammo_type = /obj/item/ammo_casing/shotgun
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	matter = list(MATERIAL_STEEL = 6)
 	max_ammo = 5
 	ammo_color = "-l"
