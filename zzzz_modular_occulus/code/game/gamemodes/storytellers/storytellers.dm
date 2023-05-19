@@ -94,6 +94,14 @@ It generates half again as many events as default, as well as more antagonists.
 	EVENT_LEVEL_ROLESET = 220 //Roleset. Spawn one antag immediately, and another quickly.
 	)
 
+	// When the crew vote in Warrior they want blood we'll give them blood
+	voted_points = list(
+	EVENT_LEVEL_MUNDANE = 0, //Mundane
+	EVENT_LEVEL_MODERATE = 0, //Moderate
+	EVENT_LEVEL_MAJOR = 0, //Major
+	EVENT_LEVEL_ROLESET = 120 //Roleset - GIVE THEM ANTAG
+	)
+
 
 /* The Tyrant is designed for rounds with moderate to high population.
 It generates a large number of events, but doesn't generate antagonists.
