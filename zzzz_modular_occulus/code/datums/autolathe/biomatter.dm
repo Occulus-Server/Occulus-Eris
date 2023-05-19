@@ -46,3 +46,7 @@
 /datum/design/bioprinter/storage/fanny
 	name = "fannypack"
 	build_path = /obj/item/storage/pouch/fanny
+
+/datum/design/bioprinter/leather/holster/scabbard
+	name = "sword scabbard"
+	build_path = /obj/item/clothing/accessory/holster/sword
