@@ -1,0 +1,5 @@
+author: WeNeedMorePhoron
+delete-after: true
+changes:
+  - tweak: When Warrior is voted in mid round, it gives 120 roleset point and will
+      almost immediately spawn an antag.
