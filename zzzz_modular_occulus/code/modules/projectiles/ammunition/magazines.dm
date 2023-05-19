@@ -28,6 +28,60 @@
 	designs += list(/datum/design/autolathe/ammo/shotgun_rubbershot)	// add the designs we want on the disk
 	. = ..()	// then let it install the data onto the disk properly
 
+// S5 Mags: 5 shot Shotgun magazines
+
+/obj/item/ammo_magazine/s5mag
+	name = "short magazine (.50)"
+	desc = "A small, 5 shot magazine designed for shotgun shells."
+	icon = 'zzzz_modular_occulus/icons/obj/magazines.dmi'
+	icon_state = "s5mag"
+	mag_type = MAGAZINE
+	mag_well = MAG_WELL_SMG
+	caliber = CAL_SHOTGUN
+	ammo_type = /obj/item/ammo_casing/shotgun
+	matter = list(MATERIAL_STEEL = 6)
+	max_ammo = 5
+	ammo_color = ""
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/s5mag/on_update_icon()
+	cut_overlays()
+	if(stored_ammo.len)
+		var/obj/item/ammo_casing/AC = stored_ammo[1] //look at next casing.
+		overlays += "s5mag_shell_[AC.shell_color]" //look and display the overlay for the ammo
+
+/obj/item/ammo_magazine/s5mag/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/ammo_magazine/s5mag/beanbag
+	name = "short magazine (.50 beanbag)"
+	icon_state = "s5mag_r"
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	initial_ammo = 5
+	ammo_color = "-r"
+
+/obj/item/ammo_magazine/s5mag/rubbershot
+	name = "short magazine (.50 rubbershot)"
+	icon_state = "s5mag_r"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet/rubber
+	initial_ammo = 5
+	ammo_color = "-r"
+
+/obj/item/ammo_magazine/s5mag/slug
+	name = "short magazine (.50 slug)"
+	icon_state = "s5mag_hv"
+	ammo_type = /obj/item/ammo_casing/shotgun
+	matter = list(MATERIAL_STEEL = 6)
+	initial_ammo = 5
+	ammo_color = "-hv"
+
+/obj/item/ammo_magazine/s5mag/pellet
+	name = "ammo drum (.50 pellet)"
+	icon_state = "s5mag_l"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	initial_ammo = 5
+	ammo_color = "-l"
 
 // nail magazines
 
