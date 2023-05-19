@@ -1,0 +1,10 @@
+author: WeNeedMorePhoron
+delete-after: true
+changes:
+  - bugfix: Toxin reference in code no longer mistakenly adds tar, a toxin 40x as
+      deadly as baseline toxin. This mean that maint food, microwave burnt mess, some
+      random plants, rejected organs, incompatible blood, maint loot etc. no longer
+      give tar but give baseline toxin.
+  - bugfix: Phoron splash on people cause chemical burns again, phoron spilled on
+      ground cause phoron gas to appear potentially causing fire and atmos alarm,
+      phoron splashed on people increase the fire stack.
