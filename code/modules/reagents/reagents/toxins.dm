@@ -99,6 +99,7 @@
 
 ///datum/reagent/toxin/blattedin is defined in blattedin.dm
 
+// Occulus Edit - Plasma is renamed Phoron
 /datum/reagent/toxin/phoron
 	name = "Phoron"
 	id = "phoron"
@@ -109,22 +110,23 @@
 	strength = 0.3
 	touch_met = 5
 
-/datum/reagent/toxin/plasma/touch_mob(mob/living/L, var/amount)
+/datum/reagent/toxin/phoron/touch_mob(mob/living/L, var/amount)
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
 
-/datum/reagent/toxin/plasma/affect_touch(mob/living/carbon/M, alien, effect_multiplier)
+/datum/reagent/toxin/phoron/affect_touch(mob/living/carbon/M, alien, effect_multiplier)
 	M.take_organ_damage(0, effect_multiplier * 0.1) //being splashed directly with plasma causes minor chemical burns
 	if(prob(50))
 		M.pl_effects()
 
-/datum/reagent/toxin/plasma/touch_turf(turf/simulated/T)
+/datum/reagent/toxin/phoron/touch_turf(turf/simulated/T)
 	if(!istype(T))
 		return
 	T.assume_gas("phoron", volume, T20C)
 	remove_self(volume)
 	return TRUE
 
+// End Occulus Edit
 /datum/reagent/toxin/cyanide //Fast and Lethal
 	name = "Cyanide"
 	id = "cyanide"
@@ -739,18 +741,9 @@
 			spill_biomass(T)
 		remove_self(volume)
 		return TRUE
-
-/datum/reagent/toxin/biomatter
-	name = "Biomatter"
-	id = "biomatter"
-	description = "A goo of unknown to you origin. Its better to stay that way."
-	taste_description = "vomit"
-	reagent_state = LIQUID
-	color = "#527f4f"
-	strength = 0.3
-
 /datum/reagent/toxin/chlorine
 	name = "Chlorine"
+	id = "chlorine"
 	description = "A highly poisonous liquid. Smells strongly of bleach."
 	reagent_state = LIQUID
 	taste_description = "bleach"
@@ -759,6 +752,7 @@
 
 /datum/reagent/toxin/tar
 	name = "Tar"
+	id = "tar"
 	description = "A dark, viscous liquid."
 	taste_description = "petroleum"
 	color = "#140b30"
