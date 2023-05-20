@@ -27,7 +27,7 @@
 // S5 Mags: 5 shot Shotgun magazines
 
 /obj/item/ammo_magazine/s5mag
-	name = "short magazine (.50)"
+	name = "short magazine (.50 buckshot)"
 	desc = "A small, 5 shot magazine designed for shotgun shells."
 	icon = 'zzzz_modular_occulus/icons/obj/magazines.dmi'
 	icon_state = "s5mag_l"
@@ -67,6 +67,24 @@
 	icon_state = "s5mag_hv"
 	ammo_type = /obj/item/ammo_casing/shotgun
 	ammo_color = "-hv"
+
+/obj/item/ammo_magazine/s5mag/scrap
+	name = "short magazine (.50 old slug)"
+	icon_state = "s5mag_s"
+	ammo_type = /obj/item/ammo_casing/shotgun/scrap
+	ammo_color = "-s"
+
+/obj/item/ammo_magazine/s5mag/scrap_pellet
+	name = "short magazine (.50 old buckshot)"
+	icon_state = "s5mag_s"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet/scrap
+	ammo_color = "-s"
+
+/obj/item/ammo_magazine/s5mag/scrap_beanbag
+	name = "short magazine (.50 old beanbag)"
+	icon_state = "s5mag_s"
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag/scrap
+	ammo_color = "-s"
 
 /obj/item/ammo_magazine/s5mag/empty
 	name = "short magazine (.50)"

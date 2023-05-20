@@ -6,22 +6,22 @@
 	This weapon is not advised for stealth missions."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/stoat.dmi'
 	icon_state = "stoat"
-	w_class = ITEM_SIZE_HUGE
-	force = WEAPON_FORCE_PAINFUL
+	w_class = ITEM_SIZE_BULKY
+	force = WEAPON_FORCE_NORMAL
 	slot_flags = SLOT_BACK|SLOT_BELT
 	caliber = CAL_SHOTGUN
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_SMG
 	magazine_type = /obj/item/ammo_magazine/s5mag
 	matter = list(MATERIAL_PLASTEEL = 15, MATERIAL_STEEL = 10)
-	price_tag = 2800
+	price_tag = 1600
 	fire_sound = 'sound/weapons/guns/fire/shotgunp_fire.ogg'
 	unload_sound = 'sound/weapons/guns/interact/ltrifle_magout.ogg'
 	reload_sound = 'sound/weapons/guns/interact/ltrifle_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/ltrifle_cock.ogg'
 	twohanded = 0
 	damage_multiplier = 0.8 //shorter barrel
-	recoil_buildup = 15 // controllable when wielded
+	recoil_buildup = 20 // controllable when wielded
 	one_hand_penalty = 15
 
 	init_firemodes = list(
