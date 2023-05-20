@@ -35,7 +35,7 @@
 	mag_well = MAG_WELL_SMG
 	caliber = CAL_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
-	matter = list(MATERIAL_STEEL = 6)
+	matter = list(MATERIAL_STEEL = 1) //Its 1 steel, but when its printed it'll cost 6
 	max_ammo = 5
 	ammo_color = "-l"
 	initial_ammo = 5
@@ -89,7 +89,6 @@
 /obj/item/ammo_magazine/s5mag/empty
 	name = "short magazine (.50)"
 	icon_state = "s5mag"
-	matter = list(MATERIAL_STEEL = 1)
 	initial_ammo = 0
 	ammo_color = ""
 
