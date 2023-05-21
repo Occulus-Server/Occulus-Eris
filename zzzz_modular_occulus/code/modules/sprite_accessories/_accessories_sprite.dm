@@ -247,6 +247,15 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
+
+/datum/sprite_accessory/tail/leopard
+	name = "Leopard tail"
+	icon = 'zzzz_modular_occulus/icons/mob/jamini-tails.dmi'
+	icon_state = "leopard_bicolor"
+	extra_overlay = "leopard_bicolor_extra"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+
 //Occulus Markings
 
 
