@@ -345,6 +345,13 @@
 	icon_state = "vulp_facial_vulpine"
 	color_blend_mode = ICON_MULTIPLY
 	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/occulus/leopard
+	name = "Leopard Markings"
+	icon_state = "leopard"
+	body_parts = list(BP_CHEST, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG)
+	color_blend_mode = ICON_MULTIPLY
+
 //Old Polaris stuff
 
 /datum/sprite_accessory/marking/old
