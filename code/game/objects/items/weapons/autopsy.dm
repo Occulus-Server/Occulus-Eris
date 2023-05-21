@@ -27,15 +27,15 @@
 
 /datum/autopsy_data
 	var/weapon
-	var/pretend_weapon
+	// var/pretend_weapon // Occulus Edit: Remove pretend weapon mechanic
 	var/damage = 0
 	var/hits = 0
 	var/time_inflicted = 0
 
-	proc/copy()
+/datum/autopsy_data/proc/copy() // Occulus Edit: No relative path
 		var/datum/autopsy_data/W = new()
 		W.weapon = weapon
-		W.pretend_weapon = pretend_weapon
+		// W.pretend_weapon = pretend_weapon // Occulus Edit: Remove pretend weapon mechanic
 		W.damage = damage
 		W.hits = hits
 		W.time_inflicted = time_inflicted
@@ -47,17 +47,18 @@
 	for(var/V in O.autopsy_data)
 		var/datum/autopsy_data/W = O.autopsy_data[V]
 
-		if(!W.pretend_weapon)
-			/*
-			// the more hits, the more likely it is that we get the right weapon type
-			if(prob(50 + W.hits * 10 + W.damage))
-			*/
+		// Occulus Edit: Remove pretend weapon mechanic
+		// if(!W.pretend_weapon)
+		// 	/*
+		// 	// the more hits, the more likely it is that we get the right weapon type
+		// 	if(prob(50 + W.hits * 10 + W.damage))
+		// 	*/
 
-			// Buffing this stuff up for now!
-			if(prob(min(20 + (user.stats.getMult(STAT_BIO, STAT_LEVEL_EXPERT) * 100 ), 100)))
-				W.pretend_weapon = W.weapon
-			else
-				W.pretend_weapon = pick("mechanical toolbox", "wirecutters", "revolver", "crowbar", "fire extinguisher", "tomato soup", "oxygen tank", "emergency oxygen tank", "laser", "bullet")
+		// 	// Buffing this stuff up for now!
+		// 	if(prob(min(20 + (user.stats.getMult(STAT_BIO, STAT_LEVEL_EXPERT) * 100 ), 100)))
+		// 		W.pretend_weapon = W.weapon
+		// 	else
+		// 		W.pretend_weapon = pick("mechanical toolbox", "wirecutters", "revolver", "crowbar", "fire extinguisher", "tomato soup", "oxygen tank", "emergency oxygen tank", "laser", "bullet")
 
 
 		var/datum/autopsy_data_scanner/D = wdata[V]
@@ -100,17 +101,20 @@
 		var/datum/autopsy_data_scanner/D = wdata[wdata_idx]
 		var/total_hits = 0
 		var/total_score = 0
-		var/list/weapon_chances = list() // maps weapon names to a score
+		// var/list/weapon_chances = list() // maps weapon names to a score
 		var/age = 0
 
 		for(var/wound_idx in D.organs_scanned)
 			var/datum/autopsy_data/W = D.organs_scanned[wound_idx]
 			total_hits += W.hits
 
-			var/wname = W.pretend_weapon
+			// Occulus Edit: Remove pretend weapon mechanic
+			// var/wname = W.weapon
 
-			if(wname in weapon_chances) weapon_chances[wname] += W.damage
-			else weapon_chances[wname] = max(W.damage, 1)
+			// if(wname in weapon_chances) weapon_chances[wname] += W.damage
+			// else weapon_chances[wname] = max(W.damage, 1)
+			// Occulus Edit: End
+
 			total_score+=W.damage
 
 
@@ -142,9 +146,12 @@
 			scan_data += "Hits by weapon: [total_hits]<br>"
 		scan_data += "Approximate time of wound infliction: [worldtime2stationtime(age)]<br>"
 		scan_data += "Affected limbs: [D.organ_names]<br>"
-		scan_data += "Possible weapons:<br>"
-		for(var/weapon_name in weapon_chances)
-			scan_data += "\t[100*weapon_chances[weapon_name]/total_score]% [weapon_name]<br>"
+
+		// Occulus Edit: Adjust code for removal of pretend weapon
+		scan_data += "Weapon: [D.weapon]<br>"
+		// for(var/weapon_name in weapon_chances)
+		// 	scan_data += "\t[100*weapon_chances[weapon_name]/total_score]% [weapon_name]<br>"
+		// Occulus Edit: End
 
 		scan_data += "<br>"
 
