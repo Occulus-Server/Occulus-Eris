@@ -1,0 +1,5 @@
+author: WeNeedMorePhoron
+delete-after: true
+changes:
+  - bugfix: Nurse (Kango) spiders no longer remotely inject people when ATTEMPTING
+      to attack you, only when they bite.
