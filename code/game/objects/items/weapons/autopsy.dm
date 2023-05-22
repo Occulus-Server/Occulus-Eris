@@ -79,7 +79,7 @@
 		if(O.trace_chemicals[V] > 0 && !chemtraces.Find(V))
 			chemtraces += V
 	if(did_it_wrong)
-		to_chat(user, SPAN_WARNING("You got a feeling you are not doing this right, maybe you should clear the data and try again"))
+		to_chat(user, SPAN_WARNING("You got a feeling you are not doing this right, maybe you should clear the data and try again."))
 	
 /obj/item/autopsy_scanner/verb/print_data()
 	set category = "Object"
