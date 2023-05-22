@@ -39,17 +39,17 @@
 
 	// Occulus Edit: Stomach Pump
 	if(pumping)
-		if(!beaker) return
+		if(!beaker)
+			toggle_pump()
 
 		if(beaker.reagents.total_volume < beaker.reagents.maximum_volume)
 			var/pumped = 0
 			if(iscarbon(occupant))
-				for(var/datum/reagent/x in occupant.ingested.reagent_list)
+				for(var/reagent in occupant.ingested.reagent_list)
 					occupant.ingested.trans_to_obj(beaker, 3)
-					occupant.nutrition = max(occupant.nutrition - 10, 0) // Deplete your entire stomach in 40 process ticks
 					pumped++
-		else
-			toggle_pump()
+				occupant.nutrition = max(occupant.nutrition - (pumped * 10), 0) // Nuke your nutrition based on the amount pumped out
+
 	// Occulus Edit End
 
 /obj/machinery/sleeper/on_update_icon()
