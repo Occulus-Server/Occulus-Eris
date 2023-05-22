@@ -332,6 +332,19 @@ steam.start() -- spawns the effect
 		M.emote("cough")
 		spawn ( 20 )
 			M.coughedtime = 0
+
+/////////////////////////////////////////////
+//  White phosphorus
+/////////////////////////////////////////////
+
+/obj/effect/effect/smoke/white_phosphorus
+    name = "white phosphorus smoke"
+
+/obj/effect/effect/smoke/white_phosphorus/affect(mob/living/carbon/M)
+    M.fire_stacks += 5
+    M.fire_act()
+
+
 /////////////////////////////////////////////
 // Mustard Gas
 /////////////////////////////////////////////
@@ -406,6 +419,8 @@ steam.start() -- spawns the effect
 /datum/effect/effect/system/smoke_spread/mustard
 	smoke_type = /obj/effect/effect/smoke/mustard
 
+/datum/effect/effect/system/smoke_spread/white_phosphorus
+    smoke_type = /obj/effect/effect/smoke/white_phosphorus
 
 
 

@@ -43,3 +43,32 @@
 	matter = list(MATERIAL_BIOMATTER = 75)
 	fragment_damage = 7
 	damage_step = 3
+
+/obj/item/grenade/frag/white_phosphorus
+	name = "SA WPG \"Sabac \""
+	desc = "A modernized incendiary hailing popular use within assault troops of all kinds. Use with care, highly flammable."
+	icon_state = "white_phos"
+	item_state = "fraggrenade"
+	fragment_type = /obj/item/projectile/bullet/pellet/fragment/ember
+	num_fragments = 10
+	fragment_damage = 5
+	damage_step = 5
+	spread_range = 7
+	var/datum/effect/effect/system/smoke_spread/white_phosphorus/smoke
+
+/obj/item/grenade/frag/white_phosphorus/prime()
+	playsound(loc, 'sound/effects/smoke.ogg', 50, 1, -3)
+	smoke.set_up(5, 0, usr.loc)
+	smoke.set_up(5, 0, get_turf(loc))
+	smoke.start()
+	..()
+
+/obj/item/grenade/frag/white_phosphorus/New()
+	..()
+	smoke = new
+	smoke.attach(src)
+
+/obj/item/grenade/frag/white_phosphorus/Destroy()
+	qdel(smoke)
+	smoke = null
+	return ..()

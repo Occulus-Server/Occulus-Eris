@@ -271,6 +271,19 @@
 	for(var/i in 1 to initial_amount)
 		new spawn_type(src)
 
+/obj/item/storage/box/phosphorus
+	name = "box of white phosphorus grenades"
+	desc = "A box containing 7 antipersonnel incendiary  grenades.<br> WARNING: These devices are extremely dangerous and can cause severe burns and fires."
+	icon_state = "box_security"
+	illustration = "flashbang"
+	rarity_value = 60
+	initial_amount = 7
+	spawn_type = /obj/item/grenade/frag/white_phosphorus
+
+/obj/item/storage/box/phosphorus/populate_contents()
+	for(var/i in 1 to initial_amount)
+		new spawn_type(src)
+
 /obj/item/storage/box/teargas
 	name = "box of pepperspray grenades"
 	desc = "A box containing 6 tear gas grenades. A gas mask is printed on the label.<br> WARNING: Exposure carries risk of serious injury or death. Keep away from persons with lung conditions."
