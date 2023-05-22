@@ -43,7 +43,17 @@
 	matter = list(MATERIAL_BIOMATTER = 75)
 	fragment_damage = 7
 	damage_step = 3
+/obj/item/grenade/frag/pipebomb
+	name = "improvised pipebomb"
+	desc = "A jury rigged medium cell filled with plasma. Throw at authorities."
+	icon_state = "frag_pipebomb"
+	item_state = "fraggrenade_pipebomb"
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTEEL = 2, MATERIAL_PLASMA = 2, MATERIAL_PLASTIC = 3, MATERIAL_SILVER = 2)
+	num_fragments = 75 // Occulus Edit: We haven't consolidated the fragment amount yet
+	fragment_damage = 4 // Occulus Edit: Upstream - 10, but we have less fragments so.
+	damage_step = 7
 
+// Occulus Edit: phosphorous -> phosphorus across everywhere. Yeah.
 /obj/item/grenade/frag/white_phosphorus
 	name = "SA WPG \"Sabac \""
 	desc = "A modernized incendiary hailing popular use within assault troops of all kinds. Use with care, highly flammable."
