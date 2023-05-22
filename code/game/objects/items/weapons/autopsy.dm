@@ -185,7 +185,7 @@
 	set name = "Clear Data"
 	
 	if(usr.stat)
-		to_chat(usr, "You must be conscious to do that!")
+		to_chat(usr, SPAN_NOTICE("You must be conscious to do that!"))
 		return
 	
 	if (!usr.IsAdvancedToolUser())
