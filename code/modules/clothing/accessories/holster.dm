@@ -123,7 +123,7 @@
 	if(!H.holstered)
 		var/obj/item/W = usr.get_active_hand()
 		if(!istype(W, /obj/item))
-			to_chat(usr, SPAN_WARNING("You need your weapon equiped to holster it."))  //Occulus edit
+			to_chat(usr, SPAN_WARNING("You need your weapon equipped to holster it."))  //Occulus edit
 			return
 		H.holster(W, usr)
 	else
