@@ -10,8 +10,8 @@
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_HOLSTER
 	var/obj/item/holstered
-	var/sound_in = 'sound/effects/holster/holsterin.ogg' //occy edit
-	var/sound_out = 'sound/effects/holster/holsterout.ogg' //occy edit
+	var/sound_in = 'sound/effects/holster/holsterin.ogg' //Occulus edit
+	var/sound_out = 'sound/effects/holster/holsterout.ogg' //Occulus edit
 
 /obj/item/clothing/accessory/holster/proc/holster(obj/item/I, mob/living/user)
 
@@ -19,12 +19,12 @@
 		to_chat(user, SPAN_WARNING("There is already \a [holstered] holstered here!"))
 		return
 
-	if(istype(src, /obj/item/clothing/accessory/holster/sword)) //occy edit start
+	if(istype(src, /obj/item/clothing/accessory/holster/sword)) //Occulus edit start
 
 		if (!(istype(I, /obj/item/tool/sword)))
 			to_chat(user, SPAN_WARNING("[I] won't fit in [src]!"))
 			return
-	else  //occy edit finish
+	else  //Occulus edit finish
 
 		if (!(I.slot_flags & SLOT_HOLSTER))
 			to_chat(user, SPAN_WARNING("[I] won't fit in [src]!"))
@@ -36,7 +36,7 @@
 	holstered.add_fingerprint(user)
 	w_class = max(w_class, holstered.w_class)
 	user.visible_message(SPAN_NOTICE("[user] holsters \the [holstered]."), SPAN_NOTICE("You holster \the [holstered]."))
-	playsound(user, "[sound_in]", 75, 0)  //occy edit
+	playsound(user, "[sound_in]", 75, 0)  //Occulus edit
 	name = "occupied [initial(name)]"
 
 /obj/item/clothing/accessory/holster/proc/clear_holster()
@@ -50,11 +50,11 @@
 	if(istype(user.get_active_hand(),/obj))
 		to_chat(user, SPAN_WARNING("You need an empty hand to draw \the [holstered]!"))
 	else
-		playsound(user, "[sound_out]", 75, 0)  //occy edit
+		playsound(user, "[sound_out]", 75, 0)  //Occulus edit
 		if(user.a_intent == I_HURT)
 			usr.visible_message(
-				SPAN_DANGER("[user] draws \the [holstered], ready to fight!"),  //occy edit
-				SPAN_WARNING("You draw \the [holstered], ready to fight!")  //occy edit
+				SPAN_DANGER("[user] draws \the [holstered], ready to fight!"),  //Occulus edit
+				SPAN_WARNING("You draw \the [holstered], ready to fight!")  //Occulus edit
 				)
 		else
 			user.visible_message(
@@ -123,7 +123,7 @@
 	if(!H.holstered)
 		var/obj/item/W = usr.get_active_hand()
 		if(!istype(W, /obj/item))
-			to_chat(usr, SPAN_WARNING("You need your weapon equiped to holster it."))  //occy edit
+			to_chat(usr, SPAN_WARNING("You need your weapon equiped to holster it."))  //Occulus edit
 			return
 		H.holster(W, usr)
 	else
