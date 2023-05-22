@@ -8,8 +8,9 @@
 	item_state = "frggrenade"
 
 	fragment_type = /obj/item/projectile/bullet/pellet/fragment/rubber/stinger
-	num_fragments = 100  //total number of fragments produced by the grenade
-	fragment_damage = 1
+	num_fragments = 18  //total number of fragments produced by the grenade
+	blast_radius = 0
+	fragment_damage = 5
 
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_STEEL = 2)
 	matter_reagents = list("ammonium_nitrate" = 5)

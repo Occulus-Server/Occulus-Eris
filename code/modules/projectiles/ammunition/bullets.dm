@@ -428,8 +428,8 @@
 //// Other ////
 
 /obj/item/ammo_casing/rocket
-	name = "PG-7VL grenade"
-	desc = "A 1.5 warhead designed for the RPG-7 launcher. Has tubular shape."
+	name = "PG-7VL HE grenade"
+	desc = "A high explosive warhead designed for the RPG-7 launcher. Has a tubular shape."
 	icon_state = "rocketshell"
 	projectile_type = /obj/item/projectile/bullet/rocket
 	caliber = CAL_ROCKET
@@ -480,3 +480,14 @@
 
 /obj/item/ammo_casing/crossbow/bolt/prespawned
 	amount = 5
+
+/obj/item/ammo_casing/rocket/hesh
+	name = "PG-7V2 HESH grenade"
+	desc = "A high-explosive squash head anti-vehicle warhead designed for the RPG-7 launcher. Has a tubular shape."
+	icon_state = "rocketshell_hesh"
+	projectile_type = /obj/item/projectile/bullet/rocket/hesh
+	caliber = CAL_ROCKET
+	maxamount = 1
+	reload_delay = 15
+	is_caseless = TRUE
+	w_class = ITEM_SIZE_NORMAL

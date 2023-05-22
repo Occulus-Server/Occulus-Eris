@@ -1,13 +1,15 @@
 /obj/item/projectile/bullet/pellet/fragment
-	damage_types = list(BRUTE = 10)
+	damage_types = list(BRUTE = 15) // Blocked by heavy armor
 	range_step = 2
 
 	base_spread = 0 //causes it to be treated as a shrapnel explosion instead of cone
 	spread_step = 20
 
-	silenced = 1 //embedding messages are still produced so it's kind of weird when enabled.
+	silenced = TRUE //embedding messages are still produced so it's kind of weird when enabled.
 	no_attack_log = 1
 	muzzle_type = null
+
+	// can_ricochet = TRUE Occulus Edit: Literally crashed local twice with a badly angled grenade not implementing this for now
 
 /obj/item/projectile/bullet/pellet/fragment/strong
 	damage_types = list(BRUTE = 15)

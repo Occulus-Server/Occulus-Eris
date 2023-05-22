@@ -41,20 +41,16 @@
 /obj/item/projectile/bullet/grenade/frag
 	name = "frag shell"
 	var/range = 7
-	var/f_type = /obj/item/projectile/bullet/pellet/fragment/strong
-	var/f_amount = 100
-	var/f_damage = 4
-	var/f_step = 2
+	var/f_type = /obj/item/projectile/bullet/pellet/fragment
+	var/f_amount = 30
+	var/f_damage = 12
+	var/f_step = 8
 	var/same_turf_hit_chance = 15
 
 /obj/item/projectile/bullet/grenade/frag/weak
 	name = "frag shell"
-	range = 7
-	f_type = /obj/item/projectile/bullet/pellet/fragment/strong
-	f_amount = 100
-	f_damage = 2
-	f_step = 1
-	same_turf_hit_chance = 10
+	f_damage = 8
+	f_step = 4
 
 /obj/item/projectile/bullet/grenade/frag/grenade_effect(target)
 	fragment_explosion(target, range, f_type, f_amount, f_damage, f_step, same_turf_hit_chance)
@@ -70,11 +66,10 @@
 
 /obj/item/projectile/bullet/grenade/frag/sting
 	name = "Sting shell"
-	range = 7
 	f_type = /obj/item/projectile/bullet/pellet/fragment/rubber/stinger
 	f_amount = 18
 	f_damage = 5
-	f_step = 3
+	f_step = 8
 
 /obj/item/projectile/bullet/grenade/frag/sting/grenade_effect(target)
 	fragment_explosion(target, range, f_type, f_amount, f_damage, f_step, same_turf_hit_chance)
