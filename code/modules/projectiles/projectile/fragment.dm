@@ -9,8 +9,8 @@
 	no_attack_log = 1
 	muzzle_type = null
 
-	// can_ricochet = TRUE Occulus Edit: Grenade ricochet can crash servers in some case and it looks like there's no fix
-	// ricochet_ability = 10 Occulus Edit: See above. Sorry for nerf :(
+	can_ricochet = TRUE
+	ricochet_ability = 10
 /obj/item/projectile/bullet/pellet/fragment/strong
 	damage_types = list(BRUTE = 20)
 
