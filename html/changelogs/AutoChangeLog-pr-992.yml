@@ -1,8 +1,0 @@
-author: WeNeedMorePhoron
-delete-after: true
-changes:
-  - tweak: Autopsy scanner are now 100% reliable at 25 biology. At 10 Biology or above,
-      it will give a warning message if you get false data in your scan(s). Autopsy
-      Scanner can now clear data without scanning another body.
-  - bugfix: Autopsy scanner's fake weapons no longer persist between two person's
-      scan.
