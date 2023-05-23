@@ -58,8 +58,7 @@
 	blast_radius = 2
 	damage_step = 7
 
-// Occulus Edit: phosphorous -> phosphorus across everywhere. Yeah.
-/obj/item/grenade/frag/white_phosphorus
+/obj/item/grenade/frag/white_phosphorous
 	name = "SA WPG \"Sabac \""
 	desc = "A modernized incendiary hailing popular use within assault troops of all kinds. Use with care, highly flammable."
 	icon_state = "white_phos"
@@ -69,21 +68,21 @@
 	fragment_damage = 5
 	damage_step = 5
 	spread_range = 7
-	var/datum/effect/effect/system/smoke_spread/white_phosphorus/smoke
+	var/datum/effect/effect/system/smoke_spread/white_phosphorous/smoke
 
-/obj/item/grenade/frag/white_phosphorus/prime()
+/obj/item/grenade/frag/white_phosphorous/prime()
 	playsound(loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 	smoke.set_up(5, 0, usr.loc)
 	smoke.set_up(5, 0, get_turf(loc))
 	smoke.start()
 	..()
 
-/obj/item/grenade/frag/white_phosphorus/New()
+/obj/item/grenade/frag/white_phosphorous/New()
 	..()
 	smoke = new
 	smoke.attach(src)
 
-/obj/item/grenade/frag/white_phosphorus/Destroy()
+/obj/item/grenade/frag/white_phosphorous/Destroy()
 	qdel(smoke)
 	smoke = null
 	return ..()

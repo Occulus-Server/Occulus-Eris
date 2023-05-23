@@ -337,10 +337,10 @@ steam.start() -- spawns the effect
 //  White phosphorus
 /////////////////////////////////////////////
 
-/obj/effect/effect/smoke/white_phosphorus
-    name = "white phosphorus smoke"
+/obj/effect/effect/smoke/white_phosphorous
+    name = "white phosphorus smoke" // Occulus Edit: Correct typo for the name (not typepath)
 
-/obj/effect/effect/smoke/white_phosphorus/affect(mob/living/carbon/M)
+/obj/effect/effect/smoke/white_phosphorous/affect(mob/living/carbon/M)
     M.fire_stacks += 5
     M.fire_act()
 
@@ -419,8 +419,8 @@ steam.start() -- spawns the effect
 /datum/effect/effect/system/smoke_spread/mustard
 	smoke_type = /obj/effect/effect/smoke/mustard
 
-/datum/effect/effect/system/smoke_spread/white_phosphorus
-    smoke_type = /obj/effect/effect/smoke/white_phosphorus
+/datum/effect/effect/system/smoke_spread/white_phosphorous
+    smoke_type = /obj/effect/effect/smoke/white_phosphorous
 
 
 

@@ -25,7 +25,7 @@
 	check_armour = ARMOR_BOMB
 
 /obj/item/projectile/bullet/pellet/fragment/ember
-    name = "phosphorus ember"
+    name = "phosphorus ember" // Occulus Edit: Fixed typo for phosphorus
     icon = 'icons/obj/projectiles_64x64.dmi'
     icon_state = "phosphorus_ember"
     damage_types = list(BURN = 5)
@@ -36,7 +36,7 @@
     can_ricochet = FALSE
 
 /obj/item/projectile/bullet/pellet/fragment/ember/on_hit(atom/target)
-    var/datum/effect/effect/system/smoke_spread/white_phosphorus/S = new /datum/effect/effect/system/smoke_spread/white_phosphorus
+    var/datum/effect/effect/system/smoke_spread/white_phosphorous/S = new /datum/effect/effect/system/smoke_spread/white_phosphorous
     S.set_up(1, 0, get_turf(src))
     S.start()
     return TRUE
