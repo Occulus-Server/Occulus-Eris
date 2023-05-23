@@ -418,7 +418,7 @@
 /obj/item/projectile/Process()
 	var/first_step = TRUE
 
-	spawn while(src && src.loc)
+	while(!QDELETED(src) && src.loc)
 		if(kill_count-- < 1)
 			on_impact(src.loc) //for any final impact behaviours
 			qdel(src)
@@ -441,7 +441,7 @@
 		pixel_x = location.pixel_x
 		pixel_y = location.pixel_y
 
-		if(!bumped && !isturf(original))
+		if(!bumped && !QDELETED(original) && !isturf(original))
 			if(loc == get_turf(original))
 				if(!(original in permutated))
 					if(Bump(original))
