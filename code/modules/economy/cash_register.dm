@@ -26,7 +26,7 @@
 
 
 // Claim machine ID
-/obj/machinery/cash_register/New()
+/obj/machinery/cash_register/LateInitialize()
 	. = ..()
 	machine_id = "[station_name()] RETAIL #[num_financial_terminals++]"
 	cash_stored = rand(10, 70)*10
@@ -520,7 +520,7 @@
 		cash_locked = 0
 		open_cash_box()
 
-/*
+
 //--Premades--//
 
 /obj/machinery/cash_register/command
@@ -550,4 +550,3 @@
 /obj/machinery/cash_register/civilian
 	account_to_connect = "Civilian"
 	..()
-*/
