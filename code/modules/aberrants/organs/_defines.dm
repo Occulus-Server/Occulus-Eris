@@ -63,7 +63,7 @@
 #define REAGENTS_DRUGS list(/datum/reagent/drug/space_drugs, /datum/reagent/drug/cryptobiolin, /datum/reagent/drug/mindbreaker,\
 							/datum/reagent/drug/psilocybin, /datum/reagent/drug/nicotine)
 
-#define REAGENTS_TOXIN list(/datum/reagent/toxin/amatoxin, /datum/reagent/toxin/plasma, /datum/reagent/toxin/fertilizer,\
+#define REAGENTS_TOXIN list(/datum/reagent/toxin/amatoxin, /datum/reagent/toxin/phoron, /datum/reagent/toxin/fertilizer,\
 							/datum/reagent/toxin/plantbgone, /datum/reagent/acid/polyacid, /datum/reagent/toxin/lexorin,\
 							/datum/reagent/medicine/soporific, /datum/reagent/toxin/biomatter)
 
