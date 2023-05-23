@@ -13,7 +13,7 @@
 
 /obj/item/projectile/bullet/grenade/Move()	//Makes grenade shells cause their effect when they arrive at their target turf
 	if(get_turf(src) == get_turf(original))
-		if(QDELETED(src)) return
+		if(QDELETED(src)) return // Occulus Edit: CRASH FIX
 		
 		grenade_effect(get_turf(src))
 		qdel(src)
@@ -21,10 +21,10 @@
 		..()
 
 /obj/item/projectile/bullet/grenade/on_hit(atom/target)	//Allows us to cause different effects for each grenade shell on hit
-	if(QDELETED(src)) return
+	if(QDELETED(src)) return // Occulus Edit: CRASH FIX
 	
 	grenade_effect(target)
-	qdel(src)
+	qdel(src) // Occulus Edit: CRASH FIX
 
 /obj/item/projectile/bullet/grenade/proc/grenade_effect(target)
 	return

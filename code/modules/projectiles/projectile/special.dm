@@ -24,7 +24,7 @@
 /obj/item/projectile/bullet/rocket
 	name = "high explosive rocket"
 	icon_state = "rocket"
-	damage_types = list(BRUTE = 7600)
+	damage_types = list(BRUTE = 70)
 	armor_penetration = 20
 	check_armour = ARMOR_BOMB
 

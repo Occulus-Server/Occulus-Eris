@@ -20,14 +20,14 @@
 /obj/item/projectile/bullet/pellet/fragment/rubber
 	icon_state = "rubber"
 	name = "stinger"
-	damage_types = list(BRUTE = 8, HALLOSS = 12)
+	damage_types = list(BRUTE = 2, HALLOSS = 18) // Occulus Edit: Brute reduced from upstream to prevent non-lethal from becoming lethal
 	embed = FALSE
 	sharp = FALSE
 
 /obj/item/projectile/bullet/pellet/fragment/rubber/weak
 	icon_state = "rubber"
 	name = "stinger"
-	damage_types = list(BRUTE = 8, HALLOSS = 10)
+	damage_types = list(BRUTE = 1, HALLOSS = 17) // Occulus Edit: Brute reduced from upstream to prevent non-lethal from becoming lethal
 	embed = FALSE
 	sharp = FALSE
 
