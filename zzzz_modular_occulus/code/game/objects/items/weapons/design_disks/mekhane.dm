@@ -275,6 +275,7 @@ CHURCH DISKS
 		/datum/design/bioprinter/leather/holster/armpit,
 		/datum/design/bioprinter/leather/holster/waist,
 		/datum/design/bioprinter/leather/holster/hip,
+		/datum/design/bioprinter/leather/holster/scabbard,
 
 		/datum/design/bioprinter/small_generic,
 		/datum/design/bioprinter/medium_generic,

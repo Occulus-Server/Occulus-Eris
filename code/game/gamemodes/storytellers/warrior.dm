@@ -17,3 +17,11 @@
 	EVENT_LEVEL_MAJOR = 75, //Major
 	EVENT_LEVEL_ROLESET = 140 //Roleset
 	)
+
+	// Occulus Edit - When the crew vote in Warrior they want blood we'll give them blood
+	voted_points = list(
+	EVENT_LEVEL_MUNDANE = 0, //Mundane
+	EVENT_LEVEL_MODERATE = 0, //Moderate
+	EVENT_LEVEL_MAJOR = 0, //Major
+	EVENT_LEVEL_ROLESET = 120 //Roleset - GIVE THEM ANTAG
+	)

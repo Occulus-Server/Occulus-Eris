@@ -105,8 +105,8 @@
 
 	SSticker.story_vote_ended = TRUE
 
-
-	set_storyteller(config.pick_storyteller(master_storyteller), announce = !(pregame)) //This does the actual work //Even if master storyteller is null, this will pick the default
+	// Occulus Edit - added voted variable
+	set_storyteller(config.pick_storyteller(master_storyteller), announce = !(pregame), voted = !(pregame)) //This does the actual work //Even if master storyteller is null, this will pick the default
 	if (pregame)
 		round_progressing = TRUE
 		to_chat(world, "<b>The game will start in [SSticker.pregame_timeleft] seconds.</b>")

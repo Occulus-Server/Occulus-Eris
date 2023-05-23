@@ -1,6 +1,3 @@
-#define DEFIB_TIME_LIMIT (15 MINUTES) //past this many seconds, defib is useless.
-#define DEFIB_TIME_LOSS  (2 MINUTES) //past this many seconds, brain damage occurs.
-
 /*	brain tickers broke
 // Adds defib timers to brain, and ensures it ticks down when its owner is dead
 /obj/item/organ/internal/brain
@@ -942,7 +939,3 @@
 	icon_state = "jumperpaddles0"
 	item_state = "jumperpaddles0"
 	use_on_synthetic = 1
-
-#undef DEFIB_TIME_LIMIT
-#undef DEFIB_TIME_LOSS
-

@@ -106,8 +106,13 @@
 	dat += span("highlight", "    Key: <font color='#0080ff'>Suffocation</font>/<font color='green'>Toxin</font>/<font color='#FFA500'>Burns</font>/<font color='red'>Brute</font>")
 	dat += span("highlight", "    Damage Specifics: <font color='#0080ff'>[OX]</font> - <font color='green'>[TX]</font> - <font color='#FFA500'>[BU]</font> - <font color='red'>[BR]</font>")
 	dat += span("highlight", "Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)")
-	if(M.tod && (M.stat == DEAD || (M.status_flags & FAKEDEATH)))
-		dat += span("highlight", "Time of Death: [M.tod]")
+	if(M.timeofdeath && (M.stat == DEAD || (M.status_flags & FAKEDEATH)))
+		dat += span("highlight", "Time of Death: [worldtime2stationtime(M.timeofdeath)]")
+		var/tdelta = round(world.time - M.timeofdeath) // Occulus Edit, Defib QOL
+		if(tdelta < DEFIB_TIME_LIMIT)
+			dat += span("danger", "Subject died [DisplayTimeText(tdelta)] ago, defibrillation may be possible!")
+			// Occulus edit end
+
 	if(ishuman(M) && mode == 1)
 		var/mob/living/carbon/human/H = M
 		var/list/damaged = H.get_damaged_organs(1, 1)
@@ -189,6 +194,9 @@
 
 		if(foundUnlocatedFracture)
 			dat += SPAN_WARNING("Bone fractures detected. Advanced scanner required for location.")
+
+		if(HUSK in H.mutations) // Occulus Edit - QOL for Medical telling if someone's husked
+			dat += SPAN_WARNING("Severe tissue damage detected. Resuscitation is impossible.") 
 
 		for(var/obj/item/organ/external/e in H.organs)
 			if(!e)

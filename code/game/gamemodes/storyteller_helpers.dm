@@ -1,6 +1,6 @@
 
 //Sets the storyteller to a new one, and does any heavy lifting for a handover
-/proc/set_storyteller(var/datum/storyteller/newST, var/announce = TRUE)
+/proc/set_storyteller(var/datum/storyteller/newST, var/announce = TRUE, var/voted = FALSE) // Occulus Edit: Add in voted variable
 	if (!newST)
 		//You can call this without passing anything, we'll go fetch it ourselves
 		newST = config.pick_storyteller(STORYTELLER_BASE) //This function is in code/controllers/configuration.dm
@@ -27,6 +27,11 @@
 	if (oldST != null)
 		GLOB.storyteller.points = oldST.points.Copy()//Transfer over points
 		//TODO: Cleanup and handover
+	
+	// Occulus Edit: If it was voted in, then add in the voted_points
+
+	if(voted)
+		GLOB.storyteller.add_voted_points() 
 
 	//Configure the new storyteller
 	GLOB.storyteller.set_up()

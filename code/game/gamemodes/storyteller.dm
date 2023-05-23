@@ -39,6 +39,16 @@ GLOBAL_DATUM(storyteller, /datum/storyteller)
 	EVENT_LEVEL_ROLESET = 0 //Roleset
 	)
 
+	// Occulus Edit Start: Vote Points provide additional point to a storyteller when it is voted in after game start
+	//Set values here for starting points
+	var/list/voted_points = list(
+	EVENT_LEVEL_MUNDANE = 0, //Mundane
+	EVENT_LEVEL_MODERATE = 0, //Moderate
+	EVENT_LEVEL_MAJOR = 0, //Major
+	EVENT_LEVEL_ROLESET = 0 //Roleset
+	)
+	// Occulus Edit End
+
 	//Lists of events. These are built dynamically at runtime
 	var/list/event_pool_mundane = list()
 	var/list/event_pool_moderate = list()
@@ -250,9 +260,13 @@ GLOBAL_DATUM(storyteller, /datum/storyteller)
 	if(points[EVENT_LEVEL_ROLESET] >= POOL_THRESHOLD_ROLESET)
 		handle_event(EVENT_LEVEL_ROLESET)
 
-
-
-
+// Occulus Edit: Helper Proc for adding in additional points after it is voted in
+/datum/storyteller/proc/add_voted_points()
+	points[EVENT_LEVEL_MUNDANE] += voted_points[EVENT_LEVEL_MUNDANE]
+	points[EVENT_LEVEL_MODERATE] += voted_points[EVENT_LEVEL_MODERATE]
+	points[EVENT_LEVEL_MAJOR] += voted_points[EVENT_LEVEL_MAJOR]
+	points[EVENT_LEVEL_ROLESET] += voted_points[EVENT_LEVEL_ROLESET]
+// Occulus Edit End
 
 /*******************
 *  Event Handling
