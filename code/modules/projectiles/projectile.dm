@@ -418,7 +418,7 @@
 /obj/item/projectile/Process()
 	var/first_step = TRUE
 
-	while(!QDELETED(src) && src.loc)
+	while(!QDELETED(src) && src.loc) // Occulus Edit: Removed the horrible spawn while(src) and replaced with !QDELETED(src)
 		if(kill_count-- < 1)
 			on_impact(src.loc) //for any final impact behaviours
 			qdel(src)
