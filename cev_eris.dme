@@ -3077,6 +3077,7 @@
 #include "zzzz_modular_occulus\code\modules\mining\mineral_effect.dm"
 #include "zzzz_modular_occulus\code\modules\mining\ore.dm"
 #include "zzzz_modular_occulus\code\modules\mining\ore_datum.dm"
+#include "zzzz_modular_occulus\code\modules\mob\emote.dm"
 #include "zzzz_modular_occulus\code\modules\mob\gender.dm"
 #include "zzzz_modular_occulus\code\modules\mob\inventory\equip.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\bot\cleanbot_occulus.dm"
