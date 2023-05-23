@@ -394,36 +394,40 @@
 //// Grenade Shells ////
 
 /obj/item/ammo_casing/grenade
-	name = "baton round"
-	desc = "A less-lethal rubber round, designed to be fired from grenade launchers"
+	name = "FS SR \"Sasumata\""
+	desc = "A high-grade Frozen Star sting round, for use against unruly crowds.s"
 	icon_state = "baton-round"
 	spent_icon = "grenadeshell"
-	projectile_type = /obj/item/projectile/bullet/batonround
+	projectile_type = /obj/item/projectile/bullet/grenade/frag/sting
 	w_class = ITEM_SIZE_SMALL
 	caliber = CAL_GRENADE
+	is_caseless = TRUE
 	maxamount = 1
 	spawn_tags = SPAWN_TAG_AMMO
 	rarity_value = 10
 
 /obj/item/ammo_casing/grenade/blast
-	name = "blast grenade shell"
-	desc = "An explosive grenade shell, designed to be fired from grenade launchers"
+	name = "OR OBR \"Puff\""
+	desc = "A military-grade explosive shell, designed to be fired from grenade launchers."
 	icon_state = "blast"
-	projectile_type = /obj/item/projectile/bullet/grenade
+	projectile_type = /obj/item/projectile/bullet/grenade/blast
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTEEL = 3)
 	rarity_value = 25
 
 /obj/item/ammo_casing/grenade/frag
-	name = "frag grenade shell"
-	desc = "A frag grenade shell, designed to be fired from grenade launchers"
+	name = "NT DFR \"Pallad\""
+	desc = "A military-grade grenade shell, designed to be fired from grenade launchers. The abbreviation \"NT\" marks its producer, but the lack of detatil makes it ubiquitous."
 	icon_state = "frag"
 	projectile_type = /obj/item/projectile/bullet/grenade/frag
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTEEL = 2)
 	rarity_value = 25
 
 /obj/item/ammo_casing/grenade/emp
-	name = "emp grenade shell"
-	desc = "An EMP grenade shell, designed to be fired from grenade launchers"
+	name = "NT EMPR \"Remote Switch\""
+	desc = "An EMP grenade shell, designed to be fired from grenade launchers. The abbreviation \"NT\" marks its producer, but the lack of detatil makes it ubiquitous."
 	icon_state = "emp"
 	projectile_type = /obj/item/projectile/bullet/grenade/emp // gonna keep this from being maint-lootable for now
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_IRON = 2, MATERIAL_URANIUM = 2)
 
 //// Other ////
 

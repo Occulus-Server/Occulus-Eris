@@ -9,13 +9,27 @@
 	no_attack_log = 1
 	muzzle_type = null
 
-	// can_ricochet = TRUE Occulus Edit: Literally crashed local twice with a badly angled grenade not implementing this for now
-
+	can_ricochet = TRUE
+	ricochet_ability = 10
 /obj/item/projectile/bullet/pellet/fragment/strong
-	damage_types = list(BRUTE = 15)
+	damage_types = list(BRUTE = 20)
 
 /obj/item/projectile/bullet/pellet/fragment/weak
-	damage_types = list(BRUTE = 5)
+	damage_types = list(BRUTE = 10)
+
+/obj/item/projectile/bullet/pellet/fragment/rubber
+	icon_state = "rubber"
+	name = "stinger"
+	damage_types = list(BRUTE = 8, HALLOSS = 12)
+	embed = FALSE
+	sharp = FALSE
+
+/obj/item/projectile/bullet/pellet/fragment/rubber/weak
+	icon_state = "rubber"
+	name = "stinger"
+	damage_types = list(BRUTE = 8, HALLOSS = 10)
+	embed = FALSE
+	sharp = FALSE
 
 /obj/item/projectile/bullet/pellet/fragment/invisible
 	name = "explosion"

@@ -372,16 +372,16 @@
 	for(var/i in 1 to initial_amount)
 		new spawn_type(src)
 
-/obj/item/storage/box/baton_rounds
-	name = "box of baton rounds"
-	desc = "A box containing 6 rubber rounds, designed to be fired from grenade launchers."
+/obj/item/storage/box/sting_rounds
+	name = "box of sting rounds"
+	desc = "A box containing 6 sting rounds, designed to be fired from grenade launchers."
 	icon_state = "box_security"
 	illustration = "flashbang"
 	rarity_value = 60
 	initial_amount = 6
 	spawn_type = /obj/item/ammo_casing/grenade
 
-/obj/item/storage/box/baton_rounds/populate_contents()
+/obj/item/storage/box/sting_rounds/populate_contents()
 	for(var/i in 1 to initial_amount)
 		new spawn_type(src)
 
@@ -424,7 +424,7 @@
 	for(var/i in 1 to initial_amount)
 		new spawn_type(src)
 
-/obj/item/storage/box/sting_rounds // occ
+/obj/item/storage/box/sting_rounds
 	name = "box of sting grenade shells"
 	desc = "A box containing 6 sting grenade shells, designed to be fired from grenade launchers."
 	icon_state = "box_security"
@@ -435,7 +435,7 @@
 
 /obj/item/storage/box/sting_rounds/populate_contents()
 	for(var/i in 1 to initial_amount)
-		new spawn_type(src) // end occ
+		new spawn_type(src)
 
 /obj/item/storage/box/trackimp
 	name = "boxed tracking implant kit"

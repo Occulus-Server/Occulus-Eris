@@ -47,6 +47,30 @@
 	fragment_damage = 15 // Occulus Edit: Keeping stat in line with normal Pomme
 	damage_step = 8 // Occulus Edit: Keeping stat in line with Pomme
 
+/obj/item/grenade/frag/sting
+	name = "FS SG \"Hornet\""
+	desc = "A high-grade Frozen Star sting grenade, for use against unruly crowds."
+	icon_state = "sting_ih"
+	item_state = "fraggrenade"
+	fragment_type = /obj/item/projectile/bullet/pellet/fragment/rubber
+	num_fragments = 25
+	fragment_damage = 5
+	blast_radius = 0
+	damage_step = 12
+	spread_range = 7
+
+/obj/item/grenade/frag/sting/AG
+	name = "AG SG \"Mosquito\""
+	desc = "A standard-issue Asters Guild sting grenade, for use against unruly crowds."
+	icon_state = "sting_ag"
+	item_state = "fraggrenade"
+	fragment_type = /obj/item/projectile/bullet/pellet/fragment/rubber/weak
+	num_fragments = 25
+	fragment_damage = 10
+	blast_radius = 0
+	damage_step = 8
+	spread_range = 7
+
 /obj/item/grenade/frag/pipebomb
 	name = "improvised pipebomb"
 	desc = "A jury rigged medium cell filled with plasma. Throw at authorities."
