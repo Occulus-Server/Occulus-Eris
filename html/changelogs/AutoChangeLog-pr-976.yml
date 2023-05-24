@@ -1,0 +1,8 @@
+author: Michiyamenotehifunana
+delete-after: true
+changes:
+  - rscadd: Added the Bio-engineer role! Makes custom aberrant organs and organ mods.
+  - rscadd: Added aberrant organs! Special organs that do certain things in response
+      to stimuli.
+  - rscadd: Added organ mods! Simple stuff to tack onto your existing organs to make
+      them better.
