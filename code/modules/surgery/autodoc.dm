@@ -93,7 +93,7 @@
 				patchnote.surgery_operations |= AUTODOC_FRACTURE
 		if(AUTODOC_EMBED_OBJECT in possible_operations)
 			if(external.implants)
-				if(/obj/item/material/shard/shrapnel in external.implants)
+				if(locate(/obj/item/material/shard/shrapnel) in external.implants)
 					patchnote.surgery_operations |= AUTODOC_EMBED_OBJECT
 
 		if(external.wounds.len)
