@@ -1,3 +1,4 @@
+#define FALL_DAMAGE_KNOCKDOWN_THRESHOLD 5 // Occulus Edit: Normal size or above object can knock someone down
 /*
 see multiz/movement.dm for some info.
 */
@@ -167,8 +168,11 @@ see multiz/movement.dm for some info.
 			var/fall_damage = mover.get_fall_damage()
 			if(M == mover)
 				continue
-			if(M.getarmor(BP_HEAD, ARMOR_MELEE) < fall_damage || ismob(mover))
+			// Occulus Edit: 5 damage threshold and visible damage for knockdown
+			if(M.getarmor(BP_HEAD, ARMOR_MELEE) < (fall_damage - FALL_DAMAGE_KNOCKDOWN_THRESHOLD) || ismob(mover))
+				to_chat(M, SPAN_WARNING("\The [mover] slams into you from above and knocks you down!"))
 				M.Weaken(10)
+			// Occulus Edit End
 			if(fall_damage >= FALL_GIB_DAMAGE)
 				M.gib()
 			else
@@ -246,3 +250,4 @@ see multiz/movement.dm for some info.
 	else
 		return null
 
+#undef FALL_DAMAGE_KNOCKDOWN_THRESHOLD

@@ -18303,8 +18303,8 @@
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
-/obj/item/storage/box/baton_rounds,
-/obj/item/storage/box/baton_rounds,
+/obj/item/storage/box/sting_rounds,
+/obj/item/storage/box/sting_rounds,
 /obj/item/storage/box/sting_rounds,
 /obj/item/storage/box/sting_rounds,
 /turf/simulated/floor/tiled/dark/gray_platform,
