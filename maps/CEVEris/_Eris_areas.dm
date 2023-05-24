@@ -849,6 +849,9 @@
 	name = "Medbay Upper Coridor"
 	icon_state = "erisgreen"
 
+/area/eris/medical/medbay/organs
+	name = "\improper Visceral Research"
+	icon_state = "erisgreen"
 
 
 

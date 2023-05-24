@@ -119,6 +119,13 @@
 //obj/item/gun signals // Occ
 #define COMSIG_GUN_POST_FIRE "gun_post_fire"	//from base of /obj/item/gun/proc/handle_post_fire(): (atom/target, pointblank, reflex)
 
+// ABERRANT signals
+#define COMSIG_ABERRANT_INPUT "aberrant_input"
+#define COMSIG_ABERRANT_PROCESS "aberrant_process"
+#define COMSIG_ABERRANT_OUTPUT "aberrant_output"
+#define COMSIG_ABERRANT_SECONDARY "aberrant_secondary"
+#define COMSIG_ABERRANT_COOLDOWN "aberrant_cooldown"
+
 /*******Component Specific Signals*******/
 //Janitor
 

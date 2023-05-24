@@ -40,3 +40,8 @@
 /decl/hierarchy/outfit/job/science/roboticist/New()
 	..()
 	backpack_overrides.Cut()
+/*	OCCULUS EDIT: commenting out WIP stuff from upstream
+/decl/hierarchy/outfit/job/science/psychiatrist
+	name = OUTFIT_JOB_NAME("Moebius Psychiatrist")
+	belt = /obj/item/storage/belt/medical/
+*/

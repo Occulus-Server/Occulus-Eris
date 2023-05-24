@@ -4,7 +4,7 @@
 #define JOBS_SECURITY "Aegis Commander","Aegis Gunnery Sergeant","Aegis Inspector","Aegis Operative","Aegis Medical Specialist"
 #define JOBS_COMMAND "Captain","First Officer","Ensign","Aegis Commander","Free Trade Union Merchant","Chief Engineer","Chief Medical Officer","Chief Science Officer","Chaplain" //Occulus Edit
 #define JOBS_ENGINEERING "Chief Engineer","Ship Engineer","Engineering Apprentice","Atmospherics Technician","Electrician","Maintenance Technician"
-#define JOBS_MEDICAL "Chief Medical Officer","Medical Doctor","Psychiatrist","Pharmacist","Paramedic","Surgeon","Nurse","Medical Intern"
+#define JOBS_MEDICAL "Chief Medical Officer","Medical Doctor","Psychiatrist","Pharmacist","Paramedic","Surgeon","Nurse","Medical Intern", "Bio-Engineer"
 #define JOBS_SCIENCE "Chief Science Officer","Scientist","Roboticist","Xenobiologist","Xenoflorist","Research Intern","Anomalist"
 #define JOBS_CARGO "Free Trade Union Merchant","Union Cargo Technician","Union Miner"
 #define JOBS_CIVILIAN "Club Manager","Club Worker",ASSISTANT_TITLE,"Intern","Assistant"

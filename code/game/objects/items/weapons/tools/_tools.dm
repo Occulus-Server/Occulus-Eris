@@ -1006,9 +1006,9 @@
 		if(!istype(S) || !BP_IS_ROBOTIC(S))
 			return ..()
 
-		if(get_tool_type(user, list(QUALITY_WELDING), H)) //Prosthetic repair
-			if(S.brute_dam)
-				if(S.brute_dam < ROBOLIMB_SELF_REPAIR_CAP)
+		if (get_tool_type(user, list(QUALITY_WELDING), H)) //Prosthetic repair
+			if (S.brute_dam)
+				if (S.brute_dam < ROBOLIMB_SELF_REPAIR_CAP)
 					for(var/datum/wound/W in S.wounds)
 						if(W.internal)
 							return
@@ -1023,7 +1023,7 @@
 					if(S.brute_dam)
 						to_chat(user, SPAN_WARNING("\The [S] still needs further repair."))
 					return
-				else if(S.open != 2)
+				else if (S.open != 2)
 					to_chat(user, SPAN_DANGER("The damage is far too severe to patch over externally."))
 					return 1
 			else if(S.open != 2) // For surgery.

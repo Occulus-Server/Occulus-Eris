@@ -34,6 +34,7 @@ Procs:
 	var/list/design_categories_protolathe = list()
 	var/list/design_categories_imprinter = list()
 	var/list/design_categories_mechfab = list()
+	var/list/design_categories_organfab = list()
 
 	var/list/researched_tech = list() // Tree = list(of_researched_tech)
 	var/list/researched_nodes = list() // All research nodes
@@ -151,6 +152,8 @@ Procs:
 		design_categories_imprinter |= cat
 	if(D.build_type & MECHFAB)
 		design_categories_mechfab |= cat
+	if(D.build_type & ORGAN_GROWER)
+		design_categories_organfab |= cat
 
 
 // Unlocks hidden tech trees

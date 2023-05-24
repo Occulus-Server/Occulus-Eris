@@ -117,7 +117,16 @@
 	if(istype(loc, /obj/item/device/mmi) || istype(loc, /mob/living/simple_animal/spider_core))
 		return TRUE
 
-	if(istype(loc, /obj/structure/closet/body_bag/cryobag) || istype(loc, /obj/structure/closet/crate/freezer) || istype(loc, /obj/item/storage/freezer))
+	var/list/stasis_types = list(
+		/obj/structure/closet/body_bag/cryobag,
+		/obj/structure/closet/crate/freezer,
+		/obj/item/storage/freezer,
+		/obj/machinery/smartfridge,
+		/obj/machinery/reagentgrinder/industrial/disgorger,
+		/obj/machinery/vending
+	)
+
+	if(is_type_in_list(loc, stasis_types))
 		return TRUE
 
 	return FALSE
@@ -321,7 +330,10 @@
 		if(user)
 			admin_attack_log(user, owner, "Removed a vital organ ([src])", "Had a a vital organ ([src]) removed.", "removed a vital organ ([src]) from")
 		owner.death()
-
+/*
+	if(LAZYLEN(item_upgrades))
+		owner.mutation_index--
+*/
 	owner = null
 	rejecting = null
 
@@ -355,7 +367,10 @@
 		transplant_data["species"] =    transplant_blood.data["species"]
 		transplant_data["blood_type"] = transplant_blood.data["blood_type"]
 		transplant_data["blood_DNA"] =  transplant_blood.data["blood_DNA"]
-
+/*
+	if(LAZYLEN(item_upgrades))
+		owner.mutation_index++
+*/
 /obj/item/organ/proc/heal_damage(amount)
 	return
 

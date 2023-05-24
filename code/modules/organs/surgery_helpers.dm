@@ -72,6 +72,54 @@
 /obj/item/organ/proc/get_conditions()
 	return list()
 
+/obj/item/organ/proc/get_actions(var/obj/item/organ/external/parent)
+	var/list/actions_list = list()
+
+	if(BP_IS_ROBOTIC(src))
+		actions_list.Add(list(list(
+			"name" = (status & ORGAN_CUT_AWAY) ? "Connect" : "Disconnect",
+			"organ" = "\ref[src]",
+			"step" = /datum/surgery_step/robotic/connect_organ
+		)))
+	else
+		var/is_aberrant = istype(src, /obj/item/organ/internal/scaffold)
+		if(item_upgrades.len < max_upgrades)
+			actions_list.Add(list(list(
+				"name" = is_aberrant ? "Attach Mod/Organoid" : "Attach Mod",
+				"organ" = "\ref[src]",
+				"step" = /datum/surgery_step/attach_mod
+			)))
+		if(item_upgrades.len)
+			actions_list.Add(list(list(
+				"name" = is_aberrant ? "Remove Mod/Organoid" : "Remove Mod",
+				"organ" = "\ref[src]",
+				"step" = /datum/surgery_step/remove_mod
+			)))
+		if(is_aberrant)	// Currently, scaffolds are the only type that warrant examining in-body
+			actions_list.Add(list(list(
+				"name" = "Examine",
+				"organ" = "\ref[src]",
+				"step" = /datum/surgery_step/examine
+			)))
+		actions_list.Add(list(list(
+			"name" = (status & ORGAN_CUT_AWAY) ? "Attach" : "Separate",
+			"organ" = "\ref[src]",
+			"step" = (status & ORGAN_CUT_AWAY) ? /datum/surgery_step/attach_organ : /datum/surgery_step/detach_organ
+		)))
+
+
+	return actions_list
+
+/obj/item/organ/internal/proc/get_process_data()
+	var/list/processes = list()
+	for(var/efficiency in organ_efficiency)
+		processes += list(
+			list(
+				"title" = "[capitalize(efficiency)] efficiency",
+				"efficiency" = organ_efficiency[efficiency],
+				)
+			)
+	return processes
 
 // Is body part open for most surgerical operations?
 // To be overridden in subtypes
