@@ -24,10 +24,79 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet/rubber
 	rarity_value = 10
 
-/obj/item/computer_hardware/hard_drive/portable/design/nonlethal_ammo/Initialize()	//modular override to add rubbershot to the nonlethal ammo disk
-	designs += list(/datum/design/autolathe/ammo/shotgun_rubbershot)	// add the designs we want on the disk
-	. = ..()	// then let it install the data onto the disk properly
+// S5 Mags: 5 shot Shotgun magazines
 
+/obj/item/ammo_magazine/s5mag
+	name = "short magazine (.50 buckshot)"
+	desc = "A small, 5 shot magazine designed for shotgun shells."
+	icon = 'zzzz_modular_occulus/icons/obj/magazines.dmi'
+	icon_state = "s5mag_l"
+	mag_type = MAGAZINE
+	mag_well = MAG_WELL_SMG
+	caliber = CAL_SHOTGUN
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	matter = list(MATERIAL_STEEL = 1) //Its 1 steel, but when its printed it'll cost 6
+	max_ammo = 5
+	ammo_color = "-l"
+	initial_ammo = 5
+
+/obj/item/ammo_magazine/s5mag/on_update_icon()
+	cut_overlays()
+	if(stored_ammo.len)
+		var/obj/item/ammo_casing/AC = stored_ammo[1] //look at next casing.
+		overlays += "s5mag_shell_[AC.shell_color]" //look and display the overlay for the ammo
+
+/obj/item/ammo_magazine/s5mag/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/ammo_magazine/s5mag/beanbag
+	name = "short magazine (.50 beanbag)"
+	icon_state = "s5mag_r"
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	ammo_color = "-r"
+
+/obj/item/ammo_magazine/s5mag/rubbershot
+	name = "short magazine (.50 rubbershot)"
+	icon_state = "s5mag_r"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet/rubber
+	ammo_color = "-r"
+
+/obj/item/ammo_magazine/s5mag/slug
+	name = "short magazine (.50 slug)"
+	icon_state = "s5mag_hv"
+	ammo_type = /obj/item/ammo_casing/shotgun
+	ammo_color = "-hv"
+
+/obj/item/ammo_magazine/s5mag/scrap
+	name = "short magazine (.50 old slug)"
+	icon_state = "s5mag_s"
+	ammo_type = /obj/item/ammo_casing/shotgun/scrap
+	ammo_color = "-s"
+
+/obj/item/ammo_magazine/s5mag/scrap_pellet
+	name = "short magazine (.50 old buckshot)"
+	icon_state = "s5mag_s"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet/scrap
+	ammo_color = "-s"
+
+/obj/item/ammo_magazine/s5mag/scrap_beanbag
+	name = "short magazine (.50 old beanbag)"
+	icon_state = "s5mag_s"
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag/scrap
+	ammo_color = "-s"
+
+/obj/item/ammo_magazine/s5mag/empty
+	name = "short magazine (.50)"
+	icon_state = "s5mag"
+	initial_ammo = 0
+	ammo_color = ""
+
+/obj/item/ammo_magazine/s5mag/practice
+	name = "short magazine (.50 practice)"
+	icon_state = "s5mag_p"
+	ammo_type = /obj/item/ammo_casing/shotgun/practice
+	ammo_color = "-p"
 
 // nail magazines
 

@@ -18,6 +18,7 @@
 	spent_icon = "s-shell_rs-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/rubber
 	matter = list(MATERIAL_STEEL = 1)
+	shell_color = "rs"
 
 /obj/item/ammo_casing/shotgun/pellet/rubber/prespawned
 	amount = 5
