@@ -11,22 +11,6 @@
 	embed = FALSE
 	sharp = FALSE
 
-/obj/item/projectile/bullet/pellet/fragment/rubber/stinger	//used for the stinger grenade
-	name = "rubber pellet"
-	icon_state = "birdshot-1"
-	damage_types = list(BRUTE = 1)
-	agony = 17
-	armor_penetration = 0
-	knockback = 0
-	embed = FALSE
-	sharp = FALSE
-
-/obj/item/projectile/bullet/pellet/fragment/rubber/stinger/weak
-	damage_types = list(BRUTE = 1)
-	agony = 5
-
-//Rubberizing rubber rounds
-
 /obj/item/projectile/bullet/srifle/rubber
 	penetrating = 0
 	damage_types = list(BRUTE = 6)

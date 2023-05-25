@@ -298,3 +298,19 @@
 		list(/obj/item/device/assembly/igniter, 2),
 		list(/obj/item/stack/cable_coil, 5, "time" = 20)
 	)
+
+/datum/craft_recipe/weapon/pipebomb
+	name = "improvised pipebomb"
+	result = /obj/item/grenade/frag/pipebomb
+	steps = list(
+		list(/obj/item/cell/medium, 1),
+		list(QUALITY_SAWING, 10),
+		list(CRAFT_MATERIAL, 2, MATERIAL_PLASTEEL),
+		list(QUALITY_WELDING, 10, "time" = 30),
+		list(CRAFT_MATERIAL, 1, MATERIAL_PHORON), //similary to the makeshift landmine, as explosive, frags come from the shell itself
+		list(QUALITY_WELDING, 10, "time" = 30),
+		list(/obj/item/device/assembly/igniter, 1),
+		list(QUALITY_SCREW_DRIVING, 10, "time" = 30),
+		list(/obj/item/stack/cable_coil, 5),
+		list(QUALITY_WIRE_CUTTING, 10, "time" = 20),
+	)

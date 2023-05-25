@@ -1,5 +1,6 @@
 #define ARMOR_HALLOS_COEFFICIENT 0.4
 // #define ARMOR_GDR_COEFFICIENT 0.1 // Occulus Edit: Factored out to misc.dm for reuse
+#define MAX_ADDITIONAL_BURN_DAMAGE 2 // Occulus Edit: Maximum additional burn damage when on fire
 
 //This calculation replaces old run_armor_check in favor of more complex and better system
 //If you need to do something else with armor - just use getarmor() proc and do with those numbers all you want
@@ -326,9 +327,15 @@
 
 	if(!on_fire)
 		return 1
-	else if(fire_stacks <= 0)
+	// Occulus Edit: Fire are slowly consumed by -0.1, add burn damage scaling to fire stacks (Up to +2 per tick)
+	if(fire_stacks > 0)
+		adjust_fire_stacks(-0.1) // the fire is slowly consumed
+		var/scaled_burn_damage = MAX_ADDITIONAL_BURN_DAMAGE * (fire_stacks / FIRE_MAX_STACKS)
+		src.take_overall_damage(0, scaled_burn_damage, used_weapon = "thermal burns")
+	else
 		ExtinguishMob() //Fire's been put out.
 		return 1
+	// Occulus Edit END
 
 	var/datum/gas_mixture/G = loc.return_air() // Check if we're standing in an oxygenless environment
 	if(G.gas["oxygen"] < 1)
