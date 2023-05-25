@@ -341,3 +341,8 @@
 /// Required minimum values to see reagents in a beaker
 #define HUMAN_REQ_COG_FOR_REG 35
 #define HUMAN_REQ_BIO_FOR_REG 50
+
+// Occulus Edit: COMBAT VARIABLES
+#define ARMOR_GDR_COEFFICIENT 0.1
+
+// Occulus Edit: End
