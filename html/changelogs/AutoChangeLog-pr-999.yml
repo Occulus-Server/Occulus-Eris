@@ -1,4 +1,0 @@
-author: Zenitheevee
-delete-after: true
-changes:
-  - bugfix: Replaces the circuit disk overwrites with a better addition

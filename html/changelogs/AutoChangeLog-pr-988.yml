@@ -1,8 +1,0 @@
-author: Zenitheevee
-delete-after: true
-changes:
-  - rscadd: Added S5 Shotgun mags and designs to respective disks
-  - rscadd: Added Stoat Shotgun and disk, Shotgun available in the Frozenstar Vendor
-      for 2100 credits
-  - rscadd: Added Magazine kit compatible with Regulators and Gladstones
-  - code_imp: Allows pump-action shotguns to support mags.

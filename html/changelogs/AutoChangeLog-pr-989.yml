@@ -1,6 +1,0 @@
-author: WeNeedMorePhoron
-delete-after: true
-changes:
-  - rscadd: Stomach Pump added to sleeper. Works similarly to dialysis but clear out
-      your stomach's content. Will nuke your nutrition on use (10 / 400 nutrition
-      removed per tick).
