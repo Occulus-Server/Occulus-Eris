@@ -58,7 +58,7 @@
 	scannable = 1
 	affects_dead = 1
 	metabolism = REM * 2
-	price_tag = 50
+	price_per_unit = 50
 
 /datum/reagent/medicine/myosynaptizine
 	name = "Myosynaptizine"

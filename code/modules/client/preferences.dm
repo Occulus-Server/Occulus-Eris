@@ -211,9 +211,7 @@
 	character.rebuild_organs(src)
 
 
-	character.r_eyes = r_eyes
-	character.g_eyes = g_eyes
-	character.b_eyes = b_eyes
+	character.eyes_color = eyes_color
 
 	character.h_style = h_style
 	character.r_hair = r_hair

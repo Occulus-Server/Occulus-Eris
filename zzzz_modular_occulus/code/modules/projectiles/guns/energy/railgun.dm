@@ -18,9 +18,8 @@
 	charge_cost = 1250
 	gun_tags = list(GUN_PROJECTILE, GUN_LASER, GUN_ENERGY, GUN_SCOPE)
 	suitable_cell = /obj/item/cell/large
-	one_hand_penalty = 10
+	init_recoil = RIFLE_RECOIL(4)
 	fire_delay = 14 //Slow, on par with a shotgun pump then fire
-	recoil_buildup = 12 //Big shots, big recoil.
 	damage_multiplier = 1.2
 	init_firemodes = list(
 		list(mode_name="slug", mode_desc="fires a large metal chunk at light speeds", projectile_type=/obj/item/projectile/bullet/shotgun/railgun, icon="kill"),
@@ -70,8 +69,7 @@
 	matter = list(MATERIAL_PLASTEEL = 40, MATERIAL_STEEL = 15, MATERIAL_SILVER = 10, MATERIAL_GOLD = 6)
 	charge_cost = 1000
 	fire_delay = 30 // Technically a bit more, due to heat
-	recoil_buildup = 30
-	one_hand_penalty = 80 //guh
+	init_recoil = RIFLE_RECOIL(4)
 	zoom_factors = list(1.8)
 	damage_multiplier = 1.2
 	penetration_multiplier = 3

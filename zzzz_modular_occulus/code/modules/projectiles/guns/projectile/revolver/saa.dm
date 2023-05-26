@@ -18,7 +18,7 @@
 	damage_multiplier = 2.1 // aprox. 70 damage
 	penetration_multiplier = 1.4
 	proj_step_multiplier = 0.8 // faster boolets
-	recoil_buildup = 8
+	init_recoil = HANDGUN_RECOIL(8)
 	fire_delay = 6 // 2x longer than regular revolvers
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE

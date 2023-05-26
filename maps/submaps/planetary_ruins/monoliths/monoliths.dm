@@ -40,7 +40,7 @@
 			desc += "\nThere are images on it: [E.get_engravings()]"
 
 /obj/structure/monolith/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(active)
 		var/image/I = image(icon,"[icon_state]_1")
 		I.appearance_flags = RESET_COLOR

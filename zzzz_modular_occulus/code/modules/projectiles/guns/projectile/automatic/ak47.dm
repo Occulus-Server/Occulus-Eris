@@ -8,7 +8,7 @@ obj/item/gun/projectile/automatic/ak47/cursed
 			Short of ripping off the dust cover, this is as bad as it gets. There is no fire selector. There is also no safety."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/projectile/cursed47.dmi'
 	w_class = ITEM_SIZE_NORMAL
-	recoil_buildup = 30	//you knew what you were getting into.
+	init_recoil = RIFLE_RECOIL(30)
 
 	origin_tech = list(TECH_COMBAT = 3)	//worth studying, if only to learn from your mistakes.
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_WOOD = 10)

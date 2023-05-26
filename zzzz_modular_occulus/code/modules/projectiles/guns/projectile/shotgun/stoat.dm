@@ -21,8 +21,7 @@
 	cocked_sound = 'sound/weapons/guns/interact/ltrifle_cock.ogg'
 	twohanded = 0
 	damage_multiplier = 0.8 //shorter barrel
-	recoil_buildup = 20 // controllable when wielded
-	one_hand_penalty = 15
+	init_recoil = RIFLE_RECOIL(4)
 
 	init_firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=8, move_delay=null, icon="semi")
@@ -37,7 +36,7 @@
 	overlays.Cut()
 	icon_state = "[initial(icon_state)]"
 	if(ammo_magazine)
-		overlays += "mag[ammo_magazine.ammo_color]"
+		//overlays += "mag[ammo_magazine.ammo_color]"
 		itemstring += "_mag"
 
 	icon_state = iconstring

@@ -500,6 +500,12 @@
 	prespawned_content_amount = 7
 	prespawned_content_type = /obj/item/reagent_containers/hypospray/autoinjector
 
+/obj/item/storage/box/autoinjectors/tricordrazine // Occulus Addition - Tricord autoinjector box
+	name = "box of autoinjectors (tricordrazine)"
+	desc = "Contains tricordrazine autoinjectors."
+	illustration = "syringe"
+	prespawned_content_type = /obj/item/reagent_containers/hypospray/autoinjector/tricordrazine
+
 /obj/item/storage/box/lights
 	name = "box of replacement bulbs"
 	illustration = "light"

@@ -15,7 +15,6 @@
 	max_co2 = 0
 	min_n2 = 0
 	max_n2 = 0
-	agony_coefficient = 0.5		//Gotta use lethals to put em down effectively
 	unsuitable_atoms_damage = 15
 	faction = "siren"
 	environment_smash = 15
@@ -238,7 +237,6 @@
 	attacktext = "slices"
 	throw_message = "falls right through the strange body of the"
 	environment_smash = 4
-	agony_coefficient = 0.8 //Hard to shoot whip-like tendrils effectively
 
 /mob/living/simple_animal/hostile/siren/replicanttendril/New()
 	..()

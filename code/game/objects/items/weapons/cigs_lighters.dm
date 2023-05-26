@@ -57,9 +57,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 	price_tag = 5
 
-	var/burnt = 0
-	var/smoketime = 5
-
 /obj/item/flame/match/Process()
 	if(isliving(loc))
 		var/mob/living/M = loc

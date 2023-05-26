@@ -17,12 +17,11 @@
 	damage_multiplier = 0.9
 	penetration_multiplier = 0.6
 	gun_tags = list(GUN_SILENCABLE)
-	recoil_buildup = 4
-	one_hand_penalty = 1
+	init_recoil = HANDGUN_RECOIL(1)
 	spawn_blacklisted = TRUE
 
 	init_firemodes = list(
-		SEMI_AUTO_NODELAY,
+		SEMI_AUTO_300,
 		BURST_5_ROUND,
 		FULL_AUTO_400
 		)
@@ -68,8 +67,7 @@
 	damage_multiplier = 1.2
 	penetration_multiplier = 0.6
 	gun_tags = list(GUN_SILENCABLE)
-	recoil_buildup = 5
-	one_hand_penalty = 1
+	init_recoil = HANDGUN_RECOIL(1.2)
 	spawn_blacklisted = TRUE
 
 	init_firemodes = list(
@@ -119,12 +117,10 @@
 	damage_multiplier = 1.1
 	penetration_multiplier = 0.6
 	gun_tags = list(GUN_SILENCABLE)
-	recoil_buildup = 5
-	one_hand_penalty = 1
-	spawn_blacklisted = TRUE
+	init_recoil = CARBINE_RECOIL(5)
 
 	init_firemodes = list(
-		SEMI_AUTO_NODELAY,
+		SEMI_AUTO_300,
 		BURST_3_ROUND,
 		FULL_AUTO_400
 		)

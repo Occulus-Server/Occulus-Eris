@@ -42,3 +42,9 @@
 				return TRUE
 
 	return FALSE
+
+/mob/living/proc/switch_scaling() // Occulus Addition - Fuzzy/Sharp sprite scaling
+	set name = "Switch scaling mode"
+	set category = "Preferences"
+	set desc = "Switch sharp/fuzzy scaling for current mob."
+	appearance_flags ^= PIXEL_SCALE

@@ -8,10 +8,9 @@
 	id_card.sex 				= capitalize(gender)
 	id_card.set_id_photo(src)
 
-	if(dna)
-		id_card.blood_type		= b_type
-		id_card.dna_hash		= dna_trace
-		id_card.fingerprint_hash= fingers_trace
+	id_card.blood_type		= b_type
+	id_card.dna_hash		= dna_trace
+	id_card.fingerprint_hash= fingers_trace
 	id_card.update_name()
 
 /obj/item/card/id/dat()

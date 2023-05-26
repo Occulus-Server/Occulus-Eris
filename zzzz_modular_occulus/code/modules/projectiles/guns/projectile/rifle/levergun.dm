@@ -18,8 +18,7 @@
 	bulletinsert_sound 	= 'sound/weapons/guns/interact/shotgun_insert.ogg'
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 10)
 	price_tag = 1000
-	recoil_buildup = 20
-	one_hand_penalty = 15 //full sized shotgun level
+	init_recoil = CARBINE_RECOIL(20)
 	damage_multiplier = 0.8
 	var/sawn_result = /obj/item/gun/projectile/shotgun/leveraction/sawn	//snowflake way to make this not hardcoded
 	var/cansaw = TRUE

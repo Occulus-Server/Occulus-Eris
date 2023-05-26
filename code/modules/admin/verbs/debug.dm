@@ -398,8 +398,8 @@ ADMIN_VERB_ADD(/client/proc/cmd_admin_dress, R_FUN, FALSE)
 				var/obj/item/tank/plasma/Plasma = new/obj/item/tank/plasma(Rad)
 				Plasma.air_contents.gas["plasma"] = 70
 				Rad.drainratio = 0
-				Rad.P = Phoron
-				Phoron.loc = Rad
+				Rad.P = Plasma
+				Plasma.loc = Rad
 
 			if(!Rad.active)
 				Rad.toggle_power()

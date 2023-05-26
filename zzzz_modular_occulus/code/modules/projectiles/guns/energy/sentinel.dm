@@ -12,12 +12,11 @@
 	force = WEAPON_FORCE_NORMAL
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 8, MATERIAL_SILVER = 5)
-	zoom_factor = 0
 	damage_multiplier = 0.5
 	charge_cost = 125
 	suitable_cell = /obj/item/cell/large
 	cell_type = /obj/item/cell/large
-	recoil_buildup = 2
+	init_recoil = CARBINE_RECOIL(2)
 	price_tag = 2500
 	rarity_value = 12
 	projectile_type = /obj/item/projectile/beam/midlaser

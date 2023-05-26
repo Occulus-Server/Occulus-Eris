@@ -37,7 +37,7 @@
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)
 		return
-	eyes_color = rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)
+	eyes_color = owner.eyes_color
 
 /obj/item/organ/internal/eyes/take_damage(amount, damage_type = BRUTE, wounding_multiplier = 1, sharp = FALSE, edge = FALSE, silent = FALSE)
 	var/oldbroken = is_broken()

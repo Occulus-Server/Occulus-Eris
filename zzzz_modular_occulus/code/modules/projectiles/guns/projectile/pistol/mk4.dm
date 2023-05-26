@@ -15,7 +15,7 @@
 	magazine_type = /obj/item/ammo_magazine/pistol
 	damage_multiplier = 1.4
 	penetration_multiplier = 0.8
-	recoil_buildup = 2
+	init_recoil = HANDGUN_RECOIL(2)
 	rarity_value = 9.6
 
 /obj/item/gun/projectile/mk4/update_icon()

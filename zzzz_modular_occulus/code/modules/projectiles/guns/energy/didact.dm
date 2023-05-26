@@ -13,7 +13,7 @@
 	fire_sound = 'sound/weapons/pulse.ogg'
 	suitable_cell = /obj/item/cell/large
 	damage_multiplier = 0.5
-	recoil_buildup = 2
+	init_recoil = CARBINE_RECOIL(2)
 	sel_mode = 1
 	spawn_blacklisted = TRUE
 	twohanded = TRUE

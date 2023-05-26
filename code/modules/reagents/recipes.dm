@@ -607,7 +607,7 @@
 	result_amount = 1
 
 /datum/chemical_reaction/phoronsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
-	new /obj/item/stack/material/phoron(get_turf(holder.my_atom), created_volume)
+	new /obj/item/stack/material/plasma(get_turf(holder.my_atom), created_volume)
 	return
 
 /datum/chemical_reaction/goldsolidification

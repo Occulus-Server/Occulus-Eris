@@ -187,6 +187,5 @@
 
 /obj/item/projectile/plasma/cult
 	name = "psychic plasma bolt"
-	agony = 30
 	damage_types = list(PSY = 15, BURN = 5)
 	impact_type = /obj/effect/projectile/stun/impact

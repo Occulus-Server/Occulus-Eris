@@ -238,7 +238,7 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(prob(10))
-				H.UnHusk() // Occulus Edit end
+				//H.UnHusk() // Occulus Edit end
 
 /* Painkillers */
 

@@ -32,7 +32,6 @@
 		GUN_UPGRADE_RECOIL = 3,			//But also makes it horrific to control
 		GUN_UPGRADE_DAMAGE_MULT = 0.7	//Reduction in damage, explained by "reduced muzzle velocity due to the breach not fully sealing before the hammer falls again"
 	)
-	I.req_gun_tags = list(GUN_PACO)
 	I.gun_loc_tag = GUN_MECHANISM
 
 /obj/item/gun_upgrade/mechanism/magkit
@@ -59,4 +58,4 @@
 			P.load_method = MAGAZINE
 			P.mag_well = MAG_WELL_SMG
 			P.magazine_type = /obj/item/ammo_magazine/s5mag
-			P.add_firemode(SEMI_AUTO_NODELAY)
+			P.add_firemode(SEMI_AUTO_300)

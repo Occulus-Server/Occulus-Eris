@@ -3,7 +3,7 @@
 /obj/item/gun/energy/lasersmg
 	price_tag = 600
 	damage_multiplier = 0.33 //makeshift laser
-	recoil_buildup = 2
+	init_recoil = SMG_RECOIL(2)
 	init_offset = 3 // bad accuracy even on the first shot
 /obj/item/gun/energy/taser
 	price_tag = 1000

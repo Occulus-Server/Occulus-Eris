@@ -43,7 +43,7 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	projectile_color = "#00FFFF"
 	charge_cost = 15
-	one_hand_penalty = 0
+	init_recoil = HANDGUN_RECOIL(0)
 	fire_delay = 8
 
 	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 8, MATERIAL_PLASMA = 2, MATERIAL_SILVER = 3, MATERIAL_URANIUM = 3)

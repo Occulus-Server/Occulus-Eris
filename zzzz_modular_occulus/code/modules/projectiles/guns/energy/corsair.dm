@@ -16,7 +16,7 @@
 	suitable_cell = /obj/item/cell/large
 	cell_type = /obj/item/cell/large
 	projectile_type = /obj/item/projectile/bullet
-	recoil_buildup = 3
+	init_recoil = CARBINE_RECOIL(2)
 	fire_delay = 2 //Equivalent to a pump then fire time
 	fire_sound = 'sound/weapons/guns/fire/energy_shotgun.ogg'
 	init_firemodes = list(

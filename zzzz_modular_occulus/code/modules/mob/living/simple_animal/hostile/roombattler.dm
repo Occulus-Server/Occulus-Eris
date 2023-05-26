@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/roombattler
-	name = "\improper RMB-A4 Schildkröte"
-	desc = "A discontinued product from Frozen Star, the Room Maintenance Bot model A4 was purchased as a long-since defunct company's design. These were bought in surplus by EES to handle the roach problem. It's got kinks that need worked out still. The Schildkröte variant features extra heavy plating and shields and looks much too tough for rubber bullets to put a dent in."
+	name = "\improper RMB-A4 Schildkrï¿½te"
+	desc = "A discontinued product from Frozen Star, the Room Maintenance Bot model A4 was purchased as a long-since defunct company's design. These were bought in surplus by EES to handle the roach problem. It's got kinks that need worked out still. The Schildkrï¿½te variant features extra heavy plating and shields and looks much too tough for rubber bullets to put a dent in."
 	icon = 'zzzz_modular_occulus/icons/mob/roombattler.dmi'
 	icon_state = "turtle"
 	speak_chance = 5
@@ -32,8 +32,6 @@
 	minbodytemp = 0
 
 	environment_smash = 1
-
-	agony_coefficient = 0.5 // super armored unit, doesn't take much damage from non-lethals.
 
 	faction = "bosstown"
 
@@ -74,7 +72,6 @@
 	ranged_cooldown = 5 SECONDS
 	maxHealth = 50
 	health = 50
-	agony_coefficient = 0.8 // half shields, half health, half defense
 
 	rarity_value = 10
 
@@ -82,5 +79,4 @@
 					/obj/spawner/pack/gun_loot)
 
 /obj/item/projectile/bullet/clrifle/rubber/weak
-	agony = 8
 	step_delay = 2

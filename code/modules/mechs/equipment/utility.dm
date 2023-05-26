@@ -408,7 +408,6 @@
 			else
 				to_chat(user, "You must stay still while the drill is engaged!")
 
-			return 1
 
 			return 1
 

@@ -9,9 +9,8 @@
 	w_class = ITEM_SIZE_BULKY
 	force = WEAPON_FORCE_PAINFUL
 	twohanded = TRUE
-	one_hand_penalty = 10
 	slot_flags = SLOT_BELT
-	recoil_buildup = 5
+	init_recoil = CARBINE_RECOIL(1)
 	charge_cost = 40
 	damage_multiplier = 0.9
 	price_tag = 2500
@@ -33,8 +32,7 @@
 	suitable_cell = /obj/item/cell/medium
 	w_class = ITEM_SIZE_BULKY
 	force = WEAPON_FORCE_ROBUST
-	one_hand_penalty = 10
-	recoil_buildup = 25
+	init_recoil = CARBINE_RECOIL(1)
 	charge_cost = 180
 	damage_multiplier = 1
 	price_tag = 3500

@@ -32,7 +32,6 @@
 
 	environment_smash = 1
 
-	agony_coefficient = 0.8 // armored unit, doesn't take much damage from non-lethals.
 
 	faction = "neutral"
 

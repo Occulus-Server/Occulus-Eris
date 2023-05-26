@@ -19,12 +19,11 @@
 	rarity_value = 18.5
 	damage_multiplier = 0.9	// Sliiiightly higher than the atreides since this can't go full auto
 	penetration_multiplier = 0.8
-	recoil_buildup = 4
-	one_hand_penalty = 4
+	init_recoil = SMG_RECOIL(4)
 
 	init_firemodes = list(
 		BURST_5_ROUND,
-		SEMI_AUTO_NODELAY,
+		SEMI_AUTO_300,
 		)
 
 /obj/item/gun/projectile/ec9/update_icon()

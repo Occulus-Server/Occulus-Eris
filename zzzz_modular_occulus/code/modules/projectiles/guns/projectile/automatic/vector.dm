@@ -19,13 +19,12 @@
 	price_tag = 2000
 	damage_multiplier = 0.7
 	penetration_multiplier = 0.75
-	recoil_buildup = 2
-	one_hand_penalty = 4
+	init_recoil = SMG_RECOIL(2)
 	gun_tags = list(GUN_PROJECTILE, GUN_SILENCABLE)
 
 	init_firemodes = list(
 		FULL_AUTO_800,
-		SEMI_AUTO_NODELAY,
+		SEMI_AUTO_300,
 		)	//haha vector go BRRRRRT
 
 /obj/item/gun/projectile/automatic/vector/update_icon()

@@ -67,7 +67,7 @@ The module base code is held in module.dm
 
 /obj/item/implant/core_implant/soulcrypt/update_icon()
 	overlays.Cut()
-	if(host_mind || host_dna)
+	if(host_mind)
 		icon_state = "soulcrypt"
 	else
 		icon_state = "crypt_off"

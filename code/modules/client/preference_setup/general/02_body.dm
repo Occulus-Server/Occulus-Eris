@@ -301,11 +301,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["eye_color"])
 		if(!has_flag(mob_species, HAS_EYE_COLOR))
 			return TOPIC_NOACTION
-		var/new_eyes = input(user, "Choose your character's eye colour:", CHARACTER_PREFERENCE_INPUT_TITLE, rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes)) as color|null
+		var/new_eyes = input(user, "Choose your character's eye colour:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.eyes_color) as color|null
 		if(new_eyes && has_flag(all_species[pref.species], HAS_EYE_COLOR) && CanUseTopic(user))
-			pref.r_eyes = hex2num(copytext(new_eyes, 2, 4))
-			pref.g_eyes = hex2num(copytext(new_eyes, 4, 6))
-			pref.b_eyes = hex2num(copytext(new_eyes, 6, 8))
+			pref.eyes_color = new_eyes
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["base_skin"])

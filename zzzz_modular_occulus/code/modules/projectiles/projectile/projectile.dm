@@ -8,8 +8,6 @@
 /obj/item/projectile/multiply_projectile_damage(newmult)
 	for(var/i in damage_types)
 		damage_types[i] *= newmult
-	if(agony)
-		agony *= newmult
 
 
 /obj/item/projectile/plasma/blast/on_hit(atom/target)
@@ -26,7 +24,6 @@
 /obj/item/projectile/beam/siren
 	name = "energy beam"
 	icon_state = "laser"
-	agony = 30
 	damage_types = list(BURN = 10)
 	muzzle_type = /obj/effect/projectile/laser/muzzle
 	tracer_type = /obj/effect/projectile/laser/tracer

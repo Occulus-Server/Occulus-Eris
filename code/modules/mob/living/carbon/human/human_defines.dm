@@ -20,9 +20,7 @@
 	var/wagging = 0 //UGH.
 
 	//Eye colour
-	var/r_eyes = 0
-	var/g_eyes = 0
-	var/b_eyes = 0
+	var/eyes_color
 
 	var/s_tone = 0	//Skin tone
 	var/s_base = "" //Skin base

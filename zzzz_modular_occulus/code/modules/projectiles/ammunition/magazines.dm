@@ -1,6 +1,6 @@
 /obj/item/ammo_magazine/a75
 	icon = 'zzzz_modular_occulus/icons/obj/magazines.dmi'
-	multiple_sprites = 1
+	// multiple_sprites = 1
 
 //Rubbershot
 
@@ -37,7 +37,7 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	matter = list(MATERIAL_STEEL = 1) //Its 1 steel, but when its printed it'll cost 6
 	max_ammo = 5
-	ammo_color = "-l"
+	// ammo_color = "-l"
 	initial_ammo = 5
 
 /obj/item/ammo_magazine/s5mag/on_update_icon()
@@ -54,49 +54,49 @@
 	name = "short magazine (.50 beanbag)"
 	icon_state = "s5mag_r"
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	ammo_color = "-r"
+//	ammo_color = "-r"
 
 /obj/item/ammo_magazine/s5mag/rubbershot
 	name = "short magazine (.50 rubbershot)"
 	icon_state = "s5mag_r"
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet/rubber
-	ammo_color = "-r"
+//	ammo_color = "-r"
 
 /obj/item/ammo_magazine/s5mag/slug
 	name = "short magazine (.50 slug)"
 	icon_state = "s5mag_hv"
 	ammo_type = /obj/item/ammo_casing/shotgun
-	ammo_color = "-hv"
+//	ammo_color = "-hv"
 
 /obj/item/ammo_magazine/s5mag/scrap
 	name = "short magazine (.50 old slug)"
 	icon_state = "s5mag_s"
 	ammo_type = /obj/item/ammo_casing/shotgun/scrap
-	ammo_color = "-s"
+//	ammo_color = "-s"
 
 /obj/item/ammo_magazine/s5mag/scrap_pellet
 	name = "short magazine (.50 old buckshot)"
 	icon_state = "s5mag_s"
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet/scrap
-	ammo_color = "-s"
+//	ammo_color = "-s"
 
 /obj/item/ammo_magazine/s5mag/scrap_beanbag
 	name = "short magazine (.50 old beanbag)"
 	icon_state = "s5mag_s"
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag/scrap
-	ammo_color = "-s"
+//	ammo_color = "-s"
 
 /obj/item/ammo_magazine/s5mag/empty
 	name = "short magazine (.50)"
 	icon_state = "s5mag"
 	initial_ammo = 0
-	ammo_color = ""
+//	ammo_color = ""
 
 /obj/item/ammo_magazine/s5mag/practice
 	name = "short magazine (.50 practice)"
 	icon_state = "s5mag_p"
 	ammo_type = /obj/item/ammo_casing/shotgun/practice
-	ammo_color = "-p"
+//	ammo_color = "-p"
 
 // nail magazines
 

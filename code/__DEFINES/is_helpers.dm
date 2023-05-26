@@ -90,12 +90,14 @@
 
 #define istool(A) istype(A, /obj/item/tool)
 
+#define isCoil(A) (istype(A, /obj/item/stack/cable_coil))
+
+#define isstructure(A) (istype(A, /obj/structure))
+
 #define ismachinery(A) (istype(A, /obj/machinery))
+
+#define isProjectile(A) (istype(A, /obj/item/projectile))
 
 #define isWrench(A) istype(A, /obj/item/tool/wrench)
 
 #define isWelder(A) istype(A, /obj/item/tool/weldingtool)
-
-#define isstructure(A) (istype(A, /obj/structure))
-
-#define isProjectile(A) (istype(A, /obj/item/projectile))

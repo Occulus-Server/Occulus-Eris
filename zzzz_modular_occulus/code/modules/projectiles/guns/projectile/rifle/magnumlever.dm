@@ -12,9 +12,7 @@
 	matter = list(MATERIAL_PLASTIC = 6, MATERIAL_STEEL = 18)
 	price_tag = 600
 	damage_multiplier = 1.2 //34 x 1.2 ~ 40 damage. Revolvers still beat it out, but this holds more rounds and is easier to reload.
-	armor_penetration = 1.35 //A hair over 20 armor pen.
-	recoil_buildup = 20
-	one_hand_penalty = 15 //full sized shotgun level
+	init_recoil = HANDGUN_RECOIL(20)
 	sawn_result = /obj/item/gun/projectile/shotgun/leveraction/sawn/magnum
 	cansaw = TRUE
 

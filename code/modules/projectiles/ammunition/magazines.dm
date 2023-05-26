@@ -450,7 +450,7 @@
 	name = "pan magazine (.30 Rifle rubber)"
 	icon_state = "maxim_r"
 	ammo_type = /obj/item/ammo_casing/lrifle/rubber
-	ammo_color = "-r"
+	// ammo_color = "-r"
 
 ///////// SPEEDLOADERS ///////////
 

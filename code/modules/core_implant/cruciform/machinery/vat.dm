@@ -276,7 +276,7 @@
 			return
 		new organ_type(victim)
 
-	victim.UpdateAppearance()	// OCCULUS EDIT - Make sure we sync up our body markings before...
+	// victim.UpdateAppearance()	// OCCULUS EDIT - Make sure we sync up our body markings before...
 	victim.update_body()	// ...we update our sprite.
 	if(OD)
 		victim.pain(OD.name, 100, TRUE)
@@ -408,16 +408,12 @@
 			to_chat(user, "The vat does not have enough fluids to restore the body!")
 			return
 		var/obj/item/organ/donor = O
-		if(!donor.dna)
-			to_chat(user, "\The [src] is rejected by the vat!")
-			return
 		var/mob/living/carbon/human/newbody = new/mob/living/carbon/human(loc)
-		newbody.dna = donor.dna.Clone()
 		newbody.set_species()
-		newbody.real_name = donor.dna.real_name
-		newbody.age = donor.dna.age
-		newbody.flavor_text = donor.dna.flavor_text
-		newbody.stats = donor.dna.stats
+		newbody.real_name = donor.real_name
+		newbody.age = donor.age
+		newbody.flavor_text = donor.flavor_text
+		newbody.stats = donorstats
 		newbody.UpdateAppearance()
 		newbody.sync_organ_dna()
 		newbody.stat = DEAD //So it doesn't display the "Seizes up" message
@@ -476,33 +472,40 @@
 
 		var/obj/item/implant/core_implant/cruciform/I = O
 		var/datum/core_module/cruciform/cloning/R = I.get_module(CRUCIFORM_CLONING)
-		if(!R.dna)
-			to_chat(user, "\The [src] is rejected by the vat!")
-			return
-		else
-			user.drop_from_inventory(I)
-			I.forceMove(loc)
-			var/mob/living/carbon/human/newbody = new/mob/living/carbon/human(loc)
-			newbody.dna = R.dna.Clone()
-			newbody.set_species()
-			newbody.real_name = R.dna.real_name
-			newbody.age = R.age
-			newbody.UpdateAppearance()
-			newbody.sync_organ_dna()
-			newbody.flavor_text = R.flavor
-			newbody.stats = R.stats
-			newbody.update_implants()
-			newbody.stat = DEAD
-			newbody.stable_genes = TRUE
-			sleep(1) //Game needs time to process all this or it gives you a weird wrong named character
-			for(var/obj/item/organ/external/EO in newbody.organs)
-				if(EO.organ_tag == BP_CHEST || EO.organ_tag == BP_GROIN)
-					continue
-				else
-					EO.removed()
-					qdel(EO)
-			take_victim(newbody, newbody, TRUE)
-			user.visible_message("[user.name] places \the [I] into \the [src]. It starts releasing something into the fluid!", "You upload \the [I] into the vat.")
+
+		user.drop_from_inventory(I)
+		I.forceMove(loc)
+		var/mob/living/carbon/human/newbody = new/mob/living/carbon/human(loc)
+		newbody.fingers_trace = R.fingers_trace
+		newbody.dna_trace = R.dna_trace
+		newbody.dormant_mutations = R.dormant_mutations
+		newbody.active_mutations = R.active_mutations
+		newbody.set_species()
+		newbody.real_name = R.real_name
+		newbody.b_type = R.b_type
+		newbody.age = R.age
+		newbody.h_style = R.h_style
+		newbody.hair_color = R.hair_color
+		newbody.f_style = R.f_style
+		newbody.facial_color = R.facial_color
+		newbody.eyes_color = R.eyes_color
+		newbody.skin_color = R.skin_color
+		newbody.change_skin_tone(R.s_tone)
+		newbody.gender = R.gender
+		newbody.tts_seed = R.tts_seed
+		newbody.sync_organ_dna()
+		newbody.flavor_text = R.flavor
+		R.stats.copyTo(newbody.stats)
+
+		sleep(1) //Game needs time to process all this or it gives you a weird wrong named character
+		for(var/obj/item/organ/external/EO in newbody.organs)
+			if(EO.organ_tag == BP_CHEST || EO.organ_tag == BP_GROIN)
+				continue
+			else
+				EO.removed()
+				qdel(EO)
+		take_victim(newbody, newbody, TRUE)
+		user.visible_message("[user.name] places \the [I] into \the [src]. It starts releasing something into the fluid!", "You upload \the [I] into the vat.")
 	return
 
 /obj/machinery/neotheology/clone_vat/update_icon()

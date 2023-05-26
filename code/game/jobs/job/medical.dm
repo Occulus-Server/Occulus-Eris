@@ -13,8 +13,6 @@
 	wage = WAGE_COMMAND
 	outfit_type = /decl/hierarchy/outfit/job/medical/cmo
 
-	wl_config_heads = TRUE		//Eclipse edit.
-
 	access = list(
 		access_moebius, access_medical_equip, access_morgue, access_genetics, access_heads,
 		access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,

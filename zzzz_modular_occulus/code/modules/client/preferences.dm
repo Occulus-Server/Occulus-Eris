@@ -52,9 +52,7 @@
 	character.rebuild_organs(src)
 
 
-	character.r_eyes = r_eyes
-	character.g_eyes = g_eyes
-	character.b_eyes = b_eyes
+	character.eyes_color
 
 	character.h_style = h_style
 	character.r_hair = r_hair
@@ -97,7 +95,7 @@
 	character.body_markings = body_markings
 	character.blood_color = blood_color ? blood_color : character.species.blood_color
 
-	QDEL_NULL_LIST(character.worn_underwear)
+	QDEL_LIST(character.worn_underwear)
 	character.worn_underwear = list()
 
 	for(var/underwear_category_name in all_underwear)

@@ -79,9 +79,10 @@
 	var/mod_climb_delay = 1 // delay for climb
 	var/noise_coeff = 1 //noise coefficient
 
-	var/agony_coefficient = 1 // OCCULUS EDIT - Making mobs selectively stronger against non-lethals
 	var/can_multiz_pb = FALSE
 	var/is_watching = FALSE
+
+	var/fuzzy = 1	// Occulus Addition - Sprite scaling Fuzzy/Sharp toggle
 
 	spawn_frequency = 10
 	bad_type = /mob/living

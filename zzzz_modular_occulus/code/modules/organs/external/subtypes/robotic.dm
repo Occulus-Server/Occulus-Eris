@@ -2,7 +2,7 @@
 	if(organ_tag == BP_CHEST)
 		var/mob/living/carbon/human/newbody = new/mob/living/carbon/human(user.loc)
 		newbody.set_species(SPECIES_HUMAN)
-		newbody.dna.custom_species = "Synth"
+		newbody.custom_species = "Synth"
 		newbody.age = 0
 		var/list/stat_modifiers = list(
 			STAT_ROB = 10,

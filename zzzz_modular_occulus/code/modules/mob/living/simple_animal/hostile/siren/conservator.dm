@@ -13,7 +13,6 @@
 	maxHealth = 40
 	health = 40
 	move_to_delay = 10
-	agony_coefficient = 1.5
 	rapid = TRUE
 	ranged = TRUE
 	ranged_cooldown_time = 4 SECONDS

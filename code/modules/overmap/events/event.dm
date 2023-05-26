@@ -358,7 +358,7 @@
 /obj/effect/overmap_event/poi
 	name_stages = list("point of interest", "unknown object", "unknown spatial phenomenon")
 	icon_stages = list("nodata", "nodata", "poi")
-	var/revealed = FALSE
+	revealed = FALSE
 
 
 

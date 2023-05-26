@@ -18,7 +18,7 @@
     recoil_buildup = 2.5
     init_firemodes = list(
         FULL_AUTO_400,
-        SEMI_AUTO_NODELAY
+        SEMI_AUTO_300
         )
     spawn_tags = SPAWN_TAG_GUN_OS
     price_tag = 2500

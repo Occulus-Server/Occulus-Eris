@@ -12,7 +12,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	damage_multiplier = 0.6
 	penetration_multiplier = 0.5 //meant for killing unarmored civillians.
-	recoil_buildup = 8
+	init_recoil = HANDGUN_RECOIL(4)
 	matter = list(MATERIAL_PLASTIC = 20)
 	price_tag = 200 //nobody wants to buy this. not valuable mats. it's illegal to trade in most markets.
 	rarity_value = 80 //uncommon. terrorist weapon.

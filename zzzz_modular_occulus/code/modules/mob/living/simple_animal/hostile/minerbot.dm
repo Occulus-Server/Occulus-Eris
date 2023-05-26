@@ -32,8 +32,6 @@
 
 	environment_smash = 1
 
-	agony_coefficient = 0.7 // armored unit, doesn't take much damage from non-lethals.
-
 	light_range = 3
 	light_color = COLOR_LIGHTING_CYAN_BRIGHT
 

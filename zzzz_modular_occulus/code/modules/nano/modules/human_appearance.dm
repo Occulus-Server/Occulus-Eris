@@ -67,12 +67,9 @@
 					return 1
 	if(href_list["eye_color"])
 		if(can_change(APPEARANCE_EYE_COLOR))
-			var/new_eyes = input("Please select eye color.", "Eye Color", rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)) as color|null
+			var/new_eyes = input("Please select eye color.", "Eye Color", owner.eyes_color) as color|null
 			if(new_eyes && can_still_topic(state))
-				var/r_eyes = hex2num(copytext(new_eyes, 2, 4))
-				var/g_eyes = hex2num(copytext(new_eyes, 4, 6))
-				var/b_eyes = hex2num(copytext(new_eyes, 6, 8))
-				if(owner.change_eye_color(r_eyes, g_eyes, b_eyes))
+				if(owner.change_eye_color(new_eyes))
 					return 1
 	return 0
 

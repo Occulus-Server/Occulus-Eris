@@ -10,7 +10,6 @@
 	price_tag = 10000
 	damage_multiplier = 0.8 //same as bojevic
 	penetration_multiplier = 0.6
-	recoil_buildup = 15
-	one_hand_penalty = 15
+	init_recoil = RIFLE_RECOIL(3)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'

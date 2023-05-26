@@ -80,7 +80,7 @@
 					return 1
 	if(href_list["eye_color"])
 		if(can_change(APPEARANCE_EYE_COLOR))
-			var/new_eyes = input("Please select eye color.", "Eye Color", rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)) as color|null
+			var/new_eyes = input("Please select eye color.", "Eye Color", owner.eyes_color) as color|null
 			if(new_eyes && can_still_topic(state))
 				if(owner.change_eye_color(new_eyes))
 					return 1
