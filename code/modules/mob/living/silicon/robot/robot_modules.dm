@@ -527,7 +527,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/rpd/borg(src) //to allow for easier access to pipes
 	src.modules += new /obj/item/tool/pickaxe/drill(src)
 	src.modules += new /obj/item/hatton/robot(src)
-	//src.emag = new /obj/item/gun/energy/phoroncutter/mounted(src) // Occulus Edit - Plasma > Phoron
+	//src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 	//src.malfAImodule += new /obj/item/rtf(src) //We don't have these features
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
@@ -908,7 +908,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/miner(src)
 	src.modules += new /obj/item/device/scanner/mining(src)
 	src.modules += new /obj/item/device/t_scanner(src)
-	//src.emag = new /obj/item/gun/energy/phoroncutter/mounted(src) // Occulus Edit - Plasma > Phoron
+	//src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 	..(R)
 
 /obj/item/robot_module/research
@@ -1056,7 +1056,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.emag += new /obj/item/hatton/robot(src)	// OCCULUS EDIT - Gives the drone some fun stuff when emagged
 
-	//src.emag = new /obj/item/gun/energy/phoroncutter/mounted(src) // Occulus Edit - Plasma > Phoron
+	//src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 	//src.emag.name = "Phoron Cutter" // Occulus Edit - Plasma > Phoron
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)

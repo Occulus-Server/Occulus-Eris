@@ -63,13 +63,13 @@
 /obj/item/gun/energy/gun/martin/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	if(current_mode.name == "stun")
-		add_overlays("taser_pdw")
+		overlays += "taser_pdw"
 	else
 		overlays += "lazer_pdw"
 	update_held_icon()
 
 /obj/item/gun/energy/gun/martin/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	wielded_item_state = null
 	if(cell && cell.charge >= charge_cost) //no overlay if we dont have any power
 		update_mode()

@@ -39,7 +39,7 @@
 		to_chat(user, SPAN_WARNING("It is already emagged!"))
 
 /obj/item/gun/energy/plasma/didact/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	var/ratio = 0
 
 	if(cell)

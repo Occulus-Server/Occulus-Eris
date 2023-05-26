@@ -7,7 +7,7 @@
 
 /obj/structure/bed/chair/e_chair/New()
 	. = ..()
-	add_overlays(image('icons/obj/objects.dmi', src, "echair_over", MOB_LAYER + 1, dir))
+	overlays += image('icons/obj/objects.dmi', src, "echair_over", MOB_LAYER + 1, dir)
 
 /obj/structure/bed/chair/e_chair/attackby(var/obj/item/tool/tool, var/mob/user)
 	if(!tool.use_tool(user, src, WORKTIME_NORMAL, QUALITY_BOLT_TURNING, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
@@ -32,8 +32,8 @@
 
 /obj/structure/bed/chair/e_chair/rotate()
 	. = ..()
-	cut_overlays()
-	add_overlays(image('icons/obj/objects.dmi', src, "echair_over", MOB_LAYER + 1, dir))
+	overlays.Cut()
+	overlays += image('icons/obj/objects.dmi', src, "echair_over", MOB_LAYER + 1, dir)
 	//there's probably a better way of handling this, but eh. -Pete
 
 /obj/structure/bed/chair/e_chair/proc/shock()
@@ -51,7 +51,7 @@
 	var/light = A.power_light
 	A.updateicon()
 
-	FLICK("echair1", src)
+	flick("echair1", src)
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	s.set_up(12, 1, src)
 	s.start()

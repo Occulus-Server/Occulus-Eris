@@ -34,10 +34,10 @@
 	var/iconstring = initial(icon_state)
 	var/itemstring = ""
 
-	cut_overlays()
+	overlays.Cut()
 	icon_state = "[initial(icon_state)]"
 	if(ammo_magazine)
-		add_overlays("mag[ammo_magazine.ammo_color]")
+		overlays += "mag[ammo_magazine.ammo_color]"
 		itemstring += "_mag"
 
 	icon_state = iconstring

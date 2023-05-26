@@ -72,7 +72,7 @@
 	fire_delay = 30 // Technically a bit more, due to heat
 	recoil_buildup = 30
 	one_hand_penalty = 80 //guh
-	zoom_factor = 1.8
+	zoom_factors = list(1.8)
 	damage_multiplier = 1.2
 	penetration_multiplier = 3
 	pierce_multiplier = 2
@@ -151,7 +151,7 @@
 	to_chat(user, SPAN_NOTICE("Control-Click to manually vent this weapon's heat."))
 
 /obj/item/gun/energy/laser/railgun/gauss/update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	var/iconstring = initial(icon_state)
 	var/itemstring = ""

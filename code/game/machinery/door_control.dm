@@ -38,7 +38,7 @@
 
 	if(!allowed(user) && (wires & 1))
 		to_chat(user, SPAN_WARNING("Access Denied"))
-		FLICK("doorctrl-denied",src)
+		flick("doorctrl-denied",src)
 		return
 
 	use_power(5)

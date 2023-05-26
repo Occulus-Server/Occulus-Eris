@@ -417,7 +417,7 @@
 /obj/item/ammo_magazine/lrifle/drum/scrap
 	ammo_type = /obj/item/ammo_casing/lrifle/scrap
 	spawn_tags = SPAWN_AMMO_COMMON
-/* Occulus Yeet
+
 //Magazine type for the mech PK, you shouldn't see this
 
 /obj/item/ammo_magazine/lrifle/pk/mech
@@ -451,7 +451,7 @@
 	icon_state = "maxim_r"
 	ammo_type = /obj/item/ammo_casing/lrifle/rubber
 	ammo_color = "-r"
-*/
+
 ///////// SPEEDLOADERS ///////////
 
 //////// .35 SPEEDLOADERS //////////
@@ -467,7 +467,7 @@
 	w_class = ITEM_SIZE_TINY
 
 /obj/item/ammo_magazine/slpistol/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	var/count = 0
 	for(var/obj/item/ammo_casing/AC in stored_ammo)
 		count++
@@ -508,7 +508,7 @@
 	w_class = ITEM_SIZE_TINY
 
 /obj/item/ammo_magazine/slmagnum/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	var/count = 0
 	for(var/obj/item/ammo_casing/AC in stored_ammo)
 		count++
@@ -569,7 +569,7 @@
 	w_class = ITEM_SIZE_TINY
 
 /obj/item/ammo_magazine/slsrifle/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	var/count = 0
 	for(var/obj/item/ammo_casing/AC in stored_ammo)
 		count++
@@ -602,7 +602,7 @@
 	w_class = ITEM_SIZE_TINY
 
 /obj/item/ammo_magazine/slsrifle_rev/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	var/count = 0
 	for(var/obj/item/ammo_casing/AC in stored_ammo)
 		count++
@@ -636,7 +636,7 @@
 	w_class = ITEM_SIZE_TINY
 
 /obj/item/ammo_magazine/slclrifle/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	var/count = 0
 	for(var/obj/item/ammo_casing/AC in stored_ammo)
 		count++
@@ -712,7 +712,7 @@
 
 /obj/item/ammo_magazine/m12/update_icon()
 	..()
-	cut_overlays()
+	overlays.Cut()
 
 	if(stored_ammo.len)
 		var/obj/item/ammo_casing/LS = stored_ammo[1]

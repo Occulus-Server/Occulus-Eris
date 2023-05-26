@@ -71,7 +71,7 @@
 		to_chat(user, "<span class='notice'>\The [src]s crystal slot is empty.")
 
 /obj/machinery/telesci_relay/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(panel_open)
 		overlays += "relay-panel"
 	if(checkCrystal())
@@ -114,7 +114,7 @@
 		if(!checkCrystal())
 			burntOut = TRUE
 	bluespace_entropy(2, get_turf(src), TRUE)
-	cut_overlays()
+	overlays.Cut()
 	if(panel_open)
 		overlays += "relay-panel"
 	if(burntOut)

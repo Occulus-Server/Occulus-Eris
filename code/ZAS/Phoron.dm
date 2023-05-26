@@ -1,17 +1,17 @@
 var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 
 /pl_control
-	var/PHORON_DMG = 3
-	var/PHORON_DMG_NAME = "Phoron Damage Amount"
-	var/PHORON_DMG_DESC = "Self Descriptive"
+	var/PLASMA_DMG = 3
+	var/PLASMA_DMG_NAME = "Phoron Damage Amount"
+	var/PLASMA_DMG_DESC = "Self Descriptive"
 
 	var/CLOTH_CONTAMINATION = 1
 	var/CLOTH_CONTAMINATION_NAME = "Cloth Contamination"
 	var/CLOTH_CONTAMINATION_DESC = "If this is on, phoron does damage by getting into cloth."
 
-	var/PHORONGUARD_ONLY = 0
-	var/PHORONGUARD_ONLY_NAME = "\"PhoronGuard Only\""
-	var/PHORONGUARD_ONLY_DESC = "If this is on, only biosuits and spacesuits protect against contamination and ill effects."
+	var/PLASMAGUARD_ONLY = 0
+	var/PLASMAGUARD_ONLY_NAME = "\"PhoronGuard Only\""
+	var/PLASMAGUARD_ONLY_DESC = "If this is on, only biosuits and spacesuits protect against contamination and ill effects."
 
 	var/GENETIC_CORRUPTION = 0
 	var/GENETIC_CORRUPTION_NAME = "Genetic Corruption Chance"
@@ -29,9 +29,9 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	var/CONTAMINATION_LOSS_NAME = "Contamination Loss"
 	var/CONTAMINATION_LOSS_DESC = "How much toxin damage is dealt from contaminated clothing" //Per tick?  ASK ARYN
 
-	var/PHORON_HALLUCINATION = 0
-	var/PHORON_HALLUCINATION_NAME = "Phoron Hallucination"
-	var/PHORON_HALLUCINATION_DESC = "Does being in phoron cause you to hallucinate?"
+	var/PLASMA_HALLUCINATION = 0
+	var/PLASMA_HALLUCINATION_NAME = "Phoron Hallucination"
+	var/PLASMA_HALLUCINATION_DESC = "Does being in phoron cause you to hallucinate?"
 
 	var/N2O_HALLUCINATION = 1
 	var/N2O_HALLUCINATION_NAME = "N2O Hallucination"
@@ -43,7 +43,7 @@ obj/var/contaminated = 0
 
 /obj/item/proc/can_contaminate()
 	//Clothing and backpacks can be contaminated.
-	if(flags & PHORONGUARD) return 0
+	if(flags & PLASMAGUARD) return 0
 	else if(istype(src,/obj/item/storage/backpack)) return 0 //Cannot be washed :(
 	else if(istype(src,/obj/item/clothing)) return 1
 
@@ -51,11 +51,11 @@ obj/var/contaminated = 0
 	//Do a contamination overlay? Temporary measure to keep contamination less deadly than it was.
 	if(!contaminated)
 		contaminated = 1
-		add_overlays(contamination_overlay)
+		overlays += contamination_overlay
 
 /obj/item/proc/decontaminate()
 	contaminated = 0
-	remove_overlays(contamination_overlay)
+	overlays -= contamination_overlay
 
 /mob/proc/contaminate()
 
@@ -132,8 +132,8 @@ obj/var/contaminated = 0
 /mob/living/carbon/human/proc/pl_head_protected()
 	//Checks if the head is adequately sealed.
 	if(head)
-		if(vsc.plc.PHORONGUARD_ONLY)
-			if(head.flags & PHORONGUARD)
+		if(vsc.plc.PLASMAGUARD_ONLY)
+			if(head.flags & PLASMAGUARD)
 				return 1
 		else if(head.body_parts_covered & EYES)
 			return 1
@@ -145,11 +145,11 @@ obj/var/contaminated = 0
 	for(var/obj/item/protection in list(wear_suit, gloves, shoes))
 		if(!protection)
 			continue
-		if(vsc.plc.PHORONGUARD_ONLY && !(protection.flags & PHORONGUARD))
+		if(vsc.plc.PLASMAGUARD_ONLY && !(protection.flags & PLASMAGUARD))
 			return 0
 		coverage |= protection.body_parts_covered
 
-	if(vsc.plc.PHORONGUARD_ONLY)
+	if(vsc.plc.PLASMAGUARD_ONLY)
 		return 1
 
 	return BIT_TEST_ALL(coverage, UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS)

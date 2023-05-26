@@ -66,7 +66,7 @@
 		working = TRUE
 		start_time = world.time
 
-		FLICK(image(icon, "closing"), src)
+		flick(image(icon, "closing"), src)
 
 		update_icon()
 
@@ -74,7 +74,7 @@
 /obj/machinery/complant_maker/Process()
 	if(stat & NOPOWER)
 		if(working)
-			FLICK(image(icon, "opening"), src)
+			flick(image(icon, "opening"), src)
 		working = FALSE
 		update_icon()
 		return
@@ -95,7 +95,7 @@
 	if(working)
 		icon_state = "working"
 
-	cut_overlays()
+	overlays.Cut()
 
 	if(panel_open)
 		overlays += image(icon, "panel")

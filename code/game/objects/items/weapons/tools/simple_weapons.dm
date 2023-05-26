@@ -223,21 +223,19 @@
 	.=..()
 	if(.)
 		embed_mult = 0
-		armor_penetration = ARMOR_PEN_MASSIVE
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 
 /obj/item/tool/sword/katana/nano/turn_off(mob/user)
 	..()
 	embed_mult = initial(embed_mult)
-	armor_penetration = initial(armor_penetration)
 	playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 
 /obj/item/tool/sword/katana/nano/update_icon()
 	..()
 	if(cell)
-		add_overlays("[icon_state]_cell")
+		overlays += "[icon_state]_cell"
 	if(switched_on)
-		add_overlays("[icon_state]_power_on")
+		overlays += "[icon_state]_power_on"
 	else
 		overlays += "[icon_state]_power_off"
 

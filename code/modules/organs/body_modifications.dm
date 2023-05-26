@@ -100,7 +100,7 @@ var/global/list/modifications_types = list(
 	short_name = "Removed"
 	id = "amputated"
 	desc = "Organ was removed."
-	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_HEAD, BP_GROIN, OP_HEART, OP_LUNGS, OP_KIDNEYS OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES) // Occulus Edit - Adds Hands/Feet, single kidney
+	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_HEAD, BP_GROIN, OP_HEART, OP_LUNGS, OP_KIDNEYS, OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES) // Occulus Edit - Adds Hands/Feet, single kidney
 	replace_limb = 1
 	nature = MODIFICATION_REMOVED
 

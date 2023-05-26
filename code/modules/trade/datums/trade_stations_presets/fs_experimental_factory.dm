@@ -2,7 +2,7 @@
 	name_pool = list("FSTB 'Suoh'" = "Frozen Star Trade Beacon 'Suoh'. They're sending a message. \"Hello there! We are looking for beta testers of our experimental weapons and upgrades. Sign up now!\"")
 	markup = 1
 	spawn_probability = 10
-	assortiment = list(
+	inventory = list(
 		"Gunmods" = list(
 			/obj/item/gun_upgrade/trigger/dangerzone,
 			/obj/item/gun_upgrade/trigger/cop_block,

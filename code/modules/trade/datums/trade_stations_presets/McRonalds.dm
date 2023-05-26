@@ -1,6 +1,6 @@
 /datum/trade_station/McRonalds
 	name_pool = list("CTS 'Dionis'" = "Corporate Trade Station of food chain 'McRonalds'. They're sending a message. \"Hey, dudes, we sell things for theta-7-oil manipulations fly in and check our wares!\"")
-	assortiment = list(
+	inventory = list(
 		"Burgers" = list(
 			/obj/item/reagent_containers/food/snacks/bigbiteburger = custom_good_name("BigR RBurger"),
 			/obj/item/reagent_containers/food/snacks/jellyburger/cherry = custom_good_name("JellyCherry RBurger"),

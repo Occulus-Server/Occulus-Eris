@@ -87,31 +87,8 @@
 					to_chat(user, SPAN_WARNING("Invalid family/clan name. Your name should be at least 2 and at most [last_name_max_length] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
 					return TOPIC_NOACTION
 
-	if(href_list["lname"])
-		var/last_name_max_length = 14
-		var/raw_last_name = input(user, "Choose your character's last name:", "Character Last Name", pref.real_last_name)  as text|null
-		if(CanUseTopic(user))
-			if(isnull(raw_last_name) || raw_last_name == "")
-				pref.real_last_name = null
-				pref.real_name = pref.real_first_name
-				return TOPIC_REFRESH
-			else
-				var/new_lname = sanitize_name(raw_last_name, pref.species, last_name_max_length)
-				if(new_lname)
-					if(GLOB.in_character_filter.len) //Same here too. Naming yourself brazil isn't funny, please stop.
-						if(findtext(new_lname, config.ic_filter_regex))
-							new_lname = random_last_name(pref.gender, pref.species)
-					pref.real_last_name = new_lname
-					pref.real_name = pref.real_first_name + " " + pref.real_last_name
-					return TOPIC_REFRESH
-				else
-					to_chat(user, SPAN_WARNING("Invalid last name. Your name should be at least 2 and at most [last_name_max_length] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
-					return TOPIC_NOACTION
-
 	else if(href_list["random_name"])
-		pref.real_first_name = random_first_name(pref.gender, pref.species)
-		pref.real_last_name = random_last_name(pref.gender, pref.species)
-		pref.real_name = pref.real_first_name + " " + pref.real_last_name
+		pref.real_name = random_name(pref.gender, pref.species)
 		return TOPIC_REFRESH
 
 // // // END PARTIAL ECLIPSE REVERT // // //

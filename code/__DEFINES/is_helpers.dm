@@ -98,6 +98,4 @@
 
 #define isstructure(A) (istype(A, /obj/structure))
 
-#define ismachinery(A) (istype(A, /obj/machinery))
-
 #define isProjectile(A) (istype(A, /obj/item/projectile))

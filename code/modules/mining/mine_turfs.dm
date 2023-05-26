@@ -108,7 +108,7 @@
 	clear_ore_effects()
 	if(!mineral)
 		name = "\improper Rock"
-		SetIconState("rock")
+		icon_state = "rock"
 		return
 	name = "\improper [mineral.display_name] deposit"
 	var/obj/effect/mineral/M = new /obj/effect/mineral(src, mineral)
@@ -213,7 +213,7 @@
 
 /turf/simulated/floor/asteroid/New()
 	..()
-	SetIconState("asteroid[rand(0,2)]")
+	icon_state = "asteroid[rand(0,2)]"
 	if(prob(20))
 		overlay_detail = "asteroid[rand(0,8)]"
 		updateMineralOverlays(1)
@@ -254,18 +254,18 @@
 		new/obj/item/ore/glass(src)
 
 	dug = 1
-	SetIconState("asteroid_dug")
+	icon_state = "asteroid_dug"
 	return
 
 /turf/simulated/floor/asteroid/proc/updateMineralOverlays(var/update_neighbors)
 
-	cut_overlays()
+	overlays.Cut()
 
 	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
 	for(var/direction in step_overlays)
 
 		if(istype(get_step(src, step_overlays[direction]), /turf/space))
-			add_overlays(image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = step_overlays[direction]))
+			overlays += image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = step_overlays[direction])
 
 	//todo cache
 	if(overlay_detail) overlays |= image(icon = 'icons/turf/flooring/decals.dmi', icon_state = overlay_detail)

@@ -610,7 +610,7 @@ var/list/turret_icons
 
 	if(isblitzshell(L)) // Blitzshells are dangerous
 		return check_anomalies ? TURRET_PRIORITY_TARGET	: TURRET_NOT_TARGET
-*/
+
 	if(ishuman(L))	//if the target is a human, analyze threat level
 		if(assess_perp(L) < 4)
 			return TURRET_NOT_TARGET	//if threat level < 4, keep going
@@ -657,7 +657,7 @@ var/list/turret_icons
 
 	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
-	FLICK("popup", flick_holder)
+	flick("popup", flick_holder)
 	sleep(10)
 	qdel(flick_holder)
 
@@ -677,7 +677,7 @@ var/list/turret_icons
 
 	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
-	FLICK("popdown", flick_holder)
+	flick("popdown", flick_holder)
 	sleep(10)
 	qdel(flick_holder)
 

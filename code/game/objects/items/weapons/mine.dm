@@ -85,7 +85,7 @@
 		qdel(src)
 
 /obj/item/mine/update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	if(armed)
 		overlays += image(icon,"mine_light")

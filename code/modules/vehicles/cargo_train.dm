@@ -319,7 +319,7 @@
 		C.pixel_y += load_offset_y
 		C.layer = layer
 
-		add_overlays(C)
+		overlays += C
 
 		//we can set these back now since we have already cloned the icon into the overlay
 		C.pixel_x = initial(C.pixel_x)
@@ -332,7 +332,7 @@
 		load = dummy_load.actual_load
 		dummy_load.actual_load = null
 		qdel(dummy_load)
-		cut_overlays()
+		overlays.Cut()
 	..()
 
 //-------------------------------------------

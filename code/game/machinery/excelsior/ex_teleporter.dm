@@ -106,7 +106,7 @@ var/global/excelsior_last_draft = 0
 	overlays.Cut()
 
 	if(panel_open)
-		add_overlays(image("panel"))
+		overlays += image("panel")
 
 	if(stat & (BROKEN|NOPOWER))
 		icon_state = "off"
@@ -276,37 +276,6 @@ var/global/excelsior_last_draft = 0
 	processing_order = TRUE
 	excelsior_energy = max(excelsior_energy - order_cost, 0)
 	flick("teleporting", src)
-	spawn(17)
-		complete_order(order_path, amount)
-
-
-/obj/machinery/complant_teleporter/proc/update_nano_data()
-	nanoui_data["menu"] = nanoui_menu
-	if (nanoui_menu == 1)
-		var/list/available_mandates = list()
-		var/list/completed_mandates = list()
-		for(var/datum/antag_contract/M in GLOB.excel_antag_contracts)
-			var/list/entry = list(list(
-				"name" = M.name,
-				"desc" = M.desc,
-				"reward" = M.reward,
-				"status" = M.completed ? "Fulfilled" : "Available"
-			))
-			if(!M.completed)
-				available_mandates.Add(entry)
-			else
-				completed_mandates.Add(entry)
-		nanoui_data["available_mandates"] = available_mandates
-		nanoui_data["completed_mandates"] = completed_mandates
-
-/obj/machinery/complant_teleporter/proc/send_order(order_path, order_cost, amount)
-	if(order_cost > excelsior_energy)
-		to_chat(usr, SPAN_WARNING("Not enough energy."))
-		return 0
-
-	processing_order = TRUE
-	excelsior_energy = max(excelsior_energy - order_cost, 0)
-	FLICK("teleporting", src)
 	spawn(17)
 		complete_order(order_path, amount)
 

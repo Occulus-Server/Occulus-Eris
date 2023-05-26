@@ -30,7 +30,7 @@
 
 /obj/item/gun/projectile/rpg/update_icon()
 	. = ..()
-	cut_overlays()
+	overlays.Cut()
 
 	var/iconstring = initial(icon_state)
 

@@ -32,7 +32,7 @@
 	build_path = /obj/item/organ/external/robotic/moebius/l_foot
 
 /datum/trade_station/cybermoebus
-	assortiment = list(
+	inventory = list(
 		"Moebius" = list(
 			/obj/item/organ/external/robotic/moebius/l_arm,
 			/obj/item/organ/external/robotic/moebius/l_hand,
@@ -45,14 +45,14 @@
 			/obj/item/organ/external/robotic/moebius/groin
 		),
 		"Some Artifacted Shit" = list(
-			/obj/item/organ/external/robotic/one_star/l_arm = good_data("What? Left Arm", list(-8, 3)),
-			/obj/item/organ/external/robotic/one_star/l_hand = good_data("What? Left Hand", list(-8, 3)),
-			/obj/item/organ/external/robotic/one_star/r_arm = good_data("What? Right Arm", list(-8, 3)),
-			/obj/item/organ/external/robotic/one_star/r_hand = good_data("What? Right Hand", list(-8, 3)),
-			/obj/item/organ/external/robotic/one_star/l_leg = good_data("What? Left Leg", list(-8, 3)),
-			/obj/item/organ/external/robotic/one_star/l_foot = good_data("What? Left Foot", list(-8, 3)),
-			/obj/item/organ/external/robotic/one_star/r_leg = good_data("What? Right Leg", list(-8, 3)),
-			/obj/item/organ/external/robotic/one_star/r_foot = good_data("What? Right Foot", list(-8, 3))
+			/obj/item/organ/external/robotic/one_star/l_arm = good_data("What? Left Arm", list(-8, 3), null),
+			/obj/item/organ/external/robotic/one_star/l_hand = good_data("What? Left Hand", list(-8, 3), null),
+			/obj/item/organ/external/robotic/one_star/r_arm = good_data("What? Right Arm", list(-8, 3), null),
+			/obj/item/organ/external/robotic/one_star/r_hand = good_data("What? Right Hand", list(-8, 3), null),
+			/obj/item/organ/external/robotic/one_star/l_leg = good_data("What? Left Leg", list(-8, 3), null),
+			/obj/item/organ/external/robotic/one_star/l_foot = good_data("What? Left Foot", list(-8, 3), null),
+			/obj/item/organ/external/robotic/one_star/r_leg = good_data("What? Right Leg", list(-8, 3), null),
+			/obj/item/organ/external/robotic/one_star/r_foot = good_data("What? Right Foot", list(-8, 3), null)
 		),
 		"Technomancers" = list(
 			/obj/item/organ/external/robotic/technomancer/l_arm,

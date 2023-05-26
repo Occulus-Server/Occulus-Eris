@@ -60,7 +60,7 @@
 		if(H.health + H.getOxyLoss() + H.getToxLoss() <= -100)
 			return FALSE
 
-	else if(H.health + H.getOxyLoss() <= -100 || (HUSK in H.mutations))
+	else if(H.health + H.getOxyLoss() <= -100)
 		return FALSE
 
 	return TRUE

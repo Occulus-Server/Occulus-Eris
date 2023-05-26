@@ -48,9 +48,9 @@
 		set_opacity(0)
 
 	if(gen && gen.check_flag(MODEFLAG_OVERCHARGE))
-		SetIconState("shield_overcharged")
+		icon_state = "shield_overcharged"
 	else
-		SetIconState("shield_normal")
+		icon_state = "shield_normal"
 
 /*
 This is a bad way to solve this "problem".

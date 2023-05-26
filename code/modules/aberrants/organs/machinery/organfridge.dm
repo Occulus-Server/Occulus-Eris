@@ -92,7 +92,7 @@
 	update_icon()
 
 /obj/machinery/vending/organfridge_aberrant/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(stat & (BROKEN|NOPOWER))
 		icon_state = icon_off
 	else

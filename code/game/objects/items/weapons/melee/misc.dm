@@ -26,9 +26,9 @@
 
 /obj/item/melee/toolbox_maul/update_icon()
 	..()
-	cut_overlays()
+	overlays.Cut()
 	if(reinforced)
-		add_overlays("[icon_state]-duct_tape")
+		overlays += "[icon_state]-duct_tape"
 
 /obj/item/melee/toolbox_maul/proc/break_apart(var/mob/living/user)
 	qdel(src)

@@ -177,15 +177,15 @@
 				if(I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_WELDING, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
 					user.visible_message(SPAN_NOTICE("[user] starts welding the metal shell of [src]."), SPAN_NOTICE("You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
 					playsound(loc, 'sound/items/welder.ogg', 50, 1)
-					add_overlay("overlay_welding")
+					overlays += "overlay_welding"
 					if (do_after(user, 25))
 						to_chat(user, SPAN_NOTICE("You are able to [hacked ? "repair" : "weld through"] the metal shell of [src]."))
 						if (hacked) locked = 1
 						else locked = 0
 						hacked = !hacked
-						cut_overlays("overlay_welding")
+						overlays -= "overlay_welding"
 					else
-						cut_overlays("overlay_welding")
+						overlays -= "overlay_welding"
 					update_icon()
 					return
 
@@ -437,7 +437,7 @@
 	update_overlay()
 
 /obj/item/device/magnetic_lock/proc/update_overlay()
-	cut_overlays()
+	overlays.Cut()
 	switch (status)
 		if (STATUS_BROKEN)
 			icon_state = "broken"

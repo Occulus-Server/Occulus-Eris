@@ -7,7 +7,6 @@
 	slot_flags = SLOT_BELT
 	force = WEAPON_FORCE_PAINFUL
 	switched_on_force = WEAPON_FORCE_PAINFUL
-	switched_off_force = WEAPON_FORCE_PAINFUL
 	sharp = FALSE
 	edge = FALSE
 	throwforce = WEAPON_FORCE_PAINFUL
@@ -75,14 +74,6 @@
 	if(.)
 		playsound(loc, "sparks", 75, 1, -1)
 //		START_PROCESSING(SSobj, src)
-
-/obj/item/tool/baton/stun/attack(mob/M, mob/user)
-	if(switched_on && (CLUMSY in user.mutations) && prob(50))
-		to_chat(user, SPAN_DANGER("You accidentally hit yourself with the [src]!"))
-		user.Weaken(30)
-		deductcharge(hitcost)
-		return
-	return ..()
 
 /obj/item/tool/baton/stun/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	if(isrobot(target))

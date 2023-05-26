@@ -11,11 +11,11 @@
 /obj/item/clothing/suit/space/void
 	matter = list(MATERIAL_PLASTIC = 30, MATERIAL_STEEL = 5, MATERIAL_SILVER = 5)
 /obj/item/clothing/head/space/void/engineering
-	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_STEEL = 3, MATERIAL_PHORONGLASS = 1, MATERIAL_OSMIUM = 1)
+	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_STEEL = 3, MATERIAL_PLASMAGLASS = 1, MATERIAL_OSMIUM = 1)
 /obj/item/clothing/suit/space/void/engineering
 	matter = list(MATERIAL_PLASTIC = 30, MATERIAL_STEEL = 8, MATERIAL_OSMIUM = 2)
 /obj/item/clothing/head/space/void/mining
-	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_PLASTEEL = 4, MATERIAL_PHORONGLASS = 1)
+	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_PLASTEEL = 4, MATERIAL_PLASMAGLASS = 1)
 /obj/item/clothing/suit/space/void/mining
 	matter = list(MATERIAL_PLASTIC = 30, MATERIAL_PLASTEEL = 10)
 /obj/item/clothing/head/space/void/medical
@@ -23,7 +23,7 @@
 /obj/item/clothing/suit/space/void/medical
 	matter = list(MATERIAL_PLASTIC = 35, MATERIAL_STEEL = 3, MATERIAL_GOLD = 2)
 /obj/item/clothing/head/space/void/security
-	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_PLASTEEL = 4, MATERIAL_PHORONGLASS = 1)
+	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_PLASTEEL = 4, MATERIAL_PLASMAGLASS = 1)
 /obj/item/clothing/suit/space/void/security
 	matter = list(MATERIAL_PLASTIC = 30, MATERIAL_PLASTEEL = 10)
 /obj/item/clothing/head/space/void/riggedvoidsuit
@@ -31,9 +31,9 @@
 /obj/item/clothing/suit/space/void/riggedvoidsuit
 	matter = list(MATERIAL_PLASTIC = 5, MATERIAL_PLASTEEL = 2, MATERIAL_GLASS = 10)
 /obj/item/clothing/head/space/void/merc
-	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_PLASTEEL = 4, MATERIAL_PHORONGLASS = 1)
+	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_PLASTEEL = 4, MATERIAL_PLASMAGLASS = 1)
 /obj/item/clothing/suit/space/void/merc
-	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_PLASTEEL = 4, MATERIAL_PHORONGLASS = 1)
+	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_PLASTEEL = 4, MATERIAL_PLASMAGLASS = 1)
 	
 /obj/item/clothing/suit/space/void
 	valid_accessory_slots = list() 

@@ -43,5 +43,5 @@
 		if("lethal") overlays += "nucgun-kill"
 
 /obj/item/gun/energy/nuclear/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	update_mode()

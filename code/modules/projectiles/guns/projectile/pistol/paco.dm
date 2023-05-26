@@ -22,7 +22,7 @@
 	damage_multiplier = 1.3
 	penetration_multiplier = 0
 	init_recoil = HANDGUN_RECOIL(0.7)
-	gun_tags = list(GUN_SILENCABLE, GUN_PACO) //Occulus Edit: WHOEVER MADE THE FUN SWITCH IS GETTING A PADDLIN'
+	gun_tags = list(GUN_SILENCABLE)
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 	gun_parts = list(/obj/item/part/gun/frame/paco = 1, /obj/item/part/gun/modular/grip/rubber = 1, /obj/item/part/gun/modular/mechanism/pistol = 1, /obj/item/part/gun/modular/barrel/pistol = 1)

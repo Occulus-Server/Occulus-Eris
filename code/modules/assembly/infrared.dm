@@ -37,10 +37,10 @@
 
 
 /obj/item/device/assembly/infra/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	attached_overlays = list()
 	if(on)
-		add_overlays("infrared_on")
+		overlays += "infrared_on"
 		attached_overlays += "infrared_on"
 
 	if(holder)

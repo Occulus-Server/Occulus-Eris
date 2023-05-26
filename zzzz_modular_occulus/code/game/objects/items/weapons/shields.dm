@@ -20,7 +20,7 @@
 	throw_range = 4
 	w_class = ITEM_SIZE_BULKY
 	origin_tech = list(TECH_MATERIAL = 4, TECH_COMBAT = 4)
-	matter = list(MATERIAL_PHORONGLASS = 5, MATERIAL_STEEL = 5, MATERIAL_PLASTEEL = 10, MATERIAL_OSMIUM = 2)
+	matter = list(MATERIAL_PLASMAGLASS = 5, MATERIAL_STEEL = 5, MATERIAL_PLASTEEL = 10, MATERIAL_OSMIUM = 2)
 	price_tag = 2500
 	attack_verb = list("shoved", "bashed")
 	var/structure_form_type = /obj/structure/shield_deployed
@@ -30,11 +30,9 @@
 		return
 	if(MOVING_QUICKLY(picking_human))
 		item_state_slots = list(slot_l_hand_str = "bastion_left_run",	slot_r_hand_str = "bastion_right_run",	slot_back_str = "bastion_back_run")
-		armor = getArmor(arglist(armor_carry)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
 		visible_message("[picking_human] lowers [gender_datums[picking_human.gender].his] [src.name].")
 	else
 		item_state_slots = list(slot_l_hand_str = "bastion_left_walk",	slot_r_hand_str = "bastion_right_walk",	slot_back_str = "bastion_back_walk")
-		armor = getArmor(arglist(armor_brace)) //OCCULUS CRUTCH FIX - REMOVE WHEN UPSTREAM PAYS ATTENTION TO THEIR RUNTIMES
 		visible_message("[picking_human] raises [gender_datums[picking_human.gender].his] [src.name] to cover [gender_datums[picking_human.gender].him]self!")
 	update_wear_icon()
 

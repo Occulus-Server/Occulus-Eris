@@ -258,7 +258,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 				I.color = pick("#996633", "#663300", "#666666", "")
 				base_icon.overlays.Add(randomize_image(I))
 			GLOB.scrap_base_cache["[icontype][icon_state][ID]"] = base_icon
-		add_overlays(GLOB.scrap_base_cache["[icontype][icon_state][ID]"])
+		overlays += GLOB.scrap_base_cache["[icontype][icon_state][ID]"]
 	if(loot_generated)
 		underlays.Cut()
 		for(var/obj/O in loot.contents)

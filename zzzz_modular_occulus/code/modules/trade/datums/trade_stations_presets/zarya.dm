@@ -1,7 +1,7 @@
 /datum/trade_station/station_zarya
 	name_pool = list(
 	"FTB 'Zarya'" = "Free Trade Beacon 'Zarya', they are sending a message \"Hey there! This trade beacon belongs to 'Zarya' Corporation. I am positronic intelligence 'Veera', it's a pleasure to meet you!\"")
-	assortiment = list(
+	inventory = list(
 		"Atmosia" = list(
 			/obj/item/tank/air,
 			/obj/item/tank/plasma,

@@ -1,7 +1,7 @@
 /datum/trade_station/mechas
 	name_pool = list("TCS 'Shipyard'" = "Technomansers Construction Station 'Shipyard'. Seems that they construct and selling exosuits. Sensors showing that they have docked vessel, maybe they completed and sold last batch.\
 		\"Hey, dudes, it seems you want some mechas? We just send last batch of mechs, but we have some extra suits, parts and circuits.\"")
-	assortiment = list(
+	inventory = list(
 		"Exosuits" = list(
 			/mob/living/exosuit/premade/powerloader/firefighter,
 			/mob/living/exosuit/premade/powerloader/flames_blue,

@@ -150,14 +150,14 @@ Please contact me on #coderbus IRC. ~Carn x
 /mob/living/carbon/human/update_icons()
 	lying_prev = lying	//so we don't update overlays for lying/standing unless our stance changes again
 //	update_hud()		//TODO: remove the need for this
-	cut_overlays()
+	overlays.Cut()
 
 	if (icon_update)
 		icon = stand_icon
 		for(var/image/I in overlays_standing)
-			add_overlays(I)
+			overlays += I
 		if(species.has_floating_eyes)
-			associate_with_overlays(species.get_eyes(src))
+			overlays |= species.get_eyes(src)
 
 var/global/list/damage_icon_parts = list()
 

@@ -14,7 +14,7 @@
 	lid_icon_state = "lid_bottle"
 
 /obj/item/reagent_containers/glass/bottle/update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")

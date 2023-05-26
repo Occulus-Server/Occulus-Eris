@@ -270,17 +270,17 @@ GLOBAL_LIST_INIT(conveyor_switches, list())
 	return ..()
 
 /obj/machinery/conveyor_switch/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(!position)
 		icon_state = "switch-off"
 	else if(position == DIRECTION_REVERSED)
 		icon_state = "switch-rev"
 		if(!(stat & NOPOWER))
-			add_overlays("redlight")
+			overlays += "redlight"
 	else if(position == DIRECTION_FORWARDS)
 		icon_state = "switch-fwd"
 		if(!(stat & NOPOWER))
-			add_overlays("greenlight")
+			overlays += "greenlight"
 
 // attack with hand, switch position
 /obj/machinery/conveyor_switch/attack_hand(mob/user)

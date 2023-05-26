@@ -23,14 +23,14 @@
 		/obj/item/reagent_containers/food/drinks/bottle/cola = 100, /obj/item/reagent_containers/food/drinks/bottle/space_up = 100,
 		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 100, /obj/item/reagent_containers/food/drinks/cans/sodawater = 100,
 		/obj/item/reagent_containers/food/drinks/flask/barflask = 100, /obj/item/reagent_containers/food/drinks/flask/vacuumflask = 200,
-		/obj/item/reagent_containers/food/drinks/drinkingglass = 60,/obj/item/reagent_containers/food/drinks/ice = 5,
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 60,/obj/item/reagent_containers/food/drinks/mug/teacup/ice = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/melonliquor = 200,/obj/item/reagent_containers/food/drinks/bottle/bluecuracao = 200,
 		/obj/item/reagent_containers/food/drinks/bottle/absinthe = 400,/obj/item/reagent_containers/food/drinks/bottle/grenadine = 100)
 
 /obj/machinery/vending/coffee
 	products = list(/obj/item/reagent_containers/food/drinks/coffee = 25,/obj/item/reagent_containers/food/drinks/tea/black = 25,
 					/obj/item/reagent_containers/food/drinks/tea/green = 25,/obj/item/reagent_containers/food/drinks/h_chocolate = 25)
-	contraband = list(/obj/item/reagent_containers/food/drinks/ice = 10)
+	contraband = list(/obj/item/reagent_containers/food/drinks/mug/teacup/ice = 10)
 	prices = list(/obj/item/reagent_containers/food/drinks/coffee = 30, /obj/item/reagent_containers/food/drinks/tea/black = 30 ,
 					/obj/item/reagent_containers/food/drinks/tea/green = 30, /obj/item/reagent_containers/food/drinks/h_chocolate = 40)
 	vendor_department = DEPARTMENT_CIVILIAN

@@ -101,12 +101,12 @@
 			animation.icon_state = "blank"
 			animation.icon = 'icons/mob/mob.dmi'
 			animation.master = user
-			FLICK("blspell", animation)
+			flick("blspell", animation)
 			sleep(5)
 			qdel(animation)
 
 	if(!flashfail)
-		FLICK("flash2", src)
+		flick("flash2", src)
 		if(!issilicon(M))
 
 			user.visible_message("<span class='disarm'>[user] blinds [M] with the flash!</span>")
@@ -147,7 +147,7 @@
 			user.show_message(SPAN_WARNING("*click* *click*"), 2)
 			return
 	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
-	FLICK("flash2", src)
+	flick("flash2", src)
 	if(user && isrobot(user))
 		spawn(0)
 			var/atom/movable/overlay/animation = new(user.loc)
@@ -155,7 +155,7 @@
 			animation.icon_state = "blank"
 			animation.icon = 'icons/mob/mob.dmi'
 			animation.master = user
-			FLICK("blspell", animation)
+			flick("blspell", animation)
 			sleep(5)
 			qdel(animation)
 

@@ -54,7 +54,7 @@ var/list/ship_scanners = list()
 
 
 /obj/machinery/power/long_range_scanner/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(running)
 		set_light(1, 1, "#82C2D8")
 		icon_state = "core_warmup"

@@ -1,7 +1,7 @@
 /datum/trade_station/bluespace_technical
 
 	name_pool = list("B-42-Alpha" = "Unknown signature, bluespace traces interfere with sensors. Unable to triangulate object.")
-	assortiment = list(
+	inventory = list(
 		"#$285@$532#$@" = list(
 			/obj/item/electronics/circuitboard/teleporter,
 			/obj/item/bluespace_harpoon,

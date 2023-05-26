@@ -1181,7 +1181,7 @@
 //Purple
 /datum/chemical_reaction/slime/psteroid
 	result = null
-	required_reagents = list("phoron" = 1)
+	required_reagents = list("plasma" = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/purple
 
@@ -1199,20 +1199,20 @@
 //Dark Purple
 /datum/chemical_reaction/slime/phoron
 	result = null
-	required_reagents = list("phoron" = 1)
+	required_reagents = list("plasma" = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/darkpurple
 
 /datum/chemical_reaction/slime/phoron/on_reaction(var/datum/reagents/holder)
 	..()
-	var/obj/item/stack/material/phoron/P = new /obj/item/stack/material/phoron
+	var/obj/item/stack/material/plasma/P = new /obj/item/stack/material/plasma
 	P.amount = 10
 	P.loc = get_turf(holder.my_atom)
 
 //Red
 /datum/chemical_reaction/slime/glycerol
 	result = "glycerol"
-	required_reagents = list("phoron" = 1)
+	required_reagents = list("plasma" = 1)
 	result_amount = 8
 	required = /obj/item/slime_extract/red
 

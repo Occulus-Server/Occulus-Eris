@@ -89,7 +89,7 @@
 /obj/item/gun/projectile/shotgun/bull/proc/update_charge()
 	var/ratio = get_ammo() / (max_shells + 1)//1 in the chamber
 	ratio = round(ratio, 0.25) * 100
-	add_overlays("[ratio]_PW")
+	overlays += "[ratio]_PW"
 
 /obj/item/gun/projectile/shotgun/bull/on_update_icon()
 	..()
@@ -112,7 +112,7 @@
 
 	icon_state = iconstring
 	set_item_state(itemstring)
-	cut_overlays()
+	overlays.Cut()
 	update_held_icon()
 	update_charge()
 

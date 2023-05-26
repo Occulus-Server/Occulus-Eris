@@ -24,7 +24,7 @@
 	if(!msg)
 		return
 
-// 	var/original_msg = msg //this is for sending stuff to discord. re-enable if needed
+	var/original_msg = msg
 
 	if(!mob) //this doesn't happen
 		return

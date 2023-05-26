@@ -155,7 +155,7 @@
 		return 1
 
 /obj/machinery/smartfridge/drinks/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(stat & (BROKEN|NOPOWER))
 		icon_state = icon_off
 	else
@@ -195,15 +195,15 @@
 		dry()
 
 /obj/machinery/smartfridge/drying_rack/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(inoperable())
 		icon_state = icon_off
 	else
 		icon_state = icon_on
 	if(contents.len)
-		add_overlays("drying_rack_filled")
+		overlays += "drying_rack_filled"
 		if(!inoperable() && currently_drying)
-			add_overlays("drying_rack_drying")
+			overlays += "drying_rack_drying"
 
 /obj/machinery/smartfridge/drying_rack/proc/dry()
 	var/drying_something = FALSE //While we're here, check if anything is undried and still processing
@@ -277,24 +277,24 @@
 		update_icon()
 
 /obj/machinery/smartfridge/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(stat & (BROKEN|NOPOWER))
 		icon_state = icon_off
 	else
 		icon_state = icon_on
 
 	if(panel_open && icon_panel)
-		add_overlays(image(icon, icon_panel))
+		overlays += image(icon, icon_panel)
 	if(!panel_open && icon_panel) //SYZYGY edit - Remove overlays if the panel isn't open!
-		remove_overlays(image(icon, icon_panel))
+		overlays -= image(icon, icon_panel)
 
 	if(contents.len)
 		if(contents.len <= 10)
-			add_overlays(image(icon, icon_fill10))
+			overlays += image(icon, icon_fill10)
 		else if(contents.len <= 20)
-			add_overlays(image(icon, icon_fill20))
+			overlays += image(icon, icon_fill20)
 		else
-			add_overlays(image(icon, icon_fill30))
+			overlays += image(icon, icon_fill30)
 
 	if(contents.len)
 		if(contents.len <= 10)

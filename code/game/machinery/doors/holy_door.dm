@@ -141,7 +141,7 @@
 	set_light(0)
 
 	if(overlays.len)
-		cut_overlays()
+		overlays.Cut()
 
 	if(underlays.len)
 		underlays.Cut()
@@ -165,12 +165,12 @@
 	switch(animation)
 		if("opening")
 			if(overlays.len)
-				cut_overlays()
+				overlays.Cut()
 			flick("door_opening", src)
 			update_icon()
 		if("closing")
 			if(overlays.len)
-				cut_overlays()
+				overlays.Cut()
 			flick("door_closing", src)
 			update_icon()
 		if("spark")

@@ -30,8 +30,12 @@
 /obj/item/gun/projectile/mandella/update_icon()
 	..()
 
+	var/iconstring = initial(icon_state)
+
+	if (ammo_magazine)
 		iconstring += "_mag"
 
+	if (!ammo_magazine || !length(ammo_magazine.stored_ammo))
 		iconstring += "_slide"
 
 	icon_state = iconstring

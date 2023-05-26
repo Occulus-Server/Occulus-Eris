@@ -178,7 +178,7 @@
 	update_icon()
 
 /obj/machinery/media/jukebox/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		if(stat & BROKEN)
 			icon_state = "[state_base]-broken"
@@ -188,7 +188,7 @@
 	icon_state = state_base
 	if(playing)
 		if(emagged)
-			add_overlays("[state_base]-emagged")
+			overlays += "[state_base]-emagged"
 		else
 			overlays += "[state_base]-running"
 	if (panel_open)

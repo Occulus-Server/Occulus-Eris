@@ -24,7 +24,7 @@
 
 /obj/machinery/atmospherics/tvalve/on_update_icon(animation)
 	if(animation)
-		FLICK("tvalve[src.state][!src.state]", src)
+		flick("tvalve[src.state][!src.state]", src)
 	else
 		icon_state = "tvalve[state]"
 
@@ -410,7 +410,7 @@
 
 /obj/machinery/atmospherics/tvalve/mirrored/on_update_icon(animation)
 	if(animation)
-		FLICK("tvalvem[src.state][!src.state]", src)
+		flick("tvalvem[src.state][!src.state]", src)
 	else
 		icon_state = "tvalvem[state]"
 

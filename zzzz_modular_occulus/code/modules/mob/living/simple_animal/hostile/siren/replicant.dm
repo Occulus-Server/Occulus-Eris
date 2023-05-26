@@ -50,7 +50,7 @@
 
 /mob/living/simple_animal/hostile/siren/updateicon()
 	..()
-	cut_overlays()
+	overlays.Cut()
 	if(shieldcharge >= 1)
 		add_overlay("shield")
 

@@ -1,9 +1,3 @@
-#define STYLE_NEG_HIGH -2
-#define STYLE_NEG_LOW -1
-#define STYLE_NONE 0
-#define STYLE_LOW 1
-#define STYLE_HIGH 2
-
 /obj/item/clothing
 	name = "clothing"
 	siemens_coefficient = 0.9
@@ -64,7 +58,7 @@
 
 /obj/item/clothing/head/update_icon(mob/user)
 
-	cut_overlays()
+	overlays.Cut()
 	var/mob/living/carbon/human/H
 	if(ishuman(user))
 		H = user
@@ -549,9 +543,9 @@ BLIND     // can't see anything
 
 
 /obj/item/clothing/shoes/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(holding)
-		add_overlays(image(icon, "[icon_state]_knife"))
+		overlays += image(icon, "[icon_state]_knife")
 	return ..()
 
 /obj/item/clothing/shoes/proc/handle_movement(turf/walking, running)

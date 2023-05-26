@@ -122,7 +122,7 @@ var/const/GRAV_NEEDS_WRENCH = 3
 
 /obj/machinery/gravity_generator/main/set_broken()
 	..()
-	middle.cut_overlays()
+	middle.overlays.Cut()
 	charge_count = 0
 	breaker = 0
 	grav_off()

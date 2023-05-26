@@ -101,12 +101,12 @@
 	if (is_full_window())
 		return
 	if (overlays)
-		cut_overlays()
+		overlays.Cut()
 
 	var/image/img = image(src.icon, src.icon_state)
 	img.color = "#ffffff"
 	img.alpha = silicate * 255 / 100
-	add_overlays(img)
+	overlays += img
 
 //Setting the explode var makes the shattering louder and more violent, possibly injuring surrounding mobs
 /obj/structure/window/proc/shatter(var/display_message = 1, var/explode = FALSE)
@@ -554,7 +554,7 @@ proc/end_grab_onto(mob/living/user, mob/living/target)
 /obj/structure/window/on_update_icon()
 	//A little cludge here, since I don't know how it will work with slim windows. Most likely VERY wrong.
 	//this way it will only update full-tile ones
-	cut_overlays()
+	overlays.Cut()
 	if(!is_fulltile())
 		icon_state = "[basestate]"
 		return
@@ -582,7 +582,7 @@ proc/end_grab_onto(mob/living/user, mob/living/target)
 	icon_state = ""
 	for(var/i = 1 to 4)
 		var/image/I = image(icon, "[basestate][connections[i]]", dir = 1<<(i-1))
-		add_overlays(I)
+		overlays += I
 
 	return
 

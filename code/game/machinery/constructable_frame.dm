@@ -235,10 +235,10 @@
 	update_icon()
 
 /obj/machinery/constructable_frame/machine_frame/vertical/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	var/image/I = image(icon, "[icon_state]1")
 	I.layer = WALL_OBJ_LAYER
 	I.pixel_z = 32
-	add_overlays(I)
+	overlays += I
 

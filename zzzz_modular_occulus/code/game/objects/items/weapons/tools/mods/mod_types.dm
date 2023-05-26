@@ -133,4 +133,4 @@
 	I.negative_qualities = list(QUALITY_DIGGING, QUALITY_SHOVELING, QUALITY_EXCAVATION)
 
 /obj/item/tool_upgrade/productivity/antistaining
-	matter = list(MATERIAL_STEEL = 3, MATERIAL_PHORONGLASS = 2)
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASMAGLASS = 2)

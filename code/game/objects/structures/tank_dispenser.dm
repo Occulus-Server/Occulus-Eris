@@ -10,7 +10,7 @@
 	spawn_tags = SPAWN_TAG_STRUCTURE_COMMON
 	rarity_value = 50
 	var/oxygentanks = 10
-	var/phorontanks = 10
+	var/plasmatanks = 10
 	var/list/oxytanks = list()	//sorry for the similar var names
 	var/list/platanks = list()
 
@@ -30,13 +30,13 @@
 
 
 /obj/structure/dispenser/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	switch(oxygentanks)
-		if(1 to 3)	add_overlays("oxygen-[oxygentanks]")
+		if(1 to 3)	overlays += "oxygen-[oxygentanks]"
 		if(4 to INFINITY) overlays += "oxygen-4"
-	switch(phorontanks)//Occulus Edit
-		if(1 to 4)	add_overlays("plasma-[phorontanks]")//Occulus Edit
-		if(5 to INFINITY) overlays += "plasma-5"//Occulus Edit
+	switch(plasmatanks)//Occulus Edit
+		if(1 to 4)	overlay += "plasma-[plasmatanks]"
+		if(5 to INFINITY) overlays += "plasma-5"
 
 /obj/structure/dispenser/attack_ai(mob/user)
 	if(user.Adjacent(src))
@@ -47,7 +47,7 @@
 	user.set_machine(src)
 	var/dat = "[src]<br><br>"
 	dat += "Oxygen tanks: [oxygentanks] - [oxygentanks ? "<A href='?src=\ref[src];oxygen=1'>Dispense</A>" : "empty"]<br>"
-	dat += "Phoron tanks: [phorontanks] - [phorontanks ? "<A href='?src=\ref[src];phoron=1'>Dispense</A>" : "empty"]"
+	dat += "Phoron tanks: [plasmatanks] - [plasmatanks ? "<A href='?src=\ref[src];phoron=1'>Dispense</A>" : "empty"]"
 	user << browse(dat, "window=dispenser")
 	onclose(user, "dispenser")
 
@@ -71,9 +71,9 @@
 			user.drop_item()
 			I.forceMove(src)
 			platanks.Add(I)
-			phorontanks++
+			plasmatanks++
 			to_chat(user, SPAN_NOTICE("You put [I] in [src]."))
-			if(phorontanks < 6)
+			if(plasmatanks < 6)
 				update_icon()
 		else
 			to_chat(user, SPAN_NOTICE("[src] is full."))
@@ -103,7 +103,7 @@
 		else
 			tank = new /obj/item/tank/oxygen(loc)
 		oxygentanks--
-	if(href_list["phoron"] && phorontanks > 0)
+	if(href_list["phoron"] && plasmatanks > 0)
 		if(platanks.len)
 			tank = platanks[platanks.len]
 			platanks.Remove(tank)

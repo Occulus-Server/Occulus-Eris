@@ -263,26 +263,26 @@
 /obj/machinery/neotheology/cloner/update_icon()
 	icon_state = "pod_base0"
 
-	cut_overlays()
+	overlays.Cut()
 
 	if(panel_open)
 		var/image/P = image(icon, "pod_panel")
-		add_overlays(P)
+		overlays += P
 
 	var/image/I = image(icon, "pod_base1")
 	I.layer = 5
 	I.pixel_z = 32
-	add_overlays(I)
+	overlays += I
 
 	if(closed)
 		I = image(icon, "pod_under")
 		I.layer = 5
-		add_overlays(I)
+		overlays += I
 
 		I = image(icon, "pod_top_on")
 		I.layer = 5.021
 		I.pixel_z = 32
-		add_overlays(I)
+		overlays += I
 
 
 	/////////BODY
@@ -296,14 +296,14 @@
 		I.layer = 5
 		I.pixel_z = 11 + crop
 
-		add_overlays(I)
+		overlays += I
 
 		if(P >= CLONING_BONES)
 			I = image(icon, "clone_meat")
 			I.alpha = min(255,round(((P-CLONING_BONES)/(CLONING_MEAT-CLONING_BONES))*255))
 			I.layer = 5
 			I.pixel_z = 11
-			add_overlays(I)
+			overlays += I
 
 			if(P >= CLONING_MEAT && occupant)
 				I = image(occupant.icon, occupant.icon_state)
@@ -311,7 +311,7 @@
 				I.overlays = occupant.overlays
 				I.layer = 5
 				I.pixel_z = 11
-				add_overlays(I)
+				overlays += I
 
 	//////////////
 
@@ -319,25 +319,25 @@
 		if(!anim0 && !anim1)
 			I = image(icon, "pod_glass0")
 			I.layer = 5.01
-			add_overlays(I)
+			overlays += I
 
 			I = image(icon, "pod_glass1")
 			I.layer = 5.01
 			I.pixel_z = 32
-			add_overlays(I)
+			overlays += I
 
 			I = image(icon, "pod_liquid0")
 			I.layer = 5.01
-			add_overlays(I)
+			overlays += I
 
 			I = image(icon, "pod_liquid1")
 			I.layer = 5.01
 			I.pixel_z = 32
-			add_overlays(I)
+			overlays += I
 
 	if(anim0 && anim1)
-		add_overlays(anim0)
-		add_overlays(anim1)
+		overlays += anim0
+		overlays += anim1
 
 	I = image(icon, "pod_top0")
 
@@ -346,12 +346,12 @@
 	else
 		I.layer = 5.02
 
-	add_overlays(I)
+	overlays += I
 
 	I = image(icon, "pod_top1")
 	I.layer = 5.02
 	I.pixel_z = 32
-	add_overlays(I)
+	overlays += I
 
 
 /////////////////////
@@ -484,11 +484,11 @@
 	return ..()
 
 /obj/machinery/neotheology/reader/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	if(panel_open)
 		var/image/P = image(icon, "reader_panel")
-		add_overlays(P)
+		overlays += P
 
 
 	icon_state = "reader_off"
@@ -501,7 +501,7 @@
 		var/image/I = image(icon, "reader_c_green")
 		if(implant.get_module(CRUCIFORM_PRIEST))
 			I = image(icon, "reader_c_red")
-		add_overlays(I)
+		overlays += I
 
 
 /////////////////////

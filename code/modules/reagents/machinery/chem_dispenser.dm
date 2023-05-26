@@ -260,7 +260,7 @@
 			dispensable_reagents -= hacked_reagents
 
 obj/machinery/chemical_dispenser/soda/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(stat & (BROKEN|NOPOWER))
 		icon_state = icon_on+"_off"
 	else

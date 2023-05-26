@@ -49,7 +49,7 @@
 	barrelvars = list(/obj/item/part/gun/modular/barrel/pistol)
 
 /obj/item/gun/projectile/automatic/c20r/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	icon_state = "[initial(icon_state)][silenced ? "_s" : ""]"
 	itemstring = "[silenced ? "_s" : ""]"
 	set_item_state(itemstring)

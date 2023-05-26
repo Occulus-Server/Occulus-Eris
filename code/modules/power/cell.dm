@@ -90,9 +90,9 @@
 	if (charge_status == last_charge_status)
 		return
 
-	cut_overlays()
+	overlays.Cut()
 	if (charge_status != null)
-		add_overlays(image('icons/obj/power_cells.dmi', "[icon_state]_[charge_status]"))
+		overlays += image('icons/obj/power_cells.dmi', "[icon_state]_[charge_status]")
 
 	last_charge_status = charge_status
 

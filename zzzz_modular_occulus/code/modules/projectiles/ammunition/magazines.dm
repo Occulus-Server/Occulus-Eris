@@ -41,7 +41,7 @@
 	initial_ammo = 5
 
 /obj/item/ammo_magazine/s5mag/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(stored_ammo.len)
 		var/obj/item/ammo_casing/AC = stored_ammo[1] //look at next casing.
 		overlays += "s5mag_shell_[AC.shell_color]" //look and display the overlay for the ammo

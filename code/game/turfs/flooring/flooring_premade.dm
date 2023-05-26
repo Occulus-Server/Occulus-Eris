@@ -379,10 +379,10 @@
 	oxygen = ATMOSTANK_OXYGEN
 	nitrogen = 0
 
-/turf/simulated/floor/reinforced/phoron
+/turf/simulated/floor/reinforced/plasma
 	oxygen = 0
 	nitrogen = 0
-	phoron = ATMOSTANK_PHORON
+	plasma = ATMOSTANK_PLASMA
 
 /turf/simulated/floor/reinforced/carbon_dioxide
 	oxygen = 0
@@ -396,7 +396,7 @@
 /turf/simulated/floor/reinforced/engine
 	oxygen = 825
 	nitrogen = 0
-	phoron = 2500
+	plasma = 2500
 	temperature = 374
 
 /turf/simulated/floor/reinforced/n20/New()
@@ -754,5 +754,5 @@
 
 /turf/simulated/floor/beach/water/New()
 	..()
-	add_overlays(image("icon"='icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1))
+	overlays += image("icon"='icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1)
 

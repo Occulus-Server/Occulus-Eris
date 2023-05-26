@@ -36,7 +36,7 @@
 		visible_message("[src] slowly burn out")
 
 /obj/item/device/lighting/glowstick/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(!fuel)
 		icon_state = "[initial(icon_state)]-empty"
 		item_state = "glowstick"
@@ -44,7 +44,7 @@
 	else if(on)
 		var/image/I = image(icon,"[initial(icon_state)]-on",color)
 		I.blend_mode = BLEND_ADD
-		add_overlays(I)
+		overlays += I
 		item_state = "[initial(icon_state)]-on"
 		set_light(brightness_on)
 	else

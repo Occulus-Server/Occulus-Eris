@@ -231,27 +231,27 @@
 
 
 /obj/machinery/autolathe_disk_cloner/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	if(panel_open)
-		add_overlays(image(icon, icon_state = "disk_cloner_panel"))
+		overlays += image(icon, icon_state = "disk_cloner_panel")
 
 	if(!stat)
-		add_overlays(image(icon, icon_state = "disk_cloner_screen"))
-		add_overlays(image(icon, icon_state = "disk_cloner_keyboard"))
+		overlays += image(icon, icon_state = "disk_cloner_screen")
+		overlays += image(icon, icon_state = "disk_cloner_keyboard")
 
 		if(original)
-			add_overlays(image(icon, icon_state = "disk_cloner_screen_disk1"))
+			overlays += image(icon, icon_state = "disk_cloner_screen_disk1")
 
 			if(original.stored_files.len)
-				add_overlays(image(icon, icon_state = "disk_cloner_screen_list1"))
+				overlays += image(icon, icon_state = "disk_cloner_screen_list1")
 
 		if(copy)
-			add_overlays(image(icon, icon_state = "disk_cloner_screen_disk2"))
+			overlays += image(icon, icon_state = "disk_cloner_screen_disk2")
 
 			if(copy.stored_files.len)
-				add_overlays(image(icon, icon_state = "disk_cloner_screen_list2"))
+				overlays += image(icon, icon_state = "disk_cloner_screen_list2")
 
 		if(copying)
-			add_overlays(image(icon, icon_state = "disk_cloner_cloning"))
+			overlays += image(icon, icon_state = "disk_cloner_cloning")
 

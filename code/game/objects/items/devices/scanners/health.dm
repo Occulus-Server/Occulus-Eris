@@ -23,7 +23,7 @@
 	scan_data = medical_scan_action(A, user, src, mode)
 	scan_title = "Health scan - [A]"
 	show_results(user)
-	FLICK("health2", src)
+	flick("health2", src)
 
 /obj/item/device/scanner/health/verb/toggle_mode()
 	set name = "Switch Verbosity"
@@ -193,9 +193,6 @@
 		dat += SPAN_WARNING("Significant brain damage detected. Subject may have had a concussion.")
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-
-		if(HUSK in H.mutations) // Occulus Edit - QOL for Medical telling if someone's husked
-			dat += SPAN_WARNING("Severe tissue damage detected. Resuscitation is impossible.") 
 
 		if(H.vessel)
 			var/blood_volume = H.vessel.get_reagent_amount("blood")

@@ -154,17 +154,17 @@ datum/reagent/nitrate
 
 /datum/reagent/liquid_skin/touch_mob(var/mob/M, var/volume)
 	if(istype(M, /mob/living))
-		var/mob/living/L = M
+		var/mob/living/carbon/human/L = M
 		var/burned = L.getFireLoss() > 0
 		if(burned)
 			to_chat(usr, "In a strange sensation, you feel some burns stop hurting.")
 			L.heal_organ_damage(0, min(15, volume / 4))
 
-		if (mFingerprints in M.mutations)
+		if(get_active_mutation(L, MUTATION_NOPRINTS))
 			if(!burned)
 				to_chat(usr, "Another application of the substance does nothing weird to your hands.")
 		else
-			M.mutations.Add(mFingerprints)
+			L.add_mutation( MUTATION_NOPRINTS)
 			to_chat(usr, "Your fingers feel strange after the substance splashes on your hands.")
 	return ..()
 

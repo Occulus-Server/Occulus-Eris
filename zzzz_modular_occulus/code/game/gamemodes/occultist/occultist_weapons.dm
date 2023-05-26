@@ -56,8 +56,6 @@
 		)
 	wielded_icon = "wielded"
 	structure_damage_factor = STRUCTURE_DAMAGE_HEAVY
-	force_unwielded = WEAPON_FORCE_PAINFUL
-	force_wielded = WEAPON_FORCE_PAINFUL
 	slot_flags = SLOT_BELT|SLOT_BACK
 	tool_qualities = list(QUALITY_SHOVELING = 1, QUALITY_DIGGING = 1, QUALITY_EXCAVATING = 100, QUALITY_WELDING = 21)
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_THEVOICESTHEVOICESTHEVOICES = 15, MATERIAL_MARBLE = 1)

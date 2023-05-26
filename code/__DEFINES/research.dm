@@ -1,6 +1,6 @@
 #define TECH_MATERIAL "materials"
 #define TECH_ENGINEERING "engineering"
-#define TECH_PHORON "phorontech"
+#define TECH_PLASMA "plasmatech"
 #define TECH_POWER "powerstorage"
 #define TECH_BLUESPACE "bluespace"
 #define TECH_BIO "biotech"

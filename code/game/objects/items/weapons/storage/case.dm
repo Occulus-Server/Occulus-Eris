@@ -42,7 +42,7 @@
 
 	icon_state = initial(icon_state)
 	if(!anchored)
-		cut_overlays()
+		overlays.Cut()
 		icon_state += "-closed"
 
 /obj/item/storage/case/donut
@@ -66,6 +66,6 @@
 /obj/item/storage/case/donut/update_icon()
 	..()
 	if(opened)
-		cut_overlays()
+		overlays.Cut()
 		for(var/obj/item/reagent_containers/food/snacks/donut/stat_buff/D in contents)
 			overlays += image('icons/obj/food.dmi', "[D.overlay_state]")

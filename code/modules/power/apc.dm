@@ -374,19 +374,19 @@
 
 	if(!(update_state & UPDATE_ALLGOOD))
 		if(overlays.len)
-			set_overlays(0)
+			overlays = 0
 			return
 
 	if(update > 1)
 		if(overlays.len)
 			overlays.len = 0
 		if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
-			add_overlays(status_overlays_lock[locked+1])
-			add_overlays(status_overlays_charging[charging+1])
+			overlays += status_overlays_lock[locked+1]
+			overlays += status_overlays_charging[charging+1]
 			if(operating)
-				add_overlays(status_overlays_equipment[equipment+1])
-				add_overlays(status_overlays_lighting[lighting+1])
-				add_overlays(status_overlays_environ[environ+1])
+				overlays += status_overlays_equipment[equipment+1]
+				overlays += status_overlays_lighting[lighting+1]
+				overlays += status_overlays_environ[environ+1]
 
 
 /obj/machinery/power/apc/proc/check_updates()
@@ -731,7 +731,7 @@
 		else if(stat & (BROKEN|MAINT))
 			to_chat(user, "Nothing happens.")
 		else
-			FLICK("apc-spark", src)
+			flick("apc-spark", src)
 			if (do_after(user,6,src))
 				if(prob(50))
 					emagged = TRUE
@@ -798,25 +798,6 @@
 		wires.Interact(user)
 
 	return nano_ui_interact(user)
-
-/obj/machinery/power/apc/proc/toggle_lock(mob/user)
-	if(emagged)
-		to_chat(user, "The interface is broken.")
-	else if(opened)
-		to_chat(user, "You must close the cover to swipe an ID card.")
-	else if(wiresexposed)
-		to_chat(user, "You must close the panel")
-	else if(stat & (BROKEN|MAINT))
-		to_chat(user, "Nothing happens.")
-	else if(hacker)
-		to_chat(user, SPAN_WARNING("Access denied."))
-	else
-		if(allowed(user) && !isWireCut(APC_WIRE_IDSCAN))
-			locked = !locked
-			to_chat(user, "You [ locked ? "lock" : "unlock"] the APC interface.")
-			update_icon()
-		else
-			to_chat(user, SPAN_WARNING("Access denied."))
 
 /obj/machinery/power/apc/proc/toggle_lock(mob/user)
 	if(emagged)

@@ -178,7 +178,6 @@
 	character.set_species(species)
 	var/random_first = random_first_name(gender, species)
 	var/random_last = random_last_name(gender, species)
-	var/random_full = real_first_name + " " + real_last_name
 
 // Refactor full name system into family name system.
 	if(be_random_name)
@@ -186,14 +185,18 @@
 		real_name = random_first_name(gender,species) + " " + family_name // Occulus Edit - Family name changes
 
 	if(GLOB.in_character_filter.len) //This does not always work correctly but is here as a backup in case the first two attempts to catch bad names fail.
-		if(findtext(real_first_name, config.ic_filter_regex) || findtext(real_last_name, config.ic_filter_regex))
+		if(findtext(real_name, config.ic_filter_regex))
 			family_name = random_last_name(gender, species) // Occulus Edit - Family name changes
 			real_name = random_first_name(gender,species) + " " + family_name // Occulus Edit - Family name changes
 
 	if(config.humans_need_surnames)
-		if(!real_last_name)	//we need a surname
-			real_last_name = "[pick(GLOB.last_names)]"
-			real_name += " [real_last_name]"
+		var/firstspace = findtext(real_name, " ")
+		var/name_length = length(real_name)
+		if(!firstspace)	//we need a surname
+			real_name += " [pick(GLOB.last_names)]"
+		else if(firstspace == name_length)
+			real_name += "[pick(GLOB.last_names)]"
+
 	character.fully_replace_character_name(newname = real_name)
 	character.family_name = family_name
 

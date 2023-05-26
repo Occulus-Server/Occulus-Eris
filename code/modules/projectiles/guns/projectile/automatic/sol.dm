@@ -39,14 +39,14 @@
 	if(ratio < 0.25 && ratio != 0)
 		ratio = 0.25
 	ratio = round(ratio, 0.25) * 100
-	add_overlays("sol_[ratio]")
+	overlays += "sol_[ratio]"
 
 /obj/item/gun/projectile/automatic/sol/update_icon()
 	..()
 
 	icon_state = initial(icon_state) + (ammo_magazine ? "-full" : "")
 	set_item_state(ammo_magazine ? "_mag" : "", hands = TRUE, back = TRUE, onsuit = TRUE)
-	cut_overlays()
+	overlays.Cut()
 	update_wear_icon()
 	update_charge()
 

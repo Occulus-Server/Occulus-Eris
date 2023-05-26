@@ -289,9 +289,7 @@
 /mob/proc/CtrlClickOn(atom/A)
 	A.CtrlClick(src)
 	return
-
 /atom/proc/CtrlClick(mob/user)
-	SEND_SIGNAL(src, COMSIG_CLICK_CTRL, user) // Occ Edit
 	return
 
 /atom/movable/CtrlClick(mob/user)

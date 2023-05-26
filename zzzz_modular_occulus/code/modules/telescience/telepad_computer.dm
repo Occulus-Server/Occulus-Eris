@@ -561,7 +561,7 @@
 
 /obj/effect/telesci_ping/New(turf/loc)
 	. = ..(loc)
-	FLICK("calc-attempt",src)
+	flick("calc-attempt",src)
 	playsound(src,'zzzz_modular_occulus/sound/effects/telesci_sparkles.ogg',20,FALSE, 7, is_global = FALSE, ignore_walls = FALSE)
 	QDEL_IN(src, 1 SECOND)
 

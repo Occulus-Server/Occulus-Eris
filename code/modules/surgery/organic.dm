@@ -267,29 +267,6 @@
 	var/obj/item/organ/internal/bone/B = tool
 	return BP_IS_ORGANIC(organ) && organ.is_open() && istype(B) && B.organ_tag == organ.organ_tag
 
-/datum/surgery_step/reinforce_bone/begin_step(mob/living/user, obj/item/organ/internal/bone/organ, obj/item/stack/tool)
-	user.visible_message(
-		SPAN_NOTICE("[user] starts reinforcing [organ.get_surgery_name()]"),
-		SPAN_NOTICE("You start reinforcing [organ.get_surgery_name()]")
-	)
-
-	organ.owner_custom_pain("You feel metal plates tearing through your [organ.get_surgery_name()]", 1)
-
-/datum/surgery_step/reinforce_bone/end_step(mob/living/user, obj/item/organ/internal/bone/organ, obj/item/stack/tool)
-	user.visible_message(
-		SPAN_NOTICE("[user] reinforces [organ.get_surgery_name()]."),
-		SPAN_NOTICE("You reinforce [organ.get_surgery_name()].")
-	)
-	qdel(tool)
-	organ.reinforce()
-
-/datum/surgery_step/reinforce_bone/fail_step(mob/living/user, obj/item/organ/internal/bone/organ, obj/item/stack/tool)
-	user.visible_message(
-		SPAN_WARNING("[user]'s hand slips, scraping [organ.get_surgery_name()] with \the [tool]!"),
-		SPAN_WARNING("Your hand slips, scraping [organ.get_surgery_name()] with \the [tool]!")
-	)
-	organ.take_damage(5, 0)
-
 /datum/surgery_step/replace_bone/begin_step(mob/living/user, obj/item/organ/internal/bone/organ, obj/item/stack/tool)
 	user.visible_message(
 		SPAN_NOTICE("[user] starts replacing [organ.get_surgery_name()] with \the [tool]."),

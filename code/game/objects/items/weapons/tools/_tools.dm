@@ -94,10 +94,6 @@
 		health = max_health
 
 	update_icon()
-	if(force_unwielded)//Occulus Edit: I should make a big cluster of these edits and push them upstream or something. They have so many fucking little bugs. SO MANY
-		force = force_unwielded //Occulus edit: Gives a force if it isn't defined because lolErisdiditagain
-	if(switched_on_force)//Occulus Edit
-		switched_off_force = force //Occulus Edit
 	return
 
 /obj/item/tool/Initialize(mapload, ...)
@@ -835,7 +831,6 @@
 	force_upgrade_mults = initial(force_upgrade_mults)
 	force_upgrade_mods = initial(force_upgrade_mods)
 	switched_on_force = initial(switched_on_force)
-	switched_off_force= initial(switched_off_force)//Aha, found you you little bugger Occulus Edit
 	extra_bulk = initial(extra_bulk)
 	item_flags = initial(item_flags)
 	name = initial(name)
@@ -1056,10 +1051,10 @@
 	return ..()
 
 /obj/item/tool/update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	if(switched_on && toggleable)
-		add_overlays("[icon_state]_on")
+		overlays += "[icon_state]_on"
 
 	if(use_power_cost)
 		var/ratio = 0
@@ -1067,7 +1062,7 @@
 		if(cell && cell.charge >= use_power_cost)
 			ratio = cell.charge / cell.maxcharge
 			ratio = max(round(ratio, 0.25) * 100, 25)
-			add_overlays("[icon_state]-[ratio]")
+			overlays += "[icon_state]-[ratio]"
 
 	if(use_fuel_cost)
 		var/ratio = 0
@@ -1075,7 +1070,7 @@
 		if(get_fuel() >= use_fuel_cost)
 			ratio = get_fuel() / max_fuel
 			ratio = max(round(ratio, 0.25) * 100, 25)
-			add_overlays("[icon_state]-[ratio]")
+			overlays += "[icon_state]-[ratio]"
 
 	if(ismob(loc))
 		var/tooloverlay
@@ -1084,7 +1079,7 @@
 				tooloverlay = "excavate"
 			if(DIG)
 				tooloverlay = "dig"
-		add_overlays((tooloverlay))
+		overlays += (tooloverlay)
 
 /***************************
 	Misc/utility procs

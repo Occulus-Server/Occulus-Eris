@@ -697,7 +697,7 @@
 	icon_state = initial(icon_state)
 
 	if(panel_open)
-		add_overlays(image(icon, "[icon_state]_panel"))
+		overlays += image(icon, "[icon_state]_panel")
 
 	if(icon_off())
 		return
@@ -710,21 +710,21 @@
 
 //Procs for handling print animation
 /obj/machinery/autolathe/proc/print_pre()
-	FLICK("[initial(icon_state)]_start", src)
+	flick("[initial(icon_state)]_start", src)
 
 /obj/machinery/autolathe/proc/print_post()
-	FLICK("[initial(icon_state)]_finish", src)
+	flick("[initial(icon_state)]_finish", src)
 	if(!current_file && !queue.len)
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 1, -3)
 		visible_message("\The [src] pings, indicating that queue is complete.")
 
 
 /obj/machinery/autolathe/proc/res_load(material/material)
-	FLICK("[initial(icon_state)]_load", image_load)
+	flick("[initial(icon_state)]_load", image_load)
 	if(material)
 		image_load_material.color = material.icon_colour
 		image_load_material.alpha = max(255 * material.opacity, 200) // The icons are too transparent otherwise
-		FLICK("[initial(icon_state)]_load_m", image_load_material)
+		flick("[initial(icon_state)]_load_m", image_load_material)
 
 
 /obj/machinery/autolathe/proc/check_materials(datum/design/design)

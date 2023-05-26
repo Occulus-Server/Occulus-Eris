@@ -6,7 +6,7 @@
 		list(24, 26),
 		list(30, 30)
 	)
-	assortiment = list(
+	inventory = list(
 		"Disk Designs" = list(
 			/obj/item/computer_hardware/hard_drive/portable/design/tools = good_data("Basic Tool Pack", list(1, 10)),
 			/obj/item/computer_hardware/hard_drive/portable/design/misc = good_data("Miscellaneous Pack", list(1, 10)),

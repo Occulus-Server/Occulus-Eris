@@ -64,30 +64,24 @@ ARMOR_PEN_MASSIVE			30
 /obj/item/tool/sword/nt
 	name = "Mekhane Shortsword"
 	force = WEAPON_FORCE_ROBUST	// Buffed one notch up
-	armor_penetration = ARMOR_PEN_GRAZING	// Nerfed down two notches
 	w_class = ITEM_SIZE_NORMAL // These specifically fit on toolbelts
 
 /obj/item/tool/sword/nt/longsword
 	name = "Mekhane Longsword"
 	force = WEAPON_FORCE_BRUTAL
-	armor_penetration = ARMOR_PEN_MODERATE	// Nerfed down two notches
 
 /obj/item/tool/knife/dagger/nt	// This is relatively in line with all the other daggers.
 	name = "Mekhane Dagger"
 	force = WEAPON_FORCE_PAINFUL
-	armor_penetration = ARMOR_PEN_EXTREME	// Nerfed down a notch
 
 /obj/item/tool/sword/nt/halberd
 	name = "Mekhane Halberd"
 	force = WEAPON_FORCE_LETHAL	// Buffed two notches up, now it's stronger than the fire axe
-	armor_penetration = ARMOR_PEN_DEEP	// Nerfed down two notches
 
 /obj/item/tool/sword/nt/scourge	// This is absolutely an armor shredding specialist, so its kinda fine as is. REMAINS UNTOUCHED.
 	name = "Mekhane Scourge"
 	force = WEAPON_FORCE_PAINFUL
 	force_extended = WEAPON_FORCE_DANGEROUS
-	armor_penetration = ARMOR_PEN_DEEP
-	armor_penetration_extended = ARMOR_PEN_HALF
 
 /obj/item/shield/riot/nt
 	name = "Mekhane Shield"
@@ -118,7 +112,6 @@ ARMOR_PEN_MASSIVE			30
 	icon_state = "electromace"
 	force = WEAPON_FORCE_ROBUST // gets 10 more agony damage when wielded, plus whatever wielding bonus it receives
 	structure_damage_factor = STRUCTURE_DAMAGE_HEAVY
-	armor_penetration = ARMOR_PEN_EXTREME
 	aspects = list(SANCTIFIED)
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEM_SIZE_HUGE

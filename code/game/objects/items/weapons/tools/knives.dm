@@ -46,7 +46,6 @@
 	item_state = "knife"
 	matter = list(MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 1)
 	force = WEAPON_FORCE_PAINFUL
-	armor_penetration = ARMOR_PEN_SHALLOW
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 15)
 	rarity_value = 20
 

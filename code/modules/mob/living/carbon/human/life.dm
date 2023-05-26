@@ -27,7 +27,7 @@
 
 /mob/living/carbon/human
 	var/oxygen_alert = 0
-	var/phoron_alert = 0
+	var/plasma_alert = 0
 	var/co2_alert = 0
 	var/fire_alert = FIRE_ALERT_NONE
 	var/pressure_alert = 0
@@ -763,12 +763,12 @@
 			if(stats.getPerk(PERK_ALCOHOLIC))
 				stats.removePerk(PERK_ALCOHOLIC_ACTIVE)
 
-		var/total_phoronloss = 0
+		var/total_plasmaloss = 0
 		for(var/obj/item/I in src)
 			if(I.contaminated)
-				total_phoronloss += vsc.plc.CONTAMINATION_LOSS // Occulus Edit - Plasma > Phoron
+				total_plasmaloss += vsc.plc.CONTAMINATION_LOSS
 		if(!(status_flags & GODMODE))
-			bloodstr.add_reagent("phoron", total_phoronloss)  // Occulus Edit - Plasma > Phoron
+			bloodstr.add_reagent("plasma", total_plasmaloss)
 
 	if(status_flags & GODMODE)
 		return FALSE	//godmode

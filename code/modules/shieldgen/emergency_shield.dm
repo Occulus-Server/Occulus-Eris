@@ -331,7 +331,7 @@
 
 /obj/machinery/shieldgen/on_update_icon()
 	if(active && !(stat & NOPOWER))
-		src.SetIconState(malfunction ? "shieldonbr":"shieldon")
+		src.icon_state = malfunction ? "shieldonbr":"shieldon"
 	else
-		src.SetIconState(malfunction ? "shieldoffbr":"shieldoff")
+		src.icon_state = malfunction ? "shieldoffbr":"shieldoff"
 	return

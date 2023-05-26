@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(rad_collectors)
 	density = TRUE
 	req_access = list(access_engine_equip)
 
-	var/obj/item/tank/phoron/P = null // Occulus Edit - Plasma > Phoron
+	var/obj/item/tank/plasma/P = null
 	var/last_power = 0
 	var/last_power_new = 0
 	var/active = FALSE
@@ -32,11 +32,11 @@ GLOBAL_LIST_EMPTY(rad_collectors)
 
 
 	if(P)
-		if(P.air_contents.gas["phoron"] == 0)
+		if(P.air_contents.gas["plasma"] == 0)
 			investigate_log("<font color='red'>out of fuel</font>.","singulo")
 			eject()
 		else
-			P.air_contents.adjust_gas("phoron", -0.001*drainratio)
+			P.air_contents.adjust_gas("plasma", -0.001*drainratio)
 	return
 
 
@@ -88,7 +88,7 @@ GLOBAL_LIST_EMPTY(rad_collectors)
 		if(ABORT_CHECK)
 			return
 
-	if(istype(I, /obj/item/tank/phoron)) // Occulus Edit - Plasma > Phoron
+	if(istype(I, /obj/item/tank/plasma))
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("[src] needs to be secured to the floor first."))
 			return
@@ -144,23 +144,23 @@ GLOBAL_LIST_EMPTY(rad_collectors)
 
 
 /obj/machinery/power/rad_collector/proc/update_icons()
-	cut_overlays()
+	overlays.Cut()
 	if(P)
-		add_overlays("ptank")
+		overlays += "ptank"
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(active)
-		add_overlays("on")
+		overlays += "on"
 
 
 /obj/machinery/power/rad_collector/proc/toggle_power()
 	active = !active
 	if(active)
 		icon_state = "ca_on"
-		FLICK("ca_active", src)
+		flick("ca_active", src)
 	else
 		icon_state = "ca"
-		FLICK("ca_deactive", src)
+		flick("ca_deactive", src)
 	update_icons()
 
 /obj/machinery/power/rad_collector/anchored

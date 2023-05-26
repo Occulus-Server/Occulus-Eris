@@ -374,9 +374,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 				if ("vote_delay")
 					config.vote_delay = text2num(value)
 
-				if ("disable_ic_printing")
-					config.allow_ic_printing = FALSE
-
 				if ("vote_period")
 					config.vote_period = text2num(value)
 

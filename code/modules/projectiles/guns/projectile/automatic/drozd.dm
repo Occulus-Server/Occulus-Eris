@@ -31,7 +31,7 @@
 	serial_type = "Excelsior"
 
 /obj/item/gun/projectile/automatic/drozd/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	icon_state = "[initial(icon_state)][silenced ? "_s" : ""]"
 
 	if(ammo_magazine)

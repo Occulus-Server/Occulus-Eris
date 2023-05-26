@@ -196,7 +196,7 @@
 	stamps = null
 	free_space = MAX_PAPER_MESSAGE_LEN
 	stamped = list()
-	cut_overlays()
+	overlays.Cut()
 	updateinfolinks()
 	update_icon()
 
@@ -428,7 +428,7 @@
 		if(!stamped)
 			stamped = new
 		stamped += P.type
-		add_overlays(stampoverlay)
+		overlays += stampoverlay
 
 		to_chat(user, SPAN_NOTICE("You stamp the paper with your rubber stamp."))
 

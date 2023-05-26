@@ -176,5 +176,5 @@
 	if(cell.charge < 10)
 		to_chat(user, "<span class='warning'>[src]'s battery is drained.</span>")
 
-	flick_overlay_view(I, targloc, 10)
+	flick_overlay(I, targloc, 10)
 	icon_state = "pointer"

@@ -44,7 +44,7 @@
 /obj/item/gun/projectile/automatic/maxim/update_icon()
 	..()
 	var/itemstring = ""
-	cut_overlays()
+	overlays.Cut()
 
 	if(ammo_magazine)
 		overlays += "mag[ammo_magazine.ammo_label_string]"

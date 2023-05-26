@@ -55,7 +55,7 @@
 	set_item_state(itemstring)
 
 /obj/item/gun/energy/lasersmg/update_icon()//TODO: Rework overlays, check assets storage for charge states.
-	cut_overlays()
+	overlays.Cut()
 	..()
 
 	if(istype(cell, /obj/item/cell/medium/moebius/nuclear))

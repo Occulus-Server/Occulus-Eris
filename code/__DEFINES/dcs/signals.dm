@@ -48,6 +48,7 @@
 
 // /atom signals
 #define COMSIG_EXAMINE "examine"								//from atom/examine(): (mob/user, distance)
+#define COMSIG_CLICK_CTRL "ctrl_click"//from atom/CtrlClick(): (/mob) // Occulus Addition
 #define COMSIG_ATOM_UPDATE_OVERLAYS "atom_update_overlays"  //update_overlays()
 #define COMSIG_ATOM_UNFASTEN "atom_unfasten" // set_anchored()
 // Whenever we are put into a container of any sort , storage , closets , pockets. (atom/true_parent)
@@ -133,6 +134,9 @@
 #define COMSIG_MESSAGE_SENT "radio_message_sent"
 #define COMSIG_MESSAGE_RECEIVED "radio_message_received"
 
+//obj/item/gun signals
+#define COMSIG_GUN_POST_FIRE "gun_post_fire" // Occulus Addition
+
 // Internal organ signals
 #define COMSIG_IORGAN_REFRESH_SELF "internal_organ_self_refresh"
 #define COMSIG_IORGAN_REFRESH_PARENT "internal_organ_parent_refresh"
@@ -167,6 +171,11 @@
 #define COMSIG_STORAGE_INSERTED "item_inserted"
 #define COMSIG_STORAGE_TAKEN "item_taken"
 #define COMSIG_STORAGE_OPENED "new_backpack_who_dis"
+
+// /datum/component/heat signals
+#define COMSIG_HEAT_SPECIAL "heat_special" // Occulus Addition Start
+#define COMSIG_HEAT_OVERHEAT "heat_overheated"
+#define COMSIG_HEAT_VENT "heat_venting" // Occulus Addition End
 
 // OVERMAP
 #define COMSIG_SHIP_STILL "ship_still" // /obj/effect/overmap/ship/Process() && is_still()

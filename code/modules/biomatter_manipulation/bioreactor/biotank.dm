@@ -57,9 +57,9 @@
 
 
 /obj/machinery/multistructure/bioreactor_part/biotank_platform/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(pipes_cleanness <= 90)
-		add_overlays("[icon_state]-dirty_[get_dirtiness_level()]")
+		overlays += "[icon_state]-dirty_[get_dirtiness_level()]"
 
 
 /obj/machinery/multistructure/bioreactor_part/biotank_platform/Process()
@@ -144,10 +144,10 @@
 
 
 /obj/structure/biomatter_tank/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(canister && platform.pipes_opened)
 		var/image/pipe_overlay = image(icon = 'icons/obj/machines/bioreactor.dmi', icon_state = "port-pipe", pixel_y = -9)
-		add_overlays(pipe_overlay)
+		overlays += pipe_overlay
 
 
 /obj/structure/biomatter_tank/attack_hand(mob/user)
@@ -207,7 +207,7 @@
 	target_tank.can_anchor = FALSE
 	canister = target_tank
 	platform.MS_bioreactor.metrics_screen.icon_state = "screen_process"
-	FLICK("screen_activation", platform.MS_bioreactor.metrics_screen)
+	flick("screen_activation", platform.MS_bioreactor.metrics_screen)
 	playsound(platform.MS_bioreactor.output_port.loc, 'sound/machines/Custom_extin.ogg', 100, 1)
 	. = TRUE
 

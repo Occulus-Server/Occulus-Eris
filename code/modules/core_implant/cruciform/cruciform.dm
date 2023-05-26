@@ -144,10 +144,10 @@ var/list/disciples = list()
 	..()
 	// if(active && round(world.time) % 5 == 0 && !get_active_mutation(wearer, MUTATION_GODBLOOD)) // Occulus Removal - No, church members can have cybernetics.
 	// 	remove_cyber()
-		if(wearer.mutation_index)
-			var/datum/mutation/M = pick(wearer.active_mutations)
-			M.cleanse(wearer)
-			wearer.adjustFireLoss(rand(5,25))
+	if(wearer.mutation_index)
+		var/datum/mutation/M = pick(wearer.active_mutations)
+		M.cleanse(wearer)
+		wearer.adjustFireLoss(rand(5,25))
 
 	if(wearer.stat == DEAD)
 		deactivate()
@@ -165,16 +165,16 @@ var/list/disciples = list()
 	// 		if(M.ckey == data.ckey)
 	// 			if(M.stat != DEAD)
 	// 				return FALSE
-		var/datum/mind/MN = data.mind
-		if(!istype(MN))
-			return
-		MN.transfer_to(wearer)
-		wearer.ckey = data.ckey
-		for(var/datum/language/L in data.languages)
-			wearer.add_language(L.name)
-		update_data()
-		if(activate())
-			return TRUE
+	var/datum/mind/MN = data.mind
+	if(!istype(MN))
+		return
+	MN.transfer_to(wearer)
+	wearer.ckey = data.ckey
+	for(var/datum/language/L in data.languages)
+		wearer.add_language(L.name)
+	update_data()
+	if(activate())
+		return TRUE
 
 /*/obj/item/implant/core_implant/cruciform/proc/remove_cyber() // Occulus Removal - No, church members can have cybernetics.
 	if(!wearer)

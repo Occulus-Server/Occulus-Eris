@@ -31,7 +31,7 @@
 		/obj/item/tool/sword/katana/nano
 
 	)
-	assortiment = list(
+	inventory = list(
 		"Ballistics" = list(
 			/obj/item/gun/projectile/selfload,
 			/obj/item/gun/projectile/automatic/c20r = custom_good_amount_range(list(-3, 1)),

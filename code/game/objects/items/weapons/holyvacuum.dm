@@ -32,7 +32,7 @@
 
 /obj/item/holyvacuum/update_icon()
 	.=..()
-	cut_overlays()
+	overlays.Cut()
 	if(amount == 0)
 		overlays += "0"
 	else if(amount < 0.25*max_amount)

@@ -246,7 +246,7 @@
 #define SPECIES_ZORREN_FLAT		"Flatland Zorren"
 #define SPECIES_ZORREN_HIGH		"Zorren"
 #define SPECIES_CUSTOM			"Custom Species"
-#define SPECIES_PHORONMAN		"Phoronoid"
+#define SPECIES_PLASMAMAN		"Phoronoid"
 #define SPECIES_MOTH			"Mothperson"
 #define SPECIES_SLIMEPERSON		"Lesser Slimeperson" // Occulus Edit End
 #define SPECIES_SLIME			"Slime"

@@ -6,7 +6,7 @@
 
 	if(density)
 		can_open = WALL_OPENING
-		//FLICK("[material.icon_base]fwall_opening", src)
+		//flick("[material.icon_base]fwall_opening", src)
 		sleep(15)
 		density = FALSE
 		set_opacity(FALSE)

@@ -1,7 +1,3 @@
-#define TURRET_PRIORITY_TARGET 2
-#define TURRET_SECONDARY_TARGET 1
-#define TURRET_NOT_TARGET 0
-
 /* Occulus Edit
 /obj/machinery/porta_turret/excelsior
 	icon = 'icons/obj/machines/excelsior/turret.dmi'
@@ -134,10 +130,10 @@
 	raised = TRUE
 
 /obj/machinery/porta_turret/excelsior/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	if(!(stat & BROKEN))
-		add_overlays(image("turret_gun"))
+		overlays += image("turret_gun")
 
 
 

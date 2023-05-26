@@ -79,7 +79,7 @@
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/update_icon(var/update_neighbors)
-	cut_overlays()
+	overlays.Cut()
 	if(LAZYLEN(decals))
 		overlays += decals
 	for(var/direction in GLOB.cardinal)

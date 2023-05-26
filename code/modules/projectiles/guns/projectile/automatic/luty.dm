@@ -44,7 +44,7 @@
 	barrelvars = list(/obj/item/part/gun/modular/barrel/pistol/steel, /obj/item/part/gun/modular/barrel/magnum/steel)
 
 /obj/item/gun/projectile/automatic/luty/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	icon_state = "[initial(icon_state)][safety ? "_safe" : ""]"
 
 	if(ammo_magazine)

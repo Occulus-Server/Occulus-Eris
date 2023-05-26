@@ -3,7 +3,7 @@
 	spawn_probability = 5
 	spawn_cost = 2
 	markup = 2
-	assortiment = list(
+	inventory = list(
 		"Ballistics" = list(
 			/obj/item/gun/projectile/selfload,
 			/obj/item/gun/projectile/automatic/c20r = custom_good_amount_range(list(-3, 1)),

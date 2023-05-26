@@ -46,7 +46,7 @@
 		electronics = null
 		ae.loc = src.loc
 	if(operating == -1)
-		ae.SetIconState("door_electronics_smoked")
+		ae.icon_state = "door_electronics_smoked"
 		operating = 0
 	src.density = FALSE
 	playsound(src, "shatter", 70, 1)
@@ -109,9 +109,9 @@
 		return 0
 	if(!operating) //in case of emag
 		operating = 1
-	FLICK(text("[]opening", base_state), src)
+	flick(text("[]opening", base_state), src)
 	playsound(loc, 'sound/machines/windowdoor.ogg', 100, 1)
-	SetIconState(text("[]open", base_state))
+	icon_state = text("[]open", base_state)
 	sleep(10)
 
 	explosion_resistance = 0
@@ -127,9 +127,9 @@
 	if(operating)
 		return 0
 	operating = 1
-	FLICK(text("[]closing", base_state), src)
+	flick(text("[]closing", base_state), src)
 	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
-	SetIconState(base_state)
+	icon_state = base_state
 
 	src.density = TRUE
 	explosion_resistance = initial(explosion_resistance)
@@ -174,7 +174,7 @@
 /obj/machinery/door/window/emag_act(var/remaining_charges, var/mob/user)
 	if (density && operable())
 		operating = -1
-		FLICK("[src.base_state]spark", src)
+		flick("[src.base_state]spark", src)
 		sleep(6)
 		open()
 		return 1
@@ -234,7 +234,7 @@
 				ae = electronics
 				electronics = null
 				ae.loc = src.loc
-			ae.SetIconState("door_electronics_smoked")
+			ae.icon_state = "door_electronics_smoked"
 
 			operating = 0
 			shatter(src)

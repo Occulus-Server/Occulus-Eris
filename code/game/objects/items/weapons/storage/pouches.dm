@@ -262,7 +262,7 @@
 
 /obj/item/storage/pouch/tubular/update_icon()
 	..()
-	cut_overlays()
+	overlays.Cut()
 	if(contents.len)
 		overlays += image('icons/inventory/pockets/icon.dmi', "flare_[contents.len]")
 

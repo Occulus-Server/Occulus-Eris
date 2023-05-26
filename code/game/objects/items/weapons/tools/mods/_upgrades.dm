@@ -46,7 +46,9 @@
 
 /datum/component/item_upgrade/proc/attempt_install(atom/A, mob/living/user, params)
 	//SIGNAL_HANDLER
+
 /datum/component/item_upgrade/proc/can_apply(atom/A, mob/living/user)
+	if(isrobot(A))
 		return check_robot(A, user)
 
 	if(isitem(A))
@@ -280,24 +282,10 @@
 		T.degradation *= tool_upgrades[UPGRADE_DEGRADATION_MULT]
 	if(tool_upgrades[UPGRADE_FORCE_MULT])
 		T.force *= tool_upgrades[UPGRADE_FORCE_MULT]
-		if(T.force_wielded)//Occulus Edit start. Apparantly this was just never considered
-			T.force_wielded *= tool_upgrades[UPGRADE_FORCE_MULT]
-		if(T.force_unwielded)
-			T.force_unwielded *= tool_upgrades[UPGRADE_FORCE_MULT]
-		if(T.switched_on_force)
-			T.switched_on_force *= tool_upgrades[UPGRADE_FORCE_MULT]
-		if(T.switched_off_force)
-			T.switched_off_force *= tool_upgrades[UPGRADE_FORCE_MULT]//Occulus Edit end
 	if(tool_upgrades[UPGRADE_FORCE_MOD])
 		T.force += tool_upgrades[UPGRADE_FORCE_MOD]
-		if(T.force_wielded)//Occulus Edit start. Apparantly this was just never considered
-			T.force_wielded += tool_upgrades[UPGRADE_FORCE_MOD]
-		if(T.force_unwielded)
-			T.force_unwielded += tool_upgrades[UPGRADE_FORCE_MOD]
 		if(T.switched_on_force)
 			T.switched_on_force += tool_upgrades[UPGRADE_FORCE_MOD]
-		if(T.switched_off_force)
-			T.switched_off_force += tool_upgrades[UPGRADE_FORCE_MOD]//Occulus Edit end
 	if(tool_upgrades[UPGRADE_FUELCOST_MULT])
 		T.use_fuel_cost *= tool_upgrades[UPGRADE_FUELCOST_MULT]
 	if(tool_upgrades[UPGRADE_POWERCOST_MULT])
@@ -316,9 +304,6 @@
 		T.color = tool_upgrades[UPGRADE_COLOR]
 	if(tool_upgrades[UPGRADE_ITEMFLAGPLUS])
 		T.item_flags |= tool_upgrades[UPGRADE_ITEMFLAGPLUS]
-	if(tool_upgrades[UPGRADE_QUALITIES])//Occulus Edit
-		T.tool_qualities -= tool_upgrades[UPGRADE_QUALITIES]//Occulus Edit: If this works I may shoot myself
-		T.tool_qualities += tool_upgrades[UPGRADE_QUALITIES]//Occulus Edit
 	if(tool_upgrades[UPGRADE_CELLPLUS])
 		switch(T.suitable_cell)
 			if(/obj/item/cell/medium)
@@ -430,8 +415,6 @@
 			E.overcharge_rate *= weapon_upgrades[GUN_UPGRADE_OVERCHARGE_MAX]
 		if(weapon_upgrades[GUN_UPGRADE_OVERCHARGE_MAX])
 			E.overcharge_max *= weapon_upgrades[GUN_UPGRADE_OVERCHARGE_MAX]
-		if(weapon_upgrades[GUN_UPGRADE_AGONY_MULT])
-			E.proj_agony_multiplier *= weapon_upgrades[GUN_UPGRADE_AGONY_MULT]
 
 	if(istype(G, /obj/item/gun/projectile))
 		var/obj/item/gun/projectile/P = G

@@ -50,8 +50,8 @@
 		return
 	for(var/datum/reagent/organic/blood/B in vessel.reagent_list)
 		if(B.id == "blood")
-			var/data = list("donor"=src,"viruses"=null,"species"=species.name,"blood_DNA"=dna_trace,"blood_colour"= blood_color,"blood_type"=b_type,	\ // Occulus Edit - Custom Blood Colour
-							"resistances"=null,"trace_chem"=null, "virus2" = null, "antibodies" = list())
+			var/data = list("donor"=src,"viruses"=null,"species"=species.name,"blood_DNA"=dna_trace,"blood_colour"= blood_color,"blood_type"=b_type,	\
+							"resistances"=null,"trace_chem"=null, "virus2" = null, "antibodies" = list()) // Occulus Edit - Custom Blood Colour
 			B.initialize_data(data)
 
 // Takes care blood loss and regeneration
@@ -225,7 +225,7 @@ proc/blood_splatter(var/target,var/datum/reagent/organic/blood/source,var/large)
 
 	var/obj/effect/decal/cleanable/blood/drip/drop = B
 	if(istype(drop) && drips && drips.len && !large)
-		drop.associate_with_overlays(drips)
+		drop.overlays |= drips
 		drop.drips |= drips
 
 	// If there's no data to copy, call it quits here.

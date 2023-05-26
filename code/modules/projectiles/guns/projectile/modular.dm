@@ -76,7 +76,7 @@
 	name = get_initial_name()
 
 /obj/item/gun/projectile/automatic/modular/update_icon() // V2
-	cut_overlays() // This is where the fun begins
+	overlays.Cut() // This is where the fun begins
 
 	// Determine base using the current stock status
 	var/iconstring = initial(icon_state)

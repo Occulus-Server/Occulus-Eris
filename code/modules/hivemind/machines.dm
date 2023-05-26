@@ -38,7 +38,7 @@
 
 
 /obj/machinery/hivemind_machine/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(stat & EMPED)
 		icon_state = "[icon_state]-disabled"
 	else
@@ -286,7 +286,7 @@
 		var/obj/item/device/flash/flash = I
 		if(!flash.broken)
 			playsound(user, 'sound/weapons/flash.ogg', 100, 1)
-			FLICK("flash2", flash)
+			flick("flash2", flash)
 			flash.times_used++
 			flash.flash_recharge()
 			damage_reaction()
@@ -417,13 +417,13 @@
 
 
 /obj/machinery/hivemind_machine/node/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(stat & EMPED)
 		icon_state = "core-disabled"
-		add_overlays("core-smirk_disabled")
+		overlays += "core-smirk_disabled"
 	else
 		icon_state = initial(icon_state)
-		add_overlays("core-smirk")
+		overlays += "core-smirk"
 
 
 /obj/machinery/hivemind_machine/node/use_ability(atom/target)
@@ -571,7 +571,7 @@
 
 //this one is slow, careful with it
 /obj/machinery/hivemind_machine/babbler/use_ability()
-	FLICK("[icon_state]-anim", src)
+	flick("[icon_state]-anim", src)
 	var/msg_cycles = rand(1, 2)
 	var/msg = ""
 	for(var/i = 1 to msg_cycles)
@@ -640,7 +640,7 @@
 					continue
 			use_ability(target)
 	if(can_scream)
-		FLICK("[icon_state]-anim", src)
+		flick("[icon_state]-anim", src)
 		playsound(src, 'sound/hallucinations/veryfar_noise.ogg', 85, 1)
 		set_cooldown()
 
@@ -734,7 +734,7 @@
 			to_chat(H, SPAN_NOTICE("Reality flickers for a second, but you manage to focus!"))
 	else if (istype(target))
 		target.adjust_hallucination(20, 20)
-	FLICK("[icon_state]-anim", src)
+	flick("[icon_state]-anim", src)
 
 
 

@@ -78,7 +78,7 @@
 		..()
 
 /mob/living/simple_animal/corgi/regenerate_icons()
-	set_overlays(list())
+	overlays = list()
 
 	if(inventory_head)
 		var/head_icon_state = inventory_head.icon_state
@@ -87,7 +87,7 @@
 
 		var/icon/head_icon = image('icons/mob/corgi_head.dmi',head_icon_state)
 		if(head_icon)
-			add_overlays(head_icon)
+			overlays += head_icon
 
 	if(inventory_back)
 		var/back_icon_state = inventory_back.icon_state
@@ -96,7 +96,7 @@
 
 		var/icon/back_icon = image('icons/mob/corgi_back.dmi',back_icon_state)
 		if(back_icon)
-			add_overlays(back_icon)
+			overlays += back_icon
 	return
 
 

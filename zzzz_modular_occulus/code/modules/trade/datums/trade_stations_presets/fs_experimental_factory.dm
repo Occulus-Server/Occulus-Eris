@@ -17,7 +17,6 @@
 		/obj/item/gun/energy/chameleon,
 		/obj/item/gun/energy/crossbow,
 		/obj/item/gun/energy/decloner,
-		/obj/item/gun/energy/mindflayer,
 		/obj/item/gun/energy/temperature,
 		/obj/item/gun/projectile/automatic/c20r/moebius,
 		/obj/item/gun/projectile/automatic/whitenail,

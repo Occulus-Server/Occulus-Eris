@@ -224,9 +224,6 @@ SUBSYSTEM_DEF(garbage)
 					#endif
 					continue
 			if (GC_QUEUE_HARDDELETE)
-				if(avoid_harddel)
-					continue
-				fail_counts[level]++
 				HardDelete(D)
 				if (MC_TICK_CHECK)
 					return
@@ -318,11 +315,6 @@ SUBSYSTEM_DEF(garbage)
 /datum/qdel_item/New(mytype)
 	name = "[mytype]"
 
-#ifdef TESTING
-/proc/qdel_and_find_ref_if_fail(datum/D, force = FALSE)
-	SSgarbage.reference_find_on_fail["\ref[D]"] = TRUE
-	qdel(D, force)
-#endif
 
 /// Should be treated as a replacement for the 'del' keyword.
 ///
@@ -554,4 +546,3 @@ SUBSYSTEM_DEF(garbage)
 	qdel(src, force)
 
 #endif
-

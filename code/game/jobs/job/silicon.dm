@@ -13,9 +13,6 @@
 	wage = WAGE_NONE
 	outfit_type = /decl/hierarchy/outfit/job/silicon/ai
 
-	wl_config_heads = TRUE		//Eclipse edit - AI is de-facto head over silicons.
-	wl_config_borgs = TRUE		//Eclipse edit.
-
 /datum/job/ai/equip(var/mob/living/carbon/human/H, var/alt_title)
 	return FALSE
 

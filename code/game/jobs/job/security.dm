@@ -15,9 +15,6 @@
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihc
 
-	wl_config_heads = TRUE		//Eclipse edit.
-	wl_config_sec = TRUE		//Eclipse edit.
-
 	access = list(
 		access_security, access_eva, access_sec_doors, access_brig, access_armory, access_medspec,
 		access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,

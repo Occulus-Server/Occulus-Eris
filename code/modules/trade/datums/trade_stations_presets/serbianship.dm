@@ -8,7 +8,7 @@
 		"SV 'Zoric'" = "Serbia Vessel 'Zoric' Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 	)
 //Types of items sold by the station
-	assortiment = list(
+	inventory = list(
 		"Guns" = list(
 			/obj/item/gun/projectile/boltgun/serbian = custom_good_amount_range(list(1, 10)),
 			/obj/item/gun/projectile/shotgun/bojevic = custom_good_amount_range(list(-5, 2)),

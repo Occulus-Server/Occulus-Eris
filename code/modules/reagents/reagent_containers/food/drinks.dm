@@ -65,7 +65,7 @@
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/reagent_containers/food/drinks/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(reagents && reagents.total_volume)
 		if(base_name)
 			var/datum/reagent/R = reagents.get_master_reagent()

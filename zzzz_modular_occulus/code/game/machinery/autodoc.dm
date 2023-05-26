@@ -146,7 +146,7 @@
 		locked = autodoc_processor.active
 	update_icon()
 
-/obj/machinery/autodoc/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FORCE_OPEN, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/autodoc/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FORCE_OPEN, var/datum/nano_topic_state/state = GLOB.default_state)
 	autodoc_processor.ui_interact(user, ui_key, ui, force_open, state)
 
 /obj/machinery/autodoc/Topic(href, href_list)

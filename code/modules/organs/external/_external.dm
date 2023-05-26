@@ -62,6 +62,8 @@
 
 	var/list/drop_on_remove
 
+	var/list/markings = list()         // Markings (body_markings) to apply to the icon // Occulus Edit - Markings
+
 	var/obj/item/organ_module/active/module
 
 	// Joint/state stuff.

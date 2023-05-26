@@ -63,7 +63,7 @@
 
 	var/obj/item/cell/C = owner.get_cell()
 	if(!C || (C.is_empty()))
-		cut_overlays()
+		overlays.Cut()
 		return
 
 	maptext = holding.get_hardpoint_maptext()
@@ -72,7 +72,7 @@
 
 	var/value = holding.get_hardpoint_status_value()
 	if(isnull(value))
-		cut_overlays()
+		overlays.Cut()
 		return
 
 	if(ui_damage)
@@ -113,7 +113,7 @@
 				GLOB.hardpoint_bar_cache += bar
 		for(var/i = 1; i <= value; i++) new_overlays += GLOB.hardpoint_bar_cache[i]
 	if(ovrls["hardpoint"]) new_overlays += ovrls["hardpoint"]
-	set_overlays(new_overlays)
+	overlays = new_overlays
 
 /obj/screen/movable/exosuit/hardpoint/Click(var/location, var/control, var/params)
 	if(..() && owner && holding)
@@ -238,7 +238,7 @@
 
 /obj/screen/movable/exosuit/health/on_handle_hud(var/mob/living/exosuit/E)
 	. = ..()
-	cut_overlays()
+	overlays.Cut()
 	var/obj/item/cell/C = owner.get_cell()
 	if(!owner.body || !C || C.is_empty())
 		return
@@ -264,7 +264,7 @@
 				if(4) I.color = "#f00"
 				else I.color = "#f5f5f0"
 			GLOB.mech_damage_overlay_cache["[part]-[state]"] = I
-		add_overlays(GLOB.mech_damage_overlay_cache["[part]-[state]"])
+		overlays += GLOB.mech_damage_overlay_cache["[part]-[state]"]
 
 //Controls if cameras set the vision flags
 /obj/screen/movable/exosuit/toggle/camera

@@ -134,27 +134,27 @@ mob
 		underlays += image(icon='old_or_unused.dmi',icon_state="red", pixel_x = -32)
 
 		// Testing image overlays
-		add_overlays(image(icon='old_or_unused.dmi',icon_state="green", pixel_x = 32, pixel_y = -32))
-		add_overlays(image(icon='old_or_unused.dmi',icon_state="green", pixel_x = 32, pixel_y = 32))
-		add_overlays(image(icon='old_or_unused.dmi',icon_state="green", pixel_x = -32, pixel_y = -32))
+		overlays += image(icon='old_or_unused.dmi',icon_state="green", pixel_x = 32, pixel_y = -32)
+		overlays += image(icon='old_or_unused.dmi',icon_state="green", pixel_x = 32, pixel_y = 32)
+		overlays += image(icon='old_or_unused.dmi',icon_state="green", pixel_x = -32, pixel_y = -32)
 
 		// Testing icon file overlays (defaults to mob's state)
-		add_overlays('_flat_demoIcons2.dmi')
+		overlays += '_flat_demoIcons2.dmi'
 
 		// Testing icon_state overlays (defaults to mob's icon)
-		add_overlays("white")
+		overlays += "white"
 
 		// Testing dynamic icon overlays
 		var/icon/I = icon('old_or_unused.dmi', icon_state="aqua")
 		I.Shift(NORTH, 16, 1)
-		add_overlays(I)
+		overlays += I
 
 		// Testing dynamic image overlays
 		I=image(icon=I, pixel_x = -32, pixel_y = 32)
-		add_overlays(I)
+		overlays += I
 
 		// Testing object types (and layers)
-		add_overlays(/obj/effect/overlayTest)
+		overlays += /obj/effect/overlayTest
 
 		loc = locate (10, 10, 1)
 	verb
@@ -184,7 +184,7 @@ mob
 
 		Add_Overlay()
 			set name = "4. Add Overlay"
-			add_overlays(image(icon='old_or_unused.dmi',icon_state="yellow", pixel_x = rand(-64, 32), pixel_y = rand(-64, 32)))
+			overlays += image(icon='old_or_unused.dmi',icon_state="yellow", pixel_x = rand(-64, 32), pixel_y = rand(-64, 32))
 
 		Stress_Test()
 			set name = "5. Stress Test"

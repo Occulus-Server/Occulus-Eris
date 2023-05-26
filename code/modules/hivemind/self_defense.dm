@@ -181,3 +181,4 @@
 			master.visible_message("[master] appeared from an air!")
 			playsound(master, 'sound/effects/cascade.ogg', 50, 1)
 			message_admins("Hivemind node [master] emergency run at \the [jumplink(new_place)]")
+*/

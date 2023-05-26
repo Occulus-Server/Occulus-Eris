@@ -8,7 +8,7 @@
 		list(20, 22),
 		list(20, 25)
 	)
-	assortiment = list(
+	inventory = list(
 		"First Aid" = list(
 			/obj/item/storage/firstaid/regular,
 			/obj/item/storage/firstaid/fire,

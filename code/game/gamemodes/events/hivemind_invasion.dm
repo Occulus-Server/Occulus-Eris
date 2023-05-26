@@ -24,6 +24,7 @@
 
 
 /datum/event/hivemind/start()
+	var/turf/start_location
 	for(var/i=1 to 100)
 		var/area/A = random_ship_area(filter_players = TRUE, filter_maintenance = TRUE, filter_critical = TRUE, need_apc = TRUE)
 		start_location = A.random_space()

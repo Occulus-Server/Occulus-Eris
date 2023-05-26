@@ -2,7 +2,7 @@
 	name_pool = list("ATB 'Suit Up!'" = "Aster's Trade Beacon 'Suit Up!'. They're broadcasting a message. \"Suits, voidsuits and more for you, traveler!\"")
 	start_discovered = TRUE
 	spawn_always = TRUE
-	assortiment = list(
+	inventory = list(
 		"Spacesuits" = list(
 			/obj/item/clothing/suit/space/void/atmos,
 			/obj/item/rig/eva

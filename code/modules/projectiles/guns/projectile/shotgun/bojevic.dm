@@ -34,7 +34,7 @@
 /obj/item/gun/projectile/shotgun/bojevic/update_icon()
 	..()
 	var/itemstring = ""
-	cut_overlays()
+	overlays.Cut()
 
 	if(wielded)
 		itemstring += "_doble"

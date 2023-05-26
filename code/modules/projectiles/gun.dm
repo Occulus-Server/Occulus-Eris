@@ -848,17 +848,6 @@
 		val += proj_damage_adjust[i]
 	return val
 
-/obj/item/gun/proc/toggle_carry_state(mob/living/user)
-	inversed_carry = !inversed_carry
-	to_chat(user, SPAN_NOTICE("You adjust the way the gun will be worn on your back and on your suit."))
-	set_item_state()
-
-/obj/item/gun/proc/get_total_damage_adjust()
-	var/val = 0
-	for(var/i in proj_damage_adjust)
-		val += proj_damage_adjust[i]
-	return val
-
 
 //Finds the current firemode and calls update on it. This is called from a few places:
 //When firemode is changed

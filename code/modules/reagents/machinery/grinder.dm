@@ -288,7 +288,7 @@
 	grind()
 
 /obj/machinery/reagentgrinder/industrial/update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	if(panel_open)
 		overlays += image(icon, "[icon_state]_p")
@@ -466,7 +466,7 @@
 
 /obj/item/storage/makeshift_grinder/update_icon()
 	. = ..()
-	cut_overlays()
+	overlays.Cut()
 	if(reagents.total_volume)
 		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]100")
 		filling.color = reagents.get_color()

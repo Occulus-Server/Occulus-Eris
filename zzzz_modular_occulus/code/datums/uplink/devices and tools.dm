@@ -1,8 +1,8 @@
 /datum/uplink_item/item/tools/spy_sensor
-	antag_roles = list(ROLE_TRAITOR) //Removed from Rogue Drone uplink
+	antag_roles = list(ROLE_CONTRACTOR) //Removed from Rogue Drone uplink
 
 /datum/uplink_item/item/tools/mind_fryer
-	antag_roles = list(ROLE_TRAITOR)//Removed from Rogue Drone uplink
+	antag_roles = list(ROLE_CONTRACTOR)//Removed from Rogue Drone uplink
 
 /datum/uplink_item/item/tools/blitz_hp_upgrade
 	name = "Armour Augmentation"

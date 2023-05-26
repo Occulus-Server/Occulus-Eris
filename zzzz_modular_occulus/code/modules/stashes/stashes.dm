@@ -243,7 +243,6 @@
 		/obj/item/storage/box/handcuffs = 60,
 		/obj/item/storage/backpack/satchel/security = 40,
 		/obj/item/storage/belt/tactical/ironhammer = 15,
-		/obj/item/clothing/accessory/holster/waist = 25,
 		/obj/item/stamp/hos = 35,
 		/obj/item/gun/projectile/revolver/sky_driver = 15,
 		/obj/item/ammo_magazine/magnum = 80,

@@ -8,8 +8,6 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 
 #define SANITY_VIEW_DAMAGE_MOD (0.4 * GLOB.GLOBAL_SANITY_MOD)
 
-#define SANITY_VIEW_DAMAGE_MOD 0.2
-
 // Damage received from unpleasant stuff in view
 #define SANITY_DAMAGE_VIEW(damage, vig, dist) ((damage) * SANITY_VIEW_DAMAGE_MOD * max(0.1,(1.2 - (vig) / STAT_LEVEL_MAX)) * (1 - (dist)/15))//Occulus Edit
 
@@ -137,21 +135,6 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 		if(rest_timer_active) //prevent any possible exploits
 			rest_timer_active = FALSE
 			level_up()
-
-/datum/sanity/proc/give_insight(value)
-	var/new_value = value
-	if(value > 0)
-		new_value = max(0, value * insight_gain_multiplier)
-	insight = min(insight + new_value, max_insight)
-
-/datum/sanity/proc/give_resting(value)
-	resting = min(resting + value, max_resting)
-
-/datum/sanity/proc/give_insight_rest(value)
-	var/new_value = value
-	if(value > 0)
-		new_value = max(0, value * insight_rest_gain_multiplier)
-	insight_rest += new_value
 
 /datum/sanity/proc/onLife()
 	//SIGNAL_HANDLER

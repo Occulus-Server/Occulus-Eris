@@ -295,9 +295,9 @@ var/list/name_to_material
 	sheet_plural_name = "ingots"
 
 /material/phoron
-	name = MATERIAL_PHORON
+	name = MATERIAL_PLASMA
 	stack_type = /obj/item/stack/material/phoron
-	ignition_point = PHORON_MINIMUM_BURN_TEMPERATURE
+	ignition_point = PLASMA_MINIMUM_BURN_TEMPERATURE
 	icon_base = "stone"
 	icon_colour = "#FC2BC5"
 	shard_type = SHARD_SHARD
@@ -519,7 +519,7 @@ var/list/name_to_material
 	rod_product = null
 
 /material/glass/phoron
-	name = MATERIAL_PHORONGLASS
+	name = MATERIAL_PLASMAGLASS
 	display_name = "borosilicate glass"
 	stack_type = /obj/item/stack/material/glass/phoronglass
 	flags = MATERIAL_BRITTLE
@@ -532,7 +532,7 @@ var/list/name_to_material
 	rod_product = /obj/item/stack/material/glass/phoronrglass
 
 /material/glass/phoron/reinforced
-	name = MATERIAL_RPHORONGLASS
+	name = MATERIAL_RPLASMAGLASS
 	display_name = "reinforced borosilicate glass"
 	stack_type = /obj/item/stack/material/glass/phoronrglass
 	stack_origin_tech = list(TECH_MATERIAL = 5)

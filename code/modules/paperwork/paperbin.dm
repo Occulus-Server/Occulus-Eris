@@ -17,10 +17,10 @@
 		if(!isslime(usr) && !isanimal(usr))
 			if( !usr.get_active_hand() )		//if active hand is empty
 				var/mob/living/carbon/human/H = user
-				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
+				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_ARM]
 
 				if (H.hand)
-					temp = H.organs_by_name[BP_L_HAND]
+					temp = H.organs_by_name[BP_L_ARM]
 				if(temp && !temp.is_usable())
 					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
@@ -69,25 +69,11 @@
 			user.put_in_hands(P)
 			to_chat(user, SPAN_NOTICE("You take [P] out of the [src]."))
 		else
-			if(response == "Regular")
-				P = new /obj/item/paper
-				if(Holiday == "April Fool's Day")
-					if(prob(30))
-						P.info = "<font face=\"[P.crayonfont]\" color=\"red\"><b>HONK HONK HONK HONK HONK HONK HONK<br>HOOOOOOOOOOOOOOOOOOOOOONK<br>APRIL FOOLS</b></font>"
-						P.rigged = 1
-						P.updateinfolinks()
-			else if (response == "Carbon-Copy")
-				P = new /obj/item/paper/carbon
+			to_chat(user, SPAN_NOTICE("[src] is empty!"))
 
-		user.put_in_hands(P)
-		to_chat(user, SPAN_NOTICE("You take [P] out of the [src]."))
-		amount--
-		update_icon()
-	else
-		to_chat(user, SPAN_NOTICE("[src] is empty!"))
-
-	add_fingerprint(user)
-	return
+		add_fingerprint(user)
+		return
+	.=..()
 
 //Pickup paperbins with drag n drop
 obj/item/paper_bin/MouseDrop(over_object)
@@ -107,8 +93,8 @@ obj/item/paper_bin/MouseDrop(over_object)
 	i.loc = src
 	to_chat(user, SPAN_NOTICE("You put [i] in [src]."))
 	papers.Add(i)
+	update_icon()
 	amount++
-	update_icon()		//Eclipse edit
 
 
 /obj/item/paper_bin/examine(mob/user)

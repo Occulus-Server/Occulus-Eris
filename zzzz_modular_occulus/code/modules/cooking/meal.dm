@@ -56,7 +56,7 @@
 	var/fullname = "" //We need to build this from the contents of the var.
 	var/i = 0
 
-	cut_overlays()
+	overlays.Cut()
 
 	for(var/obj/item/reagent_containers/food/snacks/O in ingredients)
 
@@ -70,7 +70,7 @@
 
 		var/image/I = new(src.icon, "meal_ing_[i]")
 		I.color = O.filling_color
-		add_overlays(I)
+		overlays += I
 
 	name = lowertext("[fullname] plate")
 	if(length(name) > 80) name = "garbage plate"

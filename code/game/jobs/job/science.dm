@@ -13,8 +13,6 @@
 	wage = WAGE_COMMAND
 	outfit_type = /decl/hierarchy/outfit/job/science/rd
 
-	wl_config_heads = TRUE		//Eclipse edit.
-
 	access = list(
 		access_rd, access_heads, access_tox, access_genetics, access_morgue,
 		access_tox_storage, access_teleporter, access_sec_doors,

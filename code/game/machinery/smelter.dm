@@ -149,18 +149,11 @@
 			if(!(material in stored_material))
 				stored_material[material] = 0
 
-			var/total_material = materials[material]
-
-			if(istype(smelting,/obj/item/stack))
-				var/obj/item/stack/material/S = smelting
-				total_material *= S.get_amount()
-
-			total_material *= scrap_multiplier
-
-			stored_material[material] += total_material
+			stored_material[material] += materials[material]
 
 	for(var/obj/O in smelting.contents)
 		smelt_scrap(O)
+
 	//Occulus Edit Start: Smelting Mobs
 	for(var/mob/smeltingmob in smelting.contents)
 		for(var/obj/item/W in smeltingmob)
@@ -175,25 +168,6 @@
 			if(BP_IS_ROBOTIC(smeltingorgan))
 				smeltingorgan.droplimb(TRUE, DROPLIMB_EDGE)
 	//Occulus Edit End
-	qdel(smelting)
-
-/obj/machinery/smelter/proc/smelt_scrap(obj/smelting)
-	var/list/materials = result_materials(smelting)
-
-	if(materials)
-		if(!are_valid_materials(materials))
-			eject(smelting, refuse_output_side)
-			return
-
-		for(var/material in materials)
-			if(!(material in stored_material))
-				stored_material[material] = 0
-
-			stored_material[material] += materials[material]
-
-	for(var/obj/O in smelting.contents)
-		smelt_scrap(O)
-
 	qdel(smelting)
 
 /obj/machinery/smelter/proc/are_valid_materials(list/materials)

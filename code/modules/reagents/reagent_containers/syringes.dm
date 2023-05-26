@@ -218,7 +218,7 @@
 
 
 /obj/item/reagent_containers/syringe/update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	var/iconstring = initial(item_state)
 	if(mode == SYRINGE_BROKEN)
@@ -342,7 +342,7 @@
 	reagent_flags = TRANSPARENT
 
 /obj/item/reagent_containers/syringe/large/update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	var/iconstring = initial(item_state)
 	if(mode == SYRINGE_BROKEN)

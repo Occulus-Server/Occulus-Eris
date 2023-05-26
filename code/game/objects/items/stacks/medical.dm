@@ -98,7 +98,7 @@
 	if(!automatic_charge_overlays)	//Checks if the item has this feature enabled
 		return	//If it does not, do nothing
 	var/ratio = CEILING(CLAMP(amount / max_amount, 0, 1) * charge_sections, 1)
-	cut_overlays()
+	overlays.Cut()
 	var/iconState = "[icon_state]_charge"
 	if(!amount)	//Checks if there are still charges left in the item
 		return //If it does not, do nothing, as the overlays have been cut before this already.

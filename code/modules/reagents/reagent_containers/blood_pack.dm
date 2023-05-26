@@ -29,7 +29,7 @@
 
 
 /obj/item/reagent_containers/blood/update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	if(!reagents || !reagents.total_volume)
 		return

@@ -937,9 +937,9 @@ All Canmove setting in this proc is temporary. This var should not be set from h
 	return
 
 /mob/living/flash_weak_pain()
-//	FLICK("weak_pain", flash["pain"])
+//	flick("weak_pain", flash["pain"])
 	if(HUDtech.Find("pain"))
-		FLICK("weak_pain", HUDtech["pain"])
+		flick("weak_pain", HUDtech["pain"])
 
 
 /mob/proc/get_visible_implants()
@@ -1239,15 +1239,6 @@ mob/proc/yank_out_object()
 	else
 		set_face_dir(client.client_dir(WEST))
 		to_chat(usr, "You are now facing west.")
-
-/mob/verb/change_move_intent()
-	set name = "Change moving intent"
-	set category = "IC"
-	set src = usr
-
-	if(HUDneed["move intent"])
-		var/obj/screen/mov_intent/mov_intent = HUDneed["move intent"]
-		mov_intent.Click()  // Yep , this is all.
 
 /mob/verb/change_move_intent()
 	set name = "Change moving intent"

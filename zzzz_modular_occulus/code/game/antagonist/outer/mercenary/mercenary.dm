@@ -61,6 +61,4 @@
 	access_external_airlocks,
 	access_maint_tunnels)
 
-
-
 #undef WELCOME_SERBS

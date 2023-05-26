@@ -76,7 +76,7 @@
 	return
 
 /obj/structure/bigDelivery/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(nameset || examtext)
 		var/image/I = new/image('icons/obj/storage.dmi',"delivery_label")
 		if(icon_state == "deliverycloset")
@@ -89,7 +89,7 @@
 				label_x = rand(-8, 6)
 			I.pixel_x = label_x
 			I.pixel_y = -3
-		add_overlays(I)
+		overlays += I
 	if(src.sortTag)
 		var/image/I = new/image('icons/obj/storage.dmi',"delivery_tag")
 		if(icon_state == "deliverycloset")
@@ -102,7 +102,7 @@
 				tag_x = rand(-8, 6)
 			I.pixel_x = tag_x
 			I.pixel_y = -3
-		add_overlays(I)
+		overlays += I
 
 /obj/structure/bigDelivery/examine(mob/user)
 	if(..(user, 4))
@@ -187,12 +187,12 @@
 	return
 
 /obj/item/smallDelivery/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if((nameset || examtext) && icon_state != "deliverycrate1")
 		var/image/I = new/image('icons/obj/storage.dmi',"delivery_label")
 		if(icon_state == "deliverycrate5")
 			I.pixel_y = -1
-		add_overlays(I)
+		overlays += I
 	if(src.sortTag)
 		var/image/I = new/image('icons/obj/storage.dmi',"delivery_tag")
 		switch(icon_state)
@@ -209,7 +209,7 @@
 				I.pixel_y = 3
 			if("deliverycrate5")
 				I.pixel_y = -3
-		add_overlays(I)
+		overlays += I
 
 /obj/item/smallDelivery/examine(mob/user)
 	if(..(user, 4))
@@ -415,7 +415,7 @@
 
 /obj/machinery/disposal/deliveryChute/flush()
 	flushing = 1
-	FLICK("intake-closing", src)
+	flick("intake-closing", src)
 	var/obj/structure/disposalholder/H = new()	// virtual holder object which actually
 												// travels through the pipes.
 	air_contents = new()		// new empty gas resv.

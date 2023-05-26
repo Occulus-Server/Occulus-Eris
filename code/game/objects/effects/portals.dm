@@ -54,7 +54,7 @@ var/list/portal_cache = list()
 		I1.Blend(I2,ICON_MULTIPLY)
 		portal_cache["icon[initial(T.icon)]_iconstate[T.icon_state]_[type]"] = I1 //And cache it!
 
-	add_overlays(portal_cache["icon[initial(T.icon)]_iconstate[T.icon_state]_[type]"])
+	overlays += portal_cache["icon[initial(T.icon)]_iconstate[T.icon_state]_[type]"]
 
 
 

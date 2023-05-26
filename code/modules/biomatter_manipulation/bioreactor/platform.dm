@@ -208,7 +208,7 @@
 
 
 /obj/structure/window/reinforced/bioreactor/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	..()
 	if(contamination_level)
 		var/biomass_alpha = min((50*contamination_level), 255)
@@ -217,7 +217,7 @@
 		biomass.Turn(-40, 40)
 		biomass.Blend(rgb(0, 0, 0, biomass_alpha))
 		default.Blend(biomass, ICON_MULTIPLY)
-		add_overlays(default)
+		overlays += default
 
 
 /obj/structure/window/reinforced/bioreactor/proc/apply_dirt(var/amount)

@@ -545,8 +545,8 @@
 
 /obj/item/toy/figure/shitcurity
 	name = "shitcurity officer figurine"
-	desc = "A \"Space Life\" brand figurine of a classic redshirt of \"Nanotrasen's finest\". Their belly distends out into an obvious beer gut, revealing no form of manufacturer bias what-so-ever. \ // Occulus Edit - Remove Eris corp. reference
-	\"I joined just to kill people.\""
+	desc = "A \"Space Life\" brand figurine of a classic redshirt of \"Nanotrasen's finest\". Their belly distends out into an obvious beer gut, revealing no form of manufacturer bias what-so-ever. \
+	\"I joined just to kill people.\"" // Occulus Edit - Remove Eris corp. reference
 	icon_state = "shitcurity"
 
 /obj/item/toy/figure/metro_patrolman

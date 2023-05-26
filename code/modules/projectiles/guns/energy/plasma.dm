@@ -128,7 +128,7 @@
 	)
 
 /obj/item/gun/energy/plasma/brigador/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	..()
 	overlays.Cut()
 	..()

@@ -3,7 +3,7 @@
 	start_discovered = TRUE
 	spawn_always = TRUE
 
-	assortiment = list(
+	inventory = list(
 		"Basic Ingredients" = list(
 			/obj/item/reagent_containers/food/condiment/flour,
 			/obj/item/reagent_containers/food/drinks/milk,

@@ -130,7 +130,7 @@
 /turf/simulated/floor/holofloor/desert/New()
 	..()
 	if(prob(10))
-		add_overlays("asteroid[rand(0,9)]")
+		overlays += "asteroid[rand(0,9)]"
 
 /turf/simulated/open/holonofloor // Simulated nothingness
 
@@ -283,7 +283,7 @@
 			close()
 
 	else if (src.density)
-		FLICK(text("[]deny", src.base_state), src)
+		flick(text("[]deny", src.base_state), src)
 
 	return
 

@@ -8,7 +8,7 @@
 		list(15, 20),
 		list(20, 25)
 	)
-	assortiment = list(
+	inventory = list(
 		"Enforce Equipment" = list(
 			/obj/item/handcuffs,
 			/obj/item/shield/riot,

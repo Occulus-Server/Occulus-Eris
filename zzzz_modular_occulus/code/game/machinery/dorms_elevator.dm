@@ -50,18 +50,18 @@
 
 	//When the passenger is put into storage, their respawn time is reduced.
 	//This check exists for the benefit of people who get put into cryostorage while SSD and come back later
-	if (passenger.in_perfect_health()) //None of this shit works, but I'm too scared to remove it...
-		if (passenger.mind && passenger.mind.key)
-			//Whoever inhabited this body is long gone, we need some black magic to find where and who they are now
-			var/mob/M = key2mob(passenger.mind.key)
-			if (istype(M))
-				if (!(M.get_respawn_bonus("CRYOSLEEP")))
-					//We send a message to the passenger's current mob - probably a ghost, but who knows.
-					to_chat(M, SPAN_NOTICE("Because you returned to the dorms, your crew respawn time has been reduced by [CRYOPOD_SPAWN_BONUS_DESC]."))
-					M << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever their respawn time gets reduced
-
-				//Going safely to cryo will allow the patient to respawn more quickly
-				M.set_respawn_bonus("CRYOSLEEP", CRYOPOD_SPAWN_BONUS)
+	if(passenger.mind && passenger.mind.key)
+		//Whoever inhabited this body is long gone, we need some black magic to find where and who they are now
+		var/mob/M = key2mob(passenger.mind.key)
+		if(istype(M) && !M.get_respawn_bonus("CRYOSLEEP"))
+			if(M.in_perfect_health())
+				//We send a message to the occupant's current mob - probably a ghost, but who knows.
+				to_chat(M, SPAN_NOTICE("Because your body was put into cryostorage in good health, your crew respawn time has been reduced by [(CRYOPOD_HEALTHY_RESPAWN_BONUS)/600] minutes."))
+				M.set_respawn_bonus("CRYOSLEEP", CRYOPOD_HEALTHY_RESPAWN_BONUS)
+			else
+				to_chat(M, SPAN_NOTICE("Because your body was put into cryostorage in poor health, your crew respawn time has been reduced by [(CRYOPOD_WOUNDED_RESPAWN_BONUS)/600] minutes."))
+				M.set_respawn_bonus("CRYOSLEEP", CRYOPOD_WOUNDED_RESPAWN_BONUS)
+			M << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever their respawn time gets reduced
 
 	// This despawn is not a gib() in this sense, it is used to remove objectives tied on these despawned mobs in cryos
 	passenger.despawn()

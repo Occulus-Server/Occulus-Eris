@@ -11,7 +11,7 @@
 
 
 /obj/item/implantpad/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(case)
 		icon_state = "implantpad-1"
 		if(case.implant)

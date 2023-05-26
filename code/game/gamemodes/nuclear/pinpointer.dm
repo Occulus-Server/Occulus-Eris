@@ -44,11 +44,11 @@
 		..()
 
 /obj/item/pinpointer/update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	if (slot)
 		var/tooloverlay = "disknukeloaded"
-		add_overlays((tooloverlay))
+		overlays += (tooloverlay)
 
 
 /obj/item/pinpointer/proc/workdisk()

@@ -146,7 +146,7 @@
 		if(ATM_CO2)
 			return "Carbon Dioxide"
 		if(ATM_P)
-			return "Phoron" //*cough* Phoron *cough*
+			return "Plasma"
 		if(ATM_N2O)
 			return "Nitrous Oxide"
 		else
@@ -175,7 +175,7 @@
 			if("switch_mode")
 				switch_mode(dir_flag(href_list["dir"]), mode_return_switch(href_list["mode"]))
 			if("switch_filter")
-				var/new_filter = input(usr, "Select filter mode:", "Change filter", href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide")
+				var/new_filter = input(usr, "Select filter mode:", "Change filter", href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide") // Occulus Edit - Plasma > Phoron
 				switch_filter(dir_flag(href_list["dir"]), mode_return_switch(new_filter))
 		if(href_list["command"])
 			investigate_log("had it's settings modified by [key_name(usr)]", "atmos")
@@ -192,7 +192,7 @@
 			return ATM_N2
 		if("Carbon Dioxide")
 			return ATM_CO2
-		if("Phoron")
+		if("Phoron") // Occulus Edit - Plasma > Phoron
 			return ATM_P
 		if("Nitrous Oxide")
 			return ATM_N2O

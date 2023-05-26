@@ -28,14 +28,14 @@
 	update_icon()
 
 /obj/item/hatton/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(magazine)
 		if(magazine.charge)
 			icon_state = "Hatton_Hammer_1"
-			add_overlays(icon(icon, "[magazine.charge]/3"))
+			overlays += icon(icon, "[magazine.charge]/3")
 		else
 			icon_state = "Hatton_Hammer_1_empty"
-			add_overlays(icon(icon, "1/3"))
+			overlays += icon(icon, "1/3")
 	else
 		icon_state="Hatton_Hammer_0"
 
@@ -151,7 +151,7 @@
 	w_class = ITEM_SIZE_SMALL
 	//m_amt = 15
 	origin_tech = list(TECH_MATERIAL = 2)
-	matter = list(MATERIAL_PHORON = 10, MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 2)
+	matter = list(MATERIAL_PLASMA = 10, MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 2)
 	price_tag = 100
 	spawn_blacklisted = TRUE
 
@@ -170,7 +170,7 @@
 /obj/item/hatton_magazine/moebius
 	name = "NanoTrasen BT \"Q-del\" gas tube" // Occulus Edit - Renamed Moebius to NanoTrasen
 	icon_state = "Moebius_box1"
-	matter = list(MATERIAL_PHORON = 10, MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 2)
+	matter = list(MATERIAL_PLASMA = 10, MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 2)
 	charge = 2
 
 /obj/item/hatton_magazine/moebius/update_icon()
@@ -214,14 +214,14 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/hatton/moebius/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(magazine)
 		if(magazine.charge)
 			icon_state = "Moebius_Hammer_1"
-			add_overlays(icon(icon, "[magazine.charge]/3"))
+			overlays += icon(icon, "[magazine.charge]/3")
 		else
 			icon_state = "Moebius_Hammer_1_empty"
-			add_overlays(icon(icon, "1/3"))
+			overlays += icon(icon, "1/3")
 	else
 		icon_state = "Moebius_Hammer_0"
 

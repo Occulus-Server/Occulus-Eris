@@ -136,7 +136,7 @@
 	if(!exposed)
 		return
 	icon_state = "open"
-	cut_overlays()
+	overlays.Cut()
 	if(buckled_mob)
 		overlays += buckled_mob
 		var/image/I = image(icon,icon_state="overlay")

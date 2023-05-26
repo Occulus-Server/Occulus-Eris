@@ -193,7 +193,7 @@
 
 //Icon procs.mostly copied from tables
 /obj/structure/low_wall/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	var/image/I
 
@@ -201,7 +201,7 @@
 	for(var/i = 1 to 4)
 		I = image(icon, "[icon_state]_[connections[i]]", dir = 1<<(i-1))
 		I.color = wall_color
-		add_overlays(I)
+		overlays += I
 
 
 	for (var/obj/structure/window/W in loc)
@@ -215,7 +215,7 @@
 		I = image(icon, "[icon_state]_over_[wall_connections[i]]", dir = 1<<(i-1))
 		I.color = wall_color
 		I.layer = ABOVE_WINDOW_LAYER
-		add_overlays(I)
+		overlays += I
 
 
 

@@ -9,8 +9,6 @@
 
 /*
 
-/*
-
 /mob/living/carbon/superior_animal/Life()
 	. = ..()
 

@@ -73,7 +73,7 @@
 		return
 
 	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
-	FLICK("[base_state]_flash", src)
+	flick("[base_state]_flash", src)
 	src.last_flash = world.time
 	use_power(1500)
 
@@ -128,11 +128,11 @@
 
 		if (!src.anchored)
 			user.show_message(text(SPAN_WARNING("[src] can now be moved.")))
-			src.cut_overlays()
+			src.overlays.Cut()
 
 		else if (src.anchored)
 			user.show_message(text(SPAN_WARNING("[src] is now secured.")))
-			src.add_overlays("[base_state]-s")
+			src.overlays += "[base_state]-s"
 
 /obj/machinery/button/flasher
 	name = "flasher button"

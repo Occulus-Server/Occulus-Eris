@@ -168,12 +168,12 @@
 	PT.master = V
 	OT.master = V
 
-	PT.air_contents.temperature = PHORON_FLASHPOINT
+	PT.air_contents.temperature = PLASMA_FLASHPOINT
 	PT.air_contents.gas["phoron"] = phoron_amt
 	PT.air_contents.gas["carbon_dioxide"] = carbon_amt
 	PT.air_contents.update_values()
 
-	OT.air_contents.temperature = PHORON_FLASHPOINT
+	OT.air_contents.temperature = PLASMA_FLASHPOINT
 	OT.air_contents.gas["oxygen"] = oxygen_amt
 	OT.air_contents.update_values()
 

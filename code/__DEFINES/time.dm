@@ -26,11 +26,11 @@
 #define DS2MS(T) ((T) * 100)
 
 
-#define SECOND SECONDS
+// #define SECOND SECONDS // Occulus Removal - These are already defined.
 
-#define MINUTE MINUTES
+// #define MINUTE MINUTES // Occulus Removal - These are already defined.
 
-#define HOUR HOURS
+// #define HOUR HOURS // Occulus Removal - These are already defined.
 
 #define DAY DAYS
 #define DAYS *864000

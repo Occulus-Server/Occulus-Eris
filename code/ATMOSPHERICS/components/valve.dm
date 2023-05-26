@@ -22,7 +22,7 @@
 
 /obj/machinery/atmospherics/valve/on_update_icon(animation)
 	if(animation)
-		FLICK("valve[src.open][!src.open]", src)
+		flick("valve[src.open][!src.open]", src)
 	else
 		icon_state = "valve[open]"
 

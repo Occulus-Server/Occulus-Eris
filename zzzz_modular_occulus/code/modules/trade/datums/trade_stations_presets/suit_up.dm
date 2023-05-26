@@ -1,7 +1,7 @@
 /datum/trade_station/suit_up
 	start_discovered = FALSE
 	spawn_always = FALSE
-	assortiment = list(
+	inventory = list(
 		"Spacesuits" = list(
 			/obj/item/clothing/suit/space/void/atmos,
 			/obj/item/rig/eva,

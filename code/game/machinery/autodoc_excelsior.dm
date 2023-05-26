@@ -217,7 +217,7 @@
 
 /obj/machinery/excelsior_autodoc/update_icon()
 
-	cut_overlays()
+	overlays.Cut()
 
 	if(panel_open)
 		var/image/panel = image(icon, "panel")

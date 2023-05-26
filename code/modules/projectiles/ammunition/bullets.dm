@@ -442,7 +442,7 @@
 	spent_icon = "s-shell_i-spent"
 	shell_color = "i"
 	projectile_type = /obj/item/projectile/bullet/shotgun/incendiary
-	matter = list(MATERIAL_STEEL = 1, MATERIAL_PHORON = 0.5)
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASMA = 0.5)
 
 /obj/item/ammo_casing/shotgun/incendiary/prespawned
 	amount = 5

@@ -183,7 +183,7 @@
 /obj/item/tool_upgrade/augment/randomizer
 	name = "Anomolous liquid metal"
 	desc = "This unidentified tar-like liquid warps and bends reality around it. Applying it to a tool may have unexpected results."
-	matter = list(MATERIAL_PHORON = 4, MATERIAL_URANIUM = 4)
+	matter = list(MATERIAL_PLASMA = 4, MATERIAL_URANIUM = 4)
 	rarity_value = 100
 
 /obj/machinery/autolathe/bioprinter

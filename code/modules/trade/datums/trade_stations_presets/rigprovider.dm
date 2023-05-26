@@ -1,6 +1,6 @@
 /datum/trade_station/rigvider
 	name_pool = list("HTB 'Boris'" = "Hardsuit Trade Beacon 'Boris'. They're sending a message. \"Hello there, we are hardsuit salvagers. We will be around the system for some time and we have leftover stock. We can sell some off if you want them.")
-	assortiment = list(
+	inventory = list(
 		"Voidsuits" = list(
 			/obj/item/clothing/suit/space/void,
 			/obj/item/clothing/suit/space/void/atmos = custom_good_amount_range(list(1, 5)),

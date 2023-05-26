@@ -169,7 +169,7 @@
 		var/turf/target = locate(trueX, trueY, z_co)
 		last_target = target
 		var/area/A = get_area(target)
-		FLICK("pad-beam", telepad)
+		flick("pad-beam", telepad)
 
 		if(spawn_time > 15) // 1.5 seconds
 			playsound(telepad.loc, 'sound/weapons/flash.ogg', 25, 1)

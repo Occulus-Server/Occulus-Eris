@@ -9,7 +9,7 @@
 	var/wired = 0
 
 /obj/structure/firedoor_assembly/on_update_icon()
-	SetIconState("door_[anchored?"anchored":"construction"]")
+	icon_state = "door_[anchored?"anchored":"construction"]"
 
 /obj/structure/firedoor_assembly/attackby(obj/item/I, mob/user)
 

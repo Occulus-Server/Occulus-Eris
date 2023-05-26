@@ -120,7 +120,7 @@
 	transforming = TRUE
 	to_chat(user, SPAN_NOTICE("You change [src] mode to [mode ? "transmiting" : "receiving"]."))
 	update_icon()
-	FLICK("harpoon-[mode]-change", src)
+	flick("harpoon-[mode]-change", src)
 	spawn(6)	//Average length of transforming animation //OCCULUS EDIT - Updated to new sprite's values
 		transforming = FALSE
 

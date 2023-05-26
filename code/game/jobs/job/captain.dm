@@ -16,8 +16,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	wage = WAGE_NONE //The captain doesn't get paid, he's the one who does the paying
 	//The ship account is his, and he's free to draw as much salary as he likes
 
-	wl_config_heads = TRUE		//Eclipse edit.
-
 
 	perks = list(/datum/perk/sommelier)
 
@@ -89,8 +87,6 @@ You are a free agent, able to go where you will. Your loyalty given to whoever y
 	also_known_languages = list(LANGUAGE_CYRILLIC = 20, LANGUAGE_SERBIAN = 15)
 	perks = list(/datum/perk/sommelier)
 	ideal_character_age = 50
-
-	wl_config_heads = TRUE		//Eclipse edit.
 
 	description = "You are the captain's right hand. Their second in command. Wherever they go, you follow. Wherever they lead, you drag everyone else along. You make sure their will is done, their orders obeyed, and their laws enforced.<br>\
 If they make mistakes, discreetly inform them. Help to cover up their indiscretions and smooth relations with the crew, especially other command staff. Keep the captain safe, by endangering yourself in their stead if necessary.<br>\

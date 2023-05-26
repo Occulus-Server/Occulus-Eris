@@ -35,7 +35,7 @@
 /obj/item/target/attackby(obj/item/I, mob/user)
 	if(QUALITY_WELDING in I.tool_qualities)
 		if(I.use_tool(user, src, WORKTIME_FAST, QUALITY_WELDING, FAILCHANCE_EASY, required_stat = STAT_MEC))
-			cut_overlays()
+			overlays.Cut()
 			to_chat(user, SPAN_NOTICE("You slice off [src]'s uneven chunks of aluminum and scorch marks."))
 			return
 
@@ -142,7 +142,7 @@
 			virtualIcon.DrawBox(null, B.b2x, B.b2y1,  B.b2x, B.b2y2)
 			// vertical line, top to bottom
 
-		add_overlays(bmark)
+		overlays += bmark
 		// add the decal
 
 		icon = virtualIcon

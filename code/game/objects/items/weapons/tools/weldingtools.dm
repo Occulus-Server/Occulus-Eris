@@ -6,7 +6,6 @@
 	flags = CONDUCT
 	force = WEAPON_FORCE_WEAK
 	switched_on_force = WEAPON_FORCE_PAINFUL
-	switched_off_force = WEAPON_FORCE_WEAK //Occulus Edit
 	throwforce = WEAPON_FORCE_WEAK
 	worksound = WORKSOUND_WELDING
 	matter = list(MATERIAL_STEEL = 5)

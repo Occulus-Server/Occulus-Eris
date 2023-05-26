@@ -86,12 +86,12 @@
 
 /obj/machinery/shield_diffuser/on_update_icon()
 	if(alarm)
-		SetIconState("fdiffuser_emergency")
+		icon_state = "fdiffuser_emergency"
 		return
 	if((stat & (NOPOWER | BROKEN)) || !enabled)
-		SetIconState("fdiffuser_off")
+		icon_state = "fdiffuser_off"
 	else
-		SetIconState("fdiffuser_on")
+		icon_state = "fdiffuser_on"
 
 /obj/machinery/shield_diffuser/attack_hand()
 	if(alarm)

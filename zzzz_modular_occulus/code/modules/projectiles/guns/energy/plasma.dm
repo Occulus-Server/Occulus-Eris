@@ -46,7 +46,7 @@
 	one_hand_penalty = 0
 	fire_delay = 8
 
-	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 8, MATERIAL_PHORON = 2, MATERIAL_SILVER = 3, MATERIAL_URANIUM = 3)
+	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 8, MATERIAL_PLASMA = 2, MATERIAL_SILVER = 3, MATERIAL_URANIUM = 3)
 
 	init_firemodes = list(
 		list(mode_name="burn", projectile_type=/obj/item/projectile/plasma/light, fire_sound='sound/weapons/Laser.ogg', icon="kill", fire_delay=8, charge_cost=15, projectile_color = "#00FFFF"),

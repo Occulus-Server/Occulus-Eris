@@ -155,7 +155,7 @@
 /obj/item/stack/material/plasma
 	name = "solid phoron" // Occulus Edit - Plasma > Phoron
 	icon_state = "sheet-plasma"
-	default_type = MATERIAL_PHORON
+	default_type = MATERIAL_PLASMA
 	price_tag = 30
 	novariants = FALSE
 

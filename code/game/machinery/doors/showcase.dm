@@ -73,7 +73,7 @@
 	return ..()
 
 /obj/machinery/door/blast/shutters/glass/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(density)
 		var/postfix = ""
 		if(!have_glass)
@@ -83,10 +83,10 @@
 		else if(health < maxhealth)
 			var/ratio = health / maxhealth
 			ratio = CEILING(ratio * 4, 1) * 25
-			add_overlays("damage[ratio]")
-		SetIconState("closed[postfix]")
+			overlays += "damage[ratio]"
+		icon_state = "closed[postfix]"
 	else
-		SetIconState("open")
+		icon_state = "open"
 
 /obj/machinery/door/blast/shutters/glass/open()
 	if(operating)
@@ -94,16 +94,16 @@
 	operating = TRUE
 
 	if(!have_glass)
-		flicker("opening-empty")
+		flick("opening-empty")
 
 	else if(stat&BROKEN)
-		flicker("opening-broken")
+		flick("opening-broken")
 
 	else
 		var/ratio = health / maxhealth
 		ratio = CEILING(ratio * 4, 1) * 25
-		cut_overlays()
-		flicker("opening[ratio]")
+		overlays.Cut()
+		flick("opening[ratio]")
 
 	density = FALSE
 	operating = FALSE
@@ -115,17 +115,17 @@
 		return
 
 	operating = TRUE
-	cut_overlays()
+	overlays.Cut()
 	if(!have_glass)
-		flicker("closing-empty")
-		SetIconState("closed-empty")
+		flick("closing-empty")
+		icon_state = "closed-empty"
 	else if(stat&BROKEN)
-		flicker("closing-broken")
-		SetIconState("closed-broken")
+		flick("closing-broken")
+		icon_state = "closed-broken"
 	else
 		var/ratio = health / maxhealth
 		ratio = CEILING(ratio * 4, 1) * 25
-		flicker("closing[ratio]")
+		flick("closing[ratio]")
 
 	density = TRUE
 	update_icon()

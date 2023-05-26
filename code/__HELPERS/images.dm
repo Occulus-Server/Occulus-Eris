@@ -61,7 +61,7 @@
 		return BreakSync(D)
 	if(isByEvent)
 		GLOB.flicker_event.register(D, src, .proc/flick_synchronization)
-	return flicker(iconOrState)
+	return flick(iconOrState)
 
 /image/Destroy()
 	for(var/atom/A in SynchronizedAtoms)

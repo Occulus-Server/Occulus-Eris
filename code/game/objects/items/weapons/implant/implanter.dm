@@ -29,7 +29,7 @@
 	return
 
 /obj/item/implanter/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(implant)
 		var/image/content = image('icons/obj/items.dmi', icon_state = implant.implant_overlay)
 		add_overlay(content)

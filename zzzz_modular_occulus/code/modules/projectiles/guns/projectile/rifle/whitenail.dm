@@ -18,7 +18,7 @@
 	unload_sound 	= 'zzzz_modular_occulus/sound/weapons/guns/interact/nail_out.ogg'
 	reload_sound 	= 'zzzz_modular_occulus/sound/weapons/guns/interact/nail_in.ogg'
 	var/refill_sound = 'zzzz_modular_occulus/sound/weapons/guns/misc/nail_refill.ogg'
-	zoom_factor = 0.9
+	zoom_factors = list(0.9)
 	recoil_buildup = 5
 	one_hand_penalty = 20
 	damage_multiplier = 1.2 // Effective mult of 1.1 due to forced 3 burst round applying -0.1
@@ -96,7 +96,6 @@
 	price_tag = 1900
 	fire_sound = 'zzzz_modular_occulus/sound/weapons/guns/fire/talon_fire.ogg'
 	one_hand_penalty = 0
-	zoom_factor = 0
 	damage_multiplier = 0.9
 	rebuild_time = 3
 	init_firemodes = list(
@@ -113,7 +112,6 @@
 	matter_reagents = list("uncap nanites" = 30)
 	price_tag = 4500
 	fire_sound = 'zzzz_modular_occulus/sound/weapons/guns/fire/claw_fire.ogg'
-	zoom_factor = 0
 	recoil_buildup = 15
 	one_hand_penalty = 15
 	damage_multiplier = 1

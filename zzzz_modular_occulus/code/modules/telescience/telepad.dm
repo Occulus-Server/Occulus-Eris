@@ -82,7 +82,7 @@
 	return ..()
 
 /obj/machinery/telesci_pad/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(!(stat & NOPOWER))
 		overlays += "pad-powered"
 	if(panel_open)

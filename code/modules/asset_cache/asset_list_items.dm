@@ -538,6 +538,7 @@
 		"nano/images/status_icons/",
 		"nano/images/modular_computers/",
 		"nano/images/eris/",
+		"zzzz_modular_occulus/nano/templates/" // Occulus Addition - Our own specific nano templates
 	)
 
 /datum/asset/simple/directories/images_news

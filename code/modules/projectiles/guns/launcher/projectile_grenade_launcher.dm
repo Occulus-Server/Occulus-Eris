@@ -88,7 +88,7 @@
 	..()
 	wielded_item_state = "_doble"
 	set_item_state()
-	cut_overlays()
+	overlays.Cut()
 	update_charge()
 
 /obj/item/gun/projectile/shotgun/pump/grenade/makeshift

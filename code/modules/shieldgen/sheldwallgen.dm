@@ -86,15 +86,15 @@
 	return 1
 
 /obj/machinery/shieldwallgen/on_update_icon()
-	SetIconState("Shield_Gen")
+	icon_state = "Shield_Gen"
 	if(active)
-		SetIconState("Shield_Gen_active")
+		icon_state = "Shield_Gen_active"
 		if(stunmode)
-			SetIconState("Shield_Gen_emagged")
+			icon_state = "Shield_Gen_emagged"
 
-	cut_overlays()
+	overlays.Cut()
 	if(panel_open)
-		add_overlays(image(icon,"Shield_Gen_panel"))
+		overlays += image(icon,"Shield_Gen_panel")
 
 /obj/machinery/shieldwallgen/Process()
 	power()

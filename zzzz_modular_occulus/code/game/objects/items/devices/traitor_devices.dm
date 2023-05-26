@@ -206,7 +206,7 @@ var/global/list/active_radio_jammers = list()
 		tank.forceMove(get_turf(user))
 		user.put_in_hands(tank)
 		tank = null
-		cut_overlays()
+		overlays.Cut()
 
 	else
 		if(tank)
@@ -306,6 +306,6 @@ var/global/list/active_radio_jammers = list()
 		indicator = "low"
 	else if (gauge_pressure == 0 && gauge_pressure < 5)
 		indicator = "empty"
-	cut_overlays()
-	add_overlays("tank")
-	add_overlays("[indicator]")
+	overlays.Cut()
+	overlays += "tank"
+	overlays += "[indicator]"

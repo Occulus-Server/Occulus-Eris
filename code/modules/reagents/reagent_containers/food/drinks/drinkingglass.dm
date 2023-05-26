@@ -51,7 +51,7 @@
 	desc = initial(desc)
 	icon_state = initial(icon_state)
 	center_of_mass = initial(center_of_mass)
-	cut_overlays()
+	overlays.Cut()
 
 	if(reagents?.total_volume)
 		var/datum/reagent/R = reagents.get_master_reagent()

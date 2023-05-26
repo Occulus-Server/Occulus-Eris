@@ -1,6 +1,6 @@
 /datum/trade_station/cybermoebus
 	name_pool = list("FTS 'PentaOptium'" = "Free Trade Station 'PentaOptium'. \"Oh, you, i think i can sold you some cybernetics.\"")
-	assortiment = list(
+	inventory = list(
 		"Moebius" = list(
 			/obj/item/organ/external/robotic/moebius/l_arm,
 			/obj/item/organ/external/robotic/moebius/r_arm,

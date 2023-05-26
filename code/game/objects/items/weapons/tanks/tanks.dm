@@ -240,7 +240,7 @@ var/list/global/tank_gauge_cache = list()
 
 /obj/item/tank/Process()
 	//Allow for reactions
-	air_contents.react() //cooking up air tanks - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
+	air_contents.react() //cooking up air tanks - add phoron and oxygen, then heat above PLASMA_MINIMUM_BURN_TEMPERATURE
 	if(gauge_icon)
 		update_gauge()
 	check_status()
@@ -261,10 +261,10 @@ var/list/global/tank_gauge_cache = list()
 	else
 		indicator = "[gauge_icon]-[round((gauge_pressure/default_pressure)*gauge_cap)]"
 
-	cut_overlays()
+	overlays.Cut()
 	if(!tank_gauge_cache[indicator])
 		tank_gauge_cache[indicator] = image(icon, indicator)
-	add_overlays(tank_gauge_cache[indicator])
+	overlays += tank_gauge_cache[indicator]
 
 /obj/item/tank/proc/check_status()
 	//Handle exploding, leaking, and rupturing of the tank

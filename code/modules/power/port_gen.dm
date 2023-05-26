@@ -92,7 +92,7 @@
 	desc = "A power generator that runs on solid phoron sheets. Rated for 80 kW max safe output."
 
 	var/sheet_name = "Phoron Sheets" // Occulus Edit - Plasma > Phoron
-	var/sheet_path = /obj/item/stack/material/phoron // Occulus Edit - Plasma > Phoron
+	var/sheet_path = /obj/item/stack/material/plasma
 	circuit = /obj/item/electronics/circuitboard/pacman
 
 	/*

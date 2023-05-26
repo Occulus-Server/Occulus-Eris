@@ -199,11 +199,11 @@
 	return
 
 /obj/screen/silicon/glasses_overlay/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	var/mob/living/silicon/robot/R = parentmob
 	for (var/obj/item/borg/sight/S in list(R.module_state_1, R.module_state_2, R.module_state_3))
 		if(S.overlay)
-			associate_with_overlays(S.overlay)
+			overlays |= S.overlay
 
 
 /obj/screen/silicon/pull

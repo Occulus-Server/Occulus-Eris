@@ -190,31 +190,6 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, R_ADMIN, FALSE)
 
 		///// OCCULUS EDIT END /////
 
-		// // // BEGIN ECLIPSE EDITS // // //
-		//Rationale: Job whitelisting setup.
-		//I would have preferred to have this before var/J got filtered into job.* but it was causing compiler errors. Alas.
-		//wgatever it workys
-		if(job.manual_whitelist != WHITELIST_MANUAL_OFF)		//if we don't have the whitelist manually disabled for this job, we run through the checks.
-			if(job.manual_whitelist == WHITELIST_MANUAL_ON)			//Admin wants this whitelisted for whatever reason.
-				job.whitelist_only = TRUE
-				whitelisted_jobs |= job
-			//Whitelist job based on configuration files.
-			if(job.wl_config_heads && config.wl_heads)		//Heads of Staff
-				job.whitelist_only = TRUE
-				whitelisted_jobs |= job
-			if(job.wl_config_sec && config.wl_security)		//Security
-				job.whitelist_only = TRUE
-				whitelisted_jobs |= job
-			if(job.wl_config_borgs && config.wl_silicons)		//Silicons
-				job.whitelist_only = TRUE
-				whitelisted_jobs |= job
-			/*		//Uncomment in event of admin-only rank failure.
-			if(job.wl_admin_only)		//Admin-only jobs.
-				job.whitelist_only = TRUE
-				whitelisted_jobs |= job
-			*/
-		// // // END ECLIPSE EDITS // // //
-
 	if(!occupations.len)
 		to_chat(world, SPAN_WARNING("Error setting up jobs, no job datums found!"))
 		return FALSE
@@ -240,10 +215,6 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, R_ADMIN, FALSE)
 			return FALSE
 		if(jobban_isbanned(player, rank))
 			return FALSE
-		// // // eclipse edit: job whitelisting // // //
-		if(!is_job_whitelisted(player, rank))
-			return FALSE
-		//v // //end eclipse edit // // //
 
 		var/position_limit = job.total_positions
 		if(!latejoin)
@@ -462,9 +433,6 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, R_ADMIN, FALSE)
 				/*if(!job || SSticker.mode.disabled_jobs.Find(job.title) )
 					continue
 				*/
-				if(!is_job_whitelisted(player, job.title))		//eclipse edit this iteration: whitelist
-					Debug("DO whitelist failed, Player: [player], Job:[job.title]")
-					continue
 
 				if(jobban_isbanned(player, job.title))
 					Debug("DO isbanned failed, Player: [player], Job:[job.title]")

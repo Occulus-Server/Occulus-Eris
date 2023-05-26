@@ -104,7 +104,7 @@
 		reagent_flags &= ~REFILLABLE
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(reagents && reagents.total_volume > 0)
 		icon_state = initial(icon_state)
 		var/image/filling_overlay = mutable_appearance('icons/obj/reagentfillings.dmi', "autoinjector")

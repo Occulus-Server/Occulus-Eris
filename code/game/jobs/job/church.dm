@@ -23,8 +23,6 @@
 	department_account_access = TRUE
 	outfit_type = /decl/hierarchy/outfit/job/church/chaplain
 
-	wl_config_heads = TRUE //Eclipse edit
-
 	stat_modifiers = list(
 		STAT_TGH = 10,
 		STAT_ROB = 20,

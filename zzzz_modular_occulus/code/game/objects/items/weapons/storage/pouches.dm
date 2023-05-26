@@ -181,6 +181,6 @@
 
 /obj/item/storage/pouch/dpistol_holster/on_update_icon()
 	..()
-	cut_overlays()
+	overlays.Cut()
 	if(contents.len)
-		add_overlays(image('zzzz_modular_occulus/icons/inventory/pockets/icon.dmi', "dpistol_layer_[contents.len]"))
+		overlays += image('zzzz_modular_occulus/icons/inventory/pockets/icon.dmi', "dpistol_layer_[contents.len]")

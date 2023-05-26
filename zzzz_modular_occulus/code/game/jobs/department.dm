@@ -8,7 +8,7 @@
 	name = "CEV Northern Light Civic"
 	id = DEPARTMENT_CIVILIAN
 	account_initial_balance = 2000 // Less vital than most departments and smaller
-	account_budget = 1000 //A small stipend that the manager can distribute as he sees fit.
+	budget_base = 1000 //A small stipend that the manager can distribute as he sees fit.
 	/*
 		This account pays out to club workers, hydroponics, and custodians.
 		It is managed by The Club manager.

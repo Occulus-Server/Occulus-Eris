@@ -446,13 +446,13 @@
 		var/datum/effect/effect/system/smoke_spread/bad/smoke
 		smoke = new
 		playsound(loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.blood_color)
-		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.blood_color)
-		new /obj/effect/gibspawner/human(src.loc, src.dna, src.species.flesh_color, src.blood_color)
+		new /obj/effect/gibspawner/human(src.loc, src.species.flesh_color, src.blood_color)
+		new /obj/effect/gibspawner/human(src.loc, src.species.flesh_color, src.blood_color)
+		new /obj/effect/gibspawner/human(src.loc, src.species.flesh_color, src.blood_color)
 		for(var/turf/simulated/floor/T in orange(5, src))
 			if(prob(20))
-				new /obj/effect/gibspawner/human(T, src.dna, src.species.flesh_color, src.blood_color)
-				new /obj/effect/gibspawner/human(T, src.dna, src.species.flesh_color, src.blood_color)
+				new /obj/effect/gibspawner/human(T, src.species.flesh_color, src.blood_color)
+				new /obj/effect/gibspawner/human(T, src.species.flesh_color, src.blood_color)
 				var/datum/effect/effect/system/smoke_spread/bad/smoke2
 				smoke2 = new
 				smoke2.set_up(3, 0, T)

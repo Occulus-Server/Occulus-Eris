@@ -268,7 +268,7 @@
 /obj/machinery/door/firedoor/do_animate(animation)
 	switch(animation)
 		if("opening")
-			flicker("door_opening")
+			flick("door_opening")
 			playsound(src, 'sound/machines/airlock_ext_open.ogg', 37, 1)
 		if("closing")
 			flick("door_opening", src)
@@ -277,21 +277,21 @@
 
 
 /obj/machinery/door/firedoor/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	set_light(0)
 	var/do_set_light = FALSE
 
 	if(density)
-		SetIconState("door_closed")
+		icon_state = "door_closed"
 		if(hatch_open)
-			add_overlays("hatch")
+			overlays += "hatch"
 		if(blocked)
 			overlays += "welded"
 			do_set_light = TRUE
 	else
-		SetIconState("door_open")
+		icon_state = "door_open"
 		if(blocked)
-			add_overlays("welded_open")
+			overlays += "welded_open"
 
 	if(do_set_light)
 		set_light(1.5, 0.5, COLOR_SUN)

@@ -173,11 +173,11 @@
 /obj/machinery/airlock_sensor/on_update_icon()
 	if(on)
 		if(alert)
-			SetIconState("airlock_sensor_alert")
+			icon_state = "airlock_sensor_alert"
 		else
-			SetIconState("airlock_sensor_standby")
+			icon_state = "airlock_sensor_standby"
 	else
-		SetIconState("airlock_sensor_off")
+		icon_state = "airlock_sensor_off"
 
 /obj/machinery/airlock_sensor/attack_hand(mob/user)
 	var/datum/signal/signal = new
@@ -186,7 +186,7 @@
 	signal.data["command"] = command
 
 	radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
-	flicker("airlock_sensor_cycle")
+	flick("airlock_sensor_cycle")
 
 /obj/machinery/airlock_sensor/Process()
 	if(on)
@@ -334,7 +334,7 @@
 		signal.data["command"] = command
 
 		radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
-	flicker("access_button_cycle")
+	flick("access_button_cycle")
 
 
 /obj/machinery/access_button/proc/set_frequency(new_frequency)

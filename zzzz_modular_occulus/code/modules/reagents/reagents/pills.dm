@@ -3,22 +3,14 @@
 	desc = "Contains pills."
 	spawn_tags = SPAWN_TAG_MEDICINE_CONTRABAND
 	rarity_value = 15
-	pill_type = /obj/item/reagent_containers/pill/methylphenidate
-
-/obj/item/storage/pill_bottle/methylphenidate/populate_contents()
-	for(var/i in 1 to initial_amt)
-		new pill_type(src)
+	prespawned_content_type = /obj/item/reagent_containers/pill/methylphenidate
 
 /obj/item/storage/pill_bottle/delight
 	name = "bottle of Delight pills"
 	desc = "Contains mood improving pills."
 	spawn_tags = SPAWN_TAG_MEDICINE_CONTRABAND
 	rarity_value = 15
-	pill_type = /obj/item/reagent_containers/pill/delight
-
-/obj/item/storage/pill_bottle/delight/populate_contents()
-	for(var/i in 1 to initial_amt)
-		new pill_type(src)
+	prespawned_content_type = /obj/item/reagent_containers/pill/delight
 
 /obj/item/reagent_containers/pill/delight
 	name = "Delight pill"

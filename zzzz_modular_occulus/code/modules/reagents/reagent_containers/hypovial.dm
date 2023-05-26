@@ -16,7 +16,7 @@
 	update_name_label()
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	if(reagents.total_volume)
 		var/mutable_appearance/filling = mutable_appearance('zzzz_modular_occulus/icons/obj/reagentfillings.dmi', "hypovial[get_filling_state()]")
@@ -29,7 +29,7 @@
 	update_name_label()
 
 /obj/item/reagent_containers/glass/beaker/hypocartridge/large/update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	if(reagents.total_volume)
 		var/mutable_appearance/filling = mutable_appearance('zzzz_modular_occulus/icons/obj/reagentfillings.dmi', "hypoviallarge[get_filling_state()]")

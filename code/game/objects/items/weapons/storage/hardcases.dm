@@ -52,7 +52,7 @@
 
 /obj/item/storage/hcases/update_icon()
 	icon_state = "[initial(icon_state)][closed ? "" : "_open"]"
-	cut_overlays()
+	overlays.Cut()
 	if(sticker)
 		overlays += "[sticker][closed ? "" : "_open"]"
 

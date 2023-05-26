@@ -240,17 +240,17 @@
 		return if_no_id
 
 //Trust me I'm an engineer
-//I think we'll put this shit right here
+//I think we'll put this shit right here // Occulus Edit Start - Proper Renames
 var/list/rank_prefix = list(\
-	"Aegis Operative" = "Operative",\ // Occulus Edit Start - Proper Renames
+	"Aegis Operative" = "Operative",\
 	"Aegis Inspector" = "Inspector",\
 	"Aegis Gunnery Sergeant" = "Sergeant",\
 	"Aegis Commander" = "Lieutenant",\
-	"Aegis Medical Specialist" = "Specialist",\ // Occulus Edit Stop
+	"Aegis Medical Specialist" = "Specialist",\
 	"Captain" = "Captain",\
 	"Medical Doctor" = "Doctor",\
 	"Chief Medical Officer" = "Doctor",\
-	)
+	) // Occulus Edit Stop
 
 /mob/living/carbon/human/proc/rank_prefix_name(name)
 // // // BEGIN ECLIPSE EDITS // // //
@@ -1120,52 +1120,15 @@ var/list/rank_prefix = list(\
 	data["rest"] = sanity.resting
 	data["insight_rest"] = sanity.insight_rest
 
-	var/obj/item/implant/core_implant/cruciform/C = get_core_implant(/obj/item/implant/core_implant/cruciform)
-	if(C)
-		data["cruciform"] = TRUE
-		data["righteous_life"] = C.righteous_life
+	// var/obj/item/implant/core_implant/cruciform/C = get_core_implant(/obj/item/implant/core_implant/cruciform) // Occulus Edit - Simple way to get rid of this part of the UI
+	// if(C)
+	// 	data["cruciform"] = TRUE
+	// 	data["righteous_life"] = C.righteous_life
 
 	return data
 
 /mob/living/carbon/human/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
 	var/list/data = nano_ui_data()
-
-	ui = SSnano.try_update_ui(user, user, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "sanity.tmpl", name, 650, 550, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
-
-/mob/living/carbon/human/verb/browse_sanity()
-	set name		= "Show sanity"
-	set desc		= "Browse your character sanity."
-	set category	= "IC"
-	set src			= usr
-	ui_interact(src)
-
-/mob/living/carbon/human/ui_data()
-	var/list/data = list()
-
-	data["style"] = get_total_style()
-	data["min_style"] = MIN_HUMAN_STYLE
-	data["max_style"] = MAX_HUMAN_STYLE
-	data["sanity"] = sanity.level
-	data["sanity_max_level"] = sanity.max_level
-	data["insight"] = sanity.insight
-	data["desires"] = sanity.desires
-	data["rest"] = sanity.resting
-	data["insight_rest"] = sanity.insight_rest
-
-//	var/obj/item/implant/core_implant/cruciform/C = get_core_implant(/obj/item/implant/core_implant/cruciform)Occulus Edit: Simple way to get rid of this part of the UI
-//	if(C)
-//		data["cruciform"] = TRUE
-//		data["righteous_life"] = C.righteous_life Occulus Edit: Simple way to get rid of this part of the UI
-
-	return data
-
-/mob/living/carbon/human/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
-	var/list/data = ui_data()
 
 	ui = SSnano.try_update_ui(user, user, ui_key, ui, data, force_open)
 	if(!ui)

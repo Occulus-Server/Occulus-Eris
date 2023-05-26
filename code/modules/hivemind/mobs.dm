@@ -204,7 +204,7 @@
 	var/icon/infested = new /icon(icon, icon_state)
 	var/icon/covering_mask = new /icon('icons/mob/hivemind.dmi', "covering[rand(1, 3)]")
 	infested.Blend(covering_mask, ICON_MULTIPLY)
-	add_overlays(infested)
+	overlays += infested
 
 	setMaxHealth(victim.maxHealth * 2 + 10)
 	health = maxHealth
@@ -779,22 +779,22 @@
 	if(target_mob && !passenger && (get_dist(target_mob, src) <= 4) && !is_on_cooldown())
 		if(!hatch_closed)
 			return
-		cut_overlays()
+		overlays.Cut()
 		if(pilot)
-			FLICK("mechiver-opening", src)
+			flick("mechiver-opening", src)
 			icon_state = "mechiver-chief"
-			add_overlays("mechiver-hands")
+			overlays += "mechiver-hands"
 		else
-			FLICK("mechiver-opening_wires", src)
+			flick("mechiver-opening_wires", src)
 			icon_state = "mechiver-welcome"
-			add_overlays("mechiver-wires")
+			overlays += "mechiver-wires"
 		hatch_closed = FALSE
 	else
-		cut_overlays()
+		overlays.Cut()
 		hatch_closed = TRUE
 		icon_state = "mechiver-closed"
 		if(passenger)
-			add_overlays("mechiver-process")
+			overlays += "mechiver-process"
 
 
 /mob/living/simple_animal/hostile/hivemind/mechiver/AttackingTarget()
@@ -811,9 +811,9 @@
 /mob/living/simple_animal/hostile/hivemind/mechiver/special_ability(mob/living/target)
 	if(!target_mob && hatch_closed) //when we picking up corpses
 		if(pilot)
-			FLICK("mechiver-opening", src)
+			flick("mechiver-opening", src)
 		else
-			FLICK("mechiver-opening_wires", src)
+			flick("mechiver-opening_wires", src)
 	passenger = target
 	target.loc = src
 	target.canmove = FALSE
@@ -826,9 +826,9 @@
 /mob/living/simple_animal/hostile/hivemind/mechiver/proc/release_passenger(var/safely = FALSE)
 	if(passenger)
 		if(pilot)
-			FLICK("mechiver-opening", src)
+			flick("mechiver-opening", src)
 		else
-			FLICK("mechiver-opening_wires", src)
+			flick("mechiver-opening_wires", src)
 
 		if(ishuman(passenger))
 			if(!safely) //that was stressful

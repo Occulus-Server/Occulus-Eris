@@ -12,7 +12,7 @@
 	if(labelled)
 		name += " ([labelled])"
 
-	cut_overlays()
+	overlays.Cut()
 	update_overlays()
 
 // Updates the plant overlay.
@@ -30,7 +30,7 @@
 			if(!dead_overlay)
 				dead_overlay = image('icons/obj/hydroponics_growing.dmi', "[ikey]")
 				dead_overlay.color = DEAD_PLANT_COLOUR
-			associate_with_overlays(dead_overlay)
+			overlays |= dead_overlay
 		else
 			if(!seed.growth_stages)
 				seed.update_growth_stages()
@@ -66,13 +66,13 @@
 	//Updated the various alert icons.
 	if(mechanical)
 		if(waterlevel <= 10)
-			add_overlays("over_lowwater3")
+			overlays += "over_lowwater3"
 		if(nutrilevel <= 2)
-			add_overlays("over_lownutri3")
+			overlays += "over_lownutri3"
 		if(weedlevel >= 5 || pestlevel >= 5 || toxins >= 40)
-			add_overlays("over_alert3")
+			overlays += "over_alert3"
 		if(harvest)
-			add_overlays("over_harvest3")
+			overlays += "over_harvest3"
 
 	if((!density || !opacity) && seed && seed.get_trait(TRAIT_LARGE))
 		if(!mechanical)

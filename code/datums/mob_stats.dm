@@ -221,9 +221,6 @@
 /datum/stat/proc/copyTo(var/datum/stat/recipient)
 	recipient.value = getValue(TRUE)
 
-/datum/stat/proc/copyTo(var/datum/stat/recipient)
-	recipient.value = getValue(TRUE)
-
 /datum/stat/productivity
 	name = STAT_MEC
 	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools.."

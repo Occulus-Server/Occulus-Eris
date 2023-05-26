@@ -5,7 +5,7 @@
 		"NTV 'Faith'" = "'NeoTheology Vessel 'Faith' something, something, NeoTheology is good, buy us, convert, something something",
 		"NTV 'Hope'" = "'NeoTheology Vessel 'Hope' something something, this PR requires better descriptions, something, something."
 	)
-	assortiment = list(
+	inventory = list(
 		"Biomatter products" = list(
 			/obj/item/reagent_containers/food/snacks/meat,
 			/obj/item/reagent_containers/food/drinks/milk,

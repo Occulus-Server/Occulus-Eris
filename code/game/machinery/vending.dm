@@ -340,9 +340,9 @@
 			if(I.use_tool(user, src, WORKTIME_NEAR_INSTANT, tool_type, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC, instant_finish_tier = 30, forced_sound = used_sound))
 				panel_open = !panel_open
 				to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
-				cut_overlays()
+				overlays.Cut()
 				if(panel_open)
-					add_overlays(image(icon, "[icon_type]-panel"))
+					overlays += image(icon, "[icon_type]-panel")
 				SSnano.update_uis(src)
 			return
 		if(QUALITY_WELDING)
@@ -708,7 +708,7 @@
 		if((href_list["vend"]) && (vend_ready) && (!currently_vending))
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 				to_chat(usr, SPAN_WARNING("Access denied."))	//Unless emagged of course
-				FLICK(icon_deny,src)
+				flick(icon_deny,src)
 				return
 
 			var/key = text2num(href_list["vend"])
@@ -797,7 +797,7 @@
 /obj/machinery/vending/proc/vend(datum/data/vending_product/R, mob/user)
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 		to_chat(usr, SPAN_WARNING("Access denied."))	//Unless emagged of course
-		FLICK(icon_deny,src)
+		flick(icon_deny,src)
 		return
 	vend_ready = 0 //One thing at a time!!
 	status_message = "Vending..."

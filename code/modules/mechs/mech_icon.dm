@@ -62,7 +62,7 @@
 
 /mob/living/exosuit/proc/update_pilots(var/update_overlays = TRUE)
 	if(update_overlays && LAZYLEN(pilot_overlays))
-		remove_overlays(pilot_overlays)
+		overlays -= pilot_overlays
 	pilot_overlays = null
 	if(!body || ((body.pilot_coverage < 100 || body.transparent_cabin) && !body.hide_pilot))
 		for(var/i = 1 to LAZYLEN(pilots))
@@ -81,7 +81,7 @@
 			LAZYADD(pilot_overlays, draw_pilot)
 			update_mech_hud_4(pilot)
 		if(update_overlays && LAZYLEN(pilot_overlays))
-			add_overlays(pilot_overlays)
+			overlays += pilot_overlays
 
 
 

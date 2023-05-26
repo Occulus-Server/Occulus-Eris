@@ -18,6 +18,7 @@
 #define LANGUAGE_COMMON "Galactic Common"
 #define LANGUAGE_CYRILLIC "Techno-Russian"
 #define LANGUAGE_MERC "Merc Geardo" //Occulus edit, replaces LANGUAGE_SERBIAN "Serbian"
+#define LANGUAGE_SERBIAN "Serbian"
 #define LANGUAGE_JIVE	"Jive"
 #define LANGUAGE_GERMAN "German"
 #define LANGUAGE_NEOHONGO "Neohongo"

@@ -91,25 +91,3 @@
 		lines += "- [result] of [ore_type]."
 
 	return jointext(lines, "<br>")
-
-/proc/mining_scan_action_precise(turf/source, mob/user)
-	var/list/lines = list("Ore deposits found at [source.x], [source.y]:")
-	var/list/metals = list()
-	for(var/turf/simulated/T in RANGE_TURFS(2, source))
-		if(!T.has_resources)
-			continue
-
-		for(var/metal in T.resources)
-			metals[metal] += T.resources[metal]
-
-	for(var/ore_type in metals)
-		var/result = "no sign"
-
-		switch(metals[ore_type])
-			if(1 to 25) result = "trace amounts"
-			if(26 to 75) result = "significant amounts"
-			if(76 to INFINITY) result = "huge quantities"
-
-		lines += "- [result] of [ore_type]."
-
-	return jointext(lines, "<br>")

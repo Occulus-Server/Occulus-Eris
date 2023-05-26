@@ -281,14 +281,14 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/proc/sync(var/mob/living/M)
 	dir = 2
-	cut_overlays()
+	overlays.Cut()
 	icon = M.icon
 	icon_state = M.icon_state
 	item_state = M.item_state
 	color = M.color
 	name = M.name
 	desc = M.desc
-	associate_with_overlays(M.overlays)
+	overlays |= M.overlays
 	last_holder = loc
 	update_wear_icon()
 
@@ -714,7 +714,7 @@ var/list/holder_mob_icon_cache = list()
 //The block below is for resomi, not currently relevant
 /*
 /obj/item/holder/human/sync(var/mob/living/M)
-	cut_overlays()
+	overlays.Cut()
 	// Generate appropriate on-mob icons.
 	var/mob/living/carbon/human/owner = M
 	if(!icon && istype(owner) && owner.species)

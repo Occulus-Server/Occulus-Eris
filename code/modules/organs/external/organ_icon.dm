@@ -4,13 +4,13 @@ var/global/list/limb_icon_cache = list()
 	return
 
 /obj/item/organ/external/proc/compile_icon()
-	cut_overlays()
+	overlays.Cut()
 	 // This is a kludge, only one icon has more than one generation of children though.
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
-				add_overlays(child.mob_icon)
-		add_overlays(organ.mob_icon)
+				overlays += child.mob_icon
+		overlays += organ.mob_icon
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	skin_tone = null
@@ -75,7 +75,7 @@ var/global/list/limb_icon_cache = list()
 	if(!appearance_test.special_update)
 		return mob_icon
 
-	cut_overlays()
+	overlays.Cut()
 	if(!owner || !owner.species)
 		return
 
@@ -97,7 +97,7 @@ var/global/list/limb_icon_cache = list()
 				var/icon/facial = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 				if(facial_hair_style.do_colouration)
 					facial.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial, owner.species.hair_alpha), ICON_ADD) // OCCULUS EDIT - hair alpha for slimes
-				associate_with_overlays(facial)
+				overlays |= facial
 
 		if(owner.h_style && !(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR)))
 			var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[owner.h_style]
@@ -114,7 +114,7 @@ var/global/list/limb_icon_cache = list()
 							mark_s.Blend(markings[M]["color"], mark_style.color_blend_mode)
 							hair.Blend(mark_s, ICON_OVERLAY)
 			// OCCULUS EDIT END - Hair Color Gradients
-				associate_with_overlays(hair)
+				overlays |= hair
 
 ///// OCCULUS EDIT START - delete the laggy old markings system
 	for(var/M in markings)

@@ -46,7 +46,7 @@
 
 
 /obj/item/spacecash/bundle/update_icon()
-	cut_overlays()
+	overlays.Cut()
 	var/remaining_worth = worth
 	var/iteration = 0
 	var/coins_only = TRUE

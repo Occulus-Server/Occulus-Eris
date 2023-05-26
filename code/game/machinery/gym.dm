@@ -123,7 +123,7 @@
 	..()
 
 /obj/machinery/gym/update_icon() // Vigilance animation
-	cut_overlays()
+	overlays.Cut()
 	icon_state = (stat & (NOPOWER|BROKEN)) ? "vigilance_off" : "vigilance"
 	if(occupant)
 		var/image/occupant_image = image(occupant.icon, loc, occupant.icon_state, 4, NORTH)
@@ -132,7 +132,7 @@
 		icon_state = "vigilance_active"
 
 /obj/machinery/gym/toughness/update_icon() // Toughness animation
-	cut_overlays()
+	overlays.Cut()
 	icon_state = (stat & (NOPOWER|BROKEN)) ? "toughness_off" : "toughness"
 	if(occupant)
 		var/image/occupant_image = image(occupant.icon, loc, occupant.icon_state, 4, NORTH, 0, 8)
@@ -141,7 +141,7 @@
 		overlays += "toughness_overlay"
 
 /obj/machinery/gym/robustness/update_icon() // Robustness animation
-	cut_overlays()
+	overlays.Cut()
 	icon_state = "robustness"
 	if(occupant)
 		var/image/occupant_image = image(occupant.icon, loc, occupant.icon_state, 4, SOUTH, 0, 16)

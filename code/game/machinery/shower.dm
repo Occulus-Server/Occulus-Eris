@@ -92,13 +92,13 @@
 	return ..()
 
 /obj/effect/shower/on_update_icon()
-	cut_overlays()
+	overlays.Cut()
 	if(mymist)
 		qdel(mymist)
 		mymist = null
 
 	if(master && master.on)
-		add_overlays(image('icons/obj/watercloset.dmi', src, "water", MOB_LAYER + 1, dir))
+		overlays += image('icons/obj/watercloset.dmi', src, "water", MOB_LAYER + 1, dir)
 		if(master.watertemp == "freezing")
 			return
 		if(!ismist)

@@ -55,14 +55,14 @@
 	if(!density)
 		. = "open"
 	. = "[icon_base][.]"
-	SetIconState(.)
+	icon_state = .
 
 /obj/machinery/door/unpowered/simple/do_animate(animation)
 	switch(animation)
 		if("opening")
-			flicker("[icon_base]opening")
+			flick("[icon_base]opening")
 		if("closing")
-			flicker("[icon_base]closing")
+			flick("[icon_base]closing")
 
 /obj/machinery/door/unpowered/simple/inoperable(additional_flags = 0)
 	return (stat & (BROKEN|additional_flags))
