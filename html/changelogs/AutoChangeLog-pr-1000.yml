@@ -1,6 +1,0 @@
-author: WeNeedMorePhoron
-delete-after: true
-changes:
-  - rscadd: Armor now display flat damage reduction. This was added in 23 months ago
-      as part of the ErisMed 3 port but was not visible or knowable to player, until
-      now.
