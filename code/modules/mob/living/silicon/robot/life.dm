@@ -5,8 +5,6 @@
 	if (HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
 		return
 
-	src.blinded = null
-
 	//Status updates, death etc.
 	clamp_values()
 	handle_regular_status_updates()
@@ -31,9 +29,9 @@
 
 /mob/living/silicon/robot/proc/clamp_values()
 
-//	SetStunned(min(stunned, 30))
+	SetStunned(min(stunned, 30))
 	SetParalysis(min(paralysis, 30))
-//	SetWeakened(min(weakened, 20))
+	SetWeakened(min(weakened, 20))
 	sleeping = 0
 	adjustBruteLoss(0)
 	adjustToxLoss(0)
@@ -48,7 +46,7 @@
 		var/datum/robot_component/C = components[V]
 		C.update_power_state()
 
-	if ( cell && is_component_functioning("power cell") && src.cell.charge > 0 )
+	if (cell && is_component_functioning("power cell") && src.cell.charge > 0)
 		if(src.module_state_1)
 			cell_use_power(50) // 50W load for every enabled tool TODO: tool-specific loads
 		if(src.module_state_2)
@@ -93,18 +91,19 @@
 	if(health < HEALTH_THRESHOLD_DEAD && src.stat != 2) //die only once
 		death()
 
+
 	if (src.stat != 2) //Alive.
-		if (src.paralysis || src.stunned || src.weakened || !src.has_power) //Stunned etc.
+		if (src.paralysis || src.stunned || !src.has_power || src.weakened) //Stunned etc.
 			src.stat = 1
-			if (src.stunned > 0)
-				AdjustStunned(-1)
 			if (src.weakened > 0)
 				AdjustWeakened(-1)
+			if (src.stunned > 0)
+				AdjustStunned(-1)
 			if (src.paralysis > 0)
 				AdjustParalysis(-1)
-				src.blinded = 1
+				src.blinded = TRUE
 			else
-				src.blinded = 0
+				src.blinded = FALSE
 
 		else	//Not stunned.
 			src.stat = 0
@@ -112,14 +111,14 @@
 		confused = max(0, confused - 1)
 
 	else //Dead.
-		src.blinded = 1
+		src.blinded = TRUE
 		src.stat = 2
 
 	if (src.stuttering) src.stuttering--
 
 	if (src.eye_blind)
 		src.eye_blind--
-		src.blinded = 1
+		src.blinded = TRUE
 
 	if (src.ear_deaf > 0) src.ear_deaf--
 	if (src.ear_damage < 25)
@@ -129,9 +128,9 @@
 	src.density = !( src.lying )
 
 	if ((src.sdisabilities & BLIND))
-		src.blinded = 1
-	if ((src.sdisabilities & DEAF))
-		src.ear_deaf = 1
+		src.blinded = TRUE
+//	if ((src.sdisabilities & DEAF))
+//		src.ear_deaf = 1
 
 	if (src.eye_blurry > 0)
 		src.eye_blurry--
@@ -148,9 +147,9 @@
 			radio.on = TRUE
 
 	if(is_component_functioning("camera"))
-		src.blinded = 0
+		src.blinded = FALSE
 	else
-		src.blinded = 1
+		src.blinded = TRUE
 
 	return 1
 
@@ -270,8 +269,8 @@
 			weaponlock_time = 120
 
 /mob/living/silicon/robot/update_lying_buckled_and_verb_status()
-	if(paralysis || stunned || weakened || buckled || lockcharge || !is_component_functioning("actuator")) canmove = 0
-	else canmove = 1
+	if(paralysis || stunned || weakened || buckled || lockcharge || !is_component_functioning("actuator")) canmove = FALSE
+	else canmove = TRUE
 	return canmove
 
 /mob/living/silicon/robot/update_fire()

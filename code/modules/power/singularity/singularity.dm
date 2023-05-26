@@ -10,7 +10,7 @@
 	layer = MASSIVE_OBJ_LAYER
 	//light_range = 6
 	unacidable = 1 //Don't comment this out.
-	allow_spin = 0
+	allow_spin = FALSE
 	var/current_size = 1
 	var/allowed_size = 1
 	var/contained = 1 //Are we going to move around?
@@ -58,14 +58,14 @@
 	if(current_size == STAGE_SUPER)//IT'S UNSTOPPABLE
 		return
 	switch(severity)
-		if(1.0)
+		if(1)
 			if(prob(25))
 				investigate_log("has been destroyed by an explosion.", I_SINGULO)
 				qdel(src)
 				return
 			else
 				energy += 50
-		if(2.0 to 3.0)
+		if(2 to 3)
 			energy += round((rand(20,60)/2),1)
 			return
 
@@ -344,10 +344,10 @@
 	var/dir2 = 0
 	var/dir3 = 0
 	switch(direction)
-		if(NORTH||SOUTH)
+		if(NORTH, SOUTH)
 			dir2 = 4
 			dir3 = 8
-		if(EAST||WEST)
+		if(EAST, WEST)
 			dir2 = 1
 			dir3 = 2
 	var/turf/T2 = T

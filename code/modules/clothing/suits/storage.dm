@@ -2,7 +2,6 @@
 	item_flags = DRAG_AND_DROP_UNEQUIP|EQUIP_SOUNDS
 	bad_type = /obj/item/clothing/suit/storage
 	spawn_tags = SPAWN_TAG_CLOTHING_SUIT_STORAGE
-	rarity_value = 10
 	var/obj/item/storage/internal/pockets
 
 /obj/item/clothing/suit/storage/New()
@@ -79,9 +78,9 @@
 	icon_state = "mchestrig"
 	item_state = "mchestrig"
 	armor = list(
-		melee = 10,
-		bullet = 5,
-		energy = 5,
+		melee = 2,
+		bullet = 2,
+		energy = 2,
 		bomb = 5,
 		bio = 0,
 		rad = 0

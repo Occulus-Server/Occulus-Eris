@@ -13,7 +13,7 @@
 	wax = rand(800, 1000) // Enough for 27-33 minutes. 30 minutes on average.
 	..()
 
-/obj/item/flame/candle/on_update_icon()
+/obj/item/flame/candle/update_icon()
 	var/i
 	if(wax > 1500)
 		i = 1
@@ -56,7 +56,7 @@
 	if(!wax)
 		new/obj/item/trash/candle(src.loc)
 		if(ismob(loc))
-			src.dropped()
+			src.dropped(usr)
 		qdel(src)
 	update_icon()
 	if(istype(loc, /turf)) //start a fire if possible

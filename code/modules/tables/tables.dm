@@ -7,7 +7,7 @@
 var/list/custom_table_appearance = list(
 					"Bar - special" 	= list("bar table", "Well designed bar table.", "bar_table", CUSTOM_TABLE_ICON_REPLACE, TRUE),
 					"Gambling" 			= list("gambling table", null, "carpet", CUSTOM_TABLE_COVERING, FALSE),
-					"OneStar"			= list("onestar", "Very durable table made by an extinct empire", "onestar", CUSTOM_TABLE_ICON_REPLACE, TRUE )
+					"OneStar"			= list("One Star table", "Very durable table made by an extinct empire", "onestar", CUSTOM_TABLE_ICON_REPLACE, TRUE )
 										)
 
 
@@ -15,7 +15,7 @@ var/list/custom_table_appearance = list(
 	name = "table frame"
 	icon = 'icons/obj/tables.dmi'
 	icon_state = "frame"
-	desc = "It's a table, for putting things on. Or standing on, if you really want to."
+	desc = "A table, for putting things on. Or standing on, if you really want to."
 	density = TRUE
 	anchored = TRUE
 	climbable = 1
@@ -108,11 +108,11 @@ var/list/custom_table_appearance = list(
 	. = ..()
 	if(health < maxhealth)
 		switch(health / maxhealth)
-			if(0.0 to 0.5)
+			if(0 to 0.5)
 				to_chat(user, SPAN_WARNING("It looks severely damaged!"))
 			if(0.25 to 0.5)
 				to_chat(user, SPAN_WARNING("It looks damaged!"))
-			if(0.5 to 1.0)
+			if(0.5 to 1)
 				to_chat(user, SPAN_NOTICE("It has a few scrapes and dents."))
 
 /obj/structure/table/attackby(obj/item/I, mob/user)
@@ -241,11 +241,21 @@ var/list/custom_table_appearance = list(
 		to_chat(user, SPAN_WARNING("Put \the [src] back in place before reinforcing it!"))
 		return
 
-	reinforced = common_material_add(S, user, "reinforc")
+	reinforced = common_material_add(S, user, "reinforce")
 	if(reinforced)
 		update_desc()
 		update_icon()
 		update_material()
+
+/obj/structure/table/attack_generic(mob/M, damage, attack_message)
+	if(damage)
+		M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		M.do_attack_animation(src)
+		M.visible_message(SPAN_DANGER("\The [M] [attack_message] \the [src]!"))
+		playsound(loc, 'sound/effects/metalhit2.ogg', 50, 1)
+		take_damage(damage)
+	else
+		attack_hand(M)
 
 /obj/structure/table/proc/update_desc()
 	if(custom_appearance)

@@ -78,17 +78,7 @@
 	desc = "sm_core"
 	mappath = 'maps/submaps/deepmaint_rooms/normal/sm_core.dmm'
 
-/datum/map_template/deepmaint_template/room/oopsitsphoron
-	name = "oopsitsphoron"
-	desc = "oopsitsphoron"
-	mappath = 'maps/submaps/deepmaint_rooms/normal/oopsitsphoron.dmm'
-
-/datum/map_template/deepmaint_template/room/oldchurch
-	name = "oldchurch"
-	desc = "oldchurch"
-	mappath = 'maps/submaps/deepmaint_rooms/normal/oldchurch.dmm'
-
-/datum/map_template/deepmaint_template/room/oopsitsbeartraps
-	name = "oopsitsbeartraps"
-	desc = "oopsitsbeartraps"
-	mappath = 'maps/submaps/deepmaint_rooms/normal/oopsitsbeartraps.dmm'
+/datum/map_template/deepmaint_template/room/hive_nest
+	name = "hive_nest"
+	desc = "When a hive dies the machine die with it, but what about the little guys?"
+	mappath = 'maps/submaps/deepmaint_rooms/normal/hive_nest.dmm'

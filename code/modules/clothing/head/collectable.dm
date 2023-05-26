@@ -28,6 +28,7 @@
 		slot_r_hand_str = "xenos_helm",
 		)
 	body_parts_covered = HEAD|FACE|EYES
+	style_coverage = COVERS_WHOLE_HEAD
 
 /obj/item/clothing/head/collectable/chef
 	name = "collectable chef's hat"
@@ -100,7 +101,7 @@
 
 /obj/item/clothing/head/collectable/kitty
 	name = "collectable kitty ears"
-	desc = "The fur feels.....a bit too realistic."
+	desc = "The fur feels... a bit too realistic."
 	icon_state = "kitty"
 	body_parts_covered = 0
 

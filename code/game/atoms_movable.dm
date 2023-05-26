@@ -21,23 +21,25 @@
 
 	//spawn_values
 	var/price_tag = 0 // The item price in credits. atom/movable so we can also assign a price to animals and other things.
+	var/surplus_tag = FALSE //If true, attempting to export this will net you a greatly reduced amount of credits, but we don't want to affect the actual price tag for selling to others.
 	var/spawn_tags
 	var/rarity_value = 1 //min:1
 	var/spawn_frequency = 0 //min:0
-	var/accompanying_object	//path or text "obj/item,/obj/item/device"
-	var/prob_aditional_object = 100
-	var/spawn_blacklisted = FALSE
-	var/bad_type //path
+	var/accompanying_object	// path or text "obj/item,/obj/item/device". This object will spawn alongside (in turf of) the spawned atom.
+	var/prob_aditional_object = 100 // Probability for the accompanying_object to spawn.
+	var/spawn_blacklisted = FALSE // Generally for niche objects, atoms blacklisted can spawn if enabled by spawner. Examples include exoplanet loot tables you don't want spawning within the player starting area.
+	var/bad_type // Use path Ex:(bad_type = obj/item). Generally for abstract code objects, atoms with a set bad_type can never be selected by spawner. Examples include parent objects which should only exist within the code, or deployable embedded items.
 
 /atom/movable/Del()
 	if(isnull(gc_destroyed) && loc)
 		testing("GC: -- [type] was deleted via del() rather than qdel() --")
-		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
+		CRASH("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
 //	else if(isnull(gcDestroyed))
 //		testing("GC: [type] was deleted via GC without qdel()") //Not really a huge issue but from now on, please qdel()
 //	else
 //		testing("GC: [type] was deleted via GC with qdel()")
 	..()
+
 
 /atom/movable/Destroy()
 	. = ..()
@@ -69,9 +71,17 @@
 /atom/movable/proc/entered_with_container(var/atom/old_loc)
 	return
 
+// Gets the top-atom that contains us, doesn't care about how deeply nested a item is
+/atom/proc/getContainingMovable()
+	var/atom/checking = src
+	while(!isturf(checking.loc) && !isnull(checking.loc))
+		checking = checking.loc
+	return checking
+
+
 /atom/movable/proc/forceMove(atom/destination, var/special_event, glide_size_override=0)
 	if(loc == destination)
-		return 0
+		return FALSE
 
 	if (glide_size_override)
 		set_glide_size(glide_size_override)
@@ -104,14 +114,29 @@
 				destination.loc.Entered(src, origin)
 
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, origin, loc)
-
-	// Only update plane if we're located on map
-	if(isturf(loc))
-		// if we wasn't on map OR our Z coord was changed
-		if( !isturf(origin) || (get_z(loc) != get_z(origin)) )
+	if(origin && destination)
+		if(get_z(origin) != get_z(destination))
+			SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, get_z(origin) , get_z(destination))
 			update_plane()
+		else if(!is_origin_turf)
+			update_plane()
+			//for(var/atom/movable/thing in contents)
+			//	SEND_SIGNAL(thing, COMSIG_MOVABLE_Z_CHANGED,get_z(origin),get_z(destination))
+	else if(destination)
+		update_plane()
 
-	return 1
+	// Container change
+	if((!is_origin_turf || !is_destination_turf) || ((!is_origin_turf && !is_destination_turf) && (origin != destination)))
+		SEND_SIGNAL(src, COMSIG_ATOM_CONTAINERED, getContainingMovable())
+	/*
+	// Only update plane if we're located on map
+	if(is_destination_turf)
+		// if we wasn't on map OR our Z coord was changed
+		if(!is_origin_turf || (get_z(loc) != get_z(origin)) )
+			update_plane()
+	*/
+
+	return TRUE
 
 
 //called when src is thrown into hit_atom
@@ -159,9 +184,9 @@
 	src.thrower = thrower
 	src.throw_source = get_turf(src)	//store the origin turf
 
-	if(usr)
-		if(HULK in usr.mutations)
-			src.throwing = 2 // really strong throw!
+//	if(usr)
+//		if(HULK in usr.mutations)
+//			src.throwing = 2 // really strong throw!
 
 	var/dist_x = abs(target.x - src.x)
 	var/dist_y = abs(target.y - src.y)
@@ -242,15 +267,15 @@
 			a = get_area(src.loc)
 
 	//done throwing, either because it hit something or it finished moving
+	src.throwing = 0
+	src.thrower = null
+	src.throw_source = null
+
 	var/turf/new_loc = get_turf(src)
 	if(new_loc)
 		if(isobj(src))
 			src.throw_impact(new_loc,speed)
 		new_loc.Entered(src)
-	src.throwing = 0
-	src.thrower = null
-	src.throw_source = null
-
 
 //Overlays
 /atom/movable/overlay
@@ -334,9 +359,8 @@
 		set_glide_size(glide_size_override)
 
 	// To prevent issues, diagonal movements are broken up into two cardinal movements.
-
 	// Is this a diagonal movement?
-	SEND_SIGNAL(src, COMSIG_MOVABLE_PREMOVE, src)
+	SEND_SIGNAL_OLD(src, COMSIG_MOVABLE_PREMOVE, src)
 	if (Dir & (Dir - 1))
 		if (Dir & NORTH)
 			if (Dir & EAST)
@@ -393,7 +417,14 @@
 				update_plane()
 				onTransitZ(get_z(oldloc, get_z(loc)))
 
+		if(get_z(oldloc) != get_z(loc))
+			SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, get_z(oldloc), get_z(NewLoc))
+
 		SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, oldloc, loc)
+		/* Inserting into contents uses only forceMove
+		if(!isturf(oldloc) || !isturf(loc))
+			SEND_SIGNAL(src, COMSIG_ATOM_CONTAINERED, getContainingMovable())
+		*/
 
 // Wrapper of step() that also sets glide size to a specific value.
 /proc/step_glide(atom/movable/AM, newdir, glide_size_override)
@@ -401,10 +432,14 @@
 	return step(AM, newdir)
 
 //We're changing zlevel
+/*
 /atom/movable/proc/onTransitZ(old_z, new_z)//uncomment when something is receiving this signal
-	/*SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_z, new_z)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_z, new_z)
+	/*
 	for(var/atom/movable/AM in src) // Notify contents of Z-transition. This can be overridden IF we know the items contents do not care.
-		AM.onTransitZ(old_z,new_z)*/
+		AM.onTransitZ(old_z,new_z)
+	*/
+*/
 
 /mob/living/proc/update_z(new_z) // 1+ to register, null to unregister
 	if (registered_z != new_z)
@@ -418,34 +453,16 @@
 /atom/movable/proc/preventsTurfInteractions()
 	return FALSE
 
-
-
-/atom/movable/proc/update_transform()
-	var/matrix/M = matrix()
-	M.Scale(icon_scale)
-	M.Turn(icon_rotation)
-	src.transform = M
-
-// Use this to set the object's scale.
-/atom/movable/proc/adjust_scale(new_scale)
-	icon_scale = new_scale
-	update_transform()
-
-/atom/movable/proc/adjust_rotation(new_rotation)
-	icon_rotation = new_rotation
-	update_transform()
-
-
 ///Sets the anchored var and returns if it was sucessfully changed or not.
 /atom/movable/proc/set_anchored(anchorvalue)
 	SHOULD_CALL_PARENT(TRUE)
 	if(anchored == anchorvalue || !can_anchor)
 		return FALSE
 	anchored = anchorvalue
-	SEND_SIGNAL(src, COMSIG_ATOM_UNFASTEN, anchored)
+	SEND_SIGNAL_OLD(src, COMSIG_ATOM_UNFASTEN, anchored)
 	. = TRUE
 
 /atom/movable/proc/update_overlays()
 	SHOULD_CALL_PARENT(TRUE)
 	. = list()
-	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_OVERLAYS, .)
+	SEND_SIGNAL_OLD(src, COMSIG_ATOM_UPDATE_OVERLAYS, .)

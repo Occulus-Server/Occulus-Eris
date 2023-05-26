@@ -8,8 +8,6 @@
 	bad_type = /obj/item/gun/energy
 	spawn_tags = SPAWN_TAG_GUN_ENERGY
 
-	recoil_buildup = 0.5 //energy weapons have little to no recoil
-
 	var/charge_cost = 100 //How much energy is needed to fire.
 	var/obj/item/cell/cell
 	var/suitable_cell = /obj/item/cell/medium
@@ -32,9 +30,7 @@
 	var/overcharge_timer //Holds ref to the timer used for overcharging
 	var/overcharge_rate = 1 //Base overcharge additive rate for the gun
 	var/overcharge_level = 0 //What our current overcharge level is. Peaks at overcharge_max
-	var/overcharge_max = 10
-
-	bad_type = /obj/item/gun/energy
+	var/overcharge_max = 5
 
 	wield_delay = 0 SECOND
 	wield_delay_factor = 0
@@ -43,6 +39,7 @@
 	. = ..()
 	if(.)
 		update_icon()
+		update_held_icon()
 
 /obj/item/gun/energy/emp_act(severity)
 	..()
@@ -108,7 +105,7 @@
 	to_chat(user, "Has [shots_remaining] shot\s remaining.")
 	return
 
-/obj/item/gun/energy/on_update_icon(var/ignore_inhands)
+/obj/item/gun/energy/update_icon(var/ignore_inhands)
 	if(charge_meter)
 		var/ratio = 0
 
@@ -119,13 +116,16 @@
 
 		if(modifystate)
 			icon_state = "[modifystate][ratio]"
+			wielded_item_state = "_doble" + "[modifystate][ratio]"
 		else
 			icon_state = "[initial(icon_state)][ratio]"
 
 		if(item_charge_meter)
 			set_item_state("-[item_modifystate][ratio]")
+			wielded_item_state = "_doble" + "-[item_modifystate][ratio]"
 	if(!item_charge_meter && item_modifystate)
 		set_item_state("-[item_modifystate]")
+		wielded_item_state = "_doble" + "-[item_modifystate]"
 	if(!ignore_inhands)
 		update_wear_icon()
 
@@ -161,17 +161,24 @@
 		to_chat(usr, SPAN_WARNING("[src] is a disposable gun, it doesn't need more batteries."))
 		return
 
-	if(cell)
-		to_chat(usr, SPAN_WARNING("[src] is already loaded."))
-		return
-
-	if(istype(C, suitable_cell) && insert_item(C, user))
-		cell = C
-		update_icon()
-
+	if(istype(C, suitable_cell))
+		if(cell)
+			if(replace_item(cell, C, user))
+				cell = C
+				update_icon()
+		else if(insert_item(C, user))
+			cell = C
+			update_icon()
 	..()
 
-/obj/item/gun/energy/ui_data(mob/user)
+/obj/item/gun/energy/attack_self(mob/user)
+	if(!self_recharge && cell && cell.charge < charge_cost && eject_item(cell, user))
+		cell = null
+		update_icon()
+		return
+	..()
+
+/obj/item/gun/energy/nano_ui_data(mob/user)
 	var/list/data = ..()
 	data["charge_cost"] = charge_cost
 	var/obj/item/cell/C = get_cell()
@@ -180,6 +187,9 @@
 		data["shots_remaining"] = round(C.charge/charge_cost)
 		data["max_shots"] = round(C.maxcharge/charge_cost)
 	return data
+
+/obj/item/gun/energy/get_dud_projectile()
+	return new projectile_type
 
 /obj/item/gun/energy/refresh_upgrades()
 	//refresh our unique variables before applying upgrades too

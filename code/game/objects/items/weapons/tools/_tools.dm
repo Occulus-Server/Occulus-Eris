@@ -18,7 +18,13 @@
 	bad_type = /obj/item/tool
 	spawn_tags = SPAWN_TAG_TOOL
 
+	price_tag = 20
+
 	var/tool_in_use = FALSE
+
+	var/force_upgrade_mults = 1
+
+	var/force_upgrade_mods = 0
 
 	var/sparks_on_use = FALSE	//Set to TRUE if you want to have sparks on each use of a tool
 	var/eye_hazard = FALSE	//Set to TRUE should damage users eyes if they without eye protection
@@ -56,7 +62,6 @@
 	var/switched_on = FALSE	//Curent status of tool. Dont edit this in subtypes vars, its for procs only.
 	var/switched_on_qualities	//This var will REPLACE tool_qualities when tool will be toggled on.
 	var/switched_on_force
-	var/switched_off_force //Occulus Edit: Replaces initial force for turn_on and turn_off
 	var/switched_on_hitsound
 	var/switched_off_qualities	//This var will REPLACE tool_qualities when tool will be toggled off. So its possible for tool to have diferent qualities both for ON and OFF state.
 	var/create_hot_spot = FALSE	 //Set this TRUE to ignite plasma on turf with tool upon activation
@@ -183,7 +188,7 @@
 	return
 
 
-/obj/item/tool/ui_data(mob/user)
+/obj/item/tool/nano_ui_data(mob/user)
 	var/list/data = list()
 
 	if(tool_qualities)
@@ -209,7 +214,7 @@
 		data["use_power_cost_max"] = initial(use_power_cost) * 10
 
 	if(use_fuel_cost)
-		data["fuel"] = reagents ? reagents.ui_data() : null
+		data["fuel"] = reagents ? reagents.nano_ui_data() : null
 		data["max_fuel"] = max_fuel
 		data["use_fuel_cost"] = use_fuel_cost
 		data["use_fuel_cost_state"] = initial(use_fuel_cost) > use_fuel_cost ? "good" : initial(use_fuel_cost) < use_fuel_cost ? "bad" : ""
@@ -222,22 +227,34 @@
 	data["force"] = force
 	data["force_max"] = initial(force) * 10
 
-	data["armor_penetration"] = armor_penetration
+	data["armor_divisor"] = armor_divisor
 
 	data["extra_volume"] = extra_bulk
 
 	data["upgrades_max"] = max_upgrades
 
+	data["edge"] = edge
+	data["sharp"] = sharp
+	data["extended_reach"] = extended_reach
+	data["forced_broad_strike"] = forced_broad_strike
+	data["screen_shake"] = screen_shake
+	data["push_attack"] = push_attack
+	data["w_class"] = w_class
+
 	// it could be done with catalog using one line but whatever
 	if(item_upgrades.len)
 		data["attachments"] = list()
 		for(var/atom/A in item_upgrades)
-			data["attachments"] += list(list("name" = A.name, "icon" = getAtomCacheFilename(A)))
+			data["attachments"] += list(list("name" = A.name, "icon" = SSassets.transport.get_asset_url(name)))
 
 	return data
 
-/obj/item/tool/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
-	var/list/data = ui_data(user)
+/obj/item/tool/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
+	var/list/data = nano_ui_data(user)
+
+	var/datum/asset/toolupgrageds = get_asset_datum(/datum/asset/simple/tool_upgrades)
+	if (toolupgrageds.send(user.client))
+		user.client.browse_queue_flush() // stall loading nanoui until assets actualy gets sent
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
@@ -278,7 +295,7 @@
 //Simple form ideal for basic use. That proc will return TRUE only when everything was done right, and FALSE if something went wrong, ot user was unlucky.
 //Editionaly, handle_failure proc will be called for a critical failure roll.
 /obj/item/proc/use_tool(mob/living/user, atom/target, base_time, required_quality, fail_chance, required_stat, instant_finish_tier = 110, forced_sound = null, sound_repeat = 2.5 SECONDS)
-// SYZYGY Edit
+// Occulus Edit
 	if (health)//Low health on a tool increases failure chance. Scaling up as it breaks further.
 		if (health > max_health * 0.80)//100-80% is normal operation
 		else if (health > max_health * 0.40)
@@ -289,7 +306,7 @@
 			fail_chance += 20//20-10% is -20 precision
 		else
 			fail_chance += 40//below 10% is -40 precision. Good luck!
-//End Syzygy Edit
+//End Occulus Edit
 	var/obj/item/tool/T
 	if(istool(src))
 		T = src
@@ -489,7 +506,7 @@
 	if(istype(loc, /obj/machinery/door/airlock))
 		var/obj/machinery/door/airlock/AD = loc
 		AD.take_out_wedged_item()
-	playsound(get_turf(src), 'sound/effects/impacts/thud1.ogg', 50, 1 -3)
+	playsound(get_turf(src), 'sound/effects/impacts/thud1.ogg', 50, 1, -3)
 	isBroken = TRUE
 	return
 
@@ -500,7 +517,7 @@
 //Critical failure rolls. If you use use_tool_extended, you might want to call that proc as well.
 /obj/item/proc/handle_failure(mob/living/user, atom/target, required_stat, required_quality)
 	var/obj/item/tool/T
-	if(istype(src, /obj/item/tool))
+	if(istool(src))
 		T = src
 
 	var/crit_fail_chance = 25
@@ -705,11 +722,8 @@
 	switched_on = FALSE
 	STOP_PROCESSING(SSobj, src)
 	tool_qualities = switched_off_qualities
-	if (!isnull(switched_off_force))//Occulus Edit: Fixing togglable tool damage
-		force = switched_off_force//Occulus Edit fixing togglable tool damage
-		if(wielded)//Occulus Edit: REEEEEE!
-			force *= 1.3//Occulus Edit: REEEE
 	hitsound = initial(hitsound)
+	force = initial(force)
 	if(glow_color)
 		set_light(l_range = 0, l_power = 0, l_color = glow_color)
 	update_icon()
@@ -818,6 +832,8 @@
 	use_fuel_cost = initial(use_fuel_cost)
 	use_power_cost = initial(use_power_cost)
 	force = initial(force)
+	force_upgrade_mults = initial(force_upgrade_mults)
+	force_upgrade_mods = initial(force_upgrade_mods)
 	switched_on_force = initial(switched_on_force)
 	switched_off_force= initial(switched_off_force)//Aha, found you you little bugger Occulus Edit
 	extra_bulk = initial(extra_bulk)
@@ -830,7 +846,7 @@
 
 
 	//Now lets have each upgrade reapply its modifications
-	SEND_SIGNAL(src, COMSIG_APPVAL, src)
+	SEND_SIGNAL_OLD(src, COMSIG_APPVAL, src)
 
 	for(var/prefix in prefixes)
 		name = "[prefix] [name]"
@@ -912,6 +928,7 @@
 				var/obj/item/weldpack/P = O
 				P.explode()
 			return
+/*
 		else if(istype(O, /mob/living/carbon/superior_animal/roach/benzin))
 			var/mob/living/carbon/superior_animal/roach/benzin/B = O
 			if(B.stat != DEAD)
@@ -922,6 +939,7 @@
 					to_chat(user, SPAN_NOTICE("[src] refueled"))
 					playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 			return
+*/
 		if(switched_on)
 			var/turf/location = get_turf(user)
 			if(isliving(O))
@@ -981,6 +999,11 @@
 				E.damage += rand(1, 2)
 				if(E.damage > 12)
 					H.eye_blurry += rand(3,6)
+			if(FLASH_PROTECTION_MINOR)
+				to_chat(H, SPAN_WARNING("The searing light burns your eyes through your insufficient protection."))
+				E.damage += rand(2, 3)
+				if(E.damage > 11)
+					E.damage += rand(4,8)
 			if(FLASH_PROTECTION_NONE)
 				to_chat(H, SPAN_WARNING("Your eyes burn."))
 				E.damage += rand(2, 4)
@@ -1006,9 +1029,9 @@
 		if(!istype(S) || !BP_IS_ROBOTIC(S))
 			return ..()
 
-		if (get_tool_type(user, list(QUALITY_WELDING), H)) //Prosthetic repair
-			if (S.brute_dam)
-				if (S.brute_dam < ROBOLIMB_SELF_REPAIR_CAP)
+		if(get_tool_type(user, list(QUALITY_WELDING), H)) //Prosthetic repair
+			if(S.brute_dam)
+				if(S.brute_dam < ROBOLIMB_SELF_REPAIR_CAP)
 					for(var/datum/wound/W in S.wounds)
 						if(W.internal)
 							return
@@ -1023,7 +1046,7 @@
 					if(S.brute_dam)
 						to_chat(user, SPAN_WARNING("\The [S] still needs further repair."))
 					return
-				else if (S.open != 2)
+				else if(S.open != 2)
 					to_chat(user, SPAN_DANGER("The damage is far too severe to patch over externally."))
 					return 1
 			else if(S.open != 2) // For surgery.
@@ -1032,7 +1055,7 @@
 
 	return ..()
 
-/obj/item/tool/on_update_icon()
+/obj/item/tool/update_icon()
 	cut_overlays()
 
 	if(switched_on && toggleable)
@@ -1093,7 +1116,8 @@
 							QUALITY_SHOVELING = 100,
 							QUALITY_DIGGING = 100,
 							QUALITY_EXCAVATION = 100,
-							QUALITY_CUTTING = 100)
+							QUALITY_CUTTING = 100,
+							QUALITY_HAMMERING = 100)
 
 #undef ADDITIONAL_TIME_LOWHEALTH
 
@@ -1107,4 +1131,4 @@
 /obj/item/tool/ui_action_click(mob/living/user, action_name)
 	switch(action_name)
 		if("Tool information")
-			ui_interact(user)
+			nano_ui_interact(user)

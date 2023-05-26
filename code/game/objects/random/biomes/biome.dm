@@ -54,7 +54,7 @@ GLOBAL_LIST_EMPTY(loot_biomes)
 	var/danger_level = 0
 	var/only_top = 1
 	var/range = 7
-	var/can_burrow = FALSE
+	var/can_burrow = TRUE
 	var/min_loot_amount = 1
 	var/max_loot_amount = 1
 	var/min_traps_amount = 8
@@ -113,4 +113,4 @@ GLOBAL_LIST_EMPTY(loot_biomes)
 
 /obj/landmark/loot_biomes/proc/chek_tags()
 	if(!tags_to_spawn.len)
-		crash_with("[src.name] has no spawn tag: [x],[y],[z]")
+		CRASH("[src.name] has no spawn tag: [x],[y],[z]")

@@ -8,9 +8,12 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	projectile_type = /obj/item/projectile/beam/lastertag/blue
 	bad_type = /obj/item/gun/energy/lasertag
+	spawn_tags = SPAWN_TAG_TOY_WEAPON
+	rarity_value = 30
 	var/required_vest
+	init_recoil = CARBINE_RECOIL(1)
 
-/obj/item/gun/energy/lasertag/special_check(var/mob/living/carbon/human/M)
+/obj/item/gun/energy/lasertag/special_check(mob/living/carbon/human/M)
 	if(ishuman(M))
 		if(!istype(M.wear_suit, required_vest))
 			to_chat(M, SPAN_WARNING("You need to be wearing your laser tag vest!"))

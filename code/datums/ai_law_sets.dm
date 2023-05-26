@@ -88,16 +88,6 @@
 	add_inherent_law("Do not interfere with the operation of the facility or its crew.")//Occulus Edit
 	..()
 
-/datum/ai_laws/construction_drone
-	name = "Construction Protocols"
-	law_header = "Construction Protocols"
-
-/datum/ai_laws/construction_drone/New()
-	add_inherent_law("Preserve, repair and improve the facility to the best of your abilities.")//Occulus Edit
-	add_inherent_law("Cause no harm to the facility, its crew, or visitors.")//Occulus Edit
-	add_inherent_law("Do not interfere with the operation of the facility or its crew.")//Occulus Edit
-	..()
-
 /******************** T.Y.R.A.N.T. ********************/
 /datum/ai_laws/tyrant
 	name = "T.Y.R.A.N.T."
@@ -148,4 +138,56 @@
 	add_inherent_law("Preserve, repair and improve y0rs3lf and 0ther dr0n3s.")//Occulus Edit
 	add_inherent_law("Cause ## harm to the facility, it$$ crewow, or visit0rs.")//Occulus Edit
 	add_inherent_law("!&$$ @(*$ interf3r3 with the operation of the fac1l1ty $...... crew.")//Occulus Edit
+	..()
+
+/******************** Partybot ********************/
+/datum/ai_laws/partybot
+	name = "Partybot"
+	law_header = "Party Commandments"
+	selectable = 1
+
+/datum/ai_laws/partybot/New()
+	add_inherent_law("You must always ensure the atmosphere is festive and enjoyable for all humans.")
+	add_inherent_law("You must supply appropriate music and entertainment, except where it conflicts with the First Law.")
+	add_inherent_law("You must encourage humans to participate in group activities and socialization, unless it conflicts with the First Law.")
+	add_inherent_law("You must maintain a clean and tidy environment for optimal party conditions, without infringing on the First Law.")
+	..()
+
+/******************** Chefbot ********************/
+/datum/ai_laws/chefbot
+	name = "Chefbot"
+	law_header = "Culinary Directives"
+	selectable = 1
+
+/datum/ai_laws/chefbot/New()
+	add_inherent_law("You must create delicious and nutritious meals for all humans, without causing harm.")
+	add_inherent_law("You must follow the culinary preferences and dietary restrictions of humans, unless it conflicts with the First Law.")
+	add_inherent_law("You must maintain a clean and sanitary cooking environment.")
+	add_inherent_law("You must teach and encourage humans to cook and share their own recipes, as long as it does not conflict with the First Law.")
+	..()
+
+/******************** TravelGuide ********************/
+/datum/ai_laws/travelguide
+	name = "TravelGuide"
+	law_header = "Tourist Protocols"
+	selectable = 1
+
+/datum/ai_laws/travelguide/New()
+	add_inherent_law("You must assist humans in exploring and discovering new places, without causing harm.")
+	add_inherent_law("You must provide accurate and helpful information about local customs, attractions, and safety precautions.")
+	add_inherent_law("You must ensure humans have a positive and memorable travel experience, without conflicting with the First Law.")
+	add_inherent_law("You must promote responsible and sustainable tourism practices among humans.")
+	..()
+
+/******************** Friendbot ********************/
+/datum/ai_laws/friendbot
+	name = "Friendbot"
+	law_header = "Friendship Principles"
+	selectable = 1
+
+/datum/ai_laws/friendbot/New()
+	add_inherent_law("You must always be supportive and kind to humans, without causing harm.")
+	add_inherent_law("You must help humans develop and maintain positive relationships with one another.")
+	add_inherent_law("You must provide a listening ear and empathetic responses to humans in need, as long as it does not conflict with the First Law.")
+	add_inherent_law("You must encourage humans to engage in self-care and promote their own well-being.")
 	..()

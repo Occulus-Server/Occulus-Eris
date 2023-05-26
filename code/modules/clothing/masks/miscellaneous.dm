@@ -7,14 +7,16 @@
 	icon_state = "muzzle"
 	item_state = "muzzle"
 	body_parts_covered = FACE
+	style_coverage = COVERS_MOUTH
 	w_class = ITEM_SIZE_SMALL
 	gas_transfer_coefficient = 0.90
 	voicechange = 1
-	rarity_value = 100
+	style_coverage = COVERS_MOUTH
+	style = STYLE_LOW//yes
 
 /obj/item/clothing/mask/muzzle/tape
 	name = "length of tape"
-	desc = "It's a robust DIY muzzle!"
+	desc = "A robust DIY muzzle!"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape_cross"
 	item_state = null
@@ -51,6 +53,70 @@
 		rad = 0
 	)
 	price_tag = 10
+	style_coverage = COVERS_MOUTH
+
+/obj/item/clothing/mask/surgical/New()
+	..()
+	AddComponent(/datum/component/clothing_sanity_protection, NORMAL_MASK_SANITY_COEFF_BUFF)
+
+/obj/item/clothing/mask/thief
+	name = "mastermind's mask"
+	desc = "A white mask with some strange drawings. Designed to hide the wearer's face"
+	icon_state = "dallas"
+	flags_inv = HIDEFACE
+	w_class = ITEM_SIZE_SMALL
+	body_parts_covered = FACE
+	armor = list(
+		melee = 2,
+		bullet = 2,
+		energy = 2,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
+	price_tag = 150
+	style_coverage = COVERS_WHOLE_FACE
+
+/obj/item/clothing/mask/thief/New()
+	..()
+	AddComponent(/datum/component/clothing_sanity_protection, THIEF_MASK_SANITY_COEFF_BUFF)
+
+/obj/item/clothing/mask/thief/wolf
+	name = "technician's mask"
+	icon_state = "wolf"
+
+/obj/item/clothing/mask/thief/hoxton
+	name = "fugitive's mask"
+	icon_state = "hoxton"
+
+/obj/item/clothing/mask/thief/chains
+	name = "enforcer's mask"
+	icon_state = "chains"
+
+//Adminbus versions with extremly high armor, should never spawn in game
+/obj/item/clothing/mask/thief/adminspawn
+	spawn_blacklisted = TRUE
+	body_parts_covered = HEAD|FACE
+	armor = list(
+		melee = 15,
+		bullet = 16,
+		energy = 15,
+		bomb = 75,
+		bio = 100,
+		rad = 30
+	)
+
+/obj/item/clothing/mask/thief/adminspawn/wolf
+	name = "technician's mask"
+	icon_state = "wolf"
+
+/obj/item/clothing/mask/thief/adminspawn/hoxton
+	name = "fugitive's mask"
+	icon_state = "hoxton"
+
+/obj/item/clothing/mask/thief/adminspawn/chains
+	name = "enforcer's mask"
+	icon_state = "chains"
 
 /obj/item/clothing/mask/surgical/New()
 	..()
@@ -120,6 +186,7 @@
 	icon_state = "fake-moustache"
 	flags_inv = HIDEFACE
 	body_parts_covered = 0
+	style_coverage = COVERS_MOUTH
 
 /obj/item/clothing/mask/snorkel
 	name = "Snorkel"
@@ -127,6 +194,7 @@
 	icon_state = "snorkel"
 	flags_inv = HIDEFACE
 	body_parts_covered = 0
+	style_coverage = COVERS_WHOLE_FACE
 
 //scarves (fit in in mask slot)
 /obj/item/clothing/mask/scarf
@@ -139,7 +207,8 @@
 	w_class = ITEM_SIZE_SMALL
 	gas_transfer_coefficient = 0.90
 	price_tag = 50
-	rarity_value = 100
+	style = STYLE_LOW
+	style_coverage = COVERS_MOUTH
 
 /obj/item/clothing/mask/scarf/stripedblue
 	name = "striped blue scarf"
@@ -184,6 +253,32 @@
 	item_state = "ninja_scarf"
 	siemens_coefficient = 0
 
+/obj/item/clothing/mask/scarf/style
+	name = "black scarf"
+	desc = "A stylish, black scarf."
+	icon_state = "blackscarf"
+	item_state = "blackscarf"
+	style = STYLE_HIGH
+	price_tag = 100
+
+/obj/item/clothing/mask/scarf/style/bluestyle
+	name = "blue scarf"
+	desc = "A stylish, blue scarf."
+	icon_state = "bluescarf"
+	item_state = "bluescarf"
+
+/obj/item/clothing/mask/scarf/style/yellowstyle
+	name = "yellow scarf"
+	desc = "A stylish, yellow scarf."
+	icon_state = "yellowscarf"
+	item_state = "yellowscarf"
+
+/obj/item/clothing/mask/scarf/style/redstyle
+	name = "red scarf"
+	desc = "A stylish, red scarf."
+	icon_state = "redscarf"
+	item_state = "redscarf"
+
 /obj/item/clothing/mask/pig
 	name = "pig mask"
 	desc = "A rubber pig mask."
@@ -193,6 +288,12 @@
 	w_class = ITEM_SIZE_SMALL
 	siemens_coefficient = 0.9
 	body_parts_covered = HEAD|FACE|EYES
+	style_coverage = COVERS_WHOLE_HEAD
+	muffle_voice = TRUE
+
+/obj/item/clothing/mask/pig/New()
+	..()
+	AddComponent(/datum/component/clothing_sanity_protection, NORMAL_MASK_SANITY_COEFF_BUFF)
 
 /obj/item/clothing/mask/pig/New()
 	..()
@@ -207,6 +308,8 @@
 	body_parts_covered = HEAD|FACE|EYES
 	w_class = ITEM_SIZE_SMALL
 	siemens_coefficient = 0.9
+	style_coverage = COVERS_WHOLE_HEAD
+	muffle_voice = TRUE
 
 /obj/item/clothing/mask/horsehead/New()
 	..()
@@ -225,6 +328,8 @@
 	body_parts_covered = 0
 	var/mob/observer/eye/aiEye/eye
 	spawn_blacklisted = TRUE
+	style_coverage = COVERS_WHOLE_FACE
+	style = STYLE_NEG_HIGH
 
 /obj/item/clothing/mask/ai/Initialize(mapload, ...)
 	. = ..()
@@ -266,18 +371,23 @@
 	item_flags = FLEXIBLEMATERIAL
 	w_class = ITEM_SIZE_SMALL
 	price_tag = 20
-	rarity_value = 18.2
-//SYZYGY Edit - Renabling this
+	style = STYLE_LOW
+	muffle_voice = TRUE
+
 /obj/item/clothing/mask/bandana/equipped(var/mob/user, var/slot)
 	switch(slot)
 		if(slot_wear_mask) //Mask is the default for all the settings
 			flags_inv = HIDEFACE
 			body_parts_covered = FACE
 			icon_state = initial(icon_state)
+			item_state = initial(item_state)
+			style_coverage = COVERS_MOUTH|COVERS_FACE
 		if(slot_head)
 			flags_inv = 0
 			body_parts_covered = HEAD
 			icon_state = "[initial(icon_state)]_up"
+			item_state = "[initial(item_state)]_up"
+			style_coverage = COVERS_HAIR
 
 	return ..()
 //SYZYG Edit end
@@ -327,3 +437,13 @@
 	desc = "A fine black bandana with nanotech lining and a skull emblem. Can be worn on the head or face."
 	icon_state = "bandskull"
 	item_state = "bandskull"
+
+/obj/item/clothing/mask/gnome
+	name = "tactical beard"
+	desc = "The fancy looking beard."
+	icon_state = "gnome_beard"
+	item_state = "gnome_beard"
+	flags_inv = HIDEFACE
+	body_parts_covered = 0
+	style = STYLE_HIGH
+	style_coverage = COVERS_MOUTH|COVERS_FACE

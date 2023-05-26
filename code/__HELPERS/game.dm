@@ -19,16 +19,17 @@
 			return A
 	return 0
 
+// get the area's name
+/proc/get_area_name_litteral(atom/X, format_text = FALSE)
+	var/area/A = isarea(X) ? X : get_area(X)
+	if(!A)
+		return null
+	return format_text ? format_text(A.name) : A.name
+
 /proc/get_area_master(const/O)
 	var/area/A = get_area(O)
 	if (isarea(A))
 		return A
-
-/proc/in_range(source, user)
-	if(get_dist(source, user) <= 1)
-		return TRUE
-
-	return FALSE //not in range and not telekinetic
 
 // Like view but bypasses luminosity check
 
@@ -239,7 +240,7 @@
 				return 0
 	return 1
 
-proc/isInSight(atom/A, atom/B)
+/proc/isInSight(atom/A, atom/B)
 	var/turf/Aturf = get_turf(A)
 	var/turf/Bturf = get_turf(B)
 
@@ -268,13 +269,13 @@ proc/isInSight(atom/A, atom/B)
 			return get_step(start, EAST)
 
 /proc/get_mob_by_key(key)
-	for(var/mob/M in SSmobs.mob_list)
+	for(var/mob/M in SSmobs.mob_list | SShumans.mob_list)
 		if(M.ckey == lowertext(key))
 			return M
 	return null
 
 /proc/get_client_by_ckey(key)
-	for(var/mob/M in SSmobs.mob_list)
+	for(var/mob/M in SSmobs.mob_list | SShumans.mob_list)
 		if(M.ckey == lowertext(key))
 			return M.client
 	return null
@@ -289,20 +290,6 @@ proc/isInSight(atom/A, atom/B)
 			if(((G.client.inactivity/10)/60) <= buffer + i) // the most active players are more likely to become an alien
 				if(!(G.mind && G.mind.current && G.mind.current.stat != DEAD))
 					candidates += G.key
-		i++
-	return candidates
-
-// Same as above but for alien candidates.
-
-/proc/get_alien_candidates()
-	var/list/candidates = list() //List of candidate KEYS to assume control of the new larva ~Carn
-	var/i = 0
-	while(candidates.len <= 0 && i < 5)
-		for(var/mob/observer/ghost/G in GLOB.player_list)
-			if(ROLE_XENOMORPH in G.client.prefs.be_special_role)
-				if(((G.client.inactivity/10)/60) <= ALIEN_SELECT_AFK_BUFFER + i) // the most active players are more likely to become an alien
-					if(!(G.mind && G.mind.current && G.mind.current.stat != DEAD))
-						candidates += G.key
 		i++
 	return candidates
 
@@ -331,7 +318,7 @@ proc/isInSight(atom/A, atom/B)
 		for(var/client/C in show_to)
 			C.images -= I
 
-datum/projectile_data
+/datum/projectile_data
 	var/src_x
 	var/src_y
 	var/time
@@ -554,14 +541,6 @@ datum/projectile_data
 
 	if (L.len)
 		return pick(L)
-
-/proc/flick_overlay_view(image/I, atom/target, duration, gc_after) //wrapper for the above, flicks to everyone who can see the target atom
-	var/list/viewing = list()
-	for(var/m in viewers(target))
-		var/mob/M = m
-		if(M.client)
-			viewing += M.client
-	flick_overlay(I, viewing, duration, gc_after)
 
 /proc/activate_mobs_in_range(atom/caller , distance)
 	var/turf/starting_point = get_turf(caller)

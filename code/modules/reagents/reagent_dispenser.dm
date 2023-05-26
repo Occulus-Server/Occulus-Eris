@@ -36,7 +36,7 @@
 	else if(W.is_refillable())
 		return FALSE //so we can refill them via their afterattack.
 
-	else if(QUALITY_BOLT_TURNING in W.tool_qualities)
+	else if((QUALITY_BOLT_TURNING in W.tool_qualities) && (user.a_intent == I_HELP))
 		if(W.use_tool(user, src, WORKTIME_NEAR_INSTANT, QUALITY_BOLT_TURNING, FAILCHANCE_EASY,  required_stat = STAT_MEC))
 			src.add_fingerprint(user)
 			if(anchored)
@@ -81,8 +81,10 @@
 				explode()
 				return
 
-
-
+/obj/structure/reagent_dispensers/get_item_cost(export)
+	if(export)
+		return ..() + round(reagents.total_volume * 0.125)
+	return ..() + contents_cost
 
 //Dispensers
 /obj/structure/reagent_dispensers/watertank
@@ -115,6 +117,7 @@
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
 	desc = "A tank full of industrial welding fuel. Do not consume."
+	description_antag = "Can have an assembly with a igniter attached for detonation upon a trigger. Can also use a screwdriver to leak fuel when dragged"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "weldtank"
 	amount_per_transfer_from_this = 10
@@ -161,7 +164,7 @@
 
 /obj/structure/reagent_dispensers/fueltank/attackby(obj/item/I, mob/user)
 	src.add_fingerprint(user)
-	if(QUALITY_SCREW_DRIVING in I.tool_qualities)
+	if((QUALITY_SCREW_DRIVING in I.tool_qualities) && (user.a_intent == I_HURT))
 		if(I.use_tool(user, src, WORKTIME_FAST, QUALITY_SCREW_DRIVING, FAILCHANCE_EASY,  required_stat = STAT_MEC))
 			user.visible_message("[user] screws [src]'s faucet [modded ? "closed" : "open"].", \
 				"You screw [src]'s faucet [modded ? "closed" : "open"]")
@@ -234,7 +237,7 @@
 
 /obj/structure/reagent_dispensers/fueltank/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, var/glide_size_override = 0)
 	if ((. = ..()) && modded)
-		leak_fuel(amount_per_transfer_from_this/10.0)
+		leak_fuel(amount_per_transfer_from_this/10)
 
 /obj/structure/reagent_dispensers/fueltank/proc/leak_fuel(amount)
 	if (reagents.total_volume == 0)
@@ -279,12 +282,23 @@
 	contents_cost = 700
 	spawn_blacklisted = TRUE
 
+/obj/structure/reagent_dispensers/coolanttank
+	name = "coolant tank"
+	desc = "A tank of industrial coolant"
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "coolanttank"
+	amount_per_transfer_from_this = 10
+	volume = 1000
+	starting_reagent = "coolant"
+	price_tag = 50
+	contents_cost = 700
+
 
 /obj/structure/reagent_dispensers/cahorsbarrel
 	name = "Saint's Wing Cahors barrel"
 	desc = "A barrel of sweet church wine used in rituals. Mekhanites keep the recipe a secret, making it a rather coveted drink."
 	icon_state = "barrel"
-	volume = 1000
+	volume = 400
 	starting_reagent = "ntcahors"
 	price_tag = 50
 	contents_cost = 950

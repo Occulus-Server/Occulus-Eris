@@ -119,8 +119,8 @@
 	. = ..()
 
 /obj/item/cartridge/quartermaster
-	name = "\improper Trade Union Parts & Vendors cartridge"
-	desc = "Perfect for the Union Merchant on the go!"
+	name = "\improper Trade Union Parts & Vendors cartridge" // Occulus Edit - Remove Eris corp. reference
+	desc = "Perfect for the Union Merchant on the go!" // Occulus Edit - Remove Eris corp. reference
 	icon_state = "cart-q"
 	access_quartermaster = 1
 

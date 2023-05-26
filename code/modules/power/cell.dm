@@ -5,6 +5,7 @@
 /obj/item/cell //Basic type of the cells, should't be used by itself
 	name = "power cell"
 	desc = "A rechargable electrochemical power cell."
+	description_antag = "Can be inserted with plasma to make it blow whenever power is being pulled."
 	icon = 'icons/obj/power_cells.dmi'
 	icon_state = "b_st"
 	item_state = "cell"
@@ -16,7 +17,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	//Spawn_values
 	bad_type = /obj/item/cell
-	rarity_value = 3
+	rarity_value = 2
 	spawn_tags = SPAWN_TAG_POWERCELL
 	var/charge = 0	// note %age conveted to actual charge in New
 	var/maxcharge = 100
@@ -26,10 +27,11 @@
 	var/rigged = FALSE		// true if rigged to explode
 	var/minor_fault = 0 //If not 100% reliable, it will build up faults.
 	var/autorecharging = FALSE //For nucclear cells
-	var/autorecharge_rate = 0.03
-	var/recharge_time = 4 //How often nuclear cells will recharge
+	var/autorecharge_rate = BASE_AUTORECHARGE_RATE//0.03
+	var/recharge_time = BASE_RECHARGE_TIME//4 //How often nuclear cells will recharge
 	var/charge_tick = 0
 	var/last_charge_status = -1 //used in update_icon optimization
+	var/spawn_charged = 0 //For non-rechargeable cells
 
 /obj/item/cell/Initialize()
 	. = ..()
@@ -51,9 +53,12 @@
 
 	return TRUE
 
-//Newly manufactured cells start off empty. You can't create energy
+//Newly manufactured cells start off empty, except for non-rechargeable ones.
 /obj/item/cell/Created()
-	charge = 0
+	if (spawn_charged == 1)
+		charge = maxcharge
+	else
+		charge = 0
 	update_icon()
 
 /obj/item/cell/drain_power(drain_check, surge, power = 0)
@@ -68,7 +73,7 @@
 
 	return use(cell_amt) / CELLRATE
 
-/obj/item/cell/on_update_icon()
+/obj/item/cell/update_icon()
 	var/charge_status
 	var/c = charge/maxcharge
 	if (c >=0.95)
@@ -230,6 +235,9 @@
 			if (prob(25))
 				qdel(src)
 				return
+			if (prob(25))
+				corrupt()
+		if(4)
 			if (prob(25))
 				corrupt()
 	return

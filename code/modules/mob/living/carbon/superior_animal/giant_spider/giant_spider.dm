@@ -1,7 +1,7 @@
 //basic spider mob, these generally guard nests
 /mob/living/carbon/superior_animal/giant_spider
-	name = "giant spider"
-	desc = "Furry and black, it makes you shudder to look at it. This one has deep red eyes."
+	name = "Senshi Spider"
+	desc = "An overgrown tarantula. It's fangs are coated in a discolored fluid, and it's chitin seems incredibly thick."
 	icon_state = "guard"
 	icon_living = "guard"
 	pass_flags = PASSTABLE
@@ -21,7 +21,7 @@
 	emote_see = list("chitters", "rubs its legs")
 	speak_chance = 5
 
-	move_to_delay = 6
+	move_to_delay = 5
 	turns_per_move = 5
 	see_in_dark = 10
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/spider

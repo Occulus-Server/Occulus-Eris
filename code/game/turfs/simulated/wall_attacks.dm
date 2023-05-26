@@ -14,7 +14,7 @@
 		set_light(0)
 	else
 		can_open = WALL_OPENING
-		//FLICK("[material.icon_base]fwall_closing", src)
+		//flick("[material.icon_base]fwall_closing", src)
 		density = TRUE
 		set_opacity(TRUE)
 		update_icon()
@@ -25,9 +25,10 @@
 	update_icon()
 
 /turf/simulated/wall/proc/fail_smash(var/mob/user)
+	playsound(src, pick(WALLHIT_SOUNDS), 50, 1)
 	to_chat(user, SPAN_DANGER("You smash against the wall!"))
 	user.do_attack_animation(src)
-	take_damage(rand(25,75))
+	take_damage(rand(15,45))
 
 /turf/simulated/wall/proc/success_smash(var/mob/user)
 	to_chat(user, SPAN_DANGER("You smash through the wall!"))
@@ -53,43 +54,40 @@
 		toggle_open(user)
 	return 0
 
-
 /turf/simulated/wall/attack_hand(var/mob/user)
 
 	radiate()
 	add_fingerprint(user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	var/rotting = (locate(/obj/effect/overlay/wallrot) in src)
-	if (HULK in user.mutations)
+/*	if (HULK in user.mutations)
 		if (rotting || !prob(material.hardness))
 			success_smash(user)
 		else
 			fail_smash(user)
 			return 1
-
+*/
 	try_touch(user, rotting)
 
-/turf/simulated/wall/attack_generic(var/mob/user, var/damage, var/attack_message, var/wallbreaker)
+
+
+/turf/simulated/wall/attack_generic(mob/M, damage, attack_message)
+	M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	radiate()
-	if(!istype(user))
+	if(!istype(M))
 		return
 
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	var/rotting = (locate(/obj/effect/overlay/wallrot) in src)
-	if(!damage || !wallbreaker)
-		try_touch(user, rotting)
-		return
+	var/rot = locate(/obj/effect/overlay/wallrot) in src
+	var/hardness = reinf_material ? max(material.hardness, reinf_material.hardness) : material.hardness
 
-	if(rotting)
-		return success_smash(user)
+	if(!damage)
+		try_touch(M, rot)
 
-	if(reinf_material)
-		if((wallbreaker == 2) || (damage >= max(material.hardness,reinf_material.hardness)))
-			return success_smash(user)
-	else if(damage >= material.hardness)
-		return success_smash(user)
-	return fail_smash(user)
+	else if(damage >= hardness)
+		return success_smash(M)
+	else
+		fail_smash(M)
 
 /turf/simulated/wall/attackby(obj/item/I, mob/user)
 
@@ -140,7 +138,7 @@
 					return
 			if(thermite)
 				if(I.use_tool(user, src, WORKTIME_INSTANT,tool_type, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
-					to_chat(user, SPAN_NOTICE("You ignite the termit with the [I]!"))
+					to_chat(user, SPAN_NOTICE("You ignite the thermite with the [I]!"))
 					thermitemelt(user)
 					return
 			if(damage)
@@ -185,7 +183,7 @@
 				to_chat(user, SPAN_NOTICE("You struggle to pry off the outer sheath..."))
 				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
 					to_chat(user, SPAN_NOTICE("You pry off the outer sheath."))
-					dismantle_wall()
+					dismantle_wall(user)
 					return
 			return
 
@@ -235,17 +233,21 @@
 		var/dam_threshhold = material.integrity
 		if(reinf_material)
 			dam_threshhold = CEILING(max(dam_threshhold,reinf_material.integrity) * 0.5, 1)
-		var/dam_prob = min(100,material.hardness*1.5)
+		var/dam_prob = material.hardness * 1.4
 		if (locate(/obj/effect/overlay/wallrot) in src)
 			dam_prob *= 0.5 //Rot makes reinforced walls breakable
+		if(ishuman(user))
+			var/mob/living/carbon/human/attacker = user
+			dam_prob -= attacker.stats.getStat(STAT_ROB)
 		if(dam_prob < 100 && attackforce > (dam_threshhold/10))
 			playsound(src, hitsound, 80, 1)
 			if(!prob(dam_prob))
-				visible_message(SPAN_DANGER("\The [user] attacks \the [src] with \the [I] and it [material.destruction_desc]!"))
-				dismantle_wall(1)
-			else
 				visible_message(SPAN_DANGER("\The [user] attacks \the [src] with \the [I]!"))
+				playsound(src, pick(WALLHIT_SOUNDS), 100, 5)
+				take_damage(attackforce)
+			else
+				visible_message(SPAN_WARNING("\The [user] attacks \the [src] with \the [I]!"))
 		else
 			visible_message(SPAN_DANGER("\The [user] attacks \the [src] with \the [I], but it bounces off!"))
 		user.do_attack_animation(src)
-		return
+

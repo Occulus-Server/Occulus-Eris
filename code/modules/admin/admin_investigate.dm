@@ -29,7 +29,7 @@
 //ADMINVERBS
 ADMIN_VERB_ADD(/client/proc/investigate_show, R_ADMIN, TRUE)
 //various admintools for investigation. Such as a singulo grief-log
-/client/proc/investigate_show( subject in list("hrefs","notes","singulo","telesci","atmos","chemistry", INVESTIGATE_CIRCUIT) )
+/client/proc/investigate_show(subject in list("hrefs","notes","singulo","telesci","atmos","chemistry"))
 	set name = "Investigate"
 	set category = "Admin"
 	if(!holder)	return

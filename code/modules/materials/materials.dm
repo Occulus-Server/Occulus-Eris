@@ -98,9 +98,9 @@ var/list/name_to_material
 
 	// Icons
 	var/icon_colour                                      // Colour applied to products of this material.
-	var/icon_base = "metal"                              // Wall and table base icon tag. See header.
+	var/icon_base = "solid"                              // Wall and table base icon tag. See header.
 	var/door_icon_base = "metal"                         // Door base icon tag. See header.
-	var/icon_reinf = "reinf_metal"                       // Overlay used
+	var/icon_reinf = "reinf_over"                       // Overlay used
 	var/list/stack_origin_tech = list(TECH_MATERIAL = 1) // Research level for stacks.
 
 	// Attributes
@@ -217,10 +217,13 @@ var/list/name_to_material
 		G.reinforce_girder()
 
 // Use this to drop a given amount of material.
-/material/proc/place_material(target, amount=1)
+/material/proc/place_material(target, amount=1, mob/living/user = null)
 	// Drop the integer amount of sheets
-	if(place_sheet(target, round(amount)))
+	var/obj/sheets = place_sheet(target, round(amount))
+	if(sheets)
 		amount -= round(amount)
+		if(user)
+			sheets.add_fingerprint(user)
 
 	// If there is a remainder left, drop it as a shard instead
 	if(amount)
@@ -311,11 +314,11 @@ var/list/name_to_material
 		return 0
 	if(temperature < ignition_point)
 		return 0
-	var/totalPhoron = 0
+	var/totalPlasma = 0
 	for(var/turf/simulated/floor/target_tile in RANGE_TURFS(2, T))
-		var/phoronToDeduce = (temperature/30) * effect_multiplier
-		totalPhoron += phoronToDeduce
-		target_tile.assume_gas("phoron", phoronToDeduce, 200+T0C)
+		var/plasmaToDeduce = (temperature/30) * effect_multiplier
+		totalPlasma += plasmaToDeduce
+		target_tile.assume_gas("plasma", plasmaToDeduce, 200+T0C)
 		spawn (0)
 			target_tile.hotspot_expose(temperature, 400)
 	return round(totalPhoron/100)
@@ -580,6 +583,7 @@ var/list/name_to_material
 	stack_type = /obj/item/stack/material/mhydrogen
 	icon_colour = "#E6C5DE"
 	stack_origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 6, TECH_MAGNET = 5)
+	display_name = "metallic hydrogen"
 
 /material/platinum
 	name = MATERIAL_PLATINUM
@@ -662,22 +666,6 @@ var/list/name_to_material
 	melting_point = T0C+300
 	flags = MATERIAL_PADDING
 
-/material/resin
-	name = "resin"
-	icon_colour = "#E85DD8"
-	dooropen_noise = 'sound/effects/attackblob.ogg'
-	door_icon_base = "resin"
-	melting_point = T0C+300
-	sheet_singular_name = "blob"
-	sheet_plural_name = "blobs"
-/*
-/material/resin/can_open_material_door(var/mob/living/user)
-	var/mob/living/carbon/M = user
-
-	if(istype(M) && locate(/obj/item/organ/internal/xenos/hivenode) in M.internal_organs)
-		return 1
-	return 0
-*/
 /material/biomatter
 	name = MATERIAL_BIOMATTER
 	stack_type = /obj/item/stack/material/biomatter
@@ -685,6 +673,13 @@ var/list/name_to_material
 	stack_origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 2)
 	sheet_singular_name = "sheet"
 	sheet_plural_name = "sheets"
+
+/material/compressed
+	name = MATERIAL_COMPRESSED
+	stack_type = /obj/item/stack/material/compressed
+	icon_colour = "#00E1FF"
+	sheet_singular_name = "cartrigde"
+	sheet_plural_name = "cartridges"
 
 //TODO PLACEHOLDERS:
 /material/leather

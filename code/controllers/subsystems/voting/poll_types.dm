@@ -121,7 +121,7 @@
 					var/mob/M = pick(MT.mobs_list)
 					// I suppose this will be obsolete someday
 					if(M == /mob/living/carbon/human)
-						typeText = "Human"
+						typeText = SPECIES_HUMAN
 					else
 						typeText = initial(M.name)
 				else if(istype(T, /tipsAndTricks/roles))
@@ -155,8 +155,8 @@
 	Evacuate Ship
 **********************/
 /datum/poll/evac
-	name = "Evacuate Ship"
-	question = "Do you want to call evacuation and restart the round?"
+	name = "Initiate Bluespace Jump"
+	question = "Do you want to initiate a bluespace jump and restart the round?"
 	time = 120
 //	minimum_win_percentage = 0.6 Occulus Edit, we are moving this to a simple majority
 	cooldown = 20 MINUTES
@@ -223,14 +223,39 @@
 #undef MINIMUM_VOTE_LIFETIME
 
 /datum/vote_choice/evac
-	text = "Abandon ship!"
+	text = "Initiate a bluespace jump!"
 
 /datum/vote_choice/evac/on_win()
-	evacuation_controller.call_evacuation(null, TRUE, TRUE, FALSE, TRUE)
+	evacuation_controller.call_evacuation(null, FALSE, TRUE, FALSE, TRUE)
 
 /datum/vote_choice/noevac
-	text = "Stay aboard"
+	text = "No need to depart yet!"
 
+
+/datum/poll/chaos_level_increase
+	name = "Increase Chaos Level"
+	question = "Do you want to increase the chaos level?"
+	description = "Higher chaos level makes storyteller events much more likely."
+	time = 120
+	minimum_win_percentage = 0.75 //High % needed for something that alters the whole round
+	cooldown = 30 MINUTES
+	next_vote = 90 MINUTES //Same lenght as bluespace jump
+	choice_types = list(/datum/vote_choice/yes_chaos_level, /datum/vote_choice/no_chaos_level)
+	only_admin = FALSE
+	can_revote = TRUE
+	can_unvote = TRUE
+	
+
+/datum/vote_choice/yes_chaos_level
+	text = "Increase the chaos level!"
+
+/datum/vote_choice/yes_chaos_level/on_win()
+	GLOB.chaos_level += 1
+	for(var/mob/M in SSmobs.mob_list | SShumans.mob_list)
+		to_chat(M, "<br><center><span class='danger'><b><font size=4>Chaos Level Increased</font></b><br></span></center><br>")
+
+/datum/vote_choice/no_chaos_level
+	text = "We have enough chaos already!"
 
 
 

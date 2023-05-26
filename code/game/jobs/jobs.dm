@@ -76,6 +76,9 @@ var/list/medical_positions = list(JOBS_MEDICAL)
 
 var/list/science_positions = list(JOBS_SCIENCE)
 
+
+var/list/moebius_positions = list(JOBS_MOEBIUS)
+
 //BS12 EDIT
 var/list/cargo_positions = list(JOBS_CARGO)
 

@@ -9,17 +9,17 @@
 	spawn_positions = 1
 	supervisors = "The Mekhanite Council"
 	selection_color = "#ecd37d"
-	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 25)
-
+	also_known_languages = list(LANGUAGE_LATIN = 100)
+	security_clearance = CLEARANCE_CLERGY
 	cruciform_access = list(
 		access_morgue, access_chapel_office, access_crematorium, access_hydroponics, access_janitor, access_maint_tunnels
 	)
 
 	access = list(
-		access_RC_announce, access_keycard_auth, access_heads, access_sec_doors, access_morgue, access_chapel_office, access_crematorium, access_hydroponics, access_janitor, access_maint_tunnels, access_change_nt	//SYZYGY EDIT - transcribes preacher cruciform access onto their ID
+		access_RC_announce, access_keycard_auth, access_heads, access_sec_doors, access_morgue, access_chapel_office, access_crematorium, access_hydroponics, access_janitor, access_maint_tunnels, access_change_nt	// Occulus EDIT - transcribes preacher cruciform access onto their ID
 	)
 
-	wage = WAGE_PROFESSIONAL //The church has deep pockets
+	wage = WAGE_COMMAND // The money of the soul is faith, and cold hard cash
 	department_account_access = TRUE
 	outfit_type = /decl/hierarchy/outfit/job/church/chaplain
 
@@ -29,8 +29,10 @@
 		STAT_TGH = 10,
 		STAT_ROB = 20,
 		STAT_VIG = 15,
-		STAT_COG = 10,
+		STAT_COG = 20,
 	)
+
+	perks = list(/datum/perk/channeling)
 
 	software_on_spawn = list(/datum/computer_file/program/records,
 							 /datum/computer_file/program/reports)
@@ -70,21 +72,23 @@
 	flag = ACOLYTE
 	department = DEPARTMENT_CHURCH
 	department_flag = CHURCH
-	faction = "CEV Northern Light"
-	total_positions = 2
-	spawn_positions = 2
-	supervisors = "the Mekhane Preacher"
+	faction = "CEV Northern Light"  // Occulus Edit - Remove Eris corp. reference
+	total_positions = 2 // Occulus Edit - Lower positions
+	spawn_positions = 2 // Occulus Edit - Lower positions
+	supervisors = "the Mekhane Preacher"  // Occulus Edit - Remove Eris corp. reference
 	selection_color = "#ecd37d"
-	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
+	also_known_languages = list(LANGUAGE_LATIN = 100)
+	security_clearance = CLEARANCE_COMMON
 	cruciform_access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)
-	access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)	//SYZYGY EDIT - transcribes acolyte cruciform access onto their ID
+	access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)	// Occulus Edit - transcribes acolyte cruciform access onto their ID
 	wage = WAGE_PROFESSIONAL
 	outfit_type = /decl/hierarchy/outfit/job/church/acolyte
 
 	stat_modifiers = list(
-	STAT_VIG = 15,
-	STAT_TGH = 15,
-	STAT_ROB = 15
+		STAT_VIG = 15,
+		STAT_TGH = 15,
+		STAT_ROB = 15,
+		STAT_COG = 10,
 	)
 
 	core_upgrades = list(
@@ -117,15 +121,17 @@
 	supervisors = "the Mekhane Preacher"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Hydroponicist")
-	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80)
+	also_known_languages = list(LANGUAGE_LATIN = 100)
+	security_clearance = CLEARANCE_COMMON
 	cruciform_access = list(access_hydroponics, access_morgue, access_crematorium, access_maint_tunnels)
-	wage = WAGE_PROFESSIONAL
+	wage = WAGE_PROFESSIONAL // The money of the soul is faith, and cold hard cash
 
 	outfit_type = /decl/hierarchy/outfit/job/church/gardener
 	stat_modifiers = list(
 		STAT_BIO = 20,
 		STAT_TGH = 10,
 		STAT_ROB = 10,
+		STAT_COG = 10,
 	)
 
 	core_upgrades = list(
@@ -162,15 +168,21 @@
 	supervisors = "the Mekhane Preacher"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Custodian","Sanitation Technician")
-	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80)
+	also_known_languages = list(LANGUAGE_LATIN = 100)
+	security_clearance = CLEARANCE_COMMON
 	cruciform_access = list(access_janitor, access_maint_tunnels, access_morgue, access_crematorium)
-	wage = WAGE_PROFESSIONAL
+	wage = WAGE_LABOUR_HAZARD // The money of the soul is faith, and cold hard cash
 	outfit_type = /decl/hierarchy/outfit/job/church/janitor
 
 	stat_modifiers = list(
 		STAT_ROB = 15,
 		STAT_TGH = 10,
-		STAT_VIG = 15
+		STAT_VIG = 15,
+		STAT_COG = 10,
+	)
+
+	core_upgrades = list(
+		CRUCIFORM_CUSTODIAN
 	)
 
 	perks = list(/datum/perk/neat)

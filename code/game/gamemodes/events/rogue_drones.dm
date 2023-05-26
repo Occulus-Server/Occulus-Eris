@@ -89,6 +89,6 @@
 	log_and_message_admins("Despawning [num_recovered] hostile combat drones due to event end.") //OCCULUS EDIT - better logging
 	
 	if(num_recovered > drones_list.len * 0.75)
-		command_announcement.Announce("Icarus drone control reports the malfunctioning wing has been recovered safely.", "Rogue drone alert")
+		command_announcement.Announce("IHS Atomos drone control reports the malfunctioning wing has been recovered safely.", "Rogue drone alert")
 	else
-		command_announcement.Announce("Icarus drone control registers disappointment at the loss of the drones, but the survivors have been recovered.", "Rogue drone alert")
+		command_announcement.Announce("IHS Atomos drone control registers disappointment at the loss of the drones, but the survivors have been recovered.", "Rogue drone alert")

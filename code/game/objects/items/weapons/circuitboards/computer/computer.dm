@@ -22,11 +22,6 @@
 	name = T_BOARD("medical records console")
 	build_path = /obj/machinery/computer/med_data
 
-/obj/item/electronics/circuitboard/scan_consolenew
-	name = T_BOARD("DNA machine")
-	build_path = /obj/machinery/computer/scan_consolenew
-	origin_tech = list(TECH_DATA = 2, TECH_BIO = 2)
-
 /obj/item/electronics/circuitboard/communications
 	name = T_BOARD("command and communications console")
 	build_path = /obj/item/modular_computer/console/preset/command
@@ -138,12 +133,6 @@
 	name = T_BOARD("navigation console")
 	build_path = /obj/machinery/computer/navigation
 
-/obj/item/electronics/circuitboard/ordercomp
-	name = T_BOARD("supply ordering console")
-	rarity_value = 40
-	build_path = /obj/machinery/computer/supplycomp/order
-	origin_tech = list(TECH_DATA = 2)
-
 /obj/item/electronics/circuitboard/shuttle
 	spawn_blacklisted = TRUE
 	bad_type = /obj/item/electronics/circuitboard/shuttle
@@ -189,8 +178,7 @@
 	name = T_BOARD("guest pass console")
 	build_path = /obj/machinery/computer/guestpass
 	origin_tech = list(TECH_DATA = 2)
-/*
+
 /obj/item/electronics/circuitboard/jtb
 	name = T_BOARD("junk tractor beam control console")
 	build_path = /obj/machinery/computer/jtb_console
-*/

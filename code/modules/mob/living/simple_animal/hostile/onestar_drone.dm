@@ -62,7 +62,7 @@
 	s.set_up(3, 1, src)
 	s.start()
 	if(prob(20))
-		var/list/os_components_reward = pick(list(
+		var/os_components_reward = pick(list(
 			/obj/item/stock_parts/capacitor/one_star,
 			/obj/item/stock_parts/scanning_module/one_star,
 			/obj/item/stock_parts/manipulator/one_star,
@@ -86,7 +86,7 @@
 	rarity_value = 59.5
 
 
-/mob/living/simple_animal/hostile/onestar_custodian/chef/adjustFireLoss(var/amount)
+/mob/living/simple_animal/hostile/onestar_custodian/chef/adjustFireLoss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	fireloss = min(max(fireloss + amount/2, 0),(maxHealth*2)) //Slightly resistant to fire, because it would blow apart otherwise

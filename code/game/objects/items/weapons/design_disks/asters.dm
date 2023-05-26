@@ -20,15 +20,15 @@
 		/datum/design/autolathe/tool/saw,
 		/datum/design/autolathe/tool/multitool,
 		/datum/design/autolathe/tool/pickaxe,
+		/datum/design/autolathe/tool/sledgehammer,
 		/datum/design/autolathe/tool/shovel,
 		/datum/design/autolathe/tool/spade,
 		/datum/design/autolathe/device/t_scanner,
-		/datum/design/autolathe/tool/rcd_ammo,
 		/datum/design/autolathe/tool/weldertool,
 		/datum/design/autolathe/tool/weldinggoggles,
 		/datum/design/autolathe/tool/weldermask,
-		//datum/design/autolathe/gun/flare_gun,
-		//datum/design/autolathe/ammo/flare_shell,
+		/datum/design/autolathe/gun/flare_gun,
+		/datum/design/autolathe/ammo/flare_shell,
 		/datum/design/autolathe/device/flamethrower,
 		/datum/design/autolathe/container/hcase_engi
 	)
@@ -46,6 +46,8 @@
 		/datum/design/autolathe/misc/radio_headset,
 		/datum/design/autolathe/misc/radio_bounced,
 		/datum/design/autolathe/misc/ashtray,
+		/datum/design/autolathe/misc/mirror,
+		/datum/design/autolathe/misc/earmuffs,
 		/datum/design/autolathe/container/drinkingglass,
 		/datum/design/autolathe/container/carafe,
 		/datum/design/autolathe/container/insulated_pitcher,
@@ -55,7 +57,7 @@
 		/datum/design/autolathe/container/vial,
 		/datum/design/autolathe/container/beaker,
 		/datum/design/autolathe/container/beaker_large,
-//		/datum/design/autolathe/container/mixingbowl, Occulus Edit - Not ported
+		/datum/design/autolathe/container/mixingbowl,
 		/datum/design/autolathe/container/pill_bottle,
 		/datum/design/autolathe/container/spray,
 		/datum/design/autolathe/container/freezer,
@@ -118,8 +120,8 @@
 	rarity_value = 13 // between standard and bulletproof armor
 	license = 6
 	designs = list(
+		/datum/design/autolathe/clothing/generic_vest_webbing,
 		/datum/design/autolathe/clothing/generic_helmet_visored,
+		/datum/design/autolathe/clothing/generic_vest_security_full = 2,
 		/datum/design/autolathe/clothing/riot_helmet = 2,
-		/datum/design/autolathe/clothing/generic_vest_security,
-		/datum/design/autolathe/clothing/generic_vest_webbing = 2
 	)

@@ -16,7 +16,7 @@
 */
 
 //This is the main parameter for tweaking SM balance, as it basically controls how the power variable relates to the rest of the game.
-#define POWER_FACTOR 1.0
+#define POWER_FACTOR 1
 #define DECAY_FACTOR 700			//Affects how fast the supermatter power decays
 #define CRITICAL_TEMPERATURE 5000	//K
 #define CHARGING_FACTOR 0.05
@@ -38,8 +38,10 @@
 	icon = 'icons/obj/engine.dmi'
 	icon_state = "darkmatter"
 	density = TRUE
-	anchored = 0
+	anchored = FALSE
 	light_range = 4
+
+	price_tag = 10000
 
 	var/gasefficency = 0.25
 
@@ -106,6 +108,8 @@
 			damage += 500
 		if(3)
 			damage += 200
+		if(4)
+			damage += 50
 
 /obj/machinery/power/supermatter/proc/explode()
 	log_and_message_admins("Supermatter exploded at [x] [y] [z]")
@@ -302,11 +306,11 @@
 	if(Adjacent(user))
 		return attack_hand(user)
 	else
-		ui_interact(user)
+		nano_ui_interact(user)
 	return
 
 /obj/machinery/power/supermatter/attack_ai(mob/user as mob)
-	ui_interact(user)
+	nano_ui_interact(user)
 
 /obj/machinery/power/supermatter/attack_hand(mob/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src], inducing a resonance... \his body starts to glow and bursts into flames before flashing into ash.</span>",\
@@ -316,7 +320,7 @@
 	Consume(user)
 
 // This is purely informational UI that may be accessed by AIs or robots
-/obj/machinery/power/supermatter/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/power/supermatter/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	var/data[0]
 
 	data["integrity_percentage"] = round(get_integrity())

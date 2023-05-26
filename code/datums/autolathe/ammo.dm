@@ -212,6 +212,10 @@
 	name = "ammo strip (.20 Rifle)"
 	build_path = /obj/item/ammo_magazine/slsrifle
 
+/datum/design/autolathe/ammo/sl_srifle
+	name = "speed loader (.20 Rifle)"
+	build_path = /obj/item/ammo_magazine/slsrifle_rev
+
 /datum/design/autolathe/ammo/sl_srifle/rubber
 	name = "ammo strip (.20 Rifle rubber)"
 	build_path = /obj/item/ammo_magazine/slsrifle/rubber
@@ -221,7 +225,7 @@
 	build_path = /obj/item/ammo_magazine/ammobox/srifle
 
 /datum/design/autolathe/ammo/srifle_ammobox/rubber
-	name = "ammunition box (.20 Rifle practice)"
+	name = "ammunition box (.20 Rifle rubber)"
 	build_path = /obj/item/ammo_magazine/ammobox/srifle/rubber
 
 /datum/design/autolathe/ammo/srifle_ammobox_small
@@ -257,6 +261,10 @@
 /datum/design/autolathe/ammo/c10x24 // Dallas speshul
 	name = "box magazine (.25 Caseless)"
 	build_path = /obj/item/ammo_magazine/c10x24
+
+/datum/design/autolathe/ammo/ihclmg
+	name = "LMG munition box (.25 rifle)"
+	build_path = /obj/item/ammo_magazine/ihclmg
 
 // .25 rifle, but wide
 
@@ -326,15 +334,14 @@
 	name = "LMG munitions box (.30 Rifle)"
 	build_path = /obj/item/ammo_magazine/lrifle/pk
 
-/*
-/datum/design/autolathe/ammo/maxim Occulus Edit - Needs vote
-/	name = "pan magazine (.30 Rifle)"
-/	build_path = /obj/item/ammo_magazine/maxim
-/
+/datum/design/autolathe/ammo/maxim
+	name = "pan magazine (.30 Rifle)"
+	build_path = /obj/item/ammo_magazine/maxim
+
 /datum/design/autolathe/ammo/maxim/rubber
 	name = "pan magazine (.30 Rifle rubber)"
-	build_path = /obj/item/ammo_magazine/maxim/rubber Occulus Edit End
-*/
+	build_path = /obj/item/ammo_magazine/maxim/rubber
+
 // .30 ammoboxes
 
 /datum/design/autolathe/ammo/lrifle_ammobox
@@ -367,3 +374,28 @@
 	name = "chemical darts magazine"
 	build_path = /obj/item/ammo_magazine/chemdart
 
+/datum/design/autolathe/ammo/flare_shell
+	name = "flare shell"
+	build_path = /obj/item/ammo_casing/flare
+
+// Grenade launcher
+
+/datum/design/autolathe/ammo/fs_stinger
+	name = "FS sting shell"
+	build_path = /obj/item/ammo_casing/grenade
+
+/datum/design/autolathe/ammo/nt_stinger
+	name = "NT sting shell"
+	build_path = /obj/item/ammo_casing/grenade/weak
+
+/datum/design/autolathe/ammo/shell_frag
+	name = "frag shell"
+	build_path = /obj/item/ammo_casing/grenade/frag
+
+/datum/design/autolathe/ammo/shell_emp
+	name = "emp shell"
+	build_path = /obj/item/ammo_casing/grenade/emp
+
+/datum/design/autolathe/ammo/shell_heatwave
+	name = "heatwave shell"
+	build_path = /obj/item/ammo_casing/grenade/heatwave

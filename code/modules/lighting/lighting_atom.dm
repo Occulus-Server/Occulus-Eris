@@ -70,7 +70,8 @@
 
 	if(istype(loc, /turf/simulated/open))
 		var/turf/simulated/open/open = loc
-		open.Entered(src)
+		if(open.isOpen())
+			open.fallThrough(src)
 
 // If we have opacity, make sure to tell (potentially) affected light sources.
 /atom/movable/Destroy()
@@ -128,5 +129,5 @@
 
 /obj/item/dropped()
 	. = ..()
-	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, src)
+	SEND_SIGNAL_OLD(src, COMSIG_ITEM_DROPPED, src)
 	update_light()

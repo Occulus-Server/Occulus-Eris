@@ -51,7 +51,7 @@
 /datum/objective/timed/excelsior/Process()
 	detect_timer -= 1 SECONDS
 	if(detect_timer <= 0)
-		//level_nine_announcement()
+		level_nine_announcement()
 		STOP_PROCESSING(SSobj, src)
 
 /datum/objective/timed/excelsior/proc/on_convert()

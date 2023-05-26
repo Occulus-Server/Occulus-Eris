@@ -55,6 +55,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/burnt = 0
 	var/smoketime = 5
 
+	price_tag = 5
+
+	var/burnt = 0
+	var/smoketime = 5
+
 /obj/item/flame/match/Process()
 	if(isliving(loc))
 		var/mob/living/M = loc
@@ -98,6 +103,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "You're not sure what this is. You should probably ahelp it."
 	body_parts_covered = 0
 	bad_type = /obj/item/clothing/mask/smokable
+	price_tag = 5
 	var/lit = 0
 	var/icon_on
 	var/icon_off
@@ -122,6 +128,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/turf/location = get_turf(src)
 	smoketime--
 	if(smoketime < 0)
+		if(ishuman(loc))
+			var/mob/living/carbon/human/H = loc
+			if(!H.stat)
+				for(var/obj/item/material/ashtray/A in view(1, loc))
+					if(A.contents.len < A.max_butts)
+						A.attackby(src, loc)
+						return
 		die()
 		return
 	if(location)
@@ -226,6 +239,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette
 	name = "cigarette"
 	desc = "A roll of tobacco and nicotine."
+	description_info = "A cheap and easy source for a constant income of Sanity. Nicotine withdrawal reduces biology knowledge however."
+	description_antag = "Can be injected with plasma or other reagents to either poison or blow when smoked."
 	icon_state = "cigoff"
 	throw_speed = 0.5
 	item_state = "cigoff"
@@ -272,12 +287,17 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			else
 				to_chat(user, SPAN_NOTICE("[src] is full."))
 
-/obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
+/obj/item/clothing/mask/smokable/cigarette/attack_self(mob/living/user as mob)
 	if(lit == 1)
 		user.visible_message(SPAN_NOTICE("[user] calmly drops and treads on the lit [src], putting it out instantly."))
+		add_fingerprint(user)
 		die(1)
 	return ..()
 
+/obj/item/clothing/mask/smokable/cigarette/on_slotmove(mob/user)
+	. = ..()
+	if(get_equip_slot() == SLOT_MASK)
+		add_fingerprint(user)
 
 /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 	desc = "A roll of tobacco and nicotine. They are just cancer sticks."
@@ -461,6 +481,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	attack_verb = list("burnt", "singed")
+	price_tag = 20
 	var/base_state
 
 /obj/item/flame/lighter/zippo
@@ -468,6 +489,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "The zippo."
 	icon_state = "zippo"
 	item_state = "zippo"
+	price_tag = 50
 
 /obj/item/flame/lighter/random
 

@@ -93,7 +93,7 @@
 	for(var/i = 1 to flora_diversity)
 		var/datum/seed/S = new()
 		S.randomize()
-		var/planticon = pick("alien","alien2","alien3","alien4") // Occulus Edit Correcting the alien1 growth stage bug!
+		var/planticon = "alien[rand(1,4)]"
 		S.set_trait(TRAIT_PRODUCT_ICON,planticon)
 		S.set_trait(TRAIT_PLANT_ICON,planticon)
 		var/color = pick(plantcolors)

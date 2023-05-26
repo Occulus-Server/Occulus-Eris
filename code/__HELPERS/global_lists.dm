@@ -40,6 +40,7 @@ GLOBAL_LIST_EMPTY(machines) //List of classless machinery. Removed from SSmachin
 GLOBAL_LIST_EMPTY(firealarm_list) //List of fire alarms
 GLOBAL_LIST_EMPTY(computer_list) //List of all computers
 GLOBAL_LIST_EMPTY(all_doors) //List of all airlocks
+GLOBAL_LIST_EMPTY(nt_doors) //List of all NeoTheology doors
 GLOBAL_LIST_EMPTY(atmos_machinery) //All things atmos
 
 GLOBAL_LIST_EMPTY(hearing_objects)			//list of all objects, that can hear mob say
@@ -48,8 +49,7 @@ GLOBAL_LIST_EMPTY(hearing_objects)			//list of all objects, that can hear mob sa
 GLOBAL_LIST_EMPTY(joblist)					//list of all jobstypes, minus borg and AI
 GLOBAL_LIST_EMPTY(all_departments)			//List of all department datums
 var/global/list/department_IDs = list(DEPARTMENT_COMMAND, DEPARTMENT_MEDICAL, DEPARTMENT_ENGINEERING,
- DEPARTMENT_SCIENCE, DEPARTMENT_SECURITY, DEPARTMENT_GUILD, DEPARTMENT_CHURCH, DEPARTMENT_CIVILIAN)
-GLOBAL_LIST_EMPTY(global_corporations)
+ DEPARTMENT_SCIENCE, DEPARTMENT_SECURITY, DEPARTMENT_GUILD, DEPARTMENT_CHURCH, DEPARTMENT_CIVILIAN, DEPARTMENT_OFFSHIP)
 
 
 GLOBAL_LIST_EMPTY(HUDdatums)
@@ -64,11 +64,12 @@ var/list/mannequins_
 var/global/list/all_species[0]
 var/global/list/all_languages[0]
 var/global/list/language_keys[0]					// Table of say codes for all languages
-var/global/list/whitelisted_species = list("Human") // Species that require a whitelist check.
-var/global/list/playable_species = list("Human")    // A list of ALL playable species, whitelisted, latejoin or otherwise.
+var/global/list/whitelisted_species = list(SPECIES_HUMAN) // Species that require a whitelist check.
+var/global/list/playable_species = list(SPECIES_HUMAN)    // A list of ALL playable species, whitelisted, latejoin or otherwise.
 
 // Posters
 GLOBAL_LIST_EMPTY(poster_designs)
+GLOBAL_LIST_EMPTY(poster_designs_asters)
 
 // Uplinks
 var/list/obj/item/device/uplink/world_uplinks = list()
@@ -86,6 +87,12 @@ GLOBAL_LIST_EMPTY(all_stash_datums)
 //PERKS
 GLOBAL_LIST_EMPTY(all_perks)
 
+//individual_objectives
+GLOBAL_LIST_EMPTY(all_faction_items)
+
+//faction_items
+GLOBAL_LIST_EMPTY(individual_objectives)
+
 //NeoTheology
 GLOBAL_LIST_EMPTY(all_rituals)//List of all rituals
 GLOBAL_LIST_EMPTY(global_ritual_cooldowns) // internal lists. Use ritual's cooldown_category
@@ -101,16 +108,16 @@ var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
 
 var/global/list/organ_structure = list(
 	torso = list(name= "Torso", children=list(BP_GROIN, BP_HEAD, BP_R_ARM, BP_L_ARM, OP_HEART, OP_LUNGS, OP_STOMACH)),
-	groin = list(name= "Groin",     parent=BP_CHEST, children=list(BP_L_LEG, BP_R_LEG, OP_KIDNEYS, OP_LIVER)),
+	groin = list(name= "Groin",     parent=BP_CHEST, children=list(BP_L_LEG, BP_R_LEG, OP_KIDNEYS, OP_LIVER)), // Occulus Edit - Single Kidney
 	head  = list(name= "Head",      parent=BP_CHEST, children=list(BP_BRAIN, BP_EYES)),
 	r_arm = list(name= "Right arm", parent=BP_CHEST, children=list(BP_R_HAND)),
 	l_arm = list(name= "Left arm",  parent=BP_CHEST, children=list(BP_L_HAND)),
 	r_leg = list(name= "Right leg", parent=BP_GROIN, children=list(BP_R_FOOT)),
 	l_leg = list(name= "Left leg",  parent=BP_GROIN, children=list(BP_L_FOOT)),
-	l_foot = list(name= "Left Foot",  parent=BP_L_LEG, children=list()),
+	l_foot = list(name= "Left Foot",  parent=BP_L_LEG, children=list()),  // Occulus Edit Start - Hands/Feet
 	r_foot = list(name= "Right Foot",  parent=BP_R_LEG, children=list()),
 	r_hand = list(name= "Right Hand",  parent=BP_R_ARM, children=list()),
-	l_hand = list(name= "Left Hand",  parent=BP_L_ARM, children=list()),
+	l_hand = list(name= "Left Hand",  parent=BP_L_ARM, children=list()), // Occulus Edit End
 	)
 /*
 var/global/list/organ_tag_to_name = list(
@@ -237,6 +244,11 @@ GLOBAL_LIST_EMPTY(ignore_health_alerts_from)
 		var/datum/job/J = new T
 		GLOB.joblist[J.title] = J
 
+	paths = subtypesof(/datum/individual_objective)
+	for(var/T in paths)
+		var/datum/individual_objective/IO = new T
+		GLOB.individual_objectives[T] = IO
+
 	//Stashes
 	paths = subtypesof(/datum/stash)
 	for(var/T in paths)
@@ -280,16 +292,16 @@ GLOBAL_LIST_EMPTY(ignore_health_alerts_from)
 			whitelisted_species += S.name
 
 	//Posters
-	paths = subtypesof(/datum/poster) - /datum/poster/wanted
+	paths = subtypesof(/datum/poster) - /datum/poster/wanted - /datum/poster/asters
 	for(var/T in paths)
-		var/datum/poster/P = new T
-		GLOB.poster_designs += P
+		var/datum/poster/poster = new T
+		GLOB.poster_designs += poster
 
-	//Corporations
-	paths = subtypesof(/datum/corporation)
+	// Aster posters
+	paths = subtypesof(/datum/poster/asters) - /datum/poster/wanted
 	for(var/T in paths)
-		var/datum/corporation/C = new T
-		global.GLOB.global_corporations[C.name] = C
+		var/datum/poster/asters/poster = new T
+		GLOB.poster_designs_asters += poster
 
 	paths = subtypesof(/datum/hud)
 	for(var/T in paths)

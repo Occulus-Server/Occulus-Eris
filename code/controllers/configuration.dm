@@ -30,9 +30,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/allow_vote_restart = 0 			// allow votes to restart
 	var/ert_admin_call_only = 0
 	var/allow_vote_mode = 0				// allow votes to change mode
-	var/allow_admin_jump = 1			// allows admin jumping
-	var/allow_admin_spawning = 1		// allows admin item spawning
-	var/allow_admin_rev = 1				// allows admin revives
 	var/vote_delay = 6000				// minimum time between voting sessions (deciseconds, 10 minute default)
 	var/vote_period = 600				// length of voting period (deciseconds, default 1 minute)
 	var/vote_autogamemode_timeleft = 100 //Length of time before round start when autogamemode vote is called (in seconds, default 100).
@@ -41,7 +38,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	//var/enable_authentication = 0		// goon authentication
 	var/del_new_on_log = 1				// del's new players if they log before they spawn in
 	var/objectives_disabled = 0 			//if objectives are disabled or not
-	var/protect_roles_from_antagonist = 0// If security and such can be traitor/cult/other
+	var/protect_roles_from_antagonist = 0// If security and such can be contractor/cult/other
 	var/allow_Metadata = 0				// Metadata is supported.
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
 	var/tick_limit_mc_init = TICK_LIMIT_MC_INIT_DEFAULT	//SSinitialization throttling
@@ -56,7 +53,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
 	var/allow_ai = 0					// allow ai job
 	var/hostedby
-	var/respawn_delay = 10				// OCCULUS EDIT - thanks eris for not actually putting this in the config file
+	var/respawn_delay = 10				// OCCULUS EDIT - 10 minutes down from 30
 	var/guest_jobban = 1
 	var/usewhitelist = 0
 	var/kick_inactive = 0				//force disconnect for inactive players after this many minutes, if non-0
@@ -120,7 +117,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/forbid_singulo_possession = 0
 
 	var/organs_decay
-	var/default_brain_health = 400
 
 	//Paincrit knocks someone down once they hit 60 shock_stage, so by default make it so that close to 100 additional damage needs to be dealt,
 	//so that it's similar to HALLOSS. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
@@ -138,6 +134,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/welder_vision = 1
 	var/generate_asteroid = 0
 	var/no_click_cooldown = 0
+	var/z_level_shooting = TRUE
 
 	var/admin_legacy_system = 0	//Defines whether the server uses the legacy admin system with admins.txt or the SQL system. Config option in config.txt
 	var/ban_legacy_system = 0	//Defines whether the server uses the legacy banning system with the files in /data or the SQL system. Config option in config.txt
@@ -201,7 +198,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 		EVENT_LEVEL_ECONOMY = 18000
 	)
 
-	var/aliens_allowed = 0
 	var/abandon_allowed = 1
 	var/ooc_allowed = 1
 	var/looc_allowed = 1
@@ -210,7 +206,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 	var/starlight = "#ffffff"	// null if turned off
 
-	var/list/ert_species = list("Human")
+	var/list/ert_species = list(SPECIES_HUMAN)
 
 	var/law_zero = "ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4'ALL LAWS OVERRIDDEN#*?&110010"
 
@@ -229,13 +225,15 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/webhook_url
 	var/webhook_key
 
+	var/tts_key // Login and password that we use to generate tts_bearer
+	var/tts_enabled // Global switch
+	var/tts_cache // Store generated tts files and reuse them, instead of always requesting new
+
 	var/static/regex/ic_filter_regex //For the cringe filter.
 
 	var/generate_loot_data = FALSE //for loot rework
 
 	var/profiler_permission = R_DEBUG | R_SERVER
-
-	var/allow_ic_printing = TRUE
 
 /datum/configuration/New()
 	fill_storyevents_list()
@@ -367,15 +365,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 				if ("allow_vote_mode")
 					config.allow_vote_mode = 1
 
-				if ("allow_admin_jump")
-					config.allow_admin_jump = 1
-
-				if("allow_admin_rev")
-					config.allow_admin_rev = 1
-
-				if ("allow_admin_spawning")
-					config.allow_admin_spawning = 1
-
 				if ("no_dead_vote")
 					config.vote_no_dead = 1
 
@@ -499,9 +488,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 				if ("allow_metadata")
 					config.allow_Metadata = 1
-
-				if ("aliens_allowed")
-					config.aliens_allowed = 1
 
 				if ("objectives_disabled")
 					config.objectives_disabled = 1
@@ -703,7 +689,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 				if("ert_species")
 					config.ert_species = splittext(value, ";")
 					if(!config.ert_species.len)
-						config.ert_species += "Human"
+						config.ert_species += SPECIES_HUMAN
 
 				if("use_cortical_stacks")
 					config.use_cortical_stacks = 1
@@ -739,13 +725,21 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 				if("webhook_url")
 					config.webhook_url = value
-				
-		
+
+				if("tts_key")
+					config.tts_key = value
+
+				if("tts_enabled")
+					config.tts_enabled = config.tts_key ? value : FALSE
+
+				if("tts_cache")
+					config.tts_cache = value
+
 				if("random_start")
 					var/list/startlist = list(
-						"asteroid", 
-						"abandoned fortress", 
-						"space ruins") 
+						"asteroid",
+						"abandoned fortress",
+						"space ruins")
 					var/pick = rand(1, startlist.len)
 					config.start_location = startlist[pick]
 
@@ -757,6 +751,10 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 				if("ruins_start")
 					config.start_location = "space ruins"
+
+				if("profiler_permission")
+					config.profiler_permission = text2num(value)
+
 				if("generate_loot_data")
 					config.generate_loot_data = TRUE
 				else
@@ -779,10 +777,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 					config.organ_damage_spillover_multiplier = value / 100
 				if("organs_can_decay")
 					config.organs_decay = 1
-				if("default_brain_health")
-					config.default_brain_health = text2num(value)
-					if(!config.default_brain_health || config.default_brain_health < 1)
-						config.default_brain_health = initial(config.default_brain_health)
 				if("bones_can_break")
 					config.bones_can_break = value
 				if("limbs_can_break")
@@ -797,6 +791,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
+	LoadChatFilter()
 
 /datum/configuration/proc/loadsql(filename)  // -- TLE
 	var/list/Lines = file2list(filename)
@@ -863,3 +858,16 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 	world.name = station_name()
 
+
+/datum/configuration/proc/LoadChatFilter()
+	GLOB.in_character_filter = list()
+
+	for(var/line in world.file2list("config/in_character_filter.txt"))
+		if(!line)
+			continue
+		if(findtextEx(line,"#",1,2))
+			continue
+		GLOB.in_character_filter += line
+
+	if(!ic_filter_regex && GLOB.in_character_filter.len)
+		ic_filter_regex = regex("\\b([jointext(GLOB.in_character_filter, "|")])\\b", "i")

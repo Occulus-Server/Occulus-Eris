@@ -3,6 +3,10 @@
     var/list/jobs_list       //list of jobs to which tip can be shown
     textColor = "#22458d"
 
+/tipsAndTricks/jobs/captain_boss
+    jobs_list = list(/datum/job/captain)
+    tipText = "As the Captain, you own this ship. You set the rules."
+
 /tipsAndTricks/jobs/ironhammer_theft
     jobs_list = list(/datum/job/ihc, /datum/job/gunserg, /datum/job/inspector, /datum/job/medspec, /datum/job/ihoper)
     tipText = "As an Aegis operative, you have broad access to chase criminals. This does not mean you can take anything you have access to. Taking things from other departments is theft!"
@@ -159,7 +163,7 @@
 
 /tipsAndTricks/jobs/chem_app
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist, /datum/job/cmo, /datum/job/doctor, /datum/job/paramedic)
-    tipText = "There is program in your PDA called NIRC (NanoTrasen Internal Reagent Catalogue) that can help you with chemistry."
+    tipText = "There is program in your PDA called NIRC (NanoTrasen Internal Reagent Catalogue) that can help you with chemistry." // Occculus Edit - Remove Eris company name
 
 /tipsAndTricks/jobs/drink_app
     jobs_list = list(/datum/job/clubworker, /datum/job/clubmanager)
@@ -168,22 +172,23 @@
 /tipsAndTricks/jobs/bots
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
     tipText = "Bots are tireless servants that you can create. No janitor? CleanBot to the rescue! Not enough medical staff? MedBot will solve that."
-/tipsAndTricks/jobs/ripley
-    jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
-    tipText = "The Ripley mech is an universal tool for a variety of tasks, be it mining, building, or deconstructing. It also has a rather strong melee attack."
 
-/tipsAndTricks/jobs/odysseus
+/tipsAndTricks/jobs/mech1
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
-    tipText = "The Odysseus is a reliable medical mech that can be used as a paramedic vehicle or mobile medical treatment machine."
+    tipText = "Exosuits are combat-oriented suits designed to excel against low-penetration attacks in close quarters. If spider infestations are giving you a bad time, try using an armed comabt exosuit to clear them. Watch out for EMPs."
 
-/tipsAndTricks/jobs/gygax
+/tipsAndTricks/jobs/mech2
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
-    tipText = "The Gygax is a combat mech. It is a lightly armored, but mobile threat."
+    tipText = "Exosuits have on-board gas analyzers and diagnostics. Try clicking on the gauge icon near your internals for a read-out of outside atmospherics conditions when using one, or click your exosuit's health icon to give a basic idea of your exosuit's status!"
 
-/tipsAndTricks/jobs/durand
+/tipsAndTricks/jobs/mech3
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
-    tipText = "The Durand is a combat mech. It is heavily armored and extra scary in confined spaces due to its punches and defense mode."
+    tipText = "Don't be afraid of mix-and-matching exosuit parts if you prefer a specific stat or just like the look. A powerloader with treads and a light, sealed chassis is perfectly valid."
 
-/tipsAndTricks/jobs/phazon
+/tipsAndTricks/jobs/mech4
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
-    tipText = "The Phazon is a rare combat mech. It has the highest base movespeed of any mech, good armor, and can phase through anything thanks to bluespace technology. Use responsibly."
+    tipText = "Want to change your exosuit's control software or power cell mid-fight? With maintenance mode enabled, use a screwdriver to remove circuit boards or a crowbar to remove the onboard power cell!"
+
+/tipsAndTricks/jobs/mech5
+    jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
+    tipText = "Exosuits have integrated storage pockets which can be accessed by dragging its sprite to yourself."

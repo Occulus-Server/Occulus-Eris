@@ -16,6 +16,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_SCRAP
 	sanity_damage = 0.1
+	price_tag = 100
 	var/loot_generated = FALSE
 	var/icontype = "general"
 	var/obj/item/storage/internal/updating/loot	//the visible loot
@@ -243,7 +244,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	I.transform = M
 	return I
 
-/obj/structure/scrap_spawner/on_update_icon(rebuild_base=FALSE)
+/obj/structure/scrap_spawner/update_icon(rebuild_base=FALSE)
 	if(clear_if_empty())
 		return
 
@@ -280,12 +281,10 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 			return FALSE
 		if(victim.gloves)
 			return FALSE
-		if(victim.wear_suit && istype(victim.wear_suit, /obj/item/clothing/suit/space)) //Eclipse edit: if getting cut through the spacesuit doesn't somehow depressurize it, then it should not cut you at all
+		if(victim.wear_suit && istype(victim.wear_suit, /obj/item/clothing/suit/space)) // Occulus edit: if getting cut through the spacesuit doesn't somehow depressurize it, then it should not cut you at all
 			return
-		var/obj/item/organ/external/BP = victim.get_organ(victim.hand ? BP_L_HAND : BP_R_HAND) //Eclipse edit: changed these to hands instead of arms because Eris doesn't have hands and we do
+		var/obj/item/organ/external/BP = victim.get_organ(victim.hand ? BP_L_HAND : BP_R_HAND) // Occulus edit: changed these to hands instead of arms because Eris doesn't have hands and we do
 		if(!BP)
-			return FALSE
-		if(BP_IS_ROBOTIC(BP))
 			return FALSE
 		to_chat(user, SPAN_DANGER("Ouch! You cut yourself while picking through \the [src]."))
 		BP.take_damage(5, null, TRUE, TRUE, "Sharp debris")
@@ -410,7 +409,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		SPAWN_MECH_QUIPMENT,
 		SPAWN_POWERCELL,
 		SPAWN_ASSEMBLY,SPAWN_STOCK_PARTS,SPAWN_DESIGN_COMMON,SPAWN_COMPUTER_HARDWERE,
-		SPAWN_TOOL, SPAWN_DIVICE, SPAWN_JETPACK, SPAWN_ITEM_UTILITY,SPAWN_TOOL_UPGRADE,SPAWN_TOOLBOX,SPAWN_VOID_SUIT,
+		SPAWN_TOOL, SPAWN_DEVICE, SPAWN_JETPACK, SPAWN_ITEM_UTILITY,SPAWN_TOOL_UPGRADE,SPAWN_TOOLBOX,SPAWN_VOID_SUIT,
 		SPAWN_GUN_UPGRADE,
 		SPAWN_POUCH,
 		SPAWN_MATERIAL_BUILDING = 2,
@@ -472,7 +471,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		SPAWN_ASSEMBLY,SPAWN_STOCK_PARTS,
 		SPAWN_DESIGN_COMMON,
 		SPAWN_COMPUTER_HARDWERE,
-		SPAWN_TOOL, SPAWN_DIVICE,
+		SPAWN_TOOL, SPAWN_DEVICE,
 		SPAWN_JETPACK,
 		SPAWN_ITEM_UTILITY = 0.5,
 		SPAWN_TOOL_UPGRADE,
@@ -665,7 +664,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	spawn_tags = SPAWN_TAG_BEACON_SCRAP
 
 
-/obj/structure/scrap_spawner/poor/structure/on_update_icon(rebuild_base=FALSE) //make big trash icon for this
+/obj/structure/scrap_spawner/poor/structure/update_icon(rebuild_base=FALSE) //make big trash icon for this
 	..()
 	if(!loot_generated)
 		underlays += image(icon, icon_state = "underlay_big")

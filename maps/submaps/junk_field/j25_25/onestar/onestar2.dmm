@@ -113,15 +113,9 @@
 /area/template_noop)
 "bt" = (
 /obj/structure/table/onestar,
-<<<<<<< HEAD
-/obj/item/paper_bin,
-/obj/item/pen,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-=======
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/tiled/derelict/red_white_edges/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "bu" = (
 /obj/spawner/scrap/sparse,
@@ -146,15 +140,9 @@
 	dir = 8
 	},
 /obj/structure/table/onestar,
-<<<<<<< HEAD
-/obj/item/stamp/denied,
-/obj/item/pen,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-=======
 /obj/item/stamp/denied,
 /obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_perforated/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "bN" = (
 /turf/simulated/wall/untinted/onestar,
@@ -168,13 +156,8 @@
 	},
 /obj/structure/table/onestar,
 /obj/item/remains/human,
-<<<<<<< HEAD
-/obj/item/pen,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-=======
 /obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_perforated/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "cK" = (
 /mob/living/simple_animal/hostile/roomba/gun_ba,
@@ -185,13 +168,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-<<<<<<< HEAD
-/obj/item/folder/red,
-/turf/simulated/floor/tiled/dark/techfloor,
-=======
 /obj/item/folder/red,
 /turf/simulated/floor/tiled/dark/techfloor/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "eD" = (
 /obj/structure/closet/secure_closet/medicine,
@@ -254,13 +232,8 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 8
 	},
-<<<<<<< HEAD
-/obj/item/pen,
-/turf/simulated/floor/tiled/dark/brown_platform,
-=======
 /obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_platform/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "lj" = (
 /mob/living/simple_animal/hostile/roomba/boomba,
@@ -271,13 +244,8 @@
 /turf/simulated/floor/tiled/cafe/airless,
 /area/template_noop)
 "nC" = (
-<<<<<<< HEAD
-/obj/item/pen,
-/turf/simulated/floor/tiled/dark/brown_platform,
-=======
 /obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_platform/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "nF" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -315,13 +283,8 @@
 	dir = 4
 	},
 /obj/structure/table/onestar,
-<<<<<<< HEAD
-/obj/item/stamp/chameleon,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-=======
 /obj/item/stamp/chameleon,
 /turf/simulated/floor/tiled/dark/brown_perforated/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "pb" = (
 /obj/structure/cyberplant{
@@ -419,13 +382,8 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-<<<<<<< HEAD
-/obj/item/folder/red,
-/turf/simulated/floor/tiled/dark/techfloor,
-=======
 /obj/item/folder/red,
 /turf/simulated/floor/tiled/dark/techfloor/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "yJ" = (
 /obj/structure/window/reinforced{
@@ -493,13 +451,8 @@
 /area/template_noop)
 "Ej" = (
 /obj/structure/table/onestar,
-<<<<<<< HEAD
-/obj/item/phone,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-=======
 /obj/item/phone,
 /turf/simulated/floor/tiled/dark/brown_perforated/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "ES" = (
 /turf/simulated/wall/untinted/onestar_reinforced,
@@ -547,13 +500,8 @@
 	dir = 4
 	},
 /obj/structure/table/onestar,
-<<<<<<< HEAD
-/obj/item/stamp/denied,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-=======
 /obj/item/stamp/denied,
 /turf/simulated/floor/tiled/dark/brown_perforated/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "Hc" = (
 /obj/structure/window/reinforced{
@@ -613,15 +561,9 @@
 	dir = 4
 	},
 /obj/structure/table/onestar,
-<<<<<<< HEAD
-/obj/item/paper_bin,
-/obj/item/pen,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-=======
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_perforated/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "Lz" = (
 /obj/structure/railing/grey,
@@ -665,13 +607,8 @@
 "Pc" = (
 /obj/structure/table/onestar,
 /obj/machinery/light/floor,
-<<<<<<< HEAD
-/obj/item/storage/lunchbox/rainbow,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-=======
 /obj/item/storage/lunchbox/rainbow,
 /turf/simulated/floor/tiled/dark/brown_perforated/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "Qe" = (
 /obj/structure/sign/derelict2{
@@ -693,13 +630,8 @@
 	dir = 6
 	},
 /obj/structure/table/onestar,
-<<<<<<< HEAD
-/obj/item/paper_bin,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-=======
 /obj/item/paper_bin,
 /turf/simulated/floor/tiled/dark/brown_perforated/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "Rf" = (
 /obj/machinery/vending,
@@ -741,13 +673,8 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 4
 	},
-<<<<<<< HEAD
-/obj/item/lipstick/black,
-/turf/simulated/floor/tiled/dark/brown_platform,
-=======
 /obj/item/lipstick/black,
 /turf/simulated/floor/tiled/dark/brown_platform/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "VK" = (
 /obj/structure/window/reinforced{
@@ -757,16 +684,6 @@
 	dir = 6
 	},
 /obj/structure/table/onestar,
-<<<<<<< HEAD
-/obj/item/paper_bin,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/template_noop)
-"Xm" = (
-/obj/structure/table/onestar,
-/obj/item/pen/reagent/sleepy,
-/obj/item/newspaper,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-=======
 /obj/item/paper_bin,
 /turf/simulated/floor/tiled/dark/brown_perforated/airless,
 /area/template_noop)
@@ -775,7 +692,6 @@
 /obj/item/pen/reagent/sleepy,
 /obj/item/newspaper,
 /turf/simulated/floor/tiled/dark/brown_perforated/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "XL" = (
 /obj/structure/bed/chair/comfy/beige{

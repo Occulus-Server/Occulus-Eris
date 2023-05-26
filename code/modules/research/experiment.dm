@@ -1,6 +1,5 @@
 // Contains everything related to earning research points
-#define AUTOPSY_WEAPON_PAMT rand(5,10) * 100 // 500-1000 points for random weapon Occulus Edit
-#define ARTIFACT_PAMT rand(5,10) * 1000 // 5000-10000 points for random artifact
+#define AUTOPSY_WEAPON_PAMT rand(5,10) * 100 // 50-100 points for random weapon // Occulus Edit - Bumped up to 500-1000 points.
 
 GLOBAL_LIST_EMPTY(explosion_watcher_list)
 
@@ -20,19 +19,8 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 		TECH_COVERT = 5000,
 	)
 
-	// So we don't give points for researching non-artifact item
-	var/static/list/artifact_types = list(
-		/obj/machinery/auto_cloner,
-		/obj/machinery/power/supermatter,
-		/obj/machinery/giga_drill,
-//		/obj/mecha/working/hoverpod,
-		/obj/machinery/replicator,
-		/obj/machinery/artifact
-	)
-
 	var/list/saved_tech_levels = list() // list("materials" = list(1, 4, ...), ...)
 	var/list/saved_autopsy_weapons = list()
-	var/list/saved_artifacts = list()
 	var/list/saved_symptoms = list()
 	var/list/saved_slimecores = list()
 
@@ -112,19 +100,6 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 			else
 				points += AUTOPSY_WEAPON_PAMT
 
-	for(var/list/artifact in I.scanned_artifacts)
-		if(!(artifact["type"] in artifact_types)) // useless
-			continue
-
-		var/already_scanned = FALSE
-		for(var/list/our_artifact in saved_artifacts)
-			if(our_artifact["type"] == artifact["type"] && our_artifact["first_effect"] == artifact["first_effect"] && our_artifact["second_effect"] == artifact["second_effect"])
-				already_scanned = TRUE
-				break
-
-		if(!already_scanned)
-			points += ARTIFACT_PAMT
-			saved_artifacts += list(artifact)
 
 	for(var/symptom in I.scanned_symptoms)
 		if(saved_symptoms[symptom])
@@ -158,15 +133,6 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 
 	for(var/weapon in O.saved_autopsy_weapons)
 		saved_autopsy_weapons |= weapon
-
-	for(var/list/artifact in O.saved_artifacts)
-		var/has_artifact = FALSE
-		for(var/list/our_artifact in saved_artifacts)
-			if(our_artifact["type"] == artifact["type"] && our_artifact["first_effect"] == artifact["first_effect"] && our_artifact["second_effect"] == artifact["second_effect"])
-				has_artifact = TRUE
-				break
-		if(!has_artifact)
-			saved_artifacts += list(artifact)
 
 	for(var/symptom in O.saved_symptoms)
 		saved_symptoms[symptom] = O.saved_symptoms[symptom]
@@ -210,7 +176,7 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 			if(power > saved_power_level)
 				RD.files.experiments.saved_best_explosion = power
 
-			RD.files.research_points += calculated_research_points
+			RD.files.adjust_research_points(calculated_research_points)
 
 	if(calculated_research_points > 0)
 		autosay("Detected explosion with power level [power], received [calculated_research_points] research points", name ,"Science")
@@ -231,13 +197,12 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 	throw_range = 10
 	matter = list(MATERIAL_STEEL = 5)
 	origin_tech = list(TECH_ENGINEERING = 1, TECH_BIO = 1)
-	spawn_tags = SPAWN_TAG_DIVICE_SCIENCE
+	spawn_tags = SPAWN_TAG_DEVICE_SCIENCE
 	spawn_frequency = 5
 	rarity_value = 8
 
 	var/datum/experiment_data/experiments
 	var/list/scanned_autopsy_weapons = list()
-	var/list/scanned_artifacts = list()
 	var/list/scanned_symptoms = list()
 	var/list/scanned_slimecores = list()
 	var/datablocks = 0
@@ -258,21 +223,6 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 			if(!(W.weapon in scanned_autopsy_weapons))
 				scanneddata += 1
 				scanned_autopsy_weapons += W.weapon
-
-	if(istype(O, /obj/item/paper/artifact_info))
-		var/obj/item/paper/artifact_info/report = O
-		if(report.artifact_type)
-			for(var/list/artifact in scanned_artifacts)
-				if(artifact["type"] == report.artifact_type && artifact["first_effect"] == report.artifact_first_effect && artifact["second_effect"] == report.artifact_second_effect)
-					to_chat(user, SPAN_NOTICE("[src] already has data about this artifact report"))
-					return
-
-			scanned_artifacts += list(list(
-				"type" = report.artifact_type,
-				"first_effect" = report.artifact_first_effect,
-				"second_effect" = report.artifact_second_effect,
-			))
-			scanneddata += 1
 
 	if(istype(O, /obj/item/paper/virus_report))
 		var/obj/item/paper/virus_report/report = O
@@ -297,19 +247,49 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 
 /obj/item/device/science_tool/proc/clear_data()
 	scanned_autopsy_weapons = list()
-	scanned_artifacts = list()
 	scanned_symptoms = list()
 	scanned_slimecores = list()
 	datablocks = 0
 
-
+/obj/item/computer_hardware/hard_drive/portable/research_points/proc/get_title()
+	var/list/verb_ion = list("exploration", "development", "refinement", "investigation", "analysis", "improvement", "emulation", "simulation", "construction", "evaluation", "deployment", "synthesis", "visualization")
+	var/list/prefixes = list("","[pick(verb_ion)]: ")
+	var/list/suffixes = list("using [pick(verb_ion)]","with [pick(verb_ion)]")
+	var/list/subjects = list("proprioception", "implants", "null space", "AI", "neural networks", "drones", "cyborgs", "human thought", "materiel", "materials", "microgravity", "artificial gravity", "MMIs", "brain death", "system shock", "SSD", "memory transcription", "closed intranets", "internal networks", "bluespace fault tolerance", "bluespace translocation", "firewalls", "ICE", "symmetric encryption", "NTNet", "low-light ecosystems", "algorithms", "systems", "ionospheric anomalies", "mass hallucinations", "human experimentation")
+	var/list/impact = list("impact of", "effect of", "influence of")
+	var/list/verb_ing = list("harnessing", "enabling", "exploring", "controlling", "developing", "refining", "investigating", "improving", "analyzing", "constructing", "simulating", "evaluating", "emulating", "deploying", "synthesizing", "visualizing", "studying")
+	var/list/buzzword_nouns = list("wetware", "technology", "nanotechnology", "communication", "algorithms", "theory", "methodologies", "information", "models", "archetypes", "configurations", "modalities", "symmetries", "epistemologies", "gradients", "plots", "matrices", "manifolds", "methods")
+	var/list/buzzword_adjs = list("n-dimensional", "anomalistic", "parallel", "noisy", "discrete", "exhaustive", "randomized", "pipelined", "critical", "heuristic", "bluespace", "high-throughput", "peer-to-peer", "game-theoretic", "knowledge-based", "relational", "compact", "ubiquitous", "linear-time", "fuzzy", "embedded", "constant-time", "client-server", "efficient", "reliable", "replicated", "low-energy", "omniscient", "wireless", "modular", "autonomous", "introspective", "distributed", "flexible", "extensible", "amphibious", "metamorphic", "ambimorphic", "permutable", "adaptive", "self-learning", "trainable", "smart", "classical", "atomic", "event-driven", "read-write", "encrypted", "highly-available", "secure", "interposable", "cacheable", "perfect", "electronic", "pervasive", "large-scale", "multimodal", "authenticated", "interactive", "heterogeneous", "homogeneous", "collaborative", "concurrent", "probabilistic", "mobile", "semantic", "real-time", "cooperative", "decentralized", "scalable", "certifiable", "robust", "signed", "virtual", "lossless", "psychoacoustic", "empathic", "optimal", "stable", "unstable", "symbiotic", "stochastic", "Monte Carlo", "pseudorandom")
+	var/buzzword_adj_multi = "[pick(buzzword_adjs)], [pick(buzzword_adjs)]"
+	var/list/fields = list("cyanocommunication", "cyanotranslocation", "population control", "psychoanalysis", "networking", "operating systems", "programming languages", "theory", "algorithms", "chaos theory", "artificial intelligence", "machine learning", "robotics", "electrical engineering", "cyborg engineering", "drone fabrication", "cryptography", "cryptanalysis", "cyberinformatics", "steganography", "software engineering", "information control", "memetics")
+	var/list/compare = list("comparing", "contrasting", "the relationship between", pick(verb_ing))
+	var/list/status = list("ethical", "unethical", "harmful", "desirable", "detrimental", "practical", "effective", "beneficial", "crucial", "instrumental")
+	var/list/titles = list("[pick(prefixes)][pick(verb_ion)] of [pick(subjects)]",
+							"on the [pick(verb_ion)] of [pick(subjects)]",
+							"a [pick(verb_ion)] of [pick(subjects)] [pick(suffixes)]",
+							"[pick(subjects)] [pick("","no longer ")]considered [pick(status)] in [pick("","[pick(buzzword_adjs)] ")][pick(fields)]",
+							"deconstructing [pick(subjects)] [pick(suffixes)]",
+							"decoupling [pick(subjects)] from [pick(subjects)] in [pick(subjects)]",
+							"[pick(prefixes)]a methodology for the [pick(verb_ion)] of [pick(subjects)]",
+							"a case [pick("for", "against")] [pick(subjects)]",
+							"[pick(verb_ing)] [pick(subjects)] using [pick(buzzword_adjs)] [pick(buzzword_nouns)]",
+							"[pick(verb_ing)] [pick(subjects)] and [pick(subjects)] [pick(suffixes)]",
+							"[pick(prefixes)][buzzword_adj_multi] [pick(buzzword_nouns)]",
+							"[pick(compare)] [pick(subjects)] and [pick(subjects)] [pick(suffixes)]",
+							"the [pick(impact)] [pick(buzzword_adjs)] [pick(buzzword_nouns)] on [pick("","[pick(buzzword_adjs)] ")][pick(fields)]",
+							"[buzzword_adj_multi] [pick(buzzword_nouns)] for [pick(subjects)]")
+	return capitalize(pick(titles))
 /obj/item/computer_hardware/hard_drive/portable/research_points
-	disk_name = "research data"
+	desc = "A removable disk used to store large amounts of research data."
 	icon_state = "onestar"
 	spawn_tags = SPAWN_TAG_RESEARCH_POINTS
 	rarity_value = 12
 	var/min_points = 2000
 	var/max_points = 10000
+
+/obj/item/computer_hardware/hard_drive/portable/research_points/Initialize()
+	disk_name = get_title()
+	. = ..()
 
 /obj/item/computer_hardware/hard_drive/portable/research_points/install_default_files()
 	..()

@@ -7,6 +7,7 @@
 	universal_speak = 1
 	density = FALSE
 	bad_type = /mob/living/bot
+	tts_seed = "Robot_1"
 	var/obj/item/card/id/botcard = null
 	var/list/botcard_access = list()
 	var/on = TRUE
@@ -78,7 +79,7 @@
 	else if(istype(O, /obj/item/tool/weldingtool))
 		if(health < maxHealth)
 			if(open)
-				health = min(maxHealth, health + 10)
+				adjustBruteLoss(-10)
 				user.visible_message(SPAN_NOTICE("[user] repairs [src]."),SPAN_NOTICE("You repair [src]."))
 			else
 				to_chat(user, SPAN_NOTICE("Unable to repair with the maintenance panel closed."))

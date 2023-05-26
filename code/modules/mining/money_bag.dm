@@ -5,8 +5,8 @@
 	name = "Money bag"
 	icon_state = "moneybag"
 	flags = CONDUCT
-	force = 10.0
-	throwforce = 2.0
+	force = 10
+	throwforce = 2
 	w_class = ITEM_SIZE_BULKY
 
 /obj/item/moneybag/attack_hand(user as mob)
@@ -16,14 +16,14 @@
 	var/amt_silver = 0
 	var/amt_diamond = 0
 	var/amt_iron = 0
-	var/amt_phoron = 0
+	var/amt_plasma = 0
 	var/amt_uranium = 0
 
 	for (var/obj/item/coin/C in contents)
 		if (istype(C,/obj/item/coin/diamond))
 			amt_diamond++;
-		if (istype(C,/obj/item/coin/phoron))
-			amt_phoron++;
+		if (istype(C,/obj/item/coin/plasma))
+			amt_plasma++;
 		if (istype(C,/obj/item/coin/iron))
 			amt_iron++;
 		if (istype(C,/obj/item/coin/silver))
@@ -43,7 +43,7 @@
 	if (amt_diamond)
 		dat += text("Diamond coins: [amt_diamond] <A href='?src=\ref[src];remove=diamond'>Remove one</A><br>")
 	if (amt_phoron)
-		dat += text("Phoron coins: [amt_phoron] <A href='?src=\ref[src];remove=phoron'>Remove one</A><br>")
+		dat += text("Phoron coins: [amt_plasma] <A href='?src=\ref[src];remove=plasma'>Remove one</A><br>") // Occulus Edit - Plasma > Phoron
 	if (amt_uranium)
 		dat += text("Uranium coins: [amt_uranium] <A href='?src=\ref[src];remove=uranium'>Remove one</A><br>")
 	user << browse("[dat]", "window=moneybag")
@@ -77,8 +77,8 @@
 				COIN = locate(/obj/item/coin/iron,src.contents)
 			if(MATERIAL_DIAMOND)
 				COIN = locate(/obj/item/coin/diamond,src.contents)
-			if("phoron")
-				COIN = locate(/obj/item/coin/phoron,src.contents)
+			if("plasma")
+				COIN = locate(/obj/item/coin/plasma,src.contents)
 			if(MATERIAL_URANIUM)
 				COIN = locate(/obj/item/coin/uranium,src.contents)
 		if(!COIN)

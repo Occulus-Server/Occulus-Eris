@@ -33,7 +33,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 
 /obj/machinery/hologram/holopad
 	name = "\improper AI holopad"
-	desc = "It's a floor-mounted device for projecting holographic images."
+	desc = "A floor-mounted device for projecting holographic images."
 	icon_state = "holopad0"
 
 	plane = FLOOR_PLANE
@@ -55,7 +55,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 
 /obj/machinery/hologram/holopad/New()
 	..()
-	desc = "It's a floor-mounted device for projecting holographic images. Its ID is '[loc.loc]'"
+	desc = "A floor-mounted device for projecting holographic images. Its ID is '[loc.loc]'"
 	add_hearing()
 
 /obj/machinery/hologram/holopad/Destroy()
@@ -347,12 +347,12 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 //Destruction procs.
 /obj/machinery/hologram/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
-		if(2.0)
+		if(2)
 			if (prob(50))
 				qdel(src)
-		if(3.0)
+		if(3)
 			if (prob(5))
 				qdel(src)
 	return

@@ -11,8 +11,8 @@
 	slot_flags = SLOT_HOLSTER|SLOT_BELT
 	projectile_type = /obj/item/projectile/beam
 	charge_cost = 50
-	can_dual = 1
-	zoom_factor = 0
+	can_dual = TRUE
+	zoom_factors = list()
 	damage_multiplier = 1
 	matter = list(MATERIAL_PLASTEEL = 8, MATERIAL_WOOD = 4, MATERIAL_SILVER = 2)
 	price_tag = 1000
@@ -23,4 +23,6 @@
 	twohanded = FALSE
 	suitable_cell = /obj/item/cell/small
 	cell_type = /obj/item/cell/small
+	init_recoil = HANDGUN_RECOIL(1)
+	serial_type = "NT"
 

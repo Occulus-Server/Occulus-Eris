@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(rad_collectors)
 	density = TRUE
 	req_access = list(access_engine_equip)
 
-	var/obj/item/tank/phoron/P = null
+	var/obj/item/tank/phoron/P = null // Occulus Edit - Plasma > Phoron
 	var/last_power = 0
 	var/last_power_new = 0
 	var/active = FALSE
@@ -88,7 +88,7 @@ GLOBAL_LIST_EMPTY(rad_collectors)
 		if(ABORT_CHECK)
 			return
 
-	if(istype(I, /obj/item/tank/phoron))
+	if(istype(I, /obj/item/tank/phoron)) // Occulus Edit - Plasma > Phoron
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("[src] needs to be secured to the floor first."))
 			return

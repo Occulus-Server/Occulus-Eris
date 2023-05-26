@@ -38,15 +38,15 @@
 	var/max_stage_diff_lower = 0
 	var/max_stage_diff_higher = 10
 
-	var/ocurrences = 0 //How many times this round, this storyevent has happened
-	var/ocurrences_max = -1
+	var/occurrences = 0 //How many times this round, this storyevent has happened
+	var/occurrences_max = -1
 	var/last_trigger_time = 0
 
 	var/has_priest = -1
 
 	//Things to configure
 	var/event_type
-	var/weight = 1
+	var/weight = 1 //Our base weight coefficient, which affects how likely we are to be picked from a list of other story events
 
 	//Which event pools this story event can appear in.
 	//Multiple options allowed, can be any combination of
@@ -71,7 +71,7 @@
 		if (report) to_chat(report, SPAN_NOTICE("Failure: The event is disabled"))
 		return FALSE
 
-	if (ocurrences_max > 0 && ocurrences >= ocurrences_max)
+	if (occurrences_max > 0 && occurrences >= occurrences_max)
 		if (report) to_chat(report, SPAN_NOTICE("Failure: The event has already triggered the maximum number of times for a single round"))
 		return FALSE
 
@@ -96,7 +96,7 @@
 
 /datum/storyevent/proc/create(var/severity)
 	if(trigger_event(severity))
-		ocurrences++
+		occurrences++
 		last_trigger_time = world.time
 		if(processing)
 			start_processing(TRUE)
@@ -104,7 +104,7 @@
 
 	return FALSE
 
-/datum/storyevent/proc/cancel(var/type, var/completion = 0.0)
+/datum/storyevent/proc/cancel(var/type, var/completion = 0)
 	//This proc refunds the cost of this event
 	if (GLOB.storyteller)
 		GLOB.storyteller.modify_points(get_cost(type)*(1 - completion), type)

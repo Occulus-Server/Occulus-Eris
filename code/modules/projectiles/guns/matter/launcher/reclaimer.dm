@@ -12,6 +12,7 @@
 	stored_matter = 5
 	projectile_cost = 0.5
 	projectile_type = /obj/item/arrow/reclaiming
+	spawn_blacklisted = TRUE
 
 
 /obj/item/arrow/reclaiming

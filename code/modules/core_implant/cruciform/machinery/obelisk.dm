@@ -1,3 +1,5 @@
+GLOBAL_LIST_EMPTY(all_obelisk)
+
 /obj/machinery/power/nt_obelisk
 	name = "Mekhane obelisk"
 	desc = "The obelisk."
@@ -19,11 +21,12 @@
 	var/damage = 45
 	var/max_targets = 7
 
-	var/nt_buff_power = 5
 	var/nt_buff_cd = 3
 
-	var/static/stat_buff
 	var/list/currently_affected = list()
+	var/force_active = 0
+
+	var/ticks_to_next_process = 3
 
 	var/ticks_to_next_process = 3
 
@@ -33,6 +36,14 @@
 		H.stats.removePerk(/datum/perk/sanityboost)
 	currently_affected = null
 	..()
+	GLOB.all_obelisk |= src
+
+/obj/machinery/power/nt_obelisk/Destroy()
+	for(var/i in currently_affected)
+		var/mob/living/carbon/human/H = i
+		H.stats.removePerk(/datum/perk/active_sanityboost)
+	currently_affected = null
+	return ..()
 
 /obj/machinery/power/nt_obelisk/attack_hand(mob/user)
 	return
@@ -43,9 +54,31 @@
 		return
 	var/list/affected = list()
 	for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
-		if (H.z == src.z && get_dist(src, H) <= area_radius)
+		if(H.z == z && get_dist(src, H) <= area_radius && inLineOfSight(x, y, H.x, H.y, z))
 			affected.Add(H)
+	var/list/currently_copied = currently_affected.Copy()
+	for(var/mob/living/carbon/human/H in affected)
+		if(H in krabin_linked)
+			var/obj/item/device/von_krabin/von_crabbin = locate(/obj/item/device/von_krabin) in GLOB.all_faction_items
+			if(von_crabbin)
+				currently_affected.Add(H)
+				von_crabbin.recalculate_buff(TRUE, H)
+				von_crabbin.notify(H)
+	currently_copied -= affected
+	for(var/mob/living/carbon/human/H in currently_copied)
+		if(H in krabin_linked)
+			var/obj/item/device/von_krabin/von_crabbin = locate(/obj/item/device/von_krabin) in GLOB.all_faction_items
+			if(von_crabbin)
+				currently_affected.Remove(H)
+				von_crabbin.recalculate_buff(FALSE, H)
+				von_crabbin.was_notified -= H
+
+
 	active = check_for_faithful(affected)
+
+	if(force_active > 0)
+		active = TRUE
+	force_active--
 	update_icon()
 
 	if(!active)
@@ -69,9 +102,6 @@
 					burrow.obelisk_around = any2ref(src)
 
 	var/list/affected_mobs = SSmobs.mob_living_by_zlevel[(get_turf(src)).z]
-
-	if(!active)
-		return
 
 	var/to_fire = max_targets
 	for(var/mob/living/A in affected_mobs)
@@ -114,7 +144,9 @@
 	var/list/no_longer_affected = currently_affected - affected
 	for(var/i in no_longer_affected)
 		var/mob/living/carbon/human/H = i
-		H.stats.removePerk(/datum/perk/sanityboost)
+		H.stats.removePerk(/datum/perk/active_sanityboost)
+
+
 	currently_affected -= no_longer_affected
 	for(var/mob/living/carbon/human/mob in affected)
 		var/obj/item/implant/core_implant/I = mob.get_core_implant(/obj/item/implant/core_implant/cruciform)
@@ -122,7 +154,6 @@
 			eotp.scanned |= mob
 			if(I && I.active && I.wearer)
 				eotp.addObservation(20)
-			/* OCCY TEMP REMOVAL, WE HAVEN'T PORTED THIS YET
 			else if(mob.mutation_index > 4 && !get_active_mutation(mob, MUTATION_ATHEIST) && !get_active_mutation(mob, MUTATION_GODBLOOD))
 				var/mutation_damage = mob.mutation_index / 2
 				mob.adjustFireLoss(mutation_damage)
@@ -132,41 +163,17 @@
 					mob.sanity.changeLevel(-1)
 				if(prob(10))
 					to_chat(mob, SPAN_WARNING("You feel uncomfortable being around [src]."))
-			*/
 			else if(is_carrion(mob))
 				eotp.removeObservation(20)
 			else
 				eotp.addObservation(10)
 		if(I && I.active && I.wearer)
 			if(!(mob in currently_affected)) // the mob just entered the range of the obelisk
-				mob.stats.addPerk(/datum/perk/sanityboost)
+				mob.stats.addPerk(/datum/perk/active_sanityboost)
 				currently_affected += mob
-			if(I.power < I.max_power)	I.power += nt_buff_power
+			I.restore_power(I.power_regen*2)
 			for(var/r_tag in mob.personal_ritual_cooldowns)
 				mob.personal_ritual_cooldowns[r_tag] -= nt_buff_cd
-
-			if(stat_buff)
-				var/buff_power = disciples.len
-				var/message
-				var/prev_stat
-				for(var/stat in ALL_STATS)
-					var/datum/stat_mod/SM = mob.stats.getTempStat(stat, "nt_obelisk")
-					if(stat == stat_buff)
-						if(!SM)
-							message = "A wave of dizziness washes over you, and your mind is filled with a sudden insight into [stat]."
-						else if(SM.value != buff_power) // buff power was changed
-							message = "Your knowledge of [stat] feels slightly [SM.value > buff_power ? "lessened" : "broadened"]."
-						else if(SM.time < world.time + 10 MINUTES) // less than 10 minutes of buff duration left
-							message = "Your knowledge of [stat] feels renewed."
-						mob.stats.addTempStat(stat, buff_power, 20 MINUTES, "nt_obelisk")
-					else if(SM)
-						prev_stat = stat
-						mob.stats.removeTempStat(stat, "nt_obelisk")
-
-				if(prev_stat) // buff stat was replaced
-					message = "A wave of dizziness washes over you, and your mind is filled with a sudden insight into [stat_buff] as your knowledge of [prev_stat] feels lessened."
-				if(message)
-					to_chat(mob, SPAN_NOTICE(message))
 
 			got_neoteo = TRUE
 	return got_neoteo

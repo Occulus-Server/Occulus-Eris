@@ -443,9 +443,8 @@
 /area/template_noop)
 "Nd" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
+/obj/item/clothing/suit/armor/heavy/ironhammer,
+/obj/item/clothing/suit/armor/heavy/ironhammer,
 /obj/item/clothing/head/armor/riot_hud,
 /obj/item/clothing/head/armor/riot_hud,
 /turf/simulated/floor/tiled/dark/cargo/airless,
@@ -540,7 +539,6 @@
 /area/template_noop)
 "Yp" = (
 /obj/structure/table/rack,
-/obj/item/gun/energy/gun/martin,
 /obj/item/gun/energy/gun/martin,
 /obj/item/gun/energy/gun/martin,
 /obj/machinery/light{
@@ -796,7 +794,7 @@ YZ
 by
 Ul
 to
-Ul
+xA
 js
 Mb
 wR

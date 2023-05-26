@@ -27,8 +27,6 @@
 	var/pipes_opened = FALSE
 	var/pipes_cleanness = 100
 
-	circuit = /obj/item/electronics/circuitboard/neotheology/bioreactor_biotank
-
 
 /obj/machinery/multistructure/bioreactor_part/biotank_platform/Initialize()
 	. = ..()
@@ -68,7 +66,7 @@
 	if(!MS)
 		return
 	if(biotank.canister)
-		biotank.reagents.trans_to_holder(biotank.canister.reagents, 10)
+		biotank.reagents.trans_to_holder(biotank.canister.reagents, 100)
 
 
 /obj/machinery/multistructure/bioreactor_part/biotank_platform/attackby(var/obj/item/I, var/mob/user)
@@ -92,6 +90,7 @@
 
 /obj/machinery/multistructure/bioreactor_part/biotank_platform/proc/take_amount(new_amount)
 	biotank.reagents.add_reagent("biomatter", new_amount)
+	GLOB.biomatter_neothecnology_amt += new_amount
 
 
 //Pipe wearout. Wearout var - is amount of 'dirt' that will be applied to our pipes

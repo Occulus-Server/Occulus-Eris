@@ -10,7 +10,7 @@
 	load_method = SINGLE_CASING
 	handle_casings = HOLD_CASINGS
 	max_shells = 5
-	recoil_buildup = 0
+	init_recoil = CARBINE_RECOIL(2)
 	twohanded = TRUE
 	ammo_type = /obj/item/ammo_casing/grenade
 	fire_sound = 'sound/weapons/guns/fire/grenadelauncher_fire.ogg'
@@ -20,10 +20,16 @@
 	matter = list(MATERIAL_PLASTEEL = 30, MATERIAL_WOOD = 10)
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2)
 	price_tag = 3000
+	gun_parts = list(/obj/item/part/gun = 2, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/shotgun = 1)
+	serial_type = "NT"
+
+/obj/item/gun/projectile/shotgun/pump/grenade/update_icon()
+	wielded_item_state = "_doble"
 
 /obj/item/gun/projectile/shotgun/pump/grenade/examine(mob/user)
-	if(..(user, 2) && chambered)
-		to_chat(user, "\A [chambered] is chambered.")
+	if(..(user, 2))
+		if(chambered)
+			to_chat(user, "\A [chambered] is chambered.")
 
 /obj/item/gun/projectile/shotgun/pump/grenade/handle_post_fire(mob/user)
 	log_and_message_admins("fired a grenade ([chambered]) from ([src]).")
@@ -41,7 +47,8 @@
 
 /obj/item/gun/projectile/shotgun/pump/grenade/proc/unload_underslung(mob/user)
 	if(chambered)
-		user.put_in_hands(chambered)
+		var/turf/turf = get_turf(src)
+		chambered.forceMove(turf)
 		to_chat(user, "You remove \a [chambered] from [src].")
 		chambered = null
 
@@ -63,32 +70,40 @@
 	icon_state = "Grenadelauncher_PMC"
 	item_state = "pneumatic"
 	w_class = ITEM_SIZE_HUGE
+	init_recoil = RIFLE_RECOIL(2)
 	slot_flags = SLOT_BACK
 	matter = list(MATERIAL_PLASTEEL = 30, MATERIAL_PLASTIC = 10)
 	fire_sound = 'sound/weapons/empty.ogg'
+	gun_parts = list(/obj/item/part/gun = 2, /obj/item/part/gun/modular/grip/rubber = 1, /obj/item/part/gun/modular/mechanism/shotgun = 1)
+	serial_type = "FS"
 
 /obj/item/gun/projectile/shotgun/pump/grenade/lenar/proc/update_charge()
-	var/ratio = (contents.len + (chambered? 1 : 0)) / (max_shells + 1)
+	var/ratio = (contents.len + (chambered? 1 : 0)) / (max_shells + 1.2)
 	if(ratio < 0.33 && ratio != 0)
 		ratio = 0.33
 	ratio = round(ratio, 0.33) * 100
-	add_overlays("grenademag_[ratio]")
+	overlays += "grenademag_[ratio]"
 
-/obj/item/gun/projectile/shotgun/pump/grenade/lenar/on_update_icon()
+/obj/item/gun/projectile/shotgun/pump/grenade/lenar/update_icon()
+	..()
+	wielded_item_state = "_doble"
+	set_item_state()
 	cut_overlays()
 	update_charge()
 
 /obj/item/gun/projectile/shotgun/pump/grenade/makeshift
-	name = "makeshift grenade launcher"
-	desc = "Your own homemade China Lake."
+	name = "HM GL \"Civil Disobedience\""
+	desc = "Your own homemade China Lake. Best used to inform the powers that be of your displeasure with the system."
 	icon = 'icons/obj/guns/launcher/makeshift.dmi'
 	icon_state = "makeshift"
 	item_state = "makeshift"
-	w_class = ITEM_SIZE_BULKY
 	force = WEAPON_FORCE_PAINFUL
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_WOOD = 10)
 	price_tag = 500
 	max_shells = 0
+	spawn_blacklisted = FALSE//this may be a bad idea // it wasn't , 2022 - SPCR
+	spawn_tags = SPAWN_TAG_GUN_HANDMADE
+	serial_type = ""
 
 /obj/item/gun/projectile/shotgun/pump/grenade/makeshift/attackby(obj/item/I, mob/user)
 	if((istype(I, /obj/item/ammo_casing/grenade)))
@@ -116,11 +131,12 @@
 	item_state = "china_lake"
 
 	max_shells = 3
-	recoil_buildup = 20
+	init_recoil = CARBINE_RECOIL(1.5)
 	ammo_type = /obj/item/ammo_casing/grenade
 
 	matter = list(MATERIAL_PLASTEEL = 25, MATERIAL_WOOD = 10)
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2)
 
+	serial_type = "FS"
+
 	price_tag = 4500
-	

@@ -2,8 +2,8 @@
  * Science
  */
 /obj/item/clothing/under/rank/expedition_overseer
-	desc = "It's a jumpsuit worn by those with the know-how to achieve the position of \"Expedition Overseer\"."
-	name = "Chief Science Officer's jumpsuit"
+	desc = "A jumpsuit worn by those with the know-how to achieve the position of \"Expedition Overseer\"."
+	name = "Chief Science Officer's jumpsuit" // Occulus Edit - Remove Eris corp. references
 	icon_state = "director"
 	item_state = "lb_suit"
 	armor = list(
@@ -49,8 +49,8 @@
  * Medical
  */
 /obj/item/clothing/under/rank/moebius_biolab_officer
-	desc = "It's a jumpsuit worn by those with the experience to be \"Chief Medical Officer\". It provides minor biological protection."
-	name = "chief medical officer's jumpsuit"
+	desc = "A jumpsuit worn by those with the experience to be \"Chief Medical Officer\". It provides minor biological protection." // Occulus Edit - Remove Eris corp. references
+	name = "chief medical officer's jumpsuit" // Occulus Edit - Remove Eris corp. references
 	icon_state = "cmo"
 	item_state = "cmo"
 	permeability_coefficient = 0.50
@@ -80,7 +80,7 @@
 
 /obj/item/clothing/under/rank/medical
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel."
-	name = "medical doctor's jumpsuit"
+	name = "medical doctor's jumpsuit" // Occulus Edit - Remove Eris corp. references
 	icon_state = "medical"
 	item_state = "medical"
 	permeability_coefficient = 0.50
@@ -95,7 +95,7 @@
 
 /obj/item/clothing/under/rank/bioengineer
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has a bio-engineer rank stripe on it."
-	name = "doctor's jumpsuit" //Occulus edit: delete moebius
+	name = "doctor's jumpsuit" // Occulus Edit - Remove Eris corp. references
 	icon_state = "medical"
 	item_state = "medical"
 	permeability_coefficient = 0.50
@@ -132,7 +132,6 @@
 	icon_state = "psychturtle"
 	item_state = "b_suit"
 
-
 /obj/item/clothing/under/rank/paramedic
 	desc = "Jumpsuit of Moebius Medical paramedics. It's made with reinforced fiber to offer more protection for recovery operators."
 	name = "moebius paramedic's jumpsuit"
@@ -147,4 +146,3 @@
 		bio = 10,
 		rad = 0
 	)
-

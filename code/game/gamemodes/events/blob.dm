@@ -59,6 +59,7 @@
 	name = "blob"
 	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob"
+	var/icon_scale = 1
 	light_range = 3
 	desc = "Some blob creature thingy"
 	density = FALSE //Normal blobs can be walked over, but it's not a good idea
@@ -189,7 +190,7 @@
 		core = null
 		//When the core is gone, the blob starts dying
 		//The closer it was to the core, the faster it dies. So death spreads out radially
-		take_damage((1.0 / coredist))
+		take_damage((1 / coredist))
 	update_icon()
 
 /*
@@ -263,6 +264,8 @@
 			take_damage(rand(60, 100) / brute_resist)
 		if(3)
 			take_damage(rand(20, 60) / brute_resist)
+		if(4)
+			take_damage(rand(10, 30) / brute_resist)
 
 
 /obj/effect/blob/fire_act()
@@ -506,6 +509,15 @@
 			attack_mobs(user.loc)
 		return 1
 	return ..()
+
+/obj/effect/blob/attack_generic(mob/M, damage, attack_message)
+	if(damage)
+		M.do_attack_animation(src)
+		M.visible_message(SPAN_DANGER("\The [M] [attack_message] \the [src]!"))
+		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+		take_damage(damage/brute_resist)
+	else
+		attack_hand(M)
 
 /obj/effect/blob/core
 	name = "blob core"

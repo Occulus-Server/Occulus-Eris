@@ -1,5 +1,3 @@
-#define SHEET_MATERIAL_AMOUNT 1
-
 #define TECH_MATERIAL "materials"
 #define TECH_ENGINEERING "engineering"
 #define TECH_PHORON "phorontech"
@@ -51,3 +49,13 @@
 #define CAT_MEDI        "Medical"
 #define CAT_TOOLMODS    "Toolmods"
 #define CAT_GUNMODS     "Gunmods"
+
+//Autolathe defines
+#define ERR_OK 0
+#define ERR_NOTFOUND "not found"
+#define ERR_NOMATERIAL "no material"
+#define ERR_NOREAGENT "no reagent"
+#define ERR_NOLICENSE "no license"
+#define ERR_PAUSED "paused"
+#define ERR_NOINSIGHT "no insight"
+#define ERR_NOODDITY "no oddity"

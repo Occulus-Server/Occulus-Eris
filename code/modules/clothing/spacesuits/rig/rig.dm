@@ -17,19 +17,22 @@
 	icon = 'icons/obj/rig_modules.dmi'
 	desc = "A back-mounted hardsuit deployment and control mechanism."
 	slot_flags = SLOT_BACK
+	description_antag = "If this rig contains a chemical dispenser, its contents can be saboutaged. They will show as another reagent as long as its the majority in the beaker. You can also insert plasma into its powercell or replace the air tank inside"
+	description_info = "A highly capable modular RIG system. Can hold modules which provide additional functionality. Also has a chance to completely deflect ballistic projectiles depending on the bullet protection."
 	req_one_access = list()
 	req_access = list()
 	w_class = ITEM_SIZE_BULKY
 	item_flags = DRAG_AND_DROP_UNEQUIP|EQUIP_SOUNDS
 	spawn_tags = SPAWN_TAG_RIG
 	rarity_value = 10
-	bad_type = /obj/item/rig
+	price_tag = 150
+	bad_type = /obj/item/rig //TODO: Resprite these, remove old bay leftover RIGs, add a RIG to moeb R&D, add more RIGs in general
 
 	// These values are passed on to all component pieces.
 	armor = list(
-		melee = 30,
-		bullet = 20,
-		energy = 20,
+		melee = 9,
+		bullet = 7,
+		energy = 7,
 		bomb = 25,
 		bio = 100,
 		rad = 50
@@ -39,7 +42,11 @@
 	siemens_coefficient = 0.1
 	permeability_coefficient = 0.1
 	unacidable = 1
-	slowdown = 1
+	slowdown = HEAVY_SLOWDOWN // Very slow, but gimbal makes aim steady
+	var/ablative_armor = 0
+	var/ablative_max = 0
+	var/ablation = ABLATION_STANDARD
+
 
 	var/interface_path = "hardsuit.tmpl"
 	var/ai_interface_path = "hardsuit.tmpl"
@@ -52,7 +59,9 @@
 
 	// Keeps track of what this rig should spawn with.
 	var/suit_type = "hardsuit"
-	var/list/initial_modules = list()
+	var/list/initial_modules = list(
+		/obj/item/rig_module/storage //Probably isn't the best way of doing this
+		)
 	var/chest_type = /obj/item/clothing/suit/space/rig
 	var/helm_type =  /obj/item/clothing/head/space/rig
 	var/boot_type =  /obj/item/clothing/shoes/magboots/rig
@@ -91,13 +100,14 @@
 	var/seal_delay = SEAL_DELAY
 	var/sealing                                               // Keeps track of seal status independantly of canremove.
 	var/offline = 1                                           // Should we be applying suit maluses?
-	var/offline_slowdown = 3                                  // If the suit is deployed and unpowered, it sets slowdown to this.
+	var/offline_slowdown = HEAVY_SLOWDOWN * 3                 // If the suit is deployed and unpowered, it sets slowdown to this.
 	var/vision_restriction
 	var/offline_vision_restriction = 1                        // 0 - none, 1 - welder vision, 2 - blind. Maybe move this to helmets.
 	var/airtight = 1 //If set, will adjust AIRTIGHT and STOPPRESSUREDAMAGE flags on components. Otherwise it should leave them untouched.
 
 	var/emp_protection = 0
 
+	// 2022- Just so everyone knows , this doesn't get checked at all down the line. It only checks if its on the back , regardles of its value.
 	var/rig_wear_slot = slot_back //Changing this allows for rigs that are worn as a belt or a tie or something
 
 	// Wiring! How exciting.
@@ -125,6 +135,20 @@
 	if(loc == usr)
 		to_chat(usr, "The maintenance panel is [open ? "open" : "closed"].")
 		to_chat(usr, "Hardsuit systems are [offline ? "<font color='red'>offline</font>" : "<font color='green'>online</font>"].")
+
+	if(ablative_max) // If ablative armor is replaced with a module system, this should be called as a proc on the module
+		var/ablative_ratio = ablative_armor / ablative_max
+		switch(ablative_ratio)
+			if(1) // First we get this over with
+				to_chat(usr, "The armor system reports pristine condition.")
+			if(-INFINITY to 0.1)
+				to_chat(usr, "The armor system reports system error. Repairs mandatory.")
+			if(0.1 to 0.5)
+				to_chat(usr, "The armor system reports critical failure! Repairs mandatory.")
+			if(0.5 to 0.8)
+				to_chat(usr, "The armor system reports heavy damage. Repairs required.")
+			if(0.8 to 1)
+				to_chat(usr, "The armor system reports insignificant damage. Repairs advised.")
 
 /obj/item/rig/Initialize()
 	. = ..()
@@ -188,6 +212,8 @@
 		piece.permeability_coefficient = permeability_coefficient
 		piece.unacidable = unacidable
 		if(armor) piece.armor = armor
+
+	ablative_armor = ablative_max
 
 	update_icon(1)
 
@@ -366,7 +392,7 @@
 				M.drop_from_inventory(piece)
 			piece.forceMove(src)
 
-	if(active == TRUE) // dains power from the cell whenever the suit is sealed
+	if(active && cell) // dains power from the cell whenever the suit is sealed
 		cell.use(drain*0.1)
 
 	if(!istype(wearer) || loc != wearer || wearer.back != src || canremove || !cell || cell.is_empty())
@@ -448,7 +474,7 @@
 	cell.use(cost*10)
 	return 1
 
-/obj/item/rig/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/nano_state =GLOB.inventory_state)
+/obj/item/rig/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/nano_state =GLOB.inventory_state)
 	if(!user)
 		return
 
@@ -526,11 +552,11 @@
 /obj/item/rig/proc/get_species_icon()
 	return 'icons/mob/rig_back.dmi'
 
-/obj/item/rig/on_update_icon(var/update_mob_icon)
+/obj/item/rig/update_icon(var/update_mob_icon)
 	if(installed_modules.len)
 		for(var/obj/item/rig_module/module in installed_modules)
 			if(module.suit_overlay && !module.suit_overlay_mob_only)
-				chest.add_overlays(image("icon" = 'icons/mob/rig_modules.dmi', "icon_state" = module.suit_overlay, "dir" = SOUTH))
+				chest.overlays += image("icon" = 'icons/mob/rig_modules.dmi', "icon_state" = module.suit_overlay, "dir" = SOUTH)
 
 /obj/item/rig/proc/check_suit_access(var/mob/living/carbon/human/user)
 
@@ -587,6 +613,9 @@
 		if (locked != -1)
 			locked = !locked
 
+	// Makes it so the UI instantly updates , instead of using the MC tick, way faster at high stress.
+	SSnano.update_uis(src)
+
 	usr.set_machine(src)
 	add_fingerprint(usr)
 	return 0
@@ -635,7 +664,7 @@
 		update_icon()
 
 
-/obj/item/rig/proc/toggle_piece(var/piece, var/mob/initiator, var/deploy_mode)
+/obj/item/rig/proc/toggle_piece(piece, mob/initiator, deploy_mode)
 
 	if(sealing || !cell || cell.is_empty())
 		return
@@ -643,7 +672,7 @@
 	if(!istype(wearer) || !wearer.back == src)
 		return
 
-	if(initiator == wearer && (usr.stat||usr.paralysis||usr.stunned)) // If the initiator isn't wearing the suit it's probably an AI.
+	if(initiator == wearer && (usr && (usr.stat||usr.paralysis||usr.stunned))) // If the initiator isn't wearing the suit it's probably an AI.
 		return
 
 	var/obj/item/check_slot
@@ -749,7 +778,7 @@
 
 /obj/item/rig/proc/retract()
 	if (wearer)
-		for(var/piece in list("helmet","gauntlets","chest","boots"))
+		for(var/piece in list("helmet","chest","gauntlets","boots"))
 			toggle_piece(piece, wearer, ONLY_RETRACT)
 
 /obj/item/rig/proc/remove()
@@ -775,6 +804,9 @@
 	//possibly damage some modules
 	take_hit((100/severity_class), "electrical pulse", 1)
 
+	if(visor)// cause the visor to glitch out
+		visor.vision.glasses.emp_act(severity_class)
+
 /obj/item/rig/proc/shock(mob/user)
 	if (!user)
 		return 0
@@ -784,6 +816,30 @@
 		if(user.stunned)
 			return 1
 	return 0
+
+/obj/item/rig/block_bullet(mob/user, var/obj/item/projectile/P, def_zone)
+	if(!active || !ablative_armor)
+		return FALSE
+
+	var/ablative_stack = ablative_armor // Follow-up attacks drain this
+
+	for(var/damage_type in P.damage_types)
+		if(damage_type in list(BRUTE, BURN)) // Ablative armor affects both brute and burn damage
+			var/damage = P.damage_types[damage_type]
+			P.damage_types[damage_type] -= ablative_stack / armor_divisor
+
+			ablative_stack = max(ablative_stack - damage, 0)
+		else if(damage_type == HALLOSS)
+			P.damage_types[damage_type] -= ablative_stack / armor_divisor
+
+		if(P.damage_types[damage_type] <= 0)
+			P.damage_types -= damage_type
+
+	ablative_armor -= max(-(ablative_stack - ablative_armor) / ablation - armor.getRating(P.check_armour), 0) // Damage blocked (not halloss) reduces ablative armor, base armor protects ablative armor
+
+	if(!P.damage_types.len)
+		return TRUE
+	return FALSE
 
 /obj/item/rig/proc/take_hit(damage, source, is_emp=0)
 

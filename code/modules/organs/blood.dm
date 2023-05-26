@@ -26,14 +26,14 @@
 
 /mob/living/carbon/proc/get_blood_data()
 	var/data = list()
-	data["donor"] = weakref(src)
+	data["donor"] = WEAKREF(src)
 	if (!data["virus2"])
 		data["virus2"] = list()
 	data["virus2"] |= virus_copylist(virus2)
 	data["viruses"] = null
 	data["antibodies"] = antibodies
-	data["blood_DNA"] = dna.unique_enzymes
-	data["blood_type"] = dna.b_type
+	data["blood_DNA"] = dna_trace
+	data["blood_type"] = b_type
 	data["species"] = species.name
 	var/list/temp_chem = list()
 	for(var/datum/reagent/R in reagents.reagent_list)
@@ -46,10 +46,11 @@
 
 //Resets blood data
 /mob/living/carbon/human/proc/fixblood()
+	if(QDELETED(src))	// Needed because mannequins will continue this proc and runtime after being qdel'd
+		return
 	for(var/datum/reagent/organic/blood/B in vessel.reagent_list)
 		if(B.id == "blood")
-			 //Occulus edit - For custom blood color
-			var/data = list("donor"=src,"viruses"=null,"species"=species.name,"blood_DNA"=dna.unique_enzymes,"blood_colour"= blood_color,"blood_type"=dna.b_type,	\
+			var/data = list("donor"=src,"viruses"=null,"species"=species.name,"blood_DNA"=dna_trace,"blood_colour"= blood_color,"blood_type"=b_type,	\ // Occulus Edit - Custom Blood Colour
 							"resistances"=null,"trace_chem"=null, "virus2" = null, "antibodies" = list())
 			B.initialize_data(data)
 
@@ -157,8 +158,8 @@
 
 	if (!injected || !our)
 		return
-	if(blood_incompatible(injected.data["blood_type"],our.data["blood_type"],injected.data["species"],our.data["species"]) )
-		reagents.add_reagent("toxin",amount * 0.5)
+	if(blood_incompatible(injected.data["blood_type"],our.data["blood_type"],injected.data["species"],our.data["species"]) && !get_active_mutation(src, MUTATION_NO_REJECT))
+		reagents.add_reagent("toxin", amount * (get_active_mutation(src, MUTATION_REJECT) ? 1 : 0.5))
 		reagents.update_total()
 	else
 		vessel.add_reagent("blood", amount, injected.data)

@@ -13,8 +13,8 @@
 	var/end_time
 	var/delay //delay time before it occurs, or updates. it must be used manually.
 
-	var/finished = FALSE //if the objetives were fulfilled.
-	var/insight_reward	//Amount of isight for fulfilling the objetives.
+	var/finished = FALSE //if the objectives were fulfilled.
+	var/insight_reward	//Amount of isight for fulfilling the objectives.
 	var/is_negative = FALSE
 
 	var/restore_sanity_pre
@@ -46,7 +46,7 @@
 /datum/breakdown/proc/occur_animation()
 	var/image/img = image('icons/effects/insanity_statuses.dmi', holder.owner)
 	holder.owner << img
-	FLICK(icon_state, img)
+	flick(icon_state, img)
 
 /datum/breakdown/proc/occur()
 	occur_animation()

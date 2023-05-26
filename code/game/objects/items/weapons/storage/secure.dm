@@ -12,6 +12,10 @@
 // -----------------------------
 /obj/item/storage/secure
 	name = "secstorage"
+	w_class = ITEM_SIZE_NORMAL
+	max_w_class = ITEM_SIZE_SMALL
+	max_storage_space = DEFAULT_NORMAL_STORAGE
+	bad_type = /obj/item/storage/secure
 	var/icon_locking = "secureb"
 	var/icon_sparking = "securespark"
 	var/icon_opened = "secure0"
@@ -23,9 +27,6 @@
 	var/l_hacking = 0
 	var/emagged = 0
 	var/open = 0
-	w_class = ITEM_SIZE_NORMAL
-	max_w_class = ITEM_SIZE_SMALL
-	max_storage_space = DEFAULT_NORMAL_STORAGE
 
 /obj/item/storage/secure/examine(mob/user)
 	if(..(user, 1))
@@ -162,6 +163,8 @@
 	src.add_fingerprint(user)
 	return
 
+/obj/item/storage/secure/briefcase/AltClick(mob/user)
+	return attack_hand(user)
 // -----------------------------
 //        Secure Safe
 // -----------------------------

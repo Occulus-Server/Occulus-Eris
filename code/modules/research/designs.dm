@@ -163,35 +163,35 @@ other types of metals and chemistry for reagents).
 
 /datum/design/research/item/bag_holding
 	name = "'Bag of Holding', an infinite capacity bag prototype"
-	desc = "Using localized pockets of bluespace this bag prototype offers incredible storage capacity with the contents weighting nothing. It's a shame the bag itself is pretty heavy."
+	desc = "Using localized pockets of bluespace this bag prototype offers incredible storage capacity with the contents weighing nothing. It's a shame the bag itself is pretty heavy."
 	build_path = /obj/item/storage/backpack/holding
 	category = "Telecoms | Bluespace"
 	sort_string = "VAEAA"
 
 /datum/design/research/item/belt_holding
 	name = "'Belt of Holding', an infinite capacity belt prototype"
-	desc = "Using localized pockets of bluespace this belt prototype offers incredible storage capacity with the contents weighting nothing."
+	desc = "Using localized pockets of bluespace this belt prototype offers incredible storage capacity with the contents weighing nothing."
 	build_path = /obj/item/storage/belt/holding
 	category = "Telecoms | Bluespace"
 	sort_string = "VAEAB"
 
 /datum/design/research/item/pouch_holding
 	name = "'Pouch of Holding', an infinite capacity pouch prototype"
-	desc = "Using localized pockets of bluespace this pouch prototype offers incredible storage capacity with the contents weighting nothing."
+	desc = "Using localized pockets of bluespace this pouch prototype offers incredible storage capacity with the contents weighing nothing."
 	build_path = /obj/item/storage/pouch/holding
 	category = "Telecoms | Bluespace"
 	sort_string = "VAEAC"
 
 /datum/design/research/item/trashbag_holding
 	name = "'Trashbag of Holding', an infinite capacity trashbag prototype"
-	desc = "Using localized pockets of bluespace this trashbag prototype offers incredible storage capacity with the contents weighting nothing."
+	desc = "Using localized pockets of bluespace this trashbag prototype offers incredible storage capacity with the contents weighing nothing."
 	build_path = /obj/item/storage/bag/trash/holding
 	category = "Telecoms | Bluespace"
 	sort_string = "VAEAD"
 
 /datum/design/research/item/oresatchel_holding
 	name = "'Ore satchel of Holding', an infinite capacity ore satchel prototype"
-	desc = "Using localized pockets of bluespace this ore satchel prototype offers incredible storage capacity with the contents weighting nothing."
+	desc = "Using localized pockets of bluespace this ore satchel prototype offers incredible storage capacity with the contents weighing nothing."
 	build_path = /obj/item/storage/bag/ore/holding
 	category = "Telecoms | Bluespace"
 	sort_string = "VAEAE"
@@ -226,12 +226,17 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/clothing/head/armor/faceshield/paramedic
 	sort_string = "VASAE"
 
+/datum/design/research/item/dna_scanner
+	name = "Portable dna sequencer"
+	build_path = /obj/item/dna_scanner
+	sort_string = "VASAF"
+
 //Why is there a science design to craft a cardboard box full of things? That is not how this works
 /*
 /datum/design/research/item/chameleon
 	name = "Holographic equipment kit"
 	desc = "A kit of dangerous, high-tech equipment with changeable looks."
 	req_tech = list(TECH_COVERT = 2)
-	build_path = /obj/item/storage/box/syndie_kit/chameleon
+	build_path = /obj/item/storage/backpack/chameleon
 	sort_string = "VASBA"
 */

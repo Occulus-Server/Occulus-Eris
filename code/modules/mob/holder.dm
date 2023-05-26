@@ -136,7 +136,7 @@ var/list/holder_mob_icon_cache = list()
 		//Repeat this check
 		//If we're still on the turf a few frames later, then we have actually been dropped or thrown
 		//Release the mob accordingly
-		//addtimer(CALLBACK(src, .proc/post_drop), 3)
+		//addtimer(CALLBACK(src, PROC_REF(post_drop)), 3)
 		//TODO: Uncomment the above once addtimer is ported
 		spawn(3)
 			post_drop()
@@ -153,14 +153,14 @@ var/list/holder_mob_icon_cache = list()
 	..()
 	update_location(slot)
 
-/obj/item/holder/proc/update_location(var/slotnumber = null)
-	if (!slotnumber)
-		if (istype(loc, /mob))
+/obj/item/holder/proc/update_location(var/slotnumber)
+	if(!slotnumber)
+		if(ismob(loc))
 			slotnumber = get_equip_slot()
 
 	report_onmob_location(1, slotnumber, contained)
 
-/obj/item/holder/attack_self(mob/M as mob)
+/obj/item/holder/attack_self(mob/M)
 
 	if (contained && !(contained.stat & DEAD))
 		if (istype(M,/mob/living/carbon/human))
@@ -443,18 +443,18 @@ var/list/holder_mob_icon_cache = list()
 	//This function will return the mob which is holding this holder, or null if it's not held
 	//It recurses up the hierarchy out of containers until it reaches a mob, or a turf, or hits the limit
 	var/x = 0//As a safety, we'll crawl up a maximum of five layers
-	var/atom/a = src
+	var/atom/A = src
 	while (x < 5)
 		x++
-		if (isnull(a))
+		if (isnull(A))
 			return null
 
-		a = a.loc
-		if (istype(a, /turf))
+		A = A.loc
+		if (istype(A, /turf))
 			return null//We must be on a table or a floor, or maybe in a wall. Either way we're not held.
 
-		if (istype(a, /mob))
-			return a
+		if (ismob(A))
+			return A
 		//If none of the above are true, we must be inside a box or backpack or something. Keep recursing up.
 
 	return null//If we get here, the holder must be buried many layers deep in nested containers. Shouldn't happen
@@ -467,7 +467,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/drone
 	name = "maintenance drone"
-	desc = "It's a small maintenance robot."
+	desc = "A small maintenance robot."
 	icon_state = "drone"
 	item_state = "drone"
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
@@ -477,7 +477,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/drone/heavy
 	name = "construction drone"
-	desc = "It's a really big maintenance robot."
+	desc = "A really big maintenance robot."
 	icon_state = "constructiondrone"
 	item_state = "constructiondrone"
 	w_class = ITEM_SIZE_GARGANTUAN//You're not fitting this thing in a backpack
@@ -485,8 +485,8 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/cat
 	name = "cat"
-	desc = "It's a cat. Meow."
-	desc_dead = "It's a dead cat."
+	desc = "A cat. Meow."
+	desc_dead = "A dead cat."
 	icon_state = "cat_tabby"
 	icon_state_dead = "cat_tabby_dead"
 	item_state = "cat"
@@ -511,7 +511,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/cat/penny
 	name = "Penny"
-	desc = "An important cat, straight from Central Command."
+	desc = "An important cat, straight from Hansa."
 	icon_state = "penny"
 	icon_state_dead = "penny_dead"
 	slot_flags = SLOT_HEAD
@@ -529,14 +529,14 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/borer
 	name = "cortical borer"
-	desc = "It's a slimy brain slug. Gross."
+	desc = "A slimy brain slug. Gross."
 	icon_state = "brainslug"
 	origin_tech = list(TECH_BIO = 6)
 	w_class = ITEM_SIZE_TINY
 
 /obj/item/holder/monkey
 	name = "monkey"
-	desc = "It's a monkey. Ook."
+	desc = "A monkey. Ook."
 	icon_state = "monkey"
 	item_state = "monkey"
 	slot_flags = SLOT_HEAD
@@ -547,7 +547,7 @@ var/list/holder_mob_icon_cache = list()
 //Holders for mice
 /obj/item/holder/mouse
 	name = "mouse"
-	desc = "It's a fuzzy little critter."
+	desc = "A fuzzy little critter."
 	desc_dead = "It's filthy vermin, throw it in the trash."
 	icon = 'icons/mob/mouse.dmi'
 	icon_state = "mouse_brown_sleep"
@@ -586,7 +586,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/lizard
 	name = "lizard"
-	desc = "It's a hissy little lizard. Is it related to Unathi?"
+	desc = "A hissy little lizard. Is it related to Unathi?"
 	desc_dead = "It doesn't hiss anymore."
 	icon_state_dead = "lizard_dead"
 	icon_state = "lizard"
@@ -597,7 +597,7 @@ var/list/holder_mob_icon_cache = list()
 //Chicks and chickens
 /obj/item/holder/chick
 	name = "chick"
-	desc = "It's a fluffy little chick, until it grows up."
+	desc = "A fluffy little chick, until it grows up."
 	desc_dead = "How could you do this? You monster!"
 	icon_state_dead = "chick_dead"
 	slot_flags = 0
@@ -607,7 +607,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/chicken
 	name = "chicken"
-	desc = "It's a feathery, tasty-looking chicken."
+	desc = "A feathery, tasty-looking chicken."
 	desc_dead = "Now it's ready for plucking and cooking!"
 	icon_state = "chicken_brown"
 	icon_state_dead = "chicken_brown_dead"
@@ -632,7 +632,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/mushroom
 	name = "walking mushroom"
 	name_dead = "mushroom"
-	desc = "It's a massive mushroom... with legs?"
+	desc = "A massive mushroom... with legs?"
 	desc_dead = "Shame, he was a really fun-guy."	// HA
 	icon_state = "mushroom"
 	icon_state_dead = "mushroom_dead"
@@ -676,7 +676,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/monkey/farwa
 	name = "farwa"
-	desc = "It's a farwa."
+	desc = "A farwa."
 	icon_state = "farwa"
 	item_state = "farwa"
 	slot_flags = SLOT_HEAD
@@ -684,7 +684,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/monkey/stok
 	name = "stok"
-	desc = "It's a stok. stok."
+	desc = "A stok. stok."
 	icon_state = "stok"
 	item_state = "stok"
 	slot_flags = SLOT_HEAD
@@ -692,7 +692,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/monkey/neaera
 	name = "neaera"
-	desc = "It's a neaera."
+	desc = "A neaera."
 	icon_state = "neaera"
 	item_state = "neaera"
 	slot_flags = SLOT_HEAD
@@ -701,7 +701,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/diona
 	name = "diona nymph"
-	desc = "It's a little plant critter."
+	desc = "A little plant critter."
 	desc_dead = "It used to be a little plant critter."
 	icon = 'icons/mob/diona.dmi'
 	icon_state = "nymph"

@@ -35,10 +35,10 @@
 	// Mentors won't see coloring of names on people with special_roles (Antags, etc.)
 	// var/mentor_msg = "\blue <b><font color=red>Request for Help: </font>[get_options_bar(mob, 4, 1, 1, 0)]:</b> [msg]"
 
-	// Send adminhelp message to Discord chat // we don't have a discord bot lol
-// 	send2adminchat(key_name(src), original_msg)
+	// Send adminhelp message to Discord chat
+	send2adminchat(key_name(src), original_msg)
 
-	// Assuming it is an an admin help and not a mentor help
+	// Assuming it is an an admin help and not a mentor help	
 	SStickets.newHelpRequest(src, msg) // Ahelp
 
 	// SSmentor_tickets.newHelpRequest(src, mentormsg) // Mhelp (for mentors if they ever get implemented)

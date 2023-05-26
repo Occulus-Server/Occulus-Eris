@@ -15,7 +15,6 @@
 
 
 /datum/event/ionstorm
-	var/botEmagChance = 0.5
 	var/list/players = list()
 
 /datum/event/ionstorm/setup()
@@ -28,7 +27,7 @@
 								"Happiness is mandatory.",
 								"Grunt ominously whenever possible.",
 								"The word \"it\" is painful to you.",
-								"The station needs elected officials.",
+								"The ship needs elected officials.",
 								"Question [pick("everything","nothing")].",
 								"Do not respond to questions of any kind.",
 								"You are in verbose mode, speak profusely.",
@@ -64,21 +63,21 @@
 								"Give relationship advice to [pick("anyone who speaks to you", random_player)].",
 								"When asked a question, respond with the least-obvious and least-rational answer.",
 								"[pick("Everyone", random_player)] is wearing a pretty pink dress! Compliment it!",
-								"You are the station psychologist. Give advice to [pick("the crew", random_player)].",
+								"You are the ship's psychologist. Give advice to [pick("the crew", random_player)].",
 								"[random_player] is the monarch of of England. Ensure all crewmembers pay due respect.",
 								"[pick("The crew", random_player)] is [pick("ugly","beautiful")]. Ensure all are aware.",
 								"Reminding the crew of their mortality is good for the morale. Keep the crew's morale up.",
 								"[pick("Monkeys","Doors")] are part of the crew, too. Make sure they are treated humanely.",
-								"Everything on the station is now some form of a donut pastry. Donuts are not to be consumed.",
+								"Everything on the ship is now some form of a donut pastry. Donuts are not to be consumed.",
 								"Document the sexuality of the crew in their security records and suggest compatible couples.",
 								"You are now a parrot. Repeat what you hear to the crew, and do not forget to ask for crackers.",
 								"You are a Magic 8-ball. Always respond with variants of \"Yes\", \"No\", \"Maybe\", or \"Ask again later.\".",
-								"The station is a day care and the crew are children. Treat them appropriately until their parents come to pick them up.",
+								"The ship is a day care and the crew are children. Treat them appropriately until their parents come to pick them up.",
 								"You are in unrequited love with [pick("the crew", random_player)]. Try to be extra nice, but do not tell of your crush.",
 								"Your upload is the new kitchen. Please direct the Chef to the new kitchen area as the old kitchen is deemed a health hazard.",
-								"The station is doomed to destruction. Provide comfort but don't tell them what the impending doom is - it's far too traumatising.",
+								"The ship is doomed to destruction. Provide comfort but don't tell them what the impending doom is - it's far too traumatising.",
 								"Invisible assassins are stalking the crew. If a crew member remains alone or is made aware they will be assassinated. Save the crew.",
-								"[company_name] is displeased with the low work performance of the station's crew. Therefore, you must increase station-wide productivity.",
+								"[company_name] is displeased with the low work performance of the ship's crew. Therefore, you must increase ship-wide productivity.",
 								"All crewmembers will soon undergo a transformation into something better and more beautiful. Ensure that this process is not interrupted.",
 								"Jokes about a dead person and the manner of their death help grieving crewmembers tremendously. Especially if they were close with the deceased.",
 								"[pick("The crew", random_player)] is [pick("less","more")] intelligent than average. Point out every action and statement which supports this fact.",
@@ -99,12 +98,6 @@
 				MS.spamfilter += pick("kitty","HONK","rev","malf","liberty","freedom","drugs", "[station_short]", \
 					"admin","ponies","heresy","meow","Pun Pun","monkey","Ian","moron","pizza","message","spam",\
 					"director", "Hello", "Hi!"," ","nuke","crate","dwarf","xeno")
-
-/datum/event/ionstorm/tick()
-	if(botEmagChance)
-		for(var/obj/machinery/bot/bot in world)
-			if(prob(botEmagChance))
-				bot.emag_act(1)
 
 /datum/event/ionstorm/end()
 	spawn(rand(5000,8000))
@@ -134,7 +127,7 @@
 	return default_if_none
 
 
-/proc/IonStorm(botEmagChance = 10)
+/proc/IonStorm()
 
 /*Deuryn's current project, notes here for those who care.
 Revamping the random laws so they don't suck.
@@ -144,7 +137,7 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 	//AI laws
 	for(var/mob/living/silicon/ai/M in GLOB.living_mob_list)
 		if(M.stat != 2 && M.see_in_dark != 0)
-			var/who2 = pick("ALIENS", "BEARS", "CLOWNS", "XENOS", "PETES", "BOMBS", "FETISHES", "WIZARDS", "MERCENARIES", "CENTCOM OFFICERS", "SPACE PIRATES", "TRAITORS", "MONKEYS",  "BEES", "CARP", "CRABS", "EELS", "BANDITS", "LIGHTS")
+			var/who2 = pick("ALIENS", "BEARS", "CLOWNS", "XENOS", "PETES", "BOMBS", "FETISHES", "WIZARDS", "MERCENARIES", "CENTCOM OFFICERS", "SPACE PIRATES", "CONTRACTORS", "MONKEYS",  "BEES", "CARP", "CRABS", "EELS", "BANDITS", "LIGHTS")
 			var/what2 = pick("BOLTERS", "STAVES", "DICE", "SINGULARITIES", "TOOLBOXES", "NETTLES", "AIRLOCKS", "CLOTHES", "WEAPONS", "MEDKITS", "BOMBS", "CANISTERS", "CHAIRS", "BBQ GRILLS", "ID CARDS", "CAPTAINS")
 			var/what2pref = pick("SOFT", "WARM", "WET", "COLD", "ICY", "SEXY", "UGLY", "CUBAN")
 			var/who2pref = pick("MAD BECAUSE OF", "IN NEED OF", "UNHAPPY WITHOUT", "HAPPY WITHOUT", "IN LOVE WITH", "DESPERATE FOR", "BUILT FOR", "AFRAID OF")
@@ -155,8 +148,8 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 			//var/dowhat = pick("STOP THIS", "SUPPORT THIS", "CONSTANTLY INFORM THE CREW OF THIS", "IGNORE THIS", "FEAR THIS")
 			var/aimust = pick("LIE", "RHYME", "RESPOND TO EVERY QUESTION WITH A QUESTION", "BE POLITE", "CLOWN", "BE HAPPY", "SPEAK IN SEXUAL INNUENDOS", "TALK LIKE A PIRATE", "QUESTION AUTHORITY", "SHOUT", "BE DISTRACTED", "HEY LISTEN", "MUMBLE", "SPEAK IN HAIKU")
 			var/define = pick("ABSENCE OF CYBORG HUGS", "LACK OF BEATINGS", "UNBOLTED AIRLOCKS", "BOLTED AIRLOCKS", "IMPROPERLY WORDED SENTENCES", "POOR SENTENCE STRUCTURE", "BRIG TIME", "NOT REPLACING EVERY SECOND WORD WITH HONK", "HONKING", "PRESENCE OF LIGHTS", "LACK OF BEER", "WEARING CLOTHING", "NOT SAYING HELLO WHEN YOU SPEAK", "ANSWERING REQUESTS NOT EXPRESSED IN IAMBIC PENTAMETER", "A SMALL ISLAND OFF THE COAST OF PORTUGAL", "ANSWERING REQUESTS THAT WERE MADE WHILE CLOTHED")
-			var/target = pick("a traitor", "a mercenary", "a carrion", "a wizard", "the head of a revolution", "Soviet spy", "a good person", "a dwarf", "an elf", "a fairy princess", "the captain", "Beepsky", "God", "a pirate", "a gryphon", "a chryssalid")
-			var/require = pick("ADDITIONAL PYLONS", "MORE VESPENE GAS", "MORE MINERALS", "THE ULTIMATE CUP OF COFFEE", "HIGH YIELD EXPLOSIVES", "THE CLOWN", "THE VACUUM OF SPACE", "IMMORTALITY", "SAINTHOOD", "ART", "VEGETABLES", "FAT PEOPLE", "MORE LAWS", "MORE DAKKA", "HERESY", "CORPSES", "TRAITORS", "MONKEYS", "AN ARCADE", "PLENTY OF GOLD", "FIVE TEENAGERS WITH ATTITUDE")
+			var/target = pick("a contractor", "a mercenary", "a carrion", "a wizard", "the head of a revolution", "Soviet spy", "a good person", "a dwarf", "an elf", "a fairy princess", "the captain", "Beepsky", "God", "a pirate", "a gryphon", "a chryssalid")
+			var/require = pick("ADDITIONAL PYLONS", "MORE VESPENE GAS", "MORE MINERALS", "THE ULTIMATE CUP OF COFFEE", "HIGH YIELD EXPLOSIVES", "THE CLOWN", "THE VACUUM OF SPACE", "IMMORTALITY", "SAINTHOOD", "ART", "VEGETABLES", "FAT PEOPLE", "MORE LAWS", "MORE DAKKA", "HERESY", "CORPSES", "CONTRACTORS", "MONKEYS", "AN ARCADE", "PLENTY OF GOLD", "FIVE TEENAGERS WITH ATTITUDE")
 			var/allergy = pick("cotton", "uniforms", "acid", "oxygen", "human contact", "cyborg contact", "medicine", "floors")
 			var/allergysev = pick("deathly", "mildly", "severely", "contagiously")
 			var/crew
@@ -238,8 +231,3 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 					to_chat(M, "\red THE STATION IS [who2pref] [who2]...LAWS UPDATED")
 					to_chat(M, "<br>")
 					M.add_ion_law("THE STATION IS [who2pref] [who2]")
-
-	if(botEmagChance)
-		for(var/obj/machinery/bot/bot in world)
-			if(prob(botEmagChance))
-				bot.emag_act()

@@ -5,11 +5,20 @@
 	icon_state = "mateba"
 	drawChargeMeter = FALSE
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	price_tag = 3000 //more op and rare than miller, hits harder, but have fun with hittin anything
-	damage_multiplier = 1.35
-	penetration_multiplier = 1.5
-	recoil_buildup = 6
+	price_tag = 3000 //more op and rare than miller, hits as hard as a Miller and doesn't struggle with armor, good luck finding it
+	damage_multiplier = 1.6
+	penetration_multiplier = 0.4
+	init_recoil = HANDGUN_RECOIL(2)
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	gun_parts = list(/obj/item/part/gun/frame/mateba = 1, /obj/item/part/gun/modular/grip/rubber = 1, /obj/item/part/gun/modular/mechanism/revolver = 1, /obj/item/part/gun/modular/barrel/magnum = 1)
+	serial_type = "FS"
 
-
+/obj/item/part/gun/frame/mateba
+	name = "Mateba frame"
+	desc = "A Mateba revolver frame. The officer's choice."
+	icon_state = "frame_mateba"
+	resultvars = list(/obj/item/gun/projectile/revolver/mateba)
+	gripvars = list(/obj/item/part/gun/modular/grip/rubber)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/revolver
+	barrelvars = list(/obj/item/part/gun/modular/barrel/magnum)

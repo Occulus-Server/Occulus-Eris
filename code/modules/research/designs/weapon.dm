@@ -13,8 +13,8 @@
 	build_path = /obj/item/gun/energy/stunrevolver/moebius
 	sort_string = "TAAAA"
 
-/datum/design/research/item/weapon/nuclear_gun
-	build_path = /obj/item/gun/energy/gun/nuclear
+/datum/design/research/item/weapon/mindflayer
+	build_path = /obj/item/gun/energy/psychic/mindflayer
 	sort_string = "TAAAB"
 
 /datum/design/research/item/weapon/lasercannon
@@ -28,13 +28,17 @@
 	build_path = /obj/item/gun/projectile/automatic/c20r/moebius
 	sort_string = "TAAAF"
 
-/datum/design/research/item/weapon/phoronpistol
+/datum/design/research/item/weapon/plasmapistol
 	build_path = /obj/item/gun/energy/plasma/brigador
 	sort_string = "TAAAD"
 
 /datum/design/research/item/weapon/decloner
 	build_path = /obj/item/gun/energy/decloner
 	sort_string = "TAAAE"
+
+/datum/design/research/item/weapon/nuclear
+	build_path = /obj/item/gun/energy/nuclear
+	sort_string = "TAAAG"
 
 /datum/design/research/item/weapon/chemsprayer
 	desc = "An advanced chem spraying device."
@@ -58,6 +62,12 @@
 	build_path = /obj/item/gun/projectile/selfload/moebius
 	sort_string = "TACAB"
 
+/datum/design/research/item/weapon/clarrisa_ammo
+	name = "Anne 35 Pistol Magazine"
+	desc = "A normal capacity pistol magazine chambered in .35 for the Anne auto pistol."
+	build_path = /obj/item/ammo_magazine/pistol
+	sort_string = "TACBB"
+
 /datum/design/research/item/weapon/flora_gun
 	build_path = /obj/item/gun/energy/floragun
 	sort_string = "TBAAA"
@@ -71,17 +81,17 @@
 	desc = "This breaching tool was reverse engineered from the \"Hatton\" design.\
 			Despite the Excelsior \"Hatton\" being traded on the free market through illegal channels,\
 			this device suffers from a wide number of reliability issues stemming from it being lathe printed."
-	//Eclipse Note: Leaving this reference to technomancers intact since it doesn't imply that our engineering staff is contracted out ^Spitzer
+	//Occulus Note: Leaving this reference to technomancers intact since it doesn't imply that our engineering staff is contracted out ^Spitzer
 	build_path = /obj/item/hatton/moebius
 	sort_string = "TBAAD"
 
 /datum/design/research/item/weapon/katana
-	name = "NanoTrasen \"Muramasa\" Katana"
+	name = "NanoTrasen \"Muramasa\" Katana" // Occulus Edit - Change Eris company reference
 	build_path = /obj/item/tool/sword/katana/nano
 
 
 /datum/design/research/item/weapon/bluespace_dagger
-	name = "NanoTrasen \"Displacement Dagger\""
+	name = "NanoTrasen \"Displacement Dagger\"" // Occulus Edit - Change Eris company reference
 	build_path = /obj/item/tool/knife/dagger/bluespace
 
 // Ammo
@@ -90,7 +100,7 @@
 	category = CAT_WEAPON
 
 /datum/design/research/item/ammo/hatton
-	name = "NanoTrasen BT \"Q-del\" gas tube"
+	name = "NanoTrasen BT \"Q-del\" gas tube" // Occulus Edit - Change Eris company reference
 	build_path = /obj/item/hatton_magazine/moebius
 	sort_string = "TAACC"
 
@@ -105,17 +115,3 @@
 	desc = "Insendiary ammunition for shotguns"
 	build_path = /obj/item/ammo_casing/shotgun/incendiary/prespawned
 	sort_string = "TAACF"
-
-
-//Upgrades
-/datum/design/research/item/weapon_upgrade
-	name_category = "weapon upgrades"
-	category = CAT_WEAPON
-
-/datum/design/research/item/weapon_upgrade/penetrator
-	name = "NanoTrasen \"Penetrator\" magnetic accelerator barrel"
-	build_path = /obj/item/gun_upgrade/barrel/mag_accel
-
-/datum/design/research/item/weapon_upgrade/overheat
-	name = "NanoTrasen \"Caster\" magnetic overheat barrel"
-	build_path = /obj/item/gun_upgrade/barrel/overheat

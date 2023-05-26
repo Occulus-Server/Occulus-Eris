@@ -3,7 +3,7 @@
 	desc = "Looks absolutely SHOCKING!"
 	icon_state = "echair0"
 	var/obj/item/assembly/shock_kit/part = new()
-	var/last_time = 1.0
+	var/last_time = 1
 
 /obj/structure/bed/chair/e_chair/New()
 	. = ..()
@@ -27,6 +27,8 @@
 	icon_state = "echair1"
 	to_chat(usr, SPAN_NOTICE("You switch on [src]."))
 	shock()
+
+	return
 
 /obj/structure/bed/chair/e_chair/rotate()
 	. = ..()
@@ -64,3 +66,5 @@
 
 	A.power_light = light
 	A.updateicon()
+
+	return

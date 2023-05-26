@@ -6,7 +6,7 @@
 	w_class = ITEM_SIZE_BULKY
 	matter = list(MATERIAL_STEEL = 35)
 	matter_reagents = list("fuel" = 40)
-	layer = ABOVE_OBJ_LAYER //should fix all layering problems? or am i crazy stupid and understood it wrong
+	layer = BELOW_MOB_LAYER //fixed the wrong layer - Plasmatik
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_MINE_ITEM
 	var/prob_explode = 90
@@ -28,6 +28,10 @@
 	var/deployed = FALSE
 	var/excelsior = FALSE
 	anchored = FALSE
+
+/obj/item/mine/Initialize()
+	. = ..()
+	update_icon()
 
 /obj/item/mine/excelsior
 	name = "Excelsior mine"
@@ -56,7 +60,7 @@
 	name = "makeshift mine"
 	desc = "An improvised explosive mounted in a bear trap. Dangerous to step on, but easy to defuse."
 	icon_state = "mine_improv"
-	matter = list(MATERIAL_STEEL = 25, MATERIAL_PHORON = 5)
+	matter = list(MATERIAL_STEEL = 25, MATERIAL_PLASMA = 5)
 	prob_explode = 75
 	pulse_difficulty = FAILCHANCE_ZERO
 	explosion_h_size = 0
@@ -76,14 +80,15 @@
 /obj/item/mine/proc/explode()
 	var/turf/T = get_turf(src)
 	explosion(T,explosion_d_size,explosion_h_size,explosion_l_size,explosion_f_size)
-//	fragment_explosion(T, spread_radius, fragment_type, num_fragments, null, damage_step,50) Occulus Edit - Even tremendously nerfing this doesn't fix the problems with it. I'm axing the fragments
-	qdel(src)
+	fragment_explosion(T, spread_radius, fragment_type, num_fragments, null, damage_step)
+	if(src)
+		qdel(src)
 
-/obj/item/mine/on_update_icon()
+/obj/item/mine/update_icon()
 	cut_overlays()
 
 	if(armed)
-		add_overlays(image(icon,"mine_light"))
+		overlays += image(icon,"mine_light")
 
 /obj/item/mine/attack_self(mob/user)
 	if(locate(/obj/structure/multiz/ladder) in get_turf(user))
@@ -114,6 +119,17 @@
 	update_icon()
 
 /obj/item/mine/attack_hand(mob/user)
+	if(excelsior)
+		for(var/datum/antagonist/A in user.mind.antagonist)
+			if(A.id == ROLE_EXCELSIOR_REV && deployed)
+				user.visible_message(
+					SPAN_NOTICE("You summon up Excelsior's collective training and carefully deactivate the mine for transport.")
+					)
+				deployed = FALSE
+				anchored = FALSE
+				armed = FALSE
+				update_icon()
+				return
 	if (deployed)
 		if(pulse_difficulty == FAILCHANCE_ZERO)
 			user.visible_message(
@@ -185,6 +201,10 @@
 			visible_message(SPAN_DANGER("\The [src]'s triggering mechanism is disrupted by the slope and does not go off."))
 			return ..()
 		if(isliving(AM))
+			if(excelsior)
+				for(var/datum/antagonist/A in AM.mind.antagonist)
+					if(A.id == ROLE_EXCELSIOR_REV)
+						return
 			var/true_prob_explode = prob_explode - AM.skill_to_evade_traps()
 			if(prob(true_prob_explode))
 				explode()

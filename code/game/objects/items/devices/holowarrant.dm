@@ -9,15 +9,15 @@
 	throw_range = 10
 	slot_flags = SLOT_BELT
 	req_access = list(list(access_heads, access_security))
-	var/boss_name = "Aegis Security"
-	var/station_name = "CEV Northern Light"
+	var/boss_name = "Aegis Security" // Occulus Edit - Remove Eris corp. reference
+	var/station_name = "CEV Northern Light" // Occulus Edit - Remove Eris corp. reference
 	var/datum/computer_file/data/warrant/active
 
 //look at it
 /obj/item/device/holowarrant/examine(mob/user, distance)
 	. = ..()
 	if(active)
-		to_chat(user, "It's a holographic warrant for '[active.fields["namewarrant"]]'.")
+		to_chat(user, "A holographic warrant for '[active.fields["namewarrant"]]'.")
 	if(distance <= 1)
 		show_content(user)
 	else
@@ -99,7 +99,7 @@
 		</br>_<u>[active.fields["auth"]]</u>____</br>
 		<small>Person authorizing arrest</small></br>
 		</BODY></HTML>
-		"}
+		"}  // Occulus Edit - Remove Eris corp. reference
 
 		show_browser(user, output, "window=Warrant for the arrest of [active.fields["namewarrant"]]")
 	if(active.fields["arrestsearch"] ==  "search")
@@ -130,5 +130,5 @@
 		</br>
 		All confiscated items must be filed and taken to Evidence!</small></i></center></br>
 		</BODY></HTML>
-		"}
+		"} // Occulus Edit - Remove Eris corp. reference
 		show_browser(user, output, "window=Search warrant for [active.fields["namewarrant"]]")

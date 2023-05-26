@@ -30,7 +30,7 @@
 	show_above_suit = !show_above_suit
 	update_icon()
 
-/obj/item/storage/on_update_icon()
+/obj/item/storage/update_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_belt()
@@ -55,6 +55,7 @@
 		/obj/item/tool/minihoe,
 		/obj/item/tool/hatchet,
 		/obj/item/device/scanner/plant,
+		/obj/item/device/scanner/mining,
 		/obj/item/extinguisher/mini,
 		/obj/item/hand_labeler,
 		/obj/item/clothing/gloves,
@@ -64,7 +65,8 @@
 		/obj/item/cell/medium,
 		/obj/item/grenade/chem_grenade/cleaner,
 		/obj/item/grenade/chem_grenade/antiweed,
-		/obj/item/grenade/chem_grenade/metalfoam
+		/obj/item/grenade/chem_grenade/metalfoam,
+		/obj/item/gun/projectile/flare_gun
 	)
 	price_tag = 200
 /obj/item/storage/belt/utility/full
@@ -78,8 +80,20 @@
 	new /obj/item/tool/wirecutters(src)
 	new /obj/item/stack/cable_coil/random(src)
 
+/obj/item/storage/belt/utility/technomancer 
+	spawn_blacklisted = TRUE
+
+/obj/item/storage/belt/utility/technomancer/populate_contents()
+	new /obj/item/tool/screwdriver/electric(src)
+	new /obj/item/tool/wrench/big_wrench(src)
+	new /obj/item/tool/weldingtool/advanced(src)
+	new /obj/item/tool/crowbar/pneumatic(src)
+	new /obj/item/tool/wirecutters/armature(src)
+	new /obj/item/tool/shovel/power(src)
+	new /obj/item/stack/cable_coil/random(src)
+	
 /obj/item/storage/belt/utility/neotheology
-	name = "mekhane utility belt"
+	name = "mekhane utility belt" // Occulus Edit - Remove Eris corp. reference
 	desc = "Waist-held holy items."
 	icon_state = "utility_neotheology"
 	rarity_value = 20
@@ -87,7 +101,8 @@
 		/obj/item/book/ritual/cruciform,
 		/obj/item/implant/core_implant/cruciform,
 		/obj/item/soap,
-		/obj/item/reagent_containers/spray/cleaner
+		/obj/item/reagent_containers/spray/cleaner,
+		/obj/item/reagent_containers/food/drinks/bottle/ntcahors
 	)
 	spawn_blacklisted = TRUE
 
@@ -97,27 +112,37 @@
 	icon_state = "medicalbelt"
 	item_state = "medical"
 	can_hold = list(
+		/obj/item/bodybag,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/clothing/head/surgery,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/clothing/glasses/hud/health,
 		/obj/item/device/scanner/health,
-		/obj/item/dnainjector,
 		/obj/item/device/radio/headset,
+		/obj/item/device/lighting/toggleable/flashlight,
+		/obj/item/reagent_containers/blood,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/glass/beaker,
 		/obj/item/reagent_containers/glass/bottle,
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/hypospray,
 		/obj/item/flame/lighter,
 		/obj/item/cell/small,
 		/obj/item/storage/fancy/cigarettes,
 		/obj/item/storage/pill_bottle,
+		/obj/item/tool/bonesetter,
+		/obj/item/tool/scalpel,
+		/obj/item/tool/scalpel/advanced,
+		/obj/item/tool/scalpel/laser,
+		/obj/item/tool/surgicaldrill,
+		/obj/item/tool/cautery,
+		/obj/item/tool/retractor,
+		/obj/item/tool/saw/circular,
+		/obj/item/tool/hemostat,
 		/obj/item/stack/medical,
-		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/head/surgery,
-		/obj/item/clothing/gloves,
-		/obj/item/reagent_containers/hypospray,
-		/obj/item/clothing/glasses,
-		/obj/item/tool/crowbar,
-		/obj/item/device/lighting/toggleable/flashlight,
-		/obj/item/extinguisher/mini
+		/obj/item/stack/nanopaste,
+		/obj/item/taperoll/medical
 	)
 	rarity_value = 15
 
@@ -126,11 +151,21 @@
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
+	can_hold_extra = list(
+		/obj/item/device/radio/off,
+		/obj/item/inflatable_dispenser,
+		/obj/item/tool/crowbar,
+		/obj/item/extinguisher/mini,
+		/obj/item/device/flash,
+		/obj/item/device/lighting/toggleable/flashlight,
+		/obj/item/gun/projectile/selfload,
+		/obj/item/modular_computer/tablet/moebius/preset
+	)
 
 /obj/item/storage/belt/tactical
 	name = "tactical belt"
 	desc = "Can hold various military and security equipment."
-	icon_state = "tactical"
+	icon_state = "tactical_belt"
 	rarity_value = 20
 	can_hold = list(
 		/obj/item/grenade,
@@ -153,18 +188,19 @@
 		/obj/item/device/megaphone,
 		/obj/item/melee,
 		/obj/item/gun/projectile/selfload,
+		/obj/item/gun/projectile/flare_gun,
 		/obj/item/gun/projectile/giskard,
 		/obj/item/gun/energy/gun/martin,
 		/obj/item/taperoll
 	)
 
 /obj/item/storage/belt/tactical/ironhammer
-	name = "aegis tactical belt"
+	name = "aegis tactical belt" // Occulus Edit - Remove Eris corp. reference
 	icon_state = "tactical_ironhammer"
 	spawn_blacklisted = TRUE
 
 /obj/item/storage/belt/tactical/neotheology
-	name = "mekhane tactical belt"
+	name = "mekhane tactical belt" // Occulus Edit - Remove Eris corp. reference
 	desc = "Can hold various military and security equipment."
 	icon_state = "tactical_neotheology"
 	rarity_value = 40
@@ -172,7 +208,10 @@
 		/obj/item/book/ritual/cruciform,
 		/obj/item/implant/core_implant/cruciform,
 		/obj/item/tool/knife/neotritual,
-		/obj/item/gun/energy/crossbow
+		/obj/item/gun/energy/crossbow,
+		/obj/item/tool/knife/dagger/nt,
+		/obj/item/gun/energy/nt_svalinn,
+		/obj/item/reagent_containers/food/drinks/bottle/ntcahors
 	)
 	spawn_blacklisted = TRUE
 

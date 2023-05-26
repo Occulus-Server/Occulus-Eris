@@ -12,9 +12,23 @@
 	rarity_value = 11.25
 	var/datum/reagents/gas_sac //Stores gas. Can't use the default reagents since that is now bloodstream
 
+	// Armor related variables
+	armor = list(
+		melee = 0,
+		bullet = 0,
+		energy = 0,
+		bomb = 0,
+		bio = 75,
+		rad = 50
+	)
+
 /mob/living/carbon/superior_animal/roach/support/New()
 	.=..()
 	gas_sac = new /datum/reagents(100, src)
+
+/mob/living/carbon/superior_animal/roach/support/Destroy()
+	QDEL_NULL(gas_sac)
+	return ..()
 
 /mob/living/carbon/superior_animal/roach/support/proc/gas_attack()
 	if (!gas_sac.has_reagent("blattedin", 20) || stat != CONSCIOUS)

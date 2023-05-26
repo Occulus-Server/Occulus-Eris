@@ -119,7 +119,7 @@
 	var/parent_shuttle
 
 /obj/structure/fuel_port/New()
-	src.contents.Add(new/obj/item/tank/phoron)
+	src.contents.Add(new/obj/item/tank/phoron) // Occulus Edit - Plasma > Phoron
 
 /obj/structure/fuel_port/attack_hand(mob/user as mob)
 	if(!opened)

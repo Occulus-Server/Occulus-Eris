@@ -26,11 +26,7 @@
 		report("Scan Complete: No antibodies detected.", user)
 		return
 
-	if (CLUMSY in user.mutations && prob(50))
-		// I was tempted to be really evil and rot13 the output.
-		report("Antibodies detected: [reverse_text(antigens2string(C.antibodies))]", user)
-	else
-		report("Antibodies detected: [antigens2string(C.antibodies)]", user)
+	report("Antibodies detected: [antigens2string(C.antibodies)]", user)
 
 /obj/item/device/antibody_scanner/proc/report(var/text, mob/user as mob)
 	to_chat(user, "\blue \icon[src] \The [src] beeps, \"[text]\"")
@@ -40,10 +36,11 @@
 /obj/item/virusdish
 	name = "virus dish"
 	icon = 'icons/obj/items.dmi'
-	icon_state = "implantcase"	//occulus edit- New eris sprites left virus dish with no sprite
-	var/datum/disease2/disease/virus2 = null
+	icon_state = "implantcase-b"
+	price_tag = 300
+	var/datum/disease2/disease/virus2
 	var/growth = 0
-	var/basic_info = null
+	var/basic_info
 	var/info = 0
 	var/analysed = 0
 
@@ -102,8 +99,8 @@
 	icon = 'icons/obj/discs.dmi'
 	icon_state = "purple"
 	w_class = ITEM_SIZE_TINY
-	var/datum/disease2/effectholder/effect = null
-	var/list/species = null
+	var/datum/disease2/effectholder/effect
+	var/list/species
 	var/stage = 1
 	var/analysed = 1
 

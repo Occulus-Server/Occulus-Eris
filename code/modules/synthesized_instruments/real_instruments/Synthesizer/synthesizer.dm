@@ -11,6 +11,7 @@
 	density = TRUE
 	path = /datum/instrument
 	sound_player = /datum/sound_player/synthesizer
+	matter = list(MATERIAL_STEEL = 6)
 
 /obj/structure/synthesized_instrument/synthesizer/attackby(obj/item/O, mob/user, params)
 	if (istype(O, /obj/item/tool/wrench))
@@ -33,7 +34,7 @@
 						"[user] loosens \the [src]'s casters.", \
 						"<span class='notice'> You loosen \the [src]. Now it can be pulled somewhere else.</span>", \
 						"<span class='italics'>You hear ratchet.</span>")
-					src.anchored = 0
+					src.anchored = FALSE
 	else
 		..()
 
@@ -48,6 +49,7 @@
 	icon_state = "h_synthesizer"
 	path = /datum/instrument
 	sound_player = /datum/sound_player/synthesizer
+	matter = list(MATERIAL_STEEL = 6)
 
 /obj/structure/synthesized_instrument/synthesizer/minimoog
 	name = "space minimoog"

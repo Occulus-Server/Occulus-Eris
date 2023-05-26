@@ -44,6 +44,10 @@
 	name = "navigation console"
 	build_path = /obj/item/electronics/circuitboard/nav
 
+/datum/design/autolathe/circuit/jtb
+	name = "junk tractor beam control console"
+	build_path = /obj/item/electronics/circuitboard/jtb
+
 /*/datum/design/autolathe/circuit/jtb
 	name = "junk tractor beam control console"
 	build_path = /obj/item/electronics/circuitboard/jtb
@@ -76,6 +80,13 @@
 	name = "crafting station"
 	build_path = /obj/item/electronics/circuitboard/crafting_station
 
+/datum/design/autolathe/circuit/tracker
+	name = "tracker electronics"
+	build_path = /obj/item/electronics/tracker
+
+/datum/design/autolathe/circuit/hydroponics
+	name = "hydroponics tray"
+	build_path = /obj/item/electronics/circuitboard/hydroponics
 
 //Exelsior ciruits
 /datum/design/autolathe/circuit/shieldgen_excelsior
@@ -94,6 +105,10 @@
 	name = "excelsior boombox"
 	build_path = /obj/item/electronics/circuitboard/excelsior_boombox
 
+/datum/design/autolathe/circuit/excelsior_autodoc
+	name = "excelsior autodoc"
+	build_path = /obj/item/electronics/circuitboard/excelsior_autodoc
+
 /datum/design/autolathe/circuit/teleporter_excelsior
 	name = "excelsior long-range teleporter"
 	build_path = /obj/item/electronics/circuitboard/excelsior_teleporter
@@ -103,63 +118,5 @@
 //	build_path = /obj/item/electronics/circuitboard/excelsior_turret Occulus Edit
 
 /datum/design/autolathe/circuit/autolathe_excelsior
-	name = "excelsior autolathe"
+	name = "excelsior autoforge"
 	build_path = /obj/item/electronics/circuitboard/excelsiorautolathe
-
-//NT Circuits
-
-/datum/design/autolathe/circuit/bioprinter
-	name = "NanoTrasen Biomatter Printer"
-	build_path = /obj/item/electronics/circuitboard/neotheology/bioprinter
-
-/datum/design/autolathe/circuit/solidifier
-	name = "NanoTrasen Biomatter Solidifier"
-	build_path = /obj/item/electronics/circuitboard/neotheology/solidifier
-
-/datum/design/autolathe/circuit/cloner
-	name = "NanoTrasen Cloner, Pod"
-	build_path = /obj/item/electronics/circuitboard/neotheology/cloner
-
-/datum/design/autolathe/circuit/reader
-	name = "NanoTrasen Cloner, Implant Reader"
-	build_path = /obj/item/electronics/circuitboard/neotheology/reader
-
-/datum/design/autolathe/circuit/biocan
-	name = "NanoTrasen Cloner, Biomass container"
-	build_path = /obj/item/electronics/circuitboard/neotheology/biocan
-
-/datum/design/autolathe/circuit/biogen
-	name = "NanoTrasen Biomatter Generator, Power Generator"
-	build_path = /obj/item/electronics/circuitboard/neotheology/biogen
-
-/datum/design/autolathe/circuit/biogen_console
-	name = "NanoTrasen Biomatter Generator, Power Generator Console"
-	build_path = /obj/item/electronics/circuitboard/neotheology/biogen_console
-
-/datum/design/autolathe/circuit/biogen_port
-	name = "NanoTrasen Biomatter Generator, Power Generator Port"
-	build_path = /obj/item/electronics/circuitboard/neotheology/biogen_port
-
-/datum/design/autolathe/circuit/bioreactor_loader
-	name = "NanoTrasen Biomatter Reactor, Loader"
-	build_path = /obj/item/electronics/circuitboard/neotheology/bioreactor_loader
-
-/datum/design/autolathe/circuit/bioreactor_metrics
-	name = "NanoTrasen Biomatter Reactor, Metrics"
-	build_path = /obj/item/electronics/circuitboard/neotheology/bioreactor_metrics
-
-/datum/design/autolathe/circuit/bioreactor_port
-	name = "NanoTrasen Biomatter Reactor, Port"
-	build_path = /obj/item/electronics/circuitboard/neotheology/bioreactor_port
-
-/datum/design/autolathe/circuit/bioreactor_biotank
-	name = "NanoTrasen Biomatter Reactor, Biomatter Tank"
-	build_path = /obj/item/electronics/circuitboard/neotheology/bioreactor_biotank
-
-/datum/design/autolathe/circuit/bioreactor_unloader
-	name = "NanoTrasen Biomatter Reactor, Unloader"
-	build_path = /obj/item/electronics/circuitboard/neotheology/bioreactor_unloader
-
-/datum/design/autolathe/circuit/bioreactor_platform
-	name = "NanoTrasen Biomatter Reactor, Platform"
-	build_path = /obj/item/electronics/circuitboard/neotheology/bioreactor_platform

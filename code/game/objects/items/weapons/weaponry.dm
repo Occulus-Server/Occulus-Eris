@@ -1,6 +1,6 @@
 /obj/item/energy_net
 	name = "energy net"
-	desc = "It's a net made of green energy."
+	desc = "A net made of green energy."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "energynet"
 	throwforce = 0
@@ -35,7 +35,7 @@
 
 /obj/effect/energy_net
 	name = "energy net"
-	desc = "It's a net made of green energy."
+	desc = "A net made of green energy."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "energynet"
 
@@ -111,8 +111,8 @@
 		else
 			health -= rand(1,3)
 
-	else if (HULK in user.mutations)
-		health = 0
+//	else if (HULK in user.mutations)
+//		health = 0
 	else
 		health -= rand(5,8)
 

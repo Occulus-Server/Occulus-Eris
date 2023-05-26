@@ -24,7 +24,7 @@
 	desc = "A cyan folder."
 	icon_state = "folder_cyan"
 
-/obj/item/folder/on_update_icon()
+/obj/item/folder/update_icon()
 	cut_overlays()
 	if(contents.len)
 		add_overlays("folder_paper")
@@ -33,7 +33,7 @@
 /obj/item/folder/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo) || istype(W, /obj/item/paper_bundle))
 		user.drop_item()
-		W.loc = src
+		W.forceMove(src)
 		playsound(src,'sound/effects/Paper_Shake.ogg',40,1)
 		to_chat(user, SPAN_NOTICE("You put the [W] into \the [src]."))
 		update_icon()

@@ -1,10 +1,10 @@
 var/global/list/body_modifications = list()
 var/global/list/modifications_types = list(
-	BP_CHEST = "",  "chest2" = "", BP_HEAD = "",   BP_GROIN = "",
+	BP_CHEST = "",  "chest2" = "", BP_HEAD = "",   BP_GROIN = "", // Occulus Addition Start - Hands/Feet, Single Kidney
 	BP_L_ARM  = "", BP_R_ARM  = "", BP_L_HAND = "", BP_R_HAND = "",
 	BP_L_LEG  = "", BP_R_LEG  = "", BP_L_FOOT = "", BP_R_FOOT = "",
 	OP_HEART  = "", OP_LUNGS  = "", OP_LIVER  = "", OP_EYES   = "",
-	OP_KIDNEYS = "", OP_STOMACH = "", BP_BRAIN = ""
+	OP_KIDNEYS = "", OP_STOMACH = "", BP_BRAIN = "" // Occulus Edit End
 )
 
 /proc/generate_body_modification_lists()
@@ -37,7 +37,7 @@ var/global/list/modifications_types = list(
 		BP_CHEST, "chest2", BP_HEAD, BP_GROIN, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG,\
 		BP_L_FOOT, BP_R_FOOT,\
 		OP_HEART, OP_LUNGS, OP_LIVER, BP_BRAIN, OP_EYES, OP_STOMACH, OP_KIDNEYS) //Occulus Edit: Allowing unmodified stomaches and kidneys
-	var/list/allowed_species = list("Human")// Species restriction.
+	var/list/allowed_species = list(SPECIES_HUMAN)// Species restriction.
 	var/replace_limb = null					// To draw usual limb or not.
 	var/mob_icon = ""
 	var/icon/icon = 'icons/mob/human_races/body_modification.dmi'
@@ -63,22 +63,11 @@ var/global/list/modifications_types = list(
 		if(parent.nature > nature)
 			to_chat(usr, "[name] can't be attached to [parent.name]")
 			return FALSE
-/* OCCULUS EDIT - haha we haven't bothered porting this shit
-	if(department_specific.len)
-		if(H && H.mind)
-			var/department = H.mind.assigned_job.department
-			if(!department || !department_specific.Find(department))
-				to_chat(usr, "This body-mod does not match your chosen department.")
-				return FALSE
-*/
 
-/*
-	if(!allow_nt)
-		if(H?.mind?.assigned_job.department == DEPARTMENT_CHURCH)
-			return FALSE
-		if(H?.get_core_implant(/obj/item/implant/core_implant/cruciform))
-			return FALSE
-*/
+	if(!allow_nt && H?.get_core_implant(/obj/item/implant/core_implant/cruciform))
+		to_chat(usr, "Your cruciform prevents you from using this modification.")
+		return FALSE
+
 	return TRUE
 
 /datum/body_modification/proc/create_organ(var/mob/living/carbon/holder, var/organ, var/color)
@@ -111,7 +100,7 @@ var/global/list/modifications_types = list(
 	short_name = "Removed"
 	id = "amputated"
 	desc = "Organ was removed."
-	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
+	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_HEAD, BP_GROIN, OP_HEART, OP_LUNGS, OP_KIDNEYS OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES) // Occulus Edit - Adds Hands/Feet, single kidney
 	replace_limb = 1
 	nature = MODIFICATION_REMOVED
 
@@ -141,11 +130,13 @@ var/global/list/modifications_types = list(
 /datum/body_modification/limb/prosthesis/asters
 	id = "prosthesis_asters"
 	replace_limb = /obj/item/organ/external/robotic/asters
+	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_CHEST, BP_GROIN, BP_HEAD)
 	icon = 'icons/mob/human_races/cyberlimbs/asters.dmi'
 
 /datum/body_modification/limb/prosthesis/serbian
 	id = "prosthesis_serbian"
 	replace_limb = /obj/item/organ/external/robotic/serbian
+	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_CHEST, BP_GROIN, BP_HEAD)
 	icon = 'icons/mob/human_races/cyberlimbs/serbian.dmi'
 
 /datum/body_modification/limb/prosthesis/frozen_star
@@ -156,7 +147,20 @@ var/global/list/modifications_types = list(
 /datum/body_modification/limb/prosthesis/technomancer
 	id = "prosthesis_technomancer"
 	replace_limb = /obj/item/organ/external/robotic/technomancer
+	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_CHEST, BP_GROIN, BP_HEAD)
 	icon = 'icons/mob/human_races/cyberlimbs/technomancer.dmi'
+
+/datum/body_modification/limb/prosthesis/moebius
+	id = "prosthesis_moebius"
+	replace_limb = /obj/item/organ/external/robotic/moebius
+	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_CHEST, BP_GROIN, BP_HEAD)
+	icon = 'icons/mob/human_races/cyberlimbs/moebius.dmi'
+
+/datum/body_modification/limb/prosthesis/makeshift
+	id = "prosthesis_makeshift"
+	replace_limb = /obj/item/organ/external/robotic/makeshift
+	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_CHEST, BP_GROIN)
+	icon = 'icons/mob/human_races/cyberlimbs/ghetto.dmi'
 
 /datum/body_modification/limb/mutation/New()
 	short_name = "M: [name]"
@@ -187,14 +191,18 @@ var/global/list/modifications_types = list(
 	short_name = "P: assisted"
 	id = "assisted"
 	desc = "Assisted organ."
-	body_parts = list(OP_HEART, OP_LUNGS, OP_KIDNEYS, OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES)
+	body_parts = list(OP_HEART, OP_LUNGS, OP_KIDNEYS, OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES) // Occulus Edit - Single kidney
 	allow_nt = FALSE
 
 /datum/body_modification/organ/assisted/create_organ(var/mob/living/carbon/holder, var/O, var/color)
 	var/obj/item/organ/I = ..(holder,O,color)
 	I.nature = MODIFICATION_ASSISTED
+	I.name = "assisted [I.name]"
 	I.min_bruised_damage = 15
 	I.min_broken_damage = 35
+	if(istype(I, /obj/item/organ/internal/appendix))
+		return I
+	I.icon_state = "[I.icon_state]_assisted"
 	return I
 
 
@@ -203,16 +211,22 @@ var/global/list/modifications_types = list(
 	short_name = "P: prosthesis"
 	id = "robotize_organ"
 	desc = "Robotic organ."
-	body_parts = list(OP_HEART, OP_LUNGS, OP_KIDNEYS, OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES)
+	body_parts = list(OP_HEART, OP_LUNGS, OP_KIDNEYS, OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES) // Occulus Edit - Single kidney
 	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
 
 /datum/body_modification/organ/robotize_organ/create_organ(var/mob/living/carbon/holder, O, color)
 	var/obj/item/organ/I = ..(holder,O,color)
 	I.nature = MODIFICATION_SILICON
+	if(istype(I, /obj/item/organ/internal/appendix))
+		return null
 	if(istype(I, /obj/item/organ/internal/eyes))
 		var/obj/item/organ/internal/eyes/E = I
 		E.robo_color = iscolor(color) ? color : "#FFFFFF"
+	I.name = "robotic [I.name]"
+	I.icon_state = "[I.icon_state]_robotic"
+	//else // Pointless , doesn't show up in surgery UI
+	//	I.color = "#808080"
 	return I
 
 ////Eyes////

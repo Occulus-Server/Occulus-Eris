@@ -41,10 +41,8 @@
 
 /datum/breakdown/positive/stalwart/conclude()
 	holder.owner.adjustBruteLoss(-25)
-	holder.owner.adjustCloneLoss(-10)
 	holder.owner.adjustFireLoss(-25)
 	holder.owner.adjustOxyLoss(-45)
-	holder.owner.adjustToxLoss(-25)
 	holder.owner.reagents.add_reagent("tramadol", 5) // the way this works is silly as all fuck and should probably be fixed at some point
 	..()
 
@@ -190,7 +188,7 @@
 				if(damage_eyes)
 					holder.owner.visible_message(SPAN_DANGER("[holder.owner] scratches at [G.his] eyes!"))
 					var/obj/item/organ/internal/eyes/eyes = holder.owner.random_organ_by_process(OP_EYES)
-					eyes.take_damage(rand(1,2), 1)
+					eyes.take_damage(rand(1,10), TRUE, BRUTE, TRUE, TRUE)
 				else
 					holder.owner.visible_message(SPAN_DANGER(pick(list(
 						"[holder.owner] tries to end [G.his] misery!",
@@ -215,18 +213,17 @@
 /datum/breakdown/negative/hysteric
 	name = "Hysteric"
 	duration = 1.5 MINUTES
-	delay = 30 SECONDS
+	delay = 60 SECONDS
 	restore_sanity_post = 50
 
 	start_messages = list(
 		"You get overwhelmed and start to panic!",
 		"You're inconsolably terrified!",
 		"You can't choke back the tears anymore!",
-		"The hair on your nape stands on end! The fear sends you into a frenzy!",
 		"It's too much! You freak out and lose control!"
 	)
 	end_messages = list(
-		"You calm down as your feelings subside. You feel horribly embarassed!"
+		"You calm down as your feelings subside. You feel horribly embarrassed!"
 	)
 
 /datum/breakdown/negative/hysteric/update()
@@ -303,8 +300,8 @@
 	)
 
 /datum/breakdown/negative/fabric/occur()
-	RegisterSignal(SSdcs, COMSIG_GLOB_FABRIC_NEW, .proc/add_image)
-	RegisterSignal(holder.owner, COMSIG_MOB_LOGIN, .proc/update_client_images)
+	RegisterSignal(SSdcs, COMSIG_GLOB_FABRIC_NEW, PROC_REF(add_image))
+	RegisterSignal(holder.owner, COMSIG_MOB_LOGIN, PROC_REF(update_client_images))
 	for(var/datum/component/fabric/F in GLOB.fabric_list)
 		if(F.parent == holder.owner)
 			continue
@@ -321,11 +318,14 @@
 	..()
 
 /datum/breakdown/negative/fabric/proc/add_image(image/I)
+	SIGNAL_HANDLER
 	images |= I
 	holder.owner.client?.images |= I
 
 /datum/breakdown/negative/fabric/proc/update_client_images()
 	holder.owner.client?.images |= images 
+	SIGNAL_HANDLER
+	holder.owner.client?.images |= images
 */ // Occulus Removal End
 
 
@@ -336,7 +336,7 @@
 
 	start_messages = list(
 		"You feel like there is no point in any of this!",
-		"You brain refuses to comprehend any of this!",
+		"Your brain refuses to comprehend any of this!",
 		"You feel like you don't want to continue whatever you're doing!",
 		"You feel like your best days are gone forever!",
 		"You feel it. You know it. There is no turning back!"
@@ -369,8 +369,8 @@
 	return FALSE
 
 /datum/breakdown/common/power_hungry/occur()
-	RegisterSignal(holder.owner, COMSIG_CARBON_ELECTROCTE, .proc/check_shock)
-	RegisterSignal(holder.owner, COMSIG_LIVING_STUN_EFFECT, .proc/check_shock)
+	RegisterSignal(holder.owner, COMSIG_CARBON_ELECTROCTE, PROC_REF(check_shock))
+	RegisterSignal(holder.owner, COMSIG_LIVING_STUN_EFFECT, PROC_REF(check_shock))
 	return ..()
 
 /datum/breakdown/common/power_hungry/update()
@@ -387,6 +387,7 @@
 	..()
 
 /datum/breakdown/common/power_hungry/proc/check_shock()
+	SIGNAL_HANDLER
 	finished = TRUE
 
 #define ACTVIEW_ONE TRUE
@@ -394,11 +395,11 @@
 
 /datum/breakdown/negative/glassification
 	name = "Glassification"
-	duration = 5 MINUTES
+	duration = 2 MINUTES
 	restore_sanity_post = 40
 	var/time
-	var/cooldown = 15 SECONDS
-	var/time_view = 5 SECONDS
+	var/cooldown = 20 SECONDS
+	var/time_view = 1 SECONDS
 	var/active_view = FALSE
 	var/mob/living/carbon/human/target
 	start_messages = list("You start to see through everything. Your mind expands.")
@@ -432,7 +433,7 @@
 			to_chat(target, SPAN_WARNING("It seems as if you are looking through someone else's eyes."))
 			active_view = ACTVIEW_BOTH
 		target.sanity.changeLevel(-rand(5,10)) //This phenomena will prove taxing on the viewed regardless
-		addtimer(CALLBACK(src, .proc/reset_views, TRUE), time_view)
+		addtimer(CALLBACK(src, PROC_REF(reset_views), TRUE), time_view)
 		time = world.time + time_view
 
 /datum/breakdown/negative/glassification/proc/reset_views()
@@ -449,11 +450,11 @@
 	name = "Herald"
 	restore_sanity_pre = 5
 	restore_sanity_post = 45
-	duration = 3 MINUTES	// SYZYGY EDIT - Nerfs its duration from 5 to 3 minutes
+	duration = 3 MINUTES // Occulus Edit - Nerf duration from 5 to 3 minutes
 	start_messages = list("You've seen the abyss too long, and now forbidden knowledge haunts you.")
 	end_messages = list("You feel like you've forgotten something important. But this comforts you.")
 	var/message_time = 0
-	var/cooldown_message = 15 SECONDS	// SYZYGY EDIT - Nerfs its cooldown to 15 seconds from 10
+	var/cooldown_message = 15 SECONDS // Occulus Edit - increase message cooldown to 15 seconds, from 10
 
 
 /datum/breakdown/common/herald/update()
@@ -463,7 +464,7 @@
 	if(world.time >= message_time)
 		message_time = world.time + cooldown_message
 		var/chance = rand(1, 100)
-		holder.owner.whisper_say(chance <= 50 ? "[holder.pick_quote_20()]" : "[holder.pick_quote_40()]") //Occulus edit, so you mutter to yourself
+		holder.owner.say(chance <= 50 ? "[holder.pick_quote_20()]" : "[holder.pick_quote_40()]")
 
 /datum/breakdown/common/desire_for_chrome
 	name = "Desire for Chrome"
@@ -480,7 +481,7 @@
 	return FALSE
 
 /datum/breakdown/common/desire_for_chrome/occur()
-	RegisterSignal(holder.owner, COMSIG_HUMAN_ROBOTIC_MODIFICATION, .proc/check_organ)
+	RegisterSignal(holder.owner, COMSIG_HUMAN_ROBOTIC_MODIFICATION, PROC_REF(check_organ))
 	return ..()
 
 /datum/breakdown/common/desire_for_chrome/conclude()
@@ -488,6 +489,7 @@
 	..()
 
 /datum/breakdown/common/desire_for_chrome/proc/check_organ()
+	SIGNAL_HANDLER
 	finished = TRUE
 
 
@@ -688,7 +690,7 @@
 	to_chat(holder.owner,"...[jointext(words, " ", phrase_pos, phrase_pos + phrase_len + 1)]...")
 
 /datum/breakdown/common/signs/occur()
-	RegisterSignal(holder.owner, COMSIG_HUMAN_SAY, .proc/check_message)
+	RegisterSignal(holder.owner, COMSIG_HUMAN_SAY, PROC_REF(check_message))
 	return ..()
 
 /datum/breakdown/common/signs/conclude()
@@ -696,5 +698,6 @@
 	..()
 
 /datum/breakdown/common/signs/proc/check_message(msg)
+	SIGNAL_HANDLER
 	if(msg == message)
 		finished = TRUE

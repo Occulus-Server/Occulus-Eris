@@ -9,26 +9,25 @@
 		"a jetpack" = /obj/item/tank/jetpack,
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/device/aicard,
-		"the Chief Engineer's advanced voidsuit control module" = /obj/item/rig/ce,
+		"the Chief Engineer's advanced voidsuit control module" = /obj/item/rig/ce,  // Occulus Edit - Removes Eris corp. reference
 		"the ship blueprints" = /obj/item/blueprints,
-		"28 moles of phoron (full tank)" = /obj/item/tank,
+		"28 moles of plasma (full tank)" = /obj/item/tank,
 		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/reagent_containers/food/snacks/meat/corgi,
-		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
-		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant,
-		"a Chief Medical Officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
-		"a Cobalt Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
-		"a Head of Personnel's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
+		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,  // Occulus Edit - Removes Eris corp. reference
+		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant,  // Occulus Edit - Removes Eris corp. reference
+		"a Chief Medical Officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,  // Occulus Edit - Removes Eris corp. reference
+		"a Cobalt Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,  // Occulus Edit - Removes Eris corp. reference
+		"a Head of Personnel's jumpsuit" = /obj/item/clothing/under/rank/first_officer,  // Occulus Edit - Removes Eris corp. reference
 		"the hypospray" = /obj/item/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"a Cobalt Aegis hardsuit control module" = /obj/item/rig/combat/ironhammer,
-		"a Lazarus Carbon Reclaimer" = /obj/item/biosyphon,
+		"a Cobalt Aegis hardsuit control module" = /obj/item/rig/combat/ironhammer,  // Occulus Edit - Removes Eris corp. reference
+		"a Bluespace Biosyphon" = /obj/item/biosyphon,
 		"a S REV .35 Auto \"Sky Driver\"" = /obj/item/gun/projectile/revolver/sky_driver,
 		"Von-Krabin Stimulator" = /obj/item/device/von_krabin,
 		"Molitor-Riedel Enricher" = /obj/item/reagent_containers/enricher,
 		"an Ancient Maneki Neko" = /obj/item/maneki_neko,
-		"a Reality Complicator" = /obj/item/complicator,
 		"a Techno-Tribalism Enforcer" = /obj/item/device/techno_tribalism,
 		"an Random wave radio" = /obj/item/device/radio/random_radio,
 		"the Sword of Truth" = /obj/item/tool/sword/nt_sword,
@@ -38,7 +37,8 @@
 	)
 
 	var/global/possible_items_special[] = list(
-		"nuclear gun" = /obj/item/gun/energy/gun/nuclear,
+		"mindflayer" = /obj/item/gun/energy/psychic/mindflayer,
+		"advanced energy gun" = /obj/item/gun/energy/nuclear,
 		"diamond drill" = /obj/item/tool/pickaxe/diamonddrill,
 		"bag of holding" = /obj/item/storage/backpack/holding,
 		"hyper-capacity cell" = /obj/item/cell/large/hyper,
@@ -81,7 +81,7 @@
 	switch(target_name)
 		if("28 moles of phoron (full tank)", "10 diamonds", "50 gold bars", "25 refined uranium bars")
 			var/target_amount = text2num(target_name)//Non-numbers are ignored.
-			var/found_amount = 0.0//Always starts as zero.
+			var/found_amount = 0//Always starts as zero.
 
 			for(var/obj/item/I in all_items) //Check for phoron tanks
 				if(istype(I, steal_target))
@@ -93,7 +93,7 @@
 
 			if(B)
 				var/target = text2num(target_name)
-				var/found_amount = 0.0
+				var/found_amount = 0
 				for(var/obj/item/coin/C in B)
 					found_amount++
 				return found_amount>=target

@@ -4,10 +4,19 @@
 	if(!client)
 		return
 
+	if(isghost(src) || stats.getPerk(PERK_CODESPEAK_COP))
+		message = cop_codes.find_message(message) ? "[message] ([cop_codes.find_message(message)])" : message
+	if(isghost(src) || stats.getPerk(PERK_CODESPEAK_SERB))
+		message = serb_codes.find_message(message) ? "[message] ([serb_codes.find_message(message)])" : message
+
 	var/speaker_name = speaker.name
 	if(ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker
-		speaker_name = H.rank_prefix_name(H.GetVoice())
+		// GetVoice(TRUE) checks if mask hiding the voice
+		speaker_name = H.rank_prefix_name(H.GetVoice(TRUE))
+		// If we have the right perk or standing close - GetVoice() again, but skip mask check
+		if((get_dist(src, H) < 2) || stats?.getPerk(PERK_EAR_OF_QUICKSILVER))
+			speaker_name = H.rank_prefix_name(H.GetVoice(FALSE))
 
 	if(speech_volume)
 		//Occulus Edit - Speech now scales correctly.
@@ -54,11 +63,20 @@
 	var/time = say_timestamp()
 	to_chat(src,"[time] [message]")
 
-/mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null,\
+/mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language,\
 		var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0, var/voice_name ="")
 
 	if(!client)
 		return
+
+	if(isghost(src) || stats.getPerk(PERK_CODESPEAK_COP))
+		var/found = cop_codes.find_message_radio(message)
+		if(found)
+			message = "[message] ([found])"
+	if(isghost(src) || stats.getPerk(PERK_CODESPEAK_SERB))
+		var/found = serb_codes.find_message_radio(message)
+		if(found)
+			message = "[message] ([found])"
 
 	var/speaker_name = get_hear_name(speaker, hard_to_hear, voice_name)
 
@@ -109,11 +127,11 @@
 	if(ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker
 
-		if(H.wear_mask && istype(H.wear_mask, /obj/item/clothing/mask/gas/voice))
+		if(H.wear_mask && istype(H.wear_mask, /obj/item/clothing/mask/chameleon/voice))
 			changed_voice = TRUE
 			var/mob/living/carbon/human/I
 
-			for(var/mob/living/carbon/human/M in SSmobs.mob_list)
+			for(var/mob/living/carbon/human/M in SShumans.mob_list)
 				if(M.real_name == speaker_name)
 					I = M
 					break

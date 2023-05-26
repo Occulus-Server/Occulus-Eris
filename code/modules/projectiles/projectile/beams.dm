@@ -5,11 +5,13 @@
 	hitsound_wall = 'sound/weapons/guns/misc/laser_searwall.ogg'
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	damage_types = list(BURN = 30)
+	armor_divisor = 1
 	check_armour = ARMOR_ENERGY
 	eyeblur = 4
 	var/frequency = 1
 	hitscan = 1
 	invisibility = 101	//beam projectiles are invisible as they are rendered by the effect engine
+	recoil = 1 // Even less than self-propelled bullets
 
 	muzzle_type = /obj/effect/projectile/laser/muzzle
 	tracer_type = /obj/effect/projectile/laser/tracer
@@ -20,10 +22,8 @@
 /obj/item/projectile/beam/check_penetrate(var/atom/A)
 	if(istype(A, /obj/item/shield))
 		var/obj/item/shield/S = A
-		var/loss = min(round(armor_penetration * 2 / S.shield_integrity * 1.8), 1)
-		for(var/i in damage_types)
-			damage_types[i] *= loss
-
+		var/loss = round(S.shield_integrity / 8)
+		block_damage(loss, A)
 		A.visible_message(SPAN_WARNING("\The [src] is weakened by the \the [A]!"))
 		playsound(A.loc, 'sound/weapons/shield/shielddissipate.ogg', 50, 1)
 		return 1
@@ -33,7 +33,7 @@
 	name = "cutting beam"
 	icon_state = "plasmablaster"
 	damage_types = list(BRUTE = 25)
-	armor_penetration = 10
+	armor_divisor = 1.2
 	pass_flags = PASSTABLE
 
 	muzzle_type = /obj/effect/projectile/laser/plasmacutter/muzzle
@@ -43,7 +43,7 @@
 /obj/item/projectile/beam/cutter/on_impact(var/atom/A)
 	if(istype(A, /turf/simulated/mineral))
 		var/turf/simulated/mineral/M = A
-		M.GetDrilled(1)
+		M.GetDrilled(5)
 	.=..()
 
 /obj/item/projectile/beam/practice
@@ -55,13 +55,14 @@
 	eyeblur = 2
 
 /obj/item/projectile/beam/midlaser
-	armor_penetration = 10
+	armor_divisor = 1.2
 
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
 	damage_types = list(BURN = 50)
-	armor_penetration = 20
+	armor_divisor = 1
+	recoil = 3
 
 	muzzle_type = /obj/effect/projectile/laser_heavy/muzzle
 	tracer_type = /obj/effect/projectile/laser_heavy/tracer
@@ -71,8 +72,10 @@
 	name = "psychic laser"
 	icon_state = "psychic_heavylaser"
 	var/obj/item/gun/energy/psychic/holder
-	var/traitor = FALSE //Check if it's a traitor psychic beam
-	armor_penetration = 100
+	var/contractor = FALSE //Check if it's a contractor psychic beam
+	damage_types = list(PSY = 30)
+	armor_divisor = ARMOR_PEN_MAX
+	recoil = 2
 
 	muzzle_type = /obj/effect/projectile/psychic_laser_heavy/muzzle
 	tracer_type = /obj/effect/projectile/psychic_laser_heavy/tracer
@@ -80,15 +83,16 @@
 
 /obj/item/projectile/beam/psychic/launch_from_gun(atom/target, mob/user, obj/item/gun/launcher, target_zone, x_offset=0, y_offset=0, angle_offset)
 	holder = launcher
-	if(holder && holder.traitor)
-		traitor = holder.traitor
+	if(holder && holder.contractor)
+		contractor = holder.contractor
 	..()
 
 /obj/item/projectile/beam/psychic/heavylaser
 	name = "psychic heavy laser"
 	icon_state = "psychic_heavylaser"
 	damage_types = list(PSY = 40)
-	traitor = TRUE
+	contractor = TRUE
+	recoil = 3
 
 	muzzle_type = /obj/effect/projectile/psychic_laser_heavy/muzzle
 	tracer_type = /obj/effect/projectile/psychic_laser_heavy/tracer
@@ -98,7 +102,7 @@
 	name = "xray beam"
 	icon_state = "xray"
 	damage_types = list(BURN = 25)
-	armor_penetration = 40
+	armor_divisor = 2.5
 
 	muzzle_type = /obj/effect/projectile/xray/muzzle
 	tracer_type = /obj/effect/projectile/xray/tracer
@@ -108,7 +112,8 @@
 	name = "pulse"
 	icon_state = "u_laser"
 	damage_types = list(BURN = 40)
-	armor_penetration = 20
+	armor_divisor = 1
+	recoil = 5 // Effectively hattons floors and walls
 
 	muzzle_type = /obj/effect/projectile/laser_pulse/muzzle
 	tracer_type = /obj/effect/projectile/laser_pulse/tracer
@@ -123,6 +128,7 @@
 	name = "emitter beam"
 	icon_state = "emitter"
 	damage_types = list(BURN = 0)
+	recoil = 0
 
 	muzzle_type = /obj/effect/projectile/emitter/muzzle
 	tracer_type = /obj/effect/projectile/emitter/tracer
@@ -184,8 +190,9 @@
 	name = "sniper beam"
 	icon_state = "xray"
 	damage_types = list(BURN = 60)
-	armor_penetration = 50
+	armor_divisor = 2
 	stutter = 3
+	recoil = 10
 
 	muzzle_type = /obj/effect/projectile/xray/muzzle
 	tracer_type = /obj/effect/projectile/xray/tracer
@@ -196,8 +203,7 @@
 	icon_state = "stun"
 	nodamage = 1
 	taser_effect = 1
-	agony = 30
-	damage_types = list(BURN = 1)
+	damage_types = list(HALLOSS = 30)
 
 	muzzle_type = /obj/effect/projectile/stun/muzzle
 	tracer_type = /obj/effect/projectile/stun/tracer

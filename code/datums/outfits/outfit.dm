@@ -167,7 +167,7 @@ var/list/outfits_decls_by_type_
 	if(OUTFIT_ADJUSTMENT_SKIP_ID_PDA & equip_adjustments)
 		return
 	var/obj/item/card/id/W = new id_type(H)
-	if(H.mind)  // decorative corpses with ID do not have a mind
+	if(H.mind)  // decorative corpses with ID do not have a mind 
 		var/datum/job/job = SSjob.GetJob(H.mind.assigned_role)
 		W.access = job.get_access()
 	if(id_desc)

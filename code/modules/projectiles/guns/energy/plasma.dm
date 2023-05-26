@@ -1,7 +1,8 @@
 /obj/item/gun/energy/plasma
 	name = "NT PR \"Dominion\""
-	desc = "A \"NanoTrasen\" weapon that uses advanced plasma generation technology to emit highly controllable blasts of energized matter. Due to its complexity and cost, it is rarely seen in use, except by specialists."
-	icon = 'icons/obj/guns/energy/pulse.dmi'
+	desc = "A \"NanoTrasen\" weapon that uses advanced plasma generation technology to emit highly controllable blasts of energized matter. Due to its complexity and cost, it is rarely seen in use, except by specialists." // Occulus Edit - Renamed NeoTheology to NanoTrasen
+	description_info = "Plasma weapons excel at armor penetration, especially with high-power modes due to extreme temperatures they cause."
+	icon = 'icons/obj/guns/energy/pulse.dmi' // back and on_suit sprites required, pretty please
 	icon_state = "pulse"
 	item_state = null	//so the human update icon uses the icon_state instead.
 	item_charge_meter = TRUE
@@ -12,18 +13,20 @@
 	price_tag = 4500
 	fire_sound = 'sound/weapons/energy/burn.ogg'
 	suitable_cell = /obj/item/cell/medium
-	sel_mode = 2
-	charge_cost = 20 //Gives us 40 shots per high medium-sized cell
-	recoil_buildup = 1 //pulse weapons have a bit more recoil
-	one_hand_penalty = 10
+	sel_mode = 1
+	charge_cost = 15 //Gives us 40 shots per low-tier medium-sized cell
 	twohanded = TRUE
+	fire_delay = 4
+	charge_cost = 15
 
 	init_firemodes = list(
-		list(mode_name="Burn", mode_desc="A relatively light plasma round", projectile_type=/obj/item/projectile/plasma/light, fire_sound='sound/weapons/energy/burn.ogg', burst=1, fire_delay=8, charge_cost=20, icon="stun", projectile_color = "#0000FF"),
-		list(mode_name="Melt", mode_desc="A much more potent plasma round for breaching tough opponents' hides", projectile_type=/obj/item/projectile/plasma, fire_sound='sound/weapons/energy/melt.ogg', burst=1, fire_delay=12, charge_cost=25, icon="kill", projectile_color = "#FF0000"),
-		list(mode_name="Sear", mode_desc="A three-round burst of plasma, for dealing with unruly crowds", projectile_type=/obj/item/projectile/plasma/light, fire_sound='sound/weapons/energy/burn.ogg', burst=3, fire_delay=12, charge_cost=20, icon="burst", projectile_color = "#0000FF"),
-		list(mode_name="INCINERATE", mode_desc="An armor-stripping plasma round", projectile_type=/obj/item/projectile/plasma/heavy, fire_sound='sound/weapons/energy/incinerate.ogg', burst=1, fire_delay=14, charge_cost=30, icon="destroy", projectile_color = "#FFFFFF"),
+		list(mode_name="Burn", mode_desc="A relatively light plasma round", projectile_type=/obj/item/projectile/plasma/light, fire_sound='sound/weapons/energy/melt.ogg', burst=1, fire_delay=4, charge_cost=15, icon="kill", projectile_color = "#0088ff"),
+		list(mode_name="Sear", mode_desc="A three-round burst of light plasma rounds, for dealing with unruly crowds", projectile_type=/obj/item/projectile/plasma/light, fire_sound='sound/weapons/energy/melt.ogg', burst=3, fire_delay=12, burst_delay=1, charge_cost=15, icon="burst", projectile_color = "#0088ff"),
+		list(mode_name="INCINERATE", mode_desc="A heavy armor-stripping plasma round", projectile_type=/obj/item/projectile/plasma/aoe/heat, fire_sound='sound/weapons/energy/incinerate.ogg', burst=1, fire_delay=20, charge_cost=90, icon="destroy", projectile_color = "#FFFFFF"),
 	)
+	init_recoil = RIFLE_RECOIL(1)
+
+	serial_type = "NT"
 
 
 /obj/item/gun/energy/plasma/mounted
@@ -31,30 +34,34 @@
 	use_external_power = TRUE
 	safety = FALSE
 	twohanded = FALSE
-	one_hand_penalty = 0
+	spawn_tags = null
 	spawn_blacklisted = TRUE
+	bad_type = /obj/item/gun/energy/plasma/mounted
+	init_recoil = LMG_RECOIL(1)
 
 /obj/item/gun/energy/plasma/mounted/blitz
 	name = "SDF PR \"Sprengen\""
 	desc = "A miniaturized plasma rifle, remounted for robotic use only."
 	icon_state = "plasma_turret"
 	charge_meter = FALSE
-	spawn_tags = null
+	bad_type = /obj/item/gun/energy/plasma/mounted/blitz
 
 /obj/item/gun/energy/plasma/destroyer
 	name = "NT PR \"Purger\""
-	desc = "A more recent \"NanoTrasen\" brand plasma rifle, developed in direct response to compete against the highly successful \"Cassad\" design."
-	icon = 'icons/obj/guns/energy/destroyer.dmi'
+	desc = "A more recent \"NanoTrasen\" brand plasma cannon, focused on the superior firepower at the cost of high energy usage. \
+            There\'s an inscription on the stock. \'For those whom the Angels hath cursed: thou wilt find, have no one to help.\'" // Occulus Edit - Renamed NeoTheology to NanoTrasen
+	icon = 'icons/obj/guns/energy/destroyer.dmi' // Dominion _doble sprites so pls draw + back and on_suit sprites required, pretty please
 	fire_sound = 'sound/weapons/energy/incinerate.ogg'
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 8, MATERIAL_SILVER = 10, MATERIAL_URANIUM = 5)
-	sel_mode = 1
-	fire_delay = 15
+	slot_flags = SLOT_BACK
+	fire_delay = 20
+	charge_cost = 200
 
 	init_firemodes = list(
-		list(mode_name="INCINERATE", mode_desc="Suffer not the heretic", projectile_type=/obj/item/projectile/plasma/heavy, fire_sound='sound/weapons/energy/incinerate.ogg', fire_delay=15, charge_cost=30, icon="kill", projectile_color = "#FFFF00"),
-		list(mode_name="VAPORIZE", mode_desc="Cell-dump them to oblivion", projectile_type=/obj/item/projectile/plasma/heavy, fire_sound='sound/weapons/energy/vaporize.ogg', fire_delay=5, charge_cost=70, icon="destroy", projectile_color = "#FF0000", recoil_buildup=3),
+		list(mode_name="DISINTEGRATE", mode_desc="Removes heresy from sight", projectile_type=/obj/item/projectile/plasma/aoe/heat/strong, fire_sound='sound/weapons/energy/incinerate.ogg', fire_delay=20, charge_cost=200, icon="destroy", projectile_color = "#ff1212"),
+		list(mode_name="CLEANSE", mode_desc="Cleanse the filth", mode_type = /datum/firemode/automatic, projectile_type=/obj/item/projectile/plasma, fire_sound='sound/weapons/energy/vaporize.ogg', fire_delay=4, charge_cost=35, icon="burst", projectile_color = "#00AAFF"),
 	)
-
+	init_recoil = LMG_RECOIL(1)
 
 /obj/item/gun/energy/plasma/cassad
 	name = "FS PR \"Cassad\""
@@ -64,30 +71,42 @@
 	item_state = "cassad"
 	matter = list(MATERIAL_PLASTEEL = 18, MATERIAL_PLASTIC = 8, MATERIAL_SILVER = 6, MATERIAL_URANIUM = 6)
 	fire_sound = 'sound/weapons/energy/burn.ogg'
-	sel_mode = 1
-	charge_cost = 20 //40 shots per high medium-sized cell
-	fire_delay = 12
+	charge_cost = 25
+	fire_delay = 6
+	serial_type = "FS"
 	price_tag = 3000
-	zoom_factor = null
-	rarity_value = 12
+	zoom_factors = list()
 
 	init_firemodes = list(
-		list(mode_name="Burn", mode_desc="A general purpose plasma round, for dealing with native fauna", projectile_type=/obj/item/projectile/plasma/light, fire_sound='sound/weapons/energy/burn.ogg', burst=1, fire_delay=8, charge_cost=15, icon="stun", projectile_color = "#00FFFF"),
-		list(mode_name="Melt", mode_desc="A much more charged plasma round, for stripping away armor", projectile_type=/obj/item/projectile/plasma, fire_sound='sound/weapons/energy/melt.ogg', burst=1, fire_delay=12, charge_cost=20, icon="kill", projectile_color = "#00AAFF"),
-		list(mode_name="Burst", mode_desc="A three-round burst of plasma, for dealing with unruly crowds", projectile_type=/obj/item/projectile/plasma/light, fire_sound='sound/weapons/Taser.ogg', burst=3, fire_delay=12, charge_cost=20, icon="burst", projectile_color = "#00FFFF")
+		list(mode_name="Melt", mode_desc="A reliable plasma round, for stripping away armor", projectile_type=/obj/item/projectile/plasma, fire_sound='sound/weapons/energy/burn.ogg', burst=1, fire_delay=6, charge_cost=25, icon="kill", projectile_color = "#00AAFF"),
+		list(mode_name="Pulse", mode_desc="A plasma round configured to explode violently on impact, and cause a pulse of EMP", projectile_type=/obj/item/projectile/plasma/aoe/ion, fire_sound='sound/weapons/Taser.ogg', burst=1, fire_delay=12, charge_cost=150, icon="stun", projectile_color = "#00FFFF")
 	)
+	init_recoil = RIFLE_RECOIL(1)
+	spawn_tags = SPAWN_TAG_FS_ENERGY
 
-//	spawn_tags = SPAWN_TAG_FS_ENERGY
-
-/obj/item/gun/energy/plasma/cassad/on_update_icon()
+/obj/item/gun/energy/plasma/cassad/update_icon(ignore_inhands)
 	..()
-	set_item_state(null, back = TRUE)
+	if(charge_meter)
+		var/ratio = 0
+
+		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.
+		if(cell && cell.charge >= charge_cost)
+			ratio = cell.charge / cell.maxcharge
+			ratio = min(max(round(ratio, 0.25) * 100, 25), 100)
+
+		if(item_charge_meter)
+			set_item_state("-[ratio]")
+			wielded_item_state = "_doble" + "-[ratio]"
+			icon_state = initial(icon_state) + "[ratio]"
+	if(!ignore_inhands)
+		update_wear_icon()
 
 /obj/item/gun/energy/plasma/brigador
-	name = "NanoTrasen PP \"Brigador\""
-	desc = "\"NanoTrasen\" brand energy pistol, for personal overprotection."
+	name = "NT PP \"Brigador\"" // Occulus Edit - Replace Moebius with NanoTrasen
+	desc = "\"NanoTrasen\" brand energy pistol, for personal overprotection." // Occulus Edit - Replace Moebius with NanoTrasen
 	icon = 'icons/obj/guns/energy/brigador.dmi'
 	icon_state = "brigador"
+	can_dual = TRUE
 	charge_meter = FALSE
 	w_class = ITEM_SIZE_NORMAL
 	twohanded = FALSE
@@ -95,20 +114,20 @@
 	suitable_cell = /obj/item/cell/small
 	projectile_type = /obj/item/projectile/plasma/light
 	projectile_color = "#00FFFF"
-	fire_sound = 'sound/weapons/energy/burn.ogg'
-	fire_delay = 8
+	fire_sound = 'sound/weapons/energy/incinerate.ogg'
+	fire_delay = 6
 	charge_cost = 15
-	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 8, MATERIAL_PHORON = 2, MATERIAL_SILVER = 3, MATERIAL_URANIUM = 3)
-	init_firemodes = list()
+	serial_type = "ML"
+	init_recoil = HANDGUN_RECOIL(1)
+	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 8, MATERIAL_PLASMA = 2, MATERIAL_SILVER = 3, MATERIAL_URANIUM = 3)
 
-/* Syzygy patch; this functions basically, but it's supposed to change icon based on the cell. Replacement code can be found in zzz_modular_syzygy/plasma.dm
+	init_firemodes = list(
+		list(mode_name="Low Power", mode_desc="A relatively light plasma round", projectile_type=/obj/item/projectile/plasma/light, fire_sound='sound/weapons/energy/melt.ogg', burst=1, fire_delay=6, charge_cost=15, icon="kill", projectile_color = "#0088ff"),
+		list(mode_name="High Power", mode_desc="A heavy armor-stripping plasma round", projectile_type=/obj/item/projectile/plasma/heavy, fire_sound='sound/weapons/energy/incinerate.ogg', burst=1, fire_delay=15, charge_cost=60, icon="destroy", projectile_color = "#FFFFFF"),
+		list(mode_name="Pulse", mode_desc="A plasma round configured to cause a small pulse of EMP", projectile_type=/obj/item/projectile/plasma/aoe/ion/light, fire_sound='sound/weapons/Taser.ogg', burst=1, fire_delay=15, charge_cost=60, icon="stun", projectile_color = "#00FFFF")
+	)
+
 /obj/item/gun/energy/plasma/brigador/update_icon()
-	overlays.Cut()
-	..()
-	if(cell)
-		overlays += image(icon, "cell_guild")
-*/
-/obj/item/gun/energy/plasma/brigador/on_update_icon()
 	cut_overlays()
 	..()
 	overlays.Cut()

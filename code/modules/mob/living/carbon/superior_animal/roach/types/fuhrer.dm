@@ -5,12 +5,14 @@
 	icon_state = "fuhrer"
 
 	turns_per_move = 4
-	maxHealth = 200
-	health = 200
+	maxHealth = 150
+	health = 150
 
-	melee_damage_lower = 15
-	melee_damage_upper = 30
-	move_to_delay = 8
+	melee_damage_lower = 8
+	melee_damage_upper = 16
+	armor_divisor = ARMOR_PEN_MODERATE
+
+	move_to_delay = 7
 	mob_size = MOB_MEDIUM
 	extra_burrow_chance = 100
 	blattedin_revives_left = 0 //He only lives once, cuz he's huge
@@ -24,6 +26,16 @@
 	var/distress_level = 0
 	var/distress_calls = 1 //Each fuhrer can only call for help once in its life
 	var/retreat_calls = 1 //Can call for retreat once too
+
+	// Armor related variables
+	armor = list(
+		melee = 10,
+		bullet = 10,
+		energy = 10,
+		bomb = 0,
+		bio = 25,
+		rad = 50
+	)
 
 /mob/living/carbon/superior_animal/roach/fuhrer/bullet_act()
 	.=..()

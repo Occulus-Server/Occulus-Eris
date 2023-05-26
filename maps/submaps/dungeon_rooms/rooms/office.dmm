@@ -42,7 +42,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/modular_computer/console,
+/obj/structure/salvageable/os/console_broken,
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
 "ai" = (
@@ -53,6 +53,7 @@
 	dir = 1
 	},
 /obj/machinery/light/floor,
+/obj/item/clothing/under/onestar,
 /obj/item/remains/human,
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
@@ -79,8 +80,8 @@
 	},
 /obj/structure/table/onestar,
 /obj/machinery/light/floor,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/stamp/denied,
+/obj/item/paper_bin,
+/obj/item/stamp/denied,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "am" = (
@@ -88,7 +89,7 @@
 	dir = 4
 	},
 /obj/structure/table/onestar,
-/obj/item/weapon/stamp/chameleon,
+/obj/item/stamp/chameleon,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "an" = (
@@ -99,8 +100,8 @@
 	dir = 1
 	},
 /obj/structure/table/onestar,
-/obj/item/weapon/stamp/denied,
-/obj/item/weapon/pen,
+/obj/item/stamp/denied,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "ao" = (
@@ -109,7 +110,7 @@
 	},
 /obj/structure/table/onestar,
 /obj/machinery/light/floor,
-/obj/item/weapon/storage/lunchbox/rainbow,
+/obj/item/storage/lunchbox/rainbow,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "ap" = (
@@ -161,7 +162,7 @@
 	dir = 6
 	},
 /obj/structure/table/onestar,
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "av" = (
@@ -172,7 +173,8 @@
 	dir = 6
 	},
 /obj/structure/table/onestar,
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
+/obj/spawner/oddities/low_chance,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "aw" = (
@@ -189,7 +191,7 @@
 	dir = 4
 	},
 /obj/structure/bed/chair/office/dark,
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
 "ay" = (
@@ -208,7 +210,7 @@
 	},
 /obj/structure/table/onestar,
 /obj/item/remains/human,
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "aA" = (
@@ -227,7 +229,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/storage/briefcase,
+/obj/item/storage/briefcase,
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
 "aD" = (
@@ -237,8 +239,9 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/table/onestar,
-/obj/item/modular_computer/laptop,
+/obj/structure/salvageable/os/console{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "aE" = (
@@ -248,7 +251,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/modular_computer/console{
+/obj/structure/salvageable/os/console_broken{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/brown_perforated,
@@ -283,16 +286,16 @@
 	dir = 8
 	},
 /obj/structure/table/onestar,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/stamp/denied,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/stamp/denied,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "aI" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/oddity/common/paper_omega,
+/obj/item/oddity/common/paper_omega,
 /obj/item/clothing/accessory/horrible,
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
@@ -305,7 +308,7 @@
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
 "aK" = (
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
 "aL" = (
@@ -316,8 +319,8 @@
 	dir = 4
 	},
 /obj/structure/table/onestar,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "aM" = (
@@ -367,23 +370,23 @@
 	dir = 8
 	},
 /obj/structure/bed/chair/office/dark,
-/obj/item/weapon/lipstick/black,
+/obj/item/lipstick/black,
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
 "aS" = (
 /obj/structure/table/onestar,
-/obj/item/weapon/phone,
+/obj/item/phone,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "aT" = (
-/obj/random/mob/roomba,
+/obj/spawner/mob/roomba,
 /turf/simulated/floor/tiled/derelict,
 /area/crawler)
 "aU" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/modular_computer/console{
+/obj/structure/salvageable/os/console_broken{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/brown_perforated,
@@ -403,13 +406,13 @@
 	dir = 4
 	},
 /obj/structure/table/onestar,
-/obj/item/weapon/stamp/denied,
+/obj/item/stamp/denied,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "aY" = (
 /obj/structure/table/onestar,
-/obj/item/weapon/pen/reagent/sleepy,
-/obj/item/weapon/newspaper,
+/obj/item/pen/reagent/sleepy,
+/obj/item/newspaper,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "aZ" = (
@@ -424,7 +427,7 @@
 	dir = 1
 	},
 /obj/structure/table/onestar,
-/obj/item/weapon/stamp/denied,
+/obj/item/stamp/denied,
 /obj/structure/barricade,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
@@ -442,11 +445,11 @@
 	dir = 8
 	},
 /obj/structure/table/onestar,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/item/weapon/gun/projectile/handmade_pistol,
-/obj/spawner/ammo,
+/obj/item/gun/projectile/handmade_pistol,
+/obj/item/ammo_casing/pistol/scrap,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 

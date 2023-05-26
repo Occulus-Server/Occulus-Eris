@@ -22,7 +22,8 @@
 	new /obj/item/device/flash(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/storage/pouch/engineering_supply(src)
-	new /obj/item/electronics/circuitboard/nanite_reconstitution_apparatus(src)
+	new /obj/item/storage/pouch/engineering_material(src)
+	new /obj/item/clothing/head/armor/helmet/technomancer_old(src)
 
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "electrical supplies"
@@ -75,6 +76,7 @@
 		new /obj/item/storage/backpack/industrial(src)
 	else
 		new /obj/item/storage/backpack/satchel/industrial(src)
+	new /obj/item/taperoll/engineering(src)
 	new /obj/item/storage/toolbox/mechanical(src)
 	new /obj/item/clothing/under/rank/engineer(src)
 	new /obj/item/clothing/head/hardhat(src)
@@ -86,3 +88,6 @@
 	new /obj/item/clothing/glasses/powered/meson(src)
 	new /obj/item/clothing/head/armor/helmet/technomancer(src)
 	new /obj/item/clothing/suit/storage/vest/insulated(src)
+	new /obj/item/clothing/head/armor/helmet/technomancer_old(src)
+	new /obj/item/clothing/suit/storage/vest/technomancer_old(src)
+	new /obj/item/storage/pouch/engineering_tools (src)

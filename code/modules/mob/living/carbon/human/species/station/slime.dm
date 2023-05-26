@@ -1,5 +1,5 @@
 /datum/species/slime
-	name = "Slime"
+	name = SPECIES_SLIME
 	name_plural = "slimes"
 	mob_size = MOB_SMALL
 
@@ -71,12 +71,16 @@
 	if(!missing_limb_tag)
 		to_chat(user, "You don't have any limbs to replace!")
 		return
+	if(nutrition < 100)
+		to_chat(user, "You do not have enough nutrition to regenerate a limb")
+		return
+
 	if(user.species.has_limbs.Find(missing_limb_tag))
 		var/stump_to_delete = organs_by_name[missing_limb_tag]
 		if(stump_to_delete)
 			qdel(stump_to_delete)
-		user.adjustNutrition(-50)
+		user.adjustNutrition(-100)
 		var/datum/organ_description/OD = species.has_limbs[missing_limb_tag]
 		OD.create_organ(src)
-		to_chat(user, "You regenerate your [OD.name].") // OCCULUS EDIT - No more l_hand regenerating!
+		to_chat(user, "You regenerate your [OD.name]")
 		update_body() //OCCULUS EDIT - No more invisible regenerated limbs!

@@ -22,6 +22,8 @@
 	var/list/transfer_amounts = list(REM, 1, 2)
 	var/transfer_amount = 1
 
+	price_tag = 100
+
 /obj/structure/medical_stand/New()
 	..()
 	if (spawn_type)
@@ -29,24 +31,24 @@
 	contained = new mask_type (src)
 	update_icon()
 
-/obj/structure/medical_stand/on_update_icon()
+/obj/structure/medical_stand/update_icon()
 	cut_overlays()
 
 	if (tank)
 		if (breather)
 			add_overlays("tube_active")
 		else
-			add_overlays("tube")
+			overlays += "tube"
 		if(istype(tank,/obj/item/tank/anesthetic))
-			add_overlays("tank_anest")
+			overlays += "tank_anest"
 		else if(istype(tank,/obj/item/tank/nitrogen))
-			add_overlays("tank_nitro")
+			overlays += "tank_nitro"
 		else if(istype(tank,/obj/item/tank/oxygen))
-			add_overlays("tank_oxyg")
-		else if(istype(tank,/obj/item/tank/phoron))//Occulus Edit
-			add_overlays("tank_plasma")
+			overlays += "tank_oxyg"
+		else if(istype(tank,/obj/item/tank/plasma))
+			overlays += "tank_plasma"
 		//else if(istype(tank,/obj/item/tank/hydrogen))
-		//	add_overlays("tank_hydro")
+		//	overlays += "tank_hydro"
 		else
 			add_overlays("tank_other")
 
@@ -295,15 +297,15 @@
 		return
 	return 1
 
-/obj/structure/medical_stand/attackby(var/obj/item/W, var/mob/user)
-	if(istype (W, /obj/item/tool))
-		if (valve_opened)
+/obj/structure/medical_stand/attackby(obj/item/W, mob/user)
+	if(istool(W))
+		if(valve_opened)
 			to_chat(user, SPAN_WARNING("Close the valve first."))
 			return
-		if (tank)
+		if(tank)
 			if(!W.use_tool(user, src, WORKTIME_NEAR_INSTANT, QUALITY_BOLT_TURNING, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
 				return
-			if (!is_loosen)
+			if(!is_loosen)
 				is_loosen = TRUE
 			else
 				is_loosen = FALSE
@@ -341,7 +343,7 @@
 	else
 		return ..()
 
-/obj/structure/medical_stand/examine(var/mob/user)
+/obj/structure/medical_stand/examine(mob/user)
 	. = ..()
 
 	if (get_dist(src, user) > 2)
@@ -421,10 +423,8 @@
 			var/mob/living/carbon/human/H = attached
 			if(!istype(H))
 				return
-			if(!H.dna)
-				return
-			if(NOCLONE in H.mutations)
-				return
+//			if(NOCLONE in H.mutations)
+//				return
 			if(H.species.flags & NO_BLOOD)
 				return
 			if(!H.should_have_process(OP_HEART))

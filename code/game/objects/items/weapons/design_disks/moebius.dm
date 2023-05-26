@@ -24,8 +24,10 @@
 		/datum/design/autolathe/container/freezer_medical,
 		/datum/design/autolathe/device/implanter,
 		/datum/design/autolathe/container/syringegun_ammo,
-//		/datum/design/autolathe/container/syringe/large, Occulus Edit Not ported
-		/datum/design/autolathe/container/hcase_med
+		/datum/design/autolathe/container/syringe/large,
+		/datum/design/autolathe/container/hcase_med,
+		/datum/design/autolathe/bodybag/cryobag
+
 
 	)
 
@@ -101,7 +103,7 @@
 	)
 */
 /obj/item/computer_hardware/hard_drive/portable/design/medical/viscera
-	disk_name = "NT Scientifica - Viscera"	//OCCULUS EDIT: DELETE MOEBIUS
+	disk_name = "NT Scientifica - Viscera"	 // Occulus Edit - Remove Eris corp. reference
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	spawn_blacklisted = TRUE	// So viscera has backups
 	license = -1

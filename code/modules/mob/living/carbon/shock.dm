@@ -28,12 +28,7 @@
 	if(stats.getPerk(PERK_BALLS_OF_PLASTEEL))
 		hard_crit_threshold += 20
 
-	. = 						\
-	0.9	* get_limb_damage() + 	\
-	0.6	* getOxyLoss() + 		\
-	0.5	* getToxLoss() + 		\
-	1.5	* getCloneLoss()
-
+	. = get_limb_damage()
 
 	//Constant Pain above 80% of the crit treshold gets converted to dynamic pain (hallos)
 	//Damage from the last tick gets saved as last_tick_pain and compared to current pain, if the current pain is larger hallos gets applied again
@@ -51,13 +46,12 @@
 
 /mob/living/carbon/human/get_limb_damage()
 	for(var/obj/item/organ/external/organ in organs)
-		. += organ.burn_dam
-		. += organ.brute_dam
+		var/limb_damage = min(organ.burn_dam + organ.brute_dam, organ.max_damage)	// Limbs can be damaged beyond their max damage, but max pain is max damage
+		. += limb_damage
+		. += organ.internal_wound_hal_dam
 		if(organ && (organ.is_broken() || (!BP_IS_ROBOTIC(organ) && organ.open)))
 			. += 25
 		. *= max((get_specific_organ_efficiency(OP_NERVE, organ.organ_tag)/100), 0.5)
-//		if(!organ.vital)	// OCCULUS EDIT - Non-vital organs hurt 20% less ON SECOND THOUGHT, NAH
-//			. *= 0.8
 
 /mob/living/carbon/proc/get_dynamic_pain()
 	. = 1.33 * halloss
@@ -105,27 +99,27 @@
 		shock_stage = min(shock_stage, 58)
 
 	sanity.onShock(shock_stage)
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// OCCULUS EDIT START - Tori's Shock Stage Butchering to make things less whacky. Stuttering at 30 brute? Heck that.
-//
-	if(shock_stage == 10)
-		to_chat(src, "<span class='danger'>[pick("The pain is bearable", "It hurts a little")]!</span>")
 
 	if(shock_stage == 30)
-		to_chat(src, "<span class='danger'>[pick("The pain is starting to get unbearable", "It hurts quite a bit")]!</span>")
+		to_chat(src, "<span class='danger'>[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!</span>")
 
-	if(shock_stage == 40)
-		to_chat(src, "<span class='danger'>[pick("The pain is uncomfortable", "It hurts", "You could go for some paracetamol right about now")]!</span>")
-
-	if (shock_stage >= 60)
-		stuttering = max(stuttering, 5)
-		if (shock_stage == 60)
-			to_chat(src, "<span class='danger'>[pick("The pain is unbearable", "It hurts a lot")]!</span>")
-
-	if(shock_stage >= 80)
-		if(shock_stage == 80)
+	if(shock_stage >= 60)
+		if(shock_stage == 60)
 			emote("me",1,"is having trouble keeping their eyes open.")
-		if (prob(5 - clamp((stats.getStat(STAT_TGH) / 10), 0, 3))) //Weaken chance reduction caps out at 30 TGH
+		stuttering = max(stuttering, 5)
+
+	if(shock_stage == 80)
+		to_chat(src, "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>")
+
+	if (shock_stage >= 100)
+		if(shock_stage == 100)
+			emote("me",1,"'s body becomes limp.")
+		if(prob(2))
+			to_chat(src, "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>")
+			Weaken(10)
+
+	if(shock_stage >= 120)
+		if(prob(5))
 			to_chat(src, "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>")
 			Weaken(10)
 

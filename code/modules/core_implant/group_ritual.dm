@@ -128,13 +128,13 @@
 
 	to_chat(starter, starter_succ_message)
 	success(starter, participants.len)
-//	SEND_SIGNAL(starter, COMSIG_GROUP_RITUAL) Occulus Yote
+	SEND_SIGNAL_OLD(starter, COMSIG_GROUP_RITUAL)
 
 	for(var/mob/affected in participants)
-		to_chat(affected, fail_message)
+		to_chat(affected, succ_message)
 		success(affected, participants.len)
-//		SEND_SIGNAL(affected, COMSIG_GROUP_RITUAL) Occulus Yeet
-//	GLOB.grup_ritual_performed++ Occulus Yeet
+		SEND_SIGNAL_OLD(affected, COMSIG_GROUP_RITUAL)
+	GLOB.grup_ritual_performed++
 
 /datum/group_ritual_effect/proc/success(var/mob/affected, var/part_len)
 	return

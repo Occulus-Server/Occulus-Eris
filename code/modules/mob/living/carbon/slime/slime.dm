@@ -192,17 +192,17 @@
 	var/b_loss = null
 	var/f_loss = null
 	switch (severity)
-		if (1.0)
+		if (1)
 			qdel(src)
 			return
 
-		if (2.0)
+		if (2)
 
 			b_loss += 60
 			f_loss += 60
 
 
-		if(3.0)
+		if(3)
 			b_loss += 30
 
 	adjustBruteLoss(b_loss)
@@ -295,7 +295,7 @@
 
 			attacked += 10
 			if (prob(90))
-				if (HULK in M.mutations)
+/*				if (HULK in M.mutations)
 					damage += 5
 					if(Victim || Target)
 						Victim = null
@@ -307,7 +307,7 @@
 						step_away(src,M,15)
 						sleep(3)
 						step_away(src,M,15)
-
+*/
 				playsound(loc, "punch", 25, 1, -1)
 				visible_message(SPAN_DANGER("[M] has punched [src]!"), \
 						SPAN_DANGER("[M] has punched [src]!"))
@@ -381,14 +381,14 @@
 /mob/living/carbon/slime/restrained()
 	return 0
 
-/mob/living/carbon/slime/var/co2overloadtime = null
+/mob/living/carbon/slime/var/co2overloadtime
 /mob/living/carbon/slime/var/temperature_resistance = T0C+75
 
 mob/living/carbon/slime/toggle_throw_mode()
 	return
 
-/mob/living/carbon/slime/proc/gain_nutrition(var/amount)
-	nutrition += amount
+/mob/living/carbon/slime/proc/gain_nutrition(amount)
+	adjustNutrition(amount)
 	if(prob(amount * 2)) // Gain around one level per 50 nutrition
 		powerlevel++
 		if(powerlevel > 10)

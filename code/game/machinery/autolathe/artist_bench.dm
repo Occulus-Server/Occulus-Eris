@@ -1,10 +1,3 @@
-#define ERR_OK 0
-#define ERR_NOTFOUND "not found"
-#define ERR_NOMATERIAL "no material"
-#define ERR_NOREAGENT "no reagent"
-#define ERR_NOLICENSE "no license"
-#define ERR_PAUSED "paused"
-#define ERR_NOINSIGHT "no insight"
 #define MAX_STAT_VALUE 12
 
 /obj/machinery/autolathe/artist_bench
@@ -19,14 +12,13 @@
 	have_recycling = FALSE
 	have_design_selector = FALSE
 	categories = list("Artwork")
-
+	use_oddities = TRUE
 	suitable_materials = list(MATERIAL_WOOD, MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_PLASTEEL, MATERIAL_PLASTIC)
+	low_quality_print = FALSE
 	var/min_mat = 20
 	var/min_insight = 40
-	var/datum/component/inspiration/inspiration
-	var/obj/item/oddity
 
-/obj/machinery/autolathe/artist_bench/ui_data()
+/obj/machinery/autolathe/artist_bench/nano_ui_data()
 	var/list/data = list()
 
 	data["have_disk"] = have_disk
@@ -46,8 +38,8 @@
 	return data
 
 
-/obj/machinery/autolathe/artist_bench/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui, force_open = NANOUI_FOCUS)
-	var/list/data = ui_data(user, ui_key)
+/obj/machinery/autolathe/artist_bench/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui, force_open = NANOUI_FOCUS)
+	var/list/data = nano_ui_data(user, ui_key)
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
@@ -59,25 +51,10 @@
 
 		ui.open()
 
-/obj/machinery/autolathe/artist_bench/attackby(obj/item/I, mob/user)
-	GET_COMPONENT_FROM(C, /datum/component/inspiration, I)
-	if(C && C.perk)
-		insert_oddity(user, I)
-		return
-	. = ..()
 
 /obj/machinery/autolathe/artist_bench/Topic(href, href_list)//var/mob/living/carbon/human/H, var/mob/living/user
 	if(..())
 		return
-
-	usr.set_machine(src)
-
-	if(href_list["oddity_name"])
-		if(oddity)
-			remove_oddity(usr)
-		else
-			insert_oddity(usr)
-		return TRUE
 
 	if(href_list["create_art"])
 		if(ishuman(usr))
@@ -90,47 +67,6 @@
 			create_art(ins_used, H)
 			return TRUE
 		return FALSE
-
-/obj/machinery/autolathe/artist_bench/proc/insert_oddity(mob/living/user, obj/item/inserted_oddity) //Not sure if nessecary to name oddity this way. obj/item/oddity/inserted_oddity
-	if(oddity)
-		to_chat(user, SPAN_NOTICE("There's already \a [oddity] inside [src]."))
-		return
-
-	if(!inserted_oddity && istype(user))
-		inserted_oddity = user.get_active_hand()
-
-	if(!istype(inserted_oddity))
-		return
-
-	if(!Adjacent(user) || !Adjacent(inserted_oddity))
-		return
-
-	GET_COMPONENT_FROM(C, /datum/component/inspiration, inserted_oddity)
-	if(!C || !C.perk)
-		return
-
-	if(istype(user) && (inserted_oddity in user))
-		user.unEquip(inserted_oddity, src)
-
-	inserted_oddity.forceMove(src)
-	oddity = inserted_oddity
-	inspiration = C
-	to_chat(user, SPAN_NOTICE("You set \the [inserted_oddity] into the model stand in [src]."))
-	SSnano.update_uis(src)
-
-/obj/machinery/autolathe/artist_bench/proc/remove_oddity(mob/living/user)
-	if(!oddity)
-		return
-
-	oddity.forceMove(drop_location())
-	to_chat(usr, SPAN_NOTICE("You remove \the [oddity] from the model stand in [src]."))
-
-	if(istype(user) && Adjacent(user))
-		user.put_in_hands(oddity)
-
-	oddity = null
-	inspiration = null
-	SSnano.update_uis(src)
 
 /obj/machinery/autolathe/artist_bench/proc/choose_base_art(ins_used, mob/living/carbon/human/user)
 	var/list/LStats = list()
@@ -145,17 +81,23 @@
 	var/weight_artwork_tool = 2 + LStats[STAT_MEC] * 2
 	var/weight_artwork_toolmod = 2 + LStats[STAT_MEC] * 2
 	var/weight_artwork_gunmod = 2 + LStats[STAT_COG] * 2
+	var/weight_artwork_gunPart = 1 + LStats[STAT_COG] + LStats[STAT_MEC]
+	var/weight_artwork_armorPart = 2 + LStats[STAT_TGH] + LStats[STAT_BIO]
 
 	if(ins_used >= 85)//Arbitrary values
 		weight_artwork_revolver += 9
 		weight_artwork_weapon += 9
+		weight_artwork_gunPart += 5
 	if(ins_used >= 70)
 		weight_artwork_revolver += 4
 		weight_artwork_weapon += 4
+		weight_artwork_gunPart += 8
 		weight_artwork_oddity += 13
 		weight_artwork_gunmod += 8
+		weight_artwork_armorPart += 8
 	if(ins_used >= 55)
 		weight_artwork_gunmod += 4
+		weight_artwork_armorPart += 4
 		weight_artwork_tool += 12
 		weight_artwork_toolmod += 12
 	else
@@ -165,7 +107,9 @@
 		"artwork_revolver" = weight_artwork_revolver,
 		"artwork_oddity" = weight_artwork_oddity,
 		"artwork_toolmod" = weight_artwork_toolmod,
-		"artwork_statue" = weight_artwork_statue
+		"artwork_statue" = weight_artwork_statue,
+		"artwork_gunPart" = weight_artwork_gunPart,
+		"artwork_armorPart" = weight_artwork_armorPart
 	))
 
 /obj/machinery/autolathe/artist_bench/proc/choose_full_art(ins_used, mob/living/carbon/human/user)
@@ -175,14 +119,12 @@
 	if(inspiration && user.stats.getPerk(PERK_ARTIST))
 		LStats = inspiration.calculate_statistics()
 
-//	var/weight_mechanical = 0 + LStats[STAT_MEC]
-//	var/weight_cognition = 0 + LStats[STAT_COG]
-	var/weight_biology = 0 + LStats[STAT_BIO]
+	//var/weight_mechanical = 0 + LStats[STAT_MEC]
+	var/weight_cognition = 0 + LStats[STAT_COG]
+	//var/weight_biology = 0 + LStats[STAT_BIO]
 	var/weight_robustness = 0 + LStats[STAT_ROB]
-//	var/weight_toughness = 0 + LStats[STAT_TGH]
+	var/weight_toughness = 0 + LStats[STAT_TGH]
 	var/weight_vigilance = 0 + LStats[STAT_VIG]
-
-	//var/list/LWeights = list(weight_mechanical, weight_cognition, weight_biology, weight_robustness, weight_toughness, weight_vigilance)
 
 	if(full_artwork == "artwork_revolver")
 		var/obj/item/gun/projectile/revolver/artwork_revolver/R = new(src)
@@ -192,53 +134,95 @@
 			"magnum" = 8 + weight_vigilance,
 			"shotgun" = 8 + weight_robustness,
 			"rifle" = 8 + weight_vigilance,
-			"cap" = 16 + weight_biology,
+			"sniper" = 8 + max(weight_vigilance, weight_cognition),
+			"rocket" = 8 + weight_toughness
 		))
 
 		switch(gun_pattern)
 
 			if("pistol") //From havelock.dm, Arbitrary Values
 				R.caliber = pick(CAL_PISTOL)
-				R.damage_multiplier = 1.2 + rand(-5,5)/10
-				R.penetration_multiplier = 1.2 + rand(-5,5)/10
-				R.recoil_buildup = 18 + rand(-3,3)
+				R.custom_default["caliber"] = R.caliber
+				R.damage_multiplier = 1.4 + rand(-5,5)/10
+				R.custom_default["damage_multiplier"] = R.damage_multiplier
+				R.penetration_multiplier = 1.4 + rand(-5,5)/10
+				R.custom_default["penetration_multiplier"] = R.penetration_multiplier
 
 			if("magnum") //From consul.dm, Arbitrary values
 				R.caliber = CAL_MAGNUM
-				R.damage_multiplier = 1.2 + rand(-5,5)/10
-				R.penetration_multiplier = 1.2 + rand(-5,5)/10
-				R.recoil_buildup = 35 + rand(-5,5)
+				R.custom_default["caliber"] = R.caliber
+				R.damage_multiplier = 1.35 + rand(-5,5)/10
+				R.custom_default["damage_multiplier"] = R.damage_multiplier
+				R.penetration_multiplier = 1.5 + rand(-5,5)/10
+				R.custom_default["penetration_multiplier"] = R.penetration_multiplier
 
 			if("shotgun") //From bull.dm, Arbitrary values
 				R.caliber = CAL_SHOTGUN
-				R.damage_multiplier = 0.8 + rand(-2,2)/10
+				R.custom_default["caliber"] = R.caliber
+				R.damage_multiplier = 0.75 + rand(-2,2)/10
+				R.custom_default["damage_multiplier"] = R.damage_multiplier
 				R.penetration_multiplier = 0.75 + rand(-3,3)/10
-				R.recoil_buildup = 1.2 + rand(-2,2)/10//from sawnoff.dm
-				R.one_hand_penalty = 12 + rand(-2,3)
+				R.custom_default["penetration_multiplier"] = R.penetration_multiplier
 				R.bulletinsert_sound = 'sound/weapons/guns/interact/shotgun_insert.ogg'
+				R.custom_default["bulletinsert_sound"] = R.bulletinsert_sound
 				R.fire_sound = 'sound/weapons/guns/fire/shotgunp_fire.ogg'
+				R.custom_default["fire_sound"] = R.fire_sound
 
 			if("rifle")
 				R.caliber = pick(CAL_CLRIFLE, CAL_SRIFLE, CAL_LRIFLE)
+				R.custom_default["caliber"] = R.caliber
 				R.fire_sound = 'sound/weapons/guns/fire/smg_fire.ogg'
+				R.custom_default["fire_sound"] = R.fire_sound
+
+			if("sniper")//From sniper.dm, Arbitrary values
+				R.caliber = CAL_ANTIM
+				R.custom_default["caliber"] = R.caliber
+				R.damage_multiplier = 0.55 + rand(-3,3)/20
+				R.custom_default["damage_multiplier"] = R.damage_multiplier
+				R.penetration_multiplier = 1.0
+				R.custom_default["penetration_multiplier"] = R.penetration_multiplier
+				R.bulletinsert_sound = 'sound/weapons/guns/interact/rifle_load.ogg'
+				R.custom_default["bulletinsert_sound"] = R.bulletinsert_sound
+				R.fire_sound = 'sound/weapons/guns/fire/sniper_fire.ogg'
+				R.custom_default["fire_sound"] = R.fire_sound
+
+			if("rocket")//From RPG.dm, Arbitrary values
+				R.caliber = CAL_ROCKET
+				R.custom_default["caliber"] = R.caliber
+				R.damage_multiplier = 1.0
+				R.custom_default["damage_multiplier"] = R.damage_multiplier
+				R.penetration_multiplier = 1.0
+				R.custom_default["penetration_multiplier"] = R.penetration_multiplier
+				R.fire_sound = 'sound/effects/bang.ogg'
+				R.custom_default["fire_sound"] = R.fire_sound
+				R.bulletinsert_sound = 'sound/weapons/guns/interact/batrifle_magin.ogg'
+				R.custom_default["bulletinsert_sound"] = R.bulletinsert_sound
+
 
 			//No gun currently uses CAL_357 far as I know
 			//	if("revolver")
 			//		caliber = pick(CAL_357)
 
-			if("cap")
-				R.caliber = CAL_CAP
+		R.recoil = R.recoil.modifyAllRatings(1+rand(-2,2)/10)
+		R.custom_default["recoil"] = R.recoil
 
 		if(R.max_shells == 3 && (gun_pattern == "shotgun"||"rocket"))//From Timesplitters triple-firing RPG far as I know
 			R.init_firemodes = list(
-				list(mode_name="fire one barrel at a time", burst=1, icon="semi"),
-				list(mode_name="fire three barrels at once", burst=3, icon="auto"),
+				list(mode_name="Single shot", mode_desc="fire one barrel at a time", burst=1, icon="semi"),
+				list(mode_name="Triple barrel",mode_desc="fire three barrels at once", burst=3, icon="auto"),
 				)
+			R.custom_default["init_firemodes"] = R.init_firemodes
 		return R
 
 	else if(full_artwork == "artwork_statue")
 		var/obj/structure/artwork_statue/S = new(src)
 		return S
+	else if(full_artwork == "artwork_gunPart")
+		var/obj/item/part/gun/artwork/P = new(src)
+		return P
+	else if(full_artwork == "artwork_armorPart")
+		var/obj/item/part/armor/artwork/P = new(src)
+		return P
 
 	else if(full_artwork == "artwork_oddity")
 		var/obj/item/oddity/artwork/O = new(src)
@@ -270,7 +254,7 @@
 	if(ins_used < min_insight)
 		to_chat(user, SPAN_WARNING("At least 40 insight is needed to use this bench."))
 		return
-	FLICK("[initial(icon_state)]_work", src)
+	flick("[initial(icon_state)]_work", src)
 	working = TRUE
 	if(!do_after(user, 15 * user.stats.getMult(STAT_MEC, STAT_LEVEL_GODLIKE), src))
 		error = "Lost artist."
@@ -330,20 +314,10 @@
 		if(stored_material[rmat] < min_mat)
 			return ERR_NOMATERIAL
 
-	for(var/rmat in design.materials)
-		if(!(rmat in stored_material))
-			return ERR_NOMATERIAL
+	var/error_mat = check_materials(design)
 
-		if(stored_material[rmat] < SANITIZE_LATHE_COST(design.materials[rmat]))
-			return ERR_NOMATERIAL
-
-	if(design.chemicals.len)
-		if(!container || !container.is_drawable())
-			return ERR_NOREAGENT
-
-		for(var/rgn in design.chemicals)
-			if(!container.reagents.has_reagent(rgn, design.chemicals[rgn]))
-				return ERR_NOREAGENT
+	if(error_mat != ERR_OK)
+		return error_mat
 
 	return ERR_OK
 
@@ -357,16 +331,8 @@
 	O.matter = new_materials
 
 
-#undef ERR_OK
-#undef ERR_NOTFOUND
-#undef ERR_NOMATERIAL
-#undef ERR_NOREAGENT
-#undef ERR_NOLICENSE
-#undef ERR_PAUSED
-#undef ERR_NOINSIGHT
-#undef MAX_STAT_VALUE
 
-// OCCULUS STUFF
+// OCCULUS ADDITION START
 
 /obj/machinery/autolathe/artist_bench/loaded
 	stored_material = list(
@@ -376,3 +342,5 @@
 		MATERIAL_PLASTEEL = 20,
 		MATERIAL_WOOD = 20
 		)
+// OCCULUS ADDITION END
+#undef MAX_STAT_VALUE

@@ -13,6 +13,8 @@
 	have_reagents = FALSE
 	have_recycling = FALSE
 
+	low_quality_print = FALSE
+
 	special_actions = list(
 		list("action" = "sync", "name" = "Sync with R&D console", "icon" = "refresh")
 	)
@@ -34,7 +36,7 @@
 
 	return design_files
 
-/obj/machinery/autolathe/mechfab/ui_interact()
+/obj/machinery/autolathe/mechfab/nano_ui_interact()
 	if(!categories)
 		update_categories()
 	..()

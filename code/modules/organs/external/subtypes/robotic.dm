@@ -3,9 +3,9 @@
 	force_icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_alt1.dmi'
 	icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_alt1.dmi'
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	dislocated = -1
+	nerve_struck = -1 // no nerves here
 	nature = MODIFICATION_SILICON
-	armor = list(melee = 20, bullet = 20, energy = 20, bomb = 20, bio = 100, rad = 100)
+	armor = list(melee = 2, bullet = 2, energy = 2, bomb = 10, bio = 100, rad = 100)
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2) // Multiplied by w_class
 	spawn_tags = SPAWN_TAG_PROSTHETIC
 	bad_type = /obj/item/organ/external/robotic
@@ -59,10 +59,6 @@
 	deactivate(emergency=TRUE)
 	..()
 
-/obj/item/organ/external/robotic/update_germs()
-	germ_level = 0
-	return
-
 /obj/item/organ/external/robotic/setBleeding()
 	return FALSE
 
@@ -85,9 +81,6 @@
 	min_broken_damage = 15
 	w_class = ITEM_SIZE_SMALL
 	bad_type = /obj/item/organ/external/robotic/tiny
-
-/obj/item/organ/external/robotic/New()
-	. = ..()
 
 
 /obj/item/organ/external/robotic/l_arm

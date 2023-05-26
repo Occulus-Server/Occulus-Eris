@@ -9,6 +9,10 @@
 	display_name = "kilt"
 	path = /obj/item/clothing/under/kilt
 
+/datum/gear/uniform/crewman
+	display_name = "jumpsuit, crewman"
+	path = /obj/item/clothing/under/rank/crewman
+
 /datum/gear/uniform/jumpsuit/rainbow
 	display_name = "jumpsuit, rainbow"
 	path = /obj/item/clothing/under/rainbow
@@ -55,22 +59,25 @@
 /datum/gear/uniform/leisure/New()
 	..()
 	var/leisure = list(
-		"Brown Jacket"			=	/obj/item/clothing/under/leisure,
-		"White Blazer"			=	/obj/item/clothing/under/leisure/white,
-		"Patterned Pullover"	=	/obj/item/clothing/under/leisure/pullover
+		"Brown Jacket" 			=	 /obj/item/clothing/under/leisure,
+		"White Blazer" 			=	 /obj/item/clothing/under/leisure/white,
+		"Patterned Pullover" 	=	 /obj/item/clothing/under/leisure/pullover
 	)
 	gear_tweaks += new /datum/gear_tweak/path(leisure)
 
 /datum/gear/uniform/dress
 	display_name = "dresses"
-	path = /obj/item/clothing/under/dress
+	path = /obj/item/clothing/under/dress/gray
 
 /datum/gear/uniform/dress/New()
 	..()
 	var/dress = list(
-		"Gray Dress"			=	/obj/item/clothing/under/dress,
-		"Blue Dress"			=	/obj/item/clothing/under/dress/blue,
-		"Red Dress"				=	/obj/item/clothing/under/dress/red
+		"Gray Dress" 	=	 /obj/item/clothing/under/dress/gray,
+		"Blue Dress" 	=	 /obj/item/clothing/under/dress/blue,
+		"Red Dress" 	=	 /obj/item/clothing/under/dress/red,
+		"Purple Dress" 	=	 /obj/item/clothing/under/dress/purple,
+		"White Dress" 	=	 /obj/item/clothing/under/dress/white,
+		"Gray Dress" 	=	 /obj/item/clothing/under/dress/gray
 	)
 	gear_tweaks += new /datum/gear_tweak/path(dress)
 
@@ -117,7 +124,9 @@
 /datum/gear/uniform/scrubs/color_presets/New()
 	..()
 	var/jumpsuit = list(
-		"Green"			=	/obj/item/clothing/under/rank/medical/green,
+		"green"			=	/obj/item/clothing/under/rank/medical/green,
+		"purple"		=	/obj/item/clothing/under/rank/medical/purple,
+		"blue"			=	/obj/item/clothing/under/rank/medical/blue
 	)
 	gear_tweaks += new /datum/gear_tweak/path(jumpsuit)
 
@@ -128,20 +137,16 @@
 /datum/gear/uniform/neon/New()
 	..()
 	var/neon = list(
-		"green"			=	/obj/item/clothing/under/neon,
-		"yellow"			=	/obj/item/clothing/under/neon/yellow,
-		"blue"	=	/obj/item/clothing/under/neon/blue,
-		"red" = /obj/item/clothing/under/neon/red
+		"green"		=	/obj/item/clothing/under/neon,
+		"yellow"	=	/obj/item/clothing/under/neon/yellow,
+		"blue"		=	/obj/item/clothing/under/neon/blue,
+		"red" 		= 	/obj/item/clothing/under/neon/red
 	)
 	gear_tweaks += new /datum/gear_tweak/path(neon)
 
 /datum/gear/uniform/cyber
 	display_name = "augmented jumpsuit"
 	path = /obj/item/clothing/under/cyber
-
-/datum/gear/uniform/jersey
-	display_name = "revealing jersey"
-	path = /obj/item/clothing/under/jersey
 
 /datum/gear/uniform/generic
 	display_name = "generic outfit, color presets"
@@ -150,17 +155,79 @@
 /datum/gear/uniform/generic/New()
 	..()
 	var/generic = list(
-		"blue" = /obj/item/clothing/under/genericb,
-		"red" = /obj/item/clothing/under/genericr,
-		"white" = /obj/item/clothing/under/genericw
+		"blue" 			=	 /obj/item/clothing/under/genericb,
+		"red" 			=	 /obj/item/clothing/under/genericr,
+		"white" 		=	 /obj/item/clothing/under/genericw,
+		"beige" 		=	 /obj/item/clothing/under/aerostatic,
+		"brown" 		=	 /obj/item/clothing/under/jamrock,
+		"tank top" 		=	 /obj/item/clothing/under/wifebeater
 	)
 	gear_tweaks += new /datum/gear_tweak/path(generic)
 
-/datum/gear/uniform/tuxedo
-	display_name = "black tuxedo"
-	path = /obj/item/clothing/under/tuxedo
+/datum/gear/uniform/punk
+	display_name = "punk outfit, selection"
+	path = /obj/item/clothing/under/genericb
+
+/datum/gear/uniform/punk/New()
+	..()
+	var/punk = list(
+		"punk" 			=	 /obj/item/clothing/under/johnny,
+		"elvis" 		=	 /obj/item/clothing/under/raider,
+		"jersey" 		=	 /obj/item/clothing/under/jersey,
+		"tracksuit" 	=	 /obj/item/clothing/under/storage/tracksuit
+	)
+	gear_tweaks += new /datum/gear_tweak/path(punk)
+
+/datum/gear/uniform/suits
+	display_name = "suits, selection"
+	path = /obj/item/clothing/under/black
+
+/datum/gear/uniform/suits/New()
+	..()
+	var/suits = list(
+		"green" 		=	 /obj/item/clothing/under/green,
+		"red" 			=	 /obj/item/clothing/under/red,
+		"red formal" 	=	 /obj/item/clothing/under/helltaker,
+		"white" 		=	 /obj/item/clothing/under/white,
+		"ash" 			=	 /obj/item/clothing/under/grey,
+		"charcoal" 		=	 /obj/item/clothing/under/black,
+		"black formal" 	=	 /obj/item/clothing/under/tuxedo,
+		"tuxedo" 		=	 /obj/item/clothing/under/assistantformal
+	)
+	gear_tweaks += new /datum/gear_tweak/path(suits)
+
+/datum/gear/uniform/security_formal
+	display_name = "formal security outfit"
+	path = /obj/item/clothing/under/security_formal
+	allowed_roles = list(JOBS_SECURITY)
+
+/datum/gear/uniform/camopants
+	display_name = "turtleneck and camo pants"
+	path = /obj/item/clothing/under/camopants
 
 /*/datum/gear/uniform/uniform_hop
-	display_name = "uniform, HoP's dress"
+	display_name = "uniform, HoP's dress" // Occulus Edit - Remove Eris corp. references
 	path = /obj/item/clothing/under/dress/dress_hop
-	allowed_roles = list("Head of Personnel")*/
+	allowed_roles = list("Head of Personnel")*/ // Occulus Edit - Remove Eris corp. references
+
+/datum/gear/uniform/battledress_serb
+	display_name = "battle dress uniform, serbian"
+	path = /obj/item/clothing/under/serbiansuit
+
+/datum/gear/uniform/battledress_serb/New()
+	..()
+	var/battledress_serb = list(
+		"green"	=	/obj/item/clothing/under/serbiansuit,
+		"brown"	=	/obj/item/clothing/under/serbiansuit/brown,
+		"black"	=	/obj/item/clothing/under/serbiansuit/black
+	)
+	gear_tweaks += new /datum/gear_tweak/path(battledress_serb)
+
+/datum/gear/uniform/battledress_german
+	display_name = "battle dress uniform, oberth"
+	path = /obj/item/clothing/under/germansuit
+
+/datum/gear/uniform/ntsec
+	display_name = "old security uniform"
+	path = /obj/item/clothing/under/oldsec
+	allowed_roles = list(ASSISTANT_TITLE)

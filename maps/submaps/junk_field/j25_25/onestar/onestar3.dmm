@@ -284,13 +284,8 @@
 /turf/simulated/floor/tiled/derelict/red_white_edges/airless,
 /area/template_noop)
 "bi" = (
-<<<<<<< HEAD
-/obj/item/storage/bag/ore,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-=======
 /obj/item/storage/bag/ore,
 /turf/simulated/floor/tiled/derelict/red_white_edges/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "bj" = (
 /obj/structure/catwalk,

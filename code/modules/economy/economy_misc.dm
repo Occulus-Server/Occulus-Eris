@@ -70,9 +70,11 @@ var/global/current_date_string
 var/global/datum/money_account/vendor_account
 var/global/datum/money_account/station_account
 var/global/list/datum/money_account/department_accounts = list()
+var/global/list/datum/money_account/personal_accounts = list()
+var/global/list/datum/money_account/all_money_accounts = list()
 var/global/num_financial_terminals = 1
 var/global/next_account_number = 0
-var/global/list/all_money_accounts = list()
+
 var/global/list/transaction_devices = list()
 var/global/economy_init = 0
 
@@ -99,11 +101,10 @@ var/global/datum/computer_file/data/email_account/service/payroll/payroll_mailer
 		create_department_account(GLOB.all_departments[d])
 
 	station_account = department_accounts[DEPARTMENT_COMMAND]
-	vendor_account = department_accounts[DEPARTMENT_GUILD] //Vendors are operated by the guild and purchases pay into their stock
 
 	for(var/obj/machinery/vending/V in GLOB.machines)
-		if(!V.custom_vendor)
-			V.earnings_account = V.vendor_department ? department_accounts[V.vendor_department] : vendor_account
+		if(V.vendor_department)
+			V.earnings_account = department_accounts[V.vendor_department]
 
 	current_date_string = "[num2text(rand(1,31))] [pick("January","February","March","April","May","June","July","August","September","October","November","December")], [game_year]"
 
@@ -118,13 +119,18 @@ var/global/datum/computer_file/data/email_account/service/payroll/payroll_mailer
 	department_account.account_name = "[department.name] Account"
 	department_account.account_number = rand(111111, 999999)
 	department.account_number = department_account.account_number
-
 	department_account.remote_access_pin = rand(1111, 111111)
 	department.account_pin = department_account.remote_access_pin
+	department_account.employer = department.funding_source
+	department_account.wage = department.get_total_budget()
+
+	department_account.department_id = department.id
+	if(department.id in ASTER_DEPARTMENTS)
+		department_account.can_make_accounts = TRUE
 
 	//create an entry in the account transaction log for when it was created
-	var/datum/transaction/T = new(department.account_initial_balance, department_account.owner_name, "Account creation", "Free Trade Union Terminal #277")
-	T.date = "2 April, [game_year - 3]"
+	var/datum/transaction/T = new(department.account_initial_balance, department_account.owner_name, "Account creation", "Free Trade Union Terminal #277") // Occulus Edit - Asters > FTU
+	T.date = "2 April, [game_year - 3]" // Occulus Edit - Dept. accounts created three years before current in-game year
 	T.time = "11:24"
 
 	//add the account

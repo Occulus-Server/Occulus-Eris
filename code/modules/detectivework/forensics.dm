@@ -29,7 +29,7 @@ atom/proc/add_fibers(mob/living/carbon/human/M)
 		// OCCULUS EDIT: Check if the suit has no_fibers
 		var/obj/item/clothing/worn_suit = M.wear_suit
 		if (!worn_suit.no_fibers)
-			if(prob(10*item_multiplier) && !(fibertext in suit_fibers))
+			if(prob(25*item_multiplier) && !(fibertext in suit_fibers))
 				suit_fibers += fibertext
 		// OCCULUS EDIT END
 		suit_coverage = M.wear_suit.body_parts_covered
@@ -39,7 +39,7 @@ atom/proc/add_fibers(mob/living/carbon/human/M)
 		// OCCULUS EDIT: Check if the suit has no_fibers
 		var/obj/item/clothing/worn_uniform = M.w_uniform
 		if (!worn_uniform.no_fibers)
-			if(prob(15*item_multiplier) && !(fibertext in suit_fibers))
+			if(prob(30*item_multiplier) && !(fibertext in suit_fibers))
 				suit_fibers += fibertext
 		// OCCULUS EDIT END
 
@@ -48,7 +48,7 @@ atom/proc/add_fibers(mob/living/carbon/human/M)
 		// OCCULUS EDIT: Check fi the gloves have no_fibers
 		var/obj/item/clothing/worn_gloves = M.gloves
 		if (!worn_gloves.no_fibers)
-			if(prob(20*item_multiplier) && !(fibertext in suit_fibers))
+			if(prob(45*item_multiplier) && !(fibertext in suit_fibers))
 				suit_fibers += "Material from a pair of [M.gloves.name]."
 		// OCCULUS EDIT END
 

@@ -57,7 +57,7 @@
 	else
 		qdel(src)
 
-/obj/item/material/shard/on_update_icon()
+/obj/item/material/shard/update_icon()
 	if(material)
 		color = material.icon_colour
 		// 1-(1-x)^2, so that glass shards with 0.3 opacity end up somewhat visible at 0.51 opacity
@@ -165,7 +165,7 @@
 				if(affecting)
 					if(BP_IS_ROBOTIC(affecting))
 						return
-					if(affecting.take_damage(5, 0))
+					if(affecting.take_damage(5, BRUTE))
 						H.UpdateDamageIcon()
 					H.updatehealth()
 					if(!(H.species.flags & NO_PAIN))
@@ -188,5 +188,5 @@
 	amount = 1
 	rarity_value = 5
 
-/obj/item/material/shard/phoron/New(loc)
-	..(loc, MATERIAL_PHORONGLASS)
+/obj/item/material/shard/plasma/New(loc)
+	..(loc, MATERIAL_PLASMAGLASS)

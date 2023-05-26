@@ -1,6 +1,6 @@
 var/global/list/map_sectors = list()
 
-/area/overmap/
+/area/overmap
 	name = "System Map"
 	icon_state = "start"
 	requires_power = 0
@@ -71,14 +71,10 @@ var/global/list/map_sectors = list()
 		"A G-type main-sequence star encircled by two gigantic ring-shaped structures made of massive clockwork gears.")
 	var/list/icons = list("bluedwarf", "reddwarf", "yellowgiant", "blackhole", "illusive", "clockwork")
 
-	var/science
-	var/list/science_rewards = list(25000, 20000, 10000, 25000, 30000, 30000)
-	var/scanned = FALSE
-
 /obj/effect/star/New()
-	var/i = rand(descs.len)
+	var/i = rand(1, descs.len)
 	name = names[i]
 	desc = descs[i]
-	SetIconState(icons[i])
-	science = science_rewards[i]
+	icon_state = icons[i]
+	science = science_rewards[i] // Occulus Addition - Overmap science rewards
 	..()

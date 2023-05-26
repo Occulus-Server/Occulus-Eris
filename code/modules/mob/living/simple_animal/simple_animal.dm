@@ -35,6 +35,7 @@
 	var/stop_automated_movement_when_pulled = TRUE //When set to 1 this stops the animal from moving when someone is pulling it.
 	var/atom/movement_target = null//Thing we're moving towards
 	var/turns_since_scan = 0
+	var/eat_from_hand = TRUE
 
 	//Interaction
 	var/response_help   = "tries to help"
@@ -130,7 +131,7 @@
 	. = ..()
 	if(.)
 		if(src.nutrition && src.stat != DEAD)
-			src.nutrition -= nutrition_step
+			src.adjustNutrition(-nutrition_step)
 
 /mob/living/simple_animal/Released()
 	//These will cause mobs to immediately do things when released.
@@ -288,7 +289,7 @@
 /mob/living/simple_animal/proc/process_food()
 	if (hunger_enabled)
 		if (nutrition)
-			nutrition -= nutrition_step//Bigger animals get hungry faster
+			adjustNutrition(-nutrition_step)//Bigger animals get hungry faster
 			nutrition = max(0,min(nutrition, max_nutrition))//clamp the value
 		else
 			if (prob(3))
@@ -430,24 +431,25 @@
 	movement_target = null
 	icon_state = icon_dead
 	density = FALSE
+	stasis = TRUE
 	return ..(gibbed,deathmessage)
 
 /mob/living/simple_animal/ex_act(severity)
-	if(!blinded)
-		if (HUDtech.Find("flash"))
-			FLICK("flash", HUDtech["flash"])
+	flash(0, FALSE,FALSE,FALSE)
 	switch (severity)
-		if (1.0)
+		if (1)
 			adjustBruteLoss(500)
 			gib()
 			return
 
-		if (2.0)
+		if (2)
 			adjustBruteLoss(60)
 
 
-		if(3.0)
+		if(3)
 			adjustBruteLoss(30)
+		if(4)
+			adjustBruteLoss(15)
 
 
 

@@ -5,6 +5,8 @@
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
 	circuit = /obj/item/electronics/circuitboard/chemmaster
+	description_info = "Can be used to make pill bottles, pills,beakers or just to separate a reagent"
+	description_antag = "Nothing prevents you from mis-labeling the pills."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0"
 	use_power = IDLE_POWER_USE
@@ -37,9 +39,9 @@
 
 /obj/machinery/chem_master/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
-		if(2.0)
+		if(2)
 			if (prob(50))
 				qdel(src)
 

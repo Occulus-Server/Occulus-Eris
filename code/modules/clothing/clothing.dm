@@ -9,7 +9,8 @@
 	siemens_coefficient = 0.9
 	item_flags = DRAG_AND_DROP_UNEQUIP
 	bad_type = /obj/item/clothing
-	rarity_value = 10
+	rarity_value = 5
+	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_CLOTHING
 	var/flash_protection = FLASH_PROTECTION_NONE	// Sets the item's level of flash protection.
 	var/tint = TINT_NONE							// Sets the item's level of visual impairment tint.
@@ -25,26 +26,83 @@
 	//Used for hardsuits. If false, this piece cannot be retracted while the core module is engaged
 	var/retract_while_active = TRUE
 
-	var/style = STYLE_NONE
+	style = STYLE_NONE
+	var/style_coverage = NONE
+
+	var/light_overlay = "helmet_light"
+	var/light_applied
+	var/brightness_on
+	var/on = FALSE
+
 	var/no_fibers = FALSE	// OCCULUS EDIT: For clothing that should not leave fibers, like detective's gear
 	var/equip_sound = null // OCCULUS EDIT: For playing specific audio files on equip.
 	var/unequip_sound = null // OCCULUS EDIT: For playing specific audio files on unequip.
+
+
+	price_tag = 30
+
+/obj/item/clothing/attack_self(mob/user)
+	if(brightness_on)
+		if(!isturf(user.loc))
+			to_chat(user, "You cannot turn the light on while in this [user.loc]")
+			return
+		on = !on
+		to_chat(user, "You [on ? "enable" : "disable"] the helmet light.")
+		update_flashlight(user)
+	else
+		return ..(user)
+
+/obj/item/clothing/proc/update_flashlight(mob/user = null)
+	if(on && !light_applied)
+		set_light(brightness_on)
+		light_applied = 1
+	else if(!on && light_applied)
+		set_light(0)
+		light_applied = 0
+	update_icon(user)
+	user.update_action_buttons()
+
+/obj/item/clothing/head/update_icon(mob/user)
+
+	cut_overlays()
+	var/mob/living/carbon/human/H
+	if(ishuman(user))
+		H = user
+
+	if(on)
+
+		// Generate object icon.
+		if(!light_overlay_cache["[light_overlay]_icon"])
+			light_overlay_cache["[light_overlay]_icon"] = image('icons/obj/light_overlays.dmi', light_overlay)
+		overlays |= light_overlay_cache["[light_overlay]_icon"]
+
+		// Generate and cache the on-mob icon, which is used in update_inv_head().
+		var/cache_key = "[light_overlay][H ? "_[H.species.get_bodytype()]" : ""]"
+		if(!light_overlay_cache[cache_key])
+			light_overlay_cache[cache_key] = image('icons/mob/light_overlays.dmi', light_overlay)
+
+	if(H)
+		H.update_inv_head()
+
 
 /obj/item/clothing/Initialize(mapload, ...)
 	. = ..()
 
 	var/obj/screen/item_action/action = new /obj/screen/item_action/top_bar/clothing_info
 	action.owner = src
-	if(!islist(hud_actions)) hud_actions = list()
+	if(!hud_actions)
+		hud_actions = list()
 	hud_actions += action
 
 	if(matter)
 		return
 
-	else if(!matter)
-		matter = list()
+	else if(chameleon_type)
+		matter = list(MATERIAL_PLASTIC = 2 * w_class)
+		origin_tech = list(TECH_COVERT = 3)
+	else
+		matter = list(MATERIAL_BIOMATTER = 5 * w_class)
 
-	matter.Add(list(MATERIAL_BIOMATTER = 5 * w_class))    // based of item size
 
 /obj/item/clothing/Destroy()
 	for(var/obj/item/clothing/accessory/A in accessories)
@@ -52,7 +110,7 @@
 	accessories = null
 	return ..()
 
-/obj/item/clothing/proc/get_style()
+/obj/item/clothing/get_style()
 	var/real_style = style
 	if(blood_DNA)
 		real_style -= 1
@@ -126,7 +184,7 @@
 
 	return english_list(body_partsL)
 
-/obj/item/clothing/ui_data()
+/obj/item/clothing/nano_ui_data()
 	var/list/data = list()
 	var/list/armorlist = armor.getList()
 	if(armorlist.len)
@@ -149,10 +207,11 @@
 		data["cold_protection"] = body_part_coverage_to_string(cold_protection)
 		data["cold_protection_temperature"] = min_cold_protection_temperature
 	data["equip_delay"] = equip_delay
+	data["info_style"] = style
 	return data
 
-/obj/item/clothing/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
-	var/list/data = ui_data(user)
+/obj/item/clothing/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
+	var/list/data = nano_ui_data(user)
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
@@ -163,7 +222,7 @@
 
 /obj/item/clothing/ui_action_click(mob/living/user, action_name)
 	if(action_name == "Clothing information")
-		ui_interact(user)
+		nano_ui_interact(user)
 		return TRUE
 	return ..()
 
@@ -248,7 +307,8 @@
 	desc = "Protects your hearing from loud noises, and quiet ones as well."
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
-	slot_flags = SLOT_EARS | SLOT_TWOEARS
+	slot_flags = SLOT_EARS
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1)
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -269,6 +329,7 @@ BLIND     // can't see anything
 	body_parts_covered = EYES
 	slot_flags = SLOT_EYES
 	bad_type = /obj/item/clothing/glasses
+	style = STYLE_LOW
 	var/vision_flags = 0
 	var/darkness_view = 0//Base human is 2
 	var/see_invisible = -1
@@ -285,10 +346,11 @@ BLIND     // can't see anything
 	siemens_coefficient = 0.75
 	bad_type = /obj/item/clothing/gloves
 	spawn_tags = SPAWN_TAG_GLOVES
-	body_parts_covered = HANDS
-	armor = list(melee = 10, bullet = 0, energy = 15, bomb = 0, bio = 0, rad = 0)
+	body_parts_covered = ARMS
+	armor = list(melee = 2, bullet = 0, energy = 3, bomb = 0, bio = 0, rad = 0)
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
+	style = STYLE_LOW
 	var/wired = 0
 	var/clipped = 0
 
@@ -327,32 +389,6 @@ BLIND     // can't see anything
 	spawn_tags = SPAWN_TAG_CLOTHING_HEAD
 	style = STYLE_HIGH
 
-	var/light_overlay = "helmet_light"
-	var/light_applied
-	var/brightness_on
-	var/on = FALSE
-
-/obj/item/clothing/head/attack_self(mob/user)
-	if(brightness_on)
-		if(!isturf(user.loc))
-			to_chat(user, "You cannot turn the light on while in this [user.loc]")
-			return
-		on = !on
-		to_chat(user, "You [on ? "enable" : "disable"] the helmet light.")
-		update_flashlight(user)
-	else
-		return ..(user)
-
-/obj/item/clothing/head/proc/update_flashlight(mob/user = null)
-	if(on && !light_applied)
-		set_light(brightness_on)
-		light_applied = 1
-	else if(!on && light_applied)
-		set_light(0)
-		light_applied = 0
-	update_icon(user)
-	user.update_action_buttons()
-
 /obj/item/clothing/head/attack_ai(mob/user)
 	if(!mob_wear_hat(user))
 		return ..()
@@ -381,28 +417,6 @@ BLIND     // can't see anything
 		to_chat(user, SPAN_NOTICE("You crawl under \the [src]."))
 	return 1
 
-/obj/item/clothing/head/on_update_icon(mob/user)
-
-	cut_overlays()
-	var/mob/living/carbon/human/H
-	if(ishuman(user))
-		H = user
-
-	if(on)
-
-		// Generate object icon.
-		if(!light_overlay_cache["[light_overlay]_icon"])
-			light_overlay_cache["[light_overlay]_icon"] = image('icons/obj/light_overlays.dmi', light_overlay)
-		associate_with_overlays(light_overlay_cache["[light_overlay]_icon"])
-
-		// Generate and cache the on-mob icon, which is used in update_inv_head().
-		var/cache_key = "[light_overlay][H ? "_[H.species.get_bodytype()]" : ""]"
-		if(!light_overlay_cache[cache_key])
-			light_overlay_cache[cache_key] = image('icons/mob/light_overlays.dmi', light_overlay)
-
-	if(H)
-		H.update_inv_head()
-
 ///////////////////////////////////////////////////////////////////////
 //Mask
 /obj/item/clothing/mask
@@ -414,7 +428,8 @@ BLIND     // can't see anything
 	bad_type = /obj/item/clothing/mask
 	spawn_tags = SPAWN_TAG_MASK
 
-	var/voicechange = 0
+	var/muffle_voice = FALSE
+	var/voicechange = FALSE
 	var/list/say_messages
 	var/list/say_verbs
 
@@ -434,9 +449,10 @@ BLIND     // can't see anything
 	spawn_tags = SPAWN_TAG_SHOES
 	bad_type = /obj/item/clothing/shoes
 
-	armor = list(melee = 10, bullet = 0, energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 2, bullet = 0, energy = 2, bomb = 0, bio = 0, rad = 0)
 	permeability_coefficient = 0.50
 	slowdown = SHOES_SLOWDOWN
+	style = STYLE_LOW
 	force = 2
 
 	var/can_hold_knife = 0
@@ -505,7 +521,7 @@ BLIND     // can't see anything
 			/obj/item/material/kitchen/utensil,
 			/obj/item/tool/knife/tacknife,
 			/obj/item/oddity/common/old_knife, //Occulus Edit
-			//obj/item/tool/shiv,
+			//obj/item/tool/knife/shiv,
 		)
 	if(can_hold_knife && is_type_in_list(I, knifes))
 		if(holding)
@@ -532,7 +548,7 @@ BLIND     // can't see anything
 	else to_chat(usr, "You haven't got any accessories in your shoes")
 
 
-/obj/item/clothing/shoes/on_update_icon()
+/obj/item/clothing/shoes/update_icon()
 	cut_overlays()
 	if(holding)
 		add_overlays(image(icon, "[icon_state]_knife"))
@@ -548,6 +564,7 @@ BLIND     // can't see anything
 	icon = 'icons/inventory/suit/icon.dmi'
 	name = "suit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	style_coverage = COVERS_TORSO
 	allowed = list(
 		/obj/item/clipboard,
 		/obj/item/storage/pouch/,
@@ -567,16 +584,21 @@ BLIND     // can't see anything
 		/obj/item/device/scanner,
 		/obj/item/reagent_containers/spray,
 		/obj/item/device/radio,
-		/obj/item/clothing/mask)
+		/obj/item/clothing/mask,
+		/obj/item/storage/pouch/holster/belt/sheath,
+		/obj/item/implant/carrion_spider/holographic,
+		/obj/item/shield)
 	slot_flags = SLOT_OCLOTHING
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = ITEM_SIZE_NORMAL
-	equip_delay = 1 SECONDS
+	equip_delay = 2 SECONDS
 	bad_type = /obj/item/clothing/suit
 	var/fire_resist = T0C+100
 	var/list/extra_allowed = list()
-	style = STYLE_HIGH
+	style = STYLE_LOW
+	valid_accessory_slots = list("armor","armband","decor")
+	restricted_accessory_slots = list("armor","armband")
 
 /obj/item/clothing/suit/Initialize(mapload, ...)
 	.=..()
@@ -596,6 +618,7 @@ BLIND     // can't see anything
 	slot_flags = SLOT_ICLOTHING
 	w_class = ITEM_SIZE_NORMAL
 	spawn_tags = SPAWN_TAG_CLOTHING_UNDER
+	style = STYLE_LOW
 	bad_type = /obj/item/clothing/under
 	var/has_sensor = 1 //For the crew computer 2 = unable to change mode
 	var/sensor_mode = 0
@@ -609,8 +632,8 @@ BLIND     // can't see anything
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 
-	valid_accessory_slots = list("utility","armband","decor")
-	restricted_accessory_slots = list("utility", "armband")
+	valid_accessory_slots = list("armor","utility","armband","decor")
+	restricted_accessory_slots = list("armor","utility", "armband")
 
 
 /obj/item/clothing/under/attack_hand(mob/user)

@@ -47,13 +47,15 @@
 	if(!ability_prechecks(user, price))
 		return
 
-	if (alert(user, "Really recall the shuttle?", "Recall Shuttle: ", "Yes", "No") != "Yes")
-		return
-
-	if(!ability_pay(user, price))
-		return
-	message_admins("Malfunctioning AI [user.name] recalled the shuttle.")
-	cancel_call_proc(user)
+	if(evacuation_controller?.emergency_evacuation)
+		if (alert(user, "Really recall the shuttle?", "Recall Shuttle: ", "Yes", "No") != "Yes")
+			return
+		if(!ability_pay(user, price))
+			return
+		message_admins("Malfunctioning AI [user.name] recalled the shuttle.")
+		cancel_call_proc(user)
+	else
+		to_chat(user, "You cannot stop a bluespace jump.")
 
 
 /datum/game_mode/malfunction/verb/unlock_cyborg(var/mob/living/silicon/robot/target = null as mob in get_linked_cyborgs(usr))
@@ -153,6 +155,8 @@
 		return
 
 	if(target)
+		if(target.HasTrait(CYBORG_TRAIT_AI_HACKED))
+			return FALSE
 		if(alert(user, "Really try to hack cyborg [target.name]?", "Hack Cyborg", "Yes", "No") != "Yes")
 			return
 		if(!ability_pay(user, price))
@@ -185,7 +189,8 @@
 			// Connect the cyborg to AI
 			target.connected_ai = user
 			user.connected_robots += target
-			target.lawupdate = 1
+			target.lawupdate = TRUE
+			target.AddTrait(CYBORG_TRAIT_AI_HACKED)
 			target.sync()
 			target.show_laws()
 			user.hacking = 0
@@ -248,7 +253,7 @@
 				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
 				return
 			to_chat(user, "Hack succeeded. The AI is now under your exclusive control.")
-			to_chat(target, "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$")
+			to_chat(target, "SYSTEM LOG: System reÂ¡3RT5Â§^#COMU@(#$)TED)@$")
 			for(var/i = 0, i < 5, i++)
 				var/temptxt = pick("1101000100101001010001001001",\
 							   	   "0101000100100100000100010010",\

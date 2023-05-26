@@ -113,7 +113,7 @@
 	build_path = /obj/item/tool_upgrade/augment/cell_mount
 	sort_string = "TAAAW"
 	category = CAT_TOOLMODS
-
+	
 /datum/design/research/item/weapon/toolmod/fueltank
 	build_path = /obj/item/tool_upgrade/augment/fuel_tank
 	sort_string = "TAAAX"

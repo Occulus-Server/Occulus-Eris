@@ -54,7 +54,7 @@ It will also bring a hoard of roaches with it.
 /datum/event/kaiser/proc/spawn_mobs()
 	var/spawnedroach
 	if(prob(1))
-		spawnedroach = /mob/living/carbon/superior_animal/roach/kaiser/kaiserin
+		spawnedroach = /mob/living/carbon/superior_animal/roach/kaiser/kaiserin  // Occulus Edit - zzzz_modular_occulus\code\modules\mob\living\carbon\superior_animal\roach\kaiserin.dm
 	else
 		spawnedroach = /mob/living/carbon/superior_animal/roach/kaiser
 	new spawnedroach(enter_burrow)

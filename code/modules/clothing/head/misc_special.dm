@@ -23,9 +23,9 @@
 	matter = list(MATERIAL_STEEL = 4, MATERIAL_GLASS = 2)
 	var/up = 0
 	armor = list(
-		melee = 20,
-		bullet = 10,
-		energy = 10,
+		melee = 5,
+		bullet = 2,
+		energy = 2,
 		bomb = 0,
 		bio = 0,
 		rad = 0
@@ -36,8 +36,9 @@
 	siemens_coefficient = 0.9
 	w_class = ITEM_SIZE_NORMAL
 	flash_protection = FLASH_PROTECTION_MAJOR
-	tint = TINT_HEAVY
+	tint = TINT_MODERATE
 	style = STYLE_NEG_LOW
+	style_coverage = COVERS_WHOLE_FACE
 	var/base_state
 
 /obj/item/clothing/head/welding/attack_self()
@@ -60,6 +61,7 @@
 			tint = initial(tint)
 			icon_state = base_state
 			to_chat(usr, "You flip the [src] down to protect your eyes.")
+			style_coverage = COVERS_WHOLE_FACE
 		else
 			src.up = !src.up
 			body_parts_covered &= ~(EYES|FACE)
@@ -68,6 +70,10 @@
 			flags_inv &= ~(HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 			icon_state = "[base_state]up"
 			to_chat(usr, "You push the [src] up out of your face.")
+			style_coverage = COVERS_HAIR
+		if(ishuman(usr))
+			var/mob/living/carbon/human/beingofeyes = usr
+			beingofeyes.update_equipment_vision()
 		update_wear_icon()	//so our mob-overlays
 		usr.update_action_buttons()
 
@@ -82,6 +88,7 @@
 	item_state = "cake0"
 	var/onfire = 0
 	body_parts_covered = HEAD
+	style_coverage = COVERS_HAIR
 
 /obj/item/clothing/head/cakehat/Process()
 	if(!onfire)
@@ -119,16 +126,29 @@
 /obj/item/clothing/head/ushanka
 	name = "ushanka"
 	desc = "Perfect for winter in Siberia, da?"
-	icon_state = "ushankadown"
+	icon_state = "ushanka_down"
 	flags_inv = HIDEEARS
-	rarity_value = 16.66
+	style_coverage = COVERS_HAIR
 
 /obj/item/clothing/head/ushanka/attack_self(mob/user)
-	if(src.icon_state == "ushankadown")
-		src.icon_state = "ushankaup"
+	if(src.icon_state == "ushanka_down")
+		src.icon_state = "ushanka_up"
 		to_chat(user, "You raise the ear flaps on the ushanka.")
 	else
-		src.icon_state = "ushankadown"
+		src.icon_state = "ushanka_down"
+		to_chat(user, "You lower the ear flaps on the ushanka.")
+
+/obj/item/clothing/head/ushanka/black
+	name = "serbian ushanka"
+	desc = "Perfect for winter in Serbia, da?"
+	icon_state = "ushankabl_down"
+
+/obj/item/clothing/head/ushanka/black/attack_self(mob/user)
+	if(src.icon_state == "ushankabl_down")
+		src.icon_state = "ushankabl_up"
+		to_chat(user, "You raise the ear flaps on the ushanka.")
+	else
+		src.icon_state = "ushankabl_down"
 		to_chat(user, "You lower the ear flaps on the ushanka.")
 
 /*
@@ -143,32 +163,9 @@
 	brightness_on = 2
 	light_overlay = "helmet_light"
 	w_class = ITEM_SIZE_NORMAL
+	style_coverage = COVERS_WHOLE_HEAD
 
-/*
- * Kitty ears
- */
-/obj/item/clothing/head/kitty
-	name = "kitty ears"
-	desc = "A pair of kitty ears. Meow!"
-	icon_state = "kitty"
-	body_parts_covered = 0
-	siemens_coefficient = 1.5
-	item_icons = list()
-	rarity_value = 50
 
-/obj/item/clothing/head/kitty/equipped(mob/user, slot)
-	if(slot == slot_head)
-		update_icon(user)
-	..()
-
-/obj/item/clothing/head/kitty/on_update_icon(var/mob/living/carbon/human/user)
-	if(!istype(user))
-		return
-	var/icon/ears = new/icon('icons/inventory/head/mob.dmi', "kitty")
-	ears.Blend(rgb(user.r_hair, user.g_hair, user.b_hair), ICON_ADD)
-
-	var/icon/earbit = new/icon('icons/inventory/head/mob.dmi', "kittyinner")
-	ears.Blend(earbit, ICON_OVERLAY)
 
 /obj/item/clothing/head/richard
 	name = "chicken mask"
@@ -176,3 +173,4 @@
 	icon_state = "richard"
 	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHAIR
+	style_coverage = COVERS_WHOLE_HEAD

@@ -15,12 +15,14 @@
 			severity++
 
 	switch(severity)
-		if(1.0)
+		if(1)
 			take_damage(rand(300, 600), BLAST) //Breaks through 3 - 4 layers
-		if(2.0)
+		if(2)
 			take_damage(rand(115, 430), BLAST) //Breaks through 2 - 3 layers
-		if(3.0)
+		if(3)
 			take_damage(rand(20, 120), BLAST) //Breaks 1-2 layers
+		if(4)
+			take_damage(rand(10, 50), BLAST)
 
 
 /turf/simulated/floor/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)

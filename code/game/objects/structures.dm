@@ -34,10 +34,10 @@
 
 /obj/structure/attack_hand(mob/user)
 	if(breakable)
-		if(HULK in user.mutations)
-			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
-			attack_generic(user,1,"smashes")
-		else if(ishuman(user))
+//		if(HULK in user.mutations)
+//			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
+//			attack_generic(user,1,"smashes")
+		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.species.can_shred(user))
 				attack_generic(user,1,"slices")
@@ -54,14 +54,14 @@
 
 /obj/structure/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			if(prob(50))
 				qdel(src)
 				return
-		if(3.0)
+		if(3)
 			return
 
 /obj/structure/New()
@@ -117,21 +117,21 @@
 	var/turf/T = get_step(src, src.dir)
 	if(!T || !istype(T))
 		return 0
-	if(T.density == 1)
+	if(T.density)
 		return 0
 	for(var/obj/O in T.contents)
 		if(istype(O,/obj/structure))
 			if(istype(O,/obj/structure/railing))
 				return 1
-			else if(O.density == 1)
+			else if(O.density)
 				return 0
 	return 1
 
-/obj/structure/proc/do_climb(var/mob/living/user)
+/obj/structure/proc/do_climb(mob/living/user)
 	if (!can_climb(user))
 		return
 
-	usr.visible_message(SPAN_WARNING("[user] starts climbing onto \the [src]!"))
+	user.visible_message(SPAN_WARNING("[user] starts climbing onto \the [src]!"))
 	climbers |= user
 
 	var/delay = (issmall(user) ? 20 : 34) * user.mod_climb_delay
@@ -144,11 +144,12 @@
 		climbers -= user
 		return
 
-	usr.forceMove(get_turf(src))
+	user.forceMove(get_turf(src))
 
 	if (get_turf(user) == get_turf(src))
-		usr.visible_message(SPAN_WARNING("[user] climbs onto \the [src]!"))
+		user.visible_message(SPAN_WARNING("[user] climbs onto \the [src]!"))
 	climbers -= user
+	add_fingerprint(user)
 
 /obj/structure/proc/structure_shaken()
 	for(var/mob/living/M in climbers)

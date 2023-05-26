@@ -2,9 +2,10 @@
 	title = "AI"
 	flag = AI
 	department_flag = COMMAND
-	faction = "CEV Northern Light"
-	total_positions = 0 // Not used for AI, see is_position_available below and modules/mob/living/silicon/ai/latejoin.dm
-	spawn_positions = 1
+	department = DEPARTMENT_COMMAND
+	faction = "CEV Northern Light" // Occulus Edit - CEV Eris > CEV Northern Light
+	total_positions = 1 // Not used for AI, see is_position_available below and modules/mob/living/silicon/ai/latejoin.dm
+	spawn_positions = 1 // |-> above message is partly true, it is used by /AssignRole so we still need to set it to 1
 	selection_color = "#b5b7cb"
 	supervisors = "your laws"
 	req_admin_notify = 1

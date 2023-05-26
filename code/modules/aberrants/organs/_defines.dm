@@ -27,7 +27,7 @@
 
 #define ALL_DAMAGE_TYPES list(BRUTE, BURN, TOX, OXY, CLONE, HALLOSS, "brain", PSY)
 
-#define ALL_USABLE_POWER_SOURCES list(/obj/item/cell/small, /obj/item/cell/medium, /obj/item/cell/large, /obj/item/stack/material/phoron, /obj/item/stack/material/uranium, /obj/item/stack/material/tritium)
+#define ALL_USABLE_POWER_SOURCES list(/obj/item/cell/small, /obj/item/cell/medium, /obj/item/cell/large, /obj/item/stack/material/plasma, /obj/item/stack/material/uranium, /obj/item/stack/material/tritium)
 
 #define TYPE_1_HORMONES list(/datum/reagent/hormone/bloodclot, /datum/reagent/hormone/bloodrestore, /datum/reagent/hormone/painkiller,\
 						/datum/reagent/hormone/speedboost, /datum/reagent/hormone/antitox, /datum/reagent/hormone/oxygenation)
@@ -63,7 +63,7 @@
 #define REAGENTS_DRUGS list(/datum/reagent/drug/space_drugs, /datum/reagent/drug/cryptobiolin, /datum/reagent/drug/mindbreaker,\
 							/datum/reagent/drug/psilocybin, /datum/reagent/drug/nicotine)
 
-#define REAGENTS_TOXIN list(/datum/reagent/toxin/amatoxin, /datum/reagent/toxin/phoron, /datum/reagent/toxin/fertilizer,\
+#define REAGENTS_TOXIN list(/datum/reagent/toxin/amatoxin, /datum/reagent/toxin/plasma, /datum/reagent/toxin/fertilizer,\
 							/datum/reagent/toxin/plantbgone, /datum/reagent/acid/polyacid, /datum/reagent/toxin/lexorin,\
 							/datum/reagent/medicine/soporific, /datum/reagent/toxin/biomatter)
 

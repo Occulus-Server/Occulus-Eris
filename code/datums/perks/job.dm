@@ -1,11 +1,11 @@
 /datum/perk/survivor
 	name = "Survivor"
-	desc = "Whether from training or from traumatic experiences, seeing death just doesn't phase you as much, anymore."
+	desc = "After seeing the death of many acquaintances and friends, witnessing death doesn't shock you as much as before. \
+			Halves sanity loss from seeing people die."
 	icon_state = "survivor" // https://game-icons.net/1x1/lorc/one-eyed.html
 
 /datum/perk/survivor/assign(mob/living/carbon/human/H)
-	..()
-	if(holder)
+	if(..())
 		holder.sanity.death_view_multiplier *= 0.5
 
 /datum/perk/survivor/remove()
@@ -17,6 +17,7 @@
 	name = "Artist"
 	desc = "You have a lot of expertise in making works of art. You gain 150% insight from all sources but can only level \
 			up by creating works of art."
+	icon_state = "paintbrush" // https://game-icons.net/1x1/delapouite/paint-brush.html
 	var/old_max_insight = INFINITY
 	var/old_max_resting = INFINITY
 	var/old_insight_rest_gain_multiplier = 1
@@ -40,7 +41,7 @@
 
 
 /datum/perk/selfmedicated
-//Occulus Edit STart: Let's not.
+//Occulus Edit Start: Let's not.
 	name = "Medication Expertise"
 	desc = "Your career has made you very intimate with many different consumable substances. \
 			Your total NSA is increased and your chance to gain an addiction is decreased."
@@ -48,15 +49,14 @@
 	icon_state = "selfmedicated" // https://game-icons.net/1x1/lorc/overdose.html
 
 /datum/perk/selfmedicated/assign(mob/living/carbon/human/H)
-	..()
-	if(holder)
+	if(..())
 		holder.metabolism_effects.addiction_chance_multiplier = 0.5
-		holder.metabolism_effects.nsa_threshold += 10
+		holder.metabolism_effects.nsa_threshold_base += 10
 
 /datum/perk/selfmedicated/remove()
 	if(holder)
 		holder.metabolism_effects.addiction_chance_multiplier = 1
-		holder.metabolism_effects.nsa_threshold -= 10
+		holder.metabolism_effects.nsa_threshold_base -= 10
 	..()
 
 /datum/perk/selfmedicated/chemist
@@ -66,8 +66,7 @@
 	perk_shared_ability = PERK_SHARED_SEE_REAGENTS
 
 /datum/perk/selfmedicated/chemist/assign(mob/living/carbon/human/H)
-	..()
-	if(holder)
+	if(..())
 		holder.metabolism_effects.nsa_threshold_base *= 1.25
 
 // Added on top , removed first
@@ -76,16 +75,14 @@
 		holder.metabolism_effects.nsa_threshold_base /= 1.25
 	..()
 
-
 /datum/perk/vagabond
 	name = "Drifter"
-	desc = "You're used to seeing the worst sights the world has to offer. Your mind feels more resistant. \
+	desc = "You're used to see the worst sight the world has to offer. Your mind feels more resistant. \
 			This perk reduces the total sanity damage you can take from what is happening around you."
 	icon_state = "vagabond" // https://game-icons.net/1x1/lorc/eye-shield.html
 
 /datum/perk/vagabond/assign(mob/living/carbon/human/H)
-	..()
-	if(holder)
+	if(..())
 		holder.sanity.view_damage_threshold += 20
 
 /datum/perk/vagabond/remove()
@@ -95,12 +92,12 @@
 
 /datum/perk/merchant
 	name = "Merchant"
-	desc = "Money is what matters for you, and it's so powerful it lets you improve your skills. The more cash, the more gain."
+	desc = "Money is what matters for you, and it's so powerful it lets you improve your skills. \
+			This perk lets you use money for leveling up. The credits need to be in your backpack."
 	icon_state = "merchant" // https://game-icons.net/1x1/lorc/cash.html and https://game-icons.net/1x1/delapouite/graduate-cap.html slapped on https://game-icons.net/1x1/lorc/trade.html
 
 /datum/perk/merchant/assign(mob/living/carbon/human/H)
-	..()
-	if(holder)
+	if(..())
 		holder.sanity.valid_inspirations += /obj/item/spacecash/bundle
 
 /datum/perk/merchant/remove()
@@ -109,19 +106,19 @@
 	..()
 
 #define CHOICE_LANG "language" // Random language chosen from a pool
-#define CHOICE_TCONTRACT "tcontract" // Traitor contract
+#define CHOICE_TCONTRACT "tcontract" // Contractor contract
 #define CHOICE_STASHPAPER "stashpaper" //stash location paper
 #define CHOICE_RAREOBJ "rareobj" // Rare loot object
 
 // ALERT: This perk has no removal method. Mostly because 3 out of 4 choices give knowledge to the player in the form of text, that would be pointless to remove.
 /datum/perk/deep_connection
 	name = "Deep connection"
-	desc = "With the help of your numerous trustworthy contacts, you manage to collect some useful information."
+	desc = "With the help of your numerous trustworthy contacts, you manage to collect some useful information. \
+			Provides you with 1 of 4 boons: Language, Contractor Contract, a stash location or a special item in a box."
 	icon_state = "deepconnection" // https://game-icons.net/1x1/quoting/card-pickup.html
 
 /datum/perk/deep_connection/assign(mob/living/carbon/human/H)
-	..()
-	if(!holder)
+	if(!..())
 		return
 	var/list/choices = list(CHOICE_RAREOBJ)
 	if(GLOB.various_antag_contracts.len)
@@ -132,7 +129,7 @@
 		if(stash.stash_location)
 			choices += CHOICE_STASHPAPER
 	// Let's see if an additional language is feasible. If the user has them all already somehow, we aren't gonna choose this.
-	var/list/valid_languages = list(LANGUAGE_COMMON, LANGUAGE_JIVE, LANGUAGE_UNATHI, LANGUAGE_SIIK, LANGUAGE_SKRELLIAN, LANGUAGE_SCHECHI) // Not static, because we're gonna remove languages already known by the user
+	var/list/valid_languages = list(LANGUAGE_COMMON, LANGUAGE_JIVE, LANGUAGE_UNATHI, LANGUAGE_SIIK, LANGUAGE_SKRELLIAN, LANGUAGE_SCHECHI) // Not static, because we're gonna remove languages already known by the user // Occulus Edit - Use our languages.
 	for(var/l in valid_languages)
 		var/datum/language/L = all_languages[l]
 		if(L in holder.languages)
@@ -171,12 +168,15 @@
 	desc = "When near an obelisk, you feel your mind at ease. Your sanity regeneration is boosted."
 	icon_state = "sanityboost" // https://game-icons.net/1x1/lorc/templar-eye.html
 
-/datum/perk/sanityboost/assign(mob/living/carbon/human/H)
-	..()
-	if(holder)
+/datum/perk/active_sanityboost
+	name = "True Faith (Active)"
+	icon_state = "sanityboost" // https://game-icons.net/1x1/lorc/templar-eye.html
+
+/datum/perk/active_sanityboost/assign(mob/living/carbon/human/H)
+	if(..())
 		holder.sanity.sanity_passive_gain_multiplier *= 1.5
 
-/datum/perk/sanityboost/remove()
+/datum/perk/active_sanityboost/remove()
 	if(holder)
 		holder.sanity.sanity_passive_gain_multiplier /= 1.5
 	..()
@@ -184,17 +184,15 @@
 /// Basically a marker perk. If the user has this perk, another will be given in certain conditions.
 /datum/perk/inspiration
 	name = "Exotic Inspiration"
-	desc = "Alcohol boosts your IQ. This makes sense, somehow."
-	icon_state = "inspiration" // https://game-icons.net/1x1/delapouite/booze.html
+	desc = "Boosts your Cognition and Mechanical stats any time you imbibe any alcohol."
+	icon_state = "drinking" // https://game-icons.net/1x1/delapouite/drinking.html
 
 /datum/perk/active_inspiration
 	name = "Exotic Inspiration (Active)"
-	desc = "...or does the alcohol just make you less likely to realize your mistakes? Naaaah..."
 	icon_state = "inspiration_active" // https://game-icons.net/1x1/lorc/enlightenment.html
 
 /datum/perk/active_inspiration/assign(mob/living/carbon/human/H)
-	..()
-	if(holder)
+	if(..())
 		holder.stats.addTempStat(STAT_COG, 5, INFINITY, "Exotic Inspiration")
 		holder.stats.addTempStat(STAT_MEC, 10, INFINITY, "Exotic Inspiration")
 
@@ -207,7 +205,7 @@
 /datum/perk/sommelier
 	name = "Sommelier"
 	desc = "You know how to handle even strongest alcohol in the universe."
-	icon_state = "inspiration"
+	icon_state = "celebration" // https://game-icons.net/1x1/delapouite/glass-celebration.html
 
 /datum/perk/neat
 	name = "Neat"
@@ -217,8 +215,7 @@
 	icon_state = "neat" // https://game-icons.net/1x1/delapouite/broom.html
 
 /datum/perk/neat/assign(mob/living/carbon/human/H)
-	..()
-	if(holder)
+	if(..())
 		holder.sanity.view_damage_threshold += 20
 
 /datum/perk/neat/remove()
@@ -244,11 +241,96 @@
 	icon_state = "inspiration"
 
 /datum/perk/job/club/assign(mob/living/carbon/human/H)
-	..()
-	if(holder)
+	if(..())
 		holder.sanity_damage -= 2
 
 /datum/perk/job/club/remove()
 	if(holder)
 		holder.sanity_damage += 2
 	..()
+
+/datum/perk/channeling
+	name = "Channeling"
+	desc = "You know how to channel spiritual energy during rituals. You gain additional skill points \
+			during group rituals and have an increased regeneration of cruciform energy."
+	icon_state = "channeling"
+
+/datum/perk/codespeak
+	name = "Codespeak"
+	desc = "You know Cobalt Aegis Security's code language, adapted to use aboard of CEV Eris." // Occulus Edit - Remove Eris corp. reference
+	icon_state = "codespeak" // https://game-icons.net/1x1/delapouite/police-officer-head.html
+	var/list/codespeak_procs = list(
+		/mob/living/carbon/human/proc/codespeak_help,
+		/mob/living/carbon/human/proc/codespeak_backup,
+		/mob/living/carbon/human/proc/codespeak_clear,
+		/mob/living/carbon/human/proc/codespeak_romch,
+		/mob/living/carbon/human/proc/codespeak_bigromch,
+		/mob/living/carbon/human/proc/codespeak_murderhobo,
+		/mob/living/carbon/human/proc/codespeak_serb,
+		/mob/living/carbon/human/proc/codespeak_commie,
+		/mob/living/carbon/human/proc/codespeak_carrion,
+		/mob/living/carbon/human/proc/codespeak_mutant,
+		/mob/living/carbon/human/proc/codespeak_dead_crew,
+		/mob/living/carbon/human/proc/codespeak_wounded_crew,
+		/mob/living/carbon/human/proc/codespeak_dead_oper,
+		/mob/living/carbon/human/proc/codespeak_wounded_oper,
+		/mob/living/carbon/human/proc/codespeak_ban,
+		/mob/living/carbon/human/proc/codespeak_criminal,
+		/mob/living/carbon/human/proc/codespeak_status,
+		/mob/living/carbon/human/proc/codespeak_shutup,
+		/mob/living/carbon/human/proc/codespeak_understood,
+		/mob/living/carbon/human/proc/codespeak_yes,
+		/mob/living/carbon/human/proc/codespeak_no,
+		/mob/living/carbon/human/proc/codespeak_what,
+		/mob/living/carbon/human/proc/codespeak_busted,
+		/mob/living/carbon/human/proc/codespeak_jailbreak,
+		/mob/living/carbon/human/proc/codespeak_understood_local,
+		/mob/living/carbon/human/proc/codespeak_yes_local,
+		/mob/living/carbon/human/proc/codespeak_no_local,
+		/mob/living/carbon/human/proc/codespeak_engage_local,
+		/mob/living/carbon/human/proc/codespeak_hold_local,
+		/mob/living/carbon/human/proc/codespeak_go_local,
+		/mob/living/carbon/human/proc/codespeak_stop_local,
+		/mob/living/carbon/human/proc/codespeak_idiot_local,
+		/mob/living/carbon/human/proc/codespeak_warcrime_yes_local,
+		/mob/living/carbon/human/proc/codespeak_warcrime_no_local,
+		/mob/living/carbon/human/proc/codespeak_run_local)
+
+/datum/perk/codespeak/assign(mob/living/carbon/human/H)
+	if(..())
+		holder.verbs += codespeak_procs
+
+
+/datum/perk/codespeak/remove()
+	if(holder)
+		holder.verbs -= codespeak_procs
+	..()
+
+/datum/perk/codespeak/serbian
+	name = "Codespeak"
+	desc = "You know Serbian Mercenaries' code language, adapted to use in shipboarding scenarios."
+	icon_state = "codespeak_serb" // https://game-icons.net/1x1/delapouite/pocket-radio.html
+	codespeak_procs = list(
+		/mob/living/carbon/human/proc/sm_codespeak_help,
+		/mob/living/carbon/human/proc/sm_codespeak_backup,
+		/mob/living/carbon/human/proc/sm_codespeak_clear,
+		/mob/living/carbon/human/proc/sm_codespeak_dead_merc,
+		/mob/living/carbon/human/proc/sm_codespeak_wounded_merc,
+		/mob/living/carbon/human/proc/sm_codespeak_target,
+		/mob/living/carbon/human/proc/sm_codespeak_status,
+		/mob/living/carbon/human/proc/sm_codespeak_shutup,
+		/mob/living/carbon/human/proc/sm_codespeak_understood,
+		/mob/living/carbon/human/proc/sm_codespeak_yes,
+		/mob/living/carbon/human/proc/sm_codespeak_no,
+		/mob/living/carbon/human/proc/sm_codespeak_what,
+		/mob/living/carbon/human/proc/sm_codespeak_captured,
+		/mob/living/carbon/human/proc/sm_codespeak_escaped,
+		/mob/living/carbon/human/proc/sm_codespeak_understood_local,
+		/mob/living/carbon/human/proc/sm_codespeak_yes_local,
+		/mob/living/carbon/human/proc/sm_codespeak_no_local,
+		/mob/living/carbon/human/proc/sm_codespeak_engage_local,
+		/mob/living/carbon/human/proc/sm_codespeak_hold_local,
+		/mob/living/carbon/human/proc/sm_codespeak_go_local,
+		/mob/living/carbon/human/proc/sm_codespeak_stop_local,
+		/mob/living/carbon/human/proc/sm_codespeak_run_local,
+		/mob/living/carbon/human/proc/sm_codespeak_idiot_local)

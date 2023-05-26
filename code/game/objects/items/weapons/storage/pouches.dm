@@ -15,6 +15,7 @@
 	spawn_blacklisted = FALSE
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_POUCH
+	price_tag = 120
 	bad_type = /obj/item/storage/pouch
 
 	var/sliding_behavior = FALSE
@@ -49,6 +50,7 @@
 	max_storage_space = DEFAULT_SMALL_STORAGE * 0.5
 	max_w_class = ITEM_SIZE_SMALL
 	rarity_value = 10
+	price_tag = 100
 
 /obj/item/storage/pouch/medium_generic
 	name = "medium generic pouch"
@@ -60,6 +62,7 @@
 	max_storage_space = DEFAULT_SMALL_STORAGE
 	max_w_class = ITEM_SIZE_NORMAL
 	rarity_value = 20
+	price_tag = 255
 
 /obj/item/storage/pouch/large_generic
 	name = "large generic pouch"
@@ -73,21 +76,22 @@
 	max_storage_space = DEFAULT_NORMAL_STORAGE
 	max_w_class = ITEM_SIZE_NORMAL
 	rarity_value = 100
+	price_tag = 410
 
 /obj/item/storage/pouch/medical_supply
 	name = "medical supply pouch"
-	desc = "Can hold medical equipment. But only about three pieces of it."
+	desc = "A small pouch for holding medical supplies."
 	icon_state = "medical_supply"
 	item_state = "medical_supply"
 	matter = list(MATERIAL_BIOMATTER = 9, MATERIAL_STEEL = 1 )
 	rarity_value = 33
 
-	storage_slots = 3
+	storage_slots = null 
+	max_storage_space = DEFAULT_SMALL_STORAGE //Medkits typically hold 5 items in them, this is pocket medkit
 	max_w_class = ITEM_SIZE_NORMAL
 
 	can_hold = list(
 		/obj/item/device/scanner/health,
-		/obj/item/dnainjector,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/glass/beaker,
 		/obj/item/reagent_containers/glass/bottle,
@@ -100,18 +104,19 @@
 		/obj/item/clothing/gloves/latex,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/clothing/glasses/hud/health,
+		/obj/item/stack/nanopaste
 		)
 
 /obj/item/storage/pouch/engineering_tools
 	name = "engineering tools pouch"
-	desc = "Can hold small engineering tools. But only about three pieces of them."
+	desc = "A pouch for holding engineering tools. Looks like there are pockets in it for 4 tools."
 	icon_state = "engineering_tool"
 	item_state = "engineering_tool"
 	matter = list(MATERIAL_BIOMATTER = 9, MATERIAL_STEEL = 1 )
 	rarity_value = 20
 
-	storage_slots = 3
-	max_w_class = ITEM_SIZE_SMALL
+	storage_slots = 4 
+	max_w_class = ITEM_SIZE_NORMAL
 
 	can_hold = list(
 		/obj/item/tool,
@@ -131,27 +136,27 @@
 		/obj/item/clothing/glasses,
 		/obj/item/flame/lighter,
 		/obj/item/cell/small,
-		/obj/item/cell/medium
+		/obj/item/cell/medium,
+		/obj/item/gun/projectile/flare_gun,
+		/obj/item/stack/nanopaste
 		)
 
 /obj/item/storage/pouch/engineering_supply
 	name = "engineering supply pouch"
-	desc = "Can hold engineering equipment. But only about two pieces of it."
+	desc = "A pouch for holding various engineering scanners, power cells and equipment."
 	icon_state = "engineering_supply"
 	item_state = "engineering_supply"
 	matter = list(MATERIAL_BIOMATTER = 9, MATERIAL_STEEL = 1 )
 	rarity_value = 33
 
-	storage_slots = 2
+	storage_slots = null
+	max_storage_space = DEFAULT_NORMAL_STORAGE * 0.8 //Not as big as a large pouch, even though hyper-specialized
 	w_class = ITEM_SIZE_NORMAL
 	max_w_class = ITEM_SIZE_NORMAL
 
 	can_hold = list(
 		/obj/item/cell,
 		/obj/item/electronics/circuitboard,
-		/obj/item/tool,
-		/obj/item/stack/material,
-		/obj/item/material,
 		/obj/item/device/lighting/toggleable/flashlight,
 		/obj/item/stack/cable_coil,
 		/obj/item/device/t_scanner,
@@ -159,7 +164,29 @@
 		/obj/item/taperoll/engineering,
 		/obj/item/device/robotanalyzer,
 		/obj/item/device/scanner/plant,
-		/obj/item/extinguisher/mini
+		/obj/item/stack/rods,
+		/obj/item/extinguisher/mini,
+		/obj/item/gun/projectile/flare_gun
+		)
+
+/obj/item/storage/pouch/engineering_material
+	name = "engineering material pouch"
+	desc = "A pouch for holding sheets, rods and cable coils."
+	icon_state = "engineering_material"
+	item_state = "engineering_material"
+	matter = list(MATERIAL_BIOMATTER = 9, MATERIAL_STEEL = 1 )
+	rarity_value = 33
+
+	storage_slots = null
+	max_storage_space = DEFAULT_NORMAL_STORAGE * 0.6 //Enough space for 3 stacks
+	w_class = ITEM_SIZE_NORMAL
+	max_w_class = ITEM_SIZE_NORMAL
+
+	can_hold = list(
+		/obj/item/stack/material,
+		/obj/item/material,
+		/obj/item/stack/cable_coil,
+		/obj/item/stack/rods
 		)
 
 /obj/item/storage/pouch/ammo
@@ -169,14 +196,25 @@
 	item_state = "ammo"
 	matter = list(MATERIAL_BIOMATTER = 19, MATERIAL_STEEL = 1 )
 	rarity_value = 33
+	price_tag = 200
 
-	storage_slots = 3
+	storage_slots = 6
 	w_class = ITEM_SIZE_NORMAL
 	max_w_class = ITEM_SIZE_NORMAL
 
 	can_hold = list(
 		/obj/item/ammo_magazine,
-		/obj/item/ammo_casing
+		/obj/item/ammo_casing,
+		/obj/item/cell/small,
+		/obj/item/cell/medium
+		)
+
+	cant_hold = list(
+		/obj/item/ammo_magazine/ammobox,
+		/obj/item/ammo_magazine/srifle/drum,
+		/obj/item/ammo_magazine/lrifle/drum,
+		/obj/item/ammo_magazine/lrifle/pk,
+		/obj/item/ammo_magazine/maxim
 		)
 
 /obj/item/storage/pouch/tubular
@@ -186,6 +224,7 @@
 	item_state = "flare"
 	matter = list(MATERIAL_BIOMATTER = 14, MATERIAL_STEEL = 1 )
 	rarity_value = 14
+	price_tag = 140
 
 	storage_slots = 5
 	w_class = ITEM_SIZE_NORMAL
@@ -194,92 +233,38 @@
 	can_hold = list(
 		/obj/item/device/lighting/glowstick,
 		/obj/item/reagent_containers/syringe,
-		/obj/item/reagent_containers/glass/beaker/vial,
+		/obj/item/reagent_containers/glass/beaker,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/pen,
 		/obj/item/storage/pill_bottle,
 		/obj/item/hatton_magazine,
 		/obj/item/ammo_casing/rocket,
-		/obj/item/ammo_casing/grenade
+		/obj/item/ammo_casing/grenade,
+		/obj/item/cell/small,
+		/obj/item/cell/medium
 		)
 
 /obj/item/storage/pouch/tubular/vial
 	name = "vial pouch"
-	desc = "Can hold about five vials. Rebranding!"
+	desc = "Can hold about ten vials. Rebranding!"
 
-/obj/item/storage/pouch/tubular/on_update_icon()
-	..()
-	cut_overlays()
-	if(contents.len)
-		add_overlays(image('icons/inventory/pockets/icon.dmi', "flare_[contents.len]"))
-
-/obj/item/storage/pouch/pistol_holster
-	name = "pistol holster"
-	desc = "Can hold a handgun in."
-	icon_state = "pistol_holster"
-	item_state = "pistol_holster"
-	rarity_value = 33
-
-	storage_slots = 1
-	w_class = ITEM_SIZE_NORMAL
-	max_w_class = ITEM_SIZE_NORMAL
+	storage_slots = 10
 
 	can_hold = list(
-		/obj/item/gun/projectile/selfload,
-		/obj/item/gun/projectile/colt,
-		/obj/item/gun/projectile/avasarala,
-		/obj/item/gun/projectile/giskard,
-		/obj/item/gun/projectile/gyropistol,
-		/obj/item/gun/projectile/handmade_pistol,
-		/obj/item/gun/projectile/lamia,
-		/obj/item/gun/projectile/mk58,
-		/obj/item/gun/projectile/olivaw,
-		/obj/item/gun/projectile/mandella,
-		/obj/item/gun/energy/gun,
-		/obj/item/gun/energy/chameleon,
-		//obj/item/gun/energy/captain, //too unwieldy, use belt/suit slot or other storage
-		/obj/item/gun/energy/stunrevolver,
-		/obj/item/gun/projectile/revolver,
-		/obj/item/gun/projectile/automatic/molly,
-		/obj/item/gun/projectile/paco,
-		/obj/item/gun/projectile/shotgun/doublebarrel/sawn, //short enough to fit in
-		/obj/item/gun/launcher/syringe,
-		/obj/item/gun/energy/plasma/brigador,
-		/obj/item/gun/projectile/shotgun/pump/sawn,
-		/obj/item/gun/projectile/boltgun/obrez,
-		/obj/item/gun/energy/retro/sawn
+		/obj/item/device/lighting/glowstick,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/glass/beaker/vial,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/pen,
+		/obj/item/cell/small,
+		/obj/item/storage/pill_bottle
 		)
 
-	sliding_behavior = TRUE
-
-/obj/item/storage/pouch/pistol_holster/on_update_icon()
+/obj/item/storage/pouch/tubular/update_icon()
 	..()
 	cut_overlays()
 	if(contents.len)
-		add_overlays(image('icons/inventory/pockets/icon.dmi', "pistol_layer"))
-
-/obj/item/storage/pouch/baton_holster
-	name = "baton sheath"
-	desc = "Can hold a baton, or indeed most weapon shafts."
-	icon_state = "baton_holster"
-	item_state = "baton_holster"
-	rarity_value = 33
-
-	storage_slots = 1
-	max_w_class = ITEM_SIZE_BULKY
-
-	can_hold = list(
-		/obj/item/melee,
-		/obj/item/tool/crowbar
-		)
-
-	sliding_behavior = TRUE
-
-/obj/item/storage/pouch/baton_holster/on_update_icon()
-	..()
-	cut_overlays()
-	if(contents.len)
-		add_overlays(image('icons/inventory/pockets/icon.dmi', "baton_layer"))
+		overlays += image('icons/inventory/pockets/icon.dmi', "flare_[contents.len]")
 
 /obj/item/storage/pouch/holding
 	name = "pouch of holding"
@@ -299,16 +284,18 @@
 
 /obj/item/storage/pouch/gun_part
 	name = "part pouch"
-	desc = "Can hold gun parts and armor parts."
-	icon_state = "baton_holster"//evan, temp sprite
-	item_state = "baton_holster"
+	desc = "A pouch for holding all sorts of small parts, upgrades and components."
+	icon_state = "part_pouch"
+	item_state = "part_pouch"
 	rarity_value = 33
 
-	storage_slots = 10
+	storage_slots = null
+	max_storage_space = DEFAULT_NORMAL_STORAGE * 0.8 //Actually smaller than previous but illusion of space with continuous holding space
 	max_w_class = ITEM_SIZE_NORMAL
 
 	can_hold = list(
 		/obj/item/part,
 		/obj/item/stock_parts,
-		/obj/item/electronics
+		/obj/item/electronics,
+		/obj/item/tool_upgrade //Now holds tool upgrades!
 		)

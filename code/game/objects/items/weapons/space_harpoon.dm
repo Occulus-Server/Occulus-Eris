@@ -5,13 +5,14 @@
 	name = "NT BSD \"Harpoon\""
 	desc = "The pride of Nanotrasen's Bluespace research efforts, this 'harpoon' serves as a tool for short and accurate teleportation of both cargo and personnel through Bluespace." // OCCULUS EDIT - Better description
 	icon_state = "harpoon-1"
+	item_state = "harpoon-1"
 	icon = 'icons/obj/items.dmi'
 	w_class = ITEM_SIZE_NORMAL
 	throw_speed = 4
 	throw_range = 20
 	origin_tech = list(TECH_BLUESPACE = 5)
 	price_tag = 4000
-	matter = list(MATERIAL_SILVER = 10, MATERIAL_GOLD = 5, MATERIAL_PHORON = 20, MATERIAL_PLASTIC = 20)
+	matter = list(MATERIAL_SILVER = 10, MATERIAL_GOLD = 5, MATERIAL_PLASMA = 20, MATERIAL_PLASTIC = 20)
 	spawn_blacklisted = TRUE
 	var/entropy_value = 2
 	var/mode = MODE_TRANSMIT
@@ -123,7 +124,7 @@
 	spawn(6)	//Average length of transforming animation //OCCULUS EDIT - Updated to new sprite's values
 		transforming = FALSE
 
-/obj/item/bluespace_harpoon/on_update_icon()
+/obj/item/bluespace_harpoon/update_icon()
 	icon_state = "harpoon-[mode]"
 
 /obj/item/bluespace_harpoon/examine(var/mob/user, var/dist = -1)
@@ -168,7 +169,7 @@
 /obj/item/bluespace_harpoon/mounted/proc/get_external_cell()
 	return loc.get_cell()
 
-/obj/item/bluespace_harpoon/mounted/on_update_icon()
+/obj/item/bluespace_harpoon/mounted/update_icon()
 	icon_state = "harpoon-mounted-[mode]"
 
 /obj/item/bluespace_harpoon/mounted/blitz
@@ -177,5 +178,5 @@
 	icon_state = "harpoon-mounted-blitz-1"
 	spawn_tags = null
 
-/obj/item/bluespace_harpoon/mounted/blitz/on_update_icon()
+/obj/item/bluespace_harpoon/mounted/blitz/update_icon()
 	icon_state = "harpoon-mounted-blitz-[mode]"

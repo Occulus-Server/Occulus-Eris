@@ -1,6 +1,4 @@
 /datum/click_handler
-//	var/mob_type
-	var/species
 	var/handler_name
 	var/one_use_flag = 1//drop client.CH after succes ability use
 	var/client/owner
@@ -76,32 +74,25 @@
 *****************************/
 /datum/click_handler/fullauto
 	var/atom/target = null
-	var/firing = FALSE
-	var/obj/item/gun/reciever // The thing we send firing signals to
+	var/obj/item/gun/reciever // The thing we send firing signals to, spelled reciever instead of receiver for some reason
 	var/time_since_last_init // Time since last start of full auto fire , used to prevent ANGRY smashing of M1 to fire faster.
 	//Todo: Make this work with callbacks
+	var/time_since_last_shot // Keeping track of last shot to determine next one
 
 /datum/click_handler/fullauto/Click()
 	return TRUE //Doesn't work with normal clicks
 
-/datum/click_handler/fullauto/proc/start_firing()
-	firing = TRUE
-	while (firing && target)
-		do_fire()
-		sleep(0.5) //Keep spamming events every frame as long as the button is held
-	stop_firing()
-
 //Next loop will notice these vars and stop shooting
 /datum/click_handler/fullauto/proc/stop_firing()
-	firing = FALSE
 	target = null
 	if(reciever)
-		reciever.cursor_check()
+		if(isliving(reciever.loc))
+			reciever.check_safety_cursor(reciever.loc)
 
 /datum/click_handler/fullauto/proc/do_fire()
 	reciever.afterattack(target, owner.mob, FALSE)
 
-/datum/click_handler/fullauto/MouseDown(object,location,control,params)
+/datum/click_handler/fullauto/MouseDown(object, location, control, params)
 	if(!isturf(owner.mob.loc)) // This stops from firing full auto weapons inside closets or in /obj/effect/dummy/chameleon chameleon projector
 		return FALSE
 	if(owner.mob.in_throw_mode || (owner.mob.Adjacent(location) && owner.mob.a_intent != "harm"))//Occulus Edit Start
@@ -113,50 +104,73 @@
 		return FALSE
 
 	object = resolve_world_target(object)
-	if (object)
+	if(object)
 		target = object
+		time_since_last_shot = world.time
 		shooting_loop()
-		time_since_last_init = world.time + reciever.burst_delay
+		time_since_last_init = world.time + (reciever.fire_delay < GUN_MINIMUM_FIRETIME ? GUN_MINIMUM_FIRETIME : reciever.fire_delay) * min(world.tick_lag, 1)
 	return TRUE
 
 /datum/click_handler/fullauto/proc/shooting_loop()
 
-	if(owner.mob.resting)
+	if(!owner || !owner.mob || owner.mob.resting)
 		return FALSE
 	if(target)
 		owner.mob.face_atom(target)
+
+	while(time_since_last_shot < world.time)
 		do_fire()
-		spawn(reciever.fire_delay) shooting_loop() //Occulus edit: fire_delay instead of burst_delay
+		time_since_last_shot = world.time + (reciever.fire_delay < GUN_MINIMUM_FIRETIME ? GUN_MINIMUM_FIRETIME : reciever.fire_delay) * min(world.tick_lag, 1)
+
+	spawn(1)
+		shooting_loop()
 
 /datum/click_handler/fullauto/MouseDrag(over_object, src_location, over_location, src_control, over_control, params)
 	src_location = resolve_world_target(src_location)
-	if (src_location && firing)
-		target = src_location //This var contains the thing the user is hovering over, oddly
-		owner.mob.face_atom(target)
+	if(src_location)
+		target = src_location
 		return FALSE
 	return TRUE
 
-/datum/click_handler/fullauto/MouseUp(object,location,control,params)
+/datum/click_handler/fullauto/MouseUp(object, location, control, params)
 	stop_firing()
 	return TRUE
 
 /datum/click_handler/fullauto/Destroy()
-	stop_firing()//Without this it keeps firing in an infinite loop when deleted
+	stop_firing() //Without this it keeps firing in an infinite loop when deleted
 	.=..()
 
+/***********
+ * AI Control
+ */
 
+/datum/click_handler/ai
 
+/datum/click_handler/ai/Click(atom/target, location, control, params)
+	var/modifiers = params2list(params)
+	if(isHUDobj(target) || istype(target, /HUD_element) || istype(target, /obj/effect))
+		return TRUE
+	if(!isatom(target))
+		return TRUE
+	if (mob_check(owner.mob) && use_ability(owner.mob, target, params))
+		return TRUE
+	else if(modifiers["shift"])
+		owner.mob.examinate(target)
+		return FALSE
+	if(ismachinery(target))
+		to_chat(usr, SPAN_NOTICE("ERROR: No response from targeted device"))
+	return FALSE
 
+/datum/click_handler/ai/mob_check(mob/living/silicon/ai/user) //Check can mob use a ability
+	return TRUE
 
-
-
-
-
-/datum/click_handler/human/mob_check(mob/living/carbon/human/user)
-	if(ishuman(user))
-		if(user.species.name == src.species)
-			return 1
-	return 0
-
-/datum/click_handler/human/use_ability(mob/living/carbon/human/user,atom/target)
-	return
+/datum/click_handler/ai/use_ability(mob/living/silicon/ai/user,atom/target, params)
+	var/signalStrength
+	if(get_dist_euclidian(owner.mob, get_turf(target)) < 24)
+		// Can't block at such close distance
+		signalStrength = 1000
+	else
+		signalStrength = 10
+	if(SSjamming.IsPositionJammed(get_turf(target),  signalStrength))
+		return FALSE
+	return TRUE

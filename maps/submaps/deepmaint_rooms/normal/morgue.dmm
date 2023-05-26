@@ -44,12 +44,14 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/landmark/corpse/skeleton,
+/obj/item/bodybag,
 /turf/simulated/floor/tiled/dark/panels,
 /area/deepmaint)
 "j" = (
 /obj/structure/morgue{
-	icon_state = "morgue1";
-	dir = 8
+	dir = 8;
+	icon_state = "morgue1"
 	},
 /turf/simulated/floor/tiled/dark/panels,
 /area/deepmaint)
@@ -62,20 +64,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/deepmaint)
-"m" = (
-/obj/structure/table/standard,
-/obj/item/autopsy_scanner{
-	pixel_x = 1;
-	pixel_y = 1
-	},
-/obj/item/tool/scalpel,
-/obj/item/tool/cautery{
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/dark/panels,
-/area/deepmaint)
 "n" = (
 /obj/machinery/optable,
+/obj/landmark/corpse/skeleton/maint,
 /turf/simulated/floor/tiled/dark/panels,
 /area/deepmaint)
 "o" = (
@@ -113,6 +104,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/deepmaint)
+"w" = (
+/obj/landmark/corpse/skeleton,
+/obj/item/bodybag,
+/turf/simulated/floor/tiled/dark/panels,
+/area/deepmaint)
+"S" = (
+/obj/structure/table/standard,
+/obj/item/autopsy_scanner{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/tool/scalpel,
+/obj/item/tool/cautery{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark/panels,
+/area/deepmaint)
 
 (1,1,1) = {"
 a
@@ -147,7 +155,7 @@ f
 g
 g
 h
-m
+S
 k
 q
 c
@@ -211,7 +219,7 @@ d
 c
 i
 k
-k
+w
 k
 k
 c

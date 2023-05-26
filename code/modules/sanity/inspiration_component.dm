@@ -28,13 +28,14 @@
 	perk = new_perk
 
 /datum/component/inspiration/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_EXAMINE, .proc/on_examine)
+	RegisterSignal(parent, COMSIG_EXAMINE, PROC_REF(on_examine))
 
 /datum/component/inspiration/proc/on_examine(mob/user)
+	SIGNAL_HANDLER
 	for(var/stat in stats)
 		var/aspect
 		switch(stats[stat])
-			if(4 to INFINITY)//occulus edit, oddity nerf
+			if(4 to INFINITY)//Occulus edit, oddity nerf
 				aspect = "an <span style='color:#d0b050;'>overwhelming</span>"
 			if(3)//Occulus edit, oddity nerf
 				aspect = "a <span class='red'>strong</span>"

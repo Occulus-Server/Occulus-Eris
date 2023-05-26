@@ -238,7 +238,7 @@
 	icon_state = "moebius_grenade"
 
 /obj/item/grenade/chem_grenade/metalfoam
-	name = "\"Stop-Space\""
+	name = "\"Stop-Space\"" // Occulus Edit - Remove Eris corp. reference
 	icon_state = "foam"
 	desc = "Used for emergency sealing of air breaches."
 	can_be_modified = FALSE
@@ -284,7 +284,7 @@
 	beakers += B2
 
 /obj/item/grenade/chem_grenade/antiweed
-	name = "\"Flora Armageddon\""
+	name = "\"Flora Armageddon\"" // Occulus Edit - Remove Eris corp. reference
 	desc = "Used for purging large areas of invasive plant species. Contents under pressure. Do not directly inhale contents."
 	icon_state = "foam"
 	can_be_modified = FALSE
@@ -314,7 +314,7 @@
 	matter_reagents = list("water" = 30)
 
 /obj/item/grenade/chem_grenade/cleaner
-	name = "\"Shit-Be-Gone\""
+	name = "\"Shit-Be-Gone\"" // Occulus Edit - Remove Eris corp. reference
 	icon_state = "foam"
 	desc = "Dirt? Grime? Blood and criminal evidence? Say good-fucking-bye to all of those things with one simple throw!"
 	can_be_modified = FALSE
@@ -347,8 +347,10 @@
 /obj/item/grenade/chem_grenade/teargas
 	name = "FS TGG \"Simon\""
 	desc = "Concentrated Capsaicin. Contents under pressure. Use with caution."
+	description_info = "Uneffective if the target has internals and face protection."
 	can_be_modified = FALSE
-	icon_state = "grenade"
+	icon_state = "teargas"
+	item_state = "teargas"
 	stage = READY
 	path = 1
 

@@ -40,7 +40,7 @@
 	..()
 	crew_announcement.newscast = 1
 
-/datum/nano_module/program/comm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/program/comm/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/nano_topic_state/state = GLOB.default_state)
 
 	var/list/data = host.initial_data()
 
@@ -139,11 +139,16 @@
 				var/input = input(usr, "Please write a message to announce to the [station_name()].", "Priority Announcement") as null|text
 				if(!input || !can_still_topic())
 					return 1
+				if(GLOB.in_character_filter.len) //I don't want to read announcements about sending people to brazil.
+					if(findtext(input, config.ic_filter_regex))
+						to_chat(usr, SPAN_WARNING("You think better of announcing something so foolish."))
+						return 1
+
 				var/affected_zlevels = GLOB.maps_data.contact_levels
 				var/atom/A = host
 				if(istype(A))
 					affected_zlevels = GetConnectedZlevels(A.z)
-				crew_announcement.Announce(input, zlevels = affected_zlevels)
+				crew_announcement.Announce(input, zlevels = affected_zlevels, use_text_to_speech = TRUE)
 				announcment_cooldown = 1
 				spawn(600)//One minute cooldown
 					announcment_cooldown = 0
@@ -173,7 +178,7 @@
 						to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
 						SSnano.update_uis(src)
 						return
-					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
+					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Contractor funs.
 						to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
 						return 1
 

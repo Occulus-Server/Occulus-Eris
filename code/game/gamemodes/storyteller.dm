@@ -1,4 +1,5 @@
 GLOBAL_DATUM(storyteller, /datum/storyteller)
+GLOBAL_VAR_INIT(chaos_level, 1) //Works as global multiplier for all storyteller points, also used in bluespace entropy.
 
 /datum/storyteller
 	//Strings
@@ -57,10 +58,10 @@ GLOBAL_DATUM(storyteller, /datum/storyteller)
 
 	//Configuration:
 	//Things you can set to make a new storyteller
-	var/gain_mult_mundane = 1.0
-	var/gain_mult_moderate = 1.0
-	var/gain_mult_major = 1.0
-	var/gain_mult_roleset = 1.0
+	var/gain_mult_mundane = 1
+	var/gain_mult_moderate = 1
+	var/gain_mult_major = 1
+	var/gain_mult_roleset = 1
 
 	var/list/tag_weight_mults = list()
 	var/list/tag_cost_mults = list()
@@ -236,10 +237,10 @@ GLOBAL_DATUM(storyteller, /datum/storyteller)
 			points[a] += delta
 
 /datum/storyteller/proc/handle_points()
-	points[EVENT_LEVEL_MUNDANE] += 1 * (gain_mult_mundane) * (RAND_DECIMAL(1-variance, 1+variance))
-	points[EVENT_LEVEL_MODERATE] += 1 * (gain_mult_moderate) * (RAND_DECIMAL(1-variance, 1+variance))
-	points[EVENT_LEVEL_MAJOR] += 1 * (gain_mult_major) * (RAND_DECIMAL(1-variance, 1+variance))
-	points[EVENT_LEVEL_ROLESET] += 1 * (gain_mult_roleset) * (RAND_DECIMAL(1-variance, 1+variance))
+	points[EVENT_LEVEL_MUNDANE] += GLOB.chaos_level * (gain_mult_mundane) * (RAND_DECIMAL(1-variance, 1+variance))
+	points[EVENT_LEVEL_MODERATE] += GLOB.chaos_level * (gain_mult_moderate) * (RAND_DECIMAL(1-variance, 1+variance))
+	points[EVENT_LEVEL_MAJOR] += GLOB.chaos_level * (gain_mult_major) * (RAND_DECIMAL(1-variance, 1+variance))
+	points[EVENT_LEVEL_ROLESET] += GLOB.chaos_level * (gain_mult_roleset) * (RAND_DECIMAL(1-variance, 1+variance))
 	check_thresholds()
 
 /datum/storyteller/proc/check_thresholds()
@@ -328,7 +329,7 @@ The actual fire event proc is located in storyteller_meta*/
 		delay = 1 //Basically no delay on these to reduce bugginess
 	else
 		delay = rand(1, event_schedule_delay)
-	var/handle = addtimer(CALLBACK(GLOBAL_PROC, .proc/fire_event, C, event_type), delay, TIMER_STOPPABLE)
+	var/handle = addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(fire_event), C, event_type), delay, TIMER_STOPPABLE)
 	scheduled_events.Add(list(C), type, handle)
 
 
@@ -351,10 +352,10 @@ The actual fire event proc is located in storyteller_meta*/
 			new_weight = 0
 		else
 			new_weight = calculate_event_weight(a)
-			//Reduce the weight based on number of ocurrences.
+			//Reduce the weight based on number of occurrences.
 			//This is mostly for the sake of midround handovers
-			if (a.ocurrences >= 1)
-				new_weight *= repetition_multiplier ** a.ocurrences
+			if (a.occurrences >= 1)
+				new_weight *= repetition_multiplier ** a.occurrences
 
 		//We setup the event pools as an associative list in preparation for a pickweight call
 		if (EVENT_LEVEL_MUNDANE in a.event_pools)
@@ -376,8 +377,8 @@ The actual fire event proc is located in storyteller_meta*/
 /datum/storyteller/proc/update_pool_weights(var/list/pool)
 	for(var/datum/storyevent/a in pool)
 		var/new_weight = calculate_event_weight(a)
-		if (a.ocurrences >= 1)
-			new_weight *= repetition_multiplier ** a.ocurrences
+		if (a.occurrences >= 1)
+			new_weight *= repetition_multiplier ** a.occurrences
 
 		pool[a] = new_weight
 	return pool

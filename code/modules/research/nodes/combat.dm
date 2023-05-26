@@ -94,7 +94,8 @@
 
 	unlocks_designs = list(
 							/datum/design/research/item/weapon/large_grenade,
-							/datum/design/research/item/weapon/clarissa
+							/datum/design/research/item/weapon/clarissa,
+							/datum/design/research/item/weapon/clarrisa_ammo
 						)
 
 /datum/technology/exotic_weaponry
@@ -114,7 +115,7 @@
 
 /datum/technology/adv_exotic_weaponry
 	name = "Advanced Experimental Weaponry"
-	desc = "Special weapons systems that leverage phoron catalysts for various exotic effects, including a prototype that degrades a target's DNA."
+	desc = "Special weapon system using phoron as catalyst. Special weapon core prototype that deal DNA damage to target." // Occulus Edit - Plasma > Phoron
 	tech_type = RESEARCH_COMBAT
 
 	x = 0.8
@@ -126,7 +127,7 @@
 	cost = 5000
 
 	unlocks_designs = list(	/datum/design/research/item/weapon/decloner,
-							/datum/design/research/item/weapon/phoronpistol,
+							/datum/design/research/item/weapon/phoronpistol, // Occulus Edit - Plasma > Phoron
 							/datum/design/research/item/weapon/gunmod/penetrator
 						)
 
@@ -202,7 +203,35 @@
 	required_tech_levels = list()
 	cost = 5000
 
-	unlocks_designs = list(/datum/design/research/item/weapon/nuclear_gun, /datum/design/research/item/weapon/lasercannon)
+	unlocks_designs = list(/datum/design/research/item/weapon/mindflayer,  /datum/design/research/item/weapon/nuclear, /datum/design/research/item/weapon/lasercannon)
+
+/datum/technology/basic_armor
+	name = "Armor Solutions"
+	desc = "Standard issue armor of moebius paramedic teams."
+	tech_type = RESEARCH_COMBAT
+
+	x = 0.8
+	y = 0.5
+	icon = "traumateam"
+
+	required_technologies = list(/datum/technology/laser_weaponry)
+	required_tech_levels = list()
+	cost = 2500
+	unlocks_designs = list(/datum/design/research/item/paramedic_armor, /datum/design/research/item/paramedic_helmet)
+
+/datum/technology/advanced_armor
+	name = "Advanced Armor Solutions"
+	desc = "Advanced voidsuit with combined ballistic and ablative plating."
+	tech_type = RESEARCH_COMBAT
+
+	x = 0.8
+	y = 0.6
+	icon = "moebiushelm"
+
+	required_technologies = list(/datum/technology/basic_armor)
+	required_tech_levels = list()
+	cost = 2500
+	unlocks_designs = list(/datum/design/research/item/science_voidsuit)
 
 /datum/technology/basic_armor
 	name = "Armor Solutions"

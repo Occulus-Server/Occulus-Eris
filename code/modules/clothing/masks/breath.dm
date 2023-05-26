@@ -11,7 +11,9 @@
 	permeability_coefficient = 0.50
 	rarity_value = 10
 	var/hanging = 0
+	style_coverage = COVERS_MOUTH
 	style = STYLE_NEG_LOW
+	matter = list(MATERIAL_PLASTIC = 1)
 
 /obj/item/clothing/mask/breath/proc/adjust_mask(mob/user)
 	if(!usr.incapacitated())

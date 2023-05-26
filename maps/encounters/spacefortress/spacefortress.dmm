@@ -49,27 +49,27 @@
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/outpost/abandoned_fortress)
 "am" = (
+/obj/structure/table/reinforced,
 /obj/spawner/tool,
 /obj/spawner/tool,
-/obj/structure/table/onestar,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "an" = (
+/obj/structure/table/reinforced,
 /obj/spawner/tool,
 /obj/spawner/tool,
 /obj/spawner/techpart,
-/obj/structure/table/onestar,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ao" = (
+/obj/structure/table/reinforced,
 /obj/spawner/tool,
 /obj/spawner/lowkeyrandom,
-/obj/structure/table/onestar,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ap" = (
+/obj/structure/table/reinforced,
 /obj/spawner/ammo/low_chance,
-/obj/structure/table/onestar,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aq" = (
@@ -77,9 +77,9 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ar" = (
+/obj/structure/table/reinforced,
 /obj/spawner/tool,
 /obj/spawner/booze,
-/obj/structure/table/onestar,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "as" = (
@@ -116,8 +116,8 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ay" = (
+/obj/structure/table/reinforced,
 /obj/spawner/booze,
-/obj/structure/table/onestar,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "az" = (
@@ -135,15 +135,15 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aD" = (
+/obj/structure/table/reinforced,
 /obj/spawner/booze,
 /obj/spawner/booze,
-/obj/structure/table/onestar,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aE" = (
+/obj/structure/table/reinforced,
 /obj/spawner/techpart,
 /obj/spawner/techpart,
-/obj/structure/table/onestar,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aF" = (
@@ -156,7 +156,7 @@
 /area/outpost/abandoned_fortress)
 "aH" = (
 /obj/structure/bed/padded,
-/obj/item/bedsheet/brown,
+/obj/landmark/corpse/skeleton,
 /turf/simulated/floor/carpet/bcarpet,
 /area/outpost/abandoned_fortress)
 "aI" = (
@@ -168,18 +168,17 @@
 "aJ" = (
 /obj/structure/closet/crate,
 /obj/spawner/gun/normal/low_chance,
-/turf/simulated/floor/tiled/derelict,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "aL" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
+/obj/structure/closet/crate,
+/obj/spawner/ammo/lowcost/low_chance,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "aM" = (
 /obj/structure/closet/crate,
 /obj/spawner/ammo/low_chance,
-/turf/simulated/floor/tiled/derelict,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "aN" = (
 /obj/structure/table/onestar,
@@ -188,6 +187,15 @@
 "aO" = (
 /obj/machinery/door/airlock/centcom,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
+/area/outpost/abandoned_fortress)
+"aQ" = (
+/obj/structure/closet,
+/obj/spawner/contraband/low_chance,
+/obj/spawner/contraband/low_chance,
+/obj/spawner/powercell/low_chance,
+/obj/spawner/lowkeyrandom/low_chance,
+/obj/spawner/lowkeyrandom/low_chance,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "aS" = (
 /obj/structure/salvageable/os/data,
@@ -198,50 +206,35 @@
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/outpost/abandoned_fortress)
 "aX" = (
-/obj/structure/barricade,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"aY" = (
-/obj/structure/closet/onestar/tier1/normal/empty,
-/obj/spawner/powercell/low_chance,
-/obj/spawner/powercell/low_chance,
-/obj/spawner/contraband/low_chance,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
+/obj/landmark/corpse/skeleton,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bb" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/lowkeyrandom,
 /obj/spawner/lowkeyrandom/low_chance,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bc" = (
 /obj/structure/reagent_dispensers/fueltank/huge/derelict,
-/turf/simulated/floor/tiled/derelict/white_red_edges,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bd" = (
 /obj/structure/reagent_dispensers/watertank/huge/derelict,
-/turf/simulated/floor/tiled/derelict/white_red_edges,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "be" = (
-/obj/structure/closet/onestar/tier1/normal/empty,
-/obj/spawner/powercell/low_chance,
-/obj/spawner/powercell/low_chance,
+/obj/structure/closet,
 /obj/spawner/contraband/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/tool/advanced/onestar/low_chance,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"bf" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/grass,
+/obj/spawner/contraband/low_chance,
+/obj/spawner/powercell/low_chance,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bi" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/lowkeyrandom/low_chance,
 /obj/spawner/lowkeyrandom/low_chance,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bj" = (
 /obj/structure/girder,
@@ -252,7 +245,7 @@
 /obj/spawner/lowkeyrandom/low_chance,
 /obj/spawner/lowkeyrandom/low_chance,
 /obj/spawner/electronics,
-/turf/simulated/floor/tiled/dark/brown_perforated,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bm" = (
 /obj/structure/closet/emcloset,
@@ -276,10 +269,9 @@
 /turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
 "bs" = (
-/obj/machinery/door/airlock/sandstone{
-	name = "airlock"
-	},
-/turf/simulated/floor/tiled/dark/brown_platform,
+/obj/item/remains,
+/obj/item/stool,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bt" = (
 /obj/structure/railing/grey{
@@ -307,19 +299,27 @@
 /turf/simulated/mineral,
 /area/outpost/abandoned_fortress)
 "bv" = (
-/turf/simulated/floor/tiled/dark/cargo,
+/obj/structure/table/rack/shelf,
+/obj/spawner/tool/low_chance,
+/obj/spawner/tool/low_chance,
+/obj/spawner/techpart,
+/obj/spawner/techpart,
+/obj/spawner/techpart,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bw" = (
-/obj/structure/low_wall/onestar,
-/obj/structure/window/phoronbasic/full,
-/turf/simulated/floor/plating,
+/obj/structure/table/rack/shelf,
+/obj/spawner/powercell/low_chance,
+/obj/spawner/powercell/low_chance,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bx" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/material/building,
 /obj/spawner/material/building,
-/obj/spawner/material/resources/rare,
-/turf/simulated/floor/tiled/dark/brown_perforated,
+/obj/spawner/material/building/low_chance,
+/obj/spawner/material/building/low_chance,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "by" = (
 /obj/structure/ore_box,
@@ -339,100 +339,112 @@
 /area/outpost/abandoned_fortress)
 "bB" = (
 /obj/spawner/ammo/low_chance,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bC" = (
-/obj/machinery/bodyscanner,
-/turf/simulated/floor/tiled/white/brown_platform,
+/obj/structure/table/reinforced,
+/obj/spawner/medical,
+/obj/spawner/firstaid,
+/obj/spawner/firstaid,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bD" = (
-/obj/machinery/body_scanconsole,
-/turf/simulated/floor/tiled/white/brown_platform,
+/obj/structure/table/reinforced,
+/obj/spawner/medical,
+/obj/spawner/firstaid/low_chance,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bE" = (
-/obj/machinery/light/floor{
-	dir = 8;
-	pixel_x = -4
-	},
-/turf/simulated/floor/tiled/derelict,
+/obj/structure/table/reinforced,
+/obj/spawner/medical/low_chance,
+/turf/simulated/floor/tiled,
+/area/outpost/abandoned_fortress)
+"bF" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bG" = (
 /obj/structure/salvageable/os/implant_container,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/outpost/abandoned_fortress)
 "bH" = (
-/obj/structure/closet/onestar/tier1/normal/empty,
-/obj/spawner/powercell/low_chance,
-/obj/spawner/powercell/low_chance,
-/obj/spawner/contraband/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/medical,
+/turf/simulated/floor/tiled,
+/area/outpost/abandoned_fortress)
+"bI" = (
+/obj/structure/table/rack/shelf,
+/obj/spawner/tool/low_chance,
+/obj/spawner/tool/low_chance,
+/obj/spawner/techpart,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bJ" = (
-/turf/simulated/floor/tiled/dark/gray_platform,
+/obj/structure/table/rack/shelf,
+/obj/spawner/tool/low_chance,
+/obj/spawner/tool/low_chance,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bK" = (
+/obj/structure/table/reinforced,
 /obj/spawner/techpart,
-/obj/structure/table/onestar,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bL" = (
-/obj/machinery/light/floor{
-	dir = 4;
-	pixel_x = 4
-	},
-/turf/simulated/floor/tiled/derelict,
+/obj/spawner/gun/normal/low_chance,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bM" = (
 /obj/machinery/light/floor,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/outpost/abandoned_fortress)
 "bN" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
+/obj/item/stool,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bO" = (
-/obj/structure/closet/onestar/tier3,
-/turf/simulated/floor/tiled/dark/golden,
+/obj/spawner/medical/low_chance,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bP" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/material/resources/rare/low_chance,
 /obj/spawner/material/resources,
 /obj/spawner/material/resources,
-/obj/spawner/material/resources/rare/low_chance,
-/turf/simulated/floor/tiled/dark/brown_perforated,
+/obj/spawner/material/resources,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bQ" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/material/resources/rare/low_chance,
 /obj/spawner/material/resources/rare,
-/turf/simulated/floor/tiled/dark/brown_perforated,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bR" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/material/resources/rare/low_chance,
-/turf/simulated/floor/tiled/dark/brown_perforated,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bT" = (
-/obj/machinery/light/spot{
-	dir = 8
+/obj/structure/sink{
+	dir = 8;
+	icon_state = "sink";
+	pixel_x = -12;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/outpost/abandoned_fortress)
 "bU" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/medical,
+/obj/item/remains,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bV" = (
+/obj/structure/table/reinforced,
 /obj/spawner/medical/low_chance,
 /obj/spawner/medical/low_chance,
-/obj/structure/table/onestar,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bW" = (
 /obj/structure/barricade,
@@ -460,7 +472,9 @@
 /turf/simulated/floor/plating/under,
 /area/outpost/abandoned_fortress)
 "ca" = (
-/turf/simulated/floor/plating/under,
+/obj/spawner/junk/low_chance,
+/mob/living/simple_animal/hostile/hivebot/range,
+/turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "cb" = (
 /obj/structure/girder,
@@ -468,31 +482,28 @@
 /area/outpost/abandoned_fortress)
 "cc" = (
 /obj/spawner/boxes/low_chance,
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "cd" = (
 /obj/spawner/material/resources/rare/low_chance,
 /obj/spawner/material/resources/rare/low_chance,
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ce" = (
 /obj/spawner/lowkeyrandom,
 /obj/spawner/lowkeyrandom,
 /obj/spawner/lowkeyrandom,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "cf" = (
 /obj/spawner/ammo/low_chance,
 /obj/spawner/ammo/low_chance,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "cg" = (
 /obj/spawner/tool/low_chance,
 /obj/spawner/tool/low_chance,
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ch" = (
 /obj/structure/closet/emcloset,
@@ -500,6 +511,9 @@
 /obj/spawner/ammo/lowcost/low_chance,
 /obj/spawner/ammo/lowcost/low_chance,
 /obj/spawner/junk,
+/obj/structure/sign/vacuum{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "ci" = (
@@ -533,3096 +547,65 @@
 /obj/spawner/junk,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
-"cq" = (
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"cy" = (
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"cA" = (
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/light/floor{
-	dir = 8;
-	pixel_x = -4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"cB" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/railing/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"cC" = (
-/obj/structure/bed/chair/custom/onestar{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"cF" = (
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"cK" = (
-/obj/spawner/surgery_tool/low_chance,
-/obj/spawner/surgery_tool/low_chance,
-/obj/structure/table/onestar,
-/turf/simulated/floor/tiled/techmaint,
-/area/outpost/abandoned_fortress)
-"cQ" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/techpart,
-/obj/spawner/techpart,
-/obj/spawner/junk/nondense,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"cR" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"cU" = (
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"cW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"dh" = (
-/obj/structure/barricade,
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"dj" = (
-/obj/item/inflatable_dispenser,
+"fL" = (
+/obj/spawner/gun/shotgun,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
-"dk" = (
-/obj/machinery/light/floor{
-	dir = 8;
-	pixel_x = -4
-	},
-/turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/outpost/abandoned_fortress)
-"dn" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"dr" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/material/building,
-/obj/spawner/material/resources/rare,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"dG" = (
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"dK" = (
-/obj/machinery/light/spot{
+"lE" = (
+/obj/machinery/computer/atmos_alert{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/derelict,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
-"dT" = (
-/obj/structure/railing/grey{
-	dir = 1
+"mH" = (
+/obj/structure/table/standard{
+	name = "plastic table frame"
 	},
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"dX" = (
-/obj/spawner/contraband/low_chance,
-/obj/spawner/contraband/low_chance,
-/obj/spawner/powercell/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/structure/closet/onestar/tier1/normal/empty,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"ea" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/obj/machinery/light/spot{
-	dir = 4
-	},
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"eg" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/mob/living/simple_animal/hostile/diyaab,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"es" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/material/resources/rare/low_chance,
-/obj/spawner/material/resources/rare,
-/obj/spawner/rig,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"et" = (
-/obj/structure/girder,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"ev" = (
-/obj/machinery/light/floor{
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled/white,
-/area/outpost/abandoned_fortress)
-"eD" = (
-/obj/machinery/light/floor{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"eI" = (
-/obj/spawner/junk/low_chance,
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"eJ" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"eW" = (
-/turf/simulated/floor/tiled/dark/golden,
-/area/outpost/abandoned_fortress)
-"eX" = (
-/obj/structure/sign/derelict1{
-	desc = "A sign in a language you don't understand. It appears to be a list of some kind, followed by a dense block of a paragraph.";
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"eY" = (
-/obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/exoplanet/snow,
-/area/outpost/abandoned_fortress)
-"fc" = (
-/obj/structure/bed/chair/custom/onestar/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"fe" = (
-/obj/spawner/junk/low_chance,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"fq" = (
-/mob/living/simple_animal/hostile/onestar_custodian/engineer,
-/turf/simulated/floor/tiled/white/gray_platform,
-/area/outpost/abandoned_fortress)
-"fs" = (
-/obj/structure/salvageable/os/console{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"fz" = (
-/obj/structure/flora/ausbushes/fernybush,
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"fG" = (
-/obj/structure/girder,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"fT" = (
-/mob/living/simple_animal/hostile/roomba/boomba,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"fV" = (
-/obj/machinery/door/airlock/sandstone{
-	name = "airlock"
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"gb" = (
-/obj/structure/closet/onestar/tier2/special,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"gd" = (
-/obj/machinery/porta_turret/One_star,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"gj" = (
-/obj/structure/table/onestar,
-/obj/spawner/techpart/low_chance,
-/obj/spawner/techpart/low_chance,
-/obj/spawner/tank/low_chance,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"gp" = (
-/obj/structure/closet/onestar/tier1/normal,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"gt" = (
-/obj/structure/ore_box,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
-"gG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
+"xC" = (
+/obj/landmark/corpse/skeleton/fortress,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
-"gO" = (
-/mob/living/simple_animal/hostile/roomba/gun_ba,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"hb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"hg" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/machinery/light/floor,
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"hl" = (
-/obj/structure/closet/onestar/tier2/mineral,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"hu" = (
-/obj/structure/table/onestar,
-/obj/spawner/tool/advanced/onestar/low_chance,
+"zy" = (
+/obj/landmark/corpse/skeleton,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
-"hy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/machinery/door/airlock/centcom{
-	icon_state = "door_locked";
-	locked = 1;
-	name = "Fortress Airlock"
-	},
-/turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/outpost/abandoned_fortress)
-"hD" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"hI" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Fortress Airlock"
-	},
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"hJ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
-	dir = 8
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"hM" = (
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"hO" = (
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"hS" = (
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"hY" = (
-/obj/structure/low_wall/onestar,
-/obj/structure/window/phoronbasic/full,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"id" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 26
-	},
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"ig" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"io" = (
-/obj/structure/closet/onestar/tier2/special,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"ix" = (
-/obj/structure/railing/grey,
-/obj/machinery/light/floor{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"iB" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"iF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"iG" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom/low_chance,
-/turf/simulated/floor/asteroid,
-/area/outpost/abandoned_fortress)
-"iH" = (
-/obj/structure/closet/onestar/tier1/special,
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"iI" = (
-/mob/living/simple_animal/hostile/diyaab,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"iM" = (
-/obj/machinery/light/spot{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/white_red_edges,
-/area/outpost/abandoned_fortress)
-"iP" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/exoplanet/snow,
-/area/outpost/abandoned_fortress)
-"iV" = (
-/obj/structure/closet/onestar/tier3/mineral,
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"iX" = (
-/obj/structure/salvageable/os/server,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"jg" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 6
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"jo" = (
-/obj/structure/sign/derelict2{
-	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
-	pixel_x = 28
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"js" = (
-/obj/structure/salvageable/os/console{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"jt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"jw" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/spawner/lowkeyrandom/low_chance,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"jD" = (
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"jI" = (
-/obj/structure/bed/chair/custom/onestar/red,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"jO" = (
-/obj/spawner/lowkeyrandom,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"jR" = (
-/obj/structure/bed/chair/custom/onestar{
-	dir = 8
-	},
-/mob/living/simple_animal/hostile/roomba/boomba,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"jT" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"jW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"jX" = (
-/obj/item/material/shard/phoron,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"ka" = (
-/obj/structure/closet/l3closet/general,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"kc" = (
-/obj/structure/salvageable/autolathe,
-/turf/simulated/floor/tiled/dark/danger,
-/area/outpost/abandoned_fortress)
-"ke" = (
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"kf" = (
-/obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"kg" = (
-/obj/structure/sign/derelict1{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"km" = (
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"kq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"ks" = (
-/obj/structure/railing/grey,
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"kB" = (
-/obj/machinery/light/floor{
-	dir = 8
-	},
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"kM" = (
-/mob/living/simple_animal/hostile/onestar_custodian/engineer,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"kN" = (
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"kP" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"kR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"kT" = (
-/obj/machinery/porta_turret/One_star,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"kV" = (
-/obj/structure/railing/grey,
-/obj/machinery/light/floor{
+"AN" = (
+/obj/structure/table/standard{
 	dir = 1;
-	pixel_y = 4
+	flipped = 1;
+	name = "plastic table frame"
 	},
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"kY" = (
-/obj/structure/catwalk,
-/obj/structure/closet/onestar/tier3/normal,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"kZ" = (
-/obj/spawner/junk/low_chance,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"lj" = (
-/obj/spawner/lowkeyrandom/low_chance,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"lm" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Fortress Airlock"
-	},
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"lq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"lx" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/techpart/low_chance,
-/obj/spawner/rig/damaged/low_chance,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"lA" = (
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"lD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/turf/simulated/mineral,
-/area/outpost/abandoned_fortress)
-"lM" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"lO" = (
-/obj/structure/salvageable/os/machine,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"lS" = (
-/obj/structure/catwalk,
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"lY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 1
-	},
-/obj/machinery/door/airlock/centcom{
-	icon_state = "door_locked";
-	locked = 1;
-	name = "Fortress Airlock"
-	},
-/turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/outpost/abandoned_fortress)
-"mp" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/light/floor,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"mq" = (
-/obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"mw" = (
-/obj/structure/inflatable/wall,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"mx" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/machinery/turretid/lethal{
-	pixel_y = 26
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"mA" = (
-/obj/structure/sign/faction/one_star_old{
-	desc = "One Star's all-seeing eye. A flash of color in dark monochrome and twilight."
-	},
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"na" = (
-/obj/structure/flora/ausbushes,
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"nl" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/green,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"nr" = (
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"nu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue,
-/obj/structure/railing/grey,
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"nw" = (
-/obj/spawner/junk/low_chance,
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"nx" = (
-/obj/machinery/light/floor{
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"nC" = (
-/obj/machinery/vending/wallmed/minor{
-	pixel_y = 28
-	},
-/obj/spawner/surgery_tool/low_chance,
-/obj/spawner/surgery_tool/low_chance,
-/obj/structure/table/onestar,
-/obj/item/tool/saw/circular/advanced,
-/turf/simulated/floor/tiled/techmaint,
-/area/outpost/abandoned_fortress)
-"nH" = (
-/obj/structure/barricade,
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"nI" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 5
-	},
-/obj/machinery/light/floor,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"nN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 1
-	},
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"nR" = (
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"nU" = (
-/obj/structure/railing/grey,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"oe" = (
-/obj/effect/floor_decal/fact_plaque,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"og" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"om" = (
-/mob/living/simple_animal/hostile/onestar_custodian/engineer,
-/turf/simulated/floor/asteroid,
-/area/outpost/abandoned_fortress)
-"oq" = (
-/mob/living/simple_animal/hostile/onestar_custodian/chef,
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"ox" = (
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"oy" = (
-/obj/structure/catwalk,
-/obj/spawner/electronics/low_chance,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"oz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"oG" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"oK" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"oO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"pf" = (
-/obj/spawner/tool/advanced/onestar,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"pg" = (
-/obj/spawner/junk/low_chance,
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"pB" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/obj/machinery/porta_turret/One_star,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"pE" = (
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"pI" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/railing/grey,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"pM" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/light/floor{
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"pS" = (
-/mob/living/simple_animal/hostile/megafauna/one_star{
-	health = 2500;
-	maxHealth = 2500;
-	melee_damage_lower = 20;
-	melee_damage_upper = 30
-	},
-/turf/simulated/floor/greengrid,
-/area/outpost/abandoned_fortress)
-"pX" = (
-/obj/structure/table/rack/shelf,
-/obj/item/tool/weldingtool/onestar,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"qc" = (
-/obj/machinery/light/floor{
-	dir = 1
-	},
-/obj/structure/railing/grey,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"qe" = (
-/obj/structure/flora/ausbushes,
-/obj/structure/flora/ausbushes/ywflowers,
-/obj/machinery/light/spot{
-	dir = 4
-	},
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"qm" = (
-/obj/structure/table/onestar,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"qv" = (
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/structure/railing/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"qD" = (
-/obj/item/caution,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"qE" = (
-/obj/structure/closet/onestar/tier1/medical,
-/obj/machinery/light/floor{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/outpost/abandoned_fortress)
-"qH" = (
-/obj/structure/flora/ausbushes,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"qL" = (
-/obj/item/material/shard/phoron,
-/turf/simulated/floor/carpet,
-/area/outpost/abandoned_fortress)
-"qN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"qT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 9
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"ra" = (
-/obj/spawner/gun/normal/low_chance,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"rm" = (
-/obj/machinery/light/floor{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/derelict/white_red_edges,
-/area/outpost/abandoned_fortress)
-"rn" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/mob/living/simple_animal/hostile/diyaab,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"rq" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"rw" = (
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"ry" = (
-/obj/structure/closet/onestar/tier1,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"rJ" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Fortress Airlock"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/outpost/abandoned_fortress)
-"rL" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/spawner/electronics/low_chance,
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"rQ" = (
-/obj/structure/closet/onestar/tier2,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"rV" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"sd" = (
-/obj/structure/railing/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"se" = (
-/obj/structure/salvageable/os/console{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"sk" = (
-/obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"sv" = (
-/obj/machinery/door/airlock/sandstone{
-	name = "airlock"
-	},
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"sz" = (
-/obj/spawner/material/building,
-/obj/spawner/material/building,
-/obj/spawner/material/building,
-/obj/spawner/material/building,
-/obj/spawner/material/building,
-/obj/structure/table/rack/shelf,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"sC" = (
-/obj/spawner/gun/normal/low_chance,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"sD" = (
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"sO" = (
-/mob/living/simple_animal/hostile/diyaab,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"sP" = (
-/obj/structure/table/onestar,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"sS" = (
-/mob/living/simple_animal/hostile/roomba/slayer,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"sV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"sX" = (
-/obj/effect/decal/cleanable/liquid_fuel,
-/mob/living/simple_animal/hostile/roomba,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"tb" = (
-/obj/structure/closet/onestar/tier3/special/empty,
-/obj/spawner/tool/advanced/onestar,
-/obj/spawner/tool/advanced/onestar/low_chance,
-/obj/spawner/tool/advanced/onestar/low_chance,
-/obj/spawner/tool/advanced/onestar/low_chance,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"th" = (
-/obj/structure/flora/grass/both,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"ti" = (
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"tk" = (
-/obj/spawner/junk/low_chance,
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"tm" = (
-/obj/structure/inflatable/door,
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"tt" = (
-/obj/machinery/light/floor{
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/outpost/abandoned_fortress)
-"tB" = (
-/obj/structure/railing/grey,
-/obj/structure/sign/faction/one_star_old{
-	desc = "One Star's all-seeing eye. A flash of color in dark monochrome and twilight.";
-	pixel_x = 32
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"tE" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/outpost/abandoned_fortress)
-"tM" = (
-/obj/structure/grille,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"tP" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"tS" = (
-/mob/living/simple_animal/hostile/roomba/slayer,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"ud" = (
-/obj/structure/plasticflaps,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"uj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"un" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/railing/grey,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"up" = (
-/obj/machinery/door/airlock/centcom{
-	icon_state = "door_locked";
-	locked = 1;
-	name = "Fortress Airlock"
-	},
-/turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/outpost/abandoned_fortress)
-"ur" = (
-/turf/simulated/floor/tiled/techmaint,
-/area/outpost/abandoned_fortress)
-"us" = (
-/obj/machinery/light/spot{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"uy" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/structure/sign/faction/one_star_old{
-	desc = "One Star's all-seeing eye. A flash of color in dark monochrome and twilight.";
-	pixel_x = 32
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"uz" = (
-/obj/structure/low_wall/onestar,
-/obj/item/material/shard/phoron,
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"uB" = (
-/obj/structure/closet/crate/plastic,
-/turf/simulated/mineral,
-/area/outpost/abandoned_fortress)
-"uQ" = (
-/obj/structure/closet/crate,
-/obj/spawner/ammo/lowcost/low_chance,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"uW" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"uY" = (
-/obj/structure/salvageable/os/machine,
-/turf/simulated/floor/tiled/dark/danger,
-/area/outpost/abandoned_fortress)
-"vf" = (
-/obj/spawner/junk/low_chance,
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"vg" = (
-/obj/structure/sign/derelict1{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"vm" = (
-/obj/structure/mopbucket,
-/obj/item/mop,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"vq" = (
-/mob/living/simple_animal/hostile/roomba/slayer,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"vF" = (
-/obj/structure/window/reinforced,
-/mob/living/simple_animal/hostile/onestar_custodian/chef,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"vH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"vT" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"wa" = (
-/mob/living/simple_animal/hostile/onestar_custodian,
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"wd" = (
-/obj/machinery/light/floor{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"wh" = (
-/obj/machinery/light/floor{
-	dir = 1;
-	pixel_y = 4
-	},
-/obj/structure/closet/onestar/tier1/normal,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"wo" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/railing/grey,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"wq" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"wu" = (
-/obj/machinery/porta_turret/One_star,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"wC" = (
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"wD" = (
-/obj/spawner/junk/low_chance,
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"wW" = (
-/obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"wX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
-	dir = 4
-	},
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"xb" = (
-/turf/simulated/floor/greengrid,
-/area/outpost/abandoned_fortress)
-"xh" = (
-/obj/structure/table/woodentable,
-/obj/item/reagent_containers/food/snacks/sliceable/applecake{
-	desc = "A cake centered with apples. It's covered in dust, but looks entirely fresh and ready to eat. Do you dare...?";
-	name = "Perfectly Preserved Apple Cake";
-	nutriment_desc = list("death" = 10, "dust" = 10, "regret" = 15)
-	},
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"xo" = (
-/obj/item/remains,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"xy" = (
-/mob/living/simple_animal/hostile/roomba,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"xB" = (
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"xD" = (
-/obj/structure/inflatable/door,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"xH" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 10
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"xI" = (
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled/techmaint,
-/area/outpost/abandoned_fortress)
-"xO" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/bed/chair/custom/onestar/red,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"xU" = (
-/obj/spawner/junk/low_chance,
-/obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"xY" = (
-/obj/structure/bed/chair/custom/onestar/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/outpost/abandoned_fortress)
-"yl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue,
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"yo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"yr" = (
-/obj/spawner/surgery_tool/low_chance,
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"ys" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
-	dir = 4
-	},
-/mob/living/simple_animal/hostile/roomba/slayer,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"yv" = (
-/turf/simulated/floor/tiled/dark/danger,
-/area/outpost/abandoned_fortress)
-"yw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/obj/structure/railing/grey,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"yA" = (
-/obj/machinery/light/floor{
-	dir = 1;
-	pixel_y = 4
-	},
-/obj/structure/closet/onestar/tier1/medical,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"yD" = (
-/obj/structure/mopbucket,
-/obj/item/mop,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"yE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 10
-	},
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"yI" = (
-/obj/effect/floor_decal/industrial/loading{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"yK" = (
-/obj/machinery/light/floor{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"yP" = (
-/obj/structure/sign/derelict2{
-	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
-	pixel_x = 28
-	},
-/obj/structure/salvageable/os/data,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"yR" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"yX" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"yZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
-	dir = 4
-	},
-/turf/simulated/mineral,
-/area/outpost/abandoned_fortress)
-"za" = (
-/obj/structure/grille,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"zj" = (
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"zo" = (
-/mob/living/simple_animal/hostile/onestar_custodian/engineer,
-/turf/simulated/floor/tiled/techmaint,
-/area/outpost/abandoned_fortress)
-"zq" = (
-/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
-"zs" = (
-/obj/structure/sign/derelict2{
-	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
-	pixel_x = 28
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"zJ" = (
-/obj/structure/flora/ausbushes,
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"zP" = (
-/obj/structure/flora/grass/both,
-/turf/simulated/floor/exoplanet/snow,
-/area/outpost/abandoned_fortress)
-"zT" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Af" = (
-/obj/structure/table/onestar,
-/obj/item/tape/engineering,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"AD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 1
-	},
-/turf/simulated/mineral,
-/area/outpost/abandoned_fortress)
-"AF" = (
-/mob/living/simple_animal/hostile/roomba/boomba,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"AI" = (
-/obj/structure/window/reinforced,
-/obj/effect/floor_decal/fact_plaque,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"AM" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"AX" = (
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"AY" = (
-/obj/structure/flora/ausbushes/stalkybush,
-/mob/living/simple_animal/hostile/diyaab,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Bx" = (
-/obj/structure/sign/derelict2{
-	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
-	pixel_y = -31
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"By" = (
-/obj/structure/flora/ausbushes,
-/obj/structure/flora/ausbushes/stalkybush,
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"BF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"BO" = (
-/obj/structure/flora/ausbushes/fernybush,
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"BQ" = (
-/turf/simulated/floor/asteroid,
-/area/outpost/abandoned_fortress)
-"BU" = (
-/mob/living/simple_animal/hostile/onestar_custodian/engineer,
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"BW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"BX" = (
-/obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Cc" = (
-/obj/structure/flora/ausbushes/palebush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Ce" = (
-/obj/structure/inflatable/door,
-/turf/simulated/floor/tiled,
-/area/outpost/abandoned_fortress)
-"Cm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"Cs" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"CB" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 26
-	},
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"CC" = (
-/turf/simulated/floor/tiled/white/gray_perforated,
-/area/outpost/abandoned_fortress)
-"CU" = (
-/obj/machinery/light/floor{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Da" = (
-/mob/living/simple_animal/hostile/roomba,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Df" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Dl" = (
-/obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Dx" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"DH" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"DI" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Fortress Airlock"
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"DJ" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"DN" = (
-/obj/structure/sign/derelict2{
-	desc = "Looks like a small planetoid, maybe an asteroid, with a station hovering above it and...digging inside of it? There's thick lettering you can't understand..";
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"DP" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 27
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Ea" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Eb" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/tool/advanced/onestar,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"Ec" = (
-/obj/machinery/light/floor{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Ef" = (
-/obj/machinery/light/floor{
-	dir = 4;
-	pixel_x = 4
-	},
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Em" = (
-/obj/spawner/tool/advanced/onestar/low_chance,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"Eu" = (
-/obj/structure/closet/onestar/tier3/medical,
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Ev" = (
-/obj/machinery/light/floor{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict/white_red_edges,
-/area/outpost/abandoned_fortress)
-"EH" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"EQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"ES" = (
-/obj/spawner/ammo/low_chance,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"EU" = (
-/turf/simulated/floor/tiled/white/gray_platform,
-/area/outpost/abandoned_fortress)
-"Fc" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/junk/nondense,
-/obj/spawner/junk/nondense,
-/obj/spawner/tool/advanced/onestar/low_chance,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"Fl" = (
-/turf/simulated/floor/tiled/derelict/white_red_edges,
-/area/outpost/abandoned_fortress)
-"Fp" = (
-/obj/spawner/material/resources/rare,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Ft" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 5
-	},
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"Fv" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/bed/chair/custom/onestar,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Fy" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Fz" = (
-/mob/living/simple_animal/hostile/roomba/gun_ba,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"FD" = (
-/obj/structure/bed/chair/custom/onestar/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/outpost/abandoned_fortress)
-"FF" = (
-/obj/structure/window/reinforced,
-/obj/structure/table/onestar,
-/obj/spawner/medical/low_chance,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"FI" = (
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"FN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"FO" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"FR" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/tool/low_chance,
-/obj/spawner/tool/low_chance,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"FU" = (
-/obj/structure/window/reinforced,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"FX" = (
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Gj" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Gl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
-	dir = 4
-	},
-/obj/machinery/light/floor{
-	dir = 1;
-	pixel_y = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Gp" = (
-/obj/machinery/door/airlock/vault/bolted,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Gr" = (
-/obj/structure/ore_box,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"Gs" = (
-/obj/structure/bed/chair/custom/onestar{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Gv" = (
-/obj/structure/flora/ausbushes,
-/obj/structure/flora/ausbushes/stalkybush,
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Gz" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/railing/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"GB" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/tool/low_chance,
-/obj/spawner/tool/low_chance,
-/obj/spawner/techpart,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"GD" = (
-/obj/structure/sign/derelict2{
-	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
-	pixel_x = 28
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"GG" = (
-/obj/structure/closet/onestar/tier1,
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"GQ" = (
-/obj/structure/salvageable/os/console{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"GX" = (
-/mob/living/simple_animal/hostile/onestar_custodian/engineer,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"GZ" = (
-/obj/structure/barricade,
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"Hc" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Hm" = (
-/obj/structure/closet/onestar/tier1/normal,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Hs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Hw" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Hy" = (
-/obj/spawner/medical/low_chance,
-/obj/spawner/medical/low_chance,
-/obj/structure/table/onestar,
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Hz" = (
-/obj/structure/closet/onestar/tier3/special/empty,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/tool/advanced/onestar,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"HH" = (
-/mob/living/simple_animal/hostile/onestar_custodian,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"HW" = (
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Id" = (
-/obj/structure/table/woodentable,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Ig" = (
-/mob/living/simple_animal/hostile/shantak,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Il" = (
-/obj/structure/flora/grass/green,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Io" = (
-/obj/structure/closet/onestar/tier1,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Ip" = (
-/obj/structure/closet/onestar/tier1/mineral/empty,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"II" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"IX" = (
-/obj/structure/salvageable/os/console{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"IY" = (
-/obj/structure/reagent_dispensers/fueltank/huge/derelict,
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/tiled,
-/area/outpost/abandoned_fortress)
-"Je" = (
-/obj/structure/barricade,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Ji" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
-/turf/simulated/mineral,
-/area/outpost/abandoned_fortress)
-"Jn" = (
-/mob/living/simple_animal/hostile/onestar_custodian/chef,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Js" = (
-/obj/spawner/prothesis_one_star,
-/obj/structure/table/onestar,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Ju" = (
-/mob/living/simple_animal/hostile/diyaab,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Jw" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes,
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Jx" = (
-/obj/structure/catwalk,
-/obj/structure/closet/onestar/tier2/special,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"JI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"JK" = (
-/obj/machinery/light/floor{
-	dir = 4;
-	pixel_x = 4
-	},
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"JP" = (
-/obj/machinery/light/floor{
-	dir = 8
-	},
-/obj/structure/salvageable/os/server,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"JQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"JT" = (
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"JU" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Fortress Airlock"
-	},
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"JW" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Ki" = (
-/obj/structure/inflatable,
-/turf/simulated/floor/tiled,
-/area/outpost/abandoned_fortress)
-"Kj" = (
-/obj/structure/inflatable/wall,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Kr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"Kv" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/material/building,
-/obj/spawner/material/resources/rare,
-/obj/spawner/tool_upgrade/rare,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"Ky" = (
-/obj/effect/floor_decal/fact_plaque,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Kz" = (
-/obj/spawner/junk/low_chance,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"KA" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"KD" = (
-/obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"KE" = (
-/obj/item/roller,
-/obj/structure/table/onestar,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"KM" = (
-/obj/spawner/gun/normal/low_chance,
-/obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"KN" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes,
-/obj/structure/flora/ausbushes/stalkybush,
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"KR" = (
-/obj/structure/railing/grey,
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"KV" = (
-/obj/structure/inflatable/door,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Le" = (
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Lk" = (
-/obj/structure/railing/grey,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Ll" = (
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"Lm" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/floor{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Ln" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"Lo" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Lq" = (
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"Lr" = (
-/obj/structure/window/reinforced,
-/turf/simulated/floor/exoplanet/snow,
-/area/outpost/abandoned_fortress)
-"Lx" = (
-/obj/structure/salvageable/os/server,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Ly" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/pack/tech_loot/onestar,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"LB" = (
-/obj/structure/closet/onestar/tier2/medical,
-/turf/simulated/floor/tiled/white,
-/area/outpost/abandoned_fortress)
-"LC" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/structure/sign/faction/one_star_old{
-	desc = "One Star's all-seeing eye. A flash of color in dark monochrome and twilight.";
-	pixel_x = -32
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"LG" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"LT" = (
-/turf/simulated/floor/exoplanet/snow,
-/area/outpost/abandoned_fortress)
-"LU" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"LV" = (
-/obj/structure/catwalk,
-/obj/structure/closet/onestar/tier3/special,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"LX" = (
-/mob/living/simple_animal/hostile/onestar_custodian/chef,
-/turf/simulated/floor/tiled/dark/cargo,
-/area/outpost/abandoned_fortress)
-"LZ" = (
-/obj/structure/closet/onestar/tier2/normal,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Mb" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"Mk" = (
-/obj/structure/railing/grey,
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"Mp" = (
-/obj/effect/floor_decal/industrial/loading{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Mr" = (
-/obj/structure/window/reinforced,
-/obj/structure/table/onestar,
-/obj/spawner/medical/low_chance,
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Mt" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Mu" = (
-/obj/structure/sign/derelict2{
-	desc = "Looks like a planet crashing by some station above it. It's kinda scary. There's something written underneath it that you don't understand in huge, bold lettering.";
-	pixel_y = 31
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Mz" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"MA" = (
-/obj/structure/flora/ausbushes/stalkybush,
-/obj/structure/flora/ausbushes/palebush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"MJ" = (
-/obj/machinery/light/floor{
+"If" = (
+/obj/structure/table/standard{
 	dir = 8;
-	pixel_x = -4
+	flipped = 1;
+	name = "plastic table frame"
 	},
-/turf/simulated/floor/tiled/dark/brown_platform,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
-"MO" = (
-/obj/structure/railing/grey{
-	dir = 8
+"Of" = (
+/obj/structure/table/standard{
+	name = "plastic table frame"
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"MT" = (
-/turf/simulated/wall/untinted/onestar,
-/area/outpost/abandoned_fortress)
-"MZ" = (
-/obj/machinery/light/spot{
-	dir = 1
-	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Ns" = (
-/obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"NA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"NC" = (
-/obj/structure/grille,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"NE" = (
-/mob/living/simple_animal/hostile/roomba,
-/turf/simulated/floor/asteroid,
-/area/outpost/abandoned_fortress)
-"NF" = (
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"NI" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"NK" = (
-/obj/machinery/light/floor{
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"NN" = (
-/obj/machinery/light/floor{
-	dir = 8;
-	pixel_x = -4
-	},
-/turf/simulated/floor/tiled/dark/cargo,
-/area/outpost/abandoned_fortress)
-"NP" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"NT" = (
-/obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"NX" = (
-/obj/structure/closet/onestar/tier2,
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"NZ" = (
-/obj/structure/table/onestar,
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Oa" = (
-/obj/structure/catwalk,
-/obj/spawner/tool/advanced/onestar/low_chance,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Ok" = (
-/obj/spawner/tool/advanced/onestar/low_chance,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Ol" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Os" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"OE" = (
-/obj/structure/table/onestar,
-/obj/spawner/gun/normal/low_chance,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"OI" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/techpart/low_chance,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"OM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"OV" = (
-/obj/structure/crematorium{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/golden,
-/area/outpost/abandoned_fortress)
-"OW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 1
-	},
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"OX" = (
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/asteroid,
-/area/outpost/abandoned_fortress)
-"Pm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Pr" = (
-/obj/structure/reagent_dispensers/watertank/derelict,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Ps" = (
-/obj/spawner/junk/low_chance,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Py" = (
-/obj/structure/table/reinforced,
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"PC" = (
-/obj/structure/flora/ausbushes,
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"PF" = (
-/obj/item/stool,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"PP" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/item/material/shard/phoron,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"PQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"PS" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/railing/grey,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Qg" = (
-/mob/living/simple_animal/hostile/onestar_custodian/engineer,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Qj" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/spawner/junk/low_chance,
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Qm" = (
-/obj/item/tool/screwdriver/combi_driver/onestar,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Qp" = (
-/obj/structure/railing/grey,
-/obj/structure/sign/faction/one_star_old{
-	desc = "One Star's all-seeing eye. A flash of color in dark monochrome and twilight.";
-	pixel_x = -32
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Qr" = (
-/obj/structure/table/onestar,
-/obj/spawner/tool/advanced/onestar/low_chance,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Qy" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"QA" = (
-/obj/machinery/door/airlock/centcom{
-	icon_state = "door_locked";
-	locked = 1;
-	name = "Fortress Airlock"
-	},
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"QS" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"QZ" = (
-/obj/structure/closet/onestar/tier1/normal/empty,
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"Ra" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Re" = (
-/obj/structure/flora/ausbushes/fernybush,
-/mob/living/simple_animal/hostile/shantak,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Rm" = (
-/obj/item/stool,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "Ro" = (
-/obj/machinery/light/floor{
+/obj/spawner/gun/normal,
+/turf/simulated/floor/tiled,
+/area/outpost/abandoned_fortress)
+"VX" = (
+/obj/structure/sign/directions/security{
 	dir = 1;
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Rp" = (
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Rq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 10
-	},
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"Rv" = (
-/obj/spawner/rig,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Rz" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/material/resources/rare,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"RB" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/machinery/light/floor{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"RF" = (
-/obj/structure/girder,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"RK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 1
-	},
-/mob/living/simple_animal/hostile/roomba/gun_ba,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"RS" = (
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"RX" = (
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/exoplanet/snow,
-/area/outpost/abandoned_fortress)
-"Sb" = (
-/mob/living/simple_animal/hostile/roomba/gun_ba,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Sj" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/material/resources/rare/low_chance,
-/obj/spawner/material/resources,
-/obj/spawner/material/resources,
-/obj/spawner/material/resources/rare,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"Sp" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Sr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 1
-	},
-/obj/machinery/door/airlock/centcom{
-	icon_state = "door_locked";
-	locked = 1;
-	name = "Fortress Airlock"
-	},
-/turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/outpost/abandoned_fortress)
-"St" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Sv" = (
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Sy" = (
-/obj/structure/railing/grey,
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"SH" = (
-/obj/spawner/gun/normal/low_chance,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"SI" = (
-/obj/structure/closet/l3closet/general,
-/obj/item/clothing/glasses/hud/health,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"SL" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/stalkybush,
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"SS" = (
-/mob/living/simple_animal/hostile/onestar_custodian/chef,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Tb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Td" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Tg" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Fortress Airlock"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/outpost/abandoned_fortress)
-"Tl" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"To" = (
-/obj/structure/sign/derelict2{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Ty" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 4
+/obj/structure/sign/directions/medical{
+	pixel_y = 25
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"TD" = (
-/obj/structure/inflatable/door,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"TF" = (
-/obj/structure/closet/onestar/tier2,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"TN" = (
-/obj/structure/table/rack/shelf,
-/obj/machinery/light,
-/obj/spawner/techpart/low_chance,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"TU" = (
-/obj/spawner/surgery_tool,
-/obj/spawner/surgery_tool,
-/obj/structure/table/onestar,
-/turf/simulated/floor/tiled/techmaint,
-/area/outpost/abandoned_fortress)
-"TW" = (
-/obj/structure/table/onestar,
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"TY" = (
-/obj/machinery/light/floor{
-	dir = 8;
-	pixel_x = -4
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Ue" = (
-/obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Ug" = (
-/obj/structure/table/onestar,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"Uh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/porta_turret/One_star,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Un" = (
-/obj/structure/bed/chair/custom/onestar/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white/gray_perforated,
-/area/outpost/abandoned_fortress)
-"Uo" = (
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"Up" = (
-/obj/machinery/light/floor,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Uq" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Fortress Airlock"
-	},
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"UB" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/techpart/low_chance,
-/obj/spawner/rig/low_chance,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/outpost/abandoned_fortress)
-"UV" = (
-/obj/structure/flora/bush,
-/turf/simulated/floor/exoplanet/snow,
-/area/outpost/abandoned_fortress)
-"UW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Vi" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Vm" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Fortress Airlock"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/outpost/abandoned_fortress)
-"Vp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue,
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Vr" = (
-/obj/structure/salvageable/os/computer,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Vt" = (
-/obj/item/caution/cone,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Vu" = (
-/obj/machinery/light/spot{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Vv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 10
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"VK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 5
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"VO" = (
-/obj/structure/closet/onestar/tier1/normal/empty,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"VQ" = (
-/mob/living/simple_animal/hostile/roomba/boomba,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"VR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"VS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/turf/simulated/wall/untinted/onestar_reinforced,
-/area/outpost/abandoned_fortress)
-"VW" = (
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/fernybush,
-/mob/living/simple_animal/hostile/diyaab,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"VZ" = (
-/obj/structure/flora/ausbushes,
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Wa" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/turf/simulated/mineral,
-/area/outpost/abandoned_fortress)
-"Wc" = (
-/obj/structure/salvageable/os/console,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"Wi" = (
-/mob/living/simple_animal/hostile/onestar_custodian,
-/obj/machinery/light/floor{
-	dir = 8;
-	pixel_x = -4
-	},
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Wn" = (
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Ws" = (
-/obj/structure/table/onestar,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"Wx" = (
-/obj/structure/inflatable,
-/turf/simulated/floor/plating,
-/area/outpost/abandoned_fortress)
-"WB" = (
-/turf/simulated/floor/tiled/white/brown_platform,
-/area/outpost/abandoned_fortress)
-"WP" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"WY" = (
-/turf/simulated/floor/carpet,
-/area/outpost/abandoned_fortress)
-"Xc" = (
-/obj/structure/railing/grey,
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-/area/outpost/abandoned_fortress)
-"Xe" = (
-/turf/simulated/floor/bluegrid,
-/area/outpost/abandoned_fortress)
-"Xj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/structure/railing/grey,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Xl" = (
-/obj/structure/catwalk,
-/mob/living/simple_animal/hostile/roomba/boomba,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Xm" = (
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Xn" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"XA" = (
-/mob/living/simple_animal/hostile/onestar_custodian/engineer,
-/turf/simulated/floor/tiled/dark/golden,
-/area/outpost/abandoned_fortress)
-"XD" = (
-/obj/structure/railing/grey,
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"XL" = (
-/obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"XO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"XU" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/tiled/derelict/red_white_edges,
-/area/outpost/abandoned_fortress)
-"XZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Yc" = (
-/obj/structure/catwalk,
-/obj/structure/closet/onestar/tier2/normal,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Ye" = (
-/obj/machinery/light/floor{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"Yh" = (
-/obj/structure/girder,
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Yj" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"Yl" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Yn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/machinery/light,
-/turf/simulated/floor/plating/under,
-/area/outpost/abandoned_fortress)
-"Yp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"Yr" = (
-/obj/structure/flora/ausbushes,
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"Yw" = (
-/obj/structure/flora/ausbushes,
-/obj/structure/flora/ausbushes/brflowers,
-/mob/living/simple_animal/hostile/diyaab,
-/turf/simulated/floor/grass,
-/area/outpost/abandoned_fortress)
-"YB" = (
-/obj/structure/flora/grass/green,
-/turf/simulated/floor/exoplanet/snow,
-/area/outpost/abandoned_fortress)
-"YH" = (
-/obj/spawner/exosuit_equipment/low_chance,
-/turf/simulated/floor/tiled/derelict/white_small_edges,
-/area/outpost/abandoned_fortress)
-"YS" = (
-/obj/structure/ore_box,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"YX" = (
-/obj/machinery/light/spot{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"YZ" = (
-/obj/structure/table/onestar,
-/obj/spawner/techpart/low_chance,
-/obj/spawner/techpart/low_chance,
-/obj/spawner/rig_module/rare,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/outpost/abandoned_fortress)
-"Zb" = (
-/mob/living/simple_animal/hostile/tree{
-	desc = "A tree-like alien. Upon closer inspection, its thin pine-needles appear to be sharp, jagged teeth. Uh-oh.";
-	melee_damage_lower = 25;
-	melee_damage_upper = 30
-	},
-/turf/simulated/floor/exoplanet/snow,
-/area/outpost/abandoned_fortress)
-"Zp" = (
-/obj/structure/bed/chair/custom/onestar/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"Zt" = (
-/obj/spawner/junk/low_chance,
-/turf/simulated/floor/tiled/dark/brown_platform,
-/area/outpost/abandoned_fortress)
-"ZK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/turf/simulated/mineral,
-/area/outpost/abandoned_fortress)
-"ZM" = (
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled/derelict,
-/area/outpost/abandoned_fortress)
-"ZZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/mineral,
+/turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 
 (1,1,1) = {"
@@ -12187,8 +9170,24 @@ aa
 aa
 aa
 aa
-Lq
-Lq
+ac
+ac
+ab
+ab
+ab
+ab
+ab
+ab
+bp
+bp
+bp
+bp
+bp
+bp
+aX
+ab
+ab
+ae
 ab
 ab
 ab
@@ -12460,6 +9459,130 @@ yX
 ab
 ab
 ab
+af
+ab
+af
+ab
+af
+ab
+af
+ab
+af
+ab
+af
+ab
+ab
+ab
+ab
+bm
+bm
+bm
+ab
+ab
+ab
+ab
+ab
+ab
+af
+ab
+af
+ab
+af
+ab
+af
+ab
+af
+ab
+af
+ab
+ab
+ab
+ab
+ab
+bm
+bm
+bm
+ac
+bp
+bp
+bp
+bp
+bq
+aX
+by
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(45,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -13415,24 +10538,24 @@ hM
 hM
 hM
 aO
-ca
-ca
-ca
-ca
-ca
-ca
-gO
-ca
-ca
-ca
-ca
-ca
-ca
-Lq
-wd
-hS
-bM
-Lq
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ac
+bp
+bp
+aX
+ac
 ae
 ae
 ae
@@ -15233,37 +12356,37 @@ hM
 ab
 ca
 ab
-MT
-NE
-jD
-hS
-mq
-mq
-ti
-km
-km
-km
-fV
-za
-cF
-cF
-Uo
-hS
-Uo
-cF
-cF
-za
-fV
-bv
-bv
-bw
-CC
-EU
-CC
-EU
-CC
-Fc
-MT
+aN
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bu
+bp
+bp
+bp
+bq
+bp
+bq
+bp
+bp
+bp
+bu
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+aN
 ab
 ae
 ab
@@ -17859,37 +14982,37 @@ hM
 ab
 ca
 ab
-MT
-iM
-pE
-pE
-pE
-pE
-pE
-pE
-pE
-pE
-bA
-cF
-cF
-cF
-hS
-hS
-hS
-cF
-cF
-cF
-Gp
-pE
-pE
-pE
-pE
-pE
-pE
-Em
-pE
-gd
-MT
+aN
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bu
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bu
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+aN
 ab
 ae
 ab
@@ -19243,9 +16366,33 @@ ab
 ab
 ab
 ab
-hM
-hM
-hM
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bq
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+aX
+bp
+bq
+bp
 ab
 hM
 ab
@@ -19445,33 +16592,82 @@ ab
 ab
 ab
 ab
-Sv
-hM
-hM
-hM
-ab
-Sv
-ab
-pf
-hM
-hM
-hM
-Qg
-hM
-hM
-hM
-hM
-hM
-Sv
-Sv
-hM
-hM
-hM
-hM
-hM
-Sv
-hM
-hM
+bq
+bp
+bp
+bp
+bp
+bq
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bq
+bq
+bp
+bp
+bp
+bp
+bp
+bq
+bp
+bp
+aj
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+aj
+bp
+aX
+bp
+aj
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
 aj
 ca
 ca
@@ -20886,30 +18082,43 @@ ab
 ab
 ca
 ab
-MT
-MT
-hS
-hS
-MT
-hS
-hS
-hS
-MT
-hS
-hS
-hS
-MT
-hS
-hS
-MT
-MT
-cF
-hS
-cF
-MT
-MT
-hS
-MT
+aN
+aN
+bu
+aN
+aN
+aN
+bu
+aN
+aN
+aN
+bu
+aN
+aN
+aN
+bu
+aN
+aN
+bp
+bp
+bp
+aN
+aN
+bu
+aN
+aN
+aN
+bu
+aN
+aN
+aN
+bu
+aN
+aN
+aN
+bu
+aN
+aN
 ab
 ab
 hS
@@ -22096,7 +19305,43 @@ ab
 ab
 ab
 ab
-ca
+aN
+aN
+bu
+aN
+aN
+aN
+bu
+aN
+aN
+aN
+bu
+aN
+aN
+aN
+bu
+aN
+aN
+bp
+bp
+bp
+aN
+aN
+bu
+aN
+aN
+aN
+bu
+aN
+aN
+aN
+bu
+aN
+aN
+aN
+bu
+aN
+aN
 ab
 MT
 hS
@@ -22485,6 +19730,46 @@ ab
 ab
 ab
 ab
+ab
+ae
+ab
+aN
+bp
+aX
+bN
+aN
+bp
+bp
+bN
+aN
+bp
+bp
+bN
+aN
+bp
+bp
+bN
+aN
+bp
+bp
+bp
+aN
+aX
+bp
+bN
+aN
+bp
+bp
+bN
+aN
+bp
+bp
+bN
+aN
+bp
+bp
+bN
+aN
 ab
 ab
 ab
@@ -23117,6 +20402,11 @@ ab
 ab
 ab
 ab
+ac
+aS
+If
+aS
+ac
 ab
 ab
 ab
@@ -23324,6 +20614,11 @@ ab
 ab
 ab
 ab
+ac
+bp
+bp
+xC
+ac
 ab
 Lq
 Lk
@@ -23353,6 +20648,12 @@ ae
 BU
 ae
 ae
+zy
+ae
+ab
+ab
+ab
+ab
 ae
 ab
 Lq
@@ -23548,7 +20849,9 @@ ab
 ab
 ab
 ab
-Lq
+ac
+zy
+at
 ae
 at
 ae
@@ -24492,72 +21795,41 @@ aa
 aa
 aa
 aa
-bw
-bZ
-qc
-hM
-hM
-Gj
-Lq
-pE
-pE
-ab
-pE
-pE
-Lq
-ab
-Lq
+ac
 ab
 ab
-Lq
-JP
-Yc
-hO
-iV
-Jx
-Eu
-ke
-kB
-br
-br
-kN
-br
-br
-br
-GZ
-pE
-aX
-YS
-YS
-aX
-et
-et
-YS
-lA
-lA
-lA
-hM
-hM
-xb
-xb
-xb
-xb
-xb
-hM
-hM
-lA
-lA
-dh
-pE
-Zt
-pE
-pE
-pE
-MT
-lO
-Qm
-Lq
-Yh
+bp
+bp
+bp
+ac
+bp
+bp
+bq
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+av
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+aS
+aN
+aS
 by
 Je
 by
@@ -24694,98 +21966,98 @@ aa
 aa
 aa
 aa
-bw
-bZ
-nU
-hM
-hM
-Gj
+ad
+ae
+af
+bp
+bp
+bp
 aj
-pE
-pE
-pE
-pE
-ab
-ab
-Lq
-ab
-Lq
-ab
-Lq
-kY
-hO
-pE
-pE
-hO
-hO
-nw
-hO
-hO
-hO
-Lo
-at
-hO
-hO
-Xn
-Em
-YS
-aX
-aX
-aX
-et
-et
-aX
-lA
-lA
-lA
-hM
-hM
-xb
-hM
-pS
-hM
-xb
-hM
-hM
-lA
-lA
-Py
-pE
-pE
-Zt
-pE
-pE
-MT
-Vr
-xo
-QA
-nH
-fG
-fG
-Je
-fG
-Je
-fG
+bp
+bp
+bp
+bp
+bq
+bp
+bp
+av
+bp
+bp
+av
+bp
+bq
+bp
+bp
+av
+bp
+bq
+bp
+av
+bp
+bp
+bq
+bp
+bp
+aS
+aN
+by
+aS
+aS
+aS
+bj
+bj
+aS
+bj
+bp
+bp
+AN
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bq
+bp
+AN
+bp
+bp
+bq
+bp
+bp
+bp
+bq
+bp
+aN
+aS
+bj
+bj
+aS
+bj
+aS
+bj
 by
 bj
-Sv
-hM
-hM
-QA
-LG
-hM
-Sv
-hM
-hM
-hM
-hM
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+bq
+bp
+bp
+bp
+aj
+bp
+bq
+bp
+bp
+bp
+bp
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 cb
 Lq
 cb
@@ -24896,72 +22168,72 @@ aa
 aa
 aa
 aa
-ad
-bZ
-nU
-hM
-hM
-Gj
-Lq
-pE
-Em
-pE
-pE
-ca
-Lq
-ab
-Lq
+ac
 ab
 ab
-Lq
-LV
-hO
-pE
-io
-CB
-hO
-hO
-hO
-hO
-Oa
-Lo
-GD
-hO
-hO
-GZ
-pE
-YS
-YS
-YS
+bp
+bp
+bp
+ac
 aX
-aX
-et
-YS
-lA
-lA
-lA
-hM
-hM
-xb
-hM
-xb
-hM
-xb
-Ok
-hM
-lA
-lA
-dh
-pE
-pE
-pE
-pE
-pE
-MT
-yP
-lj
-Lq
-nH
+bp
+bp
+bp
+bp
+bp
+av
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+aS
+aN
+by
+by
+by
+aS
+aS
+bj
+by
+bp
+bp
+bp
+aS
+bp
+bp
+bp
+bp
+bq
+bp
+bp
+bp
+bp
+bp
+aS
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+aN
+aS
 by
 Je
 by
@@ -25951,13 +23223,12 @@ ab
 ab
 ab
 ab
-Lq
-Xc
-hS
-hS
-hS
-Mb
-Lq
+ac
+bp
+bq
+bp
+ac
+ab
 ab
 ab
 Lq
@@ -26141,42 +23412,42 @@ ab
 ab
 ab
 ab
-Lq
-xB
-bw
-OE
-bw
-bw
-bw
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-KR
-hS
-hS
-hS
-Ll
-Lq
-Lq
-Lq
-Lq
-cF
-cF
-cF
-cF
-cF
-cF
-cF
-bw
-hS
-hS
-hS
-Lq
+ac
+bu
+aw
+bF
+aw
+aw
+aw
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+VX
+bp
+bp
+ac
+ac
+ac
+ac
+ac
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+aw
+bp
+bp
+bp
+ac
 bY
-ae
+zy
 ae
 ae
 ae
@@ -26342,6 +23613,40 @@ ab
 ab
 ab
 ab
+ac
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+ac
+bp
+bp
+bq
+bp
+bp
+bp
+bp
+AN
+fL
+bp
+br
+ac
+bA
+bp
+bp
+bp
+bp
+bp
+bp
+AN
+bp
+xC
+bp
+ac
 ab
 Lq
 hM
@@ -26545,40 +23850,42 @@ ab
 ab
 ab
 ab
-Lq
-hM
-Qg
-hM
-Sv
-Qg
-hM
-hM
-hM
-FX
-hM
-hM
-hM
-hM
-hM
-Xe
-cF
-cF
-Uo
-cF
-cF
-cq
-cF
-cF
-cF
-cF
-cF
-cF
-cF
-cq
-hS
-hS
-hS
-Lq
+ab
+ac
+bp
+bp
+bp
+bq
+bp
+bp
+bp
+bp
+bu
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+AN
+bp
+bp
+bp
+bu
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+AN
+Ro
+bp
+bp
+ac
+ab
 ab
 ab
 ab
@@ -26747,16 +24054,27 @@ ab
 ab
 ab
 ab
-Lq
-Sv
-hM
-hM
-hM
-hM
-hM
-hM
-hM
-Ln
+ab
+ac
+bq
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+ac
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+AN
+xC
+bp
 bt
 DJ
 DJ
@@ -26934,55 +24252,56 @@ ae
 ay
 aD
 ay
-Lq
 ab
 ab
 ab
 ab
 ab
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-To
-hM
-hM
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-KR
-hS
-hS
-hS
-lM
-Lq
-Lq
-Lq
-Lq
-Lq
-bw
-bw
-bw
-cq
-cq
-bw
-bw
-hS
-hS
-hS
-Lq
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+bp
+bp
+bp
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+bp
+bp
+bp
+ac
+ac
+ac
+ac
+ac
+ac
+aw
+aw
+aw
+If
+If
+aw
+aw
+bp
+bp
+bp
+ac
+ab
 ab
 ab
 ab
@@ -27172,19 +24491,20 @@ pM
 ab
 ab
 ab
-Lq
-wd
-hS
-hS
-hS
-Rm
-hS
-hS
-hS
-hS
-hS
-hS
-Lq
+ac
+bp
+bp
+bp
+bp
+bN
+Ro
+bp
+bp
+bp
+bp
+bp
+ac
+ab
 ab
 ab
 ab
@@ -27342,6 +24662,19 @@ Lq
 ab
 ab
 ab
+ac
+aX
+bp
+bp
+bp
+bp
+xC
+bp
+bp
+bp
+bp
+bp
+ac
 ab
 ab
 Lq
@@ -27578,17 +24911,18 @@ Lq
 ab
 Lq
 bB
-hS
-hS
-EH
-EH
-EH
-EH
-EH
-kM
-hS
-hS
-Lq
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+xC
+ac
+ab
 ab
 ab
 ab
@@ -27742,55 +25076,56 @@ ax
 ax
 ax
 at
-Lq
 ab
 ab
 ab
 ab
 ab
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-hM
-hM
-hM
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Kr
-un
-vH
-cW
-vH
-jt
-qN
-Kr
 ab
-Lq
-bw
-hS
-hS
-Mr
-LT
-YB
-LT
-xO
-hS
-hS
-NZ
-Lq
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+bp
+bp
+bp
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+bp
+bp
+bp
+ac
+ab
+ab
+ab
+ac
+ac
+ac
+If
+bp
+If
+ac
+bp
+lE
+bp
+ac
+ac
+ac
+ab
 ab
 ab
 ab
@@ -27938,7 +25273,7 @@ ab
 ab
 ca
 ab
-TW
+mH
 at
 ax
 ax
@@ -27982,15 +25317,15 @@ Cm
 ab
 Lq
 bC
-hS
-hS
-FF
-LT
-wC
-zP
-xO
-hS
-hS
+bp
+xC
+bp
+bp
+aw
+bp
+bp
+bp
+bp
 bV
 Lq
 ab
@@ -28128,6 +25463,73 @@ aa
 aa
 aa
 aa
+ab
+ab
+ab
+bp
+bp
+bp
+ab
+ab
+ab
+ab
+ae
+aj
+mH
+at
+at
+at
+at
+zy
+ab
+ab
+ab
+ab
+ab
+ab
+ac
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+ac
+bp
+bp
+bp
+ac
+ab
+ab
+ab
+ac
+bD
+bp
+bp
+bp
+bp
+aw
+bp
+bp
+bp
+bp
+bV
+ac
 ab
 ab
 Lq
@@ -28342,7 +25744,7 @@ ab
 ab
 ca
 ab
-TW
+mH
 at
 at
 ax
@@ -28550,55 +25952,56 @@ at
 ax
 at
 at
-Lq
 ab
 ab
 ab
 ab
 ab
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-hM
-hM
-Sv
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-hM
-hM
-pE
-hM
-hM
-Lq
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+bp
+bp
+bq
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+bp
+bp
+bp
+ac
 ab
 ab
-Lq
-bw
-hS
-hS
-Mr
-LT
-LT
-wC
-Fv
-hS
-hS
-NZ
-Lq
+ab
+ac
+ac
+ac
+bp
+bp
+bp
+aw
+If
+If
+If
+ac
+ac
+ac
+ab
 ab
 ab
 ab
@@ -28743,8 +26146,9 @@ hM
 Lq
 ab
 an
-aq
-ca
+zy
+ae
+ab
 ab
 ab
 ab
@@ -28779,13 +26183,30 @@ aM
 aM
 aM
 aM
-Lq
-hM
-hM
-pE
-hM
-hM
-Lq
+ac
+bp
+bp
+bp
+ac
+ab
+ab
+ab
+ac
+Of
+bp
+bp
+aX
+bp
+aw
+aX
+bp
+bp
+bp
+Of
+ac
+ab
+ab
+ab
 ab
 ab
 Lq
@@ -28944,9 +26365,71 @@ hM
 hM
 Lq
 ab
+bq
+bp
+bp
+ab
+ab
 an
 ae
-ca
+ae
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ac
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bq
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+ac
+aS
+If
+aS
+ac
+ab
+ab
+ab
+ac
+bp
+bp
+bp
+bp
+bp
+ac
+bp
+bM
+bp
+bp
+bM
+ac
+ab
 ab
 ab
 ab
@@ -29758,59 +27241,60 @@ ca
 aj
 ae
 ae
-ca
-TW
-aE
-hu
-Lq
-ab
-ab
-ab
-ab
-ab
-Lq
-Ro
-hM
-pE
-pE
-pE
-pE
-pE
-pE
-cq
-pE
-YX
-pE
-cq
-pE
-pE
-pE
-pE
-pE
-pE
-nx
-Lq
-hM
-hM
-pE
-hM
-xo
-Lq
-ab
-ab
-Lq
-LB
-cF
-bN
-bN
-bN
-vF
-xY
-Lq
-TU
-zo
 ae
-ca
+au
+aE
+au
+ab
+ab
+ab
+ab
+ab
+ab
+ac
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+bp
+ac
+bp
+bp
+xC
+ac
+ab
+ab
+ab
+ac
+bG
+bp
+bN
+ac
+bG
+bp
+bp
+ac
+bG
+bp
+bp
+ac
+ab
 ab
 ab
 ab
@@ -32409,6 +29893,7 @@ ab
 ab
 ab
 ab
+zy
 ab
 ab
 ab

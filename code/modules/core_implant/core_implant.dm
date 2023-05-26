@@ -7,7 +7,7 @@
 	var/implant_type = /obj/item/implant/core_implant
 	var/active = FALSE
 	var/activated = FALSE			//true, if cruciform was activated once
-
+	var/security_clearance = CLEARANCE_NONE
 	var/address = null
 	var/power = 0
 	var/max_power = 0
@@ -119,21 +119,21 @@
 
 	if(wearer != H)
 		if(H.get_core_implant() && !group_ritual_leader)
-			addtimer(CALLBACK(src, .proc/hear_other, H, message), 0) // let H's own implant hear first
+			addtimer(CALLBACK(src, PROC_REF(hear_other), H, message), 0) // let H's own implant hear first
 	else
 		for(var/RT in known_rituals)
 			var/datum/ritual/R = GLOB.all_rituals[RT]
-			var/true_message = message //Occulus Edit: I'm sorry this must be fixed
+			var/ture_message = message
 			if(R.ignore_stuttering)
-				true_message = message_pre_problems //Occulus Edit: I refuse to allow eregius spelling errors
-			if(R.compare(true_message))
+				ture_message = message_pre_problems
+			if(R.compare(ture_message))
 				if(R.power > src.power)
 					to_chat(H, SPAN_DANGER("Not enough energy for the [R.name]."))
 					return
 				if(!R.is_allowed(src))
 					to_chat(H, SPAN_DANGER("You are not allowed to perform [R.name]."))
 					return
-				R.activate(H, src, R.get_targets(true_message))//Occulus Edit: Spelling
+				R.activate(H, src, R.get_targets(ture_message))
 				return
 
 /obj/item/implant/core_implant/proc/hear_other(mob/living/carbon/human/H, message)

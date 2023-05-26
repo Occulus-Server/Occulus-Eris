@@ -137,7 +137,7 @@ Freeing yourself is much harder than freeing someone else. Calling for help is a
 
 //Using a crowbar allows you to lever the trap open, better success rate
 /obj/item/beartrap/attackby(obj/item/C, mob/living/user)
-	if (C.has_quality(QUALITY_PRYING) && buckled_mob)
+	if (C.has_quality(QUALITY_PRYING))
 		attempt_release(user, C)
 		return
 	if (deployed && C.w_class > ITEM_SIZE_SMALL)//Occulus Edit Start - Triggering traps with medium items!
@@ -343,7 +343,13 @@ Very rarely it might escape
 			visible_message(SPAN_DANGER("\The [src]'s triggering mechanism is disrupted by the slope and does not go off."))
 			return ..()
 		var/mob/living/L = AM
-		if(("\ref[L]" in aware_mobs) && MOVING_DELIBERATELY(L))
+		var/true_prob_catch = prob_catch - L.skill_to_evade_traps()
+		if("\ref[L]" in aware_mobs)
+			if(MOVING_DELIBERATELY(L))
+				return ..()
+			else
+				true_prob_catch -= 30
+		if(!prob(true_prob_catch))
 			return ..()
 		prob_catch = initial(prob_catch)
 		prob_catch -= L.skill_to_evade_traps(prob_catch)
@@ -369,7 +375,7 @@ Very rarely it might escape
 		aware_mobs |= "\ref[user]"
 
 
-/obj/item/beartrap/on_update_icon()
+/obj/item/beartrap/update_icon()
 	..()
 
 	if(!deployed)

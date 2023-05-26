@@ -13,7 +13,7 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/electronics/circuitboard/excelsiorautolathe
-	name = T_BOARD("excelsior autolathe")
+	name = T_BOARD("excelsior autoforge")
 	build_path = /obj/machinery/autolathe/excelsior
 	board_type = "machine"
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_COVERT = 2)
@@ -38,7 +38,7 @@
 	name = T_BOARD("excelsior diesel generator")
 	build_path = /obj/machinery/power/port_gen/pacman/diesel
 	board_type = "machine"
-	origin_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_PHORON = 3, TECH_ENGINEERING = 3, TECH_COVERT = 2)
+	origin_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_PLASMA = 3, TECH_ENGINEERING = 3, TECH_COVERT = 2)
 	req_components = list(
 		/obj/item/stock_parts/matter_bin = 1,
 		/obj/item/stock_parts/micro_laser = 1,
@@ -54,6 +54,19 @@
 	origin_tech = list(TECH_DATA = 3, TECH_COVERT = 1)
 	req_components = list(
 		/obj/item/stock_parts/manipulator = 1,
+		/obj/item/stock_parts/console_screen = 1
+	)
+	spawn_blacklisted = TRUE
+
+/obj/item/electronics/circuitboard/excelsior_autodoc
+	name = T_BOARD("excelsior autodoc")
+	build_path = /obj/machinery/excelsior_autodoc
+	board_type = "machine"
+	origin_tech = list(TECH_BIO = 5, TECH_COVERT = 2)
+	req_components = list(
+		/obj/item/stock_parts/manipulator = 1,
+		/obj/item/stock_parts/micro_laser = 1,
+		/obj/item/stock_parts/scanning_module = 1,
 		/obj/item/stock_parts/console_screen = 1
 	)
 	spawn_blacklisted = TRUE

@@ -237,10 +237,6 @@
 			M.change_mob_type( /mob/observer/ghost , null, null, delmob )
 		if("angel")
 			M.change_mob_type( /mob/observer/eye/angel , null, null, delmob )
-/*
-		if("larva")
-			M.change_mob_type( /mob/living/carbon/alien/larva , null, null, delmob )
-*/
 		if("human")
 			M.change_mob_type( /mob/living/carbon/human , null, null, delmob, input["species"])
 		if("slime")
@@ -843,12 +839,9 @@
 		to_chat(usr, "This can only be used on instances of type /mob/living")
 		return
 
-	if(config.allow_admin_rev)
-		L.revive()
-		message_admins("\red Admin [key_name_admin(usr)] healed / revived [key_name_admin(L)]!", 1)
-		log_admin("[key_name(usr)] healed / Revived [key_name(L)]")
-	else
-		to_chat(usr, "Admin Rejuvinates have been disabled")
+	L.revive()
+	message_admins("\red Admin [key_name_admin(usr)] healed / revived [key_name_admin(L)]!", 1)
+	log_admin("[key_name(usr)] healed / Revived [key_name(L)]")
 
 
 /datum/admin_topic/makeai
@@ -900,21 +893,6 @@
 		return
 
 	usr.client.cmd_admin_robotize(H)
-
-
-/datum/admin_topic/togmutate
-	keyword = "togmutate"
-	require_perms = list(R_FUN)
-
-/datum/admin_topic/togmutate/Run(list/input)
-	var/mob/living/carbon/human/H = locate(input["togmutate"])
-	if(!istype(H))
-		to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
-		return
-	var/block=text2num(input["block"])
-	usr.client.cmd_admin_toggle_block(H,block)
-	source.show_player_panel(H)
-
 
 /datum/admin_topic/adminplayeropts
 	keyword = "adminplayeropts"
@@ -1160,8 +1138,8 @@
 	if(!P.stamped)
 		P.stamped = new
 	P.stamped += /obj/item/stamp
-	P.add_overlays(stampoverlay)
-	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
+	P.overlays += stampoverlay
+	P.stamps += "<HR><i>This paper has been stamped by the [boss_name] Quantum Relay.</i>"
 
 	if(fax.recievefax(P))
 		to_chat(source.owner, "\blue Message reply to transmitted successfully.")
@@ -1243,20 +1221,20 @@
 	source.view_log_panel(M)
 
 
-/datum/admin_topic/traitor
-	keyword = "traitor"
+/datum/admin_topic/contractor
+	keyword = "contractor"
 	require_perms = list(R_MOD|R_ADMIN)
 
-/datum/admin_topic/traitor/Run(list/input)
+/datum/admin_topic/contractor/Run(list/input)
 	if(!GLOB.storyteller)
 		alert("The game hasn't started yet!")
 		return
 
-	var/mob/M = locate(input["traitor"])
+	var/mob/M = locate(input["contractor"])
 	if(!ismob(M))
 		to_chat(usr, "This can only be used on instances of type /mob.")
 		return
-	source.show_traitor_panel(M)
+	source.show_contractor_panel(M)
 
 
 /datum/admin_topic/create_object
@@ -1296,10 +1274,6 @@
 	require_perms = list(R_FUN)
 
 /datum/admin_topic/object_list/Run(list/input)
-	if(!config.allow_admin_spawning)
-		to_chat(usr, "Spawning of items is not allowed.")
-		return
-
 	var/atom/loc = usr.loc
 
 	var/dirty_paths
@@ -1377,7 +1351,7 @@
 						O.set_dir(obj_dir)
 						if(obj_name)
 							O.name = obj_name
-							if(istype(O,/mob))
+							if(ismob(O))
 								var/mob/M = O
 								M.real_name = obj_name
 						if(where == "inhand" && isliving(usr) && istype(O, /obj/item))
@@ -1566,7 +1540,7 @@
 						WANTED.backup_author = source.admincaster_signature                  //Submitted by
 						WANTED.is_admin_message = 1
 						news_network.wanted_issue = WANTED
-						for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+						for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 							NEWSCASTER.newsAlert()
 							NEWSCASTER.update_icon()
 						source.admincaster_screen = 15
@@ -1582,7 +1556,7 @@
 			var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 			if(choice=="Confirm")
 				news_network.wanted_issue = null
-				for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+				for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 					NEWSCASTER.update_icon()
 				source.admincaster_screen=17
 			source.access_news_network()

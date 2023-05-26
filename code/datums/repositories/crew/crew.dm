@@ -52,7 +52,7 @@ var/global/datum/repository/crew/crew_repository = new()
 	for(var/obj/item/clothing/under/C in tracked)
 		var/turf/pos = get_turf(C)
 		if(C.has_sensor && pos && pos.z == z_level && C.sensor_mode != SUIT_SENSOR_OFF && !(is_jammed(C))) // && !(is_jammed(C)) is an Occulus edit- Jammer
-			if(istype(C.loc, /mob/living/carbon/human))
+			if(ishuman(C.loc))
 				var/mob/living/carbon/human/H = C.loc
 
 				if(H.w_uniform != C)
@@ -86,7 +86,7 @@ var/global/datum/repository/crew/crew_repository = new()
 
 /datum/repository/crew/proc/scan()
 	var/list/tracked = list()
-	for(var/mob/living/carbon/human/H in SSmobs.mob_list)
+	for(var/mob/living/carbon/human/H in SShumans.mob_list)
 		if(istype(H.w_uniform, /obj/item/clothing/under))
 			var/obj/item/clothing/under/C = H.w_uniform
 			if (C.has_sensor)

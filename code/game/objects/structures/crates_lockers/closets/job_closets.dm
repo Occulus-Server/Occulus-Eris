@@ -1,8 +1,9 @@
 /* Closets for specific jobs
  * Contains:
- *		Bartender
+ *		Club Manager
+ *      Club Worker
  *		Janitor
- *		Lawyer
+ *		Custodian
  *		Acolyte
  */
 
@@ -11,7 +12,7 @@
  */
 /obj/structure/closet/gmcloset
 	name = "Club Manager closet"
-	desc = "It's a storage unit for formal clothing."
+	desc = "A storage unit for formal clothing."
 	icon_door = "black"
 
 /obj/structure/closet/gmcloset/populate_contents()
@@ -34,7 +35,7 @@
  */
 /obj/structure/closet/chefcloset
 	name = "Club Worker closet"
-	desc = "It's a storage unit for club personnel."
+	desc = "A storage unit for club personnel."
 	icon_door = "black"
 
 /obj/structure/closet/chefcloset/populate_contents()
@@ -46,14 +47,16 @@
 	new /obj/item/storage/box/mousetraps(src)
 	new /obj/item/storage/box/mousetraps(src)
 	new /obj/item/clothing/under/rank/chef(src)
+	new /obj/item/reagent_containers/glass/beaker/bowl(src)
+	new /obj/item/reagent_containers/glass/beaker/bowl(src)
 	new /obj/item/clothing/head/chefhat(src)
 
 /*
  * Janitor
  */
 /obj/structure/closet/jcloset
-	name = "janitorial closet"
-	desc = "It's a storage unit for janitorial clothes and gear."
+	name = "janitorial closet" //legacy janitor
+	desc = "A storage unit for janitorial clothes and gear."
 	icon_door = "mixed"
 
 /obj/structure/closet/jcloset/populate_contents()
@@ -81,7 +84,7 @@
 
 /obj/structure/closet/custodial
 	name = "custodial closet"
-	desc = "It's a storage unit for purifying clothes and gear."
+	desc = "A storage unit for purifying clothes and gear."
 	icon_state = "custodian"
 
 /obj/structure/closet/custodial/populate_contents()
@@ -97,8 +100,8 @@
 	new /obj/item/clothing/gloves/thick(src)
 	new /obj/item/clothing/suit/armor/custodian(src)
 	new /obj/item/clothing/head/armor/custodian(src)
-	new /obj/item/clothing/head/soft/purple(src)
-	new /obj/item/clothing/head/beret/purple(src)
+	//new /obj/item/clothing/head/soft/purple(src)
+	//new /obj/item/clothing/head/beret/purple(src)
 	new /obj/item/device/lighting/toggleable/flashlight(src)
 	new /obj/item/gun/matter/launcher/nt_sprayer(src)
 	new /obj/item/caution(src)
@@ -113,10 +116,11 @@
 	new /obj/item/clothing/suit/storage/neotheosports(src)
 	new /obj/item/soap/nanotrasen(src)
 	new /obj/item/storage/pouch/small_generic(src) // Because I feel like poor janitor gets it bad.
-	new /obj/item/gun/energy/nt_svalinn(src)
-	new /obj/item/cell/small(src)
+	new /obj/item/cell/small/neotheology(src)
+	new /obj/item/cell/small/neotheology(src)
 	new /obj/item/tool/knife/dagger/nt(src)
-
+	new /obj/item/holyvacuum(src)
+	new /obj/item/clothing/shoes/jackboots/neotheology(src)
 /obj/structure/closet/acolyte
 	name = "acolyte closet"
 	desc = "A closet for those that work with the machines of god."
@@ -139,8 +143,8 @@
 	new /obj/item/clothing/suit/storage/neotheosports(src)
 	new /obj/item/clothing/head/armor/acolyte(src)
 	new /obj/item/clothing/suit/armor/acolyte(src)
-	new /obj/item/gun/energy/nt_svalinn(src)
-	new /obj/item/cell/small(src)
-	new /obj/item/storage/sheath(src)
-	new /obj/item/tool/sword/nt(src)
+	new /obj/item/cell/small/neotheology(src)
+	new /obj/item/storage/pouch/holster/belt/sheath(src)
+	new /obj/item/tool/sword/nt/shortsword(src)
 	new /obj/item/tool/knife/dagger/nt(src)
+	new /obj/item/clothing/shoes/reinforced(src)

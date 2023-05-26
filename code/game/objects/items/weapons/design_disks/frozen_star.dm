@@ -108,6 +108,7 @@
 		/datum/design/autolathe/ammo/magazine_pistol,
 		/datum/design/autolathe/ammo/magazine_pistol/practice = 0,
 		/datum/design/autolathe/ammo/magazine_pistol/rubber,
+		/datum/design/autolathe/ammo/sl_pistol,
 		/datum/design/autolathe/ammo/sl_pistol/practice = 0,
 		/datum/design/autolathe/ammo/sl_pistol/rubber,
 		)
@@ -122,18 +123,6 @@
 		/datum/design/autolathe/ammo/magazine_pistol,
 		/datum/design/autolathe/ammo/magazine_pistol/practice = 0,
 		/datum/design/autolathe/ammo/magazine_pistol/rubber,
-	)
-
-/obj/item/computer_hardware/hard_drive/portable/design/guns/fs_silenced
-	disk_name = "Frozen Star - .25 Mandella"
-	icon_state = "frozenstar"
-	rarity_value = 13
-	license = 12
-	designs = list(
-		/datum/design/autolathe/gun/mandella = 3, // "FS HG .25 Caseless \"Mandella\""
-		/datum/design/autolathe/ammo/cspistol,
-		/datum/design/autolathe/ammo/cspistol/practice = 0,
-		/datum/design/autolathe/ammo/cspistol/rubber,
 	)
 
 // .40 REVOLVERS
@@ -261,18 +250,6 @@
 		/datum/design/autolathe/ammo/shotgun_flash,
 		)
 
-/obj/item/computer_hardware/hard_drive/portable/design/guns/sa_pug
-	disk_name = "Serbian Arms - .50 Pug Auto Shotgun"
-	icon_state = "serbian"
-	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
-	rarity_value = 90
-	license = 12
-	designs = list(
-		/datum/design/autolathe/gun/bojevic = 3, // "SA SG \"Bojevic\""
-		/datum/design/autolathe/ammo/m12beanbag, // Never add tazershells, for love of god
-		/datum/design/autolathe/ammo/m12pellet,
-		/datum/design/autolathe/ammo/m12slug,
-		)
 
 // SMGs
 /obj/item/computer_hardware/hard_drive/portable/design/guns/fs_paco
@@ -324,17 +301,13 @@
 		/datum/design/autolathe/ammo/smg/rubber,
 	)
 
-
-/obj/item/computer_hardware/hard_drive/portable/design/guns/fs_bulldog
-	disk_name = "Frozen Star - .20 Bulldog Carabine"
+/obj/item/computer_hardware/hard_drive/portable/design/guns/fs_slaught_o_matic
+	disk_name = "Frozen Star - .35 Slaught-o-Matic HG"
 	icon_state = "frozenstar"
-	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
+	rarity_value = 7
 	license = 12
 	designs = list(
-		/datum/design/autolathe/gun/z8 = 3, // "FS CAR .20 \"Z8 Bulldog\""
-		/datum/design/autolathe/ammo/srifle,
-		/datum/design/autolathe/ammo/srifle/practice = 0,
-		/datum/design/autolathe/ammo/srifle/rubber,
+		/datum/design/autolathe/gun/slaught_o_matic = 1 // "FS HG .35 \"Slaught-o-Matic\""
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/fs_wintermute
@@ -433,12 +406,12 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/fs_tk
-	disk_name = "Frozen Star - .30 Takeshi LMG"
+	disk_name = "Frozen Star - .25 Takeshi LMG"
 	icon_state = "frozenstar"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	rarity_value = 90
 	license = 12
 	designs = list(
-		/datum/design/autolathe/gun/lmg_tk = 3, // "FS LMG .30 \"Takeshi\""
-		/datum/design/autolathe/ammo/lrifle_pk,
+		/datum/design/autolathe/gun/lmg_tk = 3, // "FS LMG .25 \"Takeshi\""
+		/datum/design/autolathe/ammo/ihclmg
 	)

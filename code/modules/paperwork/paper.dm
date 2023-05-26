@@ -57,7 +57,7 @@
 	update_space(info)
 	updateinfolinks()
 
-/obj/item/paper/on_update_icon()
+/obj/item/paper/update_icon()
 	if (icon_state == "paper_talisman")
 		return
 	else if (info)
@@ -92,9 +92,9 @@
 	set src in usr
 	playsound(src,'sound/effects/PEN_Ball_Point_Pen_Circling_01_mono.ogg',40,1)
 
-	if((CLUMSY in usr.mutations) && prob(50))
-		to_chat(usr, SPAN_WARNING("You cut yourself on the paper."))
-		return
+//	if((CLUMSY in usr.mutations) && prob(50))
+//		to_chat(usr, SPAN_WARNING("You cut yourself on the paper."))
+//		return
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null)  as text, MAX_NAME_LEN)
 
 	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/photo/rename()
@@ -444,7 +444,7 @@
 	icon_state = "paper_crumpled"
 	crumpled = TRUE
 
-/obj/item/paper/crumpled/on_update_icon()
+/obj/item/paper/crumpled/update_icon()
 	if (icon_state == "paper_crumpled_bloodied")
 		return
 	else if (info)
@@ -460,7 +460,7 @@
 	name = "sheet of odd paper"
 	icon_state = "paper_neo"
 
-/obj/item/paper/neopaper/on_update_icon()
+/obj/item/paper/neopaper/update_icon()
 	if(info)
 		icon_state = "paper_neo_words"
 	else
@@ -471,8 +471,8 @@
 	name = "odd paper scrap"
 	icon_state = "paper_neo_crumpled"
 
-/obj/item/paper/crumpled/neo/on_update_icon()
-	if (icon_state == "paper_neo_crumpled_bloodied")
+/obj/item/paper/crumpled/neo/update_icon()
+	if (icon_state == "paper_neo_words_crumpled_bloodied")
 		return
 	else if (info)
 		icon_state = "paper_neo_words_crumpled"
@@ -481,7 +481,6 @@
 	return
 
 /obj/item/paper/crumpled/neo/bloody
-	icon_state = "paper_neo_crumpled_bloodied" //todo fix sprite
-	spawn_blacklisted = TRUE
+	icon_state = "paper_neo_words_crumpled_bloodied"
 
 #undef MAX_FIELDS

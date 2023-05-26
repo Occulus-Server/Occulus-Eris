@@ -6,13 +6,13 @@
 
 /datum/uplink_item/item/implants/imp_freedom
 	name = "Freedom Implant"
-	item_cost = 6
+	item_cost = 4
 	path = /obj/item/storage/box/syndie_kit/imp_freedom
 
 /datum/uplink_item/item/implants/imp_compress
 	name = "Compressed Matter Implant"
 	item_cost = 4
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/box/syndie_kit/imp_compress
 
 /datum/uplink_item/item/implants/imp_explosive
@@ -24,7 +24,7 @@
 	name = "Spying Implant"
 	item_cost = 1
 	path = /obj/item/storage/box/syndie_kit/imp_spying
-	antag_roles = ROLES_CONTRACT
+	antag_roles = ROLES_CONTRACT_COMPLETE
 
 /datum/uplink_item/item/implants/imp_spying/buy(obj/item/device/uplink/U)
 	. = ..()
@@ -45,5 +45,5 @@
 
 /datum/uplink_item/item/implants/energy_blade
 	name = "Internal Energy Armblade Implant"
-	item_cost = 10
+	item_cost = 6
 	path = /obj/item/organ_module/active/simple/armblade/energy_blade

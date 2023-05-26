@@ -9,7 +9,6 @@ SUBSYSTEM_DEF(mapping)
 	var/list/ghostteleportlocs = list()
 
 /datum/controller/subsystem/mapping/Initialize(start_timeofday)
-
 	if(config.generate_asteroid)
 		// These values determine the specific area that the map is applied to.
 		// Because we do not use Bay's default map, we check the config file to see if custom parameters are needed, so we need to avoid hardcoding.
@@ -36,6 +35,7 @@ SUBSYSTEM_DEF(mapping)
 //	world.max_z_changed() // This is to set up the player z-level list, maxz hasn't actually changed (probably)
 	maploader = new()
 	load_map_templates()
+	build_pulsar()
 
 	// Generate cache of all areas in world. This cache allows world areas to be looked up on a list instead of being searched for EACH time
 	for(var/area/A in world)
@@ -69,7 +69,52 @@ SUBSYSTEM_DEF(mapping)
 
 	return ..()
 
+/datum/controller/subsystem/mapping/proc/build_pulsar()
+	world.incrementMaxZ()
+	GLOB.maps_data.pulsar_z = world.maxz
+	add_z_level(GLOB.maps_data.pulsar_z, GLOB.maps_data.pulsar_z, 1)
+	maploader.load_map(file("maps/pulsar/pulsar.dmm"), z_offset = GLOB.maps_data.pulsar_z)
+	var/list/turfs = list()
+	for(var/square in block(locate(1, 1, GLOB.maps_data.pulsar_z), locate(GLOB.maps_data.pulsar_size, GLOB.maps_data.pulsar_size, GLOB.maps_data.pulsar_z)))
+		// Switch to space turf with green grid overlay
+		var/turf/space/T = square
+		T.name = "[T.x]-[T.y]"
+		T.icon_state = "grid"
+		T.update_starlight()
+		turfs += T
+		CHECK_TICK
 
+	var/area/pulsar/A = new
+	A.contents.Add(turfs)
+
+	for(var/i in 1 to GLOB.maps_data.pulsar_size)
+		var/turf/beam_loc = locate(i, i, GLOB.maps_data.pulsar_z)
+		new /obj/effect/pulsar_beam(beam_loc)
+
+		var/turf/beam_right = locate(i + 1, i, GLOB.maps_data.pulsar_z)
+		new /obj/effect/pulsar_beam/ul(beam_right)
+
+		var/turf/beam_left = locate(i - 1, i, GLOB.maps_data.pulsar_z)
+		new /obj/effect/pulsar_beam/dr(beam_left)
+
+	var/turf/satellite_loc = locate(round((GLOB.maps_data.pulsar_size)/2 + (GLOB.maps_data.pulsar_size)/4), round((GLOB.maps_data.pulsar_size)/2 - (GLOB.maps_data.pulsar_size)/4), GLOB.maps_data.pulsar_z)
+	var/turf/shadow_loc = locate(round((GLOB.maps_data.pulsar_size)/2 - (GLOB.maps_data.pulsar_size)/4), round((GLOB.maps_data.pulsar_size)/2 + (GLOB.maps_data.pulsar_size)/4), GLOB.maps_data.pulsar_z)
+
+	var/obj/effect/pulsar_ship/ship = new /obj/effect/pulsar_ship(satellite_loc)
+	var/newshadow = new /obj/effect/pulsar_ship_shadow(shadow_loc)
+	ship.shadow = newshadow
+
+	if(!GLOB.maps_data.pulsar_star)
+		var/turf/T = locate(round((GLOB.maps_data.pulsar_size - 1)/2), round((GLOB.maps_data.pulsar_size - 1)/2), GLOB.maps_data.pulsar_z)
+		GLOB.maps_data.pulsar_star = new /obj/effect/pulsar(T)
+
+	GLOB.maps_data.sealed_levels |= GLOB.maps_data.pulsar_z
+	generate_pulsar_events()
+
+/datum/controller/subsystem/mapping/proc/generate_pulsar_events()
+	var/event_type = pick(subtypesof(/datum/pulsar_event))
+	var/datum/pulsar_event/event = new event_type
+	event.on_trigger()
 
 /datum/controller/subsystem/mapping/proc/build_overmap()
 	testing("Building overmap...")
@@ -79,7 +124,7 @@ SUBSYSTEM_DEF(mapping)
 	for (var/square in block(locate(1,1,GLOB.maps_data.overmap_z), locate(GLOB.maps_data.overmap_size, GLOB.maps_data.overmap_size, GLOB.maps_data.overmap_z)))
 		// Switch to space turf with green grid overlay
 		var/turf/space/T = square
-		T.SetIconState("grid")
+		T.icon_state = "grid"
 		T.update_starlight()
 		turfs += T
 		CHECK_TICK
@@ -98,18 +143,16 @@ SUBSYSTEM_DEF(mapping)
 	flags |= SS_NO_INIT
 
 /hook/roundstart/proc/init_overmap_events()
-	if (config.use_overmap)
-		if (GLOB.maps_data.overmap_z)
+	if(config.use_overmap)
+		if(GLOB.maps_data.overmap_z)
 			testing("Creating overmap events...")
-			var/t1 = world.tick_usage
+			testing_variable(t1, world.tick_usage)
 			overmap_event_handler.create_events(GLOB.maps_data.overmap_z, GLOB.maps_data.overmap_size, GLOB.maps_data.overmap_event_areas)
 			testing("Overmap events created in [(world.tick_usage-t1)*0.01*world.tick_lag] seconds")
 		else
 			testing("Overmap failed to create events.")
 			return FALSE
 	return TRUE
-
-
 
 /datum/controller/subsystem/mapping/proc/load_map_templates()
 	for(var/T in subtypesof(/datum/map_template))

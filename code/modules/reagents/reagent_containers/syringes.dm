@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////
+ ////////////////////////////////////////////////////////////////////////////////
 /// Syringes.
 ////////////////////////////////////////////////////////////////////////////////
 #define SYRINGE_DRAW 0
@@ -9,7 +9,9 @@
 	name = "syringe"
 	desc = "A syringe."
 	icon = 'icons/obj/syringe.dmi'
-	item_state = "syringe_0"
+	description_info = "Holds 15 units of reagents, can be used through voidsuits and non-thick armour"
+	description_antag = "People tend to place full trust into paramedics or doctors when they get scanned beforehand and told they're damaged, followed by a injection of what usually is healing chemicals."
+	item_state = "syringe"
 	icon_state = "0"
 	matter = list(MATERIAL_GLASS = 1, MATERIAL_STEEL = 1)
 	amount_per_transfer_from_this = 5
@@ -66,12 +68,12 @@
 		to_chat(user, SPAN_WARNING("This syringe is broken!"))
 		return
 
-	if(user.a_intent == I_HURT && ismob(target))
+/*	if(user.a_intent == I_HURT && ismob(target))
 		if((CLUMSY in user.mutations) && prob(50))
 			target = user
 		syringestab(target, user)
 		return
-
+*/
 	switch(mode)
 		if(SYRINGE_DRAW)
 			if(!reagents.get_free_space())
@@ -89,13 +91,9 @@
 						return
 					var/amount = reagents.get_free_space()
 					var/mob/living/carbon/T = target
-					if(!T.dna)
-						to_chat(user, SPAN_WARNING("You are unable to locate any blood. (To be specific, your target seems to be missing their DNA datum)."))
-						return
-					if(NOCLONE in T.mutations) //target done been et, no more blood in him
-						to_chat(user, SPAN_WARNING("You are unable to locate any blood."))
-						return
-
+//					if(NOCLONE in T.mutations) //target done been et, no more blood in him
+//						to_chat(user, SPAN_WARNING("You are unable to locate any blood."))
+//						return
 					var/datum/reagent/B
 					if(ishuman(T))
 						var/mob/living/carbon/human/H = T
@@ -145,7 +143,10 @@
 				return
 			if(isliving(target))
 				var/mob/living/L = target
-				var/injtime = time //Injecting through a hardsuit takes longer due to needing to find a port.
+				var/injtime = time - (user.stats.getStat(STAT_BIO)*0.375) // 375 was choosen to make a steady increase on speed from 0 being default time and 80 being 0, even if its never really 0
+				if(injtime < 10) injtime=10 //should make the "fastest" injection take at least 10
+
+				//Injecting through a hardsuit takes longer due to needing to find a port.
 				// Handling errors and injection duration
 				var/mob/living/carbon/human/H = target
 				if(istype(H))
@@ -158,7 +159,7 @@
 							to_chat(user, SPAN_WARNING("Injection port on [target]'s suit is refusing your [src]."))
 							// I think rig is advanced enough for this, and people will learn what causes this error
 							if(RIG)
-								playsound(src.loc, 'sound/machines/buzz-two.ogg', 30, 1 -3)
+								playsound(src.loc, 'sound/machines/buzz-two.ogg', 30, 1, -3)
 								RIG.visible_message("\icon[RIG]\The [RIG] states \"Attention: User of this suit appears to be synthetic origin\".")
 							return
 					// check without message
@@ -180,7 +181,7 @@
 				if(target != user)
 					user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 					user.do_attack_animation(target)
-					if(injtime == time)
+					if(injtime == time - (user.stats.getStat(STAT_BIO)*0.375))
 						user.visible_message(SPAN_WARNING("[user] is trying to inject [target] with [visible_name]!"), SPAN_WARNING("You are trying to inject [target] with [visible_name]!"))
 						to_chat(target, SPAN_NOTICE("You feel a tiny prick!"))
 					else
@@ -216,9 +217,10 @@
 			to_chat(user, SPAN_NOTICE("You inject [trans] units of the solution. [src] now contains [src.reagents.total_volume] units."))
 
 
-/obj/item/reagent_containers/syringe/on_update_icon()
+/obj/item/reagent_containers/syringe/update_icon()
 	cut_overlays()
 
+	var/iconstring = initial(item_state)
 	if(mode == SYRINGE_BROKEN)
 		icon_state = "broken"
 		return
@@ -226,15 +228,13 @@
 	var/rounded_vol
 	if(reagents && reagents.total_volume)
 		rounded_vol = CLAMP(round((reagents.total_volume / volume * 15),5), 1, 15)
-		var/image/filling_overlay = mutable_appearance('icons/obj/reagentfillings.dmi', "syringe[rounded_vol]")
+		var/image/filling_overlay = mutable_appearance('icons/obj/reagentfillings.dmi', "[iconstring][rounded_vol]")
 		filling_overlay.color = reagents.get_color()
 		add_overlay(filling_overlay)
 	else
 		rounded_vol = 0
-
 	icon_state = "[rounded_vol]"
-	item_state = "syringe_[rounded_vol]"
-
+	item_state = "[iconstring]_[rounded_vol]"
 	if(ismob(loc))
 		var/injoverlay
 		switch(mode)
@@ -341,7 +341,7 @@
 	unacidable = 1 //glass
 	reagent_flags = TRANSPARENT
 
-/obj/item/reagent_containers/syringe/large/on_update_icon()
+/obj/item/reagent_containers/syringe/large/update_icon()
 	cut_overlays()
 
 	var/iconstring = initial(item_state)
@@ -406,6 +406,36 @@
 	desc = "Contains hyperzine - a long lasting muscle stimulant."
 	preloaded_reagents = list("hyperzine" = 15)
 
+/obj/item/reagent_containers/syringe/meralyne
+	name = "syringe (meralyne)"
+	desc = "Contains meralyne - a potent brute-healing medicine"
+	preloaded_reagents = list("meralyne" = 15)
+
+/obj/item/reagent_containers/syringe/tramadol
+	name = "syringe (tramadol)"
+	desc = "Contains tramadol - a general use painkiller"
+	preloaded_reagents = list("tramadol" = 15)
+
+/obj/item/reagent_containers/syringe/paracetamol
+	name = "syringe (paracetamol)"
+	desc = "Contains paracetamol - a mild painkiller"
+	preloaded_reagents = list("paracetamol" = 15)
+
+/obj/item/reagent_containers/syringe/adrenaline
+	name = "syringe (adrenaline)"
+	desc = "Contains adrenaline - a natural stimulant"
+	preloaded_reagents = list("adrenaline" = 15)
+
+/obj/item/reagent_containers/syringe/dermaline
+	name = "syringe (dermaline)"
+	desc = "Contains dermaline - a potent burn-salving medicine"
+	preloaded_reagents = list("dermaline" = 15)
+
+/obj/item/reagent_containers/syringe/polystem
+	name = "syringe (polystem)"
+	desc = "Contains polystem - a mild healing stimulant for surface wounds"
+	preloaded_reagents = list("polystem" = 15)
+
 /obj/item/reagent_containers/syringe/drugs
 	name = "syringe (drugs)"
 	desc = "Contains aggressive drugs meant for torture."
@@ -420,8 +450,8 @@
 	spawn_tags = SPAWN_ITEM_CONTRABAND
 	rarity_value = 40
 
-/obj/item/reagent_containers/syringe/ld50_syringe/choral
-	preloaded_reagents = list("chloralhydrate" = 50)
+/obj/item/reagent_containers/syringe/ld50_syringe/chlorine
+	preloaded_reagents = list("chlorine" = 25, "chloralhydrate" = 25)
 
 /obj/item/reagent_containers/syringe/stim
 	name = "syringe (stim)"

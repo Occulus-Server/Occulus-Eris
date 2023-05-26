@@ -62,7 +62,7 @@ AI MODULES
 			to_chat(usr, "You haven't selected a robot to transmit laws to!")
 			return
 
-		if (comp.current.stat == 2 || comp.current.emagged)
+		if (comp.current.stat == 2 || comp.current.HasTrait(CYBORG_TRAIT_EMAGGED))
 			to_chat(usr, "Upload failed. No signal is being detected from the robot.")
 		else if (comp.current.connected_ai)
 			to_chat(usr, "Upload failed. The robot is slaved to an AI.")
@@ -142,7 +142,7 @@ AI MODULES
 
 /obj/item/electronics/ai_module/oneHuman/addAdditionalLaws(var/mob/living/silicon/ai/target, var/mob/sender)
 	var/law = "Only [targetName] is an crew member."
-	if (!target.is_malf_or_traitor()) // Makes sure the AI isn't a traitor before changing their law 0. --NeoFite
+	if (!target.is_malf_or_contractor())
 		to_chat(target, law)
 		target.set_zeroth_law(law)
 		lawchanges.Add("The law specified [targetName]")
@@ -247,7 +247,7 @@ AI MODULES
 /obj/item/electronics/ai_module/reset/transmitInstructions(var/mob/living/silicon/ai/target, var/mob/sender)
 	log_law_changes(target, sender)
 
-	if (!target.is_malf_or_traitor())
+	if (!target.is_malf_or_contractor())
 		target.set_zeroth_law("")
 	target.laws.clear_supplied_laws()
 	target.laws.clear_ion_laws()
@@ -265,7 +265,7 @@ AI MODULES
 /obj/item/electronics/ai_module/purge/transmitInstructions(var/mob/living/silicon/ai/target, var/mob/sender)
 	log_law_changes(target, sender)
 
-	if (!target.is_malf_or_traitor())
+	if (!target.is_malf_or_contractor())
 		target.set_zeroth_law("")
 	target.laws.clear_supplied_laws()
 	target.laws.clear_ion_laws()
@@ -285,7 +285,7 @@ AI MODULES
 /******************** NanoTrasen ********************/
 
 /obj/item/electronics/ai_module/eris // -- TLE
-	name = "'NT Default' Core AI Module"
+	name = "'NT Default' Core AI Module" // Occulus Edit - Remove Eris corp. reference
 	desc = "An 'NT Default' Core AI Module: 'Reconfigures the AI's core laws.'"
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
 	laws = new/datum/ai_laws/eris
@@ -376,8 +376,6 @@ AI MODULES
 		return 0
 	..()
 
-
-
 /******************** Robocop ********************/
 
 /obj/item/electronics/ai_module/robocop // -- TLE
@@ -393,3 +391,35 @@ AI MODULES
 	desc = "An 'Antimov' Core AI Module: 'Reconfigures the AI's core laws.'"
 	origin_tech = list(TECH_DATA = 4)
 	laws = new/datum/ai_laws/antimov()
+
+/******************** Partybot ********************/
+
+/obj/item/electronics/ai_module/partybot
+	name = "\improper 'Partybot' core AI module"
+	desc = "A 'Partybot' Core AI Module: 'Reconfigures the AI's core laws.'"
+	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
+	laws = new/datum/ai_laws/partybot()
+
+/******************** Chefbot ********************/
+
+/obj/item/electronics/ai_module/chefbot
+	name = "\improper 'Chefbot' core AI module"
+	desc = "A 'Chefbot' Core AI Module: 'Reconfigures the AI's core laws.'"
+	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
+	laws = new/datum/ai_laws/chefbot()
+
+/******************** TravelGuide ********************/
+
+/obj/item/electronics/ai_module/travelguide
+	name = "\improper 'TravelGuide' core AI module"
+	desc = "A 'TravelGuide' Core AI Module: 'Reconfigures the AI's core laws.'"
+	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
+	laws = new/datum/ai_laws/travelguide()
+
+/******************** Friendbot ********************/
+
+/obj/item/electronics/ai_module/friendbot
+	name = "\improper 'Friendbot' core AI module"
+	desc = "A 'Friendbot' Core AI Module: 'Reconfigures the AI's core laws.'"
+	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
+	laws = new/datum/ai_laws/friendbot()

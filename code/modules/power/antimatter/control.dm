@@ -103,12 +103,14 @@
 
 /obj/machinery/power/am_control_unit/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			stability -= 60
-		if(2.0)
+		if(2)
 			stability -= 40
-		if(3.0)
+		if(3)
 			stability -= 20
+		if(4)
+			stability -= 10
 	check_stability()
 	return
 
@@ -148,7 +150,7 @@
 				user.visible_message("[user.name] unsecures the [src.name].", \
 					"You remove the anchor bolts.", \
 					"You hear a ratchet")
-				src.anchored = 0
+				src.anchored = FALSE
 				disconnect_from_network()
 			return
 

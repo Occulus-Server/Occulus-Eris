@@ -11,31 +11,35 @@
 	max_shells = 2
 	w_class = ITEM_SIZE_HUGE
 	force = WEAPON_FORCE_PAINFUL
-	flags =  CONDUCT
+	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	caliber = CAL_SHOTGUN
+	init_recoil = RIFLE_RECOIL(1.7)
+	damage_multiplier = 1
+	penetration_multiplier = 0.1
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	bulletinsert_sound = 'sound/weapons/guns/interact/shotgun_insert.ogg'
 	fire_sound = 'sound/weapons/guns/fire/shotgunp_fire.ogg'
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 10)
 	price_tag = 1200
-	one_hand_penalty = 15 //full sized shotgun level
 	var/bolt_open = 0
 	burst_delay = 0
 	no_internal_mag = TRUE
 	init_firemodes = list(
-		list(mode_name="fire one barrel at a time", burst=1, icon="semi"),
-		list(mode_name="fire both barrels at once", burst=2, icon="burst"),
+		list(mode_name="Single-fire", mode_desc="Send Vagabonds flying back several paces", burst=1, icon="semi"),
+		list(mode_name="Both Barrels", mode_desc="Give them the side-by-side", burst=2, icon="burst"),
 		)
 	saw_off = TRUE
 	sawn = /obj/item/gun/projectile/shotgun/doublebarrel/sawn
+	gun_parts = list(/obj/item/part/gun/frame/doublebarrel = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/shotgun = 1, /obj/item/part/gun/modular/barrel/shotgun = 1)
+	serial_type = "AGM" // asters guild manufacturing
 
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 
 
-/obj/item/gun/projectile/shotgun/doublebarrel/on_update_icon()
+/obj/item/gun/projectile/shotgun/doublebarrel/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -74,9 +78,19 @@
 	if(!bolt_open)
 		to_chat(user, SPAN_WARNING("You can't load [src] while the barrel is closed!"))
 		return
-	..()
+	. = ..()
+
 
 /obj/item/gun/projectile/shotgun/doublebarrel/unload_ammo(mob/user, var/allow_dump=1)
 	if(!bolt_open)
 		return
 	..()
+
+/obj/item/part/gun/frame/doublebarrel
+	name = "double-barreled shotgun frame"
+	desc = "A double-barreled shotgun frame. An immortal classic of cowboys and bartenders alike."
+	icon_state = "frame_dshotgun"
+	resultvars = list(/obj/item/gun/projectile/shotgun/doublebarrel)
+	gripvars = list(/obj/item/part/gun/modular/grip/wood)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/shotgun
+	barrelvars = list(/obj/item/part/gun/modular/barrel/shotgun)

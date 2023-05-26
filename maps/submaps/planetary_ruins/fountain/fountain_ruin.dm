@@ -11,17 +11,17 @@
 	name = "healing fountain"
 	desc = "A fountain containing the waters of life."
 	icon = 'icons/obj/xenoarchaeology.dmi'
-	icon_state = "fountain"
+	icon_state = "fountain-blue"
 	anchored = TRUE
 	density = TRUE
 	var/time_between_uses = 1800
 	var/last_process = 0
 
-/obj/structure/healingfountain/on_update_icon()  // update_icon() but as a proc to be able to do a callback
+/obj/structure/healingfountain/update_icon()  // update_icon() but as a proc to be able to do a callback
 	if(last_process + time_between_uses > world.time)
-		SetIconState("fountain")
+		icon_state = "fountain"
 	else
-		SetIconState("fountain-blue")
+		icon_state = "fountain-blue"
 
 /obj/structure/healingfountain/attack_hand(mob/living/user)
 	. = ..()
@@ -35,9 +35,9 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.revive()  // human specific revive (admin heal)
+		H.rejuvenate()  // human specific rejuvenate
 	else
-		user.revive()  // classic mob revive (admin heal)
+		user.rejuvenate()  // classic mob rejuvenate
 
 	update_icon()
 	spawn(time_between_uses+1)

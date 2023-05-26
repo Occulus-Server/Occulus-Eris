@@ -177,7 +177,7 @@
 	var/brightness_power = 2
 	var/brightness_color = COLOR_LIGHTING_DEFAULT_BRIGHT
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
-	var/flickering = 0
+	var/flick_lighting = 0
 	var/light_type = /obj/item/light/tube		// the type of light item
 	var/fitting = "tube"
 	var/switchcount = 0			// count of number of times switched on/off
@@ -199,8 +199,8 @@
 	icon_state = "bulb1"
 	base_state = "bulb"
 	fitting = "bulb"
-	brightness_range = 4
-	brightness_power = 2
+	brightness_range = 3
+	brightness_power = 1
 	desc = "A small lighting fixture."
 	light_type = /obj/item/light/bulb
 
@@ -296,11 +296,11 @@
 
 /obj/machinery/light/proc/reset_color()
 	if(on)
-		if(cmptext(base_state,"tube"))
+		var/area/location = get_area(loc)
+		if(!location.is_maintenance)
 			firealarmed = 0
 			atmosalarmed = 0
 
-			var/area/location = get_area(loc)
 			if(location.area_light_color)
 				brightness_color = location.area_light_color
 
@@ -482,7 +482,7 @@
 			s.start()
 			//if(!user.mutations & COLD_RESISTANCE)
 			if (prob(75))
-				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
+				electrocute_mob(user, get_area(src), src, rand(0.7,1))
 
 
 // returns whether this light has power
@@ -493,9 +493,9 @@
 
 /obj/machinery/light/proc/flick_light(amount = rand(10, 20))
 	var/on_s = on // s stands for safety
-	if(flickering)
+	if(flick_lighting)
 		return
-	flickering = TRUE
+	flick_lighting = TRUE
 	spawn(0)
 		if(on && status == LIGHT_OK)
 			for(var/i in 1 to amount)
@@ -509,12 +509,12 @@
 				sleep(rand(5, 15))
 			on = (status == LIGHT_OK)
 			update(0)
-		flickering = FALSE
+		flick_lighting = FALSE
 
-// ai attack - make lights flicker, because why not
+// ai attack - make lights flick_light, because why not
 
 /obj/machinery/light/attack_ai(mob/user)
-	flick_light(1)
+	src.flick_light(1)
 	return
 
 // attack with hand - remove tube/bulb
@@ -551,9 +551,9 @@
 		else
 			prot = TRUE
 
-		if(prot || (COLD_RESISTANCE in user.mutations))
+		if(prot) // || (COLD_RESISTANCE in user.mutations)
 			to_chat(user, SPAN_NOTICE("You remove the light [fitting]"))
-		else if(TK in user.mutations)
+		else if(get_active_mutation(user, MUTATION_TELEKINESIS))
 			to_chat(user, SPAN_NOTICE("You telekinetically remove the light [fitting]."))
 		else
 			to_chat(user, "You try to remove the light [fitting], but it's too hot and you don't want to burn your hand.")
@@ -625,30 +625,16 @@
 
 /obj/machinery/light/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			if (prob(75))
 				broken()
-		if(3.0)
+		if(3)
 			if (prob(50))
 				broken()
 	return
-
-//blob effect
-
-
-// timed process
-// use power
-
-#define LIGHTING_POWER_FACTOR 20		//20W per unit luminosity
-
-
-/obj/machinery/light/Process()
-	if(on)
-		use_power(light_range * LIGHTING_POWER_FACTOR, STATIC_LIGHT)
-
 
 // called when area power state changes
 /obj/machinery/light/power_change()
@@ -757,7 +743,7 @@
 
 
 // attack bulb/tube with object
-// if a syringe, can inject phoron to make it explode
+// if a syringe, can inject plasma to make it explode
 /obj/item/light/attackby(var/obj/item/I, var/mob/user)
 	..()
 	if(istype(I, /obj/item/reagent_containers/syringe))

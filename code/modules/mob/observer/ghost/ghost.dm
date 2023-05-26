@@ -3,11 +3,11 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 /mob/observer/ghost
 	name = "ghost"
-	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
+	desc = "A g-g-g-g-ghooooost!" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
 	canmove = 0
-	blinded = 0
+	blinded = FALSE
 	anchored = TRUE	//  don't get pushed around
 	layer = GHOST_LAYER
 	movement_handlers = list(/datum/movement_handler/mob/incorporeal)
@@ -88,8 +88,8 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 /mob/observer/ghost/Topic(href, href_list)
 	if (href_list["track"])
-		if(istype(href_list["track"],/mob))
-			var/mob/target = locate(href_list["track"]) in SSmobs.mob_list
+		if(ismob(href_list["track"]))
+			var/mob/target = locate(href_list["track"]) in SSmobs.mob_list | SShumans.mob_list
 			if(target)
 				ManualFollow(target)
 		else
@@ -155,11 +155,14 @@ Works together with spawning an observer, noted above.
 
 		//Set the respawn bonus from ghosting while in cryosleep.
 		//This is duplicated in the cryopod code for robustness. The message will not display twice
-		if (istype(loc, /obj/machinery/cryopod) && in_perfect_health())
-			if (!get_respawn_bonus("CRYOSLEEP"))
-				to_chat(src, SPAN_NOTICE("Because you ghosted from a cryopod in good health, your crew respawn time has been reduced by [CRYOPOD_SPAWN_BONUS_DESC]."))
-				src << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever their respawn time gets reduced
-			set_respawn_bonus("CRYOSLEEP", CRYOPOD_SPAWN_BONUS)
+		if(istype(loc, /obj/machinery/cryopod) && !get_respawn_bonus("CRYOSLEEP"))
+			if(in_perfect_health())
+				to_chat(src, SPAN_NOTICE("Because you ghosted from a cryopod in good health, your crew respawn time has been reduced by [(CRYOPOD_HEALTHY_RESPAWN_BONUS)/600] minutes."))
+				set_respawn_bonus("CRYOSLEEP", CRYOPOD_HEALTHY_RESPAWN_BONUS)
+			else
+				to_chat(src, SPAN_NOTICE("Because you ghosted from a cryopod in poor health, your crew respawn time has been reduced by [(CRYOPOD_WOUNDED_RESPAWN_BONUS)/600] minutes."))
+				set_respawn_bonus("CRYOSLEEP", CRYOPOD_WOUNDED_RESPAWN_BONUS)
+			src << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever their respawn time gets reduced
 
 		ghost.ckey = ckey
 		ghost.client = client
@@ -167,7 +170,7 @@ Works together with spawning an observer, noted above.
 		if(ghost.client && !ghost.client.holder && !config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
 			ghost.verbs -= /mob/observer/ghost/verb/toggle_antagHUD	// Poor guys, don't know what they are missing!
 
-		ghost.client.create_UI(ghost.type)
+		ghost.client?.create_UI(ghost.type)
 
 		return ghost
 
@@ -191,15 +194,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 				src.client.admin_ghost()
 		else
 			response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost, you won't be able to play this round for another 30 minutes! You can't change your mind so choose wisely!)", "Are you sure you want to ghost?", "Ghost", "Stay in body")
-		if(response != "Ghost")
-			return
-		resting = 1
-		var/turf/location = get_turf(src)
-		message_admins("[key_name_admin(usr)] has ghosted. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
-		log_game("[key_name_admin(usr)] has ghosted.")
-		var/mob/observer/ghost/ghost = ghostize(0)	//0 parameter is so we can never re-enter our body, "Charlie, you can never come baaaack~" :3
-		ghost.timeofdeath = world.time // Because the living mob won't have a time of death and we want the respawn timer to work properly.
-		announce_ghost_joinleave(ghost)
+		if(response == "Ghost")
+			message_admins("[key_name_admin(usr)] has ghosted. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+			log_game("[key_name_admin(usr)] has ghosted.")
+			ghostize(0)
+			announce_ghost_joinleave(client)
 
 /mob/observer/ghost/can_use_hands()	return 0
 /mob/observer/ghost/is_active()		return 0
@@ -216,7 +215,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set category = "Ghost"
 	set name = "Re-enter Corpse"
 	if(!client)	return
-	client.destroy_UI()
 
 	if(!(mind && mind.current && can_reenter_corpse))
 		to_chat(src, "<span class='warning'>You have no body.</span>")
@@ -224,6 +222,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(mind.current.key && copytext(mind.current.key,1,2)!="@")	//makes sure we don't accidentally kick any clients
 		to_chat(usr, "<span class='warning'>Another consciousness is in your body... it is resisting you.</span>")
 		return
+	client.destroy_UI()
 	stop_following()
 	mind.current.ajourn=0
 	mind.current.key = key
@@ -309,12 +308,26 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	usr.forceMove(pick(L))
 
 /mob/observer/ghost/verb/Follow(atom/A as mob|obj in view(usr.client)) ////// Follow verb in context menu
+	set category ="Ghost"
+	set name = ".Follow"
 	if(following)
 		stop_following()
 	var/target = A
 	ManualFollow(target)
 
-/mob/observer/ghost/verb/follow_mob(input in getmobs()) ////// Follow verb in Ghost tab
+/mob/observer/ghost/verb/follow_player()
+	set category = "Ghost"
+	set name = "Follow player"
+
+	var/list/player_controlled_mobs = list()
+
+	for(var/mob/M in sortNames(SSmobs.mob_list | SShumans.mob_list))
+		if(M.ckey && !isnewplayer(M))
+			player_controlled_mobs.Add(M)
+
+	ManualFollow(input("Follow and haunt a player", "Follow player") as anything in player_controlled_mobs)
+
+/mob/observer/ghost/verb/follow_mob(input in getmobs()) ////// Follow mobs on list
 	set category = "Ghost"
 	set name = "Follow mob" // "Haunt"
 	set desc = "Follow and haunt a mob."
@@ -440,24 +453,27 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 
 	if(!MayRespawn(1, ANIMAL))
-		return
+		if(!check_rights(0, 0) || alert("Normal players must wait at least [ANIMAL_SPAWN_DELAY / 600] minutes to spawn as mouse! Would you like to bypass it?","Warning", "No", "Yes") != "Yes")
+			return
 
 	var/turf/T = get_turf(src)
 	if(!T || !(T.z in GLOB.maps_data.station_levels))
 		to_chat(src, "<span class='warning'>You may not spawn as a mouse on this Z-level.</span>")
 		return
 
-	var/response = alert(src, "Are you -sure- you want to become a mouse? This will not affect your crew or drone respawn time. You can choose to spawn near your ghost or at a random vent on this deck.","Are you sure you want to squeek?","Near Ghost", "Random","Cancel")
-	if(response == "Cancel") return  //Hit the wrong key...again.
-
-
-	//find a viable mouse candidate
 	var/mob/living/simple_animal/mouse/host
 	var/obj/machinery/atmospherics/unary/vent_pump/spawnpoint
-	if (response == "Random")
-		spawnpoint = find_mouse_random_spawnpoint(T.z)
-	else if (response == "Near Ghost")
-		spawnpoint = find_mouse_near_spawnpoint(T)
+
+	switch(alert(src, "Are you -sure- you want to become a mouse? This will not affect your crew or drone respawn time. You can choose to spawn near your ghost or at a random vent on this deck.","Are you sure you want to squeek?","Near Ghost", "Random","Cancel"))
+		if("Cancel")
+			return  //Hit the wrong key...again.
+		if ("Random")
+			spawnpoint = find_mouse_random_spawnpoint(T.z) //find a viable mouse spawn candidate.
+		if ("Near Ghost")
+			spawnpoint = find_mouse_near_spawnpoint(T)
+
+	if(!isobserver(src) || !src.ckey)
+		return //So we can't spawn infinite mice if we've already used this
 
 	if (spawnpoint)
 		host = new /mob/living/simple_animal/mouse(spawnpoint.loc)
@@ -469,6 +485,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			host.universal_understand = 0
 		announce_ghost_joinleave(src, 0, "They are now a mouse.")
 		host.ckey = src.ckey
+		qdel(src)
 		to_chat(host, "<span class='info'>You are now a mouse. Interact with players, cause mischief, avoid cats, find food, and try to survive!</span>")
 
 
@@ -665,6 +682,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	updateghostsight()
 	to_chat(usr, "You [(ghostvision?"now":"no longer")] have ghost vision.")
 
+/mob/observer/ghost/verb/toggle_selfsee()
+	set name = "Toggle Self Vision"
+	set desc = "Toggles your visibility."
+	set category = "Ghost"
+	alpha = alpha ? 0 : 127
+	to_chat(usr, "You are [alpha ? "now" : "no longer"] visible.")
+
 /mob/observer/ghost/verb/toggle_darkness()
 	set name = "Toggle Darkness"
 	set category = "Ghost"
@@ -693,11 +717,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/observer/ghost/MayRespawn(var/feedback = 0, var/respawn_type = 0)
 	if(!client)
-		return 0
+		return FALSE
 	if(config.antag_hud_restricted && has_enabled_antagHUD == 1)
 		if(feedback)
 			to_chat(src, "<span class='warning'>antagHUD restrictions prevent you from respawning.</span>")
-		return 0
+		return FALSE
+
+	if(!config.respawn_delay)
+		return TRUE
 
 	var/timedifference = world.time- get_death_time(respawn_type)
 	var/respawn_time = 0
@@ -707,17 +734,18 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		//Here we factor in bonuses added from cryosleep and similar things
 		timedifference += get_respawn_bonus()
 	else if (respawn_type == ANIMAL)
-		respawn_time = ANIMAL_SPAWN_DELAY
+		respawn_time = min(ANIMAL_SPAWN_DELAY, config.respawn_delay)
 	else if (respawn_type == MINISYNTH)
-		respawn_time = DRONE_SPAWN_DELAY
+		respawn_time = min(DRONE_SPAWN_DELAY, config.respawn_delay)
 
+	timedifference = max(timedifference, 0)
 	if(respawn_time &&  timedifference > respawn_time)
 		return TRUE
 	else
 		if(feedback)
 			var/timedifference_text = time2text(respawn_time  - timedifference,"mm:ss")
 			to_chat(src, "<span class='warning'>You must have been dead for [respawn_time / 600] minute\s to respawn. You have [timedifference_text] left.</span>")
-		return 0
+
 
 /atom/proc/extra_ghost_link()
 	return

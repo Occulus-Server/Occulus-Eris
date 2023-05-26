@@ -1,6 +1,7 @@
 /obj/item/device/assembly/mousetrap
 	name = "mousetrap"
 	desc = "A handy little spring-loaded trap for catching pesty rodents."
+	description_antag = "Can be used with a signaller to create backpacks that explode upon being open"
 	icon_state = "mousetrap"
 	origin_tech = list(TECH_COMBAT = 1)
 	matter = list(MATERIAL_PLASTIC = 1, MATERIAL_STEEL = 1)
@@ -73,14 +74,15 @@
 	if(!armed)
 		to_chat(user, "<span class='notice'>You arm [src].</span>")
 	else
-		if((CLUMSY in user.mutations) && prob(50))
-			var/which_hand = BP_L_HAND
+/*		if((CLUMSY in user.mutations)&& prob(50))
+			var/which_hand = "l_hand"
 			if(!user.hand)
 				which_hand = BP_R_HAND
 			triggered(user, which_hand)
 			user.visible_message("<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>", \
 								 "<span class='warning'>You accidentally trigger [src]!</span>")
 			return
+*/
 		to_chat(user, "<span class='notice'>You disarm [src].</span>")
 	armed = !armed
 	update_icon()
@@ -88,7 +90,7 @@
 
 
 /obj/item/device/assembly/mousetrap/attack_hand(mob/living/user as mob)
-	if(armed)
+/*	if(armed)
 		if((CLUMSY in user.mutations) && prob(50))
 			var/which_hand = BP_L_HAND
 			if(!user.hand)
@@ -97,6 +99,7 @@
 			user.visible_message("<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>", \
 								 "<span class='warning'>You accidentally trigger [src]!</span>")
 			return
+*/
 	..()
 
 
@@ -106,9 +109,8 @@
 			triggered(AM)
 		else if(istype(AM, /mob/living))
 			var/mob/living/L = AM
-			prob_catch = initial(prob_catch)
-			prob_catch -= L.skill_to_evade_traps(prob_catch)
-			if(!prob(prob_catch))
+			var/true_prob_catch = prob_catch - L.skill_to_evade_traps()
+			if(!prob(true_prob_catch))
 				return ..()
 			triggered(L)
 			L.visible_message("<span class='warning'>[L] accidentally steps on [src].</span>", \

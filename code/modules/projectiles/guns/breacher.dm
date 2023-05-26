@@ -27,7 +27,7 @@
 	. = ..()
 	update_icon()
 
-/obj/item/hatton/on_update_icon()
+/obj/item/hatton/update_icon()
 	cut_overlays()
 	if(magazine)
 		if(magazine.charge)
@@ -90,11 +90,11 @@
 		click_empty()
 		return
 
-	if(isliving(user))
-		var/mob/living/M = user
-		if (HULK in M.mutations)
-			to_chat(M, SPAN_WARNING("Your meaty finger is much too large for the trigger guard!"))
-			return
+//	if(isliving(user))
+//		var/mob/living/M = user
+//		if (HULK in M.mutations)
+//			to_chat(M, SPAN_WARNING("Your meaty finger is much too large for the trigger guard!"))
+//			return
 	if (!Adjacent(loc, target))
 		to_chat(user, SPAN_WARNING("You're too far away to breach that!"))
 		return
@@ -107,7 +107,7 @@
 
 
 
-	if(isliving(user))
+/*	if(isliving(user))
 		var/mob/living/M = user
 		if ((CLUMSY in M.mutations) && prob(50))
 			to_chat(user, SPAN_DANGER("[src] blows up in your face."))
@@ -115,7 +115,7 @@
 			Fire(get_turf(M))
 			del(src)
 			return
-
+*/
 	if (use_charge())
 		last_fired = world.time
 		playsound(user, fire_sound, 70, 1)
@@ -161,19 +161,19 @@
 	. = ..()
 	update_icon()
 
-/obj/item/hatton_magazine/on_update_icon()
+/obj/item/hatton_magazine/update_icon()
 	if(charge)
 		icon_state = "Hatton_box1"
 	else
 		icon_state = "Hatton_box0"
 
 /obj/item/hatton_magazine/moebius
-	name = "NanoTrasen BT \"Q-del\" gas tube"
+	name = "NanoTrasen BT \"Q-del\" gas tube" // Occulus Edit - Renamed Moebius to NanoTrasen
 	icon_state = "Moebius_box1"
 	matter = list(MATERIAL_PHORON = 10, MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 2)
 	charge = 2
 
-/obj/item/hatton_magazine/moebius/on_update_icon()
+/obj/item/hatton_magazine/moebius/update_icon()
 	if(charge)
 		icon_state = "Moebius_box1"
 	else
@@ -203,7 +203,7 @@
 	return
 
 /obj/item/hatton/moebius
-	name = "NanoTrasen BT \"Q-del\""
+	name = "NanoTrasen BT \"Q-del\"" // Occulus Edit - Renamed Moebius to NanoTrasen
 	desc = {"This breaching tool was reverse engineered from the \"Hatton\" design.
 	Despite the Excelsior \"Hatton\" being traded on the free market through Technomancer League channels,
 	this device suffers from a wide number of reliability issues stemming from it being lathe printed."}
@@ -213,7 +213,7 @@
 	matter = list(MATERIAL_PLASTEEL = 8, MATERIAL_SILVER = 5, MATERIAL_PLASTIC = 5)
 	spawn_blacklisted = TRUE
 
-/obj/item/hatton/moebius/on_update_icon()
+/obj/item/hatton/moebius/update_icon()
 	cut_overlays()
 	if(magazine)
 		if(magazine.charge)

@@ -23,6 +23,7 @@
 
 	scan_range = 3//less aggressive about stealing food
 	metabolic_factor = 0.75
+	sanity_damage = -1
 	var/mob/living/simple_animal/mouse/mousetarget = null
 	seek_speed = 5
 	pass_flags = PASSTABLE
@@ -30,32 +31,33 @@
 /mob/living/simple_animal/cat/Life()
 	..()
 
-	if (turns_since_move > 5 || (flee_target || mousetarget))
-		walk_to(src,0)
-		turns_since_move = 0
+	if(!stasis)
+		if (turns_since_move > 5 || (flee_target || mousetarget))
+			walk_to(src,0)
+			turns_since_move = 0
 
-		if (flee_target) //fleeing takes precendence
-			handle_flee_target()
-		else
-			handle_movement_target()
+			if (flee_target) //fleeing takes precendence
+				handle_flee_target()
+			else
+				handle_movement_target()
 
-	if (!movement_target)
-		walk_to(src,0)
+		if (!movement_target)
+			walk_to(src,0)
 
-	spawn(2)
-		attack_mice()
+		spawn(2)
+			attack_mice()
 
-	if(prob(2)) //spooky
-		var/mob/observer/ghost/spook = locate() in range(src,5)
-		if(spook)
-			var/turf/T = spook.loc
-			var/list/visible = list()
-			for(var/obj/O in T.contents)
-				if(!O.invisibility && O.name)
-					visible += O
-			if(visible.len)
-				var/atom/A = pick(visible)
-				visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].")
+		if(prob(2)) //spooky
+			var/mob/observer/ghost/spook = locate() in range(src,5)
+			if(spook)
+				var/turf/T = spook.loc
+				var/list/visible = list()
+				for(var/obj/O in T.contents)
+					if(!O.invisibility && O.name)
+						visible += O
+				if(visible.len)
+					var/atom/A = pick(visible)
+					visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].")
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop
@@ -234,7 +236,7 @@
 	gender = FEMALE
 	icon_state = "cat"
 	item_state =  "cat"
-	befriend_job = "Chief Medical Officer"
+	befriend_job = "Chief Medical Officer" // Occulus Edit - Use our version of the CMO
 
 /mob/living/simple_animal/cat/kitten
 	name = "kitten"
@@ -253,11 +255,13 @@
 
 /mob/living/simple_animal/cat/fluff/bones
 	name = "Bones"
-	desc = "That's Bones the cat. He's a laid back, black cat. Meow."
+	desc = "That's Bones the cat. He's a laid back, research cat. Meow."
 	gender = MALE
 	icon_state = "cat3"
 	item_state = "cat3"
 	holder_type = /obj/item/holder/cat/fluff/bones
+	befriend_job = "Research Director" // Occulus Edit - Use our version of the RD
+	sanity_damage = -2
 	var/friend_name = "Erstatz Vryroxes"
 
 /mob/living/simple_animal/cat/kitten/New()
@@ -273,7 +277,7 @@ var/cat_number = 0
 
 /mob/living/simple_animal/cat/runtime
 	name = "Dusty"
-	desc = "A bluespace denizen that purrs its way into our dimension when the very fabric of reality is torn apart."
+	desc = "A bluespace denizen that purrs its way into our dimension when the very fabric of reality is teared apart."
 	icon_state = "runtimecat"
 	item_state = "runtimecat"
 	density = 0

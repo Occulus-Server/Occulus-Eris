@@ -72,7 +72,7 @@
 		var/biomatter_amount = 1/max(1, port.pipes_dirtiness)
 		port.tank.reagents.remove_reagent("biomatter", biomatter_amount)
 		generator.chamber.consume_and_produce()
-		var/output_power = 200000
+		var/output_power = 500000
 
 		//port wearout
 		port.working_cycles++
@@ -130,8 +130,6 @@
 	name = "biogenerator screen"
 	icon_state = "screen-working"
 
-	circuit = /obj/item/electronics/circuitboard/neotheology/biogen_console
-
 	//we store it here and update with special proc
 	var/list/metrics = list("operational" = FALSE,
 							"output_power" = 0,
@@ -180,16 +178,16 @@
 
 /obj/machinery/multistructure/biogenerator_part/console/attack_hand(mob/user as mob)
 	if(MS)
-		return ui_interact(user)
+		return nano_ui_interact(user)
 
 //UI
 
-/obj/machinery/multistructure/biogenerator_part/console/ui_data()
+/obj/machinery/multistructure/biogenerator_part/console/nano_ui_data()
 	return metrics
 
 
-/obj/machinery/multistructure/biogenerator_part/console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/topic_state/state = GLOB.default_state)
-	var/list/data = ui_data()
+/obj/machinery/multistructure/biogenerator_part/console/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/nano_topic_state/state = GLOB.default_state)
+	var/list/data = nano_ui_data()
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
@@ -228,8 +226,6 @@
 	var/working_cycles = 0
 	var/wearout_cycle = 1200
 	var/pipes_dirtiness = 0
-
-	circuit = /obj/item/electronics/circuitboard/neotheology/biogen_port
 
 
 /obj/machinery/multistructure/biogenerator_part/port/on_update_icon()
@@ -291,12 +287,6 @@
 				panel_open = !panel_open
 				to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the panel."))
 
-		if(QUALITY_PRYING)
-			if(panel_open)
-				to_chat(user, SPAN_NOTICE("You begin deconstructing [src]..."))
-				if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_NORMAL,  required_stat = STAT_MEC))
-					dismantle()
-
 	if(panel_open && (istype(I, /obj/item/soap) || istype(I, /obj/item/reagent_containers/glass/rag)))
 		if(pipes_dirtiness)
 			pipes_dirtiness--
@@ -322,9 +312,6 @@
 	icon = null
 	var/obj/machinery/atmospherics/binary/biogen_chamber/chamber
 	var/obj/machinery/power/biogenerator_core/core
-
-	circuit = /obj/item/electronics/circuitboard/neotheology/biogen
-
 
 /obj/machinery/multistructure/biogenerator_part/generator/New()
 	. = ..()
@@ -397,7 +384,7 @@
 
 
 /obj/machinery/atmospherics/binary/biogen_chamber/attackby(obj/item/I, mob/user)
-	var/tool_type = I.get_tool_type(user, list(QUALITY_SCREW_DRIVING, QUALITY_WIRE_CUTTING, QUALITY_PRYING), src)
+	var/tool_type = I.get_tool_type(user, list(QUALITY_SCREW_DRIVING, QUALITY_WIRE_CUTTING), src)
 	switch(tool_type)
 		if(QUALITY_SCREW_DRIVING)
 			if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_EASY,  required_stat = STAT_MEC, forced_sound = WORKSOUND_SCREW_DRIVING))
@@ -418,15 +405,6 @@
 					to_chat(user, SPAN_WARNING("There are no wires here."))
 			else
 				to_chat(user, SPAN_WARNING("You need open cover first."))
-
-		if(QUALITY_PRYING)
-			if(panel_open && !generator.core.coil_frame)
-				to_chat(user, SPAN_NOTICE("You begin deconstructing [generator]..."))
-				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_EASY,  required_stat = STAT_MEC, forced_sound = WORKSOUND_REMOVING))
-					to_chat(user, SPAN_NOTICE("You deconstructed [generator]."))
-					generator.dismantle()
-			else
-				to_chat(user, SPAN_WARNING("You need to open chamber panel and remove core's coil frame first!"))
 
 	if(istype(I, /obj/item/stack/cable_coil))
 		if(!panel_open)

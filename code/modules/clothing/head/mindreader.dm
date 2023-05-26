@@ -7,19 +7,21 @@
 	action_button_name = "Extract Memory"
 	w_class = ITEM_SIZE_NORMAL
 	armor = list(
-		melee = 10,
-		bullet = 10,
-		energy = 10,
+		melee = 2,
+		bullet = 2,
+		energy = 2,
 		bomb = 0,
 		bio = 0,
 		rad = 0
 	)
+	style = STYLE_NEG_HIGH
+	style_coverage = COVERS_HAIR
 	spawn_blacklisted = TRUE
 	var/self_cooldown = 2 MINUTES
 	var/last_use = 0
 
 /obj/item/clothing/head/mindreader/ui_action_click()
-	if(istype(loc, /mob))
+	if(ismob(loc))
 		if(world.time >= (last_use + self_cooldown))
 			last_use = world.time
 			var/mob/user = loc

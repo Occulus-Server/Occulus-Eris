@@ -5,6 +5,7 @@
 	icon_state = "sheater0"
 	name = "space heater"
 	desc = "Made by Space Amish using traditional space techniques, this heater is guaranteed not to set the ship on fire."
+	description_info = "Can have its temperature adjusted by opening the panel with a screwdriver and clicking."
 	var/obj/item/cell/large/cell
 	var/on = FALSE
 	var/set_temperature = T0C + 50	//K
@@ -55,14 +56,14 @@
 	..(severity)
 
 /obj/machinery/space_heater/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/cell/large))//Occulus Edit: Fixes replacing cells in space heaters
+	if(istype(I, /obj/item/cell/large))
 		if(panel_open)
 			if(cell)
 				to_chat(user, "There is already a power cell inside.")
 				return
 			else
 				// insert cell
-				var/obj/item/cell/large/C = usr.get_active_hand()//Occulus Edit: fixes replacing cells in space heaters
+				var/obj/item/cell/large/C = usr.get_active_hand()
 				if(istype(C))
 					user.drop_item()
 					src.cell = C
@@ -145,7 +146,7 @@
 
 			if("cellinstall")
 				if(panel_open && !cell)
-					var/obj/item/cell/large/C = usr.get_active_hand()//Occulus Edit - Fixing cell replacement
+					var/obj/item/cell/large/C = usr.get_active_hand()
 					if(istype(C))
 						usr.drop_item()
 						src.cell = C

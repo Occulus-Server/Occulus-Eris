@@ -17,7 +17,7 @@
 
 /obj/item/plantspray/weeds // -- Skie
 	name = "weed-spray"
-	desc = "It's a toxic mixture, in spray form, to kill small weeds."
+	desc = "A toxic mixture, in spray form, to kill small weeds."
 	icon_state = "weedspray"
 	weed_kill_str = 6
 
@@ -98,10 +98,10 @@
 
 /obj/item/reagent_containers/glass/fertilizer/Initialize()
 	. = ..()
-	src.pixel_x = rand(-5.0, 5)
-	src.pixel_y = rand(-5.0, 5)
+	src.pixel_x = rand(-5, 5)
+	src.pixel_y = rand(-5, 5)
 
-/*
+/* // Occulus Edit - Bottles
 /obj/item/reagent_containers/glass/fertilizer/ez
 	name = "bottle of E-Z-Nutrient"
 	icon_state = "bottle16"

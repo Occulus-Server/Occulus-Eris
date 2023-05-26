@@ -24,10 +24,9 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 
 /datum/computer_file/report/crew_record/proc/load_from_mob(var/mob/living/carbon/human/H)
 	if(istype(H))
-		if(H.mind.role_alt_title == "Vagabond") // As stowaways, Vagabond do not show up on the crew manifest.	// OCCULUS EDIT - vagabond fix
+		if(H.job == ASSISTANT_TITLE) // As stowaways, Vagabond do not show up on the crew manifest.
 			GLOB.all_crew_records.Remove(src)
 			return
-	if(istype(H))
 		photo_front = getFlatIcon(H, SOUTH)
 		photo_side = getFlatIcon(H, WEST)
 	else
@@ -36,19 +35,6 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 		photo_side = getFlatIcon(dummy, WEST)
 		qdel(dummy)
 
-	// Add education, honorifics, etc.
-	/*
-	var/formal_name = "Unset"
-	if(H)
-		formal_name = H.real_name
-		if(H.client && H.client.prefs)
-			for(var/culturetag in H.client.prefs.cultural_info)
-				var/decl/cultural_info/culture = SSculture.get_culture(H.client.prefs.cultural_info[culturetag])
-				if(H.char_rank && H.char_rank.name_short)
-					formal_name = "[formal_name][culture.get_formal_name_suffix()]"
-				else
-					formal_name = "[culture.get_formal_name_prefix()][formal_name][culture.get_formal_name_suffix()]"
-	*/
 	// Generic record
 	set_name(H ? H.real_name : "")
 	set_department(H ? GetDepartment(H) : "Unset")
@@ -74,8 +60,8 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 
 	// Security record
 	set_criminalStatus(GLOB.default_security_status)
-	set_dna(H ? H.dna.unique_enzymes : "")
-	set_fingerprint(H ? md5(H.dna.uni_identity) : "")
+	set_dna(H ? H.dna_trace : "")
+	set_fingerprint(H ? H.fingers_trace : "")
 	set_secRecord(H && H.sec_record && !jobban_isbanned(H, "Records") ? html_decode(H.sec_record) : "No record supplied")
 
 	// Employment record
@@ -85,18 +71,10 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 			employment_record = html_decode(H.gen_record)
 		if(H.client && H.client.prefs)
 			var/list/qualifications
-	/*		for(var/culturetag in H.client.prefs.cultural_info)
-				var/decl/cultural_info/culture = SSculture.get_culture(H.client.prefs.cultural_info[culturetag])
-				var/extra_note = culture.get_qualifications()
-				if(extra_note)
-					LAZYADD(qualifications, extra_note)*/
 			if(LAZYLEN(qualifications))
 				employment_record = "[employment_record ? "[employment_record]\[br\]" : ""][jointext(qualifications, "\[br\]>")]"
 	set_emplRecord(employment_record)
 
-	// Misc cultural info.
-	//set_homeSystem(H ? html_decode(H.get_cultural_value(TAG_HOMEWORLD)) : "Unset")
-	//set_faction(H ? html_decode(H.get_cultural_value(TAG_FACTION)) : "Unset")
 
 	if(H)
 		var/stats = list()
@@ -225,8 +203,6 @@ FIELD_SHORT("Fingerprint", fingerprint, access_security, access_security)
 
 // EMPLOYMENT RECORDS
 FIELD_LONG("Employment Record", emplRecord, access_heads, access_heads)
-FIELD_SHORT("Home System", homeSystem, access_heads, access_change_ids)
-FIELD_SHORT("Faction", faction, access_heads, access_heads)
 FIELD_LONG("Qualifications", skillset, access_heads, access_heads)
 
 // ANTAG RECORDS

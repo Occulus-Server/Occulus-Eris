@@ -6,8 +6,8 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/roachmeat/kraftwerk
 	meat_amount = 3
 	turns_per_move = 1
-	maxHealth = 35
-	health = 35
+	maxHealth = 30
+	health = 30
 
 	melee_damage_lower = 2
 	melee_damage_upper = 4 //He's a ranged roach
@@ -26,6 +26,18 @@
 	var/list/nanite_swarms = list()
 	var/max_swarms = 5
 
+	mob_size = MOB_SMALL * 1.5 // 15
+
+	// Armor related variables
+	armor = list(
+		melee = 5,
+		bullet = 5,
+		energy = 10,
+		bomb = 10,
+		bio = 25,
+		rad = 100
+	)
+
 /mob/living/carbon/superior_animal/roach/nanite/UnarmedAttack(atom/A, var/proximity)
 	. = ..()
 
@@ -42,13 +54,13 @@
 /mob/living/carbon/superior_animal/roach/nanite/death()
 	for(var/mob/living/simple_animal/hostile/naniteswarm/NS in nanite_swarms)
 		nanite_swarms.Remove(NS)
-		NS.gib()
+		NS.death()
 	..()
 
 /mob/living/carbon/superior_animal/roach/nanite/Destroy()
 	for(var/mob/living/simple_animal/hostile/naniteswarm/NS in nanite_swarms)
 		nanite_swarms.Remove(NS)
-		NS.gib()
+		NS.death()
 	.=..()
 
 
@@ -62,8 +74,9 @@
 	density = FALSE
 	health = 10
 	maxHealth = 10
-	melee_damage_lower = 1
-	melee_damage_upper = 2
+	melee_damage_lower = 2
+	melee_damage_upper = 4
+	armor_divisor = ARMOR_PEN_MASSIVE
 	attacktext = "cut"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	faction = "roach"

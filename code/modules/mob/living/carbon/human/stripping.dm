@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/handle_strip(var/slot_to_strip,var/mob/living/user)
+/mob/living/carbon/human/proc/handle_strip(slot_to_strip, mob/living/user)
 
 	if(!slot_to_strip || !user.IsAdvancedToolUser())
 		return
@@ -12,7 +12,7 @@
 	switch(slot_to_strip)
 		// Handle things that are part of this interface but not removing/replacing a given item.
 		if("pockets")
-			if(!user.stats.getPerk(PERK_FAST_FINGERS) || istype(user.get_equipped_item(slot_gloves), /obj/item/clothing/gloves/sneak)) //occulist edit
+			if(!user.stats.getPerk(PERK_FAST_FINGERS) || istype(user.get_equipped_item(slot_gloves), /obj/item/clothing/gloves/sneak)) // Occulus edit - Pickpocket gloves
 				visible_message(SPAN_DANGER("\The [user] is trying to empty \the [src]'s pockets!"))
 			else
 				to_chat(user, SPAN_NOTICE("You silently try to empty \the [src]'s pockets."))
@@ -67,15 +67,15 @@
 		if(!target_slot.canremove)
 			to_chat(user, SPAN_WARNING("You cannot remove \the [src]'s [target_slot.name]."))
 			return
-		stripping = 1
+		stripping = TRUE
 
 	if(stripping)
-		if((target_slot == r_hand || target_slot == l_hand) && (user.stats.getPerk(PERK_FAST_FINGERS)) || istype(user.get_equipped_item(slot_gloves), /obj/item/clothing/gloves/sneak)) //occulist pickpocket glove edit
+		if((target_slot == r_hand || target_slot == l_hand) && (user.stats.getPerk(PERK_FAST_FINGERS)) || istype(user.get_equipped_item(slot_gloves), /obj/item/clothing/gloves/sneak)) // Occulus edit - Pickpocket gloves
 			to_chat(user, SPAN_NOTICE("You silently try to remove \the [src]'s [target_slot.name]."))
 		else
 			visible_message(SPAN_DANGER("\The [user] is trying to remove \the [src]'s [target_slot.name]!"))
 	else
-		if((slot_to_strip == r_hand || slot_to_strip == l_hand) && user.stats.getPerk(PERK_FAST_FINGERS) || istype(user.get_equipped_item(slot_gloves), /obj/item/clothing/gloves/sneak)) //occulist pickpocket glove edit
+		if((slot_to_strip == r_hand || slot_to_strip == l_hand) && user.stats.getPerk(PERK_FAST_FINGERS) || istype(user.get_equipped_item(slot_gloves), /obj/item/clothing/gloves/sneak)) // Occulus edit - Pickpocket gloves
 			to_chat(user, SPAN_NOTICE("You silently try to put \a [held] on \the [src]."))
 		else
 			visible_message(SPAN_DANGER("\The [user] is trying to put \a [held] on \the [src]!"))
@@ -89,13 +89,15 @@
 	if(stripping)
 		admin_attack_log(user, src, "Attempted to remove \a [target_slot]", "Target of an attempt to remove \a [target_slot].", "attempted to remove \a [target_slot] from")
 		unEquip(target_slot)
+		if(istype(target_slot,  /obj/item/storage/backpack))
+			SEND_SIGNAL_OLD(user, COMSIG_EMPTY_POCKETS, src)
 	else if(user.unEquip(held))
 		equip_to_slot_if_possible(held, text2num(slot_to_strip), TRUE) // Disable warning
 		if(held.loc != src)
 			user.put_in_hands(held)
 
 // Empty out everything in the target's pockets.
-/mob/living/carbon/human/proc/empty_pockets(var/mob/living/user)
+/mob/living/carbon/human/proc/empty_pockets(mob/living/user)
 	if(!r_store && !l_store)
 		to_chat(user, SPAN_WARNING("\The [src] has nothing in their pockets."))
 		return
@@ -103,7 +105,7 @@
 		unEquip(r_store)
 	if(l_store)
 		unEquip(l_store)
-	if(!user.stats.getPerk(PERK_FAST_FINGERS) || (!user.get_equipped_item(slot_gloves) == /obj/item/clothing/gloves/sneak))
+	if(!user.stats.getPerk(PERK_FAST_FINGERS) || (!user.get_equipped_item(slot_gloves) == /obj/item/clothing/gloves/sneak)) // Occulus edit - Pickpocket gloves
 		visible_message(SPAN_DANGER("\The [user] empties \the [src]'s pockets!"))
 	else
 		to_chat(user, SPAN_NOTICE("You empty \the [src]'s pockets."))
@@ -121,7 +123,6 @@
 
 // Remove all splints.
 /mob/living/carbon/human/proc/remove_splints(var/mob/living/user)
-
 	var/can_reach_splints = 1
 	if(istype(wear_suit,/obj/item/clothing/suit/space))
 		var/obj/item/clothing/suit/space/suit = wear_suit
@@ -131,7 +132,7 @@
 
 	if(can_reach_splints)
 		var/removed_splint
-		for(var/organ in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND))	//Eclipse edit
+		for(var/organ in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND))	//Occulus Edit - Hands and feet.
 			var/obj/item/organ/external/o = get_organ(organ)
 			if (o && o.status & ORGAN_SPLINTED)
 				var/obj/item/W = new /obj/item/stack/medical/splint(get_turf(src), 1)

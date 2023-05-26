@@ -75,7 +75,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	outfit_type = /decl/hierarchy/outfit/job/medical/doctor
 
 	access = list(
-		access_moebius, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology,
+		access_moebius, access_medical_equip, access_maint_tunnels, access_morgue, access_surgery, access_chemistry, access_virology,
 		access_genetics
 	)
 
@@ -134,7 +134,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	outfit_type = /decl/hierarchy/outfit/job/medical/chemist
 
 	access = list(
-		access_moebius, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology
+		access_moebius, access_medical_equip, access_maint_tunnels, access_morgue, access_surgery, access_chemistry, access_virology
 	)
 
 	stat_modifiers = list(
@@ -171,7 +171,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	join_tag = /datum/job/chemist
 
 
-/datum/job/psychiatrist
+/datum/job/psychiatrist // Occulus Addition Start
 	title = "Psychiatrist"
 	flag = PSYCHIATRIST
 	department = DEPARTMENT_MEDICAL
@@ -204,7 +204,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 /obj/landmark/join/start/psychiatrist
 	name = "Psychiatrist"
 	icon_state = "player-green"
-	join_tag = /datum/job/psychiatrist
+	join_tag = /datum/job/psychiatrist // Occulus Addition End
 
 
 /datum/job/paramedic
@@ -271,14 +271,14 @@ Remember that you are a noncombatant. Any weapons you carry should be used for b
 	join_tag = /datum/job/paramedic
 
 /datum/job/bioengineer
-	title = "Bio-Engineer" //Occulus edit: delete moebius
+	title = "Bio-Engineer" // Occulus Edit - Remove Eris corp. reference
 	flag = BIOENGINEER
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
-	faction = "CEV Northern Light"
+	faction = "CEV Northern Light" // Occulus Edit - Remove Eris corp. reference
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the Chief Medical Officer"
+	supervisors = "the Chief Medical Officer" // Occulus Edit - Remove Eris corp. reference
 	selection_color = "#a8b69a"
 	wage = WAGE_PROFESSIONAL
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
@@ -317,12 +317,12 @@ Remember that you are a noncombatant. Any weapons you carry should be used for b
 					<br>\
 					Character Expectations:<br>\
 					You may be a doctor, but your research comes first.<br>\
-					While you have priority in Visceral Research and Genetics, you are expected to provide doctors with organ replacements if necessary."
+					While you have priority in Visceral Research and Genetics, you are expected to provide doctors with organ replacements if necessary."  // Occulus Edit - Remove Eris corp. reference
 
-	loyalties = "As a medical researcher, your first loyalty is to progress. Your placement on the crew of the Northern Light is the result of NanoTrasen's desire for knowledge and your own morbid curiosity.<br>\
-Your second loyalty is to your career with NanoTrasen, and to your coworkers in both branches of the corporation. Help out your scientific colleagues, and aid in their pursuit of knowledge."
+	loyalties = "As a medical researcher, your first loyalty is to progress. Your placement on the crew of the CEV Northern Light is the result of NanoTrasen's desire for knowledge and your own morbid curiosity.<br>\
+Your second loyalty is to your career with NanoTrasen, and to your coworkers in both branches of the corporation. Help out your scientific colleagues, and aid in their pursuit of knowledge."  // Occulus Edit - Remove Eris corp. reference
 
 /obj/landmark/join/start/bioengineer
-	name = "Bio-Engineer" //Occulus edit: delete moebius
+	name = "Bio-Engineer"  // Occulus Edit - Remove Eris corp. reference
 	icon_state = "player-green"
 	join_tag = /datum/job/bioengineer

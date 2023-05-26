@@ -310,7 +310,7 @@
 		return TRUE
 
 	if(affecting.open == 0)
-		if(affecting.is_bandaged() && affecting.is_disinfected())
+		if(affecting.is_bandaged())
 			to_chat(user, SPAN_WARNING("The wounds on [M]'s [affecting.name] have already been treated."))
 			return 1
 		else
@@ -322,7 +322,7 @@
 			for (var/datum/wound/W in affecting.wounds)
 				if(W.internal)
 					continue
-				if(W.bandaged && W.disinfected)
+				if(W.bandaged)
 					continue
 				if(used == amount)
 					break
@@ -331,7 +331,7 @@
 					break
 				if(W.internal)
 					continue
-				if(W.bandaged && W.disinfected)
+				if(W.bandaged)
 					continue
 				if(used == amount)
 					break
@@ -351,7 +351,6 @@
 						SPAN_NOTICE("You smear some bioglue over \a [W.desc] on [M]'s [affecting.name].")
 					)
 				W.bandage()
-				W.disinfect()
 				W.heal_damage(heal_brute)
 				if(prob(10 + user.stats.getStat(STAT_BIO)))
 					to_chat(user, SPAN_NOTICE("You have managed to waste less [src]."))
@@ -457,6 +456,7 @@
 	amount = 5
 	max_amount = 5
 	rarity_value = 20
+	spawn_tags = SPAWN_TAG_MEDICINE_COMMON
 
 /obj/item/stack/medical/splint/attack(mob/living/carbon/M, mob/living/user)
 	if(..())
@@ -471,7 +471,7 @@
 			return TRUE
 
 		var/limb = affecting.name
-		if(!(affecting.organ_tag in list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)))	//Eclipse edit.
+		if(!(affecting.organ_tag in list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)))	// Occulus edit - Hands/Feet
 			to_chat(user, SPAN_DANGER("You can't apply a splint there!"))
 			return
 		if(affecting.status & ORGAN_SPLINTED)
@@ -521,8 +521,8 @@
 		return
 
 /obj/item/stack/medical/advanced/bruise_pack/nt
-	name = "NeoTheologian Bruisepack"
-	singular_name = "NeoTheologian Bruisepack"
+	name = "NeoTheology bruisepack"
+	singular_name = "NeoTheology bruisepack"
 	desc = "An advanced bruisepack for severe injuries. Created by will of God."
 	icon_state = "nt_traumakit"
 	heal_brute = 10
@@ -531,13 +531,13 @@
 	matter = list(MATERIAL_BIOMATTER = 3)
 	origin_tech = list(TECH_BIO = 4)
 
-/obj/item/stack/medical/advanced/bruise_pack/nt/on_update_icon()
+/obj/item/stack/medical/advanced/bruise_pack/nt/update_icon()
 	icon_state = "[initial(icon_state)][amount]"
 	..()
 
 /obj/item/stack/medical/advanced/ointment/nt
-	name = "NeoTheologian Burnpack"
-	singular_name = "NeoTheologian Burnpack"
+	name = "NeoTheology burnpack"
+	singular_name = "NeoTheology burnpack"
 	desc = "An advanced treatment kit for severe burns. Created by will of God."
 	icon_state = "nt_burnkit"
 	heal_brute = 10
@@ -546,6 +546,6 @@
 	matter = list(MATERIAL_BIOMATTER = 3)
 	origin_tech = list(TECH_BIO = 4)
 
-/obj/item/stack/medical/advanced/ointment/nt/on_update_icon()
+/obj/item/stack/medical/advanced/ointment/nt/update_icon()
 	icon_state = "[initial(icon_state)][amount]"
 	..()

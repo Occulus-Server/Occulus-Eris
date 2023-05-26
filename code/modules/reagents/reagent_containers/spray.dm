@@ -149,6 +149,8 @@
 	name = "chem sprayer"
 	desc = "A utility used to spray large amounts of reagent in a given area."
 	icon = 'icons/obj/weapons.dmi'
+	description_info = "Holds 600 units, sprays 30 per use."
+	description_antag = "Can be used to spray acid or lube"
 	icon_state = "chemsprayer"
 	item_state = "chemsprayer"
 	throwforce = 3
@@ -192,5 +194,16 @@
 
 	if(istype(A, /obj/effect/blob)) // blob damage in blob code
 		return
-
 	..()
+
+
+/obj/item/reagent_containers/spray/vvd40
+	name = "VVD-40"
+	desc = "Relic of ancient times, rumoured to fix anything duct tape can't."
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "rejuvenating_agent_spray"
+	volume = 100
+	preloaded_reagents = list("rejuvenating_agent" = 50)
+	spawn_blacklisted = TRUE
+	rarity_value = 40
+	spawn_tags = SPAWN_TAG_TOOL

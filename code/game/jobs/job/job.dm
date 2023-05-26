@@ -4,6 +4,7 @@
 	var/title = "NOPE"
 	var/list/access = list()				// Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
 	var/list/cruciform_access = list()		// Assign this access into cruciform if target has it
+	var/security_clearance = CLEARANCE_NONE	// Cruciform-specific access type, used by Neotheology doors
 	var/list/software_on_spawn = list()		// Defines the software files that spawn on tablets and labtops
 	var/list/core_upgrades = list()			// Defines the upgrades that would be installed into core implant on spawn, if any.
 	var/flag = NONE							// Bitflags for the job
@@ -12,14 +13,15 @@
 	var/total_positions = 0					// How many players can be this job
 	var/spawn_positions = 0					// How many players can spawn in as this job
 	var/current_positions = 0				// How many players have this job
-	var/supervisors = null					// Supervisors, who this person answers to directly
+	var/supervisors							// Supervisors, who this person answers to directly
 	var/selection_color = "#ffffff"			// Selection screen color
 	var/list/alt_titles
 	var/list/datum/job_flavor/random_flavors = list(null)
 
 	var/req_admin_notify					// If this is set to 1, a text is printed to the player when jobs are assigned, telling him that he should let admins know that he has to disconnect.
-	var/department = null					// Does this position have a department tag?
+	var/department							// Does this position have a department tag?
 	var/head_position = FALSE				// Is this position Command?
+	var/aster_guild_member = FALSE			// If this person's account authorized to register new accounts
 	var/department_account_access = FALSE	// Can this position access the department acount, even if they're not a head?
 	var/minimum_character_age = 0
 	var/ideal_character_age = 30
@@ -70,8 +72,6 @@
 	for(var/perk in perks)
 		target.stats.addPerk(perk)
 
-	target.dna.stats = target.stats
-
 	return TRUE
 
 /datum/job/proc/add_additiional_language(var/mob/living/carbon/human/target)
@@ -96,16 +96,19 @@
 		return
 
 	//give them an account in the station database
-	// var/species_modifier = (H.species ? economic_species_modifier[H.species.type] : 2) // OCCULUS EDIT - Nobles get 5x the starting balance (This bit is uneeded, as it wasn't used whatsoever)
-	// if(!species_modifier)
-	// 	species_modifier = economic_species_modifier[/datum/species/human]
+	if(H.job == ASSISTANT_TITLE) // Vagabound do not get an account.
+		H.mind.store_memory("As a freelancer you do not have a bank account.")
+		return
+	var/species_modifier = (H.species ? economic_species_modifier[H.species.type] : 2)
+	if(!species_modifier)
+		species_modifier = economic_species_modifier[/datum/species/human]
 
 	var/modifier = 1		// OCCULUS EDIT v
 	if(H.stats.getPerk(PERK_NOBLE)) // OCCULUS EDIT - Nobles get 5x the starting balance
-		modifier *= 5
-	
-	var/money_amount = one_time_payment(modifier)
-	var/datum/money_account/M = create_account(H.real_name, money_amount, null)
+		species_modifier *= 5
+
+	var/money_amount = one_time_payment(species_modifier)
+	var/datum/money_account/M = create_account(H.real_name, money_amount, null, department, wage, aster_guild_member)
 	if(H.mind)
 		var/remembered_info = ""
 		remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"

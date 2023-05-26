@@ -97,10 +97,15 @@
 	var/x_corner
 	var/y_corner
 	var/datum/map_template/chunk_template
+	var/is_loaded = FALSE
 
 /obj/effect/shuttle_landmark/blacksite/trigger_landmark()
+	if(is_loaded)
+		return
+
 	var/turf/T = get_turf(locate(x_corner, y_corner, z))  // Bottom left corner turf
 	load_chunk(T, chunk_template, SOUTH)  // Load chunk
+	is_loaded = TRUE
 
 	// Wake up all mobs because roombas are spawning in stasis
 	for(var/mob/living/A in SSmobs.mob_living_by_zlevel[z])
@@ -214,14 +219,3 @@
 	        <br> # Security bots burnt all corpses and cleaning bots cleaned up all the blood.\
 	        <br> # Activating sleeping mode. Minimal machinery and bot have for energy preservation.\
 	        <br> # Awaiting for OneStar security forces to come."
-
-// OCCULUS EDIT - Kludging this here since we don't have the JTB
-
-/proc/load_chunk(turf/corner_turf, datum/map_template/template, var/ori)
-	if(!template)
-		return FALSE
-	if(ori == WEST || ori == EAST)
-		// For west and east the x and y coordinates are switched by template.load so we need to switch them ourself to spawn at correct location
-		corner_turf = get_turf(locate(corner_turf.y, corner_turf.x, corner_turf.z))
-	template.load(corner_turf, centered=FALSE, orientation=ori)
-	return TRUE

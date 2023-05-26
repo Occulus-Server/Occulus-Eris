@@ -16,7 +16,7 @@
 	var/sticker = null
 	var/closed = TRUE
 
-/obj/item/storage/hcases/proc/can_interact(mob/user)
+/obj/item/storage/hcases/can_interact(mob/user)
 	if((!ishuman(user) && (loc != user)) || user.stat || user.restrained())
 		return 1
 	if(istype(loc, /obj/item/storage))
@@ -50,11 +50,11 @@
 	sticker = options[choice]
 	update_icon()
 
-/obj/item/storage/hcases/on_update_icon()
+/obj/item/storage/hcases/update_icon()
 	icon_state = "[initial(icon_state)][closed ? "" : "_open"]"
 	cut_overlays()
 	if(sticker)
-		add_overlays("[sticker][closed ? "" : "_open"]")
+		overlays += "[sticker][closed ? "" : "_open"]"
 
 /obj/item/storage/hcases/open(mob/user)
 	if(closed)
@@ -118,7 +118,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 	desc = "A generic ammo can. Can hold ammo magazines, boxes, and bullets. Alt+click to open and close."
 	icon_state = "ammo_case"
 	sticker_name = "ammo"
-	matter = list(MATERIAL_STEEL = 20)
+	matter = list(MATERIAL_STEEL = 15)
 	spawn_blacklisted = FALSE
 	rarity_value = 60
 
@@ -188,7 +188,6 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 
 	can_hold = list(
 		/obj/item/device/scanner/health,
-		/obj/item/dnainjector,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/glass/beaker,
 		/obj/item/reagent_containers/glass/bottle,

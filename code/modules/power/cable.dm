@@ -35,7 +35,7 @@ var/list/possible_cable_coil_colours = list(
 /obj/structure/cable
 	layer = WIRE_LAYER //Above hidden pipes, GAS_PIPE_HIDDEN_LAYER
 	level = 1
-	anchored =1
+	anchored = TRUE
 	var/datum/powernet/powernet
 	name = "power cable"
 	desc = "A flexible superconducting cable for heavy-duty power transfer"
@@ -89,7 +89,7 @@ var/list/possible_cable_coil_colours = list(
 	d2 = text2num( copytext( icon_state, dash+1 ) )
 
 	var/turf/T = src.loc			// hide if turf is not intact
-	if(level==1) hide(!T.is_plating())
+	if(level==1 && T) hide(!T.is_plating())
 	GLOB.cable_list += src //add it to the global cable list
 
 
@@ -253,7 +253,7 @@ var/list/possible_cable_coil_colours = list(
 	return
 
 // shock the user with probability prb
-/obj/structure/cable/proc/shock(mob/user, prb, var/siemens_coeff = 1.0)
+/obj/structure/cable/proc/shock(mob/user, prb, var/siemens_coeff = 1)
 	if(!prob(prb))
 		return 0
 	if (electrocute_mob(user, powernet, src, siemens_coeff))
@@ -267,14 +267,14 @@ var/list/possible_cable_coil_colours = list(
 //explosion handling
 /obj/structure/cable/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
-		if(2.0)
+		if(2)
 			if (prob(50))
 				new/obj/item/stack/cable_coil(src.loc, src.d1 ? 2 : 1, color)
 				qdel(src)
 
-		if(3.0)
+		if(3)
 			if (prob(25))
 				new/obj/item/stack/cable_coil(src.loc, src.d1 ? 2 : 1, color)
 				qdel(src)
@@ -518,16 +518,18 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	color = COLOR_RED
 	desc = "A coil of power cable."
 	throwforce = WEAPON_FORCE_HARMLESS
+	description_info = "Can link between z-levels by going on the upper level and clicking the empty space, and to below, looking up and clicking the space above"
+	description_antag = "Can be used to make cable cuffs"
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 2
 	throw_range = 5
-	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1)
+	matter = list(MATERIAL_STEEL = 0.5, MATERIAL_PLASTIC = 0.5)
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	item_state = "coil"
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
-	preloaded_reagents = list("copper" = 8, "plasticide" = 2)
+	//preloaded_reagents = list("copper" = 8, "plasticide" = 2)
 	rarity_value = 30
 	spawn_tags = SPAWN_TAG_ITEM_UTILITY
 

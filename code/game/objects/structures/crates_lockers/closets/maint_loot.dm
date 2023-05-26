@@ -8,7 +8,7 @@
 
 /obj/structure/closet/random/miscellaneous
 	name = "\improper forgotten closet"
-	desc = "Old and rusty closet, probably older than you."
+	desc = "Old and rusty, this closet is probably older than you."
 	icon_state = "oldstyle"
 	old_chance = 50
 	rarity_value = 10
@@ -57,11 +57,11 @@
 	name = "\improper spare parts closet"
 	desc = "Somewhat old closet with spare parts in it."
 	icon_state = "eng"
-	icon_door = "eng_tool" //OCCULUS EDIT. FUCKING ERIS!
+	icon_door = "eng_secure"
 	old_chance = 10
 	rarity_value = 50
 
-/obj/structure/closet/random/spareparts/populate_contents() //OCCULUS EDIT. FUCKING ERIS
+/obj/structure/closet/random/spareparts/populate_contents()
 	new /obj/spawner/lowkeyrandom/low_chance(src)
 	new /obj/spawner/lowkeyrandom/low_chance(src)
 	new /obj/spawner/lowkeyrandom/low_chance(src)
@@ -167,7 +167,7 @@
 //Closet with unfair bullshit inside
 /obj/structure/closet/random/hostilemobs
 	name = "\improper forgotten closet"
-	desc = "Old and rusty closet, probably older than you."
+	desc = "Old and rusty, this closet is probably older than you."
 	icon_state = "oldstyle"
 	old_chance = 70
 	rarity_value = 12.5

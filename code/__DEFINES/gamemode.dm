@@ -38,26 +38,25 @@
 #define ROLE_BANTYPE_CARRION ROLE_CARRION
 #define ROLE_BANTYPE_OCCULTIST ROLE_OCCULTIST //Occulus Edit
 #define ROLE_BANTYPE_XENOS ROLE_XENOMORPH
-#define ROLE_BANTYPE_CREW_SIDED "crew_sided"
+#define ROLE_BANTYPE_CREW_SIDED ROLE_MARSHAL
 #define ROLE_BANTYPE_BLITZ ROLE_BLITZ
 
 // antag template macros.
 #define ROLE_BORER "borer"
 #define ROLE_BORER_REPRODUCED "borer_r"
-#define ROLE_XENOMORPH "xeno"
 #define ROLE_LOYALIST "loyalist"
 #define ROLE_MUTINEER "mutineer"
 #define ROLE_COMMANDO "commando"
 #define ROLE_DEATHSQUAD "deathsquad"
-#define ROLE_ACTOR "actor"
+#define ROLE_ACTOR "actor" // Occulus addition
 #define ROLE_ARTIST "artist"
 #define ROLE_MERCENARY "mercenary"
 #define ROLE_CARRION "carrion"
-#define ROLE_OCCULTIST "occultist"
+#define ROLE_OCCULTIST "occultist" // Occulus addition
 #define ROLE_MONKEY "monkey"
 #define ROLE_MALFUNCTION "malf"
-#define ROLE_TRAITOR "traitor"
-#define ROLE_TRAITOR_SYNTH "robo_traitor"
+#define ROLE_CONTRACTOR "contractor"
+#define ROLE_CONTRACTOR_SYNTH "robo_contractor"
 #define ROLE_MARSHAL "marshal"
 
 #define ROLE_EXCELSIOR_REV "excelsior_rev"
@@ -69,13 +68,14 @@
 
 #define FACTION_EXCELSIOR "excelsior"
 #define FACTION_BORERS "borers"
-#define FACTION_XENOMORPHS "xenomorphs"
 #define FACTION_SERBS	"serbians"
+#define FACTION_NEOTHEOLOGY	"neotheologists"
 
-#define ROLES_CONTRACT list(ROLE_TRAITOR,ROLE_CARRION)//Occulus Edit: Blitzshell is no longer a contract role
-#define ROLES_UPLINK_BASE list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY)
+#define ROLES_CONTRACT_COMPLETE list(ROLE_CONTRACTOR,ROLE_CARRION)//Occulus Edit: Blitzshell is no longer a contract role
+#define ROLES_CONTRACT_VIEW list(ROLE_CONTRACTOR,ROLE_CARRION,ROLE_MARSHAL)
+#define ROLES_UPLINK_BASE list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY)
 
-#define ROLESET_TRAITOR "traitor"
+#define ROLESET_CONTRACTOR "contractor"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 25
 #define IMPLANT_TELECRYSTAL_AMOUNT(x) (round(x * 0.49)) // If this cost is ever greater than half of DEFAULT_TELECRYSTAL_AMOUNT then it is possible to buy more TC than you spend

@@ -2,7 +2,7 @@
 	name = "propaganda chip"
 	icon_state = "implant_evil" //placeholder
 	desc = "A delicate chip with an integrated speaker, you shouldn't disturb it"
-	origin_tech = list(TECH_MAGNETS = 3)
+	origin_tech = list(TECH_MAGNET = 3)
 	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_STEEL = 5) //Needs to be a bit expensive so people cant spam messages
 	var/active = FALSE
 	var/last_talk_time = 0
@@ -13,7 +13,7 @@
 	set src in oview(1)
 	if(usr.incapacitated() || !Adjacent(usr) || !isturf(loc))
 		return
-
+	
 	for(var/obj/item/device/propaganda_chip/C in get_area(src))
 		if (C.active)
 			to_chat(usr, SPAN_WARNING("Another chip in the area prevents activation."))
@@ -29,7 +29,7 @@
 obj/item/device/propaganda_chip/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	return ..()
-
+	
 /obj/item/device/propaganda_chip/attack_hand(mob/user)
 	if (active)
 		switch(alert("Do I want to disturb the chip, it looks delicate","You think...","Yes","No"))
@@ -65,36 +65,28 @@ obj/item/device/propaganda_chip/Destroy()
 		if(candidate_mind.assigned_role in list(JOBS_SECURITY))
 			continue
 
-		else
+		else 
 			crew_target_mind = candidate_mind
 
 		if (crew_target_mind)
 			break
 	var/datum/mind/crew_name
-
 	if (!crew_target_mind || !(crew_target_mind?.current))
-
 		crew_name = "Unknown"
 	else
 		crew_name = crew_target_mind.current.real_name
 
 	var/list/messages = list( // Idealy should be extremely long with lots of lines
-		"Aegis just searched me and took all my stuff.",
-		"Bet this Command staff would beat your ass dead for breaking a window.",
+		"Fucking Aegis just searched me and took all my shit", // Occulus Edit - Remove Eris corp. reference
+		"Haha, Aegis just killed a vag for breaking a window", // Occulus Edit - Remove Eris corp. reference
 		"With my paycheck I can't even afford 3 bread tubes...",
-		"I know what we should do...we should unionize.",
-		"A clown could beat Aegis in a fistfight, man.",
-		"Command cares more about roaches than us.",
-		"They care more about Ian than any of us. It's bullshit.",
-		"Aegis gets more stuff than all of us, and all they do is sit around.",
-		"Medical just fucks around all day. I'm better off trying to fix myself.",
-		"Command is unfair. The Captain is in there, standing at the concession, plotting our oppression.",
-		"Funny, I never see the rich kids down in the tunnels working for their own damn selves.",
-		"I bet Aegis would care about what we think if we had the guns to back us up.",
-		"How's it fair that the merchant gets paid a few thousand dolars every hour to sit on his ass?",
-		"They aren't going to stop fucking us over until someone stands up to them.",
-		"I tried to argue that we should get paid more and command called over some Aegis brute with a rifle. Classy.",
-		"I'm dirty and sick and tired and hungry. We need to do something before the guys in charge kill us."
+		"You know what we should do... unionize",
+		"I hate Aegis so much", // Occulus Edit - Remove Eris corp. reference
+		"Cheers ye Aegis just broke my fucking leg in personal", // Occulus Edit - Remove Eris corp. reference
+		"A clown could beat Aegis, lets get them", // Occulus Edit - Remove Eris corp. reference
+		"Command cares more about roaches than us",
+		"Ian has more liberty than any of us",
+		"Aegis gets more money than anyone and all they do is sit around" // Occulus Edit - Remove Eris corp. reference
 	)
 	var/message_text = pick(messages)
 	var/message = " <b>[crew_name]</b> says,<FONT SIZE =-2>  \"[message_text]\"</FONT>"
@@ -102,5 +94,4 @@ obj/item/device/propaganda_chip/Destroy()
 	for (var/mob/living/M in viewers(src))
 		to_chat(M, "[message]")
 	last_talk_time = world.time
-
-
+		

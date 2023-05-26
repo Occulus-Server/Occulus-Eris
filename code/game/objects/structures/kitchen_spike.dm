@@ -5,6 +5,7 @@
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "spike"
 	desc = "A spike for collecting meat from animals."
+	description_antag = "You can also butcher people"
 	density = TRUE
 	anchored = TRUE
 	var/mob/living/occupant
@@ -26,7 +27,7 @@
 	for(var/obj/item/organ/external/chest/G in damaged)
 		if(G.brute_dam > 200)
 			to_chat(user, "[H] is too badly damaged to hold onto the meat spike.")
-			return 
+			return
 	visible_message(SPAN_DANGER("[user] is trying to force \the [target] onto \the [src]!"))
 	if(do_after(user, 80))
 		if(spike(target))
@@ -47,13 +48,8 @@
 
 	if(ishuman(victim))
 		var/mob/living/carbon/human/H = victim
-		if(!issmall(H))
-			return 0
 		meat_type = H.species.meat_type
-		icon_state = "spikebloody"
-	else if(isalien(victim))
-		meat_type = /obj/item/reagent_containers/food/snacks/meat/xenomeat
-		icon_state = "spikebloodygreen"
+		icon_state = "spike_[H.species.name]"
 	else
 		return FALSE
 	victim.loc = src
@@ -66,14 +62,14 @@
 /obj/structure/kitchenspike/attack_hand(mob/living/carbon/human/user)
 	if(..() || !occupied)
 		return
-	to_chat(user, "You start to remove [victim_name] from \the [src].")	
+	to_chat(user, "You start to remove [victim_name] from \the [src].")
 	if(!do_after(user, 40))
 		return 0
 	occupant.loc = get_turf(src)
 	occupied = FALSE
 	meat = 0
 	meat_type = initial(meat_type)
-	to_chat(user, "You remove [victim_name] from \the [src].")	
+	to_chat(user, "You remove [victim_name] from \the [src].")
 	icon_state = initial(icon_state)
 
 /obj/structure/kitchenspike/attackby(obj/item/I, mob/living/carbon/human/user)
@@ -106,19 +102,19 @@
 				to_chat(user, SPAN_NOTICE("You feel your [user.species.name]ity shrivel as you cut a slab off \the [src]")) // Human-ity , Monkey-ity , Slime-Ity
 		else
 			tearing = FALSE
-	
+
 	else if (tool_type == QUALITY_BOLT_TURNING)
 		if (!occupied)
 			if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_EASY, required_stat = STAT_MEC))
 				user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."),SPAN_NOTICE("You dismantle \the [src]."))
-				new /obj/item/stack/rods(src.loc, 3)
+				new /obj/item/stack/rods(loc, 3)
 				qdel(src)
 			return
 		else
 			to_chat(user, SPAN_DANGER(" \The [src] has something on it, remove it first!"))
 			return
 
-	else 
+	else
 		return ..()
 
 /obj/structure/kitchenspike/examine(mob/user, distance, infix, suffix)

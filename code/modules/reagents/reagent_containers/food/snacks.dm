@@ -25,64 +25,66 @@
 
 	var/sanity_gain = 0.2 //per nutriment
 	var/junk_food = FALSE //if TRUE, sanity gain per nutriment will be zero
-	var/cooked = FALSE
+	var/cooked = FALSE // if TRUE, this food item will provide sanity_gain_per_bite and fulfill desire requirements
 	var/list/taste_tag = list(BLAND_FOOD)
+
+	price_tag = 25
 
 /obj/item/reagent_containers/food/snacks/Initialize()
 	. = ..()
 	if(nutriment_amt)
 		reagents.add_reagent("nutriment", nutriment_amt, nutriment_desc)
 
-/obj/item/reagent_containers/food/snacks/proc/get_sanity_gain(mob/living/carbon/eater) //sanity_gain Per bite
+/obj/item/reagent_containers/food/snacks/proc/get_sanity_gain(mob/living/carbon/eater) //sanity_gain per bite
 	var/current_nutriment = reagents.get_reagent_amount("nutriment")
 	var/nutriment_percent = current_nutriment/reagents.total_volume
 	var/nutriment_eaten = min(reagents.total_volume, bitesize) * nutriment_percent
-	var/base_sanity_gain_pb = nutriment_eaten * sanity_gain
+	var/base_sanity_gain_per_bite = nutriment_eaten * sanity_gain
 	var/message
 	if(!iscarbon(eater))
 		return  list(0, message)
 	if(eater.nutrition > eater.max_nutrition*0.95)
-		message = "You are satisfied and you don't need to eat more."
+		message = "You are satisfied and don't need to eat any more."
 		return  list(0, SPAN_WARNING(message))
-	if(!base_sanity_gain_pb)
+	if(!base_sanity_gain_per_bite)
 		message = "This food does not help calm your nerves."
 		return  list(0, SPAN_WARNING(message))
-	var/sanity_gain_pb = base_sanity_gain_pb
-	message = "Food helps you relax."
+	var/sanity_gain_per_bite = base_sanity_gain_per_bite
+	message = "This food helps you relax."
 	if(cooked)
-		sanity_gain_pb += base_sanity_gain_pb * 0.2
+		sanity_gain_per_bite += base_sanity_gain_per_bite * 0.2
 	if(junk_food || !cooked)
-		message += " But, only healthy food helps you grow."
-		return  list(sanity_gain_pb, SPAN_NOTICE(message))
+		message += " However, only healthy food will help you rest."
+		return  list(sanity_gain_per_bite, SPAN_NOTICE(message))
 	var/table = FALSE
 	var/companions = FALSE
 	var/view_death = FALSE
-	for(var/C in circleview(eater, 3))
-		if(istype(C, /obj/structure/table))
-			if(!in_range(C, eater) || table)
+	for(var/carbon in circleview(eater, 3))
+		if(istype(carbon, /obj/structure/table))
+			if(!in_range(carbon, eater) || table)
 				continue
 			table = TRUE
 			message += " Eating is more comfortable using a table."
-			sanity_gain_pb += base_sanity_gain_pb * 0.1
+			sanity_gain_per_bite += base_sanity_gain_per_bite * 0.1
 
-		else if(ishuman(C))
-			var/mob/living/carbon/human/H = C
-			if(H == eater)
+		else if(ishuman(carbon))
+			var/mob/living/carbon/human/human = carbon
+			if(human == eater)
 				continue
-			if(H.is_dead())
+			if(human.is_dead())
 				view_death = TRUE
 			companions = TRUE
 	if(companions)
-		sanity_gain_pb += base_sanity_gain_pb * 0.3
-		message += " The company make the food taste much better."
+		sanity_gain_per_bite += base_sanity_gain_per_bite * 0.3
+		message += " The food tastes much better in the company of others."
 		if(view_death && !eater.stats.getPerk(PERK_NIHILIST))
-			message = "You gaze at the cadaver... Your food doesn't taste so good anymore."
-			sanity_gain_pb = 0
-			return list(sanity_gain_pb, SPAN_WARNING(message))
+			message = "Your gaze falls on the cadaver. Your food doesn't taste so good anymore."
+			sanity_gain_per_bite = 0
+			return list(sanity_gain_per_bite, SPAN_WARNING(message))
 
-	return list(sanity_gain_pb, SPAN_NOTICE(message))
+	return list(sanity_gain_per_bite, SPAN_NOTICE(message))
 
-	//Placeholder for effect that trigger on eating that aren't tied to reagents.
+	//Placeholder for effect that triggers on eating that isn't tied to reagents.
 /obj/item/reagent_containers/food/snacks/proc/On_Consume(mob/eater, mob/feeder = null)
 	if(!reagents.total_volume)
 		eater.visible_message(
@@ -96,11 +98,11 @@
 
 		if(trash)
 			if(ispath(trash,/obj/item))
-				var/obj/item/TrashItem = new trash(feeder)
+				var/obj/item/trash_item = new trash(feeder)
 				if(isanimal(feeder))
-					TrashItem.forceMove(loc)
+					trash_item.forceMove(loc)
 				else
-					feeder.put_in_hands(TrashItem)
+					feeder.put_in_hands(trash_item)
 			else if(istype(trash,/obj/item))
 				feeder.put_in_hands(trash)
 		qdel(src)
@@ -108,76 +110,76 @@
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user as mob)
 	return
 
-/obj/item/reagent_containers/food/snacks/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/reagent_containers/food/snacks/attack(mob/mob as mob, mob/user as mob, def_zone)
 	if(!reagents.total_volume)
 		to_chat(user, SPAN_DANGER("None of [src] left!"))
 		user.drop_from_inventory(src)
 		qdel(src)
 		return 0
 
-	if(iscarbon(M))
+	if(iscarbon(mob))
 		//TODO: replace with standard_feed_mob() call.
-		var/mob/living/carbon/C = M
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/carbon = mob
+		var/mob/living/carbon/human/human = mob
 		var/fullness_modifier = 1
-		if(istype(H))
-			fullness_modifier = 100 / H.get_organ_efficiency(OP_STOMACH)
-		var/fullness = (C.nutrition + (C.reagents.get_reagent_amount("nutriment") * 25)) * fullness_modifier
-		if(C == user)								//If you're eating it yourself
-			if(istype(H))
-				if(!H.check_has_mouth())
-					to_chat(user, "Where do you intend to put \the [src]? You don't have a mouth!")
+		if(istype(human))
+			fullness_modifier = 100 / human.get_organ_efficiency(OP_STOMACH)
+		var/fullness = (carbon.nutrition + (carbon.reagents.get_reagent_amount("nutriment") * 25)) * fullness_modifier
+		if(carbon == user)								//If you're eating it yourself
+			if(istype(human))
+				if(!human.check_has_mouth())
+					to_chat(user, "You cannot eat \the [src] without a mouth.")
 					return
-				var/obj/item/blocked = H.check_mouth_coverage()
+				var/obj/item/blocked = human.check_mouth_coverage()
 				if(blocked)
 					to_chat(user, SPAN_WARNING("\The [blocked] is in the way!"))
 					return
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //puts a limit on how fast people can eat/drink things
 			if (fullness <= 50)
-				to_chat(C, SPAN_DANGER("You hungrily chew out a piece of [src] and gobble it!"))
+				to_chat(carbon, SPAN_DANGER("You hungrily devour a piece of [src]."))
 			if (fullness > 50 && fullness <= 150)
-				to_chat(C, SPAN_NOTICE("You hungrily begin to eat [src]."))
+				to_chat(carbon, SPAN_NOTICE("You hungrily begin to eat [src]."))
 			if (fullness > 150 && fullness <= 350)
-				to_chat(C, SPAN_NOTICE("You take a bite of [src]."))
+				to_chat(carbon, SPAN_NOTICE("You take a bite of [src]."))
 			if (fullness > 350 && fullness <= 550)
-				to_chat(C, SPAN_NOTICE("You unwillingly chew a bit of [src]."))
+				to_chat(carbon, SPAN_NOTICE("You unwillingly chew a bit of [src]."))
 			if (fullness > 550)
-				to_chat(C, SPAN_DANGER("You cannot force any more of [src] to go down your throat."))
+				to_chat(carbon, SPAN_DANGER("You cannot force any more of [src] to go down your throat."))
 				return 0
 		else
-			if(!M.can_force_feed(user, src))
+			if(!mob.can_force_feed(user, src))
 				return
 
 			if (fullness <= 550)
-				user.visible_message(SPAN_DANGER("[user] attempts to feed [M] [src]."))
+				user.visible_message(SPAN_DANGER("[user] attempts to feed [mob] [src]."))
 			else
-				user.visible_message(SPAN_DANGER("[user] cannot force anymore of [src] down [M]'s throat."))
+				user.visible_message(SPAN_DANGER("[user] cannot force anymore of [src] down [mob]'s throat."))
 				return 0
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			if(!do_mob(user, M)) return
+			if(!do_mob(user, mob)) return
 
-			M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [src.name] by [user.name] ([user.ckey]) Reagents: [reagents.log_list()]</font>")
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [src.name] by [M.name] ([M.ckey]) Reagents: [reagents.log_list()]</font>")
-			msg_admin_attack("[key_name(user)] fed [key_name(M)] with [src.name] Reagents: [reagents.log_list()] (INTENT: [uppertext(user.a_intent)])")
+			mob.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [src.name] by [user.name] ([user.ckey]) Reagents: [reagents.log_list()]</font>")
+			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [src.name] by [mob.name] ([mob.ckey]) Reagents: [reagents.log_list()]</font>")
+			msg_admin_attack("[key_name(user)] fed [key_name(mob)] with [src.name] Reagents: [reagents.log_list()] (INTENT: [uppertext(user.a_intent)])")
 
-			user.visible_message(SPAN_DANGER("[user] feeds [M] [src]."))
+			user.visible_message(SPAN_DANGER("[user] feeds [mob] [src]."))
 
 		if(reagents)			//Handle ingestion of the reagent.
-			playsound(M.loc,pick(M.eat_sounds), rand(10,50), 1)
+			playsound(mob.loc,pick(mob.eat_sounds), rand(10,50), 1)
 			if(reagents.total_volume)
 				var/amount_eaten = min(reagents.total_volume, bitesize)
-				var/list/sanity_vars = get_sanity_gain(M)
-				reagents.trans_to_mob(M, amount_eaten, CHEM_INGEST)
-				if(istype(H))
-					H.sanity.onEat(src, sanity_vars[1], sanity_vars[2])
+				var/list/sanity_vars = get_sanity_gain(mob)
+				reagents.trans_to_mob(mob, amount_eaten, CHEM_INGEST)
+				if(istype(human))
+					human.sanity.onEat(src, sanity_vars[1], sanity_vars[2])
 				bitecount++
-				On_Consume(M, user)
+				On_Consume(mob, user)
 			return 1
 
-	else if (isanimal(M))
-		var/mob/living/simple_animal/SA = M
+	else if (isanimal(mob))
+		var/mob/living/simple_animal/SA = mob
 		SA.scan_interval = SA.min_scan_interval//Feeding an animal will make it suddenly care about food
 
 		var/m_bitesize = bitesize * SA.bite_factor//Modified bitesize based on creature size
@@ -186,7 +188,10 @@
 		if(reagents && SA.reagents)
 			m_bitesize = min(m_bitesize, reagents.total_volume)
 			//If the creature can't even stomach half a bite, then it eats nothing
-			if (!SA.can_eat() || ((user.reagents.maximum_volume - user.reagents.total_volume) < m_bitesize * 0.5))
+			if (!SA.eat_from_hand)
+				to_chat(user, SPAN_WARNING("[mob] doesn't accept hand-feeding."))
+				return 0
+			else if (!SA.can_eat() || ((user.reagents.maximum_volume - user.reagents.total_volume) < m_bitesize * 0.5))
 				amount_eaten = 0
 			else
 				amount_eaten = reagents.trans_to_mob(SA, m_bitesize, CHEM_INGEST)
@@ -194,18 +199,18 @@
 			return 0//The target creature can't eat
 
 		if (amount_eaten)
-			playsound(M.loc,pick(M.eat_sounds), rand(10,30), 1)
+			playsound(mob.loc,pick(mob.eat_sounds), rand(10,30), 1)
 			bitecount++
 			if (amount_eaten >= m_bitesize)
-				user.visible_message(SPAN_NOTICE("[user] feeds [src] to [M]."))
+				user.visible_message(SPAN_NOTICE("[user] feeds [src] to [mob]."))
 			else
-				user.visible_message(SPAN_NOTICE("[user] feeds [M] a tiny bit of [src]. <b>It looks full.</b>"))
-				if (!istype(M.loc, /turf))
-					to_chat(M, SPAN_NOTICE("[user] feeds you a tiny bit of [src]. <b>You feel pretty full!</b>"))
-			On_Consume(M, user)
+				user.visible_message(SPAN_NOTICE("[user] feeds [mob] a tiny bit of [src]. <b>It looks full.</b>"))
+				if (!istype(mob.loc, /turf))
+					to_chat(mob, SPAN_NOTICE("[user] feeds you a tiny bit of [src]. <b>You feel pretty full!</b>"))
+			On_Consume(mob, user)
 			return 1
 		else
-			to_chat(user, SPAN_WARNING("[M.name] can't stomach anymore food!"))
+			to_chat(user, SPAN_WARNING("[mob.name] can't stomach anymore food!"))
 
 	return 0
 
@@ -213,17 +218,17 @@
 	if(!..(user, 1))
 		return
 	if(junk_food)
-		to_chat(user, SPAN_WARNING("\The [src] is a junk food!"))  //OCCULUS EDIT - Grammar fixes
+		to_chat(user, SPAN_WARNING("\The [src] is junk food."))
 	else if(taste_tag.len)
-		to_chat(user, SPAN_NOTICE("\The [src] tastes like [english_list(taste_tag)]")) //OCCULUS EDIT - Grammar fixes
+		to_chat(user, SPAN_NOTICE("\The [src] tastes like [english_list(taste_tag)]."))
 	if (bitecount==0)
 		return
 	else if (bitecount==1)
-		to_chat(user, SPAN_NOTICE("\The [src] was bitten by someone!"))
+		to_chat(user, SPAN_NOTICE("\The [src] was bitten by someone."))
 	else if (bitecount<=3)
-		to_chat(user, SPAN_NOTICE("\The [src] was bitten [bitecount] time\s!"))
+		to_chat(user, SPAN_NOTICE("\The [src] was bitten [bitecount] time\s."))
 	else
-		to_chat(user, SPAN_NOTICE("\The [src] was bitten multiple times!"))
+		to_chat(user, SPAN_NOTICE("\The [src] was bitten several times."))
 
 /obj/item/reagent_containers/food/snacks/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/storage))
@@ -232,28 +237,28 @@
 
 	// Eating with forks
 	if(istype(W,/obj/item/material/kitchen/utensil))
-		var/obj/item/material/kitchen/utensil/U = W
-		if(U.scoop_food)
-			if(!U.reagents)
-				U.create_reagents(5)
+		var/obj/item/material/kitchen/utensil/utensil = W
+		if(utensil.scoop_food)
+			if(!utensil.reagents)
+				utensil.create_reagents(5)
 
-			if (U.reagents.total_volume > 0)
-				to_chat(user, SPAN_WARNING("You already have something on your [U]."))
+			if (utensil.reagents.total_volume > 0)
+				to_chat(user, SPAN_WARNING("You already have something on your [utensil]."))
 				return
 
 			user.visible_message( \
-				"\The [user] scoops up some [src] with \the [U]!", \
-				SPAN_NOTICE("You scoop up some [src] with \the [U]!") \
+				"\The [user] scoops up some [src] with \the [utensil]!", \
+				SPAN_NOTICE("You scoop up some [src] with \the [utensil]!") \
 			)
 
 			src.bitecount++
-			U.cut_overlays()
-			U.loaded = "[src]"
-			var/image/I = new(U.icon, "loadedfood")
-			I.color = src.filling_color
-			U.add_overlays(I)
+			utensil.overlays.Cut()
+			utensil.loaded = "[src]"
+			var/image/image = new(utensil.icon, "loadedfood")
+			image.color = src.filling_color
+			utensil.overlays += image
 
-			reagents.trans_to_obj(U, min(reagents.total_volume,5))
+			reagents.trans_to_obj(utensil, min(reagents.total_volume,5))
 
 			if (reagents.total_volume <= 0)
 				qdel(src)
@@ -265,12 +270,9 @@
 		var/hide_item = !has_edge(W) || !can_slice_here
 
 		if (hide_item)
-			var/illegal_item = FALSE // is used to allow for checks that need type definitions
-			if (ishuman(user))
-				var/mob/living/carbon/human/attached_to = user
-				if (attached_to.is_item_attached(W)) // checks if the item is an implant
-					illegal_item = TRUE
-			if (W.w_class >= src.w_class || is_robot_module(W) || illegal_item)
+			if(!user.canUnEquip(W))
+				return
+			if (W.w_class >= src.w_class || is_robot_module(W))
 				return
 
 			to_chat(user, SPAN_WARNING("You slip \the [W] inside \the [src]."))
@@ -282,15 +284,15 @@
 
 		if (has_edge(W))
 			if (!can_slice_here)
-				to_chat(user, SPAN_WARNING("You cannot slice \the [src] here! You need a table or at least a tray to do it."))
+				to_chat(user, SPAN_WARNING("You cannot slice \the [src] here; you need a table or a tray."))
 				return
 
 			var/slices_lost = 0
 			if (W.w_class > ITEM_SIZE_NORMAL)
-				user.visible_message(SPAN_NOTICE("\The [user] crudely slices \the [src] with [W]!"), SPAN_NOTICE("You crudely slice \the [src] with your [W]!"))
+				user.visible_message(SPAN_NOTICE("\The [user] crudely slices \the [src] with [W]."), SPAN_NOTICE("You crudely slice \the [src] with your [W]."))
 				slices_lost = rand(1,min(1,round(slices_num/2)))
 			else
-				user.visible_message(SPAN_NOTICE("\The [user] slices \the [src]!"), SPAN_NOTICE("You slice \the [src]!"))
+				user.visible_message(SPAN_NOTICE("\The [user] slices \the [src]."), SPAN_NOTICE("You slice \the [src]."))
 
 			var/reagents_per_slice = reagents.total_volume/slices_num
 			for(var/i=1 to (slices_num-slices_lost))
@@ -312,7 +314,7 @@
 /// FOOD END
 ////////////////////////////////////////////////////////////////////////////////
 /obj/item/reagent_containers/food/snacks/attack_generic(var/mob/living/user)
-	if(!isanimal(user) && !isalien(user))
+	if(!isanimal(user))
 		return
 
 	var/amount_eaten = bitesize
@@ -323,7 +325,7 @@
 		m_bitesize = bitesize * SA.bite_factor//Modified bitesize based on creature size
 		amount_eaten = m_bitesize
 		if (!SA.can_eat())
-			to_chat(user, "<span class='danger'>You're too full to eat anymore!</span>")
+			to_chat(user, "<span class='danger'>You're too full to eat anymore.</span>")
 			return
 
 	if(reagents && user.reagents)
@@ -339,11 +341,11 @@
 		shake_animation(5)
 		bitecount++
 		if (amount_eaten < m_bitesize)
-			to_chat(user, SPAN_NOTICE("You reluctantly nibble a tiny part of \the [src]. <b>You can't stomach much more!</b>."))
+			to_chat(user, SPAN_NOTICE("You reluctantly nibble a tiny part of \the [src]. <b>You can't stomach much more.</b>."))
 		else
 			to_chat(user, SPAN_NOTICE("You nibble away at \the [src]."))
 	else
-		to_chat(user, "<span class='danger'>You're too full to eat anymore!</span>")
+		to_chat(user, "<span class='danger'>You're too full to eat anymore.</span>")
 
 	spawn(5)
 		if(!src && !user.client)
@@ -369,7 +371,7 @@
 
 //Here is an example of the new formatting for anyone who wants to add more food items.
 ///obj/item/reagent_containers/food/snacks/xenoburger		//Identification path for the object.
-//	name = "Xenoburger"												//Name that displays in the UI.
+//	name = "xenoburger"												//Name that displays in the UI.
 //	desc = "Smells caustic. Tastes like heresy."					//Duh
 //	icon_state = "xburger"											//Refers to an icon in food.dmi
 //	bitesize = 3													//This is the amount each bite consumes.
@@ -379,8 +381,8 @@
 
 
 /obj/item/reagent_containers/food/snacks/aesirsalad
-	name = "Aesir salad"
-	desc = "Probably too incredible for mortal men to fully enjoy."
+	name = "aesir salad"
+	desc = "A salad too incredible for mortal men to fully enjoy."
 	icon_state = "aesirsalad"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#468C00"
@@ -393,8 +395,8 @@
 	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/shokoloud
-	name = "Shokoloud chocolate bar"
-	desc = "Dark chocolate, love it or hate it."
+	name = "shokoloud bar"
+	desc = "A bar of dark chocolate. Strangely polarizing."
 	icon_state = "shokoloud"
 	trash = /obj/item/trash/shokoloud
 	open = FALSE
@@ -410,7 +412,7 @@
 
 /obj/item/reagent_containers/food/snacks/candy_corn
 	name = "candy corn"
-	desc = "It's a handful of candy corn. Cannot be stored in a detective's hat, alas."
+	desc = "A handful of candy corn. Alas, it cannot be stored in a detective's hat."
 	icon_state = "candy_corn"
 	filling_color = "#FFFCB0"
 	bitesize = 2
@@ -446,8 +448,8 @@
 	taste_tag = list(SWEET_FOOD)
 
 /obj/item/reagent_containers/food/snacks/chocolatebar
-	name = "Chocolate Bar"
-	desc = "Such sweet, fattening food."
+	name = "chocolate bar"
+	desc = "Such a sweet, fattening food."
 	icon_state = "chocolatebar"
 	filling_color = "#7D5F46"
 	bitesize = 2
@@ -455,11 +457,13 @@
 	nutriment_amt = 2
 	nutriment_desc = list("chocolate" = 5)
 	preloaded_reagents = list("sugar" = 2, "coco" = 2)
+	junk_food = TRUE
+	cooked = TRUE
 	taste_tag = list(SWEET_FOOD, COCO_FOOD)
 
 /obj/item/reagent_containers/food/snacks/chocolateegg
-	name = "Chocolate Egg"
-	desc = "Such sweet, fattening food."
+	name = "chocolate egg"
+	desc = "Such a sweet, fattening food."
 	icon_state = "chocolateegg"
 	filling_color = "#7D5F46"
 	bitesize = 2
@@ -481,7 +485,6 @@
 
 /obj/item/reagent_containers/food/snacks/donut/normal
 	name = "donut"
-	desc = "Goes great with Robust Coffee."
 	icon_state = "donut1"
 	bitesize = 3
 	nutriment_amt = 3
@@ -497,7 +500,7 @@
 			center_of_mass = list("x"=19, "y"=16)
 
 /obj/item/reagent_containers/food/snacks/donut/chaos
-	name = "Chaos Donut"
+	name = "chaos donut"
 	desc = "Like life, it never quite tastes the same."
 	icon_state = "donut1"
 	filling_color = "#ED11E6"//Occulus Edit
@@ -531,12 +534,12 @@
 		if(prob(30))
 			src.icon_state = "donut2"
 			src.overlay_state = "box-donut2"
-			src.name = "Frosted Chaos Donut"
+			src.name = "frosted chaos donut"
 			reagents.add_reagent("sprinkles", 2)
 
 
 /obj/item/reagent_containers/food/snacks/donut/jelly
-	name = "Jelly Donut"
+	name = "jelly donut"
 	desc = "You jelly?"
 	icon_state = "jdonut1"
 	filling_color = "#C99528"//Occulus Edit
@@ -550,11 +553,11 @@
 			filling_color = "#E57D9A"//Occulus Edit
 			src.icon_state = "jdonut2"
 			src.overlay_state = "box-donut2"
-			src.name = "Frosted Jelly Donut"
+			src.name = "frosted jelly donut"
 			reagents.add_reagent("sprinkles", 2)
 
 /obj/item/reagent_containers/food/snacks/donut/slimejelly
-	name = "Jelly Donut"
+	name = "jelly donut"
 	desc = "You jelly?"
 	icon_state = "jdonut1"
 	filling_color = "#C99528"//Occulus Edit
@@ -568,11 +571,11 @@
 			filling_color = "#E57D9A"//Occulus Edit
 			src.icon_state = "jdonut2"
 			src.overlay_state = "box-donut2"
-			src.name = "Frosted Jelly Donut"
+			src.name = "frosted jelly donut"
 			reagents.add_reagent("sprinkles", 2)
 
 /obj/item/reagent_containers/food/snacks/donut/cherryjelly
-	name = "Jelly Donut"
+	name = "jelly donut"
 	desc = "You jelly?"
 	icon_state = "jdonut1"
 	filling_color = "#C99528"//Occulus Edit
@@ -586,17 +589,17 @@
 			filling_color = "#E57D9A"//Occulus Edit
 			src.icon_state = "jdonut2"
 			src.overlay_state = "box-donut2"
-			src.name = "Frosted Jelly Donut"
+			src.name = "frosted jelly donut"
 			reagents.add_reagent("sprinkles", 2)
 
 /obj/item/reagent_containers/food/snacks/donut/stat_buff
-	name = "Masterpiece Donut"
-	desc = "The taste you will never forget."
+	name = "masterpiece donut"
+	desc = "A taste you will never forget."
 	filling_color = "#ED1169"
 	bitesize = 5
 	center_of_mass = list("x"=16, "y"=11)
 	var/list/stats_buff = list()
-	var/buff_power = 6
+	var/buff_power = 10
 	price_tag = 500
 	var/buff_time = 20 MINUTES
 	nutriment_amt = 3
@@ -614,8 +617,8 @@
 			to_chat(eater, SPAN_NOTICE("Your knowledge of [stat] are increased for a short period of time. Make use of it."))
 
 /obj/item/reagent_containers/food/snacks/donut/stat_buff/mec
-	name = "Yellow Masterpiece Donut"
-	desc = "The sour citrus flavor you will never forget. A choice sweet of mechanics."
+	name = "yellow masterpiece donut"
+	desc = "A sour citrus flavor you will never forget. The first choice of mechanics."
 	icon_state = "donut_mec"
 	overlay_state = "donut_mec_c"
 	stats_buff = list(STAT_MEC)
@@ -623,16 +626,16 @@
 	filling_color = "#DEC128"//Occulus Edit
 
 /obj/item/reagent_containers/food/snacks/donut/stat_buff/cog
-	name = "Purple Masterpiece Donut"
-	desc = "The too-sweet artificial grape taste you will never forget. An intellectual's favorite."
+	name = "purple masterpiece donut"
+	desc = "A sickeningly sweet grape flavor you will never forget. An intellectual's favorite."
 	icon_state = "donut_cog"
 	overlay_state = "donut_cog_c"
 	stats_buff = list(STAT_COG)
 	filling_color = "#995ADD"//Occulus Edit
 
 /obj/item/reagent_containers/food/snacks/donut/stat_buff/bio
-	name = "Green Masterpiece Donut"
-	desc = "The fresh spearmint flavor you will never forget. Perfect for an immaculate doctor."
+	name = "green masterpiece donut"
+	desc = "A spearmint scalpel that cuts through the tongue. You will never forget the flavor. Perfect for the busy doctor."
 	icon_state = "donut_bio"
 	overlay_state = "donut_bio_c"
 	stats_buff = list(STAT_BIO)
@@ -640,7 +643,7 @@
 	filling_color = "#6ABE30"//Occulus Edit
 
 /obj/item/reagent_containers/food/snacks/donut/stat_buff/rob
-	name = "Brown Masterpiece Donut"
+	name = "brown masterpiece donut"
 	desc = "A near-chocolate taste you will never forget. A robust flavor for the strong."
 	icon_state = "donut_rob"
 	overlay_state = "donut_rob_c"
@@ -649,15 +652,15 @@
 	filling_color = "#582D18"//Occulus Edit
 
 /obj/item/reagent_containers/food/snacks/donut/stat_buff/tgh
-	name = "Cream Masterpiece Donut"
-	desc = "The classic donut flavor you will never forget. Specially panders to tough people."
+	name = "cream masterpiece donut"
+	desc = "A classic donut flavor you will never forget. Specifically panders to tough people."
 	icon_state = "donut_tgh"
 	overlay_state = "donut_tgh_c"
 	stats_buff = list(STAT_TGH)
 	filling_color = "#E6C37A"//Occulus Edit
 
 /obj/item/reagent_containers/food/snacks/donut/stat_buff/vig
-	name = "Blue Masterpiece Donut"
+	name = "blue masterpiece donut"
 	desc = "A tart blueberry taste you will never forget. A go-to choice for the vigilant watchman."
 	icon_state = "donut_vig"
 	overlay_state = "donut_vig_c"
@@ -667,12 +670,13 @@
 
 /obj/item/reagent_containers/food/snacks/egg
 	name = "egg"
-	desc = "An egg!"
+	desc = "An egg."
 	icon_state = "egg"
 	filling_color = "#FDFFD1"
 	volume = 10
 	center_of_mass = list("x"=16, "y"=13)
 	preloaded_reagents = list("egg" = 3)
+	price_tag = 5
 
 /obj/item/reagent_containers/food/snacks/egg/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(istype(O,/obj/machinery/microwave))
@@ -696,8 +700,8 @@
 
 /obj/item/reagent_containers/food/snacks/egg/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype( W, /obj/item/pen/crayon ))
-		var/obj/item/pen/crayon/C = W
-		var/clr = C.colourName
+		var/obj/item/pen/crayon/crayon = W
+		var/clr = crayon.colourName
 		if(!(clr in list("blue","green","mime","orange","purple","rainbow","red","yellow")))
 			to_chat(usr, SPAN_NOTICE("The egg refuses to take on this color!"))
 			return
@@ -731,8 +735,8 @@
 	icon_state = "egg-yellow"
 
 /obj/item/reagent_containers/food/snacks/friedegg
-	name = "Fried egg"
-	desc = "A fried egg, with a touch of salt and pepper."
+	name = "fried egg"
+	desc = "A fried egg with a touch of salt and pepper."
 	icon_state = "friedegg"
 	filling_color = "#FFDF78"
 	bitesize = 1
@@ -741,7 +745,7 @@
 	cooked = TRUE
 	taste_tag = list(SALTY_FOOD,SPICY_FOOD)
 /obj/item/reagent_containers/food/snacks/boiledegg
-	name = "Boiled egg"
+	name = "boiled egg"
 	desc = "A hard boiled egg."
 	icon_state = "egg"
 	filling_color = "#FFFFFF"
@@ -749,7 +753,7 @@
 	taste_tag = list(BLAND_FOOD)
 
 /obj/item/reagent_containers/food/snacks/tofu
-	name = "Tofu"
+	name = "tofu"
 	icon_state = "tofu"
 	desc = "We all love tofu."
 	filling_color = "#FFFEE0"
@@ -760,8 +764,8 @@
 	taste_tag = list(VEGETARIAN_FOOD, BLAND_FOOD)
 
 /obj/item/reagent_containers/food/snacks/tofurkey
-	name = "Tofurkey"
-	desc = "A fake turkey made from tofu."
+	name = "tofurkey"
+	desc = "An imitation turkey made from tofu."
 	icon_state = "tofurkey"
 	filling_color = "#FFFEE0"
 	bitesize = 3
@@ -773,8 +777,8 @@
 	taste_tag = list(VEGETARIAN_FOOD,VEGAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/stuffing
-	name = "Stuffing"
-	desc = "Moist, peppery breadcrumbs for filling the body cavities of dead birds. Dig in!"
+	name = "stuffing"
+	desc = "Moist, peppery breadcrumbs for filling in the body cavities of dead birds. Dig in!"
 	icon_state = "stuffing"
 	filling_color = "#C9AC83"
 	bitesize = 1
@@ -784,7 +788,7 @@
 	taste_tag = list(MEAT_FOOD)
 
 /obj/item/reagent_containers/food/snacks/fishfingers
-	name = "Fish Fingers"
+	name = "fish fingers"
 	desc = "A finger of fish."
 	icon_state = "fishfingers"
 	filling_color = "#FFDEFE"
@@ -808,7 +812,7 @@
 
 /obj/item/reagent_containers/food/snacks/tomatomeat
 	name = "tomato slice"
-	desc = "A slice from a huge tomato"
+	desc = "A slice from a huge tomato."
 	icon_state = "tomatomeat"
 	filling_color = "#DB0000"
 	bitesize = 6
@@ -828,7 +832,7 @@
 	taste_tag = list(MEAT_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sausage
-	name = "Sausage"
+	name = "sausage"
 	desc = "A piece of mixed, long meat."
 	icon_state = "sausage"
 	filling_color = "#DB0000"
@@ -838,8 +842,8 @@
 	taste_tag = list(MEAT_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/donkpocket
-	name = "Donk-pocket"
-	desc = "The food of choice for the seasoned traitor."
+	name = "donk-pocket"
+	desc = "The food of choice for the seasoned contractor."
 	icon_state = "donkpocket"
 	filling_color = "#DEDEAB"
 	center_of_mass = list("x"=16, "y"=10)
@@ -854,7 +858,7 @@
 		for(var/reagent in heated_reagents)
 			reagents?.add_reagent(reagent, heated_reagents[reagent])
 		bitesize = 6
-		name = "Warm " + name
+		name = "warm " + name
 		cooltime()
 
 	proc/cooltime()
@@ -868,7 +872,7 @@
 							src.reagents.del_reagent(reagent)
 
 /obj/item/reagent_containers/food/snacks/donkpocket/sinpocket
-	name = "\improper Sin-pocket"
+	name = "\improper sin-pocket"
 	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
 	filling_color = "#6D6D00"
 	heated_reagents = list("doctorsdelight" = 5, "hyperzine" = 1)
@@ -940,7 +944,7 @@
 	taste_tag = list(MEAT_FOOD)
 
 /obj/item/reagent_containers/food/snacks/fishburger
-	name = "Fillet -o- Carp Sandwich"
+	name = "fillet -o- carp sandwich"
 	desc = "Almost like a carp is yelling somewhere... Give me back that fillet -o- carp, give me that carp."
 	icon_state = "fishburger"
 	filling_color = "#FFDEFE"
@@ -951,7 +955,7 @@
 	taste_tag = list(MEAT_FOOD) //fish taste would be nice here. but fish is something hard to get
 
 /obj/item/reagent_containers/food/snacks/tofuburger
-	name = "Tofu Burger"
+	name = "tofu burger"
 	desc = "What.. is that meat?"
 	icon_state = "tofuburger"
 	filling_color = "#FFFEE0"
@@ -1006,7 +1010,7 @@
 	taste_tag = list(INSECTS_FOOD)
 
 /obj/item/reagent_containers/food/snacks/clownburger
-	name = "Clown Burger"
+	name = "clown burger"
 	desc = "This tastes funny..."
 	icon_state = "clownburger"
 	filling_color = "#FF00FF"
@@ -1016,7 +1020,7 @@
 	nutriment_amt = 6
 
 /obj/item/reagent_containers/food/snacks/mimeburger
-	name = "Mime Burger"
+	name = "mime burger"
 	desc = "Its taste defies language."
 	icon_state = "mimeburger"
 	filling_color = "#FFFFFF"
@@ -1026,7 +1030,7 @@
 	nutriment_amt = 6
 
 /obj/item/reagent_containers/food/snacks/kampferburger
-	name = "Kampfer Burger"
+	name = "kampfer burger"
 	desc = "Tasty but it's a bit of a struggle to get it down"
 	icon_state = "kampferburger"
 	bitesize = 1
@@ -1036,9 +1040,10 @@
 	preloaded_reagents = list("protein" = 4)
 	cooked = TRUE
 	taste_tag = list(INSECTS_FOOD,MEAT_FOOD)
+	price_tag = 250
 
 /obj/item/reagent_containers/food/snacks/panzerburger
-	name = "Panzer Burger"
+	name = "panzer burger"
 	desc = "Surprisingly heavy but seems to be made up of mostly shell"
 	icon_state = "panzerburger"
 	bitesize = 3
@@ -1048,8 +1053,10 @@
 	preloaded_reagents = list("protein" = 8)
 	cooked = TRUE
 	taste_tag = list(INSECTS_FOOD,MEAT_FOOD)
+	price_tag = 350
+
 /obj/item/reagent_containers/food/snacks/jagerburger
-	name = "Jager Burger"
+	name = "jager burger"
 	desc = "The hunter becomes the hunted"
 	icon_state = "jagerburger"
 	bitesize = 2
@@ -1059,8 +1066,10 @@
 	preloaded_reagents = list("protein" = 6)
 	cooked = TRUE
 	taste_tag = list(INSECTS_FOOD,MEAT_FOOD)
+	price_tag = 350
+
 /obj/item/reagent_containers/food/snacks/seucheburger
-	name = "Seuche Burger"
+	name = "seuche burger"
 	desc = "The Burger that anti vaxxers love"
 	icon_state = "seucheburger"
 	bitesize = 2
@@ -1070,8 +1079,10 @@
 	preloaded_reagents = list("protein" = 4)
 	cooked = TRUE
 	taste_tag = list(INSECTS_FOOD,MEAT_FOOD)
+	price_tag = 350
+
 /obj/item/reagent_containers/food/snacks/bigroachburger
-	name = "Big Roach Burger"
+	name = "big roach burger"
 	desc = "Delicious finally some good food"
 	icon_state = "bigroachburger"
 	bitesize = 3
@@ -1081,16 +1092,85 @@
 	preloaded_reagents = list("protein" = 8)
 	cooked = TRUE
 	taste_tag = list(INSECTS_FOOD,MEAT_FOOD)
+	price_tag = 1000
 
 /obj/item/reagent_containers/food/snacks/fuhrerburger
-	name = "Fuhrer Burger"
+	name = "fuhrer burger"
 	desc = "Its inability to take criticism makes this  one of the worst tasting burgers in existence"
 	icon_state = "fuhrerburger"
 	bitesize = 3
 	center_of_mass = list("x"=16, "y"=11)
 	nutriment_desc = list("bun" = 2)
 	nutriment_amt = 3
-	preloaded_reagents = list("protein" = 8, "Fuhrole" = 3)
+	preloaded_reagents = list("protein" = 8, "fuhrerole" = 3)
+	cooked = TRUE
+	taste_tag = list(INSECTS_FOOD,MEAT_FOOD)
+	price_tag = 1000
+
+/obj/item/reagent_containers/food/snacks/kaiserburger
+	name = "kaiser burger"
+	desc = "The rare experience for your taste buds"
+	icon_state = "kaiserburger"
+	bitesize = 3
+	center_of_mass = list("x"=16, "y"=11)
+	nutriment_desc = list("bun" = 2)
+	nutriment_amt = 3
+	preloaded_reagents = list("protein" = 10)
+	cooked = TRUE
+	taste_tag = list(INSECTS_FOOD,MEAT_FOOD)
+	price_tag = 12500
+
+/obj/item/reagent_containers/food/snacks/wormburger
+	name = "worm burger"
+	desc = "Ew, are they alive?"
+	icon_state = "wburger"
+	filling_color = "#D63C3C"
+	bitesize = 4
+	center_of_mass = list("x"=16, "y"=11)
+	nutriment_desc = list("bun" = 2, "worm" = 2)
+	nutriment_amt = 4
+	preloaded_reagents = list("protein" = 3)
+	cooked = TRUE
+	taste_tag = list(UMAMI_FOOD, INSECTS_FOOD)
+
+/obj/item/reagent_containers/food/snacks/wormburger/examine(mob/user)
+	. = ..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/human = user
+		var/obj/item/implant/core_implant/cruciform/cruciform = human.get_core_implant(/obj/item/implant/core_implant/cruciform)
+		if(cruciform && cruciform.active)
+			to_chat(user, "Looking at \the [src] gives you a sense of reassurance, it almost seems angelic.")
+
+/obj/item/reagent_containers/food/snacks/geneburger
+	name = "flesh burger"
+	desc = "It is writhing around..."
+	icon_state = "gburger"
+	filling_color = "#D63C3C"
+	bitesize = 4
+	center_of_mass = list("x"=16, "y"=11)
+	nutriment_desc = list("bun" = 2, "slimy flesh" = 2)
+	nutriment_amt = 4
+	preloaded_reagents = list("protein" = 3)
+	cooked = TRUE
+	taste_tag = list(MEAT_FOOD, UMAMI_FOOD)
+
+/obj/item/reagent_containers/food/snacks/geneburger/examine(mob/user)
+	. = ..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/human = user
+		var/obj/item/implant/core_implant/cruciform/cruciform = human.get_core_implant(/obj/item/implant/core_implant/cruciform)
+		if(cruciform && cruciform.active)
+			to_chat(user, "Looking at \the [src] gives you a sense of darkness, it must be unholy!")
+
+/obj/item/reagent_containers/food/snacks/roach_egg
+	name = "boiled roach egg"
+	desc = "A cockroach egg that has been boiled in salted water. It no longer pulses with an inner life."
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "roach_egg"
+	w_class = ITEM_SIZE_TINY
+	bitesize = 4
+	nutriment_amt = 8
+	preloaded_reagents = list("protein" = 14)
 	cooked = TRUE
 	taste_tag = list(INSECTS_FOOD,MEAT_FOOD)
 
@@ -1119,7 +1199,7 @@
 	taste_tag = list(INSECTS_FOOD,MEAT_FOOD)
 
 /obj/item/reagent_containers/food/snacks/omelette
-	name = "Omelette Du Fromage"
+	name = "omelette du fromage"
 	desc = "That's all you can say!"
 	icon_state = "omelette"
 	trash = /obj/item/trash/plate
@@ -1131,7 +1211,7 @@
 	taste_tag = list(CHEESE_FOOD)
 
 /obj/item/reagent_containers/food/snacks/muffin
-	name = "Muffin"
+	name = "muffin"
 	desc = "A delicious and spongy little cake"
 	icon_state = "muffin"
 	filling_color = "#E0CF9B"
@@ -1143,7 +1223,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/pie
-	name = "Banana Cream Pie"
+	name = "banana cream pie"
 	desc = "Just like back home, on clown planet! HONK!"
 	icon_state = "pie"
 	trash = /obj/item/trash/plate
@@ -1169,7 +1249,7 @@
 	qdel(src)
 
 /obj/item/reagent_containers/food/snacks/berryclafoutis
-	name = "Berry Clafoutis"
+	name = "berry clafoutis"
 	desc = "No black birds, this is a good sign."
 	icon_state = "berryclafoutis"
 	bitesize = 3
@@ -1195,7 +1275,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/eggplantparm
-	name = "Eggplant Parmigiana"
+	name = "eggplant parmigiana"
 	desc = "The only good recipe for eggplant."
 	icon_state = "eggplantparm"
 	trash = /obj/item/trash/plate
@@ -1208,7 +1288,7 @@
 	taste_tag = list(CHEESE_FOOD,VEGETARIAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/soylentgreen
-	name = "Soylent Green"
+	name = "soylent green"
 	desc = "Not made of people. Honest." //Totally people.
 	icon_state = "soylent_green"
 	trash = /obj/item/trash/waffles
@@ -1220,7 +1300,7 @@
 	taste_tag = list(VEGAN_FOOD,VEGETARIAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/soylenviridians
-	name = "Soylen Virdians"
+	name = "soylen virdians"
 	desc = "Not made of people. Honest." //Actually honest for once.
 	icon_state = "soylent_yellow"
 	trash = /obj/item/trash/waffles
@@ -1233,7 +1313,7 @@
 	taste_tag = list(MEAT_FOOD,UMAMI_FOOD)
 
 /obj/item/reagent_containers/food/snacks/meatpie
-	name = "Meat-pie"
+	name = "meat-pie"
 	icon_state = "meatpie"
 	desc = "An old barber recipe, very delicious!"
 	trash = /obj/item/trash/plate
@@ -1245,7 +1325,7 @@
 	taste_tag = list(MEAT_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/tofupie
-	name = "Tofu-pie"
+	name = "tofu-pie"
 	icon_state = "meatpie"
 	desc = "A delicious tofu pie."
 	trash = /obj/item/trash/plate
@@ -1290,7 +1370,7 @@
 	taste_tag = list(SWEET_FOOD, UMAMI_FOOD)
 
 /obj/item/reagent_containers/food/snacks/xemeatpie
-	name = "Xeno-pie"
+	name = "xeno-pie"
 	icon_state = "xenomeatpie"
 	desc = "A delicious meatpie. Probably heretical."
 	trash = /obj/item/trash/plate
@@ -1301,7 +1381,7 @@
 	taste_tag = list(MEAT_FOOD)
 
 /obj/item/reagent_containers/food/snacks/wingfangchu
-	name = "Wing Fang Chu"
+	name = "wing fang chu"
 	desc = "A savory dish of alien wing wang in soy."
 	icon_state = "wingfangchu"
 	trash = /obj/item/trash/snack_bowl
@@ -1314,7 +1394,7 @@
 /obj/item/reagent_containers/food/snacks/human/kabob
 	name = "-kabob"
 	icon_state = "kabob"
-	desc = "A human meat, on a stick."
+	desc = "A piece human meat on a stick."
 	trash = /obj/item/stack/rods
 	filling_color = "#A85340"
 	bitesize = 2
@@ -1323,9 +1403,9 @@
 	taste_tag = list(MEAT_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/monkeykabob
-	name = "Meat-kabob"
+	name = "meat-kabob"
 	icon_state = "kabob"
-	desc = "Delicious meat, on a stick."
+	desc = "Delicious meat on a stick."
 	trash = /obj/item/stack/rods
 	filling_color = "#A85340"
 	bitesize = 2
@@ -1334,9 +1414,9 @@
 	taste_tag = list(MEAT_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/tofukabob
-	name = "Tofu-kabob"
+	name = "tofu-kabob"
 	icon_state = "kabob"
-	desc = "Vegan meat, on a stick."
+	desc = "Vegan meat on a stick."
 	trash = /obj/item/stack/rods
 	filling_color = "#FFFEE0"
 	bitesize = 2
@@ -1347,8 +1427,8 @@
 	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/cubancarp
-	name = "Cuban Carp"
-	desc = "A sandwich that burns your tongue and then leaves it numb!"
+	name = "cuban carp"
+	desc = "A sandwich that burns your tongue and leaves it numb!"
 	icon_state = "cubancarp"
 	trash = /obj/item/trash/plate
 	filling_color = "#E9ADFF"
@@ -1361,7 +1441,7 @@
 	taste_tag = list(MEAT_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/popcorn
-	name = "Popcorn"
+	name = "popcorn"
 	desc = "Now let's find some cinema."
 	icon_state = "popcorn"
 	trash = /obj/item/trash/popcorn
@@ -1383,7 +1463,7 @@
 		..()
 
 /obj/item/reagent_containers/food/snacks/sosjerky
-	name = "Scaredy's Private Reserve Beef Jerky"
+	name = "scaredy's private reserve beef jerky"
 	icon_state = "sosjerky"
 	desc = "Beef jerky made from the finest space cows."
 	trash = /obj/item/trash/sosjerky
@@ -1396,7 +1476,7 @@
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 
 /obj/item/reagent_containers/food/snacks/no_raisin
-	name = "4no Raisins"
+	name = "4no raisins"
 	icon_state = "4no_raisins"
 	desc = "Best raisins in the universe. Not sure why."
 	trash = /obj/item/trash/raisins
@@ -1408,7 +1488,7 @@
 	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
 
 /obj/item/reagent_containers/food/snacks/spacetwinkie
-	name = "Space Twinkie"
+	name = "space twinkie"
 	icon_state = "space_twinkie"
 	desc = "Guaranteed to survive longer then you will."
 	filling_color = "#FFE591"
@@ -1419,7 +1499,7 @@
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 
 /obj/item/reagent_containers/food/snacks/cheesiehonkers
-	name = "Cheesie Honkers"
+	name = "cheesie honkers"
 	icon_state = "cheesie_honkers"
 	desc = "Bite sized cheesie snacks that will honk all over your mouth"
 	trash = /obj/item/trash/cheesie
@@ -1434,7 +1514,7 @@
 	taste_tag = list(CHEESE_FOOD)
 
 /obj/item/reagent_containers/food/snacks/wok
-	name = "Wok"
+	name = "wok"
 	icon_state = "wok"
 	desc = "An extra spicy snack originating from Shimatengoku."
 	filling_color = "#FF5D05"
@@ -1448,7 +1528,7 @@
 	taste_tag = list(BLAND_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/loadedbakedpotato
-	name = "Loaded Baked Potato"
+	name = "loaded baked potato"
 	desc = "Totally baked."
 	icon_state = "loadedbakedpotato"
 	filling_color = "#9C7A68"
@@ -1460,7 +1540,7 @@
 	cooked = TRUE
 
 /obj/item/reagent_containers/food/snacks/fries
-	name = "Space Fries"
+	name = "space fries"
 	desc = "AKA: French Fries, Freedom Fries, etc."
 	icon_state = "fries"
 	trash = /obj/item/trash/plate
@@ -1472,7 +1552,7 @@
 	cooked = TRUE
 
 /obj/item/reagent_containers/food/snacks/soydope
-	name = "Soy Dope"
+	name = "soy dope"
 	desc = "Dope from a soy."
 	icon_state = "soydope"
 	trash = /obj/item/trash/plate
@@ -1484,7 +1564,7 @@
 	taste_tag = list(BLAND_FOOD,VEGETARIAN_FOOD,VEGAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/spagetti
-	name = "Spaghetti"
+	name = "spaghetti"
 	desc = "A bundle of raw spaghetti."
 	icon_state = "spagetti"
 	filling_color = "#EDDD00"
@@ -1495,7 +1575,7 @@
 	taste_tag = list(BLAND_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/cheesyfries
-	name = "Cheesy Fries"
+	name = "cheesy fries"
 	desc = "Fries. Covered in cheese. Duh."
 	icon_state = "cheesyfries"
 	trash = /obj/item/trash/plate
@@ -1509,7 +1589,7 @@
 	taste_tag = list(CHEESE_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/fortunecookie
-	name = "Fortune cookie"
+	name = "fortune cookie"
 	desc = "A true prophecy in each cookie!"
 	icon_state = "fortune_cookie"
 	filling_color = "#E8E79E"
@@ -1520,7 +1600,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/badrecipe
-	name = "Burned mess"
+	name = "burned mess"
 	desc = "Someone should be demoted from chef for this."
 	icon_state = "badrecipe"
 	filling_color = "#211F02"
@@ -1529,8 +1609,8 @@
 	preloaded_reagents = list("toxin" = 1, "carbon" = 3)
 
 /obj/item/reagent_containers/food/snacks/meatsteak
-	name = "Meat steak"
-	desc = "A piece of hot spicy meat."
+	name = "meat steak"
+	desc = "A piece of hot, spicy meat."
 	icon_state = "meatstake"
 	trash = /obj/item/trash/plate
 	filling_color = "#7A3D11"
@@ -1541,7 +1621,7 @@
 	taste_tag = list(MEAT_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/spacylibertyduff
-	name = "Spacy Liberty Duff"
+	name = "spacy liberty duff"
 	desc = "Jello gelatin, from Alfred Hubbard's cookbook"
 	icon_state = "spacylibertyduff"
 	trash = /obj/item/trash/snack_bowl
@@ -1555,8 +1635,8 @@
 	taste_tag = list(BLAND_FOOD,UMAMI_FOOD)
 
 /obj/item/reagent_containers/food/snacks/amanitajelly
-	name = "Amanita Jelly"
-	desc = "Looks curiously toxic"
+	name = "amanita jelly"
+	desc = "Looks curiously toxic."
 	icon_state = "amanitajelly"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#ED0758"
@@ -1569,7 +1649,7 @@
 	taste_tag = list(BLAND_FOOD,UMAMI_FOOD)
 
 /obj/item/reagent_containers/food/snacks/poppypretzel
-	name = "Poppy pretzel"
+	name = "poppy pretzel"
 	desc = "It's all twisted up!"
 	icon_state = "poppypretzel"
 	bitesize = 2
@@ -1582,7 +1662,7 @@
 	taste_tag = list(SWEET_FOOD,VEGAN_FOOD,VEGETARIAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/meatballsoup
-	name = "Meatball soup"
+	name = "meatball soup"
 	desc = "You've got balls kid, BALLS!"
 	icon_state = "meatballsoup"
 	trash = /obj/item/trash/snack_bowl
@@ -1603,7 +1683,7 @@
 	taste_tag = list(BLAND_FOOD,UMAMI_FOOD)
 
 /obj/item/reagent_containers/food/snacks/bloodsoup
-	name = "Tomato soup"
+	name = "tomato soup"
 	desc = "Smells like copper."
 	icon_state = "tomatosoup"
 	filling_color = "#FF0000"
@@ -1613,7 +1693,7 @@
 	taste_tag = list(BLAND_FOOD,MEAT_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/clownstears
-	name = "Clown's Tears"
+	name = "clown's tears"
 	desc = "Not very funny."
 	icon_state = "clownstears"
 	filling_color = "#C4FBFF"
@@ -1625,8 +1705,8 @@
 	taste_tag = list(SWEET_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/vegetablesoup
-	name = "Vegetable soup"
-	desc = "A true vegan meal" //TODO
+	name = "vegetable soup"
+	desc = "A true vegan meal." //TODO
 	icon_state = "vegetablesoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#AFC4B5"
@@ -1639,8 +1719,8 @@
 	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/nettlesoup
-	name = "Nettle soup"
-	desc = "To think, the botanist would've beat you to death with one of these."
+	name = "nettle soup"
+	desc = "To think the botanist would've beat you to death with one of these."
 	icon_state = "nettlesoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#AFC4B5"
@@ -1653,8 +1733,8 @@
 	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/mysterysoup
-	name = "Mystery soup"
-	desc = "The mystery is, why aren't you eating it?"
+	name = "mystery soup"
+	desc = "The real mystery is \"why aren't you eating it?\""
 	icon_state = "mysterysoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#F082FF"
@@ -1702,7 +1782,7 @@
 				reagents.add_reagent("imidazoline", 5)
 
 /obj/item/reagent_containers/food/snacks/wishsoup
-	name = "Wish Soup"
+	name = "wish soup"
 	desc = "I wish this was soup."
 	icon_state = "wishsoup"
 	trash = /obj/item/trash/snack_bowl
@@ -1718,8 +1798,8 @@
 	taste_tag = list(VEGETARIAN_FOOD, VEGAN_FOOD,BLAND_FOOD)
 
 /obj/item/reagent_containers/food/snacks/hotchili
-	name = "Hot Chili"
-	desc = "A five alarm Texan Chili!"
+	name = "hot chili"
+	desc = "A five alarm Texan chili!"
 	icon_state = "hotchili"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FF3C00"
@@ -1733,7 +1813,7 @@
 
 
 /obj/item/reagent_containers/food/snacks/coldchili
-	name = "Cold Chili"
+	name = "cold chili"
 	desc = "This slush is barely a liquid!"
 	icon_state = "coldchili"
 	filling_color = "#2B00FF"
@@ -1759,6 +1839,17 @@
 	var/monkey_type = "Monkey"
 	preloaded_reagents = list("protein" = 10)
 	taste_tag = list(MEAT_FOOD,SALTY_FOOD)
+
+/obj/item/reagent_containers/food/snacks/monkeycube/punpun
+    name = "emergency companion cube"
+
+/obj/item/reagent_containers/food/snacks/monkeycube/punpun/Expand()
+    visible_message(SPAN_NOTICE("\The [src] expands!"))
+    var/turf/T = get_turf(src)
+    if(istype(T))
+        new /mob/living/carbon/human/monkey/punpun(T)
+    qdel(src)
+    return TRUE
 
 /obj/item/reagent_containers/food/snacks/monkeycube/attack_self(mob/user as mob)
 	if(wrapped)
@@ -1790,7 +1881,7 @@
 	wrapped = TRUE
 
 /obj/item/reagent_containers/food/snacks/roachcube
-	name = "Roach cube"
+	name = "roach cube"
 	desc = "It still twitches. Just add blood!"
 	spawn_tags = SPAWN_TAG_ROACH
 	spawn_frequency = 5
@@ -1801,6 +1892,9 @@
 	bad_type = /obj/item/reagent_containers/food/snacks/roachcube
 	preloaded_reagents = list("protein" = 10, "diplopterum" = 2)
 	taste_tag = list(MEAT_FOOD)
+
+	price_tag = 150
+
 	var/roach_type
 
 /obj/item/reagent_containers/food/snacks/roachcube/on_reagent_change()
@@ -1815,54 +1909,54 @@
 	qdel(src)
 
 /obj/item/reagent_containers/food/snacks/roachcube/kampfer
-	name = "Kampfer cube"
+	name = "kampfer cube"
 	icon_state = "roach"
 	roach_type = /mob/living/carbon/superior_animal/roach
 
 /obj/item/reagent_containers/food/snacks/roachcube/roachling
-	name = "Roachling cube"
+	name = "roachling cube"
 	rarity_value = 60
 	icon_state = "roachling"
 	roach_type = /mob/living/carbon/superior_animal/roach/roachling
 
 /obj/item/reagent_containers/food/snacks/roachcube/jager
-	name = "Jager cube"
+	name = "jager cube"
 	rarity_value = 80
 	icon_state = "jager"
 	roach_type = /mob/living/carbon/superior_animal/roach/hunter
 
 /obj/item/reagent_containers/food/snacks/roachcube/panzer
-	name = "Panzer cube"
+	name = "panzer cube"
 	rarity_value = 85
 	icon_state = "panzer"
 	roach_type = /mob/living/carbon/superior_animal/roach/tank
 
 /obj/item/reagent_containers/food/snacks/roachcube/seuche
-	name = "Seuche cube"
+	name = "seuche cube"
 	rarity_value = 80
 	icon_state = "seuche"
 	roach_type = /mob/living/carbon/superior_animal/roach/support
 
 /obj/item/reagent_containers/food/snacks/roachcube/gestrahlte
-	name = "Gestrahlte cube"
+	name = "gestrahlte cube"
 	rarity_value = 85
 	icon_state = "toxic"
 	roach_type = /mob/living/carbon/superior_animal/roach/toxic
 
 /obj/item/reagent_containers/food/snacks/roachcube/kraftwerk
-	name = "Kraftwerk cube"
+	name = "kraftwerk cube"
 	rarity_value = 85
 	icon_state = "techno"
 	roach_type = /mob/living/carbon/superior_animal/roach/nanite
 
 /obj/item/reagent_containers/food/snacks/roachcube/fuhrer
-	name = "Fuhrer cube"
+	name = "fuhrer cube"
 	rarity_value = 98
 	icon_state = "fuhrer"
 	roach_type = /mob/living/carbon/superior_animal/roach/fuhrer
 
 /obj/item/reagent_containers/food/snacks/spellburger
-	name = "Spell Burger"
+	name = "spell burger"
 	desc = "This is absolutely Ei Nath."
 	icon_state = "spellburger"
 	filling_color = "#D505FF"
@@ -1872,7 +1966,7 @@
 	taste_tag = list(MEAT_FOOD,UMAMI_FOOD)
 
 /obj/item/reagent_containers/food/snacks/bigbiteburger
-	name = "Big Bite Burger"
+	name = "big bite burger"
 	desc = "Forget the Big Mac. THIS is the future! It has big \"R\" stamped on it's bun."
 	icon_state = "bigbiteburger"
 	filling_color = "#E3D681"
@@ -1885,7 +1979,7 @@
 	taste_tag = list(MEAT_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/enchiladas
-	name = "Enchiladas"
+	name = "enchiladas"
 	desc = "Viva La Mexico!"
 	icon_state = "enchiladas"
 	trash = /obj/item/trash/tray
@@ -1899,7 +1993,7 @@
 	taste_tag = list(MEAT_FOOD,SPICY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/monkeysdelight
-	name = "monkey's Delight"
+	name = "monkey's delight"
 	desc = "Eeee Eee!"
 	icon_state = "monkeysdelight"
 	trash = /obj/item/trash/tray
@@ -1911,7 +2005,7 @@
 	taste_tag = list(MEAT_FOOD,SWEET_FOOD)
 
 /obj/item/reagent_containers/food/snacks/baguette
-	name = "Baguette"
+	name = "baguette"
 	desc = "Bon appetit!"
 	icon_state = "baguette"
 	filling_color = "#E3D796"
@@ -1924,8 +2018,8 @@
 	taste_tag = list(BLAND_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/fishandchips
-	name = "Fish and Chips"
-	desc = "I do say so myself chap."
+	name = "fish and chips"
+	desc = "I do say so myself, chap."
 	icon_state = "fishandchips"
 	filling_color = "#E3D796"
 	bitesize = 3
@@ -1937,7 +2031,7 @@
 	taste_tag = list(MEAT_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sandwich
-	name = "Sandwich"
+	name = "sandwich"
 	desc = "A grand creation of meat, cheese, bread, and several leaves of lettuce! Arthur Dent would be proud."
 	icon_state = "sandwich"
 	trash = /obj/item/trash/plate
@@ -1954,8 +2048,8 @@
 	taste_tag = list(CHEESE_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/toastedsandwich
-	name = "Toasted Sandwich"
-	desc = "Now if you only had a pepper bar."
+	name = "toasted sandwich"
+	desc = "Now if you only had a pepper bar..."
 	icon_state = "toastedsandwich"
 	trash = /obj/item/trash/plate
 	filling_color = "#D9BE29"
@@ -1968,8 +2062,8 @@
 	taste_tag = list(CHEESE_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/grilledcheese
-	name = "Grilled Cheese Sandwich"
-	desc = "Goes great with Tomato soup!"
+	name = "grilled cheese sandwich"
+	desc = "Goes great with tomato soup!"
 	icon_state = "toastedsandwich"
 	trash = /obj/item/trash/plate
 	filling_color = "#D9BE29"
@@ -1981,8 +2075,8 @@
 	taste_tag = list(CHEESE_FOOD)
 
 /obj/item/reagent_containers/food/snacks/tomatosoup
-	name = "Tomato Soup"
-	desc = "Drinking this feels like being a vampire! A tomato vampire..."
+	name = "tomato soup"
+	desc = "Drinking this makes you feel like a vampire! A tomato vampire..."
 	icon_state = "tomatosoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#D92929"
@@ -2009,8 +2103,8 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/stew
-	name = "Stew"
-	desc = "A nice and warm stew. Healthy and strong."
+	name = "stew"
+	desc = "A nice, warm stew. Healthy and strong."
 	icon_state = "stew"
 	filling_color = "#9E673A"
 	bitesize = 10
@@ -2022,8 +2116,8 @@
 	taste_tag = list(VEGETARIAN_FOOD,SALTY_FOOD,UMAMI_FOOD)
 
 /obj/item/reagent_containers/food/snacks/jelliedtoast
-	name = "Jellied Toast"
-	desc = "A slice of bread covered with delicious jam."
+	name = "jellied toast"
+	desc = "A slice of bread covered with jam."
 	icon_state = "jellytoast"
 	trash = /obj/item/trash/plate
 	filling_color = "#B572AB"
@@ -2039,15 +2133,17 @@
 /obj/item/reagent_containers/food/snacks/jelliedtoast/slime
 	preloaded_reagents = list("slimejelly" = 5)
 	taste_tag = list(UMAMI_FOOD)
+
 /obj/item/reagent_containers/food/snacks/jellyburger
-	name = "Jelly Burger"
-	desc = "Culinary delight..?"
+	name = "jelly burger"
+	desc = "Culinary curiousity or undiscovered delight?"
 	icon_state = "jellyburger"
 	filling_color = "#B572AB"
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=11)
 	nutriment_desc = list("buns" = 5)
 	nutriment_amt = 5
+	cooked = TRUE
 	taste_tag = list(UMAMI_FOOD)
 
 /obj/item/reagent_containers/food/snacks/jellyburger/slime
@@ -2056,9 +2152,10 @@
 /obj/item/reagent_containers/food/snacks/jellyburger/cherry
 	preloaded_reagents = list("cherryjelly" = 5)
 	taste_tag = list(UMAMI_FOOD)
+
 /obj/item/reagent_containers/food/snacks/milosoup
-	name = "Milosoup"
-	desc = "The universes best soup! Yum!!!"
+	name = "milosoup"
+	desc = "The universe's best soup! Yum!"
 	icon_state = "milosoup"
 	trash = /obj/item/trash/snack_bowl
 	bitesize = 4
@@ -2070,7 +2167,7 @@
 	taste_tag = list(VEGETARIAN_FOOD,VEGAN_FOOD,VEGETARIAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/stewedsoymeat
-	name = "Stewed Soy Meat"
+	name = "stewed soy meat"
 	desc = "Even non-vegetarians will LOVE this!"
 	icon_state = "stewedsoymeat"
 	trash = /obj/item/trash/plate
@@ -2082,8 +2179,8 @@
 	taste_tag = list(VEGETARIAN_FOOD,VEGAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/boiledspagetti
-	name = "Boiled Spaghetti"
-	desc = "A plain dish of noodles, this sucks."
+	name = "boiled spaghetti"
+	desc = "A plain dish of noodles."
 	icon_state = "spagettiboiled"
 	trash = /obj/item/trash/plate
 	filling_color = "#FCEE81"
@@ -2094,8 +2191,8 @@
 	taste_tag = list(BLAND_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/boiledrice
-	name = "Boiled Rice"
-	desc = "A boring dish of boring rice."
+	name = "boiled rice"
+	desc = "A dish of boiled rice."
 	icon_state = "boiledrice"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FFFBDB"
@@ -2106,7 +2203,7 @@
 	taste_tag = list(BLAND_FOOD,VEGAN_FOOD,VEGETARIAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/ricepudding
-	name = "Rice Pudding"
+	name = "rice pudding"
 	desc = "Where's the jam?"
 	icon_state = "rpudding"
 	trash = /obj/item/trash/snack_bowl
@@ -2119,7 +2216,7 @@
 	taste_tag = list(BLAND_FOOD,VEGAN_FOOD,VEGETARIAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/pastatomato
-	name = "Spaghetti"
+	name = "spaghetti"
 	desc = "Spaghetti and crushed tomatoes. Just like your abusive father used to make!"
 	icon_state = "pastatomato"
 	trash = /obj/item/trash/plate
@@ -2133,7 +2230,7 @@
 	taste_tag = list(BLAND_FOOD,VEGAN_FOOD,VEGETARIAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/meatballspagetti
-	name = "Spaghetti & Meatballs"
+	name = "spaghetti & meatballs"
 	desc = "Now thats a nic'e meatball!"
 	icon_state = "meatballspagetti"
 	trash = /obj/item/trash/plate
@@ -2147,8 +2244,8 @@
 	taste_tag = list(MEAT_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/spesslaw
-	name = "Spesslaw"
-	desc = "A lawyers favourite"
+	name = "spesslaw"
+	desc = "A lawyer's favorite dish."
 	icon_state = "spesslaw"
 	filling_color = "#DE4545"
 	bitesize = 2
@@ -2160,8 +2257,8 @@
 	taste_tag = list(MEAT_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/carrotfries
-	name = "Carrot Fries"
-	desc = "Tasty fries from fresh Carrots."
+	name = "carrot fries"
+	desc = "Tasty fries from fresh carrots."
 	icon_state = "carrotfries"
 	trash = /obj/item/trash/plate
 	filling_color = "#FAA005"
@@ -2174,8 +2271,8 @@
 	taste_tag = list(VEGETARIAN_FOOD,VEGAN_FOOD,UMAMI_FOOD)
 
 /obj/item/reagent_containers/food/snacks/superbiteburger
-	name = "Super Bite Burger"
-	desc = "This is a mountain of a burger. FOOD!"
+	name = "super bite burger"
+	desc = "A greasy pillar looms before you, longs for you. You know what you must do."
 	icon_state = "superbiteburger"
 	filling_color = "#CCA26A"
 	bitesize = 10
@@ -2187,7 +2284,7 @@
 	taste_tag = list(MEAT_FOOD)
 
 /obj/item/reagent_containers/food/snacks/candiedapple
-	name = "Candied Apple"
+	name = "candied apple"
 	desc = "An apple coated in sugary sweetness."
 	icon_state = "candiedapple"
 	filling_color = "#F21873"
@@ -2199,7 +2296,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/applepie
-	name = "Apple Pie"
+	name = "apple pie"
 	desc = "A pie containing sweet sweet love... or apple."
 	icon_state = "applepie"
 	filling_color = "#E0EDC5"
@@ -2211,7 +2308,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/cherrypie
-	name = "Cherry Pie"
+	name = "cherry pie"
 	desc = "Taste so good, make a grown man cry."
 	icon_state = "cherrypie"
 	filling_color = "#FF525A"
@@ -2223,7 +2320,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/twobread
-	name = "Two Bread"
+	name = "two bread"
 	desc = "It is very bitter and winy."
 	icon_state = "twobread"
 	filling_color = "#DBCC9A"
@@ -2235,7 +2332,7 @@
 	taste_tag = list(BLAND_FOOD,SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/jellysandwich
-	name = "Jelly Sandwich"
+	name = "jelly sandwich"
 	desc = "You wish you had some peanut butter to go with this..."
 	icon_state = "jellysandwich"
 	trash = /obj/item/trash/plate
@@ -2244,6 +2341,7 @@
 	center_of_mass = list("x"=16, "y"=8)
 	nutriment_desc = list("bread" = 2)
 	nutriment_amt = 2
+	cooked = TRUE
 	taste_tag = list(BLAND_FOOD,UMAMI_FOOD)
 
 /obj/item/reagent_containers/food/snacks/jellysandwich/slime
@@ -2255,7 +2353,7 @@
 	taste_tag = list(SWEET_FOOD)
 
 /obj/item/reagent_containers/food/snacks/boiledslimecore
-	name = "Boiled slime Core"
+	name = "boiled slime core"
 	desc = "A boiled red thing."
 	icon_state = "boiledslimecore" //nonexistant?
 	bitesize = 3
@@ -2407,11 +2505,11 @@
 		to_chat(user, "You think \the [src] is ready to eat about now.")
 		heat()
 
-/obj/item/reagent_containers/food/snacks/mre/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/reagent_containers/food/snacks/mre/attack(mob/mob as mob, mob/user as mob, def_zone)
 	. = ..()
 	if(!open)
 		openmre()
-		to_chat(user, SPAN_WARNING("You viciously open \the [src] with your teeth, you animal."))
+		to_chat(user, SPAN_WARNING("You viciously open \the [src] with your teeth. You animal."))
 
 /obj/item/reagent_containers/food/snacks/mre/proc/heat()
 	for(var/reagent in heated_reagents)
@@ -2429,7 +2527,7 @@
 
 /obj/item/reagent_containers/food/snacks/mre/can
 	name = "ration can"
-	desc = "Can of stew meat, tab right on top for easy opening."
+	desc = "A can of stew meat complete with tab on top for easy opening."
 	icon_state = "ration_can"
 	trash = /obj/item/trash/mre_can
 	filling_color = "#948051"
@@ -2440,7 +2538,7 @@
 
 /obj/item/reagent_containers/food/snacks/mre_paste
 	name = "nutrient paste"
-	desc = "A peachy looking paste."
+	desc = "A peachy-looking paste."
 	icon_state = "paste"
 	trash = /obj/item/trash/mre_paste
 	filling_color = "#DEDEAB"
@@ -2452,7 +2550,7 @@
 
 /obj/item/reagent_containers/food/snacks/mre_cracker
 	name = "enriched cracker"
-	desc = "It's a salted cracker, the surface looks saturated with oil."
+	desc = "A salted cracker swimming in oil."
 	icon_state = "mre_cracker"
 	filling_color = "#F5DEB8"
 	center_of_mass = list("x"=17, "y"=6)
@@ -2482,7 +2580,7 @@
 		to_chat(user, SPAN_NOTICE("You tear \the [src] open."))
 		return
 
-/obj/item/reagent_containers/food/snacks/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/reagent_containers/food/snacks/attack(mob/mob as mob, mob/user as mob, def_zone)
 	. = ..()
 	if(!open)
 		open()
@@ -2496,6 +2594,9 @@
 
 /obj/item/reagent_containers/food/snacks/sliceable
 	w_class = ITEM_SIZE_NORMAL //Whole pizzas and cakes shouldn't fit in a pocket, you can slice them if you want to do that.
+
+/obj/item/reagent_containers/food/snacks/sliceable/get_item_cost(export)
+	. = ..() + SStrade.get_import_cost(slice_path) * slices_num
 
 /obj/item/reagent_containers/food/snacks/sliceable/meatbread
 	name = "meatbread loaf"
@@ -2548,10 +2649,12 @@
 	nutriment_amt = 2
 	nutriment_desc = list("bread" = 2)
 	preloaded_reagents = list("protein" = 4)
+	cooked = TRUE
 	taste_tag = list(MEAT_FOOD,FLOURY_FOOD)
 
+
 /obj/item/reagent_containers/food/snacks/sliceable/bananabread
-	name = "Banana-nut bread"
+	name = "banana-nut bread"
 	desc = "A heavenly and filling treat."
 	icon_state = "bananabread"
 	slice_path = /obj/item/reagent_containers/food/snacks/bananabreadslice
@@ -2565,7 +2668,7 @@
 	taste_tag = list(VEGETARIAN_FOOD,SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/bananabreadslice
-	name = "Banana-nut bread slice"
+	name = "banana-nut bread slice"
 	desc = "A slice of delicious banana bread."
 	icon_state = "bananabreadslice"
 	trash = /obj/item/trash/plate
@@ -2577,7 +2680,7 @@
 	taste_tag = list(VEGETARIAN_FOOD,SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/tofubread
-	name = "Tofubread"
+	name = "tofubread"
 	icon_state = "Like meatbread but for vegetarians. Not guaranteed to give superpowers."
 	icon_state = "tofubread"
 	slice_path = /obj/item/reagent_containers/food/snacks/tofubreadslice
@@ -2590,7 +2693,7 @@
 	taste_tag = list(VEGETARIAN_FOOD,VEGETARIAN_FOOD,SALTY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/tofubreadslice
-	name = "Tofubread slice"
+	name = "tofubread slice"
 	desc = "A slice of delicious tofubread."
 	icon_state = "tofubreadslice"
 	trash = /obj/item/trash/plate
@@ -2603,7 +2706,7 @@
 	taste_tag = list(VEGETARIAN_FOOD,VEGAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/carrotcake
-	name = "Carrot Cake"
+	name = "carrot cake"
 	desc = "A favorite desert of a certain wascally wabbit. Not a lie."
 	icon_state = "carrotcake"
 	slice_path = /obj/item/reagent_containers/food/snacks/carrotcakeslice
@@ -2617,7 +2720,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/carrotcakeslice
-	name = "Carrot Cake slice"
+	name = "carrot cake slice"
 	desc = "Carrotty slice of Carrot Cake, carrots are good for your eyes! Also not a lie."
 	icon_state = "carrotcake_slice"
 	trash = /obj/item/trash/plate
@@ -2631,7 +2734,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/braincake
-	name = "Brain Cake"
+	name = "brain cake"
 	desc = "A squishy cake-thing."
 	icon_state = "braincake"
 	slice_path = /obj/item/reagent_containers/food/snacks/braincakeslice
@@ -2645,7 +2748,7 @@
 	taste_tag = list(SWEET_FOOD,MEAT_FOOD)
 
 /obj/item/reagent_containers/food/snacks/braincakeslice
-	name = "Brain Cake slice"
+	name = "brain cake slice"
 	desc = "Lemme tell you something about prions. THEY'RE DELICIOUS."
 	icon_state = "braincakeslice"
 	trash = /obj/item/trash/plate
@@ -2653,10 +2756,11 @@
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=12)
 	preloaded_reagents = list("protein" = 5, "nutriment" = 1, "alkysine" = 2)
+	cooked = TRUE
 	taste_tag = list(MEAT_FOOD,SWEET_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/cheesecake
-	name = "Cheese Cake"
+	name = "cheese cake"
 	desc = "DANGEROUSLY cheesy."
 	icon_state = "cheesecake"
 	slice_path = /obj/item/reagent_containers/food/snacks/cheesecakeslice
@@ -2670,7 +2774,7 @@
 	taste_tag = list(CHEESE_FOOD)
 
 /obj/item/reagent_containers/food/snacks/cheesecakeslice
-	name = "Cheese Cake slice"
+	name = "cheese cake slice"
 	desc = "Slice of pure cheestisfaction"
 	icon_state = "cheesecake_slice"
 	trash = /obj/item/trash/plate
@@ -2682,8 +2786,8 @@
 	taste_tag = list(CHEESE_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/plaincake
-	name = "Vanilla Cake"
-	desc = "A plain cake, not a lie."
+	name = "vanilla cake"
+	desc = "A plain cake. Not a lie."
 	icon_state = "plaincake"
 	slice_path = /obj/item/reagent_containers/food/snacks/plaincakeslice
 	slices_num = 5
@@ -2694,8 +2798,8 @@
 	taste_tag = list(BLAND_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/plaincakeslice
-	name = "Vanilla Cake slice"
-	desc = "Just a slice of cake, it is enough for everyone."
+	name = "vanilla cake slice"
+	desc = "Just a slice of cake. It is enough for everyone."
 	icon_state = "plaincake_slice"
 	trash = /obj/item/trash/plate
 	filling_color = "#F7EDD5"
@@ -2706,7 +2810,7 @@
 	taste_tag = list(FLOURY_FOOD,BLAND_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/orangecake
-	name = "Orange Cake"
+	name = "orange cake"
 	desc = "A cake with added orange."
 	icon_state = "orangecake"
 	slice_path = /obj/item/reagent_containers/food/snacks/orangecakeslice
@@ -2718,7 +2822,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/orangecakeslice
-	name = "Orange Cake slice"
+	name = "orange cake slice"
 	desc = "Just a slice of cake, it is enough for everyone."
 	icon_state = "orangecake_slice"
 	trash = /obj/item/trash/plate
@@ -2730,7 +2834,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/limecake
-	name = "Lime Cake"
+	name = "lime cake"
 	desc = "A cake with added lime."
 	icon_state = "limecake"
 	slice_path = /obj/item/reagent_containers/food/snacks/limecakeslice
@@ -2742,7 +2846,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/limecakeslice
-	name = "Lime Cake slice"
+	name = "lime cake slice"
 	desc = "Just a slice of cake, it is enough for everyone."
 	icon_state = "limecake_slice"
 	trash = /obj/item/trash/plate
@@ -2754,7 +2858,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/lemoncake
-	name = "Lemon Cake"
+	name = "lemon cake"
 	desc = "A cake with added lemon."
 	icon_state = "lemoncake"
 	slice_path = /obj/item/reagent_containers/food/snacks/lemoncakeslice
@@ -2766,7 +2870,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/lemoncakeslice
-	name = "Lemon Cake slice"
+	name = "lemon cake slice"
 	desc = "Just a slice of cake, it is enough for everyone."
 	icon_state = "lemoncake_slice"
 	trash = /obj/item/trash/plate
@@ -2778,7 +2882,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/chocolatecake
-	name = "Chocolate Cake"
+	name = "chocolate cake"
 	desc = "A cake with added chocolate"
 	icon_state = "chocolatecake"
 	slice_path = /obj/item/reagent_containers/food/snacks/chocolatecakeslice
@@ -2790,7 +2894,7 @@
 	taste_tag = list(COCO_FOOD, SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/chocolatecakeslice
-	name = "Chocolate Cake slice"
+	name = "chocolate cake slice"
 	desc = "Just a slice of cake, it is enough for everyone."
 	icon_state = "chocolatecake_slice"
 	trash = /obj/item/trash/plate
@@ -2802,8 +2906,8 @@
 	taste_tag = list(COCO_FOOD, SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel
-	name = "Cheese wheel"
-	desc = "A big wheel of delcious Cheddar."
+	name = "cheese wheel"
+	desc = "A large wheel of cheddar cheese."
 	icon_state = "cheesewheel"
 	slice_path = /obj/item/reagent_containers/food/snacks/cheesewedge
 	slices_num = 5
@@ -2816,8 +2920,8 @@
 	taste_tag = list(CHEESE_FOOD)
 
 /obj/item/reagent_containers/food/snacks/cheesewedge
-	name = "Cheese wedge"
-	desc = "A wedge of delicious Cheddar. The cheese wheel it was cut from can't have gone far."
+	name = "cheese wedge"
+	desc = "A wedge of cheddar cheese."
 	icon_state = "cheesewedge"
 	filling_color = "#FFF700"
 	bitesize = 2
@@ -2825,8 +2929,8 @@
 	taste_tag = list(CHEESE_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/birthdaycake
-	name = "Birthday Cake"
-	desc = "Happy Birthday..."
+	name = "birthday cake"
+	desc = "Happy birthday!"
 	icon_state = "birthdaycake"
 	slice_path = /obj/item/reagent_containers/food/snacks/birthdaycakeslice
 	slices_num = 5
@@ -2839,7 +2943,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/birthdaycakeslice
-	name = "Birthday Cake slice"
+	name = "birthday cake slice"
 	desc = "A slice of your birthday."
 	icon_state = "birthdaycakeslice"
 	trash = /obj/item/trash/plate
@@ -2847,11 +2951,12 @@
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=14)
 	preloaded_reagents = list("nutriment" = 4, "sprinkles" = 2)
+	cooked = TRUE
 	taste_tag = list(SWEET_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/bread
-	name = "Bread"
-	icon_state = "Some plain old Earthen bread."
+	name = "bread"
+	icon_state = "Some plain old bread."
 	icon_state = "bread"
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice
 	slices_num = 5
@@ -2863,7 +2968,7 @@
 	taste_tag = list(BLAND_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/breadslice
-	name = "Bread slice"
+	name = "bread slice"
 	desc = "A slice of home."
 	icon_state = "breadslice"
 	trash = /obj/item/trash/plate
@@ -2871,10 +2976,11 @@
 	nutriment_amt = 1
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=4)
+	cooked = FALSE
 	taste_tag = list(BLAND_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/creamcheesebread
-	name = "Cream Cheese Bread"
+	name = "cream cheese bread"
 	desc = "Yum yum yum!"
 	icon_state = "creamcheesebread"
 	slice_path = /obj/item/reagent_containers/food/snacks/creamcheesebreadslice
@@ -2888,7 +2994,7 @@
 	taste_tag = list(CHEESE_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/creamcheesebreadslice
-	name = "Cream Cheese Bread slice"
+	name = "cream cheese bread slice"
 	desc = "A slice of yum!"
 	icon_state = "creamcheesebreadslice"
 	trash = /obj/item/trash/plate
@@ -2900,7 +3006,7 @@
 	taste_tag = list(CHEESE_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/watermelonslice
-	name = "Watermelon Slice"
+	name = "watermelon slice"
 	desc = "A slice of watery goodness."
 	icon_state = "watermelonslice"
 	filling_color = "#FF3867"
@@ -2911,8 +3017,8 @@
 	taste_tag = list(SWEET_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/applecake
-	name = "Apple Cake"
-	desc = "A cake centred with Apple"
+	name = "apple cake"
+	desc = "A cake centered with apple."
 	icon_state = "applecake"
 	slice_path = /obj/item/reagent_containers/food/snacks/applecakeslice
 	slices_num = 5
@@ -2923,8 +3029,8 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/applecakeslice
-	name = "Apple Cake slice"
-	desc = "A slice of heavenly cake."
+	name = "apple cake slice"
+	desc = "A slice of a heavenly cake."
 	icon_state = "applecakeslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#EBF5B8"
@@ -2935,7 +3041,7 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/pumpkinpie
-	name = "Pumpkin Pie"
+	name = "pumpkin pie"
 	desc = "A delicious treat for the autumn months."
 	icon_state = "pumpkinpie"
 	slice_path = /obj/item/reagent_containers/food/snacks/pumpkinpieslice
@@ -2947,8 +3053,8 @@
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/pumpkinpieslice
-	name = "Pumpkin Pie slice"
-	desc = "A slice of pumpkin pie, with whipped cream on top. Perfection."
+	name = "pumpkin pie slice"
+	desc = "A slice of pumpkin pie topped with whipped cream. Perfection."
 	icon_state = "pumpkinpieslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#F5B951"
@@ -2959,8 +3065,8 @@
 	taste_tag = list(SWEET_FOOD)
 
 /obj/item/reagent_containers/food/snacks/cracker
-	name = "Cracker"
-	desc = "It's a salted cracker."
+	name = "cracker"
+	desc = "A salted cracker."
 	icon_state = "cracker"
 	filling_color = "#F5DEB8"
 	center_of_mass = list("x"=17, "y"=6)
@@ -2980,7 +3086,7 @@
 	bad_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/margherita
-	name = "Margherita"
+	name = "margherita"
 	desc = "The golden standard of pizzas."
 	icon_state = "pizzamargherita"
 	slice_path = /obj/item/reagent_containers/food/snacks/margheritaslice
@@ -2993,7 +3099,7 @@
 	taste_tag = list(CHEESE_FOOD)
 
 /obj/item/reagent_containers/food/snacks/margheritaslice
-	name = "Margherita slice"
+	name = "margherita slice"
 	desc = "A slice of the classic pizza."
 	icon_state = "pizzamargheritaslice"
 	filling_color = "#BAA14C"
@@ -3004,7 +3110,7 @@
 	taste_tag = list(CHEESE_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/meatpizza
-	name = "Meatpizza"
+	name = "meatpizza"
 	desc = "A pizza with meat topping."
 	icon_state = "meatpizza"
 	slice_path = /obj/item/reagent_containers/food/snacks/meatpizzaslice
@@ -3017,8 +3123,8 @@
 	taste_tag = list(MEAT_FOOD, CHEESE_FOOD)
 
 /obj/item/reagent_containers/food/snacks/meatpizzaslice
-	name = "Meatpizza slice"
-	desc = "A slice of a meaty pizza."
+	name = "meatpizza slice"
+	desc = "A slice of meaty pizza."
 	icon_state = "meatpizzaslice"
 	filling_color = "#BAA14C"
 	bitesize = 2
@@ -3028,8 +3134,8 @@
 	taste_tag = list(MEAT_FOOD, CHEESE_FOOD)
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/mushroompizza
-	name = "Mushroompizza"
-	desc = "Very special pizza"
+	name = "mushroompizza"
+	desc = "A very special pizza."
 	icon_state = "mushroompizza"
 	slice_path = /obj/item/reagent_containers/food/snacks/mushroompizzaslice
 	slices_num = 6
@@ -3041,8 +3147,8 @@
 	taste_tag = list(CHEESE_FOOD,UMAMI_FOOD)
 
 /obj/item/reagent_containers/food/snacks/mushroompizzaslice
-	name = "Mushroompizza slice"
-	desc = "Maybe it is the last slice of pizza in your life."
+	name = "mushroompizza slice"
+	desc = "Maybe it is the last slice of pizza of your life..."
 	icon_state = "mushroompizzaslice"
 	filling_color = "#BAA14C"
 	bitesize = 2
@@ -3053,8 +3159,8 @@
 
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza
-	name = "Vegetable pizza"
-	desc = "No one of Tomato Sapiens were harmed during making this pizza"
+	name = "vegetable pizza"
+	desc = "No Tomato Sapiens were harmed during making this pizza."
 	icon_state = "vegetablepizza"
 	slice_path = /obj/item/reagent_containers/food/snacks/vegetablepizzaslice
 	slices_num = 6
@@ -3066,8 +3172,8 @@
 	taste_tag = list(VEGETARIAN_FOOD, CHEESE_FOOD)
 
 /obj/item/reagent_containers/food/snacks/vegetablepizzaslice
-	name = "Vegetable pizza slice"
-	desc = "A slice of the most green pizza of all pizzas not containing green ingredients "
+	name = "vegetable pizza slice"
+	desc = "A slice of the greenest pizza of all pizzas not containing green ingredients "
 	icon_state = "vegetablepizzaslice"
 	filling_color = "#BAA14C"
 	bitesize = 2
@@ -3094,24 +3200,24 @@
 	if(type_pizza)
 		pizza = new type_pizza(src)
 
-/obj/item/pizzabox/on_update_icon()
-	set_overlays(list())
+/obj/item/pizzabox/update_icon()
+	overlays = list()
 
 	// Set appropriate description
 	if(open && pizza )
 		desc = "A box suited for pizzas. It appears to have a [pizza.name] inside."
 	else if(boxes.len > 0 )
-		desc = "A pile of boxes suited for pizzas. There appears to be [boxes.len + 1] boxes in the pile."
+		desc = "A pile of boxes suited for pizzas. There are [boxes.len + 1] boxes in the pile."
 
 		var/obj/item/pizzabox/topbox = boxes[boxes.len]
 		var/toptag = topbox.boxtag
 		if(toptag != "" )
-			desc = "[desc] The box on top has a tag, it reads: '[toptag]'."
+			desc = "[desc] The box on top has a tag that reads: '[toptag]'."
 	else
 		desc = "A box suited for pizzas."
 
 		if(boxtag != "" )
-			desc = "[desc] The box has a tag, it reads: '[boxtag]'."
+			desc = "[desc] The box has a tag that reads: '[boxtag]'."
 
 	// Icon states and overlays
 	if(open )
@@ -3181,9 +3287,9 @@
 
 	update_icon()
 
-/obj/item/pizzabox/attackby( obj/item/I as obj, mob/user as mob )
-	if(istype(I, /obj/item/pizzabox/) )
-		var/obj/item/pizzabox/box = I
+/obj/item/pizzabox/attackby( obj/item/item as obj, mob/user as mob )
+	if(istype(item, /obj/item/pizzabox/) )
+		var/obj/item/pizzabox/box = item
 
 		if(!box.open && !src.open )
 			// Make a list of all boxes to be added
@@ -3208,20 +3314,20 @@
 
 		return
 
-	if(istype(I, /obj/item/reagent_containers/food/snacks/sliceable/pizza) ) // Long ass fucking object name
+	if(istype(item, /obj/item/reagent_containers/food/snacks/sliceable/pizza) ) // Long ass fucking object name
 
 		if(src.open )
-			user.drop_from_inventory(I, src)
-			src.pizza = I
+			user.drop_from_inventory(item, src)
+			src.pizza = item
 
 			update_icon()
 
-			to_chat(user, SPAN_WARNING("You put \the [I] in \the [src]!"))
+			to_chat(user, SPAN_WARNING("You put \the [item] in \the [src]!"))
 		else
-			to_chat(user, SPAN_WARNING("You try to push \the [I] through the lid but it doesn't work!"))
+			to_chat(user, SPAN_WARNING("You try to push \the [item] through the lid, but it doesn't work!"))
 		return
 
-	if(istype(I, /obj/item/pen/) )
+	if(istype(item, /obj/item/pen/) )
 
 		if(src.open )
 			return
@@ -3237,6 +3343,9 @@
 		update_icon()
 		return
 	..()
+
+/obj/item/pizzabox/get_item_cost()
+	. = pizza?.get_item_cost()
 
 /obj/item/pizzabox/margherita
 	type_pizza = /obj/item/reagent_containers/food/snacks/sliceable/pizza/margherita
@@ -3280,7 +3389,7 @@
 // slicable into 3xdoughslices
 /obj/item/reagent_containers/food/snacks/sliceable/flatdough
 	name = "flat dough"
-	desc = "A flattened dough."
+	desc = "A flattened piece of dough."
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "flat dough"
 	slice_path = /obj/item/reagent_containers/food/snacks/doughslice
@@ -3374,19 +3483,19 @@
 	desc = "A thin piece of raw meat."
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "rawcutlet"
-	bitesize = 1
+	bitesize = 2
 	center_of_mass = list("x"=17, "y"=20)
-	preloaded_reagents = list("protein" = 1)
-	taste_tag = list(MEAT_FOOD,FLOURY_FOOD)
+	preloaded_reagents = list("protein" = 3)
+	taste_tag = list(MEAT_FOOD)
 
 /obj/item/reagent_containers/food/snacks/cutlet
 	name = "cutlet"
-	desc = "A tasty meat slice."
+	desc = "A tasty slice of meat."
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "cutlet"
 	bitesize = 2
 	center_of_mass = list("x"=17, "y"=20)
-	preloaded_reagents = list("protein" = 2)
+	preloaded_reagents = list("protein" = 3)
 	taste_tag = list(MEAT_FOOD,SPICY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/rawmeatball
@@ -3394,26 +3503,26 @@
 	desc = "A raw meatball."
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "rawmeatball"
-	bitesize = 2
+	bitesize = 3
 	center_of_mass = list("x"=16, "y"=15)
 	preloaded_reagents = list("protein" = 2)
 	taste_tag = list(MEAT_FOOD)
 
 /obj/item/reagent_containers/food/snacks/hotdog
 	name = "hotdog"
-	desc = "Unrelated to dogs, maybe."
+	desc = "Unrelated to actual dogs. Maybe."
 	icon_state = "hotdog"
-	bitesize = 2
+	bitesize = 3
 	center_of_mass = list("x"=16, "y"=17)
 	preloaded_reagents = list("protein" = 6)
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 	rarity_value = 20
-	taste_tag = list(MEAT_FOOD)
+	taste_tag = list(MEAT_FOOD,FLOURY_FOOD)
 
 /obj/item/reagent_containers/food/snacks/flatbread
 	name = "flatbread"
-	desc = "Bland but filling."
+	desc = "Bland yet filling."
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "flatbread"
 	bitesize = 2
@@ -3423,9 +3532,9 @@
 	taste_tag = list(BLAND_FOOD)
 
 // potato + knife = raw sticks
-/obj/item/reagent_containers/food/snacks/grown/potato/attackby(obj/item/I, mob/user) //this is obsolete??
-	if(QUALITY_CUTTING in I.tool_qualities)
-		if(I.use_tool(user, src, WORKTIME_NEAR_INSTANT, QUALITY_CUTTING, FAILCHANCE_ZERO, required_stat = STAT_BIO))
+/obj/item/reagent_containers/food/snacks/grown/potato/attackby(obj/item/item, mob/user) //this is obsolete??
+	if(QUALITY_CUTTING in item.tool_qualities)
+		if(item.use_tool(user, src, WORKTIME_NEAR_INSTANT, QUALITY_CUTTING, FAILCHANCE_ZERO, required_stat = STAT_BIO))
 			new /obj/item/reagent_containers/food/snacks/rawsticks(src)
 			to_chat(user, "You cut the potato.")
 			qdel(src)
@@ -3434,7 +3543,7 @@
 
 /obj/item/reagent_containers/food/snacks/rawsticks
 	name = "raw potato sticks"
-	desc = "Raw fries, not very tasty."
+	desc = "Raw fries. Not very tasty."
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "rawsticks"
 	bitesize = 2
@@ -3444,19 +3553,19 @@
 	taste_tag = list(BLAND_FOOD,VEGAN_FOOD,VEGETARIAN_FOOD)
 
 /obj/item/reagent_containers/food/snacks/liquidfood
-	name = "\improper LiquidFood Ration"
-	desc = "A prepackaged grey slurry of all the essential nutrients for a spacefarer on the go. Should this be crunchy?"
+	name = "\improper LiquidFood ration"
+	desc = "A pre-packaged, grey slurry of all the essential nutrients needed for a spacefarer on the go. Should this be crunchy?"
 	icon_state = "liquidfood"
 	trash = /obj/item/trash/liquidfood
 	filling_color = "#A8A8A8"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=15)
 	nutriment_desc = list("chalk" = 6)
-	nutriment_amt = 20
 	preloaded_reagents = list("iron" = 3)
+	nutriment_amt = 20
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
-	rarity_value = 5
+	rarity_value = 70
 	taste_tag = list(BLAND_FOOD,UMAMI_FOOD)
 
 /obj/item/reagent_containers/food/snacks/tastybread
@@ -3472,3 +3581,18 @@
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
 	taste_tag = list(SWEET_FOOD)
+
+/obj/item/reagent_containers/food/snacks/pickle
+	name = "pickle"
+	desc = "A pickle. You smirk just from looking at it. \red Still funniest shit ever."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "pickle"
+	filling_color = "#5bd63c"
+	preloaded_reagents = list("protein" = 100)
+
+/obj/item/reagent_containers/food/snacks/pickle/On_Consume(mob/eater, mob/feeder)
+	. = ..()
+	to_chat(eater, SPAN_DANGER("You feel funnier."))
+	var/mob/living/simple_animal/hostile/pickle/XD = new /mob/living/simple_animal/hostile/pickle(get_turf(eater))
+	eater.mind?.transfer_to(XD)
+	eater.gib()

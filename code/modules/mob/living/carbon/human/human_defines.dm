@@ -41,7 +41,6 @@
 	var/lip_style	//no lipstick by default- arguably misleading, as it could be used for general makeup
 
 	var/age = 30		//Player's age (pure fluff)
-	var/b_type = "A+"	//Player's bloodtype
 
 	var/list/worn_underwear = list()
 
@@ -72,8 +71,11 @@
 	var/miming //Toggle for the mime's abilities.
 	var/special_voice = "" // For changing our voice. Used by a symptom.
 
+	var/ability_last = 0 // world.time when last proc from "Ability" tab have been used
 	var/last_dam = -1	//Used for determining if we need to process all organs or just some or even none.
 	var/list/bad_external_organs = list()// organs we check until they are good.
+
+	var/punch_damage_increase = 0 // increases... punch damage... can be affected by clothing or implants.
 
 	var/xylophone = 0 //For the spoooooooky xylophone cooldown
 	var/flapping = 0
@@ -83,7 +85,8 @@
 	var/hand_blood_color
 
 	var/gunshot_residue
-	var/pulling_punches // Are you trying not to hurt your opponent?
+	var/holding_back // Are you trying not to hurt your opponent?
+	var/blocking = FALSE //ready to block melee attacks?
 
 	mob_bump_flag = HUMAN
 	mob_push_flags = ~HEAVY
@@ -108,6 +111,11 @@
 
 	var/datum/sanity/sanity
 
+	var/rest_points = 0
+
+	var/style = 0
+	var/max_style = MAX_HUMAN_STYLE
+
 	var/shock_resist = 0 // Resistance to paincrit
 
 	var/language_blackout = 0
@@ -115,9 +123,9 @@
 
 	var/genetic_corruption = 0  //Eclipse add - Mekhanite's vat genetic corruption
 	var/stable_genes = FALSE //Eclipse add - Genetic stability
+
+	var/tail_alted = FALSE	//OCCULUS EDIT: Toggle for alternate tail layer
+
 	var/momentum_speed = 0 // The amount of run-up
 	var/momentum_dir = 0 // Direction of run-up
 	var/momentum_reduction_timer
-
-	
-	var/tail_alted = FALSE	//OCCULUS EDIT: Toggle for alternate tail layer

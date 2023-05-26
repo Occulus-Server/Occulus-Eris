@@ -9,9 +9,9 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 	rarity_value = 3
 	armor = list(
-		melee = 0,
-		bullet = 0,
-		bomb = 0,
+		melee = 2,
+		bullet = 2,
+		energy = 2,
 		bio = 50,
 		bomb = 0,
 		bio = 0,
@@ -35,7 +35,7 @@
 	icon_closed = "labcoat_chem"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/bioengineer
-	name = "bio-engineer labcoat"	//Occulus edit: delete moebius
+	name = "bio-engineer labcoat" // Occulus Edit - Remove Eris corp. references
 	desc = "A suit that protects against minor chemical spills. Has a red stripe on the shoulder."
 	icon_state = "labcoat_vir_open"
 	icon_open = "labcoat_vir_open"
@@ -48,8 +48,9 @@
 	icon_open = "labcoat_vir_open"
 	icon_closed = "labcoat_vir"
 	armor = list(
-		melee = 0,
-		bullet = 0,
+		melee = 2,
+		bullet = 2,
+		energy = 2,
 		bomb = 0,
 		bio = 75,
 		bomb = 0,
@@ -58,8 +59,8 @@
 	)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/science
-	name = "scientist labcoat"
-	desc = "A suit that protects against minor chemical spills. Has a purple stripe on the shoulder."
+	name = "scientist labcoat" // Occulus Edit - Remove Eris corp. references
+	desc = "A suit that protects against minor chemical spills. This one is used by scientists."
 	icon_state = "labcoat_tox_open"
 	icon_open = "labcoat_tox_open"
 	icon_closed = "labcoat_tox"

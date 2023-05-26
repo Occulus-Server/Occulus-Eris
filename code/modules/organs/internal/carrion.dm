@@ -30,8 +30,8 @@
 	return TRUE
 
 /obj/item/organ/internal/carrion
-	max_damage = 150 //resilient
-	//scanner_hidden = TRUE //sneaky	// OCCULUS NOTE: We need #5795 for this
+	max_damage = 15 //resilient
+	scanner_hidden = TRUE //sneaky
 
 /obj/item/organ/internal/carrion/chemvessel
 	name = "chemical vessel"
@@ -53,6 +53,7 @@
 	var/list/spiderlist = list()
 	var/list/active_spiders = list()
 	var/geneticpoints = 10
+	var/autoassign_groups = FALSE
 
 	var/mob/living/simple_animal/spider_core/associated_spider = null
 
@@ -65,10 +66,14 @@
 		/obj/item/organ/internal/carrion/core/proc/spider_menu
 	)
 
+	var/list/associated_carrion_organs = list()
+
 /obj/item/organ/internal/carrion/core/Destroy()
 	owner = null //overrides removed() call
 	. = ..()
 
+/obj/item/organ/internal/carrion/core/take_damage(amount, damage_type = BRUTE, wounding_multiplier = 1, sharp = FALSE, edge = FALSE, silent = FALSE)
+	return
 
 /obj/item/organ/internal/carrion/core/proc/make_spider()
 	set category = "Carrion"
@@ -94,33 +99,47 @@
 		active_spiders += spider
 		spider.owner_core = src
 		spider.update_owner_mob()
+		if(autoassign_groups)
+			var/obj/item/implant/carrion_spider/A
+			for(var/obj/item/implant/carrion_spider/F in active_spiders)
+				if(istype(F, spider.type))
+					A = F
+					spider.assigned_groups = A.assigned_groups
+					break
 
 		owner.put_in_active_hand(spider)
 
-/obj/item/organ/internal/carrion/core/ui_interact(mob/user, ui_key, datum/nanoui/ui, force_open, datum/nanoui/master_ui, datum/topic_state/state)
+/obj/item/organ/internal/carrion/core/nano_ui_interact(mob/user, ui_key, datum/nanoui/ui, force_open, datum/nanoui/master_ui, datum/nano_topic_state/state)
 	var/list/data = list()
 
 	var/list/spiders_in_list = list()
 	for(var/item in active_spiders)
 		var/obj/item/implant/carrion_spider/S = item
 		var/turf/T = get_turf(S)
+		var/area/area = get_area(S)
+		var/location_name = area.name
 		var/spider_location = "Unknown location"
 		if(T)
-			spider_location = "[S.loc]([T.x]:[T.y]:[T.z])"
+			spider_location = "[location_name], [S.loc]([T.x]:[T.y]:[T.z])"
 		spiders_in_list += list(
 			list(
 				"name" = initial(S.name),
 				"location" = "[spider_location]",
 				"spider" = "\ref[item]",
-				"implanted" = S.wearer
+				"implanted" = S.wearer,
+				"assigned_group_1" = S.check_group(SPIDER_GROUP_1),
+				"assigned_group_2" = S.check_group(SPIDER_GROUP_2),
+				"assigned_group_3" = S.check_group(SPIDER_GROUP_3),
+				"assigned_group_4" = S.check_group(SPIDER_GROUP_4)
 			)
 		)
 
 	data["list_of_spiders"] = spiders_in_list
+	data["autoassigning"] = autoassign_groups
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "carrion_spiders.tmpl", "Carrion Spiders", 400, 400)
+		ui = new(user, src, ui_key, "carrion_spiders.tmpl", "Carrion Spiders", 600, 400)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
@@ -131,11 +150,63 @@
 		if(activated_spider)
 			activated_spider.activate()
 
+	if(href_list["pop_out_spider"])
+		var/obj/item/implant/carrion_spider/activated_spider = locate(href_list["pop_out_spider"]) in active_spiders
+		if(activated_spider)
+			activated_spider.uninstall()
+
 	if(href_list["activate_all"])
 		for(var/spider in active_spiders)
 			var/obj/item/implant/carrion_spider/CS = spider
-			if(istype(CS))
+			if(istype(CS) && !CS.ignore_activate_all)
 				CS.activate()
+
+	if(href_list["activate_group_1"])
+		for(var/spider in active_spiders)
+			var/obj/item/implant/carrion_spider/CS = spider
+			if(istype(CS) && CS.check_group(SPIDER_GROUP_1))
+				CS.activate()
+
+	if(href_list["activate_group_2"])
+		for(var/spider in active_spiders)
+			var/obj/item/implant/carrion_spider/CS = spider
+			if(istype(CS) && CS.check_group(SPIDER_GROUP_2))
+				CS.activate()
+
+	if(href_list["activate_group_3"])
+		for(var/spider in active_spiders)
+			var/obj/item/implant/carrion_spider/CS = spider
+			if(istype(CS) && CS.check_group(SPIDER_GROUP_3))
+				CS.activate()
+
+	if(href_list["activate_group_4"])
+		for(var/spider in active_spiders)
+			var/obj/item/implant/carrion_spider/CS = spider
+			if(istype(CS) && CS.check_group(SPIDER_GROUP_4))
+				CS.activate()
+
+	if(href_list["toggle_group_1"])
+		var/obj/item/implant/carrion_spider/activated_spider = locate(href_list["toggle_group_1"]) in active_spiders
+		if(activated_spider)
+			activated_spider.toggle_group(SPIDER_GROUP_1)
+
+	if(href_list["toggle_group_2"])
+		var/obj/item/implant/carrion_spider/activated_spider = locate(href_list["toggle_group_2"]) in active_spiders
+		if(activated_spider)
+			activated_spider.toggle_group(SPIDER_GROUP_2)
+
+	if(href_list["toggle_group_3"])
+		var/obj/item/implant/carrion_spider/activated_spider = locate(href_list["toggle_group_3"]) in active_spiders
+		if(activated_spider)
+			activated_spider.toggle_group(SPIDER_GROUP_3)
+
+	if(href_list["toggle_group_4"])
+		var/obj/item/implant/carrion_spider/activated_spider = locate(href_list["toggle_group_4"]) in active_spiders
+		if(activated_spider)
+			activated_spider.toggle_group(SPIDER_GROUP_4)
+
+	if(href_list["toggle_autoassign"])
+		autoassign_groups = !autoassign_groups
 
 	if(href_list["P"])
 		purchasePower(href_list["P"])
@@ -161,7 +232,7 @@
 	set category = "Carrion"
 	set name = "Open spider menu"
 
-	ui_interact(owner)
+	nano_ui_interact(owner)
 
 /obj/item/organ/internal/carrion/core/removed(mob/living/user)
 	if(!associated_spider && owner)
@@ -174,14 +245,6 @@
 		..()
 		forceMove(associated_spider)
 
-/obj/item/organ/internal/carrion/core/proc/GetDNA(var/dna_owner)
-	var/datum/dna/chosen_dna
-	for(var/datum/dna/DNA in absorbed_dna)
-		if(dna_owner == DNA.real_name)
-			chosen_dna = DNA
-			break
-	return chosen_dna
-
 /obj/item/organ/internal/carrion/core/proc/carrion_transform()
 	set category = "Carrion"
 	set name = "Transform(5)"
@@ -189,37 +252,31 @@
 	if (owner.transforming)
 		return
 
-	var/list/names = list()
-
 	if (!owner)
 		return
 
-	for(var/datum/dna/DNA in absorbed_dna)
-		names += "[DNA.real_name]"
-
-	var/S = input("Select the target DNA: ", "Target DNA", null) as null|anything in names
 	if(!absorbed_dna.len)
 		to_chat(owner, SPAN_WARNING("You have no DNA absorbed!"))
 		return
 
-	var/datum/dna/chosen_dna = GetDNA(S)
-	if(!chosen_dna)
+	var/S = input("Select the target DNA: ", "Target DNA", null) as null|anything in absorbed_dna
+
+	if(!S)
 		return
 
 	if(!owner.check_ability(5))
 		return
 
-	if(HUSK in owner.mutations)
-		owner.mutations -= HUSK
-		if(istype(owner))
-			owner.update_body(0)
+//	if(HUSK in owner.mutations)
+//		owner.mutations -= HUSK
+//		if(istype(owner))
+//			owner.update_body(0)
 
 	owner.visible_message(SPAN_WARNING("[owner] transforms!"))
-	owner.dna = chosen_dna.Clone()
-	owner.real_name = chosen_dna.real_name
+	owner.real_name = S
+	owner.dna_trace = sha1(S)
+	owner.fingers_trace = md5(S)
 	owner.flavor_text = ""
-	owner.UpdateAppearance()
-	domutcheck(owner, null)
 
 	return 1
 
@@ -227,7 +284,7 @@
 	set category = "Carrion"
 	set name = "Regenerative Stasis (20)"
 
-	if(!owner.stat && alert("Are you sure? You will be unable to move or defend yourself.",,"Yes","No") == "No")
+	if(!owner.stat && alert("Are we sure we wish to fake our death?",,"Yes","No") == "No")
 		return
 
 	if(!(owner.check_ability(20)))
@@ -235,28 +292,34 @@
 
 	to_chat(owner, SPAN_NOTICE("We will attempt to regenerate our form."))
 
-	owner.reagents.add_reagent("kyphotorin", 15) //Occulus Edit
 	owner.status_flags |= FAKEDEATH
 	owner.update_lying_buckled_and_verb_status()
 	owner.emote("gasp")
-	owner.timeofdeath = stationtime2text()
-	var/last_owner = owner
+	owner.timeofdeath = world.time
 
-	spawn(rand(1 MINUTES, 3 MINUTES))
-		if(last_owner == owner)
-			owner.rejuvenate()
-		/* Occulus Edit start, Removed in favour for kyphotorin injection
-			for(var/limb_tag in owner.species.has_limbs)
-				var/obj/item/organ/external/E = owner.get_organ(limb_tag)
-				if(E.is_stump())
-					qdel(E)
-					var/datum/organ_description/OD = owner.species.has_limbs[limb_tag]
-					OD.create_organ(owner)
-		 Occulus Edit end. */
-			owner.status_flags &= ~(FAKEDEATH)
-			owner.update_lying_buckled_and_verb_status()
-			owner.update_icons()
-			to_chat(owner, SPAN_NOTICE("You have regenerated."))
+	addtimer(CALLBACK(src, PROC_REF(carrion_revive)), rand(1 MINUTES, 3 MINUTES))
+
+/obj/item/organ/internal/carrion/core/proc/carrion_revive()
+	if(!owner)
+		return
+
+	owner.rejuvenate()
+	for(var/limb_tag in owner.species.has_limbs)
+		var/obj/item/organ/external/E = owner.get_organ(limb_tag)
+		if(E.is_stump())
+			qdel(E)
+			var/datum/organ_description/OD = owner.species.has_limbs[limb_tag]
+			OD.create_organ(owner)
+	owner.status_flags &= ~FAKEDEATH
+	owner.update_lying_buckled_and_verb_status()
+	owner.update_body()
+	owner.update_icons()
+	to_chat(owner, SPAN_NOTICE("You have regenerated."))
+
+/obj/item/organ/internal/carrion/core/proc/add_to_associated_organs(obj/item/organ/internal/carrion/I)
+	if(istype(I))
+		associated_carrion_organs += I
+	return
 
 /obj/item/organ/internal/carrion/maw
 	name = "carrion maw"
@@ -264,7 +327,7 @@
 	icon_state = "carrion_maw"
 	organ_efficiency = list(OP_MAW = 100)
 	var/last_call = -5 MINUTES
-	specific_organ_size = 0
+	var/tearing = FALSE
 
 	owner_verbs = list(
 		/obj/item/organ/internal/carrion/maw/proc/consume_flesh,
@@ -279,8 +342,51 @@
 	var/food = owner.get_active_hand()
 
 	if(!food)
-		to_chat(owner, SPAN_WARNING("You have nothing to eat."))
+		to_chat(owner, SPAN_WARNING("You can't eat nothing."))
 		return
+
+	if(istype(food, /obj/item/grab))
+		var/obj/item/grab/grab = food
+		var/mob/living/carbon/human/H = grab.affecting
+		if (grab.state < GRAB_AGGRESSIVE)
+			to_chat(owner, SPAN_WARNING("Your grip upon [H.name] is too weak."))
+			return
+		if(istype(H))
+			var/obj/item/organ/external/E = H.get_organ(owner.targeted_organ)
+			if (tearing) // one at a time, thank you.
+				to_chat(owner, SPAN_WARNING("Your maw is already focused on something."))
+				return
+
+			if(E.is_stump())
+				to_chat(owner, SPAN_WARNING("There is nothing there!"))
+				return
+			tearing = TRUE
+
+			visible_message(SPAN_DANGER("[owner] bites into [H.name]'s [E.name] and starts tearing it apart!"))
+			if(do_after(owner, 5 SECONDS, H))
+				tearing = FALSE
+				E.take_damage(30, BRUTE)
+				var/blacklist = list()
+				for (var/obj/item/organ/internal/to_blacklist in E.internal_organs)
+					if (istype(to_blacklist, /obj/item/organ/internal/bone/))
+						blacklist += to_blacklist
+						continue
+					if (istype(to_blacklist, /obj/item/organ/internal/brain/))
+						blacklist += to_blacklist// removing bones from a valid_organs list based on
+				var/list/valid_organs = E.internal_organs - blacklist// E.internal_organs gibs the victim.
+				if (!valid_organs.len)
+					visible_message(SPAN_DANGER("[owner] tears up [H]'s [E.name]!"))
+					return
+				var/obj/item/organ/internal/organ_to_remove = pick(valid_organs)
+				organ_to_remove.removed(owner)
+				visible_message(SPAN_DANGER("[owner] tears \a [organ_to_remove] out of [H.name]'s [E.name]!"))
+				playsound(loc, 'sound/voice/shriek1.ogg', 50)
+				return
+			else
+				tearing = FALSE
+		else
+			to_chat(owner, SPAN_WARNING("You can only tear flesh out of humanoids!"))
+			return
 
 	if(istype(food, /obj/item/organ) || istype(food, /obj/item/reagent_containers/food/snacks/meat))
 		var/geneticpointgain = 0
@@ -296,28 +402,40 @@
 			if(BP_IS_ROBOTIC(O))
 				to_chat(owner, SPAN_WARNING("This organ is robotic, you can't eat it."))
 				return
+			else if(istype(O, /obj/item/organ/internal/carrion))
+				var/obj/item/organ/internal/carrion/core/G = owner.random_organ_by_process(BP_SPCORE)
+				if(O in G.associated_carrion_organs)
+					taste_description = "albeit delicious, your own organs carry no new genetic material"
+				else
+					owner.carrion_hunger += 3
+					geneticpointgain = 4
+					chemgain = 50
+					taste_description = "carrion organs taste heavenly, you need more!"
 			else if(istype(O, /obj/item/organ/internal))
-				geneticpointgain = 3
-				chemgain = 20
-				taste_description = "internal organs are delicious"
+				var/organ_rotten = FALSE
+				if (O.status & ORGAN_DEAD)
+					organ_rotten = TRUE
+				if(O.species != all_species[SPECIES_HUMAN])
+					chemgain = 5
+					taste_description = "this non-human organ is very bland." // no removal of hunger here, getting and storing a ton of monkey organs isn't too easy, and 5 chem points isn't terribly much.
+				else
+					geneticpointgain = organ_rotten ? 1 : 3
+					chemgain = organ_rotten ? 4 : 10
+					taste_description = "internal organs are delicious[organ_rotten ? ", but rotten ones less so." : "."]"
 			else
 				geneticpointgain = 2
-				chemgain = 15
-				taste_description = "limbs are satisfying"
+				chemgain = 5
+				taste_description = "limbs are satisfying."
 
 		else if(istype(food, /obj/item/reagent_containers/food/snacks/meat/human))
 			geneticpointgain = 2
-			chemgain = 15
-			taste_description = "human meat is satisfying"
+			chemgain = 5
+			taste_description = "human meat is satisfying."
 
-		else if(istype(food, /obj/item/reagent_containers/food/snacks/meat/roachmeat)) //No spider meat, as carrions can spawn spiders
-			geneticpointgain = 1
-			chemgain = 10
-			taste_description = "roach meat is okay"
 		else
 			chemgain = 5
 			owner.carrion_hunger -= 1 //Prevents meat eating spam for infinate chems
-			taste_description = "this meat is bland"
+			taste_description = "this meat is bland."
 
 		var/obj/item/organ/internal/carrion/core/C = owner.random_organ_by_process(BP_SPCORE)
 		if(C)
@@ -342,13 +460,13 @@
 	set name = "Spider call (30)"
 
 	if(last_call + 5 MINUTES > world.time)
-		to_chat(owner, SPAN_WARNING("Your maw is tired. You can only call for help every 5 minutes."))
+		to_chat(owner, SPAN_WARNING("Your maw is tired, you can only call for help every 5 minutes."))
 		return
 
 	if(owner.check_ability(30))
-		playsound(src.loc, 'sound/voice/shriek1.ogg', 100, 1, 8, 8)
+		playsound(loc, 'sound/voice/shriek1.ogg', 100, 1, 8, 8)
 		spawn(2)
-			playsound(src.loc, 'sound/voice/shriek1.ogg', 100, 1, 8, 8) //Same trick as with the fuhrer
+			playsound(loc, 'sound/voice/shriek1.ogg', 100, 1, 8, 8) //Same trick as with the fuhrer
 		visible_message(SPAN_DANGER("[owner] emits a frightening screech as you feel the ground tramble!"))
 		for (var/obj/structure/burrow/B in find_nearby_burrows())
 			for(var/i = 1, i <= 4 ,i++) //4 per burrow
@@ -377,7 +495,7 @@
 /obj/effect/decal/cleanable/carrion_puddle
 	name = "toxic puddle"
 	icon = 'icons/effects/effects.dmi'
-	desc = "It emits an abhorrent smell. You shouldn't stand anywhere near this."
+	desc = "It emits an abhorrent smell, you shouldn't step anywhere near it."
 	icon_state = "toxic_puddle"
 	anchored = TRUE
 	spawn_blacklisted = TRUE
@@ -411,28 +529,38 @@
 	owner_verbs = list(
 		/obj/item/organ/internal/carrion/spinneret/proc/make_nest,
 		/obj/item/organ/internal/carrion/spinneret/proc/bloodpurge,
-		/obj/item/organ/internal/carrion/spinneret/proc/make_web
+		/obj/item/organ/internal/carrion/spinneret/proc/make_stickyweb
 	)
+
+/obj/item/organ/internal/carrion/spinneret/proc/make_stickyweb()
+	set category = "Carrion"
+	set name = "Make a web (5)"
+
+	if(locate(/obj/effect/spider/stickyweb) in get_turf(src))
+		to_chat(owner, SPAN_WARNING("There is alredy web on the floor!"))
+		return
+
+	if(owner.check_ability(5,TRUE))
+		visible_message(SPAN_NOTICE("\The [owner] begins to secrete a sticky substance."))
+		new /obj/effect/spider/stickyweb(get_turf(src))
+		update_openspace()
 
 /obj/item/organ/internal/carrion/spinneret/proc/bloodpurge()
 	set category = "Carrion"
 	set name = "Blood Purge (25)"
 
-
-	if (owner.check_ability(25))
+	if(owner.check_ability(25))
 		to_chat(owner, SPAN_NOTICE("You cleanse your blood of all chemicals and poisons."))
-		owner.adjustToxLoss(-100)
 		owner.radiation = 0
 		owner.reagents.update_total()
 		owner.reagents.trans_to_turf(owner.loc, owner.reagents.total_volume)
 
 /obj/item/organ/internal/carrion/spinneret/proc/make_nest()
 	set category = "Carrion"
-	set name = "Make a spider nest (30)"
+	set name = "Make a spider nest (30, 1)"
 
-	if (owner.check_ability(30,TRUE))
+	if (owner.check_ability(30,TRUE, 1))
 		new /obj/structure/spider_nest(owner.loc)
-		to_chat(owner, SPAN_NOTICE("You spin a nest underneath yourself."))
 
 /obj/structure/spider_nest
 	name = "spider nest"
@@ -446,7 +574,7 @@
 /obj/structure/spider_nest/New()
 	. = ..()
 	spider_spawns = rand(3,8)
-	addtimer(CALLBACK(src, .proc/spawn_spider), 30 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(spawn_spider)), 30 SECONDS)
 
 /obj/structure/spider_nest/attackby(obj/item/I, mob/living/user)
 	..()
@@ -454,7 +582,7 @@
 		playsound(loc, 'sound/voice/shriek1.ogg', 85, 1, 8, 8)
 		spawn_spider()
 		attack_animation(user)
-		visible_message(SPAN_WARNING("[src] bursts open!"))
+		visible_message(SPAN_WARNING("\The [src] bursts open!"))
 		qdel(src)
 
 /obj/structure/spider_nest/bullet_act(obj/item/projectile/P, def_zone)
@@ -472,15 +600,7 @@
 	visible_message(SPAN_WARNING("A spider spews out of \The [src]"))
 	spider_spawns--
 	if(spider_spawns)
-		addtimer(CALLBACK(src, .proc/spawn_spider), 1 MINUTES)
-
-/obj/item/organ/internal/carrion/spinneret/proc/make_web()
-	set category = "Carrion"
-	set name = "Spin Web (2)"
-
-	if (owner.check_ability(2,TRUE))
-		new /obj/effect/spider/stickyweb(owner.loc)
-		to_chat(owner, SPAN_NOTICE("You spin a web underneath yourself."))
+		addtimer(CALLBACK(src, PROC_REF(spawn_spider)), 1 MINUTES)
 
 /mob/proc/make_carrion()
 	var/mob/living/carbon/human/user = src

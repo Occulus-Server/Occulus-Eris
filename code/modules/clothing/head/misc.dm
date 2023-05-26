@@ -8,6 +8,7 @@
 	desc = "It's good to be emperor."
 	siemens_coefficient = 0.9
 	body_parts_covered = 0
+	style_coverage = COVERS_HAIR
 
 /obj/item/clothing/head/hairflower
 	name = "hair flower pin"
@@ -25,18 +26,19 @@
 
 /obj/item/clothing/head/that
 	name = "top-hat"
-	desc = "It's an amish looking hat."
+	desc = "An amish looking hat."
 	icon_state = "tophat"
 	item_state = "tophat"
 	siemens_coefficient = 0.9
 	body_parts_covered = 0
-
+	style_coverage = COVERS_HAIR
 
 /obj/item/clothing/head/mailman
 	name = "station cap"
 	icon_state = "mailman"
 	desc = "<i>Choo-choo</i>!"
 	body_parts_covered = 0
+	style_coverage = COVERS_HAIR
 
 /obj/item/clothing/head/plaguedoctorhat
 	name = "plague doctor's hat"
@@ -45,6 +47,7 @@
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
 	body_parts_covered = 0
+	style_coverage = COVERS_WHOLE_HEAD
 
 /obj/item/clothing/head/hasturhood
 	name = "hastur's hood"
@@ -52,6 +55,7 @@
 	icon_state = "hasturhood"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
+	style_coverage = COVERS_WHOLE_FACE
 
 /obj/item/clothing/head/nursehat
 	name = "nurse's hat"
@@ -69,17 +73,19 @@
 	icon_state = "syndicate"
 	desc = "A plastic replica of a bloodthirsty mercenary's space helmet, you'll look just like a real murderous criminal operative in this! This is a toy, it is not made for use in space!"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	siemens_coefficient = 2.0
+	siemens_coefficient = 2
 	body_parts_covered = HEAD|FACE|EYES
 	item_flags = COVER_PREVENT_MANIPULATION
+	style_coverage = COVERS_WHOLE_HEAD
 
 /obj/item/clothing/head/bandana/green
 	name = "green bandana"
-	desc = "It's a green bandana with some fine nanotech lining."
+	desc = "A green bandana with some fine nanotech lining."
 	icon_state = "greenbandana"
 	item_state = "greenbandana"
 	flags_inv = 0
 	body_parts_covered = 0
+	style_coverage = COVERS_HAIR
 
 /obj/item/clothing/head/cardborg
 	name = "cardborg helmet"
@@ -88,6 +94,7 @@
 	item_state = "cardborg_h"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = HEAD|FACE|EYES
+	style_coverage = COVERS_WHOLE_HEAD
 
 /obj/item/clothing/head/justice
 	name = "justice hat"
@@ -95,6 +102,7 @@
 	icon_state = "justicered"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|EYES
+	style_coverage = COVERS_WHOLE_FACE
 
 /obj/item/clothing/head/justice/blue
 	icon_state = "justiceblue"
@@ -108,11 +116,6 @@
 /obj/item/clothing/head/justice/pink
 	icon_state = "justicepink"
 
-/obj/item/clothing/head/rabbitears
-	name = "rabbit ears"
-	desc = "Wearing these makes you looks useless, and only good for your sex appeal."
-	icon_state = "bunny"
-	body_parts_covered = 0
 
 /obj/item/clothing/head/flatcap
 	name = "flat cap"
@@ -129,20 +132,21 @@
 	desc = "Yarr."
 	icon_state = "pirate"
 	body_parts_covered = 0
+	style_coverage = COVERS_HAIR
 
 /obj/item/clothing/head/hgpiratecap
 	name = "pirate hat"
 	desc = "Yarr."
 	icon_state = "hgpiratecap"
 	body_parts_covered = 0
+	style_coverage = COVERS_HAIR
 
 /obj/item/clothing/head/bandana
 	name = "pirate bandana"
 	desc = "Yarr."
 	icon_state = "bandana"
 	flags_inv = BLOCKHEADHAIR
-	style = STYLE_LOW
-	rarity_value = 3.5
+	style_coverage = COVERS_HAIR
 
 /obj/item/clothing/head/bowler
 	name = "bowler-hat"
@@ -193,7 +197,15 @@
 	desc = "Eeeee~heheheheheheh!"
 	icon_state = "witch"
 	flags_inv = BLOCKHEADHAIR
-	siemens_coefficient = 2.0
+	siemens_coefficient = 2
+	style_coverage = COVERS_HAIR
+
+/obj/item/clothing/head/marisa
+	name = "witch hat"
+	desc = "Strange-looking hat-wear, makes you want to cast fireballs."
+	icon_state = "marisa"
+	style_coverage = COVERS_HAIR
+	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/chicken
 	name = "chicken suit head"
@@ -206,6 +218,7 @@
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 0.7
 	body_parts_covered = HEAD|FACE|EYES
+	style_coverage = COVERS_WHOLE_HEAD
 
 /obj/item/clothing/head/bearpelt
 	name = "bear pelt hat"
@@ -213,6 +226,7 @@
 	icon_state = "bearpelt"
 	flags_inv = BLOCKHEADHAIR
 	siemens_coefficient = 0.7
+	style_coverage = COVERS_HAIR
 
 /obj/item/clothing/head/xenos
 	name = "xenos helmet"
@@ -223,8 +237,9 @@
 		)
 	desc = "A helmet made out of chitinous alien hide."
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	siemens_coefficient = 2.0
+	siemens_coefficient = 2
 	body_parts_covered = HEAD|FACE|EYES
+	style_coverage = COVERS_WHOLE_HEAD
 
 /obj/item/clothing/head/philosopher_wig
 	name = "natural philosopher's wig"
@@ -235,15 +250,16 @@
 		slot_r_hand_str = "pwig",
 		)
 	flags_inv = BLOCKHEADHAIR
-	siemens_coefficient = 2.0 //why is it so conductive?!
+	siemens_coefficient = 2 //why is it so conductive?!
 	body_parts_covered = 0
+	style_coverage = COVERS_HAIR
 
 /obj/item/clothing/head/bandana/orange //themij: Taryn Kifer
 	name = "orange bandana"
 	desc = "An orange piece of cloth, worn on the head."
 	icon_state = "orange_bandana"
 	body_parts_covered = 0
-
+	style_coverage = COVERS_HAIR
 /obj/item/clothing/head/gladiator
 	name = "gladiator helmet"
 	desc = "Ave, Imperator, morituri te salutant."
@@ -252,18 +268,150 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EARS
 	siemens_coefficient = 1
+	style_coverage = COVERS_WHOLE_HEAD
 
 /obj/item/clothing/head/beret/german
 	name = "Oberth Republic beret"
 	desc = "Brown beret with emblem. Material that it made of will protect against energy projectiles."
 	icon_state = "germanberet"
-	rarity_value = 12.5
 	armor = list(
-		melee = 5,
-		bullet = 5,
-		energy = 25,
+		melee = 1,
+		bullet = 1,
+		energy = 6,
 		bomb = 0,
 		bio = 0,
 		rad = 0
 	)
 
+/obj/item/clothing/head/beret/merc
+	name = "Serbian Commander beret"
+	desc = "A green beret that strikes discipline into even mercenaries."
+	icon_state = "beret_mercenary"
+	spawn_blacklisted = TRUE
+
+/obj/item/clothing/head/beret/oldsec
+	name = "old security beret"
+	desc = "A washed out and dusty corporate security beret from the long defunct \"Securitech\" company."
+	icon_state = "nanoberet"
+
+/obj/item/clothing/head/onestar
+	name = "One Star officer cap"
+	desc = "A fancy red and blue cap sporting the One Star insignia. It's made out of a strange material that feels like it could stop a bullet."
+	icon_state = "onestar_hat"
+	siemens_coefficient = 1
+	price_tag = 1000
+	spawn_tags = SPAWN_TAG_CLOTHING_OS
+	spawn_blacklisted = TRUE
+	style = STYLE_HIGH
+	armor = list(
+		melee = 2,
+		bullet = 10,
+		energy = 10,
+		bomb = 10,
+		bio = 5,
+		rad = 5
+	)
+
+/obj/item/clothing/head/ranger
+	name = "ranger hat"
+	desc = "A rather generic sergeant hat. On second look it's actually a ranger hat."
+	icon_state = "ranger"
+	item_state = "ranger"
+	price_tag = 200
+
+/obj/item/clothing/head/inhaler
+	name = "odd looking helmet"
+	desc = "A confusingly complex helmet. It is capable of protecting you so it's more useful than being a simple decoration."
+	icon_state = "inhaler"
+	item_state = "inhaler"
+	item_flags = THICKMATERIAL
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EARS
+	siemens_coefficient = 1
+	price_tag = 600
+	armor = list(
+		melee = 5,
+		bullet = 3,
+		energy = 2,
+		bomb = 0,
+		bio = 20,
+		rad = 25
+	)
+	style_coverage = COVERS_WHOLE_HEAD
+
+/obj/item/clothing/head/skull
+	name = "white skull"
+	desc = "This is actually a white plastic skull, don't expect much protection."
+	icon_state = "skull-white"
+	item_state = "skull-white"
+	flags_inv = HIDEMASK|HIDEEARS|BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EARS
+	price_tag = 300
+	armor = list(
+		melee = 2,
+		bullet = 1,
+		energy = 1,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
+	style_coverage = COVERS_WHOLE_FACE
+
+/obj/item/clothing/head/skull/black
+	name = "black skull"
+	desc = "This is actually a black plastic skull, don't expect much protection."
+	icon_state = "skull-black"
+	item_state = "skull-black"
+	price_tag = 300
+
+/obj/item/clothing/head/skull/drip
+	name = "golden skull"
+	desc = "This is actually a skull made of gold! How the hell did this show up here?"
+	icon_state = "skull-drip"
+	item_state = "skull-drip"
+	spawn_blacklisted = TRUE //its 10k, also decent armour
+	price_tag = 10000
+	armor = list(
+		melee = 7,
+		bullet = 6,
+		energy = 6,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
+	style_coverage = COVERS_WHOLE_FACE
+
+
+
+/obj/item/clothing/head/cowboy
+	name = "cowboy hat"
+	desc = "There is no sun to cover your eyes from on a spaceship, but it doesn't mean this hat is not stylish."
+	icon_state = "cowboy"
+	item_state = "cowboy"
+	style_coverage = COVERS_HAIR
+
+/obj/item/clothing/head/cowboy/white
+	name = "white cowboy hat"
+	icon_state = "cowboy_white"
+	item_state = "cowboy_white"
+
+/obj/item/clothing/head/cowboy/black
+	name = "black cowboy hat"
+	icon_state = "cowboy_black"
+	item_state = "cowboy_black"
+
+/obj/item/clothing/head/cowboy/wide
+	name = "wide cowboy hat"
+	desc = "To call this \"wide\" is an understatement."
+	icon_state = "cowboy_wide"
+	item_state = "cowboy_wide"
+
+/obj/item/clothing/head/cowboy/wide/white
+	name = "wide white cowboy hat"
+	icon_state = "cowboy_white_wide"
+	item_state = "cowboy_white_wide"
+
+/obj/item/clothing/head/cowboy/wide/black
+	name = "wide black cowboy hat"
+	icon_state = "cowboy_black_wide"
+	item_state = "cowboy_black_wide"

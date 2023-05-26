@@ -1,15 +1,23 @@
 /*
  * Contains:
  *		Security
- *		Detective
- *		Aegis Commander
+ *		Detective  // Occulus Edit - Remove Eris corp. references
+ *		Aegis Commander  // Occulus Edit - Remove Eris corp. references
  */
 
 /*
  * Security
  */
+
+/obj/item/clothing/under/security_formal
+	name = "ironhammer formal uniform"
+	desc = "A navy blue suit. Often used by Ironhammer personnel, for shooting with style."
+	icon_state = "ih_formal"
+	item_state = "ih_formal"
+	spawn_blacklisted = TRUE
+
 /obj/item/clothing/under/rank/warden
-	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection. It has the words \"Gunnery Sergeant\" written on the shoulders."
+	desc = "The uniform worn by Ironhammer Sergeants, the sight of it is often followed by shouting. It has\"Gunnery Sergeant\" rank pins on the shoulders."
 	name = "Gunnery Sergeant jumpsuit"
 	icon_state = "warden"
 	item_state = "r_suit"
@@ -17,26 +25,26 @@
 
 /obj/item/clothing/under/rank/warden/skirt
 	name = "Gunnery Sergeant jumpskirt"
-	desc = "It's made of a slightly sturdier material than standard jumpskirts, to allow for more robust protection. It has the words \"Gunnery Sergeant\" written on the shoulders."
+	desc = "It's made of a slightly sturdier material than standard jumpskirts, to allow for more robust protection. It has\"Gunnery Sergeant\" rank pins on the shoulders."
 	icon_state = "warden_skirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/head/warden
-	name = "Gunnery Sergeant hat"
-	desc = "It's a special helmet issued to the Warden of a securiy force."
+/obj/item/clothing/head/warden //legacy security hat
+	name = "warden hat"
+	desc = "A special helmet issued to the Warden of a securiy force."
 	icon_state = "policehelm"
 	body_parts_covered = NONE
 
 /obj/item/clothing/under/rank/security
-	name = "Cobalt Operative jumpsuit"
-	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."
+	name = "Cobalt Operative jumpsuit" // Occulus Edit - Remove Eris corp. references
+	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection." // Occulus Edit - Remove Eris corp. references
 	icon_state = "security"
 	item_state = "ba_suit"
 	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/security/turtleneck
-	name = "Cobalt Operative's turtleneck" //Occulus Edit - I blame whoever made this non-modular in the first place
-	desc = "Military style turtleneck, made of a slightly sturdier material than standard jumpsuits, to allow for robust protection"
+	name = "Cobalt Operative's turtleneck"  // Occulus Edit - Remove Eris corp. references
+	desc = "Military style turtleneck, made of a slightly sturdier material than standard jumpsuits, to allow for robust protection" // Occulus Edit - Remove Eris corp. references
 	icon_state = "securityrturtle"
 
 /obj/item/clothing/under/rank/security/skirt
@@ -46,24 +54,24 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/rank/medspec
-	name = "Medical Specialist jumpsuit"
-	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection. It has the words \"Medical Specialist\" written on the shoulders."
+	name = "Medical Specialist's jumpsuit"
+	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection. It has the words \"Medical Specialist\" written on the shoulders."  // Occulus Edit - Remove Eris corp. references
 	icon_state = "medspec"
 	item_state = "ba_suit"
 	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/medspec/skirt
-	name = "Medical Specialist jumpskirt"
-	desc = "It's made of a slightly sturdier material than standard jumpskirts, to allow for robust protection. It has the words \"Medical Specialist\" written on the shoulders."
+	name = "Medical Specialist's jumpskirt"
+	desc = "It's made of a slightly sturdier material than standard jumpskirts, to allow for robust protection. It has the words \"Medical Specialist\" written on the shoulders."  // Occulus Edit - Remove Eris corp. references
 	icon_state = "medspec_skirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /*
- * Detective
+ * Inspector
  */
 /obj/item/clothing/under/rank/inspector
 	name = "inspector's suit"
-	desc = "Casual turtleneck and jeans, civilian clothes of the Aegis Inspector."
+	desc = "Casual turtleneck and jeans, civilian clothes of the Aegis Inspector."  // Occulus Edit - Remove Eris corp. references
 	icon_state = "insp_under"
 	item_state = "insp_under"
 	siemens_coefficient = 0.8
@@ -82,17 +90,17 @@
 	//item_state = "sl_suit"
 	desc = "An immaculate white dress shirt, paired with a pair of dark grey dress pants, a red tie, and a charcoal vest."
 
-/obj/item/clothing/head/det
+/obj/item/clothing/head/detective
 	name = "fedora"
 	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-	icon_state = "detective"
+	icon_state = "detective_brown"
 	item_state_slots = list(
-		slot_l_hand_str = "det_hat",
-		slot_r_hand_str = "det_hat",
+		slot_l_hand_str = "detective_hat",
+		slot_r_hand_str = "detective_hat",
 		)
 	allowed = list(/obj/item/reagent_containers/food/snacks/candy_corn, /obj/item/pen)
 	armor = list(
-		melee = 10,
+		melee = 2,
 		bullet = 0,
 		energy = 0,
 		bomb = 0,
@@ -102,41 +110,45 @@
 	siemens_coefficient = 0.8
 	body_parts_covered = NONE
 
-/obj/item/clothing/head/det/grey
-	icon_state = "detective2"
+/obj/item/clothing/head/detective/grey
+	icon_state = "detective_gray"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
+
+/obj/item/clothing/head/detective/black
+	icon_state = "detective_black"
+	desc = "A black fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
 
 /*
  * Aegis Commander
  */
 /obj/item/clothing/under/rank/ih_commander
-	desc = "It's a jumpsuit worn by those few with the dedication to achieve the position of \"Aegis Commander\"."
-	name = "Aegis Cobalt Commander's jumpsuit"
+	desc = "It's a jumpsuit worn by those few with the dedication to achieve the position of \"Aegis Commander\"."  // Occulus Edit - Remove Eris corp. references
+	name = "Aegis Cobalt Commander's jumpsuit"  // Occulus Edit - Remove Eris corp. references
 	icon_state = "hos"
 	item_state = "r_suit"
 	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/ih_commander/skirt
-	name = "Aegis Cobalt Commander's jumpskirt"
-	desc = "It's a jumpskirt worn by those few with the dedication to achieve the position of \"Aegis Commander\"."
+	name = "Aegis Cobalt Commander's jumpskirt"  // Occulus Edit - Remove Eris corp. references
+	desc = "It's a jumpskirt worn by those few with the dedication to achieve the position of \"Aegis Commander\"."  // Occulus Edit - Remove Eris corp. references
 	icon_state = "hos_skirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/head/HoS
-	name = "Aegis Cobalt Commander Hat"
-	desc = "The hat of the Aegis Commander. For showing the officers who's in charge."
+	name = "Aegis Cobalt Commander Hat"  // Occulus Edit - Remove Eris corp. references
+	desc = "The hat of the Aegis Commander. For showing the officers who's in charge."  // Occulus Edit - Remove Eris corp. references
 	icon_state = "hoshat"
 	body_parts_covered = NONE
 	siemens_coefficient = 0.8
 	rarity_value = 50
 
 /*
- * Navy uniforms
+ * "Navy" uniforms
  */
 /obj/item/clothing/under/rank/cadet
-	name = "Cobalt Cadet jumpskirt"
-	desc = "It's a sailor's uniform used for cadets in training, though more frequently in acts of hazing."
+	name = "Cobalt Cadet jumpskirt" // Occulus Edit - Remove Eris corp. references
+	desc = "It's a sailor's uniform used for cadets in training, though more frequently in acts of hazing." // Occulus Edit - Remove Eris corp. references
 	icon_state = "cadet"
 	item_state = "cadet"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS

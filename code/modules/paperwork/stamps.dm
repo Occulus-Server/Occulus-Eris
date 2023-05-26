@@ -16,7 +16,7 @@
 	icon_state = "stamp-cap"
 
 /obj/item/stamp/hop
-	name = "head of personnel's rubber stamp"
+	name = "head of personnel's rubber stamp" // Occulus Edit Start - Renamed to fit our lore
 	icon_state = "stamp-hop"
 
 /obj/item/stamp/hos
@@ -44,7 +44,7 @@
 	icon_state = "stamp-clown"
 
 /obj/item/stamp/qm
-	name = "union merchant's stamp"
+	name = "union merchant's stamp" // Occulus Edit End
 	icon_state = "stamp-qm"
 
 // Syndicate stamp to forge documents.

@@ -2,8 +2,8 @@
 	return
 
 /mob/living/carbon/brain/handle_mutations_and_radiation()
-	if (radiation)
-		if (radiation > 100)
+	if(radiation)
+		if(radiation > 100)
 			radiation = 100
 			if(!container)//If it's not in an MMI
 				to_chat(src, "\red You feel weak.")
@@ -58,15 +58,15 @@
 	if(status_flags & GODMODE) return
 
 	if(exposed_temperature > bodytemperature)
-		var/discomfort = min( abs(exposed_temperature - bodytemperature)*(exposed_intensity)/2000000, 1.0)
+		var/discomfort = min( abs(exposed_temperature - bodytemperature)*(exposed_intensity)/2000000, 1)
 		//adjustFireLoss(2.5*discomfort)
-		//adjustFireLoss(5.0*discomfort)
-		adjustFireLoss(20.0*discomfort)
+		//adjustFireLoss(5*discomfort)
+		adjustFireLoss(20*discomfort)
 
 	else
-		var/discomfort = min( abs(exposed_temperature - bodytemperature)*(exposed_intensity)/2000000, 1.0)
+		var/discomfort = min( abs(exposed_temperature - bodytemperature)*(exposed_intensity)/2000000, 1)
 		//adjustFireLoss(2.5*discomfort)
-		adjustFireLoss(5.0*discomfort)
+		adjustFireLoss(5*discomfort)
 
 
 /mob/living/carbon/brain/handle_chemicals_in_body()
@@ -96,12 +96,12 @@
 	updatehealth()
 
 	if(stat == DEAD)	//DEAD. BROWN BREAD. SWIMMING WITH THE SPESS CARP
-		blinded = 1
+		blinded = TRUE
 		silent = 0
 	else				//ALIVE. LIGHTS ARE ON
 		if( !container && (health < HEALTH_THRESHOLD_DEAD || ((world.time - timeofhostdeath) > config.revival_brain_life)) )
 			death()
-			blinded = 1
+			blinded = TRUE
 			silent = 0
 			return 1
 
@@ -116,7 +116,7 @@
 					emp_damage = 30//Let's not overdo it
 				if(21 to 30)//High level of EMP damage, unable to see, hear, or speak
 					eye_blind = 1
-					blinded = 1
+					blinded = TRUE
 					ear_deaf = 1
 					silent = 1
 					if(!alert)//Sounds an alarm, but only once per 'level'
@@ -127,7 +127,7 @@
 						emp_damage -= 1
 				if(20)
 					alert = 0
-					blinded = 0
+					blinded = FALSE
 					eye_blind = 0
 					ear_deaf = 0
 					silent = 0
@@ -163,7 +163,7 @@
 	return 1
 
 /mob/living/carbon/brain/handle_regular_hud_updates()
-	if (stat == 2 || (XRAY in src.mutations))
+	if (stat == 2) // || (XRAY in src.mutations)
 		sight |= SEE_TURFS
 		sight |= SEE_MOBS
 		sight |= SEE_OBJS
@@ -196,7 +196,7 @@
 		else
 			healths.icon_state = "health7"*/
 
-		if (stat == 2 || (XRAY in src.mutations))
+		if (stat == 2) // || (XRAY in src.mutations)
 			sight |= SEE_TURFS
 			sight |= SEE_MOBS
 			sight |= SEE_OBJS

@@ -14,12 +14,10 @@
 	magazine_type = /obj/item/ammo_magazine/magnum
 
 	matter = list(MATERIAL_PLASTEEL = 15, MATERIAL_PLASTIC = 8)
-
-	rarity_value = 13.74
 	can_dual = TRUE
-	damage_multiplier = 1.45
-	penetration_multiplier = 1.35
-	recoil_buildup = 5
+	damage_multiplier = 1.3
+	penetration_multiplier = 0
+	init_recoil = HANDGUN_RECOIL(0.8)
 
 	fire_sound = 'sound/weapons/guns/fire/hpistol_fire.ogg'
 	unload_sound = 'sound/weapons/guns/interact/hpistol_magout.ogg'
@@ -27,19 +25,39 @@
 	cocked_sound = 'sound/weapons/guns/interact/hpistol_cock.ogg'
 
 	price_tag = 1600
-	//gun_tags = list(GUN_GILDABLE) Occulus Edit: No gilding code
+	gun_tags = list(GUN_GILDABLE)
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	gun_parts = list(/obj/item/part/gun/frame/avasarala = 1, /obj/item/part/gun/modular/grip/black = 1, /obj/item/part/gun/modular/mechanism/pistol = 1, /obj/item/part/gun/modular/barrel/magnum = 1)
+	serial_type = "NT"
 
-/obj/item/gun/projectile/avasarala/on_update_icon()
+/obj/item/gun/projectile/avasarala/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
+	var/itemstring = ""
+
+	if(gilded)
+		iconstring += "_gold"
+		itemstring += "_gold"
+		wielded_item_state = "_doble" + "_gold"
+	else
+		wielded_item_state = "_doble"
 
 	if (!ammo_magazine || !length(ammo_magazine.stored_ammo))
 		iconstring += "_slide"
 
-	SetIconState(iconstring)
+	icon_state = iconstring
+	set_item_state(itemstring)
 
 /obj/item/gun/projectile/avasarala/Initialize()
 	. = ..()
 	update_icon()
+
+/obj/item/part/gun/frame/avasarala
+	name = "Avasarala frame"
+	desc = "An Avasarala pistol frame. Something to command respect."
+	icon_state = "frame_deagle"
+	resultvars = list(/obj/item/gun/projectile/avasarala)
+	gripvars = list(/obj/item/part/gun/modular/grip/black)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/pistol
+	barrelvars = list(/obj/item/part/gun/modular/barrel/magnum)

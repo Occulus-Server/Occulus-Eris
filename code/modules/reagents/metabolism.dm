@@ -9,6 +9,10 @@
 	if(istype(parent_mob))
 		parent = parent_mob
 
+/datum/reagents/metabolism/Destroy()
+	parent = null
+	return ..()
+
 /datum/reagents/metabolism/proc/metabolize()
 	expose_temperature(parent.bodytemperature, 0.25)
 
@@ -42,10 +46,16 @@
 	/// The final chance for an addiction to manifest is multiplied by this value before being passed to prob.
 	var/addiction_chance_multiplier = 1
 
+/datum/metabolism_effects/Destroy()
+	parent = null
+	withdrawal_list.Cut()
+	active_withdrawals.Cut()
+	addiction_list.Cut()
+	return ..()
+
 /datum/metabolism_effects/proc/adjust_nsa(value, tag)
 	if(!tag)
-		crash_with("no tag given to adjust_nsa()")
-		return
+		CRASH("no tag given to adjust_nsa()")
 	nerve_system_accumulations[tag] = value
 
 /datum/metabolism_effects/proc/remove_nsa(tag)
@@ -59,10 +69,11 @@
 		return nerve_system_accumulations[tag]
 
 /datum/metabolism_effects/proc/get_nsa()
+	SEND_SIGNAL_OLD(parent, COMSIG_NSA, nsa_current)
 	return nsa_current
 
 /datum/metabolism_effects/proc/get_nsa_target()
-	var/accumulatedNSA
+	var/accumulatedNSA = 0
 	for(var/tag in nerve_system_accumulations)
 		accumulatedNSA += nerve_system_accumulations[tag]
 	return accumulatedNSA
@@ -148,6 +159,8 @@
 			new_reagent.max_dose = R.max_dose
 			addiction_list.Add(new_reagent)
 			addiction_list[new_reagent] = 0
+			for(var/mob/living/carbon/human/H in viewers(parent))
+				SEND_SIGNAL_OLD(H, COMSIG_CARBON_ADICTION, parent, R)
 
 	if(is_type_in_list(R, addiction_list))
 		for(var/addiction in addiction_list)
@@ -204,21 +217,23 @@
 			addiction_list.Remove(R)
 			continue
 
-		addiction_list[R] += 1
-		if(!parent.chem_effects[CE_PURGER])
-
+		if(!parent.chem_effects[CE_PURGER] && ishuman(parent))
+			addiction_list[R] += 1
 			switch(addiction_list[R])
-				if(1 to 10)
+				if(1 to 20)
 					R.addiction_act_stage1(parent)
-				if(10 to 20)
-					R.addiction_act_stage2(parent)
 				if(20 to 30)
-					R.addiction_act_stage3(parent)
+					R.addiction_act_stage2(parent)
 				if(30 to 40)
+					R.addiction_act_stage3(parent)
+				if(40 to 50)
 					R.addiction_act_stage4(parent)
-				if(40 to INFINITY)
-					R.addiction_end(parent)
-					addiction_list.Remove(R)
+				if(50 to INFINITY)
+					if((parent.stats.getPerk(PERK_ALCOHOLIC) && istype(R, /datum/reagent/ethanol)) || (parent.stats.getPerk(PERK_DRUG_ADDICT) && istype(R, /datum/reagent/stim)))
+						R.addiction_act_stage4(parent)
+					else
+						R.addiction_end(parent)
+						addiction_list.Remove(R)
 
 /datum/metabolism_effects/proc/clear_effects()
 	for(var/withdrawal in active_withdrawals)

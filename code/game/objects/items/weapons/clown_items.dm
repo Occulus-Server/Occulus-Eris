@@ -22,6 +22,8 @@
 	name = "soap"
 	desc = "A cheap bar of soap. Doesn't smell."
 	gender = PLURAL
+	description_info = "Can be used to clean clothes, microwaves and other messes"
+	description_antag = "Can throw it to delay IH if trying to escape, or to get rid of evidence"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "soap"
 	w_class = ITEM_SIZE_SMALL
@@ -30,6 +32,7 @@
 	throw_range = 20
 	matter = list(MATERIAL_BIOMATTER = 12)
 	spawn_tags = SPAWN_TAG_ITEM_CLOWN
+	price_tag = 120
 
 /obj/item/soap/New()
 	..()
@@ -80,7 +83,7 @@
 
 	//I couldn't feasibly  fix the overlay bugs caused by cleaning items we are wearing.
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
-	if(user.client && (target in user.client.screen))
+	if(user.client && (target in user.client.screen) && !(target == user.get_inactive_hand())) // being unable to clean an item because you're holding it is silly -vode
 		to_chat(user, "<span class='notice'>You need to take that [target.name] off before cleaning it.</span>")
 		return
 	else
@@ -101,7 +104,7 @@
 	..()
 
 /obj/item/soap/nanotrasen
-	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."
+	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."  // Occulus Edit - Remove Eris corp. reference
 	icon_state = "soapnt"
 
 /obj/item/soap/deluxe
@@ -128,6 +131,7 @@
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 3
 	throw_range = 15
+	matter = list(MATERIAL_PLASTIC = 5)
 	attack_verb = list("HONKED")
 	spawn_tags = SPAWN_TAG_ITEM_CLOWN
 	var/spam_flag = 0
@@ -139,7 +143,7 @@
 		GUN_UPGRADE_HONK = TRUE,
 		GUN_UPGRADE_RECOIL = 1.2,
 		GUN_UPGRADE_DAMAGE_MULT = 0.8,
-		GUN_UPGRADE_PEN_MULT = 0.8,
+		GUN_UPGRADE_PEN_MULT = -0.2,
 		GUN_UPGRADE_FIRE_DELAY_MULT = 1.2,
 		GUN_UPGRADE_MOVE_DELAY_MULT = 1.2,
 		GUN_UPGRADE_MUZZLEFLASH = 1.2,

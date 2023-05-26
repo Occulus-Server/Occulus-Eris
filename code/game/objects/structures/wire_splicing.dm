@@ -58,7 +58,7 @@
 				best_score = turf_score
 				candidates.Cut()
 
-			candidates.Add(src)
+			candidates.Add(T)
 
 		//No nearby cables? Cancel
 		if (!candidates.len)
@@ -83,7 +83,7 @@
 		var/mob/living/L = AM
 		var/turf/T = get_turf(src)
 		var/chance_to_shock = messiness * 10
-		chance_to_shock -= L.skill_to_evade_traps(chance_to_shock)
+		chance_to_shock -= L.skill_to_evade_traps()
 		if(locate(/obj/structure/catwalk) in T)
 			chance_to_shock -= 20
 		if(prob(chance_to_shock))
@@ -119,11 +119,11 @@
 		if(used_now)
 			to_chat(user, "The [src.name] is already being manipulated!") //so people with low stats can't spam their way past the failure chance
 			return
-		used_now = TRUE
 		if(messiness >= 10)
 			messiness = 10
 			to_chat(user, SPAN_WARNING("Enough."))
 			return
+		used_now = TRUE
 		// keep goin!
 		var/obj/item/stack/cable_coil/coil = I
 		if(coil.get_amount() >= 1)

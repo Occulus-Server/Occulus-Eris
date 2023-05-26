@@ -16,11 +16,11 @@
 #define GODMODE     0x1000
 #define FAKEDEATH   0x2000  // Replaces stuff like carrion.carrion_fakedeath.
 #define DISFIGURED  0x4000  // Set but never checked. Remove this sometime and replace occurences with the appropriate organ code
-#define XENO_HOST   0x8000  // Tracks whether we're gonna be a baby alien's mummy.
 
 // Grab levels.
 #define GRAB_PASSIVE    1
 #define GRAB_AGGRESSIVE 2
+#define GRAB_PRENECK 2.5
 #define GRAB_NECK       3
 #define GRAB_UPGRADING  4
 #define GRAB_KILL       5
@@ -147,6 +147,7 @@
 
 #define FLASH_PROTECTION_REDUCED -1
 #define FLASH_PROTECTION_NONE 0
+#define FLASH_PROTECTION_MINOR 0.5
 #define FLASH_PROTECTION_MODERATE 1
 #define FLASH_PROTECTION_MAJOR 2
 
@@ -158,12 +159,15 @@
 #define ANIMAL	"animal"//Used for mice and any other simple animals
 #define MINISYNTH	"minisynth"//Used for drones and pAIs
 
-#define ANIMAL_SPAWN_DELAY 2 MINUTES
-#define DRONE_SPAWN_DELAY  3 MINUTES
+#define ANIMAL_SPAWN_DELAY 5 MINUTES
+#define DRONE_SPAWN_DELAY  5 MINUTES
 
-#define CRYOPOD_SPAWN_BONUS	20 MINUTES//Going to sleep in a cryopod takes this much off your respawn time in minutes
-#define CRYOPOD_SPAWN_BONUS_DESC	"20 minutes"	//Tells players how long they have until respawn.
-
+#define CRYOPOD_HEALTHY_RESPAWN_BONUS	25 MINUTES // Going to sleep in a cryopod in perfect health takes this much off player's respawn time
+#define CRYOPOD_WOUNDED_RESPAWN_BONUS	20 MINUTES // Less timer reduction if went to cryo with any health condition
+#define MORGUE_RESPAWN_BONUS			15 MINUTES // Low effort corpse handling
+#define BIOREACTOR_RESPAWN_BONUS		15 MINUTES // Low effort corpse handling
+#define COFFIN_RESPAWN_BONUS			25 MINUTES // High effort corpse handling
+#define COLLECTIVISED_RESPAWN_BONUS		15 MINUTES // Seize the means of respawning
 
 // Incapacitation flags, used by the mob/proc/incapacitated() proc
 #define INCAPACITATION_NONE 0
@@ -179,6 +183,8 @@
 #define INCAPACITATION_GROUNDED (INCAPACITATION_KNOCKDOWN|INCAPACITATION_SOFTLYING)
 #define INCAPACITATION_DISABLED (INCAPACITATION_KNOCKDOWN|INCAPACITATION_STUNNED)
 #define INCAPACITATION_DEFAULT (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_DISABLED)
+#define INCAPACITATION_UNMOVING (INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_STUNNED|INCAPACITATION_UNCONSCIOUS)
+#define INCAPACITATED_ROACH (INCAPACITATION_BUCKLED_FULLY | INCAPACITATION_DISABLED)
 #define INCAPACITATION_ALL (~INCAPACITATION_NONE)
 
 
@@ -208,12 +214,8 @@
 
 #define HEAT_MOBIGNITE_THRESHOLD 530 //minimum amount of heat an object needs to ignite a mob when it hits the mob
 
-#define RANDOM_BLOOD_TYPE pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
-
-#define NECROZTIME 	(5 MINUTES)
-
 // 'Regular' species.
-#define SPECIES_HUMAN			"Human"
+#define SPECIES_HUMAN			"Human"  //Occulus Edit Start - Custom species
 #define SPECIES_HUMAN_VATBORN	"Vatborn"
 #define SPECIES_UNATHI			"Unathi"
 #define SPECIES_SKRELL			"Skrell"
@@ -242,11 +244,18 @@
 #define SPECIES_XENOCHIMERA		"Xenochimera"
 #define SPECIES_XENOHYBRID		"Xenomorph Hybrid"
 #define SPECIES_ZORREN_FLAT		"Flatland Zorren"
-#define SPECIES_ZORREN_HIGH		"Zorren" //Occulus Edit - Removing Flatlander Zorren, making Highlander the default sprite.
+#define SPECIES_ZORREN_HIGH		"Zorren"
 #define SPECIES_CUSTOM			"Custom Species"
 #define SPECIES_PHORONMAN		"Phoronoid"
 #define SPECIES_MOTH			"Mothperson"
-#define SPECIES_SLIMEPERSON		"Lesser Slimeperson"
+#define SPECIES_SLIMEPERSON		"Lesser Slimeperson" // Occulus Edit End
+#define SPECIES_SLIME			"Slime"
+#define SPECIES_GOLEM			"Golem"
+#define SPECIES_SKELETON        "Skeleton"
+
+#define RANDOM_BLOOD_TYPE pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
+
+#define NECROZTIME 	(5 MINUTES)
 
 
 

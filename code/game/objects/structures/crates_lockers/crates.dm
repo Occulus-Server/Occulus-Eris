@@ -36,18 +36,18 @@
 
 /obj/structure/closet/crate/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			for(var/obj/O in src.contents)
 				qdel(O)
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			for(var/obj/O in src.contents)
 				if(prob(50))
 					qdel(O)
 			qdel(src)
 			return
-		if(3.0)
+		if(3)
 			if (prob(50))
 				qdel(src)
 			return
@@ -138,9 +138,7 @@
 	icon_state = "crate"
 
 /obj/structure/closet/crate/rcd/populate_contents()
-	new /obj/item/rcd_ammo(src)
-	new /obj/item/rcd_ammo(src)
-	new /obj/item/rcd_ammo(src)
+	new /obj/item/stack/material/compressed(src,30)
 	new /obj/item/rcd(src)
 
 /obj/structure/closet/crate/solar

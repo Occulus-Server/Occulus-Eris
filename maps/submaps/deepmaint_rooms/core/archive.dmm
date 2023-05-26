@@ -44,17 +44,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/steel,
 /area/deepmaint)
-"aj" = (
-/obj/structure/table/standard,
-/obj/item/reagent_containers/glass/beaker{
-	pixel_x = 5
-	},
-/obj/item/reagent_containers/glass/beaker{
-	pixel_x = 5
-	},
-/obj/item/material/kitchen/rollingpin,
-/turf/simulated/floor/tiled/white/brown_platform,
-/area/deepmaint)
 "ak" = (
 /obj/spawner/pack/machine,
 /turf/simulated/floor/tiled/techmaint_cargo,
@@ -172,11 +161,6 @@
 /obj/structure/table/woodentable,
 /turf/simulated/floor/wood,
 /area/deepmaint)
-"aH" = (
-/obj/structure/table/woodentable,
-/obj/item/paper_bin,
-/turf/simulated/floor/wood,
-/area/deepmaint)
 "aI" = (
 /obj/structure/girder,
 /turf/simulated/floor/wood,
@@ -224,10 +208,8 @@
 /turf/simulated/floor/carpet/turcarpet,
 /area/deepmaint)
 "aR" = (
-/obj/item/remains/human,
 /obj/structure/catwalk,
-/obj/spawner/pack/cloth,
-/obj/spawner/pack/cloth,
+/obj/landmark/corpse/skeleton/maint,
 /turf/simulated/floor/plating/under,
 /area/deepmaint)
 "aS" = (
@@ -241,18 +223,6 @@
 "aU" = (
 /obj/machinery/light{
 	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/deepmaint)
-"aV" = (
-/obj/structure/table/woodentable,
-/obj/item/pen/blue{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/pen/red{
-	pixel_x = 2;
-	pixel_y = 6
 	},
 /turf/simulated/floor/wood,
 /area/deepmaint)
@@ -289,9 +259,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/deepmaint)
 "bc" = (
-/obj/item/remains/human,
-/obj/spawner/pack/cloth,
-/obj/spawner/pack/cloth,
+/obj/landmark/corpse/skeleton/maint,
 /turf/simulated/floor/wood,
 /area/deepmaint)
 "bd" = (
@@ -319,17 +287,6 @@
 /area/deepmaint)
 "bi" = (
 /obj/spawner/junk,
-/turf/simulated/floor/tiled/white/brown_platform,
-/area/deepmaint)
-"bj" = (
-/obj/structure/table/standard{
-	name = "plastic table frame"
-	},
-/obj/item/storage/firstaid/regular,
-/turf/simulated/floor/tiled/white/brown_platform,
-/area/deepmaint)
-"bk" = (
-/obj/item/stool,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/deepmaint)
 "bl" = (
@@ -372,12 +329,10 @@
 /turf/simulated/floor/wood,
 /area/deepmaint)
 "br" = (
-/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
-/obj/spawner/pack/cloth,
-/obj/spawner/pack/cloth,
 /obj/spawner/pack/gun_loot,
+/obj/landmark/corpse/skeleton/maint,
 /turf/simulated/floor/wood,
 /area/deepmaint)
 "bs" = (
@@ -402,10 +357,8 @@
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/deepmaint)
 "bw" = (
-/obj/item/remains/human,
-/obj/spawner/pack/cloth,
-/obj/spawner/pack/cloth,
 /obj/spawner/pack/gun_loot,
+/obj/landmark/corpse/skeleton/maint,
 /turf/simulated/floor/wood,
 /area/deepmaint)
 "bx" = (
@@ -415,18 +368,15 @@
 /turf/simulated/floor/wood,
 /area/deepmaint)
 "by" = (
-/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood,
-/obj/spawner/pack/cloth,
-/obj/spawner/pack/cloth,
 /obj/spawner/pack/gun_loot,
+/obj/landmark/corpse/skeleton/maint,
 /turf/simulated/floor/wood,
 /area/deepmaint)
 "bz" = (
-/obj/item/remains/human,
-/obj/spawner/pack/cloth,
-/obj/spawner/pack/cloth,
 /obj/spawner/pack/gun_loot,
+/obj/effect/decal/cleanable/blood,
+/obj/landmark/corpse/skeleton/maint,
 /turf/simulated/floor/carpet/turcarpet,
 /area/deepmaint)
 "bA" = (
@@ -487,6 +437,62 @@
 /obj/landmark/loot_biomes/mob/roach/room{
 	range = 10
 	},
+/turf/simulated/floor/wood,
+/area/deepmaint)
+"gY" = (
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
+/obj/item/storage/firstaid/regular,
+/turf/simulated/floor/tiled/white/brown_platform,
+/area/deepmaint)
+"iq" = (
+/obj/landmark/corpse/skeleton/maint,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/wood,
+/area/deepmaint)
+"ir" = (
+/obj/structure/table/woodentable,
+/obj/item/pen/blue{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/pen/red{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/turf/simulated/floor/wood,
+/area/deepmaint)
+"rp" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = 5
+	},
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = 5
+	},
+/obj/item/material/kitchen/rollingpin,
+/turf/simulated/floor/tiled/white/brown_platform,
+/area/deepmaint)
+"se" = (
+/obj/structure/table/woodentable,
+/obj/item/paper_bin,
+/turf/simulated/floor/wood,
+/area/deepmaint)
+"xV" = (
+/obj/structure/table/woodentable{
+	flipped = 1
+	},
+/turf/simulated/floor/wood,
+/area/deepmaint)
+"GO" = (
+/obj/item/stool,
+/turf/simulated/floor/tiled/white/brown_platform,
+/area/deepmaint)
+"Pg" = (
+/obj/spawner/pack/gun_loot,
+/obj/landmark/corpse/skeleton/maint,
+/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/wood,
 /area/deepmaint)
 
@@ -555,7 +561,7 @@ aw
 an
 bB
 ar
-bw
+Pg
 ab
 bG
 "}
@@ -577,7 +583,7 @@ ab
 aw
 an
 an
-aH
+se
 au
 ab
 aa
@@ -600,7 +606,7 @@ af
 aw
 bt
 an
-aV
+ir
 aY
 ab
 aa
@@ -615,7 +621,7 @@ ar
 af
 ar
 aD
-aH
+se
 be
 an
 bt
@@ -646,7 +652,7 @@ af
 aw
 an
 bt
-aH
+se
 au
 ab
 aa
@@ -669,7 +675,7 @@ af
 aw
 an
 an
-aV
+ir
 aY
 ab
 aa
@@ -715,7 +721,7 @@ aP
 bH
 an
 an
-aH
+se
 au
 ab
 am
@@ -723,7 +729,7 @@ am
 (11,1,1) = {"
 aa
 ab
-aj
+rp
 ao
 ba
 bd
@@ -733,12 +739,12 @@ af
 be
 ar
 bK
-bc
+iq
 af
 aw
 an
 bC
-aV
+ir
 aY
 ab
 aa
@@ -849,7 +855,7 @@ bH
 aw
 be
 aw
-aG
+xV
 aw
 aI
 af
@@ -888,7 +894,7 @@ al
 ap
 ab
 bh
-bj
+gY
 bl
 af
 aT
@@ -900,7 +906,7 @@ bx
 by
 af
 aX
-bw
+Pg
 ab
 aa
 "}
@@ -911,7 +917,7 @@ ab
 ab
 ab
 bi
-bk
+GO
 bm
 aJ
 br

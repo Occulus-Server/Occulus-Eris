@@ -104,6 +104,9 @@
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES
 	rarity_value = 45
 
+/obj/item/stack/material/iron/full
+	amount = 120
+
 /obj/item/stack/material/sandstone
 	name = "sandstone brick"
 	icon_state = "sheet-sandstone"
@@ -128,6 +131,10 @@
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
 	rarity_value = 90
 
+/obj/item/stack/material/diamond/full
+	amount = 120
+	spawn_blacklisted = TRUE
+
 /obj/item/stack/material/uranium
 	name = MATERIAL_URANIUM
 	icon_state = "sheet-uranium"
@@ -141,18 +148,26 @@
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
 	rarity_value = 90
 
-/obj/item/stack/material/phoron
-	name = "solid phoron"
+/obj/item/stack/material/uranium/full
+	amount = 120
+	spawn_blacklisted = TRUE
+
+/obj/item/stack/material/plasma
+	name = "solid phoron" // Occulus Edit - Plasma > Phoron
 	icon_state = "sheet-plasma"
 	default_type = MATERIAL_PHORON
 	price_tag = 30
 	novariants = FALSE
 
-/obj/item/stack/material/phoron/random
+/obj/item/stack/material/plasma/random
 	rand_min = 3
 	rand_max = 20
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES
 	rarity_value = 30
+
+/obj/item/stack/material/plasma/full
+	amount = 120
+	spawn_blacklisted = TRUE
 
 /obj/item/stack/material/plastic
 	name = "plastic"
@@ -183,6 +198,10 @@
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
 	rarity_value = 45
 
+/obj/item/stack/material/gold/full
+	amount = 120
+	spawn_blacklisted = TRUE
+
 /obj/item/stack/material/silver
 	name = MATERIAL_SILVER
 	icon_state = "sheet-silver"
@@ -195,6 +214,10 @@
 	rand_max = 30
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
 	rarity_value = 45
+
+/obj/item/stack/material/silver/full
+	amount = 120
+	spawn_blacklisted = TRUE
 
 //Valuable resource, cargo can sell it.
 /obj/item/stack/material/platinum
@@ -210,12 +233,21 @@
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE  //Occulus edit: Re-adding platinum glass to spawn pools
 	rarity_value = 45 //Occulus edit: Re-adding platinum glass to spawn pools
 
+/obj/item/stack/material/platinum/full
+	amount = 120
+	spawn_blacklisted = TRUE
+
 //Extremely valuable to Research.
 /obj/item/stack/material/mhydrogen
 	name = "metallic hydrogen"
-	icon_state = "sheet-mythril"
+	icon_state = "sheet-hydrogen"
 	default_type = MATERIAL_MHYDROGEN
 	price_tag = 50
+	novariants = FALSE
+
+/obj/item/stack/material/mhydrogen/full
+	amount = 120
+	spawn_blacklisted = TRUE
 
 //Fuel for MRSPACMAN generator.
 /obj/item/stack/material/tritium
@@ -225,12 +257,20 @@
 	apply_colour = 1
 	price_tag = 50
 
+/obj/item/stack/material/tritium/full
+	amount = 120
+	spawn_blacklisted = TRUE
+
 /obj/item/stack/material/osmium
 	name = "osmium"
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_OSMIUM
 	apply_colour = 1
 	price_tag = 50
+
+/obj/item/stack/material/osmium/full
+	amount = 120
+	spawn_blacklisted = TRUE
 
 /obj/item/stack/material/steel
 	name = MATERIAL_STEEL
@@ -333,27 +373,27 @@
 	default_type = MATERIAL_RGLASS
 	novariants = FALSE
 
-/obj/item/stack/material/glass/phoronglass
+/obj/item/stack/material/glass/plasmaglass
 	name = "borosilicate glass"
-	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures"
+	desc = "This sheet is special plasma-glass alloy designed to withstand large temperatures"
 	singular_name = "borosilicate glass sheet"
 	icon_state = "sheet-plasmaglass"
-	default_type = MATERIAL_PHORONGLASS
+	default_type = MATERIAL_PLASMAGLASS
 	price_tag = 10
 	novariants = FALSE
 
-/obj/item/stack/material/glass/phoronglass/random
+/obj/item/stack/material/glass/plasmaglass/random
 	rand_min = 3
 	rand_max = 30
 	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING //Occulus edit: Re-adding phoron glass to spawn pools
 	rarity_value = 50 //Occulus edit: Re-adding phoron glass to spawn pools
 
-/obj/item/stack/material/glass/phoronrglass
+/obj/item/stack/material/glass/plasmarglass
 	name = "reinforced borosilicate glass"
-	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
+	desc = "This sheet is special plasma-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
 	singular_name = "reinforced borosilicate glass sheet"
 	icon_state = "sheet-plasmarglass"
-	default_type = MATERIAL_RPHORONGLASS
+	default_type = MATERIAL_RPLASMAGLASS
 	price_tag = 12
 	novariants = FALSE
 
@@ -363,8 +403,7 @@
 	singular_name = "biomatter sheet"
 	icon_state = "sheet-biomatter"
 	default_type = MATERIAL_BIOMATTER
-	max_amount = 60
-	price_tag = 10
+	price_tag = 5
 	novariants = FALSE
 	var/biomatter_in_sheet = BIOMATTER_PER_SHEET // defined in solidifier.dm
 
@@ -375,4 +414,14 @@
 	rarity_value = 10
 
 /obj/item/stack/material/biomatter/full
-	amount = 60
+	amount = 120
+
+/obj/item/stack/material/compressed
+	name = "compressed matter"
+	desc = "Useful matter that has been compressed and squeezed into cartridges."
+	singular_name = "compressed matter cartridge"
+	icon = 'icons/obj/ammo.dmi'
+	icon_state = "rcd"
+	item_state = "rcdammo"
+	default_type = MATERIAL_COMPRESSED
+	price_tag = 30

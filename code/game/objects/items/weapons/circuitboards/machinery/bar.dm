@@ -8,3 +8,4 @@
 		/obj/item/stock_parts/manipulator = 1,
 		/obj/item/stock_parts/console_screen = 1
 	)
+

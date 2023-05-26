@@ -61,6 +61,12 @@
 /datum/design/autolathe/tool/powered_hammer
 	build_path = /obj/item/tool/hammer/powered_hammer
 
+/datum/design/autolathe/tool/sledgehammer
+	build_path = /obj/item/tool/hammer/sledgehammer
+
+/datum/design/autolathe/tool/sledgehammer_advanced
+	build_path = /obj/item/tool/hammer/sledgehammer/advanced
+
 /datum/design/autolathe/tool/big_wrench
 	build_path = /obj/item/tool/wrench/big_wrench
 
@@ -142,10 +148,6 @@
 /datum/design/autolathe/tool/rcd
 	name = "rapid construction device"
 	build_path = /obj/item/rcd
-
-/datum/design/autolathe/tool/rcd_ammo
-	name = "matter cartridge"
-	build_path = /obj/item/rcd_ammo
 
 /datum/design/autolathe/tool/pneumatic_crowbar
 	build_path = /obj/item/tool/crowbar/pneumatic

@@ -3,12 +3,8 @@
 	desc = "This box contains blood packs."
 	icon_state = "sterile"
 	rarity_value = 10
-	initial_amount = 7
-	spawn_type = /obj/item/reagent_containers/blood
-
-/obj/item/storage/box/bloodpacks/populate_contents()
-	for(var/i in 1 to initial_amount)
-		new spawn_type(src)
+	prespawned_content_amount = 7
+	prespawned_content_type = /obj/item/reagent_containers/blood
 
 /obj/item/reagent_containers/blood
 	name = "blood pack"
@@ -32,7 +28,7 @@
 	update_name()
 
 
-/obj/item/reagent_containers/blood/on_update_icon()
+/obj/item/reagent_containers/blood/update_icon()
 	cut_overlays()
 
 	if(!reagents || !reagents.total_volume)
@@ -50,7 +46,7 @@
 	else
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-blood[get_filling_state()]")
 		add_overlay(filling)
-		
+
 /obj/item/reagent_containers/blood/proc/update_name()
 	var/list/data = reagents.get_data("blood")
 	if(data)

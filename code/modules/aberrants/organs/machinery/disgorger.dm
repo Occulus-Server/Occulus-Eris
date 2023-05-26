@@ -144,7 +144,6 @@
 			. = TRUE		// If the container has any amount of an accepted reagent, the proc will return true
 		if(is_type_in_list(R, blacklisted_reagents))
 			return FALSE	// If the container has any amount of a blacklisted reagent, the proc will immediately return false
-	
 /obj/machinery/reagentgrinder/industrial/disgorger/insert(obj/item/I, mob/user)
 	if(!istype(I))
 		return
@@ -226,7 +225,7 @@
 
 /obj/machinery/reagentgrinder/industrial/disgorger/bottle()
 	biomatter_counter = max(biomatter_counter - 60, 0)		// Flesh cubes have 60 biomatter
-	addtimer(CALLBACK(src, .proc/spit), 1 SECONDS, TIMER_STOPPABLE)
+	addtimer(CALLBACK(src, PROC_REF(spit)), 1 SECONDS, TIMER_STOPPABLE)
 	if(has_brain)
 		++current_spit
 
@@ -234,7 +233,6 @@
 	flick("[initial(icon_state)]_spit", src)
 	var/obj/item/fleshcube/new_cube = new(get_turf(src))
 	new_cube.throw_at(spit_target, 3, 1)
-	
 
 /obj/machinery/reagentgrinder/industrial/disgorger/proc/unlock_design()
 	current_spit = 0
@@ -375,16 +373,16 @@
 	if(C)
 		C.designs_to_unlock = designs_to_unlock.Copy()
 
-/obj/machinery/reagentgrinder/industrial/disgorger/ui_data()
+/obj/machinery/reagentgrinder/industrial/disgorger/nano_ui_data()
 	. = ..()
 
 	.["biomatter_counter"] = biomatter_counter
 
-/obj/machinery/reagentgrinder/industrial/disgorger/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS)
+/obj/machinery/reagentgrinder/industrial/disgorger/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS)
 	if(!nano_template)
 		return
 
-	var/list/data = ui_data()
+	var/list/data = nano_ui_data()
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)

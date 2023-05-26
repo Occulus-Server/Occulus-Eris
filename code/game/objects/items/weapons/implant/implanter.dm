@@ -28,7 +28,7 @@
 	update_icon()
 	return
 
-/obj/item/implanter/on_update_icon()
+/obj/item/implanter/update_icon()
 	cut_overlays()
 	if(implant)
 		var/image/content = image('icons/obj/items.dmi', icon_state = implant.implant_overlay)
@@ -66,5 +66,15 @@
 			"Implanted with \the [src.name] ([implant.name])",
 			"used an implanter, [src.name] ([implant.name]), on"
 			)
+
+			if(istype(implant, /obj/item/implant/excelsior) && ishuman(M))
+				var/datum/faction/F = get_faction_by_id(FACTION_EXCELSIOR)
+				var/datum/objective/timed/excelsior/E = (locate(/datum/objective/timed/excelsior) in F.objectives)
+				if(E)
+					if(!E.active)
+						E.start_excel_timer()
+					else
+						E.on_convert()
+
 			implant = null
 			update_icon()

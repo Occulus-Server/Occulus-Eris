@@ -3,9 +3,11 @@
 		stance = HOSTILE_STANCE_IDLE
 		target_mob = null
 		walk(src, 0)
-		return
+		return FALSE
 
-	return 1
+	return TRUE
+
+/*
 
 /*
 
@@ -13,9 +15,6 @@
 	. = ..()
 
 	objectsInView = null
-
-	if(client || AI_inactive)
-		return
 
 	//CONSCIOUS UNCONSCIOUS DEAD
 
@@ -41,7 +40,7 @@
 			stance = HOSTILE_STANCE_ATTACKING
 			set_glide_size(DELAY2GLIDESIZE(move_to_delay))
 			if(!kept_distance)
-				handle_walk_to(target_mob) // OCCULUS EDIT: Move to shared function
+				walk_to(src, target_mob, 1, move_to_delay)
 			else
 				step_to(src, target_mob, kept_distance)
 

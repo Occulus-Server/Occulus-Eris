@@ -2,7 +2,7 @@
 //This machine converts liquid biomatter to solid one(sheets)
 //Working with this also required bio protection cloths
 
-#define BIOMATTER_PER_SHEET 		10
+#define BIOMATTER_PER_SHEET 		1
 #define CONTAINER_PIXEL_OFFSET 		6
 #define BIOMATTER_SHEETS_PER_TIME  5 // X sheets per 2 seconds
 
@@ -18,7 +18,6 @@
 	active_power_usage = 300
 	reagent_flags = TRANSPARENT
 
-	circuit = /obj/item/electronics/circuitboard/neotheology/solidifier
 	var/active = FALSE
 	var/port_dir = SOUTH
 	var/obj/structure/reagent_dispensers/biomatter/container
@@ -28,15 +27,15 @@
 	. = ..()
 	create_reagents(BIOMATTER_PER_SHEET*BIOMATTER_SHEETS_PER_TIME*3)
 	anchored = bolt
-	add_overlays(image(icon = src.icon, icon_state = "tube", layer = LOW_OBJ_LAYER, dir = port_dir))
+	overlays += image(icon = src.icon, icon_state = "tube", layer = LOW_OBJ_LAYER, dir = port_dir)
 
 /obj/machinery/biomatter_solidifier/on_update_icon()
 	if(active)
 		icon_state = initial(icon_state) + "_on"
 	else
 		icon_state = initial(icon_state)
-	set_overlays(list())
-	add_overlays(image(icon = src.icon, icon_state = "tube", layer = LOW_OBJ_LAYER, dir = port_dir))
+	overlays = list()
+	overlays += image(icon = src.icon, icon_state = "tube", layer = LOW_OBJ_LAYER, dir = port_dir)
 
 /obj/machinery/biomatter_solidifier/Process()
 	if(active)

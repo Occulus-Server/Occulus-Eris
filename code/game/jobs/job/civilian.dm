@@ -13,10 +13,11 @@
 	supervisors = "the First Officer"
 	selection_color = "#dddddd"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 15, LANGUAGE_JIVE = 80)
-	access = list(access_bar, access_kitchen, access_maint_tunnels, access_change_club)
+	access = list(access_bar, access_kitchen, access_maint_tunnels, access_change_club, access_artist)
 	initial_balance = 3000
 	perks = list(PERK_CLUB)
 	wage = WAGE_NONE // Makes his own money
+	department_account_access = TRUE
 	stat_modifiers = list(
 		STAT_ROB = 15,
 		STAT_TGH = 15,
@@ -48,10 +49,12 @@
 	spawn_positions = 2
 	supervisors = "the Club Manager"
 	selection_color = "#dddddd"
-	access = list(access_bar, access_kitchen)
+	also_known_languages = list(LANGUAGE_CYRILLIC = 10, LANGUAGE_JIVE = 60)
+	access = list(access_bar, access_kitchen, access_maint_tunnels)
 	initial_balance = 750
 	perks = list(PERK_CLUB)
 	wage = WAGE_NONE //They should get paid by the club owner, otherwise you know what to do.
+	department_account_access = TRUE
 	stat_modifiers = list(
 		STAT_ROB = 10,
 		STAT_TGH = 10,
@@ -84,16 +87,16 @@
 	department_flag = SERVICE
 	faction = "CEV Northern Light"
 	total_positions = 2
-	spawn_positions = 2
-	supervisors = "the Head of Personnel"
+	spawn_positions = 1
+	supervisors = "the Club Manager"
 	selection_color = "#dddddd"
-	access = list(access_maint_tunnels, access_theatre)
-	alt_titles = list("Clown", "Mime", "Musician", "Entertainer")
-
-	outfit_type = /decl/hierarchy/outfit/job/service/actor/clown
-	wage = WAGE_LABOUR_DUMB	//Barely a retaining fee. Actor can busk for credits to keep themselves fed
+	also_known_languages = list(LANGUAGE_CYRILLIC = 10, LANGUAGE_JIVE = 40, LANGUAGE_MONKEY = 20)
+	access = list(access_bar, access_kitchen, access_maint_tunnels, access_artist, access_theatre)
+	initial_balance = 600
+	outfit_type = /decl/hierarchy/outfit/job/service/artist
+	wage = WAGE_NONE //They should get paid by the club owner, otherwise you know what to do.
 	stat_modifiers = list(
-		STAT_TGH = 30, //basically a punching bag, he can't robust anyone or shoot guns anyway
+		STAT_TGH = 30,
 	)
 
 	loyalties = LOYALTY_CIVILIAN
@@ -173,5 +176,7 @@
 	icon_state = "player-black"
 	join_tag = /datum/job/janitor
 
+	loyalties = "You are loyal to your soul, first and foremost. You are fascinated by this cursed ship, and want to mold this interest into your works of art.<br>\
+	Your second loyalty is to the manager and the Club as a whole. After all, they're the ones giving you housing, payment, and materials to create your art."
 
 */

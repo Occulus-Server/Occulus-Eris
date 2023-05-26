@@ -21,9 +21,9 @@
 	max_storage_space = 8
 	bad_type = /obj/item/storage/fancy
 	var/icon_type = "donut"
-	var/item_obj
+	var/item_obj				// It can take a path or a list, the populate_contents() must be added when using item_obj in order to work.
 
-/obj/item/storage/fancy/on_update_icon(var/itemremoved = 0)
+/obj/item/storage/fancy/update_icon(var/itemremoved = 0)
 	var/total_contents = src.contents.len - itemremoved
 	src.icon_state = "[src.icon_type]box[total_contents]"
 	return
@@ -121,11 +121,11 @@
 	new /obj/item/pen/crayon/purple(src)
 	update_icon()
 
-/obj/item/storage/fancy/crayons/on_update_icon()
+/obj/item/storage/fancy/crayons/update_icon()
 	cut_overlays()
-	add_overlays(image('icons/obj/crayons.dmi',"crayonbox"))
+	overlays += image('icons/obj/crayons.dmi',"crayonbox")
 	for(var/obj/item/pen/crayon/crayon in contents)
-		add_overlays(image('icons/obj/crayons.dmi',crayon.colourName))
+		overlays += image('icons/obj/crayons.dmi',crayon.colourName)
 
 /obj/item/storage/fancy/crayons/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/pen/crayon))
@@ -182,7 +182,7 @@
 		new item_obj(src)
 	create_reagents(15 * storage_slots)//so people can inject cigarettes without opening a packet, now with being able to inject the whole one
 
-/obj/item/storage/fancy/cigarettes/on_update_icon()
+/obj/item/storage/fancy/cigarettes/update_icon()
 	if(open)
 		icon_state = "[initial(icon_state)][contents.len]"
 	else
@@ -252,7 +252,7 @@
 	icon_type = "packet"
 	reagent_flags = REFILLABLE | NO_REACT
 
-/obj/item/storage/fancy/cigcartons/on_update_icon()
+/obj/item/storage/fancy/cigcartons/update_icon()
 	if(contents.len > 0)
 		icon_state = "[initial(icon_state)]1"
 	else
@@ -263,38 +263,9 @@
 		new item_obj(src)
 	update_icon()
 
-/obj/item/storage/fancy/cigarettes/killthroat/Initialize()
-	. = ..()
-	fill_cigarre_package(src, list("fuel" = 15))
-
-/obj/item/storage/fancy/cigcartons
-	name = "carton of cigarettes"
-	desc = "A box containing 10 packets of cigarettes."
-	icon_state = "cigpacketcarton"
-	item_state = "cigpacketcarton"
-	icon = 'icons/obj/cigarettes.dmi'
-	w_class = ITEM_SIZE_NORMAL
-	throwforce = WEAPON_FORCE_HARMLESS
-	storage_slots = 10
-	item_obj = /obj/item/storage/fancy/cigarettes
-	can_hold = list(/obj/item/storage/fancy/cigarettes)
-	icon_type = "packet"
-	reagent_flags = REFILLABLE | NO_REACT
-
-/obj/item/storage/fancy/cigcartons/update_icon()
-	if( contents.len > 0 )
-		icon_state = "[initial(icon_state)]1"
-	else
-		icon_state = "[initial(icon_state)]"
-
-/obj/item/storage/fancy/cigcartons/populate_contents()
-	for(var/i in 1 to storage_slots)
-		new item_obj(src)
-	update_icon()
-
 /obj/item/storage/fancy/cigcartons/dromedaryco
-	name = "carton of Dromedaryco cigarettes"
-	desc = "A box containing 10 packets of Dromedarycos cigarettes."
+	name = "carton of DromedaryCo cigarettes"
+	desc = "A box containing 10 packets of DromedaryCo cigarettes."
 	icon_state = "Dpacketcarton"
 	item_state = "Dpacketcarton"
 	item_obj = /obj/item/storage/fancy/cigarettes/dromedaryco
@@ -329,7 +300,7 @@
 	item_obj = /obj/item/clothing/mask/smokable/cigarette/cigar
 	var/open = FALSE
 
-/obj/item/storage/fancy/cigar/proc/can_interact(mob/user)
+/obj/item/storage/fancy/cigar/can_interact(mob/user)
 	if((!ishuman(user) && (loc != user)) || user.stat || user.restrained())
 		return 1
 	if(istype(loc, /obj/item/storage))
@@ -399,7 +370,7 @@ obj/item/storage/fancy/cigar/attackby(obj/item/W, mob/user)
 	create_reagents(15 * storage_slots)
 	update_icon()
 
-/obj/item/storage/fancy/cigar/on_update_icon()
+/obj/item/storage/fancy/cigar/update_icon()
 	if(open)
 		icon_state = "[initial(icon_state)][contents.len]"
 	else
@@ -444,7 +415,7 @@ obj/item/storage/fancy/cigar/attackby(obj/item/W, mob/user)
 	. = ..()
 	update_icon()
 
-/obj/item/storage/lockbox/vials/on_update_icon(var/itemremoved = 0)
+/obj/item/storage/lockbox/vials/update_icon(var/itemremoved = 0)
 	var/total_contents = src.contents.len - itemremoved
 	src.icon_state = "vialbox[total_contents]"
 	src.cut_overlays()

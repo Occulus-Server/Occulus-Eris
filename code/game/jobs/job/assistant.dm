@@ -8,7 +8,7 @@
 	spawn_positions = -1
 	supervisors = "anyone who pays you"
 	selection_color = "#dddddd"
-	initial_balance	= 800
+	initial_balance	= 0 // This is now defined in code\modules\economy\cash.dm under spacecash/bundle/Vagabond as they carry cash on them.
 	wage = WAGE_NONE //Get a job ya lazy bum
 	alt_titles = list("Intern", "Vagabond", "Assistant")
 	access = list(access_maint_tunnels)
@@ -29,7 +29,7 @@ You remember boarding the Northern Light sometime in your past, when it had a di
 Over time you've become accustomed to the dangers of this ship.<br>\
 The ID you wear likely not even your own. At least as far as you can remember.<br>\
 But this chunk of plastic still can be a rare oddity, that can change your character.<br>\
-As an drifter, you should strive to help out anyone you can. Or at least, anyone who offers you a paying job. Find a way to make money, stay out of trouble, and survive."
+As an drifter, you should strive to help out anyone you can. Or at least, anyone who offers you a paying job. Find a way to make money, stay out of trouble, and survive."  // Occulus Edit - Remove Eris corp. reference
 
 	perks = list(/datum/perk/vagabond)
 	loyalties = "Your loyalty is yours to decide"

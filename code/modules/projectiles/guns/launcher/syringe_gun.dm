@@ -12,7 +12,8 @@
 	w_class = ITEM_SIZE_TINY
 	var/obj/item/reagent_containers/syringe/syringe
 
-/obj/item/syringe_cartridge/on_update_icon()
+
+/obj/item/syringe_cartridge/update_icon()
 	underlays.Cut()
 	if(syringe)
 		underlays += image(syringe.icon, src, syringe.icon_state)
@@ -65,28 +66,28 @@
 	name = "syringe gun"
 	desc = "A spring-loaded rifle designed to fire syringes to incapacitate unruly patients from a distance."
 	icon = 'icons/obj/guns/launcher/syringegun.dmi'
+	description_info = "Won't penetrate thick materials"
 	icon_state = "syringegun"
 	item_state = "syringegun"
 	w_class = ITEM_SIZE_NORMAL
 	force = 7
 	matter = list(MATERIAL_PLASTIC = 8, MATERIAL_GLASS = 2)
+	gun_parts = list(/obj/item/stack/material/plastic = 5)
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 
 	fire_sound = 'sound/weapons/empty.ogg'
 	fire_sound_text = "a metallic thunk"
-	recoil_buildup = 0
+	init_recoil = HANDGUN_RECOIL(1)
 	release_force = 10
 	throw_distance = 10
 
 	safety = FALSE//just whynot
 	restrict_safety = TRUE//so syringe gun doesn't contents any safety shit
-
+	rarity_value = 10
 	var/list/darts = list()
 	var/max_darts = 1
 	var/obj/item/syringe_cartridge/next
-
-/obj/item/gun/launcher/syringe/New()
-	..()
+	serial_type = "ML"
 
 /obj/item/gun/launcher/syringe/consume_next_projectile()
 	if(next)
@@ -141,6 +142,8 @@
 	name = "syringe gun revolver"
 	desc = "A modification of the syringe gun design, using a rotating cylinder to store up to five syringes. The spring still needs to be drawn between shots."
 	icon = 'icons/obj/guns/launcher/rapidsyringegun.dmi'
+	description_info = "Won't penetrate thick materials"
 	icon_state = "rapidsyringegun"
 	item_state = "rapidsyringegun"
 	max_darts = 5
+	rarity_value = 20

@@ -110,6 +110,9 @@ h1.alert, h2.alert		{color: #000000;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
 .say_quote				{font-family: Georgia, Verdana, sans-serif;}
 .scraptalk				{color: #AAAFB7;}
+.german					{color: #001FFF}
+.neohongo               {color: #993399}
+.latin                  {color: #deb63d}
 
 .interface				{color: #330033;}
 

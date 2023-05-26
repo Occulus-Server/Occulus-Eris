@@ -13,9 +13,9 @@
 		)
 	permeability_coefficient = 0.01
 	armor = list(
-		melee = 10,
-		bullet = 10,
-		energy = 10,
+		melee = 2,
+		bullet = 2,
+		energy = 2,
 		bomb = 0,
 		bio = 100,
 		rad = 50
@@ -29,11 +29,12 @@
 	siemens_coefficient = 0.9
 	w_class = ITEM_SIZE_NORMAL
 	species_restricted = list("exclude")
-	flash_protection = FLASH_PROTECTION_MAJOR
+	flash_protection = FLASH_PROTECTION_MAJOR // kept because seeing the sun in space without flash prot is... ouch.
 	price_tag = 100
 	spawn_blacklisted = TRUE
 	bad_type = /obj/item/clothing/head/space
 	style = STYLE_NEG_HIGH
+	style_coverage = COVERS_WHOLE_HEAD
 
 	var/obj/machinery/camera/camera
 	var/list/camera_networks
@@ -81,11 +82,10 @@
 	item_flags = STOPPRESSUREDAMAGE|THICKMATERIAL|COVER_PREVENT_MANIPULATION
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
 	matter = list(MATERIAL_PLASTIC = 30, MATERIAL_STEEL = 10)
-	slowdown = 1
 	armor = list(
-		melee = 10,
-		bullet = 10,
-		energy = 10,
+		melee = 2,
+		bullet = 2,
+		energy = 2,
 		bomb = 0,
 		bio = 100,
 		rad = 50
@@ -95,10 +95,12 @@
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.9
 	species_restricted = list("exclude")
-	equip_delay = 4 SECONDS
+	equip_delay = 6 SECONDS
 	bad_type = /obj/item/clothing/suit/space
 	style = STYLE_NEG_HIGH
+	style_coverage = COVERS_WHOLE_TORSO_AND_LIMBS
 	var/list/supporting_limbs //If not-null, automatically splints breaks. Checked when removing the suit.
+	slowdown = HEAVY_SLOWDOWN * 0.5
 
 /obj/item/clothing/suit/space/equipped(mob/M)
 	check_limb_support()

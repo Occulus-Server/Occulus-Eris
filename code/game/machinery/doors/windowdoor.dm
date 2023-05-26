@@ -11,7 +11,7 @@
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 100 //If you change this, consiter changing ../door/window/brigdoor/ health at the bottom of this .dm file
 	health = 100
-	visible = 0.0
+	visible = 0
 	use_power = NO_POWER_USE
 	flags = ON_BORDER
 	opacity = 0
@@ -115,7 +115,7 @@
 	sleep(10)
 
 	explosion_resistance = 0
-	density = FALSE
+	src.density = FALSE
 //	src.sd_SetOpacity(0)	//TODO: why is this here? Opaque windoors? ~Carn
 	update_nearby_tiles()
 
@@ -131,7 +131,7 @@
 	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
 	SetIconState(base_state)
 
-	density = TRUE
+	src.density = TRUE
 	explosion_resistance = initial(explosion_resistance)
 //	if(visible)
 //		SetOpacity(1)	//TODO: why is this here? Opaque windoors? ~Carn
@@ -265,7 +265,7 @@
 
 
 	if (density)
-		FLICK(text("[]deny", src.base_state), src)
+		flick(text("[]deny", src.base_state), src)
 	return FALSE
 
 

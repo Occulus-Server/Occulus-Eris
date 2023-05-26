@@ -81,6 +81,13 @@
 		to_chat(src, SPAN_WARNING("\The [destination] blocks you."))
 		return FALSE
 
+	// Prevent people from going directly inside or outside a shuttle through the ceiling
+	// Would be possible if the shuttle is not on the highest z-level
+	// Also prevent the bug where people could get in from under the shuttle
+	if(istype(start, /turf/simulated/shuttle) || istype(destination, /turf/simulated/shuttle))
+		to_chat(src, SPAN_WARNING("An invisible energy shield around the shuttle blocks you."))
+		return FALSE
+
 	// Check for blocking atoms at the destination.
 	for (var/atom/A in destination)
 		if (!A.CanPass(mover, start, 1.5, 0))
@@ -234,10 +241,31 @@
 
 
 /mob/living/carbon/human/can_fall(turf/below, turf/simulated/open/dest = src.loc)
-	// Special condition for jetpack mounted folk!
+	if (CanAvoidGravity())
+		return FALSE
+	// can't fall on walls anymore
+	var/turf/true_below = GetBelow(src)
+	for(var/obj/structure/possible_blocker in true_below.contents)
+		if(possible_blocker.density)
+			if(possible_blocker.climbable)
+				continue
+			else
+				return FALSE
+
 	if (!restrained())
-		if (CanAvoidGravity())
-			return FALSE
+		var/tile_view = view(src, 1)
+		var/obj/item/clothing/shoes/magboots/MB = shoes
+		if(stats.getPerk(PERK_PARKOUR))
+			for(var/obj/structure/low_wall/LW in tile_view)
+				return FALSE
+			for(var/obj/structure/railing/R in get_turf(src))
+				return FALSE
+		if(istype(MB))
+			if(MB.magpulse)
+				for(var/obj/structure/low_wall/LW in tile_view)
+					return FALSE
+				for(var/turf/simulated/wall/W in tile_view)
+					return FALSE
 
 	return ..()
 

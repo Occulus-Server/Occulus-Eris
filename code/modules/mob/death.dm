@@ -10,7 +10,7 @@
 	update_lying_buckled_and_verb_status()
 	GLOB.dead_mob_list -= src
 
-	if(do_gibs) gibs(loc, dna)
+	if(do_gibs) gibs(loc, src)
 
 	var/atom/movable/overlay/animation = null
 	if (anim)
@@ -18,8 +18,8 @@
 		animation.icon_state = "blank"
 		animation.icon = 'icons/mob/mob.dmi'
 		animation.master = src
-		FLICK(anim, animation)
-	addtimer(CALLBACK(src, .proc/check_delete, animation), 15)
+		flick(anim, animation)
+	addtimer(CALLBACK(src, PROC_REF(check_delete), animation), 15)
 
 /mob/proc/check_delete(var/atom/movable/overlay/animation)
 	if(animation)	qdel(animation)
@@ -49,9 +49,8 @@
 		animation.icon_state = "blank"
 		animation.icon = iconfile
 		animation.master = src
-		FLICK(anim, animation)
-	addtimer(CALLBACK(src, .proc/check_delete, animation), 15)
-
+		flick(anim, animation)
+	addtimer(CALLBACK(src, PROC_REF(check_delete), animation), 15)
 
 /mob/proc/death(gibbed,deathmessage="seizes up and falls limp...",show_dead_message = "You have died.")
 	if(stat == DEAD)
@@ -70,10 +69,16 @@
 
 	for(var/mob/living/carbon/human/H in oviewers(src))
 		H.sanity.onSeeDeath(src)
+		SEND_SIGNAL_OLD(H, COMSIG_MOB_DEATH, src)
 
 	stat = DEAD
 	for(var/obj/item/implant/carrion_spider/control/C in src)
 		C.return_mind()
+
+	// Notifies borer of host death.
+	var/mob/living/simple_animal/borer/B = get_brain_worms()
+	if(B?.controlling)
+		B.host_death()
 
 	update_lying_buckled_and_verb_status()
 	reset_plane_and_layer()

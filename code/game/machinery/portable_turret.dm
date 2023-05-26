@@ -95,7 +95,8 @@
 	spark_system = new /datum/effect/effect/system/spark_spread
 	spark_system.set_up(5, 0, src)
 	spark_system.attach(src)
-
+	var/area/A = get_area(src)
+	SEND_SIGNAL_OLD(A, COMSIG_TURRENT, src)
 	setup()
 
 /obj/machinery/porta_turret/crescent/New()
@@ -154,7 +155,7 @@
 			eshot_sound = 'sound/weapons/Laser.ogg'
 			egun = 1
 
-		if(/obj/item/gun/energy/gun/nuclear)
+		if(/obj/item/gun/energy/nuclear)
 			eprojectile = /obj/item/projectile/beam	//If it has, going to kill mode
 			eshot_sound = 'sound/weapons/Laser.ogg'
 			egun = 1
@@ -199,9 +200,9 @@ var/list/turret_icons
 	if(isLocked(user))
 		return
 
-	ui_interact(user)
+	nano_ui_interact(user)
 
-/obj/machinery/porta_turret/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/porta_turret/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	var/data[0]
 	data["access"] = !isLocked(user)
 	data["locked"] = locked
@@ -285,7 +286,7 @@ var/list/turret_icons
 
 	var/obj/item/card/id/ID = I.GetIdCard()
 
-	if (user.a_intent != I_HURT)
+	if (user.a_intent == I_HELP)
 		if(stat & BROKEN)
 			if(QUALITY_PRYING in I.tool_qualities)
 				//If the turret is destroyed, you can remove it with a crowbar to
@@ -304,6 +305,7 @@ var/list/turret_icons
 					else
 						to_chat(user, SPAN_NOTICE("You remove the turret but did not manage to salvage anything."))
 					qdel(src) // qdel
+			return 1 //No whacking the turret with tools on help intent
 
 		else if(QUALITY_BOLT_TURNING in I.tool_qualities)
 			if(enabled)
@@ -345,6 +347,7 @@ var/list/turret_icons
 					to_chat(user, SPAN_NOTICE("You unsecure the exterior bolts on the turret."))
 					update_icon()
 			wrenching = 0
+			return 1 //No whacking the turret with tools on help intent
 
 		else if(istype(I, /obj/item/card/id)||istype(I, /obj/item/modular_computer))
 			if(allowed(user))
@@ -356,6 +359,7 @@ var/list/turret_icons
 				to_chat(user, SPAN_NOTICE("You transfer the card's ID code to the turret's list of targetting exceptions."))
 			else
 				to_chat(user, SPAN_NOTICE("Access denied."))
+			return 1 //No whacking the turret with tools on help intent
 
 		else if(QUALITY_PULSING in I.tool_qualities)
 			if(debugopen)
@@ -385,6 +389,7 @@ var/list/turret_icons
 						hackfail = 0
 					else
 						to_chat(user, SPAN_WARNING("You fail to hack the ID reader, but avoid tripping the security protocol."))
+			return 1 //No whacking the turret with tools on help intent
 
 		else if(QUALITY_SCREW_DRIVING in I.tool_qualities)
 			if(I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SCREW_DRIVING, FAILCHANCE_HARD,  required_stat = STAT_MEC))
@@ -395,6 +400,7 @@ var/list/turret_icons
 					debugopen = 1
 					to_chat(user, SPAN_NOTICE("You gently unscrew the seconday maintenance hatch, gaining access to the turret's internal circuitry and debug functions."))
 					desc = "A hatch on the bottom of the access panel is opened, exposing the circuitry inside."
+			return 1 //No whacking the turret with tools on help intent
 
 		else if((QUALITY_WIRE_CUTTING in I.tool_qualities) && (debugopen))
 			if(overridden)
@@ -415,6 +421,7 @@ var/list/turret_icons
 						hackfail = 1
 						sleep(300)
 						hackfail = 0
+			return 1 //No whacking the turret with tools on help intent
 
 	if (!(I.flags & NOBLUDGEON) && I.force && !(stat & BROKEN))
 		//if the turret was attacked with the intention of harming it:
@@ -444,7 +451,7 @@ var/list/turret_icons
 		iconholder = 1
 		controllock = 1
 		enabled = 0 //turns off the turret temporarily
-		sleep(60) //6 seconds for the traitor to gtfo of the area before the turret decides to ruin his shit
+		sleep(60) //6 seconds for the contractor to gtfo of the area before the turret decides to ruin his shit
 		enabled = 1 //turns it back on. The cover popUp() popDown() are automatically called in process(), no need to define it here
 		return 1
 
@@ -510,6 +517,8 @@ var/list/turret_icons
 			take_damage(rand(80,170))
 		if (3)
 			take_damage(rand(50,120))
+		if (4)
+			take_damage(rand(25,60))
 
 /obj/machinery/porta_turret/proc/die()	//called when the turret dies, ie, health <= 0
 	health = 0
@@ -598,8 +607,8 @@ var/list/turret_icons
 
 	if(isanimal(L) || issmall(L)) // Animals are not so dangerous
 		return check_anomalies ? TURRET_SECONDARY_TARGET : TURRET_NOT_TARGET
-/*
-	if(isxenomorph(L) || isalien(L) || isblitzshell(L)) // Xenos are dangerous
+
+	if(isblitzshell(L)) // Blitzshells are dangerous
 		return check_anomalies ? TURRET_PRIORITY_TARGET	: TURRET_NOT_TARGET
 */
 	if(ishuman(L))	//if the target is a human, analyze threat level
@@ -770,10 +779,10 @@ var/list/turret_icons
 	name = "turret frame"
 	icon = 'icons/obj/turrets.dmi'
 	icon_state = "turret_frame"
-	density=1
+	density = TRUE
 	var/build_step = 0			//the current step in the building process
 	var/finish_name="turret"	//the name applied to the product turret
-	var/obj/item/gun/energy/installation = null		//the gun type installed
+	var/obj/item/gun/energy/installation		//the gun type installed
 	var/gun_charge = 0			//the gun charge of the gun type installed
 
 
@@ -848,8 +857,8 @@ var/list/turret_icons
 					var/obj/machinery/porta_turret/Turret = new /obj/machinery/porta_turret(loc)
 					Turret.name = finish_name
 					Turret.installation = installation
-					Turret.installation = installation
 					installation.forceMove(Turret)
+					installation = null
 					Turret.enabled = 0
 					Turret.setup()
 

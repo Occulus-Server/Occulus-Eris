@@ -21,44 +21,49 @@
 
 //checks if projectile 'P' from turf 'from' can hit whatever is behind the table. Returns 1 if it can, 0 if bullet stops.
 /obj/structure/table/proc/check_cover(obj/item/projectile/P, turf/from)
-	var/turf/cover
-	if(flipped==1)
-		cover = get_turf(src)
-	else if(flipped==0)
-		cover = get_step(loc, get_dir(from, loc))
-	if(!cover)
-		return 1
-	if (get_dist(P.starting, loc) <= 1) //Tables won't help you if people are THIS close
-		return 1
-	if (get_turf(P.original) == cover)
-		var/valid = FALSE
-		var/distance = get_dist(P.last_interact,loc)
-		P.check_hit_zone(loc, distance)
 
-		var/targetzone = check_zone(P.def_zone)
-		if (targetzone in list(BP_R_LEG, BP_L_LEG, BP_L_FOOT, BP_R_FOOT)) //OCCULUS EDIT: ADDED FEET
-			valid = TRUE //The legs are always concealed
-		if (ismob(P.original))
-			var/mob/M = P.original
-			if (M.lying)
-				valid = TRUE				//Lying down covers your whole body
-		if(flipped==1)
-			if(get_dir(loc, from) == dir)	//Flipped tables catch mroe bullets
-				if (targetzone == BP_GROIN)
-					valid = TRUE
-			else
-				valid = FALSE					//But only from one side
-		if(valid)
-			var/pierce = P.check_penetrate(src)
-			health -= P.get_structure_damage()/2
-			if (health > 0)
-				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
-				return pierce
-			else
-				visible_message(SPAN_WARNING("[src] breaks down!"))
-				break_to_parts()
-				return 1
-	return 1
+	if(config.z_level_shooting)
+		if(P.height == HEIGHT_HIGH)
+			return TRUE // Bullet is too high to hit
+		P.height = (P.height == HEIGHT_LOW) ? HEIGHT_LOW : HEIGHT_CENTER
+
+	if (get_dist(P.starting, loc) <= 1) //Tables won't help you if people are THIS close
+		return TRUE
+	if(get_dist(loc, P.trajectory.target) > 1 ) // Target turf must be adjacent for it to count as cover
+		return TRUE
+	var/valid = FALSE
+	if(!P.def_zone)
+		return TRUE // Emitters, or anything with no targeted bodypart will always bypass the cover
+
+	var/targetzone = check_zone(P.def_zone)
+	if (targetzone in list(BP_R_LEG, BP_L_LEG, BP_L_FOOT, BP_R_FOOT)) //OCCULUS EDIT: ADDED FEET
+		valid = TRUE //The legs are always concealed
+	if (ismob(P.original))
+		var/mob/M = P.original
+		if (M.lying)
+			valid = TRUE				//Lying down covers your whole body
+	if(flipped==1)
+		if(get_dir(loc, from) == dir)	//Flipped tables catch mroe bullets
+			if (targetzone == BP_GROIN)
+				valid = TRUE
+		else
+			valid = FALSE					//But only from one side
+
+	// Bullet is low enough to hit the table
+	if(config.z_level_shooting && P.height == HEIGHT_LOW)
+		valid = TRUE
+
+	if(valid)
+		var/pierce = P.check_penetrate(src)
+		health -= P.get_structure_damage()/2
+		if (health > 0)
+			visible_message(SPAN_WARNING("[P] hits \the [src]!"))
+			return pierce
+		else
+			visible_message(SPAN_WARNING("[src] breaks down!"))
+			break_to_parts()
+			return TRUE
+	return TRUE
 
 /obj/structure/table/CheckExit(atom/movable/O as mob|obj, target as turf)
 	if(istype(O) && O.checkpass(PASSTABLE))
@@ -73,7 +78,10 @@
 //Drag and drop onto tables
 //This is mainly so that janiborg can put things on tables
 /obj/structure/table/MouseDrop_T(atom/A, mob/user, src_location, over_location, src_control, over_control, params)
-	if(istype(A.loc, /mob))
+	if(!CanMouseDrop(A, user))
+		return
+
+	if(ismob(A.loc))
 		if (user.unEquip(A, loc))
 			set_pixel_click_offset(A, params)
 		return
@@ -146,7 +154,6 @@
 	if(!istype(W))
 		return
 
-
 	if(istype(W, /obj/item/melee/energy/blade))
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, src.loc)
@@ -155,6 +162,11 @@
 		playsound(src.loc, "sparks", 50, 1)
 		user.visible_message(SPAN_DANGER("\The [src] was sliced apart by [user]!"))
 		break_to_parts()
+		return
+
+	if(user.a_intent == I_HELP && istype(W, /obj/item/gun))
+		var/obj/item/gun/G = W
+		G.gun_brace(user, src)
 		return
 
 	if(can_plate && !material)

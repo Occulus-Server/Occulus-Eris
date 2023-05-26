@@ -276,13 +276,8 @@
 /area/template_noop)
 "zo" = (
 /obj/structure/table/onestar,
-<<<<<<< HEAD
-/obj/item/deck/cards,
-/turf/simulated/floor/dirt,
-=======
 /obj/item/deck/cards,
 /turf/simulated/floor/dirt/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "zE" = (
 /turf/simulated/floor/plating/under/airless,
@@ -326,13 +321,8 @@
 /turf/simulated/floor/plating/under/airless,
 /area/template_noop)
 "DP" = (
-<<<<<<< HEAD
-/obj/item/beach_ball/holoball,
-/turf/simulated/floor/dirt,
-=======
 /obj/item/beach_ball/holoball,
 /turf/simulated/floor/dirt/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "DU" = (
 /obj/structure/bed/chair/custom/onestar/red,

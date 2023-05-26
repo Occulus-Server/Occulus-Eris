@@ -4,7 +4,7 @@
 
 	uniform = /obj/item/clothing/under/turtleneck
 	gloves = /obj/item/clothing/gloves/security/tactical
-	l_ear = /obj/item/device/radio/headset
+	l_ear = /obj/item/device/radio/headset/mercenaries
 	shoes = /obj/item/clothing/shoes/magboots/merc
 	pda_slot = slot_belt
 	pda_type = /obj/item/modular_computer/pda
@@ -16,7 +16,7 @@
 
 //He gets a snazzy beret
 /decl/hierarchy/outfit/antagonist/mercenary/commander
-	name = "Mercenary Commander"
+	name = "Mercenary Commander" // Occulus Edit - Removes Serbian reference
 	head = /obj/item/clothing/head/beret/sec/navy/hos
 
 
@@ -28,8 +28,7 @@
 
 	suit = /obj/item/clothing/suit/space/void/SCAF
 	suit_store = /obj/item/tank/jetpack/oxygen
-	back = /obj/item/storage/backpack/military
-
+	back = /obj/item/storage/backpack/satchel/military
 
 
 

@@ -84,13 +84,8 @@
 /area/template_noop)
 "gt" = (
 /obj/structure/bed,
-<<<<<<< HEAD
-/obj/item/bedsheet/hos,
-/turf/unsimulated/floor{
-=======
 /obj/item/bedsheet/hos,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	icon_state = "lino"
 	},
 /area/template_noop)
@@ -106,27 +101,16 @@
 /area/template_noop)
 "iz" = (
 /obj/structure/table/standard,
-<<<<<<< HEAD
-/obj/item/deck/cards,
-/turf/unsimulated/floor{
-=======
 /obj/item/deck/cards,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	icon_state = "lino"
 	},
 /area/template_noop)
 "ku" = (
 /obj/structure/table/woodentable,
-<<<<<<< HEAD
-/obj/item/folder/cyan,
-/obj/item/stamp/denied,
-/turf/unsimulated/floor{
-=======
 /obj/item/folder/cyan,
 /obj/item/stamp/denied,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	dir = 2;
 	icon_state = "dark"
 	},
@@ -139,13 +123,8 @@
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
-<<<<<<< HEAD
-/obj/item/material/kitchen/rollingpin,
-/turf/unsimulated/floor{
-=======
 /obj/item/material/kitchen/rollingpin,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	icon_state = "white"
 	},
 /area/template_noop)
@@ -186,20 +165,14 @@
 /obj/item/reagent_containers/food/condiment/enzyme{
 	layer = 5
 	},
-/obj/structure/cable/green,
 /turf/unsimulated/floor/airless{
 	icon_state = "white"
 	},
 /area/template_noop)
 "oS" = (
 /obj/structure/table/rack,
-<<<<<<< HEAD
-/obj/item/storage/deferred/crate/tools,
-/turf/unsimulated/floor{
-=======
 /obj/item/storage/deferred/crate/tools,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	icon_state = "lino"
 	},
 /area/template_noop)
@@ -284,13 +257,8 @@
 /area/template_noop)
 "xN" = (
 /obj/structure/table/rack,
-<<<<<<< HEAD
-/obj/spawner/gun/normal,
-/turf/unsimulated/floor{
-=======
 /obj/spawner/gun/cheap,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	icon_state = "lino"
 	},
 /area/template_noop)
@@ -366,25 +334,15 @@
 /area/template_noop)
 "Dy" = (
 /obj/structure/table/rack,
-<<<<<<< HEAD
-/obj/spawner/gun/shotgun,
-/turf/unsimulated/floor{
-=======
 /obj/spawner/gun/normal/low_chance,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	icon_state = "lino"
 	},
 /area/template_noop)
 "Ej" = (
 /obj/structure/table/standard,
-<<<<<<< HEAD
-/obj/item/folder/cyan,
-/turf/unsimulated/floor{
-=======
 /obj/item/folder/cyan,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	dir = 2;
 	icon_state = "dark"
 	},
@@ -398,15 +356,9 @@
 /area/template_noop)
 "Fb" = (
 /obj/structure/bed,
-<<<<<<< HEAD
-/obj/item/bedsheet/hos,
-/obj/item/reagent_containers/food/drinks/bottle/vodka,
-/turf/unsimulated/floor{
-=======
 /obj/item/bedsheet/hos,
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	icon_state = "lino"
 	},
 /area/template_noop)
@@ -443,12 +395,7 @@
 /obj/structure/closet,
 /obj/item/clothing/mask/balaclava/tactical,
 /obj/item/clothing/mask/balaclava/tactical,
-<<<<<<< HEAD
-/obj/item/clothing/mask/balaclava/tactical,
-/turf/unsimulated/floor{
-=======
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	icon_state = "lino"
 	},
 /area/template_noop)
@@ -542,31 +489,18 @@
 /area/template_noop)
 "Pc" = (
 /obj/structure/table/woodentable,
-<<<<<<< HEAD
-/obj/item/reagent_containers/food/drinks/flask/barflask,
-/turf/unsimulated/floor{
-=======
 /obj/item/reagent_containers/food/drinks/flask/barflask,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	dir = 2;
 	icon_state = "dark"
 	},
 /area/template_noop)
 "PT" = (
 /obj/structure/closet,
-<<<<<<< HEAD
-/obj/item/tool/pickaxe/diamonddrill,
-/obj/item/tool/pickaxe/diamonddrill,
-/obj/item/storage/backpack/military,
-/obj/item/storage/backpack/military,
-/turf/unsimulated/floor{
-=======
 /obj/item/tool/pickaxe/diamonddrill,
 /obj/item/tool/pickaxe/diamonddrill,
 /obj/item/storage/backpack/military,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	icon_state = "lino"
 	},
 /area/template_noop)
@@ -610,13 +544,8 @@
 	dir = 4
 	},
 /obj/machinery/door/window/brigdoor/northleft,
-<<<<<<< HEAD
-/obj/item/soap/deluxe,
-/turf/simulated/floor/tiled/white/techfloor_grid,
-=======
 /obj/item/soap/deluxe,
 /turf/simulated/floor/tiled/white/techfloor_grid/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "Th" = (
 /obj/machinery/light{
@@ -630,18 +559,11 @@
 "Ur" = (
 /obj/structure/table/rack,
 /obj/item/storage/belt/tactical,
-/obj/item/storage/belt/tactical,
-/obj/item/storage/belt/tactical,
-/obj/item/storage/pouch/large_generic,
 /obj/machinery/light{
 	dir = 8
 	},
-<<<<<<< HEAD
-/turf/unsimulated/floor{
-=======
 /obj/item/storage/pouch/medium_generic,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	icon_state = "lino"
 	},
 /area/template_noop)
@@ -692,13 +614,8 @@
 	},
 /area/template_noop)
 "Yy" = (
-<<<<<<< HEAD
-/obj/item/storage/deferred/crate/alcohol,
-/turf/unsimulated/floor{
-=======
 /obj/item/storage/deferred/crate/alcohol,
 /turf/unsimulated/floor/airless{
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 	icon_state = "white"
 	},
 /area/template_noop)

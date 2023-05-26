@@ -56,17 +56,13 @@
 /turf/simulated/floor/plating/under,
 /area/deepmaint)
 "ao" = (
-/obj/item/remains/human,
-/obj/spawner/pack/cloth,
-/obj/spawner/pack/cloth,
 /obj/spawner/pack/gun_loot,
+/obj/landmark/corpse/skeleton/maint,
 /turf/simulated/floor/plating/under,
 /area/deepmaint)
 "ap" = (
-/obj/item/remains/human,
-/obj/spawner/pack/cloth,
-/obj/spawner/pack/cloth,
 /obj/spawner/pack/gun_loot,
+/obj/landmark/corpse/skeleton/maint,
 /turf/simulated/floor/asteroid,
 /area/deepmaint)
 "aq" = (
@@ -83,21 +79,12 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
 /area/deepmaint)
-"as" = (
-/obj/item/tool/pickaxe,
-/turf/simulated/floor/asteroid,
-/area/deepmaint)
 "at" = (
 /obj/spawner/material/ore,
 /obj/spawner/material/ore,
 /turf/simulated/floor/asteroid,
 /area/deepmaint)
-"au" = (
-/obj/machinery/mining/drill,
-/turf/simulated/floor/tiled/steel/brown_platform,
-/area/deepmaint)
 "av" = (
-/obj/machinery/mining/brace,
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/deepmaint)
 "aw" = (
@@ -108,14 +95,10 @@
 	pixel_y = 24;
 	req_access = null
 	},
-/obj/machinery/mining/brace,
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/deepmaint)
 "ax" = (
-/obj/machinery/mining/brace,
-/obj/machinery/light{
-	dir = 1
-	},
+/obj/machinery/mining/deep_drill,
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/deepmaint)
 "ay" = (
@@ -182,8 +165,8 @@
 /area/deepmaint)
 "aK" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
+	dir = 4;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/deepmaint)
@@ -280,15 +263,10 @@
 /obj/item/device/lighting/toggleable/lamp/green,
 /turf/simulated/floor/carpet,
 /area/deepmaint)
-"bd" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet,
-/turf/simulated/floor/carpet,
-/area/deepmaint)
 "be" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
+	dir = 4;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/carpet,
 /area/deepmaint)
@@ -314,6 +292,26 @@
 	range = 10
 	},
 /turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"dq" = (
+/obj/item/tool/pickaxe,
+/turf/simulated/floor/asteroid,
+/area/deepmaint)
+"ni" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet,
+/turf/simulated/floor/carpet,
+/area/deepmaint)
+"oH" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/deepmaint)
+"Yi" = (
+/obj/machinery/vending/plant_gene,
+/turf/simulated/floor/asteroid,
 /area/deepmaint)
 
 (1,1,1) = {"
@@ -460,7 +458,7 @@ ah
 ak
 am
 ak
-au
+av
 aA
 aB
 aC
@@ -483,7 +481,7 @@ ah
 ak
 an
 ak
-au
+ax
 aA
 aA
 aD
@@ -493,7 +491,7 @@ aN
 ak
 aW
 ba
-bd
+ni
 ak
 ah
 ah
@@ -576,7 +574,7 @@ ah
 ap
 ak
 av
-aA
+oH
 aB
 aD
 aD
@@ -656,7 +654,7 @@ af
 af
 af
 af
-af
+Yi
 ah
 ab
 ab
@@ -712,7 +710,7 @@ ab
 ab
 ad
 ad
-as
+dq
 az
 ay
 ah
@@ -759,7 +757,7 @@ aj
 ab
 ad
 af
-as
+dq
 ad
 aq
 ah

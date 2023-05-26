@@ -55,6 +55,19 @@
 	else
 		..()
 
+/obj/structure/bookcase/attack_generic(mob/M, damage, attack_message)
+	if(damage)
+		M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		M.do_attack_animation(src)
+		M.visible_message(SPAN_DANGER("\The [M] [attack_message] \the [src]!"))
+		playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+		drop_materials(drop_location())
+		for(var/obj/item/book/b in contents)
+			b.loc = (get_turf(src))
+		qdel(src)
+	else
+		attack_hand(M)
+
 /obj/structure/bookcase/attack_hand(var/mob/user as mob)
 	if(contents.len)
 		var/obj/item/book/choice = input("Which book would you like to remove from the shelf?") as null|obj in contents
@@ -70,18 +83,18 @@
 
 /obj/structure/bookcase/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			for(var/obj/item/book/b in contents)
 				qdel(b)
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			for(var/obj/item/book/b in contents)
 				if (prob(50)) b.loc = (get_turf(src))
 				else qdel(b)
 			qdel(src)
 			return
-		if(3.0)
+		if(3)
 			if (prob(50))
 				for(var/obj/item/book/b in contents)
 					b.loc = (get_turf(src))

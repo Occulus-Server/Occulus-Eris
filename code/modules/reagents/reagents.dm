@@ -60,6 +60,7 @@
 	// Catalog stuff
 	var/appear_in_default_catalog = TRUE
 	var/reagent_type = "FIX DAT SHIT IMIDIATLY"
+	var/price_per_unit = 0.125
 
 /datum/reagent/proc/remove_self(amount) // Shortcut
 	holder.remove_reagent(id, amount)
@@ -83,7 +84,31 @@
 				removed = CLAMP(metabolism * volume/(overdose/2) * M.get_blood_circulation()/100, metabolism * REAGENTS_MIN_EFFECT_MULTIPLIER, metabolism * REAGENTS_MAX_EFFECT_MULTIPLIER)
 			else
 				removed = CLAMP(metabolism * volume/(REAGENTS_OVERDOSE/2) * M.get_blood_circulation()/100, metabolism * REAGENTS_MIN_EFFECT_MULTIPLIER, metabolism * REAGENTS_MAX_EFFECT_MULTIPLIER)
-	removed = round(removed, 0.01)
+	removed = max(round(removed, 0.01), 0.01)
+	removed = min(removed, volume)
+
+	return removed
+
+/datum/reagent/proc/consumed_amount_human(mob/living/carbon/human/consumer, alien, location)
+	var/removed = metabolism
+	if(location == CHEM_INGEST)
+		var/calculated_buff = ((consumer.get_organ_efficiency(OP_LIVER) + consumer.get_organ_efficiency(OP_HEART) + consumer.get_organ_efficiency(OP_STOMACH)) / 3) / 100
+		if(ingest_met)
+			removed = ingest_met * calculated_buff
+		else
+			removed = (metabolism / 2) * calculated_buff
+	if(touch_met && (location == CHEM_TOUCH))
+		removed = touch_met // This doesn't get a buff , there is no organ that can count for this , really.
+	// on half of overdose, chemicals will start be metabolized faster,
+	// also blood circulation affects chemical strength (meaining if target has low blood volume or has something that lowers blood circulation chemicals will be consumed less and effect will diminished)
+	if(location == CHEM_BLOOD)
+		var/calculated_buff = ((consumer.get_organ_efficiency(OP_LIVER) + consumer.get_organ_efficiency(OP_HEART) * 2) / 3) / 100
+		if(!constant_metabolism)
+			if(overdose)
+				removed = CLAMP(metabolism * volume/(overdose/2) * consumer.get_blood_circulation()/100 * calculated_buff, metabolism * REAGENTS_MIN_EFFECT_MULTIPLIER, metabolism * REAGENTS_MAX_EFFECT_MULTIPLIER)
+			else
+				removed = CLAMP(metabolism * volume/(REAGENTS_OVERDOSE/2) * consumer.get_blood_circulation()/100 * calculated_buff, metabolism * REAGENTS_MIN_EFFECT_MULTIPLIER, metabolism * REAGENTS_MAX_EFFECT_MULTIPLIER)
+	removed = max(round(removed, 0.01), 0.01)
 	removed = min(removed, volume)
 
 	return removed
@@ -188,13 +213,26 @@
 
 /datum/reagent/proc/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	affect_blood(M, alien, effect_multiplier * 0.8)	// some of chemicals lost in digestive process
+
 	apply_sanity_effect(M, effect_multiplier)
 
 /datum/reagent/proc/affect_touch(mob/living/carbon/M, alien, effect_multiplier)
 
 /datum/reagent/proc/overdose(mob/living/carbon/M, alien) // Overdose effect. Doesn't happen instantly.
-	M.adjustToxLoss(REM)
+	M.add_chemical_effect(CE_TOXIN, dose / 4)
 	return
+
+/datum/reagent/proc/create_overdose_wound(obj/item/organ/internal/I, mob/user, datum/component/internal_wound/base_type, wound_descriptor = "poisoning", silent = FALSE)
+	if(!istype(I))
+		return
+	if(I.nature != initial(base_type.wound_nature))
+		return
+
+	var/wound_path = pick(subtypesof(base_type))
+	var/wound_name = "[name] [wound_descriptor]"
+	I.add_wound(wound_path, wound_name)
+	if(!silent && BP_IS_ORGANIC(I))
+		to_chat(user, SPAN_WARNING("You feel a sharp pain in your [I.parent.name]."))
 
 /datum/reagent/proc/initialize_data(newdata) // Called when the reagent is created.
 	if(!isnull(newdata))
@@ -214,24 +252,28 @@
 	return null
 
 // Addiction
-/datum/reagent/proc/addiction_act_stage1(mob/living/carbon/M)
+// Addiction
+/datum/reagent/proc/addiction_act_stage1(mob/living/carbon/human/M)
 	if(prob(30))
 		to_chat(M, SPAN_NOTICE("You feel like having some [name] right about now."))
 
-/datum/reagent/proc/addiction_act_stage2(mob/living/carbon/M)
+/datum/reagent/proc/addiction_act_stage2(mob/living/carbon/human/M)
 	if(prob(30))
 		to_chat(M, SPAN_NOTICE("You feel like you need [name]. You just can't get enough."))
 
-/datum/reagent/proc/addiction_act_stage3(mob/living/carbon/M)
+/datum/reagent/proc/addiction_act_stage3(mob/living/carbon/human/M)
 	if(prob(30))
 		to_chat(M, SPAN_DANGER("You have an intense craving for [name]."))
+		M.sanity.changeLevel(-5)
 
-/datum/reagent/proc/addiction_act_stage4(mob/living/carbon/M)
+/datum/reagent/proc/addiction_act_stage4(mob/living/carbon/human/M)
 	if(prob(30))
 		to_chat(M, SPAN_DANGER("You're not feeling good at all! You really need some [name]."))
+		M.sanity.changeLevel(-10)
 
-/datum/reagent/proc/addiction_end(mob/living/carbon/M)
+/datum/reagent/proc/addiction_end(mob/living/carbon/human/M)
 	to_chat(M, SPAN_NOTICE("You feel like you've gotten over your need for [name]."))
+	M.sanity.changeLevel(15)
 
 // Withdrawal
 /datum/reagent/proc/withdrawal_start(mob/living/carbon/M)

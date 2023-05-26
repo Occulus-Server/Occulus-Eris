@@ -13,8 +13,8 @@
 	for (var/obj/item/rig/module in spawns)
 		var/cnd = rand(40,80)
 		module.lose_modules(cnd)
-		//module.misconfigure(cnd) Occulus YEET. This is going to make_old()
-		//module.sabotage_tank() Occulus YEET. This is going to make_old()
+		module.misconfigure(cnd)
+		module.sabotage_tank()
 
 /obj/spawner/rig/low_chance
 	name = "low chance random rig suit"

@@ -40,7 +40,6 @@
 		diffuse(loc)
 		for (var/d in GLOB.cardinal)
 			diffuse(get_step(src, d))
-		
 
 /obj/machinery/shield_diffuser/proc/diffuse(var/turf/T)
 	if (!T)
@@ -52,7 +51,6 @@
 
 	var/obj/effect/shield/shield = locate(/obj/effect/shield) in T
 	if(shield) shield.fail(SSmachines.wait)
-	
 
 /obj/machinery/shield_diffuser/Process()
 	if(alarm)

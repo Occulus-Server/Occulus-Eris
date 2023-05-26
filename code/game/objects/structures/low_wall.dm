@@ -34,8 +34,8 @@
 
 	var/construction_stage
 
-	var/maxhealth = 600
-	var/health = 600
+	var/maxhealth = 450
+	var/health = 450
 
 	var/hitsound = 'sound/weapons/Genhit.ogg'
 	climbable = TRUE
@@ -44,6 +44,7 @@
 /obj/structure/low_wall/onestar
 	wall_color = "#FFFFFF"
 	icon_state = "onestar"
+	name = "One Star low wall"
 
 
 
@@ -117,15 +118,18 @@
 //Drag and drop onto low walls. Copied from tables
 //This is mainly so that janiborg can put things on tables
 /obj/structure/low_wall/MouseDrop_T(atom/A, mob/user, src_location, over_location, src_control, over_control, params)
-	if(istype(A.loc, /mob))
+	if(!CanMouseDrop(A, user))
+		return
+
+	if(ismob(A.loc))
 		user.unEquip(A, loc)
 		set_pixel_click_offset(A, params)
 		return
 
-	if (istype(A, /obj/item) && istype(A.loc, /turf) && (A.Adjacent(src) || user.Adjacent(src)))
+	if(istype(A, /obj/item) && istype(A.loc, /turf) && (A.Adjacent(src) || user.Adjacent(src)))
 		var/obj/item/O = A
 		//Mice can push around pens and paper, but not heavy tools
-		if (O.w_class <= user.can_pull_size)
+		if(O.w_class <= user.can_pull_size)
 			O.forceMove(loc)
 			set_pixel_click_offset(O, params, animate=TRUE)
 			return
@@ -148,34 +152,42 @@
 
 //checks if projectile 'P' from turf 'from' can hit whatever is behind the table. Returns 1 if it can, 0 if bullet stops.
 /obj/structure/low_wall/proc/check_cover(obj/item/projectile/P, turf/from)
-	var/turf/cover
-	cover = get_step(loc, get_dir(from, loc))
-	if(!cover)
-		return 1
+
+	if(config.z_level_shooting)
+		if(P.height == HEIGHT_HIGH)
+			return TRUE // Bullet is too high to hit
+		P.height = (P.height == HEIGHT_LOW) ? HEIGHT_LOW : HEIGHT_CENTER
+
 	if (get_dist(P.starting, loc) <= 1) //Tables won't help you if people are THIS close
 		return 1
-	if (get_turf(P.original) == cover)
-		var/valid = FALSE
-		var/distance = get_dist(P.last_interact,loc)
-		P.check_hit_zone(loc, distance)
+	if(get_dist(loc, P.trajectory.target) > 1 ) // Target turf must be adjacent for it to count as cover
+		return TRUE
+	var/valid = FALSE
 
-		var/targetzone = check_zone(P.def_zone)
-		if (targetzone in list(BP_R_LEG, BP_L_LEG, BP_GROIN, BP_L_FOOT, BP_R_FOOT)) //OCCULUS EDIT: ADDED FEET
-			valid = TRUE //The lower body is always concealed
-		if (ismob(P.original))
-			var/mob/M = P.original
-			if (M.lying)
-				valid = TRUE			//Lying down covers your whole body
-		if(valid)
-			var/pierce = P.check_penetrate(src)
-			health -= P.get_structure_damage()/2
-			if (health > 0)
-				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
-				return pierce
-			else
-				visible_message(SPAN_WARNING("[src] breaks down!"))
-				qdel(src)
-				return 1
+	if(!P.def_zone)
+		return 1 // Emitters, or anything with no targeted bodypart will always bypass the cover
+	var/targetzone = check_zone(P.def_zone)
+	if (targetzone in list(BP_R_LEG, BP_L_LEG, BP_GROIN, BP_L_FOOT, BP_R_FOOT)) //OCCULUS EDIT: ADDED FEET
+		valid = TRUE //The lower body is always concealed
+	if (ismob(P.original))
+		var/mob/M = P.original
+		if (M.lying)
+			valid = TRUE			//Lying down covers your whole body
+
+	// Bullet is low enough to hit the wall
+	if(config.z_level_shooting && P.height == HEIGHT_LOW)
+		valid = TRUE
+
+	if(valid)
+		var/pierce = P.check_penetrate(src)
+		health -= P.get_structure_damage()/2
+		if (health > 0)
+			visible_message(SPAN_WARNING("[P] hits \the [src]!"))
+			return pierce
+		else
+			visible_message(SPAN_WARNING("[src] breaks down!"))
+			qdel(src)
+			return 1
 	return 1
 
 
@@ -392,7 +404,7 @@
 		return
 
 	//If the user isn't in harm intent and there's no window ontop of this wall, it is treated like a table.
-		//Items used on it will be placed on it like a surface
+		//Items used on it will be placed on it like a surface, if you use a gun on it while on help intent, you brace the gun.
 
 	var/tool_type = I.get_tool_type(user, list(QUALITY_WELDING), src)
 	switch(tool_type)
@@ -420,31 +432,47 @@
 					return
 
 	//Turn on harm intent to override this behaviour and instead attack the wall
-	if (!(locate(/obj/structure/window) in loc) && user.a_intent != I_HURT)
+	if (!(locate(/obj/structure/window) in loc) && user.a_intent != I_HURT && user.a_intent != I_HELP)
 		if (user.unEquip(I, src.loc))
 			set_pixel_click_offset(I, params)
 			return
-
-
+	//Gun bracing
+	if(!(locate(/obj/structure/window) in loc) && user.a_intent == I_HELP && istype(I, /obj/item/gun))
+		var/obj/item/gun/G = I
+		G.gun_brace(user, src) //.../modules/projectiles/gun.dm
+		return
 	//Hitting the wall with stuff
 	if(!istype(I,/obj/item/rcd) && !istype(I, /obj/item/reagent_containers))
 		if(!I.force)
 			return attack_hand(user)
+		var/attackforce = I.force*I.structure_damage_factor
 		var/dam_threshhold = 150 //Integrity of Steel
-		var/dam_prob = min(100,60*1.5) //60 is hardness of steel
-		if(dam_prob < 100 && I.force > (dam_threshhold/10))
+		var/dam_prob = min(100,60*1.4) //60 is hardness of steel
+		if(ishuman(user))
+			var/mob/living/carbon/human/attacker = user
+			dam_prob -= attacker.stats.getStat(STAT_ROB)
+		if(dam_prob < 100 && attackforce > (dam_threshhold/10))
 			playsound(src, hitsound, 80, 1)
 			if(!prob(dam_prob))
-				visible_message(SPAN_DANGER("\The [user] attacks \the [src] with \the [I] and it breaks apart!"))
-				dismantle_wall(1)
-			else
 				visible_message(SPAN_DANGER("\The [user] attacks \the [src] with \the [I]!"))
+				playsound(loc, pick(WALLHIT_SOUNDS), 100, 5)
+				take_damage(attackforce)
+			else
+				visible_message(SPAN_WARNING("\The [user] attacks \the [src] with \the [I]!"))
 		else
 			visible_message(SPAN_DANGER("\The [user] attacks \the [src] with \the [I], but it bounces off!"))
 		user.do_attack_animation(src)
 		return
 
-
+/obj/structure/low_wall/attack_generic(mob/M, damage, attack_message)
+	if(damage)
+		playsound(loc, 'sound/effects/metalhit2.ogg', 50, 1)
+		M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		M.do_attack_animation(src)
+		M.visible_message(SPAN_DANGER("\The [M] [attack_message] \the [src]!"))
+		take_damage(damage*2)
+	else
+		attack_hand(M)
 
 /obj/structure/low_wall/proc/dismantle_wall(var/devastated, var/explode, var/no_product)
 	if (QDELETED(src))

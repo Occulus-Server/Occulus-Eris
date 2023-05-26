@@ -27,7 +27,7 @@
 
 /mob/living/simple_animal/parrot
 	name = "\improper Parrot"
-	desc = "The parrot squaks, \"It's a Parrot! BAWWK!\""
+	desc = "The parrot squaks, \"It's a parrot! BAWWK!\""
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "parrot_fly"
 	icon_dead = "parrot_dead"
@@ -69,10 +69,9 @@
 	//These vars store their preffered perch and if they dont have one, what they can use as a perch
 	var/obj/parrot_perch = null
 	var/obj/desired_perches = list(
-		/obj/structure/computerframe, 		/obj/structure/displaycase,
+		/obj/structure/computerframe,		/obj/structure/displaycase,
 		/obj/structure/filingcabinet,		/obj/machinery/teleport,
-		/obj/machinery/computer,			/obj/machinery/clonepod,
-		/obj/machinery/dna_scannernew,		/obj/machinery/telecomms,
+		/obj/machinery/computer,			/obj/machinery/telecomms,
 		/obj/machinery/nuclearbomb,			/obj/machinery/particle_accelerator,
 		/obj/machinery/recharge_station,	/obj/machinery/smartfridge,
 		/obj/machinery/suit_storage_unit
@@ -80,6 +79,8 @@
 
 	//Parrots are kleptomaniacs. This variable ... stores the item a parrot is holding.
 	var/obj/item/held_item = null
+
+	sanity_damage = -1
 
 
 /mob/living/simple_animal/parrot/New()
@@ -475,7 +476,7 @@
 			if(ishuman(parrot_interest))
 				var/mob/living/carbon/human/H = parrot_interest
 				var/obj/item/organ/external/affecting = H.get_organ(ran_zone(pick(parrot_dam_zone)))
-				H.damage_through_armor(damage, BRUTE, affecting, ARMOR_MELEE, 0, 0, sharp = TRUE)
+				H.damage_through_armor(damage, BRUTE, affecting, ARMOR_MELEE, null, null, sharp = TRUE)
 				var/msg3 = (pick("pecks [H]'s [affecting].", "cuts [H]'s [affecting] with its talons."))
 				src.visible_message("<span class='name'>[src]</span> [msg3].")
 			else

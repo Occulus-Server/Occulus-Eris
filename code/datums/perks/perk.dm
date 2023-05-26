@@ -27,6 +27,7 @@
 
 /// Proc called in human life. Should be the first thing to be called.
 /datum/perk/proc/on_process()
+	//SIGNAL_HANDLER
 	SHOULD_CALL_PARENT(TRUE)
 	if(!holder)
 		return FALSE
@@ -36,14 +37,17 @@
 
 /// Proc called when the perk is assigned to a human. Should be the first thing to be called.
 /datum/perk/proc/assign(mob/living/carbon/human/H)
-	SHOULD_CALL_PARENT(TRUE)
-	holder = H
-	RegisterSignal(holder, COMSIG_MOB_LIFE, .proc/on_process)
-	if(gain_text)//Occulus Edit
-		to_chat(holder, SPAN_NOTICE("[gain_text]"))//Occulus Edit
+	if(istype(H))
+		SHOULD_CALL_PARENT(TRUE)
+		holder = H
+		RegisterSignal(holder, COMSIG_MOB_LIFE, PROC_REF(on_process))
+		if(gain_text)//Occulus Edit
+			to_chat(holder, SPAN_NOTICE("[gain_text]"))//Occulus Edit
+		return TRUE
 
 /// Proc called when the perk is removed from a human. Obviously, in your perks, you should call parent as the last thing you do, since it deletes the perk itself.
 /datum/perk/proc/remove()
+	UnregisterSignal(holder, COMSIG_MOB_LIFE, PROC_REF(on_process))
 	SHOULD_CALL_PARENT(TRUE)
 	qdel(src)
 

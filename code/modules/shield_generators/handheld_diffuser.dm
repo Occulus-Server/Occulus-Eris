@@ -13,7 +13,7 @@
 	if(enabled)
 		SetIconState("hdiffuser_on")
 	else
-		SetIconState("hdiffuser_off")
+		icon_state = "hdiffuser_off"
 
 /obj/item/device/shield_diffuser/Destroy()
 	if(enabled)

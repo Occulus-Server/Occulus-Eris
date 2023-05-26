@@ -10,6 +10,7 @@
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = FACE|HEAD
 	w_class = ITEM_SIZE_SMALL
+	style_coverage = COVERS_WHOLE_FACE
 	var/open = 0 //0 = full, 1 = head only, 2 = face only
 
 /obj/item/clothing/mask/balaclava/New()
@@ -24,19 +25,22 @@
 			if (0)
 				flags_inv = BLOCKHEADHAIR
 				body_parts_covered = HEAD
-				icon_state = "swatclava_open"
+				style_coverage = COVERS_HAIR
+				icon_state = initial(icon_state) + "_open"
 				to_chat(user, "You put the balaclava away, revealing your face.")
 				open = 1
 			if (1)
 				flags_inv = HIDEFACE|BLOCKFACEHAIR
 				body_parts_covered = FACE
-				icon_state = "swatclava_mouth"
+				style_coverage = COVERS_MOUTH|COVERS_HAIR
+				icon_state = initial(icon_state) + "_mouth"
 				to_chat(user, "You adjust the balaclava up to cover your mouth.")
 				open = 2
 			else
 				flags_inv = HIDEFACE|BLOCKHAIR
 				body_parts_covered = FACE|HEAD
-				icon_state = "swatclava"
+				style_coverage = COVERS_FACE|COVERS_MOUTH|COVERS_HAIR
+				icon_state = initial(icon_state)
 				to_chat(user, "You pull the balaclava up to cover your whole head.")
 				open = 0
 		user.update_hair(0)
@@ -54,6 +58,6 @@
 
 /obj/item/clothing/mask/balaclava/tactical
 	name = "tactical balaclava"
-	desc = "Designed to both hide identities and keep your face comfy and warm."
+	desc = "Designed to both hide identities and keep your face comfy and warm. This one is in Aegis colors." // Occulus Edit - Remove Eris corp. references
 	icon_state = "swatclava"
 	item_state = "swatclava"

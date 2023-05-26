@@ -11,6 +11,7 @@
 	name = "bed"
 	desc = "This is used to lie in, sleep in or strap on."
 	icon = 'icons/obj/furniture.dmi'
+	description_info = "Can be used as a support to climb up by looking up and clicking on a free tile that is not blocked by a railing"
 	icon_state = "bed"
 	anchored = TRUE
 	can_buckle = TRUE
@@ -84,14 +85,14 @@
 
 /obj/structure/bed/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			if (prob(50))
 				qdel(src)
 				return
-		if(3.0)
+		if(3)
 			if (prob(5))
 				qdel(src)
 				return
@@ -235,7 +236,7 @@
 	desc = "This looks similar to contraptions from earth. Could aliens be stealing our technology?"
 
 /obj/structure/bed/alien/New(var/newloc)
-	..(newloc, MATERIAL_RESIN)
+	..(newloc, MATERIAL_STEEL)
 
 /*
  * Roller beds
@@ -244,7 +245,7 @@
 	name = "roller bed"
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "down"
-	anchored = 0
+	anchored = FALSE
 	buckle_pixel_shift = "x=0;y=6"
 	var/item_form_type = /obj/item/roller	//The folded-up object path.
 

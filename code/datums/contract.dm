@@ -1,4 +1,4 @@
-GLOBAL_LIST_EMPTY(various_antag_contracts)	//Contracts from "Various" emloyers, currently used by Traitors, Carrions and Blitzshells
+GLOBAL_LIST_EMPTY(various_antag_contracts)	//Contracts from "Various" emloyers, currently used by Contractors, Carrions and Blitzshells
 GLOBAL_LIST_EMPTY(excel_antag_contracts)	//Excelsior contracts
 GLOBAL_LIST_INIT(antag_item_targets,list(
 		"the captain's antique laser gun" = /obj/item/gun/energy/captain,
@@ -7,19 +7,19 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"a jetpack" = /obj/item/tank/jetpack,
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/device/aicard,
-		"the Chief Engineer's advanced voidsuit control module" = /obj/item/rig/ce,
+		"the Chief Engineer's advanced voidsuit control module" = /obj/item/rig/ce,  // Occulus Edit - Removes Eris corp. reference
 		"the ship blueprints" = /obj/item/blueprints,
 		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/reagent_containers/food/snacks/meat/corgi,
-		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
-		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant,
-		"a Chief Medical OFficer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
-		"a Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
+		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer, // Occulus Edit - Removes Eris corp. reference
+		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant, // Occulus Edit - Removes Eris corp. reference
+		"a Chief Medical OFficer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer, // Occulus Edit - Removes Eris corp. reference
+		"a Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander, // Occulus Edit - Removes Eris corp. reference
 		"a First Officer's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
 		"the hypospray" = /obj/item/hypospray/mkii/CMO, //Occulus edit
 		"the captain's pinpointer" = /obj/item/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof/full,
-		"an Aegis hardsuit control module" = /obj/item/rig/combat/ironhammer //Occulus Edit
+		"an Aegis hardsuit control module" = /obj/item/rig/combat/ironhammer  // Occulus Edit - Removes Eris corp. reference
 	))
 GLOBAL_LIST_INIT(excel_item_targets,list(
 		"a Miller revolver" = /obj/item/gun/projectile/revolver,
@@ -38,6 +38,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		"a cruciform" = /obj/item/implant/core_implant/cruciform,
 		"the ship blueprints" = /obj/item/blueprints,
 		"a hand teleporter" = /obj/item/hand_tele,
+		"a bluespace Harpoon" = /obj/item/bluespace_harpoon,
 		"a rocket-powered charge hammer" = /obj/item/tool/hammer/charge,
 		"the captain's antique laser gun" = /obj/item/gun/energy/captain,
 
@@ -70,11 +71,15 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 /datum/antag_contract/proc/complete(datum/mind/M)
 	if(completed)
 		warning("Contract completed twice: [name] [desc]")
+	else
+		GLOB.completed_antag_contracts++
 	completed = TRUE
 	completed_by = M
 
-	if(M && M.current)
-		to_chat(M.current, SPAN_NOTICE("Contract completed: [name] ([reward] TC)"))
+	if(M)
+		M.contracts_completed++
+		if(M.current)
+			to_chat(M.current, SPAN_NOTICE("Contract completed: [name] ([reward] TC)"))
 
 	for(var/obj/item/device/uplink/U in world_uplinks)
 		if(U.uplink_owner != M)
@@ -131,7 +136,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		candidates -= candidate_mind
 
 		// Implant contracts are 75% less likely to target contract-based antags to reduce the amount of cheesy self-implants
-		if((player_is_antag_id(candidate_mind, ROLE_TRAITOR) || player_is_antag_id(candidate_mind, ROLE_CARRION)) && prob(75))
+		if((player_is_antag_id(candidate_mind, ROLE_CONTRACTOR) || player_is_antag_id(candidate_mind, ROLE_CARRION)) && prob(75))
 			continue
 
 		// No check for cruciform because the spying implant can bypass it
@@ -308,7 +313,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 	var/list/samples = list()
 	for(var/obj/item/reagent_containers/C in contents)
 		var/list/data = C.reagents?.get_data("blood")
-		if(!data || data["species"] != "Human" || (data["blood_DNA"] in samples))
+		if(!data || data["species"] != SPECIES_HUMAN || (data["blood_DNA"] in samples))
 			continue
 		samples += data["blood_DNA"]
 		if(samples.len >= count)
@@ -330,10 +335,18 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		warning("Mandate completed twice: [name] [desc]")
 	completed = TRUE
 
-	if(user)
-		to_chat(user, SPAN_NOTICE("Mandate completed: [name] ([reward] energy)"))
 
 	excelsior_energy += reward
+	var/datum/faction/F = get_faction_by_id(FACTION_EXCELSIOR)
+	var/datum/objective/timed/excelsior/E = (locate(/datum/objective/timed/excelsior) in F.objectives)
+	if(E)
+		E.mandate_completion()
+	if(user)
+		if(E)
+			to_chat(user, SPAN_NOTICE("Mandate completed: [name] ([reward] energy, [E.time2minutes(E.mandate_increase)] minutes have been added to the detection countdown timer.)"))
+		else
+			to_chat(user, SPAN_NOTICE("Mandate completed: [name] ([reward] energy)"))
+
 	for (var/obj/machinery/complant_teleporter/t in excelsior_teleporters)
 		t.update_nano_data()
 
@@ -364,7 +377,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 	reward = 1200
 	var/datum/mind/target_mind
 	var/cruciform_check = FALSE
-	var/desc_text = "by stuffing them alive in the teleporter" // Text for the end of desc, a bit hacky
+	var/desc_text = "by stuffing them alive in the teleporter. We will provide reinforcements for the completion of this objective." // Text for the end of desc, a bit hacky
 	var/command_bias = 15 //Bonus chance for targeting heads and IH
 
 /datum/antag_contract/excel/targeted/New()

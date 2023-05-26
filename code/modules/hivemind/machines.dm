@@ -52,15 +52,15 @@
 	else if (health < max_health * 0.25)
 		to_chat(user, SPAN_DANGER("It's seriously fucked up!"))
 	else if (health < max_health * 0.50)
-		to_chat(user, SPAN_DANGER("It's very damaged, you can almost see the components inside!"))
+		to_chat(user, SPAN_DANGER("It's very damaged; you can almost see the components inside!"))
 	else if (health < max_health * 0.75)
 		to_chat(user, SPAN_WARNING("It has numerous dents and deep scratches."))
 	else if (health < max_health)
-		to_chat(user, SPAN_WARNING("It's a bit scratched and has dents."))
+		to_chat(user, SPAN_WARNING("It's a bit scratched and dented."))
 
 
 /obj/machinery/hivemind_machine/Process()
-	if(wireweeds_required && !locate(/obj/effect/plant/hivemind) in loc)
+	if(!hive_mind_ai || (wireweeds_required && !locate(/obj/effect/plant/hivemind) in loc))
 		take_damage(5, on_damage_react = FALSE)
 
 	if(SDP)
@@ -156,8 +156,8 @@
 	rebuild_anim.icon_state = "rebuild"
 	rebuild_anim.anchored = TRUE
 	rebuild_anim.density = FALSE
-	addtimer(CALLBACK(src, .proc/finish_rebuild, new_machine_path), time_in_seconds SECONDS)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, rebuild_anim), time_in_seconds SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(finish_rebuild), new_machine_path), time_in_seconds SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(qdel), rebuild_anim), time_in_seconds SECONDS)
 
 
 /obj/machinery/hivemind_machine/proc/finish_rebuild(var/new_machine_path)
@@ -242,7 +242,7 @@
 	can_regenerate = FALSE
 	update_icon()
 	if(amount)
-		addtimer(CALLBACK(src, .proc/unstun), amount SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(unstun)), amount SECONDS)
 
 
 /obj/machinery/hivemind_machine/proc/unstun()
@@ -258,6 +258,15 @@
 		Proj.on_hit(loc)
 	. = ..()
 
+/obj/machinery/hivemind_machine/attack_generic(mob/M, damage, attack_message)
+	if(damage)
+		M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		M.do_attack_animation(src)
+		M.visible_message(SPAN_DANGER("\The [M] [attack_message] \the [src]!"))
+		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+		take_damage(damage)
+	else
+		attack_hand(M)
 
 /obj/machinery/hivemind_machine/attackby(obj/item/I, mob/user)
 	if(!(I.flags & NOBLUDGEON) && I.force)
@@ -292,6 +301,8 @@
 			take_damage(30)
 		if(3)
 			take_damage(10)
+		if(4)
+			take_damage(5)
 
 
 /obj/machinery/hivemind_machine/emp_act(severity)
@@ -302,6 +313,9 @@
 		if(2)
 			take_damage(30)
 			stun(8)
+		if(3)
+			take_damage(15)
+			stun(3)
 	..()
 
 
@@ -312,11 +326,15 @@
 //CORE-GENERATOR
 //generate evopoints, spread weeds
 /obj/machinery/hivemind_machine/node
-	name = "processing core"
+	name = "Processing Core"
 	desc = "Its cold eye seeks to dominate what it surveys."
 	icon_state = "core"
-	max_health = 360
-	resistance = RESISTANCE_AVERAGE
+//	desc = "This Pickle, aside from being attached to several wires, is releasing grey ooze from its many wounds."
+//	icon = 'icons/obj/food.dmi'
+//	icon_state = "pickle"
+//	When Hope Is Gone Undo This Lock And Send Me Forth On A Moonlit Walk. inotherwordsimgonnadoitagain
+	max_health = 420
+	resistance = RESISTANCE_TOUGH
 	can_regenerate = FALSE
 	wireweeds_required = FALSE
 	//internals
@@ -324,22 +342,21 @@
 	var/list/reward_item = list(
 		/obj/item/tool/weldingtool/hivemind,
 		/obj/item/tool/crowbar/pneumatic/hivemind,
-		/obj/item/reagent_containers/glass/beaker/hivemind,
+		/obj/item/reagent_containers/glass/beaker/hivemind)
+	var/list/reward_oddity = list(
 		/obj/item/oddity/hivemind/old_radio,
-		/obj/item/oddity/hivemind/old_pda
-		)
+		/obj/item/oddity/hivemind/old_pda)
 
 
-/obj/machinery/hivemind_machine/node/Initialize()
+/obj/machinery/hivemind_machine/node/New(loc, _name, _surname)
 	if(!hive_mind_ai)
-		hive_mind_ai = new /datum/hivemind
+		hive_mind_ai = new /datum/hivemind(_name, _surname)
 	..()
 
 	hive_mind_ai.hives.Add(src)
 	hive_mind_ai.level_up()
 
 	update_icon()
-
 
 	var/obj/effect/plant/hivemind/founded_wire = locate() in loc
 	if(!founded_wire)
@@ -354,26 +371,24 @@
 
 	//self-defense protocol setting
 	var/list/possible_sdps = subtypesof(/datum/hivemind_sdp)
-	if(hive_mind_ai.evo_level > 3)
-		possible_sdps -= /datum/hivemind_sdp/champion //syzygy edit to replace emergency jump
+	if(hive_mind_ai.evo_level > 6)
+		possible_sdps -= /datum/hivemind_sdp/champion // Occulus edit to replace emergency jump
 	var/picked_sdp = pick(possible_sdps)
 	SDP = new picked_sdp(src)
 	SDP.set_master(src)
 
 /obj/machinery/hivemind_machine/node/proc/gift()
-	if(prob(10))
-		state("leaves behind an item!")
-		var/gift = pick(reward_item)
-		new gift(get_turf(loc))
+	var/gift = prob(GLOB.hive_data_float["core_oddity_drop_chance"]) ? pick(reward_oddity) : pick(reward_item)
+	new gift(get_turf(loc))
+	state("leaves behind an item!")
 
 /obj/machinery/hivemind_machine/node/proc/core()
 	state("leaves behind a weird looking datapad!")
-	var/core = /obj/item/oddity/hivemind/hive_core
-	new core(get_turf(loc))
+	new /obj/item/oddity/hivemind/hive_core(get_turf(loc))
 
 /obj/machinery/hivemind_machine/node/Destroy()
 	gift()
-	hive_mind_ai.hives.Remove(src)
+	hive_mind_ai?.hives.Remove(src)
 	check_for_other()
 	if(hive_mind_ai == null)
 		core()
@@ -434,22 +449,19 @@
 //There we check for other nodes
 //If no any other hives will be found, it's game over
 /obj/machinery/hivemind_machine/node/proc/check_for_other()
-	if(hive_mind_ai)
-		if(!hive_mind_ai.hives.len)
-			hive_mind_ai.die()
-
-
-
+	if(hive_mind_ai && !hive_mind_ai.hives.len)
+		hive_mind_ai.die()
 
 //TURRET
 //shooting the target with toxic goo
 /obj/machinery/hivemind_machine/turret
-	name = "projector"
+	name = "Projector"
 	desc = "This mass of machinery is topped with some sort of nozzle."
-	max_health = 140
+	max_health = 220
+	resistance = RESISTANCE_IMPROVED
 	icon_state = "turret"
-	cooldown_time = 3 SECONDS
-	spawn_weight  =	60
+	cooldown_time = 5 SECONDS
+	spawn_weight  =	55
 	var/proj_type = /obj/item/projectile/goo
 
 
@@ -473,14 +485,20 @@
 //MOB PRODUCER
 //spawns mobs from list
 /obj/machinery/hivemind_machine/mob_spawner
-	name = "assembler"
+	name = "Assembler"
 	desc = "This cylindrical machine has lights around a small portal. The sound of tools comes from inside."
-	max_health = 160
+	max_health = 260
+	resistance = RESISTANCE_IMPROVED
 	icon_state = "spawner"
-	cooldown_time = 30 SECONDS
-	spawn_weight  =	45
+	cooldown_time = 25 SECONDS
+	spawn_weight  =	60
+	density = FALSE //So mobs can walk over it
 	var/mob_to_spawn
-	var/mob_amount = 3
+	var/mob_amount = 4
+
+/obj/spawner/mob/assembled
+	name = "random hivemob"
+	tags_to_spawn = list(SPAWN_MOB_HIVEMIND)
 
 /obj/spawner/mob/assembled
 	name = "random hivemob"
@@ -488,9 +506,7 @@
 
 /obj/machinery/hivemind_machine/mob_spawner/Initialize()
 	..()
-	mob_to_spawn = /obj/spawner/mob/assembled //randomly chooses a mob from the list when spawning, instead of choosing a single mob and spawning only that one.
-	//TL;DR - Assembler can now spawn multiple types of mobs
-
+	mob_to_spawn = /obj/spawner/mob/assembled //randomly chooses a mob according to their rarity_value
 
 /obj/machinery/hivemind_machine/mob_spawner/Process()
 	if(!..())
@@ -502,10 +518,10 @@
 		return
 
 	//here we upgrading our spawner and rise controled mob amount, based on EP
-	if(hive_mind_ai.evo_level > 3)
+	if(hive_mind_ai.evo_level > 6)
+		mob_amount = 6
+	else if(hive_mind_ai.evo_level > 3)
 		mob_amount = 5
-	else if(hive_mind_ai.evo_level > 1)
-		mob_amount = 4
 
 	var/mob/living/target = locate() in targets_in_range(world.view, in_hear_range = TRUE)
 	if(target && target.stat != DEAD && target.faction != HIVE_FACTION)
@@ -514,24 +530,28 @@
 
 
 /obj/machinery/hivemind_machine/mob_spawner/use_ability()
-	var/obj/randomcatcher/CATCH = new /obj/randomcatcher(src)
-	var/mob/living/simple_animal/hostile/hivemind/spawned_mob = CATCH.get_item(mob_to_spawn)
-	spawned_mob.loc = loc
-	spawned_creatures.Add(spawned_mob)
-	spawned_mob.master = src
-	FLICK("[icon_state]-anim", src)
-	qdel(CATCH)
+	var/total_mobs = 0
+	for(var/i in GLOB.hivemind_mobs)
+		total_mobs += GLOB.hivemind_mobs[i]
+	if(!GLOB.hive_data_bool["maximum_existing_mobs"] || GLOB.hive_data_float["maximum_existing_mobs"] > total_mobs)
+		var/obj/randomcatcher/CATCH = new /obj/randomcatcher(src)
+		var/mob/living/simple_animal/hostile/hivemind/spawned_mob = CATCH.get_item(mob_to_spawn)
+		spawned_mob.loc = loc
+		spawned_creatures.Add(spawned_mob)
+		spawned_mob.master = src
+		flick("[icon_state]-anim", src)
+		qdel(CATCH)
 
 
 
 //MACHINE PREACHER
 //creepy radio talk, it's okay if they have no sense sometimes
 /obj/machinery/hivemind_machine/babbler
-	name = "jammer"
+	name = "Jammer"
 	desc = "A column-like structure with lights. You can see streams of energy moving inside."
-	max_health = 60
-	evo_level_required = 2 //it's better to wait a bit
-	cooldown_time = 120 SECONDS
+	max_health = 100
+	evo_level_required = 3 //it's better to wait a bit
+	cooldown_time = 90 SECONDS
 	spawn_weight  =	20
 	global_cooldown = TRUE
 	icon_state = "antenna"
@@ -595,7 +615,7 @@
 //SHRIEKER
 //this machine just stuns enemies
 /obj/machinery/hivemind_machine/screamer
-	name = "tormentor"
+	name = "Tormentor"
 	desc = "A head impaled on a metal tendril. Still twitching, still living, still screaming."
 	icon_state = "head"
 	max_health = 100
@@ -643,12 +663,12 @@
 //MIND BREAKER
 //Talks with people in attempt to persuade them doing something.
 /obj/machinery/hivemind_machine/supplicant
-	name = "whisperer"
+	name = "Whisperer"
 	desc = "A small pulsating orb with no apparent purpose. It emits an almost inaudible whisper."
 	max_health = 80
 	icon_state = "orb"
 	evo_level_required = 2
-	cooldown_time = 4 MINUTES
+	cooldown_time = 1 MINUTES
 	global_cooldown = TRUE
 	spawn_weight  =	20
 	var/list/join_quotes = list(
@@ -682,7 +702,7 @@
 //PSI-MODULATOR
 //sends hallucinations to target
 /obj/machinery/hivemind_machine/distractor
-	name = "psi-modulator"
+	name = "Psi-Modulator"
 	desc = "A strange machine shaped like a pyramid. Somehow the pulsating lights shine brighter through closed eyelids."
 	max_health = 110
 	icon_state = "psy"

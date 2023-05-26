@@ -1,6 +1,7 @@
 /obj/item/grenade
 	name = "grenade"
 	desc = "A hand held grenade, with an adjustable timer."
+	description_info = "Can have its timer adjusted with a screwdriver."
 	w_class = ITEM_SIZE_SMALL
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "grenade"
@@ -9,12 +10,14 @@
 	throw_range = 20
 	flags = CONDUCT
 	slot_flags = SLOT_BELT|SLOT_MASK
+	matter = list(MATERIAL_STEEL = 3)
+	price_tag = 50
 	var/active = 0
 	var/det_time = 40
 	var/variance = 0 //How much the fuse time varies up or down. Punishes cooking with makeshift nades, proper ones should have 0
 
 /obj/item/grenade/proc/clown_check(var/mob/living/user)
-	if((CLUMSY in user.mutations) && prob(50))
+/*	if((CLUMSY in user.mutations) && prob(50))
 		to_chat(user, SPAN_WARNING("Huh? How does this thing work?"))
 
 		activate(user)
@@ -22,7 +25,8 @@
 		spawn(5)
 			prime()
 		return 0
-	return 1
+*/
+	return TRUE
 
 /obj/item/grenade/examine(mob/user)
 	if(..(user, 0))
@@ -80,9 +84,6 @@
 		if(I.use_tool(user, src, WORKTIME_NEAR_INSTANT, QUALITY_SCREW_DRIVING, FAILCHANCE_EASY, required_stat = STAT_COG))
 			switch(det_time)
 				if (1)
-					det_time = 10
-					to_chat(user, SPAN_NOTICE("You set the [name] for 1 second detonation time."))
-				if (10)
 					det_time = 30
 					to_chat(user, SPAN_NOTICE("You set the [name] for 3 second detonation time."))
 				if (30)
@@ -100,15 +101,15 @@
 	..()
 	return
 
-// Occulus Edit: Doesn't work lol
-// /obj/item/grenade/fall_impact(turf/from, turf/dest)
-// 	..()
-// 	var/found = dest.contents.Find(/mob/living/carbon/human)
-// 	if(found)
-// 		var/mob/living/carbon/human/bonk = dest.contents[found]
-// 		if(bonk.incapacitated(INCAPACITATION_GROUNDED))
-// 			return
-// 		bonk.apply_damage(2, BRUTE, BP_HEAD, sharp = FALSE, edge = FALSE, used_weapon = src)
-// 		bonk.visible_message(SPAN_DANGER("[src] falls from above and bonks [bonk.name] on \his head!"), SPAN_DANGER("[src] falls on your head and bounces to the side!"), "You hear a dull thud.", 5)
-// 		var/turf/random = pick(orange(1, dest))
-// 		forceMove(random)
+/obj/item/grenade/fall_impact(turf/from, turf/dest)
+	..()
+	var/found = dest.contents.Find(/mob/living/carbon/human)
+	if(found)
+		var/mob/living/carbon/human/bonk = dest.contents[found]
+		if(bonk.incapacitated(INCAPACITATION_GROUNDED))
+			return
+		bonk.apply_damage(2, BRUTE, BP_HEAD, sharp = FALSE, edge = FALSE, used_weapon = src)
+		bonk.visible_message(SPAN_DANGER("[src] falls from above and bonks [bonk.name] on \his head!"), SPAN_DANGER("[src] falls on your head and bounces to the side!"), "You hear a dull thud.", 5)
+		var/turf/random = pick(orange(1, dest))
+		forceMove(random)
+

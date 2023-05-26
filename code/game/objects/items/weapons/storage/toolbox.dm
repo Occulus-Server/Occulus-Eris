@@ -11,6 +11,7 @@
 	throw_speed = 1
 	throw_range = 7
 	w_class = ITEM_SIZE_BULKY
+	matter = list(MATERIAL_STEEL = 6)
 	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = 14 //enough to hold all starting contents
 	origin_tech = list(TECH_COMBAT = 1)
@@ -32,11 +33,14 @@
 	new /obj/item/extinguisher/mini(src)
 	if(prob(40))
 		new /obj/item/device/lighting/toggleable/flashlight(src)
+	else if(prob(30))
+		new /obj/item/gun/projectile/flare_gun(src)
+		new /obj/item/ammo_casing/flare(src)
 	else
 		new /obj/item/device/lighting/glowstick/flare(src)
 	if (prob(40))
 		new /obj/item/tool/tape_roll(src)
-	new /obj/item/device/radio/color(src)		//Eclipse edit
+	new /obj/item/device/radio/color(src)		// Occulus edit
 
 /obj/item/storage/toolbox/mechanical
 	name = "mechanical toolbox"

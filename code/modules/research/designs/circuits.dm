@@ -1,6 +1,7 @@
 /datum/design/research/circuit
 	build_type = IMPRINTER
 	chemicals = list("silicon" = 5)
+	build_path = /obj/item/electronics/circuitboard
 
 /datum/design/research/circuit/AssembleDesignName(atom/temp_atom)
 	..()
@@ -29,6 +30,12 @@
 	sort_string = "MABAA"
 	category = CAT_MISC
 
+/datum/design/research/circuit/jukebox
+	name = "jukebox"
+	build_path = /obj/item/electronics/circuitboard/jukebox
+	sort_string = "MABBA"
+	category = CAT_MISC
+
 /datum/design/research/circuit/secdata
 	name = "security records console"
 	build_path = /obj/item/electronics/circuitboard/secure_data
@@ -53,28 +60,10 @@
 	sort_string = "FACAA"
 	category = CAT_COMP
 
-/datum/design/research/circuit/scan_console
-	name = "DNA machine"
-	build_path = /obj/item/electronics/circuitboard/scan_consolenew
-	sort_string = "FAGAA"
-	category = CAT_MEDI
-
 /datum/design/research/circuit/sleeper
 	name = "Sleeper"
 	build_path = /obj/item/electronics/circuitboard/sleeper
 	sort_string = "FAGAB"
-	category = CAT_MEDI
-
-/datum/design/research/circuit/clonepod
-	name = "clone pod"
-	build_path = /obj/item/electronics/circuitboard/clonepod
-	sort_string = "FAGAE"
-	category = CAT_MEDI
-
-/datum/design/research/circuit/clonescanner
-	name = "cloning scanner"
-	build_path = /obj/item/electronics/circuitboard/clonescanner
-	sort_string = "FAGAG"
 	category = CAT_MEDI
 
 /datum/design/research/circuit/chemmaster
@@ -343,10 +332,10 @@
 	sort_string = "KCAAA"
 	category = CAT_MINING
 
-/datum/design/research/circuit/miningdrillbrace
-	name = "mining drill brace"
-	build_path = /obj/item/electronics/circuitboard/miningdrillbrace
-	sort_string = "KCAAB"
+/datum/design/research/circuit/miningturret
+	name = "mining turret"
+	build_path = /obj/item/electronics/circuitboard/miningturret
+	sort_string = "KDAAA"
 	category = CAT_MINING
 
 /datum/design/research/circuit/comconsole
@@ -471,4 +460,23 @@
 	name = "experimental mind swapper"
 	build_path = /obj/item/electronics/circuitboard/mindswapper
 	sort_string = "WAAAA"
+	category = CAT_MEDI
+
+// Genetics
+/datum/design/research/circuit/dna_console
+	name = "chrysalis controller"
+	build_path = /obj/item/electronics/circuitboard/dna_console
+	sort_string = "WAAAB"
+	category = CAT_MEDI
+
+/datum/design/research/circuit/cryo_slab
+	name = "chrysalis"
+	build_path = /obj/item/electronics/circuitboard/cryo_slab
+	sort_string = "WAAAC"
+	category = CAT_MEDI
+
+/datum/design/research/circuit/moeballs_printer
+	name = "regurgitator"
+	build_path = /obj/item/electronics/circuitboard/moeballs_printer
+	sort_string = "WAAAD"
 	category = CAT_MEDI

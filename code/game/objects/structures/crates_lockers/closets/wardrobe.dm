@@ -1,6 +1,6 @@
 /obj/structure/closet/wardrobe
 	name = "wardrobe"
-	desc = "It's a storage unit for standard-issue attire."
+	desc = "A storage unit for standard-issue attire."
 	icon_state = "generic"
 	spawn_blacklisted = TRUE
 	spawn_tags = SPAWN_TAG_WARDROBE
@@ -57,7 +57,7 @@
 
 /obj/structure/closet/wardrobe/color/orange
 	name = "prison wardrobe"
-	desc = "It's a storage unit for regulation prisoner attire."
+	desc = "A storage unit for regulation prisoner attire."
 	icon_door = "orange"
 
 /obj/structure/closet/wardrobe/color/orange/populate_contents()
@@ -178,16 +178,19 @@
 	new /obj/item/clothing/under/rank/security(src)
 	new /obj/item/clothing/under/rank/security(src)
 	new /obj/item/clothing/under/rank/security(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/shoes/jackboots/ironhammer(src)
+	new /obj/item/clothing/shoes/jackboots/ironhammer(src)
+	new /obj/item/clothing/shoes/jackboots/ironhammer(src)
 	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/head/beret/sec/navy/officer(src)
+	new /obj/item/clothing/gloves/security/ironhammer(src)
+	new /obj/item/clothing/gloves/security/ironhammer(src)
+	new /obj/item/clothing/gloves/security/ironhammer(src)
 
 /obj/structure/closet/wardrobe/science_white
 	name = "science wardrobe"
-	icon_door = "white"
+	icon_door = "mixed"
 	spawn_blacklisted = TRUE
 
 /obj/structure/closet/wardrobe/science_white/populate_contents()
@@ -203,6 +206,9 @@
 	new /obj/item/clothing/shoes/slippers(src)
 	new /obj/item/clothing/shoes/slippers(src)
 	new /obj/item/clothing/shoes/slippers(src)
+	new /obj/item/clothing/glasses/regular/goggles/clear(src)
+	new /obj/item/clothing/glasses/regular/goggles/clear(src)
+	new /obj/item/clothing/glasses/regular/goggles/clear(src)
 
 /obj/structure/closet/wardrobe/robotics_black
 	name = "robotics wardrobe"
@@ -229,6 +235,8 @@
 	new /obj/item/clothing/shoes/color/white(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/chemist(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/chemist(src)
+	new /obj/item/clothing/glasses/regular/goggles/clear(src)
+	new /obj/item/clothing/glasses/regular/goggles/clear(src)
 
 /obj/structure/closet/wardrobe/virology_white
 	name = "virology wardrobe"
@@ -263,7 +271,7 @@
 
 /obj/structure/closet/wardrobe/chaplain_black
 	name = "chapel wardrobe"
-	desc = "It's a storage unit for approved religious attire."
+	desc = "A storage unit for approved religious attire."
 	icon_door = "black"
 
 /obj/structure/closet/wardrobe/chaplain_black/populate_contents()
@@ -277,7 +285,6 @@
 	new /obj/item/storage/fancy/candle_box(src)
 	new /obj/item/storage/fancy/candle_box(src)
 	new /obj/item/deck/tarot(src)
-	new /obj/item/talkingcrystal(src)
 
 /obj/structure/closet/wardrobe/engineering_yellow
 	name = "engineering wardrobe"

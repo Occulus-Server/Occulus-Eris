@@ -30,6 +30,10 @@
 	name = "Amazon"
 	icon_state = "amazon"
 
+/datum/sprite_accessory/hair/angelique
+	name = "Angelique"
+	icon_state = "angelique"
+
 /datum/sprite_accessory/hair/asymmetrical
 	name = "Asymmetrical Bob"
 	icon_state = "asymmbob"
@@ -203,6 +207,10 @@
 	name = "Eighties"
 	icon_state = "80s"
 
+/datum/sprite_accessory/hair/elize
+	name = "Elize"
+	icon_state = "elize"
+
 /datum/sprite_accessory/hair/emo
 	name = "Emo"
 	icon_state = "emo"
@@ -211,7 +219,7 @@
 	name = "Emo Fringe"
 	icon_state = "emofringe"
 
-/datum/sprite_accessory/hair/fag
+/datum/sprite_accessory/hair/flow
 	name = "Flow"
 	icon_state = "flowhair"
 
@@ -230,6 +238,10 @@
 /datum/sprite_accessory/hair/flair
 	name = "Flaired"
 	icon_state = "flair"
+
+/datum/sprite_accessory/hair/flipped
+	name = "Flipped"
+	icon_state = "flipped"
 
 /datum/sprite_accessory/hair/floorlength
 	name = "Floorlength Braid"
@@ -250,6 +262,10 @@
 /datum/sprite_accessory/hair/glossy
 	name = "Glossy"
 	icon_state = "glossy"
+
+/datum/sprite_accessory/hair/gumshoe
+	name = "Gumshoe"
+	icon_state = "gumshoe"
 
 /datum/sprite_accessory/hair/halfbang
 	name = "Half-Banged"
@@ -303,9 +319,17 @@
 	name = "Pigtails"
 	icon_state = "kagami"
 
+/datum/sprite_accessory/hair/kanaya
+	name = "Kanaya"
+	icon_state = "kanaya"
+
 /datum/sprite_accessory/hair/kare
 	name = "Kare"
 	icon_state = "kare"
+
+/datum/sprite_accessory/hair/keanu
+	name = "Keanu"
+	icon_state = "keanu"
 
 /datum/sprite_accessory/hair/kusangi
 	name = "Kusanagi"
@@ -330,6 +354,10 @@
 /datum/sprite_accessory/hair/longeralt2
 	name = "Long 2"
 	icon_state = "longeralt2"
+
+/datum/sprite_accessory/hair/longeralt3
+	name = "Long 3"
+	icon_state = "longeralt3"
 
 /datum/sprite_accessory/hair/longest
 	name = "Longer"
@@ -394,6 +422,10 @@
 /datum/sprite_accessory/hair/messy_bun
 	name = "Messy Bun"
 	icon_state = "messybun"
+
+/datum/sprite_accessory/hair/mia
+	name = "Mia"
+	icon_state = "mia"
 
 /datum/sprite_accessory/hair/miles
 	name = "Miles"
@@ -487,6 +519,10 @@
 	name = "Poofy Alt"
 	icon_state = "poofy2"
 
+/datum/sprite_accessory/hair/protagonist
+	name = "Protagonist"
+	icon_state = "protagonist"
+
 /datum/sprite_accessory/hair/quiff
 	name = "Quiff"
 	icon_state = "quiff"
@@ -522,6 +558,10 @@
 /datum/sprite_accessory/hair/scully
 	name = "Scully"
 	icon_state = "scully"
+
+/datum/sprite_accessory/hair/sharppony
+	name = "Sharp Ponytail"
+	icon_state = "sharp_ponytail"
 
 /datum/sprite_accessory/hair/shavedmohawk
 	name = "Shaved Mohawk"
@@ -670,3 +710,11 @@
 /datum/sprite_accessory/hair/zone
 	name = "Zone Braid"
 	icon_state = "zone"
+
+/datum/sprite_accessory/hair/croft
+	name = "Croft"
+	icon_state = "croft"
+
+/datum/sprite_accessory/hair/row_braid
+	name = "Row Braid"
+	icon_state = "row_braid"

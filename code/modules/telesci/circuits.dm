@@ -1,12 +1,11 @@
-//OCCULUS EDIT: Basically the whole file, revamping telescience.
 /obj/item/electronics/circuitboard/telesci_pad
-	name = T_BOARD("advanced telepad")
-	build_path = /obj/machinery/telesci_pad
+	name = T_BOARD("telepad")
+	build_path = /obj/machinery/telepad
 	board_type = "machine"
 	origin_tech = list(TECH_MATERIAL = 3, TECH_BLUESPACE = 4)
 
 	req_components = list(
-		/obj/item/bluespace_crystal = 2,
+		/obj/item/bluespace_crystal/artificial = 2,
 		/obj/item/stock_parts/capacitor = 1
 	)
 

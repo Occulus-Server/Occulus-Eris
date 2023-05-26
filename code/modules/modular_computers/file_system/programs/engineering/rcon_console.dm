@@ -22,7 +22,7 @@
 	var/hide_SMES_details = 0
 	var/hide_breakers = 0
 
-/datum/nano_module/rcon/ui_interact(mob/user, ui_key = "rcon", datum/nanoui/ui=null, force_open=NANOUI_FOCUS, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/rcon/nano_ui_interact(mob/user, ui_key = "rcon", datum/nanoui/ui=null, force_open=NANOUI_FOCUS, var/datum/nano_topic_state/state = GLOB.default_state)
 	FindDevices() // Update our devices list
 	var/list/data = host.initial_data()
 
@@ -33,7 +33,7 @@
 		"charge" = round(SMES.Percentage()),
 		"input_set" = SMES.input_attempt,
 		"input_val" = round(SMES.input_level/1000, 0.1),
-		"input_load" = round(SMES.target_load/1000, 0.1),		// Occulus edit: 'target_load' replaces 'input_available' -- input_available does not have a use, but target_load displays incoming power as expected.
+		"input_load" = round(SMES.target_load/1000, 0.1),
 		"output_set" = SMES.output_attempt,
 		"output_val" = round(SMES.output_level/1000, 0.1),
 		"output_load" = round(SMES.output_used/1000, 0.1),

@@ -6,9 +6,9 @@
 
 	heat_protection = HEAD
 	armor = list(
-		melee = 30,
-		bullet = 20,
-		energy = 15,
+		melee = 7,
+		bullet = 5,
+		energy = 3,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -23,11 +23,10 @@
 	icon_state = "void"
 	item_state = "void"
 	desc = "A high-tech dark red space suit. Used for AI satellite maintenance."
-	slowdown = 0.3
 	armor = list(
-		melee = 30,
-		bullet = 20,
-		energy = 15,
+		melee = 7,
+		bullet = 5,
+		energy = 3,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -39,14 +38,13 @@
 	resilience = 0.09
 	can_breach = 1
 	spawn_tags = SPAWN_TAG_VOID_SUIT
-	rarity_value = 10
 	accompanying_object = /obj/item/clothing/shoes/magboots
+	slowdown = MEDIUM_SLOWDOWN
 
 	//Inbuilt devices.
 	var/obj/item/clothing/shoes/magboots/boots // Deployable boots, if any.
 	var/obj/item/clothing/head/armor/helmet/helmet = /obj/item/clothing/head/space/void   // Deployable helmet, if any.
 	var/obj/item/tank/tank              // Deployable tank, if any.
-
 
 /obj/item/clothing/suit/space/void/Initialize()
 	. = ..()
@@ -86,6 +84,12 @@
 
 	return ..()
 
+/obj/item/clothing/suit/space/void/make_young()
+	..()
+	if(boots) boots.make_young()
+	if(helmet) helmet.make_young()
+	if(tank) tank.make_young()
+
 /obj/item/clothing/suit/space/void/equipped(mob/M)
 	..()
 
@@ -104,11 +108,7 @@
 			boots.canremove = 0
 
 	if(helmet)
-		if(H.head)
-			to_chat(M, "You are unable to deploy your suit's helmet as \the [H.head] is in the way.")
-		else if(H.equip_to_slot_if_possible(helmet, slot_head))
-			to_chat(M, "Your suit's helmet deploys with a hiss.")
-			helmet.canremove = 0
+		toggle_helmet()
 
 	if(tank)
 		if(H.s_store) //In case someone finds a way.
@@ -260,7 +260,7 @@
 	if(istype(W,/obj/item/tank))
 		if(tank)
 			to_chat(user, "\The [src] already has an airtank installed.")
-		else if(istype(W,/obj/item/tank/phoron))
+		else if(istype(W,/obj/item/tank/plasma))
 			to_chat(user, "\The [W] cannot be inserted into \the [src]'s storage compartment.")
 		else
 			to_chat(user, "You insert \the [W] into \the [src]'s storage compartment.")

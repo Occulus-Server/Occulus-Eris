@@ -88,7 +88,7 @@
 
 		//rarity//
 		//rarity = initial(A.rarity_value)
-		ASSERT(initial(A.rarity_value) >= 1)
+		//ASSERT(initial(A.rarity_value) >= 1)
 		//all_spawn_by_rarity["[rarity]"] += list(path)
 		//all_spawn_rarity_by_path[path] = rarity
 
@@ -114,21 +114,28 @@
 				all_accompanying_obj_by_path[path] += list(initial(E.suitable_cell))
 		else if(ispath(path, /obj/item/gun/projectile))
 			var/obj/item/gun/projectile/P = A
-			if(initial(P.magazine_type))
+			if(initial(P.magazine_type) && ((initial(P.load_method) & MAGAZINE) || (initial(P.load_method) & SPEEDLOADER)))
 				all_accompanying_obj_by_path[path] += list(initial(P.magazine_type))
-
+			else if(initial(P.ammo_type) && (initial(P.max_shells)) && (initial(P.load_method) & SINGLE_CASING))
+				for(var/i in 1 to min(initial(P.max_shells),10))//max 10 ammo
+					all_accompanying_obj_by_path[path] += list(initial(P.ammo_type))
 		//price//
 		var/price = get_spawn_price(path)
 
 		//spawn_value//
 		var/spawn_value = get_spawn_value(path)
 		//all_spawn_value_by_path[path] = spawn_value
-		//blacklisted//
-		//blacklisted = initial(A.spawn_blacklisted)
-		//if(blacklisted)
-		//	all_spawn_blacklist += path
 
 		//tags//
+		/*
+		if(generate_files && ispath(path, /obj/item/gun))
+			var/tag_data_i
+			if(price > GUN_CHEAP_PRICE)
+				tag_data_i = file("[file_dir_tags]gun_expensive.txt")
+			else
+				tag_data_i = file("[file_dir_tags]gun_cheap.txt")
+			tag_data_i  << "[path]    blacklisted=[initial(A.spawn_blacklisted)]    spawn_value=[spawn_value]   spawn_price=[price]   prob_accompanying_obj=[initial(A.prob_aditional_object)]    accompanying_objs=[all_accompanying_obj_by_path[path] ? english_list(all_accompanying_obj_by_path[path], "nothing", ",") : "nothing"]"
+		*/
 		for(var/tag in spawn_tags)
 			all_spawn_by_tag[tag] += list(path)
 			if(ispath(path, /obj/item) && tag != SPAWN_OBJ &&!initial(A.density) && ISINRANGE(price, 1, CHEAP_ITEM_PRICE) && !lowkeyrandom_tags.Find(tag))
@@ -142,6 +149,11 @@
 			if(initial(A.spawn_blacklisted))
 				blacklist_paths_data << "[path]"
 
+/*get_spawn_value()
+this proc calculates the spawn value of the objects based on factors such as
+their frequency, their rarity value, their price and
+the data returned by the get_special_rarity_value() proc
+*/
 /datum/controller/subsystem/spawn_data/proc/get_spawn_value(npath)
 	var/atom/movable/A = npath
 	if(ispath(npath, /obj/item/gun))
@@ -184,68 +196,76 @@ the value of stock parts increases with the rating.
 	if(with_accompaying_obj && all_accompanying_obj_by_path[path])
 		for(var/a_obj in all_accompanying_obj_by_path[path])
 			. += get_spawn_price(a_obj, FALSE)
-	if(ispath(path, /obj/item/stock_parts))//see /obj/item/stock_parts/get_item_cost(export)
-		var/obj/item/stock_parts/S = path
-		. *= initial(S.rating)
-	else if(ispath(path, /obj/item/stack))///obj/item/stack/get_item_cost(export)
-		var/obj/item/stack/S = path
-		. *= initial(S.amount)
-	else if(ispath(path, /obj/item/ammo_casing))///obj/item/ammo_casing/get_item_cost(export)
-		var/obj/item/ammo_casing/AC = path
-		. *= initial(AC.amount)
-	else if(ispath(path, /obj/item/handcuffs))///obj/item/handcuffs/get_item_cost(export)
-		var/obj/item/handcuffs/H = path
-		. += initial(H.breakouttime) / 20
-	else if(ispath(path, /obj/structure/reagent_dispensers))///obj/machinery/get_item_cost(export)
-		var/obj/structure/reagent_dispensers/R = path
-		. += initial(R.contents_cost)
-	else if(ispath(path, /obj/item/ammo_magazine))///obj/item/ammo_magazine/get_item_cost(export)
-		var/obj/item/ammo_magazine/M = path
-		var/amount = initial(M.initial_ammo)
-		if(isnull(amount))
-			amount = initial(M.max_ammo)
-		. += amount * get_spawn_price(initial(M.ammo_type))
-	else if(ispath(path, /obj/item/tool))
-		var/obj/item/tool/T = path
-		if(initial(T.suitable_cell))
-			. += get_spawn_price(initial(T.suitable_cell))
-	else if(ispath(path, /obj/item/storage/box))
-		var/obj/item/storage/box/B = path
-		if(initial(B.initial_amount) > 0 && initial(B.spawn_type))
-			. += initial(B.initial_amount) * get_spawn_price(initial(B.spawn_type))
-	else if(ispath(path, /obj/item/storage/fancy))
-		var/obj/item/storage/fancy/F = path
-		if(initial(F.item_obj) && initial(F.storage_slots))
-			. += initial(F.storage_slots) * get_spawn_price(initial(F.item_obj))
-	else if(ispath(path, /obj/item/storage/pill_bottle))
-		var/obj/item/storage/pill_bottle/PB = path
-		if(initial(PB.initial_amt) && initial(PB.pill_type))
-			. += initial(PB.initial_amt) * get_spawn_price(initial(PB.pill_type))
-	else if(ispath(path, /obj/item/clothing))
-		var/obj/item/clothing/C = path
-		. += 5 * initial(C.style)
-		if(ispath(path, /obj/item/clothing/suit/space/void))
-			var/obj/item/clothing/suit/space/void/V = A
-			if(initial(V.tank))
-				. += get_spawn_price(initial(V.tank))
-			if(initial(V.boots))
-				. += get_spawn_price(initial(V.boots))
-	else if(ispath(path, /obj/item/cell))
-		var/obj/item/cell/C = path
-		if(initial(C.price_tag))
-			var/bonus = initial(C.maxcharge)/(initial(C.price_tag)*2)
-			if(initial(C.autorecharging))
-				bonus *= 2
-			. += bonus
-	else if(ispath(path, /obj/item/device))
-		if(. == 0)
-			. += 1 //for pure random
-		var/obj/item/device/D = path
-		if(initial(D.starting_cell) && initial(D.suitable_cell))
-			. += get_spawn_price(initial(D.suitable_cell))
-	else if(ispath(path, /obj/item/reagent_containers/glass/beaker))
-		var/obj/item/reagent_containers/glass/beaker/B = path
-		. += initial(B.volume)/100
+	if(ispath(path, /obj/item))
+		if(ispath(path, /obj/item/stock_parts))//see /obj/item/stock_parts/get_item_cost(export)
+			var/obj/item/stock_parts/S = path
+			. *= initial(S.rating)
+		else if(ispath(path, /obj/item/stack))///obj/item/stack/get_item_cost(export)
+			var/obj/item/stack/S = path
+			. *= initial(S.amount)
+			if(ispath(path, /obj/item/stack/medical))
+				var/obj/item/stack/medical/M = path
+				. += initial(M.heal_brute) + initial(M.heal_burn)
+		else if(ispath(path, /obj/item/ammo_casing))///obj/item/ammo_casing/get_item_cost(export)
+			var/obj/item/ammo_casing/AC = path
+			. *= initial(AC.amount)
+		else if(ispath(path, /obj/item/handcuffs))///obj/item/handcuffs/get_item_cost(export)
+			var/obj/item/handcuffs/H = path
+			. += initial(H.breakouttime) / 20
+		else if(ispath(path, /obj/structure/reagent_dispensers))///obj/machinery/get_item_cost(export)
+			var/obj/structure/reagent_dispensers/R = path
+			. += initial(R.contents_cost)
+		else if(ispath(path, /obj/item/ammo_magazine))///obj/item/ammo_magazine/get_item_cost(export)
+			var/obj/item/ammo_magazine/M = path
+			var/amount = initial(M.initial_ammo)
+			if(isnull(amount))
+				amount = initial(M.max_ammo)
+			. += amount * get_spawn_price(initial(M.ammo_type))
+		else if(ispath(path, /obj/item/tool))
+			var/obj/item/tool/T = path
+			if(initial(T.suitable_cell))
+				. += get_spawn_price(initial(T.suitable_cell))
+		else if(ispath(path, /obj/item/storage))
+			if(ispath(path, /obj/item/storage/box))
+				var/obj/item/storage/box/B = path
+				if(initial(B.prespawned_content_amount) > 0 && initial(B.prespawned_content_type))
+					. += initial(B.prespawned_content_amount) * get_spawn_price(initial(B.prespawned_content_type))
+			else if(ispath(path, /obj/item/storage/fancy))
+				var/obj/item/storage/fancy/F = path
+				if(initial(F.item_obj) && initial(F.storage_slots))
+					. += initial(F.storage_slots) * get_spawn_price(initial(F.item_obj))
+			else if(ispath(path, /obj/item/storage/pill_bottle))
+				var/obj/item/storage/pill_bottle/PB = path
+				if(initial(PB.prespawned_content_amount) && initial(PB.prespawned_content_type))
+					. += initial(PB.prespawned_content_amount) * get_spawn_price(initial(PB.prespawned_content_type))
+			else if(ispath(path, /obj/item/storage/firstaid))
+				var/obj/item/storage/firstaid/F = path
+				. += initial(F.prespawned_content_amount) * get_spawn_price(initial(F.prespawned_content_type))
+		else if(ispath(path, /obj/item/clothing))
+			var/obj/item/clothing/C = path
+			. += 5 * initial(C.style)
+			. += 10 * (1 - initial(C.siemens_coefficient))
+			if(ispath(path, /obj/item/clothing/suit/space/void))
+				var/obj/item/clothing/suit/space/void/V = A
+				if(initial(V.tank))
+					. += get_spawn_price(initial(V.tank))
+				if(initial(V.boots))
+					. += get_spawn_price(initial(V.boots))
+				if(initial(V.helmet))
+					. += get_spawn_price(initial(V.helmet))
+		else if(ispath(path, /obj/item/device))
+			if(. == 0)
+				. += 1 //for pure random spawner (/obj/spawner/lowkeyrandom)
+			var/obj/item/device/D = path
+			if(initial(D.starting_cell) && initial(D.suitable_cell))
+				. += get_spawn_price(initial(D.suitable_cell))
+		else if(ispath(path, /obj/item/reagent_containers/glass))
+			var/obj/item/reagent_containers/glass/G = path
+			. += initial(G.volume)/100
+		else if(ispath(path, /obj/item/computer_hardware/hard_drive/portable/design))
+			var/obj/item/computer_hardware/hard_drive/portable/design/D = path
+			if(initial(D.license) > 0)
+				. += initial(D.license) * 2
 
 /datum/controller/subsystem/spawn_data/proc/spawn_by_tag(list/tags)
 	var/list/things = list()
@@ -364,3 +384,82 @@ the value of stock parts increases with the rating.
 	candidates |= include
 	candidates = removeNullsFromList(candidates)
 	return candidates
+
+/datum/controller/subsystem/spawn_data/proc/sort_paths_by_rarity(list/paths, invert_value=FALSE)
+	//if(!paths || !paths.len) //NOPE
+		//return
+	var/list/copy_paths = paths.Copy()
+	var/list/things = list()
+	for(var/path in paths)
+		var/max_value = -INFINITY
+		if(invert_value)
+			max_value = INFINITY
+		var/selected_path
+		if(!copy_paths.len)
+			break
+		for(var/actual_path in copy_paths)
+			var/actual_value = get_spawn_value(actual_path)
+			if((!invert_value && actual_value > max_value) || (invert_value && (actual_value < max_value)))
+				max_value = actual_value
+				selected_path = actual_path
+		copy_paths -= selected_path
+		things += selected_path
+	return things
+
+/datum/controller/subsystem/spawn_data/proc/sort_paths_by_price(list/paths, invert_value=FALSE)
+	//if(!paths || !paths.len) //NOPE
+		//return
+	var/list/copy_paths = paths.Copy()
+	var/list/things = list()
+	for(var/path in paths)
+		var/max_value = INFINITY
+		if(invert_value)
+			max_value = -INFINITY
+		var/selected_path
+		if(!copy_paths.len)
+			break
+		for(var/actual_path in copy_paths)
+			var/actual_value = get_spawn_price(actual_path)
+			if((!invert_value && actual_value < max_value) || (invert_value && (actual_value > max_value)))
+				max_value = actual_value
+				selected_path = actual_path
+		copy_paths -= selected_path
+		things += selected_path
+	return things
+
+/* this proc generates a rarity value depending on the armor.
+/obj/item/clothing/proc/generate_loot_data()
+	var/file_dir = "strings/cloth_data"
+	var/loot_data = file("[file_dir]/cloth_data.txt")
+	var/pure_data = file("[file_dir]/pure_data.txt")
+
+	fdel(loot_data)
+	fdel(pure_data)
+
+	var/list/types = subtypesof(/obj/item/clothing)
+	for(var/path in types)
+		var/obj/item/clothing/C = new path
+		var/list/armor_list = C.armor.getList()
+		var/total_armor = 0
+		var/real_total_armor = 0
+		for(var/armor_type in armor_list)
+			var/val = armor_list[armor_type]
+			real_total_armor += val
+			if(armor_type == ARMOR_BOMB || armor_type == ARMOR_BIO || armor_type == ARMOR_RAD)
+				val /= 1.5
+			total_armor += val
+		if(total_armor)
+			total_armor /= armor_list.len
+			total_armor += 5
+		loot_data << "[C.type]"
+		loot_data << "[C.rarity_value+total_armor]"
+		loot_data << "    rarity_value = [initial(C.rarity_value)]"
+		loot_data << "[real_total_armor]"
+		loot_data  << ""
+
+		pure_data  << "[C.type]"
+		pure_data  << "    rarity_value = [5 + total_armor]"
+		pure_data  << ""
+		pure_data << "[real_total_armor]"
+		qdel(C)
+*/

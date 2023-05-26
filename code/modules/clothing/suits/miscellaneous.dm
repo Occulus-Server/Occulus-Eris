@@ -105,6 +105,12 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	flags_inv = HIDEJUMPSUIT
 
+/obj/item/clothing/suit/marisa
+	name = "witch robe"
+	desc = "Magic is all about the spell power, Ze!"
+	icon_state = "marisa"
+	item_state = "marisa"
+	spawn_blacklisted = TRUE
 /*
  * Misc
  */
@@ -147,7 +153,7 @@
 	siemens_coefficient = 2
 
 //swimsuit
-/obj/item/clothing/under/swimsuit/
+/obj/item/clothing/under/swimsuit
 	siemens_coefficient = 1
 	body_parts_covered = 0
 
@@ -181,28 +187,69 @@
 	desc = "A simple, comfortable poncho."
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
-	style = STYLE_LOW
 	spawn_tags = SPAWN_TAG_CLOTHING_SUIT_PONCHO
-	rarity_value = 5
 
 /obj/item/clothing/suit/poncho/tactical
 	name = "blue poncho"
 	desc = "A simple, comfortable poncho in blue colors."
 	icon_state = "tacticalponcho"
 	item_state = "tacticalponcho"
-	rarity_value = 80
-
 
 /obj/item/clothing/suit/storage/toggle/bomber
 	name = "bomber jacket"
-	desc = "A thick, well-worn WW2 leather bomber jacket."
+	desc = "A thick, well-worn WW2 style leather bomber jacket."
 	icon_state = "bomber"
 	item_state = "bomber"
 	icon_open = "bomber_open"
 	icon_closed = "bomber"
+	style = STYLE_LOW
 	body_parts_covered = UPPER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|ARMS
 	min_cold_protection_temperature = T0C - 20
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/suit/storage/toggle/bomber/furred
+	name = "furred bomber jacket"
+	desc = "A thick, well-worn WW2 style leather bomber jacket, padded with warm fur. It's cold out in space!"
+	icon_state = "fur_bomber"
+	item_state = "fur_bomber"
+	icon_open = "fur_bomber_open"
+	icon_closed = "fur_bomber"
+
+/obj/item/clothing/suit/storage/toggle/service
+	name = "Ironhammer service jacket"
+	desc = "A blue service jacket with golden badges. Often worn in low threat areas, formal situations, or by veterans."
+	icon_state = "service"
+	item_state = "service"
+	icon_open = "service_open"
+	icon_closed = "service"
+	style = STYLE_LOW
+
+/obj/item/clothing/suit/storage/jamrock
+	name = "disco blazer"
+	desc = "A green blazer that looks perfect for a disco party."
+	icon_state = "jamrock_blazer"
+	item_state = "jamrock_blazer"
+	style = STYLE_HIGH
+	body_parts_covered = UPPER_TORSO|ARMS
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/suit/storage/aerostatic
+	name = "aerostatic bomber jacket"
+	desc = "A red bomber jacket that looks like its seen better days."
+	icon_state = "aerostatic_bomber_jacket"
+	item_state = "aerostatic_bomber_jacket"
+	style = STYLE_HIGH
+	body_parts_covered = UPPER_TORSO|ARMS
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/suit/storage/khaki
+	name = "tactful jacket"
+	desc = "A khaki-colored jacket so stylishly casual you might think it sports a tactical vest."
+	icon_state = "khaki"
+	item_state = "khaki"
+	style = STYLE_LOW
+	body_parts_covered = UPPER_TORSO|ARMS
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/suit/storage/leather_jacket
@@ -212,9 +259,9 @@
 	item_state = "leather_jacket"
 	rarity_value = 5.55
 	armor = list(
-		melee = 10,
-		bullet = 10,
-		energy = 10,
+		melee = 2,
+		bullet = 2,
+		energy = 2,
 		bomb = 10,
 		bio = 0,
 		rad = 0
@@ -259,6 +306,23 @@
 	icon_state = "tunnelsnake"
 	item_state = "tunnelsnake"
 
+/obj/item/clothing/suit/storage/leather_jacket/tunnelsnake
+	name = "Sleek leather Jacket"
+	desc = "A sturdy, synthetic leather jacket with a high collar. It is able to protect you from a knife slice or a bite, but don't expect too much. More importantly, it makes you look like a really bad boy or girl."
+	icon_state = "tunnelsnake_blank"
+	item_state = "tunnelsnake_blank"
+
+/obj/item/clothing/suit/storage/leather_jacket/tunnelsnake_jager
+	name = "Jaeger leather Jacket"
+	desc = "A sturdy, synthetic leather jacket with a high collar. It is able to protect you from a knife slice or a bite, but don't expect too much. More importantly, it makes you look like a really bad boy or girl. This jacket has a Jaeger roach pictured on the back. Jaeger Roach rules!"
+	icon_state = "tunnelsnake_jager"
+	item_state = "tunnelsnake_jager"
+
+/obj/item/clothing/suit/storage/leather_jacket/tunnelsnake_snake
+	name = "Tunnelsnake Jacket"
+	desc = "Tunnelsnakes Rule! That's us! And we Rule!"
+	icon_state = "tunnelsnake"
+	item_state = "tunnelsnake"
 
 /obj/item/clothing/suit/storage/toggle/hoodie
 	name = "grey hoodie"
@@ -287,9 +351,9 @@
 	item_state = "brown_jacket"
 	rarity_value = 6.25
 	armor = list(
-		melee = 5,
-		bullet = 20,
-		energy = 10,
+		melee = 1,
+		bullet = 4,
+		energy = 2,
 		bomb = 0,
 		bio = 0,
 		rad = 0
@@ -322,15 +386,14 @@
 	icon_state = "cyberpunksleek_long"
 	item_state = "cyberpunksleek_long"
 	armor = list(
-		melee = 10,
-		bullet = 20,
-		energy = 10,
+		melee = 2,
+		bullet = 4,
+		energy = 2,
 		bomb = 0,
 		bio = 0,
 		rad = 0
 	)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	style = STYLE_HIGH
 
 
 /obj/item/clothing/suit/storage/cyberpunksleek_long/green
@@ -357,33 +420,48 @@
 	desc = "An old leather coat. Has probably seen things you wouldn't believe."
 	icon_state = "bladerunner_coat"
 	item_state = "bladerunner_coat"
-	rarity_value = 6.25
 	armor = list(
-		melee = 10,
-		bullet = 20,
-		energy = 10,
+		melee = 2,
+		bullet = 4,
+		energy = 2,
 		bomb = 0,
 		bio = 0,
 		rad = 0
 	)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+
+/obj/item/clothing/suit/storage/dante//makes even the devil cry
+	name = "exterminator coat"
+	desc = "A stylish red leather coat. So stylish, in fact, that it makes you want to dance."
+	icon_state = "dante"
+	item_state = "dante"
+	armor = list(
+		melee = 2,
+		bullet = 4,
+		energy = 2,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
 	style = STYLE_HIGH
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/suit/storage/drive_jacket
 	name = "white jacket"
 	desc = "With the warmth of this jacket you feel like you're a real human being."
 	icon_state = "drive_jacket"
 	item_state = "drive_jacket"
+	style = STYLE_LOW
 	body_parts_covered = UPPER_TORSO|ARMS
-	rarity_value = 16.66
 
 /obj/item/clothing/suit/storage/violet_jacket
 	name = "violet jacket"
 	desc = "Coat that you ride like lightning, and will crash with you like thunder."
 	icon_state = "violet_jacket"
 	item_state = "violet_jacket"
+	style = STYLE_LOW
 	body_parts_covered = UPPER_TORSO|ARMS
-	rarity_value = 16.66
 
 /obj/item/clothing/suit/storage/bomj
 	name = "bomj coat"
@@ -391,9 +469,9 @@
 	icon_state = "bomj"
 	item_state = "bomj"
 	armor = list(
-		melee = 10,
-		bullet = 20,
-		energy = 10,
+		melee = 2,
+		bullet = 4,
+		energy = 2,
 		bomb = 0,
 		bio = 0,
 		rad = 0
@@ -409,8 +487,8 @@
 	icon_state = "punkvest"
 	item_state = "punkvest"
 	armor = list(
-		melee = 10,
-		bullet = 10,
+		melee = 2,
+		bullet = 2,
 		energy = 0,
 		bomb = 0,
 		bio = 0,
@@ -426,8 +504,8 @@
 	icon_open = "windbreaker_open"
 	icon_closed = "windbreaker"
 	armor = list(
-		melee = 10,
-		bullet = 10,
+		melee = 2,
+		bullet = 2,
 		energy = 0,
 		bomb = 0,
 		bio = 30,
@@ -441,27 +519,110 @@
 	icon_state = "cyberpunk"
 	item_state = "cyberpunk"
 	armor = list(
-		melee = 10,
-		bullet = 20,
-		energy = 10,
+		melee = 2,
+		bullet = 5,
+		energy = 2,
 		bomb = 0,
 		bio = 0,
 		rad = 0
 	)
 
 /obj/item/clothing/suit/storage/scavengerarmor
-	name = "Scavenger armor"
+	name = "scavenger armor"
 	desc = "A sturdy, rigged Scavenger armor. strong and sturdy as most vests. made fully from junk."
 	icon_state = "scav_armor"
 	item_state = "scav_armor"
 	armor = list(
-		melee = 30,
-		bullet = 30,
-		energy = 30,
-		bomb = 10,
+		melee = 13,
+		bullet = 12,
+		energy = 6,
+		bomb = 15,
+		bio = 50,
+		rad = 0
+	)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	siemens_coefficient = 0.7
+	spawn_blacklisted = TRUE
+	style = STYLE_NEG_LOW
+
+/obj/item/clothing/suit/storage/scavengerarmor/New()
+	..()
+	pockets = new/obj/item/storage/internal(src)
+	pockets.storage_slots = 3
+	pockets.max_w_class = ITEM_SIZE_SMALL
+	pockets.max_storage_space = 6
+
+
+/obj/item/clothing/suit/storage/triad
+	name = "triad jacket"//RUINER reference
+	desc = "A well armoured trench coat. The label on the inside claims it comes from Hanza."
+	icon_state = "triadkillers"
+	item_state = "triadkillers"
+	armor = list(
+		melee = 5,
+		bullet = 5,
+		energy = 5,
+		bomb = 15,
 		bio = 0,
 		rad = 0
 	)
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	price_tag = 1000
+	style = STYLE_HIGH
+
+/obj/item/clothing/suit/storage/triad/New()
+	..()
+	pockets = new/obj/item/storage/internal(src)
+	pockets.storage_slots = 4
+	pockets.max_w_class = ITEM_SIZE_SMALL
+	pockets.max_storage_space = 8
+
+/obj/item/clothing/suit/storage/akira
+	name = "red jacket"//Akira, preety obvious
+	desc = "A red jacket designed for riding on a bike. Has a pill icon on the back."
+	icon_state = "akira"
+	item_state = "akira"
+	armor = list(
+		melee = 5,
+		bullet = 5,
+		energy = 2,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
+	body_parts_covered = UPPER_TORSO|ARMS
+	style = STYLE_HIGH
+	price_tag = 400
+
+/obj/item/clothing/suit/storage/boxer_jacket
+	name = "boxer jacket"//Mother Russia Bleeds reference
+	desc = "Uppercut their heads off."
+	icon_state = "boxer_jacket"
+	item_state = "boxer_jacket"
 	siemens_coefficient = 0.7
-	spawn_blacklisted = TRUE
+	style = STYLE_LOW
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/puffyblue
+	name = "blue puffy coat"
+	desc = "A stylish, shiny, very blue Aster\'s Guild branded puffer coat."
+	icon_state = "puffycoatblue"
+	item_state = "puffycoatblue"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/suit/storage/puffypurple
+	name = "purple puffy coat"
+	desc = "A stylish, shiny, very purple Aster\'s Guild branded puffer coat."
+	icon_state = "puffycoatpurple"
+	item_state = "puffycoatpurple"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/suit/storage/puffyred
+	name = "crimson puffy coat"
+	desc = "A stylish, shiny, crimson Aster\'s Guild branded puffer coat."
+	icon_state = "puffycoatred"
+	item_state = "puffycoatred"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	siemens_coefficient = 0.7

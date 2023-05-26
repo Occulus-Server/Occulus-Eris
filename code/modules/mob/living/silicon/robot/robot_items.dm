@@ -32,9 +32,11 @@
 				for(var/T in loaded_item.origin_tech)
 					files.check_item_for_tech(loaded_item)
 					var/object_research_value = files.experiments.get_object_research_value(loaded_item)
-					files.research_points += object_research_value
+					files.adjust_research_points(object_research_value)
 					files.experiments.do_research_object(loaded_item)
 					to_chat(user, "\The [loaded_item] incremented the research points by [object_research_value].")
+					for(var/mob/living/carbon/human/H in viewers(user))
+						SEND_SIGNAL_OLD(H, COMSING_DESTRUCTIVE_ANALIZER, loaded_item)
 				loaded_item = null
 				for(var/obj/I in contents)
 					for(var/mob/M in I.contents)
@@ -427,22 +429,30 @@
 	//random_icon = FALSE
 	spawn_tags = null
 
-/obj/item/tool/multitool/robotic
-	icon = 'icons/obj/robot_items.dmi'
-	spawn_tags = null
-
-/obj/item/tool/wirecutters/robotic
-	icon = 'icons/obj/robot_items.dmi'
-	tool_qualities = list(QUALITY_WIRE_CUTTING = 40, QUALITY_CUTTING = 30)
-	spawn_tags = null
-
-/obj/item/tool/weldingtool/robotic
-	icon = 'icons/obj/robot_items.dmi'
-	switched_on_qualities = list(QUALITY_WELDING = 40, QUALITY_CAUTERIZING = 15, QUALITY_WIRE_CUTTING = 15)
-	spawn_tags = null
-	max_fuel = 50	// OCCULUS EDIT - More welding fuel for borgs
-
 /obj/item/tool/shovel/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	tool_qualities = list(QUALITY_SHOVELING = 40, QUALITY_DIGGING = 40, QUALITY_EXCAVATION = 20, QUALITY_HAMMERING = 20)
 	spawn_tags = null
+
+/obj/item/tool/robotic_medical_omnitool
+	name = "Medical Omnitool"
+	desc = "An all-in-one medical omnitool."
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "medmulti"
+	force = WEAPON_FORCE_PAINFUL
+	sharp = TRUE
+	edge = TRUE
+	worksound = WORKSOUND_DRIVER_TOOL
+	tool_qualities = list(QUALITY_CLAMPING = 30, QUALITY_RETRACTING = 30, QUALITY_BONE_SETTING = 30, QUALITY_CAUTERIZING = 30, QUALITY_SAWING = 15, QUALITY_CUTTING = 30, QUALITY_WIRE_CUTTING = 15)
+	spawn_tags = null
+
+/obj/item/tool/robotic_engineering_omnitool
+	name = "Engineering Omnitool"
+	desc = "An all-in-one engineering omnitool."
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "engimplant"
+	force = WEAPON_FORCE_DANGEROUS
+	worksound = WORKSOUND_DRIVER_TOOL
+	tool_qualities = list(QUALITY_SCREW_DRIVING = 35, QUALITY_BOLT_TURNING = 35, QUALITY_DRILLING = 15, QUALITY_WELDING = 30, QUALITY_CAUTERIZING = 10, QUALITY_PRYING = 25, QUALITY_DIGGING = 20, QUALITY_PULSING = 30, QUALITY_WIRE_CUTTING = 30)
+	spawn_tags = null
+

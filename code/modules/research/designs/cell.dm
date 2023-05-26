@@ -20,12 +20,12 @@
 	sort_string = "DAAAB"
 
 /datum/design/research/item/powercell/large/super
-	name = "Power-Geyser 13000L"
+	name = "Power-Geyser 13000L" // Occulus Edit - Remove Eris company reference
 	build_path = /obj/item/cell/large/moebius/super
 	sort_string = "DAAAC"
 
 /datum/design/research/item/powercell/large/hyper
-	name = "Power-Geyser 18000L"
+	name = "Power-Geyser 18000L" // Occulus Edit - Remove Eris company reference
 	build_path = /obj/item/cell/large/moebius/hyper
 	sort_string = "DAAAD"
 
@@ -42,12 +42,12 @@
 	sort_string = "DAAAI"
 
 /datum/design/research/item/powercell/medium/super
-	name = "Power-Geyser 1000M"
+	name = "Power-Geyser 1000M" // Occulus Edit - Remove Eris company reference
 	build_path = /obj/item/cell/medium/moebius/super
 	sort_string = "DAAAO"
 
 /datum/design/research/item/powercell/medium/hyper
-	name = "\"Power-Geyser 1300M\""
+	name = "\"Power-Geyser 1300M\"" // Occulus Edit - Remove Eris company reference
 	build_path = /obj/item/cell/medium/moebius/hyper
 	sort_string = "DAAAP"
 
@@ -64,26 +64,26 @@
 	sort_string = "DAAAV"
 
 /datum/design/research/item/powercell/small/super
-	name = "Power-Geyser 300S"
+	name = "Power-Geyser 300S" // Occulus Edit - Remove Eris company reference
 	build_path = /obj/item/cell/small/moebius/super
 	sort_string = "DAAAW"
 
 /datum/design/research/item/powercell/small/hyper
-	name = "Power-Geyser 400S"
+	name = "Power-Geyser 400S" // Occulus Edit - Remove Eris company reference
 	build_path = /obj/item/cell/small/moebius/hyper
 	sort_string = "DAAAX"
 
 /datum/design/research/item/powercell/large/nuclear
-	name = "Atomcell 13000L"
+	name = "Atomcell 13000L" // Occulus Edit - Remove Eris company reference
 	build_path = /obj/item/cell/large/moebius/nuclear
 	sort_string = "DAAAZ"
 
 /datum/design/research/item/powercell/medium/nuclear
-	name = "Atomcell 1000M"
+	name = "Atomcell 1000M" // Occulus Edit - Remove Eris company reference
 	build_path = /obj/item/cell/medium/moebius/nuclear
 	sort_string = "DAABA"
 
 /datum/design/research/item/powercell/small/nuclear
-	name = "Atomcell 300S"
+	name = "Atomcell 300S" // Occulus Edit - Remove Eris company reference
 	build_path = /obj/item/cell/small/moebius/nuclear
 	sort_string = "DAABB"

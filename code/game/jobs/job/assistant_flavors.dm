@@ -213,4 +213,25 @@
 	title = "Christian Era Vector \"Northen Light\" Protodeacon"
 
 /datum/job_flavor/assistant/archimandrite
-	title = "Christian Era Vector \"Northen Light\" Archimandrite"
+	title = "Christian Era Vector \"Northern Light\" Archimandrite" // Occulus Edit - Remove Eris corp. reference
+
+/datum/job_flavor/assistant/prisoner
+	title = "Convict Exploitation Vehicle \"Northern Light\" Prisoner" // Occulus Edit - Remove Eris corp. reference
+
+/datum/job_flavor/assistant/guard
+	title = "Convict Exploitation Vehicle \"Northern Light\" Guard" // Occulus Edit - Remove Eris corp. reference
+
+/datum/job_flavor/assistant/warden
+	title = "Convict Exploitation Vehicle \"Northern Light\" Warden" // Occulus Edit - Remove Eris corp. reference
+
+/datum/job_flavor/assistant/smuggler
+	title = "Cargo Export Vehicle \"Northern Light\" Smuggler" // Occulus Edit - Remove Eris corp. reference
+
+/datum/job_flavor/assistant/salesman
+	title = "Cargo Export Vehicle \"Northern Light\" Salesman" // Occulus Edit - Remove Eris corp. reference
+
+/datum/job_flavor/assistant/stockmarket
+	title = "Capital Exchange Venue \"Northern Light\" Market Analyst" // Occulus Edit - Remove Eris corp. reference
+
+/datum/job_flavor/assistant/executive
+	title = "Capital Exchange Venue \"Northern Light\" Executive" // Occulus Edit - Remove Eris corp. reference

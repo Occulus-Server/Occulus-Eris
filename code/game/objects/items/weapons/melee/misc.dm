@@ -1,6 +1,7 @@
 /obj/item/melee/toolbox_maul
 	name = "toolmop the maul"
 	desc = "Toolbox tied to mop. A weapon of choice."
+	icon = 'icons/obj/weapons.dmi'
 	icon_state = "hm_hammer"
 	item_state = "hm_hammer"
 	force = WEAPON_FORCE_PAINFUL
@@ -23,7 +24,7 @@
 			origin_tech = list(TECH_COMBAT = 1)
 
 
-/obj/item/melee/toolbox_maul/on_update_icon()
+/obj/item/melee/toolbox_maul/update_icon()
 	..()
 	cut_overlays()
 	if(reinforced)

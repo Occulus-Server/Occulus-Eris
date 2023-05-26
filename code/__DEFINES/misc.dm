@@ -39,6 +39,7 @@
 #define SPECIALROLE_HUD 7 // AntagHUD image.
 #define  STATUS_HUD_OOC 8 // STATUS_HUD without virus DB check for someone being ill.
 #define        LIFE_HUD 9 // STATUS_HUD that only reports dead or alive
+#define   EXCELSIOR_HUD 10 // Used by excelsior to see who else is excel
 
 // These define the time taken for the shuttle to get to the space station, and the time before it leaves again.
 
@@ -106,7 +107,7 @@
 #define COIN_SILVER "Silver coin"
 #define COIN_DIAMOND "Diamond coin"
 #define COIN_IRON "Iron coin"
-#define COIN_PHORON "Solid phoron coin"
+#define COIN_PLASMA "Solid phoron coin" // Occulus Edit - Plasma > Phoron
 #define COIN_URANIUM "Uranium coin"
 #define COIN_PLATINUM "Platunum coin"
 
@@ -156,8 +157,10 @@
 
 
 // Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
-#define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
-#define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
+#define PROJECTILE_STOP					 1 //if the projectile should stop flying after calling bullet_act()
+#define PROJECTILE_CONTINUE				-1 //if the projectile should continue flying after calling bullet_act()
+#define PROJECTILE_FORCE_MISS			-2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
+#define PROJECTILE_FORCE_MISS_SILENCED	-2.5 //if the projectile should do the same thing as above, but not give the miss message
 
 //Camera capture modes
 #define CAPTURE_MODE_REGULAR 0 //Regular polaroid camera mode
@@ -170,11 +173,13 @@
 #define TOGGLE_INVENTORY_FLAG 2 //0010
 #define TOGGLE_BOTTOM_FLAG 4 //0100
 
-// Default name for announsment system
-#define ANNOUNSER_NAME "CEV Northern Light System Announcer"
+// Default name for announcement system
+#define ANNOUNCER_NAME "CEV Northern Light System Announcer" // Occulus Edit - Eris > Northern Light
 
 
-#define LIST_OF_CONSONANT list("a", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "á", "â", "ã", "ä", "æ", "ç", "é", "ê", "ë", "ì", "í", "ï", "ð", "ñ", "ò", "ô", "õ", "ö", "÷", "ø", "ù")
+#define LIST_OF_CONSONANT list("b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "á", "â", "ã", "ä", "æ", "ç", "é", "ê", "ë", "ì", "í", "ï", "ð", "ñ", "ò", "ô", "õ", "ö", "÷", "ø", "ù")
+#define LIST_OF_CONSONANT_RU list("б","в","г","д","ж","з","й","к","л","м","н","п","р","с","т","ф","х","ц","ш","щ")
+
 #define EN_ALPHABET list("a", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z")
 //Multi-z
 #define FALL_GIB_DAMAGE 999
@@ -188,7 +193,9 @@
 //Cruciform
 #define CRUCIFORM_COMMON /datum/core_module/rituals/cruciform/base
 #define CRUCIFORM_AGROLYTE /datum/core_module/rituals/cruciform/agrolyte
+#define CRUCIFORM_CUSTODIAN /datum/core_module/rituals/cruciform/custodian
 #define CRUCIFORM_PRIEST /datum/core_module/rituals/cruciform/priest
+#define CRUCIFORM_ACOLYTE /datum/core_module/rituals/cruciform/priest/acolyte
 #define CRUCIFORM_INQUISITOR /datum/core_module/rituals/cruciform/inquisitor
 #define CRUCIFORM_CRUSADER /datum/core_module/rituals/cruciform/crusader
 #define CRUCIFORM_UPLINK /datum/core_module/cruciform/uplink
@@ -237,6 +244,8 @@
 #define span(class, text) ("<span class='[class]'>[text]</span>")
 // the thing below allow using SPANning in datum definition, the above can't.
 #define SPAN(class, X) "<span class='" + ##class + "'>" + ##X + "</span>"
+
+#define FONT_COLORED(color, text) "<font color='[color]'>[text]</font>"
 
 #define text_starts_with(text, start) (copytext(text, 1, length(start) + 1) == start)
 
@@ -335,9 +344,22 @@
 #define FIXED_COLOUR_PRIORITY 		4 //color inherent to the atom (e.g. blob color)
 #define COLOUR_PRIORITY_AMOUNT      4 //how many priority levels there are.
 
+//Sounds list
+#define WALLHIT_SOUNDS list('sound/effects/wallhit.ogg', 'sound/effects/wallhit2.ogg', 'sound/effects/wallhit3.ogg')
+
 //Prevent the master controller from starting automatically
 #define NO_INIT_PARAMETER "no-init"
+//Force the log directory to be something specific in the data/logs folder
+#define OVERRIDE_LOG_DIRECTORY_PARAMETER "log-directory"
 
 /// Required minimum values to see reagents in a beaker
 #define HUMAN_REQ_COG_FOR_REG 35
 #define HUMAN_REQ_BIO_FOR_REG 50
+
+/// Misc atmos equations
+
+#define FIRESTACKS_TEMP_CONV(firestacks) min(5200,max(2.25*round(FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE*(fire_stacks/FIRE_MAX_FIRESUIT_STACKS)**2), 700))
+
+#define TTS_SEED_DEFAULT_FEMALE "Female_1"
+#define TTS_SEED_DEFAULT_MALE "Male_1"
+#define TTS_SEED_ANNOUNCER "Robot_2"

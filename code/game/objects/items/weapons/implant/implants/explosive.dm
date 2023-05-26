@@ -128,18 +128,14 @@
 		return
 	malfunction = MALFUNCTION_TEMPORARY
 	switch (severity)
-		if (2.0)	//Weak EMP will make implant tear limbs off.
+		if (2)
+			if (prob(15))
+				activate()
+		if (1)
 			if (prob(50))
-				small_boom()
-		if (1.0)	//strong EMP will melt implant either making it go off, or disarming it
-			if (prob(70))
-				if (prob(50))
-					small_boom()
-				else
-					if (prob(50))
-						activate()		//50% chance of bye bye
-					else
-						meltdown()		//50% chance of implant disarming
+				activate()
+			else
+				meltdown()
 	spawn (20)
 		malfunction = MALFUNCTION_NONE
 

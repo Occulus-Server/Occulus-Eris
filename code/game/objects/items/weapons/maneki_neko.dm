@@ -4,6 +4,7 @@
 	icon_state = "maneki_neko"
 	item_state = "maneki_neko"
 	desc = "Costs a lot of money, this is ancient relic with no practical purpose. Feels like it's looking at you, with menacingly gaze. Fragile."
+	description_fluff = "Its said that one must be a fool to break such a valuable vase. As it contains the soul of a Neko itself."
 	flags = CONDUCT
 	force = WEAPON_FORCE_WEAK
 	w_class = ITEM_SIZE_SMALL
@@ -18,20 +19,30 @@
 	matter = list(MATERIAL_GLASS = 5, MATERIAL_GOLD = 7, MATERIAL_SILVER = 5, MATERIAL_DIAMOND = 1)
 	var/list/mob/living/carbon/human/followers = list()
 
+
+/obj/item/maneki_neko/New()
+	GLOB.all_faction_items[src] = GLOB.department_guild
+	START_PROCESSING(SSobj, src)
+	..()
+
 /obj/item/maneki_neko/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	if(!istype(src.loc, /obj/item/storage/bsdm))
 		destroy_lifes()
-	..()
-/obj/item/maneki_neko/New()
-	START_PROCESSING(SSobj, src)
+	for(var/mob/living/carbon/human/H in viewers(get_turf(src)))
+		SEND_SIGNAL_OLD(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
+	GLOB.all_faction_items -= src
+	GLOB.guild_faction_item_loss++
 	..()
 
 /obj/item/maneki_neko/Process()
 	for(var/list/mob/living/carbon/human/affected in oviewers(affect_radius, src))
 		followers |= affected
 
-/obj/item/maneki_neko/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/maneki_neko/attackby(obj/item/W, mob/user, params)
+	if(nt_sword_attack(W, user))
+		return FALSE
+
 	if(QUALITY_HAMMERING in W.tool_qualities)
 		if(W.use_tool(user, src, WORKTIME_INSTANT, QUALITY_HAMMERING, FAILCHANCE_EASY, required_stat = STAT_ROB))
 			playsound(src, "shatter", 70, 1)

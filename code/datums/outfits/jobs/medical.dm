@@ -5,6 +5,7 @@
 	id_type = /obj/item/card/id/med
 	pda_type = /obj/item/modular_computer/pda/moebius/medical
 	pda_slot = slot_l_store
+	r_ear  = /obj/item/reagent_containers/syringe/large
 
 /decl/hierarchy/outfit/job/medical/New()
 	..()
@@ -19,6 +20,8 @@
 	r_pocket = /obj/item/device/lighting/toggleable/flashlight/pen
 	id_type = /obj/item/card/id/cmo
 	pda_type = /obj/item/modular_computer/pda/heads/cmo
+	belt = /obj/item/storage/belt/medical/
+	backpack_contents = list(/obj/item/gun/projectile/selfload/moebius = 1, /obj/item/ammo_magazine/pistol/rubber = 2)
 
 /decl/hierarchy/outfit/job/medical/doctor
 	name = OUTFIT_JOB_NAME("Medical Doctor")
@@ -26,6 +29,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	l_hand = /obj/item/storage/firstaid/adv
 	r_pocket = /obj/item/device/lighting/toggleable/flashlight/pen
+	belt = /obj/item/storage/belt/medical/
 
 /decl/hierarchy/outfit/job/medical/chemist
 	name = OUTFIT_JOB_NAME("Pharmacist")
@@ -33,6 +37,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/chemist
 	id_type = /obj/item/card/id/chem
 	pda_type = /obj/item/modular_computer/pda/moebius/chemistry
+	belt = /obj/item/storage/belt/medical/
 
 /decl/hierarchy/outfit/job/medical/chemist/New()
 	..()
@@ -40,13 +45,13 @@
 	backpack_overrides[/decl/backpack_outfit/backsport]     = /obj/item/storage/backpack/sport/orange;
 	backpack_overrides[/decl/backpack_outfit/satchel]       = /obj/item/storage/backpack/satchel/orange/chemist;
 
-/decl/hierarchy/outfit/job/medical/psychiatrist
+/decl/hierarchy/outfit/job/medical/psychiatrist // Occulus Addition - Medical Psychiatrist
 	name = OUTFIT_JOB_NAME("Psychiatrist")
 	uniform = /obj/item/clothing/under/rank/psych
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 
 /decl/hierarchy/outfit/job/medical/paramedic
-	name = OUTFIT_JOB_NAME("Paramedic")
+	name = OUTFIT_JOB_NAME("Paramedic") // Occulus Edit - Removes Eris corp. reference
 	head = /obj/item/clothing/head/armor/faceshield/paramedic
 	uniform = /obj/item/clothing/under/rank/paramedic
 	suit = /obj/item/clothing/suit/armor/paramedic
@@ -57,7 +62,7 @@
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
 
 /decl/hierarchy/outfit/job/medical/bioengineer
-	name = OUTFIT_JOB_NAME("Bio-Engineer") //OCCUlUS EDIT: DELETE MOEBIUS
+	name = OUTFIT_JOB_NAME("Bio-Engineer") // Occulus Edit - Removes Eris corp. reference
 	uniform = /obj/item/clothing/under/rank/bioengineer
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/bioengineer
 	l_hand = /obj/item/storage/freezer/medical

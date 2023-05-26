@@ -15,7 +15,7 @@
 	damage_types = list(BRUTE = 20)
 
 /obj/item/projectile/bullet/pellet/fragment/weak
-	damage_types = list(BRUTE = 10)
+	damage_types = list(BRUTE = 10) // Blocked by most armor
 
 /obj/item/projectile/bullet/pellet/fragment/rubber
 	icon_state = "rubber"
@@ -35,11 +35,11 @@
 	name = "explosion"
 	icon_state = "invisible"
 	embed = 0
-	damage_types = list(BRUTE = 20)
+	damage_types = list(BRUTE = 30)
 	check_armour = ARMOR_BOMB
 
 /obj/item/projectile/bullet/pellet/fragment/ember
-    name = "phosphorus ember" // Occulus Edit: Fixed typo for phosphorus
+    name = "phosphorous ember"
     icon = 'icons/obj/projectiles_64x64.dmi'
     icon_state = "phosphorus_ember"
     damage_types = list(BURN = 5)

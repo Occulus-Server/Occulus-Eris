@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(migration)
 
 	var/burrow_scan_interval = 5 MINUTES //Every 5 minutes, they'll scan and catalogue the lifeforms around them
 	var/burrow_plantspread_interval = 10 MINUTES //Every 10 minutes, plants near burrows will spread through them
-	var/burrow_migrate_interval = 10 MINUTES //Every 10 minutes, some mobs will move from a populated burrow to a different place
+	var/burrow_migrate_interval = 9 MINUTES //Every 9 minutes, some mobs will move from a populated burrow to a different place
 
 
 	var/next_scan = 0 //We'll do a scan as soon as round starts
@@ -29,7 +29,7 @@ SUBSYSTEM_DEF(migration)
 
 
 	var/roundstart_burrows = 120
-	var/migrate_time = 80 SECONDS //How long it takes to move mobs from one burrow to another
+	var/migrate_time = 20 SECONDS //How long it takes to move mobs from one burrow to another
 	var/reinforcement_time = 20 SECONDS //How long it takes for reinforcements to arrive
 	var/plantspread_burrows_num = 3 //How many other burrows will each one with plants send them to
 
@@ -70,6 +70,11 @@ This proc will attempt to create a burrow against a wall, within view of the tar
 
 		//No being under a low wall
 		if (F.is_wall)
+			continue
+
+		// SPCR 2022 - added this to prevent them disconnecting pipes and cables , since , through magical means , it is impossible to find the code behind pipes being disconnected
+		// on turfs with burrows.
+		if(!turf_clear(F))
 			continue
 
 		//No stacking multiple burrows per tile
@@ -170,7 +175,7 @@ This proc will attempt to create a burrow against a wall, within view of the tar
 
 
 		//We have all the data we need, lets go!
-		B.migrate_to(target, migrate_time, percentage) //TODO: Lower this time down to 20-40 secs
+		B.migrate_to(target, migrate_time, percentage)
 
 	next_migrate = world.time + burrow_migrate_interval
 
@@ -212,12 +217,6 @@ This proc will attempt to create a burrow against a wall, within view of the tar
 /datum/controller/subsystem/migration/proc/choose_burrow_target(var/obj/structure/burrow/source, var/reroll_type = TRUE, var/reroll_prob = 99.5)
 	var/obj/structure/burrow/candidate
 
-	switch (GLOB.storyteller.config_tag)
-		if ("jester") // Jester will most likely not reroll the maintenance area check.
-			reroll_prob = 19.5
-		if ("warrior")
-			reroll_prob = 80
-
 	//Lets copy the list into a candidates buffer
 	var/list/candidates = GLOB.all_burrows.Copy(1,0)
 
@@ -246,7 +245,7 @@ This proc will attempt to create a burrow against a wall, within view of the tar
 			continue
 
 		// if burrow was closed before it has chance to be ignored
-		if (candidate.isSealed && candidate.isRevealed && prob(reroll_prob/2))
+		if (candidate.isSealed && candidate.isRevealed && prob(reroll_prob/3))
 			continue
 
 		break
@@ -390,6 +389,7 @@ This proc will attempt to create a burrow against a wall, within view of the tar
 	while (i < plantspread_burrows_num && sorted.len)
 		var/obj/structure/burrow/C = sorted[1] //Grab the first element
 		sorted.Cut(1,2)//And remove it from the list
+		var/turf/simulated/T = get_turf(C)
 
 
 		//It already has plants, no good
@@ -399,6 +399,10 @@ This proc will attempt to create a burrow against a wall, within view of the tar
 		//We don't want to send to other burrows in the same room as us.
 		//The point of burrows is to let things move between rooms
 		if (C in viewlist)
+			continue
+
+		//We don't want maintshrooms to spread into places that are too bright
+		if (B.plant.type == /datum/seed/mushroom/maintshroom && T.get_lumcount() > 0.5)
 			continue
 
 		//Chance to reject it anyways to make plant spreading less predictable

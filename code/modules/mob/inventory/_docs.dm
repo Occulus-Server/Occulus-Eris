@@ -73,7 +73,7 @@ It calls:
 */
 
 
-/mob/proc/slot_is_accessible(var/slot, var/obj/item/Item, mob/user=null)
+/mob/proc/slot_is_accessible(var/slot, var/obj/item/Item, mob/user)
 /*
 Checks if a given slot can be accessed at this time, either to equip or unequip Item
 */
@@ -124,7 +124,7 @@ By default here located equip sound calls.
 */
 
 
-/obj/item/proc/equipped(var/mob/Mob, var/slot)
+/obj/item/proc/equipped(mob/Mob, var/slot)
 /*
 Called after an item is placed in an equipment slot
 User is mob that equipped it
@@ -187,7 +187,7 @@ Will return zero if the object is not currently equipped to anyone
 */
 
 
-/obj/item/proc/try_uneqip(target, mob/living/user)
+/obj/item/proc/try_transfer(target, mob/living/user)
 /*
 Not directly related to inventory procs
 Used for unequipping things from mob inventory to hands with mouse DragnDrop

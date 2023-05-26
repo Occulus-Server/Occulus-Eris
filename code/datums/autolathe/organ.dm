@@ -15,6 +15,10 @@
 	materials = list()
 	build_path = /obj/item/organ/internal/kidneys
 /*
+/datum/design/organ/kidney_left
+	materials = list()
+	build_path = /obj/item/organ/internal/kidney/left
+
 /datum/design/organ/kidney_right
 	materials = list()
 	build_path = /obj/item/organ/internal/kidney/right
@@ -63,7 +67,7 @@
 
 /datum/design/organ/back_alley/hyper_nerves
 	name = "Hypersensitive Nerves"
-	materials = list(MATERIAL_BIOMATTER = 15, MATERIAL_GOLD = 1)
+	materials = list(MATERIAL_BIOMATTER = 15)
 	build_path = /obj/item/organ/internal/nerve/sensitive_nerve
 
 /datum/design/organ/back_alley/super_muscle
@@ -73,5 +77,5 @@
 
 /datum/design/organ/back_alley/ex_blood_vessel
 	name = "Extensive Blood Vessels"
-	materials = list(MATERIAL_BIOMATTER = 30, MATERIAL_PLASTIC = 2)
+	materials = list(MATERIAL_BIOMATTER = 30)
 	build_path = /obj/item/organ/internal/blood_vessel/extensive

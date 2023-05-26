@@ -1,6 +1,6 @@
 /obj/item/gun/matter/launcher/nt_sprayer
 	name = "NT BCR \"Street Sprayer\""
-	desc = "\"NanoTrasen\" brand cleansing carbine. Uses solid biomass as ammo and dispense cleansing liquid on hit."
+	desc = "\"NanoTrasen\" brand cleansing carbine. Uses solid biomass as ammo and dispense cleansing liquid on hit." // Occulus Edit - Renamed NeoTheology to NanoTrasen
 	icon_state = "nt_sprayer"
 	icon = 'icons/obj/guns/matter/nt_sprayer.dmi'
 	slot_flags = SLOT_BACK | SLOT_BELT
@@ -8,12 +8,15 @@
 	matter_type = MATERIAL_BIOMATTER
 
 	init_firemodes = list(
-		list(mode_name="clean", projectile_type=/obj/item/arrow/neotheo/cleansing, icon="stun"),
-		list(mode_name="de-weed", projectile_type=/obj/item/arrow/neotheo/weedkiller, icon="kill"),
+		list(mode_name="clean", mode_desc="A slippery cleaning foam, perfect for annoying others", projectile_type=/obj/item/arrow/neotheo/cleansing, icon="stun"),
+		list(mode_name="de-weed", mode_desc="Antifungal, Antifloral, all round Herbicide", projectile_type=/obj/item/arrow/neotheo/weedkiller, icon="kill"),
 	)
 	projectile_cost = 0.5
 	projectile_type = /obj/item/arrow/neotheo/cleansing
+	spawn_blacklisted = TRUE
 
+/obj/item/arrow
+	var/recoil = 2  // Light recoil, it's just some cleaning stuff
 
 /obj/item/arrow/neotheo
 	icon = 'icons/obj/projectiles.dmi'
@@ -29,7 +32,6 @@
 	reagents.add_reagent("water", 2)
 
 	qdel(src)
-
 
 /obj/item/arrow/neotheo/weedkiller/throw_impact()
 	..()

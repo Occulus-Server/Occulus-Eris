@@ -94,14 +94,14 @@
 
 /obj/machinery/door/unpowered/simple/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			set_broken()
-		if(2.0)
+		if(2)
 			if(prob(25))
 				set_broken()
 			else
 				take_damage(300)
-		if(3.0)
+		if(3)
 			if(prob(20))
 				take_damage(150)
 
@@ -180,6 +180,3 @@
 	..(newloc, MATERIAL_WOOD)
 	glass = 1
 	set_opacity(0)
-
-/obj/machinery/door/unpowered/simple/resin/New(var/newloc,var/material_name)
-	..(newloc, MATERIAL_RESIN)

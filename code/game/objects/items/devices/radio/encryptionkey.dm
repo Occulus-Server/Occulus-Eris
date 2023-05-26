@@ -8,10 +8,12 @@
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	spawn_blacklisted = TRUE
+	description_antag = "This is a special key with acces to restricted channels"
 	matter = list(MATERIAL_STEEL = 0.5, MATERIAL_SILVER = 0.5)
-	var/translate_binary = 0
-	var/translate_hive = 0
-	var/syndie = 0
+	var/translate_binary = FALSE
+	var/translate_hive = FALSE
+	var/syndie = FALSE
+	var/merc = FALSE
 	var/list/channels = list()
 
 /obj/item/device/encryptionkey/attackby(obj/item/W, mob/user)
@@ -20,11 +22,16 @@
 	icon_state = "cypherkey"
 	channels = list("Mercenary" = 1)
 	origin_tech = list(TECH_COVERT = 3)
-	syndie = 1//Signifies that it de-crypts Syndicate transmissions
+	syndie = TRUE//Signifies that it de-crypts Syndicate transmissions
+
+/obj/item/device/encryptionkey/mercenaries
+	icon_state = "cypherkey"
+	channels = list("Mercenary" = 1)
+	merc = TRUE
 
 /obj/item/device/encryptionkey/binary
 	icon_state = "cypherkey"
-	translate_binary = 1
+	translate_binary = TRUE
 	origin_tech = list(TECH_COVERT = 3)
 
 /obj/item/device/encryptionkey/headset_sec
@@ -70,7 +77,7 @@
 /obj/item/device/encryptionkey/heads/captain
 	name = "captain's encryption key"
 	icon_state = "cap_cypherkey"
-	channels = list("Command" = 1, "Security" = 1, "Engineering" = 0, "NT Voice" = 0, "Science" = 0, "Medical" = 0, "Supply" = 0, "Service" = 0)
+	channels = list("Command" = 1, "Security" = 1, "Engineering" = 1, "NT Voice" = 1, "Science" = 1, "Medical" = 1, "Supply" = 1, "Service" = 1)
 
 /obj/item/device/encryptionkey/heads/ai_integrated
 	name = "ai integrated encryption key"
@@ -106,7 +113,7 @@
 /obj/item/device/encryptionkey/heads/hop
 	name = "head of personnel's encryption key"
 	icon_state = "hop_cypherkey"
-	channels = list("Command" = 1, "Security" = 1, "Engineering" = 0, "NT Voice" = 0, "Science" = 0, "Medical" = 0, "Supply" = 0, "Service" = 0)
+	channels = list("Command" = 1, "Security" = 1, "Engineering" = 1, "NT Voice" = 1, "Science" = 1, "Medical" = 1, "Supply" = 1, "Service" = 1)
 
 /obj/item/device/encryptionkey/heads/merchant
 	name = "trade union merchant radio encryption key"

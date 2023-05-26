@@ -166,6 +166,8 @@
 			return "Supply"
 		if(ACCESS_REGION_CHURCH) //Neotheo
 			return "NeoTheology"
+		if(ACCESS_REGION_CLUB) //service
+			return "Club"
 
 /proc/get_access_desc(id)
 	var/list/AS = get_all_access_datums_by_id()
@@ -226,7 +228,7 @@ var/obj/item/card/id/all_access/ghost_all_access
 
 	var/obj/item/implant/core_implant/soulcrypt/S = get_soulcrypt()
 	if(S)
-		. |= S.GetAccess() //Eclipse add
+		. |= S.GetAccess() // Occulus add - Checks Soulcrypt for access
 
 	var/obj/item/implant/core_implant/C = get_core_implant()
 	if(C)

@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(tips)
 					var/mob/M = pick(MT.mobs_list)
 					// I suppose this will be obsolete someday
 					if(M == /mob/living/carbon/human)
-						typeText = "Human"
+						typeText = SPECIES_HUMAN
 					else
 						typeText = initial(M.name)
 				else if(istype(T, /tipsAndTricks/roles))
@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(tips)
 				to_chat(mob, SStips.formatTip(T, "Tip for your character: "))
 
 /datum/controller/subsystem/tips/fire()
-	for(var/mob/living/L in SSmobs.mob_list)
+	for(var/mob/living/L in SSmobs.mob_list | SShumans.mob_list)
 		if(L.client)
 			L.client.showSmartTip()
 

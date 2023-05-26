@@ -16,6 +16,7 @@
 							/datum/design/research/item/part/basic_micro_laser,
 							/datum/design/research/item/part/basic_matter_bin,
 							/datum/design/research/circuit/arcade_battle,
+							/datum/design/research/circuit/jukebox,
 							/datum/design/research/circuit/arcade_orion_trail,
 							/datum/design/research/circuit/autolathe,
 							/datum/design/research/item/light_replacer,
@@ -104,64 +105,6 @@
 		/datum/design/research/item/computer_part/cpu/super/small
 		)
 
-// Make this its own tech tree?
-/datum/technology/custom_circuits
-	name = "Custom Circuits"
-	desc = "Integral Ciruits"
-	tech_type = RESEARCH_ENGINEERING
-
-	x = 0.4
-	y = 0.8
-	icon = "tesla"
-
-	required_technologies = list(/datum/technology/adv_replication)
-	required_tech_levels = list()
-	cost = 1000
-
-	unlocks_designs = list(
-							/datum/design/research/item/wirer,
-							/datum/design/research/item/debugger,
-							/datum/design/research/item/detailer,
-							/datum/design/research/item/analyzer,
-							/datum/design/research/item/custom_circuit_assembly,
-							/datum/design/research/item/custom_circuit_assembly/medium,
-							/datum/design/research/item/custom_circuit_assembly/drone,
-							/datum/design/research/item/custom_circuit_assembly/large,
-							///datum/design/research/item/custom_circuit_assembly/implant,
-							/datum/design/research/item/custom_circuit_assembly/printer
-							)
-
-
-/datum/technology/custom_circuits_advanced
-	name = "Advanced Designs"
-	desc = "Integral Ciruits - Advanced Designs"
-	tech_type = RESEARCH_ENGINEERING
-
-	x = 0.4
-	y = 0.9
-	icon = "tesla"
-
-	required_technologies = list(/datum/technology/custom_circuits)
-	required_tech_levels = list()
-	cost = 2000
-
-	unlocks_designs = list(/datum/design/research/item/custom_circuit_assembly/advanced_designs)
-
-/datum/technology/custom_circuits_cloning
-	name = "Instant Cloning"
-	desc = "Integral Ciruits - Instant Cloning"
-	tech_type = RESEARCH_ENGINEERING
-
-	x = 0.5
-	y = 0.9
-	icon = "tesla"
-
-	required_technologies = list(/datum/technology/custom_circuits_advanced)
-	required_tech_levels = list()
-	cost = 2000
-
-	unlocks_designs = list(/datum/design/research/item/custom_circuit_assembly/cloning)
-
 /* No tesla engine?
 /datum/technology/tesla
 	name = "Tesla"
@@ -178,22 +121,6 @@
 
 	unlocks_designs = list("tesla_coil", "grounding_rod")
 */
-
-// TO ADD: advmop?, holosign, spraycan, spacesuit & helmet?, glowsticks_adv, stimpack
-/datum/technology/supplyanddemand
-	name = "Supply And Demand"
-	desc = "Supply And Demand"
-	tech_type = RESEARCH_ENGINEERING
-
-	x = 0.4
-	y = 0.6
-	icon = "advmop"
-
-	required_technologies = list(/datum/technology/basic_engineering)
-	required_tech_levels = list()
-	cost = 500
-
-	unlocks_designs = list(/datum/design/research/circuit/ordercomp, /datum/design/research/circuit/supplycomp)
 
 //TOOLS BRANCH
 // TO ADD: ore_redemption, mining_equipment_vendor, mining_fabricator?
@@ -215,7 +142,7 @@
 
 /datum/technology/advanced_mining
 	name = "Advanced Mining"
-	desc = "Static drill, improved handrill."
+	desc = "Static drill, mining turret, improved handrill."
 	tech_type = RESEARCH_ENGINEERING
 
 	x = 0.4
@@ -227,7 +154,7 @@
 	cost = 2000
 
 	unlocks_designs = list(	/datum/design/research/circuit/miningdrill,
-							/datum/design/research/circuit/miningdrillbrace,
+							/datum/design/research/circuit/miningturret,
 							/datum/design/research/item/weapon/mining/drill_diamond,
 							/datum/design/research/item/weapon/mining/jackhammer,
 							/datum/design/research/item/weapon/mining/scanner
@@ -249,8 +176,7 @@
 	cost = 2000
 
 	unlocks_designs = list(	/datum/design/autolathe/tool/pneumatic_crowbar,
-							/datum/design/autolathe/tool/rcd,
-							/datum/design/autolathe/tool/rcd_ammo
+							/datum/design/autolathe/tool/rcd
 							)
 
 /datum/technology/improved_tools

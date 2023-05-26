@@ -48,7 +48,7 @@
 	icon_stages = list("generic", "planet", "poi")
 
 	var/science = 15000  // OCCULUS EDIT - Science point rewards for overmap scanning with the LRS
-	var/scanned = FALSE
+	var/scanned = FALSE  // OCCULUS EDIT ^
 
 /obj/effect/overmap/sector/exoplanet/proc/generate_habitability()
 	var/roll = rand(1,100)
@@ -325,11 +325,7 @@
 		atmosphere.adjust_gas("nitrogen", MOLES_N2STANDARD)
 	else //let the fuckery commence
 		var/list/newgases = gas_data.gases.Copy()
-		if(prob(90)) //all phoron planet should be rare
-			newgases -= "phoron"
-		if(prob(50)) //alium gas should be slightly less common than mundane shit
-			newgases -= "phoron"
-		newgases -= "phoron"
+		newgases -= "phoron" // Occulus Edit - Plasma > Phoron
 
 		var/total_moles = MOLES_CELLSTANDARD * rand(80,120)/100
 		var/badflag = 0

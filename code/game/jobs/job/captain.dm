@@ -4,7 +4,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	title = "Captain"
 	flag = CAPTAIN
 	department = DEPARTMENT_COMMAND
-	head_position = 1
+	head_position = TRUE
+	aster_guild_member = TRUE
 	department_flag = COMMAND
 	faction = "CEV Northern Light"
 	total_positions = 1
@@ -17,6 +18,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	wl_config_heads = TRUE		//Eclipse edit.
 
+
+	perks = list(/datum/perk/sommelier)
 
 	perks = list(/datum/perk/sommelier)
 
@@ -73,7 +76,8 @@ You are a free agent, able to go where you will. Your loyalty given to whoever y
 	title = "First Officer"
 	flag = FIRSTOFFICER
 	department = DEPARTMENT_COMMAND
-	head_position = 1
+	head_position = TRUE
+	aster_guild_member = TRUE
 	department_flag = COMMAND
 	faction = "CEV Northern Light"
 	total_positions = 1

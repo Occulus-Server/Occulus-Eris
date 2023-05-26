@@ -11,7 +11,7 @@
 	max_shells = 96
 	caliber = CAL_LRIFLE
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
-	ammo_type = "/obj/item/ammo_casing/lrifle"//??
+	ammo_type = /obj/item/ammo_casing/lrifle
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_PAN
 	tac_reloads = FALSE
@@ -22,35 +22,45 @@
 	reload_sound = 'sound/weapons/guns/interact/lmg_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/lmg_cock.ogg'
 	fire_sound = 'sound/weapons/guns/fire/lmg_fire.ogg'
-	recoil_buildup = 2.2
-	one_hand_penalty = 45 //not like it's used anyway, but HMG level
+	init_recoil = HMG_RECOIL(0.5)
+	damage_multiplier = 1.4
+	penetration_multiplier = -0.2
+	burst_delay = 0.8
 	init_firemodes = list(
-		list(mode_name = "full auto",  mode_desc = "600 rounds per minute",   mode_type = /datum/firemode/automatic, fire_delay = 1, icon="auto", damage_mult_add = -0.1, move_delay=6),
-		list(mode_name="short bursts", mode_desc="dakka", burst=5,    burst_delay=1, move_delay=6,  icon="burst"),
-		list(mode_name="long bursts", mode_desc="Dakka", burst=8, burst_delay=1, move_delay=8,  icon="burst"),
-		list(mode_name="suppressing fire", mode_desc="DAKKA", burst=16, burst_delay=1, move_delay=16,  icon="burst")
+		list(mode_name = "full auto",  mode_desc="800 rounds per minute", mode_type = /datum/firemode/automatic, fire_delay=2.4, icon="auto", move_delay=5),
+		list(mode_name="short bursts", mode_desc="dakka", burst=5, fire_delay=null, move_delay=5,  icon="burst"),
+		list(mode_name="long bursts", mode_desc="Dakka", burst=8, fire_delay=null, move_delay=7,  icon="burst"),
+		list(mode_name="suppressing fire", mode_desc="DAKKA", burst=16, fire_delay=null, move_delay=13,  icon="burst")
 		)
 	twohanded = TRUE
 	spawn_blacklisted = TRUE
-	slowdown_hold = 5
+	init_offset = 20 // Too much even for cover
+	slowdown_hold = 1
 	wield_delay = 1 SECOND
 	wield_delay_factor = 0.9 // 90 vig
+	gun_parts = list(/obj/item/part/gun/frame/maxim = 1, /obj/item/part/gun/modular/grip/excel = 1, /obj/item/part/gun/modular/mechanism/machinegun = 1, /obj/item/part/gun/modular/barrel/lrifle = 1)
+	serial_type = "Excelsior"
 
-/obj/item/gun/projectile/automatic/maxim/on_update_icon()
+/obj/item/gun/projectile/automatic/maxim/update_icon()
 	..()
-
-	var/iconstring = initial(icon_state)
 	var/itemstring = ""
+	cut_overlays()
 
-	if (ammo_magazine)
-		iconstring += "[ammo_magazine? "-full[ammo_magazine.ammo_color]": ""]"
+	if(ammo_magazine)
+		overlays += "mag[ammo_magazine.ammo_label_string]"
 		itemstring += "_full"
 
 	if(wielded)
 		itemstring += "_doble"
 
-	icon_state = iconstring
 	set_item_state(itemstring)
 
-
+/obj/item/part/gun/frame/maxim
+	name = "Maxim frame"
+	desc = "A Maxim HMG frame. Whatever happens, we have got the Maxim gun and they have not."
+	icon_state = "frame_maxim"
+	resultvars = list(/obj/item/gun/projectile/automatic/maxim)
+	gripvars = list(/obj/item/part/gun/modular/grip/excel)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/machinegun
+	barrelvars = list(/obj/item/part/gun/modular/barrel/lrifle)
 End Occulus Edit*/

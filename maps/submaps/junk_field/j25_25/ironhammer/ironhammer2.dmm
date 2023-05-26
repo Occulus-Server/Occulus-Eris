@@ -19,13 +19,8 @@
 /area/template_noop)
 "aP" = (
 /obj/structure/table/rack,
-<<<<<<< HEAD
-/obj/spawner/gun/normal,
-/turf/simulated/floor/tiled/dark/cargo,
-=======
 /obj/spawner/gun/cheap,
 /turf/simulated/floor/tiled/dark/cargo/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "aU" = (
 /obj/spawner/oddities/low_chance,
@@ -79,8 +74,8 @@
 /area/template_noop)
 "fy" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
+/obj/item/clothing/suit/armor/heavy/ironhammer,
+/obj/item/clothing/suit/armor/heavy/ironhammer,
 /obj/item/clothing/head/armor/riot_hud,
 /obj/item/clothing/head/armor/riot_hud,
 /turf/simulated/floor/tiled/dark/cargo/airless,
@@ -144,15 +139,9 @@
 /area/template_noop)
 "oS" = (
 /obj/structure/table/rack,
-<<<<<<< HEAD
-/obj/item/storage/belt/tactical/ironhammer,
-/obj/item/gun/energy/gun/martin,
-/turf/simulated/floor/tiled/dark/cargo,
-=======
 /obj/item/storage/belt/tactical/ironhammer,
 /obj/item/gun/energy/gun/martin,
 /turf/simulated/floor/tiled/dark/cargo/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "pa" = (
 /obj/structure/bed/chair/comfy/black,
@@ -160,15 +149,9 @@
 /area/template_noop)
 "pb" = (
 /obj/structure/table/woodentable,
-<<<<<<< HEAD
-/obj/item/material/ashtray,
-/obj/item/storage/fancy/cigarettes/dromedaryco,
-/turf/simulated/floor/carpet,
-=======
 /obj/item/material/ashtray,
 /obj/item/storage/fancy/cigarettes/dromedaryco,
 /turf/simulated/floor/carpet/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "po" = (
 /obj/machinery/light_construct{
@@ -223,15 +206,9 @@
 /area/template_noop)
 "wg" = (
 /obj/structure/table/woodentable,
-<<<<<<< HEAD
-/obj/item/storage/briefcase,
-/obj/item/storage/briefcase,
-/turf/simulated/floor/carpet,
-=======
 /obj/item/storage/briefcase,
 /obj/item/storage/briefcase,
 /turf/simulated/floor/carpet/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "ww" = (
 /obj/machinery/door/firedoor,
@@ -259,15 +236,9 @@
 /area/template_noop)
 "xO" = (
 /obj/structure/table/woodentable,
-<<<<<<< HEAD
-/obj/item/paper_bin,
-/obj/item/pen,
-/turf/simulated/floor/wood,
-=======
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/wood/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "yr" = (
 /turf/simulated/floor/tiled/steel/techfloor_grid/airless,
@@ -306,13 +277,8 @@
 /area/template_noop)
 "Ax" = (
 /obj/structure/table/woodentable,
-<<<<<<< HEAD
-/obj/item/folder/blue,
-/turf/simulated/floor/wood,
-=======
 /obj/item/folder/blue,
 /turf/simulated/floor/wood/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "Az" = (
 /obj/machinery/light,
@@ -374,13 +340,8 @@
 /area/template_noop)
 "Hc" = (
 /obj/structure/bed/padded,
-<<<<<<< HEAD
-/obj/item/bedsheet/orange,
-/turf/simulated/floor/tiled/steel/orangecorner,
-=======
 /obj/item/bedsheet/orange,
 /turf/simulated/floor/tiled/steel/orangecorner/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "Hd" = (
 /obj/item/modular_computer/console{
@@ -418,15 +379,9 @@
 /area/template_noop)
 "KI" = (
 /obj/structure/table/rack,
-<<<<<<< HEAD
-/obj/item/storage/box/handcuffs,
-/obj/item/storage/box/flashbangs,
-/turf/simulated/floor/tiled/dark/cargo,
-=======
 /obj/item/storage/box/handcuffs,
 /obj/item/storage/box/flashbangs,
 /turf/simulated/floor/tiled/dark/cargo/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "KW" = (
 /obj/structure/filingcabinet,
@@ -457,13 +412,8 @@
 /area/template_noop)
 "Mf" = (
 /obj/structure/table/woodentable,
-<<<<<<< HEAD
-/obj/item/book/manual/wiki/security_ironparagraphs,
-/turf/simulated/floor/wood,
-=======
 /obj/item/book/manual/wiki/security_ironparagraphs,
 /turf/simulated/floor/wood/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "ME" = (
 /obj/structure/table/woodentable,
@@ -581,15 +531,9 @@
 /area/template_noop)
 "Wp" = (
 /obj/structure/table/reinforced,
-<<<<<<< HEAD
-/obj/item/paper_bin,
-/obj/item/pen,
-/turf/simulated/floor/tiled/steel/gray_perforated,
-=======
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/tiled/steel/gray_perforated/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "Xd" = (
 /mob/living/simple_animal/hostile/hivebot,

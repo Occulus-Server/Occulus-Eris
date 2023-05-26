@@ -51,8 +51,8 @@
 .say_quote				{font-family: Georgia, Verdana, sans-serif;}
 .russian				{color: #635d17}
 .serbian				{color: #Ad6f1d}
-.jive					{color: #666666}
-.tajaran				{color: #803B56;}
+.jive					{color: #666666} /* Occulus Edit Start - Custom Langs */
+.tajaran				{color: #803B56;} 
 .tajaran_signlang		{color: #941C1C;}
 .akhani					{color: #AC398C;}
 .skrell					{color: #00B0B3;}
@@ -62,8 +62,11 @@
 .changeling				{color: #800080;}
 .sergal					{color: #0077FF;}
 .vulpkanin				{color: #B97A57;}
-.vox					{color: #AA00AA;}
+.vox					{color: #AA00AA;} /* Occulus Edit End - Custom Langs */
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
+.german					{color: #001FFF}
+.neohongo               {color: #993399}
+.latin                  {color: #deb63d}
 
 .good                   {color: #4f8529; font-weight: bold;}
 .bad                    {color: #ee0000; font-weight: bold;}

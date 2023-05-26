@@ -41,7 +41,7 @@ var/global/list/default_medbay_channels = list(
 	var/on = TRUE // 0 for off
 	var/last_transmission
 	var/frequency = PUB_FREQ //common chat
-	var/traitor_frequency = 0 //tune to frequency to unlock traitor supplies
+	var/contractor_frequency = 0 //tune to frequency to unlock contractor supplies
 	var/canhear_range = 3 // the range which mobs can hear this radio from
 	var/datum/wires/radio/wires
 	var/b_stat = 0
@@ -49,7 +49,8 @@ var/global/list/default_medbay_channels = list(
 	var/listening = 1
 	var/list/channels = list() //see communications.dm for full list. First channel is a "default" for :h
 	var/subspace_transmission = 0
-	var/syndie = 0//Holder to see if it's a syndicate encrypted radio
+	var/syndie = FALSE//Holder to see if it's a syndicate encrypted radio
+	var/merc = FALSE  //Holder to see if it's a mercenary encrypted radio
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
 
@@ -100,6 +101,7 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/attack_self(mob/user as mob)
 	user.set_machine(src)
+	add_fingerprint(user)
 	interact(user)
 
 /obj/item/device/radio/interact(mob/user)
@@ -109,9 +111,9 @@ var/global/list/default_medbay_channels = list(
 	if(b_stat)
 		wires.Interact(user)
 
-	return ui_interact(user)
+	return nano_ui_interact(user)
 
-/obj/item/device/radio/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/item/device/radio/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	var/data[0]
 
 	data["mic_status"] = broadcasting
@@ -249,7 +251,7 @@ var/global/list/default_medbay_channels = list(
 		SSnano.update_uis(src)
 	playsound(loc, 'sound/machines/machine_switch.ogg', 100, 1)
 
-/obj/item/device/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
+/obj/item/device/radio/proc/autosay(message, from, channel, use_text_to_speech = FALSE)
 	var/datum/radio_frequency/connection = null
 	if(channel && channels && channels.len > 0)
 		if (channel == "department")
@@ -266,7 +268,7 @@ var/global/list/default_medbay_channels = list(
 	Broadcast_Message(connection, null,
 						0, "*garbled automated announcement*", src,
 						message, from, "Automated Announcement", from, "synthesized voice",
-						4, 0, list(0), connection.frequency, "states")
+						4, 0, list(0), connection.frequency, "states", use_text_to_speech = use_text_to_speech)
 	return
 
 // Interprets the message mode when talking into a radio, possibly returning a connection datum
@@ -290,6 +292,9 @@ var/global/list/default_medbay_channels = list(
 	if(!on) return 0 // the device has to be on
 	//  Fix for permacell radios, but kinda eh about actually fixing them.
 	if(!M || !message) return 0
+
+	if(speaking && (speaking.flags & (NONVERBAL|SIGNLANG))) // so we don't speak sign language over radio
+		return 0
 
 	//  Uncommenting this. To the above comment:
 	// 	The permacell radios aren't suppose to be able to transmit, this isn't a bug and this "fix" is just making radio wires useless. -Giacom
@@ -367,7 +372,7 @@ var/global/list/default_medbay_channels = list(
 		displayname = M.GetVoice()
 		jobname = "Unknown"
 		voicemask = 1
-	SEND_SIGNAL(src, COMSIG_MESSAGE_SENT)
+	SEND_SIGNAL_OLD(src, COMSIG_MESSAGE_SENT)
 
 
 
@@ -518,11 +523,8 @@ var/global/list/default_medbay_channels = list(
 	// check if this radio can receive on the given frequency, and if so,
 	// what the range is in which mobs will hear the radio
 	// returns: -1 if can't receive, range otherwise
-	if (QDELING(src))
-		return -1
-	if (wires?.IsIndexCut(WIRE_RECEIVE))
-		return -1
-	if(!listening)
+
+	if(!listening || !on || !freq || wires.IsIndexCut(WIRE_RECEIVE))
 		return -1
 	if(is_jammed(src))	//occulus edit
 		return -1		//occulus edit
@@ -530,25 +532,21 @@ var/global/list/default_medbay_channels = list(
 		var/turf/position = get_turf(src)
 		if(!position || !(position.z in level))
 			return -1
+
 	if(freq in ANTAG_FREQS)
-		if(!(src.syndie))//Checks to see if it's allowed on that frequency, based on the encryption keys
+		if(!syndie && !merc)//Checks to see if it's allowed on that frequency, based on the encryption keys
 			return -1
-	if (!on)
-		return -1
 
-	if (!freq) //recieved on main frequency
-		if (!listening)
-			return -1
-	else
-		var/accept = (freq==frequency && listening)
-		if (!accept)
-			for (var/ch_name in channels)
-				var/datum/radio_frequency/RF = secure_radio_connections[ch_name]
-				if (RF.frequency==freq && (channels[ch_name]&FREQ_LISTENING))
-					accept = 1
-					break
+	var/can_recieve = (freq == frequency)
 
-		if (!accept)
+	if(!can_recieve)
+		for(var/i in channels)
+			var/datum/radio_frequency/RF = secure_radio_connections[i]
+			if(RF && RF.frequency == freq && (channels[i] & FREQ_LISTENING))
+				can_recieve = TRUE
+				break
+
+		if(!can_recieve)
 			return -1
 	play_squelch_sound(audible_squelch_type)		//eclipse addition - play radio squelch.
 	return canhear_range
@@ -665,7 +663,7 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/borg/proc/recalculateChannels()
 	src.channels = list()
-	src.syndie = 0
+	src.syndie = FALSE
 
 	var/mob/living/silicon/robot/D = src.loc
 	if(D.module)
@@ -682,7 +680,7 @@ var/global/list/default_medbay_channels = list(
 			src.channels[ch_name] += keyslot.channels[ch_name]
 
 		if(keyslot.syndie)
-			src.syndie = 1
+			src.syndie = TRUE
 
 	for (var/ch_name in src.channels)
 		secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name],  RADIO_CHAT)
@@ -727,7 +725,7 @@ var/global/list/default_medbay_channels = list(
 
 	. = ..()
 
-/obj/item/device/radio/borg/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/item/device/radio/borg/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	var/data[0]
 
 	data["mic_status"] = broadcasting
@@ -782,8 +780,9 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/random_radio
 	name = "Random wave radio"
-	desc = "Radio that can pick up message from secure channels, but with small chance. Provides intel about hidden loot over time. It can be repaired by oddity with mechanical aspect."
+	desc = "Radio that can pick up messages from secure channels, but with small chance. Provides intel about hidden loot over time. It can be repaired by oddity with mechanical aspect."
 	icon = 'icons/obj/faction_item.dmi'
+	description_antag = "If repaired enough, it also gains full access to all communication channels except binary. Can also be upgraded with the bluespace Biosyphon to siphon special bluespace items."
 	icon_state = "random_radio"
 	item_state = "random_radio"
 	slot_flags = FALSE
@@ -799,14 +798,30 @@ var/global/list/default_medbay_channels = list(
 	var/cooldown = 40 MINUTES
 	var/max_cooldown = 40 MINUTES
 	var/min_cooldown = 15 MINUTES
+	var/bluespace_generating = FALSE
+	var/bluespace_cooldown = 10 MINUTES
+	var/last_bluespace = 0
+	var/bluespace_items = list(
+		/obj/item/computer_hardware/hard_drive/portable/design/guns/fs_wintermute = 5,
+		/obj/item/computer_hardware/hard_drive/portable/design/excelsior/ak47 = 5,
+		/obj/item/computer_hardware/hard_drive/portable/design/nt/nt_lightfall = 5,
+		/obj/item/cell/small/hyper = 1,
+		/obj/item/cell/medium/hyper = 1,
+		/obj/item/bluespace_crystal = 1
+	)
 	w_class = ITEM_SIZE_BULKY
 
 /obj/item/device/radio/random_radio/New()
 	..()
+	GLOB.all_faction_items[src] = GLOB.department_guild
 	START_PROCESSING(SSobj, src)
 
 /obj/item/device/radio/random_radio/Destroy()
 	STOP_PROCESSING(SSobj, src)
+	for(var/mob/living/carbon/human/H in viewers(get_turf(src)))
+		SEND_SIGNAL_OLD(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
+	GLOB.all_faction_items -= src
+	GLOB.guild_faction_item_loss++
 	. = ..()
 
 /obj/item/device/radio/random_radio/Process()
@@ -817,8 +832,14 @@ var/global/list/default_medbay_channels = list(
 		stash.select_location()
 		stash.spawn_stash()
 		var/obj/item/paper/stash_note = stash.spawn_note(get_turf(src))
-		visible_message(SPAN_NOTICE("[src] drop [stash_note]."))
+		visible_message(SPAN_NOTICE("[src] spits out a [stash_note]."))
 		last_produce = world.time
+	if(world.time > last_bluespace && bluespace_generating)
+		var/pathed = pickweight(bluespace_items, pick(5,10,25))
+		var/atom/movable/the_chosen = new pathed()
+		the_chosen.forceMove(get_turf(src))
+		last_bluespace = world.time + bluespace_cooldown
+		bluespace_entropy(5, get_turf(src), TRUE)
 
 /obj/item/device/radio/random_radio/receive_range(freq, level)
 
@@ -847,40 +868,50 @@ var/global/list/default_medbay_channels = list(
 		playsound(loc, "sparks", 75, 1, -1)
 		to_chat(user, SPAN_NOTICE("You use the cryptographic sequencer on the [name]."))
 	else
-		to_chat(user, SPAN_NOTICE("The [name] has already been emaged."))
+		to_chat(user, SPAN_NOTICE("The [name] has already been emagged."))
 		return NO_EMAG_ACT
 
-/obj/item/device/radio/random_radio/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/device/radio/random_radio/attackby(obj/item/W, mob/user, params)
+	if(nt_sword_attack(W, user))
+		return FALSE
 	user.set_machine(src)
+
+	if(istype(W, /obj/item/biosyphon))
+		user.remove_from_mob(W)
+		qdel(W)
+		name = "Bluespace random wave radio"
+		bluespace_generating = TRUE
+		to_chat(user, SPAN_NOTICE("You upgrade the [src] with bluespace technology, now it can siphon items lost in bluespace!"))
 
 	if(istype(W, /obj/item/oddity))
 		var/obj/item/oddity/D = W
 		if(D.oddity_stats)
 			var/usefull = FALSE
-			if(D in used_oddity)
-				to_chat(user, SPAN_WARNING("You already use [D] to repair [src]"))
-				return
 
 			if(random_hear >= 100)
-				to_chat(user, SPAN_WARNING("The [src] are repaired at it's maxium."))
+				to_chat(user, SPAN_WARNING("The [src] is in perfect condition."))
 				return
 
-			to_chat(user, SPAN_NOTICE("You starting repairing [src] using [D]."))
+			to_chat(user, SPAN_NOTICE("You begin repairing [src] using [D]."))
 
 			if(!do_after(user, 20 SECONDS, src))
-				to_chat(user, SPAN_WARNING("You stoped repairing [src]."))
+				to_chat(user, SPAN_WARNING("You've stopped repairing [src]."))
+				return
+
+			if(D in used_oddity)
+				to_chat(user, SPAN_WARNING("You've already used [D] to repair [src]!"))
 				return
 
 			for(var/stat in D.oddity_stats)
 				if(stat == STAT_MEC)
-					var/increece = D.oddity_stats[stat] * 3
-					random_hear += increece
+					var/increase = D.oddity_stats[stat] * 3
+					random_hear += increase
 					if(random_hear > 100)
 						random_hear = 100
 					cooldown -= (D.oddity_stats[stat]) MINUTES
 					if(cooldown < min_cooldown)
 						cooldown = min_cooldown
-					to_chat(user, SPAN_NOTICE("You make use of [D], and repaired [src] by [increece]%."))
+					to_chat(user, SPAN_NOTICE("You make use of [D], and repaired [src] by [increase]%."))
 					usefull = TRUE
 					used_oddity += D
 					return

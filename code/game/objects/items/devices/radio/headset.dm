@@ -72,6 +72,11 @@
 	ks1type = /obj/item/device/encryptionkey/syndicate
 	spawn_blacklisted = TRUE
 
+/obj/item/device/radio/headset/mercenaries
+	origin_tech = list(TECH_COVERT = 3)
+	ks1type = /obj/item/device/encryptionkey/mercenaries
+	spawn_blacklisted = TRUE
+
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_COVERT = 3)
 	ks1type = /obj/item/device/encryptionkey/binary
@@ -221,32 +226,20 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_church
 
-/obj/item/device/radio/headset/attackby(obj/item/W, mob/user)
-//	..()
-	user.set_machine(src)
-	if (!( istype(W, /obj/item/tool/screwdriver) || (istype(W, /obj/item/device/encryptionkey/ ))))
-		return
-
-	if(istype(W, /obj/item/tool/screwdriver))
+/obj/item/device/radio/headset/attackby(obj/item/I, mob/user)
+	if(QUALITY_SCREW_DRIVING in I.tool_qualities)
 		if(keyslot1 || keyslot2)
-
-
 			for(var/ch_name in channels)
 				SSradio.remove_object(src, radiochannels[ch_name])
 				secure_radio_connections[ch_name] = null
 
-
-			if(keyslot1)
-				var/turf/T = get_turf(user)
-				if(T)
+			var/turf/T = get_turf(user)
+			if(T)
+				if(keyslot1)
 					keyslot1.loc = T
 					keyslot1 = null
 
-
-
-			if(keyslot2)
-				var/turf/T = get_turf(user)
-				if(T)
+				if(keyslot2)
 					keyslot2.loc = T
 					keyslot2 = null
 
@@ -256,32 +249,30 @@
 		else
 			to_chat(user, "This headset doesn't have any encryption keys!  How useless...")
 
-	if(istype(W, /obj/item/device/encryptionkey/))
+	if(istype(I, /obj/item/device/encryptionkey))
 		if(keyslot1 && keyslot2)
 			to_chat(user, "The headset can't hold another key!")
 			return
 
 		if(!keyslot1)
 			user.drop_item()
-			W.loc = src
-			keyslot1 = W
+			I.loc = src
+			keyslot1 = I
 
 		else
 			user.drop_item()
-			W.loc = src
-			keyslot2 = W
-
+			I.loc = src
+			keyslot2 = I
 
 		recalculateChannels()
-
-	return
 
 
 /obj/item/device/radio/headset/proc/recalculateChannels(var/setDescription = 0)
 	src.channels = list()
-	src.translate_binary = 0
-	src.translate_hive = 0
-	src.syndie = 0
+	src.translate_binary = FALSE
+	src.translate_hive = FALSE
+	src.syndie = FALSE
+	src.merc = FALSE
 
 	if(keyslot1)
 		for(var/ch_name in keyslot1.channels)
@@ -291,13 +282,16 @@
 			src.channels[ch_name] = keyslot1.channels[ch_name]
 
 		if(keyslot1.translate_binary)
-			src.translate_binary = 1
+			src.translate_binary = TRUE
 
 		if(keyslot1.translate_hive)
-			src.translate_hive = 1
+			src.translate_hive = TRUE
 
 		if(keyslot1.syndie)
-			src.syndie = 1
+			src.syndie = TRUE
+
+		if(keyslot1.merc)
+			src.merc = TRUE
 
 	if(keyslot2)
 		for(var/ch_name in keyslot2.channels)
@@ -307,13 +301,16 @@
 			src.channels[ch_name] = keyslot2.channels[ch_name]
 
 		if(keyslot2.translate_binary)
-			src.translate_binary = 1
+			src.translate_binary = TRUE
 
 		if(keyslot2.translate_hive)
-			src.translate_hive = 1
+			src.translate_hive = TRUE
 
 		if(keyslot2.syndie)
-			src.syndie = 1
+			src.syndie = TRUE
+
+		if(keyslot2.merc)
+			src.merc = TRUE
 
 
 	for (var/ch_name in channels)

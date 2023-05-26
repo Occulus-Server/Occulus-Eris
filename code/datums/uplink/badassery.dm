@@ -74,19 +74,19 @@
 	item_cost = 1
 	antag_roles = list(ROLE_MARSHAL)
 	path = /obj/item/clothing/accessory/badge/marshal
-	desc = "A leather-backed gold badge displaying the crest of the Aegis Marshals."
+	desc = "A leather-backed gold badge displaying the crest of the Aegis Marshals." // Occulus Edit - Remove Eris corp. reference
 
 /datum/uplink_item/item/badassery/donut_case
 	name = "Special Donut Delivery Case"
 	item_cost = 18
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/case/donut
 	desc = "A rare donut case, that can only be purchased on the black market. Contains masterfully made donuts, with unique effects for those who eat them."
 
 /datum/uplink_item/item/badassery/contract
 	name = "Ask for new contract"
 	item_cost = 4
-	antag_roles = list(ROLE_TRAITOR,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_CARRION)
 	desc = "You pay extra TC to get a new contract on time."
 
 /datum/uplink_item/item/badassery/contract/get_goods(var/obj/item/device/uplink/U, var/loc)

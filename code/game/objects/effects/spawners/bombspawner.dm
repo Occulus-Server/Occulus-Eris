@@ -30,7 +30,7 @@
 		// radio
 		if (0)
 			var/obj/item/assembly/r_i_ptank/R = new /obj/item/assembly/r_i_ptank(src.loc)
-			var/obj/item/tank/phoron/p3 = new /obj/item/tank/phoron(R)
+			var/obj/item/tank/plasma/p3 = new /obj/item/tank/plasma(R)
 			var/obj/item/device/radio/signaler/p1 = new /obj/item/device/radio/signaler(R)
 			var/obj/item/device/igniter/p2 = new /obj/item/device/igniter(R)
 			R.part1 = p1
@@ -47,7 +47,7 @@
 		// proximity
 		if (1)
 			var/obj/item/assembly/m_i_ptank/R = new /obj/item/assembly/m_i_ptank(src.loc)
-			var/obj/item/tank/phoron/p3 = new /obj/item/tank/phoron(R)
+			var/obj/item/tank/plasma/p3 = new /obj/item/tank/plasma(R)
 			var/obj/item/device/prox_sensor/p1 = new /obj/item/device/prox_sensor(R)
 			var/obj/item/device/igniter/p2 = new /obj/item/device/igniter(R)
 			R.part1 = p1
@@ -69,7 +69,7 @@
 		// timer
 		if (2)
 			var/obj/item/assembly/t_i_ptank/R = new /obj/item/assembly/t_i_ptank(src.loc)
-			var/obj/item/tank/phoron/p3 = new /obj/item/tank/phoron(R)
+			var/obj/item/tank/plasma/p3 = new /obj/item/tank/plasma(R)
 			var/obj/item/device/timer/p1 = new /obj/item/device/timer(R)
 			var/obj/item/device/igniter/p2 = new /obj/item/device/igniter(R)
 			R.part1 = p1
@@ -85,11 +85,8 @@
 		//bombvest
 		if(3)
 			var/obj/item/clothing/suit/armor/a_i_a_ptank/R = new /obj/item/clothing/suit/armor/a_i_a_ptank(src.loc)
-			var/obj/item/tank/phoron/p4 = new /obj/item/tank/phoron(R)
-			var/obj/item/device/healthanalyzer/p1 = new /obj/item/device/scanner/health(R)
-			var/obj/item/device/igniter/p2 = new /obj/item/device/igniter(R)
+			var/obj/item/tank/plasma/p4 = new /obj/item/tank/plasma(R)
 			var/obj/item/clothing/suit/armor/vest/p3 = new /obj/item/clothing/suit/armor/vest(R)
-			R.part1 = p1
 			R.part2 = p2
 			R.part3 = p3
 			R.part4 = p4
@@ -136,7 +133,7 @@
 	//Note that the maximum amount of gas you can put in a 70L air tank at 1013.25 kPa and 519K is 16.44 mol.
 	var/phoron_amt = 10.96
 	var/oxygen_amt = 16.44
-	var/carbon_amt = 0.0
+	var/carbon_amt = 0
 
 /obj/effect/spawner/newbomb/timer
 	name = "TTV bomb - timer"
@@ -162,7 +159,7 @@
 	..()
 
 	var/obj/item/device/transfer_valve/V = new(src.loc)
-	var/obj/item/tank/phoron/PT = new(V)
+	var/obj/item/tank/plasma/PT = new(V)
 	var/obj/item/tank/oxygen/OT = new(V)
 
 	V.tank_one = PT

@@ -4,37 +4,45 @@
 	icon_state = "mech_clamp"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
-	var/obj/carrying
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	var/carrying_capacity = 5
+	var/list/obj/carrying = list()
 
-/obj/item/mech_equipment/clamp/attack()
-	return 0
 
-/obj/item/mech_equipment/clamp/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
+/obj/item/mech_equipment/clamp/resolve_attackby(atom/A, mob/user, click_params)
+	if(isturf(A))
+		var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in owner
+		if(ore_box)
+			for(var/obj/item/ore/i in A)
+				i.Move(ore_box)
+	if(istype(A, /obj/structure/closet) || istype(A, /obj/item/storage) || istype(A, /obj/structure/scrap_cube) && owner)
+		return FALSE
 	. = ..()
 
-	if(. && !carrying)
 
-		///// OCCULUS EDIT START
-		// Mechs did not check if they were actually in range before trying to use drills or clamps.
-		// The proc has been adjusted with the following clause in mind.
+/obj/item/mech_equipment/clamp/afterattack(atom/target, mob/living/user, inrange, params)
+	if(!inrange) return
+	. = ..()
+
+	if(.)
+		if(length(carrying) >= carrying_capacity)
+			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
+			return
 
 		if (!inrange)
 			to_chat(user, SPAN_NOTICE("You must be adjacent to [target] to use the hydraulic clamp."))
 		else
-
-			if(istype(target, /obj))
-
-
+			if(isobj(target))
 				var/obj/O = target
 				if(O.buckled_mob)
 					return
 				if(locate(/mob/living) in O)
-					to_chat(user,"<span class='warning'>You can't load living things into the cargo compartment.</span>")
+					to_chat(user, SPAN_WARNING("You can't load living things into the cargo compartment."))
 					return
 
 				if(istype(target, /obj/structure/scrap_spawner))
 					owner.visible_message(SPAN_NOTICE("\The [owner] begins compressing \the [O] with \the [src]."))
+					playsound(src, 'sound/mechs/hydraulic.ogg', 50, 1)
 					if(do_after(owner, 20, O, 0, 1))
 						if(istype(O, /obj/structure/scrap_spawner))
 							var/obj/structure/scrap_spawner/S = O
@@ -43,50 +51,99 @@
 					return
 
 				if(O.anchored)
-					to_chat(user, "<span class='warning'>[target] is firmly secured.</span>")
+					to_chat(user, SPAN_WARNING("[target] is firmly secured."))
 					return
 
-
 				owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."))
+				playsound(src, 'sound/mechs/hydraulic.ogg', 50, 1)
 				if(do_after(owner, 20, O, 0, 1))
+					if(O in carrying || O.buckled_mob || O.anchored || (locate(/mob/living) in O)) //Repeat checks
+						return
+					if(length(carrying) >= carrying_capacity)
+						to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
+						return
 					O.forceMove(src)
-					carrying = O
+					carrying += O
 					owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [O] into its cargo compartment."))
 
-
 			//attacking - Cannot be carrying something, cause then your clamp would be full
-			else if(istype(target,/mob/living))
+			else if(isliving(target))
 				var/mob/living/M = target
 				if(user.a_intent == I_HURT)
 					admin_attack_log(user, M, "attempted to clamp [M] with [src] ", "Was subject to a clamping attempt.", ", using \a [src], attempted to clamp")
 					owner.setClickCooldown(owner.arms ? owner.arms.action_delay * 3 : 30) //This is an inefficient use of your powers
-					if(prob(33))
-						owner.visible_message(SPAN_DANGER("[owner] swings its [src] in a wide arc at [target] but misses completely!"))
-						return
+//				if(prob(33))
+//					owner.visible_message(SPAN_DANGER("[owner] swings its [src] in a wide arc at [target] but misses completely!"))
+//					return
 					M.attack_generic(owner, (owner.arms ? owner.arms.melee_damage * 1.5 : 0), "slammed") //Honestly you should not be able to do this without hands, but still
 					M.throw_at(get_edge_target_turf(owner ,owner.dir),5, 2)
-					to_chat(user, "<span class='warning'>You slam [target] with [src.name].</span>")
+					to_chat(user, SPAN_WARNING("You slam [target] with [src.name]."))
 					owner.visible_message(SPAN_DANGER("[owner] slams [target] with the hydraulic clamp."))
 				else
 					step_away(M, owner)
 					to_chat(user, "You push [target] out of the way.")
 					owner.visible_message("[owner] pushes [target] out of the way.")
 
-		///// OCCULUS EDIT END
 
 /obj/item/mech_equipment/clamp/attack_self(var/mob/user)
 	. = ..()
 	if(.)
-		if(!carrying)
-			to_chat(user, SPAN_WARNING("You are not carrying anything in \the [src]."))
-		else
-			owner.visible_message(SPAN_NOTICE("\The [owner] unloads \the [carrying]."))
-			carrying.forceMove(get_turf(src))
-			carrying = null
+		drop_carrying(user, TRUE)
+
+/obj/item/mech_equipment/clamp/CtrlClick(mob/user)
+	if(owner)
+		drop_carrying(user, FALSE)
+	else
+		..()
+
+/obj/item/mech_equipment/clamp/proc/drop_carrying(var/mob/user, var/choose_object)
+	if(!length(carrying))
+		to_chat(user, SPAN_WARNING("You are not carrying anything in \the [src]."))
+		return
+	var/obj/chosen_obj = carrying[1]
+	if(choose_object)
+		chosen_obj = input(user, "Choose an object to set down.", "Clamp Claw") as null|anything in carrying
+	if(!chosen_obj)
+		return/*
+	if(chosen_obj.density)
+		for(var/atom/A in get_turf(src))
+			if(A != owner && A.density && !(A.atom_flags & ATOM_FLAG_CHECKS_BORDER))
+				to_chat(user, SPAN_WARNING("\The [A] blocks you from putting down \the [chosen_obj]."))
+				return */
+
+	owner.visible_message(SPAN_NOTICE("\The [owner] unloads \the [chosen_obj]."))
+	playsound(src, 'sound/mechs/hydraulic.ogg', 50, 1)
+	chosen_obj.forceMove(get_turf(src))
+	carrying -= chosen_obj
+
+/obj/item/mech_equipment/clamp/get_hardpoint_status_value()
+	if(length(carrying) > 1)
+		return length(carrying)/carrying_capacity
+	return null
 
 /obj/item/mech_equipment/clamp/get_hardpoint_maptext()
-	if(carrying)
-		return carrying.name
+	if(length(carrying) == 1)
+		return carrying[1].name
+	else if(length(carrying) > 1)
+		return "Multiple"
+	. = ..()
+
+/obj/item/mech_equipment/clamp/uninstalled()
+	if(length(carrying))
+		for(var/obj/load in carrying)
+			var/turf/location = get_turf(src)
+			var/list/turfs = location.AdjacentTurfsSpace()
+			if(load.density)
+				if(turfs.len > 0)
+					location = pick(turfs)
+					turfs -= location
+				else
+					load.dropInto(location)
+					load.throw_at_random(FALSE, rand(2,4), 4)
+					location = null
+			if(location)
+				load.dropInto(location)
+			carrying -= load
 	. = ..()
 
 // A lot of this is copied from floodlights.
@@ -99,9 +156,9 @@
 	mech_layer = MECH_INTERMEDIATE_LAYER
 
 	var/on = FALSE
-	var/l_max_bright = 0.9
+	var/l_max_bright = 1.2
 	var/l_inner_range = 1
-	var/l_outer_range = 6
+	var/l_outer_range = 9
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 
 /obj/item/mech_equipment/light/attack_self(var/mob/user)
@@ -129,7 +186,7 @@
 /obj/item/mech_equipment/catapult
 	name = "gravitational catapult"
 	desc = "An exosuit-mounted gravitational catapult."
-	icon_state = "mech_clamp"
+	icon_state = "mech_wormhole"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	var/mode = CATAPULT_SINGLE
@@ -216,7 +273,7 @@
 /obj/item/material/drill_head/Initialize()
 	. = ..()
 
-	//durability = 2 * (material ? material.integrity : 1)
+	//durability = 3 * (material ? material.integrity : 1)
 
 /obj/item/material/drill_head/Created(var/creator)
 	ApplyDurability()
@@ -235,7 +292,7 @@
 
 
 /obj/item/material/drill_head/verb/ApplyDurability()
-	durability = 2 * (material ? material.integrity : 1)
+	durability = 3 * (material ? material.integrity : 1)
 
 /obj/item/mech_equipment/drill
 	name = "drill"
@@ -268,13 +325,9 @@
 	. = ..()
 	if(.)
 
-		///// OCCULUS EDIT START
-		// Mechs did not check if they were actually in range before trying to use drills or clamps.
-		// The proc has been adjusted with the following clause in mind.
 
 		if (!inrange)
 			to_chat(user, SPAN_NOTICE("You must be adjacent to [target] to use the mounted drill."))
-			return
 		else
 			if(isobj(target))
 				var/obj/target_obj = target
@@ -297,13 +350,15 @@
 			var/obj/item/cell/C = owner.get_cell()
 			if(istype(C))
 				C.use(active_power_use * CELLRATE)
-			playsound(src, 'sound/weapons/circsawhit.ogg', 50, 1)	// OCCULUS EDIT: More feedback for drilling
-			owner.visible_message("<span class='danger'>\The [owner] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
-
+			playsound(src, 'sound/mechs/mechdrill.ogg', 50, 1)
+			owner.visible_message(SPAN_DANGER("\The [owner] starts to drill \the [target]"), SPAN_WARNING("You hear a large drill."))
 			var/T = target.loc
 
-			//Better materials = faster drill!
-			var/delay = 20//max(5, 20 - drill_head.material.brute_armor)
+			//Better materials = faster drill! //
+			var/delay = 20
+			switch (drill_head.material.hardness) // It's either default (steel), plasteel or diamond
+				if(80) delay = 10
+				if(100) delay = 5
 			owner.setClickCooldown(delay) //Don't spamclick!
 			if(do_after(owner, delay, target) && drill_head)
 				if(src == owner.selected_system)
@@ -314,48 +369,48 @@
 					if(istype(target, /turf/simulated/wall))
 						var/turf/simulated/wall/W = target
 						if(max(W.material.hardness, W.reinf_material ? W.reinf_material.hardness : 0) > drill_head.material.hardness)
-							to_chat(user, "<span class='warning'>\The [target] is too hard to drill through with this drill head.</span>")
+							to_chat(user, SPAN_WARNING("\The [target] is too hard to drill through with this drill head."))
+							return
 						target.ex_act(2)
-						pickupore(target)
 						drill_head.durability -= 1
 						log_and_message_admins("used [src] on the wall [W].", user, owner.loc)
 					else if(istype(target, /turf/simulated/mineral))
 						for(var/turf/simulated/mineral/M in range(target,1))
 							if(get_dir(owner,M)&owner.dir)
 								M.GetDrilled()
-								pickupore(M)
 								drill_head.durability -= 1
 					else if(istype(target, /turf/simulated/floor/asteroid))
 						for(var/turf/simulated/floor/asteroid/M in range(target,1))
 							if(get_dir(owner,M)&owner.dir)
 								M.gets_dug()
-								pickupore(M)
-								drill_head.durability -= 1
+								drill_head.durability -= 0.1
 					else if(target.loc == T)
 						target.ex_act(2)
 						drill_head.durability -= 1
 						log_and_message_admins("[src] used to drill [target].", user, owner.loc)
 
-					playsound(src, 'sound/weapons/rapidslice.ogg', 50, 1) // OCCULUS EDIT: more impactful noise
+
+
+
+					if(owner.hardpoints.len) //if this isn't true the drill should not be working to be fair
+						for(var/hardpoint in owner.hardpoints)
+							var/obj/item/I = owner.hardpoints[hardpoint]
+							if(!istype(I))
+								continue
+							var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in I //clamps work, but anythin that contains an ore crate internally is valid
+							if(ore_box)
+								for(var/obj/item/ore/ore in range(T,1))
+									if(get_dir(owner,ore)&owner.dir)
+										ore.Move(ore_box)
+
+					playsound(src, 'sound/weapons/rapidslice.ogg', 50, 1)
 
 			else
 				to_chat(user, "You must stay still while the drill is engaged!")
 
-
 			return 1
 
-/obj/item/mech_equipment/drill/proc/pickupore(var/turf/simulated/target)
-	if(owner.hardpoints.len) //if this isn't true the drill should not be working to be fair
-		for(var/hardpoint in owner.hardpoints)
-			var/obj/item/I = owner.hardpoints[hardpoint]
-			if(!istype(I))
-				continue
-			var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in I //clamps work, but anythin that contains an ore crate internally is valid
-			if(ore_box)
-				for(var/obj/item/ore/ore in target.contents)
-					ore.Move(ore_box)
-					CHECK_TICK
-		///// OCCULUS EDIT END
+			return 1
 
 /obj/item/mech_equipment/mounted_system/extinguisher
 	icon_state = "mech_exting"

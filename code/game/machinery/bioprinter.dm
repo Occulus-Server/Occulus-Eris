@@ -2,7 +2,7 @@
 
 /obj/machinery/bioprinter
 	name = "organ bioprinter"
-	desc = "It's a machine that grows replacement organs."
+	desc = "A machine that grows replacement organs."
 	icon = 'icons/obj/surgery.dmi'
 
 	anchored = TRUE
@@ -19,17 +19,17 @@
 	var/list/products = list(
 		OP_HEART =   list(/obj/item/organ/internal/heart,  50),
 		OP_LUNGS =   list(/obj/item/organ/internal/lungs,  40),
-		OP_KIDNEYS = list(/obj/item/organ/internal/kidneys,20),
+		OP_KIDNEYS = list(/obj/item/organ/internal/kidneys, 20), // Occulus Edit - Single Kidney
 		OP_EYES =    list(/obj/item/organ/internal/eyes,   30),
 		OP_LIVER =   list(/obj/item/organ/internal/liver,  50),
-		OP_STOMACH = list(/obj/item/organ/internal/stomach,50),	// OCCULUS EDIT: Add stomachs to the list
-		BP_BRAIN = list(/obj/item/organ/internal/brain,50)//Occulus Edit
+		OP_STOMACH = list(/obj/item/organ/internal/stomach,  40),
+		BP_BRAIN = list(/obj/item/organ/internal/brain, 50)//Occulus Edit - Add Brain
 		)
 
 /obj/machinery/bioprinter/prosthetics
 	name = "prosthetics fabricator"
-	desc = "It's a machine that prints prosthetic organs."
-	prints_prosthetics = 1
+	desc = "A machine that prints prosthetic organs."
+	prints_prosthetics = TRUE
 
 /obj/machinery/bioprinter/New()
 	..()
@@ -52,7 +52,8 @@
 
 		if(prints_prosthetics)
 			O.nature = MODIFICATION_SILICON
-			O.name = "synthetic [O.name]"	// OCCULUS EDIT: More identifiably synthetic
+			O.icon_state = "[O.icon_state]_robotic"
+			O.name = "synthetic [O.name]" // OCCULUS EDIT: More identifiably synthetic
 		else if(loaded_dna)
 			visible_message("<span class='notice'>The printer injects the stored DNA into the biomass.</span>.")
 			O.transplant_data = list()

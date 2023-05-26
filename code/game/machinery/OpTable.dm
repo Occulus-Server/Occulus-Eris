@@ -32,16 +32,16 @@
 /obj/machinery/optable/ex_act(severity)
 
 	switch(severity)
-		if(1.0)
+		if(1)
 			//SN src = null
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			if (prob(50))
 				//SN src = null
 				qdel(src)
 				return
-		if(3.0)
+		if(3)
 			if (prob(25))
 				density = FALSE
 		else
@@ -53,10 +53,10 @@
 	if (victim)
 		user_unbuckle_mob(user)
 		return
-	if (HULK in usr.mutations)
-		visible_message(SPAN_DANGER("\The [usr] destroys \the [src]!"))
-		density = FALSE
-		qdel(src)
+//	if (HULK in usr.mutations)
+//		visible_message(SPAN_DANGER("\The [usr] destroys \the [src]!"))
+//		density = FALSE
+//		qdel(src)
 
 /obj/machinery/optable/unbuckle_mob()
 	. = ..()

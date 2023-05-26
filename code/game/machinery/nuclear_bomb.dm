@@ -30,7 +30,7 @@ var/bomb_set
 	if(eris_ship_bomb)
 		r_code = "[rand(100000, 999999)]" // each time new Head spawns, s/he gets 2 numbers of code.
 	else                                  // i decided not to touch normal bombs code length.
-		r_code = "[rand(10000, 99999.0)]" //Creates a random code upon object spawn.
+		r_code = "[rand(10000, 99999)]" //Creates a random code upon object spawn.
 	wires = new/datum/wires/nuclearbomb(src)
 
 /obj/machinery/nuclearbomb/Initialize()
@@ -127,7 +127,7 @@ var/bomb_set
 		if(ABORT_CHECK)
 			return
 
-	if (panel_open && (istype(I, /obj/item/tool)))
+	if (panel_open && (istool(I)))
 		return attack_hand(user)
 
 	if (src.extended)
@@ -148,7 +148,7 @@ var/bomb_set
 		if (panel_open)
 			wires.Interact(user)
 		else
-			ui_interact(user)
+			nano_ui_interact(user)
 	else if (deployable)
 		if(removal_stage < 5)
 			src.anchored = TRUE
@@ -161,7 +161,7 @@ var/bomb_set
 			update_icon()
 	return
 
-/obj/machinery/nuclearbomb/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/nuclearbomb/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	var/data[0]
 	data["hacking"] = 0
 	data["auth"] = is_auth(user)

@@ -18,14 +18,23 @@
 
 /obj/item/reagent_containers/atomic_distillery/New()
 	..()
+	GLOB.all_faction_items[src] = GLOB.department_command
 	START_PROCESSING(SSobj, src)
 
 /obj/item/reagent_containers/atomic_distillery/Destroy()
 	STOP_PROCESSING(SSobj, src)
+	for(var/mob/living/carbon/human/H in viewers(get_turf(src)))
+		SEND_SIGNAL_OLD(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
+	GLOB.all_faction_items -= src
 	. = ..()
 
 /obj/item/reagent_containers/atomic_distillery/Process()
 	reagents.add_reagent("atomvodka", 1)
+
+/obj/item/reagent_containers/atomic_distillery/attackby(obj/item/I, mob/user, params)
+	if(nt_sword_attack(I, user))
+		return FALSE
+	..()
 
 /obj/item/reagent_containers/atomic_distillery/pre_attack(atom/A, mob/user, params)
 	if(user.a_intent == I_HURT)

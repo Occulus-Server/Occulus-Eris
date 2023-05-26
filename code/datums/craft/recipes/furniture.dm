@@ -9,14 +9,14 @@
 	name = "railing"
 	result = /obj/structure/railing
 	steps = list(
-		list(CRAFT_MATERIAL, 4, MATERIAL_STEEL),
+		list(CRAFT_MATERIAL, 2, MATERIAL_STEEL),
 	)
 
 /datum/craft_recipe/furniture/railing_grey
 	name = "grey railing"
 	result = /obj/structure/railing/grey
 	steps = list(
-		list(CRAFT_MATERIAL, 4, MATERIAL_STEEL),
+		list(CRAFT_MATERIAL, 2, MATERIAL_STEEL),
 	)
 
 /datum/craft_recipe/furniture/table
@@ -150,6 +150,7 @@
 	result = /obj/structure/bed/chair/office/light
 	// variation_type = CRAFT_VARIATION
 
+
 // Wheelchairs
 /datum/craft_recipe/furniture/wheelchair
 	name = "wheelchair"
@@ -172,40 +173,46 @@
 	result = /obj/structure/bed/chair/comfy/black
 	// variation_type = CRAFT_VARIATION
 
+
 /datum/craft_recipe/furniture/comfy_chair/brown
 	name = "brown comfy chair"
 	result = /obj/structure/bed/chair/comfy/brown
 	// variation_type = CRAFT_VARIATION
+
 
 /datum/craft_recipe/furniture/comfy_chair/lime
 	name = "lime comfy chair"
 	result = /obj/structure/bed/chair/comfy/lime
 	// variation_type = CRAFT_VARIATION
 
+
 /datum/craft_recipe/furniture/comfy_chair/teal
 	name = "teal comfy chair"
 	result = /obj/structure/bed/chair/comfy/teal
 	// variation_type = CRAFT_VARIATION
+
 
 /datum/craft_recipe/furniture/comfy_chair/red
 	name = "red comfy chair"
 	result = /obj/structure/bed/chair/comfy/red
 	// variation_type = CRAFT_VARIATION
 
+
 /datum/craft_recipe/furniture/comfy_chair/blue
 	name = "blue comfy chair"
 	result = /obj/structure/bed/chair/comfy/blue
 	// variation_type = CRAFT_VARIATION
+
 
 /datum/craft_recipe/furniture/comfy_chair/purple
 	name = "purple comfy chair"
 	result = /obj/structure/bed/chair/comfy/purp
 	// variation_type = CRAFT_VARIATION
 
+
 /datum/craft_recipe/furniture/comfy_chair/green
 	name = "green comfy chair"
 	result = /obj/structure/bed/chair/comfy/green
-	// variation_type = CRAFT_VARIATION
 
 /datum/craft_recipe/furniture/campfire
 	name = "burn barrel"
@@ -214,3 +221,14 @@
 		list(CRAFT_MATERIAL, 10, MATERIAL_STEEL),
 		list(CRAFT_MATERIAL, 1, MATERIAL_WOOD),
 	)
+
+/datum/craft_recipe/furniture/drying_rack
+	name = "drying rack"
+	result = /obj/machinery/smartfridge/drying_rack
+	steps = list(
+		list(CRAFT_MATERIAL, 10, MATERIAL_WOOD),
+		list(QUALITY_SAWING, 10, 20),
+		list(CRAFT_MATERIAL, 2, MATERIAL_STEEL),
+		list(QUALITY_HAMMERING, 10, 20),
+	)
+

@@ -5,9 +5,9 @@
 	icon_state = "ninja_rig"
 	suit_type = "light suit"
 	armor = list(
-		melee = 25,
-		bullet = 15,
-		energy = 15,
+		melee = 8,
+		bullet = 5,
+		energy = 5,
 		bomb = 20,
 		bio = 75,
 		rad = 25
@@ -23,6 +23,8 @@
 	helm_type =  /obj/item/clothing/head/space/rig/light
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/light
 	glove_type = /obj/item/clothing/gloves/rig/light
+
+	spawn_blacklisted = TRUE
 
 /obj/item/clothing/suit/space/rig/light
 	name = "suit"
@@ -59,6 +61,7 @@
 		/obj/item/rig_module/electrowarfare_suite,
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/vision,
+		/obj/item/rig_module/storage
 		)
 
 //The cybersuit is not space-proof. It does however, have good siemens_coefficient values
@@ -83,13 +86,16 @@
 	desc = "A unique, vaccum-proof suit of nano-enhanced armor designed specifically for Spider Clan assassins."
 	icon_state = "ninja_rig"
 	armor = list(
-		melee = 40,
-		bullet = 30,
-		energy = 20,
+		melee = 7,
+		bullet = 5,
+		energy = 0,
 		bomb = 25,
 		bio = 100,
 		rad = 25
 	)
+	ablative_max = 12
+	ablation = ABLATION_SOFT
+
 	emp_protection = 40 //change this to 30 if too high.
 	slowdown = 0
 
@@ -101,16 +107,17 @@
 	initial_modules = list(
 		/obj/item/rig_module/teleporter,
 		/obj/item/rig_module/stealth_field,
-		/obj/item/rig_module/energy_blade,
+		/obj/item/rig_module/held/energy_blade,
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/fabricator/energy_net,
-		/obj/item/rig_module/chem_dispenser,
+		/obj/item/rig_module/modular_injector/combat,
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/self_destruct
+		/obj/item/rig_module/self_destruct,
+		/obj/item/rig_module/storage
 		)
 
 /obj/item/clothing/gloves/rig/light/ninja
@@ -130,5 +137,6 @@
 
 	initial_modules = list(
 		/obj/item/rig_module/stealth_field,
-		/obj/item/rig_module/vision
+		/obj/item/rig_module/vision,
+		/obj/item/rig_module/storage
 		)

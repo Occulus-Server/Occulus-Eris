@@ -36,6 +36,24 @@
 
 
 /*******************
+*   Disk Storage
+********************/
+/obj/machinery/smartfridge/disks
+	name = "\improper Disks Storage"
+	desc = "When you need disks fast!"
+	icon_state = "smartfridge"
+	icon_fill10 = "diskfridge-fill10"
+	icon_fill20 = "diskfridge-fill20"
+	icon_fill30 = "diskfridge-fill30"
+
+/obj/machinery/smartfridge/disks/accept_check(var/obj/item/O as obj)
+	if(istype(O,/obj/item/computer_hardware/hard_drive/portable))
+		return 1
+	return 0
+
+
+
+/*******************
 *   Seed Storage
 ********************/
 /obj/machinery/smartfridge/seeds
@@ -136,7 +154,7 @@
 	if(istype(O,/obj/item/reagent_containers/glass) || istype(O,/obj/item/reagent_containers/food/drinks) || istype(O,/obj/item/reagent_containers/food/condiment))
 		return 1
 
-/obj/machinery/smartfridge/drinks/on_update_icon()
+/obj/machinery/smartfridge/drinks/update_icon()
 	cut_overlays()
 	if(stat & (BROKEN|NOPOWER))
 		icon_state = icon_off
@@ -144,10 +162,10 @@
 		icon_state = icon_on
 
 	if(panel_open && icon_panel)
-		add_overlays(image(icon, icon_panel))
+		overlays += image(icon, icon_panel)
 
 	if(contents.len && !(stat & NOPOWER))
-		add_overlays(image(icon, icon_fill))
+		overlays += image(icon, icon_fill)
 
 
 /***************************
@@ -159,7 +177,7 @@
 	icon_state = "drying_rack"
 	icon_on = "drying_rack_on"
 	icon_off = "drying_rack"
-	var/drying_power = 0.01 	//Occulus Edit, Doubled drying power so you're not spending 30 minutes waiting for your weed or tobacco
+	var/drying_power = 0.1 //should take a bit but. why make people wait a lifetime to DRY PLANTS
 	var/currently_drying = FALSE
 
 /obj/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O as obj)
@@ -176,7 +194,7 @@
 	if(contents.len)
 		dry()
 
-/obj/machinery/smartfridge/drying_rack/on_update_icon()
+/obj/machinery/smartfridge/drying_rack/update_icon()
 	cut_overlays()
 	if(inoperable())
 		icon_state = icon_off
@@ -192,7 +210,7 @@
 	for(var/obj/item/reagent_containers/food/snacks/S in contents)
 		if(S.dry)
 			continue
-		S.dryness += drying_power * (rand(0.85, 1.15))
+		S.dryness += drying_power
 		if (S.dryness >= 1)
 			if(S.dried_type == S.type || !S.dried_type)
 				S.dry = TRUE
@@ -258,7 +276,7 @@
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/smartfridge/on_update_icon()
+/obj/machinery/smartfridge/update_icon()
 	cut_overlays()
 	if(stat & (BROKEN|NOPOWER))
 		icon_state = icon_off
@@ -277,6 +295,14 @@
 			add_overlays(image(icon, icon_fill20))
 		else
 			add_overlays(image(icon, icon_fill30))
+
+	if(contents.len)
+		if(contents.len <= 10)
+			overlays += image(icon, icon_fill10)
+		else if(contents.len <= 20)
+			overlays += image(icon, icon_fill20)
+		else
+			overlays += image(icon, icon_fill30)
 
 /*******************
 *   Item Adding
@@ -346,7 +372,7 @@
 	if(stat & (NOPOWER|BROKEN))
 		return
 	wires.Interact(user)
-	ui_interact(user)
+	nano_ui_interact(user)
 
 
 /obj/machinery/smartfridge/proc/update_contents()
@@ -357,7 +383,7 @@
 *   SmartFridge Menu
 ********************/
 
-/obj/machinery/smartfridge/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/smartfridge/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	user.set_machine(src)
 
 	var/data[0]
@@ -421,7 +447,7 @@
 		return 1
 	return 0
 
-/obj/machinery/smartfridge/proc/throw_item()
+/obj/machinery/smartfridge/throw_item()
 	var/obj/throw_item = null
 	var/mob/living/target = locate() in view(7,src)
 	if(!target)

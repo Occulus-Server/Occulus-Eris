@@ -132,6 +132,10 @@
 			bad_message = "<b> \[UNAVAILABLE]</b>"
 		else if(jobban_isbanned(user, rank))
 			bad_message = "<b> \[BANNED]</b>"
+		else if(IsGuestKey(user.client.ckey) && SSjob.job_to_playtime_requirement[job.title])
+			bad_message = "<b> \[ACCOUNT REQUIRED </b>"
+		else if(!SSjob.ckey_to_job_to_can_play[user.client.ckey][job.title])
+			bad_message = "\[PLAYTIME REQUIRED : [SSjob.job_to_playtime_requirement[job.title]] Minutes as [job.department]]"
 		/*else if(!job.player_old_enough(user.client))
 			var/available_in_days = job.available_in_days(user.client)
 			bad_message = "\[IN [(available_in_days)] DAYS]"*/
@@ -363,7 +367,8 @@
 			job_desc += "You are in charge of this department."
 	job_desc += "<br>"
 	job_desc += "You answer to <b>[job.supervisors]</b> normally."
-
+	job_desc += "<br>"
+	job_desc += "The Ideal character age for this role is <b>[job.ideal_character_age] years</b>."
 
 
 

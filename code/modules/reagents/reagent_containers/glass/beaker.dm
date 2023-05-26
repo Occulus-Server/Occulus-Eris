@@ -1,6 +1,8 @@
 /obj/item/reagent_containers/glass/beaker
 	name = "beaker"
 	desc = "A beaker."
+	description_info = "Can be heated using a lighter."
+	description_antag = "You can spill reagents onto people with this. Spilling acid melts clothes off, provided its in high enough doses."
 	icon_state = "beaker"
 	item_state = "beaker"
 	label_icon_state = "label_beaker"
@@ -20,7 +22,7 @@
 	..()
 	playsound(src,'sound/items/Glass_Fragment_drop.ogg',50,1)
 
-/obj/item/reagent_containers/glass/beaker/on_update_icon()
+/obj/item/reagent_containers/glass/beaker/update_icon()
 	cut_overlays()
 
 	if(reagents?.total_volume)
@@ -38,8 +40,14 @@
 		var/mutable_appearance/label = mutable_appearance(icon, label_icon)
 		add_overlay(label)
 
-
 //// Subtypes ////
+
+/obj/item/reagent_containers/glass/beaker/cryoxadone
+	preloaded_reagents = list("cryoxadone" = 30)
+	spawn_blacklisted = TRUE
+
+/obj/item/reagent_containers/glass/beaker/sulphuric
+	preloaded_reagents = list("sacid" = 60)
 
 /obj/item/reagent_containers/glass/beaker/large
 	name = "large beaker"
@@ -67,12 +75,13 @@
 	desc = "A bluespace beaker, powered by experimental bluespace technology."
 	icon_state = "beakerbluespace"
 	label_icon_state = "label_beakerbluespace"
-	matter = list(MATERIAL_STEEL = 4, MATERIAL_PHORON = 1)
+	matter = list(MATERIAL_STEEL = 4, MATERIAL_PLASMA = 1)
 	volume = 300
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120,300)
 	lid_icon_state = "lid_beakerbluespace"
 	spawn_blacklisted = TRUE
+	price_tag = 300
 
 /obj/item/reagent_containers/glass/beaker/bowl
 	name = "mixing bowl"
@@ -106,20 +115,21 @@
 	preloaded_reagents = list("uncap nanites" = 30)
 	spawn_blacklisted = TRUE
 
-
-/obj/item/reagent_containers/glass/beaker/cryoxadone
-	preloaded_reagents = list("cryoxadone" = 30)
+/obj/item/reagent_containers/glass/beaker/vial/kognim
+	preloaded_reagents = list("kognim" = 30)
 	spawn_blacklisted = TRUE
 
-/obj/item/reagent_containers/glass/beaker/sulphuric
-	preloaded_reagents = list("sacid" = 60)
+/obj/item/reagent_containers/glass/beaker/vial/psilocybin
+	preloaded_reagents = list("psilocybin" = 30)
+	spawn_frequency = 5
+	rarity_value = 30
 
 /obj/item/reagent_containers/glass/beaker/vial/vape
 	name = "vape vial"
 	desc = "A small plastic vial."
 	icon_state = "vial_plastic"
 	matter = list(MATERIAL_PLASTIC = 1)
-
+	spawn_tags = null
 
 /obj/item/reagent_containers/glass/beaker/vial/vape/berry
 	name = "berry vape vial"
@@ -138,7 +148,7 @@
 	preloaded_reagents = list("nicotine" = 30)
 
 /obj/item/reagent_containers/glass/bucket
-	desc = "It's a bucket."
+	desc = "A bucket."
 	name = "bucket"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "bucket"
@@ -166,7 +176,7 @@
 	else
 		return ..()
 
-/obj/item/reagent_containers/glass/bucket/on_update_icon()
+/obj/item/reagent_containers/glass/bucket/update_icon()
 	cut_overlays()
 	if(reagents.total_volume >= 1)
 		add_overlays("water_bucket")

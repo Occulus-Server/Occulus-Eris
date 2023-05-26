@@ -24,7 +24,7 @@
 			new_mob.key = key
 
 		The Login proc will handle making a new mob for that mobtype (including setting up stuff like mind.name). Simple!
-		However if you want that mind to have any special properties like being a traitor etc you will have to do that
+		However if you want that mind to have any special properties like being a contractor etc you will have to do that
 		yourself.
 
 */
@@ -110,6 +110,22 @@
 /datum/mind/proc/store_memory(new_text)
 	memory += "[new_text]<BR>"
 
+/datum/mind/proc/print_individualobjectives()
+	var/output
+	if(LAZYLEN(individual_objectives))
+		output += "<HR><B>Your individual objectives:</B><UL>"
+		var/obj_count = 1
+		var/la_explanation
+		for(var/datum/individual_objective/objective in individual_objectives)
+			output += "<br><b>#[obj_count] [objective.name][objective.limited_antag ? " [objective.show_la]" : ""]</B>: [objective.get_description()]</b>"
+			obj_count++
+			if(objective.limited_antag)
+				la_explanation = objective.la_explanation
+		output += "</UL>"
+		if(la_explanation)
+			output += la_explanation
+	return output
+
 /datum/mind/proc/show_memory(mob/recipient)
 	var/output = "<B>[current.real_name]'s Memory</B><HR>"
 	output += memory
@@ -122,8 +138,11 @@
 		else
 			output += "<br><b>Your [A.role_text] objectives:</b>"
 		output += "[A.print_objectives(FALSE)]"
+	output += print_individualobjectives()
 
-	recipient << browse(output, "window=memory")
+	var/datum/browser/panel = new(recipient, "memory", "Memory", 333, 333)
+	panel.set_content(output)
+	panel.open()
 
 /datum/mind/proc/edit_memory()
 	if(SSticker.current_state != GAME_STATE_PLAYING)
@@ -147,6 +166,9 @@
 		out += "<br><b>[antag.role_text]</b> <a href='?src=\ref[antag]'>\[EDIT\]</a> <a href='?src=\ref[antag];remove_antagonist=1'>\[DEL\]</a>"
 	out += "</table><hr>"
 	out += "<br>[memory]"
+
+	out += print_individualobjectives()
+
 	out += "<br><a href='?src=\ref[src];edit_memory=1'>"
 	usr << browse(out, "window=edit_memory[src]")
 
@@ -201,7 +223,7 @@
 			if("unemag")
 				var/mob/living/silicon/robot/R = current
 				if (istype(R))
-					R.emagged = 0
+					R.RemoveTrait(CYBORG_TRAIT_EMAGGED)
 					if (R.activated(R.module.emag))
 						R.module_active = null
 					if(R.module_state_1 == R.module.emag)
@@ -219,7 +241,7 @@
 				if (isAI(current))
 					var/mob/living/silicon/ai/ai = current
 					for (var/mob/living/silicon/robot/R in ai.connected_robots)
-						R.emagged = 0
+						R.RemoveTrait(CYBORG_TRAIT_EMAGGED)
 						if (R.module)
 							if (R.activated(R.module.emag))
 								R.module_active = null

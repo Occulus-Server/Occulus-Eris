@@ -32,7 +32,7 @@
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
 	var/obj/machinery/filler_object/f5
 	var/obj/machinery/filler_object/f6
-	var/welded = null //Placed here for simplicity, only airlocks can be welded tho
+	var/welded //Placed here for simplicity, only airlocks can be welded tho
 	//Multi-tile doors
 	dir = EAST
 	var/width = 1
@@ -40,8 +40,18 @@
 	var/damage_smoke = FALSE
 	var/tryingToLock = FALSE // for autoclosing
 
+	atmos_canpass = CANPASS_PROC
+
 	// turf animation
-	var/atom/movable/overlay/c_animation = null
+	var/atom/movable/overlay/c_animation
+
+/obj/machinery/door/New()
+	GLOB.all_doors += src
+	..()
+
+/obj/machinery/door/Destroy()
+	GLOB.all_doors -= src
+	..()
 
 /obj/machinery/door/New()
 	GLOB.all_doors += src
@@ -62,7 +72,7 @@
 /obj/machinery/door/can_prevent_fall()
 	return density
 
-/obj/machinery/door/attack_generic(var/mob/user, var/damage)
+/obj/machinery/door/attack_generic(mob/user, var/damage)
 	if(damage >= resistance)
 		visible_message(SPAN_DANGER("\The [user] smashes into \the [src]!"))
 		take_damage(damage)
@@ -199,10 +209,21 @@
 			qdel(src)
 
 	if(damage)
+		if(Proj.nocap_structures)
+			take_damage(damage)
+		else
 		//cap projectile damage so that there's still a minimum number of hits required to break the door
-		take_damage(min(damage, 100))
+			take_damage(min(damage, 100))
 
 
+
+/obj/machinery/door/proc/hit_by_living(var/mob/living/M)
+	var/body_part = pick(BP_HEAD, BP_CHEST, BP_GROIN)
+	visible_message(SPAN_DANGER("[M] slams against \the [src]!"))
+	if(prob(30))
+		M.Weaken(1)
+	M.damage_through_armor(rand(5,8), BRUTE, body_part, ARMOR_MELEE)
+	take_damage(M.mob_size)
 
 /obj/machinery/door/proc/hit_by_living(var/mob/living/M)
 	var/body_part = pick(BP_HEAD, BP_CHEST, BP_GROIN)
@@ -226,20 +247,22 @@
 	take_damage(damage)
 	return
 
-/obj/machinery/door/attack_hand(mob/user as mob)
-	if(src.allowed(user) && operable())
-		if(src.density)
+/obj/machinery/door/attack_hand(mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(allowed(user) && operable())
+		if(density)
 			open()
 		else
 			close()
-		return
+	else
+		do_animate("deny")
 
-/obj/machinery/door/attack_tk(mob/user as mob)
+/obj/machinery/door/attack_tk(mob/user)
 	if(requiresID() && !allowed(null))
 		return
 	..()
 
-/obj/machinery/door/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/door/attackby(obj/item/I, mob/user)
 	src.add_fingerprint(user)
 
 	//Harm intent overrides other actions
@@ -400,25 +423,33 @@
 
 /obj/machinery/door/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
-		if(2.0)
+		if(2)
 			if(prob(25))
 				qdel(src)
 			else
 				take_damage(300)
-		if(3.0)
+		if(3)
 			if(prob(80))
 				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 				s.set_up(2, 1, src)
 				s.start()
 			else
 				take_damage(150)
+		if(4)
+			if(prob(80))
+				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+				s.set_up(2, 1, src)
+				s.start()
+			else
+				take_damage(60)
+
 	return
 
 
-/obj/machinery/door/on_update_icon()
-	SetIconState("door[density]")
+/obj/machinery/door/update_icon()
+	icon_state = "door[density]"
 	update_openspace()
 
 
@@ -451,8 +482,8 @@
 	activate_mobs_in_range(src, 10)
 	set_opacity(0)
 	if(istype(src, /obj/machinery/door/airlock/multi_tile/metal))
-		f5.set_opacity(0)
-		f6.set_opacity(0)
+		f5?.set_opacity(0)
+		f6?.set_opacity(0)
 
 	do_animate("opening")
 	SetIconState("door0")
@@ -467,7 +498,7 @@
 	operating = FALSE
 	if(autoclose)
 		var/wait = normalspeed ? 150 : 5
-		addtimer(CALLBACK(src, .proc/close), wait)
+		addtimer(CALLBACK(src, PROC_REF(close)), wait)
 	return TRUE
 
 /obj/machinery/door/proc/close(var/forced = 0)
@@ -489,8 +520,8 @@
 	if(visible && !glass)
 		set_opacity(1)	//caaaaarn!
 	if(istype(src, /obj/machinery/door/airlock/multi_tile/metal))
-		f5.set_opacity(1)
-		f6.set_opacity(1)
+		f5?.set_opacity(1)
+		f6?.set_opacity(1)
 
 	operating = FALSE
 
@@ -537,5 +568,4 @@
 
 /obj/machinery/door/morgue
 	icon = 'icons/obj/doors/doormorgue.dmi'
-
 

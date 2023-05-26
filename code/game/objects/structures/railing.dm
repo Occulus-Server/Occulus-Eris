@@ -1,6 +1,8 @@
 /obj/structure/railing
 	name = "orange railing"
 	desc = "A standard steel railing painted in copper color. Prevents stupid people from falling to their doom."
+	description_info = "Can be deconstructed by screwing and wrenching."
+	description_antag = "Hopping above these leaves fingerprints. You can also grab a person and throw them over the ledge instantly."
 	icon = 'icons/obj/railing.dmi'
 	density = TRUE
 	throwpass = TRUE
@@ -9,7 +11,7 @@
 	anchored = TRUE
 	flags = ON_BORDER
 	icon_state = "railing0"
-	matter = list(MATERIAL_STEEL = 4)
+	matter = list(MATERIAL_STEEL = 2)
 	var/broken = 0
 	var/health=70
 	var/maxhealth=70
@@ -69,7 +71,7 @@
 				to_chat(user, SPAN_WARNING("It looks severely damaged!"))
 			if(0.25 to 0.5)
 				to_chat(user, SPAN_WARNING("It looks damaged!"))
-			if(0.5 to 1.0)
+			if(0.5 to 1)
 				to_chat(user, SPAN_NOTICE("It has a few scrapes and dents."))
 	if(reinforced)
 		var/reinforcement_text = "It is reinforced with rods"
@@ -137,7 +139,7 @@
 			if (UpdateNeighbors)
 				R.update_icon(0)
 
-/obj/structure/railing/on_update_icon(var/UpdateNeighbors = 1)
+/obj/structure/railing/update_icon(var/UpdateNeighbors = 1)
 	NeighborsCheck(UpdateNeighbors)
 	cut_overlays()
 	if (!check || !anchored)
@@ -293,7 +295,7 @@
 			if(!anchored)
 				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
 					user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
-					drop_materials(get_turf(user))
+					drop_materials(get_turf(user), user)
 					qdel(src)
 			if(reinforced)
 				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
@@ -332,17 +334,27 @@
 
 /obj/structure/railing/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			qdel(src)
 			return
-		if(3.0)
+		if(3)
 			qdel(src)
 			return
 		else
 	return
+
+/obj/structure/railing/attack_generic(mob/M, damage, attack_message)
+	if(damage)
+		M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		M.do_attack_animation(src)
+		M.visible_message(SPAN_DANGER("\The [M] [attack_message] \the [src]!"))
+		playsound(loc, 'sound/effects/metalhit2.ogg', 50, 1)
+		take_damage(damage)
+	else
+		attack_hand(M)
 
 /obj/structure/railing/do_climb(var/mob/living/user)
 	if(!can_climb(user))
@@ -386,4 +398,3 @@
 /obj/structure/railing/bullet_act(obj/item/projectile/P, def_zone)
 	. = ..()
 	take_damage(P.get_structure_damage())
-	

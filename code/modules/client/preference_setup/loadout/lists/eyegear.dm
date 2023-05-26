@@ -1,13 +1,15 @@
 // Eyes
 /datum/gear/eyes
-	display_name = "eyepatch"
-	path = /obj/item/clothing/glasses/eyepatch
+	display_name = "Glasses, prescription"
+	path = /obj/item/clothing/glasses/regular
 	slot = slot_glasses
 	sort_category = "Glasses and Eyewear"
 
-/datum/gear/eyes/glasses
-	display_name = "Glasses, prescription"
-	path = /obj/item/clothing/glasses/regular
+
+/datum/gear/eyes/eyepatch
+	display_name = "eyepatch"
+	path = /obj/item/clothing/glasses/eyepatch
+	cost = 2
 
 /datum/gear/eyes/glasses/prescriptionhipster
 	display_name = "Glasses, hipster"
@@ -16,6 +18,7 @@
 /datum/gear/eyes/glasses/monocle
 	display_name = "Monocle"
 	path = /obj/item/clothing/glasses/monocle
+	cost = 2
 
 /datum/gear/eyes/scanning_goggles
 	display_name = "scanning goggles"
@@ -29,10 +32,14 @@
 	display_name = "black goggles"
 	path = /obj/item/clothing/glasses/regular/goggles/black
 
+/datum/gear/eyes/clear_goggles
+	display_name = "goggles"
+	path = /obj/item/clothing/glasses/regular/goggles/clear
+
 /datum/gear/eyes/sciencegoggles
 	display_name = "Science Goggles"
 	path = /obj/item/clothing/glasses/powered/science
-	allowed_roles = list(JOBS_SCIENCE,"Bio-Engineer")
+	allowed_roles = list(JOBS_SCIENCE,"Moebius Bio-Engineer")
 
 /datum/gear/eyes/security
 	display_name = "Security HUD"
@@ -45,11 +52,18 @@
 	allowed_roles = list(JOBS_MEDICAL)
 
 /datum/gear/eyes/shades
-	display_name = "Sunglasses, fat"
-	path = /obj/item/clothing/glasses/sunglasses/big
-	allowed_roles = list("Aegis Operative","Aegis Commander","Aegis Gunnery Sergeant","Captain","Head of Personnel","Quartermaster","Aegis Inspector","Aegis Medical Specialist")	//SYZYGY EDIT - Added medspec to list
+	display_name = "Sunglasses"
+	path = /obj/item/clothing/glasses/sunglasses
+	cost = 2
 
 /datum/gear/eyes/shades/prescriptionsun
-	display_name = "sunglasses, presciption"
+	display_name = "Sunglasses, prescription"
 	path = /obj/item/clothing/glasses/sunglasses/prescription
-	cost = 2
+
+
+/datum/gear/eyes/shades/big
+	display_name = "Sunglasses, fat"
+	path = /obj/item/clothing/glasses/sunglasses/big
+	allowed_roles = list("Ironhammer Operative","Ironhammer Commander","Ironhammer Gunnery Sergeant","Captain","First Officer","Ironhammer Inspector","Guild Merchant","Moebius Biolab Officer","Moebius Expedition Overseer","Technomancer Exultant","Club Manager","NeoTheology Preacher")
+
+

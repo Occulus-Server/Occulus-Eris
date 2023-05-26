@@ -46,7 +46,7 @@
 	if(!C)
 		return FALSE
 
-	if (ispriest(owner.current))
+	if (is_preacher(owner.current))
 		was_priest = TRUE
 
 	C.make_inquisitor()
@@ -79,7 +79,7 @@
 	else
 		to_chat(player, "You have been working undercover here, until a signal from NT command calls you to action. You may wish to make your presence known to the local preacher, if there is one.")
 
-	to_chat(player, "You will need a ritual book to utilise your abilities. They can be found or purchased in the chapel. The Bounty ritual can be used to request items from central command. You may request a Priest upgrade to promote a new preacher.")
+	to_chat(player, "You will need a ritual book to utilise your abilities. They can be found or purchased in the chapel. The Bounty ritual can be used to request items from New Rome. You may request a Priest upgrade to promote a new preacher.")
 
 
 	show_objectives()

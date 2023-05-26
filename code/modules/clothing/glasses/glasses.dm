@@ -3,7 +3,7 @@
 	icon = 'icons/inventory/eyes/icon.dmi'
 	spawn_tags = SPAWN_TAG_GLASSES
 	bad_type = /obj/item/clothing/glasses
-	rarity_value = 20
+	style_coverage = COVERS_EYES
 	var/prescription = FALSE
 	var/toggleable = FALSE
 	var/off_state = "black_goggles"
@@ -42,13 +42,25 @@
 	if(user)
 		user.update_inv_glasses()
 		user.update_action_buttons()
+		if(ishuman(user))
+			var/mob/living/carbon/human/beingofeyes = user
+			beingofeyes.update_equipment_vision()
+
+/obj/item/clothing/glasses/proc/process_hud(mob/M)
+	if(hud)
+		hud.process_hud(M)
 
 /obj/item/clothing/glasses/equipped(mob/user, slot)
 	..()
-	if(((toggleable || hud) && prescription) && (user.disabilities&NEARSIGHTED) && (slot == slot_glasses))
+	if(((toggleable || hud) && prescription) && (get_active_mutation(user, MUTATION_NEARSIGHTED)) && (slot == slot_glasses))
 		to_chat(user, SPAN_NOTICE("[src] optical matrix automatically adjust to your poor prescription."))
 
 /obj/item/clothing/glasses/attackby(obj/item/Z, mob/user)
 	if(istype(Z,/obj/item/clothing/glasses/attachable_lenses))
 		var/obj/item/clothing/glasses/attachable_lenses/lenses = Z
 		lenses.handle_insertion(src, user)
+
+/obj/item/clothing/glasses/emp_act(severity)
+	. = ..()
+	if(hud)
+		hud.emp_act(severity)

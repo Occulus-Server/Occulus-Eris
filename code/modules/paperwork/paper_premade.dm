@@ -11,10 +11,9 @@
 /obj/item/paper/toxin
 	name = "Chemical Information"
 	info = {"Known Onboard Toxins:
-
 	Grade A Semi-Liquid Phoron:
 	Highly poisonous. You cannot sustain concentrations above 15 units.
-	A gas mask fails to filter Phoron after 50 units.
+	A gas mask fails to filter phoron after 50 units.
 	Will attempt to diffuse like a gas.
 	Filtered by scrubbers.
 	There is a bottled version which is very different
@@ -33,7 +32,7 @@
 	Known Onboard Chemicals (other):
 	Rejuvenation T#001:
 	Even 1 unit injected directly into the bloodstream
-	will cure paralysis and sleep Phoron.
+	will cure paralysis and sleep phoron.
 	If administered to a dying patient it will prevent
 	further damage for about units*3 seconds.
 	it will not cure them or allow them to be cured.
@@ -42,8 +41,7 @@
 	Soporific T#054:5 units wilkl induce precisely 1 minute of sleep.
 	The effect are cumulative.
 	WARNING: It is a crime to use this without authorization
-	\[br\]"}
-
+	\[br\]"} // Occulus Edit - Plasma > Phoron
 
 /obj/item/paper/courtroom
 	name = "A Crash Course in Legal SOP on SS13"
@@ -141,7 +139,6 @@
 	name = "Job Information"
 	spawn_blacklisted = TRUE
 	info = {"Information on all formal jobs that can be assigned on Space Station 13 can be found on this document.
-
 	The data will be in the following form.
 	Generally lower ranking positions come first in this list.
 
@@ -240,8 +237,7 @@
 	 1. Assign all positions on SS13
 	 2. Inspect the station for any problems.
 	 3. Perform administrative duties.
-	\[br\]"}
-
+	\[br\]"} // Occulus Edit - Cobalt Commander / HOP replacing Eris' versions. 
 
 /obj/item/paper/sop
 	name = "paper- 'Standard Operating Procedure'"
@@ -332,3 +328,31 @@
 	\[center\]\[small\]\[b\]Remember!\[/b\]\[/small\]\[/center\]
 	\[center\]\[small\]\[i\]\"Depression is voluntary, freedom is not!\"\[/i\]\[/small\]\[/center\]
 	\[br\]"}
+
+/obj/item/paper/detective_guide
+	name = "The rookie's guide to investigating a murder"
+	info = {"\[b\]Hey there rookie\[/b\]
+
+	I got tired of this shit-bin , so i left \n
+	But that doesn't mean you should , this vessel pays well \n
+	And so does investigating the crimes onboard , true mysteries in this era \n
+
+	Assuming that a murder happens , which it always will , the only constant i know onboard of this vessel \n
+	You will likely be looking at the body of a dead vagabond , the earliest clue would be the splatter of blood and the casings of .30 bullets \n
+
+	Your first step should be to secure the place , mark it off , keep the fuck-arounds out , don't let them "Loot" any evidence off the place \n
+	The second one ? inspect the environment you are in , the place of the murder always will have clues , doors with fingerprints or sheets of metal sitting near dismantled structures \n
+	Glass shards with fibers from hitting whoever broke them, ciggarete treads, blood pools with the murderer or victims DNA which you can swab \n
+	Next step , do an autopsy , find out what really killed the guy , sometimes it isn't the guns , but the shrapnel they leave \n
+	After you do that , try to build a story of what happened , replay the events from this guy's perspective , find out why he was murdered \n
+
+	The killer can always be undeniably convicted , most of them wear gloves , but gloves bear a dark secret , the guns they use with them on leave a print on them , the smoke of the shell ejection itself \n
+	You can swab it off , different calibers produce different intensities of it , but you will always know which one it is , after all you took the IH Detective course \n
+	I consider it the best trick in the book , a murderer never leaves his fingerprints , but he always wears his gloves \n
+
+	Anyway , enjoy your time onboard , your duty is vital to keeping the shit-bin rolling , keep investigating and make the LT proud \n
+
+	Best regards,
+	<font face=\"Times New Roman\"><i>James N</i></font>.
+	\[br\]"}
+

@@ -21,7 +21,7 @@
 			can_buckle = FALSE
 			visible_message("[src] snaps out of its trance and rushes at [user]!")
 			return FALSE
-		visible_message("[src] bucks around wildly, trying to shake [user] off!") //YEEEHAW
+		visible_message("[src] bucks around wildly, trying to shake  [user] off!") //YEEEHAW
 		if(prob(40))
 			visible_message("[src] thrashes around and, throws [user] clean off!")
 			user.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(1,3),30)

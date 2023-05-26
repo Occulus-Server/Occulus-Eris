@@ -64,7 +64,7 @@
 /obj/item/reagent_containers/food/drinks/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
-/obj/item/reagent_containers/food/drinks/on_update_icon()
+/obj/item/reagent_containers/food/drinks/update_icon()
 	cut_overlays()
 	if(reagents && reagents.total_volume)
 		if(base_name)
@@ -85,20 +85,23 @@
 	set src in view(1)
 
 	if(isghost(usr))
-		to_chat(usr, "Ghosts can't gulp down drinks!")		//this was originally "You ghost!" verbatim, and I kinda wanted to keep that but felt it more professional to change it
+		to_chat(usr, "You can't do this as a ghost.")
 		return
 
 	if(is_drainable())
 		if(ishuman(usr))
 			var/mob/living/carbon/human/H = usr
 			if(!H.check_has_mouth())
-				to_chat(H, "Where do you intend to put \the [src]? You don't have a mouth!")
+				to_chat(H, SPAN_NOTICE("Where do you intend to put \the [src]? You don't have a mouth!"))
 				return
 			var/obj/item/blocked = H.check_mouth_coverage()
 			if(blocked)
-				to_chat(H, SPAN_WARNING("\The [blocked] is in the way!"))
+				to_chat(H, SPAN_NOTICE("\The [blocked] is in the way."))
 				return
 
+		if(reagents.total_volume == 0)
+			to_chat(usr, SPAN_NOTICE("\The [src] is empty."))
+			return
 		if(reagents.total_volume > 30) // 30 equates to 3 SECONDS.
 			usr.visible_message(SPAN_NOTICE("[usr] prepares to gulp down [src]."), SPAN_NOTICE("You prepare to gulp down [src]."))
 		if(!do_after(usr, reagents.total_volume))
@@ -161,13 +164,9 @@
 	filling_states = "100"
 	preloaded_reagents = list("coffee" = 30)
 
-/obj/item/reagent_containers/food/drinks/ice
+/obj/item/reagent_containers/food/drinks/mug/teacup/ice
 	name = "Ice Cup"
 	desc = "Careful, cold ice, do not chew."
-	icon_state = "cup"
-	center_of_mass = list("x"=15, "y"=10)
-	base_icon = "cup"
-	filling_states = "100"
 	preloaded_reagents = list("ice" = 30)
 
 /obj/item/reagent_containers/food/drinks/h_chocolate
@@ -190,12 +189,45 @@
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 	rarity_value = 15
 
-/obj/item/reagent_containers/food/drinks/dry_ramen/on_update_icon()
+/obj/item/reagent_containers/food/drinks/dry_ramen/update_icon()
 	if(reagent_flags == OPENCONTAINER)
 		if(reagents && reagents.total_volume)
 			icon_state = "ramen_open"
 		else
 			icon_state = "ramenempty"
+
+/obj/item/reagent_containers/food/drinks/energy
+	name = "energy drink"
+	desc = "A heart attack that fits in your pocket."
+	icon_state = "energy_drink"
+	center_of_mass = list("x"=15, "y"=13)
+	preloaded_reagents = list("sugar" = 10, "nuka_cola" = 20)
+	spawn_tags = SPAWN_TAG_JUNKFOOD
+	rarity_value = 15
+
+/obj/item/reagent_containers/food/drinks/energy/update_icon()
+	if(reagent_flags == OPENCONTAINER)
+		if(reagents && reagents.total_volume)
+			icon_state = "energy_drink_open"
+		else
+			icon_state = "energy_drink_whacked"
+
+/obj/item/reagent_containers/food/drinks/protein_shake
+	name = "protein shake"
+	//desc = "Smells like prion disease..."
+	desc = "The best thing to drink after a workout, tastes like apples! At least, the description on this plastic bottle says so. Smells odd..."
+	icon_state = "protein_shake_bottle"
+	center_of_mass = list("x"=16, "y"=8)
+	preloaded_reagents = list("protein_shake_commercial" = 40)
+	rarity_value = 10
+	spawn_tags = SPAWN_TAG_JUNKFOOD
+
+/obj/item/reagent_containers/food/drinks/protein_shake/update_icon()
+	if(reagent_flags == OPENCONTAINER)
+		if(reagents && reagents.total_volume)
+			icon_state = "protein_shake_bottle"
+		else
+			icon_state = "protein_shake_bottle_whacked"
 
 /obj/item/reagent_containers/food/drinks/sillycup
 	name = "paper cup"
@@ -205,7 +237,7 @@
 	volume = 10
 	center_of_mass = list("x"=16, "y"=12)
 
-/obj/item/reagent_containers/food/drinks/sillycup/on_update_icon()
+/obj/item/reagent_containers/food/drinks/sillycup/update_icon()
 	if(reagents && reagents.total_volume)
 		icon_state = "water_cup"
 	else
@@ -312,64 +344,60 @@
 	base_name = "mug"
 	base_icon = "mug"
 
-/obj/item/reagent_containers/food/drinks/mug/black
-	name = "black mug"
-	desc = "A sleek black mug."
-	icon_state = "mug_black"
-	base_name = "black mug"
+/obj/item/reagent_containers/food/drinks/mug/gold
+	name = "gold mug"
+	desc = "A shiny gold-like mug."
+	icon_state = "mug_gold"
 
-/obj/item/reagent_containers/food/drinks/mug/green
-	name = "green mug"
-	desc = "A pale green and pink mug."
-	icon_state = "mug_green"
-	base_name = "green mug"
+/obj/item/reagent_containers/food/drinks/mug/old_nt
+	name = "NanoTrasen mug"
+	desc = "Not even your morning coffee is safe from corporate advertising."
+	icon_state = "mug_old_nt"
 
-/obj/item/reagent_containers/food/drinks/mug/blue
-	name = "blue mug"
-	desc = "A blue and black mug."
-	icon_state = "mug_blue"
-	base_name = "blue mug"
+/obj/item/reagent_containers/food/drinks/mug/new_nt
+	name = "NeoTheology mug"
+	desc = "A brown mug, it prominently features a tau-cross."
+	icon_state = "mug_new_nt"
 
-/obj/item/reagent_containers/food/drinks/mug/red
-	name = "red mug"
-	desc = "A red and black mug."
-	icon_state = "mug_red"
-	base_name = "red mug"
+/obj/item/reagent_containers/food/drinks/mug/syndie
+	name = "Syndicate mug"
+	desc = "A sleek red mug."
+	icon_state = "mug_syndie"
 
-/obj/item/reagent_containers/food/drinks/mug/heart
-	name = "heart mug"
-	desc = "A white mug, it prominently features a red heart."
-	icon_state = "mug_heart"
-	base_name = "heart mug"
+/obj/item/reagent_containers/food/drinks/mug/serb
+	name = "Serbian mug"
+	desc = "A mug with a Serbian flag emblazoned on it."
+	icon_state = "mug_serb"
 
-/obj/item/reagent_containers/food/drinks/mug/one
-	name = "#1 mug"
-	desc = "A white mug, it prominently features a #1."
-	icon_state = "mug_one"
-	base_name = "#1 mug"
+/obj/item/reagent_containers/food/drinks/mug/ironhammer
+	name = "Ironhammer mug"
+	desc = "A mug with an Ironhammer PMC logo on it."
+	icon_state = "mug_hammer"
 
-/obj/item/reagent_containers/food/drinks/mug/metal
-	name = "metal mug"
-	desc = "A metal mug. You're not sure which metal."
-	icon_state = "mug_metal"
-	flags = CONDUCT
-	base_name = "metal mug"
+/obj/item/reagent_containers/food/drinks/mug/league
+	name = "Technomancer mug"
+	desc = "A mug with a Technomancer League logo on it."
+	icon_state = "mug_league"
 
-/obj/item/reagent_containers/food/drinks/mug/rainbow
-	name = "rainbow mug"
-	desc = "A rainbow mug. The colors are almost as blinding as a welder."
-	icon_state = "mug_rainbow"
-	base_name = "rainbow mug"
+/obj/item/reagent_containers/food/drinks/mug/moe
+	name = "Moebius mug"
+	desc = "A white mug with Moebius Laboratories logo on it."
+	icon_state = "mug_moe"
 
-/obj/item/reagent_containers/food/drinks/mug/brit
-	name = "flag mug"
-	desc = "A mug with an unknown flag emblazoned on it. You feel like tea might be the only beverage that belongs in it."
-	icon_state = "britmug"
+/obj/item/reagent_containers/food/drinks/mug/aster
+	name = "Aster mug"
+	desc = "A fancy gold mug with a Aster Guild logo on it."
+	icon_state = "mug_aster"
 
-/obj/item/reagent_containers/food/drinks/mug/moebius
-	name = "\improper NanoTrasen mug"
-	desc = "A mug with a NanoTrasen logo, scribbled to have an M on it. Not even your morning coffee is safe from corporate advertising."
-	icon_state = "mug_moebius"
+/obj/item/reagent_containers/food/drinks/mug/guild
+	name = "Guild mug"
+	desc = "A plain mug with a Aster Guild logo on it."
+	icon_state = "mug_guild"
+
+/obj/item/reagent_containers/food/drinks/mug/white
+	name = "white mug"
+	desc = "A plain white mug."
+	icon_state = "mug_white"
 
 /obj/item/reagent_containers/food/drinks/mug/teacup
 	name = "cup"
@@ -377,17 +405,6 @@
 	icon_state = "_cup"
 	base_name = "cup"
 	base_icon = "_cup"
-	filling_states = "100"
-
-/obj/item/reagent_containers/food/drinks/britcup //Delete this when Clockrigger is done with map changes.
-	name = "mug"
-	desc = "A mug with an unknown flag emblazoned on it."
-	icon_state = "britmug"
-	volume = 30
-	center_of_mass = list("x"=15, "y"=13)
-	filling_states = "40;80;100"
-	base_name = "mug"
-	base_icon = "mug"
 
 //tea and tea accessories
 /obj/item/reagent_containers/food/drinks/tea

@@ -89,14 +89,15 @@
 		load_and_update_character()
 
 	var/dat = "<html><body><center>"
-
 	if(path)
+		SSjob.UpdatePlayableJobs(user.client.ckey)
 		dat += "Slot - "
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
 		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
 		dat += "<a href='?src=\ref[src];resetslot=1'>Reset slot</a> - "
 		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a> - "		//Eclipse edit.
 		dat += "<a href='?src=\ref[src];copy=1'>Copy slot</a> "				//Eclipse edit.
+
 
 	else
 		dat += "Please create an account to save your preferences."
@@ -175,29 +176,31 @@
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.
 	player_setup.sanitize_setup()
 	character.set_species(species)
+	var/random_first = random_first_name(gender, species)
+	var/random_last = random_last_name(gender, species)
+	var/random_full = real_first_name + " " + real_last_name
 
-// // // BEGIN ECLIPSE EDITS // // //
 // Refactor full name system into family name system.
 	if(be_random_name)
-		family_name = random_last_name(gender, species)
-		real_name = random_first_name(gender,species) + " " + family_name
+		family_name = random_last_name(gender, species) // Occulus Edit - Family name changes
+		real_name = random_first_name(gender,species) + " " + family_name // Occulus Edit - Family name changes
+
+	if(GLOB.in_character_filter.len) //This does not always work correctly but is here as a backup in case the first two attempts to catch bad names fail.
+		if(findtext(real_first_name, config.ic_filter_regex) || findtext(real_last_name, config.ic_filter_regex))
+			family_name = random_last_name(gender, species) // Occulus Edit - Family name changes
+			real_name = random_first_name(gender,species) + " " + family_name // Occulus Edit - Family name changes
 
 	if(config.humans_need_surnames)
-		var/firstspace = findtext(real_name, " ")
-		var/name_length = length(real_name)
-		if(!firstspace)	//we need a surname
-			real_name += " [pick(GLOB.last_names)]"
-		else if(firstspace == name_length)
-			real_name += "[pick(GLOB.last_names)]"
+		if(!real_last_name)	//we need a surname
+			real_last_name = "[pick(GLOB.last_names)]"
+			real_name += " [real_last_name]"
 	character.fully_replace_character_name(newname = real_name)
 	character.family_name = family_name
-
-// // // END ECLIPSE EDITS // // //
 
 	character.gender = gender
 	character.age = age
 	character.b_type = b_type
-
+	character.tts_seed = tts_seed
 	character.h_style = h_style
 	character.f_style = f_style
 
@@ -224,7 +227,7 @@
 
 	character.s_tone = s_tone
 
-	character.ear_style			= ear_styles_list[ear_style]
+	character.ear_style			= ear_styles_list[ear_style] // Occulus Edit Start - Customization
 	character.r_ears			= r_ears
 	character.b_ears			= b_ears
 	character.g_ears			= g_ears
@@ -247,9 +250,9 @@
 	character.fuzzy				= fuzzy
 	character.appearance_flags	-= fuzzy*PIXEL_SCALE
 
-	character.body_markings = body_markings
+	character.body_markings = body_markings // Occulus Edit End
 
-	QDEL_NULL_LIST(character.worn_underwear)
+	QDEL_LIST(character.worn_underwear)
 	character.worn_underwear = list()
 
 	for(var/underwear_category_name in all_underwear)
@@ -306,6 +309,8 @@
 		character.nutrition = rand(250, 450)
 
 	for(var/options_name in setup_options)
+		if(!get_option(options_name))
+			continue
 		get_option(options_name).apply(character)
 
 	character.post_prefinit()

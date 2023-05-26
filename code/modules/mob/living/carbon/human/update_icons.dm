@@ -110,7 +110,7 @@ Please contact me on #coderbus IRC. ~Carn x
 #define DAMAGE_LAYER		2
 #define SURGERY_LAYER		3
 #define IMPLANTS_LAYER		4
-#define MARKINGS_LAYER		5
+#define MARKINGS_LAYER		5		// Occulus Edit - Markings.
 #define UNDERWEAR_LAYER 	6
 #define UNIFORM_LAYER		7
 #define ID_LAYER			8
@@ -124,7 +124,7 @@ Please contact me on #coderbus IRC. ~Carn x
 #define BACK_LAYER			16
 #define SUIT_STORE_LAYER	17
 #define HAIR_LAYER			18		//TODO: make part of head layer?
-#define WING_LAYER			19		//Eclipse edit.
+#define WING_LAYER			19		// Occulus edit.
 #define L_EAR_LAYER			20
 #define R_EAR_LAYER			21
 #define FACEMASK_LAYER		22
@@ -136,7 +136,8 @@ Please contact me on #coderbus IRC. ~Carn x
 #define L_HAND_LAYER		28
 #define R_HAND_LAYER		29
 #define FIRE_LAYER			30		//If you're on fire
-#define TOTAL_LAYERS		30
+#define BLOCKING_LAYER		31
+#define TOTAL_LAYERS		31 		// Occulus Edit - Updated to our current count.
 //////////////////////////////////
 
 /mob/living/carbon/human
@@ -197,7 +198,7 @@ var/global/list/damage_icon_parts = list()
 		else
 			DI = damage_icon_parts[cache_index]
 
-		standing_image.overlays.Add(DI)
+			standing_image.overlays += DI
 
 	overlays_standing[DAMAGE_LAYER] = standing_image
 
@@ -211,9 +212,9 @@ var/global/list/damage_icon_parts = list()
 	var/husk_color_mod = rgb(96,88,80)
 	var/hulk_color_mod = rgb(48,224,40)
 
-	var/husk = (HUSK in src.mutations)
-	var/hulk = (HULK in src.mutations)
-	var/skeleton = (SKELETON in src.mutations)
+	var/husk = FALSE // (HUSK in src.mutations)
+	var/hulk = FALSE // (HULK in src.mutations)
+	var/skeleton = FALSE // (SKELETON in src.mutations)
 
 	//Create a new, blank icon for our mob to use.
 	if(stand_icon)
@@ -416,31 +417,17 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)   update_icons()
 
 /mob/living/carbon/human/update_mutations(var/update_icons=1)
-
+	return
+/*
 	var/image/standing = image("icon" = 'icons/effects/genetics.dmi')
 	var/add_image = 0
-	var/g = "m"
-	if(gender == FEMALE)	g = "f"
-	// DNA2 - Drawing underlays.
-	for(var/datum/dna/gene/gene in dna_genes)
-		if(!gene.block)
-			continue
-		if(gene.is_active(src))
-			var/underlay=gene.OnDrawUnderlays(src,g)
-			if(underlay)
-				standing.underlays += underlay
-				add_image = 1
-	for(var/mut in mutations)
-		switch(mut)
-			if(LASER)
-				standing.overlays.Add("lasereyes_s")
-				add_image = 1
 	if(add_image)
-		overlays_standing[MUTATIONS_LAYER]	= standing
+		overlays_standing[MUTATIONS_LAYER] = standing
 	else
-		overlays_standing[MUTATIONS_LAYER]	= null
-	if(update_icons)   update_icons()
-
+		overlays_standing[MUTATIONS_LAYER] = null
+	if(update_icons)
+		update_icons()
+*/
 /mob/proc/update_implants(var/update_icons = 1)
 	return
 
@@ -881,6 +868,7 @@ var/global/list/damage_icon_parts = list()
 			t_icon = get_gender_icon(gender, "belt")
 
 		standing = image(icon = t_icon, icon_state = t_state)
+		standing.color = belt.color
 
 		var/beltlayer = BELT_LAYER
 		var/otherlayer = BELT_LAYER_ALT
@@ -1056,7 +1044,7 @@ var/global/list/damage_icon_parts = list()
 			var/obj/item/rig/rig = back//Maybe add if(rig.installed_modules.len) below this since the code for accessories does that far as I know.
 			for(var/obj/item/rig_module/module in rig.installed_modules)
 				if(module.suit_overlay)
-					standing.overlays.Add(image("icon" = 'icons/mob/rig_modules.dmi', "icon_state" = module.suit_overlay))
+					standing.overlays += image("icon" = 'icons/mob/rig_modules.dmi', "icon_state" = module.suit_overlay)
 
 		//create the image
 		overlays_standing[BACK_LAYER] = standing
@@ -1309,6 +1297,13 @@ var/global/list/damage_icon_parts = list()
 		overlays_standing[FIRE_LAYER] = image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing", "layer"=FIRE_LAYER)
 
 	if(update_icons)   update_icons()
+
+/mob/living/carbon/human/proc/update_block_overlay(var/update_icons=1)
+	overlays_standing[BLOCKING_LAYER] = null
+	if(blocking)
+		overlays_standing[BLOCKING_LAYER] = image("icon"='icons/mob/misc_overlays.dmi', "icon_state"="block", "layer"=BLOCKING_LAYER)
+
+	update_icons()
 
 /mob/living/carbon/human/proc/update_surgery(var/update_icons=1)
 	overlays_standing[SURGERY_LAYER] = null

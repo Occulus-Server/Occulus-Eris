@@ -7,7 +7,7 @@
 /datum/uplink_item/item/tools/toolbox
 	name = "Fully Loaded Toolbox"
 	item_cost = 5
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/toolbox/syndicate
 	desc = "Danger. Very robust. Filled with advanced tools."
 
@@ -25,53 +25,33 @@
 /datum/uplink_item/item/tools/money
 	name = "Operations Funding"
 	item_cost = 13
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/secure/briefcase/money
 	desc = "A briefcase with 10,000 untraceable credits for funding your sneaky activities."
 
 /datum/uplink_item/item/tools/pocketchange
 	name = "Spending Money"
 	item_cost = 1
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/spacecash/bundle/c500
 	desc = "A bundle of 500 untraceable credits to cover a few basic expenses."
-
-/datum/uplink_item/item/tools/clerical
-	name = "Morphic Clerical Kit"
-	item_cost = 3
-	path = /obj/item/storage/box/syndie_kit/clerical
 
 /datum/uplink_item/item/tools/plastique
 	name = "C-4 (Destroys walls)"
 	item_cost = 3
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/plastique
-
-/datum/uplink_item/item/tools/heavy_vest
-	name = "Heavy Armor Vest"
-	item_cost = 6
-	path = /obj/item/clothing/suit/storage/vest/merc
-
-/datum/uplink_item/item/tools/full_heavy_vest
-	name = "Fullbody Heavy Armor Vest"
-	item_cost = 8
-	path = /obj/item/clothing/suit/storage/vest/merc/full
-
-/datum/uplink_item/item/tools/heavy_helmet
-	name = "Heavy Armor Helmet"
-	item_cost = 4
-	path = /obj/item/clothing/head/armor/helmet/merchelm
 
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"
 	item_cost = 4
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/device/encryptionkey/syndicate
 
 /datum/uplink_item/item/tools/encryptionkey_binary
 	name = "Binary Translator Key"
 	item_cost = 5
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/device/encryptionkey/binary
 
 /datum/uplink_item/item/tools/emag
@@ -82,7 +62,7 @@
 /datum/uplink_item/item/tools/hacking_tool
 	name = "Door Hacking Tool"
 	item_cost = 6
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/tool/multitool/hacktool
 	desc = "Appears and functions as a standard multitool until the mode is toggled by applying a screwdriver appropriately. \
 			When in hacking mode this device will grant full access to any standard airlock within 20 to 40 seconds. \
@@ -90,12 +70,27 @@
 
 /datum/uplink_item/item/tools/space_suit
 	name = "Mercenary Voidsuit"
-	item_cost = 6
+	item_cost = 12
 	path = /obj/item/storage/box/syndie_kit/space
+
+/datum/uplink_item/item/tools/mercarmor
+	name = "Mercenary Combat Armor"
+	item_cost = 6
+	path = /obj/item/storage/box/syndie_kit/mercarmor
+
+/datum/uplink_item/item/tools/heavy_vest
+	name = "Mercenary Vest"
+	item_cost = 3
+	path = /obj/item/clothing/suit/storage/vest/merc
+
+/datum/uplink_item/item/tools/softsuit
+	name = "Armoured Softsuit"
+	item_cost = 3
+	path = /obj/item/storage/box/syndie_kit/softsuit
 
 /datum/uplink_item/item/tools/thermal
 	name = "Thermal Imaging Glasses"
-	item_cost = 6
+	item_cost = 8
 	path = /obj/item/clothing/glasses/powered/thermal/syndi
 
 /datum/uplink_item/item/tools/thermal_lens
@@ -106,7 +101,7 @@
 /datum/uplink_item/item/tools/powersink
 	name = "Powersink (DANGER!)"
 	item_cost = 10
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/device/powersink
 
 /datum/uplink_item/item/tools/teleporter
@@ -121,8 +116,33 @@
 /datum/uplink_item/item/tools/ai_module
 	name = "Hacked AI Upload Module"
 	item_cost = 7
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/electronics/ai_module/syndicate
+
+/datum/uplink_item/item/tools/handheld_ai_jammer
+	name = "Handheld AI Jammer"
+	desc = "A handheld AI jammer , will stop AI signals from being executed within a 8 tile range"
+	item_cost = 3
+	antag_roles = list(ROLE_CONTRACTOR, ROLE_MARSHAL, ROLE_INQUISITOR, ROLE_MERCENARY)
+	path = /obj/item/device/jammer
+
+// Enough for a whole deck almost
+/datum/uplink_item/item/tools/portable_ai_jammer
+	name = "Portable area AI jammer"
+	desc = "A massive jammer put on a rolling cart, will stop AI signals from being executed within a 32 tile range and also affects the levels below and above. Warning! Cannot be stored in bags or held"
+	item_cost = 15
+	antag_roles = list(ROLE_CONTRACTOR, ROLE_MARSHAL, ROLE_INQUISITOR, ROLE_MERCENARY)
+	path = /obj/machinery/jammer
+
+/datum/uplink_item/item/tools/portable_ai_jammer/buy(obj/item/device/uplink/U, mob/user)
+	if(!can_buy(U))
+		return
+	new path(get_turf(user))
+	bluespace_entropy(2, get_turf(user), TRUE)
+	purchase_log(U)
+	U.uses -= item_cost
+	U.used_TC += item_cost
+
 
 /datum/uplink_item/item/tools/supply_beacon
 	name = "Hacked Supply Beacon (DANGER!)"
@@ -133,16 +153,16 @@
 	name = "Medium pouch"
 	desc = "Useful storage solution."
 	item_cost = 7
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/pouch/medium_generic
 
 /datum/uplink_item/item/tools/mind_fryer
 	name = "Mind Fryer"
 	desc = "When activated, attacks the minds of people nearby, causing sanity loss and inducing mental breakdowns. \
 			The device owner is immune to this effect."
-	item_cost = 3
+	item_cost = 2
 	path = /obj/item/device/mind_fryer
-	antag_roles = list(ROLE_TRAITOR, ROLE_BLITZ)
+	antag_roles = list(ROLE_CONTRACTOR, ROLE_BLITZ)
 
 /datum/uplink_item/item/tools/mind_fryer/buy(obj/item/device/uplink/U)
 	. = ..()
@@ -156,7 +176,7 @@
 			Place the sensors in target area, make sure to activate each one and do not move or otherwise disturb them."
 	item_cost = 1
 	path = /obj/item/storage/box/syndie_kit/spy_sensor
-	antag_roles = list(ROLE_TRAITOR, ROLE_BLITZ)
+	antag_roles = list(ROLE_CONTRACTOR, ROLE_BLITZ)
 
 /datum/uplink_item/item/tools/spy_sensor/buy(obj/item/device/uplink/U)
 	. = ..()
@@ -169,7 +189,7 @@
 	name = "Blue Space Direct Mail Unit"
 	item_cost = 1
 	path = /obj/item/storage/bsdm
-	antag_roles = ROLES_CONTRACT
+	antag_roles = ROLES_CONTRACT_COMPLETE
 
 /datum/uplink_item/item/tools/bsdm/can_view(obj/item/device/uplink/U)
 	return ..() && (U.bsdm_time > world.time)
@@ -184,7 +204,7 @@
 	name = "Blue Space Direct Mail Unit"
 	item_cost = 0
 	path = /obj/item/storage/bsdm
-	antag_roles = ROLES_CONTRACT
+	antag_roles = ROLES_CONTRACT_COMPLETE
 
 /datum/uplink_item/item/tools/bsdm_free/can_view(obj/item/device/uplink/U)
 	return ..() && (U.bsdm_time <= world.time)
@@ -199,7 +219,7 @@
 /datum/uplink_item/item/tools/syringes
 	name = "Box of syringes"
 	item_cost = 1
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/box/syringes
 	desc = "Box with 7 syringes."
 
@@ -207,7 +227,7 @@
 	name = "Mental Imprinter"
 	item_cost = 5
 	path = /obj/item/device/mental_imprinter
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 
 //********** Blitzshell unique uplink items **********//
 
@@ -221,7 +241,7 @@
 /datum/uplink_item/item/tools/blitz_hp_upgrade/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/living/user)
 	if(user && istype(user, /mob/living/silicon/robot/drone/blitzshell))
 		var/mob/living/silicon/robot/drone/blitzshell/BS = user
-		BS.maxHealth *= 2
+		BS.adjustMaxHealth(30)
 		to_chat(BS, SPAN_NOTICE("Your chassis armour is augmented."))
 		return 1
 	return 0
@@ -255,7 +275,7 @@
 /datum/uplink_item/item/tools/blitz_speed_upgrade/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/living/user)
 	if(user && istype(user, /mob/living/silicon/robot/drone/blitzshell))
 		var/mob/living/silicon/robot/drone/blitzshell/BS = user
-		BS.speed_factor += 1
+		BS.speed_factor += 0.2
 		return 1
 	return 0
 
@@ -273,6 +293,22 @@
 			to_chat(BS, SPAN_WARNING("You already have a laser system installed."))
 			return 0
 		BS.module.modules += new /obj/item/gun/energy/laser/mounted/blitz(BS.module)
+		return 1
+	return 0
+
+/datum/uplink_item/item/tools/blitz_shotgun
+	name = "Blitzshell electro-shrapnel cannon"
+	desc = "Activates the embedded pneumatic weapon system."
+	item_cost = 30
+	antag_roles = list(ROLE_BLITZ)
+
+/datum/uplink_item/item/tools/blitz_shotgun/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/living/user)
+	if(user && istype(user, /mob/living/silicon/robot/drone/blitzshell))
+		var/mob/living/silicon/robot/drone/blitzshell/BS = user
+		if(locate(/obj/item/gun/energy/shrapnel/mounted) in BS.module.modules)
+			to_chat(BS, SPAN_WARNING("You already have a shrapnel cannon installed."))
+			return 0
+		BS.module.modules += new /obj/item/gun/energy/shrapnel/mounted(BS.module)
 		return 1
 	return 0
 End Occulus Edit*/
@@ -351,7 +387,7 @@ End Occulus Edit*/
 	name = "Blitzshell Blue Space Harpoon"
 	desc = "Activates the embedded bluespace harpoon."
 	item_cost = 12
-	antag_roles = list() // list(ROLE_BLITZ) -- Syzygy edit to disable biltz getting BS harps
+	antag_roles = list(ROLE_BLITZ)
 
 /datum/uplink_item/item/tools/blitz_harpoon/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/living/user)
 	if(user && istype(user, /mob/living/silicon/robot/drone/blitzshell))
@@ -366,5 +402,5 @@ End Occulus Edit*/
 	name = "Mindreader"
 	desc = "Place on your victim's head to extract memories from their brain after a mental breakdown."
 	item_cost = 20
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/clothing/head/mindreader

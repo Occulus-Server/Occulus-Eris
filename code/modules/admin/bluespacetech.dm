@@ -18,6 +18,10 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_bst, R_ADMIN|R_DEBUG, TRUE)
 	if(!check_rights(R_ADMIN|R_DEBUG))
 		return
 
+	if(istype(usr, /mob/living/carbon/human/bst))
+		to_chat(usr, SPAN_NOTICE("You need to despawn your BST first before spawning another.")) //so if we accidentally double-click the button it won't spawn us twice
+		return
+
 	var/T = get_turf(usr)
 	var/mob/living/carbon/human/bst/bst = new(T)
 	bst.anchored = TRUE
@@ -73,14 +77,13 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_bst, R_ADMIN|R_DEBUG, TRUE)
 	bst.add_language(LANGUAGE_MERC) //Occulus edit, replaces LANGAUGE_SERBIAN
 	bst.add_language(LANGUAGE_MONKEY)
 	bst.add_language(LANGUAGE_JIVE)
-//	bst.add_language(LANGUAGE_GERMAN)
-//	bst.add_language(LANGUAGE_NEOHONGO)
-//	bst.add_language(LANGUAGE_LATIN)
+	// bst.add_language(LANGUAGE_GERMAN) // Occulus Removal
+	// bst.add_language(LANGUAGE_NEOHONGO) // Occulus Removal
+	// bst.add_language(LANGUAGE_LATIN) // Occulus Removal
 	// Robot languages
 	bst.add_language(LANGUAGE_ROBOT)
 	bst.add_language(LANGUAGE_DRONE)
 	// Antagonist languages
-	bst.add_language(LANGUAGE_XENOMORPH)
 	bst.add_language(LANGUAGE_HIVEMIND)
 	bst.add_language(LANGUAGE_CORTICAL)
 	bst.add_language(LANGUAGE_CULT)

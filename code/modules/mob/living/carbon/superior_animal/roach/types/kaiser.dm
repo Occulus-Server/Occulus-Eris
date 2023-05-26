@@ -14,15 +14,17 @@ Has ability of every roach.
 	spawn_blacklisted = TRUE
 	rarity_value = 100
 
-	turns_per_move = 4
-	maxHealth = 2000
-	health = 2000
+	turns_per_move = 6
+	maxHealth = 1500
+	health = 1500
 	contaminant_immunity = TRUE
 
 	var/datum/reagents/gas_sac
 
-	melee_damage_lower = 10
-	melee_damage_upper = 20
+	melee_damage_lower = 13
+	melee_damage_upper = 23
+	armor_divisor = ARMOR_PEN_MODERATE
+
 	move_to_delay = 8
 	mob_size = MOB_GIGANTIC
 	status_flags = 0
@@ -30,8 +32,7 @@ Has ability of every roach.
 
 	blattedin_revives_left = 0
 
-	// TODO: Add a special type of meat for Kaiser
-	meat_type = /obj/item/reagent_containers/food/snacks/meat/roachmeat/fuhrer
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/roachmeat/kaiser
 	meat_amount = 15
 	sanity_damage = 3
 
@@ -46,6 +47,16 @@ Has ability of every roach.
 	var/health_marker_3 = 500
 	var/list/nanite_swarms = list()//Occulus Edit
 	var/max_swarms = 21 //Occulus Edit. 25 maximum swarms, as we release 5 clusters at once
+
+	// Armor related variables
+	armor = list(
+		melee = 10,
+		bullet = 10,
+		energy = 15,
+		bomb = 0,
+		bio = 25,
+		rad = 50
+	)
 
 /mob/living/carbon/superior_animal/roach/kaiser/New()
 	..()
@@ -90,6 +101,7 @@ Has ability of every roach.
 /mob/living/carbon/superior_animal/roach/kaiser/eyecheck()//Occulus Edit
 	return 2//Flash immunity. Flashbang resist. Occulus Edit end
 
+
 // TOXIC ABILITIES
 /mob/living/carbon/superior_animal/roach/kaiser/UnarmedAttack(atom/A, proximity)
 	. = ..()
@@ -121,7 +133,7 @@ Has ability of every roach.
 	gas_sac.clear_reagents()
 	return TRUE
 
-/mob/living/carbon/superior_animal/roach/support/findTarget()
+/mob/living/carbon/superior_animal/roach/kaiser/findTarget()
 	. = ..()
 	if(. && gas_attack())
 		visible_emote("charges at [.] in clouds of poison!")

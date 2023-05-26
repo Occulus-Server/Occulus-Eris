@@ -32,10 +32,6 @@
 /obj/spawner/junk,
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
-"i" = (
-/obj/item/stool,
-/turf/simulated/floor/tiled/techmaint_perforated,
-/area/deepmaint)
 "j" = (
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/techmaint,
@@ -79,6 +75,14 @@
 /obj/spawner/pack/cloth/low_chance,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/techmaint_perforated,
+/area/deepmaint)
+"y" = (
+/obj/item/stool,
+/turf/simulated/floor/tiled/techmaint_perforated,
+/area/deepmaint)
+"K" = (
+/obj/landmark/corpse/hobo,
+/turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 
 (1,1,1) = {"
@@ -138,9 +142,9 @@ b
 c
 g
 h
-i
+y
 k
-i
+y
 f
 m
 c
@@ -150,10 +154,10 @@ b
 b
 c
 o
-f
-i
+K
+y
 l
-i
+y
 j
 p
 c
@@ -164,9 +168,9 @@ b
 c
 g
 f
-i
+y
 k
-i
+y
 f
 m
 c

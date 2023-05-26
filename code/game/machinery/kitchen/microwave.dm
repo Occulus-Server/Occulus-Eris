@@ -19,6 +19,9 @@
 	var/global/list/acceptable_items // List of the items you can put in
 	var/global/list/acceptable_reagents // List of the reagents you can put in
 	var/global/max_n_of_items = 0
+	var/list/blacklisted_from_buffs = list(
+	/obj/item/reagent_containers/food/snacks/donkpocket
+	)
 
 
 // see code/modules/food/recipes_microwave.dm for recipes
@@ -107,7 +110,7 @@
 		return
 
 	else if(src.dirty==100) // The microwave is all dirty so can't be used!
-		if(istype(I, /obj/item/reagent_containers/spray/cleaner)) // If they're trying to clean it then let them
+		if(istype(I, /obj/item/soap) || istype(I, /obj/item/reagent_containers/glass/rag)) // If they're trying to clean it then let them
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] starts to clean the [src]."), \
 				SPAN_NOTICE("You start to clean the [src].") \
@@ -124,6 +127,7 @@
 		else //Otherwise bad luck!!
 			to_chat(user, SPAN_WARNING("It's dirty!"))
 			return 1
+
 	else if(is_type_in_list(I,acceptable_items))
 		if(length(contents) >= max_n_of_items)
 			to_chat(user, SPAN_WARNING("This [src] is full of ingredients, you cannot put more."))
@@ -155,19 +159,20 @@
 				to_chat(user, SPAN_WARNING("Your [I] contains components unsuitable for cookery."))
 				return 1
 		return
+
 	if(QUALITY_BOLT_TURNING in I.tool_qualities)
 		user.visible_message( \
-		"<span class='notice'>\The [user] begins [src.anchored ? "securing" : "unsecuring"] the [src].</span>", \
-		"<span class='notice'>You attempt to [src.anchored ? "secure" : "unsecure"] the [src].</span>"
+		"<span class='notice'>\The [user] begins [src.anchored ? "unsecuring" : "securing"] the [src].</span>", \
+		"<span class='notice'>You attempt to [src.anchored ? "unsecure" : "secure"] the [src].</span>"
 		)
 		if(I.use_tool(user, src, WORKTIME_FAST, QUALITY_BOLT_TURNING, FAILCHANCE_EASY,  required_stat = STAT_MEC))
 			user.visible_message( \
-			"<span class='notice'>\The [user] [src.anchored ? "secures" : "unsecures"] the [src].</span>", \
-			"<span class='notice'>You [src.anchored ? "secure" : "unsecure"] the [src].</span>"
+			"<span class='notice'>\The [user] [src.anchored ? "unsecures" : "secures"] the [src].</span>", \
+			"<span class='notice'>You [src.anchored ? "unsecure" : "secure"] the [src].</span>"
 			)
 			src.anchored = !src.anchored
-	else
 
+	else
 		to_chat(user, SPAN_WARNING("You have no idea what you can cook with this [I]."))
 	..()
 	src.updateUsrDialog()

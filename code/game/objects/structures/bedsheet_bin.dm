@@ -10,7 +10,7 @@ LINEN BINS
 	icon = 'icons/obj/bedsheets.dmi'
 	icon_state = "sheet"
 	item_state = "bedsheet"
-	layer = 4.0
+	layer = 4
 	throwforce = WEAPON_FORCE_HARMLESS
 	throw_speed = 1
 	throw_range = 2
@@ -96,7 +96,7 @@ LINEN BINS
 	set category = "Object"
 	set src in view(1)
 
-	if(istype(loc,/mob))
+	if(ismob(loc))
 		to_chat(usr, "Drop \the [src] first.")
 	else if(ishuman(usr))
 		toggle_fold(usr)
@@ -108,7 +108,7 @@ LINEN BINS
 
 	if(folded)
 		to_chat(usr, "Unfold \the [src] first.")
-	else if(istype(loc,/mob))
+	else if(ismob(loc))
 		to_chat(usr, "Drop \the [src] first.")
 	else if(ishuman(usr))
 		toggle_roll(usr)
@@ -146,7 +146,7 @@ LINEN BINS
 		if(folded)
 			pickup(usr)
 
-/obj/item/bedsheet/on_update_icon()
+/obj/item/bedsheet/update_icon()
 	if (folded)
 		icon_state = "sheet-folded"
 	else if (rolled)

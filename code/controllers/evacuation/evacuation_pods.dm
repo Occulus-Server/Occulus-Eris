@@ -42,7 +42,6 @@
 		priority_announcement.Announce(replacetext(replacetext(GLOB.maps_data.emergency_shuttle_leaving_dock, "%dock_name%", "[dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 
 /datum/evacuation_controller/starship/finish_evacuation()
-	..()
 	if(!emergency_evacuation) //bluespace jump
 		SetUniversalState(/datum/universal_state) //clear jump state
 
@@ -73,6 +72,9 @@
 		return
 	if (evacuation_controller.is_evacuating())
 		to_chat(user, "Escape procedures already in progress.")
+		return
+	if (isdrone(user))
+		to_chat(user, "ACCES DENIED. CPU Quota does not meet basic consideration requirements to call evacuation.")
 		return
 	if (evacuation_controller.call_evacuation(user, 1))
 		log_and_message_admins("[user? key_name(user) : "Autotransfer"] has initiated abandonment of the spacecraft.")

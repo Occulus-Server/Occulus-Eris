@@ -31,7 +31,6 @@
 		/obj/structure/sink,
 		/obj/item/storage,
 		/obj/machinery/atmospherics/unary/cryo_cell,
-		/obj/machinery/dna_scannernew,
 		/obj/item/grenade/chem_grenade,
 		/mob/living/bot/medbot,
 		/obj/item/storage/secure/safe,
@@ -44,7 +43,6 @@
 		/obj/machinery/smartfridge/,
 		//obj/machinery/biogenerator,OCCULUS EDIT. Comments out the non-Mekhane Biogenerator for lore reasons
 		/obj/machinery/constructable_frame,
-		/obj/machinery/radiocarbon_spectrometer,
 		/obj/machinery/centrifuge,
 		/obj/machinery/electrolyzer
 		)
@@ -122,11 +120,8 @@
 			return
 	if(standard_pour_into(user, target))
 		return 1
-	// OCCULUS EDIT START - NO MORE REVERSE POURING
-	if(istype(target, /obj/structure/reagent_dispensers))
-		if(standard_dispenser_refill(user, target))
-			return 1
-	// OCCULUS EDIT END
+	if(standard_dispenser_refill(user, target))
+		return 1
 
 /obj/item/reagent_containers/glass/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/pen) || istype(I, /obj/item/device/lighting/toggleable/flashlight/pen))

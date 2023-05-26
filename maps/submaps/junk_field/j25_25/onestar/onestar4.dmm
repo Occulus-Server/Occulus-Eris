@@ -151,13 +151,8 @@
 /area/template_noop)
 "aK" = (
 /obj/structure/closet/onestar/tier1/medical,
-<<<<<<< HEAD
-/obj/item/reagent_containers/blood/empty,
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-=======
 /obj/item/reagent_containers/blood/empty,
 /turf/simulated/floor/tiled/derelict/white_big_edges/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "aL" = (
 /obj/structure/closet/onestar/tier1/medical,
@@ -182,13 +177,8 @@
 /obj/spawner/surgery_tool,
 /obj/spawner/surgery_tool,
 /obj/spawner/surgery_tool/low_chance,
-<<<<<<< HEAD
-/obj/item/reagent_containers/blood/OMinus,
-/turf/simulated/floor/tiled/derelict/white_big_edges,
-=======
 /obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/derelict/white_big_edges/airless,
->>>>>>> 38d706f... Overmap Extension Part 2 (#6599)
 /area/template_noop)
 "aP" = (
 /obj/spawner/junk,

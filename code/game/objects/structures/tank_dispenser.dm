@@ -16,7 +16,7 @@
 
 
 /obj/structure/dispenser/oxygen
-	phorontanks = 0
+	plasmatanks = 0
 	rarity_value = 10
 
 /obj/structure/dispenser/phoron
@@ -66,8 +66,8 @@
 			to_chat(user, SPAN_NOTICE("[src] is full."))
 		updateUsrDialog()
 		return
-	if(istype(I, /obj/item/tank/phoron))
-		if(phorontanks < 10)
+	if(istype(I, /obj/item/tank/plasma))
+		if(plasmatanks < 10)
 			user.drop_item()
 			I.forceMove(src)
 			platanks.Add(I)
@@ -108,8 +108,8 @@
 			tank = platanks[platanks.len]
 			platanks.Remove(tank)
 		else
-			tank = new /obj/item/tank/phoron(loc)
-		phorontanks--
+			tank = new /obj/item/tank/plasma(loc)
+		plasmatanks--
 
 	if(tank)
 		tank.forceMove(drop_location())

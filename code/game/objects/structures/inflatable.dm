@@ -2,6 +2,7 @@
 	name = "inflatable"
 	w_class = ITEM_SIZE_SMALL
 	icon = 'icons/obj/inflatable.dmi'
+	price_tag = 40
 	var/deploy_path = null
 
 /obj/item/inflatable/attack_self(mob/user)
@@ -19,6 +20,7 @@
 	name = "inflatable wall"
 	desc = "A folded membrane which rapidly expands into a large cubical shape on activation."
 	icon_state = "folded_wall"
+	atmos_canpass = CANPASS_NEVER
 	deploy_path = /obj/structure/inflatable/wall
 
 /obj/item/inflatable/door/
@@ -36,8 +38,10 @@
 	icon = 'icons/obj/inflatable.dmi'
 	icon_state = "wall"
 
+	atmos_canpass = CANPASS_DENSITY
+
 	var/undeploy_path = null
-	var/health = 50.0
+	var/health = 50
 
 /obj/structure/inflatable/wall
 	name = "inflatable wall"
@@ -66,13 +70,13 @@
 
 /obj/structure/inflatable/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			deflate(1)
 			return
-		if(3.0)
+		if(3)
 			if(prob(50))
 				deflate(1)
 				return

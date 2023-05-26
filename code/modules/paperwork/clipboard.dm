@@ -17,7 +17,7 @@
 	. = ..()
 	update_icon()
 
-/obj/item/clipboard/on_update_icon()
+/obj/item/clipboard/update_icon()
 	cut_overlays()
 	if(toppaper)
 		add_overlays(toppaper.icon_state)

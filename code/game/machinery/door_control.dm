@@ -159,16 +159,16 @@
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("Access Denied"))
-			FLICK("doorid-denied",src)
+			flick("doorid-denied",src)
 	else
 		to_chat(user, SPAN_WARNING("You need a id card to operate."))
-		FLICK("doorid-denied",src)
+		flick("doorid-denied",src)
 
 /obj/machinery/button/remote/blast_door/id_card/attack_hand(mob/user as mob)
 	to_chat(user, SPAN_WARNING("You need a id card to operate."))
-	FLICK("doorid-denied",src)
+	flick("doorid-denied",src)
 
-/obj/machinery/button/remote/blast_door/id_card/on_update_icon()
+/obj/machinery/button/remote/blast_door/id_card/update_icon()
 	if(stat & NOPOWER)
 		icon_state = "doorid-p"
 	else

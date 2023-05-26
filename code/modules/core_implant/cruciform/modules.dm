@@ -3,8 +3,8 @@
 
 /datum/core_module/cruciform/red_light/install()
 	implant.icon_state = "cruciform_red"
-	implant.max_power += 30 //Occulus Edit: Revert
-	implant.power_regen += 0.25 //Occulus Edit: Revert
+	implant.max_power += initial(implant.max_power) * 0.6
+	implant.power_regen += initial(implant.power_regen) * 0.15
 	implant.restore_power(implant.max_power)
 
 	if(ishuman(implant.wearer))
@@ -13,8 +13,8 @@
 
 /datum/core_module/cruciform/red_light/uninstall()
 	implant.icon_state = "cruciform_green"
-	implant.max_power -= 30 //Occulus Edit: Revert
-	implant.power_regen -= 0.25 //Occulus Edit: Revert
+	implant.max_power -= initial(implant.max_power) * 0.6
+	implant.power_regen -= initial(implant.power_regen) * 0.15
 	implant.power = implant.max_power
 
 	if(ishuman(implant.wearer))
@@ -25,7 +25,7 @@
 
 
 /*
-	Traitor uplink hidden inside cruciform. Used for inquisitors and maybe other NT antags
+	Contractor uplink hidden inside cruciform. Used for inquisitors and maybe other NT antags
 */
 /datum/core_module/cruciform/uplink
 	var/telecrystals = 15
@@ -56,16 +56,44 @@
 
 
 /datum/core_module/cruciform/cloning
-	var/datum/dna/dna = null
 	var/age = 30
 	var/ckey = ""
-	var/datum/mind/mind = null
-	var/languages = list()
 	var/flavor = ""
+	var/datum/mind/mind = null
 	var/datum/stat_holder/stats
+	var/list/dormant_mutations
+	var/list/active_mutations
+	var/b_type
+	var/h_style
+	var/hair_color
+	var/f_style
+	var/facial_color
+	var/eyes_color
+	var/skin_color
+	var/s_tone
+	var/gender
+	var/tts_seed
+	var/real_name
+	var/dna_trace = null
+	var/fingers_trace = null
+	var/languages = list()
 
 /datum/core_module/cruciform/cloning/proc/write_wearer(var/mob/living/carbon/human/H)
-	dna = H.dna
+	fingers_trace = H.fingers_trace
+	dna_trace = H.dna_trace
+	real_name = H.real_name
+	b_type = H.b_type
+	h_style = H.h_style
+	hair_color = H.hair_color
+	f_style = H.f_style
+	facial_color = H.facial_color
+	eyes_color = H.eyes_color
+	skin_color = H.skin_color
+	s_tone = H.s_tone
+	gender = H.gender
+	tts_seed = H.tts_seed
+	dormant_mutations = H.dormant_mutations
+	active_mutations = H.active_mutations
 	if(H.ckey)
 		ckey = H.ckey
 	if(H.mind)
@@ -170,11 +198,18 @@
 	access = list(access_nt_agrolyte)
 	ritual_types = list(/datum/ritual/cruciform/agrolyte)
 
+/datum/core_module/rituals/cruciform/custodian
+	access = list(access_nt_custodian)
+	ritual_types = list(/datum/ritual/cruciform/custodian)
+
 /datum/core_module/rituals/cruciform/priest
 	access = list(access_nt_preacher, access_nt_custodian, access_nt_agrolyte)
 	ritual_types = list(/datum/ritual/cruciform/priest,
 	/datum/ritual/targeted/cruciform/priest)
 
+/datum/core_module/rituals/cruciform/priest/acolyte
+	ritual_types = list(/datum/ritual/cruciform/priest/acolyte,
+	/datum/ritual/targeted/cruciform/priest/acolyte)
 
 
 /datum/core_module/rituals/cruciform/inquisitor
@@ -184,14 +219,14 @@
 
 /datum/core_module/rituals/cruciform/inquisitor/install()
 	..()
-	implant.max_power += 50 //Occulus Edit: Revert
-	implant.power_regen += 0.5 //Occulus Edit: Revert
+	implant.max_power += initial(implant.max_power)
+	implant.power_regen += initial(implant.power_regen) * 0.25
 	implant.restore_power(implant.max_power)
 
 /datum/core_module/rituals/cruciform/inquisitor/uninstall()
 	..()
-	implant.max_power -= 50 //Occulus Edit: Revert
-	implant.power_regen -= 0.5 //Occulus Edit: Revert
+	implant.max_power -= initial(implant.max_power)
+	implant.power_regen -= initial(implant.power_regen) * 0.25
 	implant.power = implant.max_power
 
 

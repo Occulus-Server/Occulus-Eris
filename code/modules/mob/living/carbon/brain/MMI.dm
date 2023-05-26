@@ -9,7 +9,9 @@
 	..()
 
 /obj/item/device/mmi/digital/transfer_identity(mob/living/carbon/H)
-	brainmob.dna = H.dna
+	brainmob.b_type = H.b_type
+	brainmob.dna_trace = H.dna_trace
+	brainmob.fingers_trace = H.fingers_trace
 	brainmob.timeofhostdeath = H.timeofdeath
 	brainmob.stat = 0
 	if(H.mind)
@@ -19,6 +21,7 @@
 /obj/item/device/mmi
 	name = "man-machine interface"
 	desc = "The Warrior's bland acronym, MMI, obscures the true horror of this monstrosity."
+	description_info = "Brains can be inserted by clicking on it. Brains can be removed by swiping a ID with roboticist access and clicking with an empty hand."
 	icon = 'icons/obj/assemblies.dmi'
 	icon_state = "mmi_empty"
 	w_class = ITEM_SIZE_NORMAL
@@ -46,7 +49,7 @@
 		if(!BM.client)
 			for(var/mob/observer/ghost/G in GLOB.player_list)
 				if(G.can_reenter_corpse && G.mind == BM.mind)
-					if(alert(G, "Somebody is attempting to put your brain in an MMI. Would you like to return to it?","Become brain","OH YES","No") == "OH YES")
+					if(alert(G, "Somebody is attempting to put your brain in an MMI. Would you like to return to it?","Become brain","OH YES","No") == "OH YES") // Occulus Edit - Ask ghost if they want to be MMI'd
 						G.reenter_corpse()
 						break
 			if(!BM.client)
@@ -116,7 +119,9 @@
 	brainmob = new(src)
 	brainmob.name = H.real_name
 	brainmob.real_name = H.real_name
-	brainmob.dna = H.dna
+	brainmob.b_type = H.b_type
+	brainmob.dna_trace = H.dna_trace
+	brainmob.fingers_trace = H.fingers_trace
 	brainmob.container = src
 
 	name = "Man-Machine Interface: [brainmob.real_name]"

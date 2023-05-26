@@ -11,6 +11,7 @@
 	selection_color = "#97b0be"
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
+	also_known_languages = list(LANGUAGE_NEOHONGO = 100)
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihc
 
@@ -31,7 +32,8 @@
 		STAT_VIG = 40,
 	)
 
-	perks = list(/datum/perk/survivor)
+	perks = list(PERK_SURVIVOR,
+				 PERK_CODESPEAK_COP)
 
 	software_on_spawn = list(/datum/computer_file/program/comm,
 							 /datum/computer_file/program/digitalwarrant,
@@ -71,9 +73,8 @@
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	department_account_access = TRUE
-	wage = WAGE_LABOUR_HAZARD
-
-	wl_config_sec = TRUE		//Eclipse edit.
+	wage = WAGE_PROFESSIONAL
+	also_known_languages = list(LANGUAGE_NEOHONGO = 100)
 
 	outfit_type = /decl/hierarchy/outfit/job/security/gunserg
 
@@ -89,7 +90,8 @@
 		STAT_VIG = 25,
 	)
 
-	perks = list(/datum/perk/survivor)
+	perks = list(PERK_SURVIVOR,
+				 PERK_CODESPEAK_COP)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)
@@ -125,15 +127,14 @@
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
-
-	wl_config_sec = TRUE		//Eclipse edit.
+	also_known_languages = list(LANGUAGE_NEOHONGO = 100)
 
 	outfit_type = /decl/hierarchy/outfit/job/security/inspector
 
 	access = list(
 		access_security, access_moebius, access_medspec, access_engine, access_mailsorting,
 		access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels,
-		access_external_airlocks
+		access_external_airlocks, access_brig
 	)
 
 	stat_modifiers = list(
@@ -143,10 +144,12 @@
 		STAT_VIG = 25,
 	)
 
-	perks = list(/datum/perk/survivor)
+	perks = list(PERK_SURVIVOR,
+				 PERK_CODESPEAK_COP)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/audio,
+							 /datum/computer_file/program/suit_sensors,
 							 /datum/computer_file/program/camera_monitor)
 
 	description = "You are the ship's detective, here to take care of the cases that aren't always what they seem, and suspects that aren't always caught red handed or ready to confess.<br>\
@@ -166,24 +169,24 @@
 		Secondly, you are loyal to Aegis and to the commander. Follow the chain of command."
 
 /obj/landmark/join/start/inspector
-	name = "Aegis Inspector"
+	name = "Aegis Inspector" // Occulus Edit - Remove Eris corp. reference
 	icon_state = "player-blue"
 	join_tag = /datum/job/inspector
 
 
 /datum/job/medspec
-	title = "Aegis Medical Specialist"
+	title = "Aegis Medical Specialist" // Occulus Edit - Remove Eris corp. reference
 	flag = MEDSPEC
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "CEV Northern Light"
+	faction = "CEV Northern Light" // Occulus Edit - Remove Eris corp. reference
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the Aegis Commander"
+	supervisors = "the Aegis Commander" // Occulus Edit - Remove Eris corp. reference
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
 
-	wl_config_sec = TRUE		//Eclipse edit.
+	also_known_languages = list(LANGUAGE_NEOHONGO = 100)
 
 	outfit_type = /decl/hierarchy/outfit/job/security/medspec
 
@@ -197,7 +200,8 @@
 		STAT_VIG = 15,
 	)
 
-	perks = list(/datum/perk/survivor)
+	perks = list(PERK_SURVIVOR,
+				 PERK_CODESPEAK_COP)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/suit_sensors,
@@ -225,19 +229,18 @@
 
 
 /datum/job/ihoper
-	title = "Aegis Operative"
+	title = "Aegis Operative" // Occulus Edit - Remove Eris corp. reference
 	flag = IHOPER
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "CEV Northern Light"
+	faction = "CEV Northern Light" // Occulus Edit - Remove Eris corp. reference
 	total_positions = 6
 	spawn_positions = 6
-	supervisors = "the Aegis Commander"
-	//alt_titles = list("Aegis Junior Operative")
+	supervisors = "the Aegis Commander" // Occulus Edit - Remove Eris corp. reference
+	//alt_titles = list("Aegis Junior Operative") // Occulus Edit - Remove Eris corp. reference
 	selection_color = "#a7bbc6"
 	wage = WAGE_LABOUR_HAZARD
-
-	wl_config_sec = TRUE		//Eclipse edit.
+	also_known_languages = list(LANGUAGE_NEOHONGO = 100)
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihoper
 
@@ -252,7 +255,8 @@
 		STAT_VIG = 25,
 	)
 
-	perks = list(/datum/perk/survivor)
+	perks = list(PERK_SURVIVOR,
+				 PERK_CODESPEAK_COP)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)

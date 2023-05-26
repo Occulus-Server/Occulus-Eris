@@ -7,6 +7,7 @@
 	can_hold = list(
 		/obj/item/spacecash,
 		/obj/item/card,
+		/obj/item/toy/card,
 		/obj/item/clothing/mask/smokable/cigarette/,
 		/obj/item/device/lighting/toggleable/flashlight/pen,
 		/obj/item/seeds,
@@ -24,7 +25,11 @@
 		/obj/item/tool/screwdriver,
 		/obj/item/computer_hardware/hard_drive/portable,
 		/obj/item/reagent_containers/syringe,
-		/obj/item/stamp)
+		/obj/item/stamp,
+		/obj/item/oddity/common/coin,
+		/obj/item/oddity/common/old_money,
+		/obj/item/oddity/common/old_id,
+		/obj/item/oddity/common/disk)
 	slot_flags = SLOT_ID
 
 	matter = list(MATERIAL_BIOMATTER = 4)
@@ -46,7 +51,7 @@
 			name = "[name] ([front_id])"
 			update_icon()
 
-/obj/item/storage/wallet/on_update_icon()
+/obj/item/storage/wallet/update_icon()
 
 	if(front_id)
 		switch(front_id.icon_state)

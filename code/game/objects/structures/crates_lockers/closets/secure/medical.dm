@@ -75,7 +75,7 @@
 	new /obj/item/device/flash(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)
 	new /obj/item/device/lighting/toggleable/flashlight(src)
-	new /obj/item/device/radio/color/lightblue(src)		//eclipse edit
+	new /obj/item/device/radio(src)
 	new /obj/item/tool/crowbar(src)
 	new /obj/item/clothing/shoes/reinforced/medical(src)
 	new /obj/item/clothing/head/soft/medical(src)
@@ -97,8 +97,8 @@
 		new /obj/item/storage/backpack/medical(src)
 	else
 		new /obj/item/storage/backpack/satchel(src)
-	new /obj/item/clothing/suit/bio_suit/cmo(src)
-	new /obj/item/clothing/head/bio_hood/cmo(src)
+	new /obj/item/clothing/suit/bio_suit(src)
+	new /obj/item/clothing/head/bio_hood(src)
 	new /obj/item/clothing/shoes/color/white(src)
 	new /obj/item/clothing/shoes/reinforced/medical(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)
@@ -113,7 +113,6 @@
 	new /obj/item/reagent_containers/hypospray(src)
 	new /obj/item/storage/belt/medical(src)
 	new /obj/item/storage/pouch/medical_supply(src)
-	new /obj/item/reagent_containers/hypospray/autoinjector/drugs(src)
 
 /obj/structure/closet/secure_closet/animal
 	name = "animal control closet"
@@ -136,7 +135,6 @@
 /obj/structure/closet/secure_closet/chemical/populate_contents()
 	new /obj/item/storage/bag/chemistry(src) // Occulus Edit
 	new /obj/item/storage/bag/chemistry(src) // Occulus edit
+	new /obj/item/storage/box/pillbottles(src)
+	new /obj/item/storage/box/pillbottles(src)
 	new /obj/item/storage/pouch/tubular/vial(src)
-	new /obj/item/storage/pouch/tubular/vial(src)
-	new /obj/item/storage/box/autoinjectors/empty(src)
-	new /obj/item/storage/box/autoinjectors/empty(src)

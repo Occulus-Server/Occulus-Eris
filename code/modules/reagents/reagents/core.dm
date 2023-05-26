@@ -1,5 +1,5 @@
 /datum/reagent/organic/blood
-	data = new/list("donor" = null, "viruses" = null, "species" = "Human", "blood_DNA" = null, "blood_type" = null, "blood_colour" = "#A10808", "resistances" = null, "trace_chem" = null, "antibodies" = list(), "carrion" = null)
+	data = new/list("donor" = null, "viruses" = null, "species" = SPECIES_HUMAN, "blood_DNA" = null, "blood_type" = null, "blood_colour" = "#A10808", "resistances" = null, "trace_chem" = null, "antibodies" = list(), "carrion" = null)
 	name = "Blood"
 	id = "blood"
 	reagent_state = LIQUID
@@ -10,6 +10,7 @@
 	glass_icon_state = "glass_red"
 	glass_name = "tomato juice"
 	glass_desc = "Are you sure this is tomato juice?"
+	affects_dead = TRUE
 	nerve_system_accumulations = 0
 
 /datum/reagent/organic/blood/initialize_data(var/newdata)
@@ -30,10 +31,6 @@
 		return TRUE
 	if(!data["donor"] || istype(data["donor"], /mob/living/carbon/human))
 		blood_splatter(T, src, 1)
-	else if(istype(data["donor"], /mob/living/carbon/alien))
-		var/obj/effect/decal/cleanable/blood/B = blood_splatter(T, src, 1)
-		if(B)
-			B.blood_DNA["UNKNOWN DNA STRUCTURE"] = "X*"
 	return TRUE
 
 /datum/reagent/organic/blood/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
@@ -41,9 +38,9 @@
 	if(issmall(M)) effective_dose *= 2
 
 	if(effective_dose > 5)
-		M.adjustToxLoss(1 * effect_multiplier)
+		M.add_chemical_effect(CE_TOXIN, effect_multiplier)
 	if(effective_dose > 15)
-		M.adjustToxLoss(1 * effect_multiplier)
+		M.add_chemical_effect(CE_TOXIN, effect_multiplier)
 	if(data && data["virus2"])
 		var/list/vlist = data["virus2"]
 		if(vlist.len)
@@ -172,7 +169,7 @@
 	return TRUE
 
 /datum/reagent/toxin/fuel/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.adjustToxLoss(0.2 * (issmall(M) ? effect_multiplier * 2 : effect_multiplier))
+	M.add_chemical_effect(CE_TOXIN, 2 * (issmall(M) ? effect_multiplier * 2 : effect_multiplier))
 
 /datum/reagent/toxin/fuel/touch_mob(mob/living/L, var/amount)
 	if(istype(L))

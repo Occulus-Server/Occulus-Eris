@@ -91,9 +91,9 @@
 
 /datum/movement_handler/mob/space/exosuit/expected_host_type = /mob/living/exosuit
 
-// Space movement Occulus Edit Start
 /datum/movement_handler/mob/space/exosuit/DoMove(var/direction, var/mob/mover)
-	if(!mob.check_gravity())//If there is no solid ground beneath us, we fall in space!
+
+	if(!mob.check_gravity())
 		var/allowmove = mob.allow_spacemove()
 		if(!allowmove)
 			return MOVEMENT_HANDLED
@@ -107,11 +107,11 @@
 	if((mover != host) && is_external)//If we are being pulled,  continue
 		return MOVEMENT_PROCEED
 
-	if(!mob.check_gravity())//If there is gravity, we can move!
-		if(!mob.allow_spacemove())//If there isn't gravity, check if we can spacemove
+	if(!mob.check_gravity())
+		if(!mob.allow_spacemove())
 			return MOVEMENT_STOP
 	return MOVEMENT_PROCEED
-// Occulus Edit End
+
 /mob/living/exosuit/lost_in_space()
 	for(var/atom/movable/AM in contents)
 		if(!AM.lost_in_space())
@@ -119,7 +119,8 @@
 	return !pilots.len
 /*
 /mob/living/exosuit/get_fall_damage(var/turf/from, var/turf/dest)
-	return (from.z - dest.z > 1) ? (50 * from.z - dest.z) : 0 //Exosuits are big and heavy //but one z level can't damage them
+	//Exosuits are big and heavy, but one z level can't damage them
+	. = (from && dest) ? ((from.z - dest.z > 1) ? (50 * from.z - dest.z) : 0) : min(15, maxHealth * 0.4)
 
 /*
 /mob/living/exosuit/handle_fall_effect(var/turf/landing)

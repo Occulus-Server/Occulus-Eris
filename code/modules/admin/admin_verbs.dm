@@ -28,9 +28,13 @@ var/list/admin_verbs = list("default" = list(), "hideable" = list())
 			if(text2num(text_right) & holder.rights)
 				verbs += admin_verbs[text_right]
 
+		if(check_rights(config.profiler_permission))
+			control_freak = 0 // enable profiler
+
 /client/proc/remove_admin_verbs()
 	for(var/right in admin_verbs)
 		verbs.Remove(admin_verbs[right])
+	control_freak = initial(control_freak)
 
 ADMIN_VERB_ADD(/client/proc/hide_most_verbs, null, FALSE)
 //hides all our hideable adminverbs
@@ -195,6 +199,15 @@ ADMIN_VERB_ADD(/client/proc/stealth, R_ADMIN, TRUE)
 		message_admins("[key_name_admin(usr)] has turned stealth mode [holder.fakekey ? "ON" : "OFF"]", 1)
 
 
+ADMIN_VERB_ADD(/client/proc/hivemind_panel, R_FUN, TRUE)
+/client/proc/hivemind_panel()
+	set category = "Fun"
+	set name = "Hivemind Panel"
+	if(holder && GLOB.hivemind_panel)
+		var/datum/hivemind_panel/H = GLOB.hivemind_panel
+		H.main_interact()
+
+
 #define MAX_WARNS 3
 #define AUTOBANTIME 10
 
@@ -265,7 +278,7 @@ ADMIN_VERB_ADD(/client/proc/drop_bomb, R_FUN, FALSE)
 	message_admins("\blue [ckey] creating an admin explosion at [epicenter.loc].")
 
 
-/client/proc/give_disease2(mob/T as mob in SSmobs.mob_list) // -- Giacom
+/client/proc/give_disease2(mob/T as mob in SSmobs.mob_list | SShumans.mob_list) // -- Giacom
 	set category = "Fun"
 	set name = "Give Disease"
 	set desc = "Gives a Disease to a mob."
@@ -312,10 +325,14 @@ ADMIN_VERB_ADD(/client/proc/make_sound, R_FUN, FALSE)
 		message_admins("\blue [key_name_admin(usr)] made [O] at [O.x], [O.y], [O.z]. make a sound", 1)
 
 
-ADMIN_VERB_ADD(/client/proc/togglebuildmodeself, R_FUN, FALSE)
+ADMIN_VERB_ADD(/client/proc/togglebuildmodeself, R_ADMIN, FALSE)
 /client/proc/togglebuildmodeself()
 	set name = "Toggle Build Mode Self"
 	set category = "Special Verbs"
+
+	if(!check_rights(R_ADMIN))
+		return
+
 	if(src.mob)
 		togglebuildmode(src.mob)
 
@@ -436,7 +453,7 @@ ADMIN_VERB_ADD(/client/proc/manage_silicon_laws, R_ADMIN, TRUE)
 	if(!S) return
 
 	var/datum/nano_module/law_manager/L = new(S)
-	L.ui_interact(usr, state = GLOB.admin_state)
+	L.nano_ui_interact(usr, state = GLOB.admin_state)
 	log_and_message_admins("has opened [S]'s law manager.")
 
 
@@ -544,7 +561,7 @@ ADMIN_VERB_ADD(/client/proc/toggledrones, R_ADMIN, FALSE)
 
 
 ADMIN_VERB_ADD(/client/proc/man_up, R_ADMIN, FALSE)
-/client/proc/man_up(mob/T as mob in SSmobs.mob_list)
+/client/proc/man_up(mob/T as mob in SSmobs.mob_list | SShumans.mob_list)
 	set category = "Fun"
 	set name = "Man Up"
 	set desc = "Tells mob to man up and deal with it."
@@ -561,7 +578,7 @@ ADMIN_VERB_ADD(/client/proc/global_man_up, R_ADMIN, FALSE)
 	set name = "Man Up Global"
 	set desc = "Tells everyone to man up and deal with it."
 
-	for (var/mob/T as mob in SSmobs.mob_list)
+	for (var/mob/T as mob in SSmobs.mob_list | SShumans.mob_list)
 		to_chat(T, "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>")
 		T << 'sound/voice/ManUp1.ogg'
 
@@ -569,7 +586,7 @@ ADMIN_VERB_ADD(/client/proc/global_man_up, R_ADMIN, FALSE)
 	message_admins("\blue [key_name_admin(usr)] told everyone to man up and deal with it.", 1)
 
 ADMIN_VERB_ADD(/client/proc/skill_issue, R_ADMIN, FALSE)
-/client/proc/skill_issue(mob/T as mob in SSmobs.mob_list)
+/client/proc/skill_issue(mob/T as mob in SSmobs.mob_list | SShumans.mob_list)
 	set category = "Fun"
 	set name = "Skill Issue"
 	set desc = "Tells mob that it is a skill issue and to git gud."
@@ -590,3 +607,125 @@ ADMIN_VERB_ADD(/client/proc/toggleUIDebugMode, R_DEBUG, FALSE)
 		UI.toggleDebugMode()
 	else
 		log_debug("This mob has no UI.")
+
+ADMIN_VERB_ADD(/client/proc/create_portals, R_ADMIN, FALSE)
+/client/proc/create_portals()
+	set category = "Fun"
+	set name = "Create Portals"
+	set desc = "Create bi-directional portals between two locations."
+
+	var/x_1 = input(src, "X Coordinate", "First Portal Location") as null|num
+	if(!x_1)
+		return
+	var/y_1 = input(src, "Y Coordinate", "First Portal Location") as null|num
+	if(!y_1)
+		return
+	var/z_1 = input(src, "Z Coordinate", "First Portal Location") as null|num
+	if(!z_1)
+		return
+
+	var/x_2 = input(src, "X Coordinate", "Second Portal Location") as null|num
+	if(!x_2)
+		return
+	var/y_2 = input(src, "Y Coordinate", "Second Portal Location") as null|num
+	if(!y_2)
+		return
+	var/z_2 = input(src, "Z Coordinate", "Second Portal Location") as null|num
+	if(!z_2)
+		return
+
+	// Spawning perfect portals
+	var/obj/effect/portal/perfect/portal_1 = new /obj/effect/portal/perfect(locate(x_1, y_1, z_1))  // First location
+	var/obj/effect/portal/perfect/portal_2 = new /obj/effect/portal/perfect(locate(x_2, y_2, z_2))  // Second location
+	portal_1.set_target(get_turf(portal_2))  // Link the two portals
+	portal_2.set_target(get_turf(portal_1))
+
+	log_admin("[key_name(usr)] created portals from ([x_1],[y_1],[z_1]) to ([x_2],[y_2],[z_2]).")
+	message_admins("\blue [key_name_admin(usr)] created portals from ([x_1],[y_1],[z_1]) to ([x_2],[y_2],[z_2]).", 1)
+
+
+ADMIN_VERB_ADD(/client/proc/manage_custom_kits, R_FUN, FALSE)
+/client/proc/manage_custom_kits()
+	set category = "Fun"
+	set name = "Manage Custom Kits"
+
+	var/const/header = "Custom kit management"
+	var/groundhog_day = TRUE
+	var/mob/user = ismob(usr) ? usr : src.mob
+	var/iterations_count = 0
+
+	while(groundhog_day && iterations_count < 100)
+		iterations_count++
+		var/action = alert(user, "Currently existing kits: [LAZYLEN(GLOB.custom_kits)]", "[header]", "Spawn", "Create or edit", "Cancel")
+		switch(action)
+			if("Spawn")
+				var/kit_of_choice = input(user, "Choose a kit", "[header]") as null|anything in GLOB.custom_kits
+				if(kit_of_choice)
+					var/severity_of_adminbus = input(user, "How many?", "[header]") as null|num
+					if(severity_of_adminbus)
+						var/storage_path = GLOB.custom_kits[kit_of_choice][1]
+						var/turf/location = get_turf(user)
+						for(var/I in 1 to severity_of_adminbus)
+							var/obj/item/storage/storage = new storage_path(location)
+							for(var/i in 2 to LAZYLEN(GLOB.custom_kits[kit_of_choice]))
+								var/item_path = GLOB.custom_kits[kit_of_choice][i]
+								new item_path(storage)
+						log_and_message_admins("[ckey] spawned custom kit at [admin_jump_link(location, src)]")
+			if("Create or edit")
+				var/do_what_exactly = alert(user, "What do?", "[header]", "Create", "Edit", "Cancel")
+				switch(do_what_exactly)
+					if("Create")
+						var/perfectly_descriptive_name = input(user, "Give it a name", "[header]") as null|text
+						if(perfectly_descriptive_name)
+							if(isnum(perfectly_descriptive_name))
+								perfectly_descriptive_name = num2text(perfectly_descriptive_name)
+							var/path_of_choice
+							switch(alert(user, "Kit would need a storage.", "[header]", "Enter path", "Pick path", "Cancel"))
+								if("Enter path")
+									path_of_choice = text2path(input(user, "It better be subtype of /obj/item/storage or other type of container.", "[header]") as null|text)
+								if("Pick path")
+									path_of_choice = input(user, "Pick a storage for the kit.", "[header]") as null|anything in typesof(/obj/item/storage)
+							if(path_of_choice)
+								GLOB.custom_kits += perfectly_descriptive_name
+								GLOB.custom_kits[perfectly_descriptive_name] = list(1)
+								GLOB.custom_kits[perfectly_descriptive_name][1] = path_of_choice
+								to_chat(user, SPAN_DANGER("Kit \"[perfectly_descriptive_name]\" created, now edit it."))
+							else
+								to_chat(user, SPAN_DANGER("Invalid storage type."))
+					if("Edit")
+						var/kit_of_choice = input(user, "Choose a kit", "[header]") as null|anything in GLOB.custom_kits
+						if(kit_of_choice)
+							switch(alert(user, "What do?", "[header]", "Add or remove items", "Delete", "Cancel"))
+								if("Add or remove items")
+									var/dream_within_a_dream = TRUE
+									while(dream_within_a_dream)
+										switch(alert(user, "What do?", "[header]", "Add item", "Remove item", "Cancel"))
+											if("Add item")
+												var/dream_within_a_dream_within_a_dream = TRUE
+												while(dream_within_a_dream_within_a_dream)
+													switch(alert(user, "Add item to the kit.", "[header]", "Enter path", "Enough"))
+														if("Enter path")
+															var/new_path = input(user, "Enter an item path.", "[header]") as null|text
+															if(new_path)
+																GLOB.custom_kits[kit_of_choice] += new_path
+														else
+															dream_within_a_dream_within_a_dream = FALSE
+											if("Remove item")
+												var/dream_within_a_dream_within_a_dream = TRUE
+												while(dream_within_a_dream_within_a_dream)
+													var/list/list_of_stuff = GLOB.custom_kits[kit_of_choice] - GLOB.custom_kits[kit_of_choice][1]
+													if(!LAZYLEN(list_of_stuff))
+														to_chat(user, SPAN_DANGER("There is nothing left."))
+														dream_within_a_dream_within_a_dream = FALSE
+													else
+														var/item_to_remove = input(user, "Pick a path to remove", "[header]") as null|anything in list_of_stuff
+														if(item_to_remove)
+															GLOB.custom_kits[kit_of_choice] -= item_to_remove
+														else
+															dream_within_a_dream_within_a_dream = FALSE
+											else
+												dream_within_a_dream = FALSE
+								if("Delete")
+									GLOB.custom_kits -= kit_of_choice
+			else
+				groundhog_day = FALSE

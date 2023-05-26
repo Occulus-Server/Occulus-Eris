@@ -17,7 +17,7 @@ var/global/list/robot_modules = list(
 	desc = "This is a robot module parent class. You shouldn't see this description"
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_module"
-	w_class = 100.0
+	w_class = 100
 	item_state = "electronic"
 	flags = CONDUCT
 	bad_type = /obj/item/robot_module
@@ -25,18 +25,13 @@ var/global/list/robot_modules = list(
 	var/channels = list()
 	var/networks = list()
 	var/languages = list(							//Any listed language will be understandable. Any set to 1 will be speakable
-					LANGUAGE_SOL_COMMON = 1,
-					LANGUAGE_TRADEBAND = 1,
-					LANGUAGE_UNATHI = 0,
-					LANGUAGE_SIIK_MAAS = 0,
-					LANGUAGE_SKRELLIAN = 0,
-					LANGUAGE_GUTTER = 1,
-					LANGUAGE_VAURCESE = 0,
-					LANGUAGE_ROOTSONG = 0,
-					LANGUAGE_SIGN = 0,
-					LANGUAGE_SIGN_TAJARA = 0,
-					LANGUAGE_SIIK_TAJR = 0,
-					LANGUAGE_AZAZIBA = 0
+					LANGUAGE_COMMON = 1,
+					LANGUAGE_GERMAN = 1,
+					LANGUAGE_CYRILLIC = 1,
+					LANGUAGE_SERBIAN = 1,
+					LANGUAGE_JIVE = 0,
+					LANGUAGE_NEOHONGO = 1,
+					LANGUAGE_LATIN = 0,
 					)
 	var/sprites = list()
 	var/can_be_pushed = 1
@@ -48,6 +43,8 @@ var/global/list/robot_modules = list(
 	var/obj/item/borg/upgrade/jetpack
 	var/list/subsystems = list()
 	var/list/obj/item/borg/upgrade/supported_upgrades = list()
+	// A list of robot traits , these can be found at cyborg_traits.dm
+	var/robot_traits = null
 
 	// Bookkeeping
 	var/list/original_languages = list()
@@ -55,8 +52,8 @@ var/global/list/robot_modules = list(
 
 	//Module stats, these are applied to the robot
 	health = 200 //Max health. Apparently this is already defined in item.dm
-	var/speed_factor = 1.0 //Speed factor, applied as a divisor on movement delay
-	var/power_efficiency = 1.0 //Power efficiency, applied as a divisor on power taken from the internal cell
+	var/speed_factor = 1 //Speed factor, applied as a divisor on movement delay
+	var/power_efficiency = 1 //Power efficiency, applied as a divisor on power taken from the internal cell
 
 	//Stat modifiers for skillchecks
 	var/list/stat_modifiers = list(
@@ -74,6 +71,9 @@ var/global/list/robot_modules = list(
 		return
 
 	R.module = src
+
+	if(robot_traits)
+		R.AddTrait(robot_traits)
 
 	add_camera_networks(R)
 	add_languages(R)
@@ -96,14 +96,14 @@ var/global/list/robot_modules = list(
 
 	R.set_module_sprites(sprites)
 	R.icon_selected = 0
-	spawn()
+	spawn() // For future coders , this "corrupts" the USR reference, so for good practice ,don't make the proc use USR if its called with a spawn.
 		R.choose_icon() //Choose icon recurses and blocks new from completing, so spawn it off
 
 
 /obj/item/robot_module/Initialize()
 	. = ..()
 	for(var/obj/item/I in modules)
-		I.canremove = 0
+		I.canremove = FALSE
 		I.set_plane(ABOVE_HUD_PLANE)
 		I.layer = ABOVE_HUD_LAYER
 
@@ -120,6 +120,8 @@ var/global/list/robot_modules = list(
 	// I wanna make component cell holders soooo bad, but it's going to be a big refactor, and I don't have the time -- ACCount
 
 /obj/item/robot_module/proc/Reset(var/mob/living/silicon/robot/R)
+	if(robot_traits) // removes module-only traits
+		R.RemoveTrait(robot_traits)
 	remove_camera_networks(R)
 	remove_languages(R)
 	remove_subsystems(R)
@@ -138,8 +140,8 @@ var/global/list/robot_modules = list(
 	R.choose_icon()
 
 /obj/item/robot_module/Destroy()
-	QDEL_NULL_LIST(modules)
-	QDEL_NULL_LIST(synths)
+	QDEL_LIST(modules)
+	QDEL_LIST(synths)
 	qdel(emag)
 	qdel(jetpack)
 	qdel(malfAImodule)
@@ -164,7 +166,7 @@ var/global/list/robot_modules = list(
 	var/obj/item/device/flash/F = locate() in src.modules
 	if(F)
 		if(F.broken)
-			F.broken = 0
+			F.broken = FALSE
 			F.times_used = 0
 			F.icon_state = "flash"
 		else if(F.times_used)
@@ -316,19 +318,16 @@ var/global/list/robot_modules = list(
 	)
 
 /obj/item/robot_module/medical/general/New(var/mob/living/silicon/robot/R)
+	src.modules += new /obj/item/tool/wrench/robotic(src)
 	src.modules += new /obj/item/tool/crowbar/robotic(src)
+	src.modules += new /obj/item/tool/screwdriver/robotic(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/scanner/health(src)
 	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
-	src.modules += new /obj/item/tool/scalpel(src)
-	src.modules += new /obj/item/tool/hemostat(src)
-	src.modules += new /obj/item/tool/retractor(src)
-	src.modules += new /obj/item/tool/cautery(src)
-	src.modules += new /obj/item/tool/bonesetter(src)
-	src.modules += new /obj/item/tool/saw/circular(src)
-	src.modules += new /obj/item/tool/surgicaldrill(src)
+	src.modules += new /obj/item/tool/robotic_medical_omnitool(src)
 	src.modules += new /obj/item/gripper/chemistry(src)
+	src.modules += new /obj/item/gripper/surgery(src)
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/scanner/reagent/adv(src)
@@ -434,6 +433,17 @@ var/global/list/robot_modules = list(
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
 	synths += medicine
 
+	var/obj/item/stack/medical/advanced/bruise_pack/B = new /obj/item/stack/medical/advanced/bruise_pack(src)
+	var/obj/item/stack/medical/advanced/ointment/O = new /obj/item/stack/medical/advanced/ointment(src)
+	B.uses_charge = 1
+	B.charge_costs = list(1000)
+	B.synths = list(medicine)
+	O.uses_charge = 1
+	O.charge_costs = list(1000)
+	O.synths = list(medicine)
+	src.modules += B
+	src.modules += O
+
 	var/obj/item/stack/medical/splint/S = new /obj/item/stack/medical/splint(src)
 	S.uses_charge = 1
 	S.charge_costs = list(1000)
@@ -505,12 +515,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/extinguisher(src)
 	src.modules += new /obj/item/rcd/borg(src)
-	src.modules += new /obj/item/tool/screwdriver/robotic(src)
-	src.modules += new /obj/item/tool/wrench/robotic(src)
-	src.modules += new /obj/item/tool/crowbar/robotic(src)
-	src.modules += new /obj/item/tool/weldingtool/robotic(src)
-	src.modules += new /obj/item/tool/wirecutters/robotic(src)
-	src.modules += new /obj/item/tool/multitool/robotic(src)
+	src.modules += new /obj/item/tool/robotic_engineering_omnitool(src)
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/gripper/no_use/loader(src)
 	src.modules += new /obj/item/gripper(src)
@@ -522,7 +527,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/rpd/borg(src) //to allow for easier access to pipes
 	src.modules += new /obj/item/tool/pickaxe/drill(src)
 	src.modules += new /obj/item/hatton/robot(src)
-	//src.emag = new /obj/item/gun/energy/phoroncutter/mounted(src)
+	//src.emag = new /obj/item/gun/energy/phoroncutter/mounted(src) // Occulus Edit - Plasma > Phoron
 	//src.malfAImodule += new /obj/item/rtf(src) //We don't have these features
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
@@ -568,12 +573,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/extinguisher(src)
-	src.modules += new /obj/item/tool/weldingtool/robotic(src)
-	src.modules += new /obj/item/tool/screwdriver/robotic(src)
-	src.modules += new /obj/item/tool/wrench/robotic(src)
-	src.modules += new /obj/item/tool/crowbar/robotic(src)
-	src.modules += new /obj/item/tool/wirecutters/robotic(src)
-	src.modules += new /obj/item/tool/multitool/robotic(src)
+	src.modules += new /obj/item/tool/robotic_engineering_omnitool(src)
 	src.modules += new /obj/item/device/t_scanner(src)
 	src.modules += new /obj/item/device/scanner/gas(src)
 	src.modules += new /obj/item/taperoll/engineering(src)
@@ -741,6 +741,8 @@ var/global/list/robot_modules = list(
 		STAT_ROB = 20
 	)
 
+	robot_traits = CYBORG_TRAIT_CLEANING_WALK
+
 	desc = "A vast machine designed for cleaning up trash and scrubbing floors. A fairly specialised task, \
 	but requiring a large capacity. The huge chassis consequentially grants it a degree of toughness, \
 	though it is slow and cheaply made"
@@ -779,13 +781,14 @@ var/global/list/robot_modules = list(
 	name = "service robot module"
 	channels = list("Service" = 1)
 	languages = list(
-					LANGUAGE_SOL_COMMON = 1,
-					LANGUAGE_TRADEBAND = 1,
-					LANGUAGE_UNATHI = 1,
-					LANGUAGE_SIIK_MAAS = 1,
-					LANGUAGE_SKRELLIAN = 1,
-					LANGUAGE_GUTTER = 1,
-					LANGUAGE_ROOTSONG = 1
+					LANGUAGE_COMMON = 1,
+					LANGUAGE_GERMAN = 1,
+					LANGUAGE_CYRILLIC = 1,
+					LANGUAGE_SERBIAN = 1,
+					LANGUAGE_JIVE = 1,
+					LANGUAGE_NEOHONGO = 1,
+					LANGUAGE_LATIN = 1,
+					LANGUAGE_MONKEY = 1
 					)
 
 	sprites = list(	"Waitress" = "service",
@@ -831,7 +834,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/paperwork(src)
 	src.modules += new /obj/item/hand_labeler(src)
 	src.modules += new /obj/item/tool/tape_roll(src) //allows it to place flyers
-	src.modules += new /obj/item/stamp/denied(src) //why was this even a emagged item before smh
+	src.modules += new /obj/item/stamp/denied(src) //why was this even a emagged item before smh // a good cyborg folows crew orders of accepting everything
 	src.modules += new /obj/item/device/synthesized_instrument/synthesizer
 
 	var/obj/item/rsf/M = new /obj/item/rsf(src)
@@ -905,7 +908,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/miner(src)
 	src.modules += new /obj/item/device/scanner/mining(src)
 	src.modules += new /obj/item/device/t_scanner(src)
-	//src.emag = new /obj/item/gun/energy/phoroncutter/mounted(src)
+	//src.emag = new /obj/item/gun/energy/phoroncutter/mounted(src) // Occulus Edit - Plasma > Phoron
 	..(R)
 
 /obj/item/robot_module/research
@@ -921,7 +924,7 @@ var/global/list/robot_modules = list(
 					)
 
 	health = 160 //Weak
-	speed_factor = 1.0 //Average
+	speed_factor = 1 //Average
 	power_efficiency = 0.75 //Poor efficiency
 
 	desc = "Built for working in a well-equipped lab, and designed to handle a wide variety of research \
@@ -967,18 +970,18 @@ var/global/list/robot_modules = list(
 	..(R)
 
 
-//Syndicate borg is intended for summoning by traitors. Not currently implemented
+//Syndicate borg is intended for summoning by contractors. Not currently implemented
 /obj/item/robot_module/syndicate
 	name = "syndicate robot module"
 	hide_on_manifest = TRUE
 	languages = list(
-					LANGUAGE_SOL_COMMON = 1,
-					LANGUAGE_TRADEBAND = 1,
-					LANGUAGE_UNATHI = 1,
-					LANGUAGE_SIIK_MAAS = 1,
-					LANGUAGE_SKRELLIAN = 1,
-					LANGUAGE_GUTTER = 1,
-					LANGUAGE_ROOTSONG = 1
+					LANGUAGE_COMMON = 1,
+					LANGUAGE_GERMAN = 1,
+					LANGUAGE_CYRILLIC = 1,
+					LANGUAGE_SERBIAN = 1,
+					LANGUAGE_JIVE = 1,
+					LANGUAGE_NEOHONGO = 1,
+					LANGUAGE_LATIN = 1
 					)
 
 	sprites = list(
@@ -1039,12 +1042,7 @@ var/global/list/robot_modules = list(
 	)
 
 /obj/item/robot_module/drone/New(var/mob/living/silicon/robot/R)
-	src.modules += new /obj/item/tool/weldingtool/robotic(src)
-	src.modules += new /obj/item/tool/screwdriver/robotic(src)
-	src.modules += new /obj/item/tool/wrench/robotic(src)
-	src.modules += new /obj/item/tool/crowbar/robotic(src)
-	src.modules += new /obj/item/tool/wirecutters/robotic(src)
-	src.modules += new /obj/item/tool/multitool/robotic(src)
+	src.modules += new /obj/item/tool/robotic_engineering_omnitool(src)
 	src.modules += new /obj/item/tool/shovel/robotic(src)
 	src.modules += new /obj/item/device/t_scanner(src)
 	src.modules += new /obj/item/device/lightreplacer(src)
@@ -1058,8 +1056,8 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.emag += new /obj/item/hatton/robot(src)	// OCCULUS EDIT - Gives the drone some fun stuff when emagged
 
-	//src.emag = new /obj/item/gun/energy/phoroncutter/mounted(src)
-	//src.emag.name = "Phoron Cutter"
+	//src.emag = new /obj/item/gun/energy/phoroncutter/mounted(src) // Occulus Edit - Plasma > Phoron
+	//src.emag.name = "Phoron Cutter" // Occulus Edit - Plasma > Phoron
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(25000)
@@ -1116,15 +1114,6 @@ var/global/list/robot_modules = list(
 	src.modules += P
 	..(R)
 
-/obj/item/robot_module/drone/construction
-	name = "construction drone module"
-	channels = list("Engineering" = 1)
-	languages = list()
-
-/obj/item/robot_module/drone/construction/New(var/mob/living/silicon/robot/R)
-	src.modules += new /obj/item/rcd/borg(src)
-	..(R)
-
 /obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	var/obj/item/device/lightreplacer/LR = locate() in src.modules
 	LR.Charge(R, amount)
@@ -1138,14 +1127,13 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/hunter_seeker
 	name = "hunter seeker robot module"
 	languages = list(
-					LANGUAGE_SOL_COMMON = 1,
-					LANGUAGE_TRADEBAND = 1,
-					LANGUAGE_UNATHI = 1,
-					LANGUAGE_SIIK_MAAS = 1,
-					LANGUAGE_SKRELLIAN = 1,
-					LANGUAGE_GUTTER = 1,
-					LANGUAGE_ROOTSONG = 1,
-					LANGUAGE_TERMINATOR = 1
+					LANGUAGE_COMMON = 1,
+					LANGUAGE_GERMAN = 1,
+					LANGUAGE_CYRILLIC = 1,
+					LANGUAGE_SERBIAN = 1,
+					LANGUAGE_JIVE = 1,
+					LANGUAGE_NEOHONGO = 1,
+					LANGUAGE_LATIN = 1
 					)
 
 	sprites = list(
@@ -1156,11 +1144,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/tool/pickaxe/drill(src)
 	src.modules += new /obj/item/borg/sight/thermal(src)
-	src.modules += new /obj/item/tool/crowbar/robotic(src)
-	src.modules += new /obj/item/tool/wrench/robotic(src)
-	src.modules += new /obj/item/tool/screwdriver/robotic(src)
-	src.modules += new /obj/item/tool/multitool/robotic(src)
-	src.modules += new /obj/item/tool/wirecutters/robotic(src)
-	src.modules += new /obj/item/tool/weldingtool/robotic(src)
+	src.modules += new /obj/item/tool/robotic_engineering_omnitool(src)
 
 	..(R)

@@ -22,6 +22,7 @@
 	display_contents_with_number = TRUE
 	use_to_pickup = TRUE
 	slot_flags = SLOT_BELT
+	price_tag = 25
 
 // -----------------------------
 //          Trash bag
@@ -39,7 +40,7 @@
 	cant_hold = list(/obj/item/disk/nuclear)
 	max_storage_space = DEFAULT_NORMAL_STORAGE
 
-/obj/item/storage/bag/trash/on_update_icon()
+/obj/item/storage/bag/trash/update_icon()
 	if(contents.len == 0)
 		icon_state = "trashbag0"
 	else if(contents.len < 12)
@@ -55,7 +56,7 @@
 	max_storage_space = DEFAULT_BULKY_STORAGE * 2
 	spawn_tags = null
 
-/obj/item/storage/bag/trash/robot/on_update_icon()
+/obj/item/storage/bag/trash/robot/update_icon()
 	if(contents.len == 0)
 		icon_state = "trashbag0"
 	else if(contents.len < 24)
@@ -78,7 +79,7 @@
 	..()
 	bluespace_entropy(4, get_turf(src))
 
-/obj/item/storage/bag/trash/holding/on_update_icon()
+/obj/item/storage/bag/trash/holding/update_icon()
 	return
 
 // -----------------------------
@@ -87,16 +88,15 @@
 
 /obj/item/storage/bag/plastic
 	name = "plastic bag"
-	desc = "It's a very flimsy, very noisy alternative to a bag."
+	desc = "A flimsy, noisy alternative to a bag."
 	icon = 'icons/obj/trash.dmi'
 	icon_state = "plasticbag"
 	item_state = "plasticbag"
 
 	w_class = ITEM_SIZE_BULKY
 	max_w_class = ITEM_SIZE_SMALL
-	max_storage_space = DEFAULT_BULKY_STORAGE
+	max_storage_space = DEFAULT_SMALL_STORAGE
 	can_hold = list() // any
-	cant_hold = list(/obj/item/disk/nuclear)
 
 // -----------------------------
 //        Mining Satchel
@@ -109,7 +109,7 @@
 	icon_state = "satchel"
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	w_class = ITEM_SIZE_NORMAL
-	max_storage_space = 100
+	max_storage_space = 200
 	max_w_class = ITEM_SIZE_NORMAL
 	can_hold = list(/obj/item/ore)
 

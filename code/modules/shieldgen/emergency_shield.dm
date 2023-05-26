@@ -3,6 +3,8 @@
 	name = "Emergency energy shield"
 	desc = "An energy shield used to contain hull breaches."
 	icon = 'icons/effects/effects.dmi'
+	description_info = "Generates atmospheric blocking-shields when in contact with space"
+	description_antag = "The shields block bullets, but not lasers."
 	icon_state = "shield-old"
 	density = TRUE
 	opacity = 0
@@ -16,6 +18,7 @@
 /obj/machinery/shield/malfai
 	name = "emergency forcefield"
 	desc = "A powerful forcefield which seems to be projected by the vessel's emergency atmosphere containment field."
+	description_antag = "This special shield is overcharged, it has double the health of a normal one and only blocks bullets."
 	health = 400
 
 /obj/machinery/shield/proc/check_failure()
@@ -67,13 +70,13 @@
 
 /obj/machinery/shield/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			if (prob(75))
 				qdel(src)
-		if(2.0)
+		if(2)
 			if (prob(50))
 				qdel(src)
-		if(3.0)
+		if(3)
 			if (prob(25))
 				qdel(src)
 	return
@@ -84,6 +87,9 @@
 			qdel(src)
 		if(2)
 			if(prob(50))
+				qdel(src)
+		if(3)
+			if(prob(25))
 				qdel(src)
 
 
@@ -217,15 +223,15 @@
 
 /obj/machinery/shieldgen/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			src.health -= 75
 			src.checkhp()
-		if(2.0)
+		if(2)
 			src.health -= 30
 			if (prob(15))
 				src.malfunction = 1
 			src.checkhp()
-		if(3.0)
+		if(3)
 			src.health -= 10
 			src.checkhp()
 	return

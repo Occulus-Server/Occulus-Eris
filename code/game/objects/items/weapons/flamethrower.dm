@@ -17,7 +17,7 @@
 	var/lit = FALSE	//on or off
 	var/operating = 0//cooldown
 	var/turf/previousturf = null
-	var/obj/item/tank/phoron/ptank = null
+	var/obj/item/tank/plasma/ptank = null
 
 	var/flamerange = 2
 	var/gas_mult = 2.5
@@ -31,7 +31,7 @@
 
 
 /obj/item/flamethrower/Process()
-	if(ptank.air_contents.gas["phoron"] < 1)
+	if(ptank.air_contents.gas["plasma"] < 1)
 		lit = FALSE
 		STOP_PROCESSING(SSobj, src)
 		var/turf/T = get_turf(src)
@@ -48,7 +48,7 @@
 	return
 
 
-/obj/item/flamethrower/on_update_icon()
+/obj/item/flamethrower/update_icon()
 	cut_overlays()
 	if(ptank)
 		add_overlays("+ptank")
@@ -71,7 +71,7 @@
 /obj/item/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
 
-	if(istype(W,/obj/item/tank/phoron))
+	if(istype(W,/obj/item/tank/plasma))
 		if(ptank)
 			to_chat(user, SPAN_NOTICE("There appears to already be a phoron tank loaded in [src]!"))
 			return
@@ -166,6 +166,6 @@
 
 /obj/item/flamethrower/full/New(var/loc)
 	..()
-	ptank = new /obj/item/tank/phoron/(src)
+	ptank = new /obj/item/tank/plasma/(src)
 	update_icon()
 	return

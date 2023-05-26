@@ -20,7 +20,7 @@
 
 	return mobs
 
-/proc/random_hair_style(gender, species = "Human")
+/proc/random_hair_style(gender, species = SPECIES_HUMAN)
 	var/h_style = "Bald"
 
 	var/datum/species/mob_species = all_species[species]
@@ -30,7 +30,7 @@
 
 	return h_style
 
-/proc/random_facial_hair_style(gender, species = "Human")
+/proc/random_facial_hair_style(gender, species = SPECIES_HUMAN)
 	var/f_style = "Shaved"
 	var/datum/species/mob_species = all_species[species]
 	var/list/valid_facialhairstyles = mob_species.get_facial_hair_styles(gender)
@@ -38,14 +38,14 @@
 		f_style = pick(valid_facialhairstyles)
 		return f_style
 
-/proc/sanitize_name(name, species = "Human", max_length = MAX_NAME_LEN)
+/proc/sanitize_name(name, species = SPECIES_HUMAN, max_length = MAX_NAME_LEN)
 	var/datum/species/current_species
 	if(species)
 		current_species = all_species[species]
 
 	return current_species ? current_species.sanitize_name(name) : sanitizeName(name, max_length)
 
-/proc/random_name(gender, species = "Human")
+/proc/random_name(gender, species = SPECIES_HUMAN)
 
 	var/datum/species/current_species
 	if(species)
@@ -59,7 +59,7 @@
 	else
 		return current_species.get_random_name(gender)
 
-/proc/random_first_name(gender, species = "Human")
+/proc/random_first_name(gender, species = SPECIES_HUMAN)
 
 	var/datum/species/current_species
 	if(species)
@@ -73,7 +73,7 @@
 	else
 		return current_species.get_random_first_name(gender)
 
-/proc/random_last_name(species = "Human")
+/proc/random_last_name(species = SPECIES_HUMAN)
 
 	var/datum/species/current_species
 	if(species)
@@ -150,7 +150,7 @@ Proc for attack log creation, because really why not
 6 is additional information, anything that needs to be added
 */
 
-/proc/add_logs(mob/user, mob/target, what_done, var/admin=1, var/object=null, var/addition=null)
+/proc/add_logs(mob/user, mob/target, what_done, var/admin=1, var/object, var/addition)
 	if(user && ismob(user))
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has [what_done] [target ? "[target.name][(ismob(target) && target.ckey) ? "([target.ckey])" : ""]" : "NON-EXISTANT SUBJECT"][object ? " with [object]" : " "][addition]</font>")
 	if(target && ismob(target))
@@ -294,7 +294,30 @@ Proc for attack log creation, because really why not
 /proc/is_neotheology_disciple(mob/living/L)
 	if(istype(L) && L.get_core_implant(/obj/item/implant/core_implant/cruciform))
 		return TRUE
+	return FALSE
 
+/proc/is_acolyte(mob/living/L)
+	if(!isliving(L))
+		return FALSE
+	var/obj/item/implant/core_implant/cruciform/C = L.get_core_implant(/obj/item/implant/core_implant/cruciform)
+	if(C && C.get_module(CRUCIFORM_ACOLYTE))
+		return TRUE
+	return FALSE
+
+/proc/is_preacher(mob/living/L)
+	if(!isliving(L))
+		return FALSE
+	var/obj/item/implant/core_implant/cruciform/C = L.get_core_implant(/obj/item/implant/core_implant/cruciform)
+	if(C && C.get_module(CRUCIFORM_PRIEST) && C.get_module(CRUCIFORM_REDLIGHT))
+		return TRUE
+	return FALSE
+
+/proc/is_inquisidor(mob/living/L)
+	if(!isliving(L))
+		return FALSE
+	var/obj/item/implant/core_implant/cruciform/C = L.get_core_implant(/obj/item/implant/core_implant/cruciform)
+	if(C && C.get_module(CRUCIFORM_INQUISITOR))
+		return TRUE
 	return FALSE
 
 /proc/is_carrion(mob/living/carbon/human/H)
@@ -385,7 +408,7 @@ Proc for attack log creation, because really why not
 			if((M.stat != DEAD) || (!M.client))
 				continue
 			//They need a brain!
-			if(istype(M, /mob/living/carbon/human))
+			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
 				if(H.should_have_process(BP_BRAIN) && !H.has_brain())
 					continue
@@ -418,21 +441,16 @@ Proc for attack log creation, because really why not
 	if(eyes) //If they're not, check to see if their eyes got one of them there colour matrices. Will be null if eyes are robotic/the mob isn't colourblind and they have no default colour matrix.
 		return eyes.get_colourmatrix()
 
-//This gets an input while also checking a mob for whether it is incapacitated or not.
-/mob/proc/get_input(message, title, default, choice_type, obj/required_item)
-	if(src.incapacitated() || (required_item && !GLOB.hands_state.can_use_topic(required_item,src)))
-		return null
-	var/choice
-	if(islist(choice_type))
-		choice = input(src, message, title, default) as null|anything in choice_type
+/// Gets the client of the mob, allowing for mocking of the client.
+/// You only need to use this if you know you're going to be mocking clients somewhere else.
+#define GET_CLIENT(mob) (##mob.client) //  || ##mob.mock_client
+
+///Makes a call in the context of a different usr. Use sparingly
+/world/proc/push_usr(mob/user_mob, datum/callback/invoked_callback, ...)
+	var/temp = usr
+	usr = user_mob
+	if (length(args) > 2)
+		. = invoked_callback.Invoke(arglist(args.Copy(3)))
 	else
-		switch(choice_type)
-			if(MOB_INPUT_TEXT)
-				choice = input(src, message, title, default) as null|text
-			if(MOB_INPUT_NUM)
-				choice = input(src, message, title, default) as null|num
-			if(MOB_INPUT_MESSAGE)
-				choice = input(src, message, title, default) as null|message
-	if(isnull(choice) || src.incapacitated() || (required_item && !GLOB.hands_state.can_use_topic(required_item,src)))
-		return null
-	return choice
+		. = invoked_callback.Invoke()
+	usr = temp

@@ -33,7 +33,7 @@
 		cur_command = null
 		return TRUE
 	if(!completing)
-		addtimer(CALLBACK(src , .proc/execute_current_command), 2 SECONDS) // Fuck it , try again.
+		addtimer(CALLBACK(src , PROC_REF(execute_current_command)), 2 SECONDS) // Fuck it , try again.
 		completing = TRUE
 	return FALSE
 
@@ -310,9 +310,9 @@
 	var/on = TRUE
 
 
-/obj/machinery/access_button/on_update_icon()
+/obj/machinery/access_button/update_icon()
 	. = ..()
-	SetIconState("[base_of_state]_[on?"standby":"off"]")
+	icon_state = "[base_of_state]_[on?"standby":"off"]"
 
 /obj/machinery/access_button/attackby(obj/item/I as obj, mob/user as mob)
 	//Swiping ID on the access button

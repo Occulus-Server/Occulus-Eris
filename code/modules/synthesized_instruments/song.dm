@@ -11,7 +11,7 @@
 
 	var/linear_decay = 1
 	var/sustain_timer = 1
-	var/soft_coeff = 2.0
+	var/soft_coeff = 2
 	var/transposition = 0
 
 	var/octave_range_min
@@ -193,7 +193,7 @@
 	var/list/allowed_suff = list("b", "n", "#", "s")
 	var/list/note_off_delta = list("a"=91, "b"=91, "c"=98, "d"=98, "e"=98, "f"=98, "g"=98)
 	var/list/lines_copy = src.lines.Copy()
-	addtimer(CALLBACK(src, .proc/play_lines, user, allowed_suff, note_off_delta, lines_copy), 0)
+	addtimer(CALLBACK(src, PROC_REF(play_lines), user, allowed_suff, note_off_delta, lines_copy), 0)
 
 #undef CP
 #undef IS_DIGIT

@@ -13,15 +13,12 @@
 	permeability_coefficient = 0.05
 	item_flags = NOSLIP | SILENT
 	origin_tech = list(TECH_COVERT = 3)
-	var/list/clothing_choices = list()
 	siemens_coefficient = 0 // DAMN BOI
-	species_restricted = null
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/shoes/mime
 	name = "mime shoes"
 	icon_state = "mime"
-	rarity_value = 14.3
 
 /obj/item/clothing/shoes/sandal
 	desc = "A pair of rather plain, wooden sandals."
@@ -47,7 +44,6 @@
 	item_state = "clown_shoes"
 	slowdown = SHOES_SLOWDOWN + 0.4
 	force = NONE
-	rarity_value = 14.3
 	//	armor = list(melee = 100, bullet = 100, energy = 100, bomb = 100, bio = 100, rad = 100)
 	species_restricted = null
 	var/footstep = 1	//used for squeeks whilst walking
@@ -108,9 +104,76 @@
 	item_flags = NOSLIP
 	slowdown = SHOES_SLOWDOWN+1
 	species_restricted = null
+	style = STYLE_NEG_HIGH
 
 /obj/item/clothing/shoes/leather
 	name = "leather shoes"
 	desc = "A sturdy pair of leather shoes."
 	icon_state = "leather"
-	rarity_value = 14.3
+	style = STYLE_HIGH
+
+/obj/item/clothing/shoes/jamrock
+	name = "lizardskin shoes"
+	desc = "Awesome watchtower heels from green leather."
+	icon_state = "lizardskin_shoes"
+	item_state = "lizardskin_shoes"
+	style = STYLE_HIGH
+
+/obj/item/clothing/shoes/aerostatic
+	name = "aerostatic shoes"
+	desc = "A pair of running shoes. That stated, despite not making you go faster, they do look nice."
+	icon_state = "aerostatic_shoes"
+	item_state = "aerostatic_shoes"
+	style = STYLE_HIGH
+
+/obj/item/clothing/shoes/redboot
+	name = "red boots"
+	desc = "A pair of stylish red boots."
+	icon_state = "redboots"
+	item_state = "redboots"
+	style = STYLE_HIGH
+	price_tag = 300
+
+/obj/item/clothing/shoes/jackboots/longboot
+	name = "long boots"
+	desc = "A pair of stylish vertically long boots."
+	icon_state = "longboots"
+	item_state = "longboots"
+	style = STYLE_HIGH
+	price_tag = 400
+
+/obj/item/clothing/shoes/jackboots/duty
+	name = "duty jackboots"
+	desc = "A pair of slightly modified standard-issue jackboots. Not exactly more combat-ish, but may look better."
+	icon_state = "duty"
+	item_state = "duty"
+
+/obj/item/clothing/shoes/jackboots/duty/long
+	name = "long duty jackboots"
+	desc = "A pair of slightly modified standard-issue jackboots. These reach up even higher."
+	icon_state = "duty_long"
+	item_state = "duty_long"
+
+/obj/item/clothing/shoes/sneakerspurple
+	name = "purple sneakers"
+	desc = "A stylish, expensive pair of purple sneakers."
+	icon_state = "sneakerspurple"
+	item_state = "sneakerspurple"
+
+/obj/item/clothing/shoes/sneakersblue
+	name = "blue sneakers"
+	desc = "A stylish, expensive pair of blue sneakers."
+	icon_state = "sneakersblue"
+	item_state = "sneakersblue"
+
+/obj/item/clothing/shoes/sneakersred
+	name = "red sneakers"
+	desc = "A stylish, expensive pair of red sneakers."
+	icon_state = "sneakersred"
+	item_state = "sneakersred"
+
+/obj/item/clothing/shoes/spurs
+	name = "spurs"
+	desc = "A pair of leather boots with spurs. The way they jingle and jangle is quite enticing."
+	icon_state = "spurs"
+	item_state = "spurs"

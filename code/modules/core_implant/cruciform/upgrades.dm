@@ -6,7 +6,7 @@
 
 /obj/item/coreimplant_upgrade/cruciform/priest
 	name = "Preacher Ascension Kit"
-	desc = "The first stage of promoting a disciple into a Mekhane Preacher. Requires a ritual from an Inquisitor to complete."
+	desc = "The first stage of promoting a disciple into a Mekhane Preacher. Requires a ritual from an Inquisitor to complete." // Occulus Edit - NeoTheology > Mekhane
 	implant_type = /obj/item/implant/core_implant/cruciform
 
 /obj/item/coreimplant_upgrade/cruciform/priest/set_up()
@@ -36,6 +36,7 @@
 	icon = 'icons/obj/module.dmi'
 	icon_state = "core_upgrade"
 	bad_type = /obj/item/cruciform_upgrade
+	unacidable = 1
 	var/mob/living/carbon/human/wearer
 	var/obj/item/implant/core_implant/cruciform/cruciform
 	var/active = FALSE
@@ -66,9 +67,11 @@
 
 /obj/item/cruciform_upgrade/natures_blessing
 	name = "Natures blessing"
-	desc = "This upgrade slowly heals and fertilizes all plants near the follower. Useful for Agrolytes."
+	desc = "This upgrade stabilizes the Faithful and nurtures the plants near the follower. Useful for Agrolytes."
 	icon_state = "natures_blessing"
 	matter = list(MATERIAL_BIOMATTER = 100, MATERIAL_GOLD = 5, MATERIAL_PLASTEEL = 5)
+	var/cooldown = 1 SECONDS // Just to make sure that upgrade don't go berserk.
+	var/initial_time
 
 /obj/item/cruciform_upgrade/natures_blessing/OnInstall(var/disciple, var/_cruciform)
 	..()
@@ -86,13 +89,25 @@
 				tray.health += 0.1
 			if(tray.weedlevel)
 				tray.weedlevel -= 0.1
+	if(world.time < initial_time + cooldown)
+		return
+	initial_time = world.time
+	for(var/mob/living/L in oviewers(5, wearer))
+		if(ishuman(L))
+			var/mob/living/carbon/human/H = L
+			if(H.stat == DEAD || !(H.get_core_implant(/obj/item/implant/core_implant/cruciform)))
+				continue
+			if(H.getBruteLoss() > 50)
+				H.adjustBruteLoss(-0.2)
+			if(H.getFireLoss() > 50)
+				H.adjustFireLoss(-0.2)
 
 /obj/item/cruciform_upgrade/faiths_shield
 	name = "Faiths shield"
 	desc = "This upgrade will slightly increase follower resistance to physical and burn injuries from any source."
 	icon_state = "faiths_shield"
 	matter = list(MATERIAL_BIOMATTER = 50, MATERIAL_GOLD = 5, MATERIAL_PLASTEEL = 10)
-	var/shield_mod = 0.1
+	var/shield_mod = 0.2
 
 /obj/item/cruciform_upgrade/faiths_shield/OnInstall(var/disciple, var/_cruciform)
 	..()
@@ -127,16 +142,16 @@
 			shroom.health -= (shroom.max_health * 0.1)
 			shroom.check_health()
 
-/*/obj/item/cruciform_upgrade/martyr_gift
-	name = "Martyr gift"
-	desc = "This upgrade upon the death of the follower, causes a large ‘explosion’ that doesn’t damage terrain nor does it damage followers of NT. It will cause massive burns to any non-cruciformed crewmembers or critters within its radius. However, in process of doing so, this upgrade destroys itself, albeit cruciform remains intact."
-	icon_state = "martyr_gift"
-	matter = list(MATERIAL_BIOMATTER = 50, MATERIAL_GOLD = 5, MATERIAL_PLASTEEL = 5, MATERIAL_PHORON = 5)
-	var/burn_damage = 50*/
+// /obj/item/cruciform_upgrade/martyr_gift // Occulus Removal - No matyrdoms, please.
+// 	name = "Martyr gift"
+// 	desc = "This upgrade upon the death of the follower, causes a large ‘explosion’ that doesn’t damage terrain nor does it damage followers of NT. It will cause massive burns to any non-cruciformed crewmembers or critters within its radius. However, in the process of doing so, this upgrade destroys itself, albeit the cruciform remains intact."
+// 	icon_state = "martyr_gift"
+// 	matter = list(MATERIAL_BIOMATTER = 50, MATERIAL_GOLD = 5, MATERIAL_PLASTEEL = 5, MATERIAL_PLASMA = 5)
+// 	var/burn_damage = 50
 
 /obj/item/cruciform_upgrade/wrath_of_god
 	name = "Wrath of god"
-	desc = "This upgrade make the follower deal more damage in melee, but also receive a slightly more damage from all sources."
+	desc = "This upgrade makes the follower deal more damage in melee, but also receive slightly more damage from all sources."
 	icon_state = "wrath_of_god"
 	matter = list(MATERIAL_BIOMATTER = 50, MATERIAL_GOLD = 5, MATERIAL_PLASTEEL = 15)
 	var/damage_mod = 0.2

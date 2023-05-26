@@ -3,6 +3,8 @@
 /obj/item/gripper
 	name = "magnetic gripper"
 	desc = "A simple grasping tool specialized in construction and engineering work."
+	description_info = "Can be used to remove sticky tape from cameras on help intent."
+	description_antag = "Can be used for a strong brute attack on humans using harm intent."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gripper"
 	spawn_tags = null
@@ -77,7 +79,7 @@
 
 
 //This places a little image of the gripped item in the gripper, so you can see visually what you're holding
-/obj/item/gripper/on_update_icon()
+/obj/item/gripper/update_icon()
 	underlays.Cut()
 	if (wrapped && wrapped.icon)
 		var/mutable_appearance/MA = new(wrapped)
@@ -122,7 +124,7 @@
 /obj/item/gripper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	if(wrapped) 	//The force of the wrapped obj gets set to zero during the attack() and afterattack().
 		force_holder = wrapped.force
-		wrapped.force = 0.0
+		wrapped.force = 0
 		wrapped.attack(M,user)
 		if(QDELETED(wrapped))
 			wrapped = null
@@ -159,6 +161,14 @@
 
 	if(wrapped) //Already have an item.
 		return//This is handled in /mob/living/silicon/robot/GripperClickOn
+
+	if(istype(target, /obj/machinery/camera) && user.a_intent == I_HELP)
+		var/obj/machinery/camera/cam = target
+		if(cam.taped)
+			to_chat(user, SPAN_NOTICE("You remove the tape from \the [cam] using the edge of your magnetic gripper."))
+			cam.icon_state = "camera"
+			cam.taped = 0
+			cam.set_status(1)
 
 	else if (istype(target, /obj/item/storage) && !istype(target, /obj/item/storage/pill_bottle) && !istype(target, /obj/item/storage/secure))
 		var/obj/item/storage/S = target
@@ -202,7 +212,8 @@
 	can_hold = list(
 		/obj/item/cell,
 		/obj/item/stock_parts,
-		/obj/item/electronics/circuitboard/miningdrill
+		/obj/item/electronics/circuitboard/miningdrill,
+		/obj/item/electronics/circuitboard/miningturret
 	)
 
 /obj/item/gripper/paperwork
@@ -213,9 +224,15 @@
 		/obj/item/clipboard,
 		/obj/item/paper,
 		/obj/item/paper_bundle,
+		/obj/item/paper_bin,
 		/obj/item/card/id,
 		/obj/item/book,
-		/obj/item/newspaper
+		/obj/item/newspaper,
+		/obj/item/pen,
+		/obj/item/stamp,
+		/obj/item/packageWrap,
+		/obj/item/device/destTagger,
+		/obj/item/smallDelivery
 		)
 
 /obj/item/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
@@ -244,6 +261,19 @@
 		/obj/item/computer_hardware
 		)
 
+/obj/item/gripper/surgery
+	name = "surgery gripper"
+	icon_state = "gripper-sci"
+	desc = "Sophisticated tool for handling organs and implants."
+
+	can_hold = list(
+		/obj/item/organ,
+		/obj/item/organ_module,
+		/obj/item/device/mmi,
+		/obj/item/tank/,
+		/obj/item/reagent_containers/blood/
+		)
+
 /obj/item/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab
 	name = "chemistry gripper"
 	icon_state = "gripper-sci"
@@ -255,7 +285,7 @@
 		/obj/item/reagent_containers/spray,
 		/obj/item/storage/pill_bottle,
 		/obj/item/hand_labeler,
-		/obj/item/stack/material/phoron,
+		/obj/item/stack/material/phoron, // Occulus Edit - Plasma > Phoron
 		/obj/item/reagent_containers/food/snacks/meat
 		)
 
@@ -275,7 +305,9 @@
 		/obj/item/newspaper,
 		/obj/item/electronics/circuitboard/broken,
 		/obj/item/clothing/mask/smokable/cigarette,
-		///obj/item/reagent_containers/cooking_container //PArt of cooking overhaul, not yet ported
+		/obj/item/spacecash,
+		/obj/item/device/eftpos,
+		///obj/item/reagent_containers/cooking_container //Part of cooking overhaul, not yet ported
 		)
 
 /obj/item/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item

@@ -108,13 +108,16 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 						/datum/job/doctor, /datum/job/chemist, /datum/job/paramedic, /datum/job/bioengineer,
 						/datum/job/technomancer,
 						/datum/job/cargo_tech, /datum/job/mining, /datum/job/merchant,
-						/datum/job/clubworker, /datum/job/clubmanager,
+						/datum/job/clubworker, /datum/job/clubmanager, /datum/job/artist,
 						/datum/job/chaplain, /datum/job/acolyte, /datum/job/janitor, /datum/job/hydro,
 						/datum/job/scientist, /datum/job/roboticist, /datum/job/psychiatrist,
 						/datum/job/ai, /datum/job/cyborg,
 						/datum/job/assistant, /datum/job/ensign //Occulus Edit
 
 						)
+	var/pulsar_z
+	var/pulsar_size = 20  //Should be an even number, to place the pulsar in the middle
+	var/obj/effect/pulsar/pulsar_star
 
 	var/overmap_z
 	var/overmap_size = 50 * 4
@@ -148,7 +151,8 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 										access_change_research,
 										access_change_sec),
 		ACCESS_REGION_SUPPLY = list(access_change_ids, access_change_cargo),
-		ACCESS_REGION_CHURCH = list(access_nt_preacher, access_change_ids, access_change_nt)
+		ACCESS_REGION_CHURCH = list(access_nt_preacher, access_change_ids, access_change_nt),
+		ACCESS_REGION_CLUB = list(access_change_ids, access_change_club)
 	)
 
 	//HOLOMAP
@@ -213,17 +217,34 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 		holomap_smoosh = MD.holomap_smoosh
 
 	if(MD.is_station_level)
+		var/max_holo_per_colum_l = MD.height/2 + 0.5
+		var/max_holo_per_colum_r = MD.height/2 - 0.5
+		var/even_mult = (0.15*level-0.3)*level+0.4
+		var/odd_mult = (level-1)/2
+		if(ISEVEN(MD.height))
+			max_holo_per_colum_l -= 0.5
+			max_holo_per_colum_r = max_holo_per_colum_l
+			even_mult = (level-1)/2 - 0.5
+			odd_mult = level/2 - 0.5
+		MD.holomap_legend_x = HOLOMAP_ICON_SIZE - world.maxx - MD.legend_size
+		MD.holomap_legend_y = HOLOMAP_ICON_SIZE - world.maxy - MD.legend_size - ERIS_HOLOMAP_CENTER_GUTTER
 		if(ISODD(level))
-			MD.holomap_offset_x = MD.holomap_legend_x - ERIS_HOLOMAP_CENTER_GUTTER - ERIS_MAP_SIZE
-			MD.holomap_offset_y = ERIS_HOLOMAP_MARGIN_Y + ERIS_MAP_SIZE*((level-1)/2)
+			MD.holomap_offset_x = HOLOMAP_ICON_SIZE - world.maxx - ERIS_HOLOMAP_CENTER_GUTTER - MD.size - MD.legend_size
+			if(!odd_mult)
+				MD.holomap_offset_y = 0
+			else
+				MD.holomap_offset_y = ERIS_HOLOMAP_MARGIN_Y(MD.size, max_holo_per_colum_l, 0) + MD.size*odd_mult
 		else
-			MD.holomap_offset_x = MD.holomap_legend_x + ERIS_HOLOMAP_CENTER_GUTTER
-			MD.holomap_offset_y = ERIS_HOLOMAP_MARGIN_Y + ERIS_MAP_SIZE*(level/2 - 0.5)
+			MD.holomap_offset_x = HOLOMAP_ICON_SIZE - world.maxx
+			if(!even_mult && max_holo_per_colum_l == max_holo_per_colum_r)
+				MD.holomap_offset_y = 0
+			else
+				MD.holomap_offset_y = ERIS_HOLOMAP_MARGIN_Y(MD.size, max_holo_per_colum_r, 0) + MD.size*even_mult
 
 	// Auto-center the map if needed (Guess based on maxx/maxy)
 	if (MD.holomap_offset_x < 0)
 		MD.holomap_offset_x = ((HOLOMAP_ICON_SIZE - world.maxx) / 2)
-	if (MD.holomap_offset_x < 0)
+	if (MD.holomap_offset_y < 0)
 		MD.holomap_offset_y = ((HOLOMAP_ICON_SIZE - world.maxy) / 2)
 	// Assign them to the map lists
 
@@ -286,10 +307,12 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 	var/holomap_offset_y = -1	// Number of pixels to offset the map up (for centering) for this z
 	var/holomap_legend_x = 96	// x position of the holomap legend for this z
 	var/holomap_legend_y = 96	// y position of the holomap legend for this z
+	var/size = ERIS_MAP_SIZE
+	var/legend_size = 32
 	var/list/holomap_smoosh
 
 // If the height is more than 1, we mark all contained levels as connected.
-/obj/map_data/New(var/atom/nloc)
+/obj/map_data/New(atom/nloc)
 	..()
 	z_level = nloc.z
 

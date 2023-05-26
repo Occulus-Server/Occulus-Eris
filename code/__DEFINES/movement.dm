@@ -1,4 +1,4 @@
-#define MOVE_DELAY_MIN 1.0 // Absolute minimum of movement delay - cannot be lowered further by any means
+#define MOVE_DELAY_MIN 1 // Absolute minimum of movement delay - cannot be lowered further by any means
 #define MOVE_DELAY_BASE 1.1
 #define MOVE_DELAY_VENTCRAWL MOVE_DELAY_BASE //Ventcrawling has a static speed for all mobs
 
@@ -24,5 +24,5 @@
 #define MOVE_INTENT_EXERTIVE   0x0002
 #define MOVE_INTENT_QUICK      0x0004
 
-#define MOVING_DELIBERATELY(X) (X.move_intent.flags & MOVE_INTENT_DELIBERATE)
-#define MOVING_QUICKLY(X) (X.move_intent.flags & MOVE_INTENT_QUICK)
+#define MOVING_DELIBERATELY(X) (X ? X.move_intent?.flags & MOVE_INTENT_DELIBERATE : TRUE)
+#define MOVING_QUICKLY(X) (X.move_intent?.flags & MOVE_INTENT_QUICK)

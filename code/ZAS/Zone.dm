@@ -41,12 +41,12 @@ Class Procs:
 
 
 /zone/var/name
-/zone/var/invalid = 0
+/zone/var/invalid = FALSE
 /zone/var/list/contents = list()
 /zone/var/list/fire_tiles = list()
 /zone/var/list/fuel_objs = list()
 
-/zone/var/needs_update = 0
+/zone/var/needs_update = FALSE
 
 /zone/var/list/edges = list()
 
@@ -54,6 +54,7 @@ Class Procs:
 
 /zone/var/list/graphic_add = list()
 /zone/var/list/graphic_remove = list()
+
 
 /zone/New()
 	SSair.add_zone(src)
@@ -121,7 +122,7 @@ Class Procs:
 			SSair.mark_for_update(T)
 
 /zone/proc/c_invalidate()
-	invalid = 1
+	invalid = TRUE
 	SSair.remove_zone(src)
 	#ifdef ZASDBG
 	for(var/turf/simulated/T in contents)

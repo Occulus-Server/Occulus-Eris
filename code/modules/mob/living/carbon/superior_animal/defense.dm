@@ -91,8 +91,8 @@
 			else
 				if (istype(H))
 					damage += max(0, (H.stats.getStat(STAT_ROB) / 10))
-					if (HULK in H.mutations)
-						damage *= 2
+//					if (HULK in H.mutations)
+//						damage *= 2
 
 				playsound(loc, "punch", 25, 1, -1)
 				M.visible_message("\red [M] has punched \the [src]")
@@ -105,32 +105,34 @@
 
 /mob/living/carbon/superior_animal/ex_act(severity)
 	..()
-	if(!blinded)
-		if (HUDtech.Find("flash"))
-			FLICK("flash", HUDtech["flash"])
+	flash(5, FALSE ,FALSE ,FALSE)
 
+	var/bomb_defense = getarmor(null, ARMOR_BOMB)
 	var/b_loss = null
-	var/f_loss = null
 	switch (severity)
-		if (1.0)
+		if (1)
 			gib()
 			return
 
-		if (2.0)
+		if (2)
 			b_loss += 60
-			f_loss += 60
-			ear_damage += 30
-			ear_deaf += 120
+			adjustEarDamage(30,120)
 
-		if (3.0)
+		if (3)
 			b_loss += 30
 			if (prob(50))
 				Paralyse(1)
-			ear_damage += 15
-			ear_deaf += 60
+			adjustEarDamage(15,60)
+
+		if (4)
+			b_loss += 15
+			if (prob(25))
+				Paralyse(1)
+			adjustEarDamage(15,60)
+
+	b_loss = max(0, b_loss - bomb_defense)
 
 	adjustBruteLoss(b_loss)
-	adjustFireLoss(f_loss)
 
 	updatehealth()
 
@@ -140,7 +142,7 @@
 		return
 
 	if(stat == DEAD)
-		blinded = 1
+		blinded = TRUE
 		silent = 0
 	else
 		updatehealth() // updatehealth calls death if health <= 0
@@ -153,7 +155,7 @@
 
 		if(paralysis && paralysis > 0)
 			handle_paralysed()
-			blinded = 1
+			blinded = TRUE
 			stat = UNCONSCIOUS
 			if(halloss > 0)
 				adjustHalLoss(-3)
@@ -161,7 +163,7 @@
 		if(sleeping)
 			adjustHalLoss(-3)
 			sleeping = max(sleeping-1, 0)
-			blinded = 1
+			blinded = TRUE
 			stat = UNCONSCIOUS
 		else if(resting)
 			if(halloss > 0)
@@ -234,7 +236,7 @@
 
 /mob/living/carbon/superior_animal/rejuvenate()
 	density = initial(density)
-	layer = initial(layer)
+	reset_layer()
 
 	. = ..()
 
@@ -346,17 +348,22 @@
 		if(toxins_pp > min_breath_poison_type)
 			adjustToxLoss(2)
 
-	return 1
+	return TRUE
 
-/mob/living/carbon/superior_animal/handle_fire()
-	if(..())
-		return
-
-	var/burn_temperature = fire_burn_temperature()
-	var/thermal_protection = get_heat_protection(burn_temperature)
-
-	if (thermal_protection < 1 && bodytemperature < burn_temperature)
-		bodytemperature += round(BODYTEMP_HEATING_MAX*(1-thermal_protection), 1)
+/mob/living/carbon/superior_animal/handle_fire(flammable_gas, turf/location)
+	// if its lower than 0 , just bring it back to 0
+	fire_stacks = fire_stacks > 0 ? min(0, ++fire_stacks) : fire_stacks
+	// branchless programming , faster than conventional the more we avoid if checks
+	var/handling_needed = on_fire && (fire_stacks < 0 || flammable_gas < 1)
+	if(handling_needed)
+		ExtinguishMob() //Fire's been put out.
+		return TRUE
+	if(!on_fire)
+		return FALSE
+	adjustFireLoss(2 * bodytemperature / max_bodytemperature * (1 - heat_protection)) // scaling with how much you are over your body temp
+	bodytemperature += fire_stacks * 5 * ( 1 - heat_protection )// 5 degrees per firestack
+	if(isturf(location))
+		location.hotspot_expose( FIRESTACKS_TEMP_CONV(fire_stacks), 50, 1)
 
 /mob/living/carbon/superior_animal/update_fire()
 	remove_overlays(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
@@ -376,3 +383,26 @@
 	var/obj/structure/burrow/B = find_visible_burrow(src)
 	if (B)
 		B.evacuate()
+
+/mob/living/carbon/superior_animal/attack_generic(mob/user, var/damage, var/attack_message)
+
+	if(!damage || !istype(user))
+		return
+
+	var/penetration = 0
+	if(istype(user, /mob/living))
+		var/mob/living/L = user
+		penetration = L.armor_divisor
+
+	damage_through_armor(damage, BRUTE, attack_flag=ARMOR_MELEE, armor_divisor=penetration)
+	user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name] ([src.ckey])</font>")
+	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>")
+	src.visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
+	user.do_attack_animation(src)
+	spawn(1) updatehealth()
+	return TRUE
+
+/mob/living/carbon/superior_animal/adjustHalLoss(amount)
+	if(status_flags & GODMODE)
+		return FALSE	//godmode
+	halloss = min(max(halloss + (amount / 2), 0),(maxHealth*2)) // Agony is less effective against beasts

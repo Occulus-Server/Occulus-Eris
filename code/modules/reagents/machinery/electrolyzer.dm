@@ -83,11 +83,11 @@
 		var/state = electrolysis(beaker, separation_beaker, convertion_coefficient)
 		if(!state)
 			on = FALSE
-			playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 1 -3)
+			playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 1, -3)
 			visible_message("\icon[src]\The [src] buzzes indicating that error has occured.")
 		else if(state == -1)
 			on = FALSE
-			playsound(src.loc, 'sound/machines/ping.ogg', 50, 1 -3)
+			playsound(src.loc, 'sound/machines/ping.ogg', 50, 1, -3)
 			visible_message("\icon[src]\The [src] pings indicating that process is complete.")
 		update_icon()
 		SSnano.update_uis(src)
@@ -148,10 +148,10 @@
 		return TRUE
 
 	user.set_machine(src)
-	ui_interact(user)
+	nano_ui_interact(user)
 
-/obj/machinery/electrolyzer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS)
-	var/list/data = ui_data()
+/obj/machinery/electrolyzer/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS)
+	var/list/data = nano_ui_data()
 
 	// update the ui if it exists, returns null if no ui is passed/found
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -166,14 +166,14 @@
 
 
 
-/obj/machinery/electrolyzer/ui_data()
+/obj/machinery/electrolyzer/nano_ui_data()
 	var/data = list()
 	data["on"] = on
 
 	if(beaker)
-		data["beaker"] = beaker.reagents.ui_data()
+		data["beaker"] = beaker.reagents.nano_ui_data()
 	if(separation_beaker)
-		data["separation_beaker"] = separation_beaker.reagents.ui_data()
+		data["separation_beaker"] = separation_beaker.reagents.nano_ui_data()
 	data["has_power"] = (stat & NOPOWER) ? FALSE : TRUE
 	return data
 
@@ -279,7 +279,7 @@
 
 /obj/item/device/makeshift_electrolyser/attack_self(mob/user)
 	user.set_machine(src)
-	ui_interact(user)
+	nano_ui_interact(user)
 	add_fingerprint(user)
 
 /obj/item/device/makeshift_electrolyser/attackby(obj/item/C, mob/living/user)
@@ -302,8 +302,8 @@
 		return
 	return ..()
 
-/obj/item/device/makeshift_electrolyser/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS)
-	var/list/data = ui_data()
+/obj/item/device/makeshift_electrolyser/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS)
+	var/list/data = nano_ui_data()
 
 	// update the ui if it exists, returns null if no ui is passed/found
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -318,22 +318,22 @@
 
 
 
-/obj/item/device/makeshift_electrolyser/ui_data()
+/obj/item/device/makeshift_electrolyser/nano_ui_data()
 	var/data = list()
 	data["on"] = on
 	data["has_power"] = cell_check(tick_cost)
 
 	if(beaker)
-		data["beaker"] = beaker.reagents.ui_data()
+		data["beaker"] = beaker.reagents.nano_ui_data()
 	if(separation_beaker)
-		data["separation_beaker"] = separation_beaker.reagents.ui_data()
+		data["separation_beaker"] = separation_beaker.reagents.nano_ui_data()
 	return data
 
 /obj/item/device/makeshift_electrolyser/attack_hand(mob/user)
 	if(loc != user && ..())
 		return TRUE
 	user.set_machine(src)
-	ui_interact(user)
+	nano_ui_interact(user)
 
 /obj/item/device/makeshift_electrolyser/Topic(href, href_list)
 	if(..())

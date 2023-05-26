@@ -123,19 +123,19 @@
 	else
 		icon_state = material.door_icon_base
 
-/obj/structure/simple_door/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/pickaxe))
-		var/obj/item/weapon/pickaxe/digTool = W
+/obj/structure/simple_door/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/pickaxe))
+		var/obj/item/pickaxe/digTool = W
 		user << "You start digging the [name]."
 		if(do_after(user,digTool.digspeed*hardness) && src)
 			user << "You finished digging."
 			Dismantle()
-	else if(istype(W,/obj/item/weapon)) //not sure, can't not just weapons get passed to this proc?
+	else if(istype(W,/obj/item)) //not sure, can't not just weapons get passed to this proc?
 		hardness -= W.force/100
 		user << "You hit the [name] with your [W.name]!"
 		CheckHardness()
-	else if(istype(W,/obj/item/weapon/tool/weldingtool))
-		var/obj/item/weapon/tool/weldingtool/WT = W
+	else if(istype(W,/obj/item/tool/weldingtool))
+		var/obj/item/tool/weldingtool/WT = W
 		if(material.ignition_point && WT.remove_fuel(0, user))
 			TemperatureAct(150)
 	else
@@ -172,28 +172,26 @@
 		L.apply_effect(round(material.radioactivity/3),IRRADIATE,0)
 
 /obj/structure/simple_door/iron/New(var/newloc,var/material_name)
-	..(newloc, "iron")
+	..(newloc, MATERIAL_IRON)
 
 /obj/structure/simple_door/silver/New(var/newloc,var/material_name)
-	..(newloc, "silver")
+	..(newloc, MATERIAL_SILVER)
 
 /obj/structure/simple_door/gold/New(var/newloc,var/material_name)
-	..(newloc, "gold")
+	..(newloc, MATERIAL_GOLD)
 
 /obj/structure/simple_door/uranium/New(var/newloc,var/material_name)
-	..(newloc, "uranium")
+	..(newloc, MATERIAL_URANIUM)
 
 /obj/structure/simple_door/sandstone/New(var/newloc,var/material_name)
-	..(newloc, "sandstone")
+	..(newloc, MATERIAL_SANDSTONE)
 
-/obj/structure/simple_door/phoron/New(var/newloc,var/material_name)
-	..(newloc, "phoron")
+/obj/structure/simple_door/plasma/New(var/newloc,var/material_name)
+	..(newloc, MATERIAL_PLASMA)
 
 /obj/structure/simple_door/diamond/New(var/newloc,var/material_name)
-	..(newloc, "diamond")
+	..(newloc, MATERIAL_DIAMOND)
 
 /obj/structure/simple_door/wood/New(var/newloc,var/material_name)
-	..(newloc, "wood")
+	..(newloc, MATERIAL_WOOD)
 
-/obj/structure/simple_door/resin/New(var/newloc,var/material_name)
-	..(newloc, "resin")

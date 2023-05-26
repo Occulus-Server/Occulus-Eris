@@ -18,7 +18,7 @@
 	faction = "onestar"
 
 	deathmessage = "suddenly shuts down, its eye light switching to a dim red."
-	attacktext = "bonked"
+	attacktext = list("bonked")
 	attack_sound = 'sound/weapons/smash.ogg'
 	speak_emote = list("beeps")
 	emote_see = list("beeps repeatedly", "whirrs violently", "flashes its indicator lights", "emits a ping sound")
@@ -97,7 +97,7 @@
 				new /obj/item/stack/material/plasteel/random(src.loc)
 				new /obj/item/stack/cable_coil(src.loc)
 				for(var/i = 1, i <= 2 + rand(0,2), i++)
-					var/list/os_components_reward = pick(list(
+					var/os_components_reward = pick(list(
 						/obj/item/stock_parts/capacitor/one_star,
 						/obj/item/stock_parts/scanning_module/one_star,
 						/obj/item/stock_parts/manipulator/one_star,

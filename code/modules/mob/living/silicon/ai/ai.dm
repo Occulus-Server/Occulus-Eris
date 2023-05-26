@@ -113,6 +113,9 @@ var/list/ai_verbs_default = list(
 	var/drone_cooldown_time = 30 MINUTES  // Cooldown before creating a new drone
 	var/time_destroyed = 0.0
 
+	// Stored when on login and used for custom login out behaviur. Needed for proper removal of click handlers.
+	var/client/old_client
+
 	defaultHUD = "Eris"
 
 /mob/living/silicon/ai/proc/add_ai_verbs()
@@ -174,6 +177,11 @@ var/list/ai_verbs_default = list(
 	//Languages
 	add_language(LANGUAGE_ROBOT, 1)
 	add_language(LANGUAGE_COMMON, 1)
+	// add_language(LANGUAGE_CYRILLIC, 1) // Occulus Removal Start - We don't use these languages.
+	// add_language(LANGUAGE_GERMAN, 1)
+	// add_language(LANGUAGE_LATIN, 1)
+	// add_language(LANGUAGE_NEOHONGO, 1)
+	// add_language(LANGUAGE_SERBIAN, 1) // Occulus Removal End
 
 	if(!safety)//Only used by AIize() to successfully spawn an AI.
 		if (!B)//If there is no player/brain inside.
@@ -233,7 +241,7 @@ var/list/ai_verbs_default = list(
 
 	if (!check_special_role(ROLE_MALFUNCTION))
 		show_laws()
-		to_chat(src, "<b>These laws may be changed by other players, or by you being the traitor.</b>")
+		to_chat(src, "<b>These laws may be changed by other players, or by you being the contractor.</b>")
 
 	job = "AI"
 	setup_icon()
@@ -292,7 +300,7 @@ var/list/ai_verbs_default = list(
 	var/mob/living/silicon/ai/powered_ai
 	invisibility = 100
 
-/obj/machinery/ai_powersupply/New(var/mob/living/silicon/ai/ai=null)
+/obj/machinery/ai_powersupply/New(var/mob/living/silicon/ai/ai)
 	powered_ai = ai
 	powered_ai.psupply = src
 	forceMove(powered_ai.loc)
@@ -366,7 +374,7 @@ var/list/ai_verbs_default = list(
 	if(check_unable(AI_CHECK_WIRELESS | AI_CHECK_RADIO))
 		return
 
-	announcement.Announce(input)
+	announcement.Announce(input, use_text_to_speech = TRUE)
 	message_cooldown = 1
 	spawn(600)//One minute cooldown
 		message_cooldown = 0
@@ -432,7 +440,7 @@ var/list/ai_verbs_default = list(
 			else
 				to_chat(src, SPAN_NOTICE("Unable to locate the holopad."))
 	if (href_list["track"])
-		var/mob/target = locate(href_list["track"]) in SSmobs.mob_list
+		var/mob/target = locate(href_list["track"]) in SSmobs.mob_list | SShumans.mob_list
 		if(target && (!ishuman(target) || target.real_name == target.get_face_name()))
 			ai_actual_track(target)
 		else
@@ -622,14 +630,15 @@ var/list/ai_verbs_default = list(
 		var/obj/item/device/aicard/card = W
 		card.grab_ai(src, user)
 
-	else if(istype(W, /obj/item/tool/wrench))
+	var/tool_type = W.get_tool_type(user, list(QUALITY_BOLT_TURNING), src)
+	if(tool_type == QUALITY_BOLT_TURNING)
 		if(anchored)
 			user.visible_message(SPAN_NOTICE("\The [user] starts to unbolt \the [src] from the plating..."))
 			if(!do_after(user,40, src))
 				user.visible_message(SPAN_NOTICE("\The [user] decides not to unbolt \the [src]."))
 				return
 			user.visible_message(SPAN_NOTICE("\The [user] finishes unfastening \the [src]!"))
-			anchored = 0
+			anchored = FALSE
 			return
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] starts to bolt \the [src] to the plating..."))
@@ -690,7 +699,7 @@ var/list/ai_verbs_default = list(
 
 
 /mob/living/silicon/ai/ex_act(var/severity)
-	if(severity == 1.0)
+	if(severity == 1)
 		qdel(src)
 		return
 	..()

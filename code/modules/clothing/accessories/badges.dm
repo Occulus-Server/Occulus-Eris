@@ -5,8 +5,8 @@
 */
 
 /obj/item/clothing/accessory/badge
-	name = "Inspector's badge"
-	desc = "A Aegis Security badge, made from gold and set on false leather."
+	name = "Inspector's badge" // Occulus Edit - Remove Eris corp. references
+	desc = "A Aegis Security badge, made from gold and set on false leather." // Occulus Edit - Remove Eris corp. references
 	icon_state = "badge"
 	item_state = "marshalbadge"
 	slot_flags = SLOT_BELT | SLOT_ACCESSORY_BUFFER
@@ -17,7 +17,7 @@
 
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
-	desc = "A faded badge, backed with leather. It bears the emblem of the Forensic division."
+	desc = "A faded badge, backed with leather. It bears the emblem of the NanoTrasen Security division."
 	icon_state = "badge_round"
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)
@@ -95,23 +95,40 @@
 
 
 /obj/item/clothing/accessory/badge/warden
-	name = "Gunnery Sergeant badge"
-	desc = "A silver Cobalt Security badge. Stamped with the words 'Sergeant.'"
+	name = "Gunnery Sergeant badge" // Occulus Edit - Remove Eris corp. references
+	desc = "A silver Cobalt Security badge. Stamped with the words 'Sergeant.'" // Occulus Edit - Remove Eris corp. references
 	icon_state = "silverbadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER
 	spawn_blacklisted = TRUE
 
+/obj/item/clothing/accessory/badge/holo/sergeant
+	name = "Sergeant Holo badge"
+	desc = "This glowing red badge marks the holder as a distinguished Ironhammer Sergeant"
+	icon_state = "sargebadge"
+	item_state = "sargebadge"
+	slot_flags = SLOT_ACCESSORY_BUFFER
+	spawn_blacklisted = TRUE
 
-/obj/item/clothing/accessory/badge/hos
+/obj/item/clothing/accessory/badge/commander
 	name = "Commander's badge"
 	desc = "An immaculately polished gold Aegis Cobalt Security badge. Labeled 'Commander.'"
 	icon_state = "goldbadge"
+	item_state = "goldbadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER
+	spawn_blacklisted = TRUE
+
+/obj/item/clothing/accessory/badge/inspector
+	name = "Inspector's badge"
+	desc = "A leather-backed silver badge displaying the crest of the Aegis Inspectors." // Occulus Edit - Remove Eris corp. references
+	icon_state = "inspectorbadge"
+	item_state = "inspectorbadge"
+	badge_string = "Ironhammer Investigation Agency"
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/accessory/badge/marshal
 	name = "Marshal's badge"
 	desc = "A leather-backed gold badge displaying the crest of the Aegis Marshals."
 	icon_state = "marshalbadge"
+	item_state = "marshalbadge"
 	badge_string = "Ironhammer Marshal Bureau"
 	spawn_blacklisted = TRUE

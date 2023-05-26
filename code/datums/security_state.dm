@@ -208,7 +208,7 @@
 
 	overlay_status_display = "status_display_green"
 
-	down_description = "All threats to the ship have passed. Crew are to return to normal duties."
+	down_description = "All threats to the ship have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
 
 /decl/security_level/default/code_blue
 	name = "code blue"
@@ -224,8 +224,8 @@
 
 	overlay_status_display = "status_display_blue"
 
-	up_description = "The ship has received reliable information about possible danger to it's safety. Crew are to prepare general quarters and see their respective command member for details."
-	down_description = "The immediate threat has passed. Crew are to remain on alert and see their respective command member for details."
+	up_description = "The ship has received reliable information about possible hostile activity on the ship. Security staff may have weapons visible, random searches are permitted."
+	down_description = "The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed."
 
 /decl/security_level/default/code_red
 	name = "code red"
@@ -241,8 +241,8 @@
 
 	overlay_status_display = "status_display_red"
 
-	up_description = "There is an immediate serious threat to the ship. Privacy rights as suspended and crew are to listen to all command orders."
-	down_description = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the ship. Privacy rights are still suspended and crew are to listen to all command orders."
+	up_description = "There is an immediate serious threat to the ship. Security may have weapons unholstered at all times. Random searches are allowed and advised."
+	down_description = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the ship. Security may have weapons unholstered at all times, random searches are allowed and advised."
 
 /decl/security_level/default/code_delta
 	name = "code delta"

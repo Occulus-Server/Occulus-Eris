@@ -7,7 +7,6 @@
 	icon_state = "screen"
 	layer = ABOVE_MOB_LAYER + 0.1
 	idle_power_usage = 350
-	circuit = /obj/item/electronics/circuitboard/neotheology/bioreactor_metrics
 
 /obj/machinery/multistructure/bioreactor_part/console/Initialize()
 	. = ..()
@@ -16,10 +15,10 @@
 
 /obj/machinery/multistructure/bioreactor_part/console/attack_hand(mob/user as mob)
 	if(MS)
-		ui_interact(user)
+		nano_ui_interact(user)
 
 
-/obj/machinery/multistructure/bioreactor_part/console/ui_data()
+/obj/machinery/multistructure/bioreactor_part/console/nano_ui_data()
 	var/list/data = list()
 	if(MS_bioreactor.is_operational())
 		if(MS_bioreactor.chamber_solution)
@@ -57,8 +56,8 @@
 	return data
 
 
-/obj/machinery/multistructure/bioreactor_part/console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/topic_state/state = GLOB.default_state)
-	var/list/data = ui_data()
+/obj/machinery/multistructure/bioreactor_part/console/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/nano_topic_state/state = GLOB.default_state)
+	var/list/data = nano_ui_data()
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
@@ -67,7 +66,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/multistructure/bioreactor_part/console/CanUseTopic(var/mob/user)
+/obj/machinery/multistructure/bioreactor_part/console/CanUseTopic(var/mob/user) // Occulus Edit Start - Computer control of bioreactor
 	if(issilicon(user) && !Adjacent(user))
 		return STATUS_UPDATE
 	return ..()
@@ -101,4 +100,4 @@
 		playsound(src, 'sound/machines/synth_yes.ogg', 100, 1)
 		. = 1
 
-	ui_interact(usr)
+	ui_interact(usr) // Occulus Edit End

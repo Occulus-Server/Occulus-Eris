@@ -186,6 +186,29 @@ I said no!
 	)
 	result = /obj/item/reagent_containers/food/snacks/fuhrerburger
 
+/datum/recipe/kaiserburger
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/roachmeat/kaiser,
+		/obj/item/reagent_containers/food/snacks/meat/roachmeat/kaiser,
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/egg
+	)
+	result = /obj/item/reagent_containers/food/snacks/kaiserburger
+
+/datum/recipe/wormburger
+	items = list(
+		/obj/item/reagent_containers/food/snacks/moecube/worm,
+		/obj/item/reagent_containers/food/snacks/bun
+	)
+	result = /obj/item/reagent_containers/food/snacks/wormburger
+
+/datum/recipe/geneburger
+	items = list(
+		/obj/item/reagent_containers/food/snacks/moecube,
+		/obj/item/reagent_containers/food/snacks/bun
+	)
+	result = /obj/item/reagent_containers/food/snacks/geneburger
+
 /datum/recipe/hotdog
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
@@ -467,7 +490,7 @@ I said no!
 		. = ..()
 		if (.)
 			var/obj/item/paper/paper = locate() in container
-			if (!paper.info)
+			if (!paper || !paper.info)
 				return 0
 		return .
 

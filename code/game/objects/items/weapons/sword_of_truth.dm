@@ -1,32 +1,37 @@
 /obj/item/tool/sword/nt_sword
 	name = "Sword of Truth"
-	desc = "Sword out of unknown alloy, humming from unknown power source."
+	desc = "Sword made out of a unknown alloy, humming from an unknown power source."
 	icon = 'icons/obj/faction_item.dmi'
+	description_info = "Can be used to stun non-believers by using it in-hand"
+	description_antag = "Can be used to destroy departmental oddities on harm intent, boosting the EOTP's stats all round and adding observation."
 	icon_state = "nt_sword_truth"
 	item_state = "nt_sword_truth"
 	slot_flags = FALSE
 	origin_tech = list(TECH_COMBAT = 5, TECH_POWER = 4, TECH_MATERIAL = 8)
+	aspects = list(SANCTIFIED)
 	price_tag = 20000
 	spawn_frequency = 0
 	spawn_blacklisted = TRUE
-	force = WEAPON_FORCE_ROBUST
-	var/crusade_force = WEAPON_FORCE_LETHAL
+	force = WEAPON_FORCE_BRUTAL
+	var/crusade_force = WEAPON_FORCE_NORMAL * 0.8
 	var/flash_cooldown = 1 MINUTES
 	var/last_use = 0
 
 /obj/item/tool/sword/nt_sword/crusade_activated()
-	force += crusade_force - initial(force)
+	. = ..()
+	if(!.) return
+	force += crusade_force
 
-/* /obj/item/tool/sword/nt_sword/New()
+/obj/item/tool/sword/nt_sword/New()
 	..()
 	GLOB.all_faction_items[src] = GLOB.department_church
 
- /obj/item/tool/sword/nt_sword/Destroy()
+/obj/item/tool/sword/nt_sword/Destroy()
 	for(var/mob/living/carbon/human/H in viewers(get_turf(src)))
-		SEND_SIGNAL(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
+		SEND_SIGNAL_OLD(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
 	GLOB.all_faction_items -= src
 	GLOB.neotheology_faction_item_loss++
-	..() */ //This is scoring. Uncomment this if you port scoring. - Bear
+	..()
 
 /obj/item/tool/sword/nt_sword/attackby(obj/item/I, mob/user, params)
 	if(nt_sword_attack(I, user))
@@ -55,20 +60,34 @@
 		to_chat(src, SPAN_DANGER("You was interrupted!"))
 		return
 
+	var/bang_text = pick("HOLY LIGHT!", "GOD HAVE MERCY!", "HOLY HAVEN!", "YOU SEE THE LIGHT!")
+
 	for(var/obj/structure/closet/L in hear(7, get_turf(src)))
 		if(locate(/mob/living/carbon/, L))
 			for(var/mob/living/carbon/M in L)
 				var/obj/item/implant/core_implant/I = M.get_core_implant(/obj/item/implant/core_implant/cruciform)
 				if(I && I.active && I.wearer)
 					continue
-				bang(get_turf(src), M)
+				M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_ADEPT, 45 SECONDS, "Sword of truth")
+				M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_ADEPT, 45 SECONDS, "Sword of truth")
+				M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_ADEPT, 45 SECONDS, "Sword of truth")
+				M.stats.addTempStat(STAT_BIO, -STAT_LEVEL_ADEPT, 45 SECONDS, "Sword of truth")
+				M.stats.addTempStat(STAT_COG, -STAT_LEVEL_ADEPT, 45 SECONDS, "Sword of truth")
+				M.stats.addTempStat(STAT_MEC, -STAT_LEVEL_ADEPT, 45 SECONDS, "Sword of truth")
+				flashbang_bang(get_turf(src), M, bang_text, FALSE)
 
 
 	for(var/mob/living/carbon/M in hear(7, get_turf(src)))
 		var/obj/item/implant/core_implant/I = M.get_core_implant(/obj/item/implant/core_implant/cruciform)
 		if(I && I.active && I.wearer)
 			continue
-		bang(get_turf(src), M)
+		M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_ADEPT, 45 SECONDS, "Sword of truth")
+		M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_ADEPT, 45 SECONDS, "Sword of truth")
+		M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_ADEPT, 45 SECONDS, "Sword of truth")
+		M.stats.addTempStat(STAT_BIO, -STAT_LEVEL_ADEPT, 45 SECONDS, "Sword of truth")
+		M.stats.addTempStat(STAT_COG, -STAT_LEVEL_ADEPT, 45 SECONDS, "Sword of truth")
+		M.stats.addTempStat(STAT_MEC, -STAT_LEVEL_ADEPT, 45 SECONDS, "Sword of truth")
+		flashbang_bang(get_turf(src), M, bang_text, FALSE)
 
 	for(var/obj/effect/blob/B in hear(8,get_turf(src)))       		//Blob damage here
 		var/damage = round(30/(get_dist(B,get_turf(src))+1))
@@ -80,75 +99,16 @@
 	last_use = world.time
 	return
 
-/obj/item/tool/sword/nt_sword/proc/bang(var/turf/T , var/mob/living/carbon/M)					// Added a new proc called 'bang' that takes a location and a person to be banged.
-	to_chat(M, SPAN_DANGER(pick("HOLY LIGHT!", "GOD HAVE MERCY!", "HOLY HAVEN!", "YOU SEE THE LIGHT!")))								// Called during the loop that bangs people in lockers/containers and when banging
-	playsound(loc, 'sound/effects/bang.ogg', 50, 1, 5)		// people in normal view.  Could theroetically be called during other explosions.
-																// -- Polymorph
-
-//Checking for protections
-	var/eye_safety = 0
-	var/ear_safety = 0
-	if(iscarbon(M))
-		eye_safety = M.eyecheck()
-		ear_safety = M.earcheck() //Occulus edit
-		if(ishuman(M))
-			if(istype(M:l_ear, /obj/item/clothing/ears/earmuffs) || istype(M:r_ear, /obj/item/clothing/ears/earmuffs))
-				ear_safety += 2
-			if(HULK in M.mutations)
-				ear_safety += 1
-			//if(istype(M:head, /obj/item/clothing/head/armor/helmet))
-			//	ear_safety += 1 //Occulus edit
-
-//Flashing everyone
-	if(eye_safety < FLASH_PROTECTION_MODERATE)
-		if (M.HUDtech.Find("flash"))
-			flick("e_flash", M.HUDtech["flash"])
-		M.Stun(2)
-		M.Weaken(10)
-
-
-
-//Now applying sound
-	if((get_dist(M, T) <= 2 || loc == M.loc || loc == M))
-		if(ear_safety > 0)
-			M.Stun(2)
-			M.Weaken(1)
-		else
-			M.Stun(10)
-			M.Weaken(3)
-			if ((prob(14) || (M == loc && prob(70))))
-				M.ear_damage += rand(1, 10)
-			else
-				M.ear_damage += rand(0, 5)
-				M.ear_deaf = max(M.ear_deaf,15)
-
-	else if(get_dist(M, T) <= 5)
-		if(!ear_safety)
-			M.Stun(8)
-			M.ear_damage += rand(0, 3)
-			M.ear_deaf = max(M.ear_deaf,10)
-
-	else if(!ear_safety)
-		M.Stun(4)
-		M.ear_damage += rand(0, 1)
-		M.ear_deaf = max(M.ear_deaf,5)
-
-	//This really should be in mob not every check
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/internal/eyes/E = H.random_organ_by_process(OP_EYES)
-		if (E && E.damage >= E.min_bruised_damage)
-			to_chat(M, SPAN_DANGER("Your eyes start to burn badly!"))
-	if (M.ear_damage >= 15)
-		to_chat(M, SPAN_DANGER("Your ears start to ring badly!"))
+/obj/item/tool/sword/nt_sword/equipped(mob/living/M)
+	. = ..()
+	if(is_held() && is_neotheology_disciple(M))
+		embed_mult = 0.2
 	else
-		if (M.ear_damage >= 5)
-			to_chat(M, SPAN_DANGER("Your ears start to ring!"))
-	M.update_icons()
+		embed_mult = initial(embed_mult)
 
 /obj/structure/nt_pedestal
 	name = "Sword of Truth Pedestal"
-	desc = "Pedestal of glorious weapon named: \"Sword of Truth\"."
+	desc = "A pedestal for a glorious weapon named the: \"Sword of Truth\"."
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "nt_pedestal0"
 	spawn_frequency = 0
@@ -156,7 +116,7 @@
 	anchored = TRUE
 	density = TRUE
 	breakable = FALSE
-	var/obj/item/tool/sword/nt_sword/sword = null
+	var/obj/item/tool/sword/nt_sword/sword
 
 /obj/structure/nt_pedestal/New(var/loc, var/turf/anchor)
 	..()
@@ -205,28 +165,5 @@
 		else
 			visible_message(SPAN_WARNING("[user] failed to remove [sword] from the [src]"))
 
-/obj/structure/nt_pedestal/on_update_icon()
+/obj/structure/nt_pedestal/update_icon()
 	icon_state = "nt_pedestal[sword?"1":"0"]"
-
-/obj/item/storage/pouch/nt_sheath
-	name = "Sword of Truth sheath"
-	desc = "Can hold a Sword of Truth."
-	icon = 'icons/obj/faction_item.dmi'
-	icon_state = "nt_sheath0"
-	item_state = "nt_sheath0"
-	slot_flags = SLOT_BELT
-	price_tag = 1000
-	spawn_frequency = 0
-	storage_slots = 1
-	max_w_class = ITEM_SIZE_BULKY
-
-	can_hold = list(
-		/obj/item/tool/sword/nt_sword
-		)
-
-	sliding_behavior = TRUE
-
-/obj/item/storage/pouch/nt_sheath/update_icon()
-	icon_state = "nt_sheath[contents.len?"1":"0"]"
-	item_state = "nt_sheath[contents.len?"1":"0"]"
-	..()

@@ -1,6 +1,7 @@
 /obj/machinery/complant_maker
 	name = "implant reconstructor"
 	desc = "This machine repurposes implants, robot components and bionics, reworking their circuitry into the Excelsior implant pattern which allows recruitment."
+	description_antag = "The compliancy implants cannot be implanted into NT personnel"
 	icon = 'icons/obj/machines/excelsior/reconstructor.dmi'
 	icon_state = "idle"
 	circuit = /obj/item/electronics/circuitboard/excelsiorreconstructor
@@ -80,7 +81,7 @@
 
 	if(working && world.time >= start_time + build_time)
 		new /obj/item/implantcase/excelsior(drop_location())
-		FLICK(image(icon, "opening"), src)
+		flick(image(icon, "opening"), src)
 		working = FALSE
 		update_icon()
 
@@ -97,4 +98,4 @@
 	cut_overlays()
 
 	if(panel_open)
-		add_overlays(image(icon, "panel"))
+		overlays += image(icon, "panel")

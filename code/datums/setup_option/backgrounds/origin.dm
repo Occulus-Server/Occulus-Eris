@@ -9,7 +9,7 @@
 /datum/category_item/setup_option/background/origin/oberth
 	name = "Mercenary"
 	desc = "You're a soldier by trade, whether with a PMC or actual government. Close-quarters combat isn't unfamiliar to you, but you're more used to having your hands around a rifle. \
-			Even if that rifle is more of a shotgun."
+			Even if that rifle is more of a shotgun."  // Occulus Edit - Remove Eris corp. reference
 	stat_modifiers = list(
 		STAT_ROB = 5,
 		STAT_TGH = 5,
@@ -19,12 +19,16 @@
 		STAT_COG = -8
 	)
 
+/datum/category_item/setup_option/background/origin/oberth/apply(mob/living/carbon/human/character)
+  ..()
+  character.add_language(LANGUAGE_GERMAN)
+
 
 /datum/category_item/setup_option/background/origin/predstraza
 	name = "Thug"
 	desc = "You're an unsavory sort, aren't you? \
 			Maybe you're a criminal, maybe you just got into a lot of fights. Either way, you know how to swing your weight around and how to not get caught off-guard. \
-			...All those blows to your head may have knocked a few things loose, though..."
+			...All those blows to your head may have knocked a few things loose, though..."  // Occulus Edit - Remove Eris corp. reference
 
 	stat_modifiers = list(
 		STAT_ROB = 8,
@@ -35,6 +39,9 @@
 		STAT_COG = -10
 	)
 
+/datum/category_item/setup_option/background/origin/predstraza/apply(mob/living/carbon/human/character)
+  ..()
+  character.add_language(LANGUAGE_SERBIAN)
 
 /datum/category_item/setup_option/background/origin/sich_prime
 	name = "Vagrant"
@@ -64,6 +71,10 @@
 		STAT_COG = -3
 	)
 
+/datum/category_item/setup_option/background/origin/new_rome/apply(mob/living/carbon/human/character)
+  ..()
+  character.add_language(LANGUAGE_LATIN)
+
 
 /datum/category_item/setup_option/background/origin/shimatengoku
 	name = "Academic"
@@ -79,6 +90,10 @@
 		STAT_VIG = -5,
 		STAT_COG = 15
 	)
+
+/datum/category_item/setup_option/background/origin/shimatengoku/apply(mob/living/carbon/human/character)
+  ..()
+  character.add_language(LANGUAGE_NEOHONGO)
 
 
 /datum/category_item/setup_option/background/origin/hmss_destined
@@ -152,4 +167,66 @@
 		STAT_MEC = 2,
 		STAT_VIG = 10,
 		STAT_COG = 2
+	)
+
+
+/datum/category_item/setup_option/background/origin/eureka
+    name = "Eureka"
+    desc = "Once a paradise for the Australian colonists that lived on it, their neutrality during the corporate wars cost them this paradise. \
+            And thus did the Syndicate and Nanotrasen both bomb Eureka to hell, causing once verdant lands to become hellish deserts of nuclear proportions. \
+            As a side effect of this once the corporate wars ended, Eurekans are known to be eerily good trackers and pathfinders in these conditions and elsewhere, causing what's left of the Eurekan people to pay a tithe to Hansa and Neotheology both in the form of criminals. \
+            All in the name of saving what's left."
+
+    stat_modifiers = list(
+        STAT_ROB = -5,
+        STAT_TGH = 5,
+        STAT_BIO = 10,
+        STAT_MEC = -10,
+        STAT_VIG = 10,
+        STAT_COG = -5
+    )
+
+/datum/category_item/setup_option/background/origin/streltsy
+	name = "Wandering Streltsy"
+	desc = "The Streltsy are known for their actions during the corporate wars on certain worlds such as Eureka and Predstraza. Serbians know them as valuable debt settlers and an escape from the conditions of their worlds, while more civilized worlds view them as despoilers and raiders. \
+			While both of these preconceptions are correct in their own right, a less known fact is that most Streltsy who've survived the corporate war are still suffering the consequences of their participation due to the decimation of their numbers during the war, leading to a miserable quality of life and forcing them to start recruitment from wartorn worlds to desperately replenish their numbers from before the war. \
+			Despite this, the survivors and their newer members are unparalleled in the arts of war, but lacking in the art of general technomancy."
+	stat_modifiers = list(
+		STAT_ROB = 5,
+		STAT_TGH = 10,
+		STAT_BIO = -10,
+		STAT_MEC = -5,
+		STAT_VIG = 10,
+		STAT_COG = -10
+	)
+
+	restricted_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/chaplain, /datum/job/merchant, /datum/job/cmo, /datum/job/rd, /datum/job/ihc)
+	restricted_depts = IRONHAMMER | MEDICAL | SCIENCE | CHURCH | GUILD | CIVILIAN | SERVICE
+
+/datum/category_item/setup_option/background/origin/tripwire
+	name = "Tripwire Belt"
+	desc = "A network of hidden ships, gun emplacements and listening bases placed in a large asteroid belt late in the Corporate War by the Syndicate for the purpose of being an early warning station for attacks on Hansa Sector core worlds. After the end of the corporate war Ironhammer transformed it into a large system of training camps and bases for specialists and new recruits. Due to an almost complete lack of terraforming, hostile environment and outdated syndicate construction, the Tripwire Belt is suited for teaching new recruits on how to survive in deep space conditions, but this also means morale is often low."
+
+	stat_modifiers = list(
+		STAT_ROB = -5,
+		STAT_TGH = 10,
+		STAT_BIO = -5,
+		STAT_MEC = 5,
+		STAT_VIG = 10,
+		STAT_COG = -10
+	)
+
+/datum/category_item/setup_option/background/origin/kestrel
+	name = "Kestrel Hive"
+	desc = "A massive fleet of nomadic space stations lacking FTL, originally little more than mobile refineries and ore smelters which turned into veritable towns inhabited by hardass miners and ruthless prospectors. The Hive is constantly busy with stripping the massive asteroid fields in a system at the edge of Hansa space that is little more than barren dwarf planets and desolate gas giants. \
+	The forge-towns can produce all needed equipment on-site thanks to their massive production facilities, though often the stations struggle to support the crammed population, so air and water rationing aren't uncommon, and even gravity generator shutdowns are a common occurrence. \
+	The cluster is owned and operated by Tartarus Industrial Union, a division of the idealistic Hansa megacorp in charge of heavy industries. The workers of Kestrel Hive, real rough folk, partake in several very dangerous recreational activities, from hopping from asteroid to asteroid with just your EVA suit and a spare tank of oxygen, to rocket-fuel and pure ethanol booze, with bits of radioactive byproducts mixed in. Strongest alcohol you’ll ever find, and you need a strong drink if you want to keep your wits during the twelve-hour shifts."
+
+	stat_modifiers = list(
+		STAT_ROB = 6,
+		STAT_TGH = 5,
+		STAT_BIO = -3,
+		STAT_MEC = 9,
+		STAT_VIG = -6,
+		STAT_COG = -6
 	)

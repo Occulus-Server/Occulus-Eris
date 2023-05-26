@@ -6,26 +6,37 @@
 	item_state = "pistol"
 	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
-	can_dual = 1
+	can_dual = TRUE
 	caliber = CAL_PISTOL
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_PISTOL|MAG_WELL_H_PISTOL
 	magazine_type = /obj/item/ammo_magazine/pistol
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_WOOD = 6)
-	price_tag = 800
+	price_tag = 600
 	damage_multiplier = 1.2
-	penetration_multiplier = 1.2
-	recoil_buildup = 6
+	penetration_multiplier = 0
+	init_recoil = HANDGUN_RECOIL(0.9)
 	init_firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=1.2, move_delay=null, 				icon="semi"),
-		list(mode_name="2-round bursts", burst=2, fire_delay=0.2, move_delay=4,    	icon="burst"),
+		list(mode_name="semiauto", mode_desc="Fire almost as fast as you can pull the trigger", burst=1, fire_delay=1.2, move_delay=null, 				icon="semi"),
+		list(mode_name="2-round bursts", mode_desc="Not quite the Mozambique method", burst=2, fire_delay=0.2, move_delay=4,    	icon="burst"),
 		)
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	gun_parts = list(/obj/item/part/gun/frame/olivaw = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/pistol = 1, /obj/item/part/gun/modular/barrel/pistol = 1)
+	serial_type = "FS"
 
-/obj/item/gun/projectile/olivaw/on_update_icon()
+/obj/item/gun/projectile/olivaw/update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "[initial(icon_state)]"	// OCCULUS EDIT - Now this is no longer hardcoded to use olivawcivil
 	else
 		icon_state = "[initial(icon_state)]_empty"	// OCCULUS EDIT - Now this is no longer hardcoded to use olivawcivil
+
+/obj/item/part/gun/frame/olivaw
+	name = "Olivaw frame"
+	desc = "An Olivaw pistol frame. Why shoot one bullet when you can shoot two?"
+	icon_state = "frame_olivaw"
+	resultvars = list(/obj/item/gun/projectile/olivaw)
+	gripvars = list(/obj/item/part/gun/modular/grip/wood)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/pistol
+	barrelvars = list(/obj/item/part/gun/modular/barrel/pistol)

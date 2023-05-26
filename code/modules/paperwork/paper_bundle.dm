@@ -210,7 +210,7 @@
 	return
 
 
-/obj/item/paper_bundle/on_update_icon()
+/obj/item/paper_bundle/update_icon()
 	var/obj/item/paper/P = pages[1]
 	icon_state = P.icon_state
 	set_overlays(P.overlays)

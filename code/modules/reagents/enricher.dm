@@ -14,8 +14,30 @@
 	spawn_blacklisted = TRUE
 	origin_tech = list(TECH_BIO = 9, TECH_MATERIAL = 9, TECH_PLASMA = 3)
 	unacidable = TRUE //glass doesn't dissolve in acid
-	matter = list(MATERIAL_GLASS = 3, MATERIAL_STEEL = 2, MATERIAL_PHORON = 5, MATERIAL_BIOMATTER = 50)
+	matter = list(MATERIAL_GLASS = 3, MATERIAL_STEEL = 2, MATERIAL_PLASMA = 5, MATERIAL_BIOMATTER = 50)
 	var/resuscitator_amount = 0
+	var/upgraded = FALSE // can be enriched with the maneki neko to also produce plasma and carpotoxin
+
+/obj/item/reagent_containers/enricher/New()
+	..()
+	GLOB.all_faction_items[src] = GLOB.department_moebius
+
+/obj/item/reagent_containers/enricher/Destroy()
+	for(var/mob/living/carbon/human/H in viewers(get_turf(src)))
+		SEND_SIGNAL_OLD(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
+	GLOB.all_faction_items -= src
+	GLOB.moebius_faction_item_loss++
+	..()
+
+/obj/item/reagent_containers/enricher/attackby(obj/item/I, mob/living/user, params)
+	if(nt_sword_attack(I, user))
+		return FALSE
+	if(istype(I, /obj/item/maneki_neko))
+		user.remove_from_mob(I)
+		qdel(I)
+		to_chat(user, SPAN_NOTICE("You upgrade the [src] using the Maneki Neko, its powers now allowing the oddity to synthethize plasma and carpotoxin ontop of resuscitator!"))
+		upgraded = TRUE
+	..()
 
 /obj/item/reagent_containers/enricher/attack_self()
 	if(reagents.total_volume)
@@ -34,13 +56,19 @@
 			var/obj/item/reagent_containers/glass/bottle/bottle = new /obj/item/reagent_containers/glass/bottle(get_turf(src))
 			bottle.reagents.add_reagent("resuscitator", resuscitator_amount)
 			bottle.name = "resuscitator bottle"
-			resuscitator_amount = 0
-			bottle.update_icon()
 			visible_message(SPAN_NOTICE("[src] drops [bottle]."))
+			if(upgraded)
+				var/obj/item/reagent_containers/glass/bottle/plasma = new /obj/item/reagent_containers/glass/bottle(get_turf(src))
+				var/obj/item/reagent_containers/glass/bottle/carpotoxin = new /obj/item/reagent_containers/glass/bottle(get_turf(src))
+				plasma.reagents.add_reagent("plasma", resuscitator_amount * 2)
+				carpotoxin.reagents.add_reagent("carpotoxin", resuscitator_amount * 2)
+				plasma.update_icon()
+				carpotoxin.update_icon()
+			resuscitator_amount = 0
 		else
-			visible_message("\The [src] beeps, \"Not enough nutriment to produce blood.\".")
+			visible_message("\The [src] beeps, \"Not enough nutriment to produce resuscitator.\".")
 	else
-		visible_message("\The [src] beeps, \"Insufficient reagents to produce blood.\".")
+		visible_message("\The [src] beeps, \"Insufficient reagents to produce resuscitator.\".")
 
 /obj/item/reagent_containers/enricher/pre_attack(atom/A, mob/user, params)
 	if(user.a_intent == I_HURT)

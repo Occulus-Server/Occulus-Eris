@@ -7,24 +7,18 @@
 /datum/uplink_item/item/stealthy_weapons/cigarette_kit
 	name = "Cigarette Kit"
 	item_cost = 2
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/box/syndie_kit/cigarette
 
 /datum/uplink_item/item/stealthy_weapons/random_toxin
 	name = "Random Toxin - Beaker"
 	item_cost = 4
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/box/syndie_kit/toxin
-
-/datum/uplink_item/item/stealthy_weapons/parapen
-	name = "Paralysis Pen"
-	item_cost = 6
-	path = /obj/item/pen/reagent/paralysis
-
 
 /datum/uplink_item/item/stealthy_weapons/boot_knife
 	name = "Boot Knife"
-	item_cost = 3
+	item_cost = 2
 	path = /obj/item/tool/knife/boot
 
 /datum/uplink_item/item/stealthy_weapons/infuser

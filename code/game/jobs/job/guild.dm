@@ -3,7 +3,8 @@
 	title = "Free Trade Union Merchant"
 	flag = MERCHANT
 	department = DEPARTMENT_GUILD
-	head_position = 1
+	head_position = TRUE
+	aster_guild_member = TRUE
 	department_flag = GUILD | COMMAND
 	faction = "CEV Northern Light"
 	total_positions = 1
@@ -11,6 +12,7 @@
 	supervisors = "your greed"
 	selection_color = "#b3a68c"
 	wage = WAGE_NONE	//Guild merchant draws a salary from the guild account
+	also_known_languages = list(LANGUAGE_JIVE = 100)
 	access = list(
 		access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_merchant, access_mining,
 		access_heads, access_mining_station, access_RC_announce, access_keycard_auth, access_sec_doors,
@@ -35,7 +37,7 @@ Things to bear in mind:<br>\
 	-Nobody has a right to free stuff. You are well within your rights to charge for anything you distribute, and you won't make a penny if you don't.<br>\
 	-CEV Northern Light has few laws on contraband. If someone wants something and they can afford it, you get it for them. Don't try to play moral guardian and don't ask questions. You are not responsible for whatever they do with your products.<br>\
 	-Loyalty is a priceless resource, yet cheap to maintain. Don't screw over the miners and technicians working under you. <br>\
-	-Charity is a weapon. Used correctly, it can do wonders for your public image.  A few gifts spread around makes for good returning customers"
+	-Charity is a weapon. Used correctly, it can do wonders for your public image.  A few gifts spread around makes for good returning customers"  // Occulus Edit - Remove Eris corp. reference
 
 	perks = list(/datum/perk/merchant, /datum/perk/deep_connection, /datum/perk/oddity/market_prof)
 
@@ -49,6 +51,7 @@ Your second loyalty is to the Union. Ensure it retains good relations with priva
 
 	software_on_spawn = list(///datum/computer_file/program/supply,
 							 ///datum/computer_file/program/deck_management,
+							 /datum/computer_file/program/trade,
 							 /datum/computer_file/program/scanner,
 							 /datum/computer_file/program/wordprocessor,
 							 /datum/computer_file/program/reports)
@@ -72,6 +75,7 @@ Your second loyalty is to the Union. Ensure it retains good relations with priva
 	spawn_positions = 3
 	supervisors = "the Free Trade Union Merchant"
 	selection_color = "#c3b9a6"
+	also_known_languages = list(LANGUAGE_JIVE = 100)
 	wage = WAGE_LABOUR_DUMB
 	alt_titles = list("Union Salvage Technician")	// OCCULUS EDIT
 	department_account_access = TRUE
@@ -127,6 +131,8 @@ Your main duties are to keep the local Union branch operational and profitable. 
 	selection_color = "#c3b9a6"
 	wage = WAGE_LABOUR_HAZARD //The miners union is stubborn
 	alt_titles = list("Union Prospector")	// OCCULUS EDIT
+	also_known_languages = list(LANGUAGE_JIVE = 100)
+
 	outfit_type = /decl/hierarchy/outfit/job/cargo/mining
 
 	description = "You are an asteroid miner, working in resource Procurement for the local branch of the Free Trade Union.<br>\

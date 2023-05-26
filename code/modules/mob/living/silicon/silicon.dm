@@ -2,6 +2,7 @@
 	gender = NEUTER
 	voice_name = "synthesized voice"
 	bad_type = /mob/living/silicon
+	tts_seed = "Robot_1"
 	var/syndicate = 0
 	var/const/MAIN_CHANNEL = "Main Frequency"
 	var/lawchannel = MAIN_CHANNEL // Default channel on which to state laws
@@ -49,6 +50,10 @@
 		AH.unregister_alarm(src)
 	. = ..()
 
+/mob/living/silicon/lay_down()
+	resting = FALSE
+	update_lying_buckled_and_verb_status()
+
 /mob/living/silicon/proc/init_id()
 	if(idcard)
 		return
@@ -72,14 +77,13 @@
 /mob/living/silicon/emp_act(severity)
 	switch(severity)
 		if(1)
-			take_organ_damage(0,20,emp=1)
+			take_organ_damage(0,20,emp=TRUE)
 			Stun(rand(5,10))
 		if(2)
-			take_organ_damage(0,10,emp=1)
+			take_organ_damage(0,10,emp=TRUE)
 			confused = (min(confused + 2, 30))
-//	FLICK("noise", flash)
-	if (HUDtech.Find("flash"))
-		FLICK("noise", HUDtech["flash"])
+//	flick("noise", flash)
+	flash(0, FALSE , FALSE , FALSE)
 	to_chat(src, SPAN_DANGER("<B>*BZZZT*</B>"))
 	to_chat(src, SPAN_DANGER("Warning: Electromagnetic pulse detected."))
 	..()
@@ -87,7 +91,7 @@
 /mob/living/silicon/stun_effect_act(var/stun_amount, var/agony_amount)
 	return	//immune
 
-/mob/living/silicon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0)
+/mob/living/silicon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1)
 
 	if (istype(source, /obj/machinery/containment_field))
 		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
@@ -246,24 +250,25 @@
 	return 1
 
 /mob/living/silicon/ex_act(severity)
-	if(!blinded)
-		if (HUDtech.Find("flash"))
-			FLICK("flash", HUDtech["flash"])
+	flash(0, FALSE, FALSE, FALSE)
 
 	switch(severity)
-		if(1.0)
+		if(1)
 			if (stat != 2)
 				adjustBruteLoss(100)
 				adjustFireLoss(100)
 				if(!anchored)
 					gib()
-		if(2.0)
+		if(2)
 			if (stat != 2)
 				adjustBruteLoss(60)
 				adjustFireLoss(60)
-		if(3.0)
+		if(3)
 			if (stat != 2)
 				adjustBruteLoss(30)
+		if(4)
+			if (stat != 2)
+				adjustBruteLoss(15)
 
 	updatehealth()
 
@@ -325,8 +330,8 @@
 		cameratext += "[(cameratext == "")? "" : "|"]<A HREF='?src=\ref[src];switchcamera=\ref[C]'>[C.c_tag]</A>"
 	to_chat(src, "[A.alarm_name()]! ([(cameratext)? cameratext : "No Camera"])")
 
-/mob/living/silicon/proc/is_malf_or_traitor()
-	return check_special_role(ROLE_TRAITOR) || check_special_role(ROLE_MALFUNCTION)
+/mob/living/silicon/proc/is_malf_or_contractor()
+	return check_special_role(ROLE_CONTRACTOR) || check_special_role(ROLE_MALFUNCTION)
 
 /mob/living/silicon/adjustEarDamage()
 	return

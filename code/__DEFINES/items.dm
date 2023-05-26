@@ -25,15 +25,27 @@
 
 //boolean
 #define UPGRADE_SHARP "sharp"
-#define UPGRADE_QUALITIES "extra_qualities"
 #define UPGRADE_CELLPLUS "cell_hold_upgrade"
 
 //flags
 #define UPGRADE_ITEMFLAGPLUS "item_flag_add"
 
+// Weapon minimum fire_delay
+#define GUN_MINIMUM_FIRETIME 1.1 // 110 MS , ~9 shots per second.
 
+// When present as a spritetag, this denotes whether the part is installed. When present as a parttag, it denotes that the sprite is currently activated.
+// Used for sprite handling, when present as both parts it will modify the base sprite and all overlays.
+#define PARTMOD_STRIPPED 0
+#define PARTMOD_FOLDING_STOCK 1
+#define PARTMOD_SLIDE 2
+#define PARTMOD_FRAME_SPRITE 4 // Defines whether grips or frames determine the inhands, TODO: remove this when V3 comes
 
 //Weapon upgrade defines
+
+// Modification removability (toolmods, gunparts, etc.)
+#define MOD_REMOVABLE 1
+#define MOD_FUSED 0
+#define MOD_INTEGRAL -1
 
 //Int multiplier
 #define GUN_UPGRADE_DAMAGE_MULT "damage_mult"
@@ -49,7 +61,6 @@
 #define GUN_UPGRADE_OVERCHARGE_MAX "overcharge_max_mult"
 #define GUN_UPGRADE_OVERCHARGE_RATE "overcharge_rate_mult"
 #define GUN_UPGRADE_ONEHANDPENALTY "onehandpenalty_mult"
-#define GUN_UPGRADE_AGONY_MULT "agony_mult"
 
 //Int additive
 #define GUN_UPGRADE_DAMAGEMOD_PLUS "damage_plus"
@@ -69,7 +80,13 @@
 #define GUN_UPGRADE_OFFSET "offset" //Constant offset, in degrees
 #define GUN_UPGRADE_ZOOM "zoom"
 
-
+//Type configuration
+#define GUN_UPGRADE_DEFINE_OK_CALIBERS "ok_calibers"
+#define GUN_UPGRADE_DEFINE_CALIBER "caliber"
+#define GUN_UPGRADE_DEFINE_MAG_WELL "mag_well"
+#define GUN_UPGRADE_DEFINE_STOCK "stock"
+#define GUN_UPGRADE_FIREMODES "firemodes"
+#define GUN_UPGRADE_DEFINE_GRIP "grip"
 
 //boolean
 #define GUN_UPGRADE_SILENCER "silencable"
@@ -78,19 +95,31 @@
 #define GUN_UPGRADE_FULLAUTO "full auto"
 #define GUN_UPGRADE_EXPLODE "self destruct"
 #define GUN_UPGRADE_RIGGED "rigged"
+#define GUN_UPGRADE_THERMAL "thermal scope"
 #define GUN_UPGRADE_BAYONET "bayonet"
+#define GUN_UPGRADE_FLASHLIGHT "flashlight"
 #define GUN_UPGRADE_GILDED "gilded"
 #define GUN_UPGRADE_DNALOCK "biocoded"
+#define GUN_UPGRADE_FOREGRIP "foregrip"
+#define GUN_UPGRADE_BIPOD "bipod"
 
 //Location Tag defines
 
 #define GUN_UNDERBARREL "underbarrel slot"
-#define GUN_BARREL "barrel slot"
+#define GUN_BARREL "barrel attachment slot"
 #define GUN_TRIGGER "trigger slot"
 #define GUN_MUZZLE "muzzle slot"
 #define GUN_SCOPE "scope slot"
 #define GUN_MECHANISM "misc slot"
-#define GUN_GRIP "grip slot"
+#define GUN_GRIP "grip attachment slot"
+#define GUN_COSMETIC "cosmetic slot"
+
+// Reminder: projectile_defines.dm contains a lot of unused slots
+
+#define PART_BARREL "barrel slot"
+#define PART_MECHANISM "firing mechanism slot"
+#define PART_GRIP "grip slot"
+#define PART_STOCK "stock slot"
 
 //Whitelist Tag defines
 #define GUN_SILENCABLE "silencable"
@@ -99,11 +128,13 @@
 #define GUN_LASER "laser firing"
 #define GUN_REVOLVER "revolver"
 #define GUN_INTERNAL_MAG "internal mag"
+#define GUN_GILDABLE "gildable"
+#define GUN_FA_MODDABLE "full auto moddable"
+#define GUN_MODULAR "modular"
 
 #define GUN_CALIBRE_35 "caliber .35"
 
-#define GUN_SOL "Is a FS CAR .25 CS \"Sol\""
-#define GUN_PACO "Is this an FS HG .35 Auto \"Paco\""
+#define GUN_AMR "Is a SA AMR \"Hristov\""
 
 // A rare, random item
 #define RANDOM_RARE_ITEM list(\
@@ -123,8 +154,8 @@
 					/obj/spawner/credits/c1000 = 3,\
 					/obj/spawner/exosuit_equipment = 3,\
 					/obj/spawner/cloth/holster = 4,\
-					/obj/item/stash_spawner = 4)//SYZYGY Edit
-//					/obj/item/storage/deferred/crate/german_uniform = 4) SYZYGY Edit
+					/obj/item/stash_spawner = 4)// Occulus removal
+//					/obj/item/storage/deferred/crate/german_uniform = 4) Occulus Removal - No german uniforms
 
 GLOBAL_LIST_INIT(tool_aspects_blacklist, list(UPGRADE_COLOR, UPGRADE_ITEMFLAGPLUS, UPGRADE_CELLPLUS, UPGRADE_SHARP, UPGRADE_BULK))
 GLOBAL_LIST_INIT(weapon_aspects_blacklist, list(GUN_UPGRADE_SILENCER, GUN_UPGRADE_FORCESAFETY, GUN_UPGRADE_HONK, GUN_UPGRADE_FULLAUTO,

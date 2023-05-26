@@ -42,25 +42,6 @@
 	//Handle species-specific deaths.
 	species.handle_death(src)
 
-	//Handle brain slugs.
-	var/obj/item/organ/external/head = get_organ(BP_HEAD)
-	var/mob/living/simple_animal/borer/B
-
-	if(head)
-		for(var/I in head.implants)
-			if(istype(I,/mob/living/simple_animal/borer))
-				B = I
-		if(B)
-			if(!B.ckey && ckey && B.controlling)
-				B.ckey = ckey
-				B.controlling = 0
-			if(B.host_brain?.ckey)
-				ckey = B.host_brain.ckey
-				B.host_brain.ckey = null
-				B.host_brain.name = "host brain"
-				B.host_brain.real_name = "host brain"
-			verbs -= /mob/living/carbon/proc/release_control
-
 	callHook("death", list(src, gibbed))
 
 	if(wearing_rig)
@@ -92,7 +73,7 @@
 					var/mob/living/carbon/human/H = L
 					if(H in disciples)
 						continue
-					else if (H.random_organ_by_process(BP_SPCORE) || H.mutations.len)
+					else if (H.random_organ_by_process(BP_SPCORE) || H.active_mutations.len)
 						burn_damage_done = (martyr.burn_damage / get_dist(src, H)) * 2
 						H.adjustFireLoss(burn_damage_done)
 					else
@@ -108,7 +89,7 @@
 */
 
 /mob/living/carbon/human/proc/ChangeToHusk()
-	if(HUSK in mutations)	return
+//	if(HUSK in mutations)	return
 
 	if(f_style)
 		f_style = "Shaved"	//we only change the icon_state of the hair datum, so it doesn't mess up their UI/UE
@@ -116,42 +97,12 @@
 		h_style = "Bald"
 	update_hair(0)
 
-	mutations.Add(HUSK)
+//	mutations.Add(HUSK)
 	status_flags |= DISFIGURED	//makes them unknown without fucking up other stuff like admintools
 	update_body(1)
 	return
 
 /mob/living/carbon/human/proc/Drain()
 	ChangeToHusk()
-	mutations |= HUSK
 	return
 
-/mob/living/carbon/human/proc/ChangeToSkeleton()
-	if(SKELETON in src.mutations)	return
-
-	if(f_style)
-		f_style = "Shaved"
-	if(h_style)
-		h_style = "Bald"
-	update_hair(0)
-
-	mutations.Add(SKELETON)
-	status_flags |= DISFIGURED
-	update_body(0)
-	return
-
-/mob/living/carbon/human/proc/UnHusk()
-	if(!(HUSK in mutations))	return FALSE
-
-	if(f_style && client?.prefs?.f_style) // Occulus Edit null check for client prefs
-		f_style = client.prefs.f_style	//we only change the icon_state of the hair datum, so it doesn't mess up their UI/UE
-	if(h_style && client?.prefs?.h_style) // Occulus Edit null check for client prefs
-		h_style = client.prefs.h_style
-	update_hair(0)
-
-	mutations.Remove(HUSK)
-	status_flags &= ~DISFIGURED
-	var/obj/item/organ/external/head = get_organ(BP_HEAD)
-	head.disfigured = FALSE
-	update_body(1)
-	return TRUE

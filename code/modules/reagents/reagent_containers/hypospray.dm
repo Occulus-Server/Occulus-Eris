@@ -4,7 +4,7 @@
 
 /obj/item/reagent_containers/hypospray
 	name = "hypospray"
-	desc = "The NanoTrasen corporation hypospray is a sterile, air-needle autoinjector for rapid administration of drugs to patients."
+	desc = "The NanoTrasen corporation hypospray is a sterile, air-needle autoinjector for rapid administration of drugs to patients." // Occulus Edit - Renames Eris corp. 
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "hypo"
 	icon_state = "hypo"
@@ -36,7 +36,7 @@
 				to_chat(user, SPAN_WARNING("Injection port on [M]'s suit is refusing your [src]."))
 				// I think rig is advanced enough for this, and people will learn what causes this error
 				if(RIG)
-					playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 1 -3)
+					playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 1, -3)
 					RIG.visible_message("\icon[RIG]\The [RIG] states \"Attention: User of this suit appears to be synthetic origin\".")
 				return
 		// check without message
@@ -94,15 +94,16 @@
 	amount_per_transfer_from_this = 10
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1)
 	reagent_flags = REFILLABLE | DRAINABLE | AMOUNT_VISIBLE
-	volume = 10
-	preloaded_reagents = list("inaprovaline" = 10)
+	volume = 5
+	preloaded_reagents = list("inaprovaline" = 5)
+	spawn_blacklisted = TRUE
 
 /obj/item/reagent_containers/hypospray/autoinjector/on_reagent_change()
 	..()
 	if(reagents.total_volume <= 0) //Prevents autoinjectors from being refilled.
 		reagent_flags &= ~REFILLABLE
 
-/obj/item/reagent_containers/hypospray/autoinjector/on_update_icon()
+/obj/item/reagent_containers/hypospray/autoinjector/update_icon()
 	cut_overlays()
 	if(reagents && reagents.total_volume > 0)
 		icon_state = initial(icon_state)
@@ -112,12 +113,7 @@
 	else
 		icon_state = "[initial(icon_state)]0"
 
-
-/obj/item/reagent_containers/hypospray/autoinjector/empty
-	name = "autoinjector"
-	preloaded_reagents = list("inaprovaline" = 0)
-//Yes I know this is stupid, but it's a lot easier than making the parent empty and fixing all the fallout from that for now.'
-
+// TRADE
 /obj/item/reagent_containers/hypospray/autoinjector/antitoxin
 	name = "autoinjector (anti-toxin)"
 	preloaded_reagents = list("anti_toxin" = 10)
@@ -126,14 +122,108 @@
 	name = "autoinjector (tricordrazine)"
 	preloaded_reagents = list("tricordrazine" = 10)
 
+/obj/item/reagent_containers/hypospray/autoinjector/kelotane
+	name = "autoinjector (kelotane)"
+	preloaded_reagents = list("kelotane" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/bicaridine
+	name = "autoinjector (bicaridine)"
+	preloaded_reagents = list("bicaridine" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/antirad
+	name = "autoinjector (anti-rad)"
+	preloaded_reagents = list("hyronalin" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/dexalin
+	name = "autoinjector (dexalin)"
+	preloaded_reagents = list("dexalin" = 5)
+
 /obj/item/reagent_containers/hypospray/autoinjector/spaceacillin
 	name = "autoinjector (spaceacillin)"
 	preloaded_reagents = list("spaceacillin" = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/tramadol
+	name = "autoinjector (tramadol)"
+	preloaded_reagents = list("tramadol" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/polystem
+	name = "autoinjector (polystem)"
+	preloaded_reagents = list("polystem" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/meralyne
+	name = "autoinjector (meralyne)"
+	preloaded_reagents = list("meralyne" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/dermaline
+	name = "autoinjector (dermaline)"
+	preloaded_reagents = list("dermaline" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus
+	name = "autoinjector (dexalin plus)"
+	preloaded_reagents = list("dexalinp" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/oxycodone
+	name = "autoinjector (oxycodone)"
+	preloaded_reagents = list("oxycodone" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/ryetalyn
+	name = "autoinjector (ryetalyn)"
+	preloaded_reagents = list("ryetalyn" = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/hyperzine
 	name = "autoinjector (hyperzine)"
 	preloaded_reagents = list("hyperzine" = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/drugs
-	name = "autoinjector (sedative)"
-	preloaded_reagents = list("tramadol" = 2.5, "mindwipe" = 1, "stoxin" = 5)
+	name = "autoinjector (drugs)"
+	preloaded_reagents = list("space_drugs" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/quickhealbrute
+	name = "autoinjector (brute-aid)"
+	preloaded_reagents = list("bicaridine" = 1, "meralyne" = 1, "seligitillin" = 1, "tricordrazine" = 1, "polystem" = 1)
+	price_tag = 100
+
+/obj/item/reagent_containers/hypospray/autoinjector/quickhealburn
+	name = "autoinjector (burn-aid)"
+	preloaded_reagents = list("kelotane" = 1.25, "dermaline" = 1.25, "tricordrazine" = 1.25, "polystem" = 1.25)
+	price_tag = 100
+
+/obj/item/reagent_containers/hypospray/autoinjector/bloodclot
+	name = "autoinjector (blood clotting, type 1)"
+	preloaded_reagents = list("thrombopoietin" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/bloodclot_alt
+	name = "autoinjector (blood clotting, type 2)"
+	preloaded_reagents = list("thromboxane" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/bloodrestore
+	name = "autoinjector (blood restoration, type 1)"
+	preloaded_reagents = list("aldosterone" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/bloodrestore_alt
+	name = "autoinjector (blood restoration, type 2)"
+	preloaded_reagents = list("erythropoietin" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/painkiller
+	name = "autoinjector (painkiller, type 1)"
+	preloaded_reagents = list("enkephalin" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/painkiller_alt
+	name = "autoinjector (painkiller, type 2)"
+	preloaded_reagents = list("endomorphin" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/speedboost
+	name = "autoinjector (agility, type 1)"
+	preloaded_reagents = list("osteocalcin" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/speedboost_alt
+	name = "autoinjector (agility, type 2)"
+	preloaded_reagents = list("noradrenaline" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/oxygenation
+	name = "autoinjector (oxygenation, type 1)"
+	preloaded_reagents = list("dexterone" = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/oxygenation_alt
+	name = "autoinjector (oxygenation, type 2)"
+	preloaded_reagents = list("vasotriene" = 5)

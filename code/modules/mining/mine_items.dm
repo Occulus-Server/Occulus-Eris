@@ -15,19 +15,26 @@
 	new /obj/item/clothing/gloves/thick(src)
 	new /obj/item/clothing/glasses/powered/meson(src)
 	new /obj/item/clothing/shoes/color/black(src)
-	new /obj/item/cell/medium(src)
-	new /obj/item/cell/medium(src)
-	new /obj/item/cell/small(src)
-	new /obj/item/tool_upgrade/augment/fuel_tank(src)
+	new /obj/item/storage/belt/utility(src)
+	new /obj/item/cell/large/high(src)
+	new /obj/item/cell/large/high(src)
+	new /obj/item/cell/medium/high(src)
+	new /obj/item/cell/medium/high(src)
+	new /obj/item/cell/small/high(src)
+	new /obj/item/cell/small/high(src)
+	new /obj/item/tool_upgrade/augment/cell_mount(src)
+	new /obj/item/tool_upgrade/productivity/motor(src)
 	new /obj/item/device/scanner/gas(src)
 	new /obj/item/storage/bag/ore(src)
 	new /obj/item/device/lighting/toggleable/flashlight/heavy(src)
 	new /obj/item/tool/shovel(src)
 	new /obj/item/tool/pickaxe(src)
-	new /obj/item/tool/pickaxe/drill(src)
+	new /obj/item/tool/pickaxe/jackhammer(src)
 	new /obj/item/gun/projectile/shotgun/doublebarrel(src)
 	new /obj/item/ammo_magazine/ammobox/shotgun(src)
 	new /obj/item/device/t_scanner(src)
+	new /obj/item/gun/projectile/flare_gun(src)
+	new /obj/item/ammo_casing/flare(src)
 
 /******************************Lantern*******************************/
 
@@ -104,7 +111,7 @@
 	var/obj/item/stack/flag/F = locate() in get_turf(src)
 
 	var/turf/T = get_turf(src)
-	if(!T || !istype(T,/turf/simulated/floor/asteroid))
+	if(!(istype(T,/turf/simulated/floor/asteroid) || istype(T, /turf/simulated/floor/exoplanet)))
 		to_chat(user, "The flag won't stand up in this terrain.")
 		return
 

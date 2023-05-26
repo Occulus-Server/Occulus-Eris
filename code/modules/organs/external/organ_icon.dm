@@ -25,18 +25,6 @@ var/global/list/limb_icon_cache = list()
 	if(human.species.appearance_flags & HAS_SKIN_COLOR)
 		s_col = list(human.r_skin, human.g_skin, human.b_skin)
 
-/obj/item/organ/external/proc/sync_colour_to_dna()
-	skin_tone = null
-	s_col = null
-	h_col = list(dna.GetUIValue(DNA_UI_HAIR_R),dna.GetUIValue(DNA_UI_HAIR_G),dna.GetUIValue(DNA_UI_HAIR_B))
-	if(BP_IS_ROBOTIC(src))
-		return
-	if(!isnull(dna.GetUIValue(DNA_UI_SKIN_TONE)) && (species.appearance_flags & HAS_SKIN_TONE))
-		skin_tone = dna.GetUIValue(DNA_UI_SKIN_TONE)
-	if(species.appearance_flags & HAS_SKIN_COLOR)
-		s_col = list(dna.GetUIValue(DNA_UI_SKIN_R), dna.GetUIValue(DNA_UI_SKIN_G), dna.GetUIValue(DNA_UI_SKIN_B))
-	h_col = list(dna.GetUIValue(DNA_UI_HAIR_R),dna.GetUIValue(DNA_UI_HAIR_G),dna.GetUIValue(DNA_UI_HAIR_B))
-
 /obj/item/organ/external/proc/get_cache_key()
 	var/part_key = ""
 
@@ -56,7 +44,7 @@ var/global/list/limb_icon_cache = list()
 	if(!appearance_test.colorize_organ)
 		part_key += "no_color"
 
-	part_key += "[dna.GetUIState(DNA_UI_GENDER)]"
+	part_key += "[owner && owner.gender == FEMALE]"
 	part_key += "[skin_tone]"
 	part_key += rgb(s_col[1], s_col[2], s_col[3], species.body_alpha)
 	part_key += model
@@ -91,7 +79,10 @@ var/global/list/limb_icon_cache = list()
 	if(!owner || !owner.species)
 		return
 
-	if(owner.species.has_process[OP_EYES])
+	if(!species)
+		species = owner.species
+
+	if(owner.species.has_process[OP_EYES] && species.appearance_flags & HAS_EYE_COLOR)
 		for(var/obj/item/organ/internal/eyes/eyes in owner.organ_list_by_process(OP_EYES))
 			mob_icon.Blend(eyes.get_icon(), ICON_OVERLAY)
 
@@ -140,32 +131,24 @@ var/global/list/limb_icon_cache = list()
 
 /obj/item/organ/external/on_update_icon(regenerate = 0)
 	var/gender = "_m"
+	gender = owner.gender == FEMALE ? "_f" : "_m"
 
 	overlays.Cut()	// OCCULUS EDIT - Make sure we're not stacking up redundant overlays
 
 	if(appearance_test.simple_setup)
-		gender = owner.gender == FEMALE ? "_f" : "_m"
-		if(gendered)
-			icon_state = "[organ_tag][gender]"
-		else
-			icon_state = "[organ_tag]"
+		icon_state = "[organ_tag][gender]"
 	else
-		if (dna && dna.GetUIState(DNA_UI_GENDER))
-			gender = "_f"
-		else if(owner && owner.gender == FEMALE)
-			gender = "_f"
+		icon_state = "[organ_tag][gender][is_stump()?"_s":""]"
 
-		if(gendered)
-			icon_state = "[organ_tag][gender][is_stump()?"_s":""]"
-		else
-			icon_state = "[organ_tag][is_stump()?"_s":""]"
+	if(!species && iscarbon(owner))
+		species = owner.species
 
 	if(!appearance_test.get_species_sprite)
 		icon = 'icons/mob/human_races/r_human.dmi'
 	else
 		if(src.force_icon)
 			icon = src.force_icon
-		else if(!dna)
+		else if(!species)
 			icon = 'icons/mob/human_races/r_human.dmi'
 		else if(BP_IS_ROBOTIC(src))
 			icon = 'icons/mob/human_races/cyberlimbs/generic.dmi'

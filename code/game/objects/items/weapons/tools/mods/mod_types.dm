@@ -85,10 +85,10 @@
 
 // Plasmablock can be attached to any tool that uses fuel or power
 /obj/item/tool_upgrade/reinforcement/plasmablock
-	name = "plasmablock"
-	desc = "A plasmablock is way more efficient to dissipate heat than classic heatsinks or waterblocks thanks to the tremendous heat-transfer capacity of liquid phoron. The fluid that is actively pumped through a radiator and cooled by fans. It greatly extends the lifespan of power tools."
+	name = "phoronblock" // Occulus Edit - Plasma > Phoron
+	desc = "A phoronblock is way more efficient to dissipate heat than classic heatsinks or waterblocks thanks to the tremendous heat-transfer capacity of liquid phoron. The fluid that is actively pumped through a radiator and cooled by fans. It greatly extends the lifespan of power tools." // Occulus Edit - Plasma > Phoron
 	icon_state = "plasmablock"
-	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_PLASTIC = 2, MATERIAL_PHORON = 1)
+	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_PLASTIC = 2, MATERIAL_PLASMA = 1)
 
 /obj/item/tool_upgrade/reinforcement/plasmablock/New()
 	..()
@@ -99,12 +99,12 @@
 		UPGRADE_POWERCOST_MULT = 1.05,
 		UPGRADE_FUELCOST_MULT = 1.05
 		)
-	I.prefix = "plasma-cooled"
+	I.prefix = "phoron-cooled" // Occulus Edit - Plasma > Phoron
 	I.req_fuel_cell = REQ_FUEL_OR_CELL
 
 /obj/item/tool_upgrade/reinforcement/rubbermesh
 	name = "rubber mesh"
-	desc = "A rubber mesh that can wrapped around sensitive parts of a tool to protecting them from impacts and debris."
+	desc = "A rubber mesh that can wrapped around sensitive parts of a tool, protecting them from impacts and debris."
 	icon_state = "rubbermesh"
 	matter = list(MATERIAL_PLASTIC = 3)
 
@@ -125,7 +125,7 @@
 
 /obj/item/tool_upgrade/productivity/ergonomic_grip
 	name = "ergonomic grip"
-	desc = "A replacement grip for a tool which allows it to be more precisely controlled with one hand."
+	desc = "A replacement grip for a tool which allows it to be more precisely controlled with one hand. Can be placed under a gun\'s barrel to reduce recoil. However, it also makes bracing impossible."
 	icon_state = "ergonomic"
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 5)
 	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
@@ -139,8 +139,7 @@
 	I.weapon_upgrades = list(
 		GUN_UPGRADE_RECOIL = 0.9,
 	)
-	I.gun_loc_tag = GUN_GRIP
-	I.req_gun_tags = list(GUN_GRIP)
+	I.gun_loc_tag = GUN_UNDERBARREL
 
 	I.prefix = "ergonomic"
 
@@ -161,7 +160,7 @@
 
 /obj/item/tool_upgrade/productivity/red_paint
 	name = "red paint"
-	desc = "Do red tools really work faster, or is the effect purely psychological."
+	desc = "Do red tools really work faster, or is the effect purely psychological?"
 	icon_state = "paint_red"
 	rarity_value = 20
 	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
@@ -197,7 +196,7 @@
 	I.prefix = "sharpened"
 
 /obj/item/tool_upgrade/productivity/diamond_blade
-	name = "\"Gleaming Edge\": Diamond blade"
+	name = "\"Gleaming Edge\": Diamond blade" // Occulus Edit - Remove Eris corp. reference
 	desc = "An adaptable industrial grade cutting disc, with diamond dust worked into the metal. Exceptionally durable."
 	icon_state = "diamond_blade"
 	price_tag = 300
@@ -263,7 +262,7 @@
 
 /obj/item/tool_upgrade/productivity/antistaining
 	name = "anti-staining paint"
-	desc = "Applying a thin coat of this paint on a tool prevents stains, dirt or dust to adhere to its surface. Everyone work better and faster with clean tools."
+	desc = "Applying a thin coat of this paint on a tool prevents stains, dirt or dust to adhere to its surface. Everyone works better and faster with clean tools."
 	icon_state = "antistaining"
 	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 2)
 
@@ -296,57 +295,10 @@
 	I.req_fuel_cell = REQ_FUEL_OR_CELL
 
 /obj/item/tool_upgrade/productivity/injector
-	name = "plasma injector"
-	desc = "If the words \"safety regulations\" do not mean anything to you, you may consider installing this fine piece of technology on your tool. It injects small amounts of phoron in the fuel mix before combustion to greatly increase its power output, making all kinds of tasks easier to perform."
+	name = "phoron injector" // Occulus Edit - Plasma > Phoron
+	desc = "If the words \"safety regulations\" do not mean anything to you, you may consider installing this fine piece of technology on your tool. It injects small amounts of phoron in the fuel mix before combustion to greatly increase its power output, making all kinds of tasks easier to perform." // Occulus Edit - Plasma > Phoron
 	icon_state = "injector"
-	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_PHORON = 2)
-
-/obj/item/tool_upgrade/productivity/booster/New()
-	..()
-	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
-	I.tool_upgrades = list(
-	UPGRADE_WORKSPEED = 0.75,
-	UPGRADE_DEGRADATION_MULT = 1.3,
-	UPGRADE_POWERCOST_MULT = 1.3,
-	UPGRADE_FUELCOST_MULT = 1.3,
-	UPGRADE_HEALTH_THRESHOLD = -10
-	)
-	I.prefix = "plasma-fueled"
-	I.req_fuel_cell = REQ_FUEL
-
-/obj/item/tool_upgrade/productivity/antistaining/New()
-	..()
-	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
-	I.tool_upgrades = list(
-	UPGRADE_WORKSPEED = 0.30,
-	UPGRADE_PRECISION = 5,
-	UPGRADE_ITEMFLAGPLUS = NOBLOODY
-	)
-	I.prefix = "anti-stain coated"
-
-/obj/item/tool_upgrade/productivity/booster
-	name = "booster"
-	desc = "When you do not care about energy comsumption and just want to get shit done quickly. This device shunts the power safeties of your tool whether it uses fuel or electricity."
-	icon_state = "booster"
-	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_GOLD = 1)
-
-/obj/item/tool_upgrade/productivity/booster/New()
-	..()
-	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
-	I.tool_upgrades = list(
-	UPGRADE_WORKSPEED = 0.35,
-	UPGRADE_DEGRADATION_MULT = 1.15,
-	UPGRADE_POWERCOST_MULT = 1.25,
-	UPGRADE_FUELCOST_MULT = 1.25
-	)
-	I.prefix = "boosted"
-	I.req_fuel_cell = REQ_FUEL_OR_CELL
-
-/obj/item/tool_upgrade/productivity/injector
-	name = "plasma injector"
-	desc = "If the words \"safety regulations\" do not mean anything to you, you may consider installing this fine piece of technology on your tool. It injects small amounts of plasma in the fuel mix before combustion to greatly increase its power output, making all kinds of tasks easier to perform."
-	icon_state = "injector"
-	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_PHORON = 2)
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_PLASMA = 2)
 
 /obj/item/tool_upgrade/productivity/injector/New()
 	..()
@@ -358,7 +310,7 @@
 	UPGRADE_FUELCOST_MULT = 1.3,
 	UPGRADE_HEALTH_THRESHOLD = -10
 	)
-	I.prefix = "plasma-fueled"
+	I.prefix = "phoron-fueled" // Occulus Edit - Plasma > Phoron
 	I.req_fuel_cell = REQ_FUEL
 
 // 	 REFINEMENT: INCREASES PRECISION
@@ -367,7 +319,7 @@
 	bad_type = /obj/item/tool_upgrade/refinement
 
 /obj/item/tool_upgrade/refinement/laserguide
-	name = "\"Guiding Light\" laser guide"
+	name = "\"Guiding Light\" laser guide" // Occulus Edit - Remove Eris corp. reference
 	desc = "A small visible laser which can be strapped onto any tool, giving an accurate representation of its target. Helps improve precision."
 	icon_state = "laser_guide"
 	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
@@ -395,15 +347,12 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
-		GUN_UPGRADE_PEN_MULT = 0.6,
+		GUN_UPGRADE_PEN_MULT = -0.3,
 		GUN_UPGRADE_ONEHANDPENALTY = 0.3
 		)
 	I.gun_loc_tag = GUN_GRIP
 	I.req_gun_tags = list(GUN_PROJECTILE, GUN_GRIP)
 
-/obj/item/tool_upgrade/refinement/stabilized_grip/New()
-	..()
-	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
 	UPGRADE_PRECISION = 10,
 	UPGRADE_HEALTH_THRESHOLD = 10)
@@ -482,6 +431,30 @@
 	I.required_qualities = list(QUALITY_CUTTING,QUALITY_WIRE_CUTTING, QUALITY_SCREW_DRIVING, QUALITY_WELDING,QUALITY_PULSING, QUALITY_CLAMPING, QUALITY_CAUTERIZING, QUALITY_BONE_SETTING, QUALITY_LASER_CUTTING)
 	I.prefix = "vibration-compensated"
 
+//onestar stabilizer
+/obj/item/tool_upgrade/refinement/gravenhancer
+	name = "OneStar microgravity stabilizer"
+	desc = "A large strange contraption, it appears to manipulate gravity around it, to make a weapon or tool more stable at the cost of increasing it\'s size."
+	icon_state = "grav_enhancer"
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_OS
+	matter = list(MATERIAL_PLASTIC = 8, MATERIAL_URANIUM = 3)
+	spawn_blacklisted = TRUE
+	price_tag = 1500
+
+/obj/item/tool_upgrade/refinement/gravenhancer/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.tool_upgrades = list(
+		UPGRADE_PRECISION = 25,
+		UPGRADE_WORKSPEED = 0.1,
+		UPGRADE_BULK = 1,
+		)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_RECOIL = 0.5,
+		UPGRADE_BULK = 1,
+		)
+	I.prefix = "gravity-stabilized"
+
 // 		AUGMENTS: MISCELLANEOUS AND UTILITY
 //------------------------------------------------
 
@@ -532,8 +505,9 @@
 	desc = "Rare relic of OneStar uses the bluetech space to store additional 600 units of fuel at the cost of degradation."
 	icon_state = "canister_holding"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 4, MATERIAL_PLATINUM = 4)
-	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE_OS
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_OS
 	spawn_blacklisted = TRUE
+	price_tag = 800
 
 /obj/item/tool_upgrade/augment/holding_tank/New()
 	..()
@@ -552,7 +526,7 @@
 /obj/item/tool_upgrade/augment/expansion
 	name = "expansion port"
 	icon_state = "expand"
-	desc = "A bulky adapter which more modifications to be attached to the tool. A bit fragile but you can compensate."
+	desc = "A bulky adapter which allows more modifications to be attached to the tool. A bit fragile but you can compensate."
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 1)
 	rarity_value = 60
 	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
@@ -589,9 +563,10 @@
 	I.prefix = "spiked"
 
 /obj/item/tool_upgrade/augment/sanctifier
-	name = "sanctifier"
+	name = "sanctifier" // Occulus Edit - Remove Eris corp. reference
 	icon_state = "sanctifier"
-	desc = "Recomended for crusade against mutants."
+	desc = "This odd piece of equipment can be applied to any tool or melee weapon, causing the object to deal extra burn damage to mutants and carrions."
+	spawn_blacklisted = TRUE
 	matter = list(MATERIAL_BIOMATTER = 3, MATERIAL_STEEL = 2)
 
 /obj/item/tool_upgrade/augment/sanctifier/New()
@@ -601,7 +576,6 @@
 	UPGRADE_SANCTIFY = TRUE
 	)
 	I.prefix = "sanctified"
-	matter = list(MATERIAL_BIOMATTER = 5)
 
 /obj/item/tool_upgrade/augment/hammer_addon
 	name = "Flat surface"
@@ -609,7 +583,6 @@
 	desc = "An attachment that fits on almost everything, that gives a simple flat surface to employ the tool for hammering."
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_STEEL = 2)
 	rarity_value = 20
-
 
 /obj/item/tool_upgrade/augment/hammer_addon/New()
 	..()
@@ -620,7 +593,6 @@
 	UPGRADE_QUALITIES = list(QUALITY_HAMMERING = 10)//Occulus Edit
 	)
 	I.prefix = "flattened"
-	I.negative_qualities = list(QUALITY_HAMMERING)
 
 //Vastly reduces tool sounds, for stealthy hacking
 /obj/item/tool_upgrade/augment/dampener
@@ -643,13 +615,14 @@
 
 /obj/item/tool_upgrade/augment/ai_tool
 	name = "Nanointegrated AI"
-	desc = "A forgotten One Star tech. Due to its unique installation method of \"slapping it hard enough onto anything should do the trick\", it is highly sought after. \
+	desc = "A forgotten OneStar tech. Due to its unique installation method of \"slapping it hard enough onto anything should do the trick\", it is highly sought after. \
 			A powerful AI will integrate itself into this tool with the aid of nanotechnology, and improve it in every way possible."
 	icon_state = "ai_tool"
 	matter = list(MATERIAL_PLASTIC = 1, MATERIAL_PLASTEEL = 1, MATERIAL_PLATINUM = 1)
-	spawn_blacklisted = TRUE
 	rarity_value = 50
-	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE_OS
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_OS
+	spawn_blacklisted = TRUE
+	price_tag = 2500
 
 /obj/item/tool_upgrade/augment/ai_tool/New()
 	..()
@@ -657,7 +630,7 @@
 	I.tool_upgrades = list(
 	UPGRADE_POWERCOST_MULT = 1.20,
 	UPGRADE_PRECISION = 14,
-	UPGRADE_WORKSPEED = 14,
+	UPGRADE_WORKSPEED = 7,
 	UPGRADE_HEALTH_THRESHOLD = -10,
 	)
 	I.prefix = "intelligent"
@@ -665,7 +638,7 @@
 	I.weapon_upgrades = list(
 	GUN_UPGRADE_RECOIL = 0.8,
 	GUN_UPGRADE_DAMAGE_MULT = 1.2,
-	GUN_UPGRADE_PEN_MULT = 1.2,
+	GUN_UPGRADE_PEN_MULT = 0.2,
 	GUN_UPGRADE_FIRE_DELAY_MULT = 0.8,
 	GUN_UPGRADE_MOVE_DELAY_MULT = 0.8,
 	GUN_UPGRADE_MUZZLEFLASH = 0.8,
@@ -678,7 +651,8 @@
 	desc = "Very rare tool mod from OneStar powered by their nanomachines. It repairs the tool while in use and makes it near unbreakable."
 	icon_state = "repair_nano"
 	matter = list(MATERIAL_PLASTIC = 1, MATERIAL_PLASTEEL = 1, MATERIAL_PLATINUM = 1)
-	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE_OS
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_OS
+	price_tag = 500
 	spawn_blacklisted = TRUE
 
 /obj/item/tool_upgrade/augment/repair_nano/New()
@@ -686,6 +660,7 @@
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
 	UPGRADE_DEGRADATION_MULT = 0.01,
+	UPGRADE_WORKSPEED = 0.2,
 	UPGRADE_HEALTH_THRESHOLD = 10
 	)
 	I.prefix = "self-healing"
@@ -701,7 +676,7 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
-	UPGRADE_WORKSPEED = 1.0,
+	UPGRADE_WORKSPEED = 1,
 	UPGRADE_PRECISION = 10,
 	UPGRADE_ITEMFLAGPLUS = LOUD
 	)
@@ -712,7 +687,7 @@
 	name = "BSL \"Randomizer\" tool polish"
 	desc = "This unidentified tar-like liquid warps and bends reality around it. Applying it to a tool may have unexpected results."
 	icon_state = "randomizer"
-	matter = list(MATERIAL_PHORON = 4, MATERIAL_URANIUM = 4)
+	matter = list(MATERIAL_PLASMA = 4, MATERIAL_URANIUM = 4)
 	rarity_value = 80
 	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
 
@@ -761,3 +736,87 @@
 	GET_COMPONENT(comp_sanity, /datum/component/atom_sanity)
 	. += comp_sanity.affect * 100
 
+/obj/item/tool_upgrade/pai
+	name = "Integrated P-AI"
+	desc = "A P-AI integrated within the architecture of the tool, helping the user in utilizing it."
+	spawn_blacklisted = TRUE
+	price_tag = 200
+
+/obj/item/tool_upgrade/pai/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.tool_upgrades = list(
+	UPGRADE_WORKSPEED = 0.3,
+	UPGRADE_PRECISION = 10
+	)
+	I.destroy_on_removal = TRUE
+	I.prefix = "assisted"
+
+/obj/item/tool_upgrade/flow_mechanism
+	name = "Flowing metal system"
+	desc = "This tool makes use of liquid metal within its architecture."
+	spawn_blacklisted = TRUE
+	price_tag = 300
+
+/obj/item/tool_upgrade/flow_mechanism/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.tool_upgrades = list(
+		UPGRADE_DEGRADATION_MULT = 0.2,
+		UPGRADE_FORCE_MULT = 1.3,
+		UPGRADE_MAXUPGRADES = 2
+	)
+	I.destroy_on_removal = TRUE
+	I.prefix = "flowing"
+
+/obj/item/tool_upgrade/magni_grip
+	name = "Waved magnetic grip"
+	desc = "A wavy metallic sheet that attaches to most gloves automatically."
+	spawn_blacklisted = TRUE
+	price_tag = 200
+
+/obj/item/tool_upgrade/magni_grip/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.tool_upgrades = list(
+	UPGRADE_WORKSPEED = 0.2,
+	UPGRADE_PRECISION = 15
+	)
+	I.destroy_on_removal = TRUE
+	I.prefix = "magnetized"
+
+/obj/item/tool_upgrade/resonator
+	name = "Resonator sink"
+	desc = "A special module which prevents the tool from resonating."
+	spawn_blacklisted = TRUE
+	price_tag = 400
+
+/obj/item/tool_upgrade/resonator/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.tool_upgrades = list(
+		UPGRADE_WORKSPEED = 0.1,
+		UPGRADE_ITEMFLAGPLUS = SILENT
+	)
+	I.destroy_on_removal = TRUE
+	I.prefix = "still"
+
+/obj/item/tool_upgrade/plasma_coating
+	name = "Plasma coating"
+	desc = "This tool is coated with plasma, granting it more durability."
+	spawn_blacklisted = TRUE
+	price_tag = 600
+
+/obj/item/tool_upgrade/plasma_coating/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.tool_upgrades = list(
+		UPGRADE_DEGRADATION_MULT = 0.1,
+		UPGRADE_MAXUPGRADES = 3
+	)
+	I.destroy_on_removal = TRUE
+	I.prefix = "plasma coated"
+
+
+#define GREAT_TOOLMODS list(/obj/item/tool_upgrade/pai, /obj/item/tool_upgrade/flow_mechanism, /obj/item/tool_upgrade/magni_grip, \
+	/obj/item/tool_upgrade/resonator, /obj/item/tool_upgrade/plasma_coating)
