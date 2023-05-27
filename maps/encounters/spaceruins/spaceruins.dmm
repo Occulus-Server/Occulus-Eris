@@ -1505,7 +1505,7 @@
 /area/asteroid/rogue)
 "Uw" = (
 /obj/structure/table/onestar,
-/obj/spawner/pack/tech_loot/onestar,
+/obj/effect/gibspawner/human,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "Uy" = (
@@ -1614,7 +1614,23 @@
 /area/asteroid/rogue)
 "WZ" = (
 /obj/structure/table/onestar,
-/obj/spawner/pack/gun_loot,
+/obj/spawner/material/building/low_chance,
+/turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
+"Xc" = (
+/obj/machinery/button/remote/blast_door{
+	desc = "A sticky note is attached: Do not press unless you can breathe vacuum.";
+	id = "OneStarHangar";
+	name = "Hangar Blast Doors";
+	pixel_y = 27
+	},
+/turf/simulated/floor/tiled/derelict/red_white_edges,
+/area/asteroid/rogue)
+"XL" = (
+/obj/structure/salvageable/os/implant_container,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 "XX" = (
@@ -1678,8 +1694,8 @@
 	},
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
-"w" = (
-/obj/spawner/pack/tech_loot/onestar,
+"ZS" = (
+/obj/structure/filingcabinet,
 /turf/simulated/floor/tiled/derelict/white_big_edges,
 /area/asteroid/rogue)
 

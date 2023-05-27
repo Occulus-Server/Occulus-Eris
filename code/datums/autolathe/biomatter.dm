@@ -19,17 +19,17 @@
 //[NUTRIMENTS]
 /datum/design/bioprinter/ez
 	name = "EZ-Nutrient"
-	build_path = /obj/item/reagent_containers/glass/bottle/fertilizer/ez //Occulus Edit
+	build_path = /obj/item/reagent_containers/glass/fertilizer/ez
 	materials = list(MATERIAL_BIOMATTER = 3)
 
 /datum/design/bioprinter/l4z
 	name = "Left4Zed"
-	build_path = /obj/item/reagent_containers/glass/bottle/fertilizer/l4z //Occulus Edit
+	build_path = /obj/item/reagent_containers/glass/fertilizer/l4z
 	materials = list(MATERIAL_BIOMATTER = 5) //Occulus Edit?
 
 /datum/design/bioprinter/rh
 	name = "Robust Harvest"
-	build_path = /obj/item/reagent_containers/glass/bottle/fertilizer/rh //Occulus Edit
+	build_path = /obj/item/reagent_containers/glass/fertilizer/rh
 	materials = list(MATERIAL_BIOMATTER = 7.5)
 //[/NUTRIMENTS]
 

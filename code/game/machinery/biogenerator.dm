@@ -1,4 +1,4 @@
-/* /obj/machinery/biogenerator OCCULUS EDIT. Comments out the non-Mekhane Biogenerator for lore reasons
+/obj/machinery/biogenerator
 	name = "Biogenerator"
 	desc = ""
 	icon = 'icons/obj/biogenerator.dmi'
@@ -261,4 +261,3 @@
 
 	build_eff = man_rating
 	eat_eff = bin_rating
-*/
