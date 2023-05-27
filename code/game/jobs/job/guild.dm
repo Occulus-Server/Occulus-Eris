@@ -180,7 +180,7 @@ Character Expectations:<br>\
 	name = "Union Miner"
 	icon_state = "player-beige"
 	join_tag = /datum/job/mining
-/*
+
 /datum/job/artist
 	title = "Guild Artist"
 	flag = ARTIST
@@ -219,8 +219,8 @@ Character Expectations:<br>\
 	loyalties = "You are loyal to your soul, first and foremost. You are fascinated by this cursed ship, and want to mold this interest into your works of art.<br>\
 	Your second loyalty is to the merchant and the Aster's Guild as a whole. After all, they're the ones giving you housing, payment, and materials to create your art."
 
+
 /obj/landmark/join/start/artist
 	name = "Guild Artist"
 	icon_state = "player-grey"
 	join_tag = /datum/job/artist
-*/

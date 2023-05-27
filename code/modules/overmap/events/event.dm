@@ -371,9 +371,6 @@
 	else
 		revealed = TRUE
 
-/obj/effect/overmap_event/poi/proc/reveal()
-	return
-
 /obj/effect/overmap_event/poi/debris
 
 /obj/effect/overmap_event/poi/debris/reveal()

@@ -185,7 +185,7 @@ ARMOR_PEN_MASSIVE			30
 	icon_state = "neotheology"
 	designs = list(
 		/datum/design/autolathe/sword/mek_hammer,
-		/datum/design/autolathe/tool_upgrade/sanctifier
+		/obj/item/tool_upgrade/augment/sanctifier
 	)
 
 /datum/design/bioprinter/cahor
@@ -254,7 +254,7 @@ CHURCH DISKS
 		/datum/design/bioprinter/belt/utility/neotheology,
 
 		/datum/design/bioprinter/satchel,
-		/datum/design/bioprinter/leather_jacket,
+		// /datum/design/bioprinter/leather_jacket,
 		/datum/design/bioprinter/wallet,
 		/datum/design/bioprinter/botanic_leather,
 
@@ -262,12 +262,11 @@ CHURCH DISKS
 		/datum/design/bioprinter/belt/medical,
 		/datum/design/bioprinter/belt/security,
 		/datum/design/bioprinter/belt/medical/emt,
-		/datum/design/bioprinter/belt/misc/champion,
 
 		/datum/design/bioprinter/leather/holster,
-		/datum/design/bioprinter/leather/holster/armpit,
-		/datum/design/bioprinter/leather/holster/waist,
-		/datum/design/bioprinter/leather/holster/hip,
+		// /datum/design/bioprinter/leather/holster/armpit,
+		// /datum/design/bioprinter/leather/holster/waist,
+		// /datum/design/bioprinter/leather/holster/hip,
 		/datum/design/bioprinter/leather/holster/scabbard,
 
 		/datum/design/bioprinter/small_generic,
@@ -282,7 +281,7 @@ CHURCH DISKS
 		/datum/design/bioprinter/part,
 
    		/datum/design/autolathe/device/headset_church,
-		/datum/design/bioprinter/leather/cash_bag,
+		// /datum/design/bioprinter/leather/cash_bag,
 
 		/datum/design/bioprinter/storage/holster,
 		/datum/design/bioprinter/storage/dpistol_holster,
@@ -371,21 +370,21 @@ CHURCH DISKS
 /obj/item/computer_hardware/hard_drive/portable/design/nt/cruciform_upgrade
 	disk_name = "Mekhane Armory - Cruciform Upgrades"
 
-/obj/item/computer_hardware/hard_drive/portable/design/nt_boards
-	disk_name = "Mekhane Circuit Pack"
-	designs = list(
-		/datum/design/autolathe/circuit/bioprinter,
-		/datum/design/autolathe/circuit/solidifier,
-		/datum/design/autolathe/circuit/biogen,
-		/datum/design/autolathe/circuit/biogen_console,
-		/datum/design/autolathe/circuit/biogen_port,
-		/datum/design/autolathe/circuit/bioreactor_loader,
-		/datum/design/autolathe/circuit/bioreactor_metrics,
-		/datum/design/autolathe/circuit/bioreactor_port,
-		/datum/design/autolathe/circuit/bioreactor_biotank,
-		/datum/design/autolathe/circuit/bioreactor_unloader,
-		/datum/design/autolathe/circuit/bioreactor_platform
-	)
+// /obj/item/computer_hardware/hard_drive/portable/design/nt_boards
+// 	disk_name = "Mekhane Circuit Pack"
+// 	designs = list(
+// 		/datum/design/autolathe/circuit/bioprinter,
+// 		/datum/design/autolathe/circuit/solidifier,
+// 		/datum/design/autolathe/circuit/biogen,
+// 		/datum/design/autolathe/circuit/biogen_console,
+// 		/datum/design/autolathe/circuit/biogen_port,
+// 		/datum/design/autolathe/circuit/bioreactor_loader,
+// 		/datum/design/autolathe/circuit/bioreactor_metrics,
+// 		/datum/design/autolathe/circuit/bioreactor_port,
+// 		/datum/design/autolathe/circuit/bioreactor_biotank,
+// 		/datum/design/autolathe/circuit/bioreactor_unloader,
+// 		/datum/design/autolathe/circuit/bioreactor_platform
+// 	)
 
 /*
 * Voidsuit overrides

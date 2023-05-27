@@ -184,9 +184,6 @@
 	if(stat & NOPOWER)
 		return
 
-	if(time_multiplier == 0) // We dont want to start if we wont have manipulators
-		return
-
 	if(cloning)
 		if(!reader || reader.loc != reader_loc || !reader.implant || !container || container.loc != container_loc)
 			open_anim()

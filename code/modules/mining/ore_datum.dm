@@ -66,7 +66,7 @@ var/global/list/ore_data = list()
 
 /ore/plasma
 	name = ORE_PLASMA
-	display_name = "phoron crystals" // Occulus Edit - Plasma > PHoron
+	display_name = "plasma crystals"
 	compresses_to = MATERIAL_PLASMA
 	alloy = TRUE
 	//smelts_to = something that explodes violently on the conveyor, huhuhuhu
@@ -80,7 +80,7 @@ var/global/list/ore_data = list()
 		"billion" = 13,
 		"billion_lower" = 10
 		)
-	xarch_source_mineral = "phoron"
+	xarch_source_mineral = "plasma"
 
 /ore/silver
 	name = ORE_SILVER

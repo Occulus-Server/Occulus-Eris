@@ -308,17 +308,17 @@
 	sort_string = "JDAAA"
 	category = CAT_MISC
 
-/datum/design/research/circuit/ordercomp
-	name = "supply ordering console"
-	build_path = /obj/item/electronics/circuitboard/ordercomp
-	sort_string = "KAAAA"
-	category = CAT_COMP
+// /datum/design/research/circuit/ordercomp // Occulus Removal Start - Forced update compile
+// 	name = "supply ordering console"
+// 	build_path = /obj/item/electronics/circuitboard/ordercomp
+// 	sort_string = "KAAAA"
+// 	category = CAT_COMP
 
-/datum/design/research/circuit/supplycomp
-	name = "supply control console"
-	build_path = /obj/item/electronics/circuitboard/supplycomp
-	sort_string = "KAAAB"
-	category = CAT_COMP
+// /datum/design/research/circuit/supplycomp
+// 	name = "supply control console"
+// 	build_path = /obj/item/electronics/circuitboard/supplycomp
+// 	sort_string = "KAAAB"
+// 	category = CAT_COMP // Occulus Removal End
 
 /* /datum/design/research/circuit/biogenerator OCCULUS EDIT. Comments out the non-Mekhane Biogenerator for lore reasons
 	name = "biogenerator"

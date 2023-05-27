@@ -466,3 +466,18 @@
 	SHOULD_CALL_PARENT(TRUE)
 	. = list()
 	SEND_SIGNAL_OLD(src, COMSIG_ATOM_UPDATE_OVERLAYS, .)
+
+/atom/movable/proc/update_transform() // Occulus Addition Start
+	var/matrix/M = matrix()
+	M.Scale(icon_scale)
+	M.Turn(icon_rotation)
+	src.transform = M
+
+// Use this to set the object's scale.
+/atom/movable/proc/adjust_scale(new_scale)
+	icon_scale = new_scale
+	update_transform()
+
+/atom/movable/proc/adjust_rotation(new_rotation)
+	icon_rotation = new_rotation
+	update_transform() // Occulus Addition End

@@ -934,7 +934,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/device/assembly/timer)
 	cost = 1500
 	containertype = /obj/structure/closet/crate/secure/scisecurecrate
-	crate_name = "Phoron assembly crate"
+	crate_name = "Plasma assembly crate"
 	access = access_tox_storage
 	group = "Medical / Science"
 

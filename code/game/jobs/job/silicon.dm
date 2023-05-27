@@ -43,7 +43,6 @@
 	account_allowed = 0
 	wage = WAGE_NONE
 
-	wl_config_borgs = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/silicon/cyborg
 

@@ -706,19 +706,15 @@ var/list/rank_prefix = list(\
 	// Can use ability multiple times in a row if necessary, but there is a price
 	vessel.remove_reagent("blood", 50)
 
-	var/new_facial = input("Please select facial hair color.", "Character Generation",rgb(r_facial,g_facial,b_facial)) as color
+	var/new_facial = input("Please select facial hair color.", "Character Generation",facial_color) as color
 	if(new_facial)
-		r_facial = hex2num(copytext(new_facial, 2, 4))
-		g_facial = hex2num(copytext(new_facial, 4, 6))
-		b_facial = hex2num(copytext(new_facial, 6, 8))
+		facial_color = new_facial
 
-	var/new_hair = input("Please select hair color.", "Character Generation",rgb(r_hair,g_hair,b_hair)) as color
-	if(new_facial)
-		r_hair = hex2num(copytext(new_hair, 2, 4))
-		g_hair = hex2num(copytext(new_hair, 4, 6))
-		b_hair = hex2num(copytext(new_hair, 6, 8))
+	var/new_hair = input("Please select hair color.", "Character Generation",hair_color) as color
+	if(new_hair)
+		hair_color = new_hair
 
-	var/new_eyes = input("Please select eye color.", "Character Generation", eyes_color) as color
+	var/new_eyes = input("Please select eye color.", "Character Generation",eyes_color) as color
 	if(new_eyes)
 		eyes_color = new_eyes
 		update_eyes()
@@ -1190,15 +1186,13 @@ var/list/rank_prefix = list(\
 	if(species.default_language)
 		add_language(species.default_language)
 
-	var/skincolor//Occulus Edit Start: Banish the Tarpeople!
+	var/skincolor //Occulus Edit Start: Banish the Tarpeople!
 	if(species.base_color && default_colour)
 		skincolor = species.base_color
 	else
 		skincolor = "#a1665e"
 	//Apply colour.
-	r_skin = hex2num(copytext(skincolor,2,4))
-	g_skin = hex2num(copytext(skincolor,4,6))
-	b_skin = hex2num(copytext(skincolor,6,8))
+	skin_color = skincolor
 	//Occulus Edit End: banish the Tarpeople!
 
 	if(species.holder_type)
@@ -1263,9 +1257,9 @@ var/list/rank_prefix = list(\
 /////////////////////////////////////////////////////////////////////////////////////////
 // OCCULUS EDIT START - Spaghetti to make rejuv less crap, and also fix the weird eye bug
 	var/obj/item/implant/core_implant/CI = get_core_implant(null, FALSE)
-	//var/checkprefcruciform = FALSE	// To reset the cruciform to original form //wtf does this even mean???
+	var/checkprefcruciform = FALSE	// To reset the cruciform to original form //wtf does this even mean??? // Occulus Addition
 	if(CI)
-		//checkprefcruciform = TRUE
+		checkprefcruciform = TRUE
 		qdel(CI)
 
 // OCCULUS EDIT START - Spaghetti to make rejuv less crap, and also fix the weird eye bug

@@ -1,4 +1,4 @@
-/proc/getFlatIcon(image/A, defdir, deficon, defstate, defblend, start = TRUE, no_anim = FALSE)
+/*/proc/getFlatIcon(image/A, defdir, deficon, defstate, defblend, start = TRUE, no_anim = FALSE)
 	// We start with a blank canvas, otherwise some icon procs crash silently
 	var/icon/flat = icon('icons/effects/effects.dmi', "nothing") // Final flattened icon
 	if(!A)
@@ -180,7 +180,7 @@
 		cleaned.Insert(flat, "", SOUTH, 1, 0)
 		return cleaned
 	else
-		return icon(flat, "", SOUTH)
+		return icon(flat, "", SOUTH) */
 
 /proc/animate_aura(var/atom/A, var/simple_icons, var/color = "#00FF22", var/anim_duration = 5, var/offset = 1, var/loops = 1, var/grow_to = 2, var/pixel_scale = FALSE)
 	ASSERT(A)
@@ -236,7 +236,13 @@
 		img.appearance_flags |= PIXEL_SCALE
 	img.pixel_x = half_diff_width*-1
 	img.pixel_y = half_diff_height*-1
-	flick_overlay_view(img, A, anim_duration*loops, TRUE)
+
+	var/list/viewing = list()
+	for(var/m in viewers(A))
+		var/mob/M = m
+		if(M.client)
+			viewing += M.client
+	flick_overlay(img, viewing, anim_duration*loops, TRUE)
 
 	//Animate it growing
 	animate(img, alpha = 0, transform = matrix()*grow_to, time = anim_duration, loop = loops)

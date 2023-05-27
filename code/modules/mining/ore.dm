@@ -55,7 +55,7 @@
 
 
 /obj/item/ore/plasma
-	name = "phoron crystals" // Occulus Edit - Plasma > Phoron
+	name = "plasma crystals"
 	icon_state = "ore_plasma"
 	origin_tech = list(TECH_MATERIAL = 2)
 	material = ORE_PLASMA

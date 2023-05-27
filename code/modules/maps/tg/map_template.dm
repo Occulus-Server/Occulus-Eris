@@ -99,9 +99,6 @@
 		var/area/A = I
 		A.power_change()
 
-	if(machinery_was_awake)
-		SSmachines.wake() // Wake only if it was awake before we tried to suspended it.
-
 	//admin_notice("<span class='danger'>Submap initializations finished.</span>", R_DEBUG)
 
 /datum/map_template/proc/load_new_z(var/centered = FALSE, var/orientation = SOUTH)

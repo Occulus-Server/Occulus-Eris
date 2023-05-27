@@ -235,10 +235,10 @@
 		M.add_chemical_effect(CE_PULSE, -2)
 		if(M.stat == DEAD)
 			M.timeofdeath += 20
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
-			if(prob(10))
-				//H.UnHusk() // Occulus Edit end
+		// if(ishuman(M))
+			// var/mob/living/carbon/human/H = M
+			// if(prob(10))
+			// 	H.UnHusk() // Occulus Edit end
 
 /* Painkillers */
 

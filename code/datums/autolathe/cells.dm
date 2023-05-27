@@ -18,7 +18,7 @@
 	name = "\"Robustcell 800M\""  // Occulus Edit - Removes Eris corp. reference
 	build_path = /obj/item/cell/medium/high
 
-/datum/design/autolathe/cell/medium  // Occulus Edit - Removes Eris corp. reference/excelsior
+/datum/design/autolathe/cell/medium/excelsior  // Occulus Edit - Removes Eris corp. reference/excelsior
 	name = "\"Zarya 800M\""
 	build_path = /obj/item/cell/medium/excelsior
 

@@ -612,8 +612,8 @@ proc/end_grab_onto(mob/living/user, mob/living/target)
 	resistance = RESISTANCE_FLIMSY
 	flags = null
 
-/obj/structure/window/phoronbasic
-	name = "phoron window"
+/obj/structure/window/plasmabasic
+	name = "plasma window"
 	desc = "A borosilicate alloy window. It seems to be quite strong."
 
 	icon_state = "plasmawindow"
@@ -624,7 +624,7 @@ proc/end_grab_onto(mob/living/user, mob/living/target)
 	maxhealth = 150
 	resistance = RESISTANCE_AVERAGE
 
-/obj/structure/window/phoronbasic/full
+/obj/structure/window/plasmabasic/full
 	dir = SOUTH|EAST
 	icon = 'icons/obj/structures/windows.dmi'
 	basestate = "pwindow"
@@ -663,8 +663,8 @@ proc/end_grab_onto(mob/living/user, mob/living/target)
 	resistance = RESISTANCE_FRAGILE
 	flags = null
 
-/obj/structure/window/reinforced/phoron
-	name = "reinforced phoron window"
+/obj/structure/window/reinforced/plasma
+	name = "reinforced plasma window"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
 	basestate = "plasmarwindow"
 	icon_state = "plasmarwindow"
@@ -675,7 +675,7 @@ proc/end_grab_onto(mob/living/user, mob/living/target)
 	maxhealth = 200
 	resistance = RESISTANCE_IMPROVED
 
-/obj/structure/window/reinforced/phoron/full
+/obj/structure/window/reinforced/plasma/full
 	dir = SOUTH|EAST
 	icon = 'icons/obj/structures/windows.dmi'
 	basestate = "rpwindow"

@@ -45,12 +45,14 @@
 	dir = 4;
 	icon_state = "cryo_rear"
 	},
+/turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "au" = (
 /obj/machinery/cryopod{
 	dir = 4;
 	icon_state = "cryopod_0"
 	},
+/turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "av" = (
 /obj/structure/window/reinforced/crescent{
@@ -59,18 +61,14 @@
 /turf/unsimulated/wall,
 /area/space)
 "aD" = (
-/obj/machinery/vending/engivend,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/centcom/evac)
 "aE" = (
-/obj/structure/bed/chair/comfy/red{
-	dir = 4
+/obj/machinery/cryopod,
+/obj/machinery/light{
+	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "aF" = (
 /turf/unsimulated/wall,
@@ -238,10 +236,8 @@
 	},
 /area/supply/dock)
 "bI" = (
-/obj/structure/table/steel,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/obj/structure/cryofeed,
+/turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "bJ" = (
 /obj/structure/shuttle_part/cargo{
@@ -343,10 +339,8 @@
 	},
 /area/supply/dock)
 "cq" = (
-/obj/machinery/vending/cigarette,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "cs" = (
 /obj/structure/shuttle_part/cargo{
@@ -433,14 +427,11 @@
 /turf/simulated/open/holonofloor,
 /area/space)
 "cK" = (
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/centcom/evac)
 "cL" = (
-/obj/structure/reagent_dispensers/water_cooler,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/obj/structure/table/woodentable,
+/turf/simulated/floor/tiled/dark/golden,
 /area/centcom/evac)
 "cM" = (
 /obj/structure/bed/chair/custom/holochair{
@@ -500,17 +491,28 @@
 	},
 /area/supply/dock)
 "dj" = (
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/unsimulated/floor{
-	icon_state = "dark"
+/obj/machinery/light{
+	dir = 1
 	},
+/turf/simulated/floor/tiled/dark/golden,
+/area/centcom/evac)
+"dk" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "escape_pod_1_recovery";
+	pixel_x = 25;
+	pixel_y = 0;
+	req_one_access = list(13);
+	tag_door = "escape_pod_1_recovery_hatch"
+	},
+/turf/simulated/floor/tiled/dark/golden,
 /area/centcom/evac)
 "dl" = (
 /obj/item/modular_computer/console{
 	dir = 4;
 	icon_state = "console"
 	},
-/turf/space,
+/turf/simulated/floor/tiled/dark/golden,
 /area/centcom/evac)
 "dn" = (
 /turf/simulated/floor/tiled/dark/gray_platform,
@@ -580,7 +582,11 @@
 	name = "Recovery Shuttle Dock";
 	req_access = list(13)
 	},
-/turf/simulated/floor/tiled/dark/cargo,
+/turf/simulated/floor/tiled/steel/techfloor_grid,
+/area/centcom/evac)
+"dL" = (
+/obj/structure/table/woodentable,
+/turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "dM" = (
 /obj/structure/bed,
@@ -621,7 +627,7 @@
 	name = "Recovery Shuttle Dock";
 	req_access = list(13)
 	},
-/turf/simulated/floor/tiled/dark/cargo,
+/turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/centcom/evac)
 "dW" = (
 /obj/structure/railing/holorailing,
@@ -634,18 +640,15 @@
 /turf/simulated/open/holonofloor,
 /area/holodeck/source/industrial_arena)
 "dX" = (
-/obj/machinery/conveyor_switch,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/golden,
 /area/centcom/evac)
 "dZ" = (
-/obj/machinery/door/airlock/glass{
-	locked = 1
+/obj/structure/table/woodentable,
+/obj/machinery/light{
+	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "ea" = (
 /turf/space,
@@ -663,10 +666,9 @@
 	},
 /area/space)
 "ec" = (
-/obj/item/device/defib_kit,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/obj/machinery/cryopod,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "ee" = (
 /obj/structure/railing/holorailing/grey{
@@ -1852,17 +1854,14 @@
 	},
 /area/shuttle/mercenary)
 "hz" = (
-/obj/structure/closet/crate/medical,
-/obj/item/storage/firstaid/combat,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/obj/structure/table/woodentable,
+/obj/machinery/chemical_dispenser/soda,
+/turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
 "hA" = (
-/obj/item/storage/firstaid/surgery,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/obj/structure/table/woodentable,
+/obj/machinery/microwave,
+/turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
 "hC" = (
 /obj/structure/lattice,
@@ -1932,32 +1931,16 @@
 	},
 /area/centcom/merc_base)
 "hM" = (
-/obj/structure/closet,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/obj/structure/sign/faction/neotheology_cross,
+/turf/simulated/wall/r_wall,
 /area/centcom/evac)
 "hN" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hO" = (
-/obj/vehicle/train/cargo/engine,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/evac)
-"hP" = (
-/obj/item/storage/firstaid/adv,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+"hR" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
 "hS" = (
 /obj/structure/table/rack,
@@ -1991,31 +1974,8 @@
 	icon_state = "white"
 	},
 /area/centcom/merc_base)
-"hV" = (
-/obj/structure/largecrate/animal/goat,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/evac)
-"hW" = (
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/space,
-/area/centcom/evac)
-"hX" = (
-/obj/structure/closet/crate/medical,
-/obj/item/storage/firstaid/o2,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/evac)
-"hY" = (
-/turf/simulated/wall/r_wall,
-/area/space)
-"ia" = (
-/obj/vehicle/train/cargo/trolley,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+"hZ" = (
+/turf/simulated/floor/carpet/bcarpet,
 /area/centcom/evac)
 "ib" = (
 /obj/structure/railing/holorailing{
@@ -2036,27 +1996,6 @@
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
-"if" = (
-/obj/structure/bed/chair/comfy/red{
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
-/area/centcom/evac)
-"ig" = (
-/obj/structure/closet/crate/secure,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/evac)
-"ij" = (
-/obj/structure/closet/crate/secure/loot,
-/obj/structure/closet/crate/hydroponics,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/evac)
 "ik" = (
 /obj/effect/shuttle_landmark/escape_pod/out/pod1,
 /turf/space,
@@ -2199,10 +2138,6 @@
 	icon_state = "freezerfloor"
 	},
 /area/centcom/merc_base)
-"iG" = (
-/obj/item/device/radio/intercom,
-/turf/simulated/wall/r_wall,
-/area/centcom/evac)
 "iH" = (
 /obj/machinery/button/remote/blast_door{
 	id = "syndieshutters";
@@ -2270,18 +2205,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/merc_base)
-"iR" = (
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/evac)
-"iS" = (
-/obj/structure/closet/crate/medical,
-/obj/structure/closet/crate/plastic,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/evac)
 "iT" = (
 /obj/effect/shuttle_landmark/escape_pod/out/pod2,
 /turf/space,
@@ -2327,34 +2250,12 @@
 	},
 /area/centcom/merc_base)
 "jd" = (
-/obj/machinery/vending/snack,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
-/area/centcom/evac)
-"je" = (
-/obj/structure/reagent_dispensers/fueltank/huge/derelict,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/obj/structure/table/woodentable,
+/turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
 "jf" = (
-/obj/structure/reagent_dispensers/watertank/huge/derelict,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/evac)
-"jg" = (
-/obj/machinery/conveyor/east,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/evac)
-"jh" = (
-/obj/structure/closet/firecloset,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
 "jg" = (
 /obj/machinery/light{
@@ -2369,12 +2270,7 @@
 	},
 /area/shuttle/mercenary)
 "ji" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
 "jj" = (
 /obj/machinery/vending/coffee,
@@ -14115,12 +14011,12 @@ aa
 aa
 aa
 aa
-ho
-ho
-ho
-ho
-ho
-hY
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14317,12 +14213,12 @@ aa
 aa
 aa
 aa
-ho
-ho
-dl
-dl
-ho
-ho
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14521,15 +14417,15 @@ aa
 aa
 ho
 ho
-dl
-dl
+ek
+ek
+ek
+ek
+ek
+ek
+ek
 ho
 ho
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -14717,20 +14613,20 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 ho
-ho
-ho
-ho
-ho
-ho
-iR
-iR
-ho
-ho
-ho
-ho
-ho
-ho
+cL
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+cL
 ho
 aa
 aa
@@ -14919,20 +14815,20 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 ho
-ho
-ho
-iG
-ho
-ho
-dZ
-dZ
-ho
-ho
-ho
-ho
-ho
-ho
+cN
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+cN
 ho
 aa
 aa
@@ -15121,20 +15017,20 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 ho
-ho
-au
-Ne
-hM
-dj
-iR
-iR
-hO
-ia
-ia
-je
-je
-ho
+cN
+dn
+dn
+hZ
+hZ
+hZ
+dn
+dn
+cN
 ho
 aa
 aa
@@ -15322,27 +15218,27 @@ aa
 aa
 aa
 aa
-aa
 ho
 ho
-jh
-Ne
-hM
+ho
+ho
+ho
+ho
 dj
-iR
-iR
-DF
-iR
-iR
-je
-je
+dn
+dn
+hZ
+hZ
+hZ
+dn
+dn
+dX
 ho
 ho
-aa
-aa
-aa
-aa
-aa
+ho
+ho
+ho
+ho
 aa
 aa
 aa
@@ -15524,27 +15420,27 @@ aa
 aa
 aa
 aa
-aa
 ho
-ho
-jh
-Ne
+at
+at
+at
+at
 hM
-dj
-iR
-iR
-DF
-PS
-iR
-jf
-jf
+cN
+dn
+dn
+hZ
+hZ
+hZ
+dn
+dn
+cN
+hM
+at
+at
+at
+at
 ho
-ho
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -15726,27 +15622,27 @@ aa
 aa
 aa
 aa
-aa
 ho
+au
+au
+au
+au
+ek
+cN
+dn
+dn
+hZ
+hZ
+hZ
+dn
+dn
+cN
+ek
+au
+au
+au
+au
 ho
-aD
-Ne
-Ne
-cL
-iR
-iR
-hP
-iR
-iR
-jf
-jf
-ho
-ho
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -15928,27 +15824,27 @@ aa
 aa
 aa
 aa
-aa
-ho
-ho
-Ne
-Ne
-Ne
-Ne
-iR
-hz
-DF
-iR
-iR
-iR
-XU
-jP
-ho
-aa
-aa
-aa
-aa
-aa
+ek
+aD
+aD
+aD
+aD
+cK
+hZ
+hZ
+hZ
+hZ
+hZ
+hZ
+hZ
+hZ
+hZ
+cK
+aD
+aD
+aD
+aD
+ek
 aa
 aa
 aa
@@ -16130,27 +16026,27 @@ aa
 aa
 aa
 aa
-aa
-ho
-ho
-aE
-aE
-Ne
-Ne
-iR
-hA
-Sc
-iR
-iR
-iR
-XU
-ho
-ho
-aa
-aa
-aa
-aa
-aa
+ek
+aD
+aD
+aD
+aD
+cK
+hZ
+hZ
+hZ
+hZ
+hZ
+hZ
+hZ
+hZ
+hZ
+cK
+aD
+aD
+aD
+aD
+ek
 aa
 aa
 aa
@@ -16332,27 +16228,27 @@ aa
 aa
 aa
 aa
-aa
-ho
-ho
-at
-DZ
-Ne
-Ne
-ec
-iR
-Bw
-iR
-hX
-iR
-XU
-ho
-ho
-aa
-aa
-aa
-aa
-aa
+ek
+aD
+aD
+aD
+aD
+cK
+hZ
+hZ
+hZ
+hZ
+hZ
+hZ
+hZ
+hZ
+hZ
+cK
+aD
+aD
+aD
+aD
+ek
 aa
 aa
 aa
@@ -16534,27 +16430,27 @@ aa
 aa
 aa
 aa
-aa
 ho
+aE
+cq
+cq
+cq
+ek
+cN
+dn
+dn
+hZ
+hZ
+hZ
+dn
+dn
+cN
+ek
+cq
+cq
+cq
+ec
 ho
-Pr
-bI
-Ne
-Ne
-iR
-hD
-DF
-iR
-iR
-iR
-XU
-ho
-ho
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -16736,27 +16632,27 @@ aa
 aa
 aa
 aa
-aa
 ho
-iG
-if
-if
-Ne
-Ne
-iR
-iR
-BW
-Ng
-Ng
-Io
-IT
+bI
+bI
+bI
+bI
+hM
+cN
+do
+dL
+hZ
+hZ
+hZ
+dL
+dT
+cN
+hM
+bI
+bI
+bI
+bI
 ho
-ho
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -16938,27 +16834,27 @@ aa
 aa
 aa
 aa
-aa
 ho
 ho
-cq
-Ne
-Ne
-Ne
-iR
-iR
-iR
-PS
-iR
-iR
-SP
 ho
 ho
-aa
-aa
-aa
-aa
-aa
+ho
+ho
+dj
+do
+dL
+hZ
+hZ
+hZ
+dL
+dT
+dX
+ho
+ho
+ho
+ho
+ho
+ho
 aa
 aa
 aa
@@ -17146,26 +17042,20 @@ zW
 jd
 jd
 ho
-jd
-Ne
-Ne
-Ne
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+cN
+do
+dL
+hZ
+hZ
+hZ
+dL
+dT
+cN
 ho
 dZ
 hZ
 Ln
 ho
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -17390,10 +17280,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 hk
 ab
 hl
@@ -17574,23 +17460,6 @@ cN
 hZ
 dM
 ho
-iR
-iR
-iR
-Lq
-hy
-ht
-ht
-ig
-io
-dX
-jg
-ho
-ho
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -17775,27 +17644,24 @@ aa
 aa
 aa
 ho
+hA
+ji
+ji
 ho
-iR
-iR
-iR
-DF
-hy
-hG
-hV
-ig
-io
-ig
-jg
+cN
+do
+dL
+hZ
+hZ
+hZ
+dL
+dT
+cN
 ho
 dL
 hZ
 Ln
 ho
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -17980,27 +17846,24 @@ aa
 aa
 aa
 ho
+jd
+jd
+jd
 ho
-iR
-iR
-iR
-DF
-hy
-hH
-hI
-ij
-io
-hI
-jg
+cN
+dn
+dn
+hZ
+hZ
+hZ
+dn
+dn
+cN
 ho
 dL
 hZ
 Ln
 ho
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -18186,23 +18049,23 @@ aa
 aa
 ho
 ho
-iR
-iR
-iR
-DF
-hy
-hI
-hI
-ij
-iS
-hI
-jg
 ho
 ho
-aa
-aa
-aa
-aa
+hM
+cN
+dn
+dn
+hZ
+hZ
+hZ
+dn
+dn
+cN
+hM
+ho
+ho
+ho
+ho
 aa
 aa
 aa
@@ -18386,6 +18249,10 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 ho
 dk
 dn
@@ -18397,7 +18264,7 @@ dn
 dn
 XJ
 ho
-aa
+jy
 aa
 aa
 aa
@@ -18584,17 +18451,17 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 ho
-ho
-cK
-cK
-cK
 ho
 dK
 ho
-hW
+hM
 ek
-hW
+hM
 ho
 dU
 ho

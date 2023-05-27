@@ -64,11 +64,11 @@ meteor_act
 
 	switch (def_zone)
 		if(BP_L_HAND, BP_R_HAND) // Occulus Edit Start - Hands
-			var/c_hand
+			var/obj/item/hand
 			if (def_zone == BP_L_HAND)
-				c_hand = l_hand
+				hand = l_hand
 			else
-				c_hand = r_hand // Occulus Edit End
+				hand = r_hand // Occulus Edit End
 
 			if(hand && hand.mob_can_unequip(src) && (stun_amount || agony_amount > 10))
 				msg_admin_attack("[src.name] ([src.ckey]) was disarmed by a stun effect")

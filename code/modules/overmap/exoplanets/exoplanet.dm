@@ -325,7 +325,7 @@
 		atmosphere.adjust_gas("nitrogen", MOLES_N2STANDARD)
 	else //let the fuckery commence
 		var/list/newgases = gas_data.gases.Copy()
-		newgases -= "phoron" // Occulus Edit - Plasma > Phoron
+		newgases -= "plasma"
 
 		var/total_moles = MOLES_CELLSTANDARD * rand(80,120)/100
 		var/badflag = 0

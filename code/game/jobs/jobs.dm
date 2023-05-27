@@ -53,6 +53,7 @@ var/const/GUILDTECH			=(1<<5)
 var/const/MINER				=(1<<6)
 var/const/ACTOR				=(1<<7)
 var/const/ASSISTANT			=(1<<8)
+var/const/ARTIST			=(1<<9)
 //Occulus Edit End
 
 

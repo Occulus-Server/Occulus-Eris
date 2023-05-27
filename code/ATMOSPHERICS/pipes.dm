@@ -1166,7 +1166,7 @@
 	icon_state = "co2"
 
 /obj/machinery/atmospherics/pipe/tank/plasma
-	name = "Pressure Tank (Phoron)" // Occulus Edit - Plasma > Phoron
+	name = "Pressure Tank (Plasma)"
 	description_antag = "Will blind people if they do not wear face-covering gear"
 	icon_state = "plasma_map"
 

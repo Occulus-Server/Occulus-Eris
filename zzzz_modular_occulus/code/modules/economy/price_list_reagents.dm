@@ -9,7 +9,7 @@
 /datum/reagent/metal/uranium/price_per_unit = 1
 /datum/reagent/toxin/price_per_unit = 1 //this covers a number of other low-grade toxins like amatoxin and most roach chems
 /datum/reagent/toxin/carpotoxin/price_per_unit = 3
-/datum/reagent/toxin/phoron/price_per_unit = 1
+/datum/reagent/toxin/plasma/price_per_unit = 1
 /datum/reagent/medicine/slimejelly/price_per_unit = 3
 /datum/reagent/toxin/fuhrerole/price_per_unit = 10
 /datum/reagent/toxin/chlorine/price_per_unit = 0 //nope

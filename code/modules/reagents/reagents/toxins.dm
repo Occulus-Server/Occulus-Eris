@@ -94,11 +94,10 @@
 
 ///datum/reagent/toxin/blattedin is defined in blattedin.dm
 
-// Occulus Edit - Plasma is renamed Phoron
-/datum/reagent/toxin/phoron
-	name = "Phoron"
-	id = "phoron"
-	description = "Phoron in its liquid form."
+/datum/reagent/toxin/plasma
+	name = "Plasma"
+	id = "plasma"
+	description = "Plasma in its liquid form."
 	taste_mult = 1.5
 	reagent_state = LIQUID
 	color = "#9D14DB"
@@ -117,7 +116,7 @@
 /datum/reagent/toxin/plasma/touch_turf(turf/simulated/T)
 	if(!istype(T))
 		return
-	T.assume_gas("phoron", volume, T20C)
+	T.assume_gas("plasma", volume, T20C)
 	remove_self(volume)
 	return TRUE
 

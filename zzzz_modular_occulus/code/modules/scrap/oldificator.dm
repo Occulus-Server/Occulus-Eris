@@ -7,8 +7,6 @@
 	. = ..()
 	if(prob(50))
 		fire_delay += rand(0,3)
-	if(prob(40))
-		recoil_buildup += rand(0,10)
 	if(prob(80))
 		damage_multiplier = damage_multiplier*(rand(5,10)/10)
 	if(prob(60))

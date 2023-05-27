@@ -329,19 +329,19 @@ GLOBAL_LIST_EMPTY(wedge_icon_cache)
 		L.apply_effect(15,IRRADIATE,0)
 	return
 
-/obj/machinery/door/airlock/phoron
-	name = "Phoron Airlock"
+/obj/machinery/door/airlock/plasma
+	name = "Plasma Airlock"
 	desc = "No way this can end badly."
 	icon = 'icons/obj/doors/Doorplasma.dmi'
-	mineral = "phoron"
+	mineral = "plasma"
 
-/obj/machinery/door/airlock/phoron/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/door/airlock/plasma/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > 300)
-		PhoronBurn(exposed_temperature)
+		PlasmaBurn(exposed_temperature)
 
-/obj/machinery/door/airlock/phoron/proc/ignite(exposed_temperature)
+/obj/machinery/door/airlock/plasma/proc/ignite(exposed_temperature)
 	if(exposed_temperature > 300)
-		PhoronBurn(exposed_temperature)
+		PlasmaBurn(exposed_temperature)
 
 /obj/machinery/door/airlock/plasma/proc/PlasmaBurn(temperature)
 	for(var/turf/simulated/floor/target_tile in RANGE_TURFS(2,loc))
@@ -349,7 +349,7 @@ GLOBAL_LIST_EMPTY(wedge_icon_cache)
 		spawn (0) target_tile.hotspot_expose(temperature, 400)
 	for(var/turf/simulated/wall/W in RANGE_TURFS(3,src))
 		W.burn((temperature/4))//Added so that you can't set off a massive chain reaction with a small flame
-	for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
+	for(var/obj/machinery/door/airlock/plasma/D in range(3,src))
 		D.ignite(temperature/4)
 	new/obj/structure/door_assembly( src.loc )
 	qdel(src)
@@ -685,24 +685,24 @@ There are 9 wires.
 			if(overlays.len)
 				overlays.Cut()
 			if(p_open)
-				flick("o_door_opening")
+				flick("o_door_opening", src)
 			else
-				flick("door_opening")
+				flick("door_opening", src)
 			update_icon()
 		if("closing")
 			if(overlays.len)
 				overlays.Cut()
 			if(p_open)
-				flick("o_door_closing")
+				flick("o_door_closing", src)
 			else
-				flick("door_closing")
+				flick("door_closing", src)
 			update_icon()
 		if("spark")
 			if(density)
-				flick("door_spark")
+				flick("door_spark", src)
 		if("deny")
 			if(density && arePowerSystemsOn())
-				flick("door_deny")
+				flick("door_deny", src)
 				playsound(loc, 'sound/machines/Custom_deny.ogg', 50, 1, -2)
 	return
 

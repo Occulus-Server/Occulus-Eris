@@ -28,14 +28,14 @@
 	)
 
 
-/datum/craft_recipe/gun/kalashbutworse
-	name = "Modified AR .30 \"Kalamiti\""
-	result = /obj/item/gun/projectile/automatic/ak47/cursed
-	steps = list(
-		list(/obj/item/gun/projectile/automatic/ak47/makeshift, 1),
-		list(CRAFT_MATERIAL, 2, MATERIAL_PLASTIC),
-		list(CRAFT_MATERIAL, 1, MATERIAL_GLASS),
-		list(QUALITY_ADHESIVE, 15, 70),
-		list(QUALITY_SAWING, 10, 70),
-		list(QUALITY_SCREW_DRIVING, 10)
-	)
+// /datum/craft_recipe/gun/kalashbutworse
+// 	name = "Modified AR .30 \"Kalamiti\""
+// 	result = /obj/item/gun/projectile/automatic/ak47/cursed
+// 	steps = list(
+// 		list(/obj/item/gun/projectile/automatic/ak47/makeshift, 1),
+// 		list(CRAFT_MATERIAL, 2, MATERIAL_PLASTIC),
+// 		list(CRAFT_MATERIAL, 1, MATERIAL_GLASS),
+// 		list(QUALITY_ADHESIVE, 15, 70),
+// 		list(QUALITY_SAWING, 10, 70),
+// 		list(QUALITY_SCREW_DRIVING, 10)
+// 	)

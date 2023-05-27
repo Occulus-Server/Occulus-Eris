@@ -104,7 +104,7 @@
 	..()
 
 /obj/item/soap/nanotrasen
-	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."  // Occulus Edit - Remove Eris corp. reference
+	desc = "A NanoTrasen-brand bar of soap. Smells of plasma."  // Occulus Edit - Remove Eris corp. reference
 	icon_state = "soapnt"
 
 /obj/item/soap/deluxe

@@ -89,9 +89,9 @@
 		/datum/design/autolathe/gun/dart_gun = 3, // Z-H P Artemis"
 		/datum/design/autolathe/ammo/dart_mag,
 	)
-/*
+
 /obj/item/computer_hardware/hard_drive/portable/design/medical/genetics
-	disk_name = "Moebius Scientifica - Genetics"
+	disk_name = "NT Scientifica - Genetics" // Occulus Edit - Remove Eris corp. reference
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	spawn_blacklisted = TRUE	// So genetics has backups
 	license = -1
@@ -101,7 +101,7 @@
 		/datum/design/research/circuit/moeballs_printer,
 		/datum/design/research/item/dna_scanner
 	)
-*/
+
 /obj/item/computer_hardware/hard_drive/portable/design/medical/viscera
 	disk_name = "NT Scientifica - Viscera"	 // Occulus Edit - Remove Eris corp. reference
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED

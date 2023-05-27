@@ -153,7 +153,7 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/stack/material/plasma
-	name = "solid phoron" // Occulus Edit - Plasma > Phoron
+	name = "solid plasma"
 	icon_state = "sheet-plasma"
 	default_type = MATERIAL_PLASMA
 	price_tag = 30
@@ -385,8 +385,8 @@
 /obj/item/stack/material/glass/plasmaglass/random
 	rand_min = 3
 	rand_max = 30
-	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING //Occulus edit: Re-adding phoron glass to spawn pools
-	rarity_value = 50 //Occulus edit: Re-adding phoron glass to spawn pools
+	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING //Occulus edit: Re-adding plasma glass to spawn pools
+	rarity_value = 50 //Occulus edit: Re-adding plasma glass to spawn pools
 
 /obj/item/stack/material/glass/plasmarglass
 	name = "reinforced borosilicate glass"

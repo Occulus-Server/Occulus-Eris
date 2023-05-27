@@ -494,7 +494,7 @@
 
 
     if(plasma > 0.1)        // Toxic even in small amounts.
-        status.Add("Phoron contamination.") // Occulus Edit - Plasma > Phoronplasma
+        status.Add("Plasma contamination.")
     if(nitrousoxide > 0.1)    // Probably slightly less dangerous but still.
         status.Add("N2O contamination.")
     if(carbondioxide > 5)    // Not as dangerous until very large amount is present.
@@ -546,7 +546,7 @@
 
 
 	if(plasma > 0.1)		// Toxic even in small amounts.
-		status.Add("Phoron contamination.") // Occulus Edit - Plasma > Phoron
+		status.Add("Plasma contamination.")
 	if(nitrousoxide > 0.1)	// Probably slightly less dangerous but still.
 		status.Add("N2O contamination.")
 	if(hydrogen > 2.5)	// Not too dangerous, but flammable.

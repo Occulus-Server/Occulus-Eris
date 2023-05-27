@@ -8,7 +8,7 @@
 
 /datum/design/autolathe/ammo/shotgunbox_beanbag
 	name = "shotgun shells (beanbag)"
-	build_path = /obj/item/ammo_magazine/ammobox/shotgun/beanbags
+	build_path = /obj/item/ammo_magazine/ammobox/shotgun/beanbag
 
 /datum/design/autolathe/ammo/shotgunbox_rubbershot
 	name = "shotgun shells (rubbershot)"

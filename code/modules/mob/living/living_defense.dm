@@ -402,6 +402,7 @@
 	// Occulus Edit: Fire are slowly consumed by -0.1, add burn damage scaling to fire stacks (Up to +2 per tick)
 	if(fire_stacks > 0)
 		adjust_fire_stacks(-0.1) // the fire is slowly consumed
+		#define MAX_ADDITIONAL_BURN_DAMAGE 2
 		var/scaled_burn_damage = MAX_ADDITIONAL_BURN_DAMAGE * (fire_stacks / FIRE_MAX_STACKS)
 		src.take_overall_damage(0, scaled_burn_damage, used_weapon = "thermal burns")
 	else

@@ -11,9 +11,9 @@
 /obj/item/paper/toxin
 	name = "Chemical Information"
 	info = {"Known Onboard Toxins:
-	Grade A Semi-Liquid Phoron:
+	Grade A Semi-Liquid Plasma:
 	Highly poisonous. You cannot sustain concentrations above 15 units.
-	A gas mask fails to filter phoron after 50 units.
+	A gas mask fails to filter plasma after 50 units.
 	Will attempt to diffuse like a gas.
 	Filtered by scrubbers.
 	There is a bottled version which is very different
@@ -24,7 +24,7 @@
 	WARNING: It is a crime to use this without authorization.
 
 	Known Onboard Anti-Toxin:
-	Anti-Toxin Type 01P: Works against Grade A Phoron.
+	Anti-Toxin Type 01P: Works against Grade A Plasma.
 	Best if injected directly into bloodstream.
 	A full injection is in every regular Med-Kit.
 	Special toxin Kits hold around 7.
@@ -32,7 +32,7 @@
 	Known Onboard Chemicals (other):
 	Rejuvenation T#001:
 	Even 1 unit injected directly into the bloodstream
-	will cure paralysis and sleep phoron.
+	will cure paralysis and sleep plasma.
 	If administered to a dying patient it will prevent
 	further damage for about units*3 seconds.
 	it will not cure them or allow them to be cured.
@@ -41,7 +41,7 @@
 	Soporific T#054:5 units wilkl induce precisely 1 minute of sleep.
 	The effect are cumulative.
 	WARNING: It is a crime to use this without authorization
-	\[br\]"} // Occulus Edit - Plasma > Phoron
+	\[br\]"}
 
 /obj/item/paper/courtroom
 	name = "A Crash Course in Legal SOP on SS13"

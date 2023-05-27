@@ -25,7 +25,7 @@
 /datum/chemical_reaction/sorium
 	result_amount = 4
 	required_reagents = list("mercury" = 1, "tungsten" = 1, "carbon" = 1)
-	catalysts = list("phoron" = 5)
+	catalysts = list("plasma" = 5)
 
 /datum/chemical_reaction/sorium/on_reaction(datum/reagents/holder, created_volume)
 	holder.remove_reagent(/datum/reagent/sorium, created_volume*4)

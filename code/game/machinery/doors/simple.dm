@@ -60,9 +60,9 @@
 /obj/machinery/door/unpowered/simple/do_animate(animation)
 	switch(animation)
 		if("opening")
-			flick("[icon_base]opening")
+			flick("[icon_base]opening", src)
 		if("closing")
-			flick("[icon_base]closing")
+			flick("[icon_base]closing", src)
 
 /obj/machinery/door/unpowered/simple/inoperable(additional_flags = 0)
 	return (stat & (BROKEN|additional_flags))

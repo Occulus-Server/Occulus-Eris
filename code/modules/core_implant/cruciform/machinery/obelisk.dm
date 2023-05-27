@@ -28,8 +28,6 @@ GLOBAL_LIST_EMPTY(all_obelisk)
 
 	var/ticks_to_next_process = 3
 
-	var/ticks_to_next_process = 3
-
 /obj/machinery/power/nt_obelisk/Destroy()
 	for(var/i in currently_affected)
 		var/mob/living/carbon/human/H = i

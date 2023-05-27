@@ -31,12 +31,12 @@
 	icon_state = "officercap"
 	spawn_blacklisted = TRUE
 
-/*//HOP Occulus Edit: Removal
+
 /obj/item/clothing/head/caphat/hop
 	name = "first officer's hat"
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
 	icon_state = "hopcap"
-	spawn_blacklisted = TRUE*/
+	spawn_blacklisted = TRUE
 
 //NeoTheology
 /obj/item/clothing/head/chaplain_hood

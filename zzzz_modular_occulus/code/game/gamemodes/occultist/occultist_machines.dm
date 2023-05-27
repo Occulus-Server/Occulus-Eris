@@ -34,7 +34,7 @@
 		QUALITY_WIRE_CUTTING\
 		)//A list of qualities for random deconstruction requirements. These things are WEIRD so they should have strange things like pulsing.
 	var/partsamount
-	var/list/blacklist = list(/material/resin, /material/voxalloy, /material/plastic/holographic, /material/wood/holographic)//A blacklist of materials we don't want spawning, minus the padding because that's handled on deconstruction
+	var/list/blacklist = list(/material/voxalloy, /material/plastic/holographic, /material/wood/holographic)//A blacklist of materials we don't want spawning, minus the padding because that's handled on deconstruction
 	var/list/partslist //A list of parts for random choosing when it's time to deconstruct.
 
 /obj/machinery/occultist/totem/New(var/loc, var/cultist)

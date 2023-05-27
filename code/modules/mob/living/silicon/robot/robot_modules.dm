@@ -1057,7 +1057,7 @@ var/global/list/robot_modules = list(
 	src.emag += new /obj/item/hatton/robot(src)	// OCCULUS EDIT - Gives the drone some fun stuff when emagged
 
 	//src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
-	//src.emag.name = "Phoron Cutter" // Occulus Edit - Plasma > Phoron
+	//src.emag.name = "Plasma Cutter"
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(25000)

@@ -3,7 +3,7 @@
  *		Oxygen
  *		Anesthetic
  *		Air
- *		Phoron
+ *		Plasma
  *		Emergency Oxygen
  */
 
@@ -76,11 +76,11 @@
 
 
 /*
- * Phoron
+ * Plasma
  */
 /obj/item/tank/plasma
-	name = "phoron tank" // Occulus Eris - Plasma > Phoron
-	desc = "Contains dangerous phoron. Do not inhale. Warning: extremely flammable." // Occulus Eris - Plasma > Phoron
+	name = "plasma tank"
+	desc = "Contains dangerous plasma. Do not inhale. Warning: extremely flammable."
 	icon_state = "plasma"
 	force = WEAPON_FORCE_NORMAL
 	gauge_icon = null

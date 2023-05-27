@@ -21,6 +21,27 @@
 
 	var/list/access = list()	// Core implant can grant access levels to its user
 
+	var/age = 30
+	var/ckey = ""
+	var/flavor = ""
+	var/datum/mind/mind = null
+	var/datum/stat_holder/stats
+	var/list/dormant_mutations
+	var/list/active_mutations
+	var/b_type
+	var/h_style
+	var/hair_color
+	var/f_style
+	var/facial_color
+	var/eyes_color
+	var/skin_color
+	var/s_tone
+	var/tts_seed
+	var/real_name
+	var/dna_trace = null
+	var/fingers_trace = null
+	var/languages = list()
+
 /obj/item/implant/core_implant/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	deactivate()

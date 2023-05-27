@@ -123,7 +123,7 @@
 		lastJob = job
 		. += "<a href='?src=\ref[src];job_info=[rank]'>\[?\]</a>"
 		var/bad_message = ""
-		else if(job.total_positions == 0 && job.spawn_positions == 0)
+		if(job.total_positions == 0 && job.spawn_positions == 0)
 			bad_message = "<b> \[UNAVAILABLE]</b>"
 		else if(jobban_isbanned(user, rank))
 			bad_message = "<b> \[BANNED]</b>"
@@ -301,13 +301,6 @@
 	job_desc += "<tr><td style='width: 220px;overflow: hidden;display: inline-block; white-space: nowrap;'>"
 	//The mannequin and its buttons are in their own little mini table, within a fixed width 200px cell
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = job.get_job_mannequin()
-	mannequin.r_skin = 238
-	mannequin.g_skin = 206
-	mannequin.b_skin = 179
-	mannequin.update_dna()
-	mannequin.force_update_limbs()
-	mannequin.update_body(0)
-	mannequin.update_icons()
 	var/icon/job_icon = getFlatIcon(mannequin, job_icon_dir)
 	job_icon.Scale(job_icon.Width() * 2.5, job_icon.Height() * 2.5)
 	send_rsc(user, job_icon, "job_icon_[job_icon_dir].png")

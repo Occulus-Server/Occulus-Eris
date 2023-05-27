@@ -101,7 +101,7 @@
 	src.pixel_x = rand(-5, 5)
 	src.pixel_y = rand(-5, 5)
 
-/* // Occulus Edit - Bottles
+
 /obj/item/reagent_containers/glass/fertilizer/ez
 	name = "bottle of E-Z-Nutrient"
 	icon_state = "bottle16"
@@ -116,23 +116,3 @@
 	name = "bottle of Robust Harvest"
 	icon_state = "bottle15"
 	preloaded_reagents = list("robustharvest" = 60)
-*/
-
-/obj/item/reagent_containers/glass/bottle/fertilizer/ez
-	name = "E-Z Nutriment Bottle"
-	desc = "A small bottle. Contains EZ-Nutriment. Used to fertilize plants."
-	icon_state = "bottle"
-	preloaded_reagents = list("eznutrient" = 60)
-
-/obj/item/reagent_containers/glass/bottle/fertilizer/l4z
-	name = "Left 4 Zed Bottle"
-	desc = "A small bottle. Contains Left 4 Zed. Used to fertilize plants."
-	icon_state = "bottle"
-	preloaded_reagents = list("left4zed" = 60)
-
-/obj/item/reagent_containers/glass/bottle/fertilizer/rh
-	name = "Robust Harvest Bottle"
-	desc = "A small bottle. Contains Robust Harvest. Used to fertilize plants."
-	icon_state = "bottle"
-	preloaded_reagents = list("robustharvest" = 60)
-

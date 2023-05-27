@@ -14,8 +14,8 @@ var/global/list/limb_icon_cache = list()
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	skin_tone = null
-	s_col = null
-	h_col = list(human.r_hair, human.g_hair, human.b_hair)
+	skin_col = null
+	hair_col = null
 	if(BP_IS_ROBOTIC(src))
 		return
 	if(species && human.species && species.name != human.species.name)
@@ -23,7 +23,8 @@ var/global/list/limb_icon_cache = list()
 	if(!isnull(human.s_tone) && (human.species.appearance_flags & HAS_SKIN_TONE))
 		skin_tone = human.s_tone
 	if(human.species.appearance_flags & HAS_SKIN_COLOR)
-		s_col = list(human.r_skin, human.g_skin, human.b_skin)
+		skin_col = human.skin_color
+	hair_col = human.hair_color
 
 /obj/item/organ/external/proc/get_cache_key()
 	var/part_key = ""
@@ -95,16 +96,16 @@ var/global/list/limb_icon_cache = list()
 			var/datum/sprite_accessory/facial_hair_style = GLOB.facial_hair_styles_list[owner.f_style]
 			if(facial_hair_style && facial_hair_style.species_allowed && (species.get_bodytype() in facial_hair_style.species_allowed))
 				var/icon/facial = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
-				if(facial_hair_style.do_colouration)
-					facial.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial, owner.species.hair_alpha), ICON_ADD) // OCCULUS EDIT - hair alpha for slimes
+				// if(facial_hair_style.do_colouration) //! Occulus Removal - I can't be assed to figure how to convert this to use hex
+					// facial.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial, owner.species.hair_alpha), ICON_ADD) // OCCULUS EDIT - hair alpha for slimes 
 				overlays |= facial
 
 		if(owner.h_style && !(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR)))
 			var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[owner.h_style]
 			if(hair_style && (species.get_bodytype() in hair_style.species_allowed))
 				var/icon/hair = new/icon(hair_style.icon, hair_style.icon_state)
-				if(hair_style.do_colouration)
-					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair, owner.species.hair_alpha), ICON_MULTIPLY)	//Eclipse edit. // OCCULUS EDIT - hair alpha for slimes
+				if(hair_style.do_colouration) // //! Occulus Removal - I can't be assed to figure how to convert this to use hex
+					// hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair, owner.species.hair_alpha), ICON_MULTIPLY)	//Eclipse edit. // OCCULUS EDIT - hair alpha for slimes 
 			// OCCULUS EDIT START - Hair Color Gradients
 					for(var/M in markings)
 						var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]

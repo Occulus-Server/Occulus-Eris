@@ -85,8 +85,8 @@
 
 // Plasmablock can be attached to any tool that uses fuel or power
 /obj/item/tool_upgrade/reinforcement/plasmablock
-	name = "phoronblock" // Occulus Edit - Plasma > Phoron
-	desc = "A phoronblock is way more efficient to dissipate heat than classic heatsinks or waterblocks thanks to the tremendous heat-transfer capacity of liquid phoron. The fluid that is actively pumped through a radiator and cooled by fans. It greatly extends the lifespan of power tools." // Occulus Edit - Plasma > Phoron
+	name = "plasmablock"
+	desc = "A plasmablock is way more efficient to dissipate heat than classic heatsinks or waterblocks thanks to the tremendous heat-transfer capacity of liquid plasma. The fluid that is actively pumped through a radiator and cooled by fans. It greatly extends the lifespan of power tools."
 	icon_state = "plasmablock"
 	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_PLASTIC = 2, MATERIAL_PLASMA = 1)
 
@@ -99,7 +99,7 @@
 		UPGRADE_POWERCOST_MULT = 1.05,
 		UPGRADE_FUELCOST_MULT = 1.05
 		)
-	I.prefix = "phoron-cooled" // Occulus Edit - Plasma > Phoron
+	I.prefix = "plasma-cooled"
 	I.req_fuel_cell = REQ_FUEL_OR_CELL
 
 /obj/item/tool_upgrade/reinforcement/rubbermesh
@@ -295,8 +295,8 @@
 	I.req_fuel_cell = REQ_FUEL_OR_CELL
 
 /obj/item/tool_upgrade/productivity/injector
-	name = "phoron injector" // Occulus Edit - Plasma > Phoron
-	desc = "If the words \"safety regulations\" do not mean anything to you, you may consider installing this fine piece of technology on your tool. It injects small amounts of phoron in the fuel mix before combustion to greatly increase its power output, making all kinds of tasks easier to perform." // Occulus Edit - Plasma > Phoron
+	name = "plasma injector"
+	desc = "If the words \"safety regulations\" do not mean anything to you, you may consider installing this fine piece of technology on your tool. It injects small amounts of plasma in the fuel mix before combustion to greatly increase its power output, making all kinds of tasks easier to perform."
 	icon_state = "injector"
 	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_PLASMA = 2)
 
@@ -310,7 +310,7 @@
 	UPGRADE_FUELCOST_MULT = 1.3,
 	UPGRADE_HEALTH_THRESHOLD = -10
 	)
-	I.prefix = "phoron-fueled" // Occulus Edit - Plasma > Phoron
+	I.prefix = "plasma-fueled"
 	I.req_fuel_cell = REQ_FUEL
 
 // 	 REFINEMENT: INCREASES PRECISION

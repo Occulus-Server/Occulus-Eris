@@ -312,8 +312,7 @@ There are important things regarding this file:
 	recoil = 10
 
 /obj/item/projectile/bullet/shotgun/beanbag/scrap
-	damage_types = list(BRUTE = 9)
-	agony = 55
+	damage_types = list(BRUTE = 9, HALLOSS = 55)
 
 /obj/item/projectile/bullet/shotgun/practice
 	name = "practice slug"

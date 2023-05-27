@@ -6,6 +6,7 @@
 #define JOBS_ENGINEERING "Chief Engineer","Ship Engineer","Engineering Apprentice","Atmospherics Technician","Electrician","Maintenance Technician"
 #define JOBS_MEDICAL "Chief Medical Officer","Medical Doctor","Psychiatrist","Pharmacist","Paramedic","Surgeon","Nurse","Medical Intern", "Bio-Engineer"
 #define JOBS_SCIENCE "Chief Science Officer","Scientist","Roboticist","Xenobiologist","Xenoflorist","Research Intern","Anomalist"
+#define JOBS_MOEBIUS "Moebius Biolab Officer","Moebius Doctor","Moebius Psychiatrist","Moebius Chemist","Moebius Paramedic","Moebius Bio-Engineer","Moebius Expedition Overseer","Moebius Scientist","Moebius Roboticist"
 #define JOBS_CARGO "Free Trade Union Merchant","Union Cargo Technician","Union Miner"
 #define JOBS_CIVILIAN "Club Manager","Club Worker",ASSISTANT_TITLE,"Intern","Assistant"
 #define JOBS_CHURCH "Chaplain","Mekhane Acolyte","Mekhane Custodian","Mekhane Agrolyte" //Occulus Edit End

@@ -94,16 +94,17 @@
 		return
 
 
-/obj/item/clothing/accessory/badge/warden
-	name = "Gunnery Sergeant badge" // Occulus Edit - Remove Eris corp. references
-	desc = "A silver Cobalt Security badge. Stamped with the words 'Sergeant.'" // Occulus Edit - Remove Eris corp. references
-	icon_state = "silverbadge"
+/obj/item/clothing/accessory/badge/holo/specialist
+	name = "Specialist's Holo Badge"
+	desc = "This medical teal badge marks the holder as an honorable Aegis Medical Specialist." // Occulus Edit - Remove Eris corp. references
+	icon_state = "specbadge"
+	item_state = "specbadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/accessory/badge/holo/sergeant
 	name = "Sergeant Holo badge"
-	desc = "This glowing red badge marks the holder as a distinguished Ironhammer Sergeant"
+	desc = "This glowing red badge marks the holder as a distinguished Aegis Sergeant" // Occulus Edit - Remove Eris corp. references
 	icon_state = "sargebadge"
 	item_state = "sargebadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER

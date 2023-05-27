@@ -3,7 +3,7 @@ var/list/dreams = list(
 	"an ID card","a bottle","a familiar face","a crewmember","a toolbox","an Aegis operative","the captain", // Occulus Edit - Ironhammer to Aegis
 	"voices from all around","deep space","a doctor","the engine","a contractor","an ally","darkness",
 	"light","a scientist","a monkey","a catastrophe","a loved one","a gun","warmth","freezing","the sun",
-	"a hat","the Luna","a ruined station","a planet","phoron","air","the medical bay","the bridge","blinking lights",
+	"a hat","the Luna","a ruined station","a planet","plasma","air","the medical bay","the bridge","blinking lights",
 	"a blue light","an abandoned laboratory","NanoTrasen","mercenaries","blood","healing","power","respect",
 	"riches","space","a crash","happiness","pride","a fall","water","flames","ice","melons","flying","the eggs","money",
 	"the Head of Personnel","the Aegis Commander","the Chief Engineer","a Chief Science Officer","a Chief Medical Officer",

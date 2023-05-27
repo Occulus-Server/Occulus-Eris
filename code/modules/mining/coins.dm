@@ -39,7 +39,7 @@
 
 /obj/item/coin/plasma
 	name = COIN_PLASMA
-	icon_state = "coin_phoron" // Occulus Edit - Plasma > Phoron
+	icon_state = "coin_plasma"
 	matter = list(MATERIAL_PLASMA = 1)	//occulus edit: adding matter value to coins
 
 /obj/item/coin/uranium

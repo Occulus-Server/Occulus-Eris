@@ -83,7 +83,7 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	breath_type = "oxygen"
-	poison_type = "phoron"
+	poison_type = "plasma"
 	exhale_type = "carbon_dioxide"
 
 	blurb = "A slime species originating from nullspace. \

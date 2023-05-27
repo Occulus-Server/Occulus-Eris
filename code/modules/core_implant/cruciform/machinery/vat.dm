@@ -207,10 +207,6 @@
 
 		victim.add_chemical_effect(CE_BLOODCLOT, 0.3)	//OCCULUS EDIT -  meralyne level bleedstopping since it can no longer stop bleeding by getting rid of all bruteloss
 
-		if(prob(10) && victim.UnHusk())
-			adjust_fluid_level(- 5)
-			victim.visible_message(SPAN_NOTICE("[victim]'s flesh reconstitutes!"), "Your flesh burns as it regenerates!", SPAN_DANGER("You hear wet squelching!"))
-
 		if(victim.stat != DEAD && prob(10))
 			adjust_fluid_level(-1)
 			victim.reagents.add_reagent(reagent_injected, 1)
@@ -410,12 +406,11 @@
 		var/obj/item/organ/donor = O
 		var/mob/living/carbon/human/newbody = new/mob/living/carbon/human(loc)
 		newbody.set_species()
-		newbody.real_name = donor.real_name
-		newbody.age = donor.age
-		newbody.flavor_text = donor.flavor_text
-		newbody.stats = donorstats
-		newbody.UpdateAppearance()
-		newbody.sync_organ_dna()
+		// newbody.real_name = donor.real_name
+		// newbody.age = donor.age
+		// newbody.flavor_text = donor.flavor_text
+		// newbody.stats = donorstats
+		// newbody.sync_organ_dna()
 		newbody.stat = DEAD //So it doesn't display the "Seizes up" message
 		sleep(1) //Game needs time to process all this or it gives you a weird wrong named character
 		for(var/obj/item/organ/external/EO in newbody.organs)

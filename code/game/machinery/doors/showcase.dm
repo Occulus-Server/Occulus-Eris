@@ -94,16 +94,16 @@
 	operating = TRUE
 
 	if(!have_glass)
-		flick("opening-empty")
+		flick("opening-empty", src)
 
 	else if(stat&BROKEN)
-		flick("opening-broken")
+		flick("opening-broken", src)
 
 	else
 		var/ratio = health / maxhealth
 		ratio = CEILING(ratio * 4, 1) * 25
 		overlays.Cut()
-		flick("opening[ratio]")
+		flick("opening[ratio]", src)
 
 	density = FALSE
 	operating = FALSE
@@ -117,15 +117,15 @@
 	operating = TRUE
 	overlays.Cut()
 	if(!have_glass)
-		flick("closing-empty")
+		flick("closing-empty", src)
 		icon_state = "closed-empty"
 	else if(stat&BROKEN)
-		flick("closing-broken")
+		flick("closing-broken", src)
 		icon_state = "closed-broken"
 	else
 		var/ratio = health / maxhealth
 		ratio = CEILING(ratio * 4, 1) * 25
-		flick("closing[ratio]")
+		flick("closing[ratio]", src)
 
 	density = TRUE
 	update_icon()

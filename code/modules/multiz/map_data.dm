@@ -108,7 +108,7 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 						/datum/job/doctor, /datum/job/chemist, /datum/job/paramedic, /datum/job/bioengineer,
 						/datum/job/technomancer,
 						/datum/job/cargo_tech, /datum/job/mining, /datum/job/merchant,
-						/datum/job/clubworker, /datum/job/clubmanager, /datum/job/artist,
+						/datum/job/clubworker, /datum/job/clubmanager, // Occulus Removal - /datum/job/artist,
 						/datum/job/chaplain, /datum/job/acolyte, /datum/job/janitor, /datum/job/hydro,
 						/datum/job/scientist, /datum/job/roboticist, /datum/job/psychiatrist,
 						/datum/job/ai, /datum/job/cyborg,

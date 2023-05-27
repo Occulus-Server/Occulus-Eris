@@ -14,7 +14,6 @@
 		)
 		for(var/stat in stat_modifiers)
 			newbody.stats.changeStat(stat, stat_modifiers[stat])
-		newbody.UpdateAppearance()
 		newbody.stat = DEAD //So it doesn't display the "Seizes up" message
 		sleep(1) //Game needs time to process all this or it gives you a weird wrong named character
 		user.unEquip(src)

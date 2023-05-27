@@ -11,7 +11,7 @@
 /area/outpost/abandoned_fortress)
 "ad" = (
 /obj/structure/low_wall/onestar,
-/obj/structure/window/phoronbasic/full,
+/obj/structure/window/plasmabasic/full,
 /turf/simulated/wall/untinted/onestar_reinforced,
 /area/outpost/abandoned_fortress)
 "ae" = (

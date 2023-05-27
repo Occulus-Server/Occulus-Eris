@@ -13,8 +13,6 @@
 	var/vital = FALSE
 	var/cannot_amputate = FALSE
 
-	var/gendered = FALSE
-
 	var/w_class = ITEM_SIZE_NORMAL
 	var/max_volume = 2.5	//Space used up by specific organ size and w_class of cavity implants (ITEM_SIZE_SMALL + 0.5)
 

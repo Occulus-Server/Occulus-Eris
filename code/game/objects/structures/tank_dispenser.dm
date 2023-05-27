@@ -1,6 +1,6 @@
 /obj/structure/dispenser
 	name = "tank storage unit"
-	desc = "A simple yet bulky storage device for gas tanks. Has room for up to ten oxygen tanks, and ten phoron tanks."
+	desc = "A simple yet bulky storage device for gas tanks. Has room for up to ten oxygen tanks, and ten plasma tanks."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "dispenser"
 	density = TRUE
@@ -19,7 +19,7 @@
 	plasmatanks = 0
 	rarity_value = 10
 
-/obj/structure/dispenser/phoron
+/obj/structure/dispenser/plasma
 	oxygentanks = 0
 	rarity_value = 25
 
@@ -34,8 +34,8 @@
 	switch(oxygentanks)
 		if(1 to 3)	overlays += "oxygen-[oxygentanks]"
 		if(4 to INFINITY) overlays += "oxygen-4"
-	switch(plasmatanks)//Occulus Edit
-		if(1 to 4)	overlay += "plasma-[plasmatanks]"
+	switch(plasmatanks)
+		if(1 to 4)	overlays += "plasma-[plasmatanks]"
 		if(5 to INFINITY) overlays += "plasma-5"
 
 /obj/structure/dispenser/attack_ai(mob/user)
@@ -47,7 +47,7 @@
 	user.set_machine(src)
 	var/dat = "[src]<br><br>"
 	dat += "Oxygen tanks: [oxygentanks] - [oxygentanks ? "<A href='?src=\ref[src];oxygen=1'>Dispense</A>" : "empty"]<br>"
-	dat += "Phoron tanks: [plasmatanks] - [plasmatanks ? "<A href='?src=\ref[src];phoron=1'>Dispense</A>" : "empty"]"
+	dat += "Plasma tanks: [plasmatanks] - [plasmatanks ? "<A href='?src=\ref[src];plasma=1'>Dispense</A>" : "empty"]"
 	user << browse(dat, "window=dispenser")
 	onclose(user, "dispenser")
 
@@ -103,7 +103,7 @@
 		else
 			tank = new /obj/item/tank/oxygen(loc)
 		oxygentanks--
-	if(href_list["phoron"] && plasmatanks > 0)
+	if(href_list["plasma"] && plasmatanks > 0)
 		if(platanks.len)
 			tank = platanks[platanks.len]
 			platanks.Remove(tank)

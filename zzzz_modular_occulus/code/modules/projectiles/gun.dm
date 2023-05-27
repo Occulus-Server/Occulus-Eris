@@ -16,9 +16,6 @@
 	data["force_max"] = initial(force)*10
 	data["muzzle_flash"] = muzzle_flash
 
-	data["recoil_buildup"] = recoil_buildup
-	data["recoil_buildup_max"] = initial(recoil_buildup)*10
-
 	if(firemodes.len)
 		var/list/firemodes_info = list()
 		for(var/i = 1 to firemodes.len)
@@ -37,7 +34,7 @@
 	if(item_upgrades.len)
 		data["attachments"] = list()
 		for(var/atom/A in item_upgrades)
-			data["attachments"] += list(list("name" = A.name, "icon" = getAtomCacheFilename(A)))
+			data["attachments"] += list(list("name" = A.name, "icon" = SSassets.transport.get_asset_url(A)))
 
 
 	return data
@@ -70,7 +67,7 @@
 
 		projectile.multiply_projectile_damage(damage_multiplier)
 
-		projectile.multiply_projectile_penetration(penetration_multiplier)
+		projectile.add_projectile_penetration(penetration_multiplier)
 
 		projectile.multiply_pierce_penetration(pierce_multiplier)
 

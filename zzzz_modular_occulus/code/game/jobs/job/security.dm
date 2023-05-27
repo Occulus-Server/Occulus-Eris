@@ -147,7 +147,7 @@
 	new /obj/item/ammo_magazine/ihclrifle/rubber(src)
 	new /obj/item/ammo_magazine/ihclrifle/rubber(src)
 	new /obj/item/storage/box/holobadge(src)
-	new /obj/item/clothing/accessory/badge/warden(src)
+	new /obj/item/clothing/accessory/badge/holo/sergeant(src)
 	new /obj/item/storage/pouch/pistol_holster(src)
 	new /obj/item/storage/pouch/baton_holster(src)
 	new /obj/item/clothing/suit/armor/vest/ironhammer(src)

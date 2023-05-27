@@ -15,9 +15,6 @@
 
 	var/footstep_type
 
-	var/list/initial_gas
-
-	var/footstep_type
 
 	//Properties for airtight tiles (/wall)
 	var/thermal_conductivity = 0.05
