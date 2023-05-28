@@ -8,6 +8,8 @@ fundamental differences
 */
 
 /obj/machinery/appliance/mixer
+	name = "stand mixer"
+	desc = "A large stand mixer for making lots of... mixed things. It spins in an oddly hypnotic fashion."
 	max_contents = 1
 	stat = POWEROFF
 	cooking_coeff = 0.75
@@ -15,12 +17,16 @@ fundamental differences
 	idle_power_usage = 50
 	appliancetype = 0
 	icon = 'zzzz_modular_occulus/icons/obj/machines/kitchen.dmi'
-	icon_state = "mixer_off"
+	icon_state = "mixer_red"
 
 /obj/item/electronics/circuitboard/mixer
 	name = "Circuit board (Mixer)"
 	build_path = /obj/machinery/appliance/mixer
 	origin_tech = list(TECH_DATA = 2)
+	req_components = list(
+		"/obj/item/stock_parts/matter_bin" = 1,
+		"/obj/item/stock_parts/capacitor" = 2,
+		"/obj/item/stock_parts/scanning_module" = 1)
 
 /obj/machinery/appliance/mixer/examine(var/mob/user)
 	. = ..()
@@ -84,7 +90,7 @@ fundamental differences
 			var/obj/item/I = thing
 			menuoptions[I.name] = I
 
-	var/selection = show_radial_menu(user, src, menuoptions, require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
+	var/selection = show_radial_menu(user, src, menuoptions, require_near = TRUE, tooltips = TRUE)
 	if (!selection)
 		return FALSE
 	var/obj/item/I = menuoptions[selection]
@@ -116,12 +122,10 @@ fundamental differences
 	CI.reset()
 	update_icon()
 
-/obj/machinery/appliance/mixer/update_icon()
-	if (!stat)
-		icon_state = on_icon
-	else
-		icon_state = off_icon
 
+/obj/machinery/appliance/mixer/update_icon()
+	var/string = "[!stat ? "_on" : ""]"
+	icon_state = "mixer_red[string]"
 
 /obj/machinery/appliance/mixer/Process()
 	if (!stat)

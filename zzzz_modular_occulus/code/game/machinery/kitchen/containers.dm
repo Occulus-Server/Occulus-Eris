@@ -4,7 +4,7 @@
 	var/place_verb = "into"
 	var/max_space = 20	//Maximum sum of w-classes of foods in this container at once
 	volume = 80			//Maximum units of reagents
-	flags = OPENCONTAINER
+	reagent_flags = OPENCONTAINER | INJECTABLE | DRAWABLE | DRAINABLE | REFILLABLE
 	var/list/insertable = list(
 		/obj/item/reagent_containers/food/snacks,
 		/obj/item/holder,
@@ -58,6 +58,32 @@
 	. = ..()
 	closeToolTip(usr)
 
+/obj/item/reagent_containers/cooking_container/afterattack(var/obj/target, var/mob/user, var/flag)
+	if(!flag)
+		return
+	if(standard_pour_into(user, target))
+		return 1
+	
+	if(istype(target, /obj/structure/reagent_dispensers))
+		if(standard_dispenser_refill(user, target))
+			return 1
+
+/obj/item/reagent_containers/cooking_container/pre_attack(atom/A, mob/user, params)
+	if(user.a_intent == I_HURT)
+		user.investigate_log("splashed [src] filled with [reagents.log_list()] onto [A]", "chemistry")
+		if(standard_splash_mob(user, A))
+			return TRUE
+		if(is_drainable() && reagents.total_volume)
+			if(istype(A, /obj/structure/sink))
+				to_chat(user, SPAN_NOTICE("You pour the solution into [A]."))
+				reagents.remove_any(reagents.total_volume)
+			else
+				playsound(src,'sound/effects/Splash_Small_01_mono.ogg',50,1)
+				to_chat(user, SPAN_NOTICE("You splash the solution onto [A]."))
+				reagents.splash(A, reagents.total_volume)
+			return TRUE
+	return ..()
+
 /obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I, var/mob/user)
 	if(is_type_in_list(I, insertable))
 		if (!can_fit(I))
@@ -79,9 +105,6 @@
 	do_empty(usr)
 
 /obj/item/reagent_containers/cooking_container/proc/do_empty(mob/user)
-//	if (!use_check(user))
-//		return
-
 	if (isemptylist(contents))
 		to_chat(user, SPAN_WARNING("There's nothing in [src] you can remove!"))
 		return
@@ -103,6 +126,25 @@
 
 /obj/item/reagent_containers/cooking_container/AltClick(var/mob/user)
 	do_empty(user)
+
+/*	Commenting this out for now for testing and working purposes. Will return to it when it's not broken. 
+//You can empty everything manually with alt click or you can pick up things individually. Useful for the grill and a few other things potentially in the future.
+/obj/item/reagent_containers/cooking_container/attack_self(var/mob/user)
+	if (!contents.len)
+		to_chat(user, SPAN_NOTICE("There's nothing in \the [src] to remove."))
+		return
+	if(contents.len == 1)
+		var/atom/movable/contained = contents[1]
+		contained.forcemove(user.loc)
+		to_chat(user, SPAN_NOTICE("You remove \the [contained] from \the [src]."))
+		return
+	else
+		var/atom/movable/choice = input(user, "What do you want to remove?") as null|anything in contents
+		choice.forceMove(user.loc)
+		//user.put_in_inactive_hand(choice)
+		to_chat(user, SPAN_NOTICE("You remove \the [choice] from \the [src]."))
+		return
+*/
 
 //Deletes contents of container.
 //Used when food is burned, before replacing it with a burned mess
@@ -164,7 +206,7 @@
 	icon_state = "ovendish"
 	max_space = 30
 	volume = 120
-	appliancetype = "OVEN"
+	appliancetype = OVEN
 
 /obj/item/reagent_containers/cooking_container/skillet
 	name = "skillet"
@@ -174,8 +216,7 @@
 	volume = 30
 	force = 11
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = OPENCONTAINER // Will still react
-	appliancetype = "SKILLET"
+	appliancetype = SKILLET
 
 /obj/item/reagent_containers/cooking_container/skillet/Initialize(var/mapload, var/mat_key)
 	. = ..(mapload)
@@ -195,8 +236,7 @@
 	slot_flags = SLOT_HEAD
 	force = 8
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = OPENCONTAINER // Will still react
-	appliancetype = "SAUCEPAN"
+	appliancetype = SAUCEPAN
 
 /obj/item/reagent_containers/cooking_container/saucepan/Initialize(var/mapload, var/mat_key)
 	. = ..(mapload)
@@ -216,8 +256,7 @@
 	volume = 180
 	force = 8
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = OPENCONTAINER // Will still react
-	appliancetype = "POT"
+	appliancetype = POT
 	w_class = ITEM_SIZE_BULKY
 
 /obj/item/reagent_containers/cooking_container/pot/Initialize(var/mapload, var/mat_key)
@@ -234,7 +273,7 @@
 	shortname = "basket"
 	desc = "Put ingredients in this; designed for use with a deep fryer. Warranty void if used."
 	icon_state = "basket"
-	appliancetype = "FRYER"
+	appliancetype = FRYER
 
 /obj/item/reagent_containers/cooking_container/grill_grate
 	name = "grill grate"
@@ -242,7 +281,7 @@
 	place_verb = "onto"
 	desc = "Primarily used to grill meat, place this on a grill and grab a can of energy drink."
 	icon_state = "grill_grate"
-	appliancetype = "GRILL"
+	appliancetype = GRILL
 	insertable = list(
 		/obj/item/reagent_containers/food/snacks/meat,
 		/obj/item/reagent_containers/food/snacks/xenomeat
@@ -253,13 +292,24 @@
 		return FALSE
 	return TRUE
 
+/obj/item/reagent_containers/cooking_container/plancha_pan
+	name = "plancha divider"
+	shortname = "divider"
+	place_verb = "into"
+	desc = "Used to keep different things from mixing on the flat surface of a plancha."
+	icon_state = "plancha_divider"
+	appliancetype = PLANCHA
+	max_space = 20
+	volume = 50
+
+
+
 /obj/item/reagent_containers/cooking_container/plate
 	name = "serving plate"
 	shortname = "plate"
 	desc = "A plate. You plate foods on this plate."
 	icon_state = "plate"
-	appliancetype = "MIX"
-	flags = OPENCONTAINER // Will still react
+	appliancetype = MIX
 	volume = 15 // for things like jelly sandwiches etc
 	max_space = 25
 
@@ -273,7 +323,7 @@
 		return ..()
 	if(!(length(contents) || reagents?.total_volume))
 		return ..()
-	var/datum/recipe/recipe = select_recipe(src, appliance = appliancetype)
+	var/datum/recipe/recipe = select_cooking_recipe(src, appliance = appliancetype)
 	if(!recipe)
 		return
 	var/list/obj/results = recipe.make_food(src)
@@ -283,7 +333,7 @@
 		AM.forceMove(temp)
 
 	//making multiple copies of a recipe from one container. For example, tons of fries
-	while (select_recipe(src, appliance = appliancetype) == recipe)
+	while (select_cooking_recipe(src, appliance = appliancetype) == recipe)
 		var/list/TR = list()
 		TR += recipe.make_food(src)
 		for (var/result in TR) //Move results to buffer

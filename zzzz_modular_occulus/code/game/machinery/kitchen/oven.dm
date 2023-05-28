@@ -1,7 +1,10 @@
 /obj/machinery/appliance/cooker/oven
 	name = "oven"
-	desc = "Cookies are ready, dear. Alt-click to open or close the oven door."
-	icon_state = "ovenopen"
+	desc = "Cookies are ready, dear. Alt-click to open or close the oven door. Control-click to turn it on."
+	icon_state = "oven"
+	on_icon = "oven_on"
+	off_icon = "oven"
+	
 	cook_type = "baked"
 	appliancetype = OVEN
 	food_color = "#a34719"
@@ -41,20 +44,19 @@
 	)
 
 /obj/item/electronics/circuitboard/oven
-	name = "Circuit board (Plancha)"
+	name = "Circuit board (Oven)"
 	build_path = /obj/machinery/appliance/cooker/oven
 	origin_tech = list(TECH_DATA = 2)
+	req_components = list(
+		"/obj/item/stock_parts/matter_bin" = 1,
+		"/obj/item/stock_parts/capacitor" = 3,
+		"/obj/item/stock_parts/scanning_module" = 2)
 
-
-/obj/machinery/appliance/cooker/oven/update_icon()
+/obj/machinery/appliance/cooker/oven/update_icon()	//Four icon states, so handled separately from the others.
 	if (!open)
-		if (!stat)
-			icon_state = "ovenclosed_on"
-		else
-			icon_state = "ovenclosed_off"
+		icon_state = "oven[!stat ? "_closed_on" : ""]"
 	else
-		icon_state = "ovenopen"
-	..()
+		icon_state = "oven_open[!stat ? "_on" : ""]"
 
 /obj/machinery/appliance/cooker/oven/AltClick(var/mob/user)
 	try_toggle_door(user)
@@ -70,9 +72,18 @@
 /obj/machinery/appliance/cooker/oven/proc/try_toggle_door(mob/user)
 //	if(!use_check(user))
 //		return
-	open = !open
-	playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)
-	update_icon()
+	if(stat)	//Can open or close if it's off.
+		to_chat(user, SPAN_NOTICE("You [open ? "close" : "open"] the oven door."))
+		open = !open
+		playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)
+		update_icon()
+	else if(!stat && open)	//Can close if it's on
+		to_chat(user, SPAN_NOTICE("You close the oven door."))
+		open = !open
+		playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)
+		update_icon()
+	else	//Can't open if it's on.
+		to_chat(user, SPAN_WARNING("Opening the oven while it's on is probably a bad idea."))
 
 /obj/machinery/appliance/cooker/oven/proc/manip(var/obj/item/I)
 	// check if someone's trying to manipulate the machine

@@ -1,13 +1,12 @@
 /obj/machinery/appliance/cooker/grill
 	name = "grill"
-	desc = "Smells like... Propane?"
-	icon_state = "grill_off"
+	desc = "Smells like... Propane? Control-click to turn it on."
+	icon_state = "grill"
 	cook_type = "grilled"
 	appliancetype = "GRILL"
 	stat = POWEROFF
 	food_color = "#a34719"
-	on_icon = "grill_on"
-	off_icon = "grill_off"
+
 	finish_verb = "sizzles to completion!"
 
 	max_contents = 1
@@ -19,7 +18,7 @@
 
 
 	component_parts = list(
-		/obj/item/electronics/circuitboard/grill,
+		/obj/item/electronics/circuitboard/cooker/grill,
 		/obj/item/stock_parts/capacitor = 2,
 		/obj/item/stock_parts/micro_laser,
 		/obj/item/stack/cable_coil = 5
@@ -29,10 +28,16 @@
 		/obj/item/reagent_containers/cooking_container/grill_grate
 	)
 
-/obj/item/electronics/circuitboard/grill
+	attackverb = "grill"
+
+
+/obj/item/electronics/circuitboard/cooker/grill
 	name = "Circuit board (Grill)"
 	build_path = /obj/machinery/appliance/cooker/grill
-	origin_tech = list(TECH_DATA = 2)
+	req_components = list(
+		"/obj/item/stock_parts/capacitor" = 4,
+		"/obj/item/stack/cable_coil" = 1,
+		"/obj/item/stock_parts/micro_laser" = 1)
 
 /obj/machinery/appliance/cooker/grill/RefreshParts()
 	..()
@@ -60,19 +65,15 @@
 /obj/machinery/appliance/cooker/grill/update_icon()
 	. = ..()
 	cut_overlays()
-	if(!stat)
-		icon_state = on_icon
-	else
-		icon_state = off_icon
 	if(length(cooking_objs))
 		var/datum/cooking_item/CI = cooking_objs[1]
 		var/obj/item/reagent_containers/cooking_container/grill_grate/G = CI.container
 		if(G)
-			add_overlay(image('icons/obj/cooking_machines.dmi', "grill"))
+			add_overlay(image('zzzz_modular_occulus/icons/obj/machines/kitchen.dmi', "grill"))
 			var/counter = 1
 			for(var/thing in G.contents)
-				if(istype(thing, /obj/item/reagent_containers/food/snacks/meat))
-					add_overlay(image('icons/obj/cooking_machines.dmi', "meat[counter]"))
-				else if(istype(thing, /obj/item/reagent_containers/food/snacks/xenomeat))
-					add_overlay(image('icons/obj/cooking_machines.dmi', "xenomeat[counter]"))
+				if(istype(thing, /obj/item/reagent_containers/food/snacks/meat/roachmeat))
+					add_overlay(image('zzzz_modular_occulus/icons/obj/machines/kitchen.dmi', "xenomeat[counter]"))
+				else if(istype(thing, /obj/item/reagent_containers/food/snacks/meat))
+					add_overlay(image('zzzz_modular_occulus/icons/obj/machines/kitchen.dmi', "meat[counter]"))
 				counter++

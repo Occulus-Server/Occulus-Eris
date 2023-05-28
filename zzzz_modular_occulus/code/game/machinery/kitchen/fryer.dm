@@ -1,11 +1,9 @@
 /obj/machinery/appliance/cooker/fryer
-	name = "deep fryer"
-	desc = "A deep-fat frying unit. A label on the side warns to not fry cereals."
-	icon_state = "fryer_off"
+	name = "fryer"
+	desc = "A deep-fat frying unit. A label on the side warns to not fry cereals. Control-click to turn it on."
+	icon_state = "fryer"
 	//can_cook_mobs = 1
 	cook_type = "deep fried"
-	on_icon = "fryer_on"
-	off_icon = "fryer_off"
 	food_color = "#ffad33"
 	appliancetype = FRYER
 	active_power_usage = 12 KILOWATTS
@@ -30,6 +28,14 @@
 	alt_damage_type = OXY
 	alt_affected_organ = OP_LUNGS
 
+/obj/item/electronics/circuitboard/cooker/fryer
+	name = "Circuit board (Deep-Fryer)"
+	build_path = /obj/machinery/appliance/cooker/fryer
+	req_components = list(
+		"/obj/item/stock_parts/capacitor" = 3,
+		"/obj/item/stock_parts/scanning_module" = 1,
+		"/obj/item/stock_parts/matter_bin" = 2)
+
 /obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
 	. = ..()
 	if (.)//no need to duplicate adjacency check
@@ -37,20 +43,11 @@
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
 	. = ..()
-	oil = new/datum/reagents(optimal_oil * 1.25, src)
-	var/variance = rand()*0.15
-	//Fryer is always a little below full, but its usually negligible
-
-	if (prob(20))
-		//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
+	oil = new /datum/reagents(optimal_oil * 1.25, src)
+	var/variance = rand()*0.15	//Fryer is always a little below full, but its usually negligible
+	if (prob(20))				//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
 		variance = rand()*0.5
 	oil.add_reagent(/datum/reagent/organic/nutriment/cornoil, optimal_oil*(1 - variance))
-/*
-/obj/machinery/appliance/cooker/fryer/heat_up()
-	if (..())
-		//Set temperature of oil
-		oil.set_temperature(temperature)
-*/	//We want things to just be on or off, heating up is annoying.
 
 /obj/machinery/appliance/cooker/fryer/Process()
 	. = ..()
@@ -77,11 +74,12 @@
 	cooking_power *= oil_efficiency
 
 /obj/machinery/appliance/cooker/fryer/update_icon()
-	if (cooking)
-		icon_state = on_icon
-	else
-		icon_state = off_icon
-	..()
+	. = ..()
+	cut_overlays()
+	var/counter = 1
+	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
+		add_overlay(image('zzzz_modular_occulus/icons/obj/machines/kitchen.dmi', "frybasket[counter]"))
+		counter++
 
 //Fryer gradually infuses any cooked food with oil. Moar calories
 //This causes a slow drop in oil levels, encouraging refill after extended use

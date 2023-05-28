@@ -1,17 +1,51 @@
 /obj/machinery/appliance/cooker
-	//name = "Plancha"		//This is technically not a machine, I am an idiot
-	//desc = "A flat-topped grill for cooking things like hamburgers or steaks on."
-	icon_state = "null"
-	cooking_power = 0
-	optimal_power = 1.1//cooking power at 100%
+	name = "plancha"
+	desc = "A flat-topped grill for cooking things like fried rice or eggs on. Control-click to turn it on."
+	icon_state = "plancha_off"
+	optimal_power = 1.1	//cooking power at 100%
+	appliancetype = "PLANCHA"
+
+	idle_power_usage = 2 KILOWATTS
+	on_icon = "plancha_on"
+	off_icon = "plancha_off"
 
 	var/light_x = 0
 	var/light_y = 0
 	cooking_coeff = 0
 	cooking_power = 0
+	optimal_power = 1.1
 	flags = null
-	var/starts_with = list()
+	var/starts_with = list(
+		/obj/item/reagent_containers/cooking_container/plancha_pan,
+		/obj/item/reagent_containers/cooking_container/plancha_pan,
+		/obj/item/reagent_containers/cooking_container/plancha_pan
+		)
+
 	power_verb = "turn on"
+	finish_verb = "finishes searing!"
+	food_color = "#a34719"
+	cook_type = "seared"
+
+	maindamage = 30
+	altdamage = 30
+	alt_affected_organ = OP_EYES
+
+	max_contents = 3
+
+	component_parts = list(
+		/obj/item/electronics/circuitboard/cooker,
+		/obj/item/stock_parts/capacitor = 4,
+		/obj/item/stack/cable_coil = 5)
+
+/obj/item/electronics/circuitboard/cooker
+	name = "Circuit board (Plancha)"
+	desc = "The circuit board for one of the kitchen's machines."
+	build_path = /obj/machinery/appliance/cooker
+	origin_tech = list(TECH_MAGNET = 2)
+	board_type = "machine"
+	req_components = list(
+		"/obj/item/stock_parts/capacitor" = 4,
+		"/obj/item/stack/cable_coil" = 5)
 
 
 /obj/machinery/appliance/cooker/MouseEntered(location, control, params)
@@ -78,9 +112,10 @@
 		if(IDLE_POWER_USE)
 			hot = FALSE	//I wish I could call this cold, but I can't
 	playsound(src, 'sound/machines/click.ogg', 20, 1)
-	update_icon()
+	
 
 /obj/machinery/appliance/cooker/update_icon()
+	. = ..()
 	overlays.Cut()
 	var/image/light
 	if (use_power == 2 && !stat)
@@ -90,6 +125,11 @@
 	light.pixel_x = light_x
 	light.pixel_y = light_y
 	overlays += light
+	if(src.appliancetype == PLANCHA)	//Only the plancha gets these overlays, currently not working, will fix soon
+		var/counter = 1
+		for(var/obj/item/reagent_containers/cooking_container/CC in contents)
+			add_overlay(image('zzzz_modular_occulus/icons/obj/machines/kitchen.dmi', "pdiv[counter]"))
+			counter++
 
 /obj/machinery/appliance/cooker/Process()
 	if(!stat)

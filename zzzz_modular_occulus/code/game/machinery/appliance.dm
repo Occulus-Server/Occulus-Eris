@@ -10,7 +10,6 @@
 	var/obj/item/reagent_containers/cooking_container/container = list() //Probably throwing errors because no weapon type, should be fixed after port
 	var/combine_target = null
 	var/burned = FALSE
-	//var/container = null
 
 	var/oil = 0
 	var/max_oil = 0//Used for fryers.
@@ -37,6 +36,8 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5
 	active_power_usage = 100
+
+	stat = POWEROFF	//Starts turned off
 
 	pass_flags = PASSTABLE	//Occulus Edit, As request by jams
 	reagent_flags = OPENCONTAINER | NO_REACT
@@ -65,23 +66,22 @@
 	var/resistance
 	var/finish_verb
 	var/power_verb
-	//var/activation_message = "You [stat ? "turn off" : "[power_verb]"] \the [src]."
 
 	// If the machine has multiple output modes, define them here.
 	var/selected_option
 	var/list/output_options = list()
-	var/list/datum/recipe/available_recipes
+	var/list/available_recipes = list()
 
 	var/container_type = null
 	var/appliancetype
 
-	var/attackverb = null		//These three are for determining what happens if you slam someone into a kitchen appliance.
-	var/main_damage_type = BURN	//The proc is kitchen_smackdown
-	var/alt_damage_type = BRUTE	//Being slammed into hot objects should cause some of each type of damage
-	var/maindamage = 0			//This is basically just the damage being slammed into each thing will do.
-	var/altdamage = 0		//The fryer does oxyloss AND burn because your head is being shoved into hot oil, so we need a second damage type. Normally this will be brute, though.
+	var/attackverb = "slam"				//These are for determining what happens if you slam someone into a kitchen appliance.
+	var/main_damage_type = BURN			//The proc is kitchen_smackdown
+	var/alt_damage_type = BRUTE			//Being slammed into hot objects should cause some of each type of damage
+	var/maindamage = 0					//This is basically just the damage being slammed into each thing will do.
+	var/altdamage = 0					//The fryer does oxyloss AND burn because your head is being shoved into hot oil, so we need a second damage type. Normally this will be brute, though.
 	var/main_affected_organ = BP_HEAD	//This will be the head on every appliance
-	var/alt_affected_organ = null	//This basically only exists for the fryer and oven because you're inhaling hot oil/air
+	var/alt_affected_organ = null		//This basically only exists for the fryer and oven because you're inhaling hot oil/air
 
 /obj/machinery/appliance/Initialize()
 	.=..()
@@ -89,13 +89,15 @@
 	if(output_options.len)
 		verbs += /obj/machinery/appliance/proc/choose_output
 
-	if(!available_recipes)
+	if(!src.available_recipes)
 		available_recipes = new
 
-	for(var/type in subtypesof(/datum/recipe)) //Assign the proper recipe datums
+	for(var/type in subtypesof(/datum/recipe))	//Assign the proper recipe datums
 		var/datum/recipe/test = type
-		if(appliancetype == test.appliance)//Each recipe intended to be made in the kitchen is gonna need a flag assigning it to a specific machine, no donuts in the grill
-			available_recipes += new test
+		if(!(test.appliance))					//Get rid of the recipes that do not have any appliances
+			continue
+		if(src.appliancetype == test.appliance)	//Each recipe intended to be made in the kitchen is gonna need a flag assigning it to a specific machine, no donuts in the grill
+			src.available_recipes += new type
 
 /obj/machinery/appliance/Destroy()
 	for(var/a in cooking_objs)
@@ -111,16 +113,7 @@
 	if(Adjacent(user))
 		. += list_contents(user)
 	if(!use_power)
-		to_chat(user, SPAN_WARNING("It is switched off."))
-
-/*
-/obj/machinery/appliance/proc/use_check(mob/user)	//Used to disallow the use of these machines by anything but carbon/human, TODO: add cooking module cybord implementation
-	if(isrobot(user))
-		return FALSE
-	if(user.stat == DEAD || user.stat == UNCONSCIOUS)
-		return FALSE
-	return TRUE
-*/
+		to_chat(user, SPAN_NOTICE("It is switched off."))
 
 /obj/machinery/appliance/proc/list_contents(var/mob/user)
 	if(cooking_objs.len)
@@ -162,10 +155,8 @@
 			return CI
 
 /obj/machinery/appliance/update_icon()
-	if (!stat && length(cooking_objs))
-		icon_state = on_icon
-	else
-		icon_state = off_icon
+	if(cooking_objs.len)
+		icon_state = "[src.name][!stat ? "_on" : ""]"
 
 /obj/machinery/appliance/proc/update_cooking_power()
 	if(hot)
@@ -174,18 +165,22 @@
 		cooking_power = 0
 
 /obj/machinery/appliance/proc/attempt_toggle_power(mob/user)
-//	if (use_check_and_message(user, issilicon(user) ? USE_ALLOW_NON_ADJACENT : 0))
-//		return
-
-	stat ^= POWEROFF // Toggles power
-	use_power = (stat & POWEROFF) ? 0 : 2 // If on, use active power, else use no power
+	stat ^= POWEROFF						//Toggle power
+	if(!(stat & POWEROFF))					
+		if(contents.len)					//If there's anything in there
+			for(var/obj/item/reagent_containers/cooking_container/C in contents)
+				if(C.contents.len)			//With things in it
+					cooking = TRUE			//We want to restart cooking
+	if(stat & POWEROFF)
+		cooking = FALSE
+	use_power = (stat & POWEROFF) ? 0 : 2
 	if(user)
 		user.visible_message("[user] turns [src] [use_power ? "on" : "off"].", "You turn [use_power ? "on" : "off"] \the [src].")
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
 	update_icon()
 
 /obj/machinery/appliance/AICtrlClick(mob/user)
-	attempt_toggle_power(user, TRUE)
+	attempt_toggle_power(user)
 
 //Now for cooking stuff.
 /obj/machinery/appliance/proc/can_cook(var/obj/item/I, var/mob/user)
@@ -229,8 +224,6 @@
 	set name = "Choose output"
 	set category = "Object"
 
-//	if (use_check_and_message(usr, issilicon(usr) ? USE_ALLOW_NON_ADJACENT : 0))
-//		return
 	if(isemptylist(output_options))
 		return
 	var/choice = input("What specific food do you wish to make with [src]?", "Choose Output") as null|anything in output_options+"Default"
@@ -277,7 +270,7 @@
 		to_chat(victim, SPAN_DANGER("[user] manages to [surface.attackverb] you with \the [surface]!"))
 		visible_message("[user] manages to [surface.attackverb] [victim] with \the [surface]!")
 		//damage block
-		victim.apply_damage(damage = maindamage, damagetype = surface.main_damage_type , main_affected_organ)
+		victim.apply_damage(damage = maindamage, damagetype = surface.main_damage_type, main_affected_organ)
 		if(hot)		//No heat or boiling air damage if it's off. Just slamming.
 			victim.apply_damage(altdamage, surface.alt_damage_type , alt_affected_organ)
 
@@ -320,10 +313,11 @@
 
 	// We can actually start cooking now.
 	user.visible_message("<b>[user]</b> puts [I] into [src].")
-	if(selected_option || length(CI.container.contents) || select_recipe(CI.container || src, appliance = CI.container.appliancetype)) // we're doing combo cooking, we're not just heating reagents, OR we have a valid reagent-only recipe
+	if(selected_option || length(CI.container.contents) || select_cooking_recipe(CI.container || src, appliance = CI.container.appliancetype)) // we're doing combo cooking, we're not just heating reagents, OR we have a valid reagent-only recipe
 		// this is to stop reagents from burning when you're heating stuff
 		get_cooking_work(CI)
-		cooking = TRUE
+		if(!(stat & POWEROFF))
+			cooking = TRUE
 
 	return CI
 
@@ -331,36 +325,36 @@
 /obj/machinery/appliance/proc/get_cooking_work(var/datum/cooking_item/CI)
 	for (var/obj/item/J in CI.container)
 		oilwork(J, CI)
-		message_admins("after oilwork proc")
+
 	for (var/obj/item/reagent_containers/food/snacks/S in CI.container.contents)
 		for (var/_R in S.reagents.reagent_list)
-			message_admins("CI.container reagents list SNACK VERSION")
+
 			if (ispath(_R, /datum/reagent/organic/nutriment))
 				CI.max_cookwork += S.reagents.reagent_list[_R].volume * 2//Added reagents contribute less than those in food items due to granular form
-				message_admins("maxcookwork from nutriment reagents")
+
 				//Nonfat reagents will soak oil
 				if (!ispath(_R, /datum/reagent/organic/nutriment/cornoil))
 					CI.max_oil += S.reagents.reagent_list[_R].volume * 0.25
 			else
 				CI.max_cookwork += S.reagents.total_volume
 				CI.max_oil += S.reagents.total_volume* 0.10
-				message_admins("maxcookwork from reagents")
+
 	for (var/_R in CI.container.reagents.reagent_list)
-		message_admins("CI.container reagents list")
+
 		if (ispath(_R, /datum/reagent/organic/nutriment))
 			CI.max_cookwork += CI.container.reagents.reagent_list[_R].volume * 2//Added reagents contribute less than those in food items due to granular form
-			message_admins("maxcookwork from nutriment reagents")
+
 			//Nonfat reagents will soak oil
 			if (!ispath(_R, /datum/reagent/organic/nutriment/cornoil))
 				CI.max_oil += CI.container.reagents.reagent_list[_R].volume * 0.25
 		else
 			CI.max_cookwork += CI.container.reagents.total_volume
 			CI.max_oil += CI.container.reagents.total_volume * 0.10
-			message_admins("maxcookwork from reagents")
+
 	//Rescaling cooking work to avoid insanely long times for large things
 	var/brackets = CI.max_cookwork / 4
 	CI.max_cookwork = 4*(1-0.95**brackets)/0.05
-	message_admins("maxcookwork brackets")
+
 
 //Just a helper to save code duplication in the above
 /obj/machinery/appliance/proc/oilwork(var/obj/item/I, var/datum/cooking_item/CI)
@@ -390,21 +384,14 @@
 //Called every tick while we're cooking something
 /obj/machinery/appliance/proc/do_cooking_tick(var/datum/cooking_item/CI)
 	for(CI in cooking_objs)
-		message_admins("picked cooking item")
-		if(!CI.max_cookwork)
-			return FALSE
-		message_admins("CI max cookwork")
-		var/was_done = (CI.cookwork >= CI.max_cookwork)
-
-		CI.cookwork += cooking_power
-		message_admins("adding cooking powder to cookwork")
-		if(!was_done && CI.cookwork >= CI.max_cookwork)
-			//If cookwork has gone from above to below 0, then this item finished cooking
+		if(!(CI.max_cookwork))
+			continue
+		var/was_done = (CI.cookwork >= CI.max_cookwork)	//This check being here ensures we always have a little more cookwork than needed just in case.
+		CI.cookwork += src.cooking_power
+		if(!was_done && CI.cookwork >= CI.max_cookwork)	//If cookwork has gone from above to below 0, then this item finished cooking
 			finish_cooking(CI)
-
-		else if(can_burn_food && !CI.burned && CI.cookwork > CI.max_cookwork * CI.overcook_mult)
+		else if(can_burn_food && !CI.burned && CI.cookwork > CI.max_cookwork * CI.overcook_mult)	//If it's overcooked and can burn, it's going to burn. 
 			burn_food(CI)
-
 	return TRUE
 
 /obj/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
@@ -412,7 +399,7 @@
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options
-	var/datum/recipe/recipe = null
+	var/datum/recipe/R
 	var/atom/C = null
 	var/appliance
 	if (CI.container && CI.container.appliancetype)
@@ -422,29 +409,24 @@
 		C = src
 		appliance = appliancetype
 	if(appliance)
-		recipe = select_recipe(C, appliance = appliance)
-
-	if(recipe)
-		var/list/results = recipe.cook_food(C)
-
+		R = select_cooking_recipe(C, appliance = appliance)
+	if(R)
+		var/list/results = R.cook_food(C)
 		var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
-
 		for(var/atom/movable/AM in results)
 			AM.forceMove(temp)
-
 		//making multiple copies of a recipe from one container. For example, tons of fries
-		while(select_recipe(C, appliance = appliance) == recipe)
+		while(select_cooking_recipe(C, appliance = appliance) == R)
 			var/list/TR = list()
-			TR += recipe.cook_food(C)
+			TR += R.cook_food(C)
 			for (var/atom/movable/AM in TR) //Move results to buffer
 				AM.forceMove(temp)
 			results += TR
 
-
-		for(var/r in results)
-			var/obj/item/reagent_containers/food/snacks/R = r
-			R.forceMove(C) //Move everything from the buffer back to the container
-			LAZYDISTINCTADD(R.cooked, cook_type)
+		for(var/S in results)
+			var/obj/item/reagent_containers/food/snacks/F = S
+			F.forceMove(C) //Move everything from the buffer back to the container
+			LAZYDISTINCTADD(F.cooked, cook_type)
 
 		QDEL_NULL(temp) //delete buffer object
 		. = TRUE //None of the rest of this function is relevant for recipe cooking
@@ -452,9 +434,7 @@
 	else if(CI.combine_target)
 		. = combination_cook(CI)
 
-
-	else
-		//Otherwise, we're just doing standard modification cooking. change a color + name
+	else	//Otherwise, we're just doing standard modification cooking. change a color + name
 		for (var/obj/item/i in CI.container)
 			modify_cook(i, CI)
 
@@ -465,15 +445,23 @@
 		return
 	var/cook_path = output_options[CI.combine_target]
 
+	var/list/tasteflags = list()	//Holds the taste flags to apply to the new cooked item.
 	var/list/words = list()
 	var/list/cooktypes = list()
 	var/datum/reagents/buffer = new /datum/reagents(1000)
 	var/totalcolour
 
 	for (var/obj/item/I in CI.container)
+		var/obj/item/reagent_containers/food/snacks/N
+		N = I
+		if(N.taste_tag.len)
+			for(var/T in N.taste_tag)
+			tasteflags += T
+
 		var/obj/item/reagent_containers/food/snacks/S
 		if (istype(I, /obj/item/reagent_containers/food/snacks))
 			S = I
+
 		if (!S)
 			continue
 
@@ -491,7 +479,7 @@
 					//Blend colours in order to find a good filling color
 
 
-			S.reagents.trans_to_holder(buffer, S.reagents.total_volume)
+			S.reagents.trans_to_holder(buffer, S.reagents.total_volume)		
 		//Cleanup these empty husk ingredients now
 		if (I)
 			qdel(I)
@@ -509,7 +497,7 @@
 	result.overlays += I
 	result.filling_color = totalcolour
 
-	//Set the name.
+	.//Set the name.
 	words -= list("and", "the", "in", "is", "bar", "raw", "sticks", "boiled", "fried", "deep", "-o-", "warm", "two", "flavored")
 	//Remove common connecting words and unsuitable ones from the list. Unsuitable words include those describing
 	//the shape, cooked-ness/temperature or other state of an ingredient which doesn't apply to the finished product
@@ -526,25 +514,26 @@
 
 	//This proc sets the size of the output result
 	result.update_prefix()
-	return result
+	for(var/T in tasteflags)	//Now we set the taste flags of the thing so we can get proper food out of it.
+		result.tasteflags += T
+	update_taste(result)
 	//Final step. Cook function just cooks batter for now.
 	for (var/obj/item/reagent_containers/food/snacks/S in CI.container)
 		S.cook()
+	return result
 
 //Helper proc for standard modification cooking
 /obj/machinery/appliance/proc/modify_cook(var/obj/item/input, var/datum/cooking_item/CI)
 	var/obj/item/reagent_containers/food/snacks/result
 	if (istype(input, /obj/item/reagent_containers/food/snacks))
 		result = input
-	else
-		//Nonviable item
+	else		//Nonviable item
 		return
 
 	if (!result)
 		return
 
 	LAZYDISTINCTADD(result.cooked, cook_type)
-
 	// Set icon and appearance.
 	change_product_appearance(result, CI)
 
@@ -552,11 +541,9 @@
 	change_product_strings(result, CI)
 
 /obj/machinery/appliance/Process()
-	if(cooking_power > 0 && cooking)
-		message_admins("cooking power > then 0 &cook")
+	if((cooking_power > 0) && cooking)
 		for(var/i in cooking_objs)
 			do_cooking_tick(i)
-			message_admins("do cooking tick")
 
 /obj/machinery/appliance/proc/burn_food(var/datum/cooking_item/CI)
 	// You dun goofed.
@@ -604,13 +591,20 @@
 	if(selection)
 		var/datum/cooking_item/CI = menuoptions[selection]
 		eject(CI, user)
+		//testing block
+		for(var/obj/item/reagent_containers/cooking_container/C in contents)
+			if(C.contents.len)
+				cooking = TRUE
+				continue
+			cooking = FALSE
+		//testing block end
 		update_icon()
 	return TRUE
 
 /obj/machinery/appliance/proc/can_remove_items(var/mob/user)
 	return TRUE
 
-/*
+/* TODO: implement once recipes are in
 /obj/machinery/appliance/proc/updateMeatName(var/obj/item/I)
 	var/cookprogress = I.cookwork / I.max_cookwork
 	//The idea here is to put down the ability to make meats uncooked, rare, medium rare, medium, medium well, well done, and burnt.
@@ -635,6 +629,7 @@
 		cooking_objs -= CI
 	if(!user || !user.put_in_hands(thing))
 		thing.forceMove(get_turf(src))
+	//Implement once recipes are in
 	//if(thing in typesof(/obj/item/reagent_containers/food/snacks/meat) || thing in typesof(/obj/item/reagent_containers/food/snacks/xenomeat))
 	//	updateMeatName(thing)
 	if(delete)
