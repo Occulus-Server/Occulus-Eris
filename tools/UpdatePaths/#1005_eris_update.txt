@@ -1,9 +1,36 @@
 /obj/machinery/atmospherics/pipe/tank/phoron : /obj/machinery/atmospherics/pipe/tank/plasma {@OLD}
-/obj/effect/window_lwall_spawn/phoron : /effect/window_lwall_spawn/plasma {@OLD}
+/obj/effect/window_lwall_spawn/phoron : obj/effect/window_lwall_spawn/plasma {@OLD}
+/effect/window_lwall_spawn/plasma : obj/effect/window_lwall_spawn/plasma {@OLD}
 /obj/item/stack/material/phoron : /obj/item/stack/material/plasma {@OLD}
-/obj/machinery/portable_atmospherics/canister/phoron : /obj/machinery/portable_atmospherics/canister/plasma {@OLD} 
+/obj/machinery/portable_atmospherics/canister/phoron : /obj/machinery/portable_atmospherics/canister/plasma {@OLD}
 /obj/item/ammo_magazine/ammobox/shotgun/beanbags : /obj/item/ammo_magazine/ammobox/shotgun/beanbag {@OLD}
 /obj/machinery/vending/phoronresearch : /obj/machinery/vending/plasmaresearch {@OLD}
 /obj/effect/window_lwall_spawn/smartspawnphoron : /obj/effect/window_lwall_spawn/smartspawnplasma {@OLD}
 /turf/simulated/floor/reinforced/phoron : /turf/simulated/floor/reinforced/plasma {@OLD}
-/obj/structure/sign/atmos_phoron : /obj/structure/side/atmos_plasma {@OLD}
+/obj/structure/side/atmos_plasma : /obj/structure/sign/atmos_plasma {@OLD}
+/obj/item/rcd_ammo : @DELETE
+/obj/structure/dispenser/phoron : /obj/structure/dispenser/plasma {@OLD}
+/obj/machinery/artifact_analyser : @DELETE
+/obj/machinery/artifact_scanpad : @DELETE
+/obj/item/electronics/circuitboard/scan_consolenew : @DELETE
+/obj/machinery/computer/scan_consolenew : @DELETE
+/obj/machinery/mining/brace : /obj/machinery/mining/deep_drill {@OLD}
+/obj/machinery/mining/drill : /obj/machinery/mining/deep_drill {@OLD}
+/obj/item/reagent_containers/food/drinks/britcup : @DELETE
+/obj/machinery/radiocarbon_spectrometer : @DELETE
+/obj/item/storage/belt/archaeology : @DELETE
+/obj/structure/closet/excavation : @DELETE
+/obj/item/storage/box/disks : @DELETE
+/obj/machinery/dna_scannernew : @DELETE
+/obj/machinery/alarm/monitor/isolation: /obj/machinery/alarm/monitor {@OLD}
+/obj/item/anodevice : @DELETE
+/obj/item/talkingcrystal : @DELETE
+/obj/structure/anomaly_container : @DELETE
+/obj/item/reagent_containers/glass/bottle/fertilizer/ez : /obj/item/reagent_containers/glass/fertilizer/ez {@OLD}
+/obj/structure/closet/secure_closet/xenoarchaeologist : @DELETE
+/obj/item/anobattery : @DELETE
+/obj/machinery/artifact_harvester : @DELETE
+/obj/structure/noticeboard/anomaly : @DELETE
+/obj/machinery/suspension_gen: @DELETE
+/obj/machinery/computer/supplycomp : /obj/item/modular_computer/console/preset/trade {@OLD}
+ /obj/machinery/computer/supplycomp/order : /obj/item/modular_computer/console/preset/trade {@OLD}

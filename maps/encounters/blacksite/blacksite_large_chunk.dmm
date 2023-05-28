@@ -967,7 +967,7 @@
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/outpost/blacksite/large)
 "yv" = (
-/obj/machinery/dna_scannernew,
+@DELETE,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/outpost/blacksite/large)
 "yD" = (
@@ -1278,7 +1278,7 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/outpost/blacksite/large)
 "HD" = (
-/obj/machinery/computer/scan_consolenew,
+,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/outpost/blacksite/large)
 "HF" = (

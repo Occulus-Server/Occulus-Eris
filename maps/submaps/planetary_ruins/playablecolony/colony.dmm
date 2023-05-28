@@ -5089,7 +5089,7 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/map_template/colony/hydroponics)
 "mZ" = (
-/obj/machinery/mining/brace{
+/obj/machinery/mining/deep_drill{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5206,7 +5206,7 @@
 /turf/simulated/floor/grass,
 /area/map_template/colony/hydroponics)
 "nm" = (
-/obj/machinery/mining/drill,
+/obj/machinery/mining/deep_drill,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
@@ -5225,7 +5225,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/map_template/colony/jail)
 "nq" = (
-/obj/machinery/mining/brace{
+/obj/machinery/mining/deep_drill{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
