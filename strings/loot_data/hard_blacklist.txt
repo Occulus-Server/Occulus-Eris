@@ -449,7 +449,6 @@
 /obj/item/weapon/rcd/borg
 /obj/item/weapon/rcd/mounted
 /obj/item/weapon/rcd
-/obj/item/weapon/rcd_ammo
 /obj/item/weapon/rpd/borg
 /obj/item/weapon/rpd
 /obj/item/weapon/rsf
@@ -2072,7 +2071,6 @@
 /obj/machinery/computer/rdconsole/robotics
 /obj/machinery/computer/rdconsole/core
 /obj/machinery/computer/rdconsole
-/obj/machinery/computer/scan_consolenew
 /obj/machinery/computer/general_air_control/large_tank_control
 /obj/machinery/computer/general_air_control/supermatter_core
 /obj/machinery/computer/general_air_control/fuel_injection
@@ -2147,7 +2145,6 @@
 /obj/machinery/computer/curer
 /obj/machinery/computer/diseasesplicer
 /obj/machinery/computer
-/obj/machinery/dna_scannernew
 /obj/machinery/bodyscanner
 /obj/machinery/body_scanconsole
 /obj/machinery/ai_slipper

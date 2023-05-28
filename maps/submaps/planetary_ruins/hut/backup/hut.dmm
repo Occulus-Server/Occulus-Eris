@@ -14,7 +14,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "e" = (
-/obj/machinery/artifact_scanpad,
+,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "f" = (

@@ -41,7 +41,7 @@
 /turf/simulated/floor/reinforced,
 /area/deepmaint)
 "l" = (
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/plasma,
 /area/deepmaint)
 "m" = (
 /obj/random/tank,
@@ -96,7 +96,7 @@
 /turf/simulated/wall/r_wall,
 /area/deepmaint)
 "x" = (
-/obj/effect/window_lwall_spawn/smartspawnphoron,
+/obj/effect/window_lwall_spawn/smartspawnplasma,
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "y" = (

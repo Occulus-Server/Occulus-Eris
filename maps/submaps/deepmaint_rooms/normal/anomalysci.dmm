@@ -9,11 +9,11 @@
 /turf/simulated/floor/tiled/dark/panels,
 /area/deepmaint)
 "d" = (
-/obj/machinery/artifact_analyser,
+,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/deepmaint)
 "e" = (
-/obj/machinery/artifact_scanpad,
+,
 /turf/simulated/floor/tiled/dark/danger,
 /area/deepmaint)
 "f" = (

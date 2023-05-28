@@ -16,7 +16,7 @@
 /turf/template_noop,
 /area/template_noop)
 "f" = (
-/obj/machinery/mining/brace,
+/obj/machinery/mining/deep_drill,
 /turf/template_noop,
 /area/template_noop)
 "g" = (
@@ -79,7 +79,7 @@ b
 d
 g
 a
-k
+f
 a
 O
 "}

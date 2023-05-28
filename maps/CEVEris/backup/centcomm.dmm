@@ -4285,7 +4285,7 @@
 	},
 /area/shuttle/mercenary)
 "lj" = (
-/obj/effect/window_lwall_spawn/phoron,
+obj/effect/window_lwall_spawn/plasma,
 /turf/simulated/shuttle/plating,
 /area/shuttle/mercenary)
 "lk" = (

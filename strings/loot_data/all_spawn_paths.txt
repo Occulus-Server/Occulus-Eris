@@ -157,7 +157,6 @@
 /obj/item/weapon/electronics/circuitboard/aiupload
 /obj/item/weapon/electronics/circuitboard/borgupload
 /obj/item/weapon/electronics/circuitboard/med_data
-/obj/item/weapon/electronics/circuitboard/scan_consolenew
 /obj/item/weapon/electronics/circuitboard/communications
 /obj/item/weapon/electronics/circuitboard/teleporter
 /obj/item/weapon/electronics/circuitboard/secure_data
