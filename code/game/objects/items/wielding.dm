@@ -30,7 +30,7 @@
 
 	var/sf = findtext(name," (Wielded)")
 	if(sf)
-		name = copytext(name,9) //Occulus Edit.
+		name = copytext(name,1,sf)
 	else //something went wrong
 		name = "[initial(name)]"//Returns name from compile-time instead of name with changes that've happened since
 	update_unwield_icon()
