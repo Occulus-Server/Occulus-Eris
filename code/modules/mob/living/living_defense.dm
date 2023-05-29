@@ -1,4 +1,5 @@
 #define ARMOR_HALLOS_COEFFICIENT 0.4
+#define MAX_ADDITIONAL_BURN_DAMAGE 2 // Occulus Edit: Maximum additional burn damage when on fire
 
 //This calculation replaces old run_armor_check in favor of more complex and better system
 //If you need to do something else with armor - just use getarmor() proc and do with those numbers all you want

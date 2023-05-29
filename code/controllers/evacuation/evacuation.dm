@@ -163,6 +163,7 @@ var/datum/evacuation_controller/evacuation_controller
 		if(!bsd_drive_active && !emergency_evacuation && world.time >= evac_launch_time - 8 SECONDS)	// OCCULUS EDIT- OUR NEW JUMP SOUNDS
 			sound_to(world, sound('zzzz_modular_occulus/sound/effects/bluespace_drive.ogg', repeat = 0, wait = 0, volume = 85, channel = GLOB.admin_sound_channel))// OCCULUS EDIT
 			sound_to(world, sound('zzzz_modular_occulus/sound/effects/bluespace_drive_traveling.ogg', repeat = 1, wait = 1, volume = 85, channel = GLOB.admin_sound_channel))// OCCULUS EDIT
+			// parallax_blue()	//OCCULUS EDIT- Oops, all blue Commented out for now
 			bsd_drive_active = TRUE	// OCCULUS EDIT
 		if(world.time >= evac_launch_time)
 			launch_evacuation()
@@ -187,3 +188,10 @@ var/datum/evacuation_controller/evacuation_controller
 /datum/evacuation_controller/proc/get_evac_option(var/option_target)
 	return null
 
+//OCCULUS EDIT start - TODO: Commented out until after rebase for Radiant to readd
+// /datum/evacuation_controller/proc/parallax_blue()	//Oops, all blue
+// 	for (var/obj/parallax/P in world)
+// 		var/obj/parallax_screen/PS = P.parallax_screen
+// 		PS.icon_state = "[PS.icon_state]-b"
+// 		P.update()
+//OCCULUS EDIT End

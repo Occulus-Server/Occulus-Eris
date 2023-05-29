@@ -77,7 +77,7 @@
 
 /datum/category_item/player_setup_item/physical/body/OnTopic(var/href, var/list/href_list, var/mob/user)
 
-	var/datum/species/S = all_species[pref.species]
+	var/datum/species/mob_species = all_species[pref.species]
 
 	if(href_list["blood_color"])
 		var/color = input(user, "Choose your character's blood color:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.blood_color) as color|null
@@ -87,7 +87,48 @@
 
 	else if(href_list["blood_reset"])
 		if(CanUseTopic(user))
-			pref.blood_color = (S && S.blood_color) ? S.blood_color : "A10808"
+			pref.blood_color = (mob_species && mob_species.blood_color) ? mob_species.blood_color : "A10808"
 		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["show_species"])
+		var/choice = input("Which species would you like to look at?") as null|anything in playable_species
+		if(choice)
+			var/datum/species/current_species = all_species[choice]
+			user << browse(current_species.get_description(), "window=species;size=700x400")
+			return TOPIC_HANDLED
+
+	else if(href_list["set_species"])
+
+		var/list/species_to_pick = list()
+		for(var/species in playable_species)
+			if(!check_rights(R_ADMIN, 0) && config.usealienwhitelist)
+				var/datum/species/current_species = all_species[species]
+				if(!(current_species.spawn_flags & CAN_JOIN))
+					continue
+				else if((current_species.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(preference_mob(),current_species))
+					continue
+			species_to_pick += species
+
+		var/choice = input("Select a species to play as.") as null|anything in species_to_pick
+		if(!choice || !(choice in all_species))
+			return
+
+		var/prev_species = pref.species
+		pref.species = choice
+		if(prev_species != pref.species)
+			mob_species = all_species[pref.species]
+			if(!(pref.gender in mob_species.genders))
+				pref.gender = mob_species.genders[1]
+
+			ResetAllHair()
+
+			//reset hair colour and skin colour
+			pref.hair_color = "#000000"
+			pref.skin_color = "#000000"
+			pref.age = max(min(pref.age, mob_species.max_age), mob_species.min_age)
+
+			pref.body_markings.Cut()
+
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
 	return ..()
-	

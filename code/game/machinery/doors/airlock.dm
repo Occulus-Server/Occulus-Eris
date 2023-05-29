@@ -647,7 +647,7 @@ There are 9 wires.
 	else
 		underlays += GLOB.wedge_icon_cache[cache_string]
 
-/obj/machinery/door/airlock/on_update_icon()
+/obj/machinery/door/airlock/update_icon()
 	set_light(0)
 	if(overlays.len)
 		overlays.Cut()
@@ -685,25 +685,27 @@ There are 9 wires.
 			if(overlays.len)
 				overlays.Cut()
 			if(p_open)
-				flick("o_door_opening", src)
+				flick("o_door_opening", src)  //can not use flick due to BYOND bug updating overlays right before flicking
+				update_icon()
 			else
-				flick("door_opening", src)
-			update_icon()
+				flick("door_opening", src)//[stat ? "_stat":]
+				update_icon()
 		if("closing")
 			if(overlays.len)
 				overlays.Cut()
 			if(p_open)
 				flick("o_door_closing", src)
+				update_icon()
 			else
 				flick("door_closing", src)
-			update_icon()
+				update_icon()
 		if("spark")
 			if(density)
 				flick("door_spark", src)
 		if("deny")
-			if(density && arePowerSystemsOn())
+			if(density && src.arePowerSystemsOn())
 				flick("door_deny", src)
-				playsound(loc, 'sound/machines/Custom_deny.ogg', 50, 1, -2)
+				playsound(src.loc, 'sound/machines/Custom_deny.ogg', 50, 1, -2)
 	return
 
 /obj/machinery/door/airlock/attack_ai(mob/user as mob)

@@ -114,7 +114,7 @@
 					/obj/item/reagent_containers/spray/pepper = 5,
 					/obj/item/gun/projectile/revolver/havelock = 5,
 					/obj/item/gun/projectile/giskard = 5,
-					/obj/item/gun/projectile/mk58 = 5,
+					/obj/item/gun/projectile/automatic/modular/mk58/gray/stock = 5,
 					/obj/item/gun/projectile/automatic/atreides = 3,
 					/obj/item/gun/projectile/shotgun/pump = 3,
 					/obj/item/gun/projectile/shotgun/stoat = 3,
@@ -138,7 +138,7 @@
 					/obj/item/reagent_containers/spray/pepper = 200,
 					/obj/item/gun/projectile/revolver/havelock = 600,
 					/obj/item/gun/projectile/giskard = 600,
-					/obj/item/gun/projectile/mk58 = 900,
+					/obj/item/gun/projectile/automatic/modular/mk58/gray/stock = 900,
 					/obj/item/gun/projectile/automatic/atreides = 1200,
 					/obj/item/gun/projectile/shotgun/pump = 1400,
 					/obj/item/gun/projectile/shotgun/stoat = 2100,
@@ -402,7 +402,7 @@
 					/obj/item/book/ritual/cruciform = 10,
 					/obj/item/storage/fancy/candle_box/mek = 10,
 					/obj/item/reagent_containers/food/drinks/bottle/ntcahors = 20,
-					/obj/item/clothing/accessory/job/cape/church/small = 5, 
+					/obj/item/clothing/accessory/job/cape/church/small = 5,
 					/obj/item/clothing/accessory/job/cape/church/small/red = 5,
 					/obj/item/clothing/accessory/job/cape/church/small/white = 5)
 	premium = list(
@@ -414,7 +414,7 @@
 					/obj/item/implant/core_implant/cruciform = 1000,
 					/obj/item/storage/belt/utility/neotheology = 150,
 					/obj/item/storage/belt/tactical/neotheology = 150,
-					/obj/item/clothing/accessory/job/cape/church/small = 150, 
+					/obj/item/clothing/accessory/job/cape/church/small = 150,
 					/obj/item/clothing/accessory/job/cape/church/small/red = 150,
 					/obj/item/clothing/accessory/job/cape/church/small/white = 150
 					)
@@ -426,7 +426,7 @@
 	product_ads = "YOU WANNA LIVE FOREVER!; One hundred percent Kevlar!; Not rated for giant Mantas Invasions.; Market research shows that flak vests will replace shirts entirely in a few years. Get ahead of the fashion!"
 	icon_state = "serbomat" // Placeholder till I can make a new one -R
 	no_criminals = FALSE
-	products = list( 
+	products = list(
 					/obj/item/clothing/under/serbiansuit = 4,
 					/obj/item/clothing/under/serbiansuit/brown = 4,
 					/obj/item/clothing/under/serbiansuit/black = 4,
@@ -442,10 +442,10 @@
 					/obj/item/clothing/suit/armor/platecarrier/full = 2,
 					/obj/item/clothing/suit/armor/platecarrier/full/green = 2,
 					/obj/item/clothing/suit/armor/platecarrier/full/tan = 2,
-					/obj/item/clothing/head/armor/helmet = 4 
+					/obj/item/clothing/head/armor/helmet = 4
 					)
 	premium = list(/obj/item/clothing/suit/storage/vest/merc = 2, /obj/item/clothing/suit/storage/vest/merc/full = 2)
-	prices = list(	
+	prices = list(
 					/obj/item/clothing/under/serbiansuit = 200,
 					/obj/item/clothing/under/serbiansuit/brown = 200,
 					/obj/item/clothing/under/serbiansuit/black = 200,
@@ -461,7 +461,7 @@
 					/obj/item/clothing/suit/armor/platecarrier/full = 1900,
 					/obj/item/clothing/suit/armor/platecarrier/full/green = 1900,
 					/obj/item/clothing/suit/armor/platecarrier/full/tan = 1900,
-					/obj/item/clothing/head/armor/helmet = 1000, 
+					/obj/item/clothing/head/armor/helmet = 1000,
 					/obj/item/clothing/suit/storage/vest/merc = 2300,
 					/obj/item/clothing/suit/storage/vest/merc/full = 2500
 				)
@@ -472,7 +472,7 @@
 	product_ads = "New Clothes, New you!; That is totally your look.; Did you try the ripped jeans look?"
 	icon_state = "generic" // Placeholder till I can make a new one -R
 	no_criminals = FALSE
-	products = list( 
+	products = list(
 					/obj/item/clothing/under/genericr = 5,
 					/obj/item/clothing/under/genericw = 5,
 					/obj/item/clothing/under/genericb = 5,
@@ -496,8 +496,8 @@
 					/obj/item/clothing/under/shorts/black = 5,
 					/obj/item/clothing/under/shorts/grey = 5
 					)
-	
-	prices = list(	
+
+	prices = list(
 					/obj/item/clothing/under/genericr = 200,
 					/obj/item/clothing/under/genericw = 200,
 					/obj/item/clothing/under/genericb = 200,
@@ -528,7 +528,7 @@
 	product_ads = "We also accept Refined Scrap!; Dont just stand there!; Get a hat!; *glasses sold here too*"
 	icon_state = "generic" // Placeholder till I can make a new one -R
 	no_criminals = FALSE
-	products = list( 
+	products = list(
 					/obj/item/clothing/head/beret/fashion = 5,
 					/obj/item/clothing/head/beret/fashion/grey = 5,
 					/obj/item/clothing/head/beret/fashion/pink = 5,
@@ -550,7 +550,7 @@
 					/obj/item/clothing/glasses/gglasses = 5
 					)
 	premium = list(/obj/item/clothing/glasses/sunglasses = 2)
-	prices = list(	
+	prices = list(
 					/obj/item/clothing/head/beret/fashion = 200,
 					/obj/item/clothing/head/beret/fashion/grey = 200,
 					/obj/item/clothing/head/beret/fashion/pink = 200,
@@ -579,8 +579,8 @@
 	product_ads = "Dont commit Fashion crimes!"
 	icon_state = "generic" // Placeholder till I can make a new one -R
 	no_criminals = FALSE
-	products = list( 
-					/obj/item/clothing/accessory/cloak = 5, 
+	products = list(
+					/obj/item/clothing/accessory/cloak = 5,
 					/obj/item/clothing/accessory/cloak/copper = 5,
 					/obj/item/clothing/accessory/cloak/red = 5,
 					/obj/item/clothing/accessory/cloak/lime = 5,
@@ -617,9 +617,9 @@
 					/obj/item/clothing/mask/bandana/camo = 5,
 					/obj/item/clothing/mask/bandana/skull = 5
 					)
-	
-	prices = list(	
-					/obj/item/clothing/accessory/cloak = 100, 
+
+	prices = list(
+					/obj/item/clothing/accessory/cloak = 100,
 					/obj/item/clothing/accessory/cloak/copper = 100,
 					/obj/item/clothing/accessory/cloak/red = 100,
 					/obj/item/clothing/accessory/cloak/lime = 100,

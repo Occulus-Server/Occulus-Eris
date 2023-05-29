@@ -2,7 +2,7 @@
 
 /obj/machinery/autolathe/artist_bench
 	name = "artist's bench"
-	desc = "Insert wood, steel, glass, plasteel, plastic and a bit of your soul to create a beautiful work of art. \
+	desc = "Insert wood, steel, glass, plastic and a bit of your soul to create a beautiful work of art. \
 			Requires a stock of at least 20 sheets of each of the aforementioned materials before you begin sacrificing your soul."	// OCCULUS EDIT - Makes its requirements clear
 	icon = 'icons/obj/machines/autolathe.dmi'
 	icon_state = "bench"
@@ -13,7 +13,7 @@
 	have_design_selector = FALSE
 	categories = list("Artwork")
 	use_oddities = TRUE
-	suitable_materials = list(MATERIAL_WOOD, MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_PLASTEEL, MATERIAL_PLASTIC)
+	suitable_materials = list(MATERIAL_WOOD, MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_PLASTIC) // Occulus Edit: No Plasteel!
 	low_quality_print = FALSE
 	var/min_mat = 20
 	var/min_insight = 40
@@ -339,7 +339,6 @@
 		MATERIAL_STEEL = 20,
 		MATERIAL_PLASTIC = 20,
 		MATERIAL_GLASS = 20,
-		MATERIAL_PLASTEEL = 20,
 		MATERIAL_WOOD = 20
 		)
 // OCCULUS ADDITION END
