@@ -23,7 +23,7 @@
 	price_tag = 1200
 /obj/item/gun/projectile/paco
 	price_tag = 1000
-/obj/item/gun/projectile/mk58
+/obj/item/gun/projectile/automatic/modular/mk58/gray/stock
 	price_tag = 900
 /obj/item/gun/projectile/colt
 	price_tag = 900

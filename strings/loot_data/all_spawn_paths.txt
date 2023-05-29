@@ -38,8 +38,8 @@
 /obj/item/weapon/gun/projectile/gyropistol
 /obj/item/weapon/gun/projectile/lamia
 /obj/item/weapon/gun/projectile/mandella
-/obj/item/weapon/gun/projectile/mk58/wood
-/obj/item/weapon/gun/projectile/mk58
+/obj/item/gun/projectile/automatic/modular/mk58/gray/wood
+/obj/item/gun/projectile/automatic/modular/mk58/gray/stock
 /obj/item/weapon/gun/projectile/olivaw
 /obj/item/weapon/gun/projectile/paco
 /obj/item/weapon/gun/projectile/revolver/capgun
