@@ -34,12 +34,28 @@
 	stop_automated_movement = TRUE
 	if(!target_mob || SA_attackable(target_mob))
 		stance = HOSTILE_STANCE_IDLE
-	if(istype(src, /mob/living/simple_animal/hostile/siren/bossmob)
-		LegendaryActions()
+	if(phase == 1)
+		projectiletype = /obj/item/projectile/beam/siren
+		rapid = 20
+
+	if(phase == 2)
+		ranged_cooldown_time = 8 SECONDS
+		rapid = 3
+		projectiletype = /obj/item/projectile/plasma/blast
+
+	if(phase == 3)
+		//charge mode here
+
+	if(phase == 4)
+
+	if(istype(src, /mob/living/simple_animal/hostile/siren/nemesis))
+		//LegendaryActions()
 		return
 	if(world.time >= retarget_time)	//Retargetting code. Allows siren mobs to target closest mobs every 10 seconds.
 		src.FindTarget()
 		retarget_time = world.time + retarget_cooldown_time
+
+	var/atom/target_from = GET_TARGETS_FROM(src)
 	if(target_mob in ListTargets(10))
 		var/target_distance = get_dist(src,target_mob)
 		if(ranged && target_distance >= 1 && world.time >= ranged_cooldown)//We ranged? Shoot at em. Make sure they're a tile away at least, and our range attack is off cooldown
@@ -59,7 +75,7 @@
 			if(ranged_ignores_vision && ranged_cooldown <= world.time) //we can't see our target... but we can fire at them!
 				OpenFire(target)
 			if((environment_smash & ENVIRONMENT_SMASH_WALLS) || (environment_smash & ENVIRONMENT_SMASH_RWALLS)) //If we're capable of smashing through walls, forget about vision completely after finding our target
-				Goto(target,move_to_delay,minimum_distance)
+				walk_to(src, target_mob, minimum_distance,  move_to_delay)
 				FindHidden()
 				return 1
 			else
@@ -67,7 +83,6 @@
 					return 1
 	LoseTarget()
 	return 0
-
 
 /mob/living/simple_animal/hostile/siren/bossmob/nemesis/proc/phaseA
 	projectiletype = /obj/item/projectile/plasma/blast

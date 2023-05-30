@@ -90,7 +90,7 @@
 	return Target //We now have a target
 
 
-/mob/living/simple_animal/hostile/proc/ListTargets(var/dist = 7)	//Step II: creates list of targets in hearing distance
+/mob/living/simple_animal/hostile/siren/proc/ListTargets(var/dist = 7)	//Step II: creates list of targets in hearing distance
 	var/list/L = hearers(src, dist)
 
 	for (var/mob/living/exosuit/M in GLOB.mechas_list)
@@ -127,7 +127,31 @@
 		return src
 	return target_from
 
-/mob/living/simple_animal/hostile/proc/DestroySurroundings()
+/mob/living/simple_animal/hostile/siren/proc/OpenFire(atom/A)
+	if(CheckFriendlyFire(A))
+		return
+	if(!(simple_mob_flags & SILENCE_RANGED_MESSAGE))
+		visible_message(span_danger("<b>[src]</b> [ranged_message] at [A]!"))
+
+
+	if(rapid > 1)
+		var/datum/callback/cb = CALLBACK(src, .proc/Shoot, A)
+		for(var/i in 1 to rapid)
+			addtimer(cb, (i - 1)*rapid_fire_delay)
+	else
+		Shoot(A)
+	ranged_cooldown = world.time + ranged_cooldown_time
+
+/mob/living/simple_animal/hostile/siren/proc/CheckFriendlyFire(atom/A)
+	if(check_friendly_fire)
+		for(var/turf/T in get_line(src,A)) // Not 100% reliable but this is faster than simulating actual trajectory
+			for(var/mob/living/L in T)
+				if(L == src || L == A)
+					continue
+				if(faction_check_mob(L) && !attack_same)
+					return TRUE
+
+/mob/living/simple_animal/hostile/siren/proc/DestroySurroundings()
 	if(istype(src, /mob/living/simple_animal/smart/siren/bossmob))
 		set_dir(get_dir(src,target_mob))
 		for(var/turf/simulated/wall/obstacle in get_step(src, dir))
@@ -218,6 +242,7 @@
 	if(world.time >= retarget_time)	//Retargetting code. Allows siren mobs to target closest mobs every 10 seconds.
 		src.FindTarget()
 		retarget_time = world.time + retarget_cooldown_time
+	var/atom/target_from = GET_TARGETS_FROM(src)
 	if(target_mob in ListTargets(10))
 		var/target_distance = get_dist(src,target_mob)
 		if(ranged && target_distance >= 1 && world.time >= ranged_cooldown)//We ranged? Shoot at em. Make sure they're a tile away at least, and our range attack is off cooldown
@@ -233,11 +258,11 @@
 			walk_to(src, target_mob, minimum_distance, move_to_delay)//Otherwise, get to our minimum distance so we chase them
 		return
 	if(environment_smash)
-		if(target.loc != null && get_dist(target_from, target.loc) <= vision_range) //We can't see our target, but he's in our vision range still
+		if(target_mob.loc != null && get_dist(target_from, target.loc) <= vision_range) //We can't see our target, but he's in our vision range still
 			if(ranged_ignores_vision && ranged_cooldown <= world.time) //we can't see our target... but we can fire at them!
 				OpenFire(target)
 			if((environment_smash & ENVIRONMENT_SMASH_WALLS) || (environment_smash & ENVIRONMENT_SMASH_RWALLS)) //If we're capable of smashing through walls, forget about vision completely after finding our target
-				Goto(target,move_to_delay,minimum_distance)
+				walk_to(src, target_mob, minimum_distance,  move_to_delay)
 				FindHidden()
 				return 1
 			else
@@ -245,6 +270,14 @@
 					return 1
 	LoseTarget()
 	return 0
+
+/mob/living/simple_animal/hostile/siren/proc/get_targets_from()
+	var/atom/target_from = targets_from.resolve()
+	if(!target_from)
+		targets_from = null
+		return src
+	return target_from
+
 
 /mob/living/simple_animal/hostile/siren/proc/FindHidden()
 	if(istype(target.loc, /obj/structure/closet) || istype(target.loc, /obj/machinery/disposal) || istype(target.loc, /obj/machinery/sleeper))

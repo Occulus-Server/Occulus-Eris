@@ -16,7 +16,7 @@
 	projectilesound = 'sound/weapons/pulse.ogg'
 	projectiletype = /obj/item/projectile/plasma/blast
 	speed = 3
-	ranged_cooldown = 6 SECONDS
+	ranged_cooldown = 8 SECONDS
 	maxshieldcharge = 10
 	shieldcharge = 10
 	maxHealth = 50
