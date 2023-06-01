@@ -52,7 +52,7 @@
 	character.rebuild_organs(src)
 
 
-	character.eyes_color
+	character.eyes_color = eyes_color
 
 	character.h_style = h_style
 	character.hair_color = hair_color
