@@ -124,7 +124,6 @@
 
 			//reset hair colour and skin colour
 			pref.hair_color = "#000000"
-			pref.skin_color = "#000000"
 			pref.age = max(min(pref.age, mob_species.max_age), mob_species.min_age)
 
 			pref.body_markings.Cut()
