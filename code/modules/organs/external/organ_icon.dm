@@ -179,7 +179,7 @@ var/global/list/limb_icon_cache = list()
 				mob_icon.Blend(rgb(-skin_tone,  -skin_tone,  -skin_tone), ICON_SUBTRACT)
 		else
 			if(skin_col)
-				mob_icon.Blend(skin_col, ICON_ADD)
+				mob_icon.Blend(skin_col, ICON_MULTIPLY) // Occulus Edit: Use ICON_MULTIPLY instead of ICON_ADD
 
 	///// OCCULUS EDIT START - Delete the laggy body marking system /////
 	if(!istype(src,/obj/item/organ/external/head))
