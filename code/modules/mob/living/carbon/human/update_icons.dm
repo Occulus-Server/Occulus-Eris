@@ -383,7 +383,7 @@ var/global/list/damage_icon_parts = list()
 			else
 				facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 			if(facial_hair_style.do_colouration)
-				// facial_s.Blend(rgb(r_facial, g_facial, b_facial, species.hair_alpha), facial_hair_style.blend) // OCCULUS EDIT - Slime hair alpha //! Occulus Removal - I can't be assed to figure how to convert this to use hex
+				facial_s.Blend(facial_color, facial_hair_style.blend)
 
 			face_standing.Blend(facial_s, ICON_OVERLAY)
 
@@ -396,7 +396,7 @@ var/global/list/damage_icon_parts = list()
 			else
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]")
 			if(hair_style.do_colouration)
-				// hair_s.Blend(rgb(r_hair, g_hair, b_hair, species.hair_alpha), hair_style.blend) // OCCULUS EDIT - Slime hair alpha //! Occulus Removal - I can't be assed to figure how to convert this to use hex
+				hair_s.Blend(hair_color, hair_style.blend)
 				// OCCULUS EDIT START - Hair Color Gradients
 				for(var/M in head_organ.markings)
 					var/datum/sprite_accessory/marking/mark_style = head_organ.markings[M]["datum"]
