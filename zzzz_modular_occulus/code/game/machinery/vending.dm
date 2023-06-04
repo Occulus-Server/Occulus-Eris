@@ -182,8 +182,8 @@
 					/obj/item/ammo_magazine/ammobox/shotgun/beanbags = 5,
 					/obj/item/ammo_magazine/ammobox/shotgun/rubbershot = 5,
 					/obj/item/cell/small/high = 10,
-					/obj/item/ammo_magazine/s5mag/rubbershot = 5,
-					/obj/item/ammo_magazine/s5mag/beanbag = 5,
+					/obj/item/ammo_magazine/s5mag/rubbershot = 10,
+					/obj/item/ammo_magazine/s5mag/beanbag = 10,
 					/obj/item/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2
 					)
 	premium = list(
