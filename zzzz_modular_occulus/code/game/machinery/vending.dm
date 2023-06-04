@@ -182,6 +182,8 @@
 					/obj/item/ammo_magazine/ammobox/shotgun/beanbags = 5,
 					/obj/item/ammo_magazine/ammobox/shotgun/rubbershot = 5,
 					/obj/item/cell/small/high = 10,
+					/obj/item/ammo_magazine/s5mag/rubbershot = 5,
+					/obj/item/ammo_magazine/s5mag/beanbag = 5,
 					/obj/item/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2
 					)
 	premium = list(
@@ -206,6 +208,8 @@
 					/obj/item/ammo_magazine/ammobox/shotgun/beanbags = 575,
 					/obj/item/ammo_magazine/ammobox/shotgun/rubbershot = 575,
 					/obj/item/cell/small/high = 500,
+					/obj/item/ammo_magazine/s5mag/beanbag = 125,
+					/obj/item/ammo_magazine/s5mag/rubbershot = 125,
 					/obj/item/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2500,
 					/obj/item/storage/pouch/ammo = 750,
 					/obj/item/ammo_magazine/ammobox/clrifle/rubber = 1500,
