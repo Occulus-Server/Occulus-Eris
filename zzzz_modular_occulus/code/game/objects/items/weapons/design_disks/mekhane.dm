@@ -24,8 +24,6 @@ AUTOLATHE DATUMS
 /datum/design/bioprinter/nt_clothes/acolyte_uniform/name = "MEK Acolyte Garment"
 /datum/design/bioprinter/nt_clothes/sports_uniform/name = "MEK Sport Clothes"
 /datum/design/bioprinter/nt_clothes/church_uniform/name = "MEK Church Garment"
-/datum/design/bioprinter/belt/utility/neotheology/name = "Mekhanite utility belt"
-/datum/design/bioprinter/belt/security/neotheology/name = "Mekhanite tactical belt"
 
 // UTILITIES
 /datum/design/autolathe/device/grenade/nt_cleaner/name = "MEK \"Cleansing Tide\" Pod"
@@ -192,10 +190,6 @@ ARMOR_PEN_MASSIVE			30
 	build_path = /obj/item/reagent_containers/food/drinks/bottle/ntcahors
 	materials = list(MATERIAL_BIOMATTER = 10, MATERIAL_GLASS = 1)
 
-
-/datum/design/bioprinter/nt_clothes/NTvoid
-	name = "Mekhane voidsuit"
-
 /*
 CHURCH DISKS
 */
@@ -203,32 +197,50 @@ CHURCH DISKS
 /obj/item/computer_hardware/hard_drive/portable/design/nt
 	disk_name = "Mekhane Armory - Blank"
 
-/obj/item/computer_hardware/hard_drive/portable/design/nt_bioprinter_public
-	disk_name = "Mekhane Bioprinter Pack"
+/obj/item/computer_hardware/hard_drive/portable/design/nt/pouches
+	disk_name = "Mekhane Armory - Pouches Pack"
 
-/obj/item/computer_hardware/hard_drive/portable/design/nt/melee
-	disk_name = "Mekhane Armory - Basic Melee Weapons"
+/obj/item/computer_hardware/hard_drive/portable/design/nt/cells
+	disk_name = "Mekhane Armory - Power Cells Pack"
 
-/obj/item/computer_hardware/hard_drive/portable/design/nt/longsword
-	disk_name = "Mekhane Armory - Mekhane Longsword"
+/obj/item/computer_hardware/hard_drive/portable/design/nt/nt_svalinn
+	disk_name = "Mekhane Armory - MEK LP \"Svalinn\""
 
-/obj/item/computer_hardware/hard_drive/portable/design/nt/scourge
-	disk_name = "Mekhane Armory - Mekhane Scourge"
+/obj/item/computer_hardware/hard_drive/portable/design/nt/velite
+	disk_name = "Mekhane Armory - \"Velite Arms\""
 
-/obj/item/computer_hardware/hard_drive/portable/design/nt/halberd
-	disk_name = "Mekhane Armory - Mekhane Halberd"
+/obj/item/computer_hardware/hard_drive/portable/design/nt/nt_protector
+	disk_name = "Mekhane Armory - MEK GL \"Protector\""
 
-/obj/item/computer_hardware/hard_drive/portable/design/nt/shield
-	disk_name = "Mekhane Armory - Mekhane Shield"
+/obj/item/computer_hardware/hard_drive/portable/design/nt/principes
+	disk_name = "Mekhane Armory - \"Principes Arms\""
 
-/obj/item/computer_hardware/hard_drive/portable/design/nt/firstaid
-	disk_name = "Mekhane Armory - Advanced Medkit"
+/obj/item/computer_hardware/hard_drive/portable/design/nt/medicii
+	disk_name = "Mekhane Armory - \"Medicii Supplies\""
+
+/obj/item/computer_hardware/hard_drive/portable/design/nt/nt_dominion
+	disk_name = "Mekhane Armory - MEK PR \"Dominion\""
+
+/obj/item/computer_hardware/hard_drive/portable/design/nt/triarii
+	disk_name = "Mekhane Armory - \"Triarii Arms\""
 
 /obj/item/computer_hardware/hard_drive/portable/design/nt/grenades
 	disk_name = "Mekhane Armory - Grenades Pack"
+/obj/item/computer_hardware/hard_drive/portable/design/nt_bioprinter_public
+	disk_name = "Mekhane Bioprinter Pack"
 
-/obj/item/computer_hardware/hard_drive/portable/design/nt/crusader
-	disk_name = "Mekhane Armory - Crusader Armor"
+/obj/item/computer_hardware/hard_drive/portable/design/nt/excruciator
+	disk_name = "Mekhane Armory - MEK Energy Weapons"
+	designs = list(
+		/datum/design/autolathe/excruciator,
+		/datum/design/autolathe/diffuser,
+		/datum/design/autolathe/gun/nt_svalinn
+	)
+
+/obj/item/computer_hardware/hard_drive/portable/design/nt/nt_lightfall
+	disk_name = "Mekhane Armory - Lightfall Laser Gun"
+/obj/item/computer_hardware/hard_drive/portable/design/nt/melee
+	disk_name = "Mekhane Armory - Basic Melee Weapons"
 
 /obj/item/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes
 	disk_name = "Mekhane Bio-Fabric Designs"
@@ -236,7 +248,6 @@ CHURCH DISKS
 		/datum/design/bioprinter/nt_clothes/acolyte_armor,
 		/datum/design/bioprinter/nt_clothes/agrolyte_armor,
 		/datum/design/bioprinter/nt_clothes/custodian_armor,
-		/datum/design/bioprinter/nt_clothes/NTvoid,
 
 		/datum/design/bioprinter/nt_clothes/acolyte_armor_head,
 		/datum/design/bioprinter/nt_clothes/agrolyte_armor_head,
@@ -244,17 +255,18 @@ CHURCH DISKS
 
 		/datum/design/bioprinter/nt_clothes/preacher_coat,
 		/datum/design/bioprinter/nt_clothes/acolyte_jacket,
+		/datum/design/bioprinter/nt_clothes/acolyte_jacket/black,
 		/datum/design/bioprinter/nt_clothes/sports_jacket,
 
 		/datum/design/bioprinter/nt_clothes/acolyte_uniform,
 		/datum/design/bioprinter/nt_clothes/sports_uniform,
 		/datum/design/bioprinter/nt_clothes/church_uniform,
 
-		/datum/design/bioprinter/belt/security/neotheology,
-		/datum/design/bioprinter/belt/utility/neotheology,
+		/datum/design/bioprinter/belt/security,
+		/datum/design/bioprinter/belt/utility,
 
 		/datum/design/bioprinter/satchel,
-		// /datum/design/bioprinter/leather_jacket,
+		/datum/design/bioprinter/backpack,
 		/datum/design/bioprinter/wallet,
 		/datum/design/bioprinter/botanic_leather,
 
@@ -264,9 +276,6 @@ CHURCH DISKS
 		/datum/design/bioprinter/belt/medical/emt,
 
 		/datum/design/bioprinter/leather/holster,
-		// /datum/design/bioprinter/leather/holster/armpit,
-		// /datum/design/bioprinter/leather/holster/waist,
-		// /datum/design/bioprinter/leather/holster/hip,
 		/datum/design/bioprinter/leather/holster/scabbard,
 
 		/datum/design/bioprinter/small_generic,
@@ -281,25 +290,16 @@ CHURCH DISKS
 		/datum/design/bioprinter/part,
 
    		/datum/design/autolathe/device/headset_church,
-		// /datum/design/bioprinter/leather/cash_bag,
 
 		/datum/design/bioprinter/storage/holster,
 		/datum/design/bioprinter/storage/dpistol_holster,
 		/datum/design/bioprinter/storage/fanny
 	)
 
-/obj/item/computer_hardware/hard_drive/portable/design/nt/excruciator
-	disk_name = "Mekhane Armory - MEK Energy Weapons"
-	designs = list(
-		/datum/design/autolathe/excruciator,
-		/datum/design/autolathe/diffuser,
-		/datum/design/autolathe/gun/nt_svalinn
-	)
-
 /obj/item/computer_hardware/hard_drive/portable/design/nt_bioprinter
 	disk_name = "Mekhanite Bioprinter Products and Utilities"
 	designs = list(
-		/datum/design/bioprinter/cahor,
+		/datum/design/bioprinter/cahor, // We added Cahor otherwise there shouold be no differences
 		/datum/design/bioprinter/meat,
 		/datum/design/bioprinter/milk,
 		/datum/design/bioprinter/soap,
@@ -317,8 +317,8 @@ CHURCH DISKS
 		/datum/design/autolathe/gun/nt_sprayer,
 		/datum/design/autolathe/device/grenade/nt_cleaner,
 		/datum/design/autolathe/device/grenade/nt_weedkiller,
-
-		/datum/design/bioprinter/holyvacuum
+		/datum/design/bioprinter/holyvacuum,
+		/datum/design/autolathe/cruciform_upgrade/cleansing_presence
 
 	)
 
@@ -351,25 +351,28 @@ CHURCH DISKS
 	disk_name = "EC01 - Nemesis"
 	rarity_value = 90
 
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_valkyrie
+	disk_name = "Mekhane Armory - Valkyrie Energy Rifle"
+
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_themis
 	disk_name = "EC02 - Themis"
 	rarity_value = 90
 
-/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_svalinn
-	disk_name = "Mekhane Armory - MEK LP \"Svalinn\""
-
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_protector
 	disk_name = "GL01 - Protector Grenade Launcher"
 
-/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_heavysniper
-	disk_name = "60 Penetrator AMR"
-
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_mk58
-	disk_name = "MK58 Handgun Pack"
+	disk_name = "Mekhane Armory - .35 MK58 Handgun Pack"
 
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_regulator
+	disk_name = "Mekhane Armory - .50 Regulator Shotgun"
+
+/obj/item/computer_hardware/hard_drive/portable/design/guns/nt_purger
+	disk_name = "Mekhane Armory - Purger Plasma Rifle"
 /obj/item/computer_hardware/hard_drive/portable/design/nt/cruciform_upgrade
 	disk_name = "Mekhane Armory - Cruciform Upgrades"
 
+// OCCULUS TODO: Figure out what replace this
 // /obj/item/computer_hardware/hard_drive/portable/design/nt_boards
 // 	disk_name = "Mekhane Circuit Pack"
 // 	designs = list(
@@ -393,26 +396,11 @@ CHURCH DISKS
 /obj/item/clothing/head/space/void/NTvoid
 	name = "MEK combat voidsuit helmet"
 	desc = "A voidsuit helmet commonly used by the Mekhane. Combat rated. When worn you can hear soft breathing in your ear."
-	armor = list(
-		melee = 45,
-		bullet = 30,
-		energy = 35,
-		bomb = 100,
-		bio = 200,
-		rad = 50
-	)
+
 
 /obj/item/clothing/suit/space/void/NTvoid
 	name = "MEK combat voidsuit"
 	desc = "A voidsuit commonly used by the Mekhane. Combat rated. When worn a faint heartbeat can be felt within the suit."
-	armor = list(
-		melee = 45,
-		bullet = 30,
-		energy = 35,
-		bomb = 100,
-		bio = 200,
-		rad = 50
-	)
 
 /*
 * Mods

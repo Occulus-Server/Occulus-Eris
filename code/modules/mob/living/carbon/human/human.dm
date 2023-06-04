@@ -1163,7 +1163,7 @@ var/list/rank_prefix = list(\
 
 /mob/living/carbon/human/proc/set_species(new_species, default_colour)
 	// No more invisible screaming wheelchairs because of set_species() typos.
-	if(!all_species[new_species])
+	if(!all_species[new_species] || !new_species) // Occulus Edit: Default new species to SPECIES_HUMAN instead of null which becomes vox..yeah
 		new_species = SPECIES_HUMAN
 
 	if(species)

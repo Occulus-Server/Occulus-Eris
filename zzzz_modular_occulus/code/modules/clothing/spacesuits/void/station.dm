@@ -38,9 +38,9 @@
 /obj/item/clothing/head/space/void/engineering
 	name = "EES voidsuit helmet"
 	armor = list(
-		melee = 35,
-		bullet = 20,
-		energy = 20,
+		melee = 8,
+		bullet = 5,
+		energy = 5,
 		bomb = 25,
 		bio = 100,
 		rad = 100
@@ -49,9 +49,9 @@
 /obj/item/clothing/suit/space/void/engineering
 	name = "EES voidsuit"
 	armor = list(
-		melee = 35,
-		bullet = 20,
-		energy = 20,
+		melee = 8,
+		bullet = 5,
+		energy = 5,
 		bomb = 25,
 		bio = 100,
 		rad = 100
@@ -61,9 +61,9 @@
 /obj/item/clothing/head/space/void/mining
 	name = "FTU voidsuit helmet"
 	armor = list(
-		melee = 50,
-		bullet = 25,
-		energy = 25,
+		melee = 12,
+		bullet = 6,
+		energy = 6,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -73,9 +73,9 @@
 	name = "FTU voidsuit"
 	slowdown = 0.40
 	armor = list(
-		melee = 50,
-		bullet = 25,
-		energy = 25,
+		melee = 12,
+		bullet = 6,
+		energy = 6,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -85,9 +85,9 @@
 /obj/item/clothing/head/space/void/medical
 	name = "NT medical voidsuit helmet"
 	armor = list(
-		melee = 30,
-		bullet = 10,
-		energy = 10,
+		melee = 7,
+		bullet = 2,
+		energy = 2,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -98,9 +98,9 @@
 	name = "NT medical voidsuit"
 	slowdown = 0.15
 	armor = list(
-		melee = 30,
-		bullet = 10,
-		energy = 10,
+		melee = 7,
+		bullet = 2,
+		energy = 2,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -110,9 +110,9 @@
 /obj/item/clothing/head/space/void/security
 	name = "CAS combat voidsuit helmet"
 	armor = list(
-		melee = 35,
-		bullet = 45,
-		energy = 30,
+		melee = 8,
+		bullet = 11,
+		energy = 8,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -122,9 +122,9 @@
 /obj/item/clothing/suit/space/void/security
 	name = "CAS combat voidsuit"
 	armor = list(
-		melee = 35,
-		bullet = 45,
-		energy = 30,
+		melee = 8,
+		bullet = 11,
+		energy = 8,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -134,9 +134,9 @@
 /obj/item/clothing/head/space/void/science
 	name = "NT combat Helmet"
 	armor = list(
-		melee = 35,
-		bullet = 30,
-		energy = 45,
+		melee = 8,
+		bullet = 7,
+		energy = 11,
 		bomb = 100,
 		bio = 100,
 		rad = 75
@@ -146,9 +146,9 @@
 /obj/item/clothing/suit/space/void/science
 	name = "NT combat voidsuit"
 	armor = list(
-		melee = 35,
-		bullet = 30,
-		energy = 45,
+		melee = 8,
+		bullet = 8,
+		energy = 11,
 		bomb = 100,
 		bio = 100,
 		rad = 75
@@ -167,9 +167,9 @@
 		)
 
 	armor = list(
-		melee = 35,
-		bullet = 35,
-		energy = 35,
+		melee = 8,
+		bullet = 8,
+		energy = 8,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -185,9 +185,9 @@
 	icon_state = "dss_voidsuit"
 	item_state = "dss_voidsuit"
 	armor = list(
-		melee = 35,
-		bullet = 35,
-		energy = 35,
+		melee = 8,
+		bullet = 8,
+		energy = 8,
 		bomb = 25,
 		bio = 100,
 		rad = 75

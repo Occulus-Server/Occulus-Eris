@@ -38,7 +38,6 @@
 	desc = "A sterile mask designed to help prevent the spread of diseases."
 	icon_state = "sterile"
 	item_state = "sterile"
-	rarity_value = 25
 	w_class = ITEM_SIZE_SMALL
 	body_parts_covered = FACE
 	item_flags = FLEXIBLEMATERIAL
@@ -101,68 +100,6 @@
 		melee = 15,
 		bullet = 16,
 		energy = 15,
-		bomb = 75,
-		bio = 100,
-		rad = 30
-	)
-
-/obj/item/clothing/mask/thief/adminspawn/wolf
-	name = "technician's mask"
-	icon_state = "wolf"
-
-/obj/item/clothing/mask/thief/adminspawn/hoxton
-	name = "fugitive's mask"
-	icon_state = "hoxton"
-
-/obj/item/clothing/mask/thief/adminspawn/chains
-	name = "enforcer's mask"
-	icon_state = "chains"
-
-/obj/item/clothing/mask/surgical/New()
-	..()
-	AddComponent(/datum/component/clothing_sanity_protection, NORMAL_MASK_SANITY_COEFF_BUFF)
-
-/obj/item/clothing/mask/thief
-	name = "mastermind's mask"
-	desc = "A white mask with some strange drawings. Designed to hide the wearer's face"
-	icon_state = "dallas"
-	flags_inv = HIDEFACE
-	w_class = ITEM_SIZE_SMALL
-	body_parts_covered = FACE
-	armor = list(
-		melee = 10,
-		bullet = 10,
-		energy = 10,
-		bomb = 0,
-		bio = 0,
-		rad = 0
-	)
-	price_tag = 150
-
-/obj/item/clothing/mask/thief/New()
-	..()
-	AddComponent(/datum/component/clothing_sanity_protection, THIEF_MASK_SANITY_COEFF_BUFF)
-
-/obj/item/clothing/mask/thief/wolf
-	name = "technician's mask"
-	icon_state = "wolf"
-
-/obj/item/clothing/mask/thief/hoxton
-	name = "fugitive's mask"
-	icon_state = "hoxton"
-
-/obj/item/clothing/mask/thief/chains
-	name = "enforcer's mask"
-	icon_state = "chains"
-
-//Adminbus versions with extremly high armor, should never spawn in game
-/obj/item/clothing/mask/thief/adminspawn
-	spawn_blacklisted = TRUE
-	body_parts_covered = HEAD|FACE
-	armor = list(
-		melee = 60,
-		bullet = 65,
-		energy = 60,
 		bomb = 75,
 		bio = 100,
 		rad = 30
@@ -295,10 +232,6 @@
 	..()
 	AddComponent(/datum/component/clothing_sanity_protection, NORMAL_MASK_SANITY_COEFF_BUFF)
 
-/obj/item/clothing/mask/pig/New()
-	..()
-	AddComponent(/datum/component/clothing_sanity_protection, NORMAL_MASK_SANITY_COEFF_BUFF)
-
 /obj/item/clothing/mask/horsehead
 	name = "horse head mask"
 	desc = "A mask made of soft vinyl and latex, representing the head of a horse."
@@ -357,15 +290,10 @@
 // Bandanas below
 /obj/item/clothing/mask/bandana
 	name = "black bandana"
-	//SYZYGY Edit Start
-	desc = "A fine bandana with nanotech lining."
-	flags_inv = null	//Now ears and hair show through it
-	slot_flags = SLOT_HEAD | SLOT_MASK
-	body_parts_covered = HEAD|FACE
-	item_icons = list(
-		slot_head_str = 'icons/mob/head.dmi',
-		slot_wear_mask_str = 'icons/mob/mask.dmi'		)
-	//SYZYGY Edit end
+	desc = "A fine bandana with nanotech lining. Can be worn on the head or face."
+	flags_inv = HIDEFACE
+	slot_flags = SLOT_MASK|SLOT_HEAD
+	body_parts_covered = FACE
 	icon_state = "bandblack"
 	item_state = "bandblack"
 	item_flags = FLEXIBLEMATERIAL
@@ -390,7 +318,6 @@
 			style_coverage = COVERS_HAIR
 
 	return ..()
-//SYZYG Edit end
 
 /obj/item/clothing/mask/bandana/red
 	name = "red bandana"

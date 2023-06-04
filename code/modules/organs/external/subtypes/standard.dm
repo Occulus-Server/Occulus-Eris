@@ -4,12 +4,15 @@
 
 /obj/item/organ/external/chest
 	default_description = /datum/organ_description/chest
+	gendered = TRUE // Occulus Edit: Gendered organ
 
 /obj/item/organ/external/groin
 	default_description = /datum/organ_description/groin
+	gendered = TRUE // Occulus Edit: Gendered organ
 
 /obj/item/organ/external/head
 	default_description = /datum/organ_description/head
+	gendered = TRUE // Occulus Edit: Gendered organ
 
 /obj/item/organ/external/head/removed_mob()
 	name = "[owner.real_name]'s head"

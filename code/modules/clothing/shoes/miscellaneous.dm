@@ -27,7 +27,6 @@
 	species_restricted = null
 	body_parts_covered = 0
 	siemens_coefficient = 0
-	rarity_value = 14.3
 
 /obj/item/clothing/shoes/sandal/marisa
 	desc = "A pair of magic, black shoes."
