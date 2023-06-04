@@ -11,9 +11,9 @@
 	icon_override = 'zzzz_modular_occulus/icons/inventory/head/mob.dmi'
 	icon_state = "advhardhat"
 	armor = list(
-		melee = 30,
-		bullet = 15,
-		energy = 35,
+		melee = 7,
+		bullet = 3,
+		energy = 8,
 		bomb = 30,
 		bio = 15,
 		rad = 30
@@ -49,8 +49,8 @@
 	icon = 'zzzz_modular_occulus/icons/inventory/head/icon.dmi'
 	icon_override = 'zzzz_modular_occulus/icons/inventory/head/mob.dmi'
 	icon_state = "blueshield_helm"
-	armor_up = list(melee = 35, bullet = 25, energy = 20, bomb = 20, bio = 0, rad = 0)
-	armor_down = list(melee = 40, bullet = 40, energy = 35, bomb = 35, bio = 0, rad = 0)
+	armor_up = list(melee = 8, bullet = 6, energy = 5, bomb = 20, bio = 0, rad = 0)
+	armor_down = list(melee = 10, bullet = 10, energy = 8, bomb = 35, bio = 0, rad = 0)
 	item_flags = THICKMATERIAL | COVER_PREVENT_MANIPULATION
 	tint_down = TINT_NONE
 	price_tag = 200

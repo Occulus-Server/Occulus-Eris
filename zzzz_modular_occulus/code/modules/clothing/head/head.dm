@@ -6,9 +6,9 @@
 	icon_override = 'zzzz_modular_occulus/icons/mob/head.dmi'
 	desc = "A special helmet designed for hazardous, low-pressure environments. Only for the most fashionable of corporate figureheads."
 	armor = list(
-		melee = 50,
-		bullet = 40,
-		energy = 40,
+		melee = 12,
+		bullet = 10,
+		energy = 10,
 		bomb = 50,
 		bio = 100,
 		rad = 50

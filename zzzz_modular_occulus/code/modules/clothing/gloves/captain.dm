@@ -5,6 +5,6 @@
 	icon_state = "captain"
 	item_state = "captain"
 	icon_override = 'zzzz_modular_occulus/icons/mob/gloves.dmi'
-	armor = list(melee = 25, bullet = 10, energy = 25, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 6, bullet = 2, energy = 6, bomb = 0, bio = 0, rad = 0)
 	price_tag = 500
 	rarity_value = 99

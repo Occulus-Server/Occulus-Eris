@@ -5,6 +5,6 @@
 	icon = 'icons/inventory/hands/icon.dmi'
 	spawn_tags = SPAWN_TAG_GLOVES
 	body_parts_covered = HANDS
-	armor = list(melee = 10, bullet = 0, energy = 15, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 2, bullet = 0, energy = 3, bomb = 0, bio = 0, rad = 0)
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")

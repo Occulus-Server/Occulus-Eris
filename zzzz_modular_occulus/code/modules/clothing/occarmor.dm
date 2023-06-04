@@ -14,9 +14,9 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS //It has gloves, hood, and shoes for the rest of them
 	slowdown = 0.3 //Slightly faster than the red suit. Maybe do it at 0.2?
 	armor = list(
-		melee = 35,
-		bullet = 35,
-		energy = 35,
+		melee = 8,
+		bullet = 8,
+		energy = 8,
 		bomb = 30,
 		bio = 100,
 		rad = 50
@@ -40,9 +40,9 @@
 	canremove = 0
 	matter = list(MATERIAL_STEEL = 5, MATERIAL_THEY_WAIT_IN_THE_SHADOWS = 9, MATERIAL_GLASS = 10)
 	armor = list(
-		melee = 35,
-		bullet = 35,
-		energy = 35,
+		melee = 8,
+		bullet = 8,
+		energy = 8,
 		bomb = 30,
 		bio = 100,
 		rad = 50
@@ -91,9 +91,9 @@
 	matter = list(MATERIAL_LEATHER = 10, MATERIAL_SPACE_IS_HUNGRY = 8, MATERIAL_STEEL = 2)
 	spawn_blacklisted = TRUE
 	armor = list(
-		melee = 35,
-		bullet = 35,
-		energy = 35,
+		melee = 8,
+		bullet = 8,
+		energy = 8,
 		bomb = 30,
 		bio = 100,
 		rad = 50
@@ -115,9 +115,9 @@
 	canremove = 0
 	matter = list(MATERIAL_STEEL = 6, MATERIAL_BEQUIETITWILLHEARYOU = 1, MATERIAL_LEATHER = 3)
 	armor = list(
-		melee = 35,
-		bullet = 35,
-		energy = 35,
+		melee = 8,
+		bullet = 8,
+		energy = 8,
 		bomb = 30,
 		bio = 100,
 		rad = 50

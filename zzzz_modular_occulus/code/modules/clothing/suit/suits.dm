@@ -9,9 +9,9 @@
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	armor = list(
-		melee = 30,
-		bullet = 35,
-		energy = 30,
+		melee = 7,
+		bullet = 8,
+		energy = 7,
 		bomb = 15,
 		bio = 0,
 		rad = 0
@@ -32,9 +32,9 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 	blood_overlay_type = "coat"
 	armor = list(
-		melee = 30,
-		bullet = 35,
-		energy = 30,
+		melee = 7,
+		bullet = 8,
+		energy = 7,
 		bomb = 30,
 		bio = 15,
 		rad = 0
@@ -51,9 +51,9 @@
 	icon_override_female = 'zzzz_modular_occulus/icons/mob/suit_fem.dmi'
 	slowdown = 0.3
 	armor = list(
-		melee = 50,
-		bullet = 40,
-		energy = 40,
+		melee = 12,
+		bullet = 19,
+		energy = 10,
 		bomb = 50,
 		bio = 100,
 		rad = 50
@@ -119,9 +119,9 @@
 	icon = 'zzzz_modular_occulus/icons/inventory/suit/captain.dmi'
 	icon_override = 'zzzz_modular_occulus/icons/mob/suit.dmi'
 	item_state = "caparmor"
-	armor = list(melee = 50,
-		bullet = 40,
-		energy = 40,
+	armor = list(melee = 12,
+		bullet = 10,
+		energy = 10,
 		bomb = 50,
 		bio = 100,
 		rad = 50)
@@ -173,9 +173,9 @@
 	icon_state = "ees"
 	item_state = "armor_engineering"
 	armor = list(
-		melee = 20,
-		bullet = 15,
-		energy = 20,
+		melee = 5,
+		bullet = 3,
+		energy = 4,
 		bomb = 10,
 		bio = 0,
 		rad = 30
@@ -197,9 +197,9 @@
 	icon_state = "cyber"
 	rarity_value = 6
 	armor = list(
-		melee = 20,
-		bullet = 10,
-		energy = 10,
+		melee = 5,
+		bullet = 2,
+		energy = 2,
 		bomb = 0,
 		bio = 0,
 		rad = 0
@@ -212,9 +212,9 @@
 /obj/item/clothing/suit/storage/cyberpunksleek
 	desc = "A sleek overcoat made of neo-laminated fabric designed to repel energy weapons. It has an association with upper-class mobsters and gangs."
 	armor = list(
-		melee = 10,
-		bullet = 10,
-		energy = 20,
+		melee = 2,
+		bullet = 2,
+		energy = 4,
 		bomb = 0,
 		bio = 0,
 		rad = 0
@@ -223,9 +223,9 @@
 /obj/item/clothing/suit/storage/cyberpunksleek_long
 	desc = "A long overcoat made of neo-laminated fabric designed to repel energy weapons. It has an association with upper-class mobsters and gangs."
 	armor = list(
-		melee = 10,
-		bullet = 10,
-		energy = 20,
+		melee = 2,
+		bullet = 2,
+		energy = 4,
 		bomb = 0,
 		bio = 0,
 		rad = 0
@@ -233,9 +233,9 @@
 
 /obj/item/clothing/suit/storage/toggle/bomber
 		armor = list(
-		melee = 15,
-		bullet = 10,
-		energy = 15,
+		melee = 3,
+		bullet = 2,
+		energy = 3,
 		bomb = 0,
 		bio = 0,
 		rad = 0
@@ -249,9 +249,9 @@
 	icon_state = "casah"
 	item_state = "casah"
 	armor = list(
-		melee = 25,
-		bullet = 20,
-		energy = 25,
+		melee = 6,
+		bullet = 5,
+		energy = 6,
 		bomb = 10,
 		bio = 0,
 		rad = 0
@@ -312,9 +312,9 @@
 	rarity_value = 40 // rarer than just full vests
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS // kneepads and shoulderpads, so it covers arms and legs
 	armor = list(
-		melee = 30,
-		bullet = 30,
-		energy = 25,
+		melee = 7,
+		bullet = 7,
+		energy = 6,
 		bomb = 10,
 		bio = 0,
 		rad = 0

@@ -216,16 +216,16 @@
 	)
 
 /obj/item/clothing/suit/storage/neotheosports
-	name = "Mekhane sports jacket"
-	desc = "Mekhane styled sports jacket to keep the faithful always on their feet."
+	name = "NeoTheology sports jacket"
+	desc = "NeoTheology styled sports jacket to keep the faithful always on their feet."
 	icon_state = "nt_sportsjacket"
 	item_state = "nt_sportsjacket"
 	body_parts_covered = UPPER_TORSO|ARMS
 	spawn_blacklisted = TRUE
 	armor = list(
-		melee = 25,
-		bullet = 10,
-		energy = 20,
+		melee = 2,
+		bullet = 2,
+		energy = 2,
 		bomb = 0,
 		bio = 0,
 		rad = 0
