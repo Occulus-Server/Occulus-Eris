@@ -22,6 +22,7 @@
 	fruit = list("carrot" = 1, "potato" = 1, "corn" = 1, "eggplant" = 1)
 	reagents = list(/datum/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/vegetable
+	result_quantity = 3
 
 /datum/recipe/nettlesoup
 	appliance = SAUCEPAN | POT
@@ -92,6 +93,7 @@
 	fruit = list("whitebeet" = 1, "cabbage" = 1)
 	reagents = list(/datum/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/beet
+	result_quantity = 2
 
 // Stews
 /datum/recipe/stew
@@ -100,7 +102,9 @@
 	reagents = list(/datum/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/stew
-/*	//Occ edit, deprecated with removal of spacebears.
+	result_quantity = 3
+
+/*	//Occ edit, deprecated with removal of spacebears. Readd if we find another big meat. 
 /datum/recipe/bearstew
 	appliance = POT
 	fruit = list("potato" = 1, "tomato" = 1, "carrot" = 1, "eggplant" = 1, "mushroom" = 1)
@@ -110,7 +114,7 @@
 	result = /obj/item/reagent_containers/food/snacks/stew/bear
 */
 // Chili
-/*	//Occ edit: Deprecated with removal of spacebears
+/*	//Occ edit: Deprecated with removal of spacebears. Readd if we find more big meat. 
 /datum/recipe/bearchili
 	appliance = SAUCEPAN | POT
 	fruit = list("chili" = 1, "tomato" = 1)

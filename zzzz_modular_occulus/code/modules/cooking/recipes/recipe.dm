@@ -6,11 +6,11 @@
  *    transfers reagents from prerequisite objects,
  *    deletes all prerequisite objects (even not needed for recipe at the moment).
  *
- *  /proc/select_recipe(obj/obj as obj, exact = 1, appliance)
- *    Wonderful function that select suitable recipe for you.
- *    obj is a machine (or magik hat) with prerequisites,
+ *  /proc/select_cooking_recipe(obj/obj as obj, exact = 1, appliance)
+ *    Selects the recipe for you based on the appliance and ingredients involved.
+ *    obj is a machine (or magic hat) with prerequisites,
  *    exact = 0 forces algorithm to ignore superfluous stuff.
- *
+ *Use select_cooking_recipe to avoid stepping on select_recipe's toes.
  *
  *  Functions you do not need to call directly but could:
  *  /datum/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
@@ -47,6 +47,8 @@
 		return F.trans_to_holder(target, amount)
 
 
+//base Eris /datum/recipe is found in /code/datums/recipe.dm.
+//They have base time 100, 1/10th of a second, and the vars: reagents(list), items(list), fruit(list), time (100), and result.
 /datum/recipe
 	var/display_name
 	var/coating = null	//Required coating on all items in the recipe. The default value of null explitly requires no coating
@@ -57,25 +59,26 @@
 
 	#define RECIPE_REAGENT_REPLACE		0 //Reagents in the ingredients are discarded.
 	//Only the reagents present in the result at compiletime are used
-	#define RECIPE_REAGENT_MAX	1 //The result will contain the maximum of each reagent present between the two pools. Compiletime result, and sum of ingredients
-	#define RECIPE_REAGENT_MIN 2 //As above, but the minimum, ignoring zero values.
-	#define RECIPE_REAGENT_SUM 3 //The entire quantity of the ingredients are added to the result
+	#define RECIPE_REAGENT_MAX			1 //The result will contain the maximum of each reagent present between the two pools. Compiletime result, and sum of ingredients
+	#define RECIPE_REAGENT_MIN 			2 //As above, but the minimum, ignoring zero values.
+	#define RECIPE_REAGENT_SUM 			3 //The entire quantity of the ingredients are added to the result
 
 	var/reagent_mix = RECIPE_REAGENT_MAX	//How to handle reagent differences between the ingredients and the results
 
-	var/finished_temperature = T0C + 40 //The temperature of the reagents of the final product.Only affects nutrient type.
+	var/finished_temperature = T0C + 40 //The temperature of the reagents of the final product. Only affects nutrient type.
 
-	var/appliance = MIX//Which appliances this recipe can be made in.
+	var/appliance = MIX	//Which appliances this recipe can be made in.
 	//List of defines is in _defines/misc.dm. But for reference they are:
 	/*
-		MIX
-		FRYER
-		OVEN
-		SKILLET
-		SAUCEPAN
-		POT
+		MIX (the mixer, or by hand)
+		FRYER (the fryer)
+		OVEN (the oven)
+		SKILLET (the skillet, on the stove)
+		SAUCEPAN (the saucepan, on the stove)
+		POT (the pot, on the stove)
+		PLANCHA (the plancha)
 	*/
-	//This is a bitfield, more than one type can be used
+	//This is a bitfield, more than one type can be used. Connect with | to have more than one option: POT | SAUCEPAN
 
 /datum/recipe/proc/get_appliance_names()
 	var/list/appliance_names
@@ -96,8 +99,8 @@
 	return english_list(appliance_names, and_text = " or ")
 
 /datum/recipe/proc/cook_check_reagents(var/datum/reagents/avail_reagents)
-	if (isemptylist(reagents))
-		return avail_reagents?.total_volume ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
+	if (isemptylist(reagents))	//If no reagents in the recipe
+		return avail_reagents?.total_volume ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT	//If there is a total volume of reagents, they're extra. Otherwise, exactly enough.
 
 	if (!avail_reagents)
 		return COOK_CHECK_EXTRA
@@ -167,7 +170,7 @@
 		if (!found)
 			. = COOK_CHECK_EXTRA
 		if (isemptylist(checklist) && . != COOK_CHECK_EXTRA)
-			return COOK_CHECK_EXTRA//No need to iterate through everything if we know theres at least oen extraneous ingredient
+			return COOK_CHECK_EXTRA//No need to iterate through everything if we know theres at least one extraneous ingredient
 	if (length(checklist))
 		. = COOK_CHECK_FAIL
 
@@ -301,19 +304,63 @@
 //When exact is false, extraneous ingredients are ignored
 //When exact is true, extraneous ingredients will fail the recipe
 //In both cases, the full complement of required inredients is still needed
-/proc/select_cooking_recipe(var/obj/obj as obj, var/exact = COOK_CHECK_EXTRA, var/appliance = null)
+/*
+/proc/select_cooking_recipe(var/obj/obj as obj, var/required = COOK_CHECK_EXACT, var/appliance = null)
 	if(!appliance)
-		CRASH("Null appliance flag passed to select_recipe!")
-	var/list/available_recipes = subtypesof(/datum/recipe)
+		crash_with("No appliance flag passed to select_recipe in the [src], at [src.loc].")
 	var/list/possible_recipes = list()
-	for (var/R in available_recipes)
-		var/datum/recipe/recipe = pick(available_recipes)
-		if(!(appliance & recipe.appliance))
+	
+	for(var/R in subtypesof(datum/recipe))
+		if(R.appliance)	//Mixed recipes don't have an appliance. 
+			if(R.appliance in(src.appliancetype))
+				possible_recipes += R
+		if(R.appliance = MIX)
+			possible_recipes += R
+
+		if((recipe.check_reagents(obj.reagents) < required) || (recipe.check_items(obj) < required) || (recipe.check_fruits(obj) < required))
 			continue
-		if((recipe.check_reagents(obj.reagents) < exact) || (recipe.check_items(obj) < exact) || (recipe.check_fruit(obj) < exact))
-			continue
-		possible_recipes |= recipe
-	if (isemptylist(possible_recipes))
+		if(!(recipe in possible_recipes))
+			possible_recipes += recipe
+	if(isemptylist(possible_recipes))
+		message_admins("Couldn't find any recipes (possible_recipes empty)")
 		return null
 	sortTim(possible_recipes, /proc/cmp_recipe_complexity_dsc) // Select the most complex recipe
 	return possible_recipes[1]
+
+*/
+
+	//This is dumb. 
+/proc/select_cooking_recipe(var/obj/obj as obj, var/exact = COOK_CHECK_EXTRA, var/appliance = null)
+	if(!appliance)
+		crash_with("Null appliance flag passed to select_cooking_recipe!")
+	var/list/recipelist = list()
+	for(var/D in subtypesof(/datum/recipe))
+		var/toadd = new D
+		recipelist += toadd
+		qdel(D)
+		//message_admins("[toadd]")
+	var/list/possible_recipes = list()
+	for (var/R in recipelist)
+		var/datum/recipe/recipe = pick_n_take(recipelist)
+		if(!(appliance & recipe.appliance))
+			continue
+		//var/resultreagents = recipe.check_reagents(obj.reagents) < exact
+		//var/resultfruit = recipe.check_fruit(obj) < exact
+		//var/resultitems = recipe.check_items(obj) < exact
+		if((recipe.check_reagents(obj.reagents) < exact) || (recipe.check_items(obj) < exact) || (recipe.check_fruit(obj) < exact))
+		//	message_admins("reagents: [resultreagents], items: [resultitems], fruit: [resultfruit]")
+			continue
+		//if(!(recipe in possible_recipes))
+		possible_recipes += recipe
+		message_admins("list is [possible_recipes]")
+	if (isemptylist(possible_recipes))
+		message_admins("Couldn't find any recipes (possible_recipes empty)")
+		return null
+	sortTim(possible_recipes, cmp = /proc/cmp_recipe_complexity_dsc) // Select the most complex recipe
+	message_admins("list is [possible_recipes]")
+	//testing block
+	var/result = possible_recipes[1]
+	message_admins("found [result]")
+	return result
+	//testing block end
+	//return possible_recipes[1]

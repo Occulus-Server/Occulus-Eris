@@ -26,10 +26,11 @@
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/organic/nutriment/rice = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
-		/obj/item/reagent_containers/food/snacks/bacon
+		/obj/item/reagent_containers/food/snacks/cutlet
 	)
 	result = /obj/item/reagent_containers/food/snacks/porkbowl
 
+/*	TODO: add when we have legs of some kind, maybe roach?
 /datum/recipe/crab_legs
 	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/water = 10, /datum/reagent/other/sodiumchloride = 1)
@@ -39,3 +40,4 @@
 		)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/crab_legs
+	*/

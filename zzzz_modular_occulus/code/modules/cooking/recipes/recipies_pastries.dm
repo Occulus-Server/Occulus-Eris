@@ -78,33 +78,33 @@
 /datum/recipe/cake
 	appliance = OVEN
 	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/organic/nutriment/flour = 15, /datum/reagent/organic/sugar = 15, /datum/reagent/organic/nutriment/protein/egg = 9)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/plain
+	result = /obj/item/reagent_containers/food/snacks/sliceable/plaincake
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/cake/carrot
 	fruit = list("carrot" = 3)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/carrot
+	result = /obj/item/reagent_containers/food/snacks/sliceable/carrotcake
 
 /datum/recipe/cake/cheese
 	items = list(
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/cheese
+	result = /obj/item/reagent_containers/food/snacks/sliceable/cheesecake
 
 /datum/recipe/cake/orange
 	fruit = list("orange" = 2)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/orange
+	result = /obj/item/reagent_containers/food/snacks/sliceable/orangecake
 
 /datum/recipe/cake/lime
 	appliance = OVEN
 	fruit = list("lime" = 2)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/lime
+	result = /obj/item/reagent_containers/food/snacks/sliceable/limecake
 
 /datum/recipe/cake/lemon
 	appliance = OVEN
 	fruit = list("lemon" = 2)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/lemon
+	result = /obj/item/reagent_containers/food/snacks/sliceable/lemoncake
 
 /datum/recipe/cake/chocolate
 	appliance = OVEN
@@ -112,22 +112,22 @@
 		/obj/item/reagent_containers/food/snacks/chocolatebar,
 		/obj/item/reagent_containers/food/snacks/chocolatebar
 	)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/chocolate
+	result = /obj/item/reagent_containers/food/snacks/sliceable/chocolatecake
 
 /datum/recipe/cake/birthday
 	appliance = OVEN
 	items = list(/obj/item/flame/candle)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/birthday
+	result = /obj/item/reagent_containers/food/snacks/sliceable/birthdaycake
 
 /datum/recipe/cake/apple
 	appliance = OVEN
 	fruit = list("apple" = 2)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/apple
+	result = /obj/item/reagent_containers/food/snacks/sliceable/applecake
 
 /datum/recipe/cake/brain
 	appliance = OVEN
 	items = list(/obj/item/organ/internal/brain)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/brain
+	result = /obj/item/reagent_containers/food/snacks/sliceable/braincake
 
 /datum/recipe/honeybun
 	appliance = OVEN

@@ -456,7 +456,7 @@
 		N = I
 		if(N.taste_tag.len)
 			for(var/T in N.taste_tag)
-			tasteflags += T
+				tasteflags += T
 
 		var/obj/item/reagent_containers/food/snacks/S
 		if (istype(I, /obj/item/reagent_containers/food/snacks))
@@ -514,9 +514,9 @@
 
 	//This proc sets the size of the output result
 	result.update_prefix()
-	for(var/T in tasteflags)	//Now we set the taste flags of the thing so we can get proper food out of it.
-		result.tasteflags += T
-	update_taste(result)
+	//for(var/T in tasteflags)	//Now we set the taste flags of the thing so we can get proper food out of it.
+	//	result.tasteflags += T
+	//update_taste(result)
 	//Final step. Cook function just cooks batter for now.
 	for (var/obj/item/reagent_containers/food/snacks/S in CI.container)
 		S.cook()

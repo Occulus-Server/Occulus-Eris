@@ -1,5 +1,5 @@
 /datum/recipe/cutlet
-	appliance = SKILLET
+	appliance = SKILLET | PLANCHA
 	items = list(
 		/obj/item/reagent_containers/food/snacks/rawcutlet
 	)
@@ -13,43 +13,42 @@
 	result = /obj/item/reagent_containers/food/snacks/meatball
 
 /datum/recipe/bacon
-	appliance = SKILLET
+	appliance = SKILLET | PLANCHA
 	items = list(
 		/obj/item/reagent_containers/food/snacks/rawbacon
 	)
 	result = /obj/item/reagent_containers/food/snacks/bacon
 
+
 /datum/recipe/bacon_oven
 	appliance = OVEN
 	items = list(
-		/obj/item/reagent_containers/food/snacks/rawbacon,
-		/obj/item/reagent_containers/food/snacks/rawbacon,
-		/obj/item/reagent_containers/food/snacks/rawbacon,
-		/obj/item/reagent_containers/food/snacks/rawbacon,
-		/obj/item/reagent_containers/food/snacks/rawbacon,
-		/obj/item/reagent_containers/food/snacks/rawbacon,
-		/obj/item/reagent_containers/food/snacks/spreads
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/rawcutlet
 	)
-	result = /obj/item/reagent_containers/food/snacks/bacon/oven
+	result = /obj/item/reagent_containers/food/snacks/cutlet
 	result_quantity = 6
 
 //Bacon
 /datum/recipe/bacon_pan
 	appliance = SKILLET
 	items = list(
-		/obj/item/reagent_containers/food/snacks/rawbacon,
-		/obj/item/reagent_containers/food/snacks/rawbacon,
-		/obj/item/reagent_containers/food/snacks/rawbacon,
-		/obj/item/reagent_containers/food/snacks/rawbacon,
-		/obj/item/reagent_containers/food/snacks/rawbacon,
-		/obj/item/reagent_containers/food/snacks/rawbacon,
-		/obj/item/reagent_containers/food/snacks/spreads
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
 	)
-	result = /obj/item/reagent_containers/food/snacks/bacon/pan
+	result = /obj/item/reagent_containers/food/snacks/cutlet
 	result_quantity = 6
 
 /datum/recipe/meatsteak
-	appliance = SKILLET
+	appliance = SKILLET | PLANCHA
 	reagents = list(/datum/reagent/other/sodiumchloride = 1, /datum/reagent/organic/blackpepper = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/meatsteak
@@ -61,7 +60,7 @@
 	result = /obj/item/reagent_containers/food/snacks/meatsteak
 
 /datum/recipe/sausage
-	appliance = SKILLET
+	appliance = SKILLET | PLANCHA
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meatball,
 		/obj/item/reagent_containers/food/snacks/cutlet
@@ -77,6 +76,7 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/nugget
+	result_quantity = 3
 
 /datum/recipe/fishandchips
 	appliance = SKILLET

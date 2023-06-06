@@ -138,11 +138,12 @@
 		/obj/item/reagent_containers/food/snacks/doughslice
 	)
 	result = /obj/item/reagent_containers/food/snacks/cracker
+
 //================================
 // Toasts and Toasted Sandwiches
 //================================
 /datum/recipe/slimetoast
-	appliance = SKILLET
+	appliance = SKILLET | PLANCHA
 	reagents = list(/datum/reagent/medicine/slimejelly = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
@@ -150,7 +151,7 @@
 	result = /obj/item/reagent_containers/food/snacks/jelliedtoast/slime
 
 /datum/recipe/jelliedtoast
-	appliance = SKILLET
+	appliance = SKILLET | PLANCHA
 	reagents = list(/datum/reagent/organic/nutriment/cherryjelly = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
@@ -158,14 +159,14 @@
 	result = /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry
 
 /datum/recipe/toastedsandwich
-	appliance = SKILLET
+	appliance = SKILLET | PLANCHA
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sandwich
 	)
 	result = /obj/item/reagent_containers/food/snacks/toastedsandwich
 
 /datum/recipe/grilledcheese
-	appliance = SKILLET
+	appliance = SKILLET | PLANCHA
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,
 		/obj/item/reagent_containers/food/snacks/breadslice,

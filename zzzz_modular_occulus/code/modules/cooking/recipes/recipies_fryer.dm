@@ -28,9 +28,17 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/onionrings
 
+//Two kinds of mushrooms for the two edible ones.
 /datum/recipe/friedmushroom
 	appliance = FRYER
 	fruit = list("plumphelmet" = 1)
+	coating = /datum/reagent/nutriment/coating/beerbatter
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/friedmushroom
+
+/datum/recipe/friedmushroom
+	appliance = FRYER
+	fruit = list("chanterelle" = 1)
 	coating = /datum/reagent/nutriment/coating/beerbatter
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/friedmushroom
@@ -46,6 +54,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/cubancarp
 
+/*
 /datum/recipe/batteredsausage
 	appliance = FRYER
 	items = list(
@@ -53,7 +62,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sausage/battered
 	coating = /datum/reagent/nutriment/coating/batter
-
+*/
 
 /datum/recipe/katsu
 	appliance = FRYER
@@ -123,6 +132,7 @@
 	reagents = list(/datum/reagent/organic/sugar = 10)
 	result_quantity = 2
 
+/*	WHY IS THIS IN HERE TWICE
 /datum/recipe/jellydonut
 	appliance = FRYER
 
@@ -131,6 +141,7 @@
 
 /datum/recipe/jellydonut/cherry
 	appliance = FRYER
+*/
 
 /datum/recipe/funnelcake
 	appliance = FRYER
@@ -156,16 +167,16 @@
 /datum/recipe/sweet_and_sour
 	appliance = FRYER
 	items = list(
-		/obj/item/reagent_containers/food/snacks/bacon,
-		/obj/item/reagent_containers/food/snacks/cutlet
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/rawcutlet
 	)
 	reagents = list(/datum/reagent/organic/nutriment/soysauce = 5, /datum/reagent/nutriment/coating/batter = 10)
 	result = /obj/item/reagent_containers/food/snacks/sweet_and_sour
 
-/datum/recipe/wingfangchu
+/datum/recipe/sour_roach
 	appliance = FRYER
 	reagents = list(/datum/reagent/organic/nutriment/soysauce = 5)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/xenomeat
+		/obj/item/reagent_containers/food/snacks/meat/roachmeat
 	)
-	result = /obj/item/reagent_containers/food/snacks/wingfangchu
+	result = /obj/item/reagent_containers/food/snacks/sour_roach

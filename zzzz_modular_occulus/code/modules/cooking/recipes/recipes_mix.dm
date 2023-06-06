@@ -46,7 +46,7 @@
 		/obj/item/reagent_containers/food/snacks/bun,
 		/obj/item/reagent_containers/food/snacks/xenomeat
 	)
-	result = /obj/item/reagent_containers/food/snacks/burger/xeno
+	result = /obj/item/reagent_containers/food/snacks/burger/xeno	
 
 /datum/recipe/fishburger
 	items = list(
