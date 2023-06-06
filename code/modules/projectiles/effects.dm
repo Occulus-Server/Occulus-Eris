@@ -131,6 +131,7 @@
 
 /obj/effect/projectile/stun/impact
 	icon_state = "impact_stun"
+	lifetime = 7.5
 
 //----------------------------
 // Bullet
