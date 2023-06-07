@@ -1,4 +1,0 @@
-author: Jamini
-delete-after: true
-changes:
-  - bugfix: Graphical glitch caused by brigador projectile animations on impact.
