@@ -18,7 +18,7 @@ I said no!
 	)
 	result = /obj/item/reagent_containers/food/snacks/telebacon
 */
-/*
+
 /datum/recipe/friedegg
 	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
 	items = list(
@@ -1051,4 +1051,3 @@ I said no!
 	items = list(/obj/item/organ/internal/brain)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/braincake
 
-*/

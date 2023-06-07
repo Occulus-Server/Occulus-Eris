@@ -304,32 +304,7 @@
 //When exact is false, extraneous ingredients are ignored
 //When exact is true, extraneous ingredients will fail the recipe
 //In both cases, the full complement of required inredients is still needed
-/*
-/proc/select_cooking_recipe(var/obj/obj as obj, var/required = COOK_CHECK_EXACT, var/appliance = null)
-	if(!appliance)
-		crash_with("No appliance flag passed to select_recipe in the [src], at [src.loc].")
-	var/list/possible_recipes = list()
-	
-	for(var/R in subtypesof(datum/recipe))
-		if(R.appliance)	//Mixed recipes don't have an appliance. 
-			if(R.appliance in(src.appliancetype))
-				possible_recipes += R
-		if(R.appliance = MIX)
-			possible_recipes += R
-
-		if((recipe.check_reagents(obj.reagents) < required) || (recipe.check_items(obj) < required) || (recipe.check_fruits(obj) < required))
-			continue
-		if(!(recipe in possible_recipes))
-			possible_recipes += recipe
-	if(isemptylist(possible_recipes))
-		message_admins("Couldn't find any recipes (possible_recipes empty)")
-		return null
-	sortTim(possible_recipes, /proc/cmp_recipe_complexity_dsc) // Select the most complex recipe
-	return possible_recipes[1]
-
-*/
-
-	//This is dumb. 
+//This is dumb. 
 /proc/select_cooking_recipe(var/obj/obj as obj, var/exact = COOK_CHECK_EXTRA, var/appliance = null)
 	if(!appliance)
 		crash_with("Null appliance flag passed to select_cooking_recipe!")
@@ -338,29 +313,20 @@
 		var/toadd = new D
 		recipelist += toadd
 		qdel(D)
-		//message_admins("[toadd]")
 	var/list/possible_recipes = list()
 	for (var/R in recipelist)
 		var/datum/recipe/recipe = pick_n_take(recipelist)
 		if(!(appliance & recipe.appliance))
 			continue
-		//var/resultreagents = recipe.check_reagents(obj.reagents) < exact
-		//var/resultfruit = recipe.check_fruit(obj) < exact
-		//var/resultitems = recipe.check_items(obj) < exact
 		if((recipe.check_reagents(obj.reagents) < exact) || (recipe.check_items(obj) < exact) || (recipe.check_fruit(obj) < exact))
-		//	message_admins("reagents: [resultreagents], items: [resultitems], fruit: [resultfruit]")
 			continue
 		//if(!(recipe in possible_recipes))
 		possible_recipes += recipe
-		message_admins("list is [possible_recipes]")
 	if (isemptylist(possible_recipes))
-		message_admins("Couldn't find any recipes (possible_recipes empty)")
 		return null
 	sortTim(possible_recipes, cmp = /proc/cmp_recipe_complexity_dsc) // Select the most complex recipe
-	message_admins("list is [possible_recipes]")
 	//testing block
 	var/result = possible_recipes[1]
-	message_admins("found [result]")
 	return result
 	//testing block end
 	//return possible_recipes[1]

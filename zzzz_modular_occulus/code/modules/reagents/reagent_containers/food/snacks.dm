@@ -1,42 +1,4 @@
 //Occulus' modular overrides and additions for snacks and junkfood goes here
-/*/obj/item/reagent_containers/food/snacks
-	name = "snack"
-	desc = "yummy"
-	icon = 'icons/obj/food.dmi'
-	icon_state = null
-	center_of_mass = list("x"=16, "y"=16)
-	w_class = ITEM_SIZE_SMALL
-	spawn_tags = SPAWN_TAG_COOKED_FOOD
-	var/cooked = FALSE
-	var/list/taste_tag = list(BLAND_FOOD)
-
-	name = ""
-	desc = ""
-	icon_state = ""
-	filling_color = "#"
-	bitesize = 3
-	nutriment_desc = list()
-	nutriment_amt = 4
-	cooked = TRUE
-	taste_tag = list()
-
-	bad_type = /obj/item/reagent_containers/food/snacks
-	var/bitesize = 1
-	var/bitecount = 0
-	var/trash
-	var/slice_path
-	var/slices_num
-	var/dried_type
-	var/open = TRUE		//For chips, candies, etc. Other stuff is open by default
-	var/dry = FALSE
-	var/dryness = 0 //Used by drying rack. Represents progress towards Dry state
-	var/nutriment_amt = 0
-	var/list/nutriment_desc = list("food" = 1)
-	var/sanity_gain = 0.2 //per nutriment
-	var/junk_food = FALSE //if TRUE, sanity gain per nutriment will be zero
-
-	*/
-//holder for errors, delete after debugging
 //Called by cooking machines to set the properties on the food, determining if it's raw or cooked.
 /obj/item/reagent_containers/food/snacks/proc/cook()
 	if (coating)
@@ -89,6 +51,7 @@
 	var/do_coating_prefix = TRUE
 	var/cooked_icon = null
 	var/cooked_name = null	//Set this to the name of the object. Somehow.
+	var/cooked = FALSE
 
 /obj/item/reagent_containers/food/snacks/tastybread
 	icon = 'zzzz_modular_occulus/icons/obj/food.dmi'
