@@ -28,7 +28,7 @@
 	supervisors = "the first officer and captain"
 	selection_color = "#ddddff"
 	wage = WAGE_LABOUR
-	alt_titles = list("Helmsman", "Communications Officer","UTSM Observer")
+	alt_titles = list("Helmsman", "Communications Officer","UTSM Observer", "Corporate Protection Officer")
 	perks = list(/datum/perk/sommelier)
 	ideal_character_age = 30
 

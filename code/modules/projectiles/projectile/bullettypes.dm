@@ -11,6 +11,7 @@ There are important things regarding this file:
 */
 //Low-caliber pistols and SMGs .35
 /obj/item/projectile/bullet/pistol
+	name = ".35 caliber bullet"
 	damage_types = list(BRUTE = 28)
 	armor_penetration = 10
 	can_ricochet = TRUE
@@ -46,6 +47,7 @@ There are important things regarding this file:
 // .20 rifle
 
 /obj/item/projectile/bullet/srifle
+	name = ".20 caliber bullet"
 	damage_types = list(BRUTE = 25)
 	armor_penetration = 25
 	penetrating = 2
@@ -83,6 +85,7 @@ There are important things regarding this file:
 // .25 caseless rifle
 
 /obj/item/projectile/bullet/clrifle
+	name = ".25 caliber bullet"
 	damage_types = list(BRUTE = 27)
 	armor_penetration = 15
 	penetrating = 1
@@ -120,6 +123,7 @@ There are important things regarding this file:
 // .30 rifle
 
 /obj/item/projectile/bullet/lrifle
+	name = ".30 caliber bullet"
 	damage_types = list(BRUTE = 28)
 	armor_penetration = 20
 	penetrating = 1
@@ -153,6 +157,7 @@ There are important things regarding this file:
 
 //Revolvers and high-caliber pistols .40
 /obj/item/projectile/bullet/magnum
+	name = " .40 caliber bullet"
 	damage_types = list(BRUTE = 34)
 	armor_penetration = 15
 	can_ricochet = TRUE
@@ -185,10 +190,47 @@ There are important things regarding this file:
 
 //Sniper rifles .60
 /obj/item/projectile/bullet/antim
+	name = ".60 caliber bullet"
 	damage_types = list(BRUTE = 70)
 	armor_penetration = 50
 	penetrating = 1
 	hitscan = TRUE //so the PTR isn't useless as a sniper weapon
+
+/obj/item/projectile/bullet/antim/emp
+	damage_types = list(BRUTE = 30)
+	armor_penetration = 40
+
+/obj/item/projectile/bullet/antim/emp/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	empulse(target, 0, 0)
+
+/obj/item/projectile/bullet/antim/uranium
+	damage_types = list(BRUTE = 65)
+	armor_penetration = 100
+	irradiate = 200
+
+/obj/item/projectile/bullet/antim/breach
+	damage_types = list(BRUTE = 20)
+	armor_penetration = 40
+	agony = 40
+	penetrating = 0
+	step_delay = 0.6
+	hitscan = FALSE
+	nocap_structures = TRUE
+	kill_count = 30
+
+/obj/item/projectile/bullet/antim/breach/proc/get_tiles_passed(var/distance)
+	var/tiles_passed = distance
+	return ROUND_PROB(tiles_passed)
+
+/obj/item/projectile/bullet/antim/breach/get_structure_damage()
+	var/distance = get_dist(loc, starting)
+	return  22 * get_tiles_passed(distance)
+
+/obj/item/projectile/bullet/antim/breach/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	fragment_explosion_angled(target, starting ,/obj/item/projectile/bullet/pellet/fragment/strong, 5)
+	playsound(target, 'sound/effects/explosion1.ogg', 100, 25, 8, 8)
 
 /obj/item/projectile/bullet/antim/scrap
 	damage_types = list(BRUTE = 63)
@@ -230,6 +272,7 @@ There are important things regarding this file:
 /obj/item/projectile/bullet/shotgun/incendiary
 	damage_types = list(BRUTE = 45)
 	knockback = 0
+
 	var/fire_stacks = 4
 
 /obj/item/projectile/bullet/shotgun/incendiary/on_hit(atom/target, blocked = FALSE)
@@ -248,7 +291,7 @@ There are important things regarding this file:
 	pellets = 8
 	range_step = 1
 	spread_step = 10
-	knockback = 1
+	pellet_to_knockback_ratio = 2
 
 /obj/item/projectile/bullet/pellet/shotgun/Initialize()
 	. = ..()
@@ -269,3 +312,19 @@ There are important things regarding this file:
 	nodamage = TRUE
 	embed = FALSE
 	sharp = FALSE
+
+/obj/item/projectile/bullet/bolt
+	icon_state = "SpearFlight"
+	name = "bolt"
+	damage_types = list(BRUTE = 27)
+//	armor_divisor = 2
+	embed = FALSE
+	can_ricochet = TRUE
+//	recoil = 3
+//	style_damage = 40
+//	wounding_mult = WOUNDING_EXTREME
+
+/obj/item/projectile/bullet/bolt/on_hit(mob/living/target, def_zone = BP_CHEST)
+    if(istype(target))
+        var/obj/item/ammo_casing/crossbow/bolt/R = new(null)
+        target.embed(R, def_zone)

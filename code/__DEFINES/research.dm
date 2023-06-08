@@ -1,4 +1,4 @@
-#define SHEET_MATERIAL_AMOUNT 2000
+#define SHEET_MATERIAL_AMOUNT 1
 
 #define TECH_MATERIAL "materials"
 #define TECH_ENGINEERING "engineering"
@@ -30,7 +30,7 @@
 #define RESEARCH_BLUESPACE     /datum/tech/bluespace
 #define RESEARCH_ROBOTICS      /datum/tech/robotics
 #define RESEARCH_COVERT        /datum/tech/covert
-  
+
 
 // Design categories
 #define CAT_MISC        "Misc"

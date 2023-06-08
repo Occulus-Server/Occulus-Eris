@@ -9,7 +9,7 @@
 	silenced = 0
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_PLASTIC = 6)
-	price_tag = 1200
+	price_tag = 1000
 	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
 	caliber = CAL_PISTOL
 	load_method = MAGAZINE
@@ -25,14 +25,8 @@
 		FULL_AUTO_800
 		)
 
-	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
 
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_PLASTIC = 6)
-
-	rarity_value = 16
-	price_tag = 1200
-	//spawn_tags = SPAWN_TAG_FS_PROJECTILE Occulus edit : We don't have those tags yet
+	//spawn_tags = SPAWN_TAG_FS_PROJECTILE
 
 /obj/item/gun/projectile/selfload/on_update_icon()
 	..()
@@ -65,3 +59,9 @@
 	init_firemodes = list(
 		SEMI_AUTO_NODELAY
 		)
+
+// OCCY BOTCHJOB: temporarily (more like permanently) moved here since we haven't ported the guns rework from upstream
+/obj/item/gun/projectile/selfload/moebius
+	name = "ML HG .35 Auto \"Anne\"" // ML stands for Moebius Laboratories
+	desc = "Self-loading pistol of Syndicate design rebranded by Moebius Laboratories. Uses both standard and highcap .35 Auto mags."
+	icon = 'icons/obj/guns/projectile/clarissa_white.dmi'

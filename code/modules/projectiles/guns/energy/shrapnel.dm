@@ -23,11 +23,11 @@
 		list(mode_name="Grenade", mode_desc="Fires a frag synth-shell", projectile_type=/obj/item/projectile/bullet/grenade/frag/weak, charge_cost=10000, icon="grenade"),
 		list(mode_name="Blast", mode_desc="Fires a slug synth-shell", projectile_type=/obj/item/projectile/bullet/shotgun, charge_cost=null, icon="destroy"),
 	)
-	var/consume_cell = TRUE
 	price_tag = 2500
 	rarity_value = 20
 	spawn_tags = SPAWN_TAG_GUN_SHOTGUN_ENERGY
 	twohanded = TRUE
+	var/consume_cell = TRUE
 
 /obj/item/gun/energy/shrapnel/consume_next_projectile()
 	if(!cell) return null

@@ -502,10 +502,10 @@
 		return
 
 	if(reading)
-		to_chat(user, SPAN_WARNING("You try to pull the [implant], but it does not move."))
+		to_chat(user, SPAN_WARNING("You try to eject the [implant], but it does not move.")) //Occulus Edit: Synthetics no longer delete crypts
 		return
 
-	user.put_in_active_hand(implant)
+	implant.forceMove(loc) //Occulus Edit: Synthetics no longer delete crypts
 	implant = null
 
 	src.add_fingerprint(user)

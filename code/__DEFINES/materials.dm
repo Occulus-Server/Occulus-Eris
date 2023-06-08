@@ -29,6 +29,7 @@
 #define MATERIAL_RESIN "resin"
 #define MATERIAL_CARPET "carpet"
 #define MATERIAL_BIOMATTER "biomatter"
+#define MATERIAL_RSCRAP "refined scrap" // Occ
 
 #define MATERIAL_LIST list(\
 	MATERIAL_STEEL,\
@@ -59,7 +60,8 @@
 	MATERIAL_VOXALLOY,\
 	MATERIAL_RESIN,\
 	MATERIAL_CARPET,\
-	MATERIAL_BIOMATTER)
+	MATERIAL_BIOMATTER,\
+	MATERIAL_RSCRAP) // Occ
 
 #define PLASTEEL_COLOUR "#8e9799"
 //Color to exactly match concept art #b0bcbe

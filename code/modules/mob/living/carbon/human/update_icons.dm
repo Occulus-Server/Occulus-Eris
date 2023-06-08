@@ -129,13 +129,14 @@ Please contact me on #coderbus IRC. ~Carn x
 #define R_EAR_LAYER			21
 #define FACEMASK_LAYER		22
 #define HEAD_LAYER			23
-#define COLLAR_LAYER		24
-#define HANDCUFF_LAYER		25
-#define LEGCUFF_LAYER		26
-#define L_HAND_LAYER		27
-#define R_HAND_LAYER		28
-#define FIRE_LAYER			29		//If you're on fire
-#define TOTAL_LAYERS		29
+#define TAIL_LAYER_ALT		24		// OCCULUS EDIT: TAIL LAYER ALTING
+#define COLLAR_LAYER		25
+#define HANDCUFF_LAYER		26
+#define LEGCUFF_LAYER		27
+#define L_HAND_LAYER		28
+#define R_HAND_LAYER		29
+#define FIRE_LAYER			30		//If you're on fire
+#define TOTAL_LAYERS		30
 //////////////////////////////////
 
 /mob/living/carbon/human
@@ -186,11 +187,12 @@ var/global/list/damage_icon_parts = list()
 		O.update_damstate()
 		if(O.damage_state == "00") continue
 		var/icon/DI
-		var/cache_index = "[O.damage_state]/[O.organ_tag]/[species.blood_color]/[species.get_bodytype()]"
+		var/held_blood_color = blood_color ? blood_color : species.blood_color
+		var/cache_index = "[O.damage_state]/[O.organ_tag]/[held_blood_color]/[species.get_bodytype()]" //Occulus Edit - For colored blood
 		if(damage_icon_parts[cache_index] == null)
 			DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
 			DI.Blend(new /icon(species.damage_mask, O.organ_tag), ICON_MULTIPLY)	// mask with this organ's pixels
-			DI.Blend(species.blood_color, ICON_MULTIPLY)
+			DI.Blend(held_blood_color, ICON_MULTIPLY) //Occulus Edit - For colored blood
 			damage_icon_parts[cache_index] = DI
 		else
 			DI = damage_icon_parts[cache_index]
@@ -1189,7 +1191,10 @@ var/global/list/damage_icon_parts = list()
 //Minor refactor to fix render issues. ^Spitzer
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
 	overlays_standing[TAIL_LAYER] = null
+	overlays_standing[TAIL_LAYER_ALT] = null	//OCCULUS EDIT: Readding alt tail stuff
 	var/standing = null
+
+	var/active_tail_layer = tail_alted ? TAIL_LAYER_ALT : TAIL_LAYER
 
 	var/image/vr_tail_image = get_tail_image()
 	if(vr_tail_image)
@@ -1201,7 +1206,7 @@ var/global/list/damage_icon_parts = list()
 			standing = image(tail_s, icon_state = "[species_tail]_s")
 			animate_tail_reset(0)
 
-	overlays_standing[TAIL_LAYER] = standing
+	overlays_standing[active_tail_layer] = standing
 	if(update_icons)   update_icons()
 // // // END ECLIPSE EDITS // // //
 
@@ -1227,7 +1232,8 @@ var/global/list/damage_icon_parts = list()
 
 
 /mob/living/carbon/human/proc/set_tail_state(var/t_state)
-	var/image/tail_overlay = overlays_standing[TAIL_LAYER]
+	var/active_tail_layer = tail_alted ? TAIL_LAYER_ALT : TAIL_LAYER
+	var/image/tail_overlay = overlays_standing[active_tail_layer]
 
 	if(tail_overlay && species.get_tail_animation(src))
 		tail_overlay.icon_state = t_state
@@ -1239,7 +1245,8 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/proc/animate_tail_once(var/update_icons=1)
 	var/t_state = "[species.get_tail(src)]_once"
 
-	var/image/tail_overlay = overlays_standing[TAIL_LAYER]
+	var/active_tail_layer = tail_alted ? TAIL_LAYER_ALT : TAIL_LAYER
+	var/image/tail_overlay = overlays_standing[active_tail_layer]
 	if(tail_overlay && tail_overlay.icon_state == t_state)
 		return //let the existing animation finish
 
@@ -1247,7 +1254,7 @@ var/global/list/damage_icon_parts = list()
 	if(tail_overlay)
 		spawn(20)
 			//check that the animation hasn't changed in the meantime
-			if(overlays_standing[TAIL_LAYER] == tail_overlay && tail_overlay.icon_state == t_state)
+			if(overlays_standing[active_tail_layer] == tail_overlay && tail_overlay.icon_state == t_state)
 				animate_tail_stop()
 
 	if(update_icons)

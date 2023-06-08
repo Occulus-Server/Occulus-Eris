@@ -25,15 +25,21 @@
 		/datum/design/autolathe/device/implanter,
 		/datum/design/autolathe/container/syringegun_ammo,
 //		/datum/design/autolathe/container/syringe/large, Occulus Edit Not ported
+		/datum/design/autolathe/container/hcase_med
 
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/surgery
 	disk_name = "Back Alley Organs"
 	icon_state = "moebius"
-	license = 5
+	license = 10
 	designs = list(
-		/datum/design/bioprinter/lungs
+		/datum/design/organ/back_alley/ex_lungs,
+		/datum/design/organ/back_alley/huge_heart,
+		/datum/design/organ/back_alley/big_liver,
+		/datum/design/organ/back_alley/hyper_nerves,
+		/datum/design/organ/back_alley/super_muscle,
+		/datum/design/organ/back_alley/ex_blood_vessel
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/computer
@@ -80,4 +86,26 @@
 	designs = list(
 		/datum/design/autolathe/gun/dart_gun = 3, // Z-H P Artemis"
 		/datum/design/autolathe/ammo/dart_mag,
+	)
+/*
+/obj/item/computer_hardware/hard_drive/portable/design/medical/genetics
+	disk_name = "Moebius Scientifica - Genetics"
+	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
+	spawn_blacklisted = TRUE	// So genetics has backups
+	license = -1
+	designs = list(
+		/datum/design/research/circuit/dna_console,
+		/datum/design/research/circuit/cryo_slab,
+		/datum/design/research/circuit/moeballs_printer,
+		/datum/design/research/item/dna_scanner
+	)
+*/
+/obj/item/computer_hardware/hard_drive/portable/design/medical/viscera
+	disk_name = "NT Scientifica - Viscera"	//OCCULUS EDIT: DELETE MOEBIUS
+	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
+	spawn_blacklisted = TRUE	// So viscera has backups
+	license = -1
+	designs = list(
+		/datum/design/viscera/organ_fabricator,
+		/datum/design/viscera/disgorger
 	)

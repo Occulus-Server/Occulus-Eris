@@ -1,4 +1,4 @@
-//Makes the medical belt able to fit the advanced rollerbed in it!
+//Makes the medical belt able to fit the advanced rollerbed and the hypospray in it!
 
 /obj/item/storage/belt/medical
 	can_hold = list(
@@ -23,7 +23,8 @@
 		/obj/item/tool/crowbar,
 		/obj/item/device/lighting/toggleable/flashlight,
 		/obj/item/extinguisher/mini,
-		/obj/item/roller/adv
+		/obj/item/roller/adv,
+		/obj/item/hypospray/mkii
 	)
 
 /obj/item/storage/belt/tactical//adds stun baton to belt! Whoop!

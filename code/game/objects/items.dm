@@ -19,7 +19,7 @@
 	var/max_health
 	var/burn_point
 	var/burning
-	var/hitsound
+	var/hitsound = 'sound/weapons/genhit1.ogg'
 	var/worksound
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
 
@@ -82,6 +82,8 @@
 
 	var/list/item_upgrades = list()
 	var/max_upgrades = 3
+
+	var/can_use_lying = 0
 
 /obj/item/Initialize()
 	if(islist(armor))
@@ -223,6 +225,10 @@
 		unwield(user)
 	if(zoom)
 		zoom(user)
+	if(get_equip_slot() in unworn_slots)
+		SEND_SIGNAL(src, COMSIG_CLOTH_DROPPED, user)
+		if(user)
+			SEND_SIGNAL(user, COMSIG_CLOTH_DROPPED, src)
 
 
 //	Called before an item is picked up (loc is not yet changed)

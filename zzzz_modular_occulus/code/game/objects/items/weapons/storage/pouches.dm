@@ -5,6 +5,7 @@
 /obj/item/storage/pouch/medium_generic
 	desc = "Can hold a fair number of small objects."
 	price_tag = 1000
+	max_w_class = ITEM_SIZE_SMALL
 
 /obj/item/storage/pouch/large_generic
 	price_tag = 1500
@@ -41,16 +42,18 @@
 		/obj/item/device/radio,
 		/obj/item/clothing/mask,
 		/obj/item/tool/sword/katana,
+		/obj/item/tool/hammer,
 		/obj/item/tool/sword/improvised,
 		/obj/item/storage/sheath)
 
 /obj/item/storage/sheath
 	price_tag = 200
 	can_hold = list(
-		/obj/item/tool/sword/,
-		/obj/item/tool/knife/)
-	cant_hold = list()
+		/obj/item/tool/sword/)
+	cant_hold = list(
+		/obj/item/tool/sword/nt/halberd)
 	slot_flags = SLOT_BELT | SLOT_POCKET | SLOT_BACK
+	icon = 'zzzz_modular_occulus/icons/inventory/pockets/sheath.dmi'
 
 /obj/item/tool/sword
 	w_class = ITEM_SIZE_BULKY
@@ -86,12 +89,98 @@
 
 /obj/item/storage/pouch/tubular
 	price_tag = 600
+	can_hold = list(
+		/obj/item/device/lighting/glowstick,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/glass/beaker/vial,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/pen,
+		/obj/item/storage/pill_bottle,
+		/obj/item/hatton_magazine,
+		/obj/item/ammo_casing/rocket,
+		/obj/item/ammo_casing/grenade,
+		/obj/item/reagent_containers/glass/beaker/hypocartridge
+		)
 
 /obj/item/storage/pouch/pistol_holster
 	price_tag = 200
-
+	can_hold = list(
+			/obj/item/gun/projectile/selfload,
+		/obj/item/gun/projectile/colt,
+		/obj/item/gun/projectile/avasarala,
+		/obj/item/gun/projectile/giskard,
+		/obj/item/gun/projectile/gyropistol,
+		/obj/item/gun/projectile/handmade_pistol,
+		/obj/item/gun/projectile/lamia,
+		/obj/item/gun/projectile/mk58,
+		/obj/item/gun/projectile/olivaw,
+		/obj/item/gun/projectile/mandella,
+		/obj/item/gun/energy/gun,
+		/obj/item/gun/energy/chameleon,
+		//obj/item/gun/energy/captain, //too unwieldy, use belt/suit slot or other storage
+		/obj/item/gun/energy/stunrevolver,
+		/obj/item/gun/projectile/revolver,
+		/obj/item/gun/projectile/automatic/molly,
+		/obj/item/gun/projectile/paco,
+		/obj/item/gun/projectile/shotgun/doublebarrel/sawn, //short enough to fit in
+		/obj/item/gun/launcher/syringe,
+		/obj/item/gun/energy/plasma/brigador,
+		/obj/item/gun/projectile/shotgun/pump/sawn,
+		/obj/item/gun/projectile/boltgun/obrez,
+		/obj/item/gun/energy/retro/sawn,
+		/obj/item/gun/energy/nt_svalinn
+	)
 /obj/item/storage/pouch/holding
 	price_tag = 3000
 
 /obj/item/storage/pouch/gun_part
 	price_tag = 300
+
+/obj/item/storage/pouch/dpistol_holster
+	name = "dual pistol holster"
+	desc = "Can hold two handguns in."
+	icon = 'zzzz_modular_occulus/icons/inventory/pockets/icon.dmi'
+	icon_state = "dpistol_holster"
+	item_state = "dpistol_holster"
+	rarity_value = 60
+	price_tag = 400
+	matter = list(MATERIAL_BIOMATTER = 30, MATERIAL_STEEL = 8 )
+	slot_flags = SLOT_BELT | SLOT_DENYPOCKET
+	storage_slots = 2
+	w_class = ITEM_SIZE_NORMAL
+	max_w_class = ITEM_SIZE_NORMAL
+
+	can_hold = list(
+		/obj/item/gun/projectile/selfload,
+		/obj/item/gun/projectile/colt,
+		/obj/item/gun/projectile/avasarala,
+		/obj/item/gun/projectile/giskard,
+		/obj/item/gun/projectile/gyropistol,
+		/obj/item/gun/projectile/handmade_pistol,
+		/obj/item/gun/projectile/lamia,
+		/obj/item/gun/projectile/mk58,
+		/obj/item/gun/projectile/olivaw,
+		/obj/item/gun/projectile/mandella,
+		/obj/item/gun/energy/gun,
+		/obj/item/gun/energy/chameleon,
+		//obj/item/gun/energy/captain, //too unwieldy, use belt/suit slot or other storage
+		/obj/item/gun/energy/stunrevolver,
+		/obj/item/gun/projectile/revolver,
+		/obj/item/gun/projectile/automatic/molly,
+		/obj/item/gun/projectile/paco,
+		/obj/item/gun/projectile/shotgun/doublebarrel/sawn, //short enough to fit in
+		/obj/item/gun/launcher/syringe,
+		/obj/item/gun/energy/plasma/brigador,
+		/obj/item/gun/projectile/shotgun/pump/sawn,
+		/obj/item/gun/projectile/boltgun/obrez,
+		/obj/item/gun/energy/retro/sawn,
+		/obj/item/gun/energy/nt_svalinn
+		)
+
+	sliding_behavior = TRUE
+
+/obj/item/storage/pouch/dpistol_holster/on_update_icon()
+	..()
+	cut_overlays()
+	if(contents.len)
+		add_overlays(image('zzzz_modular_occulus/icons/inventory/pockets/icon.dmi', "dpistol_layer_[contents.len]"))

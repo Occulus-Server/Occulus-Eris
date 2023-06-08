@@ -271,6 +271,19 @@
 	for(var/i in 1 to initial_amount)
 		new spawn_type(src)
 
+/obj/item/storage/box/phosphorous
+	name = "box of white phosphorus grenades" // Occulus Edit: Correct phosphorus typo
+	desc = "A box containing 7 antipersonnel incendiary  grenades.<br> WARNING: These devices are extremely dangerous and can cause severe burns and fires."
+	icon_state = "box_security"
+	illustration = "flashbang"
+	rarity_value = 60
+	initial_amount = 7
+	spawn_type = /obj/item/grenade/frag/white_phosphorous
+
+/obj/item/storage/box/phosphorus/populate_contents()
+	for(var/i in 1 to initial_amount)
+		new spawn_type(src)
+
 /obj/item/storage/box/teargas
 	name = "box of pepperspray grenades"
 	desc = "A box containing 6 tear gas grenades. A gas mask is printed on the label.<br> WARNING: Exposure carries risk of serious injury or death. Keep away from persons with lung conditions."
@@ -356,6 +369,71 @@
 	spawn_type = /obj/item/implantcase/tracking
 
 /obj/item/storage/box/incendiary/populate_contents()
+	for(var/i in 1 to initial_amount)
+		new spawn_type(src)
+
+/obj/item/storage/box/sting_rounds
+	name = "box of sting rounds"
+	desc = "A box containing 6 sting rounds, designed to be fired from grenade launchers."
+	icon_state = "box_security"
+	illustration = "flashbang"
+	rarity_value = 60
+	initial_amount = 6
+	spawn_type = /obj/item/ammo_casing/grenade
+
+/obj/item/storage/box/sting_rounds/populate_contents()
+	for(var/i in 1 to initial_amount)
+		new spawn_type(src)
+
+/obj/item/storage/box/blast_rounds
+	name = "box of explosive grenade shells"
+	desc = "A box containing 6 explosive grenade shells, designed to be fired from grenade launchers."
+	icon_state = "box_security"
+	illustration = "flashbang"
+	rarity_value = 60
+	initial_amount = 6
+	spawn_type = /obj/item/ammo_casing/grenade/blast
+
+/obj/item/storage/box/blast_rounds/populate_contents()
+	for(var/i in 1 to initial_amount)
+		new spawn_type(src)
+
+/obj/item/storage/box/frag_rounds
+	name = "box of frag grenade shells"
+	desc = "A box containing 6 frag grenade shells, designed to be fired from grenade launchers."
+	icon_state = "box_security"
+	illustration = "flashbang"
+	rarity_value = 60
+	initial_amount = 6
+	spawn_type = /obj/item/ammo_casing/grenade/frag
+
+/obj/item/storage/box/frag_rounds/populate_contents()
+	for(var/i in 1 to initial_amount)
+		new spawn_type(src)
+
+/obj/item/storage/box/emp_rounds
+	name = "box of EMP grenade shells"
+	desc = "A box containing 6 EMP grenade shells, designed to be fired from grenade launchers."
+	icon_state = "box_security"
+	illustration = "flashbang"
+	rarity_value = 60
+	initial_amount = 6
+	spawn_type = /obj/item/ammo_casing/grenade/emp
+
+/obj/item/storage/box/emp_rounds/populate_contents()
+	for(var/i in 1 to initial_amount)
+		new spawn_type(src)
+
+/obj/item/storage/box/sting_rounds
+	name = "box of sting grenade shells"
+	desc = "A box containing 6 sting grenade shells, designed to be fired from grenade launchers."
+	icon_state = "box_security"
+	illustration = "flashbang"
+	rarity_value = 60
+	initial_amount = 6
+	spawn_type = /obj/item/ammo_casing/grenade/sting
+
+/obj/item/storage/box/sting_rounds/populate_contents()
 	for(var/i in 1 to initial_amount)
 		new spawn_type(src)
 

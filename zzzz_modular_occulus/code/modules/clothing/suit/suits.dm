@@ -269,3 +269,53 @@
 	pockets.storage_slots = 3	//three
 	pockets.max_w_class = ITEM_SIZE_SMALL		//fit only pocket sized items
 	pockets.max_storage_space = 4
+
+/obj/item/clothing/suit/storage/casah/verb/toggle_style()
+	set name = "Adjust Style"
+	set category = "Object"
+	set src in usr
+
+	if(!isliving(loc))
+		return
+
+	var/mob/M = usr
+	var/list/options = list()
+	options["Assault Harness"] = "casah"
+	options["Webbed Vest"] = "webvest_ironhammer"
+
+	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in options
+
+	if(choice == "Webbed Vest")
+		icon = 'icons/inventory/suit/icon.dmi'
+		icon_override = 'icons/inventory/suit/mob.dmi'
+	else
+		icon = 'zzzz_modular_occulus/icons/inventory/suit/icon.dmi'
+		icon_override = 'zzzz_modular_occulus/icons/inventory/suit/mob.dmi'
+
+	if(src && choice && !M.incapacitated() && Adjacent(M))
+		icon_state = options[choice]
+		item_state = options[choice]
+		to_chat(M, "You adjusted your attire's style into [choice] mode.")
+		update_icon()
+		update_wear_icon()
+		usr.update_action_buttons()
+		return 1
+
+/obj/item/clothing/suit/armor/vest/full/blueshield
+	name = "\improper Guardian Tactical Vest"
+	desc = "An intricately designed suit of armor made to be as light as possible while still providing full coverage protection. Typically used by bodyguards escorting clients through high risk areas."
+	icon = 'zzzz_modular_occulus/icons/inventory/suit/icon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/mob.dmi'
+	icon_state = "blueshield_armor"
+	item_state = "blueshield_armor"
+	slowdown = 0
+	rarity_value = 40 // rarer than just full vests
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS // kneepads and shoulderpads, so it covers arms and legs
+	armor = list(
+		melee = 30,
+		bullet = 30,
+		energy = 25,
+		bomb = 10,
+		bio = 0,
+		rad = 0
+	)

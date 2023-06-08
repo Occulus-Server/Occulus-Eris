@@ -5,7 +5,8 @@
 #define add_clothing_protection(A)	\
 	var/obj/item/clothing/C = A; \
 	flash_protection += C.flash_protection; \
-	equipment_tint_total += C.tint;
+	ear_protection += C.ear_protection; \
+	equipment_tint_total += C.tint; // Occulus edit, added ear_protection
 
 /mob/living/carbon/human/can_eat(var/food, var/feedback = 1)
 	var/list/status = can_eat_status()
@@ -17,6 +18,21 @@
 		else if(status[1] == HUMAN_EATING_BLOCKED_MOUTH)
 			to_chat(src, SPAN_WARNING("\The [status[2]] is in the way!"))
 	return 0
+
+/mob/living/carbon/human/can_see_reagents()
+	if(istype(glasses, /obj/item/clothing/glasses/powered/science))
+		var/obj/item/clothing/glasses/powered/our_glasses = glasses
+		if(our_glasses.active)
+			return TRUE
+	if(stats.check_for_shared_perk(PERK_SHARED_SEE_REAGENTS))
+		return TRUE
+	if(stats.getStat(STAT_COG) >= HUMAN_REQ_COG_FOR_REG || stats.getStat(STAT_BIO) >= HUMAN_REQ_BIO_FOR_REG)
+		return TRUE
+	/*
+	if(stats.check_for_shared_perk(PERK_SHARED_SEE_CONSUMER_REAGENTS))
+		return 2
+	*/
+	return FALSE
 
 /mob/living/carbon/human/can_force_feed(var/feeder, var/food, var/feedback = 1)
 	var/list/status = can_eat_status()
@@ -42,6 +58,7 @@
 #undef HUMAN_EATING_BLOCKED_MOUTH
 
 /mob/living/carbon/human/proc/update_equipment_vision()
+	ear_protection = 0 //Occulus edit
 	flash_protection = 0
 	equipment_tint_total = 0
 	equipment_see_invis	= 0
@@ -95,3 +112,13 @@
 		layer = LYING_HUMAN_LAYER
 	else
 		..()
+
+/mob/living/carbon/human/proc/process_scope(mob/user)
+	var/obj/item/gun/A = using_scope
+	equipment_darkness_modifier += A.darkness_view
+	equipment_vision_flags |= A.vision_flags
+	if(A.see_invisible_gun >= 0)
+		if(equipment_see_invis)
+			equipment_see_invis = min(equipment_see_invis, A.see_invisible_gun)
+		else
+			equipment_see_invis = A.see_invisible_gun

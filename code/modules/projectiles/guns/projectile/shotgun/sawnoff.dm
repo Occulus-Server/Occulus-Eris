@@ -16,3 +16,4 @@
 	rarity_value = 24
 	twohanded = FALSE
 	saw_off = FALSE
+

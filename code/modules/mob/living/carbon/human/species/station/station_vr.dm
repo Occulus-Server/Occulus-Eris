@@ -57,7 +57,7 @@
 */
 /datum/species/akula
 	name = SPECIES_AKULA
-	name_plural = "Akula"
+	name_plural = "Shucan"
 	icobase = 'icons/mob/human_races/r_akula.dmi'
 	deform = 'icons/mob/human_races/r_def_akula.dmi'
 	tail = "tail"
@@ -78,7 +78,10 @@
 	min_age = 18
 	max_age = 80
 
-	blurb = "Not an offical species, however it is here so it's sprite can be used for custom species." //Occulus edit
+	blurb = "Originating from Shoudona, the Shucan are selachimorphs hailing from the Shoussin Union, at the outermost edge of the Cygnus Region. \
+	They are tall, hard-built humanoids, with a soft underbelly. Their language 'Shoudin' is compromised majorily of consonants pronounced in varying vibrations,\
+	giving them a distinct accent aswell as often showing their teeth when speaking. Most Shucan working in UTS territories are pilgrims from their homeland, \
+	come to expand their horizons and worldview, either by choice or by their beliefs." //Occulus edit
 
 	primitive_form = "Sobaka"
 

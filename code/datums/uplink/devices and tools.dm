@@ -7,8 +7,14 @@
 /datum/uplink_item/item/tools/toolbox
 	name = "Fully Loaded Toolbox"
 	item_cost = 5
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/toolbox/syndicate
 	desc = "Danger. Very robust. Filled with advanced tools."
+
+/datum/uplink_item/item/tools/gentleman_kit
+	name = "Gentleman's Kit"
+	item_cost = 3
+	path = /obj/item/storage/box/syndie_kit/gentleman_kit
 
 /datum/uplink_item/item/tools/shield_diffuser
 	name = "Shield Diffuser"
@@ -19,12 +25,14 @@
 /datum/uplink_item/item/tools/money
 	name = "Operations Funding"
 	item_cost = 13
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/secure/briefcase/money
 	desc = "A briefcase with 10,000 untraceable credits for funding your sneaky activities."
 
 /datum/uplink_item/item/tools/pocketchange
 	name = "Spending Money"
 	item_cost = 1
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/spacecash/bundle/c500
 	desc = "A bundle of 500 untraceable credits to cover a few basic expenses."
 
@@ -36,6 +44,7 @@
 /datum/uplink_item/item/tools/plastique
 	name = "C-4 (Destroys walls)"
 	item_cost = 3
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/plastique
 
 /datum/uplink_item/item/tools/heavy_vest
@@ -56,11 +65,13 @@
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"
 	item_cost = 4
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/device/encryptionkey/syndicate
 
 /datum/uplink_item/item/tools/encryptionkey_binary
 	name = "Binary Translator Key"
 	item_cost = 5
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/device/encryptionkey/binary
 
 /datum/uplink_item/item/tools/emag
@@ -71,6 +82,7 @@
 /datum/uplink_item/item/tools/hacking_tool
 	name = "Door Hacking Tool"
 	item_cost = 6
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/tool/multitool/hacktool
 	desc = "Appears and functions as a standard multitool until the mode is toggled by applying a screwdriver appropriately. \
 			When in hacking mode this device will grant full access to any standard airlock within 20 to 40 seconds. \
@@ -88,12 +100,13 @@
 
 /datum/uplink_item/item/tools/thermal_lens
 	name = "Thermal Imaging Lenses"
-	item_cost = 10
-	path = /obj/item/clothing/glasses/powered/thermal/lens
+	item_cost = 12
+	path = /obj/item/clothing/glasses/attachable_lenses
 
 /datum/uplink_item/item/tools/powersink
 	name = "Powersink (DANGER!)"
 	item_cost = 10
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/device/powersink
 
 /datum/uplink_item/item/tools/teleporter
@@ -107,13 +120,21 @@
 
 /datum/uplink_item/item/tools/ai_module
 	name = "Hacked AI Upload Module"
-	item_cost = 14
+	item_cost = 7
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/electronics/ai_module/syndicate
 
 /datum/uplink_item/item/tools/supply_beacon
 	name = "Hacked Supply Beacon (DANGER!)"
 	item_cost = 14
 	path = /obj/item/supply_beacon
+
+/datum/uplink_item/item/tools/medium_generic
+	name = "Medium pouch"
+	desc = "Useful storage solution."
+	item_cost = 7
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	path = /obj/item/storage/pouch/medium_generic
 
 /datum/uplink_item/item/tools/mind_fryer
 	name = "Mind Fryer"
@@ -174,6 +195,13 @@
 		var/obj/item/storage/bsdm/B = .
 		B.owner = U.uplink_owner
 		U.bsdm_time = world.time + 10 MINUTES
+
+/datum/uplink_item/item/tools/syringes
+	name = "Box of syringes"
+	item_cost = 1
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	path = /obj/item/storage/box/syringes
+	desc = "Box with 7 syringes."
 
 /datum/uplink_item/item/tools/mental_imprinter
 	name = "Mental Imprinter"
@@ -338,4 +366,5 @@ End Occulus Edit*/
 	name = "Mindreader"
 	desc = "Place on your victim's head to extract memories from their brain after a mental breakdown."
 	item_cost = 20
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/clothing/head/mindreader

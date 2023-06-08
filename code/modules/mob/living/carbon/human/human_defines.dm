@@ -115,3 +115,9 @@
 
 	var/genetic_corruption = 0  //Eclipse add - Mekhanite's vat genetic corruption
 	var/stable_genes = FALSE //Eclipse add - Genetic stability
+	var/momentum_speed = 0 // The amount of run-up
+	var/momentum_dir = 0 // Direction of run-up
+	var/momentum_reduction_timer
+
+	
+	var/tail_alted = FALSE	//OCCULUS EDIT: Toggle for alternate tail layer

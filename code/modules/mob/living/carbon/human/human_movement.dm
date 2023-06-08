@@ -46,7 +46,7 @@
 			tally += shoes.slowdown
 
 	//tally += min((shock_stage / 100) * 3, 3) //Scales from 0 to 3 over 0 to 100 shock stage
-	tally += max(min((get_dynamic_pain() - get_painkiller()) / 40, 3),0) // Occulus Edit: Eris still doesn't test their shit. Added a minimum bound for analgisc speeboosts.
+	tally += clamp((get_dynamic_pain() - get_painkiller()) / 40, 0, 3) // Scales from 0 to 3,
 
 	if (bodytemperature < 283.222)
 		tally += (283.222 - bodytemperature) / 10 * 1.75
@@ -98,3 +98,26 @@
 	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1
 	return 0
+
+/mob/living/carbon/human/add_momentum(direction)
+	if(momentum_dir == direction)
+		momentum_speed++
+	else if(momentum_dir == reverse_dir[direction])
+		momentum_speed = 0
+		momentum_dir = direction
+	else
+		momentum_speed--
+		momentum_dir = direction
+	momentum_speed = CLAMP(momentum_speed, 0, 10)
+	update_momentum()
+
+/mob/living/carbon/human/proc/update_momentum()
+	if(momentum_speed)
+		momentum_reduction_timer = addtimer(CALLBACK(src, .proc/calc_momentum), 1 SECONDS, TIMER_STOPPABLE)
+	else
+		momentum_speed = 0
+		deltimer(momentum_reduction_timer)
+
+/mob/living/carbon/human/proc/calc_momentum()
+	momentum_speed--
+	update_momentum()

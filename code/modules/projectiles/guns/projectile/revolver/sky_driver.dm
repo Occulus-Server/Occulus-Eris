@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/revolver/sky_driver
 	name = "S REV .35 Auto \"Sky Driver\""
-	desc = "A prototype revolver, captured as a trophy from a raided Syndicate research base. Uses .35 special rounds."
+	desc = "A prototype revolver, captured as a trophy from a raided Syndicate research base. Uses .35 Auto rounds." //Occulus Edit: Old unmarked Syzygy lore stuff
 	icon = 'icons/obj/guns/projectile/sky_driver.dmi'
 	icon_state = "sky_driver"
 	item_state = "sky_driver"
@@ -11,7 +11,6 @@
 	caliber = CAL_PISTOL
 	max_shells = 5
 	ammo_type = /obj/item/ammo_casing/pistol
-	magazine_type = /obj/item/ammo_magazine/slpistol
 	price_tag = 20000
 	damage_multiplier = 1.1 //because pistol round
 	penetration_multiplier = 20
@@ -20,3 +19,4 @@
 	spawn_frequency = 0
 	spawn_blacklisted = TRUE
 	gun_parts = list(/obj/item/gun_upgrade/barrel/gauss = 3, /obj/item/stack/material/plasteel = 2)
+

@@ -6,8 +6,8 @@
 	item_state = "pistol"
 	caliber = CAL_MAGNUM
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
-	can_dual = 1
+	fire_sound = 'sound/weapons/guns/fire/hpistol_fire.ogg'
+	can_dual = TRUE
 	load_method = SINGLE_CASING
 	max_shells = 1
 	matter = list(MATERIAL_STEEL = 5, MATERIAL_WOOD = 5)
@@ -42,12 +42,15 @@
 		if(chamber_open && W.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SCREW_DRIVING, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
 			if(caliber == CAL_MAGNUM)
 				caliber = CAL_PISTOL
+				fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
 				to_chat(user, SPAN_WARNING("You successfully rechamber \the [src] to .35 Caliber."))
 			else if(caliber == CAL_PISTOL)
 				caliber = CAL_CLRIFLE
+				fire_sound = 'sound/weapons/guns/fire/m41_shoot.ogg'
 				to_chat(user, SPAN_WARNING("You successfully rechamber \the [src] to .25 Caseless."))
 			else if(caliber == CAL_CLRIFLE)
 				caliber = CAL_MAGNUM
+				fire_sound = 'sound/weapons/guns/fire/hpistol_fire.ogg'
 				to_chat(user, SPAN_WARNING("You successfully rechamber \the [src] to .40 Magnum."))
 		else
 			to_chat(user, SPAN_WARNING("You cannot rechamber a closed firearm!"))

@@ -25,6 +25,8 @@
 	var/health
 	var/destroy_hits = 10 //How many strong hits it takes to destroy the door
 	var/resistance = RESISTANCE_TOUGH //minimum amount of force needed to damage the door with a melee weapon
+	var/bullet_resistance = RESISTANCE_FRAGILE
+	var/open_on_break = TRUE
 	var/hitsound = 'sound/weapons/smash.ogg' //sound door makes when hit with a weapon
 	var/obj/item/stack/material/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
@@ -114,7 +116,7 @@
 	return 1
 
 /obj/machinery/door/Bumped(atom/AM)
-	if(p_open || operating) return
+	if(operating) return
 	if(ismob(AM))
 		var/mob/M = AM
 		if(world.time - M.last_bumped <= 10) return	//Can bump-open one airlock per second. This is to prevent shock spam.
@@ -181,6 +183,8 @@
 	..()
 
 	var/damage = Proj.get_structure_damage()
+	if(Proj.damage_types[BRUTE])
+		damage -= bullet_resistance
 
 	// Emitter Blasts - these will eventually completely destroy the door, given enough time.
 	if (damage > 90)
@@ -200,6 +204,14 @@
 
 
 
+/obj/machinery/door/proc/hit_by_living(var/mob/living/M)
+	var/body_part = pick(BP_HEAD, BP_CHEST, BP_GROIN)
+	visible_message(SPAN_DANGER("[M] slams against \the [src]!"))
+	if(prob(30))
+		M.Weaken(1)
+	M.damage_through_armor(rand(5,8), BRUTE, body_part, ARMOR_MELEE)
+	take_damage(M.mob_size)
+
 /obj/machinery/door/hitby(AM as mob|obj, var/speed=5)
 
 	..()
@@ -207,9 +219,10 @@
 	if (istype(AM, /obj/item))
 		var/obj/item/O = AM
 		damage = O.throwforce
-	else if (istype(AM, /mob/living))
+	else if (isliving(AM))
 		var/mob/living/M = AM
-		damage = M.mob_size
+		hit_by_living(M)
+		return
 	take_damage(damage)
 	return
 
@@ -377,7 +390,7 @@
 /obj/machinery/door/proc/set_broken()
 	stat |= BROKEN
 
-	if (health <= 0)
+	if (health <= 0 && open_on_break)
 		visible_message(SPAN_WARNING("\The [src.name] breaks open!"))
 		open(TRUE)
 	else

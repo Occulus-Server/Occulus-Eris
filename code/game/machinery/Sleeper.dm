@@ -10,6 +10,7 @@
 	var/list/available_chemicals = list("inaprovaline2" = "Synth-Inaprovaline", "stoxin" = "Soporific", "paracetamol" = "Paracetamol", "anti_toxin" = "Dylovene", "dexalin" = "Dexalin", "tricordrazine" = "Tricordrazine")
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = 0
+	var/pumping = FALSE // Occulus Edit: Stomach Pumping feature
 
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 15
@@ -35,6 +36,21 @@
 					occupant.vessel.trans_to_obj(beaker, pumped + 1)
 		else
 			toggle_filter()
+
+	// Occulus Edit: Stomach Pump
+	if(pumping)
+		if(!beaker)
+			toggle_pump()
+
+		if(beaker.reagents.total_volume < beaker.reagents.maximum_volume)
+			var/pumped = 0
+			if(iscarbon(occupant))
+				for(var/reagent in occupant.ingested.reagent_list)
+					occupant.ingested.trans_to_obj(beaker, 3)
+					pumped++
+				occupant.nutrition = max(occupant.nutrition - (pumped * 10), 0) // Nuke your nutrition based on the amount pumped out
+
+	// Occulus Edit End
 
 /obj/machinery/sleeper/on_update_icon()
 	icon_state = "sleeper_[occupant ? "1" : "0"]"
@@ -84,6 +100,7 @@
 	else
 		data["beaker"] = -1
 	data["filtering"] = filtering
+	data["pumping"] = pumping // Occulus Edit: Pump
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
@@ -109,6 +126,9 @@
 	if(href_list["filter"])
 		if(filtering != text2num(href_list["filter"]))
 			toggle_filter()
+	if(href_list["pump"]) // Occulus Edit: Stomach Pump
+		if(pumping != text2num(href_list["pump"]))
+			toggle_pump() // Occulus Edit End
 	if(href_list["chemical"] && href_list["amount"])
 		if(occupant && occupant.stat != DEAD)
 			if(href_list["chemical"] in available_chemicals) // Your hacks are bad and you should feel bad
@@ -144,6 +164,9 @@
 /obj/machinery/sleeper/emp_act(var/severity)
 	if(filtering)
 		toggle_filter()
+	
+	if(pumping) // Occulus Edit: Pump
+		toggle_pump()
 
 	if(stat & (BROKEN|NOPOWER))
 		..(severity)
@@ -153,11 +176,21 @@
 		go_out()
 
 	..(severity)
+
 /obj/machinery/sleeper/proc/toggle_filter()
 	if(!occupant || !beaker)
 		filtering = 0
 		return
 	filtering = !filtering
+
+// Occulus Edit: Stomach Pump
+/obj/machinery/sleeper/proc/toggle_pump()
+	if(!occupant || !beaker)
+		pumping = FALSE
+		return
+	pumping = !pumping
+
+// Occulus Edit: End
 
 /obj/machinery/sleeper/proc/go_in(var/mob/M, var/mob/user)
 	if(!M)
@@ -201,12 +234,14 @@
 	update_use_power(1)
 	update_icon()
 	toggle_filter()
+	toggle_pump() // Occulus Edit: Pump
 
 /obj/machinery/sleeper/proc/remove_beaker()
 	if(beaker)
 		beaker.loc = loc
 		beaker = null
 		toggle_filter()
+		toggle_pump() // Occulus Edit: Pump
 
 /obj/machinery/sleeper/proc/inject_chemical(var/mob/living/user, var/chemical, var/amount)
 	if(stat & (BROKEN|NOPOWER))

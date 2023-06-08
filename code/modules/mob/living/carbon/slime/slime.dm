@@ -7,8 +7,8 @@
 	speak_emote = list("chirps")
 
 	layer = 5
-	maxHealth = 40 //eclipse edit, used to be 80
-	health = 40 //eclipse edit ditto
+	maxHealth = 80
+	health = 80
 	gender = NEUTER
 
 	update_icon = 0

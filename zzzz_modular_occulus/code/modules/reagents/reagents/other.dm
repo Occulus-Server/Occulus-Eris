@@ -50,6 +50,12 @@ datum/reagent/nitrate
 	reagent_state = LIQUID
 	color = "#E1CFE3"
 
+/datum/reagent/ammonium_nitrate
+	id = "ammonium_nitrate"
+	name = "Ammonium Nitrate"
+	description = "Ammonium Nitrate, even more interesting!"
+	reagent_state = LIQUID
+	color = "#d0bcd2"
 
 /datum/reagent/babelizine
 	id = "babelizine"
@@ -116,6 +122,7 @@ datum/reagent/nitrate
 	name = "Frioline"
 	description = "Could cause rapid and sustained decrease in body temperature"
 	color = "#A0E1F7"
+	metabolism = REM * 0.05	//Metabolized too fast to be useful, slowed to .05
 
 /datum/reagent/frioline/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(M.bodytemperature > 310)

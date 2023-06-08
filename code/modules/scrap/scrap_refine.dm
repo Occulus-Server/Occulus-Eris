@@ -43,10 +43,15 @@
 	pixel_x = rand(0, 16) - 8
 	pixel_y = rand(0, 8) - 8
 
-/obj/item/stack/refined_scrap
+/obj/item/stack/material/refined_scrap 
 	name = "refined scrap"
 	desc = "This is ghetto gold! It could be used as fuel or building material. Even central Command would give cargo points for this."
 	icon = 'icons/obj/structures/scrap/refine.dmi'
 	icon_state = "refined"
-	max_amount = 20
+	max_amount = 30
 	amount = 1
+	default_type = MATERIAL_RSCRAP
+
+/obj/item/stack/material/refined_scrap/random
+	rand_min = 1
+	rand_max = 5

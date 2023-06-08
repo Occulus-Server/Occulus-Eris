@@ -94,6 +94,7 @@
 	desc = "A .20 Rifle bullet casing."
 	icon_state = "srifle_c_l"
 	spent_icon = "srifle_c_l-spent"
+	shell_color = "l"
 	caliber = CAL_SRIFLE
 	projectile_type = /obj/item/projectile/bullet/srifle
 	maxamount = 10
@@ -106,6 +107,7 @@
 	desc = "A .20 Rifle practice bullet casing."
 	icon_state = "srifle_c_p"
 	spent_icon = "srifle_c_p-spent"
+	shell_color = "p"
 	caliber = CAL_SRIFLE
 	projectile_type = /obj/item/projectile/bullet/srifle/practice
 
@@ -113,6 +115,7 @@
 	desc = "A .20 Rifle high-velocity bullet casing."
 	icon_state = "srifle_c_hv"
 	spent_icon = "srifle_c_hv-spent"
+	shell_color = "hv"
 	caliber = CAL_SRIFLE
 	projectile_type = /obj/item/projectile/bullet/srifle/hv
 
@@ -120,6 +123,7 @@
 	desc = "A .20 Rifle rubber bullet casing."
 	icon_state = "srifle_c_r"
 	spent_icon = "srifle_c_r-spent"
+	shell_color = "r"
 	caliber = CAL_SRIFLE
 	projectile_type = /obj/item/projectile/bullet/srifle/rubber
 
@@ -127,6 +131,7 @@
 	desc = "An old .20 Rifle bullet casing."
 	icon_state = "srifle_c_s"
 	spent_icon = "srifle_c_s-spent"
+	shell_color = "p"
 	caliber = CAL_SRIFLE
 	projectile_type = /obj/item/projectile/bullet/srifle/scrap
 
@@ -264,6 +269,7 @@
 	desc = "A .50 slug."
 	icon_state = "s-shell_hv"
 	spent_icon = "s-shell_hv-spent"
+	shell_color = "hv"
 	caliber = CAL_SHOTGUN
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	matter = list(MATERIAL_STEEL = 1)
@@ -281,6 +287,7 @@
 	desc = "An older .50 slug."
 	icon_state = "s-shell_s"
 	spent_icon = "s-shell_s-spent"
+	shell_color = "scrap"
 	caliber = CAL_SHOTGUN
 	projectile_type = /obj/item/projectile/bullet/shotgun/scrap
 	maxamount = 5
@@ -293,6 +300,7 @@
 	desc = "A .50 beanbag shell."
 	icon_state = "s-shell_r"
 	spent_icon = "s-shell_r-spent"
+	shell_color = "r"
 	projectile_type = /obj/item/projectile/bullet/shotgun/beanbag
 	matter = list(MATERIAL_STEEL = 1)
 
@@ -304,6 +312,7 @@
 	desc = "An older .50 beanbag shell."
 	icon_state = "s-shell_rs"
 	spent_icon = "s-shell_rs-spent"
+	shell_color = "scrap_r"
 	projectile_type = /obj/item/projectile/bullet/shotgun/beanbag/scrap
 	matter = list(MATERIAL_STEEL = 1)
 
@@ -315,6 +324,7 @@
 	desc = "A .50 shell."
 	icon_state = "s-shell_l"
 	spent_icon = "s-shell_l-spent"
+	shell_color = "l"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
 	matter = list(MATERIAL_STEEL = 1)
 
@@ -326,6 +336,7 @@
 	desc = "An older .50 shell."
 	icon_state = "s-shell_ss"
 	spent_icon = "s-shell_ss-spent"
+	shell_color = "scrap_s"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/scrap
 
 /obj/item/ammo_casing/shotgun/pellet/scrap/prespawned
@@ -336,6 +347,7 @@
 	desc = "A .50 blank shell."
 	icon_state = "s-shell_b"
 	spent_icon = "s-shell_b-spent"
+	shell_color = "b"
 	projectile_type = /obj/item/projectile/bullet/blank
 	matter = list(MATERIAL_STEEL = 1)
 
@@ -347,6 +359,7 @@
 	desc = "A .50 practice shell."
 	icon_state = "s-shell_p"
 	spent_icon = "s-shell_p-spent"
+	shell_color = "p"
 	projectile_type = /obj/item/projectile/bullet/shotgun/practice
 	matter = list(MATERIAL_STEEL = 1)
 
@@ -359,6 +372,7 @@
 	desc = "A .50 chemical shell used to signal distress or provide illumination."
 	icon_state = "s-shell_f"
 	spent_icon = "s-shell_f-spent"
+	shell_color = "f"
 	projectile_type = /obj/item/projectile/energy/flash/flare
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_SILVER = 0.5)
 
@@ -370,6 +384,7 @@
 	desc = "A .50 chemical shell with highly flammable load."
 	icon_state = "s-shell_i"
 	spent_icon = "s-shell_i-spent"
+	shell_color = "i"
 	projectile_type = /obj/item/projectile/bullet/shotgun/incendiary
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PHORON = 0.5)
 
@@ -379,42 +394,46 @@
 //// Grenade Shells ////
 
 /obj/item/ammo_casing/grenade
-	name = "baton round"
-	desc = "A less-lethal rubber round, designed to be fired from grenade launchers"
+	name = "FS SR \"Sasumata\""
+	desc = "A high-grade Frozen Star sting round, for use against unruly crowds.s"
 	icon_state = "baton-round"
 	spent_icon = "grenadeshell"
-	projectile_type = /obj/item/projectile/bullet/batonround
+	projectile_type = /obj/item/projectile/bullet/grenade/frag/sting
 	w_class = ITEM_SIZE_SMALL
 	caliber = CAL_GRENADE
+	is_caseless = TRUE
 	maxamount = 1
 	spawn_tags = SPAWN_TAG_AMMO
 	rarity_value = 10
 
 /obj/item/ammo_casing/grenade/blast
-	name = "blast grenade shell"
-	desc = "An explosive grenade shell, designed to be fired from grenade launchers"
+	name = "OR OBR \"Puff\""
+	desc = "A military-grade explosive shell, designed to be fired from grenade launchers."
 	icon_state = "blast"
-	projectile_type = /obj/item/projectile/bullet/grenade
+	projectile_type = /obj/item/projectile/bullet/grenade/blast
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTEEL = 3)
 	rarity_value = 25
 
 /obj/item/ammo_casing/grenade/frag
-	name = "frag grenade shell"
-	desc = "A frag grenade shell, designed to be fired from grenade launchers"
+	name = "NT DFR \"Pallad\""
+	desc = "A military-grade grenade shell, designed to be fired from grenade launchers. The abbreviation \"NT\" marks its producer, but the lack of detatil makes it ubiquitous."
 	icon_state = "frag"
 	projectile_type = /obj/item/projectile/bullet/grenade/frag
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTEEL = 2)
 	rarity_value = 25
 
 /obj/item/ammo_casing/grenade/emp
-	name = "emp grenade shell"
-	desc = "An EMP grenade shell, designed to be fired from grenade launchers"
+	name = "NT EMPR \"Remote Switch\""
+	desc = "An EMP grenade shell, designed to be fired from grenade launchers. The abbreviation \"NT\" marks its producer, but the lack of detatil makes it ubiquitous."
 	icon_state = "emp"
 	projectile_type = /obj/item/projectile/bullet/grenade/emp // gonna keep this from being maint-lootable for now
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_IRON = 2, MATERIAL_URANIUM = 2)
 
 //// Other ////
 
 /obj/item/ammo_casing/rocket
-	name = "PG-7VL grenade"
-	desc = "A 1.5 warhead designed for the RPG-7 launcher. Has tubular shape."
+	name = "PG-7VL HE grenade"
+	desc = "A high explosive warhead designed for the RPG-7 launcher. Has a tubular shape."
 	icon_state = "rocketshell"
 	projectile_type = /obj/item/projectile/bullet/rocket
 	caliber = CAL_ROCKET
@@ -434,3 +453,45 @@
 	caliber = CAL_CAP
 	color = "#FF0000"
 	projectile_type = /obj/item/projectile/bullet/cap
+
+/obj/item/ammo_casing/flare
+	name = "AG FR \"Floodlight\""
+	desc = "A chemical flare shell designed to produce a distress signal or illuminate an area."
+	caliber = CAL_FLARE
+	amount = 3
+	icon_state = "f-shell"
+	spent_icon = "f-shell-spent"
+	projectile_type = /obj/item/projectile/bullet/flare
+	matter = list(MATERIAL_PLASTIC = 1, MATERIAL_PHORON = 1)
+	matter_reagents = list("phosphorus" = 3)
+	rarity_value = 8
+
+/obj/item/ammo_casing/crossbow/bolt
+	name = "steel bolt"
+	desc = "A steel rod worked into the shape of a crossbow bolt."
+	icon_state = "CrossbowBolt"
+	spent_icon = "CrossbowBolt"
+	caliber = CAL_CBOLT
+	projectile_type = /obj/item/projectile/bullet/bolt
+	matter = list(MATERIAL_STEEL = 1)
+	is_caseless = TRUE
+	maxamount = 5
+	sharp = TRUE
+
+	sprite_update_spawn = TRUE
+	sprite_max_rotate = 32
+	sprite_scale = 1
+
+/obj/item/ammo_casing/crossbow/bolt/prespawned
+	amount = 5
+
+/obj/item/ammo_casing/rocket/hesh
+	name = "PG-7V2 HESH grenade"
+	desc = "A high-explosive squash head anti-vehicle warhead designed for the RPG-7 launcher. Has a tubular shape."
+	icon_state = "rocketshell_hesh"
+	projectile_type = /obj/item/projectile/bullet/rocket/hesh
+	caliber = CAL_ROCKET
+	maxamount = 1
+	reload_delay = 15
+	is_caseless = TRUE
+	w_class = ITEM_SIZE_NORMAL

@@ -14,3 +14,8 @@
 /datum/design/autolathe/gun/rx8
 	name = "PCC .35 Auto \"RX8\""
 	build_path = /obj/item/gun/projectile/automatic/rx8
+
+// backpackable shotty
+/datum/design/autolathe/gun/stoat
+	name = "FS SG \"Stoat\""
+	build_path = /obj/item/gun/projectile/shotgun/stoat

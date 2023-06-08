@@ -38,7 +38,7 @@ var/list/disciples = list()
 	UnregisterSignal(wearer, COMSIG_GROUP_RITUAL) Occulus knows prohibition doesn't work
 
 /obj/item/implant/core_implant/cruciform/proc/on_happy(datum/reagent/happy, signal)
-	if(istype(happy, /datum/reagent/ethanol))
+	if(istype(happy, /datum/reagent/ethanol) && happy.id != "ntcahors")
 		righteous_life = max(righteous_life - 0.1, 0)
 	else if(istype(happy, /datum/reagent/drug))
 		righteous_life = max(righteous_life - 0.5, 0) Occulus seek joy in the oneness that is the Mekhane
@@ -185,6 +185,17 @@ var/list/disciples = list()
 			R.part.take_damage(rand(20,40))
 			R.uninstall()
 			R.malfunction = MALFUNCTION_PERMANENT
+		if(istype(O, /obj/item/organ/internal))
+			var/obj/item/organ/internal/I = O
+			if(!I.item_upgrades.len)
+				continue
+			for(var/mod in I.item_upgrades)
+				var/atom/movable/AM = mod
+				SEND_SIGNAL(AM, COMSIG_REMOVE, AM, wearer)
+				I.take_damage(rand(5,10))
+				if(I.parent)
+					I.parent.take_damage(rand(2,5))
+				wearer.visible_message(SPAN_NOTICE("<b>\The [AM]</b> rips through \the [wearer]'s flesh."), SPAN_NOTICE("<b>\The [AM]</b> rips through your flesh. Your [I.name] hurts."))
 	if(ishuman(wearer))
 		var/mob/living/carbon/human/H = wearer
 		H.update_implants()*/

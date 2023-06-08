@@ -84,6 +84,9 @@
 
 	var/eat_time_message = 0
 
+	var/unmanaged_breakdown = FALSE // Occulus Edit: Whether there's a common breakdown with unfulfilled objective
+	// Occulus Edit: Gates negative breakdown behind not fulfilling a breakdown with insight reward
+
 	var/life_tick_modifier = 2	//How often is the onLife() triggered and by how much are the effects multiplied
 
 /datum/sanity/New(mob/living/carbon/human/H)
@@ -213,6 +216,13 @@
 		INSIGHT_DESIRE_MUSIC, //Occulus Edit
 		INSIGHT_DESIRE_EXERCISE //Occulus Edit
 	)
+
+	for(var/i in owner.metabolism_effects.addiction_list)
+		if(istype(i, /datum/reagent/drug))
+			if(istype(i, /datum/reagent/drug/nicotine))
+				candidates.Remove(INSIGHT_DESIRE_SMOKING)
+				continue
+			candidates.Remove(INSIGHT_DESIRE_DRUGS)
 	for(var/i = 0; i < INSIGHT_DESIRE_COUNT; i++)
 		var/desire = pick_n_take(candidates)
 		var/list/potential_desires = list()
@@ -315,7 +325,14 @@
 	changeLevel(-R.sanityloss * multiplier)
 
 /datum/sanity/proc/onReagent(datum/reagent/E, multiplier)
-	changeLevel(E.sanity_gain_ingest * multiplier)
+	var/sanity_gain = E.sanity_gain_ingest
+	if(E.id == "ethanol")
+		sanity_gain /= 5
+	else if(istype(E, /datum/reagent/alcohol))
+		var/datum/reagent/alcohol/fine_drink = E
+		if (fine_drink.strength <= 20)
+			sanity_gain *= (5 - (fine_drink.strength / 5))
+	changeLevel(sanity_gain * multiplier)
 	if(resting && E.taste_tag.len)
 		for(var/taste_tag in E.taste_tag)
 			if(multiplier <= 1 )
@@ -380,12 +397,16 @@
 			S.reg_break(owner)
 
 	var/list/possible_results
+
+	// Occulus Edit: Rewritten to gate negative breakdown behind not managing a normal breakdown w/ objective instead of percentage
 	if((prob(positive_prob) && positive_prob_multiplier > 0) || positive_breakdown)
 		possible_results = subtypesof(/datum/breakdown/positive)
-	else if(prob(negative_prob))
+	else if(unmanaged_breakdown)
 		possible_results = subtypesof(/datum/breakdown/negative)
+		unmanaged_breakdown = FALSE // Reset
 	else
 		possible_results = subtypesof(/datum/breakdown/common)
+	// Occulus Edit End
 
 	for(var/datum/breakdown/B in breakdowns)
 		possible_results -= B.type

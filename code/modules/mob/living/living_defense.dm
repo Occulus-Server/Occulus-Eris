@@ -1,5 +1,6 @@
 #define ARMOR_HALLOS_COEFFICIENT 0.4
-#define ARMOR_GDR_COEFFICIENT 0.1
+// #define ARMOR_GDR_COEFFICIENT 0.1 // Occulus Edit: Factored out to misc.dm for reuse
+#define MAX_ADDITIONAL_BURN_DAMAGE 2 // Occulus Edit: Maximum additional burn damage when on fire
 
 //This calculation replaces old run_armor_check in favor of more complex and better system
 //If you need to do something else with armor - just use getarmor() proc and do with those numbers all you want
@@ -53,6 +54,13 @@
 	//No armor? Damage as usual
 	if(armor_effectiveness == 0)
 		apply_damage(effective_damage, damagetype, def_zone, sharp, edge, used_weapon)
+		if(ishuman(src) && def_zone)
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/o = H.get_organ(def_zone)
+			if (o && o.status & ORGAN_SPLINTED && effective_damage >= 20)
+				visible_message(SPAN_WARNING("The splints break off [src] after being hit!"),
+						SPAN_WARNING("Your splints break off after being hit!"))
+				o.status &= ~ORGAN_SPLINTED
 		if(sanctified_attack)
 			apply_damage(effective_damage / 2, BURN, def_zone, sharp, edge, used_weapon)
 	//Here we split damage in two parts, where armor value will determine how much damage will get through
@@ -66,11 +74,17 @@
 		//Actual part of the damage that passed through armor
 		var/actual_damage = round ( ( effective_damage * ( 100 - armor_effectiveness ) ) / 100 )
 		apply_damage(actual_damage, damagetype, def_zone, sharp, edge, used_weapon)
+		if(ishuman(src) && def_zone && actual_damage >= 20)
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/o = H.get_organ(def_zone)
+			if (o && o.status & ORGAN_SPLINTED)
+				visible_message(SPAN_WARNING("The splints break off [src] after being hit!"),
+						SPAN_WARNING("Your splints break off after being hit!"))
+				o.status &= ~ORGAN_SPLINTED
 		if(sanctified_attack)
 			apply_damage(actual_damage / 2, BURN, def_zone, sharp, edge, used_weapon)
 		return actual_damage
 	return effective_damage
-
 
 //if null is passed for def_zone, then this should return something appropriate for all zones (e.g. area effect damage)
 /mob/living/proc/getarmor(var/def_zone, var/type)
@@ -188,8 +202,7 @@
 	if(istype(AM,/obj/))
 		var/obj/O = AM
 		var/dtype = O.damtype
-		var/throw_damage = O.throwforce*(speed/THROWFORCE_SPEED_DIVISOR)
-
+		var/throw_damage = O.throwforce
 		var/miss_chance = 15
 		if (O.throw_source)
 			var/distance = get_dist(O.throw_source, loc)
@@ -314,9 +327,15 @@
 
 	if(!on_fire)
 		return 1
-	else if(fire_stacks <= 0)
+	// Occulus Edit: Fire are slowly consumed by -0.1, add burn damage scaling to fire stacks (Up to +2 per tick)
+	if(fire_stacks > 0)
+		adjust_fire_stacks(-0.1) // the fire is slowly consumed
+		var/scaled_burn_damage = MAX_ADDITIONAL_BURN_DAMAGE * (fire_stacks / FIRE_MAX_STACKS)
+		src.take_overall_damage(0, scaled_burn_damage, used_weapon = "thermal burns")
+	else
 		ExtinguishMob() //Fire's been put out.
 		return 1
+	// Occulus Edit END
 
 	var/datum/gas_mixture/G = loc.return_air() // Check if we're standing in an oxygenless environment
 	if(G.gas["oxygen"] < 1)

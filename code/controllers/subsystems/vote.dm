@@ -19,14 +19,9 @@ SUBSYSTEM_DEF(vote)
 		interface_client(C)
 
 /datum/controller/subsystem/vote/proc/interface_client(client/C)
-// OCCULUS EDIT START - Experimental revert to plain html to attempt to mitigate the whole unable to reliably close window thing
-	C << browse(interface(C),"window=vote;size=500x700;can_close=0;can_resize=0;can_minimize=0")
-/*
-	var/datum/browser/panel = new(C.mob, "Vote","Vote", 500, 650)
+	var/datum/browser/panel = new(C.mob, "Vote", "Vote", 500, 750) //Occulus Edit - Increasing size so it doesn't scroll back up on refresh
 	panel.set_content(interface(C))
 	panel.open()
-*/
-// OCCULUS EDIT END - Experimental revert to plain html to attempt to mitigate the whole unable to reliably close window thing
 
 /datum/controller/subsystem/vote/fire()
 	if(active_vote)
@@ -59,9 +54,6 @@ SUBSYSTEM_DEF(vote)
 		return
 
 	vote_start_time = world.time
-
-	for(var/client/C in voters)
-		C << browse(interface(C),"window=vote")
 
 	var/text = "[poll.name] vote started by [poll.initiator]."
 	log_vote(text)
@@ -185,7 +177,7 @@ SUBSYSTEM_DEF(vote)
 	if(href_list["close"])
 		if(usr && usr.client)
 			voters.Remove(usr.client)
-			usr.client << browse(null,"window=vote")
+			usr.client << browse(null,"window=Vote")
 			return
 
 	usr.vote()

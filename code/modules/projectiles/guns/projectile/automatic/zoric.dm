@@ -21,12 +21,13 @@
 	recoil_buildup = 7
 	twohanded = FALSE
 	one_hand_penalty = 5 //smg level
-	rarity_value = 32
 
 	init_firemodes = list(
 		FULL_AUTO_300,
 		SEMI_AUTO_NODELAY,
 		)
+
+	gun_tags = list(GUN_SILENCABLE)
 
 /obj/item/gun/projectile/automatic/zoric/on_update_icon()
 	cut_overlays()

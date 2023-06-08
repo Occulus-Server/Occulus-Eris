@@ -7,6 +7,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	item_flags = DRAG_AND_DROP_UNEQUIP|EQUIP_SOUNDS
 	spawn_tags = SPAWN_TAG_STORAGE
+	description_info = "Drag and drop onto yourself, alt-click or left-click to open the container. You cannot take items out of a container inside another container" // Occulus Edit Desc
 	bad_type = /obj/item/storage
 	var/list/can_hold = new/list() //List of objects which this item can store (if set, it can't store anything else)
 	var/list/can_hold_extra = list() //List of objects which this item can additionally store not defined by the parent.
@@ -205,6 +206,11 @@
 /obj/item/storage/Destroy()
 	close_all()
 	. = ..()
+
+// Occulus Edit: AltClick QOL
+/obj/item/storage/AltClick(mob/user)
+	if(ishuman(usr) && !usr.incapacitated() && Adjacent(usr))
+		src.open(user)
 
 /obj/item/storage/MouseDrop(obj/over_object)
 	if(ishuman(usr) && usr == over_object && !usr.incapacitated() && Adjacent(usr))

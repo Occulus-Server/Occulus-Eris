@@ -347,8 +347,4 @@
 	name = "Advanced burn kit"
 	build_path = /obj/item/stack/medical/advanced/ointment
 
-/datum/design/bioprinter/lungs
-	name = "Extended Lungs"
-	materials = list(MATERIAL_BIOMATTER = 30)
-	build_path = /obj/item/organ/internal/lungs/long
 //[/MED]

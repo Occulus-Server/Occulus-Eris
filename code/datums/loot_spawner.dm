@@ -144,8 +144,39 @@
 
 /datum/controller/subsystem/spawn_data/proc/get_spawn_value(npath)
 	var/atom/movable/A = npath
-	var/spawn_value = 10 * initial(A.spawn_frequency)/(initial(A.rarity_value) + log(10,max(get_spawn_price(A),1)))
-	return spawn_value
+	if(ispath(npath, /obj/item/gun))
+		return 10 * initial(A.spawn_frequency)/(get_special_rarity_value(npath)+(get_spawn_price(A)/GUN_PRICE_DIVISOR))
+	else if(ispath(npath, /obj/item/clothing))
+		return 10 * initial(A.spawn_frequency)/(get_special_rarity_value(npath) + (get_spawn_price(A)/CLOTH_PRICE_DIVISOR))
+	return 10 * initial(A.spawn_frequency)/(get_special_rarity_value(npath) + log(10,max(get_spawn_price(A),2)))
+
+/*get_special_rarity_value()
+increases the rarity value of items
+depending on certain determining factors,
+for example, the rarity value of power cells increases with their max_charge,
+the value of stock parts increases with the rating.
+*/
+/datum/controller/subsystem/spawn_data/proc/get_special_rarity_value(npath)
+	var/atom/movable/A = npath
+	. = initial(A.rarity_value)
+	if(ispath(npath, /obj/item/cell))
+		var/obj/item/cell/C = npath
+		var/bonus = 0
+		var/autorecharging_factor = 3.7
+		if(ispath(npath, /obj/item/cell/large))
+			bonus += (initial(C.maxcharge)/CELL_LARGE_BASE_CHARGE)**1.2
+		else if(ispath(npath, /obj/item/cell/medium))
+			bonus += (initial(C.maxcharge)/CELL_MEDIUM_BASE_CHARGE)**3.6
+			autorecharging_factor += 3
+		else if(ispath(npath, /obj/item/cell/small))
+			bonus += (initial(C.maxcharge)/CELL_SMALL_BASE_CHARGE)**1.9
+			autorecharging_factor += 2
+		if(initial(C.autorecharging))
+			bonus *= autorecharging_factor * (initial(C.autorecharge_rate)/BASE_AUTORECHARGE_RATE) * (initial(C.recharge_time)/BASE_RECHARGE_TIME)
+		. += bonus
+	else if(ispath(npath, /obj/item/stock_parts))
+		var/obj/item/stock_parts/SP = npath
+		. *= initial(SP.rating)**1.5
 
 /datum/controller/subsystem/spawn_data/proc/get_spawn_price(path, with_accompaying_obj = TRUE)
 	var/atom/movable/A = path
@@ -285,6 +316,8 @@
 	for(var/path in paths)
 		if(get_spawn_value(path) == spawn_value)
 			things += path
+	if(!things.len)
+		return
 	return pick(things)
 
 /datum/controller/subsystem/spawn_data/proc/take_tags(list/paths, list/exclude)

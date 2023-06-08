@@ -17,11 +17,11 @@
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_PLASTIC = 12)
 	price_tag = 3300
 	fire_sound = 'sound/weapons/guns/fire/ltrifle_fire.ogg'
-	unload_sound 	= 'sound/weapons/guns/interact/ltrifle_magout.ogg'
-	reload_sound 	= 'sound/weapons/guns/interact/ltrifle_magin.ogg'
-	cocked_sound 	= 'sound/weapons/guns/interact/ltrifle_cock.ogg'
-	damage_multiplier = 1.3
-	recoil_buildup = 8
+	unload_sound = 'sound/weapons/guns/interact/ltrifle_magout.ogg'
+	reload_sound = 'sound/weapons/guns/interact/ltrifle_magin.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/ltrifle_cock.ogg'
+	damage_multiplier = 1.2
+	recoil_buildup = 2
 	one_hand_penalty = 15 //automatic rifle level
 	rarity_value = 96
 

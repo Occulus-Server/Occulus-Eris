@@ -1,5 +1,9 @@
-// Nanobots blood drain per unit
+/* This file has been completely restructured for Occulus*/
+
 #define NANOBOTS_BLOOD_DRAIN 0.003
+// Nanobots blood drain per unit
+
+/*Basic Nanite Defines*/
 
 /datum/reagent/nanites
 	name = ""
@@ -27,8 +31,9 @@
 /datum/reagent/nanites/consumed_amount(mob/living/carbon/M, alien, var/location)
 	if(will_occur(M, alien, location))
 		return ..()
-	else
-		return 0
+	else if(location == CHEM_INGEST)
+		holder.trans_to_mob(M, volume, CHEM_BLOOD) // Nanites dig through the stomach lining to get into the blood.
+	return 0
 
 /datum/reagent/nanites/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	eat_blood(M)
@@ -83,6 +88,8 @@
 		return FALSE
 	return TRUE
 
+/*Medical Nanites*/
+/*ARAD - Removes Radiation*/
 /datum/reagent/nanites/arad
 	name = "A-rad"
 	id = "arad nanites"
@@ -92,52 +99,11 @@
 	if(..() && M.radiation)
 		return TRUE
 
-
 /datum/reagent/nanites/arad/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(..())
 		M.radiation = max(M.radiation - (5 + M.radiation * 0.10) * effect_multiplier, 0)
 
-
-/datum/reagent/nanites/implant_medics
-	name = "Implantoids"
-	id = "implant nanites"
-	description = "Microscopic construction robots programmed to repair implants."
-
-
-/datum/reagent/nanites/implant_medics/will_occur(mob/living/carbon/M, alien, var/location)
-	if(..() && ishuman(M))
-		var/mob/living/carbon/human/H = M
-		constant_metabolism = FALSE
-		metabolism = initial(metabolism)
-		for(var/obj/item/organ/organ in H.organs) //Grab the organ holding the implant.
-			if((organ.damage > 0) && BP_IS_ROBOTIC(organ)) //only robotic organs
-				return TRUE
-			if(istype(organ, /obj/item/organ/external))
-				var/obj/item/organ/external/E = organ
-				for(var/obj/item/implant/I in E.implants)
-					if(I.malfunction)
-						metabolism = 1
-						constant_metabolism = TRUE
-						return TRUE
-
-
-/datum/reagent/nanites/implant_medics/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	if(..() && ishuman(M))
-		var/mob/living/carbon/human/H = M
-		for(var/obj/item/organ/organ in H.organs) //Grab the organ holding the implant.
-			if(metabolism == 1 && istype(organ, /obj/item/organ/external)) // if metabolism == 1 then broken implant is found see implant_medics/will_occur()
-				var/obj/item/organ/external/E = organ
-				for(var/obj/item/implant/I in E.implants)
-					if(I.malfunction)
-						I.restore()
-						return
-			else if (istype(organ, /obj/item/organ/external) && organ.damage > 0 && BP_IS_ROBOTIC(organ))
-				organ.heal_damage((2 + organ.damage * 0.05)* effect_multiplier, (2 + organ.damage * 0.05)* effect_multiplier, 1, 1)
-				return
-			else if (istype(organ, /obj/item/organ/internal) && organ.damage > 0 && BP_IS_ROBOTIC(organ))
-				organ.heal_damage((2 + organ.damage * 0.05)* effect_multiplier)
-				return
-
+/*Nantidotes - Removes foreign substances from the blood stream*/
 
 /datum/reagent/nanites/nantidotes
 	name = "Nantidotes"
@@ -158,10 +124,12 @@
 				if(!istype(current, /datum/reagent/nanites))
 					R.remove_self(effect_multiplier * 1)
 
+/*Nanosymbiotes - General purpose restoration nanites for raw damage. Regardless of limb type*/
+
 /datum/reagent/nanites/nanosymbiotes
 	name = "Nanosymbiotes"
 	id = "nanosymbiotes"
-	description = "Microscopic construction robots programmed to heal body cells."
+	description = "Microscopic construction robots programmed to heal organic and synthetic cells. Useless for internal damage"
 
 /datum/reagent/nanites/nanosymbiotes/will_occur(mob/living/carbon/M, alien, var/location)
 	if(..() && (M.getBruteLoss() || M.getFireLoss() || M.getToxLoss() || M.getCloneLoss() || M.getBrainLoss()))
@@ -173,6 +141,8 @@
 		M.adjustToxLoss(-((1 + (M.getToxLoss() * 0.03)) * effect_multiplier))
 		M.adjustCloneLoss(-(1 + (M.getCloneLoss() * 0.03)) * effect_multiplier)
 		M.adjustBrainLoss(-(1 + (M.getBrainLoss() * 0.03)) * effect_multiplier)
+
+/*Oxyrush - Removes oxygen damage from the target*/
 
 /datum/reagent/nanites/oxyrush
 	name = "Oxyrush"
@@ -188,6 +158,8 @@
 		M.adjustOxyLoss(-30 * effect_multiplier)
 		M.add_chemical_effect(CE_OXYGENATED, 2)
 
+/*Trauma Control System - Repairs internal organ damage for user*/
+
 /datum/reagent/nanites/trauma_control_system
 	name = "Trauma Control System"
 	id = "trauma_control_system"
@@ -196,24 +168,40 @@
 /datum/reagent/nanites/trauma_control_system/will_occur(mob/living/carbon/M, alien, var/location)
 	if(..() && ishuman(M))
 		var/mob/living/carbon/human/H = M
-		for(var/obj/item/organ/organ in H.organs) //Grab the organ holding the implant.
-			if(organ.damage > 0 && !BP_IS_ROBOTIC(organ))
-				return TRUE
-		for(var/obj/item/organ/organ in H.internal_organs) //SYZYGY Edit
-			if(organ.damage > 0 && !BP_IS_ROBOTIC(organ)) //SYZYGY Edit
+		for(var/obj/item/organ/organ in H.internal_organs) //Occulus Edit
+			if(organ.damage > 0 && !BP_IS_ROBOTIC(organ)) //Occulus Edit
 				return TRUE // SYZYGY Edit
 
 /datum/reagent/nanites/trauma_control_system/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(..() && ishuman(M))
 		var/mob/living/carbon/human/H = M
-		for(var/obj/item/organ/organ in H.organs) //Grab the organ holding the implant.
-			if (istype(organ, /obj/item/organ/external) && organ.damage > 0 && !BP_IS_ROBOTIC(organ))
-				organ.heal_damage((2 + organ.damage * 0.03)* effect_multiplier, (2 + organ.damage * 0.03)* effect_multiplier)
-			//else if (istype(organ, /obj/item/organ/internal) && organ.damage > 0 && !BP_IS_ROBOTIC(organ)) - SYZYGY Edit: Fix internal organs
-			//	organ.heal_damage((2 + organ.damage * 0.03)* effect_multiplier) - SYZY EDIT : Fix internal organs
-		for(var/obj/item/organ/organ in H.internal_organs) //SYZYGY EDIT - Grab Internal Organs
-			if((organ.damage > 0) && !BP_IS_ROBOTIC(organ)) //SYZYGY Edit
-				organ.heal_damage(((0.2 + organ.damage * 0.03) * effect_multiplier), FALSE) //SYZYGY Edit
+		for(var/obj/item/organ/organ in H.internal_organs) //Occulus EDIT - Grab Internal Organs
+			if((organ.damage > 0) && !BP_IS_ROBOTIC(organ)) //Occulus Edit
+				organ.heal_damage(((0.2 + organ.damage * 0.03) * effect_multiplier), FALSE) //Occulus Edit
+
+/*Implantoids - Repairs synthetic organ damage*/
+
+/datum/reagent/nanites/implant_medics
+	name = "Implantoids"
+	id = "implant nanites"
+	description = "Microscopic construction robots programmed to repair prosthetics."
+
+/datum/reagent/nanites/implant_medics/will_occur(mob/living/carbon/M, alien, var/location)//Occulus Edit Start
+	if(..() && ishuman(M))
+		var/mob/living/carbon/human/H = M
+		for(var/obj/item/organ/organ in H.internal_organs) //Check Internal Organs
+			if(organ.damage > 0 && BP_IS_ROBOTIC(organ))
+				return TRUE//Occulus Edit
+
+/datum/reagent/nanites/implant_medics/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
+	if(..() && ishuman(M))
+		var/mob/living/carbon/human/H = M
+		for(var/obj/item/organ/organ in H.internal_organs) //The location of internal organs changed
+			if((organ.damage > 0) && BP_IS_ROBOTIC(organ))
+				organ.heal_damage(((0.2 + organ.damage * 0.03) * effect_multiplier), FALSE)
+
+/*Purgers - Purges nanites from the bloodstream, except themselves*/
+
 /datum/reagent/nanites/purgers
 	name = "Purgers"
 	id = "nanopurgers"
@@ -293,3 +281,4 @@
 /datum/reagent/nanites/uncapped/dynamic_handprints/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(..())
 		M.add_chemical_effect(CE_DYNAMICFINGERS, uni_identity)
+/*End Occulus Edit*/

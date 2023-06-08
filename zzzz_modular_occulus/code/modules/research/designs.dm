@@ -195,3 +195,17 @@
 	desc = "A bespoke container for ammunition for the Grey Claw prototype. Ammunition does not retain its shape for long outside of the rifle. Generates less-lethal ammunition."
 	build_path = /obj/item/ammo_magazine/greyclaw/rubber
 	sort_string = "MGACC"
+
+// Railguns
+
+/datum/design/research/item/weapon/railgun
+	name = "NT \"Reductor\" rail rifle"
+	desc = "A prototype weapon capable of launching projectiles at high velocity."
+	build_path = /obj/item/gun/energy/laser/railgun
+	sort_string = "MGADA"
+
+/datum/design/research/item/weapon/gauss
+	name = "NT \"Helios\" gauss rifle"
+	desc = "A prototype weapon that uses electro-magnetic fields to propel rods at hyper velocity."
+	build_path = /obj/item/gun/energy/laser/railgun/gauss
+	sort_string = "MGADB"

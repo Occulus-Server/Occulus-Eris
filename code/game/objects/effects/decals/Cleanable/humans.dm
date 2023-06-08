@@ -24,17 +24,17 @@ var/global/list/image/splatter_cache=list()
 
 /obj/effect/decal/cleanable/blood/reveal_blood()
 	if(!fluorescent)
-		fluorescent = 1
+		fluorescent = TRUE
 		basecolor = COLOR_LUMINOL
 		update_icon()
 
 /obj/effect/decal/cleanable/blood/clean_blood()
-	fluorescent = 0
+	fluorescent = FALSE
 	if(invisibility != 100)
 		invisibility = 100
 		amount = 0
 		STOP_PROCESSING(SSobj, src)
-	..(ignore=1)
+	..(ignore=TRUE)
 
 /obj/effect/decal/cleanable/blood/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -96,16 +96,16 @@ var/global/list/image/splatter_cache=list()
 				S.generate_blood_overlay()
 			if(!S.blood_DNA)
 				S.blood_DNA = list()
-				S.blood_overlay.color = basecolor
+				S.blood_overlay.color = color ? color : basecolor //Occulus edit - For custom blood color
 				S.add_overlays(S.blood_overlay)
 			if(S.blood_overlay && S.blood_overlay.color != basecolor)
-				S.blood_overlay.color = basecolor
+				S.blood_overlay.color = color ? color : basecolor //Occulus edit - For custom blood color
 				S.cut_overlays()
 				S.add_overlays(S.blood_overlay)
 			S.blood_DNA |= blood_DNA.Copy()
 
 	else if (hasfeet)//Or feet
-		perp.feet_blood_color = basecolor
+		perp.feet_blood_color = color ? color : basecolor //Occulus edit - For custom blood color
 		perp.track_blood = max(amount,perp.track_blood)
 		if(!perp.feet_blood_DNA)
 			perp.feet_blood_DNA = list()
@@ -130,7 +130,7 @@ var/global/list/image/splatter_cache=list()
 	if (amount && istype(user))
 		add_fingerprint(user)
 		if (user.gloves)
-			return
+			return FALSE
 		var/taken = rand(1,amount)
 		amount -= taken
 		to_chat(user, SPAN_NOTICE("You get some of \the [src] on your hands."))
@@ -179,7 +179,7 @@ var/global/list/image/splatter_cache=list()
 
 /obj/effect/decal/cleanable/blood/writing/examine(mob/user)
 	..(user)
-	to_chat(user, "It reads: <font color='[basecolor]'>\"[message]\"</font>")
+	to_chat(user, "It reads: <font color='[color]'>\"[message]\"</font>") //Occulus Edit - For custom blood color.
 
 /obj/effect/decal/cleanable/blood/gibs
 	name = "gibs"

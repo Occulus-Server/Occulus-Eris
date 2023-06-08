@@ -7,7 +7,8 @@
 /mob/living/exosuit/Move()
 	. = ..()
 	if(. && !istype(loc, /turf/space))
-		playsound(src.loc, mech_step_sound, 40, 1)
+		if(legs && legs.mech_step_sound)
+			playsound(src.loc,legs.mech_step_sound,40,1)
 
 /mob/living/exosuit/update_plane()
 	. = ..()
@@ -65,6 +66,9 @@
 /datum/movement_handler/mob/exosuit/DoMove(var/direction, var/mob/mover, var/is_external)
 	var/mob/living/exosuit/exosuit = host
 	var/moving_dir = direction
+
+	if(exosuit.emp_damage >= EMP_STRAFE_DISABLE && exosuit.strafing == TRUE) //Stops a heavily EMP'd exosuit from strafing
+		exosuit.strafing = FALSE
 
 	var/failed = FALSE
 	if(exosuit.emp_damage >= EMP_MOVE_DISRUPT && prob(30))

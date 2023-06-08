@@ -3,10 +3,10 @@
 	result = /obj/structure/curtain
 	steps = list(
 		list(CRAFT_MATERIAL, 4, MATERIAL_PLASTIC),
-        list(QUALITY_WIRE_CUTTING, 10, 20, "time" = 30),
-        list(/obj/item/stack/rods, 4, "time" = 20),
-        list(QUALITY_WELDING, 10, 20),
-        list(QUALITY_SCREW_DRIVING, 10, 20)
+		list(QUALITY_WIRE_CUTTING, 10, 20, "time" = 30),
+		list(/obj/item/stack/rods, 4, "time" = 20),
+		list(QUALITY_WELDING, 10, 20),
+		list(QUALITY_SCREW_DRIVING, 10, 20)
 	)
 	//name_craft_menu = "Curtain Selection"
 
@@ -49,3 +49,15 @@
 	name = "purple curtain"
 	result = /obj/structure/curtain/purple
 	// variation_type = CRAFT_VARIATION
+
+/datum/craft_recipe/furniture/cot
+	name = "silk cot"
+	result = /obj/structure/bed/cot
+	steps = list(
+		list(/obj/item/stack/rods, 3, "time" = 20),
+		list(QUALITY_WIRE_CUTTING, 10, 20, "time" = 30),
+		list(QUALITY_WELDING, 10, 20),
+		list(/obj/item/stack/silkcloth, 3, "time" = 20),
+		list(QUALITY_WIRE_CUTTING, 10, 20),
+		list(QUALITY_SCREW_DRIVING, 10, 20)
+	)

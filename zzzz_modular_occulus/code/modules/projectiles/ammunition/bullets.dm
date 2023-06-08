@@ -18,6 +18,7 @@
 	spent_icon = "s-shell_rs-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/rubber
 	matter = list(MATERIAL_STEEL = 1)
+	shell_color = "rs"
 
 /obj/item/ammo_casing/shotgun/pellet/rubber/prespawned
 	amount = 5
@@ -72,3 +73,23 @@
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/greyclaw/rubber
 	is_caseless = TRUE
 	maxamount = 1
+
+// Genericize the grenade name until some lore nerds come in
+/obj/item/ammo_casing/grenade/sting
+	name = "sting grenade shell"
+	desc = "A frag grenade shell, designed to be fired from grenade launchers"
+
+/obj/item/ammo_casing/grenade/blast
+	name = "blast grenade shell"
+	desc = "A concussion grenade shell, designed to be fired from grenade launchers"
+
+/obj/item/ammo_casing/grenade/frag
+	name = "frag grenade shell"
+	desc = "A frag grenade shell, designed to be fired from grenade launchers"
+
+/obj/item/ammo_casing/grenade/emp
+	name = "EMP grenade shell"
+	desc = "An EMP grenade shell, designed to be fired from grenade launchers."
+
+/obj/item/ammo_casing/flare
+	name = "flare grenade shell"

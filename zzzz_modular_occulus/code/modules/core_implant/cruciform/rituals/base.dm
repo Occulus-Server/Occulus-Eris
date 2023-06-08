@@ -257,13 +257,14 @@ Let there be light! Makes you glow for 5 minutes at a time.
 	var/ear_safety = 0
 	if(iscarbon(M))
 		eye_safety = M.eyecheck()
+		ear_safety = M.earcheck() //Occulus edit
 		if(ishuman(M))
 			if(istype(M:l_ear, /obj/item/clothing/ears/earmuffs) || istype(M:r_ear, /obj/item/clothing/ears/earmuffs))
 				ear_safety += 2
 			if(HULK in M.mutations)
 				ear_safety += 1
-			if(istype(M:head, /obj/item/clothing/head/armor/helmet))
-				ear_safety += 1
+			//if(istype(M:head, /obj/item/clothing/head/armor/helmet))
+			//	ear_safety += 1 //Occulus edit
 
 //Flashing everyone
 	if(eye_safety < FLASH_PROTECTION_MODERATE)

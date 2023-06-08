@@ -21,7 +21,7 @@
 	damage_multiplier = 0.8
 	recoil_buildup = 4
 	one_hand_penalty = 5 //smg level
-	gun_tags = list(GUN_SILENCABLE)
+	gun_tags = list(GUN_SILENCABLE) //Occulus Edit: No gilding code
 
 	init_firemodes = list(
 		FULL_AUTO_400,
@@ -33,6 +33,10 @@
 
 	var/iconstring = initial(icon_state)
 	var/itemstring = ""
+
+//	if(gilded)
+//		iconstring += "_gold"
+//		itemstring += "_gold"
 
 	if (ammo_magazine)
 		iconstring += "_mag"

@@ -131,13 +131,20 @@
 	var/list/armorlist = armor.getList()
 	if(armorlist.len)
 		var/list/armor_vals = list()
+		// Occulus Edit Start: Armor Flat Damage Reduction Transparency
+		// Occulus Edit: The tmpl is edited too but they are not friendly to comments. Be careful.
 		for(var/i in armorlist)
 			if(armorlist[i])
+				var/perc_reduction = armorlist[i]
+				var/flat_reduction = armorlist[i] * ARMOR_GDR_COEFFICIENT
+				var/armor_string = "[flat_reduction] + [armorlist[i]]%"
 				armor_vals += list(list(
 					"name" = i,
-					"value" = armorlist[i]
+					"value" = perc_reduction,
+					"armor_string" = armor_string
 					))
 		data["armor_info"] = armor_vals
+		// Occulus Edit End
 	if(body_parts_covered)
 		var/body_part_string = body_part_coverage_to_string(body_parts_covered)
 		data["body_coverage"] = body_part_string
@@ -504,8 +511,8 @@ BLIND     // can't see anything
 			/obj/item/tool/knife/butterfly,
 			/obj/item/material/kitchen/utensil,
 			/obj/item/tool/knife/tacknife,
-			/obj/item/oddity/common/old_knife, //Syzygy change that should have been done forever ago
-			/obj/item/tool/shiv,
+			/obj/item/oddity/common/old_knife, //Occulus Edit
+			//obj/item/tool/shiv,
 		)
 	if(can_hold_knife && is_type_in_list(I, knifes))
 		if(holding)

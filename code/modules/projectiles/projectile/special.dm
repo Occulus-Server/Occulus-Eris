@@ -25,8 +25,8 @@
 	name = "high explosive rocket"
 	icon_state = "rocket"
 	damage_types = list(BRUTE = 70)
-	armor_penetration = 100
-	check_armour = ARMOR_BULLET
+	armor_penetration = 20
+	check_armour = ARMOR_BOMB
 
 /obj/item/projectile/bullet/rocket/launch(atom/target, target_zone, x_offset, y_offset, angle_offset)
 	set_light(2.5, 0.5, "#dddd00")
@@ -34,6 +34,18 @@
 
 /obj/item/projectile/bullet/rocket/on_hit(atom/target)
 	explosion(target, 0, 1, 2, 4)
+	set_light(0)
+	return TRUE
+
+/obj/item/projectile/bullet/rocket/hesh
+	name = "high-explosive anti-tank rocket"
+	damage_types = list(BRUTE = 60)
+	armor_penetration = 100
+	check_armour = ARMOR_BULLET
+
+/obj/item/projectile/bullet/rocket/hesh/on_hit(atom/target)
+	fragment_explosion_angled(target, starting, /obj/item/projectile/bullet/pellet/fragment/strong, 20)
+	explosion(target, -1, 0, 2, 3) // Much weaker explosion, but offset by shrapnel released
 	set_light(0)
 	return TRUE
 
@@ -177,3 +189,47 @@
 	damage_types = list(BRUTE = 5)
 	embed = 0
 
+/obj/item/projectile/bullet/flare
+	name = "flare"
+	icon_state = "flare"
+	damage_types = list(BRUTE = 24)
+	kill_count = 16
+//	armor_divisor = 1
+	armor_penetration = 0
+	step_delay = 2
+	eyeblur = 2 // bright light slightly blurs your vision
+//	luminosity_range = 5
+//	luminosity_power = 1
+//	luminosity_color = COLOR_RED
+//	luminosity_ttl = 1
+	var/fire_stacks = 1
+	var/flash_range = 1
+	var/light_duration = 300
+	var/brightness = 10
+	knockback = FALSE
+	can_ricochet = FALSE
+	sharp = FALSE
+	embed = FALSE
+//	recoil = 4
+
+/obj/item/projectile/bullet/flare/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	if(iscarbon(target))
+		var/mob/living/carbon/M = target
+		playsound(src, 'sound/effects/flare.ogg', 100, 1)
+		M.adjust_fire_stacks(fire_stacks)
+		M.IgniteMob()
+		src.visible_message(SPAN_WARNING("\The [src] sets [target] on fire!"))
+
+/obj/item/projectile/bullet/flare/on_impact(var/atom/A)
+	var/turf/T = flash_range? src.loc : get_turf(A)
+	if(!istype(T)) return
+
+	//blind adjacent people with enhanced vision
+//	for (var/mob/living/carbon/M in viewers(T, flash_range))
+//		if(M.eyecheck() < FLASH_PROTECTION_NONE)
+//			M.flash(0, FALSE , FALSE , FALSE)
+//	src.visible_message(SPAN_WARNING("\The [src] explodes in a bright light!"))
+	new /obj/effect/decal/cleanable/ash(src.loc)
+	playsound(src, 'sound/effects/flare.ogg', 100, 1)
+//	new /obj/effect/effect/smoke/illumination(T, brightness=max(flash_range*3, brightness), lifetime=light_duration, color=COLOR_RED)

@@ -23,16 +23,15 @@
 	var/skremdelay = 0
 	var/special_ability_cooldown
 	var/ability_cooldown = 20
-	var/list/soundlist = list('zzzz_modular_occulus/sound/effects/solonely.wav', 'zzzz_modular_occulus/sound/effects/whispers.wav')
+	var/list/soundlist = list('zzzz_modular_occulus/sound/effects/solonely.wav', 'zzzz_modular_occulus/sound/effects/whispers.wav', 'zzzz_modular_occulus/sound/effects/malecrying.wav')
 
 
 /mob/living/simple_animal/hostile/siren/composer/Life()
 	. = ..()
-	if(!.)
-		return
-	soundloop()
-	if(target_mob)
-		skremloop()
+	if(health >=15)
+		soundloop()
+		if(target_mob)
+			skremloop()
 
 /mob/living/simple_animal/hostile/siren/composer/proc/skremloop()
 	if(skremdelay == 0)

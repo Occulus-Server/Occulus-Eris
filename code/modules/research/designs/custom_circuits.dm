@@ -29,6 +29,12 @@
 	sort_string = "VCAAA"
 	category = CAT_CIRCUITS
 
+/datum/design/research/item/custom_circuit_assembly/AssembleDesignMaterials(atom/temp_atom)
+	if(istype(temp_atom, /obj))
+		for(var/obj/item/device/electronic_assembly/A in temp_atom.GetAllContents(includeSelf = TRUE))
+			A.matter[MATERIAL_STEEL] = round((A.max_complexity + A.max_components) / 20)
+	..()
+
 /datum/design/research/item/custom_circuit_assembly/medium
 	name = "Medium custom assembly"
 	desc = "An customizable assembly suited for more ambitious mechanisms."
@@ -56,7 +62,7 @@
 /datum/design/research/item/custom_circuit_assembly/printer
 	name = "Integrated circuit printer"
 	desc = "A portable(ish) machine made to print tiny modular circuitry out of metal."
-	build_path = /obj/item/disk/integrated_circuit/upgrade/advanced
+	build_path = /obj/item/device/integrated_circuit_printer // Occulus Edit
 	sort_string = "VCAAF"
 
 /datum/design/research/item/custom_circuit_assembly/advanced_designs

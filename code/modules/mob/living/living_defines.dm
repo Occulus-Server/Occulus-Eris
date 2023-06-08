@@ -38,7 +38,8 @@
 	var/mob_swap_flags = 0
 	var/mob_push_flags = 0
 	var/mob_always_swap = 0
-	var/move_to_delay = 4 //delay for the automated movement.
+	var/livmomentum = 0 //Used for advanced movement options.
+	var/move_to_delay = 4 //Delay for the automated movement.
 	var/can_burrow = FALSE //If true, this mob can travel around using the burrow network.
 	//When this mob spawns at roundstart, a burrow will be created near it if it can't find one
 
@@ -46,8 +47,8 @@
 	var/list/datum/action/actions = list()
 	var/step_count = 0
 
-	var/tod // Time of death
 	var/update_slimes = 1
+	var/is_busy = FALSE // Prevents stacking of certain actions, like resting and diving
 	var/silent 		// Can't talk. Value goes down every life proc.
 	var/on_fire = 0 //The "Are we on fire?" var
 	var/fire_stacks
@@ -71,14 +72,15 @@
 
 	//Used in living/recoil.dm
 	var/recoil = 0 //What our current recoil level is
-	var/last_recoil_update = 0 //When our last recoil update was
-	var/recoil_timer //Holds the timer ID
+	var/recoil_reduction_timer
 	var/falls_mod = 1
 	var/mob_bomb_defense = 0	// protection from explosives
 	var/mod_climb_delay = 1 // delay for climb
 	var/noise_coeff = 1 //noise coefficient
 
 	var/agony_coefficient = 1 // OCCULUS EDIT - Making mobs selectively stronger against non-lethals
+	var/can_multiz_pb = FALSE
+	var/is_watching = FALSE
 
 	spawn_frequency = 10
 	bad_type = /mob/living

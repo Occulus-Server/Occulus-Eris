@@ -24,7 +24,8 @@
 		SEMI_AUTO_NODELAY,
 		BURST_3_ROUND
 		)
-	spawn_blacklisted = TRUE //until loot rework
+
+	spawn_blacklisted = TRUE
 
 /obj/item/gun/projectile/type_47/on_update_icon()
 	..()

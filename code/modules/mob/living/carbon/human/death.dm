@@ -24,7 +24,7 @@
 			D.throw_at(get_edge_target_turf(src,pick(alldirs)), rand(1,max_range), round(30/D.w_class))
 
 	..(species.gibbed_anim)
-	gibs(loc, dna, null, species.flesh_color, species.blood_color)
+	gibs(loc, dna, null, species.flesh_color, blood_color) //Occulus Edit - For colored blood
 
 /mob/living/carbon/human/dust()
 	if(species)
@@ -143,9 +143,9 @@
 /mob/living/carbon/human/proc/UnHusk()
 	if(!(HUSK in mutations))	return FALSE
 
-	if(f_style)
+	if(f_style && client?.prefs?.f_style) // Occulus Edit null check for client prefs
 		f_style = client.prefs.f_style	//we only change the icon_state of the hair datum, so it doesn't mess up their UI/UE
-	if(h_style)
+	if(h_style && client?.prefs?.h_style) // Occulus Edit null check for client prefs
 		h_style = client.prefs.h_style
 	update_hair(0)
 

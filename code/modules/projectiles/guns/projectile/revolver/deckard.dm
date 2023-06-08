@@ -16,3 +16,4 @@
 	//spawn_tags = SPAWN_TAG_FS_PROJECTILE
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+

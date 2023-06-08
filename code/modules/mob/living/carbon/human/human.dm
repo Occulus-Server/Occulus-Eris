@@ -106,7 +106,7 @@
 		if (C)
 			stat("Cruciform", "[C.power]/[C.max_power]")
 
-/mob/living/carbon/human/ex_act(severity)
+/mob/living/carbon/human/ex_act(severity, epicenter)
 	if(!blinded)
 		if (HUDtech.Find("flash"))
 			FLICK("flash", HUDtech["flash"])
@@ -115,6 +115,11 @@
 	var/b_loss
 	var/f_loss
 	var/bomb_defense = getarmor(null, ARMOR_BOMB) + mob_bomb_defense
+	var/target_turf = get_turf_away_from_target_simple(src, epicenter, 8)
+	var/throw_distance = 8 - 2*severity
+	throw_at(target_turf, throw_distance, 5)
+	Weaken(severity) // If they don't get knocked out , weaken them for a bit.
+
 	switch (severity)
 		if (1.0)
 			b_loss += 500
@@ -259,6 +264,7 @@ var/list/rank_prefix = list(\
 	"Aegis Inspector" = "Inspector",\
 	"Aegis Gunnery Sergeant" = "Sergeant",\
 	"Aegis Commander" = "Lieutenant",\
+	"Aegis Medical Specialist" = "Specialist",\
 	"Captain" = "Captain",\
 	"Medical Doctor" = "Doctor",\
 	"Chief Medical Officer" = "Doctor",\
@@ -880,7 +886,7 @@ var/list/rank_prefix = list(\
 	rebuild_organs()
 
 // OCCULUS EDIT START - Reinstall our core implant if we had one, because rebuild_organs() has that bit of code gutted from it
-	var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
+	var/datum/category_item/setup_option/core_implant/I = client ? client.prefs.get_option("Core implant") : null
 	if(I)
 		I.apply(src)
 // OCCULUS EDIT END
@@ -1455,6 +1461,18 @@ var/list/rank_prefix = list(\
 		return 0
 	..(slipped_on,stun_duration)
 
+/mob/living/carbon/human/trip(tripped_on, stun_duration)
+	if(buckled)
+		return FALSE
+	if(lying)
+		return FALSE // No tripping while crawling
+	stop_pulling()
+	if (tripped_on)
+		playsound(src, 'sound/effects/bang.ogg', 50, 1)
+		to_chat(src, SPAN_WARNING("You tripped over!"))
+	Weaken(stun_duration)
+	return TRUE
+
 /mob/living/carbon/human/proc/undislocate()
 	set category = "Object"
 	set name = "Undislocate Joint"
@@ -1682,7 +1700,6 @@ var/list/rank_prefix = list(\
 	visible_message(SPAN_NOTICE("\The [src] twitches a bit as their heart restarts!"))
 	pulse = PULSE_NORM
 	handle_pulse()
-	tod = null
 	//timeofdeath = 0 Occulus yeet
 	stat = UNCONSCIOUS
 	jitteriness += 3 SECONDS
@@ -1697,3 +1714,12 @@ var/list/rank_prefix = list(\
 				else
 					break
 	return 1
+
+/mob/living/carbon/human/verb/switch_tail_layer()
+	set name = "Switch Tail Layer"
+	set desc = "Put your tail above or below some clothing types."
+	set category = "IC"
+
+	tail_alted = !tail_alted
+	update_tail_showing()
+	to_chat(src, SPAN_NOTICE("Your tail is now on the [tail_alted ? "alternate" : "default"] layer."))

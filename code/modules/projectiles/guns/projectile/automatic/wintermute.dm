@@ -15,7 +15,6 @@
 	auto_eject = 1
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_STEEL = 20, MATERIAL_PLASTIC = 10)
 	price_tag = 3500
-	rarity_value = 48
 	fire_sound = 'sound/weapons/guns/fire/ltrifle_fire.ogg'
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	unload_sound 	= 'sound/weapons/guns/interact/ltrifle_magout.ogg'
@@ -31,7 +30,9 @@
 		BURST_3_ROUND
 		)
 
-//	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+
+	gun_tags = list(GUN_SILENCABLE)
 
 /obj/item/gun/projectile/automatic/wintermute/on_update_icon()
 	..()

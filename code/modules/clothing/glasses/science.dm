@@ -1,6 +1,7 @@
 /obj/item/clothing/glasses/powered/science
-	name = "Science Goggles"
-	desc = "The goggles do nothing!"
+	name = "science goggles"
+	desc = "A pair of goggles with a science HUD. These can show you reagents within transparent containers and organoid information."
+	off_state = "purple"
 	icon_state = "purple"
 	item_state = "glasses"
 

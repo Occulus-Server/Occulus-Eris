@@ -87,6 +87,12 @@
 	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
 	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob_fem.dmi'
 
+/obj/item/clothing/under/rank/ensign/blueshield		//based off the ensign since they're just a alt job title
+	name = "bodyguard jumpsuit"
+	desc = "Standard uniform for maritime naval officers designated as bodyguards."
+	icon_state = "blueshield_uniform"
+	item_state = "blueshield_uniform"
+
 /obj/item/clothing/under/turtleneckloadout //This is so you can choose the one at the loadout. Heck eris
 	name = "green turtleneck"
 	desc = "Military style turtleneck, for operating in cold environments. Typically worn underneath armour"
@@ -118,3 +124,35 @@
 	item_state = "maid"
 	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
 	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob_fem.dmi'
+
+/obj/item/clothing/under/wedding
+	desc = "It's a custom-talored wedding dress."
+	name = "wedding dress"
+	icon = 'zzzz_modular_occulus/icons/mob/uniform.dmi'
+	icon_state = "bride_white_s"
+	item_state = "bride_white_s"
+	icon_override = 'zzzz_modular_occulus/icons/mob/uniform.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/mob/uniform_fem.dmi'
+
+/obj/item/clothing/under/webcovs
+	name = "webspun covers"
+	desc = "A roughly thrown together cover made with webly silk. Its still slightly tacky, but when public decency is needed, it... does its job."
+	icon = 'zzzz_modular_occulus/icons/inventory/uniform/silkstuff.dmi'
+	icon_state = "webcov"
+	item_state = "webcov"
+	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	has_sensor = 0
+	price_tag = 10
+	spawn_blacklisted = TRUE
+
+/obj/item/clothing/under/silkwear
+	name = "silken covers"
+	desc = "A refined set of covers carefully stitched together with silk. Its almost reminiscent of a dancers gown and comfy enough to match, now with vital sensors"
+	icon = 'zzzz_modular_occulus/icons/inventory/uniform/silkstuff.dmi'
+	icon_state = "silkwear"
+	item_state = "silkwear"
+	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	price_tag = 75
+	spawn_blacklisted = TRUE

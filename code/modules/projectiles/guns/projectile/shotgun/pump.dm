@@ -15,7 +15,7 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	handle_casings = HOLD_CASINGS
 	fire_sound = 'sound/weapons/guns/fire/shotgunp_fire.ogg'
-	bulletinsert_sound 	= 'sound/weapons/guns/interact/shotgun_insert.ogg'
+	bulletinsert_sound = 'sound/weapons/guns/interact/shotgun_insert.ogg'
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 10)
 	price_tag = 1000
 	rarity_value = 16

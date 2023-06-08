@@ -14,10 +14,10 @@
 	flags = CONDUCT
 	matter = list(MATERIAL_STEEL = 3)
 	var/list/carrying = list() // List of things on the tray. - Doohl
-	var/max_carry = 10
+	var/max_carry = 15	//Occulus Edit: Changed to 15 to allow for a drink as well as food on tray
 
 /obj/item/tray/attack(mob/living/carbon/M, mob/living/carbon/user)
-
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)	//Occulus Edit- NO INSTANT MURDERING PEOPLE WITH A RAPID TRAY SPAM
 	// Drop all the things. All of them.
 	cut_overlays()
 	for(var/obj/item/I in carrying)
@@ -28,6 +28,8 @@
 				for(var/i = 1, i <= rand(1,2), i++)
 					if(I)
 						step(I, pick(NORTH,SOUTH,EAST,WEST))
+						for(var/mob/O in viewers(M, null))	//Occulus edit start: adds a bit of flavor to obj's flying off the tray with a message
+							O.show_message(SPAN_DANGER("[I] flies off the tray!"), 1)	//occulus edit end
 						sleep(rand(2,4))
 
 
@@ -169,7 +171,7 @@
 
 	return val
 
-/obj/item/tray/pre_pickup(mob/user)
+/obj/item/tray/pickup(mob/user)	//Occulus Edit: Prepickup just returns True in the code. I don't know how it works, but it certainly /doesn't/ work here. Reverted to using standard pickup.
 	if(!isturf(loc))
 		return ..()
 

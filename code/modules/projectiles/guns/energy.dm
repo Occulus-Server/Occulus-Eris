@@ -36,6 +36,9 @@
 
 	bad_type = /obj/item/gun/energy
 
+	wield_delay = 0 SECOND
+	wield_delay_factor = 0
+
 /obj/item/gun/energy/switch_firemodes()
 	. = ..()
 	if(.)
@@ -165,6 +168,8 @@
 	if(istype(C, suitable_cell) && insert_item(C, user))
 		cell = C
 		update_icon()
+
+	..()
 
 /obj/item/gun/energy/ui_data(mob/user)
 	var/list/data = ..()

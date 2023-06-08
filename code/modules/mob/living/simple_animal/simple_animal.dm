@@ -180,7 +180,7 @@
 		if(!.)
 			return FALSE
 
-		if(health <= 0)
+		if(health <= 0 && stat != DEAD)
 			death()
 			return FALSE
 
@@ -327,7 +327,12 @@
 	..(icon_gib,1)
 
 /mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
-	if(!Proj || Proj.nodamage)
+	if(!Proj)
+		return
+
+	if(Proj.nodamage)
+		if(istype(Proj, /obj/item/projectile/ion))
+			Proj.on_hit(loc)
 		return
 
 	adjustBruteLoss(Proj.get_total_damage())
@@ -619,7 +624,7 @@
 /mob/living/simple_animal/lay_down()
 	set name = "Rest"
 	set category = "Abilities"
-	if(resting && can_stand_up())
+	if(resting)
 		wake_up()
 	else if (!resting)
 		fall_asleep()

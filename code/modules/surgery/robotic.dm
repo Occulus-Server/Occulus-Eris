@@ -80,7 +80,7 @@
 
 
 /datum/surgery_step/robotic/remove_item
-	required_tool_quality = QUALITY_PRYING
+	required_tool_quality = QUALITY_CLAMPING
 
 	duration = 90
 
@@ -89,14 +89,14 @@
 
 /datum/surgery_step/robotic/remove_item/begin_step(mob/living/user, obj/item/organ/external/organ, obj/item/tool, atom/movable/target)
 	user.visible_message(
-		SPAN_NOTICE("[user] begins to pry something out of [organ.get_surgery_name()] with \the [tool]."),
-		SPAN_NOTICE("You begin to pry [target] out of [organ.get_surgery_name()] with \the [tool].")
+		SPAN_NOTICE("[user] begins to extract something out of [organ.get_surgery_name()] with \the [tool]."),
+		SPAN_NOTICE("You begin to extract [target] out of [organ.get_surgery_name()] with \the [tool].")
 	)
 
 /datum/surgery_step/robotic/remove_item/end_step(mob/living/user, obj/item/organ/external/organ, obj/item/tool, atom/movable/target)
 	user.visible_message(
-		SPAN_NOTICE("[user] pries something out of [organ.get_surgery_name()] with \the [tool]."),
-		SPAN_NOTICE("You pry [target] out of [organ.get_surgery_name()] with \the [tool].")
+		SPAN_NOTICE("[user] extracts something out of [organ.get_surgery_name()] with \the [tool]."),
+		SPAN_NOTICE("You extract [target] out of [organ.get_surgery_name()] with \the [tool].")
 	)
 	organ.remove_item(target, user)
 
@@ -131,3 +131,44 @@
 		SPAN_NOTICE("You disconnect [organ.get_surgery_name()] with \the [tool].")
 	)
 	organ.droplimb(TRUE, DROPLIMB_EDGE)
+
+
+
+/datum/surgery_step/robotic/fix_bone
+	required_tool_quality = QUALITY_WELDING
+	target_organ_type = /obj/item/organ/internal
+	allowed_tools = list(/obj/item/stack/nanopaste = 100)
+
+	duration = 6 SECONDS
+
+/datum/surgery_step/robotic/fix_bone/can_use(mob/living/user, obj/item/organ/internal/organ, obj/item/stack/tool)
+	. = ..() && organ.is_open() && (organ.parent.status & ORGAN_BROKEN)
+
+	// Otherwise, it will just immediately fracture again
+	if(. && organ.parent.should_fracture())
+		to_chat(user, SPAN_WARNING("[organ.parent.get_surgery_name()] is too damaged!"))
+		return FALSE
+
+	return .
+
+/datum/surgery_step/robotic/fix_bone/begin_step(mob/living/user, obj/item/organ/internal/bone/organ, obj/item/stack/tool)
+	user.visible_message(
+		SPAN_NOTICE("[user] starts mending [organ.get_surgery_name()] with \the [tool]."),
+		SPAN_NOTICE("You start mending [organ.get_surgery_name()] with \the [tool].")
+	)
+
+	organ.owner_custom_pain("The pain in your [organ.name] is living hell!", 1)
+
+/datum/surgery_step/robotic/fix_bone/end_step(mob/living/user, obj/item/organ/internal/bone/organ, obj/item/stack/tool)
+	user.visible_message(
+		SPAN_NOTICE("[user] mends [organ.get_surgery_name()] with \the [tool]."),
+		SPAN_NOTICE("You mend [organ.get_surgery_name()] with \the [tool].")
+	)
+	organ.mend()
+
+/datum/surgery_step/robotic/fix_bone/fail_step(mob/living/user, obj/item/organ/internal/organ, obj/item/stack/tool)
+	user.visible_message(
+		SPAN_WARNING("[user]'s hand slips, scraping [organ.get_surgery_name()] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, scraping [organ.get_surgery_name()] with \the [tool]!")
+	)
+	organ.take_damage(5, 0)

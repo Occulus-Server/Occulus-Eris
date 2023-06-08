@@ -11,7 +11,6 @@
 	slot_flags = SLOT_BELT|SLOT_MASK
 	var/active = 0
 	var/det_time = 40
-	var/loadable = TRUE
 	var/variance = 0 //How much the fuse time varies up or down. Punishes cooking with makeshift nades, proper ones should have 0
 
 /obj/item/grenade/proc/clown_check(var/mob/living/user)
@@ -100,3 +99,16 @@
 	walk(src, null, null)
 	..()
 	return
+
+// Occulus Edit: Doesn't work lol
+// /obj/item/grenade/fall_impact(turf/from, turf/dest)
+// 	..()
+// 	var/found = dest.contents.Find(/mob/living/carbon/human)
+// 	if(found)
+// 		var/mob/living/carbon/human/bonk = dest.contents[found]
+// 		if(bonk.incapacitated(INCAPACITATION_GROUNDED))
+// 			return
+// 		bonk.apply_damage(2, BRUTE, BP_HEAD, sharp = FALSE, edge = FALSE, used_weapon = src)
+// 		bonk.visible_message(SPAN_DANGER("[src] falls from above and bonks [bonk.name] on \his head!"), SPAN_DANGER("[src] falls on your head and bounces to the side!"), "You hear a dull thud.", 5)
+// 		var/turf/random = pick(orange(1, dest))
+// 		forceMove(random)

@@ -90,6 +90,25 @@ They generally give more random result and can provide more divercity in spawn.
 	spawn_nothing_percentage = 70
 
 
+/obj/spawner/pack/gun_adjacent_loot // this is gun loot with the guns and all the ammo except for ammo kit's pool removed
+	name = "Random gun adjacent loot" // also everything remaining except for gun parts's weight is cut in half
+	icon_state = "gun-red"
+	desc = "This is a random technical loot."
+
+/obj/spawner/pack/gun_adjacent_loot/item_to_spawn()
+	return pickweight(list(
+					/obj/spawner/gun_parts = 20,
+					/obj/spawner/knife = 3,
+					/obj/spawner/ammo/lowcost = 9,
+					/obj/spawner/gun_upgrade = 5,
+					/obj/spawner/cloth/holster = 4
+				))
+
+/obj/spawner/pack/gun_adjacent_loot/low_chance
+	name = "low chance gun loot"
+	icon_state = "gun-red-low"
+	spawn_nothing_percentage = 70
+
 //Rare loot, where we need to be sure that reward is worth it
 /obj/spawner/pack/rare
 	name = "rare loot"
@@ -161,4 +180,22 @@ They generally give more random result and can provide more divercity in spawn.
 					/obj/spawner/closet = 2,
 					/obj/spawner/closet/wardrobe = 2,
 					/obj/spawner/exosuit/damaged = 1, //Some dangerous shit can be found there
+				))
+
+// This pack is meant to be PLACED ON MAP. Not in JUNK CODE, because it CONTAINS JUNK SPAWNER.
+// It meant to spawn any large structure, machine, or container. Contains things that should only be spawned in deep maint or dungeons.
+/obj/spawner/pack/deep_machine
+	name = "random deepmaint machine"
+	icon_state = "machine-orange"
+
+/obj/spawner/pack/deep_machine/item_to_spawn()
+	return pickweight(list(
+					/obj/spawner/structures/common = 28, //That one have MUCH MORE important objects for maints inside, that's why the number is hight
+					/obj/spawner/closet/maintloot = 18, //That one is also important part of the maints
+					/obj/spawner/closet/tech = 6,
+					/obj/spawner/closet = 4,
+					/obj/spawner/closet/wardrobe = 2,
+					/obj/spawner/scrap = 12, //Our scrap pile. This is basically just a huge spawner.
+					/obj/spawner/exosuit/damaged = 1, //Some dangerous shit can be found there
+					/obj/spawner/aberrant_machine = 3
 				))

@@ -5623,13 +5623,6 @@
 	icon_state = "floor6"
 	},
 /area/shuttle/mercenary)
-"oA" = (
-/obj/structure/table/steel,
-/obj/item/storage/deferred/comms,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor6"
-	},
-/area/shuttle/mercenary)
 "oH" = (
 /obj/effect/shuttle_landmark/eris/transit/hulk,
 /turf/space,
@@ -30889,7 +30882,7 @@ kK
 iJ
 iJ
 iq
-oA
+lk
 iL
 iJ
 iJ

@@ -1,3 +1,6 @@
+/obj/item/clothing
+	var/ear_protection = 0
+
 /obj/item/clothing/under
 	var/rolldown = FALSE
 
@@ -10,3 +13,7 @@
 	"You adjust your jumpsuit.")
 	rolldown = !rolldown
 	usr.update_inv_w_uniform()
+
+/obj/item/clothing/suit
+	valid_accessory_slots = list("armband","decor") // occ
+	restricted_accessory_slots = list("utility", "armband") // occ

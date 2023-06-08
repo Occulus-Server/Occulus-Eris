@@ -143,12 +143,11 @@
 		blinded = 1
 		silent = 0
 	else
-		updatehealth()
+		updatehealth() // updatehealth calls death if health <= 0
 		handle_stunned()
 		handle_weakened()
 		if(health <= 0)
-			death()
-			blinded = 1
+			blinded = TRUE
 			silent = 0
 			return 1
 
@@ -179,6 +178,7 @@
 
 /mob/living/carbon/superior_animal/adjustBruteLoss(var/amount)
 	. = ..()
+	reagr_new_targets()
 	if (overkill_gib && (amount >= overkill_gib) && (getBruteLoss() >= maxHealth*2))
 		if (bodytemperature > T0C)
 			gib()
@@ -188,9 +188,14 @@
 	if (overkill_dust && (amount >= overkill_dust) && (getFireLoss() >= maxHealth*2))
 		dust()
 
+/mob/living/carbon/superior_animal/proc/reagr_new_targets(reagr_radius = 1)
+	var/target = findTarget()
+	for(var/mob/living/carbon/superior_animal/SA in view(reagr_radius))
+		SA.target_mob = target
+
 /mob/living/carbon/superior_animal/updatehealth()
 	. = ..() //health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss() - halloss
-	if (health <= 0)
+	if (health <= 0 && stat != DEAD)
 		death()
 
 /mob/living/carbon/superior_animal/gib(var/anim = icon_gib, var/do_gibs = 1)

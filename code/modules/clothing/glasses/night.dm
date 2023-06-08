@@ -25,8 +25,7 @@
 	darkness_view = 7
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	flags = ABSTRACT
-
-	tick_cost = 1 
+	tick_cost = 1
 
 /obj/item/clothing/glasses/powered/bullet_proof_ironhammer/Initialize()
 	. = ..()

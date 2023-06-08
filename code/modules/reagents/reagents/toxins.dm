@@ -72,6 +72,8 @@
 	heating_point = 523
 	heating_products = list("toxin")
 	reagent_type = "Toxin/Stimulator"
+	withdrawal_threshold = 10
+	withdrawal_rate = REM
 
 /datum/reagent/toxin/carpotoxin/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(ishuman(M))
@@ -79,7 +81,7 @@
 		var/obj/item/organ/internal/liver/L = H.random_organ_by_process(OP_LIVER)
 		if(istype(L))
 			L.take_damage(strength * effect_multiplier, 0)
-	M.stats.addTempStat(STAT_VIG, STAT_LEVEL_BASIC, STIM_TIME, "carpotoxin")
+	M.stats.addTempStat(STAT_VIG, STAT_LEVEL_ADEPT, STIM_TIME, "carpotoxin")
 
 /datum/reagent/toxin/carpotoxin/withdrawal_act(mob/living/carbon/M)
 	M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_BASIC, STIM_TIME, "carpotoxin_w")
@@ -97,6 +99,7 @@
 
 ///datum/reagent/toxin/blattedin is defined in blattedin.dm
 
+// Occulus Edit - Plasma is renamed Phoron
 /datum/reagent/toxin/phoron
 	name = "Phoron"
 	id = "phoron"
@@ -107,22 +110,23 @@
 	strength = 0.3
 	touch_met = 5
 
-/datum/reagent/toxin/plasma/touch_mob(mob/living/L, var/amount)
+/datum/reagent/toxin/phoron/touch_mob(mob/living/L, var/amount)
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
 
-/datum/reagent/toxin/plasma/affect_touch(mob/living/carbon/M, alien, effect_multiplier)
+/datum/reagent/toxin/phoron/affect_touch(mob/living/carbon/M, alien, effect_multiplier)
 	M.take_organ_damage(0, effect_multiplier * 0.1) //being splashed directly with plasma causes minor chemical burns
 	if(prob(50))
 		M.pl_effects()
 
-/datum/reagent/toxin/plasma/touch_turf(turf/simulated/T)
+/datum/reagent/toxin/phoron/touch_turf(turf/simulated/T)
 	if(!istype(T))
 		return
 	T.assume_gas("phoron", volume, T20C)
 	remove_self(volume)
 	return TRUE
 
+// End Occulus Edit
 /datum/reagent/toxin/cyanide //Fast and Lethal
 	name = "Cyanide"
 	id = "cyanide"
@@ -197,7 +201,7 @@
 	M.adjustOxyLoss(0.6 * effect_multiplier)
 	M.Weaken(10)
 	M.silent = max(M.silent, 10)
-	M.tod = stationtime2text()
+	M.timeofdeath = stationtime2text()
 	M.add_chemical_effect(CE_NOPULSE, 1)
 
 /datum/reagent/toxin/zombiepowder/Destroy()
@@ -465,17 +469,58 @@
 /datum/reagent/toxin/pararein
 	name = "Pararein"
 	id = "pararein"
-	description = "Venom used by spiders."
+	description = "Venom used by spiders. Infamous for it's influence of the nervous system."
 	taste_description = "sludge"
 	reagent_state = LIQUID
 	color = "#a37d9c"
 	metabolism = REM * 2
 	overdose = REAGENTS_OVERDOSE/3
-	nerve_system_accumulations = 5
+	nerve_system_accumulations = 10
 	strength = 0.01
-	sanityloss = 3
+	sanityloss = 1
 	heating_point = 523
 	heating_products = list("toxin")
+
+/datum/reagent/toxin/pararein/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
+	..()
+	M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_BASIC * effect_multiplier, STIM_TIME, "pararein")
+	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC * effect_multiplier, STIM_TIME, "pararein")
+	M.stats.addTempStat(STAT_COG, STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "pararein")
+	sanity_gain = 1.2
+	if(prob(10))
+		to_chat(M, SPAN_WARNING ("you feel like your mind is boiling and the blood in your veins is coming alive!"))
+
+/datum/reagent/toxin/aranecolmin
+	name = "Aranecolmin"
+	id = "aranecolmin"
+	description = "Toxin used by Nurse spiders. Speeds up metabolism of other spider toxins immensely."
+	taste_description = "sludge"
+	reagent_state = LIQUID
+	color = "#acc107"
+	overdose = REAGENTS_OVERDOSE
+	strength = 0.1
+	metabolism = REM * 2
+	addiction_chance = 10
+	nerve_system_accumulations = 5
+
+/datum/reagent/toxin/aranecolmin/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
+	..()
+	M.add_chemical_effect(CE_PAINKILLER, 15)
+	if(M.bloodstr)
+		for(var/current in M.bloodstr.reagent_list)
+			var/datum/reagent/toxin/pararein/R = current
+			if(istype(R))
+				R.metabolism = initial(R.metabolism) * 3
+
+/datum/reagent/toxin/aranecolmin/on_mob_delete(mob/living/carbon/M)
+	..()
+	if(istype(M))
+		if(M.bloodstr)
+			for(var/current in M.bloodstr.reagent_list)
+				var/datum/reagent/toxin/pararein/R = current
+				if(istype(R))
+					R.metabolism = initial(R.metabolism)
+					break
 
 /datum/reagent/toxin/diplopterum
 	name = "Diplopterum"
@@ -491,6 +536,7 @@
 	heating_point = 573
 	heating_products = list("radium", "acetone", "hydrazine", "nutriment")
 	reagent_type = "Toxin/Stimulator"
+	withdrawal_threshold = 15
 
 /datum/reagent/toxin/diplopterum/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	..()
@@ -523,6 +569,7 @@
 	nerve_system_accumulations = 5
 	heating_point = 573
 	heating_products = list("radium", "ammonia", "sulfur", "nutriment")
+	withdrawal_threshold = 10
 
 /datum/reagent/toxin/seligitillin/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.add_chemical_effect(CE_BLOODCLOT, 0.2)
@@ -560,6 +607,7 @@
 	heating_point = 573
 	heating_products = list("radium", "aluminum", "tungsten", "nutriment")
 	reagent_type = "Toxin/Stimulator"
+	withdrawal_threshold = 10
 
 /datum/reagent/toxin/starkellin/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	..()
@@ -583,6 +631,7 @@
 	heating_point = 573
 	heating_products = list("radium", "mercury", "sugar", "nutriment")
 	reagent_type = "Toxin/Stimulator"
+	withdrawal_threshold = 10
 
 /datum/reagent/toxin/gewaltine/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	..()
@@ -608,8 +657,10 @@
 	nerve_system_accumulations = 4
 	heating_point = 573
 	heating_products = list("radium", "mercury", "lithium", "nutriment")
+	withdrawal_threshold = 5
 
 /datum/reagent/toxin/fuhrerole/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
+	M.stats.addTempStat(STAT_VIG, STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "fuhrerole_w")
 	M.faction = "roach"
 
 /datum/reagent/toxin/fuhrerole/on_mob_delete(mob/living/L)
@@ -623,6 +674,39 @@
 /datum/reagent/toxin/fuhrerole/overdose(mob/living/carbon/M, alien)
 	M.add_chemical_effect(CE_SPEECH_VOLUME, rand(1,2)) //Occulus Edit - Was originally rand(3,4).
 	M.adjustBrainLoss(0.5)
+
+/datum/reagent/toxin/kaiseraurum
+	name = "Kaiseraurum"
+	id = "kaiseraurum"
+	description = "Harvested from Kaiser roaches."
+	taste_description = "Kommandant\'s authority"
+	reagent_state = LIQUID
+	color = "#030f08"
+	addiction_chance = 50
+	addiction_threshold = 8
+	overdose = 6
+	nerve_system_accumulations = 50
+	heating_point = 573
+	heating_products = list("fuhrerole", "radium", "nutriment", "tungsten")
+	reagent_type = "Toxin/Stimulator"
+	withdrawal_threshold = 10
+
+/datum/reagent/toxin/kaiseraurum/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
+	..()
+	M.stats.addTempStat(STAT_VIG, STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "kaiseraurum")
+	M.stats.addTempStat(STAT_TGH, STAT_LEVEL_BASIC * effect_multiplier, STIM_TIME, "kaiseraurum")
+	M.stats.addTempStat(STAT_ROB, STAT_LEVEL_BASIC * effect_multiplier, STIM_TIME, "kaiseraurum")
+	M.faction = "roach"
+
+/datum/reagent/toxin/kaiseraurum/withdrawal_act(mob/living/carbon/M)
+	M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_ADEPT, STIM_TIME, "kaiseraurum_w")
+	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_ADEPT, STIM_TIME, "kaiseraurum_w")
+	M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_ADEPT, STIM_TIME, "kaiseraurum_w")
+
+/datum/reagent/toxin/kaiseraurum/overdose(mob/living/carbon/M, alien)
+	M.add_chemical_effect(CE_SPEECH_VOLUME, rand(3, 4))
+	M.adjustBrainLoss(0.5)
+	M.adjustToxLoss(1)
 
 /datum/reagent/toxin/biomatter
 	name = "Biomatter"
@@ -657,18 +741,9 @@
 			spill_biomass(T)
 		remove_self(volume)
 		return TRUE
-
-/datum/reagent/toxin/biomatter
-	name = "Biomatter"
-	id = "biomatter"
-	description = "A goo of unknown to you origin. Its better to stay that way."
-	taste_description = "vomit"
-	reagent_state = LIQUID
-	color = "#527f4f"
-	strength = 0.3
-
 /datum/reagent/toxin/chlorine
 	name = "Chlorine"
+	id = "chlorine"
 	description = "A highly poisonous liquid. Smells strongly of bleach."
 	reagent_state = LIQUID
 	taste_description = "bleach"
@@ -677,6 +752,7 @@
 
 /datum/reagent/toxin/tar
 	name = "Tar"
+	id = "tar"
 	description = "A dark, viscous liquid."
 	taste_description = "petroleum"
 	color = "#140b30"

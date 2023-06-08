@@ -104,11 +104,15 @@
 	for(var/item in active_spiders)
 		var/obj/item/implant/carrion_spider/S = item
 		var/turf/T = get_turf(S)
+		var/spider_location = "Unknown location"
+		if(T)
+			spider_location = "[S.loc]([T.x]:[T.y]:[T.z])"
 		spiders_in_list += list(
 			list(
 				"name" = initial(S.name),
-				"location" = "[S.loc]([T.x]:[T.y]:[T.z])",
-				"spider" = "\ref[item]"
+				"location" = "[spider_location]",
+				"spider" = "\ref[item]",
+				"implanted" = S.wearer
 			)
 		)
 
@@ -235,7 +239,7 @@
 	owner.status_flags |= FAKEDEATH
 	owner.update_lying_buckled_and_verb_status()
 	owner.emote("gasp")
-	owner.tod = stationtime2text()
+	owner.timeofdeath = stationtime2text()
 	var/last_owner = owner
 
 	spawn(rand(1 MINUTES, 3 MINUTES))

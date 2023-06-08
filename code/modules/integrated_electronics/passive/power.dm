@@ -97,7 +97,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	reagent_flags = OPENCONTAINER
 	var/volume = 60
-	var/list/fuel = list(/datum/reagent/toxin/plasma = 50000, /datum/reagent/toxin/fuel = 15000, /datum/reagent/carbon = 10000, /datum/reagent/ethanol = 10000, /datum/reagent/organic/nutriment = 8000)
+	var/list/fuel = list(/datum/reagent/toxin/phoron = 50000, /datum/reagent/toxin/fuel = 15000, /datum/reagent/carbon = 10000, /datum/reagent/ethanol = 10000, /datum/reagent/organic/nutriment = 8000)
 	var/lfwb =TRUE
 
 /obj/item/integrated_circuit/passive/power/chemical_cell/New()

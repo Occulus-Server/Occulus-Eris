@@ -19,6 +19,8 @@
 /obj/machinery/reagentgrinder/MouseDrop_T(atom/movable/I, mob/user, src_location, over_location, src_control, over_control, params)
 	if(!Adjacent(user) || !I.Adjacent(user) || user.incapacitated())
 		return ..()
+	if(istype(I,/obj/item/tool) || istype(I,/obj/item/storage/part_replacer)) //Occulus edit: Grinders no longer attempt to grind tools
+		return ..() //Occulus Edit: Grinders no longer attempt to grind tools
 	insert(I, user)
 	. = ..()
 
@@ -29,6 +31,8 @@
 	if (istype(I,/obj/item/gripper))
 		ui_interact(user)
 		return
+	if(istype(I,/obj/item/tool) || istype(I,/obj/item/storage/part_replacer)) //Occulus edit: Grinders no longer attempt to grind tools
+		return  //Occulus Edit: Grinders no longer attempt to grind tools
 	return insert(I, user)
 
 /obj/machinery/reagentgrinder/proc/insert(obj/item/I, mob/user)
@@ -74,9 +78,6 @@
 	I.forceMove(src)
 	holdingitems += I
 	SSnano.update_uis(src)
-	return 0
-
-/obj/machinery/reagentgrinder/attack_ai(mob/user as mob)
 	return 0
 
 /obj/machinery/reagentgrinder/attack_hand(mob/user)
@@ -336,6 +337,7 @@
 	rarity_value = 25
 	spawn_tags = SPAWN_TAG_ITEM_UTILITY
 	reagent_flags = REFILLABLE | DRAINABLE
+	spawn_tags = SPAWN_TAG_JUNKTOOL
 	var/amount_per_transfer_from_this = 10
 	var/possible_transfer_amounts = list(5,10,30,60)
 

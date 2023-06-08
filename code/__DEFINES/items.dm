@@ -39,6 +39,7 @@
 #define GUN_UPGRADE_DAMAGE_MULT "damage_mult"
 #define GUN_UPGRADE_PEN_MULT "penetration_mult"
 #define GUN_UPGRADE_PIERC_MULT "pierce_mult"
+#define GUN_UPGRADE_RICO_MULT "ricochet_mult"
 #define GUN_UPGRADE_FIRE_DELAY_MULT "fire_delay_mult"
 #define GUN_UPGRADE_MOVE_DELAY_MULT "move_delay_mult"
 #define GUN_UPGRADE_RECOIL "recoil_mult"
@@ -102,6 +103,7 @@
 #define GUN_CALIBRE_35 "caliber .35"
 
 #define GUN_SOL "Is a FS CAR .25 CS \"Sol\""
+#define GUN_PACO "Is this an FS HG .35 Auto \"Paco\""
 
 // A rare, random item
 #define RANDOM_RARE_ITEM list(\

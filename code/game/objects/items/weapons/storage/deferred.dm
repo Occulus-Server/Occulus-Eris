@@ -185,13 +185,14 @@
 	/obj/item/grenade/frag = 14,
 	/obj/item/grenade/empgrenade/low_yield = 4,
 	/obj/item/grenade/smokebomb = 8,
-	/obj/item/gun/launcher/grenade/lenar = 1)
+	/obj/item/gun/projectile/shotgun/pump/grenade/lenar = 1)
 
 /obj/item/storage/deferred/crate/antiarmor //change to demolitions, won't do now because will affect map
 	name = "demolitions crate"
 	icon_state = "serbcrate_deferred_black"
-	desc = "A crate containing one \"RPG-7\" launcher, and twelve 40mm PG-7VL warheads."
-	initial_contents = list(/obj/item/ammo_casing/rocket = 12,
+	desc = "A crate containing one \"RPG-7\" launcher, and twelve 40mm PG-7V warheads."
+	initial_contents = list(/obj/item/ammo_casing/rocket = 8,
+	/obj/item/ammo_casing/rocket/hesh = 4,
 	/obj/item/storage/pouch/tubular = 1,
 	/obj/item/gun/projectile/rpg = 1,
 	/obj/item/storage/pouch/tubular = 1)

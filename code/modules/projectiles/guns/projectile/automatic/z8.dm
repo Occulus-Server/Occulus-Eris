@@ -10,7 +10,7 @@
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_STEEL = 10)
 	price_tag = 3200 //old but gold, decent AP caliber, underbarrel GL, mild recoil and 20-round mags. Better than FS AK.
-	ammo_type = "/obj/item/ammo_casing/srifle"
+	ammo_type = /obj/item/ammo_casing/srifle
 	fire_sound = 'sound/weapons/guns/fire/batrifle_fire.ogg'
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
@@ -31,7 +31,7 @@
 		list(mode_name="fire grenades",  burst=null, fire_delay=null, move_delay=null,  icon="grenade", use_launcher=1)
 		)
 
-	var/obj/item/gun/launcher/grenade/underslung/launcher
+	var/obj/item/gun/projectile/shotgun/pump/grenade/underslung/launcher
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 
@@ -40,8 +40,8 @@
 	launcher = new(src)
 
 /obj/item/gun/projectile/automatic/z8/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
-		launcher.load(I, user)
+	if((istype(I, /obj/item/ammo_casing/grenade)))
+		launcher.load_underslung(I, user)
 	else
 		..()
 
@@ -49,7 +49,7 @@
 	var/datum/firemode/cur_mode = firemodes[sel_mode]
 
 	if(user.get_inactive_hand() == src && cur_mode.settings["use_launcher"])
-		launcher.unload(user)
+		launcher.unload_underslung(user)
 	else
 		..()
 

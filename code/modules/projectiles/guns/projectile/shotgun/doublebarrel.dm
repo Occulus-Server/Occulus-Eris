@@ -16,7 +16,7 @@
 	caliber = CAL_SHOTGUN
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	bulletinsert_sound 	= 'sound/weapons/guns/interact/shotgun_insert.ogg'
+	bulletinsert_sound = 'sound/weapons/guns/interact/shotgun_insert.ogg'
 	fire_sound = 'sound/weapons/guns/fire/shotgunp_fire.ogg'
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 10)
 	price_tag = 1200
@@ -34,10 +34,6 @@
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 
-/obj/item/gun/projectile/shotgun/doublebarrel/flare
-	name = "signal shotgun"
-	desc = "A double-barreled shotgun meant to fire signal flash shells."
-	ammo_type = /obj/item/ammo_casing/shotgun/flash
 
 /obj/item/gun/projectile/shotgun/doublebarrel/on_update_icon()
 	..()

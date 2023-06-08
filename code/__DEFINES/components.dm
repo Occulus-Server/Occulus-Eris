@@ -43,7 +43,9 @@
 
 // /atom signals
 #define COMSIG_EXAMINE "examine"								//from atom/examine(): (mob/user, distance)
-
+//Occ Edit
+#define COMSIG_CLICK_CTRL "ctrl_click"//from atom/CtrlClick(): (/mob)
+// end occ
 #define COMSIG_ATOM_UPDATE_OVERLAYS "atom_update_overlays"  //update_overlays()
 #define COMSIG_ATOM_UNFASTEN "atom_unfasten" // set_anchored()
 
@@ -104,6 +106,7 @@
 // /obj/item/clothing signals
 #define COMSIG_CLOTH_DROPPED "cloths_missing"
 #define COMSIG_CLOTH_EQUIPPED "cloths_recovered"
+#define COMSIG_GLASS_LENSES_REMOVED "lenses_removed" // lenses.dm
 
 // /obj/item/implant signals
 
@@ -113,6 +116,16 @@
 #define COMSIG_MESSAGE_SENT "radio_message_sent"
 #define COMSIG_MESSAGE_RECEIVED "radio_message_received"
 
+//obj/item/gun signals // Occ
+#define COMSIG_GUN_POST_FIRE "gun_post_fire"	//from base of /obj/item/gun/proc/handle_post_fire(): (atom/target, pointblank, reflex)
+
+// ABERRANT signals
+#define COMSIG_ABERRANT_INPUT "aberrant_input"
+#define COMSIG_ABERRANT_PROCESS "aberrant_process"
+#define COMSIG_ABERRANT_OUTPUT "aberrant_output"
+#define COMSIG_ABERRANT_SECONDARY "aberrant_secondary"
+#define COMSIG_ABERRANT_COOLDOWN "aberrant_cooldown"
+
 /*******Component Specific Signals*******/
 //Janitor
 
@@ -120,6 +133,11 @@
 #define COMSIG_STORAGE_INSERTED "item_inserted"
 #define COMSIG_STORAGE_TAKEN "item_taken"
 #define COMSIG_STORAGE_OPENED "new_backpack_who_dis"
+
+// /datum/component/heat signals OCC Edit
+#define COMSIG_HEAT_SPECIAL "heat_special"
+#define COMSIG_HEAT_OVERHEAT "heat_overheated"
+#define COMSIG_HEAT_VENT "heat_venting"
 
 // OVERMAP
 #define COMSIG_SHIP_STILL "ship_still" // /obj/effect/overmap/ship/Process() && is_still()

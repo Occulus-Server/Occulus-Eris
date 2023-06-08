@@ -73,7 +73,7 @@
 
 /obj/structure/shield_deployed/proc/damage(damage)
 	health -= damage
-	if(health <= 0)
+	if(health < 1)
 		collapse()
 
 /obj/structure/shield_deployed/attackby(obj/item/I, mob/living/user)
@@ -129,6 +129,11 @@
 		var/chance = 40
 		if(get_dist(P.starting, loc) <= 1)
 			return 1
+
+		var/bad_arc = reverse_direction(dir)  // Arc of directions from which we cannot block.
+		if(!check_parry_arc(src, bad_arc, P)) // This is actually for mobs but it will work for our purposes as well.
+			return 1
+
 		if(health >= 1)
 			if(reinforced == TRUE)
 				chance += 40
@@ -159,21 +164,25 @@
 		return 1
 	if(get_dist(P.starting, loc) <= 1) //Tables won't help you if people are THIS close
 		return 1
-	if(get_turf(P.original) == cover)
-		var/chance = 40
-		if(reinforced == TRUE)
-			chance += 40
-		if(health==0)
-			chance = 0
-		if(prob(chance))
-			damage(P.get_structure_damage())
-			if (health > 0)
-				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
-				return 0
-			else
-				//visible_message(SPAN_WARNING("[src] breaks down!"))
-				//break_to_parts()
-				return 1
+
+	var/bad_arc = reverse_direction(dir)  // Arc of directions from which we cannot block.
+	if(!check_parry_arc(src, bad_arc, P)) // This is actually for mobs but it will work for our purposes as well.
+		return 1
+
+	var/chance = 40
+	if(reinforced == TRUE)
+		chance += 40
+	if(health < 1)
+		chance = 0
+	if(prob(chance))
+		damage(P.get_structure_damage())
+		if (health > 0)
+			visible_message(SPAN_WARNING("[P] hits \the [src]!"))
+			return 0
+		else
+			//visible_message(SPAN_WARNING("[src] breaks down!"))
+			//break_to_parts()
+			return 1
 	return 1
 
 /obj/structure/shield_deployed/CheckExit(atom/movable/O as mob|obj, target as turf)

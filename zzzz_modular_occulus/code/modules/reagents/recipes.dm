@@ -52,6 +52,11 @@
 	required_reagents = list("aluminum" = 1, "nitrate" = 3)
 	result_amount = 4
 
+/datum/chemical_reaction/ammonium_nitrate
+	result = "ammonium_nitrate"
+	required_reagents = list("ammonia" = 1, "nitrate" = 3)
+	result_amount = 4
+
 /datum/chemical_reaction/tartrate
 	result = "tartrate"
 	required_reagents = list("nitrogen" = 1, "hydrazine" = 1)

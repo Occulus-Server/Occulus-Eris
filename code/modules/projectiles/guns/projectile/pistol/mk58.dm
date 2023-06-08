@@ -6,9 +6,9 @@
 	item_state = "pistol"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_PLASTIC = 6)
-	price_tag = 1400
+	price_tag = 600
 	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
-	can_dual = 1
+	can_dual = TRUE
 	caliber = CAL_PISTOL
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_PISTOL|MAG_WELL_H_PISTOL
@@ -16,8 +16,6 @@
 	damage_multiplier = 1.3
 	penetration_multiplier = 1.3
 	recoil_buildup = 3
-	rarity_value = 9.6
-
 
 /obj/item/gun/projectile/mk58/on_update_icon()
 	..()

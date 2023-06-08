@@ -29,7 +29,9 @@
 		SEMI_AUTO_NODELAY
 		)
 
-//	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	wield_delay = 0 // Super weak SMG
+
+	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 
 /obj/item/gun/projectile/automatic/straylight/on_update_icon()
 	..()

@@ -223,7 +223,7 @@ default behaviour is:
 /mob/living/proc/adjustBruteLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	bruteloss = min(max(bruteloss + amount, 0),(maxHealth*2))
+	bruteloss = min(max(bruteloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies
 
 /mob/living/proc/getOxyLoss()
 	return oxyloss
@@ -231,7 +231,7 @@ default behaviour is:
 /mob/living/proc/adjustOxyLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	oxyloss = min(max(oxyloss + amount, 0),(maxHealth*2))
+	oxyloss = min(max(oxyloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies
 
 /mob/living/proc/setOxyLoss(var/amount)
 	if(status_flags & GODMODE)
@@ -244,7 +244,7 @@ default behaviour is:
 /mob/living/proc/adjustToxLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	toxloss = min(max(toxloss + amount, 0),(maxHealth*2))
+	toxloss = min(max(toxloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies
 
 /mob/living/proc/setToxLoss(var/amount)
 	if(status_flags & GODMODE)
@@ -257,7 +257,7 @@ default behaviour is:
 /mob/living/proc/adjustFireLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	fireloss = min(max(fireloss + amount, 0),(maxHealth*2))
+	fireloss = min(max(fireloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies
 
 /mob/living/proc/getCloneLoss()
 	return cloneloss
@@ -265,7 +265,7 @@ default behaviour is:
 /mob/living/proc/adjustCloneLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	cloneloss = min(max(cloneloss + amount, 0),(maxHealth*2))
+	cloneloss = min(max(cloneloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies
 
 /mob/living/proc/setCloneLoss(var/amount)
 	if(status_flags & GODMODE)
@@ -278,7 +278,7 @@ default behaviour is:
 /mob/living/proc/adjustBrainLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	brainloss = min(max(brainloss + amount, 0),(maxHealth*2))
+	brainloss = min(max(brainloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies. Even if this doesn't really matter
 
 /mob/living/proc/setBrainLoss(var/amount)
 	if(status_flags & GODMODE)
@@ -291,7 +291,7 @@ default behaviour is:
 /mob/living/proc/adjustHalLoss(var/amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	halloss = min(max(halloss + amount, 0),(maxHealth*2))
+	halloss = min(max(halloss + amount, 0),(maxHealth-HEALTH_THRESHOLD_DEAD))//Occulus Edit - Fixes immortal monkies. Just doing this for good measure
 
 /mob/living/proc/setHalLoss(var/amount)
 	if(status_flags & GODMODE)
@@ -441,7 +441,6 @@ default behaviour is:
 	if(stat == DEAD)
 		GLOB.dead_mob_list -= src
 		GLOB.living_mob_list += src
-		tod = null
 		timeofdeath = 0
 
 	// restore us to conciousness
@@ -608,57 +607,78 @@ default behaviour is:
 			M.UpdateFeed(src)
 
 
-
-
 /mob/living/verb/lay_down()
 	set name = "Rest"
 	set category = "IC"
 
-	var/state_changed = FALSE
-	if(resting && can_stand_up())
-		resting = FALSE
-		state_changed = TRUE
-
-
-	else if (!resting)
-		if(ishuman(src))
-			var/obj/item/bedsheet/BS = locate(/obj/item/bedsheet) in get_turf(src)
-			// If there is unrolled bedsheet roll and unroll it to get in bed like a proper adult does
-			if(BS && !BS.rolled && !BS.folded)
-				resting = TRUE
-				BS.toggle_roll(src, no_message = TRUE)
-				BS.toggle_roll(src)
-			else
-				resting = TRUE
-			state_changed = TRUE
-		else
-			resting = TRUE
-			state_changed = TRUE
-	if(state_changed)
-		to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
-		update_lying_buckled_and_verb_status()
-
-/mob/living/proc/can_stand_up()
-	var/no_blankets = FALSE
-	no_blankets = unblanket()
-
-	if(no_blankets)
-		return TRUE
-	else
-		to_chat(src, SPAN_WARNING("You can't stand up, bedsheets are in the way and you struggle to get rid of them."))
+	if(is_busy)
 		return FALSE
 
-//used to push away bedsheets in order to stand up, only humans will roll them (see overriden human proc)
-/mob/living/proc/unblanket()
-	var/obj/item/bedsheet/blankets = (locate(/obj/item/bedsheet) in loc)
-	if (blankets && !blankets.rolled && !blankets.folded)
-		return blankets.toggle_roll(src)
-	return TRUE
+	var/mob/living/carbon/human/H = ishuman(src) ? src : null
+
+	if(resting)
+		is_busy = TRUE
+
+		if(do_after(src, (stats.getPerk(PERK_PARKOUR) ? 0.2 SECONDS : 0.4 SECONDS), null, 0, 1, INCAPACITATION_DEFAULT, immobile = 0))
+			resting = FALSE
+			to_chat(src, SPAN_NOTICE("You are now getting up."))
+			update_lying_buckled_and_verb_status()
+
+		is_busy = FALSE
+
+	else if(H && H.momentum_speed && !(istype(loc, /turf/space) || grabbed_by.len))
+		H.dive()
+
+	else
+		resting = TRUE
+		to_chat(src, SPAN_NOTICE("You are now resting."))
+		update_lying_buckled_and_verb_status()
+
 
 /mob/living/simple_animal/spiderbot/is_allowed_vent_crawl_item(var/obj/item/carried_item)
 	if(carried_item == held_item)
 		return FALSE
 	return ..()
+
+
+/mob/living/carbon/human/verb/stopSliding()
+	set hidden = 1
+	set instant = 1
+	livmomentum = 0
+
+
+/mob/living/carbon/human/proc/dive()
+	var/client/C = client
+	resting = TRUE
+	var/_dir = C.true_dir
+
+	if(!weakened && _dir)// If true_dir = 0(src isn't moving), doesn't proc.
+		if(momentum_dir == _dir)
+			livmomentum = momentum_speed // Set momentum value as soon as possible for stopSliding to work better
+		var/range = 1 //checks for move intent; dive one tile further if on run intent
+
+		// Diving
+		to_chat(src, SPAN_NOTICE("You dive onwards!"))
+		pass_flags += PASSTABLE // Jump over them!
+		allow_spin = FALSE
+		if(istype(get_step(src, _dir), /turf/simulated/open))
+			range++
+		if(momentum_speed > 4)
+			range++
+		throw_at(get_edge_target_turf(src, _dir), range, 1) // If you dive over a table, your momentum is set to 0. If you dive over space, you are thrown 1 tile further.
+		update_lying_buckled_and_verb_status()
+		pass_flags -= PASSTABLE // Jumpn't over them anymore!
+		allow_spin = TRUE
+
+		// Slide
+		sleep(1.5)
+		C.mloop = 1
+		while(livmomentum > 0 && C.true_dir)
+			Move(get_step(loc, _dir),dir)
+			livmomentum--
+//			regen_slickness(0.25) // The longer you slide, the more stylish it is
+			sleep(world.tick_lag + 0.5)
+		C.mloop = 0
 
 /mob/living/proc/cannot_use_vents()
 	return "You can't fit into that vent."
@@ -670,6 +690,9 @@ default behaviour is:
 	return TRUE
 
 /mob/living/proc/slip(var/slipped_on,stun_duration=8)
+	return FALSE
+
+/mob/living/proc/trip(tripped_on, stun_duration)
 	return FALSE
 
 //damage/heal the mob ears and adjust the deaf amount
@@ -768,16 +791,20 @@ default behaviour is:
 	var/mob/M = AM
 	if(ismob(AM))
 
+		if(M.mob_size >=  MOB_GIGANTIC)
+			to_chat(src, SPAN_WARNING("It won't budge!"))
+			return
+
 		if(!can_pull_mobs || !can_pull_size)
-			to_chat(src, "<span class='warning'>It won't budge!</span>")
+			to_chat(src, SPAN_WARNING("It won't budge!"))
 			return
 
 		if((mob_size < M.mob_size) && (can_pull_mobs != MOB_PULL_LARGER))
-			to_chat(src, "<span class='warning'>It won't budge!</span>")
+			to_chat(src, SPAN_WARNING("It won't budge!"))
 			return
 
 		if((mob_size == M.mob_size) && (can_pull_mobs == MOB_PULL_SMALLER))
-			to_chat(src, "<span class='warning'>It won't budge!</span>")
+			to_chat(src, SPAN_WARNING("It won't budge!"))
 			return
 
 		// If your size is larger than theirs and you have some

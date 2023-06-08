@@ -13,7 +13,7 @@
 
 /datum/gear/cane
 	display_name = "cane"
-	path = /obj/item/cane
+	path = /obj/item/tool/cane
 
 /datum/gear/dice
 	display_name = "dice pack"

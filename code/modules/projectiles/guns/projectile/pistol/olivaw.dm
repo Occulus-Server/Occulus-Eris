@@ -21,7 +21,7 @@
 		list(mode_name="2-round bursts", burst=2, fire_delay=0.2, move_delay=4,    	icon="burst"),
 		)
 
-//	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 
 /obj/item/gun/projectile/olivaw/on_update_icon()
 	..()
