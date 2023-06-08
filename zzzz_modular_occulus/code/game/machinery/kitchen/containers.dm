@@ -63,7 +63,7 @@
 		return
 	if(standard_pour_into(user, target))
 		return 1
-	
+
 	if(istype(target, /obj/structure/reagent_dispensers))
 		if(standard_dispenser_refill(user, target))
 			return 1
@@ -127,7 +127,7 @@
 /obj/item/reagent_containers/cooking_container/AltClick(var/mob/user)
 	do_empty(user)
 
-/*	Commenting this out for now for testing and working purposes. Will return to it when it's not broken. 
+/*	Commenting this out for now for testing and working purposes. Will return to it when it's not broken.
 //You can empty everything manually with alt click or you can pick up things individually. Useful for the grill and a few other things potentially in the future.
 /obj/item/reagent_containers/cooking_container/attack_self(var/mob/user)
 	if (!contents.len)

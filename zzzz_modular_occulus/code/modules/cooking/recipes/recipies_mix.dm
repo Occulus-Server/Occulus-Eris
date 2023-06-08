@@ -311,3 +311,15 @@
 		/obj/item/reagent_containers/food/snacks/icecream
 	)
 	result = /obj/item/reagent_containers/food/snacks/banana_split
+
+//
+//Mixer recipes
+//
+
+/datum/recipe/dough
+	appliance = MIX
+	reagents = list (/datum/reagent/sodiumchloride = 1, /datum/reagent/water = 10, /datum/reagent/flour = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/dough
+	result_quantity = 3
+
