@@ -3213,6 +3213,7 @@
 #include "zzzz_modular_occulus\code\modules\research\nodes\engineering.dm"
 #include "zzzz_modular_occulus\code\modules\research\nodes\illegal.dm"
 #include "zzzz_modular_occulus\code\modules\research\xenoarchaeology\tools\anomaly_suit.dm"
+#include "zzzz_modular_occulus\code\modules\sanity\breakdowns.dm"
 #include "zzzz_modular_occulus\code\modules\sanity\sanity_mob.dm"
 #include "zzzz_modular_occulus\code\modules\scrap\oldificator.dm"
 #include "zzzz_modular_occulus\code\modules\shield_generators\shield_generator.dm"

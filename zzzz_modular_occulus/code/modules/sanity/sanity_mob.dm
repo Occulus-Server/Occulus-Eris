@@ -11,3 +11,6 @@
 	if(resting)
 		add_rest(INSIGHT_DESIRE_EXERCISE, rate)
 
+/datum/sanity/proc/reset_unmanaged_breakdown()
+    to_chat(owner, SPAN_NOTICE("An hour has passed and the storm within has finally stilled. Unfulfilled desires recede into oblivion, and a newfound calm reigns, readying you for whatever comes next."))
+    unmanaged_breakdown = FALSE
