@@ -8,11 +8,11 @@
 	name = "Siren scan"
 
 	event_type = /datum/event/siren_scan
-	event_pools = list(EVENT_LEVEL_MODERATE = POOL_THRESHOLD_MODERATE)
-	req_crew = 8
+	event_pools = list(EVENT_LEVEL_MAJOR = POOL_THRESHOLD_MAJOR*0.80)
+	req_crew = 15
 	weight = 0.5
-	max_crew_diff_lower = 3
-	tags = list(TAG_SCARY, TAG_COMMUNAL, TAG_COMBAT)
+	max_crew_diff_lower = 5
+	tags = list(TAG_SCARY, TAG_COMMUNAL, TAG_COMBAT, TAG_NEGATIVE,)
 
 
 
@@ -28,6 +28,8 @@
 	var/list/spawnLists
 	var/list/used_candidates = list()
 	var/siren_anger
+	var/total_targets
+	var/crew
 
 /datum/event/siren_scan/announce()
 	command_announcement.Announce("Anomalous electromagnetic interference detected approaching ship. Interference expected to bypass shields, effects unknown.", "Anomaly Alert", new_sound = 'sound/misc/interference.ogg')
@@ -40,11 +42,30 @@
 	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/replicant, /mob/living/simple_animal/hostile/siren/replicant,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator))
 	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/composer, /mob/living/simple_animal/hostile/siren/replicant,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator))
 	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/composer))
-
+	if(crew >= 17)
+		spawnLists += list(list(/mob/living/simple_animal/hostile/siren/nemesis))
 /datum/event/siren_scan/start()
 	SSweather.run_weather(/datum/weather/siren_scan)
+	siren_anger_calculate()
 	runThisOnEventStartup()
-	siren_anger = rand(2, 4)
+
+/datum/event/siren_scan/proc/crewcount()
+	for(var/mob/M in GLOB.player_list)
+		if(M.client && (M.mind && !M.mind.antagonist.len) && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
+			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
+			if(job)
+				crew++
+
+/datum/event/siren_scan/proc/siren_anger_calculate()
+	crewcount()
+	var/siren_modifier
+	if(crew >= 10 && crew <= 12)
+		siren_modifier = 1
+	if(crew >= 13 && crew <= 15)
+		siren_modifier = 2
+	if(crew >= 16)
+		siren_modifier = 3
+	siren_anger = rand(3, 6) + siren_modifier
 
 /datum/event/siren_scan/tick()
 	if(activeFor == enterBelt)
@@ -65,7 +86,7 @@
 			R.wind_down()
 		command_announcement.Announce("The Anomalous electromagnetic interference has ceased. Engineering inspections reccomended.", "Anomaly Alert", new_sound = 'zzzz_modular_occulus/sound/effects/The_Siren.wav')
 
-/datum/event/siren_scan/proc/scanning()	//this proc locates players, and spawns a cluster of siren mobs out of view on the ship.
+/datum/event/siren_scan/proc/scanning()	//this proc locates players, and spawns a cluster of siren mobs mostly out of view on the ship.
 	var/list/candidates = list()	//list of candidate keys
 	for(var/mob/living/carbon/human/G in GLOB.player_list)
 		if(G.mind && G.stat != DEAD && G.is_client_active(5) && !player_is_antag(G.mind))
@@ -91,8 +112,12 @@
 			for(var/type in spawnTypes)										//for as long as there is type in spawntypes
 				type = pick_n_take(spawnTypes)								//pick and remove mob from list is now 'type'
 				var/spawnloc = get_random_secure_turf_in_range(picked,3,0)	// second rng'd turf in 3-0 tile range from initial picked turf
-				do_sparks(3,0,spawnloc)										//creates sparks on second slected tile,
-				new type(spawnloc)											//spawn a mob from list of mobs onto second tile.
+				if(!(/mob/living/carbon/human in view(4,picked)))						//checks for humans within 4 tiles. Continue if none
+					do_sparks(3,0,spawnloc)										//creates sparks on second slected tile,
+					new type(spawnloc)											//spawn a mob from list of mobs onto second tile.
+				else
+					attempts--														//reduce attempts number by 1 due to proximity of spawn
+
 			break															//stops proc now that spawntypes no longer has any mobs in it.
 		else																//if human mob within view
 			attempts--														//reduce attempts number by 1

@@ -1,10 +1,11 @@
+#define GET_TARGETS_FROM(who) (who.targets_from ? who.get_targets_from() : who)
+
 /mob/living/simple_animal/hostile/siren/nemesis
 	name = "nemsis assault strider"
 	desc = "A heavily armored and armed bio-mechanical beast of war. Armed with cannons and razor sharp scythe blades, very few are lucky enough to see it and survive."
 	icon = 'zzzz_modular_occulus/icons/mob/siren/nemesis.dmi'
-	icon_state = "Nemesis"
-	icon_living = "Nemesis"
-	icon_aggro = "Replicant_alert"
+	icon_state = "nemesis"
+	icon_living = "nemesis"
 	icon_dead = "dead_purple"
 	icon_gib = "syndicate_gib"
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
@@ -14,7 +15,7 @@
 	projectiletype = /obj/item/projectile/beam/siren
 	vision_range = 15
 	aggro_vision_range = 20
-	speed = 5
+	speed = 3
 	maxHealth = 4000
 	health = 4000
 	harm_intent_damage = 70
@@ -24,44 +25,108 @@
 	retreat_distance = 0
 	minimum_distance = 0
 	pass_flags = PASSTABLE
-	ranged_cooldown_time = 0
+	ranged_cooldown_time = 5 SECONDS
+	var/phase_change = 15 SECONDS
+	var/phase_change_time
 	status_flags = 0 //No pushing, no stunning, no paralyze and no weaken.
 	layer = LARGE_MOB_LAYER
 	var/charging = FALSE
 	var/phase = 1
+	var/recovery_time = 0
+	var/recoverystate = 0
+
+/mob/living/simple_animal/hostile/siren/nemesis/Life()
+	. = ..()
+	if(recoverystate == 1 && phase ==4)
+		src.health += 10
+
+
+/mob/living/simple_animal/hostile/siren/nemesis/proc/phasepick()
+	if(src.health <= (0.75* src.maxHealth))
+		phase = rand(1,4)
+		recoverystate = 0
+	else
+		recoverystate = 0
+		phase = rand(1,3)
+
+	if(phase == 1)	//laser storm phase
+		projectiletype = /obj/item/projectile/beam/siren
+		ranged_cooldown_time = 5 SECONDS
+		rapid = 20
+		retreat_distance = 2
+		minimum_distance = 2
+		if(ranged != 1)
+			ranged = 1
+		visible_message("\red <b>[src]</b> primes it's advanced laser repeater!", 1)
+
+	if(phase == 2)	//Plasma storm phase
+		ranged_cooldown_time = 8 SECONDS
+		rapid = 3
+		retreat_distance = 3
+		minimum_distance = 3
+		projectiletype = /obj/item/projectile/plasma/blast
+		ranged_cooldown = world.time + ranged_cooldown_time
+		if(ranged != 1)
+			ranged = 1
+		visible_message("\red <b>[src]</b> primes it's heavy plasma cannons!", 1)
+
+	if(phase == 3)	//Charge melee phase
+		visible_message("\red <b>[src]</b> lifts it's scythe-like armblades and prepares to charge!", 1)
+		retreat_distance = 0
+		minimum_distance = 0
+		if(ranged == 1)
+			ranged = 0
+
+/mob/living/simple_animal/hostile/siren/nemesis/proc/callforbackup()
+	var/list/spawnLists = list(/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/replicant)
+	var/reinforcement_count = 3
+	var/turf/picked = get_random_secure_turf_in_range(src, 1, 3)
+	while(reinforcement_count > 0)
+		var/list/spawnTypes = pick_n_take(spawnLists)
+		for(var/type in spawnTypes)
+			new spawnTypes(picked)
+			reinforcement_count--
+		break
 
 /mob/living/simple_animal/hostile/siren/nemesis/MoveToTarget()		//Custom pathing! attemptto maintain distance if ranged,
 	stop_automated_movement = TRUE
 	if(!target_mob || SA_attackable(target_mob))
 		stance = HOSTILE_STANCE_IDLE
-	if(phase == 1)
-		projectiletype = /obj/item/projectile/beam/siren
-		rapid = 20
+	if(world.time >= phase_change_time)	//rotate phases ever 10 seconds
+		src.phasepick()
+		phase_change_time = world.time + retarget_cooldown_time
 
-	if(phase == 2)
-		ranged_cooldown_time = 8 SECONDS
-		rapid = 3
-		projectiletype = /obj/item/projectile/plasma/blast
+	if(phase == 4)	//Recovery phase
+		if(recoverystate == 0)
+			callforbackup()
+			shieldcharge = 80
+			recoverystate = 1
+			visible_message("\red <b>[src]</b> locks up in place as it's shield flares and repair nanites run across it's form!", 1)
+			return
 
-	if(phase == 3)
-		//charge mode here
+		if(recoverystate == 1)
+			if(shieldcharge <= 20)
+				recoverystate = 0
+				phase = rand(1,3)
+				phase_change_time = world.time + retarget_cooldown_time
 
-	if(phase == 4)
+			else
+				return
 
-	if(istype(src, /mob/living/simple_animal/hostile/siren/nemesis))
+//	if(istype(src, /mob/living/simple_animal/hostile/siren/nemesis))
 		//LegendaryActions()
-		return
+//		return
 	if(world.time >= retarget_time)	//Retargetting code. Allows siren mobs to target closest mobs every 10 seconds.
 		src.FindTarget()
 		retarget_time = world.time + retarget_cooldown_time
 
-	var/atom/target_from = GET_TARGETS_FROM(src)
 	if(target_mob in ListTargets(10))
 		var/target_distance = get_dist(src,target_mob)
 		if(ranged && target_distance >= 1 && world.time >= ranged_cooldown)//We ranged? Shoot at em. Make sure they're a tile away at least, and our range attack is off cooldown
 			OpenFire(target_mob)
 			ranged_cooldown = world.time + ranged_cooldown_time
-
+		if(phase == 3)
+			charge(1)
 		if(isturf(loc) && target_mob.Adjacent(src))	//If they're next to us, attack
 			AttackingTarget()
 
@@ -71,7 +136,7 @@
 			walk_to(src, target_mob, minimum_distance, move_to_delay)//Otherwise, get to our minimum distance so we chase them
 		return
 	if(environment_smash)
-		if(target.loc != null && get_dist(target_from, target.loc) <= vision_range) //We can't see our target, but he's in our vision range still
+		if(target.loc != null && get_dist(src, target.loc) <= vision_range) //We can't see our target, but he's in our vision range still
 			if(ranged_ignores_vision && ranged_cooldown <= world.time) //we can't see our target... but we can fire at them!
 				OpenFire(target)
 			if((environment_smash & ENVIRONMENT_SMASH_WALLS) || (environment_smash & ENVIRONMENT_SMASH_RWALLS)) //If we're capable of smashing through walls, forget about vision completely after finding our target
@@ -84,32 +149,49 @@
 	LoseTarget()
 	return 0
 
-/mob/living/simple_animal/hostile/siren/bossmob/nemesis/proc/phaseA
-	projectiletype = /obj/item/projectile/plasma/blast
-	rapid = 3
-	//Will set minimum distance as 1, retreat distance as 2.
-/mob/living/simple_animal/hostile/siren/bossmob/nemesis/proc/phaseB
-	projectiletype = /obj/item/projectile/beam/siren
-	rapid = 20
-	//minimum distance 0, restreat 0
-/mob/living/simple_animal/hostile/siren/bossmob/nemesis/proc/phaseC
-	charge
+/mob/living/simple_animal/hostile/siren/nemesis/OpenFire(atom/A)
+	if(CheckFriendlyFire(A))
+		return
+	if(phase == 3)
+		charge(1)
+	visible_message("\red <b>[src]</b> [fire_verb] at [A]!", 1)
 
-/mob/living/simple_animal/hostile/siren/bossmob/nemesis/proc/phaseD
-//	heal+shield+summon mobs
-	shield = 50
-
-
-
+	if(rapid > 1)
+		var/datum/callback/cb = CALLBACK(src, .proc/Shoot, A, loc, src)
+		for(var/i in 1 to rapid)
+			addtimer(cb, (i - 1)*rapid_fire_delay)
+	else
+		Shoot(A, loc, src)
+	stance = HOSTILE_STANCE_IDLE
+	ranged_cooldown = world.time + ranged_cooldown_time
 
 
+/mob/living/simple_animal/hostile/siren/nemesis/AttackingTarget()
+	if(!Adjacent(target_mob))
+		return
+	if(recovery_time >= world.time)
+		return
+	if(phase == 3)
+		charge(1)
+	if(isliving(target_mob))
+		var/mob/living/L = target_mob
+		L.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		return L
+	if(istype(target_mob,/mob/living/exosuit))
+		var/mob/living/exosuit/M = target_mob
+		M.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		return M
+	if(istype(target_mob,/obj/machinery/bot))
+		var/obj/machinery/bot/B = target_mob
+		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		return B
 
 
 /obj/effect/temp_visual/nemesis_charge
 	name = "impact zone"
 	desc = "Don't just stand there, move!"
 	icon = 'icons/effects/96x96.dmi'
-	icon_state = "landing"
+	icon_state = "emfield_s3"
 	layer = BELOW_MOB_LAYER
 	plane = GAME_PLANE
 	pixel_x = -32
@@ -123,15 +205,11 @@
 	if(mimiced_atom)
 		name = mimiced_atom.name
 		appearance = mimiced_atom.appearance
-		setDir(mimiced_atom.dir)
+		set_dir(mimiced_atom.dir)
 		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-
-
-
-
-/mob/living/simple_animal/hostile/siren/bossmob/nemeis/proc/charge(bonus_charges)
-	var/turf/T = get_turf(target)
+/mob/living/simple_animal/hostile/siren/nemesis/proc/charge(bonus_charges)
+	var/turf/T = get_turf(target_mob)
 	if(!T || T == loc)
 		return
 	new /obj/effect/temp_visual/nemesis_charge(T)
@@ -139,30 +217,33 @@
 	DestroySurroundings()
 	walk(src, 0)
 	var/obj/effect/temp_visual/decoy/D = new /obj/effect/temp_visual/decoy(loc,src)
-	animate(D, alpha = 0, color = "#FF0000", transform = matrix()*2, time = 3)
+	animate(D, alpha = 0, color = "#0080ff", transform = matrix()*2, time = 3)
 	sleep(5)
 	throw_at(T, get_dist(src, T), 1, src, 0, callback = CALLBACK(src, .charge_end, bonus_charges))
+//
 
-/mob/living/simple_animal/hostile/siren/bossmob/nemeis/proc/charge_end(bonus_charges, list/effects_to_destroy)
+/mob/living/simple_animal/hostile/siren/nemesis/proc/charge_end(bonus_charges, list/effects_to_destroy)
 	charging = FALSE
-	try_bloodattack()
 	if(target)
 		if(bonus_charges)
 			bonus_charges--
 			charge(bonus_charges)
 		else
-			Goto(target, move_to_delay, minimum_distance)
-			SetRecoveryTime(MEGAFAUNA_DEFAULT_RECOVERY_TIME)
+			walk_to(src, target, minimum_distance, move_to_delay)
+			SetRecoveryTime(5)
 
-
-/mob/living/simple_animal/hostile/siren/bossmob/nemeis/Collide(atom/A)
+/mob/living/simple_animal/hostile/siren/nemesis/Bump(atom/A)
 	if(charging)
 		if(isturf(A) || isobj(A) && A.density)
-			A.ex_act(EXPLODE_HEAVY)
+			A.ex_act(2)
 		DestroySurroundings()
 	..()
 
-/mob/living/simple_animal/hostile/siren/bossmob/nemeis/throw_impact(atom/A)
+/mob/living/simple_animal/hostile/siren/nemesis/proc/SetRecoveryTime(buffer_time)
+	recovery_time = world.time + buffer_time
+	ranged_cooldown = world.time + buffer_time
+
+/mob/living/simple_animal/hostile/siren/nemesis/throw_impact(atom/A)
 	if(!charging)
 		return ..()
 
@@ -177,3 +258,4 @@
 		L.throw_at(throwtarget, 3)
 
 	charging = FALSE
+
