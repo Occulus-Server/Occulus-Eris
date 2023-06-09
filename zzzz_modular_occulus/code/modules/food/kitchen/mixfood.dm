@@ -182,8 +182,6 @@
 	icon_state = "pbjsandwich"
 	trash = /obj/item/trash/plate
 	filling_color = "#BB6A54"
-	reagents_to_add = list(/singleton/reagent/nutriment = 2)
-	reagent_data = list(/singleton/reagent/nutriment = list("bread" = 2))
 	bitesize = 2
 	nutriment_amt = 2
 	nutriment_desc = list("bread" = 5)

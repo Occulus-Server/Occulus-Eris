@@ -247,18 +247,20 @@
 		else if(istype(I, /obj/item/storage/part_replacer))
 			return
 		return
-
+	/*	Also part of kitchen smackdown, to be reworked while I test the proc. 
 	if((result == 3) && (user.a_intent == I_HURT))//Grabbing someone and trying to cook them without trying to slam their head against the grill? No slam.
 		var/obj/item/grab/G = I
 		if (G && istype(G) && G.affecting)
 			kitchen_smackdown(src, G.affecting, user, G)
 			return
+	*/
 
 	//From here we can start cooking food
 	add_content(I, user)
 	update_icon()
 
 //Okay I lied about the cooking, one more proc.
+/*disabled for more testing.
 /obj/machinery/appliance/proc/kitchen_smackdown(var/obj/machinery/appliance/surface, var/mob/living/carbon/human/victim, var/mob/user, var/obj/item/grab/G)
 	//You need a stronger than passive grab to actually do damage.
 	if(G.state == GRAB_PASSIVE)
@@ -282,13 +284,17 @@
 		victim.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) against \the [src] (INTENT: [uppertext(user.a_intent)])</font>"
 		msg_admin_attack("[user.name] ([user.ckey]) slammed [victim.name] ([victim.ckey]) against \the [src] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)") //BS12 EDIT ALG
 		return
-
+*/
 //Override for container mechanics
 /obj/machinery/appliance/proc/add_content(var/obj/item/I, var/mob/user)
 	if(I in typesof(/obj/item/grab))
+		to_chat(user, SPAN_NOTICE("You can't cook that!"))		
+		return
+		/*	//This is the proc for beating people up with the kitchen equipment but it's not working correctly. Deprecated until I can test it more.
 		var/obj/item/grab/newgrab = I
 		kitchen_smackdown(src, newgrab.affecting, user, newgrab)
 		return
+		*/
 
 	if(!user.unEquip(I))
 		return
