@@ -1,9 +1,0 @@
-author: WeNeedMorePhoron
-delete-after: true
-changes:
-  - rscadd: A new forgotten lesson breakdown that hits your stat across the board
-      between 2 to 5, a (weaker) mirror to "A Lesson Learnt" positive breakdown.
-  - tweak: Tweaked the breakdown system. Now you cannot roll a negative breakdown
-      on first try. Instead, negative breakdown occurs as a result of getting a normal
-      breakdown with objective but failing to fulfill the objective. If you don't
-      get any breakdown with objective, there's nothing you need to do.
