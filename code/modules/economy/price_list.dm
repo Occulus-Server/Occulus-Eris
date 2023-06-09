@@ -1,3 +1,5 @@
+// OCCULUS EDIT: FILE TO BE NUKED IN ENTIRETY WHEN REBASED. This file no longer exists upstream and have a lot of econom exploit.
+
 // For convenience and easier comparing and maintaining of item prices,
 // all these will be defined here and sorted in different sections.
 
@@ -15,151 +17,151 @@
 
 /datum/reagent/var/price_tag = null
 
-
+// OCCULUS EDIT: Every drink reagent price got nuked due to imbalance
 // Juices, soda and similar //
 
-/datum/reagent/water
-	price_tag = 20
+// /datum/reagent/water
+// 	price_tag = 20
 
-/datum/reagent/drink/juice
-	price_tag = 20
+// /datum/reagent/drink/juice
+// 	price_tag = 20
 
-/datum/reagent/toxin/poisonberryjuice
-	price_tag = 20
+// /datum/reagent/toxin/poisonberryjuice
+// 	price_tag = 20
 
-/datum/reagent/drink/milk
-	price_tag = 20
+// /datum/reagent/drink/milk
+// 	price_tag = 20
 
-/datum/reagent/drink/soda
-	price_tag = 20
+// /datum/reagent/drink/soda
+// 	price_tag = 20
 
-/datum/reagent/drink/doctor_delight
-	price_tag = 20
+// /datum/reagent/drink/doctor_delight
+// 	price_tag = 20
 
-/datum/reagent/drink/nothing
-	price_tag = 20
+// /datum/reagent/drink/nothing
+// 	price_tag = 20
 
-/datum/reagent/drink/milkshake
-	price_tag = 20
+// /datum/reagent/drink/milkshake
+// 	price_tag = 20
 
-/datum/reagent/drink/roy_rogers
-	price_tag = 20
+// /datum/reagent/drink/roy_rogers
+// 	price_tag = 20
 
-/datum/reagent/drink/shirley_temple
-	price_tag = 20
+// /datum/reagent/drink/shirley_temple
+// 	price_tag = 20
 
-/datum/reagent/drink/arnold_palmer
-	price_tag = 20
+// /datum/reagent/drink/arnold_palmer
+// 	price_tag = 20
 
-/datum/reagent/drink/collins_mix
-	price_tag = 20
-
-
-// Beer //
-
-/datum/reagent/alcohol/ale
-	price_tag = 20
-
-/datum/reagent/alcohol/beer
-	price_tag = 20
+// /datum/reagent/drink/collins_mix
+// 	price_tag = 20
 
 
-// Hot Drinks //
+// // Beer //
 
-/datum/reagent/drink/rewriter
-	price_tag = 10
+// /datum/reagent/alcohol/ale
+// 	price_tag = 20
 
-/datum/reagent/drink/tea
-	price_tag = 10
-
-/datum/reagent/drink/coffee
-	price_tag = 10
-
-/datum/reagent/drink/hot_coco
-	price_tag = 10
-
-/obj/item/reagent_containers/food
-	price_tag = 10
-
-/obj/item/reagent_containers/food/drinks/coffee
-	price_tag = 10
-
-/obj/item/reagent_containers/food/drinks/tea
-	price_tag = 10
-
-/obj/item/reagent_containers/food/drinks/h_chocolate
-	price_tag = 10
+// /datum/reagent/alcohol/beer
+// 	price_tag = 20
 
 
-// Spirituous liquors //
+// // Hot Drinks //
 
-/datum/reagent/alcohol/irish_cream
-	price_tag = 50
+// /datum/reagent/drink/rewriter
+// 	price_tag = 10
 
-/datum/reagent/alcohol/absinthe
-	price_tag = 50
+// /datum/reagent/drink/tea
+// 	price_tag = 10
 
-/datum/reagent/alcohol/bluecuracao
-	price_tag = 50
+// /datum/reagent/drink/coffee
+// 	price_tag = 10
 
-/datum/reagent/alcohol/deadrum
-	price_tag = 50
+// /datum/reagent/drink/hot_coco
+// 	price_tag = 10
 
-/datum/reagent/alcohol/gin
-	price_tag = 50
+// /obj/item/reagent_containers/food
+// 	price_tag = 10
 
-/datum/reagent/alcohol/coffee/kahlua
-	price_tag = 50
+// /obj/item/reagent_containers/food/drinks/coffee
+// 	price_tag = 10
 
-/datum/reagent/alcohol/melonliquor
-	price_tag = 50
+// /obj/item/reagent_containers/food/drinks/tea
+// 	price_tag = 10
 
-/datum/reagent/alcohol/rum
-	price_tag = 5
-
-/datum/reagent/alcohol/tequilla
-	price_tag = 50
-
-/datum/reagent/alcohol/thirteenloko
-	price_tag = 50
-
-/datum/reagent/alcohol/vodka
-	price_tag = 50
-
-/datum/reagent/alcohol/whiskey
-	price_tag = 50
-
-/datum/reagent/alcohol/specialwhiskey
-	price_tag = 50
-
-/datum/reagent/alcohol/patron
-	price_tag = 50
-
-/datum/reagent/alcohol/goldschlager
-	price_tag = 50
-
-/datum/reagent/alcohol/coffee/brave_bull // Not an original liquor in its own. But since it's a mix of purely Tequila
-	price_tag = 50						 // and Kahlua, it's basically just another one and gets the same price.
+// /obj/item/reagent_containers/food/drinks/h_chocolate
+// 	price_tag = 10
 
 
-// Wines //
+// // Spirituous liquors //
 
-/datum/reagent/alcohol/wine
-	price_tag = 80
+// /datum/reagent/alcohol/irish_cream
+// 	price_tag = 50
 
-/datum/reagent/alcohol/cognac
-	price_tag = 80
+// /datum/reagent/alcohol/absinthe
+// 	price_tag = 50
 
-/datum/reagent/alcohol/sake
-	price_tag = 80
+// /datum/reagent/alcohol/bluecuracao
+// 	price_tag = 50
 
-/datum/reagent/alcohol/vermouth
-	price_tag = 80
+// /datum/reagent/alcohol/deadrum
+// 	price_tag = 50
 
-/datum/reagent/alcohol/pwine
-	price_tag = 80
+// /datum/reagent/alcohol/gin
+// 	price_tag = 50
+
+// /datum/reagent/alcohol/coffee/kahlua
+// 	price_tag = 50
+
+// /datum/reagent/alcohol/melonliquor
+// 	price_tag = 50
+
+// /datum/reagent/alcohol/rum
+// 	price_tag = 5
+
+// /datum/reagent/alcohol/tequilla
+// 	price_tag = 50
+
+// /datum/reagent/alcohol/thirteenloko
+// 	price_tag = 50
+
+// /datum/reagent/alcohol/vodka
+// 	price_tag = 50
+
+// /datum/reagent/alcohol/whiskey
+// 	price_tag = 50
+
+// /datum/reagent/alcohol/specialwhiskey
+// 	price_tag = 50
+
+// /datum/reagent/alcohol/patron
+// 	price_tag = 50
+
+// /datum/reagent/alcohol/goldschlager
+// 	price_tag = 50
+
+// /datum/reagent/alcohol/coffee/brave_bull // Not an original liquor in its own. But since it's a mix of purely Tequila
+// 	price_tag = 50						 // and Kahlua, it's basically just another one and gets the same price.
 
 
+// // Wines //
+
+// /datum/reagent/alcohol/wine
+// 	price_tag = 80
+
+// /datum/reagent/alcohol/cognac
+// 	price_tag = 80
+
+// /datum/reagent/alcohol/sake
+// 	price_tag = 80
+
+// /datum/reagent/alcohol/vermouth
+// 	price_tag = 80
+
+// /datum/reagent/alcohol/pwine
+// 	price_tag = 80
+
+// Occulus Edit End?
 // Cocktails //
 /*
 /datum/reagent/alcohol/acid_spit
@@ -1009,9 +1011,6 @@
 
 /obj/item/stock_parts/get_item_cost(export)
 	. = ..() * rating
-
-/obj/item/organ
-	price_tag = 500
 
 /mob/living/carbon/superior_animal/roach
 	price_tag = 150
