@@ -60,6 +60,7 @@
 			return COOK_CHECK_FAIL
 	return .
 
+/*	//Chem has a way to make these, but maybe just in case we put this in here.
 /datum/recipe/brownies
 	appliance = OVEN
 	reagents = list(/datum/reagent/browniemix = 10, /datum/reagent/organic/nutriment/protein/egg = 3)
@@ -73,6 +74,8 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //No egg or mix in final recipe
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cosmicbrownies
 
+*/
+//
 // Cakes.
 //============
 /datum/recipe/cake
@@ -170,7 +173,7 @@
 	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/reagent_containers/food/snacks/xenomeat
+		/obj/item/reagent_containers/food/snacks/meat/xenomeat
 	)
 	result = /obj/item/reagent_containers/food/snacks/xemeatpie
 

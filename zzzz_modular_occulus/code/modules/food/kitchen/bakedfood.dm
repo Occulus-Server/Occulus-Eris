@@ -170,3 +170,19 @@
 	bitesize = 4
 	taste_tag = list(SWEET_FOOD, FLOURY_FOOD, VEGETARIAN_FOOD)
 	cooked = TRUE
+
+/obj/item/reagent_containers/food/snacks/toast
+	name = "toasted bread"
+	desc = "Plain, but consistent and reliable toast."
+	icon = 'zzzz_modular_occulus/icons/obj/kitchen_update/food.dmi'
+	icon_state = "toast"
+	item_state = "toast"
+	slot_flags = SLOT_MASK
+	contained_sprite = TRUE
+	trash = /obj/item/trash/plate
+	filling_color = "#D9BE29"
+	bitesize = 1
+	nutriment_amt = 2
+	nutriment_desc = list("toasted bread" = 5)
+	taste_tag = list(FLOURY_FOOD, VEGETARIAN_FOOD)
+	cooked = TRUE

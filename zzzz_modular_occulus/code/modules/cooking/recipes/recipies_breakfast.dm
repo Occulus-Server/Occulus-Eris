@@ -15,7 +15,7 @@
 
 /datum/recipe/boiledegg
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1, /datum/reagent/water = 5)
+	reagents = list(/datum/reagent/other/sodiumchloride = 1, /datum/reagent/organic/blackpepper = 1, /datum/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg
 	)

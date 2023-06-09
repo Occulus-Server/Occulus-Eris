@@ -149,7 +149,7 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/donkpocket
 	)
-	result = /obj/item/reagent_containers/food/snacks/donkpocket/warm
+	result = /obj/item/reagent_containers/food/snacks/donkpocket
 
 /datum/recipe/rofflewaffles
 	appliance = OVEN

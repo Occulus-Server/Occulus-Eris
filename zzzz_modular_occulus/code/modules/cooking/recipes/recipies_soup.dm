@@ -15,7 +15,7 @@
 	fruit = list("carrot" = 1, "potato" = 1)
 	reagents = list(/datum/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meatball)
-	result = /obj/item/reagent_containers/food/snacks/soup/meatball
+	result = /obj/item/reagent_containers/food/snacks/meatballsoup
 
 /datum/recipe/vegetablesoup
 	appliance = SAUCEPAN | POT
@@ -92,7 +92,7 @@
 	appliance = SAUCEPAN | POT
 	fruit = list("whitebeet" = 1, "cabbage" = 1)
 	reagents = list(/datum/reagent/water = 10)
-	result = /obj/item/reagent_containers/food/snacks/soup/beet
+	result = /obj/item/reagent_containers/food/snacks/beetsoup
 	result_quantity = 2
 
 // Stews

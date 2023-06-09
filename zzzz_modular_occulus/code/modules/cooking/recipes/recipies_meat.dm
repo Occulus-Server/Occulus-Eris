@@ -72,7 +72,7 @@
 	appliance = FRYER
 	reagents = list(/datum/reagent/organic/nutriment/flour = 5)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meat/chicken
+		/obj/item/reagent_containers/food/snacks/rawcutlet
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/nugget
@@ -82,7 +82,7 @@
 	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
-		/obj/item/reagent_containers/food/snacks/fish
+		/obj/item/reagent_containers/food/snacks/meat/carp
 	)
 	result = /obj/item/reagent_containers/food/snacks/fishandchips
 

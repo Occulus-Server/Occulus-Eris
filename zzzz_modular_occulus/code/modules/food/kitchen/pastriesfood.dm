@@ -31,7 +31,7 @@
 /obj/item/reagent_containers/food/snacks/truffle/random/Initialize()
 	. = ..()
 	var/reagent_type = pick(list(/datum/reagent/drink/milk/cream,
-        /datum/reagent/nutriment/cherryjelly,
+        /datum/reagent/organic/nutriment/cherryjelly,
         /datum/reagent/organic/nutriment/mint,
         /datum/reagent/organic/frostoil,
         /datum/reagent/organic/capsaicin,

@@ -1,7 +1,8 @@
 // Tracks precooked food to stop deep fried baked grilled grilled grilled diona nymph cereal.
+/*
 /obj/item/reagent_containers/food/snacks
 	var/tmp/list/cooked
-
+*/
 //How we track what's being cooked
 /datum/cooking_item
 	var/max_cookwork = 0

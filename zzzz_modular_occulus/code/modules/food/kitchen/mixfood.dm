@@ -138,3 +138,54 @@
 	nutriment_desc = list("pickled cabbage" = 10)
 	taste_tag = list(VEGETARIAN_FOOD, SALTY_FOOD)
 	cooked = TRUE
+
+/obj/item/reagent_containers/food/snacks/reubensandwich
+	name = "reuben sandwich"
+	desc = "A toasted sandwich packed with savory, meat and sour goodness!"
+	icon_state = "reubensandwich"
+	filling_color = "#BF8E60"
+	bitesize = 3
+	trash = /obj/item/trash/plate
+	icon = 'zzzz_modular_occulus/icons/obj/kitchen_update/food.dmi'
+	nutriment_amt = 8
+	nutriment_desc = list("a savory blend of sweet and salty ingredients" = 10, "toasted bread" = 5)
+	taste_tag = list(MEAT_FOOD, SALTY_FOOD)
+	cooked = TRUE
+
+/obj/item/reagent_containers/food/snacks/sashimi
+	name = "sashimi"
+	desc = "Raw fish with a small amount of rice."
+	icon = 'zzzz_modular_occulus/icons/obj/kitchen_update/food.dmi'
+	filling_color = "#F896FF"
+	icon_state = "sashimi"
+	bitesize = 2
+	nutriment_amt = 4
+	nutriment_desc = list("raw fish" = 10, "soy sauce" = 5)
+	taste_tag = list(MEAT_FOOD, SALTY_FOOD)
+	cooked = FALSE	//if this ever ends up true the chef will be assassinated
+
+/obj/item/reagent_containers/food/snacks/cheese_cracker
+	name = "supreme cheese toast"
+	desc = "A piece of toast lathered with butter, cheese, spices, and herbs."
+	icon = 'zzzz_modular_occulus/icons/obj/kitchen_update/food.dmi'
+	icon_state = "cheese_cracker"
+	filling_color = "#FFF97D"
+	nutriment_amt = 8
+	nutriment_desc = list("cheesy toast" = 10, "herbs" = 5)
+	taste_tag = list(CHEESE_FOOD, SALTY_FOOD, SPICY_FOOD)
+	cooked = TRUE
+
+/obj/item/reagent_containers/food/snacks/pbjsandwich
+	name = "pbj sandwich"
+	desc = "A staple classic lunch of gooey jelly and peanut butter."
+	icon = 'zzzz_modular_occulus/icons/obj/kitchen_update/food.dmi'
+	icon_state = "pbjsandwich"
+	trash = /obj/item/trash/plate
+	filling_color = "#BB6A54"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("bread" = 2))
+	bitesize = 2
+	nutriment_amt = 2
+	nutriment_desc = list("bread" = 5)
+	taste_tag = list(SWEET_FOOD, VEGETARIAN_FOOD, FLOURY_FOOD)
+	cooked = TRUE

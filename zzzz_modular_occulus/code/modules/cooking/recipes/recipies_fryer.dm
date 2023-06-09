@@ -50,7 +50,7 @@
 	fruit = list("chili" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/fish
+		/obj/item/reagent_containers/food/snacks/meat/carp
 	)
 	result = /obj/item/reagent_containers/food/snacks/cubancarp
 
@@ -67,7 +67,7 @@
 /datum/recipe/katsu
 	appliance = FRYER
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meat/chicken
+		/obj/item/reagent_containers/food/snacks/rawcutlet
 	)
 	result = /obj/item/reagent_containers/food/snacks/chickenkatsu
 	coating = /datum/reagent/nutriment/coating/beerbatter
@@ -96,14 +96,14 @@
 	appliance = FRYER
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
-		/obj/item/reagent_containers/food/snacks/fish
+		/obj/item/reagent_containers/food/snacks/meat/carp
 	)
 	result = /obj/item/reagent_containers/food/snacks/fishandchips
 
 /datum/recipe/fishfingers
 	appliance = FRYER
 	items = list(
-		/obj/item/reagent_containers/food/snacks/fish
+		/obj/item/reagent_containers/food/snacks/meat/carp
 	)
 	coating = /datum/reagent/nutriment/coating/batter
 	result = /obj/item/reagent_containers/food/snacks/fishfingers
