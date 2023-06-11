@@ -28,7 +28,7 @@
 	retreat_distance = 5
 	minimum_distance = 4
 	pass_flags = PASSTABLE
-
+	mob_inaccuracy = 20
 /mob/living/simple_animal/hostile/siren/augmentor/New()
 	..()
 	update_icon()

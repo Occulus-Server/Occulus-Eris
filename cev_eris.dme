@@ -2907,6 +2907,7 @@
 #include "zzzz_modular_occulus\code\game\machinery\autolathe\artist_bench.dm"
 #include "zzzz_modular_occulus\code\game\machinery\computer\medical.dm"
 #include "zzzz_modular_occulus\code\game\machinery\telecomms\presets.dm"
+#include "zzzz_modular_occulus\code\game\objects\explosion.dm"
 #include "zzzz_modular_occulus\code\game\objects\objs.dm"
 #include "zzzz_modular_occulus\code\game\objects\effects\spiders.dm"
 #include "zzzz_modular_occulus\code\game\objects\effects\temporary_visual.dm"

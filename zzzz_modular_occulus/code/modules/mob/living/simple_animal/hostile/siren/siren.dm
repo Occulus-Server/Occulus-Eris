@@ -7,7 +7,7 @@
 	var/retreat_distance = null //If our mob runs from players when they're too close, set in tile distance. By default, mobs do not retreat.
 	var/search_objects = 0 //If we want to consider objects when searching around, set this to 1. If you want to search for objects while also ignoring mobs until hurt, set it to 2. To completely ignore mobs, even when attacked, set it to 3
 	var/ranged_cooldown_time = 15 SECONDS
-	var/retarget_cooldown_time = 10 SECONDS
+	var/retarget_cooldown_time = 5 SECONDS
 	var/retarget_time
 //Proper Siren mob data stuff and things
 
@@ -44,6 +44,8 @@
 	var/attack_all_objects = FALSE
 	var/list/possible_targets = list()
 	var/list/current_targets = list()
+	var/mob_inaccuracy = 0		//percent chance for a ranged mob's shot to go wide.
+	var/shot_variance = 0		//degree of shot widening.
 
 /mob/living/simple_animal/hostile/siren/Life()	//This shall be our AI holy grail.
 	. = ..()
@@ -70,6 +72,7 @@
 						DestroySurroundings()
 					AttackTarget()
 					*/
+
 	for(var/mob/living/simple_animal/hostile/siren/augmentor/A in view(src, 3))
 		if(health <= 0)
 			return
@@ -82,10 +85,8 @@
 
 /mob/living/simple_animal/hostile/siren/FindTarget()// Step I: Find our possible targets
 	var/list/new_targets = ListTargets(vision_range)	//get targets in vision range
-	message_admins("[json_encode(new_targets)]")
 	for(var/atom/target in new_targets)
 		possible_targets |= target
-		message_admins("possible_targets += target")
 
 	for(var/pos_targ in possible_targets)
 		var/atom/A = pos_targ
@@ -94,15 +95,17 @@
 
 		if(A == src)
 			continue
-		message_admins("before can attack")
-		if(CanAttack(A)) 	//proc to determine if it is attackable
-			message_admins("can attack A")
-			current_targets |= A
+		if(CanAttack(A))
+			if(A in current_targets)
+				deltimer(current_targets[A])
+			current_targets[A] = addtimer(CALLBACK(src, .proc/ForgetTarget, A), 20 SECONDS)
 			continue
 	var/Target = PickTarget(current_targets)	//selects
 	GiveTarget(Target)
 	return Target //We now have a target
 
+/mob/living/simple_animal/hostile/siren/proc/ForgetTarget(atom/T)
+  current_targets -= T
 
 /mob/living/simple_animal/hostile/siren/ListTargets(var/dist = 7)	//Step II: creates list of targets in hearing distance
 	var/list/L = (hearers(src) - src)
@@ -116,7 +119,6 @@
 
 /mob/living/simple_animal/hostile/siren/proc/PickTarget(list/Targets)	//Step III, pick amongst the possible, attackable targets
 	if(target != null)//If we already have a target, but are told to pick again, calculate the lowest distance between all possible, and pick from the lowest distance targets
-		message_admins("target does != null")
 		var/atom/target_from = src
 		for(var/pos_targ in Targets)
 			var/atom/A = pos_targ
@@ -127,16 +129,6 @@
 
 	var/chosen_target = pick(Targets)//Pick the remaining targets (if any) at random
 	return chosen_target
-     /*   closest_target = None
-
-        for entity in entities:  # Replace with actual entity iteration logic
-            :
-                distance = calculate_distance(self.position, entity.position)
-                if distance < closest_distance:
-                    closest_distance = distance
-                    closest_target = entity
-
-        return closest_target */
 
 
 /mob/living/simple_animal/hostile/siren/proc/GiveTarget(var/new_target) //Step IV, give us our selected target
@@ -146,12 +138,34 @@
 	vision_range = aggro_vision_range
 	stance = HOSTILE_STANCE_ATTACK
 
+/mob/living/simple_animal/hostile/siren/AttackingTarget()
+	if(!Adjacent(target_mob))
+		return
+	if(!target_mob.stat)
+		current_targets -= target_mob
+		return
+	if(isliving(target_mob))
+		var/mob/living/L = target_mob
+		L.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		return L
+	if(istype(target_mob,/mob/living/exosuit))
+		var/mob/living/exosuit/M = target_mob
+		M.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		return M
+	if(istype(target_mob,/obj/machinery/bot))
+		var/obj/machinery/bot/B = target_mob
+		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		return B
+
+
+
 /mob/living/simple_animal/hostile/siren/OpenFire(atom/A)
 	if(CheckFriendlyFire(A))
 		return
 	visible_message("\red <b>[src]</b> [fire_verb] at [A]!", 1)
 
 	if(rapid > 1)
+		shot_variance = 0
 		var/datum/callback/cb = CALLBACK(src, .proc/Shoot, A, loc, src)  //addtimer(CALLBACK(src, .proc/check_delete, animation), 15)
 		for(var/i in 1 to rapid)
 			addtimer(cb, (i - 1)*rapid_fire_delay)
@@ -159,6 +173,18 @@
 		Shoot(A, loc, src)
 	stance = HOSTILE_STANCE_ATTACK
 	ranged_cooldown = world.time + ranged_cooldown_time
+
+/mob/living/simple_animal/hostile/siren/Shoot(var/target, var/start, var/user, var/bullet = 0)
+	if(target == start)
+		return
+	if(prob(mob_inaccuracy))
+		shot_variance += pick(15, -15)
+	var/obj/item/projectile/A = new projectiletype(user:loc)
+	playsound(user, projectilesound, 100, 1)
+	if(!A)	return
+	var/def_zone = get_exposed_defense_zone(target)
+	A.launch(target, def_zone, 0, 0,shot_variance)
+
 
 /mob/living/simple_animal/hostile/siren/proc/CheckFriendlyFire(atom/A)
 	if(check_friendly_fire)
@@ -180,7 +206,13 @@
 		for(var/obj/machinery/obstacle in get_step(src, dir))
 			if(prob(65))
 				obstacle.Destroy()
-		for(var/obj/structure/obstacle in get_step(src, dir))
+		for(var/obj/structure/window/obstacle in get_step(src, dir))
+			if(prob(95))
+				qdel(obstacle)
+		for(var/obj/structure/closet/obstacle  in get_step(src, dir))
+			if(prob(95))
+				qdel(obstacle)
+		for(var/obj/structure/table/obstacle  in get_step(src, dir))
 			if(prob(95))
 				qdel(obstacle)
 
@@ -203,22 +235,22 @@
 				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 
 
-
-/mob/living/simple_animal/hostile/siren/proc/CanAttack(atom/the_target)//Can we actually attack a possible target?
+/mob/living/simple_animal/hostile/siren/proc/CanAttack(atom/target)//Can we actually attack a possible target?
+	var/mob/living/the_target = target
 	if(isturf(the_target) || !the_target) // bail out on invalids
-		message_admins("notarget/turf is target)")
 		return FALSE
 
 	if(see_invisible < the_target.invisibility)//Target's invisible to us, forget it
 		return FALSE
 
+	if(the_target.stat >= 1)
+		return FALSE
+
 	if(isliving(the_target))
 		var/mob/living/L = the_target
 		if(L.faction == src.faction)
-			message_admins("target faction is same")
 			return FALSE
 		else
-			message_admins("Target faction is differenct")
 			return TRUE
 
 	if(isobj(the_target))
@@ -249,6 +281,7 @@
 		possible_targets = ListTargets(vision_range)
 		src.FindTarget()
 		retarget_time = world.time + retarget_cooldown_time
+
 	if(target_mob in ListTargets(10))
 		var/target_distance = get_dist(src,target_mob)
 		if(ranged && target_distance >= 1 && world.time >= ranged_cooldown)//We ranged? Shoot at em. Make sure they're a tile away at least, and our range attack is off cooldown
@@ -275,7 +308,6 @@
 				else
 					if(FindHidden())
 						return 1
-//	LoseTarget() Why lose target if we're already having a retargetting cycle?
 	return 0
 
 /mob/living/simple_animal/hostile/siren/proc/FindHidden()
@@ -299,8 +331,6 @@
 		chargerate = world.time + chargedelay
 		return PROJECTILE_FORCE_MISS
 	..()
-
-
 
 /proc/get_line(atom/starting_atom, atom/ending_atom)
 	var/current_x_step = starting_atom.x//start at x and y, then add 1 or -1 to these to get every turf from starting_atom to ending_atom

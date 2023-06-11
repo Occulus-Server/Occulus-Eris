@@ -1,7 +1,7 @@
 #define GET_TARGETS_FROM(who) (who.targets_from ? who.get_targets_from() : who)
 
 /mob/living/simple_animal/hostile/siren/nemesis
-	name = "nemsis assault strider"
+	name = "nemesis assault strider"
 	desc = "A heavily armored and armed bio-mechanical beast of war. Armed with cannons and razor sharp scythe blades, very few are lucky enough to see it and survive."
 	icon = 'zzzz_modular_occulus/icons/mob/siren/nemesis.dmi'
 	icon_state = "nemesis"
@@ -12,21 +12,25 @@
 	move_to_delay = 3
 	ranged = 1
 	rapid = 20
-	projectiletype = /obj/item/projectile/beam/siren
+	rapid_fire_delay = 0.05 SECONDS
+	projectiletype = /obj/item/projectile/beam/siren/rapidlaser
 	vision_range = 15
 	aggro_vision_range = 20
-	speed = 3
-	maxHealth = 4000
-	health = 4000
-	harm_intent_damage = 70
+	speed = 2
+	maxHealth = 2000
+	health = 2000
+	harm_intent_damage = 50
+	melee_damage_lower = 40
+	melee_damage_upper = 50
 	attacktext = "lashes out at"
 	throw_message = "falls right through the strange body of the"
 	environment_smash = ENVIRONMENT_SMASH_RWALLS
+	move_to_delay = 8
 	retreat_distance = 0
 	minimum_distance = 0
 	pass_flags = PASSTABLE
-	ranged_cooldown_time = 5 SECONDS
-	var/phase_change = 15 SECONDS
+	ranged_cooldown_time = 8 SECONDS
+	var/phase_change = 25 SECONDS
 	var/phase_change_time
 	status_flags = 0 //No pushing, no stunning, no paralyze and no weaken.
 	layer = LARGE_MOB_LAYER
@@ -34,26 +38,32 @@
 	var/phase = 1
 	var/recovery_time = 0
 	var/recoverystate = 0
+	mob_inaccuracy = 25			//% chance for a shot to have some variance.
+	var/list/masterphases = list(1,2,3,4)	//phase 1 is lasers, phase 2 plasma, phase 3 melee, phase 4 heal
+	var/list/allowedphases = list(1,2,3,4)
+	var/previousphase
 
 /mob/living/simple_animal/hostile/siren/nemesis/Life()
 	. = ..()
 	if(recoverystate == 1 && phase ==4)
-		src.health += 10
+		src.health += 50
 
 
-/mob/living/simple_animal/hostile/siren/nemesis/proc/phasepick()
-	if(src.health <= (0.75* src.maxHealth))
-		phase = rand(1,4)
-		recoverystate = 0
-	else
-		recoverystate = 0
-		phase = rand(1,3)
+/mob/living/simple_animal/hostile/siren/nemesis/proc/phasepick()	//picks phases. Allows repeating a phase only /twice/
+	if(phase == previousphase)
+		allowedphases -= phase
+	previousphase = phase
+	if(!(src.health <= (0.75* src.maxHealth)))	//removes healing phase if health is not below 75%
+		allowedphases -= 4
+	phase = pick(allowedphases)
+	allowedphases = masterphases
 
 	if(phase == 1)	//laser storm phase
 		projectiletype = /obj/item/projectile/beam/siren
-		ranged_cooldown_time = 5 SECONDS
+		ranged_cooldown_time = 8 SECONDS
+		rapid_fire_delay = 0.15 SECONDS
 		rapid = 20
-		retreat_distance = 2
+		retreat_distance = 3
 		minimum_distance = 2
 		if(ranged != 1)
 			ranged = 1
@@ -61,9 +71,10 @@
 
 	if(phase == 2)	//Plasma storm phase
 		ranged_cooldown_time = 8 SECONDS
+		rapid_fire_delay = 0.5 SECONDS
 		rapid = 3
-		retreat_distance = 3
-		minimum_distance = 3
+		retreat_distance = 5
+		minimum_distance = 4
 		projectiletype = /obj/item/projectile/plasma/blast
 		ranged_cooldown = world.time + ranged_cooldown_time
 		if(ranged != 1)
@@ -78,14 +89,16 @@
 			ranged = 0
 
 /mob/living/simple_animal/hostile/siren/nemesis/proc/callforbackup()
+	message_admins("call for backup")
 	var/list/spawnLists = list(/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/replicant)
 	var/reinforcement_count = 3
-	var/turf/picked = get_random_secure_turf_in_range(src, 1, 3)
 	while(reinforcement_count > 0)
-		var/list/spawnTypes = pick_n_take(spawnLists)
-		for(var/type in spawnTypes)
-			new spawnTypes(picked)
-			reinforcement_count--
+		var/turf/picked = get_random_secure_turf_in_range(src, 1, 3)
+		message_admins("backup while greater then 0")
+		var/spawnTypes = pick_n_take(spawnLists)
+		message_admins("spawntypes")
+		new spawnTypes(picked)
+		reinforcement_count--
 		break
 
 /mob/living/simple_animal/hostile/siren/nemesis/MoveToTarget()		//Custom pathing! attemptto maintain distance if ranged,
@@ -94,12 +107,13 @@
 		stance = HOSTILE_STANCE_IDLE
 	if(world.time >= phase_change_time)	//rotate phases ever 10 seconds
 		src.phasepick()
-		phase_change_time = world.time + retarget_cooldown_time
+		phase_change_time = world.time + phase_change
 
 	if(phase == 4)	//Recovery phase
 		if(recoverystate == 0)
 			callforbackup()
 			shieldcharge = 80
+			updateicon()
 			recoverystate = 1
 			visible_message("\red <b>[src]</b> locks up in place as it's shield flares and repair nanites run across it's form!", 1)
 			return
@@ -108,14 +122,11 @@
 			if(shieldcharge <= 20)
 				recoverystate = 0
 				phase = rand(1,3)
-				phase_change_time = world.time + retarget_cooldown_time
+				phase_change_time = world.time + phase_change
 
 			else
 				return
 
-//	if(istype(src, /mob/living/simple_animal/hostile/siren/nemesis))
-		//LegendaryActions()
-//		return
 	if(world.time >= retarget_time)	//Retargetting code. Allows siren mobs to target closest mobs every 10 seconds.
 		src.FindTarget()
 		retarget_time = world.time + retarget_cooldown_time
@@ -125,11 +136,12 @@
 		if(ranged && target_distance >= 1 && world.time >= ranged_cooldown)//We ranged? Shoot at em. Make sure they're a tile away at least, and our range attack is off cooldown
 			OpenFire(target_mob)
 			ranged_cooldown = world.time + ranged_cooldown_time
-		if(phase == 3)
+		if(phase == 3 && world.time >= recovery_time)
 			charge(1)
 		if(isturf(loc) && target_mob.Adjacent(src))	//If they're next to us, attack
 			AttackingTarget()
-
+		if(charging == TRUE)
+			return
 		if(retreat_distance && target_distance <= retreat_distance) //If we have a retreat distance, check if we need to run from our target
 			walk_away(src, target_mob, retreat_distance, move_to_delay)
 		else
@@ -146,33 +158,14 @@
 			else
 				if(FindHidden())
 					return 1
-	LoseTarget()
 	return 0
-
-/mob/living/simple_animal/hostile/siren/nemesis/OpenFire(atom/A)
-	if(CheckFriendlyFire(A))
-		return
-	if(phase == 3)
-		charge(1)
-	visible_message("\red <b>[src]</b> [fire_verb] at [A]!", 1)
-
-	if(rapid > 1)
-		var/datum/callback/cb = CALLBACK(src, .proc/Shoot, A, loc, src)
-		for(var/i in 1 to rapid)
-			addtimer(cb, (i - 1)*rapid_fire_delay)
-	else
-		Shoot(A, loc, src)
-	stance = HOSTILE_STANCE_IDLE
-	ranged_cooldown = world.time + ranged_cooldown_time
-
 
 /mob/living/simple_animal/hostile/siren/nemesis/AttackingTarget()
 	if(!Adjacent(target_mob))
 		return
-	if(recovery_time >= world.time)
+	if(!target_mob.stat)
+		current_targets -= target_mob
 		return
-	if(phase == 3)
-		charge(1)
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
 		L.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
@@ -185,7 +178,8 @@
 		var/obj/machinery/bot/B = target_mob
 		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 		return B
-
+	if(recovery_time >= world.time)
+		return
 
 /obj/effect/temp_visual/nemesis_charge
 	name = "impact zone"
@@ -196,8 +190,8 @@
 	plane = GAME_PLANE
 	pixel_x = -32
 	pixel_y = -32
-	color = "#FF0000"
-	duration = 10
+	color = "#0080ff"
+	duration = 25
 
 /obj/effect/temp_visual/decoy/Initialize(mapload, atom/mimiced_atom)
 	. = ..()
@@ -216,46 +210,66 @@
 	charging = TRUE
 	DestroySurroundings()
 	walk(src, 0)
+	message_admins("charge")
 	var/obj/effect/temp_visual/decoy/D = new /obj/effect/temp_visual/decoy(loc,src)
+	sleep(20)
 	animate(D, alpha = 0, color = "#0080ff", transform = matrix()*2, time = 3)
-	sleep(5)
-	throw_at(T, get_dist(src, T), 1, src, 0, callback = CALLBACK(src, .charge_end, bonus_charges))
-//
+	allow_spin = FALSE
+	src.throw_at(T, get_dist(src, T), 2, src)
+	addtimer(CALLBACK(src, .proc/charge_end, bonus_charges), 0.05 SECONDS)
+	allow_spin = TRUE
 
 /mob/living/simple_animal/hostile/siren/nemesis/proc/charge_end(bonus_charges, list/effects_to_destroy)
 	charging = FALSE
+	message_admins("charge-end")
+	for(var/mob/living/T in (in_view(src.loc)-src))
+		if(T.Adjacent(src))
+			var/mob/living/L = T
+			L.visible_message("<span class='danger'>[src] flings [L] backwards with a swipe of it's scythes!</span>", "<span class='userdanger'>[src] flings you backwards!</span>")
+			L.apply_damage(20, BRUTE)
+			playsound(get_turf(L), 'sound/effects/meteorimpact.ogg', 100, 1)
+			shake_camera(L, 4, 3)
+			shake_camera(src, 2, 3)
+			var/throwtarget = get_edge_target_turf(src, get_dir(src, get_step_away(L, src)))
+			L.throw_at(throwtarget, 3, 5)
+
 	if(target)
 		if(bonus_charges)
 			bonus_charges--
 			charge(bonus_charges)
+			message_admins("bonus charge")
 		else
+			message_admins("walk to, recovery")
 			walk_to(src, target, minimum_distance, move_to_delay)
-			SetRecoveryTime(5)
+			SetRecoveryTime(50)
 
 /mob/living/simple_animal/hostile/siren/nemesis/Bump(atom/A)
 	if(charging)
-		if(isturf(A) || isobj(A) && A.density)
-			A.ex_act(2)
-		DestroySurroundings()
+		if(isliving(A))
+			var/mob/living/L = A
+			L.visible_message("<span class='danger'>[src] slams into [L]!</span>", "<span class='userdanger'>[src] slams into you!</span>")
+			L.apply_damage(40, BRUTE)
+			playsound(get_turf(L), 'sound/effects/meteorimpact.ogg', 100, 1)
+			shake_camera(L, 4, 3)
+			shake_camera(src, 2, 3)
+			var/throwtarget = get_edge_target_turf(src, get_dir(src, get_step_away(L, src)))
+			L.throw_at(throwtarget, 3, 5)
 	..()
 
 /mob/living/simple_animal/hostile/siren/nemesis/proc/SetRecoveryTime(buffer_time)
 	recovery_time = world.time + buffer_time
 	ranged_cooldown = world.time + buffer_time
 
-/mob/living/simple_animal/hostile/siren/nemesis/throw_impact(atom/A)
+/mob/living/simple_animal/hostile/siren/nemesis/throw_impact(atom/A, var/speed = 5)
+	message_admins("throw impact")
 	if(!charging)
+		message_admins("throw_impacts !charging")
 		return ..()
 
-	else if(isliving(A))
-		var/mob/living/L = A
-		L.visible_message("<span class='danger'>[src] slams into [L]!</span>", "<span class='userdanger'>[src] slams into you!</span>")
-		L.apply_damage(40, BRUTE)
-		playsound(get_turf(L), 'sound/effects/meteorimpact.ogg', 100, 1)
-		shake_camera(L, 4, 3)
-		shake_camera(src, 2, 3)
-		var/throwtarget = get_edge_target_turf(src, get_dir(src, get_step_away(L, src)))
-		L.throw_at(throwtarget, 3)
+		message_admins("bumped and charging")
+	if(isturf(A) || isobj(A) && A.density)
+		A.ex_act(2)
+		DestroySurroundings()
 
 	charging = FALSE
 

@@ -40,8 +40,9 @@
 	..()
 
 /mob/living/simple_animal/hostile/siren/replicant/OpenFire(var/the_target)
-	var/mob/living/simple_animal/hostile/siren/replicanttendril/A = new /mob/living/simple_animal/hostile/siren/replicanttendril(src.loc)
-	A.GiveTarget(target)
+	var/mob/living/simple_animal/hostile/replicanttendril/A = new /mob/living/simple_animal/hostile/replicanttendril(src.loc)
+	A.stance = HOSTILE_STANCE_ATTACK
+	A.target_mob = the_target
 	A.friends = friends
 	A.faction = faction
 	soundloop()
@@ -114,16 +115,15 @@
 ////	Replicant Tendrils
 ////
 
-/mob/living/simple_animal/hostile/siren/replicanttendril
+/mob/living/simple_animal/hostile/replicanttendril
 	name = "replicant tendril"
 	desc = "A thin cord-like tendril made of bio-synthetic mesh, broken off from a larger creature. There are stories of these cords pulling crew into the darkness to never be seen again..."
 	icon = 'zzzz_modular_occulus/icons/mob/siren/replicant.dmi'
 	icon_state = "Replicanttendril"
 	icon_living = "Replicanttendril"
-	icon_aggro = "Replicanttendril"
 	icon_dead = "Replicanttendrildead"
 	mouse_opacity = 2
-	move_to_delay = 0
+	move_to_delay = 1
 	friendly = "buzzes near"
 	pass_flags = PASSTABLE | PASSGRILLE
 	vision_range = 10
@@ -132,20 +132,21 @@
 	health = 35
 	melee_damage_lower = 10
 	melee_damage_upper = 18
+	minimum_distance = 0
+	retreat_distance = 0
 	attacktext = "slices"
-	throw_message = "falls right through the strange body of the"
 	environment_smash = 4
 	agony_coefficient = 0.8 //Hard to shoot whip-like tendrils effectively
 
-/mob/living/simple_animal/hostile/siren/replicanttendril/New()
+/mob/living/simple_animal/hostile/replicanttendril/New()
 	..()
 	addtimer(CALLBACK(src, .proc/return_tendril), 20 SECONDS)
 
-/mob/living/simple_animal/hostile/siren/replicanttendril/proc/return_tendril()
+/mob/living/simple_animal/hostile/replicanttendril/proc/return_tendril()
 	visible_message(SPAN_NOTICE("[src] recoils to its host Replicant!"))
 	qdel(src)
 
-/mob/living/simple_animal/hostile/siren/replicanttendril/death()
+/mob/living/simple_animal/hostile/replicanttendril/death()
 	..()
 	visible_message(SPAN_NOTICE("[src] melts away into a pile of glittering ash!"))
 	new /obj/effect/decal/cleanable/ash(loc)

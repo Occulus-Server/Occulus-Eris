@@ -13,7 +13,7 @@
 
 
 /obj/item/projectile/plasma/blast/on_hit(atom/target)
-	explosion(target, 0, 0, 2, 1)
+	siren_explosion(target, 0, 0, 2, 1)	//make into siren_explosion in modular human.dm and modular explosion.dm?
 	set_light(0)
 	return TRUE
 
@@ -26,8 +26,17 @@
 /obj/item/projectile/beam/siren
 	name = "energy beam"
 	icon_state = "laser"
-	agony = 30
+	agony = 20
 	damage_types = list(BURN = 10)
+	muzzle_type = /obj/effect/projectile/laser/muzzle
+	tracer_type = /obj/effect/projectile/laser/tracer
+	impact_type = /obj/effect/projectile/laser/impact
+
+/obj/item/projectile/beam/siren/rapidlaser
+	name = "energy beam"
+	icon_state = "laser"
+	agony = 0
+	damage_types = list(BURN = 5)
 	muzzle_type = /obj/effect/projectile/laser/muzzle
 	tracer_type = /obj/effect/projectile/laser/tracer
 	impact_type = /obj/effect/projectile/laser/impact
