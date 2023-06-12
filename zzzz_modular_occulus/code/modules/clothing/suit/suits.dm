@@ -319,3 +319,25 @@
 		bio = 0,
 		rad = 0
 	)
+
+/obj/item/clothing/suit/storage/toggle/sec_jacket
+	name = "\improper Operator Armored Coat"
+	desc = "Blue and armored trenchcoat, designed and created by Cobalt Aegis Security. Sown into the back is a holographic symbol denoting the wearer as a Cobalt Aegis Operator."
+	icon = 'zzzz_modular_occulus/icons/inventory/suit/icon.dmi'
+	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/mob.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/inventory/suit/mob_fem.dmi'
+	icon_state = "sec_coat"
+	item_state = "sec_coat"
+	icon_open = "sec_coat_open"
+	icon_closed = "sec_coat"
+	slowdown = 0
+	rarity_value = 20
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	armor = list(
+		melee = 30,
+		bullet = 20,
+		energy = 20,
+		bomb = 10,
+		bio = 0,
+		rad = 0
+	)
