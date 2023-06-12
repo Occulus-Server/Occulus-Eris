@@ -321,8 +321,8 @@
 	)
 
 /obj/item/clothing/suit/storage/toggle/sec_jacket
-	name = "\improper Operator Armored Coat"
-	desc = "Blue and armored trenchcoat, designed and created by Cobalt Aegis Security. Sown into the back is a holographic symbol denoting the wearer as a Cobalt Aegis Operator."
+	name = "\improper operator armored coat"
+	desc = "A blue and armored coat, designed and created by Cobalt Aegis Security. Sown into the back is a holographic symbol denoting the wearer as a Cobalt Aegis Operator."
 	icon = 'zzzz_modular_occulus/icons/inventory/suit/icon.dmi'
 	icon_override = 'zzzz_modular_occulus/icons/inventory/suit/mob.dmi'
 	icon_override_female = 'zzzz_modular_occulus/icons/inventory/suit/mob_fem.dmi'
