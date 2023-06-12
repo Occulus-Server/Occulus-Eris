@@ -84,9 +84,10 @@
 ////// TARGETTING AND ATTACK CODE BELOW//////
 
 /mob/living/simple_animal/hostile/siren/FindTarget()// Step I: Find our possible targets
-	var/list/new_targets = ListTargets(vision_range)	//get targets in vision range
+	var/list/new_targets = (ListTargets(vision_range)-src)	//get targets in vision range
 	for(var/atom/target in new_targets)
 		possible_targets |= target
+
 
 	for(var/pos_targ in possible_targets)
 		var/atom/A = pos_targ
@@ -95,17 +96,23 @@
 
 		if(A == src)
 			continue
-		if(CanAttack(A))
+
+		if(CanAttack(A))	//
 			if(A in current_targets)
 				deltimer(current_targets[A])
 			current_targets[A] = addtimer(CALLBACK(src, .proc/ForgetTarget, A), 20 SECONDS)
+			continue
+		else
+			possible_targets -= target
 			continue
 	var/Target = PickTarget(current_targets)	//selects
 	GiveTarget(Target)
 	return Target //We now have a target
 
 /mob/living/simple_animal/hostile/siren/proc/ForgetTarget(atom/T)
-  current_targets -= T
+	current_targets -= T
+	if(T == src.target_mob)
+		LoseTarget()
 
 /mob/living/simple_animal/hostile/siren/ListTargets(var/dist = 7)	//Step II: creates list of targets in hearing distance
 	var/list/L = (hearers(src) - src)
@@ -127,7 +134,9 @@
 			if(target_dist < possible_target_distance)
 				Targets -= A
 
-	var/chosen_target = pick(Targets)//Pick the remaining targets (if any) at random
+	if(isemptylist(Targets))
+		return
+	var/chosen_target = safepick(Targets)//Pick the remaining targets (if any) at random
 	return chosen_target
 
 
@@ -143,7 +152,13 @@
 		return
 	if(!target_mob.stat)
 		current_targets -= target_mob
+		FindTarget()
 		return
+	if(!isliving(target_mob))
+		current_targets -= target_mob
+		FindTarget()
+		return
+
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
 		L.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
@@ -162,6 +177,12 @@
 /mob/living/simple_animal/hostile/siren/OpenFire(atom/A)
 	if(CheckFriendlyFire(A))
 		return
+
+	if(!isliving(A))			//If is not living, do not shoot.
+		current_targets -= target_mob	//remove target from current list
+		FindTarget()					//find new target
+		return
+
 	visible_message("\red <b>[src]</b> [fire_verb] at [A]!", 1)
 
 	if(rapid > 1)
@@ -177,8 +198,8 @@
 /mob/living/simple_animal/hostile/siren/Shoot(var/target, var/start, var/user, var/bullet = 0)
 	if(target == start)
 		return
-	if(prob(mob_inaccuracy))
-		shot_variance += pick(15, -15)
+	if(prob(mob_inaccuracy))		//Mob Recoil code. bob_inaccuracy = chance to deviate
+		shot_variance += pick(15, -15)	//Random picks 15, -15 every time an inaccurate shot is fired. All other shots fire the same innacruate shot after, till it varies.
 	var/obj/item/projectile/A = new projectiletype(user:loc)
 	playsound(user, projectilesound, 100, 1)
 	if(!A)	return
@@ -243,17 +264,17 @@
 	if(see_invisible < the_target.invisibility)//Target's invisible to us, forget it
 		return FALSE
 
-	if(the_target.stat >= 1)
+	if(the_target.stat >= 1)	//Do not attack unconscious people
 		return FALSE
 
-	if(isliving(the_target))
+	if(isliving(the_target))	//Do attack living only.
 		var/mob/living/L = the_target
 		if(L.faction == src.faction)
 			return FALSE
 		else
 			return TRUE
 
-	if(isobj(the_target))
+	if(isobj(the_target))		//Do attack objects!
 		if(attack_all_objects)
 			return TRUE
 

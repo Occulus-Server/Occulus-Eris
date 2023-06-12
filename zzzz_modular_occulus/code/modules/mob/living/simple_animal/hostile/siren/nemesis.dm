@@ -25,6 +25,7 @@
 	attacktext = "lashes out at"
 	throw_message = "falls right through the strange body of the"
 	environment_smash = ENVIRONMENT_SMASH_RWALLS
+	agony_coefficient = 0.7
 	move_to_delay = 8
 	retreat_distance = 0
 	minimum_distance = 0
@@ -60,7 +61,7 @@
 
 	if(phase == 1)	//laser storm phase
 		projectiletype = /obj/item/projectile/beam/siren
-		ranged_cooldown_time = 8 SECONDS
+		ranged_cooldown_time = 5 SECONDS
 		rapid_fire_delay = 0.15 SECONDS
 		rapid = 20
 		retreat_distance = 3
