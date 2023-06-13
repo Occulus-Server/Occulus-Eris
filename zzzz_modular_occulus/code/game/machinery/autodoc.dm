@@ -159,3 +159,25 @@
 		icon_state = "powered_on"
 	if(autodoc_processor.active)
 		icon_state = "active"
+
+/obj/machinery/autodoc/portable
+
+/obj/machinery/autodoc/portable/New()
+	. = ..()
+	autodoc_processor = new/datum/autodoc()
+	autodoc_processor.holder = src
+	autodoc_processor.damage_heal_amount = 20
+
+/obj/machinery/autodoc/portable/set_occupant(var/mob/living/L)
+	autodoc_processor = new/datum/autodoc()
+	autodoc_processor.holder = src
+	autodoc_processor.damage_heal_amount = 20
+	L.forceMove(src)
+	src.occupant = L
+	src.add_fingerprint(usr)
+	if(!(stat & (NOPOWER|BROKEN)))
+		autodoc_processor.set_patient(L)
+		ui_interact(L)
+		update_use_power(2)
+		L.set_machine(src)
+	update_icon()
