@@ -2890,6 +2890,7 @@
 #include "zzzz_modular_occulus\code\datums\outfits\jobs\medical.dm"
 #include "zzzz_modular_occulus\code\datums\perks\oddity.dm"
 #include "zzzz_modular_occulus\code\datums\setup_option\core_implants.dm"
+#include "zzzz_modular_occulus\code\datums\setup_option\backgrounds\fate.dm"
 #include "zzzz_modular_occulus\code\datums\setup_option\backgrounds\origin.dm"
 #include "zzzz_modular_occulus\code\datums\uplink\devices and tools.dm"
 #include "zzzz_modular_occulus\code\datums\uplink\grenades.dm"

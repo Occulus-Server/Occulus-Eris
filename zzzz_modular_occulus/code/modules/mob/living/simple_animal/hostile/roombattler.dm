@@ -33,7 +33,7 @@
 
 	environment_smash = 1
 
-	agony_coefficient = 0.5 // super armored unit, doesn't take much damage from non-lethals.
+	agony_coefficient = 0.4 // super armored unit, doesn't take much damage from non-lethals.
 
 	faction = "bosstown"
 
@@ -74,7 +74,7 @@
 	ranged_cooldown = 5 SECONDS
 	maxHealth = 50
 	health = 50
-	agony_coefficient = 0.8 // half shields, half health, half defense
+	agony_coefficient = 0.7 // half shields, half health, half defense
 
 	rarity_value = 10
 

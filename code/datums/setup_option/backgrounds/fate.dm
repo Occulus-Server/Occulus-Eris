@@ -102,13 +102,3 @@
 			Maybe, unlike everyone else here, this ship is actually an improvement in living conditions for you...."
 	restricted_jobs = list(/datum/job/captain, /datum/job/chaplain, /datum/job/merchant, /datum/job/cmo, /datum/job/rd, /datum/job/ihc)
 	perks = list(PERK_LOWBORN)
-
-
-/////////// OCCULUS EDIT - Artism!
-/datum/category_item/setup_option/background/fate/artistic
-	name = "Artistic"
-	desc = "You're artistic! \
-			You're all weird and quirky and stuff, but you have an uncanny amount of creativity and the ability to channel all that into something tangible. \
-			You can make full use of the Artist Bench, but that becomes your only way to fufill your desires."
-
-	perks = list(PERK_ARTIST)

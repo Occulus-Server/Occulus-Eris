@@ -3,7 +3,7 @@
 /obj/item/device/rodar //haha robot radar
 	name = "\improper Mk.XIV Synthetic Entity Detector"
 	desc = "This handy device emits a peculiar signal that pings various robots around the ship and forcibly reboots them, causing them to flock to certain areas that it can pinpoint.\
-	Announces pinpointed locations over engineering comms."
+	Announces pinpointed locations over engineering comms. Using this device pays a sum to the Engineering Departmental account."
 	icon = 'zzzz_modular_occulus/icons/obj/device.dmi'
 	icon_state = "dronelocatorv2"
 	w_class = ITEM_SIZE_TINY
@@ -45,6 +45,10 @@
 			for(var/i = 1, i <= num_spawns_per_area,i++) // while we still have spawns to go through for this area...
 				new /obj/spawner/mob/cluster/roombattler(heck) // spawn new spawners in the turf we chose
 		radio.autosay("Synthetic entities detected at [english_list(areanames)]." , "Mk.XIV Synthetic Entity Detector", "Engineering")
+		radio.autosay("10,000 Credits credited to Department Account", "Mk.XIV Synthetic Entity Detector", "Engineering")
+		var/datum/money_account/EA = department_accounts[DEPARTMENT_ENGINEERING]
+		var/datum/transaction/T = new(10000, EA.owner_name, "Internal Bounty", "Mk.XIV Synthetic Entity Detector")
+		T.apply_to(EA)
 		for (var/datum/coords/skree in coordinateslist) // while we still have stuff in our coordinates list...
 			papertextoutput.Add(skree.get_text()) // convert the coordinates to a human readable format and add them to this handy dandy list
 		new /obj/item/paper(user.loc, papertextoutput.Join("\n"), "SED Location Report") // finally, convert the list of human readable coordinates into a human readable form!
