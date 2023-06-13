@@ -334,9 +334,9 @@
 	rarity_value = 20
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	armor = list(
-		melee = 30,
-		bullet = 20,
-		energy = 20,
+		melee = 20,
+		bullet = 15,
+		energy = 15,
 		bomb = 10,
 		bio = 0,
 		rad = 0
