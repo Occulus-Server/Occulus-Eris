@@ -1,0 +1,4 @@
+author: WeNeedMorePhoron
+delete-after: true
+changes:
+  - bugfix: Alcohol price is no longer inflated again.
