@@ -1,0 +1,6 @@
+author: Awesome4Real
+delete-after: true
+changes:
+  - rscadd: Aegis armored coat
+  - rscadd: holo badges in the loadout menus
+  - bugfix: sprite for aegis turtleneck

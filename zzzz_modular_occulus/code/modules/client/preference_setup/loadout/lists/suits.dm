@@ -40,3 +40,8 @@
 		"Copper"		=	/obj/item/clothing/suit/storage/cyberjacket/copper
 	)
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
+
+/datum/gear/suit/sec_jacket
+	display_name = "operator armored jacket"
+	path = /obj/item/clothing/suit/storage/toggle/sec_jacket
+	allowed_roles = list(JOBS_SECURITY)

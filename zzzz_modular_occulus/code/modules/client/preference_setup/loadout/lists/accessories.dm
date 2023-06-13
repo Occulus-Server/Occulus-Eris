@@ -14,3 +14,13 @@
 	display_name = "collar selection"
 	path = /obj/item/clothing/accessory/collar
 	flags = GEAR_HAS_TYPE_SELECTION
+
+/datum/gear/accessory/badge
+	display_name = "holobadge"
+	path = /obj/item/clothing/accessory/badge/holo
+	allowed_roles = list(JOBS_SECURITY)
+
+/datum/gear/accessory/cordbadge
+	display_name = "holobadge, cord"
+	path = /obj/item/clothing/accessory/badge/holo/cord
+	allowed_roles = list(JOBS_SECURITY)
