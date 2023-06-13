@@ -1,0 +1,14 @@
+author: Jamini
+delete-after: true
+changes:
+  - rscadd: Mk.XIV Synthetic Entity Detector now gives Engineering 10,000cr to the
+      department on use
+  - rscadd: Gun nut perk
+  - admin: moved artistic to the modular folder
+  - tweak: Reduced damage SPUD and EMk.XIV Synthetic Entity Detector mobs take by
+      10%
+  - tweak: Selfmedicated now gives +25 base NSA and 0.1 addiction chance from +10
+      and 0.5
+  - bugfix: Selfmedicated now increases NSA
+  - bugfix: Readded the medical hardcase to the medical disk
+  - bugfix: Fixed the design name of the medical hardcase
