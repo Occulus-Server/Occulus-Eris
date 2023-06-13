@@ -37,6 +37,7 @@
 #define PERK_MARKET_PROF /datum/perk/oddity/market_prof
 #define PERK_EMPATH /datum/perk/oddity/empath //Occulus edit
 #define PERK_NOTRIP /datum/perk/oddity/surefooting //Occulus edit
+#define PERK_GUNSMITH /datum/perk/oddity/gunsmith //Occulus edit
 
 //job perks
 #define PERK_ARTIST /datum/perk/job/artist
