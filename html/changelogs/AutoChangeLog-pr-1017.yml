@@ -1,0 +1,5 @@
+author: Zenitheevee
+delete-after: true
+changes:
+  - bugfix: Pump actions no longer runtime due to reading a magazine's content that
+      wasn't there.
