@@ -1,7 +1,7 @@
 /*
-	Radiation storm is a really severe event that forces everyone to flee into maintenance or a similar
-	shielded area. Anyone caught outside a shielded area will recieve lethal doses of radiation,
-	and will die without medical attention
+	The 'Siren': A living creature-ship. Highly advanced technology and /old/. It species views space ships with indifference, but it does not like to be seen.
+	There is a relatively young 'Siren' following the Light. While capable of destroying ships with relative ease, This one in particular enjoys 'playing',
+	and seeks the data hidden of itself onboard the NL. It is akin to a kid who burns ants with a magnifying glass- only instead of a magnifying glass, it's devastating plasma weaponry.
 */
 /datum/storyevent/siren_scan
 	id = "siren_scan"
@@ -44,6 +44,7 @@
 	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/composer))
 	if(crew >= 17)
 		spawnLists += list(list(/mob/living/simple_animal/hostile/siren/nemesis))
+
 /datum/event/siren_scan/start()
 	SSweather.run_weather(/datum/weather/siren_scan)
 	siren_anger_calculate()
@@ -113,8 +114,18 @@
 				type = pick_n_take(spawnTypes)								//pick and remove mob from list is now 'type'
 				var/spawnloc = get_random_secure_turf_in_range(picked,3,0)	// second rng'd turf in 3-0 tile range from initial picked turf
 				if(!(/mob/living/carbon/human in view(4,picked)))						//checks for humans within 4 tiles. Continue if none
-					do_sparks(3,0,spawnloc)										//creates sparks on second slected tile,
-					new type(spawnloc)											//spawn a mob from list of mobs onto second tile.
+					if(type == /mob/living/simple_animal/hostile/siren/nemesis)
+						log_and_message_admins("Nemesis Assault Strider Selected. Spawning at: [jumplink(spawnloc)]")	//BOSS MOB CHOSEN. BEWARE
+						sleep(19 SECONDS)	//just in case the sound bite from the siren isn't finished yet
+						command_announcement.Announce("WARNING: CLASS VII ENERGY SIGNAL BYPASSING SHIELDS. EXERCISE EXTREME CAUTION.", "Anomaly Alert", new_sound = 'zzzz_modular_occulus/sound/effects/IT_arrives.wav')	//warning
+						new /obj/effect/temp_visual/nemesis_charge(spawnloc)		//creates a charge visual for it's entry point.
+						coolentry(spawnloc)
+						sleep(2 SECONDS)											//allows the crew to react to said entry
+						do_sparks(3,0,spawnloc)										//creates sparks on second slected tile,
+						new type(spawnloc)											//spawn a mob from list of mobs onto second tile.
+					else
+						do_sparks(3,0,spawnloc)										//creates sparks on second slected tile,
+						new type(spawnloc)											//spawn a mob from list of mobs onto second tile.
 				else
 					attempts--														//reduce attempts number by 1 due to proximity of spawn
 
@@ -128,3 +139,10 @@
 
 /datum/event/siren_scan/end()
 	used_candidates = list()
+
+/datum/event/siren_scan/proc/coolentry(var/location)
+	var/entryspot = location
+	var/entryarea = get_area(entryspot)
+
+	for(var/obj/machinery/power/apc/apc in entryarea)
+		apc.overload_lighting()

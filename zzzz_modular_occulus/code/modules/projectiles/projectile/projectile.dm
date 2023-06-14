@@ -36,7 +36,7 @@
 	name = "energy beam"
 	icon_state = "laser"
 	agony = 0
-	damage_types = list(BURN = 5)
+	damage_types = list(BURN = 7)
 	muzzle_type = /obj/effect/projectile/laser/muzzle
 	tracer_type = /obj/effect/projectile/laser/tracer
 	impact_type = /obj/effect/projectile/laser/impact

@@ -24,6 +24,8 @@
 	var/constructing = 0
 	var/atom/tele_target
 	var/structure_capacity = 6
+	sirenspeechlist = list("weər ɑː juː ˈhaɪdɪŋ…?", "juː ɑː tuː jʌŋ tuː biː hɪə.")
+
 	var/loot_table = list(/obj/spawner/material/building,
 						/obj/spawner/tool_upgrade/rare,
 						/obj/spawner/material/resources/rare)

@@ -30,6 +30,7 @@
 	var/sounddelay = 0
 	var/emp_range = 5
 	var/distress_level = 0
+	sirenspeechlist = list("məʊts duː nɒt bɪˈlɒŋ ɪn ðə lɒŋ dɑːk.", "steər æt miː mʌʧ ˈlɒŋɡər ænd aɪl duː mɔː ðɛn steə bæk", "ðə lɒŋ dɑːk dʌz nɒt ˈɔːlweɪz laɪk ɔːl ˈtɛnənts. ɪt wɪl rɪˈtælɪeɪt ɪn wɒtˈɛvə weɪ ɪt kæn.")
 
 /mob/living/simple_animal/hostile/siren/replicant/New()
 	..()
@@ -134,7 +135,7 @@
 	melee_damage_upper = 18
 	attacktext = "slices"
 	environment_smash = 4
-	agony_coefficient = 0.8 //Hard to shoot whip-like tendrils effectively
+	agony_coefficient = 0.6 //Hard to shoot whip-like tendrils effectively
 
 /mob/living/simple_animal/hostile/siren/replicanttendril/New()
 	..()

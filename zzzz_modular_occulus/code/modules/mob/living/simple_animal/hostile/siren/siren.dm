@@ -7,7 +7,7 @@
 	var/retreat_distance = null //If our mob runs from players when they're too close, set in tile distance. By default, mobs do not retreat.
 	var/search_objects = 0 //If we want to consider objects when searching around, set this to 1. If you want to search for objects while also ignoring mobs until hurt, set it to 2. To completely ignore mobs, even when attacked, set it to 3
 	var/ranged_cooldown_time = 15 SECONDS
-	var/retarget_cooldown_time = 5 SECONDS
+	var/retarget_cooldown_time = 10 SECONDS
 	var/retarget_time
 //Proper Siren mob data stuff and things
 
@@ -46,10 +46,11 @@
 	var/list/current_targets = list()
 	var/mob_inaccuracy = 0		//percent chance for a ranged mob's shot to go wide.
 	var/shot_variance = 0		//degree of shot widening.
+	var/list/sirenspeechlist = list()
 
 /mob/living/simple_animal/hostile/siren/Life()	//This shall be our AI holy grail.
 	. = ..()
-	/* Commented out AI life code from hostile. Need as reference while coding.
+	/* For Reference only. Exists in parent hostile mob.
 	if(!stasis && !AI_inactive)
 		if(!.)
 			walk(src, 0)
@@ -71,7 +72,7 @@
 					if(destroy_surroundings)
 						DestroySurroundings()
 					AttackTarget()
-					*/
+					*/ //For Reference only. Exists in parent hostile mob.
 
 	for(var/mob/living/simple_animal/hostile/siren/augmentor/A in view(src, 3))
 		if(health <= 0)
@@ -83,10 +84,10 @@
 
 ////// TARGETTING AND ATTACK CODE BELOW//////
 
-/mob/living/simple_animal/hostile/siren/FindTarget()// Step I: Find our possible targets
+/mob/living/simple_animal/hostile/siren/FindTarget()// Find our possible targets
 	var/list/new_targets = (ListTargets(vision_range)-src)	//get targets in vision range
 	for(var/atom/target in new_targets)
-		possible_targets |= target
+		possible_targets |= target	//add targets in vision range-self to possible target list.
 
 
 	for(var/pos_targ in possible_targets)
@@ -97,24 +98,56 @@
 		if(A == src)
 			continue
 
-		if(CanAttack(A))	//
-			if(A in current_targets)
-				deltimer(current_targets[A])
-			current_targets[A] = addtimer(CALLBACK(src, .proc/ForgetTarget, A), 20 SECONDS)
+		if(CanAttack(A))	//checks if possible targets can actually be attacked
+			current_targets[A] = addtimer(CALLBACK(src, .proc/ForgetTarget, A), 20 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE)	//Adds timer to forget target, if not in view for 20 seconds
 			continue
 		else
-			possible_targets -= target
+			possible_targets -= A	//clear possible target list of targets that can not be attacked.
 			continue
 	var/Target = PickTarget(current_targets)	//selects
 	GiveTarget(Target)
 	return Target //We now have a target
 
-/mob/living/simple_animal/hostile/siren/proc/ForgetTarget(atom/T)
-	current_targets -= T
-	if(T == src.target_mob)
-		LoseTarget()
 
-/mob/living/simple_animal/hostile/siren/ListTargets(var/dist = 7)	//Step II: creates list of targets in hearing distance
+/mob/living/simple_animal/hostile/siren/MoveToTarget()		//Custom pathing! attemptto maintain distance if ranged,
+	stop_automated_movement = TRUE
+	if(!target_mob || SA_attackable(target_mob))
+		stance = HOSTILE_STANCE_IDLE
+	if(world.time >= retarget_time)	//Retargetting code. Allows siren mobs to target closest mobs every 10 seconds.
+		possible_targets = ListTargets(vision_range)
+		src.FindTarget()
+		retarget_time = world.time + retarget_cooldown_time
+
+	if(target_mob in ListTargets(10))
+		var/target_distance = get_dist(src,target_mob)
+		if(ranged && target_distance >= 1 && world.time >= ranged_cooldown)//We ranged? Shoot at em. Make sure they're a tile away at least, and our range attack is off cooldown
+			OpenFire(target_mob)
+			ranged_cooldown = world.time + ranged_cooldown_time
+
+		if(isturf(loc) && target_mob.Adjacent(src))	//If they're next to us, attack
+			AttackingTarget()
+
+		if(retreat_distance && target_distance <= retreat_distance) //If we have a retreat distance, check if we need to run from our target
+			walk_away(src, target_mob, retreat_distance, move_to_delay)
+		else
+			walk_to(src, target_mob, minimum_distance, move_to_delay)//Otherwise, get to our minimum distance so we chase them
+		return
+	if(environment_smash)
+		if(target_mob != null)
+			if(target_mob.loc != null && get_dist(src, target_mob.loc) <= vision_range) //We can't see our target, but he's in our vision range still
+				if(ranged_ignores_vision && ranged_cooldown <= world.time) //we can't see our target... but we can fire at them!
+					OpenFire(target_mob)
+				if((environment_smash & ENVIRONMENT_SMASH_WALLS) || (environment_smash & ENVIRONMENT_SMASH_RWALLS)) //If we're capable of smashing through walls, forget about vision completely after finding our target
+					walk_to(src, target_mob, minimum_distance,  move_to_delay)
+					FindHidden()
+					return 1
+				else
+					if(FindHidden())
+						return 1
+	return 0
+
+
+/mob/living/simple_animal/hostile/siren/ListTargets(var/dist = 7)	//creates list of targets in hearing distance
 	var/list/L = (hearers(src) - src)
 
 	for (var/mob/living/exosuit/M in GLOB.mechas_list)
@@ -122,6 +155,43 @@
 			L += M
 
 	return L
+
+/mob/living/simple_animal/hostile/siren/proc/CanAttack(atom/target)//Can we actually attack a possible target?
+	var/mob/living/the_target = target
+	if(isturf(the_target) || !the_target) // bail out on invalids
+		return FALSE
+
+	if(see_invisible < the_target.invisibility)//Target's invisible to us, forget it
+		return FALSE
+
+	if(the_target.stat >= 1)	//Do not attack unconscious people
+		return FALSE
+
+	if(isliving(the_target))	//Do attack living only.
+		var/mob/living/L = the_target
+		if(L.faction == src.faction)
+			return FALSE
+		else
+			return TRUE
+
+	if(isobj(the_target))		//Do attack objects!
+		if(attack_all_objects)
+			return TRUE
+
+	else
+		return FALSE
+
+/mob/living/simple_animal/hostile/siren/proc/ForgetTarget(atom/T)
+	current_targets -= T	//removes target mob from current_targets list
+	if(T == src.target_mob)	//if mob is currently the immediate target, lose target
+		LoseTarget()
+
+/mob/living/simple_animal/hostile/siren/LoseTarget()
+	stance = HOSTILE_STANCE_IDLE	//set stance to idle. Must retarget again.
+	message_admins("loseTarget")
+	target_mob = null				//set current targeted mob to null.
+	walk(src, 0)
+
 
 
 /mob/living/simple_animal/hostile/siren/proc/PickTarget(list/Targets)	//Step III, pick amongst the possible, attackable targets
@@ -133,7 +203,9 @@
 			var/possible_target_distance = get_dist(target_from, A)
 			if(target_dist < possible_target_distance)
 				Targets -= A
-
+	if(prob(5))
+		var/sirenwords = safepick(sirenspeechlist)
+		say("[sirenwords]")
 	if(isemptylist(Targets))
 		return
 	var/chosen_target = safepick(Targets)//Pick the remaining targets (if any) at random
@@ -147,16 +219,16 @@
 	vision_range = aggro_vision_range
 	stance = HOSTILE_STANCE_ATTACK
 
+
+
 /mob/living/simple_animal/hostile/siren/AttackingTarget()
 	if(!Adjacent(target_mob))
 		return
-	if(!target_mob.stat)
-		current_targets -= target_mob
-		FindTarget()
-		return
+
 	if(!isliving(target_mob))
 		current_targets -= target_mob
 		FindTarget()
+		message_admins("!isliving")
 		return
 
 	if(isliving(target_mob))
@@ -181,6 +253,7 @@
 	if(!isliving(A))			//If is not living, do not shoot.
 		current_targets -= target_mob	//remove target from current list
 		FindTarget()					//find new target
+		message_admins("!isliving")
 		return
 
 	visible_message("\red <b>[src]</b> [fire_verb] at [A]!", 1)
@@ -256,32 +329,6 @@
 				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 
 
-/mob/living/simple_animal/hostile/siren/proc/CanAttack(atom/target)//Can we actually attack a possible target?
-	var/mob/living/the_target = target
-	if(isturf(the_target) || !the_target) // bail out on invalids
-		return FALSE
-
-	if(see_invisible < the_target.invisibility)//Target's invisible to us, forget it
-		return FALSE
-
-	if(the_target.stat >= 1)	//Do not attack unconscious people
-		return FALSE
-
-	if(isliving(the_target))	//Do attack living only.
-		var/mob/living/L = the_target
-		if(L.faction == src.faction)
-			return FALSE
-		else
-			return TRUE
-
-	if(isobj(the_target))		//Do attack objects!
-		if(attack_all_objects)
-			return TRUE
-
-	else
-		return FALSE
-
-
 /mob/living/simple_animal/hostile/siren/death()
 	..()
 	shieldcharge = 0
@@ -293,43 +340,6 @@
 	cut_overlays()
 	if(shieldcharge >= 1)
 		add_overlay("shield")
-
-/mob/living/simple_animal/hostile/siren/MoveToTarget()		//Custom pathing! attemptto maintain distance if ranged,
-	stop_automated_movement = TRUE
-	if(!target_mob || SA_attackable(target_mob))
-		stance = HOSTILE_STANCE_IDLE
-	if(world.time >= retarget_time)	//Retargetting code. Allows siren mobs to target closest mobs every 10 seconds.
-		possible_targets = ListTargets(vision_range)
-		src.FindTarget()
-		retarget_time = world.time + retarget_cooldown_time
-
-	if(target_mob in ListTargets(10))
-		var/target_distance = get_dist(src,target_mob)
-		if(ranged && target_distance >= 1 && world.time >= ranged_cooldown)//We ranged? Shoot at em. Make sure they're a tile away at least, and our range attack is off cooldown
-			OpenFire(target_mob)
-			ranged_cooldown = world.time + ranged_cooldown_time
-
-		if(isturf(loc) && target_mob.Adjacent(src))	//If they're next to us, attack
-			AttackingTarget()
-
-		if(retreat_distance && target_distance <= retreat_distance) //If we have a retreat distance, check if we need to run from our target
-			walk_away(src, target_mob, retreat_distance, move_to_delay)
-		else
-			walk_to(src, target_mob, minimum_distance, move_to_delay)//Otherwise, get to our minimum distance so we chase them
-		return
-	if(environment_smash)
-		if(target_mob != null)
-			if(target_mob.loc != null && get_dist(src, target.loc) <= vision_range) //We can't see our target, but he's in our vision range still
-				if(ranged_ignores_vision && ranged_cooldown <= world.time) //we can't see our target... but we can fire at them!
-					OpenFire(target)
-				if((environment_smash & ENVIRONMENT_SMASH_WALLS) || (environment_smash & ENVIRONMENT_SMASH_RWALLS)) //If we're capable of smashing through walls, forget about vision completely after finding our target
-					walk_to(src, target_mob, minimum_distance,  move_to_delay)
-					FindHidden()
-					return 1
-				else
-					if(FindHidden())
-						return 1
-	return 0
 
 /mob/living/simple_animal/hostile/siren/proc/FindHidden()
 	if(istype(target.loc, /obj/structure/closet) || istype(target.loc, /obj/machinery/disposal) || istype(target.loc, /obj/machinery/sleeper))
@@ -393,3 +403,6 @@
 			current_y_step += y_distance_sign
 			line += locate(current_x_step, current_y_step, starting_z)
 	return line
+
+/mob/living/simple_animal/hostile/siren/proc/normallight()
+	set_light(3, 3, "#007fff")
