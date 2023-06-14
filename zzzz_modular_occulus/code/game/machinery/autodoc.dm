@@ -161,6 +161,10 @@
 		icon_state = "active"
 
 /obj/machinery/autodoc/portable
+	name = "portadoc"
+	icon = 'zzzz_modular_occulus/icons/obj/portadoc.dmi'
+	desc = "An extended portable autodoc, secured to the ground by bolts."
+	var/item_form_type = /obj/item/device/defib_kit/loaded/portadoc
 
 /obj/machinery/autodoc/portable/New()
 	. = ..()
@@ -181,3 +185,37 @@
 		update_use_power(2)
 		L.set_machine(src)
 	update_icon()
+
+obj/machinery/autodoc/portable/attackby(obj/item/I, mob/user)
+	if(QUALITY_BOLT_TURNING in I.tool_qualities)
+		to_chat(user, SPAN_NOTICE("You start unsecuring the \the [src]."))
+		if(I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_BOLT_TURNING, FAILCHANCE_EASY,  required_stat = STAT_MEC))
+			to_chat(user, SPAN_NOTICE("You unsecure and retract the \the [src]!"))
+			new item_form_type(get_turf(src))
+			qdel(src)
+
+/obj/item/device/defib_kit/loaded/portadoc
+	name = "portadoc"
+	desc = "A bulky device that can be extended and bolted down to automatically preform surgery. While undeployed, it can also act as a field defibrillator."
+	icon = 'zzzz_modular_occulus/icons/obj/portadoc.dmi'
+	w_class = ITEM_SIZE_HUGE
+	icon_state = "defibunit"
+	item_state = "defibunit"
+	var/deploy_path = /obj/machinery/autodoc/portable
+	item_icons = list(
+		slot_l_hand_str = 'zzzz_modular_occulus/icons/obj/portadoc.dmi',
+		slot_r_hand_str = 'zzzz_modular_occulus/icons/obj/portadoc.dmi',
+		slot_back_str = 'zzzz_modular_occulus/icons/obj/portadoc.dmi'
+		)
+
+/obj/item/device/defib_kit/loaded/portadoc/attack_self(mob/user)
+	if(!deploy_path)
+		return
+	playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
+	to_chat(user, SPAN_NOTICE("You start extending the \the [src]."))
+	if(do_after(user, 30))
+		to_chat(user, SPAN_NOTICE("You extend and secure the \the [src]!"))
+		var/obj/machinery/autodoc/portable/R = new deploy_path(user.loc)
+		src.transfer_fingerprints_to(R)
+		R.add_fingerprint(user)
+		qdel(src)
