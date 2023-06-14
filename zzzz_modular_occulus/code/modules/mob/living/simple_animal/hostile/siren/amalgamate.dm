@@ -26,6 +26,10 @@
 	var/list/soundlist = list('zzzz_modular_occulus/sound/effects/solonely.wav', 'zzzz_modular_occulus/sound/effects/whispers.wav', 'zzzz_modular_occulus/sound/effects/malecrying.wav')
 	var/mob/living/Victim = null // the person the slime is currently feeding on
 
+/mob/living/simple_animal/hostile/siren/amalgamate/Life()	//This shall be our AI holy grail.
+	. = ..()
+	UpdateFeed(Victim)
+
 /mob/living/simple_animal/hostile/siren/amalgamate/AttackingTarget()
 	if(!Adjacent(target_mob))
 		return
@@ -56,6 +60,10 @@
 	update_total()
 */
 /mob/living/simple_animal/hostile/siren/amalgamate/proc/Shortcircuit()
+
+
+/mob/living/simple_animal/hostile/siren/amalgamate/emp_act(severity)
+	Feedstop()
 
 
 /mob/living/simple_animal/hostile/siren/amalgamate/proc/Feedon(var/mob/living/M)
