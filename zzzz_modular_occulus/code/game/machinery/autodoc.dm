@@ -196,7 +196,7 @@ obj/machinery/autodoc/portable/attackby(obj/item/I, mob/user)
 
 /obj/item/device/defib_kit/loaded/portadoc
 	name = "portadoc"
-	desc = "A bulky device that can be extended and bolted down to automatically preform surgery. While undeployed, it can also act as a field defibrillator."
+	desc = "A bulky device that can be extended and bolted down to automatically preform surgery. While undeployed, it can also act as a field defibrillator. Activate in hand to use."
 	icon = 'zzzz_modular_occulus/icons/obj/portadoc.dmi'
 	w_class = ITEM_SIZE_HUGE
 	icon_state = "defibunit"
