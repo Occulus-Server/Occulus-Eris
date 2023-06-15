@@ -407,7 +407,10 @@
 					/obj/item/reagent_containers/food/drinks/bottle/ntcahors = 20,
 					/obj/item/clothing/accessory/job/cape/church/small = 5, 
 					/obj/item/clothing/accessory/job/cape/church/small/red = 5,
-					/obj/item/clothing/accessory/job/cape/church/small/white = 5)
+					/obj/item/clothing/accessory/job/cape/church/small/white = 5,
+					/obj/item/clothing/accessory/holster/sword = 5,
+					/obj/item/storage/sheath = 5
+					)
 	premium = list(
 					/obj/item/storage/belt/utility/neotheology = 3,
 					/obj/item/storage/belt/tactical/neotheology = 3)
@@ -419,7 +422,9 @@
 					/obj/item/storage/belt/tactical/neotheology = 150,
 					/obj/item/clothing/accessory/job/cape/church/small = 150, 
 					/obj/item/clothing/accessory/job/cape/church/small/red = 150,
-					/obj/item/clothing/accessory/job/cape/church/small/white = 150
+					/obj/item/clothing/accessory/job/cape/church/small/white = 150,
+					/obj/item/clothing/accessory/holster/sword = 150,
+					/obj/item/storage/sheath = 150
 					)
 // rogues Added Vendors
 /obj/machinery/vending/Merc_clothing_vendor
