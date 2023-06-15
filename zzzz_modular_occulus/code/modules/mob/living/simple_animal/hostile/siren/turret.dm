@@ -1,4 +1,4 @@
-	////Jungle Seedling////
+	////Siren Turret////
 
 #define SEEDLING_STATE_NEUTRAL 0
 #define SEEDLING_STATE_WARMUP 1
@@ -36,84 +36,6 @@
 	var/mob/living/beam_debuff_target
 	var/solar_beam_identifier = 0
 
-/obj/item/projectile/seedling
-	name = "solar energy"
-	icon_state = "seedling"
-	damage = 10
-	damage_type = BURN
-	light_range = 2
-	flag = "energy"
-	light_color = LIGHT_COLOR_YELLOW
-	hitsound = 'sound/weapons/sear.ogg'
-	hitsound_wall = 'sound/weapons/effects/searwall.ogg'
-	nondirectional_sprite = TRUE
-
-/obj/item/projectile/seedling/Collide(atom/A)//Stops seedlings from destroying other jungle mobs through FF
-	if(isliving(A))
-		var/mob/living/L = A
-		if("jungle" in L.faction)
-			return FALSE
-	return ..()
-
-/obj/effect/temp_visual/solarbeam_killsat
-	name = "beam of solar energy"
-	icon_state = "solar_beam"
-	icon = 'icons/effects/beam.dmi'
-	layer = LIGHTING_LAYER
-	duration = 5
-	randomdir = FALSE
-
-/datum/status_effect/seedling_beam_indicator
-	id = "seedling beam indicator"
-	duration = 30
-	status_type = STATUS_EFFECT_MULTIPLE
-	alert_type = null
-	tick_interval = 1
-	var/obj/screen/seedling/seedling_screen_object
-	var/atom/target
-
-
-/datum/status_effect/seedling_beam_indicator/on_creation(mob/living/new_owner, target_plant)
-	. = ..()
-	if(.)
-		target = target_plant
-		tick()
-
-/datum/status_effect/seedling_beam_indicator/on_apply()
-	if(owner.client)
-		seedling_screen_object = new /obj/screen/seedling()
-		owner.client.screen += seedling_screen_object
-	tick()
-	return ..()
-
-/datum/status_effect/seedling_beam_indicator/Destroy()
-	if(owner)
-		if(owner.client)
-			owner.client.screen -= seedling_screen_object
-	return ..()
-
-/datum/status_effect/seedling_beam_indicator/tick()
-	var/target_angle = Get_Angle(owner, target)
-	var/matrix/final = matrix()
-	final.Turn(target_angle)
-	seedling_screen_object.transform = final
-
-/obj/screen/seedling
-	icon = 'icons/mob/jungle/arachnid.dmi'
-	icon_state = "seedling_beam_indicator"
-	screen_loc = "CENTER:-16,CENTER:-16"
-
-/mob/living/simple_animal/hostile/jungle/seedling/Goto()
-	if(combatant_state != SEEDLING_STATE_NEUTRAL)
-		return
-	return ..()
-
-/mob/living/simple_animal/hostile/jungle/seedling/AttackingTarget()
-	if(isliving(target))
-		if(ranged_cooldown <= world.time && combatant_state == SEEDLING_STATE_NEUTRAL)
-			OpenFire(target)
-		return
-	return ..()
 
 /mob/living/simple_animal/hostile/jungle/seedling/OpenFire()
 	WarmupAttack()

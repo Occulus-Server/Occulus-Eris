@@ -40,3 +40,24 @@
 	muzzle_type = /obj/effect/projectile/laser/muzzle
 	tracer_type = /obj/effect/projectile/laser/tracer
 	impact_type = /obj/effect/projectile/laser/impact
+
+/obj/item/projectile/oracle
+	name = "strange energy"
+	icon_state = "energy2"
+	damage_types = list(BRUTE = 10)
+
+/obj/item/projectile/oracle/on_hit(atom/target)
+	target.reagents.add_reagent("liquid_bluespace", 15)
+	to_chat(target, SPAN_DANGER("You feel like your're being compressed and pulled apart at the same time."))
+	return TRUE
+
+/obj/item/projectile/beam/sniper/siren
+	name = "high energy beam"
+	icon_state = "xray"
+	damage_types = list(BURN = 45)
+	armor_penetration = 50
+	stutter = 3
+
+	muzzle_type = /obj/effect/projectile/xray/muzzle
+	tracer_type = /obj/effect/projectile/xray/tracer
+	impact_type = /obj/effect/projectile/xray/impact
