@@ -49904,7 +49904,7 @@
 "coI" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
-	id_tag = "first_sec_1_airlock_sensor_internal";
+	id_tag = "first_sec_1_airlock_sensor";
 	name = "Internal First Section Airlock Sensor - 1";
 	pixel_x = -5;
 	pixel_y = -27
@@ -84912,7 +84912,7 @@
 "dVs" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
-	id_tag = "second_sec_1_airlock_sensor_internal";
+	id_tag = "second_sec_1_airlock_sensor";
 	name = "Internal Second Section Airlock Sensor - 1";
 	pixel_x = -5;
 	pixel_y = -27
@@ -104065,6 +104065,13 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/office)
+"jjZ" = (
+/obj/structure/railing/grey,
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/turf/space,
+/area/space)
 "jmk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
@@ -106675,6 +106682,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/genetics_cloning)
+"mMb" = (
+/obj/effect/shuttle_landmark/merc/sec2west,
+/turf/space,
+/area/space)
 "mNa" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -109734,6 +109745,13 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section4deck4port)
 "qDV" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "first_sec_1_airlock_sensor_internal";
+	name = "Internal First Section Airlock Sensor - 1";
+	pixel_x = -5;
+	pixel_y = -27
+	},
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/crew_quarters/sleep)
@@ -110601,6 +110619,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/chemistry)
+"rSN" = (
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/obj/structure/railing/grey,
+/turf/space,
+/area/space)
 "rTw" = (
 /obj/structure/railing/grey{
 	dir = 1
@@ -113074,10 +113099,6 @@
 "vhV" = (
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/chapel)
-"vil" = (
-/obj/effect/shuttle_landmark/merc/sec2west,
-/turf/space,
-/area/space)
 "vjd" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet,
@@ -123301,7 +123322,7 @@ aaa
 aaa
 aaa
 aaa
-vil
+mMb
 aaa
 aaa
 aaa
@@ -167140,10 +167161,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-cei
+cLf
+cLf
+cLf
+jjZ
 acR
 csS
 rzU
@@ -167341,11 +167362,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
 cei
+acR
+acR
+acR
+acR
 acR
 csS
 cvH
@@ -167541,14 +167562,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-cei
+cLf
+cLf
+rSN
 acR
+abF
+abF
+abF
+abF
 csS
 mZS
 xlB
@@ -167742,15 +167763,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 cei
 acR
+acR
+acR
+acR
+abF
+abF
+abF
+abF
 csS
 cvH
 tfd
@@ -167944,15 +167965,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 cei
 acR
+abF
+abF
+abF
+abF
+abF
+abF
+abF
 xFf
 cvH
 nlp
@@ -168146,15 +168167,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 cei
 acR
+abF
+abF
+abF
+abF
+abF
+abF
+abF
 csS
 lZl
 nsy
@@ -168348,15 +168369,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-cLf
-cLf
-cLf
-cLf
-cLf
-cLf
 cei
 acR
+abF
+abF
+abF
+abF
+abF
+abF
+abF
 csS
 tUP
 xlB
@@ -168552,13 +168573,13 @@ aaa
 aaa
 cei
 acR
-acR
-acR
-acR
-acR
-acR
-acR
-acR
+abF
+abF
+abF
+abF
+abF
+abF
+abF
 agD
 bbA
 bce
