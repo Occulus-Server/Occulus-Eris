@@ -253,7 +253,7 @@
 	landmark_tag = "nav_merc_atmos"
 
 /obj/effect/shuttle_landmark/merc/sec2west
-	name = "Section II Deck 1 West"
+	name = "Primary Docking Section I"
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_merc_sec2west"
 

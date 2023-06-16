@@ -3446,6 +3446,10 @@
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "aiD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/crew_quarters/sleep)
 "aiE" = (
@@ -4879,11 +4883,11 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/crew_quarters/sleep)
@@ -49897,6 +49901,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patient_wing)
+"coI" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "first_sec_1_airlock_sensor";
+	name = "Internal First Section Airlock Sensor - 1";
+	pixel_x = -5;
+	pixel_y = -27
+	},
+/obj/machinery/camera/network/fist_section{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel/techfloor_grid,
+/area/eris/crew_quarters/sleep)
 "coK" = (
 /obj/structure/bed/chair/office/dark,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -51676,6 +51693,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/chapel)
+"ctd" = (
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/crew_quarters/sleep)
 "cte" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/railing{
@@ -75383,13 +75404,13 @@
 	dir = 6
 	},
 /obj/item/clothing/suit/armor/vest/full/blueshield{
-	pixel_y = -6;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -6
 	},
 /obj/item/clothing/suit/armor/vest/full/blueshield,
 /obj/item/clothing/suit/armor/vest/full/blueshield{
-	pixel_y = 10;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
@@ -75402,13 +75423,13 @@
 	},
 /obj/structure/table/rack,
 /obj/item/clothing/head/armor/faceshield/riot/blueshield{
-	pixel_y = -6;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = -6
 	},
 /obj/item/clothing/head/armor/faceshield/riot/blueshield,
 /obj/item/clothing/head/armor/faceshield/riot/blueshield{
-	pixel_y = 6;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
@@ -84891,7 +84912,7 @@
 "dVs" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
-	id_tag = "second_sec_1_airlock_sensor_internal";
+	id_tag = "second_sec_1_airlock_sensor";
 	name = "Internal Second Section Airlock Sensor - 1";
 	pixel_x = -5;
 	pixel_y = -27
@@ -100527,6 +100548,10 @@
 	},
 /turf/simulated/open,
 /area/eris/engineering/engine_room)
+"eJk" = (
+/obj/spawner/pack/machine,
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section1deck5central)
 "eJu" = (
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/right)
@@ -101261,6 +101286,13 @@
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
+"fos" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/camera/network/fist_section,
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "foB" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -101741,6 +101773,12 @@
 	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
+"gcg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "gcz" = (
 /obj/machinery/door/airlock{
 	name = "Laundry Room"
@@ -101811,6 +101849,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/occulus/medical/surgeryhall)
+"giL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "gjm" = (
 /obj/machinery/holomap{
 	pixel_y = 32
@@ -102241,6 +102283,10 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/main)
+"gMy" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "gNW" = (
 /obj/structure/table/standard,
 /obj/item/toy/plushie/braincell,
@@ -102550,6 +102596,12 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"hlA" = (
+/obj/machinery/camera/network/fist_section{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "hmj" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -102761,6 +102813,14 @@
 	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/occulus/medical/trauma)
+"hBJ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/steel/brown_platform,
+/area/eris/crew_quarters/sleep)
 "hBW" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/pack/tech_loot,
@@ -103976,6 +104036,13 @@
 	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/occulus/medical/equipment)
+"jiV" = (
+/obj/machinery/vending/cigarette,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "jjk" = (
 /obj/machinery/requests_console{
 	department = "Medical";
@@ -104107,6 +104174,10 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
+"juo" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/crew_quarters/sleep)
 "juB" = (
 /obj/structure/catwalk,
 /obj/structure/table/rack/shelf,
@@ -104115,6 +104186,12 @@
 /obj/spawner/medical_lowcost,
 /turf/simulated/open,
 /area/eris/quartermaster/storage)
+"jvv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "jvY" = (
 /obj/machinery/door/airlock{
 	name = "Club dormitories";
@@ -104169,6 +104246,12 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
+"jAo" = (
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "jAp" = (
 /obj/structure/railing{
 	dir = 4
@@ -104609,6 +104692,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patient_b)
+"kis" = (
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "kiv" = (
 /turf/simulated/open,
 /area/eris/maintenance/section2deck3port)
@@ -105000,6 +105087,15 @@
 /obj/item/stool/custom/bar_special,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/crew_quarters/bar)
+"kKp" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "kLq" = (
 /obj/structure/table/standard,
 /obj/item/anodevice,
@@ -105078,6 +105174,19 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section1deck4central)
+"kUO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	icon_state = "door_locked";
+	id_tag = "first_sec_1_airlock_door_int";
+	locked = 1;
+	name = "Internal First Section Airlock - 1"
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/crew_quarters/sleep)
 "kVc" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -105365,6 +105474,12 @@
 /obj/structure/lattice,
 /turf/space,
 /area/space)
+"lqz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "lqA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -105389,6 +105504,12 @@
 /obj/structure/lattice,
 /turf/simulated/floor/hull,
 /area/space)
+"lrX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "lrY" = (
 /obj/structure/railing{
 	dir = 4
@@ -105509,6 +105630,29 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
+"lCy" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1331;
+	id_tag = "first_sec_1_airlock_pump";
+	name = "Second Section Airlock Pump - 1"
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1331;
+	id_tag = "first_sec_1_access_console";
+	pixel_y = 30;
+	tag_airpump = "first_sec_1_airlock_pump";
+	tag_chamber_sensor = "first_sec_1_airlock_sensor";
+	tag_exterior_door = "first_sec_1_airlock_door_ext";
+	tag_exterior_sensor = "first_sec_1_airlock_sensor_external";
+	tag_interior_door = "first_sec_1_airlock_door_int";
+	tag_interior_sensor = "first_sec_1_airlock_sensor_internal"
+	},
+/turf/simulated/floor/tiled/steel/techfloor_grid,
+/area/eris/crew_quarters/sleep)
 "lCC" = (
 /obj/structure/railing/grey{
 	dir = 8
@@ -105849,9 +105993,12 @@
 /turf/simulated/floor/tiled/white/danger,
 /area/eris/rnd/anomal)
 "maO" = (
-/obj/effect/shuttle_landmark/merc/sec2west,
-/turf/space,
-/area/space)
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/spawner/pack/junk_machine,
+/turf/simulated/floor/plating/under,
+/area/eris/crew_quarters/sleep)
 "maQ" = (
 /obj/structure/railing{
 	dir = 1
@@ -105956,6 +106103,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/hallway/side/bridgehallway)
+"mhU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/techfloor_grid,
+/area/eris/crew_quarters/sleep)
 "mjg" = (
 /obj/structure/table/standard,
 /obj/spawner/lowkeyrandom/low_chance,
@@ -106391,6 +106544,12 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/occulus/medical/trauma)
+"mDU" = (
+/obj/structure/defibcabinet{
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "mEi" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -106886,6 +107045,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/occulus/medical/storage)
+"nib" = (
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/sign/atmos_air{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/crew_quarters/sleep)
 "niK" = (
 /obj/structure/closet/crate,
 /obj/spawner/pack/tech_loot,
@@ -107205,6 +107371,14 @@
 /obj/machinery/door/airlock/multi_tile/metal,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/crew_quarters/clothingstorage)
+"nCN" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 2;
+	name = "Dormitory"
+	},
+/turf/simulated/floor/plating,
+/area/eris/crew_quarters/sleep)
 "nDc" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -107509,6 +107683,10 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck3port)
+"nZz" = (
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating,
+/area/eris/crew_quarters/sleep)
 "nZA" = (
 /obj/machinery/vending/Hat_vendor,
 /turf/simulated/floor/tiled/steel/gray_perforated,
@@ -107746,6 +107924,12 @@
 	},
 /turf/simulated/floor/tiled/white/cargo,
 /area/occulus/medical/equipment)
+"omq" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/crew_quarters/sleep)
 "omG" = (
 /obj/machinery/atmospherics/portables_connector{
 	name = "Connector Port (Air Supply)"
@@ -108534,6 +108718,16 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/eris/maintenance/section2deck4port)
+"pjE" = (
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1331;
+	master_tag = "first_sec_1_access_console";
+	name = "First Section Internal Access Button - 1";
+	pixel_y = -25
+	},
+/turf/simulated/floor/tiled/steel/techfloor_grid,
+/area/eris/crew_quarters/sleep)
 "pkq" = (
 /obj/structure/bed/chair/sofa/brown/left{
 	dir = 1
@@ -108794,6 +108988,8 @@
 /obj/machinery/camera/network/fist_section{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/crew_quarters/sleep)
 "pEH" = (
@@ -109537,6 +109733,17 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section4deck4port)
+"qDV" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "first_sec_1_airlock_sensor_internal";
+	name = "Internal First Section Airlock Sensor - 1";
+	pixel_x = -5;
+	pixel_y = -27
+	},
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "qEs" = (
 /obj/machinery/door/airlock/maintenance_common{
 	name = "Central Maintenance"
@@ -109687,6 +109894,13 @@
 /obj/structure/lattice,
 /turf/space,
 /area/space)
+"qPT" = (
+/obj/machinery/door/airlock{
+	name = "Auxiliary Closet"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/steel/brown_platform,
+/area/eris/crew_quarters/sleep)
 "qRa" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -110002,6 +110216,12 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck3port)
+"rrx" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "rrO" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -110069,6 +110289,10 @@
 /area/eris/crew_quarters/library{
 	name = "\improper Cafe"
 	})
+"ruk" = (
+/obj/spawner/pack/junk_machine,
+/turf/simulated/floor/plating/under,
+/area/eris/crew_quarters/sleep)
 "ruq" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
@@ -110132,6 +110356,15 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck1port)
+"rAN" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "rDb" = (
 /obj/machinery/door/airlock/mining{
 	name = "Cargo Recreation";
@@ -110260,6 +110493,10 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/occulus/medical/cryo)
+"rMb" = (
+/obj/effect/shuttle_landmark/merc/sec2west,
+/turf/space,
+/area/space)
 "rMs" = (
 /obj/structure/table/woodentable,
 /obj/spawner/rations,
@@ -110358,6 +110595,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/occulus/medical/equipment)
+"rRS" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	icon_state = "door_locked";
+	id_tag = "first_sec_1_airlock_door_int";
+	locked = 1;
+	name = "Internal First Section Airlock - 1"
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/crew_quarters/sleep)
 "rSs" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -110512,6 +110759,13 @@
 	},
 /turf/simulated/open,
 /area/eris/quartermaster/storage)
+"sib" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/machinery/camera/network/fist_section,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "sim" = (
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/hull,
@@ -110651,6 +110905,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
+"ssC" = (
+/obj/structure/railing/grey,
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/turf/space,
+/area/space)
 "ssJ" = (
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/elevator)
@@ -111097,6 +111358,15 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/misc)
+"sVn" = (
+/obj/machinery/alarm{
+	pixel_y = 26
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "sVD" = (
 /obj/spawner/scrap/sparse,
 /turf/simulated/floor/plating/under,
@@ -111509,6 +111779,24 @@
 	},
 /turf/simulated/floor/carpet/purcarpet,
 /area/eris/command/meo)
+"tru" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1331;
+	master_tag = "first_sec_1_access_console";
+	name = "Second Section External Access Button - 1";
+	pixel_y = -25
+	},
+/obj/machinery/shield_diffuser,
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	icon_state = "door_locked";
+	id_tag = "first_sec_1_airlock_door_ext";
+	locked = 1;
+	name = "External First Section Airlock - 1"
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/crew_quarters/sleep)
 "tsa" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/tool/advanced,
@@ -111692,6 +111980,12 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/rnd/anomal)
+"tBy" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "tCd" = (
 /obj/structure/table/glass,
 /obj/item/reagent_containers/spray/cleaner,
@@ -111712,6 +112006,10 @@
 /obj/structure/table/standard,
 /turf/simulated/open,
 /area/eris/quartermaster/storage)
+"tFv" = (
+/obj/spawner/pack/machine,
+/turf/simulated/floor/plating/under,
+/area/eris/crew_quarters/sleep)
 "tFE" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -112018,6 +112316,14 @@
 /obj/spawner/booze/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/main)
+"ueu" = (
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -28
+	},
+/obj/machinery/vending/weapon_machine,
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "ueE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/techmaint,
@@ -112256,6 +112562,13 @@
 /obj/spawner/pack/cloth,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/quartermaster/storage)
+"urw" = (
+/obj/item/device/radio/intercom{
+	dir = 1;
+	pixel_y = -22
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "usi" = (
 /turf/simulated/wall/r_wall,
 /area/occulus/medical/storage)
@@ -113979,6 +114292,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/hallway/main/section2)
+"xcW" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/crew_quarters/sleep)
 "xdz" = (
 /obj/structure/table/standard,
 /obj/machinery/reagentgrinder/portable,
@@ -114041,6 +114360,24 @@
 	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
+"xhH" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	icon_state = "door_locked";
+	id_tag = "first_sec_1_airlock_door_ext";
+	locked = 1;
+	name = "External First Section Airlock - 1"
+	},
+/obj/machinery/airlock_sensor/shuttle_exterior{
+	frequency = 1331;
+	id_tag = "first_sec_1_airlock_sensor_external";
+	name = "external first section dock sensor";
+	pixel_y = 24;
+	sensor_dir = 8
+	},
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/crew_quarters/sleep)
 "xhL" = (
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/white/brown_perforated,
@@ -114102,6 +114439,13 @@
 /obj/item/oddity/instructional/common/bio/aid,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/medical/medbreak)
+"xlb" = (
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/obj/structure/railing/grey,
+/turf/space,
+/area/space)
 "xld" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -114179,6 +114523,12 @@
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck1central)
+"xqc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/steel/brown_platform,
+/area/eris/crew_quarters/sleep)
 "xqd" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /obj/structure/catwalk,
@@ -114347,6 +114697,13 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4central)
+"xEF" = (
+/obj/machinery/door/airlock/maintenance_interior{
+	name = "Service Maintenance";
+	req_access = list(12)
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/crew_quarters/sleep)
 "xEN" = (
 /obj/item/stool,
 /obj/effect/decal/cleanable/dirt,
@@ -114511,6 +114868,10 @@
 	},
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/eris/security/checkpoint/medical)
+"xPi" = (
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/crew_quarters/sleep)
 "xPq" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
@@ -114628,6 +114989,19 @@
 "xXd" = (
 /turf/simulated/wall,
 /area/eris/maintenance/section3deck4central)
+"xXR" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
+"xZa" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/eris/crew_quarters/sleep)
 "xZv" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/cubancarp,
@@ -114734,6 +115108,15 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/eris/maintenance/section3deck2starboard)
+"yhX" = (
+/obj/machinery/holomap{
+	pixel_y = 32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep)
 "yjs" = (
 /obj/structure/railing/grey{
 	dir = 4
@@ -122737,7 +123120,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+rMb
 aaa
 aaa
 aaa
@@ -123362,7 +123745,7 @@ aaa
 aaa
 aaa
 aaa
-maO
+aaa
 aaa
 aaa
 aaa
@@ -124362,10 +124745,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+agD
+xhH
+tru
+agD
 aaa
 aaa
 aaa
@@ -124564,10 +124947,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+agD
+lCy
+coI
+agD
 aaa
 aaa
 aaa
@@ -124766,10 +125149,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+agD
+kUO
+rRS
+agD
 aaa
 aaa
 aaa
@@ -124967,12 +125350,12 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+agD
+agD
+mhU
+pjE
+agD
+agD
 aaa
 aaa
 aaa
@@ -125169,12 +125552,12 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+agD
+hlA
+lqz
+kis
+qDV
+agD
 aaa
 aaa
 aaa
@@ -125367,16 +125750,16 @@ aaa
 aaa
 aaa
 aaa
+aaM
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+nZz
+gMy
+lqz
+acf
+ueu
+agD
 dzi
 dzi
 dzi
@@ -125573,13 +125956,13 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-dzi
+nZz
+rAN
+lqz
+acf
+jiV
+agD
+eJk
 xLv
 akZ
 hGU
@@ -125775,12 +126158,12 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aae
+agD
+yhX
+mDU
+agD
+agD
 dzi
 uSN
 akZ
@@ -125978,11 +126361,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+agD
+lqz
+jAo
+agD
+aad
 dzi
 xLv
 akZ
@@ -126180,10 +126563,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+agf
+lqz
+acf
+agf
 aaa
 dzi
 xLv
@@ -126382,10 +126765,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+agf
+lqz
+acf
+agf
 aaa
 dzi
 xLv
@@ -126584,10 +126967,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+agf
+lqz
+acf
+agf
 aaa
 dzi
 hcY
@@ -126782,14 +127165,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+agD
+agD
+agD
+agD
+agD
+fos
+urw
+agD
 aaa
 dzi
 xLv
@@ -126984,15 +127367,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+agD
+omq
+nib
+xPi
+agY
+sVn
+acf
+agD
+aad
 dzi
 hcY
 akZ
@@ -127183,17 +127566,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaM
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+agD
+agD
+agD
+agD
+gcg
+ctd
+mUC
+agY
+kKp
+ali
+agD
 aaa
 dzi
 oOh
@@ -127385,17 +127768,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+agD
+maO
+ruk
+agY
+sib
+giL
+giL
+qPT
+lrX
+acf
+agD
 aaa
 dzi
 rWu
@@ -127587,17 +127970,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+agD
+bBK
+ahr
+xEF
+gcg
+juo
+xPi
+agY
+rrx
+xXR
+agD
 aaa
 dzi
 dzi
@@ -127608,7 +127991,7 @@ dzi
 dzi
 dzi
 aaa
-aaa
+aad
 aaa
 aaa
 aaa
@@ -127789,14 +128172,19 @@ aaa
 aaa
 aaa
 aaa
+agD
+ahr
+aib
+agY
+xcW
+juo
+tBy
+agY
+ajB
+jvv
+agD
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aad
 aaa
 aaa
 aaa
@@ -127805,12 +128193,7 @@ aad
 aaa
 aaa
 aaa
-aaa
 aad
-aaa
-aaa
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -127992,15 +128375,15 @@ aaa
 aaa
 aaa
 agD
+ahr
+agY
 agD
+agY
+agY
+agY
 agD
-agD
-agD
-agD
-agD
-agD
-agf
-agf
+xZa
+nCN
 agD
 agD
 agD
@@ -128012,7 +128395,7 @@ agD
 aaa
 aaa
 aaa
-aaa
+aad
 aaa
 aaa
 aaa
@@ -128199,10 +128582,10 @@ aeg
 aic
 ahZ
 alQ
-alv
+hBJ
 pEA
 aiD
-aiD
+xqc
 igS
 alv
 anj
@@ -128214,7 +128597,7 @@ agD
 aaa
 aaa
 aaa
-aaa
+aad
 aaa
 aaa
 aaa
@@ -128397,7 +128780,7 @@ aaa
 aaa
 agD
 agX
-aib
+agY
 agY
 ald
 wOc
@@ -128416,7 +128799,7 @@ agD
 aaa
 aaa
 aaa
-aaa
+aad
 aaa
 aaa
 aaa
@@ -128599,7 +128982,7 @@ aaa
 aaa
 agD
 ahr
-aib
+tFv
 ahH
 wHl
 wOc
@@ -128613,12 +128996,12 @@ alR
 wOc
 agY
 aib
-ahr
+bBK
 agD
 aaa
 aaa
 aaa
-aaa
+aad
 aaa
 aaa
 aaa
@@ -128800,8 +129183,8 @@ aaa
 aaa
 aaa
 agD
-ahr
-aib
+bBK
+ruk
 agY
 pMN
 wOc
@@ -129002,8 +129385,8 @@ aaa
 abF
 abF
 agD
-ahr
-aib
+bBK
+agY
 ahF
 wpU
 wOc
@@ -164562,8 +164945,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+cLf
+cLf
 aaa
 aaa
 aaa
@@ -164762,11 +165145,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+cei
+abF
+abF
+abF
+abF
 aaa
 aaa
 aaa
@@ -164964,12 +165347,12 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+cei
+abF
+abF
+abF
+abF
+sXO
 aaa
 aaa
 aaa
@@ -165166,11 +165549,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
 cLf
-cLf
-cLf
-cLf
+abF
+abF
+abF
+abF
 cLf
 cLf
 cLf
@@ -165367,13 +165750,13 @@ aaa
 aaa
 aaa
 aaa
-aaa
 cei
-acR
-acR
-acR
-acR
-acR
+abF
+abF
+abF
+abF
+abF
+abF
 acR
 acR
 acR
@@ -165570,8 +165953,8 @@ aaa
 aaa
 aaa
 cei
-acR
-acR
+abF
+abF
 csS
 csS
 csS
@@ -165772,7 +166155,7 @@ aaa
 aaa
 aaa
 cei
-acR
+abF
 csS
 csS
 fFc
@@ -165974,7 +166357,7 @@ aaa
 aaa
 aaa
 cei
-acR
+abF
 csS
 eLF
 eLF
@@ -166176,7 +166559,7 @@ aaa
 aaa
 aaa
 cei
-acR
+abF
 csS
 qEs
 csU
@@ -166778,10 +167161,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-cei
+cLf
+cLf
+cLf
+ssC
 acR
 csS
 rzU
@@ -166979,11 +167362,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
 cei
+acR
+acR
+acR
+acR
 acR
 csS
 cvH
@@ -167179,14 +167562,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-cei
+cLf
+cLf
+xlb
 acR
+abF
+abF
+abF
+abF
 csS
 mZS
 xlB
@@ -167380,15 +167763,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 cei
 acR
+acR
+acR
+acR
+abF
+abF
+abF
+abF
 csS
 cvH
 tfd
@@ -167582,15 +167965,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 cei
 acR
+abF
+abF
+abF
+abF
+abF
+abF
+abF
 xFf
 cvH
 nlp
@@ -167784,15 +168167,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 cei
 acR
+abF
+abF
+abF
+abF
+abF
+abF
+abF
 csS
 lZl
 nsy
@@ -167986,15 +168369,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-cLf
-cLf
-cLf
-cLf
-cLf
-cLf
 cei
 acR
+abF
+abF
+abF
+abF
+abF
+abF
+abF
 csS
 tUP
 xlB
@@ -168190,13 +168573,13 @@ aaa
 aaa
 cei
 acR
-acR
-acR
-acR
-acR
-acR
-acR
-acR
+abF
+abF
+abF
+abF
+abF
+abF
+abF
 agD
 bbA
 bce
