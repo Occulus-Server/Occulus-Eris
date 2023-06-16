@@ -11,6 +11,7 @@
 	move_to_delay = 5
 	vision_range = 5
 	aggro_vision_range = 11
+	agony_coefficient = 0.8
 	speed = 4
 	maxHealth = 80
 	health = 80

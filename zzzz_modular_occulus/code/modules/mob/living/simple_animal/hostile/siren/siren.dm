@@ -189,7 +189,6 @@
 
 /mob/living/simple_animal/hostile/siren/LoseTarget()
 	stance = HOSTILE_STANCE_IDLE	//set stance to idle. Must retarget again.
-	message_admins("loseTarget")
 	target_mob = null				//set current targeted mob to null.
 	walk(src, 0)
 
@@ -229,7 +228,6 @@
 	if(!isliving(target_mob))
 		current_targets -= target_mob
 		FindTarget()
-		message_admins("!isliving")
 		return
 
 	if(isliving(target_mob))
@@ -254,7 +252,6 @@
 	if(!isliving(A))			//If is not living, do not shoot.
 		current_targets -= target_mob	//remove target from current list
 		FindTarget()					//find new target
-		message_admins("!isliving")
 		return
 
 	visible_message("\red <b>[src]</b> [fire_verb] at [A]!", 1)

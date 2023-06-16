@@ -5,8 +5,7 @@
 #define SEEDLING_STATE_ACTIVE 2
 #define SEEDLING_STATE_RECOVERY 3
 
-
-/mob/living/simple_animal/hostile/jungle/seedling
+/mob/living/simple_animal/hostile/siren/turret
 	name = "seedling"
 	desc = "This oversized, predatory flower conceals what can only be described as an organic energy cannon, and it will not die until its hidden vital organs are sliced out. \
 	 The concentrated streams of energy it sometimes produces require its full attention, attacking it during this time will prevent it from finishing its attack."
@@ -14,14 +13,14 @@
 	health = 100
 	melee_damage_lower = 30
 	melee_damage_upper = 30
-	icon = 'icons/mob/jungle/arachnid.dmi'
+	icon = 'zzzz_modular_occulus/icons/mob/siren/general.dmi'
 	icon_state = "seedling"
 	icon_living = "seedling"
 	icon_dead = "seedling_dead"
 	pixel_x = -16
 	pixel_y = -14
 	minimum_distance = 3
-	move_to_delay = 20
+	move_to_delay = 60
 	vision_range = 9
 	aggro_vision_range = 15
 	ranged = TRUE
@@ -36,11 +35,16 @@
 	var/mob/living/beam_debuff_target
 	var/solar_beam_identifier = 0
 
+/mob/living/simple_animal/hostile/siren/turret/proc/scremicon()
+	if(icon_state == "sixleg")
+		icon_state = "sixleg-skrem"
+		sleep(16)
+		icon_state = "sixleg"
 
-/mob/living/simple_animal/hostile/jungle/seedling/OpenFire()
+/mob/living/simple_animal/hostile/siren/turret/OpenFire()
 	WarmupAttack()
 
-/mob/living/simple_animal/hostile/jungle/seedling/proc/WarmupAttack()
+/mob/living/simple_animal/hostile/siren/turret/proc/WarmupAttack()
 	if(combatant_state == SEEDLING_STATE_NEUTRAL)
 		combatant_state = SEEDLING_STATE_WARMUP
 		walk(src,0)
@@ -56,7 +60,7 @@
 				return
 		addtimer(CALLBACK(src, .proc/Volley), 5)
 
-/mob/living/simple_animal/hostile/jungle/seedling/proc/SolarBeamStartup(mob/living/living_target)//It's more like requiem than final spark
+/mob/living/simple_animal/hostile/siren/turret/proc/SolarBeamStartup(mob/living/living_target)//It's more like requiem than final spark
 	if(combatant_state == SEEDLING_STATE_WARMUP && target)
 		combatant_state = SEEDLING_STATE_ACTIVE
 		living_target.apply_status_effect(/datum/status_effect/seedling_beam_indicator, src)
@@ -67,7 +71,7 @@
 		solar_beam_identifier = world.time
 		addtimer(CALLBACK(src, .proc/Beamu, living_target, solar_beam_identifier), 35)
 
-/mob/living/simple_animal/hostile/jungle/seedling/proc/Beamu(mob/living/living_target, beam_id = 0)
+/mob/living/simple_animal/hostile/siren/turret/proc/Beamu(mob/living/living_target, beam_id = 0)
 	if(combatant_state == SEEDLING_STATE_ACTIVE && living_target && beam_id == solar_beam_identifier)
 		if(living_target.z == z)
 			update_icons()
@@ -89,7 +93,7 @@
 			return
 	AttackRecovery()
 
-/mob/living/simple_animal/hostile/jungle/seedling/proc/Volley()
+/mob/living/simple_animal/hostile/siren/turret/proc/Volley()
 	if(combatant_state == SEEDLING_STATE_WARMUP && target)
 		combatant_state = SEEDLING_STATE_ACTIVE
 		update_icons()
@@ -98,7 +102,7 @@
 			addtimer(cb, i)
 		addtimer(CALLBACK(src, .proc/AttackRecovery), 14)
 
-/mob/living/simple_animal/hostile/jungle/seedling/proc/InaccurateShot()
+/mob/living/simple_animal/hostile/siren/turret/proc/InaccurateShot()
 	if(!QDELETED(target) && combatant_state == SEEDLING_STATE_ACTIVE && !stat)
 		if(get_dist(src,target) <= 3)//If they're close enough just aim straight at them so we don't miss at point blank ranges
 			Shoot(target)

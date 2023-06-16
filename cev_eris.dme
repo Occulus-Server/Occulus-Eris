@@ -3115,6 +3115,7 @@
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\siren\oracle.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\siren\replicant.dm"
 #include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\siren\siren.dm"
+#include "zzzz_modular_occulus\code\modules\mob\living\simple_animal\hostile\siren\turret.dm"
 #include "zzzz_modular_occulus\code\modules\nano\modules\human_appearance.dm"
 #include "zzzz_modular_occulus\code\modules\organs\organ.dm"
 #include "zzzz_modular_occulus\code\modules\organs\external\subtypes\robotic.dm"

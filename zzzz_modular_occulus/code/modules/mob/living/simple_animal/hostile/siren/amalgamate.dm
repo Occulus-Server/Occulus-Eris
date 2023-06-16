@@ -10,21 +10,24 @@
 	mouse_opacity = 2
 	move_to_delay = 5
 	vision_range = 5
+	agony_coefficient = 0.3
 	aggro_vision_range = 11
 	retreat_distance = 0
 	minimum_distance = 0
 	speed = 4
 	maxHealth = 80
 	health = 80
-	harm_intent_damage = 25
-	melee_damage_lower = 20
-	melee_damage_upper = 30
+	harm_intent_damage = 15
+	melee_damage_lower = 5
+	melee_damage_upper = 15
 	attacktext = "engulfs"
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	var/special_ability_cooldown
 	var/ability_cooldown = 20
 	var/mob/living/Victim = null // the person the slime is currently feeding on
-
+	var/sounddelay = 0
+	var/ranged_cooldown_time = 4 SECONDS
+	var/attack_cooldown
 
 /mob/living/simple_animal/hostile/siren/amalgamate/Initialize()
 	. = ..()
@@ -33,10 +36,18 @@
 /mob/living/simple_animal/hostile/siren/amalgamate/Life()	//This shall be our AI holy grail.
 	. = ..()
 	siphon()
+	soundloop()
 	GET_COMPONENT_FROM(G, /datum/component/glomper, src)
-	if(G.Target.stat >= UNCONSCIOUS)
+	if(G.Target && G.Target.stat >= UNCONSCIOUS)
 		release()
 
+/mob/living/simple_animal/hostile/siren/amalgamate/proc/soundloop()
+	if( sounddelay == 0)
+		visible_emote("chitters!")
+		playsound(src.loc, 'zzzz_modular_occulus/sound/effects/nanitechittering.ogg', 100, 1, 8, 8)
+		sounddelay = 8
+	else
+		sounddelay--
 /mob/living/simple_animal/hostile/siren/amalgamate/death()
 	..()
 	qdel(src)
@@ -44,32 +55,31 @@
 /mob/living/simple_animal/hostile/siren/amalgamate/AttackingTarget()
 	if(!Adjacent(target_mob))
 		return
-	glomp(target_mob)
+	if(world.time >= attack_cooldown)
+		glomp(target_mob)
+		attack_cooldown = world.time + ranged_cooldown_time
 
-/mob/living/carbon/hostile/siren/amalgamate/handle_chemicals_in_body()
-	chem_effects.Cut()
+	if(isliving(target_mob))
+		var/mob/living/L = target_mob
+		L.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		return L
+	if(istype(target_mob,/mob/living/exosuit))
+		var/mob/living/exosuit/M = target_mob
+		M.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		return M
+	if(istype(target_mob,/obj/machinery/bot))
+		var/obj/machinery/bot/B = target_mob
+		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		return B
 
-	if(touching) touching.metabolize()
-
-	metabolism_effects.process()
-
-	src.updatehealth()
-
-	return //TODO: DEFERRED
-/*
-/mob/living/simple_animal/hostile/siren/amalgamate/metabolize()
-	for(var/current in src.reagent_list)
-		if(/datum/reagent/water == current)
-			release()
-		if(/datum/reagent/frioline == current)
-			Shortcircuit()
-	update_total()
-*/
 /mob/living/simple_animal/hostile/siren/amalgamate/proc/Shortcircuit()
 	release()
-
+	do_sparks(3,0,src.loc)
+	src.adjustBruteLoss(20)
+	src.adjustFireLoss(20)
 /mob/living/simple_animal/hostile/siren/amalgamate/emp_act(severity)
-	release()
+	Shortcircuit()
+
 
 
 /datum/component/glomper
@@ -109,8 +119,10 @@
 	if(!G)
 		//Runtime again aaa
 		return
-	G.detach()
+	attack_cooldown = world.time + ranged_cooldown_time
 	visible_message(SPAN_WARNING("[src] is no longer engulfing [G.Target]!"))
+	G.detach()
+
 
 /mob/living/simple_animal/hostile/siren/amalgamate/proc/siphon()
 	GET_COMPONENT_FROM(G, /datum/component/glomper, src)
