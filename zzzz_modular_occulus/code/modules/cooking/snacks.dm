@@ -24,3 +24,15 @@
 			if(BLAND_FOOD in taste_tag)//if we have that flavor and bland
 				taste_tag.Remove(BLAND_FOOD)//remove bland
 	return
+
+/obj/item/reagent_containers/food/snacks/pineapple_ring
+	name = "pineapple ring"
+	desc = "A thick ring of pineapple."
+	icon_state = "pineapple_ring"
+	filling_color = "#FFF97D"
+	icon = 'zzzz_modular_occulus/icons/obj/kitchen_update/food.dmi'
+	bitesize = 1
+	nutriment_amt = 2
+	preloaded_reagents = list("pineapplejuice" = 3)
+	nutriment_desc = list("tart sweetness" = 5)
+	taste_tag = list(SWEET_FOOD, VEGAN_FOOD)

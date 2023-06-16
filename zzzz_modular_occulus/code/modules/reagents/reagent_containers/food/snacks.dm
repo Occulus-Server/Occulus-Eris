@@ -1,4 +1,56 @@
 //Occulus' modular overrides and additions for snacks and junkfood goes here
+//Called by cooking machines to set the properties on the food, determining if it's raw or cooked.
+/obj/item/reagent_containers/food/snacks/proc/cook()
+	if (coating)
+		var/datum/reagent/nutriment/coating/our_coating = decls_repository.get_decl(coating)
+		var/list/temp = overlays.Copy()
+		for (var/i in temp)
+			if (istype(i, /image))
+				var/image/I = i
+				if (I.tag == "coating")
+					temp.Remove(I)
+					break
+
+		overlays = temp
+		//Carefully removing the old raw-batter overlay
+
+		if (!flat_icon)
+			flat_icon = getFlatIcon(src)
+		var/icon/I = flat_icon
+		color = "#FFFFFF" //Some fruits use the color var
+		I.Blend(new /icon('icons/obj/food_custom.dmi', rgb(255,255,255)),ICON_ADD)
+		I.Blend(new /icon('icons/obj/food_custom.dmi', our_coating.icon_cooked),ICON_MULTIPLY)
+		var/image/J = image(I)
+		J.alpha = 200
+		J.tag = "coating"
+		add_overlay(J)
+
+		if (do_coating_prefix == 1)
+			name = "[our_coating.coated_adj] [name]"
+
+	for (var/r in reagents.reagent_list)
+		if (ispath(r, /datum/reagent/nutriment/coating))
+			var/datum/reagent/nutriment/coating/C = new /datum/reagent/nutriment/coating
+			LAZYINITLIST(reagents.reagent_list)
+			LAZYSET(reagents.reagent_list[r], "cooked", TRUE)
+			C.name = C.cooked_name
+
+/obj/item/reagent_containers/food/snacks/meat/cook()
+	if (!isnull(cooked_icon))
+		icon_state = cooked_icon
+		flat_icon = null //Force regenating the flat icon for coatings, since we've changed the icon of the thing being coated
+	..()
+
+	if (name == initial(name))
+		name = "cooked [name]"
+
+/obj/item/reagent_containers/food/snacks
+//Used in the ported aurora cooking process
+	var/coating = null
+	var/flat_icon = null
+	var/do_coating_prefix = TRUE
+	var/cooked_icon = null
+	var/cooked_name = null	//Set this to the name of the object. Somehow.
 
 /obj/item/reagent_containers/food/snacks/tastybread
 	icon = 'zzzz_modular_occulus/icons/obj/food.dmi'
@@ -40,6 +92,15 @@
 	icon = 'zzzz_modular_occulus/icons/obj/food.dmi'
 	open = FALSE
 
+//batters
+/datum/reagent/nutriment/coating
+	var/icon_cooked
+	var/coated_adj
+	var/cooked_name = null	//Set this to the name, somehow.
+/datum/reagent/nutriment/coating/batter
+	coated_adj = "battered"
+/datum/reagent/nutriment/coating/beerbatter
+	coated_adj = "beer-battered"
 
 /obj/item/reagent_containers/food/snacks/candiedapple/mordant
 	name = "oddly-preserved Candied Apple"
