@@ -141,7 +141,7 @@
 
 /datum/recipe/spacylibertyduff
 	appliance = OVEN
-	reagents = list(/datum/reagent/water = 5, /datum/reagent/ethanol/vodka = 5, /datum/reagent/drug/psilocybin = 5)
+	reagents = list(/datum/reagent/water = 5, /datum/reagent/alcohol/vodka = 5, /datum/reagent/drug/psilocybin = 5)
 	result = /obj/item/reagent_containers/food/snacks/spacylibertyduff
 
 /datum/recipe/hotdiggitydonk //heated donk, in lieu of a microwave
