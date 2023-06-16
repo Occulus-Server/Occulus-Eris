@@ -104065,13 +104065,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/office)
-"jjZ" = (
-/obj/structure/railing/grey,
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/turf/space,
-/area/space)
 "jmk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
@@ -106682,10 +106675,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/genetics_cloning)
-"mMb" = (
-/obj/effect/shuttle_landmark/merc/sec2west,
-/turf/space,
-/area/space)
 "mNa" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -110504,6 +110493,10 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/occulus/medical/cryo)
+"rMb" = (
+/obj/effect/shuttle_landmark/merc/sec2west,
+/turf/space,
+/area/space)
 "rMs" = (
 /obj/structure/table/woodentable,
 /obj/spawner/rations,
@@ -110619,13 +110612,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/chemistry)
-"rSN" = (
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/structure/railing/grey,
-/turf/space,
-/area/space)
 "rTw" = (
 /obj/structure/railing/grey{
 	dir = 1
@@ -110919,6 +110905,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
+"ssC" = (
+/obj/structure/railing/grey,
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/turf/space,
+/area/space)
 "ssJ" = (
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/elevator)
@@ -114446,6 +114439,13 @@
 /obj/item/oddity/instructional/common/bio/aid,
 /turf/simulated/floor/carpet/sblucarpet,
 /area/eris/medical/medbreak)
+"xlb" = (
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/obj/structure/railing/grey,
+/turf/space,
+/area/space)
 "xld" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -123120,7 +123120,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+rMb
 aaa
 aaa
 aaa
@@ -123322,7 +123322,7 @@ aaa
 aaa
 aaa
 aaa
-mMb
+aaa
 aaa
 aaa
 aaa
@@ -167164,7 +167164,7 @@ aaa
 cLf
 cLf
 cLf
-jjZ
+ssC
 acR
 csS
 rzU
@@ -167564,7 +167564,7 @@ aaa
 aaa
 cLf
 cLf
-rSN
+xlb
 acR
 abF
 abF
