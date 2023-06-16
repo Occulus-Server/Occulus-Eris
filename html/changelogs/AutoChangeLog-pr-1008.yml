@@ -1,0 +1,6 @@
+author: SigDoesCode
+delete-after: true
+changes:
+  - rscadd: Added nearly 200 recipes to the kitchen
+  - rscadd: Added more ways of making food
+  - rscdel: Removed microwaves from the kitchen
