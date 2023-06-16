@@ -51,7 +51,6 @@
 	var/do_coating_prefix = TRUE
 	var/cooked_icon = null
 	var/cooked_name = null	//Set this to the name of the object. Somehow.
-	var/cooked = FALSE
 
 /obj/item/reagent_containers/food/snacks/tastybread
 	icon = 'zzzz_modular_occulus/icons/obj/food.dmi'

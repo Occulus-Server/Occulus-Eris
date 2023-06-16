@@ -202,7 +202,7 @@
 /obj/item/reagent_containers/cooking_container/oven
 	name = "oven dish"
 	shortname = "shelf"
-	desc = "Put ingredients in this; designed for use with an oven. Warranty void if used."
+	desc = "Put ingredients in this; designed for use with an oven. Warranty void if used. Alt-click to remove items."
 	icon_state = "ovendish"
 	max_space = 30
 	volume = 120
@@ -211,7 +211,7 @@
 /obj/item/reagent_containers/cooking_container/skillet
 	name = "skillet"
 	shortname = "skillet"
-	desc = "Chuck ingredients in this to fry something on the stove."
+	desc = "Chuck ingredients in this to fry something on the stove. Alt-click to remove items."
 	icon_state = "skillet"
 	volume = 30
 	force = 11
@@ -230,7 +230,7 @@
 /obj/item/reagent_containers/cooking_container/saucepan
 	name = "saucepan"
 	shortname = "saucepan"
-	desc = "Is it a pot? Is it a pan? It's a saucepan!"
+	desc = "Is it a pot? Is it a pan? It's a saucepan! Alt-click to remove items."
 	icon_state = "pan"
 	volume = 90
 	slot_flags = SLOT_HEAD
@@ -250,7 +250,7 @@
 /obj/item/reagent_containers/cooking_container/pot
 	name = "cooking pot"
 	shortname = "pot"
-	desc = "Boil things with this. Maybe even stick 'em in a stew."
+	desc = "Boil things with this. Maybe even stick 'em in a stew. Alt-click to remove items."
 	icon_state = "pot"
 	max_space = 50
 	volume = 180
@@ -271,7 +271,7 @@
 /obj/item/reagent_containers/cooking_container/fryer
 	name = "fryer basket"
 	shortname = "basket"
-	desc = "Put ingredients in this; designed for use with a deep fryer. Warranty void if used."
+	desc = "Put ingredients in this; designed for use with a deep fryer. Warranty void if used. Alt-click to remove items."
 	icon_state = "basket"
 	appliancetype = FRYER
 
@@ -279,7 +279,7 @@
 	name = "grill grate"
 	shortname = "grate"
 	place_verb = "onto"
-	desc = "Primarily used to grill meat, place this on a grill and grab a can of energy drink."
+	desc = "Primarily used to grill meat, place this on a grill and grab a can of energy drink. Alt-click to remove items."
 	icon_state = "grill_grate"
 	appliancetype = GRILL
 	insertable = list(
@@ -296,7 +296,7 @@
 	name = "plancha divider"
 	shortname = "divider"
 	place_verb = "into"
-	desc = "Used to keep different things from mixing on the flat surface of a plancha."
+	desc = "Used to keep different things from mixing on the flat surface of a plancha. Alt-click to remove items."
 	icon_state = "plancha_divider"
 	appliancetype = PLANCHA
 	max_space = 20

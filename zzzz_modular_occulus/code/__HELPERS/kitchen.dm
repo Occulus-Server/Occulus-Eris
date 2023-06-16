@@ -15,7 +15,7 @@
 /datum/reagent/proc/add_thermal_energy(amount, var/datum/reagents/holder, safety = FALSE)
 	holder.add_thermal_energy(amount, safety)
 
-datum/reagent/proc/set_temperature(temperature, var/datum/reagents/holder, safety = FALSE)
+/datum/reagent/proc/set_temperature(temperature, var/datum/reagents/holder, safety = FALSE)
 	set_thermal_energy(temperature * get_heat_capacity(holder), holder, safety = safety)
 
 /datum/reagents/proc/get_heat_capacity(var/datum/reagents/holder)

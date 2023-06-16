@@ -25,6 +25,7 @@
 
 	var/sanity_gain = 0.2 //per nutriment
 	var/junk_food = FALSE //if TRUE, sanity gain per nutriment will be zero
+	var/cooked = FALSE
 	var/list/taste_tag = list(BLAND_FOOD)
 
 /obj/item/reagent_containers/food/snacks/Initialize()
