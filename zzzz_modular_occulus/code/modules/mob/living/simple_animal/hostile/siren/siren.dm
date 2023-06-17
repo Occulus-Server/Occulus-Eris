@@ -135,12 +135,16 @@
 			walk_away(src, target_mob, retreat_distance, move_to_delay)
 		else
 			walk_to(src, target_mob, minimum_distance, move_to_delay)//Otherwise, get to our minimum distance so we chase them
-		return
+
 	if(environment_smash)
 		if(target_mob != null)
 			if(target_mob.loc != null && get_dist(src, target_mob.loc) <= vision_range) //We can't see our target, but he's in our vision range still
 				if(ranged_ignores_vision && ranged_cooldown <= world.time) //we can't see our target... but we can fire at them!
 					OpenFire(target_mob)
+					possible_targets |= target_mob
+				if(ranged == 0)
+					walk_to(src, target_mob, minimum_distance,  move_to_delay)
+					FindHidden()
 				if((environment_smash & ENVIRONMENT_SMASH_WALLS) || (environment_smash & ENVIRONMENT_SMASH_RWALLS)) //If we're capable of smashing through walls, forget about vision completely after finding our target
 					walk_to(src, target_mob, minimum_distance,  move_to_delay)
 					FindHidden()
@@ -344,8 +348,8 @@
 		add_overlay("shield")
 
 /mob/living/simple_animal/hostile/siren/proc/FindHidden()
-	if(istype(target.loc, /obj/structure/closet) || istype(target.loc, /obj/machinery/disposal) || istype(target.loc, /obj/machinery/sleeper))
-		var/atom/A = target.loc
+	if(istype(target_mob.loc, /obj/structure/closet) || istype(target.loc, /obj/machinery/disposal) || istype(target.loc, /obj/machinery/sleeper))
+		var/atom/A = target_mob.loc
 		walk_to(src, A, minimum_distance, move_to_delay)
 		if(A.Adjacent(src))
 			A.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)

@@ -225,7 +225,6 @@
 	charging = TRUE
 	DestroySurroundings()
 	walk(src, 0)
-	message_admins("charge")
 	var/obj/effect/temp_visual/decoy/D = new /obj/effect/temp_visual/decoy(loc,src)
 	sleep(20)
 	animate(D, alpha = 0, color = "#0080ff", transform = matrix()*2, time = 3)
@@ -236,7 +235,6 @@
 
 /mob/living/simple_animal/hostile/siren/nemesis/proc/charge_end(bonus_charges, list/effects_to_destroy)
 	charging = FALSE
-	message_admins("charge-end")
 	for(var/mob/living/T in (in_view(src.loc)-src))
 		if(T.Adjacent(src))
 			var/mob/living/L = T
@@ -252,9 +250,7 @@
 		if(bonus_charges)
 			bonus_charges--
 			charge(bonus_charges)
-			message_admins("bonus charge")
 		else
-			message_admins("walk to, recovery")
 			walk_to(src, target, minimum_distance, move_to_delay)
 			SetRecoveryTime(50)
 
@@ -275,12 +271,9 @@
 	recovery_time = world.time + buffer_time
 
 /mob/living/simple_animal/hostile/siren/nemesis/throw_impact(atom/A, var/speed = 5)
-	message_admins("throw impact")
 	if(!charging)
-		message_admins("throw_impacts !charging")
 		return ..()
 
-		message_admins("bumped and charging")
 	if(isturf(A) || isobj(A) && A.density)
 		A.ex_act(2)
 		DestroySurroundings()

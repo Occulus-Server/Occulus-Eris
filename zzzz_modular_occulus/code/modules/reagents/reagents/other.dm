@@ -260,6 +260,6 @@ datum/reagent/nitrate
 	if(istype(M))
 		M.vomit()
 //		M.add_chemical_effect(CE_TOXIN, 30)
-		M.Weaken(90)
+		M.Weaken(45)
 
 

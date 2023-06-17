@@ -62,7 +62,6 @@
 			src.target_mob.remove_overlays(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetting_indicator"))
 		LoseTarget()
 		icon_state = "losttarget"
-		message_admins("losttarget")
 		sleep(14)
 		icon_state = "passive"
 
@@ -100,20 +99,19 @@
 
 /mob/living/simple_animal/hostile/siren/turret/proc/BeamStartup(mob/living/living_target)//It's more like requiem than final spark
 	if(combatant_state == TURRET_STATE_WARMUP && target_mob)
-		sleep(5 SECONDS)
+		sleep(2 SECONDS)
 		update_icons()
 		living_target.add_overlay(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetting_indicator"))
 		targetting = 1
 		playsound(src,'zzzz_modular_occulus/sound/effects/beamcharge.ogg', 100, 0)
-		sleep(4 SECONDS)
+		sleep(5 SECONDS)
 		set_light(3, 3, "#8B0000")
 		living_target.remove_overlays(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetting_indicator"))
 		combatant_state = TURRET_STATE_ACTIVE
 		living_target.update_icons()
-		sleep(1 SECONDS)
 		living_target.add_overlay(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetlocked_indicator"))
 		targetting = 0
-		sleep(1 SECONDS)
+		sleep(2 SECONDS)
 		if(get_dist(src,living_target) > 7)
 			src.mob_inaccuracy = 70
 			Shoot(living_target, src.loc, src)
@@ -133,19 +131,15 @@
 		switch(combatant_state)
 			if(TURRET_STATE_NEUTRAL)
 				icon_state = "passive"
-				message_admins("neutral")
 			if(TURRET_STATE_AGGRO)
 				icon_state = "targetting"
-				message_admins("targetting")
 			if(TURRET_STATE_WARMUP)
 				icon_state = "charging"
-				message_admins("charging")
 			if(TURRET_STATE_ACTIVE)
 				icon_state = "firing"
-				message_admins("firing")
 			if(TURRET_STATE_RECOVERY)
 				icon_state = "recovery"
-				message_admins("recovery")
+
 
 /mob/living/simple_animal/hostile/siren/turret/proc/AttackRecovery()
 	if(combatant_state == TURRET_STATE_ACTIVE)

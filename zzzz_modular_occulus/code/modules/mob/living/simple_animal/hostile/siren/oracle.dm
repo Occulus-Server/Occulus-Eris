@@ -1,6 +1,6 @@
-/mob/living/simple_animal/hostile/siren/oracle
+/mob/living/simple_animal/hostile/siren/oracle	//siren miniboss
 	name = "oracle"
-	desc = "A,  almost ethereal, floating white construct that looks vaguely humanoid. None of it's 'limbs' physically connect to it's body"
+	desc = "An almost ethereal, floating white construct that looks vaguely humanoid. None of it's 'limbs' physically connect to it's body"
 	icon = 'zzzz_modular_occulus/icons/mob/siren/general.dmi'
 	icon_state = "oracle"
 	icon_living = "oracle"
@@ -13,25 +13,28 @@
 	aggro_vision_range = 11
 	agony_coefficient = 0.6
 	ranged = 1
+	ranged_cooldown_time = 10 SECONDS
 	speed = 4
 	maxHealth = 200
 	health = 200
 	harm_intent_damage = 15
 	melee_damage_lower = 10
 	melee_damage_upper = 20
-	attacktext = "slashed"
+	attacktext = "slammed it's energized 'arm' into"
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	projectiletype = /obj/item/projectile/oracle
 	projectilesound = 'sound/weapons/energy/incinerate.ogg'
 	var/sounddelay = 0
 	var/phase_change = 15 SECONDS
 	var/phase_change_time
-	var/prob_tele = 30
+	var/prob_tele = 34
 	var/transcended = 0
 	var/transcend_change = 13 SECONDS
 	var/transcend_change_time
 	var/phase = 1
 	var/list/soundlist = list('zzzz_modular_occulus/sound/effects/oraclespeak.ogg', 'zzzz_modular_occulus/sound/effects/oraclespeak2.ogg', 'zzzz_modular_occulus/sound/effects/oraclespeak3.ogg')
+
+	sirenspeechlist = list("ðə ˈbraɪtə juː ɡləʊ ˈlɪtl məʊts, ðə mɔː ðə lɒŋ dɑːk ˈsɜːklz", "ðeər ɑː θɪŋz mɔː ˈdeɪnʤrəs ðɛn aɪ, ˈlɪtl məʊts.", "ɡəʊ həʊm, bɪˈfɔː ðə lɒŋ dɑːk stirrs.")
 
 /mob/living/simple_animal/hostile/siren/oracle/Initialize(mapload)
 	. = ..()
@@ -65,18 +68,18 @@
 	. = ..()
 
 /mob/living/simple_animal/hostile/siren/oracle/proc/transcend()
-	transcended = 1
 	visible_message("<span class='danger'>[src] dematerializes!</span>", 1)
 	icon_state = "oracle_transition"
 	sleep(2 SECONDS)
+	transcended = 1
 	icon_state = "oracle_Intangible"
 	transcend_change_time = world.time + transcend_change
 	addtimer(CALLBACK(src, .proc/descend), 3 SECONDS)
 
 /mob/living/simple_animal/hostile/siren/oracle/proc/descend()
-	transcended = 0
 	icon_state = "oracle_transition"
 	sleep(2 SECONDS)
+	transcended = 0
 	visible_message("<span class='danger'>[src] rematerializes!</span>", 1)
 	icon_state = "oracle"
 
@@ -176,6 +179,7 @@
 
 /mob/living/simple_animal/hostile/siren/oracle/bullet_act(obj/item/projectile/P, def_zone)
 	if(transcended == 1)
+		visible_message("<span class='danger'>[P] goes right through the intangible [src]!</span>", 1)
 		return PROJECTILE_FORCE_MISS
 
 	if(prob(prob_tele))

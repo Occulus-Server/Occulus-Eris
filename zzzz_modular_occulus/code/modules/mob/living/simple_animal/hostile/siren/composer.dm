@@ -19,7 +19,7 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 30
 	attacktext = "slashed"
-	environment_smash = ENVIRONMENT_SMASH_NONE
+	environment_smash = 1
 	var/sounddelay = 0
 	var/skremdelay = 0
 	var/special_ability_cooldown

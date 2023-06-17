@@ -47,8 +47,10 @@
 	damage_types = list(BRUTE = 10)
 
 /obj/item/projectile/oracle/on_hit(atom/target)
-	target.reagents.add_reagent("liquid_bluespace", 15)
-	to_chat(target, SPAN_DANGER("You feel like your're being compressed and pulled apart at the same time."))
+	if(iscarbon(target))
+		var/mob/living/carbon/C = target
+		C.reagents.add_reagent("liquid_bluespace", 2.5)
+		to_chat(C, SPAN_DANGER("You feel like your're being compressed and pulled apart at the same time."))
 	return TRUE
 
 /obj/item/projectile/beam/sniper/siren
