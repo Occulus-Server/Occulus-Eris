@@ -1,0 +1,6 @@
+author: WeNeedMorePhoron
+delete-after: true
+changes:
+  - rscadd: Splashing 1u or more of resuscitator on a simple animal revives them.
+  - rscadd: You can now put simple and superior animals in the bath and revives them
+      that way.
