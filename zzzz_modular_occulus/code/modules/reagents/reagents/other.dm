@@ -256,3 +256,20 @@ datum/reagent/nitrate
 		M.Weaken(90)
 
 
+// Occulus Edit for Resuscitator - Simple Mob Revival
+/datum/reagent/resuscitator/touch_mob(mob/living/M, amount)
+	if(amount < 1)
+		return ..()
+	if(isanimal(M))
+		var/mob/living/simple_animal/SM = M
+		if(SM.health <= 0)
+			SM.visible_message(SPAN_WARNING("[SM] is too grievously wounded to be revived!"))
+			return
+		if(SM.mob_classification != CLASSIFICATION_ORGANIC) // We don't want non-organic to be revived
+			SM.visible_message(SPAN_NOTICE("The resuscitator has no effect on [SM]"))
+			return
+		if(SM.stat == DEAD)
+			SM.rejuvenate()
+			SM.loot.Cut() // Prevent infinite farming
+			SM.visible_message(SPAN_WARNING("[SM] seems to rise from the dead!</span>"))
+

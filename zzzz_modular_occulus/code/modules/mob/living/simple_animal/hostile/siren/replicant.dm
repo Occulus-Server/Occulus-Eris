@@ -123,6 +123,8 @@
 	minimum_distance = 5
 	pass_flags = PASSTABLE
 	ranged_cooldown_time = 0
+	loot = list(/obj/item/replicant_core)
+
 	var/sounddelay = 0
 	var/emp_range = 5
 	var/distress_level = 0
@@ -130,10 +132,6 @@
 /mob/living/simple_animal/hostile/siren/replicant/New()
 	..()
 	set_light(2, 2, "#007fff")
-
-/mob/living/simple_animal/hostile/siren/replicant/death()
-	new /obj/item/replicant_core(src.loc)
-	..()
 
 /mob/living/simple_animal/hostile/siren/replicant/OpenFire(var/the_target)
 	var/mob/living/simple_animal/hostile/siren/replicanttendril/A = new /mob/living/simple_animal/hostile/siren/replicanttendril(src.loc)
