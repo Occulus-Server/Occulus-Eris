@@ -138,29 +138,23 @@
 		src.FindTarget()
 		retarget_time = world.time + retarget_cooldown_time
 
-	if(target_mob in ListTargets(10))
+	if(target_mob != null)
 		var/target_distance = get_dist(src,target_mob)
 		if(isturf(loc) && target_mob.Adjacent(src))	//If they're next to us, attack
 			AttackingTarget()
-			message_admins("attackingtarget")
 		if(ranged && target_distance >= 1 && world.time >= ranged_cooldown)//We ranged? Shoot at em. Make sure they're a tile away at least, and our range attack is off cooldown
 			OpenFire(target_mob)
-			message_admins("openfire on mob+cooldownreset")
 			ranged_cooldown = world.time + ranged_cooldown_time
 		if(phase == 3 && world.time >= recovery_time)
 			charge(1)
-			message_admins("charge")
 		if(isturf(loc) && target_mob.Adjacent(src))	//If they're next to us, attack
 			AttackingTarget()
-			message_admins("Phase picked")
 		if(retreat_distance && target_distance <= retreat_distance) //If we have a retreat distance, check if we need to run from our target
 			walk_away(src, target_mob, retreat_distance, move_to_delay)
 			playsound(src.loc, 'zzzz_modular_occulus/sound/effects/striderwalk.wav', 100, 1, 8, 8)
-			message_admins("walkaway")
 		else
 			walk_to(src, target_mob, minimum_distance, move_to_delay)//Otherwise, get to our minimum distance so we chase them
 			playsound(src.loc, 'zzzz_modular_occulus/sound/effects/striderwalk.wav', 100, 1, 8, 8)
-			message_admins("walk to")
 		return
 	if(environment_smash)
 		if(target.loc != null && get_dist(src, target.loc) <= vision_range) //We can't see our target, but he's in our vision range still

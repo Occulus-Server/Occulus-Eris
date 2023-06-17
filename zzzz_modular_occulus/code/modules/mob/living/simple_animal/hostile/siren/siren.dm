@@ -119,11 +119,14 @@
 		src.FindTarget()
 		retarget_time = world.time + retarget_cooldown_time
 
-	if(target_mob in ListTargets(10))
+	if(target_mob != null)
 		var/target_distance = get_dist(src,target_mob)
 		if(ranged && target_distance >= 1 && world.time >= ranged_cooldown)//We ranged? Shoot at em. Make sure they're a tile away at least, and our range attack is off cooldown
 			OpenFire(target_mob)
 			ranged_cooldown = world.time + ranged_cooldown_time
+
+		if(istype(src, /mob/living/simple_animal/hostile/siren/turret))
+			return
 
 		if(isturf(loc) && target_mob.Adjacent(src))	//If they're next to us, attack
 			AttackingTarget()
@@ -262,6 +265,7 @@
 		for(var/i in 1 to rapid)
 			addtimer(cb, (i - 1)*rapid_fire_delay)
 	else
+		shot_variance = 0
 		Shoot(A, loc, src)
 	stance = HOSTILE_STANCE_ATTACK
 	ranged_cooldown = world.time + ranged_cooldown_time

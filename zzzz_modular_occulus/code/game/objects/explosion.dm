@@ -91,7 +91,7 @@
 			if(T)
 				for(var/atom_movable in T.contents)	//bypass type checking since only atom/movable can be contained by turfs anyway
 					var/atom/movable/AM = atom_movable
-					if(AM && AM.simulated)	AM.ex_act(dist, epicenter)
+					if(AM && AM.simulated)	AM.siren_ex_act(dist, epicenter)
 
 		var/took = (world.timeofday-start)/10
 		//You need to press the DebugGame verb to see these now....they were getting annoying and we've collected a fair bit of data. Just -test- changes  to explosion code using this please so we can compare

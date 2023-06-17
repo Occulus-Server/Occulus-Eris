@@ -3,7 +3,10 @@
 /mob/living/carbon/human/earcheck()
 	return ear_protection
 
-/mob/living/carbon/human/proc/siren_ex_act(severity, epicenter)
+/atom/proc/siren_ex_act()
+	return
+
+/mob/living/carbon/human/siren_ex_act(severity, epicenter)
 	if(!blinded)
 		if (HUDtech.Find("flash"))
 			FLICK("flash", HUDtech["flash"])
@@ -32,7 +35,7 @@
 
 		if (2.0)
 			if (!shielded)
-				b_loss += 100
+				b_loss += 50
 
 			if (!istype(l_ear, /obj/item/clothing/ears/earmuffs) && !istype(r_ear, /obj/item/clothing/ears/earmuffs))
 				ear_damage += 30

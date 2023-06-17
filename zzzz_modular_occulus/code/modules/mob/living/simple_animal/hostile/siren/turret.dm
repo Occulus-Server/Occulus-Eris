@@ -1,166 +1,172 @@
 	////Siren Turret////
 
-#define SEEDLING_STATE_NEUTRAL 0
-#define SEEDLING_STATE_WARMUP 1
-#define SEEDLING_STATE_ACTIVE 2
-#define SEEDLING_STATE_RECOVERY 3
+#define TURRET_STATE_NEUTRAL 0
+#define TURRET_STATE_AGGRO 1
+#define TURRET_STATE_WARMUP 2
+#define TURRET_STATE_ACTIVE 3
+#define TURRET_STATE_RECOVERY 4
 
 /mob/living/simple_animal/hostile/siren/turret
-	name = "seedling"
-	desc = "This oversized, predatory flower conceals what can only be described as an organic energy cannon, and it will not die until its hidden vital organs are sliced out. \
-	 The concentrated streams of energy it sometimes produces require its full attention, attacking it during this time will prevent it from finishing its attack."
+	name = "monitor"
+	desc = "An innocious mellatic pod that floats in place. It seems to output a great deal of energy."
 	maxHealth = 100
 	health = 100
-	melee_damage_lower = 30
-	melee_damage_upper = 30
+	melee_damage_lower = 50
+	melee_damage_upper = 50
 	icon = 'zzzz_modular_occulus/icons/mob/siren/general.dmi'
-	icon_state = "seedling"
-	icon_living = "seedling"
-	icon_dead = "seedling_dead"
-	pixel_x = -16
-	pixel_y = -14
-	minimum_distance = 3
+	icon_state = "passive"
+	icon_living = "passive"
+	minimum_distance = 0
 	move_to_delay = 60
-	vision_range = 9
+	vision_range = 12
 	aggro_vision_range = 15
 	ranged = TRUE
 	ranged_cooldown_time = 10
-	projectiletype = /obj/item/projectile/seedling
-	projectilesound = 'sound/weapons/pierce.ogg'
-	robust_searching = TRUE
-	stat_attack = UNCONSCIOUS
+	projectiletype = /obj/item/projectile/beam/sniper/siren
+	projectilesound = 'zzzz_modular_occulus/sound/effects/beamfire.ogg'
 	anchored = TRUE
-	var/combatant_state = SEEDLING_STATE_NEUTRAL
-	var/obj/seedling_weakpoint/weak_point
+	var/combatant_state = TURRET_STATE_NEUTRAL
 	var/mob/living/beam_debuff_target
-	var/solar_beam_identifier = 0
+	var/targetting = 0
+	var/loot_table = list(/obj/spawner/tool/advanced,
+						/obj/spawner/tool_upgrade/rare,
+						/obj/spawner/material/resources/rare)
 
-/mob/living/simple_animal/hostile/siren/turret/proc/scremicon()
-	if(icon_state == "sixleg")
-		icon_state = "sixleg-skrem"
-		sleep(16)
-		icon_state = "sixleg"
+/mob/living/simple_animal/hostile/siren/turret/death()
+	..()
+	visible_message("<b>[src]</b> blows apart!")
+	new /datum/effect/effect/system/spark_spread
+	gibs(loc, null, /obj/effect/gibspawner/robot)
+	var/lootdrop = pick(loot_table)
+	new lootdrop(get_turf(src))
+	if(lootdrop)
+		visible_message("Something tumbles out of \the [src]'s remains!")
+	qdel(src)
 
+/mob/living/simple_animal/hostile/siren/turret/GiveTarget(var/new_target) //Step IV, give us our selected target
+	target = new_target
+	set_light(1, 1, "#8B0000")
+	if(!target)
+		return
+	vision_range = aggro_vision_range
+	combatant_state = TURRET_STATE_AGGRO
+	update_icons()
+	stance = HOSTILE_STANCE_ATTACK
+
+/mob/living/simple_animal/hostile/siren/turret/ForgetTarget(atom/T)
+	current_targets -= T	//removes target mob from current_targets list
+	if(T == src.target_mob)	//if mob is currently the immediate target, lose target
+		if(targetting == 1)
+			src.target_mob.remove_overlays(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetlocked_indicator"))
+		else
+			src.target_mob.remove_overlays(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetting_indicator"))
+		LoseTarget()
+		icon_state = "losttarget"
+		message_admins("losttarget")
+		sleep(14)
+		icon_state = "passive"
+
+/*
+/obj/effect/overlay/temp/targeting_indicator
+	anchored = TRUE
+	layer = ABOVE_MOB_LAYER
+	mouse_opacity = 0
+	duration = 5 SECONDS
+	icon = 'zzzz_modular_occulus/icons/mob/siren/general.dmi'
+	icon_state = "targetlocked_indicator"
+
+/obj/effect/overlay/temp/targetlocked_indicator
+	anchored = TRUE
+	layer = ABOVE_MOB_LAYER
+	mouse_opacity = 0
+	duration = 4 SECONDS
+	icon = 'zzzz_modular_occulus/icons/mob/siren/general.dmi'
+	icon_state = "targetting_indicator"
+*/
 /mob/living/simple_animal/hostile/siren/turret/OpenFire()
 	WarmupAttack()
 
 /mob/living/simple_animal/hostile/siren/turret/proc/WarmupAttack()
-	if(combatant_state == SEEDLING_STATE_NEUTRAL)
-		combatant_state = SEEDLING_STATE_WARMUP
-		walk(src,0)
+	if(combatant_state == TURRET_STATE_AGGRO|| combatant_state == TURRET_STATE_WARMUP)
+		combatant_state = TURRET_STATE_WARMUP
+		set_light(2, 2, "#8B0000")
 		update_icons()
-		var/target_dist = get_dist(src,target)
-		var/living_target_check = isliving(target)
+		var/target_dist = get_dist(src,target_mob)
+		var/living_target_check = isliving(target_mob)
 		if(living_target_check)
-			if(target_dist > 7)//Offscreen check
-				SolarBeamStartup(target)
+			if(target_dist >= 1)//Offscreen check
+				BeamStartup(target)
 				return
-			if(get_dist(src,target) >= 4 && prob(40))
-				SolarBeamStartup(target)
-				return
-		addtimer(CALLBACK(src, .proc/Volley), 5)
 
-/mob/living/simple_animal/hostile/siren/turret/proc/SolarBeamStartup(mob/living/living_target)//It's more like requiem than final spark
-	if(combatant_state == SEEDLING_STATE_WARMUP && target)
-		combatant_state = SEEDLING_STATE_ACTIVE
-		living_target.apply_status_effect(/datum/status_effect/seedling_beam_indicator, src)
-		beam_debuff_target = living_target
-		playsound(src,'sound/effects/seedling_chargeup.ogg', 100, 0)
+/mob/living/simple_animal/hostile/siren/turret/proc/BeamStartup(mob/living/living_target)//It's more like requiem than final spark
+	if(combatant_state == TURRET_STATE_WARMUP && target_mob)
+		sleep(5 SECONDS)
+		update_icons()
+		living_target.add_overlay(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetting_indicator"))
+		targetting = 1
+		playsound(src,'zzzz_modular_occulus/sound/effects/beamcharge.ogg', 100, 0)
+		sleep(4 SECONDS)
+		set_light(3, 3, "#8B0000")
+		living_target.remove_overlays(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetting_indicator"))
+		combatant_state = TURRET_STATE_ACTIVE
+		living_target.update_icons()
+		sleep(1 SECONDS)
+		living_target.add_overlay(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetlocked_indicator"))
+		targetting = 0
+		sleep(1 SECONDS)
 		if(get_dist(src,living_target) > 7)
-			playsound(living_target,'sound/effects/seedling_chargeup.ogg', 100, 0)
-		solar_beam_identifier = world.time
-		addtimer(CALLBACK(src, .proc/Beamu, living_target, solar_beam_identifier), 35)
+			src.mob_inaccuracy = 70
+			Shoot(living_target, src.loc, src)
+			living_target.remove_overlays(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetlocked_indicator"))
+			living_target.update_icons()
+			AttackRecovery()
+		else
+			src.mob_inaccuracy = 0
+			Shoot(living_target, loc, src)
+			living_target.remove_overlays(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetlocked_indicator"))
+			living_target.update_icons()
+			AttackRecovery()
 
-/mob/living/simple_animal/hostile/siren/turret/proc/Beamu(mob/living/living_target, beam_id = 0)
-	if(combatant_state == SEEDLING_STATE_ACTIVE && living_target && beam_id == solar_beam_identifier)
-		if(living_target.z == z)
-			update_icons()
-			var/obj/effect/temp_visual/solarbeam_killsat/S = new (get_turf(src))
-			var/matrix/starting = matrix()
-			starting.Scale(1,32)
-			starting.Translate(0,520)
-			S.transform = starting
-			var/obj/effect/temp_visual/solarbeam_killsat/K = new (get_turf(living_target))
-			var/matrix/final = matrix()
-			final.Scale(1,32)
-			final.Translate(0,512)
-			K.transform = final
-			living_target.adjustFireLoss(30)
-			living_target.adjust_fire_stacks(0.2)//Just here for the showmanship
-			living_target.IgniteMob()
-			playsound(living_target,'sound/weapons/sear.ogg', 50, 1)
-			addtimer(CALLBACK(src, .proc/AttackRecovery), 5)
-			return
-	AttackRecovery()
-
-/mob/living/simple_animal/hostile/siren/turret/proc/Volley()
-	if(combatant_state == SEEDLING_STATE_WARMUP && target)
-		combatant_state = SEEDLING_STATE_ACTIVE
-		update_icons()
-		var/datum/callback/cb = CALLBACK(src, .proc/InaccurateShot)
-		for(var/i in 1 to 13)
-			addtimer(cb, i)
-		addtimer(CALLBACK(src, .proc/AttackRecovery), 14)
-
-/mob/living/simple_animal/hostile/siren/turret/proc/InaccurateShot()
-	if(!QDELETED(target) && combatant_state == SEEDLING_STATE_ACTIVE && !stat)
-		if(get_dist(src,target) <= 3)//If they're close enough just aim straight at them so we don't miss at point blank ranges
-			Shoot(target)
-			return
-		var/turf/our_turf = get_turf(src)
-		var/obj/item/projectile/seedling/readied_shot = new /obj/item/projectile/seedling(our_turf)
-		readied_shot.preparePixelProjectile(target, src, null, rand(-10, 10))
-		readied_shot.fire()
-		playsound(src, projectilesound, 100, 1)
-
-/mob/living/simple_animal/hostile/jungle/seedling/proc/AttackRecovery()
-	if(combatant_state == SEEDLING_STATE_ACTIVE)
-		combatant_state = SEEDLING_STATE_RECOVERY
-		update_icons()
-		ranged_cooldown = world.time + ranged_cooldown_time
-		if(target)
-			face_atom(target)
-		addtimer(CALLBACK(src, .proc/ResetNeutral), 10)
-
-/mob/living/simple_animal/hostile/jungle/seedling/proc/ResetNeutral()
-	combatant_state = SEEDLING_STATE_NEUTRAL
-	if(target && !stat)
-		update_icons()
-		Goto(target, move_to_delay, minimum_distance)
-
-/mob/living/simple_animal/hostile/jungle/seedling/adjustHealth()
-	. = ..()
-	if(combatant_state == SEEDLING_STATE_ACTIVE && beam_debuff_target)
-		beam_debuff_target.remove_status_effect(/datum/status_effect/seedling_beam_indicator)
-		beam_debuff_target = null
-		solar_beam_identifier = 0
-		AttackRecovery()
-
-/mob/living/simple_animal/hostile/jungle/seedling/update_icons()
+/mob/living/simple_animal/hostile/siren/turret/update_icons()
 	. = ..()
 	if(!stat)
 		switch(combatant_state)
-			if(SEEDLING_STATE_NEUTRAL)
-				icon_state = "seedling"
-			if(SEEDLING_STATE_WARMUP)
-				icon_state = "seedling_charging"
-			if(SEEDLING_STATE_ACTIVE)
-				icon_state = "seedling_fire"
-			if(SEEDLING_STATE_RECOVERY)
-				icon_state = "seedling"
+			if(TURRET_STATE_NEUTRAL)
+				icon_state = "passive"
+				message_admins("neutral")
+			if(TURRET_STATE_AGGRO)
+				icon_state = "targetting"
+				message_admins("targetting")
+			if(TURRET_STATE_WARMUP)
+				icon_state = "charging"
+				message_admins("charging")
+			if(TURRET_STATE_ACTIVE)
+				icon_state = "firing"
+				message_admins("firing")
+			if(TURRET_STATE_RECOVERY)
+				icon_state = "recovery"
+				message_admins("recovery")
 
-/mob/living/simple_animal/hostile/jungle/seedling/GiveTarget()
-	if(target)
-		if(combatant_state == SEEDLING_STATE_WARMUP || combatant_state == SEEDLING_STATE_ACTIVE)//So it doesn't 180 and blast you in the face while it's firing at someone else
-			return
-	return ..()
+/mob/living/simple_animal/hostile/siren/turret/proc/AttackRecovery()
+	if(combatant_state == TURRET_STATE_ACTIVE)
+		combatant_state = TURRET_STATE_RECOVERY
+		update_icons()
+		set_light(0, 0, "#8B0000")
+		ranged_cooldown = world.time + ranged_cooldown_time
 
-/mob/living/simple_animal/hostile/jungle/seedling/LoseTarget()
-	if(combatant_state == SEEDLING_STATE_WARMUP || combatant_state == SEEDLING_STATE_ACTIVE)
-		return
-	return ..()
+		if(!target_mob)
+			ResetNeutral()
+		else
+			combatant_state = TURRET_STATE_WARMUP
 
-#undef SEEDLING_STATE_NEUTRAL
-#undef SEEDLING_STATE_WARMUP
-#undef SEEDLING_STATE_ACTIVE
-#undef SEEDLING_STATE_RECOVERY
+/mob/living/simple_animal/hostile/siren/turret/proc/ResetNeutral()
+	combatant_state = TURRET_STATE_NEUTRAL
+	if(!target_mob)
+		icon_state = "passive"
+
+
+#undef TURRET_STATE_NEUTRAL
+#undef TURRET_STATE_AGGRO
+#undef TURRET_STATE_WARMUP
+#undef TURRET_STATE_ACTIVE
+#undef TURRET_STATE_RECOVERY
