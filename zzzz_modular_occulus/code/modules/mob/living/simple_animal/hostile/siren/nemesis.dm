@@ -1,4 +1,4 @@
-	/mob/living/simple_animal/hostile/siren/nemesis
+/mob/living/simple_animal/hostile/siren/nemesis
 	name = "nemesis assault strider"
 	desc = "A heavily armored and armed bio-mechanical beast of war. Armed with cannons and razor sharp scythe blades, very few are lucky enough to see it and survive."
 	icon = 'zzzz_modular_occulus/icons/mob/siren/nemesis.dmi'
