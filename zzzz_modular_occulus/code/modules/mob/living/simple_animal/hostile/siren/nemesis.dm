@@ -1,6 +1,4 @@
-#define GET_TARGETS_FROM(who) (who.targets_from ? who.get_targets_from() : who)
-
-/mob/living/simple_animal/hostile/siren/nemesis
+	/mob/living/simple_animal/hostile/siren/nemesis
 	name = "nemesis assault strider"
 	desc = "A heavily armored and armed bio-mechanical beast of war. Armed with cannons and razor sharp scythe blades, very few are lucky enough to see it and survive."
 	icon = 'zzzz_modular_occulus/icons/mob/siren/nemesis.dmi'
