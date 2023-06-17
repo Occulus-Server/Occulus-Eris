@@ -60,7 +60,7 @@
 /obj/machinery/neotheology/clone_vat/MouseDrop_T(mob/target, mob/user)
 
 	var/mob/living/M = user
-	if(user.stat || user.restrained() || !check_table(user) || !iscarbon(target))
+	if(user.stat || user.restrained() || !check_table(user) || !(isanimal(target) || iscarbon(target) || issuperioranimal(target))) // Occulus Edit: Expand vattable creatures
 		return
 	if(istype(M))
 		take_victim(target, user, FALSE)
@@ -83,6 +83,11 @@
 		O.loc = loc
 	add_fingerprint(user)
 	buckle_mob(C)
+
+	// Occulus Edit: Early Return if not human
+	if(!ishuman(C))
+		return
+	// Occulus Edit End
 	var/mob/living/carbon/human/H = C	// OCCULUS EDIT - Needed for the bloody procs below. Very spaghetti, I know.
 	H.bloody_body()	// OCCULUS EDIT - Stains your clothes with red stuff that's TOOOOTALLY wine. Resulting blood should have no DNA.
 	H.visible_message("[H]'s clothes are soaked in \the [src]'s fluids!","Your clothes are soaked in \the [src]'s fluids!")	// OCCULUS EDIT - Feedback for the above
@@ -99,7 +104,7 @@
 	check_victim()
 
 /obj/machinery/neotheology/clone_vat/proc/check_victim()
-	if (istype(buckled_mob,/mob/living/carbon/human))
+	if(istype(buckled_mob, /mob/living)) // Occulus Edit: living/carbon/human -> living
 		victim = buckled_mob
 		occupied = TRUE
 		return 1
@@ -122,6 +127,18 @@
 	if(!fluid_level)
 		return
 	if(check_victim())
+		// Occulus Edit: Non-human get their HP increased, and revived if above a certain threshold
+		if(!ishuman(victim) && victim.health < victim.maxHealth)
+			victim.heal_organ_damage(5, 5)
+			victim.updatehealth()
+			if(victim.stat && victim.health > 0)
+				victim.rejuvenate()
+				if(isanimal(victim))
+					var/mob/living/simple_animal/SM = victim
+					SM.loot.Cut() // No farming!
+			adjust_fluid_level(-1)
+			return
+		// Occulus Edit End: Most unsafe code written, ever
 		var/corruption = calucalte_genetic_corruption(victim)
 		if(corruption)
 			if (corruption > victim.genetic_corruption)

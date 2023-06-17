@@ -93,6 +93,8 @@
 	//It will drop back to 1 if it spies any food.
 		//This short time makes animals more responsive to interactions and more fun to play with
 
+	var/list/loot = list() //list of things spawned at mob's loc when it dies - OCCULUS EDIT
+
 	var/seek_speed = 2//How many tiles per second the animal will move towards food
 	var/seek_move_delay
 	var/scan_range = 6//How far around the animal will look for food
@@ -430,7 +432,16 @@
 	movement_target = null
 	icon_state = icon_dead
 	density = FALSE
+	drop_loot() // Occulus Edit: Loot List system, so no farming siren!
 	return ..(gibbed,deathmessage)
+
+// Occulus Edit: Add loot system for mobs, allowing them to be deleted
+/mob/living/simple_animal/proc/drop_loot()
+	if(loot.len)
+		for(var/i in loot)
+			new i(loc)
+
+// Occulus Edit End
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
