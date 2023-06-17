@@ -47,7 +47,7 @@
 	if(stance == HOSTILE_STANCE_IDLE)
 		if(prob(20) && (structure_capacity >= 1))
 			if(constructing == 0)
-				if(!(locate(/obj/item/shocktrap) in get_turf(src)) && !(locate(/obj/structure/sirencade) in get_turf(src)) && !(locate(/mob/living/simple_animal/hostile/siren/turret)) in get_turf(src))
+				if(!(locate(/obj/item/shocktrap) in get_turf(src)) && !(locate(/obj/structure/sirencade) in get_turf(src)) && !(locate(/mob/living/simple_animal/hostile/siren/turret) in get_turf(src)))
 					src.visible_message(SPAN_NOTICE("\The [src] begins to construct some sort of energy structure."))
 					stop_automated_movement = 1
 					stunned = 5

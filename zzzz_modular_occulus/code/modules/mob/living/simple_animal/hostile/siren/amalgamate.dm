@@ -26,7 +26,7 @@
 	var/ability_cooldown = 20
 	var/mob/living/Victim = null // the person the slime is currently feeding on
 	var/sounddelay = 0
-	var/ranged_cooldown_time = 4 SECONDS
+	var/attack_cooldown_time = 4 SECONDS
 	var/attack_cooldown
 
 /mob/living/simple_animal/hostile/siren/amalgamate/Initialize()
@@ -57,7 +57,7 @@
 		return
 	if(world.time >= attack_cooldown)
 		glomp(target_mob)
-		attack_cooldown = world.time + ranged_cooldown_time
+		attack_cooldown = world.time + attack_cooldown_time
 
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob

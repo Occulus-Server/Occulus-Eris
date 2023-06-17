@@ -42,6 +42,12 @@
 	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/replicant, /mob/living/simple_animal/hostile/siren/replicant,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator))
 	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/composer, /mob/living/simple_animal/hostile/siren/replicant,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator))
 	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/composer))
+	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/oracle,/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/conservator))	//The miniboss really does not need extra help
+	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/intruder,/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/composer))
+	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/amalgamate,/mob/living/simple_animal/hostile/siren/amalgamate,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator))
+	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/amalgamate,/mob/living/simple_animal/hostile/siren/replicant,/mob/living/simple_animal/hostile/siren/amalgamate,/mob/living/simple_animal/hostile/siren/replicant))
+	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/intruder,/mob/living/simple_animal/hostile/siren/intruder,/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator))
+	spawnLists += list(list(/mob/living/simple_animal/hostile/siren/oracle, /mob/living/simple_animal/hostile/siren/augmentor,/mob/living/simple_animal/hostile/siren/replicant,/mob/living/simple_animal/hostile/siren/intruder))
 	if(crew >= 17)
 		spawnLists += list(list(/mob/living/simple_animal/hostile/siren/nemesis))
 
