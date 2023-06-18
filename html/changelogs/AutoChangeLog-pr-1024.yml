@@ -1,0 +1,4 @@
+author: WeNeedMorePhoron
+delete-after: true
+changes:
+  - rscdel: Respawn timers removed.
