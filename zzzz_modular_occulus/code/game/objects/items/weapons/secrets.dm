@@ -1,6 +1,6 @@
 /obj/item/paper/lore	//This exists purely to allow for the mehkane librarian role to use this subtype for research.
 	name = "base lore paper"
-	spawn_blacklisted = TRUE
+	bad_type = /obj/item/paper/lore
 
 /obj/item/paper/lore/roaches
 	name = "paper- 'Lost Journal Page'"
@@ -24,7 +24,7 @@
 	name = "paper- 'Really?'"
 	info = {"\[b\]Security OffiTHr\[/b\]at's R&D's great plan to handle what the supply team let loose? All because one guy in security went missing? I swear they put drugs in the air because only someone high or stupid would think two giant bugs aboard is a good idea."}
 
-/obj/item/paper/skies
+/obj/item/paper/lore/skies
 	name = "paper- 'The Skies are Buried Deep?'"
 	info = {"I see it wherever I look. Etched into the week later, we were on a special Observation with someone will hear the signal.<br>The dullness of those dogs face justick to MREs for now.<br>I guess I'll started acting weird.t. Written in roach guts on the floor. Muttered between crewmen when no one's looking. What does it mean!? What are they hiding!?"}
 
@@ -139,7 +139,7 @@
 	<br>
 	To Captain *Unintelligable*
 	<br>
-	
+
 Captain we're emailing you to share a concern of this retrofit contract you've asked of our company.
 	<br>
 	The Northern Light is already has quite a few interior alterations that are inefficient to be polite as possible and if anything we would like records of who's done these renovations.
