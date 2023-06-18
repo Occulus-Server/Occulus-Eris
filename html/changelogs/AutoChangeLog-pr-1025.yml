@@ -1,0 +1,5 @@
+author: WeNeedMorePhoron
+delete-after: true
+changes:
+  - bugfix: Ensign have access to the reactor (Engineering Equipment) room again.
+      They had "Engine" access, which was to the thrusters room. Woops.
