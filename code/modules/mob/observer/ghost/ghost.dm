@@ -698,26 +698,29 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(feedback)
 			to_chat(src, "<span class='warning'>antagHUD restrictions prevent you from respawning.</span>")
 		return 0
+	return TRUE
+	
+	// Occulus Edit: Remove respawn timer
+	// var/timedifference = world.time- get_death_time(respawn_type)
+	// var/respawn_time = 0
+	// if (respawn_type == CREW)
+	// 	respawn_time = config.respawn_delay MINUTES
 
-	var/timedifference = world.time- get_death_time(respawn_type)
-	var/respawn_time = 0
-	if (respawn_type == CREW)
-		respawn_time = config.respawn_delay MINUTES
+	// 	//Here we factor in bonuses added from cryosleep and similar things
+	// 	timedifference += get_respawn_bonus()
+	// else if (respawn_type == ANIMAL)
+	// 	respawn_time = ANIMAL_SPAWN_DELAY
+	// else if (respawn_type == MINISYNTH)
+	// 	respawn_time = DRONE_SPAWN_DELAY
 
-		//Here we factor in bonuses added from cryosleep and similar things
-		timedifference += get_respawn_bonus()
-	else if (respawn_type == ANIMAL)
-		respawn_time = ANIMAL_SPAWN_DELAY
-	else if (respawn_type == MINISYNTH)
-		respawn_time = DRONE_SPAWN_DELAY
-
-	if(respawn_time &&  timedifference > respawn_time)
-		return TRUE
-	else
-		if(feedback)
-			var/timedifference_text = time2text(respawn_time  - timedifference,"mm:ss")
-			to_chat(src, "<span class='warning'>You must have been dead for [respawn_time / 600] minute\s to respawn. You have [timedifference_text] left.</span>")
-		return 0
+	// if(respawn_time &&  timedifference > respawn_time)
+	// 	return TRUE
+	// else
+	// 	if(feedback)
+	// 		var/timedifference_text = time2text(respawn_time  - timedifference,"mm:ss")
+	// 		to_chat(src, "<span class='warning'>You must have been dead for [respawn_time / 600] minute\s to respawn. You have [timedifference_text] left.</span>")
+	// 	return 0
+	// Occulus Edit End
 
 /atom/proc/extra_ghost_link()
 	return
