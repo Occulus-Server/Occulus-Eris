@@ -43,8 +43,8 @@
 	. = ..()
 	if(health >=15)
 		soundloop()
-		if(target_mob)
-			shockloop()
+	//	if(target_mob)	//Shockloop. Can't get lightning beams to work. Only the damage effects. This is a struggle. Will fix later.
+	//		shockloop()
 
 /mob/living/simple_animal/hostile/siren/intruder/death()
 	..()
