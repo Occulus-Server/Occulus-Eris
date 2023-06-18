@@ -27,7 +27,7 @@
 	anchored = TRUE
 	var/combatant_state = TURRET_STATE_NEUTRAL
 	var/mob/living/beam_debuff_target
-	var/targetting = 0
+	var/targetting = FALSE
 	var/loot_table = list(/obj/spawner/tool/advanced,
 						/obj/spawner/tool_upgrade/rare,
 						/obj/spawner/material/resources/rare)
@@ -56,7 +56,7 @@
 /mob/living/simple_animal/hostile/siren/turret/ForgetTarget(atom/T)
 	current_targets -= T	//removes target mob from current_targets list
 	if(T == src.target_mob)	//if mob is currently the immediate target, lose target
-		if(targetting == 1)
+		if(targetting)
 			src.target_mob.remove_overlays(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetlocked_indicator"))
 		else
 			src.target_mob.remove_overlays(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetting_indicator"))
@@ -102,7 +102,7 @@
 		sleep(2 SECONDS)
 		update_icons()
 		living_target.add_overlay(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetting_indicator"))
-		targetting = 1
+		targetting = TRUE
 		playsound(src,'zzzz_modular_occulus/sound/effects/beamcharge.ogg', 100, 0)
 		sleep(5 SECONDS)
 		set_light(3, 3, "#8B0000")
@@ -110,7 +110,7 @@
 		combatant_state = TURRET_STATE_ACTIVE
 		living_target.update_icons()
 		living_target.add_overlay(image('zzzz_modular_occulus/icons/mob/siren/general.dmi', "targetlocked_indicator"))
-		targetting = 0
+		targetting = FALSE
 		sleep(2 SECONDS)
 		if(get_dist(src,living_target) > 7)
 			src.mob_inaccuracy = 70

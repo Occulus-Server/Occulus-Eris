@@ -24,8 +24,8 @@
 	agony_coefficient = 0.5		//Gotta use lethals to put em down effectively
 	unsuitable_atoms_damage = 15
 	faction = "siren"
-	environment_smash = 1
-	destroy_surroundings = 1
+	environment_smash = TRUE
+	destroy_surroundings = TRUE
 	minbodytemp = 0
 	can_burrow = FALSE
 	heat_damage_per_tick = 20

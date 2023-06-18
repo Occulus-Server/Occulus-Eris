@@ -12,7 +12,7 @@
 	vision_range = 5
 	aggro_vision_range = 11
 	agony_coefficient = 0.8
-	ranged = 1
+	ranged = TRUE
 	rapid = 3
 	retreat_distance = 3
 	minimum_distance = 3

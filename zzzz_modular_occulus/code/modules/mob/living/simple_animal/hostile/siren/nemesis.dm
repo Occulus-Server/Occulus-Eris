@@ -8,7 +8,7 @@
 	icon_gib = "syndicate_gib"
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	move_to_delay = 3
-	ranged = 1
+	ranged = TRUE
 	rapid = 20
 	rapid_fire_delay = 0.15 SECONDS
 	projectiletype = /obj/item/projectile/beam/siren/rapidlaser
@@ -74,8 +74,8 @@
 		rapid = 20
 		retreat_distance = 3
 		minimum_distance = 2
-		if(ranged != 1)
-			ranged = 1
+		if(!ranged)
+			ranged = TRUE
 		visible_message("<span class='userdanger'>[src] primes it's advanced laser repeater!</span>", 1)
 
 	if(phase == 2)	//Plasma storm phase
@@ -86,16 +86,16 @@
 		retreat_distance = 5
 		minimum_distance = 4
 		projectiletype = /obj/item/projectile/plasma/blast
-		if(ranged != 1)
-			ranged = 1
+		if(!ranged)
+			ranged = TRUE
 		visible_message("<span class='userdanger'>[src] primes it's heavy plasma cannons!</span>", 1)
 
 	if(phase == 3)	//Charge melee phase
 		visible_message("<span class='userdanger'>[src] lifts it's scythe-like armblades and prepares to charge!</span>", 1)
 		retreat_distance = 0
 		minimum_distance = 0
-		if(ranged == 1)
-			ranged = 0
+		if(ranged)
+			ranged = FALSE
 
 /mob/living/simple_animal/hostile/siren/nemesis/proc/callforbackup()
 	var/list/spawnLists = list(/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/replicant)

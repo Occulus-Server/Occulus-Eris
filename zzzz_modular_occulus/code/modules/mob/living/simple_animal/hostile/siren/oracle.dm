@@ -12,7 +12,7 @@
 	vision_range = 5
 	aggro_vision_range = 11
 	agony_coefficient = 0.6
-	ranged = 1
+	ranged = TRUE
 	ranged_cooldown_time = 10 SECONDS
 	speed = 4
 	maxHealth = 200
@@ -87,13 +87,13 @@
 	set_light(3, 3, "#8B0000")
 	phase = pick(1,2)
 	if(phase == 1)	//teleport energy attack phase
-		ranged = 1
+		ranged = TRUE
 		retreat_distance = 3
 		minimum_distance = 3
 		visible_message("<span class='userdanger'>[src] primes is strange 'arm'-cannon!</span>", 1)
 
 	if(phase == 2)	//melee phase
-		ranged = 0
+		ranged = FALSE
 		retreat_distance = 0
 		minimum_distance = 0
 		visible_message("<span class='userdanger'>[src] raises it's floating 'arm' and a burst of energy covers the end of it!</span>", 1)
