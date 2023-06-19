@@ -22,7 +22,7 @@
 	attacktext = "slashes out with it's scythe-like blades at"
 	throw_message = "falls right through the strange body of the"
 	environment_smash = ENVIRONMENT_SMASH_RWALLS
-	agony_coefficient = 0.3
+	agony_coefficient = 0.2
 	move_to_delay = 7
 	retreat_distance = 0
 	minimum_distance = 0

@@ -9,8 +9,8 @@
 /mob/living/simple_animal/hostile/siren/turret
 	name = "monitor"
 	desc = "An innocious mellatic pod that floats in place. It seems to output a great deal of energy."
-	maxHealth = 100
-	health = 100
+	maxHealth = 200
+	health = 200
 	melee_damage_lower = 50
 	melee_damage_upper = 50
 	icon = 'zzzz_modular_occulus/icons/mob/siren/general.dmi'

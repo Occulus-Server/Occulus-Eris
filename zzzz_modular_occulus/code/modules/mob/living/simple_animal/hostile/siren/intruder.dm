@@ -11,7 +11,6 @@
 	move_to_delay = 8
 	vision_range = 5
 	aggro_vision_range = 11
-	agony_coefficient = 0.8
 	ranged = TRUE
 	rapid = 3
 	retreat_distance = 3
@@ -19,8 +18,8 @@
 	fire_verb = "fires a bolt strange energy" //reminder that the attack message is "\red <b>[src]</b> [fire_verb] at [target]!"
 	projectiletype = /obj/item/projectile/beam/siren
 	speed = 4
-	maxHealth = 100
-	health = 100
+	maxHealth = 300
+	health = 300
 	harm_intent_damage = 25
 	melee_damage_lower = 20
 	melee_damage_upper = 30
@@ -28,9 +27,14 @@
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	mob_inaccuracy = 33		//percent chance for a ranged mob's shot to go wide.
 	shot_variance = 20		//degree of shot widening.
+	var/initialcooldown
+	var/initialvariance
+	var/initialmovedelay
+	var/initialinaccuracy
+	var/initialrapid
 	var/sounddelay = 0
 	var/shockdelay = 0
-	var/energy = 0
+	var/overcharged = FALSE
 	var/special_ability_cooldown
 	var/ability_cooldown = 20
 	var/list/soundlist = list('zzzz_modular_occulus/sound/effects/dronehover.ogg')
@@ -41,11 +45,32 @@
 
 /mob/living/simple_animal/hostile/siren/intruder/Life()
 	. = ..()
+	if(!overcharged)
+		statupdate()
 	if(health >=15)
 		soundloop()
-	//	if(target_mob)	//Shockloop. Can't get lightning beams to work. Only the damage effects. This is a struggle. Will fix later.
-	//		shockloop()
+		if(target_mob)	//overcharge loop. makes it stronger the more damage it takes!
+			shockloop()
 
+/mob/living/simple_animal/hostile/siren/intruder/proc/statupdate()
+	if(health >= (0.7 * maxHealth))
+		move_to_delay = 6
+		mob_inaccuracy = 25
+		shot_variance = 15
+		rapid = 5
+		ranged_cooldown_time = 15 SECONDS
+	if(health < (0.7 * maxHealth) && health >= (0.4* maxHealth))
+		move_to_delay = 4
+		mob_inaccuracy = 20
+		shot_variance = 10
+		rapid = 7
+		ranged_cooldown_time = 10 SECONDS
+	if(health < (0.4 * maxHealth))
+		move_to_delay = 2
+		mob_inaccuracy = 15
+		shot_variance = 5
+		rapid = 9
+		ranged_cooldown_time = 5 SECONDS
 /mob/living/simple_animal/hostile/siren/intruder/death()
 	..()
 	visible_message("<b>[src]</b> blows apart!")
@@ -74,11 +99,34 @@
 
 //sends out electric arcs. Maybe.
 /mob/living/simple_animal/hostile/siren/intruder/proc/special_ability()
-	visible_emote("unleashes arcs of electricity!")
+	visible_emote("overcharges it's servos with a burst of energy!")
 	playsound(src, 'zzzz_modular_occulus/sound/effects/Lightningbolt.ogg', 90, 1)
 	shockicon()
-	for(var/mob/living/victim in view(src))
-		tesla_zap(src, 5, 1200, FALSE, TRUE)
+	overcharged = TRUE
+	initialcooldown = ranged_cooldown_time
+	initialvariance = shot_variance
+	initialmovedelay = move_to_delay
+	initialrapid = rapid
+	initialinaccuracy = mob_inaccuracy
+	var/shockrapid = (rapid*2)
+	rapid = shockrapid
+	var/shockinaccuracy = (mob_inaccuracy/2)
+	mob_inaccuracy = shockinaccuracy
+	var/shockvariance = (shot_variance/2)
+	shot_variance = shockvariance
+	var/shockspeed = (move_to_delay/2)
+	move_to_delay = shockspeed
+	var/shockcooldown = (ranged_cooldown_time/2)
+	ranged_cooldown_time = shockcooldown
+	addtimer(CALLBACK(src, .proc/returnstats), 10 SECONDS)
+
+/mob/living/simple_animal/hostile/siren/intruder/proc/returnstats()
+	overcharged = FALSE
+	rapid = initialrapid
+	mob_inaccuracy = initialinaccuracy
+	shot_variance = initialvariance
+	move_to_delay = initialmovedelay
+	ranged_cooldown_time = initialcooldown
 
 /mob/living/simple_animal/hostile/siren/intruder/proc/shockicon()
 	if(icon_state == "intruder")

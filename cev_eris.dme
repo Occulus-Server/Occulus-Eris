@@ -3123,7 +3123,6 @@
 #include "zzzz_modular_occulus\code\modules\organs\external\subtypes\robotic.dm"
 #include "zzzz_modular_occulus\code\modules\organs\external\subtypes\robotic_types.dm"
 #include "zzzz_modular_occulus\code\modules\organs\internal\blood_vessels.dm"
-#include "zzzz_modular_occulus\code\modules\power\shock.dm"
 #include "zzzz_modular_occulus\code\modules\power\supermatter.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\gun.dm"
 #include "zzzz_modular_occulus\code\modules\projectiles\gun_hud_actions.dm"

@@ -11,12 +11,12 @@
 	move_to_delay = 3
 	vision_range = 5
 	aggro_vision_range = 11
-	agony_coefficient = 0.6
+	agony_coefficient = 0.3
 	ranged = TRUE
 	ranged_cooldown_time = 10 SECONDS
 	speed = 4
-	maxHealth = 200
-	health = 200
+	maxHealth = 600
+	health = 600
 	harm_intent_damage = 15
 	melee_damage_lower = 10
 	melee_damage_upper = 20
