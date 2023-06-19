@@ -1,4 +1,0 @@
-author: WeNeedMorePhoron
-delete-after: true
-changes:
-  - refactor: removed useless 513 warning message when compiling

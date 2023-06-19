@@ -1,5 +1,0 @@
-author: WeNeedMorePhoron
-delete-after: true
-changes:
-  - tweak: Wounds now disappear if at 0 damage and it was 10 minutes or older once
-      again.
