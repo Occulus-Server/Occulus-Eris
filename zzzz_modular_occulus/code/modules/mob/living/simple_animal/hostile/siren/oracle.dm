@@ -28,7 +28,7 @@
 	var/phase_change = 15 SECONDS
 	var/phase_change_time
 	var/prob_tele = 34
-	var/transcended = 0
+	var/transcended = FALSE
 	var/transcend_change = 13 SECONDS
 	var/transcend_change_time
 	var/phase = 1
@@ -59,7 +59,7 @@
 	qdel(src)
 
 /mob/living/simple_animal/hostile/siren/oracle/MoveToTarget()
-	if(transcended == 0 && world.time >= transcend_change_time)
+	if(transcended && world.time >= transcend_change_time)
 		transcend()
 
 	if(world.time >= phase_change_time)	//rotate phases ever 10 seconds
@@ -71,7 +71,7 @@
 	visible_message("<span class='danger'>[src] dematerializes!</span>", 1)
 	icon_state = "oracle_transition"
 	sleep(2 SECONDS)
-	transcended = 1
+	transcended = TRUE
 	icon_state = "oracle_Intangible"
 	transcend_change_time = world.time + transcend_change
 	addtimer(CALLBACK(src, .proc/descend), 3 SECONDS)
@@ -79,7 +79,7 @@
 /mob/living/simple_animal/hostile/siren/oracle/proc/descend()
 	icon_state = "oracle_transition"
 	sleep(2 SECONDS)
-	transcended = 0
+	transcended = FALSE
 	visible_message("<span class='danger'>[src] rematerializes!</span>", 1)
 	icon_state = "oracle"
 
@@ -109,7 +109,7 @@
 /mob/living/simple_animal/hostile/siren/oracle/AttackingTarget()
 	if(!Adjacent(target_mob))
 		return
-	if(transcended == 1)
+	if(transcended)
 		return
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
@@ -132,14 +132,14 @@
 
 
 /mob/living/simple_animal/hostile/siren/oracle/OpenFire(atom/A)
-	if(transcended == 1)
+	if(transcended)
 		return
 	. = ..()
 
 /mob/living/simple_animal/hostile/siren/oracle/attack_generic(mob/user, damage, attack_message)
 	if(!damage || !istype(user))
 		return FALSE
-	if(transcended == 1)
+	if(transcended)
 		return FALSE
 	if(prob(prob_tele))
 		var/source = src
@@ -152,7 +152,7 @@
 	. = ..()
 
 /mob/living/simple_animal/hostile/siren/oracle/attackby(obj/item/W, mob/user, params)
-	if(transcended == 1)
+	if(transcended)
 		return FALSE
 	if(prob(prob_tele))
 		var/source = src
@@ -165,7 +165,7 @@
 	. = ..()
 
 /mob/living/simple_animal/hostile/siren/oracle/attack_hand(mob/living/carbon/M)
-	if(transcended == 1)
+	if(transcended)
 		return FALSE
 	if(M.a_intent != I_HELP && prob(prob_tele))
 		var/source = src
@@ -178,7 +178,7 @@
 	. = ..()
 
 /mob/living/simple_animal/hostile/siren/oracle/bullet_act(obj/item/projectile/P, def_zone)
-	if(transcended == 1)
+	if(transcended)
 		visible_message("<span class='danger'>[P] goes right through the intangible [src]!</span>", 1)
 		return PROJECTILE_FORCE_MISS
 

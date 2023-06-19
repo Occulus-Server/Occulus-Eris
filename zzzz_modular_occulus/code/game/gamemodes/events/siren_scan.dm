@@ -12,7 +12,7 @@
 	req_crew = 15
 	weight = 0.5
 	max_crew_diff_lower = 5
-	tags = list(TAG_SCARY, TAG_COMMUNAL, TAG_COMBAT, TAG_NEGATIVE,)
+	tags = list(TAG_SCARY, TAG_COMMUNAL, TAG_COMBAT, TAG_NEGATIVE)
 
 
 
