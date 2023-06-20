@@ -1,0 +1,5 @@
+author: WeNeedMorePhoron
+delete-after: true
+changes:
+  - rscadd: Embedded claws is now included in the top biology node alongside armblade
+      for another choice of aesthetics.
