@@ -141,6 +141,11 @@
 			L.adjust_fire_stacks(-(amount / 10))
 			remove_self(amount)
 		*/
+	if(istype(L, /mob/living/simple_animal/hostile/siren/amalgamate))
+		var/mob/living/simple_animal/hostile/siren/amalgamate/A = L
+		GET_COMPONENT_FROM(G, /datum/component/glomper, L)
+		if(G.Target)
+			A.release()
 
 /datum/reagent/water/affect_touch(mob/living/carbon/M, alien, effect_multiplier)
 	if(isslime(M))

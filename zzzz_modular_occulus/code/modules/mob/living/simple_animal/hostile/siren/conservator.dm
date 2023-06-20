@@ -24,6 +24,8 @@
 	var/constructing = 0
 	var/atom/tele_target
 	var/structure_capacity = 6
+	sirenspeechlist = list("weər ɑː juː ˈhaɪdɪŋ…?", "juː ɑː tuː jʌŋ tuː biː hɪə.")
+
 	var/loot_table = list(/obj/spawner/material/building,
 						/obj/spawner/tool_upgrade/rare,
 						/obj/spawner/material/resources/rare)
@@ -45,13 +47,13 @@
 	if(stance == HOSTILE_STANCE_IDLE)
 		if(prob(20) && (structure_capacity >= 1))
 			if(constructing == 0)
-				if(!(locate(/obj/item/shocktrap) in get_turf(src)) && !(locate(/obj/structure/sirencade) in get_turf(src)))
+				if(!(locate(/obj/item/shocktrap) in get_turf(src)) && !(locate(/obj/structure/sirencade) in get_turf(src)) && !(locate(/mob/living/simple_animal/hostile/siren/turret) in get_turf(src)))
 					src.visible_message(SPAN_NOTICE("\The [src] begins to construct some sort of energy structure."))
 					stop_automated_movement = 1
 					stunned = 5
 					constructing = 1
 					spawn(40)
-						var/list/conservatorconstruct = list(/obj/item/shocktrap, /obj/structure/sirencade)
+						var/list/conservatorconstruct = list(/obj/item/shocktrap, /obj/structure/sirencade, /mob/living/simple_animal/hostile/siren/turret)
 						var/chosen = safepick(conservatorconstruct)
 						new chosen(src.loc)
 						structure_capacity--

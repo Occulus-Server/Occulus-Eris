@@ -130,6 +130,13 @@ datum/reagent/nitrate
 	M.bodytemperature = max(165, M.bodytemperature - 30)
 	return ..()
 
+/datum/reagent/frioline/touch_mob(mob/living/L, var/amount)
+	if(istype(L, /mob/living/simple_animal/hostile/siren/amalgamate))
+		var/mob/living/simple_animal/hostile/siren/amalgamate/A = L
+		GET_COMPONENT_FROM(G, /datum/component/glomper, L)
+		if(G.Target)
+			A.release()
+
 /datum/reagent/luxitol
 	id = "luxitol"
 	name = "Luxitol"
@@ -253,7 +260,7 @@ datum/reagent/nitrate
 	if(istype(M))
 		M.vomit()
 //		M.add_chemical_effect(CE_TOXIN, 30)
-		M.Weaken(90)
+		M.Weaken(45)
 
 
 // Occulus Edit for Resuscitator - Simple Mob Revival
