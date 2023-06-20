@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/siren/amalgamate
 	name = "amalgamate"
-	desc = "A swarm of undulating nanites shaping themselves roughly like a person. It seems weak to water."
+	desc = "A swarm of undulating nanites shaping themselves roughly like a person. Water seems to upset it's programming."
 	icon = 'zzzz_modular_occulus/icons/mob/siren/general.dmi'
 	icon_state = "amalgamate"
 	icon_living = "amalgamate"
