@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/siren/amalgamate
 	name = "amalgamate"
-	desc = "A swarm of undulating nanites shaping themselves roughly like a person. They seem to engulf people!"
+	desc = "A swarm of undulating nanites shaping themselves roughly like a person. Water seems to upset it's programming."
 	icon = 'zzzz_modular_occulus/icons/mob/siren/general.dmi'
 	icon_state = "amalgamate"
 	icon_living = "amalgamate"
@@ -24,7 +24,6 @@
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	var/special_ability_cooldown
 	var/ability_cooldown = 20
-	var/mob/living/Victim = null // the person the slime is currently feeding on
 	var/sounddelay = 0
 	var/attack_cooldown_time = 4 SECONDS
 	var/attack_cooldown
