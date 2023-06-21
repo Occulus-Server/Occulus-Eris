@@ -5,3 +5,4 @@
 	item_state = "securityrturtle"
 	icon = 'zzzz_modular_occulus/icons/inventory/uniform/icon.dmi'
 	icon_override = 'zzzz_modular_occulus/icons/inventory/uniform/mob.dmi'
+	icon_override_female = 'zzzz_modular_occulus/icons/inventory/uniform/mob_fem.dmi'

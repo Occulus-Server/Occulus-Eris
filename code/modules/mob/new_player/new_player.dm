@@ -165,7 +165,7 @@
 			discord_redirect(usr)//AEIOU addition
 			return 0
 
-		if(alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] before being able join the crew! But you can play as a mouse or drone immediately.","Player Setup","Yes","No") == "Yes")
+		if(alert(src,"Are you sure you wish to observe? ","Player Setup","Yes","No") == "Yes") // Occulus Edit: Removed the alert message about respawn delay since we're removing it from code
 			if(!client)	return 1
 			// OCCULUS EDIT START - Copypasta some virgo jank so ghostjoiners get their character sprite
 			//Make a new mannequin quickly, and allow the observer to take the appearance

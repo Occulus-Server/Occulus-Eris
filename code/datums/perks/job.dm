@@ -49,14 +49,15 @@
 	icon_state = "selfmedicated" // https://game-icons.net/1x1/lorc/overdose.html
 
 /datum/perk/selfmedicated/assign(mob/living/carbon/human/H)
-	if(..())
-		holder.metabolism_effects.addiction_chance_multiplier = 0.5
-		holder.metabolism_effects.nsa_threshold_base += 10
+	..()
+	if(holder)
+		holder.metabolism_effects.addiction_chance_multiplier = 0.1 //Occu Edit: Buffing this
+		holder.metabolism_effects.nsa_threshold_base += 25 //NSA threshold is determined every tick based on cog. we need to modify the base - Occu Edit
 
 /datum/perk/selfmedicated/remove()
 	if(holder)
 		holder.metabolism_effects.addiction_chance_multiplier = 1
-		holder.metabolism_effects.nsa_threshold_base -= 10
+		holder.metabolism_effects.nsa_threshold_base -= 25 //NSA threshold is determined every tick based on cog. we need to modify the base - Occu Edit
 	..()
 
 /datum/perk/selfmedicated/chemist

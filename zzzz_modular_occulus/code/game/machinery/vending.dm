@@ -183,6 +183,8 @@
 					/obj/item/ammo_magazine/ammobox/shotgun/beanbag = 5,
 					/obj/item/ammo_magazine/ammobox/shotgun/rubbershot = 5,
 					/obj/item/cell/small/high = 10,
+					/obj/item/ammo_magazine/s5mag/rubbershot = 10,
+					/obj/item/ammo_magazine/s5mag/beanbag = 10,
 					/obj/item/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2
 					)
 	premium = list(
@@ -207,6 +209,8 @@
 					/obj/item/ammo_magazine/ammobox/shotgun/beanbag = 575,
 					/obj/item/ammo_magazine/ammobox/shotgun/rubbershot = 575,
 					/obj/item/cell/small/high = 500,
+					/obj/item/ammo_magazine/s5mag/beanbag = 125,
+					/obj/item/ammo_magazine/s5mag/rubbershot = 125,
 					/obj/item/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns/generic = 2500,
 					/obj/item/storage/pouch/ammo = 750,
 					/obj/item/ammo_magazine/ammobox/clrifle/rubber = 1500,
@@ -404,7 +408,10 @@
 					/obj/item/reagent_containers/food/drinks/bottle/ntcahors = 20,
 					/obj/item/clothing/accessory/job/cape/church/small = 5,
 					/obj/item/clothing/accessory/job/cape/church/small/red = 5,
-					/obj/item/clothing/accessory/job/cape/church/small/white = 5)
+					/obj/item/clothing/accessory/job/cape/church/small/white = 5,
+					/obj/item/clothing/accessory/holster/sword = 5,
+					/obj/item/storage/sheath = 5
+					)
 	premium = list(
 					/obj/item/storage/belt/utility/neotheology = 3,
 					/obj/item/storage/belt/tactical/neotheology = 3)
@@ -416,7 +423,9 @@
 					/obj/item/storage/belt/tactical/neotheology = 150,
 					/obj/item/clothing/accessory/job/cape/church/small = 150,
 					/obj/item/clothing/accessory/job/cape/church/small/red = 150,
-					/obj/item/clothing/accessory/job/cape/church/small/white = 150
+					/obj/item/clothing/accessory/job/cape/church/small/white = 150,
+					/obj/item/clothing/accessory/holster/sword = 150,
+					/obj/item/storage/sheath = 150
 					)
 // rogues Added Vendors
 /obj/machinery/vending/Merc_clothing_vendor
