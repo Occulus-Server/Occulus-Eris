@@ -176,8 +176,10 @@
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.
 	player_setup.sanitize_setup()
 	character.set_species(species)
-	var/random_first = random_first_name(gender, species)
-	var/random_last = random_last_name(gender, species)
+	// Occulus Edit: Comment out unused
+	// var/random_first = random_first_name(gender, species)
+	// var/random_last = random_last_name(gender, species)
+	// Occulus Edit: Comment out unused
 
 // Refactor full name system into family name system.
 	if(be_random_name)

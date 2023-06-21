@@ -91,12 +91,6 @@
 	ratio = round(ratio, 0.25) * 100
 	overlays += "[ratio]_PW"
 
-/obj/item/gun/projectile/shotgun/bull/on_update_icon()
-	..()
-
-	var/iconstring = initial(icon_state)
-	var/itemstring = ""
-
 /obj/item/gun/projectile/shotgun/bull/update_icon()
 	..()
 	var/ratio = get_ammo() / (max_shells + 1)
