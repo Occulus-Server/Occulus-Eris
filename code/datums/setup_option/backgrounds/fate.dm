@@ -101,11 +101,16 @@
 
 /datum/category_item/setup_option/background/fate/lowborn
 	name = "Lowborn"
-	desc = "You are the bottom of society. The dirt and grime on the heel of a boot. You had one chance. You took it. \
-			You never knew your parents and were lucky enough to learn how to read, and that, in time, landed you a position on this ship. \
-			Would you still choose to be part of this journey if you knew what it meant? Will you leave a mark or be forgotten forever? \
-			You cannot play command roles. Additionally, you have the ability to have a name without a last name and have an increased sanity pool."
+	// Occulus Edit: Different description / restrictions
+	// desc = "You are the bottom of society. The dirt and grime on the heel of a boot. You had one chance. You took it. \
+	// 		You never knew your parents and were lucky enough to learn how to read, and that, in time, landed you a position on this ship. \
+	// 		Would you still choose to be part of this journey if you knew what it meant? Will you leave a mark or be forgotten forever? \
+	// 		You cannot play command roles. Additionally, you have the ability to have a name without a last name and have an increased sanity pool."
 
-	restricted_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/chaplain, /datum/job/merchant, /datum/job/cmo, /datum/job/rd, /datum/job/ihc)
-	restricted_depts = IRONHAMMER | MEDICAL | SCIENCE
+	// restricted_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/chaplain, /datum/job/merchant, /datum/job/cmo, /datum/job/rd, /datum/job/ihc)
+	// restricted_depts = IRONHAMMER | MEDICAL | SCIENCE
+	// Occulus Edit End
+	desc = "Your origin is at the bottom of the society, be it from slums, underground trash communities, refugees, or any number of neglected communities. \
+			Maybe, unlike everyone else here, this ship is actually an improvement in living conditions for you...."
+	restricted_jobs = list(/datum/job/captain, /datum/job/chaplain, /datum/job/merchant, /datum/job/cmo, /datum/job/rd, /datum/job/ihc)
 	perks = list(PERK_LOWBORN)

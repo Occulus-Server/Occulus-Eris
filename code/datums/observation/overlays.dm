@@ -25,7 +25,7 @@ GLOBAL_DATUM_INIT(cut_overlays_event, /decl/observ/cut_overlays, new)
 /atom/overlays = list/value
 	. = ..()
 	GLOB.set_overlays_event.raise_event(src, args)
-/atom/overlays.Cut()
+/atom/cut_overlays
 	. = ..()
 	GLOB.cut_overlays_event.raise_event(src, args)
 

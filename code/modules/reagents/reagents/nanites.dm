@@ -31,8 +31,9 @@
 /datum/reagent/nanites/consumed_amount(mob/living/carbon/M, alien, var/location)
 	if(will_occur(M, alien, location))
 		return ..()
-	else
-		return 0
+	else if(location == CHEM_INGEST)
+		holder.trans_to_mob(M, volume, CHEM_BLOOD) // Nanites dig through the stomach lining to get into the blood.
+	return 0
 
 /datum/reagent/nanites/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	eat_blood(M)

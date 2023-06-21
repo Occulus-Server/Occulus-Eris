@@ -12,19 +12,19 @@
 	vision_range = 5
 	aggro_vision_range = 11
 	speed = 4
-	maxHealth = 80
-	health = 80
+	maxHealth = 160
+	health = 160
 	harm_intent_damage = 25
 	melee_damage_lower = 20
 	melee_damage_upper = 30
 	attacktext = "slashed"
-	environment_smash = ENVIRONMENT_SMASH_NONE
+	environment_smash = 1
 	var/sounddelay = 0
 	var/skremdelay = 0
 	var/special_ability_cooldown
 	var/ability_cooldown = 20
 	var/list/soundlist = list('zzzz_modular_occulus/sound/effects/solonely.wav', 'zzzz_modular_occulus/sound/effects/whispers.wav', 'zzzz_modular_occulus/sound/effects/malecrying.wav')
-
+	sirenspeechlist = list("")
 
 /mob/living/simple_animal/hostile/siren/composer/Life()
 	. = ..()

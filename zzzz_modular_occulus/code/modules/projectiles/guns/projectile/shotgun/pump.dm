@@ -11,7 +11,7 @@
 		loaded -= AC //Remove casing from loaded list.
 		chambered = AC
 
-	if(ammo_magazine.stored_ammo.len)
+	if(ammo_magazine?.stored_ammo.len)
 		var/obj/item/ammo_casing/AC = ammo_magazine.stored_ammo[1] 
 		ammo_magazine.stored_ammo -= AC 
 		chambered = AC

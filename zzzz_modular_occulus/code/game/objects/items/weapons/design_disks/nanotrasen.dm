@@ -19,7 +19,8 @@
 		/datum/design/autolathe/container/freezer_medical,
 		/datum/design/autolathe/device/implanter,
 		/datum/design/autolathe/container/syringegun_ammo,
-		/datum/design/autolathe/ammo/dart_mag
+		/datum/design/autolathe/ammo/dart_mag,
+		/datum/design/autolathe/container/hcase_med
 //		/datum/design/autolathe/container/syringe/large, Occulus Edit Not ported
 	)
 
@@ -41,3 +42,7 @@
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_counselor
 	disk_name = "NT Scientifica - Councelor PDW E"
+
+/datum/design/autolathe/container/hcase_med
+	name = "Medical Hardcase"
+	build_path = /obj/item/storage/hcases/med

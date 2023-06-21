@@ -4,6 +4,7 @@
 /datum/technology/top_biotech
 	unlocks_designs = list(	/datum/design/research/item/mechfab/modules/armor,
 							/datum/design/research/item/mechfab/modules/armblade,
+							/datum/design/research/item/mechfab/modules/wolverine,
 							/datum/design/research/item/mechfab/modules/runner,
 							/datum/design/research/item/mechfab/modules/multitool/surgical,
 							/datum/design/research/item/mechfab/modules/multitool/engineer,

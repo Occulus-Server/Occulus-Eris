@@ -130,6 +130,13 @@ datum/reagent/nitrate
 	M.bodytemperature = max(165, M.bodytemperature - 30)
 	return ..()
 
+/datum/reagent/frioline/touch_mob(mob/living/L, var/amount)
+	if(istype(L, /mob/living/simple_animal/hostile/siren/amalgamate))
+		var/mob/living/simple_animal/hostile/siren/amalgamate/A = L
+		GET_COMPONENT_FROM(G, /datum/component/glomper, L)
+		if(G.Target)
+			A.release()
+
 /datum/reagent/luxitol
 	id = "luxitol"
 	name = "Luxitol"
@@ -253,6 +260,23 @@ datum/reagent/nitrate
 	if(istype(M))
 		M.vomit()
 //		M.add_chemical_effect(CE_TOXIN, 30)
-		M.Weaken(90)
+		M.Weaken(45)
 
+
+// Occulus Edit for Resuscitator - Simple Mob Revival
+/datum/reagent/resuscitator/touch_mob(mob/living/M, amount)
+	if(amount < 1)
+		return ..()
+	if(isanimal(M))
+		var/mob/living/simple_animal/SM = M
+		if(SM.health <= 0)
+			SM.visible_message(SPAN_WARNING("[SM] is too grievously wounded to be revived!"))
+			return
+		if(SM.mob_classification != CLASSIFICATION_ORGANIC) // We don't want non-organic to be revived
+			SM.visible_message(SPAN_NOTICE("The resuscitator has no effect on [SM]"))
+			return
+		if(SM.stat == DEAD)
+			SM.rejuvenate()
+			SM.loot.Cut() // Prevent infinite farming
+			SM.visible_message(SPAN_WARNING("[SM] seems to rise from the dead!</span>"))
 

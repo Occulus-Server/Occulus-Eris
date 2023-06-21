@@ -91,6 +91,9 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 
 	var/eat_time_message = 0
 
+	var/unmanaged_breakdown = FALSE // Occulus Edit: Whether there's a common breakdown with unfulfilled objective
+	// Occulus Edit: Gates negative breakdown behind not fulfilling a breakdown with insight reward
+
 	var/life_tick_modifier = 2	//How often is the onLife() triggered and by how much are the effects multiplied
 
 /datum/sanity/New(mob/living/carbon/human/H)
@@ -482,12 +485,16 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 			S.reg_break(owner)
 
 	var/list/possible_results
-	if((prob(positive_prob) && positive_prob_multiplier > 0 || positive_breakdown))
+
+	// Occulus Edit: Rewritten to gate negative breakdown behind not managing a normal breakdown w/ objective instead of percentage
+	if((prob(positive_prob) && positive_prob_multiplier > 0) || positive_breakdown)
 		possible_results = subtypesof(/datum/breakdown/positive)
-	else if(prob(negative_prob))
+	else if(unmanaged_breakdown)
 		possible_results = subtypesof(/datum/breakdown/negative)
+		unmanaged_breakdown = FALSE // Reset
 	else
 		possible_results = subtypesof(/datum/breakdown/common)
+	// Occulus Edit End
 
 	for(var/datum/breakdown/B in breakdowns)
 		possible_results -= B.type

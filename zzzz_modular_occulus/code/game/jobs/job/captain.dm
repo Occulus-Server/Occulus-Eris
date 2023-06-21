@@ -61,7 +61,7 @@ Should the worst occur, defend your ship, post, and commanders with your life."
 
 	access = list(
 		access_maint_tunnels, access_heads, access_RC_announce, access_sec_doors, access_tcomsat,
-		access_moebius, access_tech_storage, access_teleporter, access_bar, access_kitchen, access_engine
+		access_moebius, access_tech_storage, access_teleporter, access_bar, access_kitchen, access_engine, access_engine_equip
 	)
 
 	stat_modifiers = list(

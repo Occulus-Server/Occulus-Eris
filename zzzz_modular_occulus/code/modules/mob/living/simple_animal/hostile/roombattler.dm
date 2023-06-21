@@ -33,6 +33,8 @@
 
 	environment_smash = 1
 
+	agony_coefficient = 0.4 // super armored unit, doesn't take much damage from non-lethals.
+
 	faction = "bosstown"
 
 	light_range = 3

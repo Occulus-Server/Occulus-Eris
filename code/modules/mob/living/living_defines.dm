@@ -82,7 +82,9 @@
 	var/can_multiz_pb = FALSE
 	var/is_watching = FALSE
 
-	var/fuzzy = 1	// Occulus Addition - Sprite scaling Fuzzy/Sharp toggle
+	var/fuzzy = 1	// Occulus EDIT - Sprite scaling Fuzzy/Sharp toggle
 
 	spawn_frequency = 10
 	bad_type = /mob/living
+
+	var/agony_coefficient = 1 // OCCULUS EDIT - Making mobs selectively stronger against non-lethals

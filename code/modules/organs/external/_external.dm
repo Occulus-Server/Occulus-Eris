@@ -562,7 +562,7 @@ This function completely restores a damaged organ to perfect condition.
 
 	for(var/datum/wound/W in wounds)
 		// wounds can disappear after 10 minutes at the earliest
-		if(W.damage <= 0 && W.salved == 1 && W.bandaged == 1)//Occulus Edit: Wounds that have no damage, are salved, and are bandaged will disappear
+		if(W.damage <= 0 && (W.salved && W.bandaged || W.created + 10 MINUTES <= world.time))//Occulus Edit: Wounds that have no damage, are salved, and are bandaged will disappear
 			wounds -= W
 			continue
 			// let the GC handle the deletion of the wound

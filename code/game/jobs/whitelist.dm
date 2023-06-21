@@ -99,7 +99,7 @@ ADMIN_VERB_ADD(/client/proc/add_to_whitelist, R_ADMIN, FALSE)
 
 	if(!check_rights(R_ADMIN)) return
 
-	var/userkey = input(src, "Enter the ckey. Leave blank to cancel.", "Add to Whitelist")
+	var/userkey = ckey(input(src, "Enter the ckey. Leave blank to cancel.", "Add to Whitelist"))
 	if(userkey)
 		if (!aeiou_whitelist)
 			usr << ("Failed to load config/playerwhitelist.txt")
@@ -110,7 +110,7 @@ ADMIN_VERB_ADD(/client/proc/add_to_whitelist, R_ADMIN, FALSE)
 			usr << ("This user is blacklisted. Contact Headmin for more information.")
 		else
 //			userkey += "\n" bad idea
-			text2file(replacetext(lowertext(userkey), " ", ""), "config/playerwhitelist.txt")
+			text2file(userkey, "config/playerwhitelist.txt")
 
 	load_aeiouwhitelist()
 
