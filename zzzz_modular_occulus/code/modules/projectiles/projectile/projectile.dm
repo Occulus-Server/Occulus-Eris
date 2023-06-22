@@ -13,7 +13,7 @@
 
 
 /obj/item/projectile/plasma/blast/on_hit(atom/target)
-	siren_explosion(target, -1, 0, 2, 1)	//make into siren_explosion in modular human.dm and modular explosion.dm?
+	siren_explosion(target, 0, 0, 2, 1)	//make into siren_explosion in modular human.dm and modular explosion.dm?
 	set_light(0)
 	return TRUE
 

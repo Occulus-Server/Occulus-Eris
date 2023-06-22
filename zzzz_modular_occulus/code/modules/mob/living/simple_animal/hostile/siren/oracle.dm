@@ -59,7 +59,7 @@
 	qdel(src)
 
 /mob/living/simple_animal/hostile/siren/oracle/MoveToTarget()
-	if(transcended && world.time >= transcend_change_time)
+	if(!transcended && world.time >= transcend_change_time)
 		transcend()
 
 	if(world.time >= phase_change_time)	//rotate phases ever 10 seconds

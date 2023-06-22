@@ -348,12 +348,13 @@
 		add_overlay("shield")
 
 /mob/living/simple_animal/hostile/siren/proc/FindHidden()
-	if(istype(target_mob.loc, /obj/structure/closet) || istype(target.loc, /obj/machinery/disposal) || istype(target.loc, /obj/machinery/sleeper))
-		var/atom/A = target_mob.loc
-		walk_to(src, A, minimum_distance, move_to_delay)
-		if(A.Adjacent(src))
-			A.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-		return 1
+	if(target_mob)
+		if(istype(target_mob.loc, /obj/structure/closet) || istype(target.loc, /obj/machinery/disposal) || istype(target.loc, /obj/machinery/sleeper))
+			var/atom/A = target_mob.loc
+			walk_to(src, A, minimum_distance, move_to_delay)
+			if(A.Adjacent(src))
+				A.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+			return 1
 
 /mob/living/simple_animal/hostile/siren/bullet_act(obj/item/projectile/P, def_zone)
 	if(shieldcharge >= 1)
