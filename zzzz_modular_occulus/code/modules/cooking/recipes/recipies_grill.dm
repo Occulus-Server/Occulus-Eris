@@ -38,10 +38,10 @@
 
 /datum/recipe/grilled_roachmeat/kraftwerk
 	items = list(/obj/item/reagent_containers/food/snacks/meat/roachmeat/kraftwerk)
-/*	REENABLE AFTER THE PR BECAUSE THIS DOESN'T EXIST ON THIS BRANCH
+
 /datum/recipe/grilled_roachmeat/benzin
 	items = list(/obj/item/reagent_containers/food/snacks/meat/roachmeat/benzin)
-*/
+
 /datum/recipe/grilled_spidermeat
 	appliance = GRILL
 	items = list(/obj/item/reagent_containers/food/snacks/meat/spider)

@@ -15,7 +15,7 @@
 	cooking_power = 0
 	optimal_power = 1.1
 	flags = null
-	var/starts_with = list(
+	starts_with = list(
 		/obj/item/reagent_containers/cooking_container/plancha_pan,
 		/obj/item/reagent_containers/cooking_container/plancha_pan,
 		/obj/item/reagent_containers/cooking_container/plancha_pan

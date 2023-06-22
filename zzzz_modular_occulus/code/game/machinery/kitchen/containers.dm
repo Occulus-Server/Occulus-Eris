@@ -302,7 +302,23 @@
 	max_space = 20
 	volume = 50
 
+/obj/item/reagent_containers/cooking_container/mixerbowl
+	name = "mixer bowl"
+	shortname = "mixer bowl"
+	desc = "Put reagents into this. Warranty void if used. Alt-click to remove items."
+	icon_state = "mixerbowl"
+	max_space = 30
+	volume = 120
+	appliancetype = MIX
 
+/obj/item/reagent_containers/cooking_container/mixerbowl/Initialize(var/mapload, var/mat_key)
+	. = ..(mapload)
+	var/material/material = get_material_by_name(MATERIAL_STEEL)
+	if(!material)
+		return
+	if(mat_key && mat_key != MATERIAL_STEEL)
+		color = material.icon_colour
+	name = "[material.display_name] [initial(name)]"
 
 /obj/item/reagent_containers/cooking_container/plate
 	name = "serving plate"
@@ -356,7 +372,7 @@
 	QDEL_NULL(temp) //delete buffer object
 	return ..()
 
-/obj/item/reagent_containers/cooking_container/plate/bowl //NOTE: Replace this with a salad bowl
+/obj/item/reagent_containers/cooking_container/plate/bowl
 	name = "serving bowl"
 	shortname = "bowl"
 	desc = "A bowl. You bowl foods... wait, what?"
@@ -370,6 +386,42 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)
 
+//Transfering the bowls and plates back again.
+/datum/craft_recipe/craftingplate
+	name = "kitchen crafting plate"
+	result = /obj/item/reagent_containers/cooking_container/plate
+	time = WORKTIME_FAST
+	steps = list(
+		list(CRAFT_MATERIAL, 1, /obj/item/trash/plate)
+	)
+	related_stats = list(STAT_MEC)
+
+/datum/craft_recipe/kitchenplate
+	name = "plate"
+	result = /obj/item/trash/plate
+	time = WORKTIME_FAST
+	steps = list(
+		list(CRAFT_MATERIAL, 1, /obj/item/reagent_containers/cooking_container/plate)
+	)
+	related_stats = list(STAT_MEC)
+
+/datum/craft_recipe/craftingbowl
+	name = "low wall girder"
+	result = /obj/item/reagent_containers/glass/beaker/bowl
+	time = WORKTIME_FAST
+	steps = list(
+		list(CRAFT_MATERIAL, 1, )
+	)
+	related_stats = list(STAT_MEC)
+
+/datum/craft_recipe/kitchenbowl
+	name = "kitchen crafting bowl"
+	result = /obj/structure/girder/low
+	time = WORKTIME_FAST
+	steps = list(
+		list(CRAFT_MATERIAL, 1, /obj/item/reagent_containers/cooking_container/plate/bowl)
+	)
+	related_stats = list(STAT_MEC)
 
 /obj/item/reagent_containers/cooking_container/plate/bowl/on_reagent_change()
 	update_icon()

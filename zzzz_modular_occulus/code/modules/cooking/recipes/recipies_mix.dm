@@ -313,7 +313,14 @@
 	reagents = list (/datum/reagent/other/sodiumchloride = 1, /datum/reagent/water = 10, /datum/reagent/organic/nutriment/flour = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/dough
-	result_quantity = 3
+	result_quantity = 4
+
+/datum/recipe/spaghetti
+	appliance = MIX
+	reagents = list("egg" = 6, "flour" = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/spagetti
+	result_quantity = 4
 
 /datum/recipe/sauerkraut
 	appliance = MIX

@@ -130,6 +130,7 @@
 /datum/recipe/donut
 	appliance = FRYER
 	reagents = list(/datum/reagent/organic/sugar = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/dough)
 	result_quantity = 2
 
 /*	WHY IS THIS IN HERE TWICE

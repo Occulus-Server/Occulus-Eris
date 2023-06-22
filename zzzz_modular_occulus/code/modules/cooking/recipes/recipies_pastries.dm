@@ -85,7 +85,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/cake/carrot
-	fruit = list("carrot" = 3)
+	fruit = list("carrot" = 2)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/carrotcake
 
 /datum/recipe/cake/cheese

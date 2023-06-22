@@ -43,11 +43,12 @@
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
 	. = ..()
-	oil = new /datum/reagents(optimal_oil * 1.25, src)
-	var/variance = rand()*0.15	//Fryer is always a little below full, but its usually negligible
+	var/oilamount = src.optimal_oil * 1.25
+	var/newoil = new /datum/reagent/organic/nutriment/cornoil
+	var/variance = rand(0, 0.1)	//Fryer is always a little below full, but its usually negligible
 	if (prob(20))				//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
-		variance = rand()*0.5
-	oil.add_reagent(/datum/reagent/organic/nutriment/cornoil, optimal_oil*(1 - variance))
+		variance = rand(0, 0.5)
+	oil.add_reagent("cornoil", src.optimal_oil*(1 - variance))
 
 /obj/machinery/appliance/cooker/fryer/Process()
 	. = ..()

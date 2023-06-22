@@ -22,7 +22,7 @@
 	if (!target)
 		return
 
-	var/datum/reagent/transfering_reagent = rtype
+	//var/datum/reagent/transfering_reagent = rtype
 
 	if (istype(target, /atom))
 		var/atom/A = target
@@ -305,6 +305,7 @@
 //When exact is true, extraneous ingredients will fail the recipe
 //In both cases, the full complement of required inredients is still needed
 //This is dumb. 
+//Basically this proc checks for if the recipe fits the appliance, then if there aren't too few reagents, ingredients, and fruit. 
 /proc/select_cooking_recipe(var/obj/obj as obj, var/exact = COOK_CHECK_EXTRA, var/appliance = null)
 	if(!appliance)
 		crash_with("Null appliance flag passed to select_cooking_recipe!")
@@ -318,7 +319,7 @@
 		var/datum/recipe/recipe = pick_n_take(recipelist)
 		if(!(appliance & recipe.appliance))
 			continue
-		if((recipe.check_reagents(obj.reagents) < exact) || (recipe.check_items(obj) < exact) || (recipe.check_fruit(obj) < exact))
+		if((recipe.cook_check_reagents(obj.reagents) < exact) || (recipe.cook_check_items(obj) < exact) || (recipe.cook_check_fruit(obj) < exact))
 			continue
 		//if(!(recipe in possible_recipes))
 		possible_recipes += recipe

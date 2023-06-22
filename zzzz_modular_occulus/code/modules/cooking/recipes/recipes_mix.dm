@@ -23,7 +23,7 @@
 /datum/recipe/plainburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat //do not place this recipe before /datum/recipe/humanburger
+		/obj/item/reagent_containers/food/snacks/meatsteak/grilled //do not place this recipe before /datum/recipe/humanburger
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger
 
@@ -66,8 +66,8 @@
 /datum/recipe/monkeykabob
 	items = list(
 		/obj/item/stack/rods,
-		/obj/item/reagent_containers/food/snacks/meat,
-		/obj/item/reagent_containers/food/snacks/meat
+		/obj/item/reagent_containers/food/snacks/meatsteak/grilled,
+		/obj/item/reagent_containers/food/snacks/meatsteak/grilled
 	)
 	result = /obj/item/reagent_containers/food/snacks/monkeykabob
 
@@ -90,9 +90,9 @@
 /datum/recipe/bigbiteburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/burger,
-		/obj/item/reagent_containers/food/snacks/meat,
-		/obj/item/reagent_containers/food/snacks/meat,
-		/obj/item/reagent_containers/food/snacks/meat
+		/obj/item/reagent_containers/food/snacks/meatsteak/grilled,
+		/obj/item/reagent_containers/food/snacks/meatsteak/grilled,
+		/obj/item/reagent_containers/food/snacks/meatsteak/grilled
 	)
 	reagents = list(/datum/reagent/organic/nutriment/protein/egg = 3)
 	reagent_mix = RECIPE_REAGENT_REPLACE
@@ -100,7 +100,7 @@
 
 /datum/recipe/sandwich
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meatsteak,
+		/obj/item/reagent_containers/food/snacks/meatsteak/grilled,
 		/obj/item/reagent_containers/food/snacks/breadslice,
 		/obj/item/reagent_containers/food/snacks/breadslice,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
@@ -133,7 +133,7 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bigbiteburger,
 		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meatsteak/grilled,
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/boiledegg
 	)
@@ -279,7 +279,7 @@
 /datum/recipe/baconburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meatsteak/grilled,
 		/obj/item/reagent_containers/food/snacks/bacon,
 		/obj/item/reagent_containers/food/snacks/bacon
 	)
@@ -341,5 +341,12 @@
 	reagents = list (/datum/reagent/other/sodiumchloride = 1, /datum/reagent/water = 10, /datum/reagent/organic/nutriment/flour = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/dough
-	result_quantity = 3
+	result_quantity = 4
+
+/datum/recipe/spaghetti
+	appliance = MIX
+	reagents = list("egg" = 6, "flour" = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/spagetti
+	result_quantity = 4
 
