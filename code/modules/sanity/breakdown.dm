@@ -100,7 +100,7 @@
 		if(!finished)
 			holder.unmanaged_breakdown = TRUE
 			to_chat(holder.owner, SPAN_WARNING("A lingering unease settles in your bones. Though the intensity of your craving has subsided, a void unfilled hints at a difficult hour yet to come."))
-			addtimer(CALLBACK(holder, .datum/sanity/proc/reset_unmanaged_breakdown, 1 HOUR))
+			addtimer(CALLBACK(holder, .datum/sanity/proc/reset_unmanaged_breakdown), 1 HOUR)
 		// Occulus Edit End: Progressive Breakdown
 		if(finished)
 			// Occulus Edit: Success message on fulfilling your obsession
