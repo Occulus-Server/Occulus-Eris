@@ -1,0 +1,5 @@
+author: WeNeedMorePhoron
+delete-after: true
+changes:
+  - bugfix: Breakdown debuff now expires after an hour instead of immediately, so
+      you WILL get negative breakdowns if you don't fulfill your objective
