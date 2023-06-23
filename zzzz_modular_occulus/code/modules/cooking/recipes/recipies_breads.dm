@@ -15,12 +15,12 @@
 		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough
 	)
-	reagents = list(/datum/reagent/other/sodiumchloride = 1)
+	reagents = list("sodiumchloride" = 1)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/bread
 
 /datum/recipe/baguette
 	appliance = OVEN
-	reagents = list(/datum/reagent/other/sodiumchloride = 1, /datum/reagent/organic/blackpepper = 1)
+	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough
@@ -109,7 +109,7 @@
 /datum/recipe/bananabread
 	appliance = OVEN
 	fruit = list("banana" = 1)
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/organic/sugar = 15)
+	reagents = list("milk" = 5, "sugar" = 15)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough,
@@ -119,7 +119,7 @@
 
 /datum/recipe/croissant
 	appliance = OVEN
-	reagents = list(/datum/reagent/other/sodiumchloride = 1, /datum/reagent/water = 5, /datum/reagent/drink/milk = 5)
+	reagents = list("sodiumchloride" = 1, "water" = 5, "milk" = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(/obj/item/reagent_containers/food/snacks/dough)
 	result = /obj/item/reagent_containers/food/snacks/croissant
@@ -133,7 +133,7 @@
 
 /datum/recipe/cracker
 	appliance = OVEN
-	reagents = list(/datum/reagent/other/sodiumchloride = 1)
+	reagents = list("sodiumchloride" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
 	)
@@ -144,7 +144,7 @@
 //================================
 /datum/recipe/slimetoast
 	appliance = SKILLET | PLANCHA
-	reagents = list(/datum/reagent/medicine/slimejelly = 5)
+	reagents = list("slimejelly" = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)
@@ -152,7 +152,7 @@
 
 /datum/recipe/jelliedtoast
 	appliance = SKILLET | PLANCHA
-	reagents = list(/datum/reagent/organic/nutriment/cherryjelly = 5)
+	reagents = list("cherryjelly" = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)
