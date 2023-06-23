@@ -107,7 +107,7 @@
 
 	. = TRUE
 	for (var/r_r in reagents)
-		var/aval_r_amnt = REAGENT_VOLUME(avail_reagents, r_r)
+		var/aval_r_amnt = avail_reagents.get_reagent_amount(r_r)
 		if (aval_r_amnt - reagents[r_r] >= 0)
 			if (aval_r_amnt>reagents[r_r])
 				. = COOK_CHECK_EXTRA
@@ -259,6 +259,7 @@
 		if (RECIPE_REAGENT_SUM)
 			//Sum is easy, just shove the entire buffer into the result
 			buffer.trans_to_holder(holder, buffer.total_volume)
+		// TODO: Check code here - Doesn't work
 		if (RECIPE_REAGENT_MAX)
 			//We want the highest of each.
 			//Iterate through everything in buffer. If the target has less than the buffer, then top it up
@@ -268,7 +269,7 @@
 				if (rvol < bvol)
 					//Transfer the difference
 					buffer.trans_type_to(holder, _R, bvol-rvol)
-
+		// TODO: Check code here - Doesn't work
 		if (RECIPE_REAGENT_MIN)
 			//Min is slightly more complex. We want the result to have the lowest from each side
 			//But zero will not count. Where a side has zero its ignored and the side with a nonzero value is used

@@ -2,7 +2,7 @@
 //=========================
 /datum/recipe/chips
 	appliance = SKILLET | FRYER
-	reagents = list(/datum/reagent/other/sodiumchloride = 1)
+	reagents = list("sodiumchloride" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/tortilla
 	)
@@ -26,13 +26,13 @@
 
 /datum/recipe/salsa
 	fruit = list("chili" = 1, "tomato" = 1, "lime" = 1)
-	reagents = list(/datum/reagent/organic/nutriment/spacespice = 1, /datum/reagent/organic/blackpepper = 1,/datum/reagent/other/sodiumchloride = 1)
+	reagents = list("spacespice" = 1, "blackpepper" = 1,"sodiumchloride" = 1)
 	result = /obj/item/reagent_containers/food/snacks/dip/salsa
 	reagent_mix = RECIPE_REAGENT_REPLACE //Ingredients are mixed together.
 
 /datum/recipe/guac
 	fruit = list("chili" = 1, "lime" = 1)
-	reagents = list(/datum/reagent/organic/nutriment/spacespice = 1, /datum/reagent/organic/blackpepper = 1,/datum/reagent/other/sodiumchloride = 1)
+	reagents = list("spacespice" = 1, "blackpepper" = 1,"sodiumchloride" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/tofu
 	)
@@ -42,7 +42,7 @@
 /datum/recipe/cheesesauce
 	appliance = SKILLET | SAUCEPAN // melt the cheese
 	fruit = list("chili" = 1, "tomato" = 1)
-	reagents = list(/datum/reagent/organic/nutriment/spacespice = 1, /datum/reagent/organic/blackpepper = 1,/datum/reagent/other/sodiumchloride = 1)
+	reagents = list("spacespice" = 1, "blackpepper" = 1,"sodiumchloride" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
@@ -51,7 +51,7 @@
 
 /datum/recipe/redcurry
 	appliance = SKILLET
-	reagents = list(/datum/reagent/drink/milk/cream = 5, /datum/reagent/organic/nutriment/spacespice = 2, /datum/reagent/organic/nutriment/rice = 5)
+	reagents = list("cream" = 5, "spacespice" = 2, "rice" = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/cutlet,
 		/obj/item/reagent_containers/food/snacks/cutlet
@@ -61,7 +61,7 @@
 
 /datum/recipe/greencurry
 	appliance = SKILLET
-	reagents = list(/datum/reagent/drink/milk/cream = 5, /datum/reagent/organic/nutriment/spacespice = 2, /datum/reagent/organic/nutriment/rice = 5)
+	reagents = list("cream" = 5, "spacespice" = 2, "rice" = 5)
 	fruit = list("chili" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/tofu,
@@ -72,45 +72,45 @@
 
 /datum/recipe/yellowcurry
 	appliance = SKILLET
-	reagents = list(/datum/reagent/drink/milk/cream = 5, /datum/reagent/organic/nutriment/spacespice = 2, /datum/reagent/organic/nutriment/rice = 5)
+	reagents = list("cream" = 5, "spacespice" = 2, "rice" = 5)
 	fruit = list("peanut" = 2, "potato" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/yellowcurry
 
 /datum/recipe/friedrice
 	appliance = SKILLET | SAUCEPAN | PLANCHA
-	reagents = list(/datum/reagent/water = 5, /datum/reagent/organic/nutriment/rice = 10, /datum/reagent/organic/nutriment/soysauce = 5)
+	reagents = list("water" = 5, "rice" = 10, "soysauce" = 5)
 	fruit = list("carrot" = 1, "cabbage" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/friedrice
 
 /datum/recipe/risotto
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/alcohol/wine = 5, /datum/reagent/organic/nutriment/rice = 10, /datum/reagent/organic/nutriment/spacespice = 1)
+	reagents = list("wine" = 5, "rice" = 10, "spacespice" = 1)
 	fruit = list("mushroom" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Get that rice and wine outta here
 	result = /obj/item/reagent_containers/food/snacks/risotto
 
 /datum/recipe/boiledrice
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/water = 5, /datum/reagent/organic/nutriment/rice = 10)
+	reagents = list("water" = 5, "rice" = 10)
 	result = /obj/item/reagent_containers/food/snacks/boiledrice
 
 /datum/recipe/limebowl
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/water = 5, /datum/reagent/organic/nutriment/protein/egg = 3, /datum/reagent/organic/nutriment/rice = 10)
+	reagents = list("water" = 5, "egg" = 3, "rice" = 10)
 	fruit = list("lime" = 1)
 	result = /obj/item/reagent_containers/food/snacks/limebowl
 
 /datum/recipe/ricepudding
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/organic/nutriment/rice = 10)
+	reagents = list("milk" = 5, "rice" = 10)
 	result = /obj/item/reagent_containers/food/snacks/ricepudding
 
 /datum/recipe/bibimbap
 	appliance = SAUCEPAN | POT
 	fruit = list("carrot" = 1, "cabbage" = 1, "mushroom" = 1)
-	reagents = list(/datum/reagent/organic/nutriment/rice = 5, /datum/reagent/organic/nutriment/spacespice = 2)
+	reagents = list("rice" = 5, "spacespice" = 2)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg,
 		/obj/item/reagent_containers/food/snacks/cutlet
@@ -120,7 +120,7 @@
 
 /datum/recipe/boiledspaghetti
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/water = 5)
+	reagents = list("water" = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spagetti
 	)
@@ -129,13 +129,13 @@
 /datum/recipe/pastatomato
 	appliance = SAUCEPAN | POT
 	fruit = list("tomato" = 2)
-	reagents = list(/datum/reagent/water = 5)
+	reagents = list("water" = 5)
 	items = list(/obj/item/reagent_containers/food/snacks/spagetti)
 	result = /obj/item/reagent_containers/food/snacks/pastatomato
 
 /datum/recipe/meatballspaghetti
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/water = 5)
+	reagents = list("water" = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spagetti,
 		/obj/item/reagent_containers/food/snacks/meatball,
@@ -145,7 +145,7 @@
 
 /datum/recipe/spesslaw
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/water = 5)
+	reagents = list("water" = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spagetti,
 		/obj/item/reagent_containers/food/snacks/meatball,
@@ -157,7 +157,7 @@
 
 /datum/recipe/lomein
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/water = 5, /datum/reagent/organic/nutriment/soysauce = 5)
+	reagents = list("water" = 5, "soysauce" = 5)
 	fruit = list("carrot" = 1, "cabbage" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spagetti
@@ -187,7 +187,7 @@
 
 /datum/recipe/stuffing
 	appliance = OVEN
-	reagents = list(/datum/reagent/water = 5, /datum/reagent/other/sodiumchloride = 1, /datum/reagent/organic/blackpepper = 1)
+	reagents = list("water" = 5, "sodiumchloride" = 1, "blackpepper" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/bread
 	)
@@ -195,7 +195,7 @@
 
 /datum/recipe/tortilla
 	appliance = SKILLET
-	reagents = list(/datum/reagent/organic/nutriment/flour = 5,/datum/reagent/water = 5)
+	reagents = list("flour" = 5,"water" = 5)
 	result = /obj/item/reagent_containers/food/snacks/tortilla
 	reagent_mix = RECIPE_REAGENT_REPLACE //no gross flour or water
 
@@ -207,7 +207,7 @@
 		/obj/item/reagent_containers/food/snacks/meatball,
 		/obj/item/reagent_containers/food/snacks/meatball
 	)
-	reagents = list(/datum/reagent/organic/nutriment/spacespice = 1)
+	reagents = list("spacespice" = 1)
 	result = /obj/item/reagent_containers/food/snacks/burrito
 
 /datum/recipe/burrito_vegan
@@ -256,7 +256,7 @@
 
 /datum/recipe/meatbun
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/organic/nutriment/spacespice = 1, /datum/reagent/water = 5)
+	reagents = list("spacespice" = 1, "water" = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice,
 		/obj/item/reagent_containers/food/snacks/rawcutlet
@@ -266,7 +266,7 @@
 
 /datum/recipe/custardbun
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/organic/nutriment/spacespice = 1, /datum/reagent/water = 5, /datum/reagent/organic/nutriment/protein/egg = 3)
+	reagents = list("spacespice" = 1, "water" = 5, "egg" = 3)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
 	)
@@ -275,7 +275,7 @@
 
 /datum/recipe/chickenmomo
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/organic/nutriment/spacespice = 2, /datum/reagent/water = 5)
+	reagents = list("spacespice" = 2, "water" = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice,
 		/obj/item/reagent_containers/food/snacks/doughslice,
@@ -287,7 +287,7 @@
 
 /datum/recipe/veggiemomo
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/organic/nutriment/spacespice = 2, /datum/reagent/water = 5)
+	reagents = list("spacespice" = 2, "water" = 5)
 	fruit = list("carrot" = 1, "cabbage" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice,
@@ -335,14 +335,14 @@
 
 /datum/recipe/chana_masala
 	appliance = POT | SAUCEPAN
-	reagents = list(/datum/reagent/organic/nutriment/spacespice = 2, /datum/reagent/organic/nutriment/rice = 10)
+	reagents = list("spacespice" = 2, "rice" = 10)
 	fruit = list("chickpeas" = 2, "tomato" = 1, "chili" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/chana_masala
 
 /datum/recipe/hummus
 	appliance = POT | SAUCEPAN
-	reagents = list(/datum/reagent/organic/nutriment/spacespice = 2)	//Note, add /datum/reagent/nutriment/garlicsauce = 10,  when it's added
+	reagents = list("spacespice" = 2)	//Note, add "garlicsauce" = 10,  when it's added
 	fruit = list("chickpeas" = 2)
 	result = /obj/item/reagent_containers/food/snacks/hummus
 
