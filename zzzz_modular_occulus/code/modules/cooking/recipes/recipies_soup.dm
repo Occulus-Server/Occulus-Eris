@@ -21,7 +21,7 @@
 	appliance = SAUCEPAN | POT
 	fruit = list("carrot" = 1, "potato" = 1, "corn" = 1, "eggplant" = 1)
 	reagents = list("water" = 10)
-	result = /obj/item/reagent_containers/food/snacks/soup/vegetabledddd
+	result = /obj/item/reagent_containers/food/snacks/soup/vegetable
 	result_quantity = 3
 
 /datum/recipe/nettlesoup
