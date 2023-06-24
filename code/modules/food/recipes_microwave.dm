@@ -711,11 +711,11 @@ I said no!
 	)
 	result = /obj/item/reagent_containers/food/snacks/stewedsoymeat
 
-/*/datum/recipe/spagetti We have the processor now
+/datum/recipe/spagetti
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
 	)
-	result= /obj/item/reagent_containers/food/snacks/spagetti*/
+	result= /obj/item/reagent_containers/food/snacks/spagetti
 
 /datum/recipe/boiledspagetti
 	reagents = list("water" = 5)
