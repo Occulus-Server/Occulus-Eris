@@ -1,8 +1,7 @@
-
+/*
 // see code/datums/recipe.dm
 
 
-/* No telebacon. just no...
 /datum/recipe/telebacon
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat,
@@ -17,7 +16,6 @@ I said no!
 		/obj/item/device/assembly/signaler
 	)
 	result = /obj/item/reagent_containers/food/snacks/telebacon
-*/
 
 /datum/recipe/friedegg
 	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
@@ -713,11 +711,11 @@ I said no!
 	)
 	result = /obj/item/reagent_containers/food/snacks/stewedsoymeat
 
-/*/datum/recipe/spagetti We have the processor now
+/datum/recipe/spagetti
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
 	)
-	result= /obj/item/reagent_containers/food/snacks/spagetti*/
+	result= /obj/item/reagent_containers/food/snacks/spagetti
 
 /datum/recipe/boiledspagetti
 	reagents = list("water" = 5)
@@ -1051,3 +1049,4 @@ I said no!
 	items = list(/obj/item/organ/internal/brain)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/braincake
 
+*/

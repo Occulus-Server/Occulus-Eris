@@ -302,13 +302,30 @@
 	max_space = 20
 	volume = 50
 
+/obj/item/reagent_containers/cooking_container/mixerbowl
+	name = "mixer bowl"
+	shortname = "mixer bowl"
+	desc = "Put reagents into this. Warranty void if used. Alt-click to remove items."
+	icon_state = "mixerbowl"
+	max_space = 30
+	volume = 120
+	appliancetype = MIX
 
+/obj/item/reagent_containers/cooking_container/mixerbowl/Initialize(var/mapload, var/mat_key)
+	. = ..(mapload)
+	var/material/material = get_material_by_name(MATERIAL_STEEL)
+	if(!material)
+		return
+	if(mat_key && mat_key != MATERIAL_STEEL)
+		color = material.icon_colour
+	name = "[material.display_name] [initial(name)]"
 
 /obj/item/reagent_containers/cooking_container/plate
 	name = "serving plate"
 	shortname = "plate"
-	desc = "A plate. You plate foods on this plate."
-	icon_state = "plate"
+	desc = "A serving plate. You plate foods on this plate. To attempt cooking; add ingredients, click and hold, then drag this onto yourself."
+	icon = 'zzzz_modular_occulus/icons/obj/machines/kitchen.dmi'
+	icon_state = "servingplate"
 	appliancetype = MIX
 	volume = 15 // for things like jelly sandwiches etc
 	max_space = 25
@@ -325,41 +342,65 @@
 		return ..()
 	var/datum/recipe/recipe = select_cooking_recipe(src, appliance = appliancetype)
 	if(!recipe)
+		to_chat(usr, SPAN_NOTICE("This doesn't look like it combines into anything."))
 		return
-	var/list/obj/results = recipe.make_food(src)
+	var/list/obj/results = recipe.make_food(src)	//okay until after this line
 	var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
 	for (var/result in results)
 		var/atom/movable/AM = result
 		AM.forceMove(temp)
-
-	//making multiple copies of a recipe from one container. For example, tons of fries
-	while (select_cooking_recipe(src, appliance = appliancetype) == recipe)
+	
+	while(select_cooking_recipe(src, appliance = appliancetype) == recipe)
 		var/list/TR = list()
 		TR += recipe.make_food(src)
 		for (var/result in TR) //Move results to buffer
 			var/atom/movable/AM = result
 			AM.forceMove(temp)
 		results += TR
-
+/*
+//testing block
+	var/datum/recipe/furthercookable = select_cooking_recipe(src, appliance = appliancetype)
+	var/cancontinuecooking = TRUE
+	if(!furthercookable)
+		cancontinuecooking = FALSE
+	while(cancontinuecooking)
+		message_admins("still have recipe")
+		recipe.batch_bake(src)
+		message_admins("[results]")
+		furthercookable = select_cooking_recipe(src, appliance = appliancetype)
+		if(!furthercookable)
+			cancontinuecooking = FALSE
+	//making multiple copies of a recipe from one container. For example, tons of fries
+	while(select_cooking_recipe(src, appliance = appliancetype) == recipe)
+		var/list/TR = list()
+		message_admins("still have recipe")
+		TR += recipe.batch_bake(src)
+		message_admins("successfully batch baked, list is now [TR]")
+		for (var/result in TR) //Move results to buffer
+			var/atom/movable/AM = result
+			AM.forceMove(temp)
+		results += TR
+		message_admins("[results]")
+*/
 	for (var/r in results)
 		var/obj/item/reagent_containers/food/snacks/R = r
 		R.forceMove(src) //Move everything from the buffer back to the container
 
 	var/l = length(results)
-	if (l && usr)
+	if (l)
 		var/name = results[1].name
 		if (l > 1)
-			to_chat(usr, SPAN_NOTICE("You made some [name]s!"))
+			visible_message(SPAN_NOTICE("The ingredients form some [name]s!"))
 		else
-			to_chat(usr, SPAN_NOTICE("You made [name]!"))
+			visible_message(SPAN_NOTICE("The ingredients made a [name]!"))
 
 	QDEL_NULL(temp) //delete buffer object
 	return ..()
 
-/obj/item/reagent_containers/cooking_container/plate/bowl //NOTE: Replace this with a salad bowl
+/obj/item/reagent_containers/cooking_container/plate/bowl
 	name = "serving bowl"
 	shortname = "bowl"
-	desc = "A bowl. You bowl foods... wait, what?"
+	desc = "A bowl. You bowl foods... wait, what? To attempt cooking; add ingredients, click and hold, then drag this onto yourself."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mixingbowl"
 	filling_states = "-10;10;25;50;75;80;100"
@@ -369,7 +410,6 @@
 	volume = 180
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)
-
 
 /obj/item/reagent_containers/cooking_container/plate/bowl/on_reagent_change()
 	update_icon()

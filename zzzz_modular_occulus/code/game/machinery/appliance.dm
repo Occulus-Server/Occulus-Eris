@@ -83,6 +83,7 @@
 	var/altdamage = 0					//The fryer does oxyloss AND burn because your head is being shoved into hot oil, so we need a second damage type. Normally this will be brute, though.
 	var/main_affected_organ = BP_HEAD	//This will be the head on every appliance
 	var/alt_affected_organ = null		//This basically only exists for the fryer and oven because you're inhaling hot oil/air
+	var/starts_with
 
 /obj/machinery/appliance/Initialize()
 	.=..()
@@ -92,14 +93,14 @@
 
 	if(!src.available_recipes)
 		available_recipes = new
-
+/*	//This looks like it's doing nothing but generating runtimes as recipes are checked against all of them in the recipe check proc. 
 	for(var/type in subtypesof(/datum/recipe))	//Assign the proper recipe datums
 		var/datum/recipe/test = type
 		if(!(test.appliance))					//Get rid of the recipes that do not have any appliances
 			continue
 		if(src.appliancetype == test.appliance)	//Each recipe intended to be made in the kitchen is gonna need a flag assigning it to a specific machine, no donuts in the grill
 			src.available_recipes += new type
-
+*/
 /obj/machinery/appliance/Destroy()
 	for(var/a in cooking_objs)
 		var/datum/cooking_item/CI = a
@@ -167,7 +168,7 @@
 
 /obj/machinery/appliance/proc/attempt_toggle_power(mob/user)
 	stat ^= POWEROFF						//Toggle power
-	if(!(stat & POWEROFF))					
+	if(!(stat & POWEROFF))
 		if(contents.len)					//If there's anything in there
 			for(var/obj/item/reagent_containers/cooking_container/C in contents)
 				if(C.contents.len)			//With things in it
@@ -210,7 +211,7 @@
 		return FALSE
 	else if(I.has_quality(QUALITY_SCREW_DRIVING) || I.has_quality(QUALITY_PRYING) || istype(I, /obj/item/storage/part_replacer)) //Needs a weapon but should be fine after PR
 		return
-	else if(!istype(check) && !istype(I, /obj/item/holder))
+	else if(!istype(check) && !istype(I, /obj/item))
 		to_chat(user, SPAN_WARNING("That's not edible."))
 		return FALSE
 	return TRUE
@@ -222,7 +223,7 @@
 
 /obj/machinery/appliance/proc/choose_output()
 	set src in view()
-	set name = "Choose output"
+	set name = "Custom Cooking Output"
 	set category = "Object"
 
 	if(isemptylist(output_options))
@@ -247,7 +248,7 @@
 		else if(istype(I, /obj/item/storage/part_replacer))
 			return
 		return
-	/*	Also part of kitchen smackdown, to be reworked while I test the proc. 
+	/*	Also part of kitchen smackdown, to be reworked while I test the proc.
 	if((result == 3) && (user.a_intent == I_HURT))//Grabbing someone and trying to cook them without trying to slam their head against the grill? No slam.
 		var/obj/item/grab/G = I
 		if (G && istype(G) && G.affecting)
@@ -288,7 +289,7 @@
 //Override for container mechanics
 /obj/machinery/appliance/proc/add_content(var/obj/item/I, var/mob/user)
 	if(I in typesof(/obj/item/grab))
-		to_chat(user, SPAN_NOTICE("You can't cook that!"))		
+		to_chat(user, SPAN_NOTICE("You can't cook that!"))
 		return
 		/*	//This is the proc for beating people up with the kitchen equipment but it's not working correctly. Deprecated until I can test it more.
 		var/obj/item/grab/newgrab = I
@@ -311,13 +312,9 @@
 	else
 		if (CI && istype(CI))
 			I.forceMove(CI.container)
-
-		else //Something went wrong
 			return
-
-	if (selected_option)
-		CI.combine_target = selected_option
-
+		else //Something went wrong/
+			return
 	// We can actually start cooking now.
 	user.visible_message("<b>[user]</b> puts [I] into [src].")
 	if(selected_option || length(CI.container.contents) || select_cooking_recipe(CI.container || src, appliance = CI.container.appliancetype)) // we're doing combo cooking, we're not just heating reagents, OR we have a valid reagent-only recipe
@@ -384,7 +381,7 @@
 		var/obj/item/holder/H = I
 		var/mob/living/contained = H.contained
 		if (contained)
-			work += (contained.mob_size * contained.mob_size * 2)+2
+			work += (contained.mob_size * contained.mob_size * 2) + 2
 
 	CI.max_cookwork += work
 
@@ -397,7 +394,7 @@
 		CI.cookwork += src.cooking_power
 		if(!was_done && CI.cookwork >= CI.max_cookwork)	//If cookwork has gone from above to below 0, then this item finished cooking
 			finish_cooking(CI)
-		else if(can_burn_food && !CI.burned && CI.cookwork > CI.max_cookwork * CI.overcook_mult)	//If it's overcooked and can burn, it's going to burn. 
+		else if(can_burn_food && !CI.burned && CI.cookwork > CI.max_cookwork * CI.overcook_mult)	//If it's overcooked and can burn, it's going to burn.
 			burn_food(CI)
 	return TRUE
 
@@ -486,7 +483,7 @@
 					//Blend colours in order to find a good filling color
 
 
-			S.reagents.trans_to_holder(buffer, S.reagents.total_volume)		
+			S.reagents.trans_to_holder(buffer, S.reagents.total_volume)
 		//Cleanup these empty husk ingredients now
 		if (I)
 			qdel(I)
@@ -588,7 +585,7 @@
 			var/current_iteration_len = length(menuoptions) + 1
 			menuoptions[CI.container.label(current_iteration_len)] = CI
 			var/obj/item/icon_to_use = CI.container
-			var/status = CI
+			//var/status = CI
 			if(CI.container.contents.len == 1)
 				var/obj/item/I = locate() in CI.container.contents
 				icon_to_use = I

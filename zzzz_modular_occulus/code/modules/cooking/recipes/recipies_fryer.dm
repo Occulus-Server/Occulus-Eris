@@ -14,7 +14,7 @@
 
 /datum/recipe/risottoballs
 	appliance = FRYER
-	reagents = list(/datum/reagent/other/sodiumchloride = 1, /datum/reagent/organic/blackpepper = 1)
+	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/risotto)
 	coating = /datum/reagent/nutriment/coating/batter
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
@@ -112,7 +112,7 @@
 //==================
 /datum/recipe/jellydonut
 	appliance = FRYER
-	reagents = list(/datum/reagent/drink/berryjuice = 10, /datum/reagent/organic/sugar = 10)
+	reagents = list("berryjuice" = 10, "sugar" = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
 	)
@@ -120,16 +120,17 @@
 	result_quantity = 2
 
 /datum/recipe/jellydonut/slime
-	reagents = list(/datum/reagent/medicine/slimejelly = 10, /datum/reagent/organic/sugar = 10)
+	reagents = list("slimejelly" = 10, "sugar" = 10)
 	result = /obj/item/reagent_containers/food/snacks/donut/slimejelly
 
 /datum/recipe/jellydonut/cherry
-	reagents = list(/datum/reagent/organic/nutriment/cherryjelly = 10, /datum/reagent/organic/sugar = 10)
+	reagents = list("cherryjelly" = 10, "sugar" = 10)
 	result = /obj/item/reagent_containers/food/snacks/donut/cherryjelly
 
 /datum/recipe/donut
 	appliance = FRYER
-	reagents = list(/datum/reagent/organic/sugar = 10)
+	reagents = list("sugar" = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/dough)
 	result_quantity = 2
 
 /*	WHY IS THIS IN HERE TWICE
@@ -145,7 +146,7 @@
 
 /datum/recipe/funnelcake
 	appliance = FRYER
-	reagents = list(/datum/reagent/organic/sugar = 5, /datum/reagent/nutriment/coating/batter = 10)
+	reagents = list("sugar" = 5, "batter" = 10)
 	result = /obj/item/reagent_containers/food/snacks/funnelcake
 
 /datum/recipe/pisanggoreng
@@ -170,12 +171,12 @@
 		/obj/item/reagent_containers/food/snacks/rawcutlet,
 		/obj/item/reagent_containers/food/snacks/rawcutlet
 	)
-	reagents = list(/datum/reagent/organic/nutriment/soysauce = 5, /datum/reagent/nutriment/coating/batter = 10)
+	reagents = list("soysauce" = 5, "batter" = 10)
 	result = /obj/item/reagent_containers/food/snacks/sweet_and_sour
 
 /datum/recipe/sour_roach
 	appliance = FRYER
-	reagents = list(/datum/reagent/organic/nutriment/soysauce = 5)
+	reagents = list("soysauce" = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/roachmeat
 	)

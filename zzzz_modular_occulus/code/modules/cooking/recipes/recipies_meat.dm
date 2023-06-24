@@ -49,13 +49,13 @@
 
 /datum/recipe/meatsteak
 	appliance = SKILLET | PLANCHA
-	reagents = list(/datum/reagent/other/sodiumchloride = 1, /datum/reagent/organic/blackpepper = 1)
+	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/meatsteak
 
 /datum/recipe/syntisteak
-	appliance = SKILLET
-	reagents = list(/datum/reagent/other/sodiumchloride = 1, /datum/reagent/organic/blackpepper = 1)
+	appliance = SKILLET | PLANCHA
+	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat/syntiflesh)
 	result = /obj/item/reagent_containers/food/snacks/meatsteak
 
@@ -70,7 +70,7 @@
 
 /datum/recipe/nugget
 	appliance = FRYER
-	reagents = list(/datum/reagent/organic/nutriment/flour = 5)
+	reagents = list("flour" = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/rawcutlet
 	)

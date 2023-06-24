@@ -18,6 +18,10 @@ fundamental differences
 	appliancetype = 0
 	icon = 'zzzz_modular_occulus/icons/obj/machines/kitchen.dmi'
 	icon_state = "mixer_red"
+	starts_with = list(/obj/item/reagent_containers/cooking_container/mixerbowl)
+	cook_type = MIX
+	//var/accepts_reagents = TRUE			//For use in moving things to/from beakers.
+	//var/datum/reagents = list()			//Allows it to hold things but it won't react.
 
 /obj/item/electronics/circuitboard/mixer
 	name = "Circuit board (Mixer)"
@@ -28,9 +32,24 @@ fundamental differences
 		"/obj/item/stock_parts/capacitor" = 2,
 		"/obj/item/stock_parts/scanning_module" = 1)
 
+/obj/machinery/appliance/mixer/Initialize()
+	. = ..()
+	cooking_objs = list()
+	for(var/cctype in starts_with)
+		if (length(cooking_objs) >= max_contents)
+			break
+		var/obj/item/reagent_containers/cooking_container/CC = new cctype(src)
+		var/datum/cooking_item/CI = new /datum/cooking_item/(CC)
+		cooking_objs.Add(CI)
+	cooking = 0
+
+	update_icon()
+
+
 /obj/machinery/appliance/mixer/examine(var/mob/user)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("It is currently set to make a [selected_option]"))
+	if((!src) in typesof(/obj/machinery/appliance/mixer))
+		to_chat(user, SPAN_NOTICE("It is currently set to make a [selected_option]"))
 
 /obj/machinery/appliance/mixer/Initialize()
 	. = ..()
@@ -40,6 +59,7 @@ fundamental differences
 	update_cooking_power()
 
 //Mixers cannot-not do combining mode. So the default option is removed from this. A combine target must be chosen
+/*
 /obj/machinery/appliance/mixer/choose_output()
 	set src in oview(1)
 	set name = "Choose output"
@@ -57,7 +77,7 @@ fundamental differences
 	to_chat(usr, SPAN_NOTICE("You set [src] to make \a [selected_option]."))
 	var/datum/cooking_item/CI = cooking_objs[1]
 	CI.combine_target = selected_option
-
+*/
 
 /obj/machinery/appliance/mixer/has_space(var/obj/item/I)
 	var/datum/cooking_item/CI = cooking_objs[1]
@@ -100,7 +120,7 @@ fundamental differences
 	return TRUE
 
 /obj/machinery/appliance/mixer/attempt_toggle_power(var/mob/user, ranged = FALSE)
-	. = ..(user, ranged)
+	. = ..()
 	if(!use_power)
 		return
 	for(var/i in cooking_objs)
@@ -131,3 +151,48 @@ fundamental differences
 	if (!stat)
 		for (var/i in cooking_objs)
 			do_cooking_tick(i)
+
+/*
+/obj/machinery/appliance/mixer/verb/reagenttransferstates(var/mob/user)
+	set name = "Change Reagent Mode"
+	set category = "Object"
+
+	src.reagent_trans_mode = !accepts_reagents	//Toggle reagent mode
+	visible_message("[user] sets the [src.name] to [src.accepts_reagents ? "accept" : "remove"] reagents.")
+	
+
+/obj/machinery/appliance/mixer/attackby(var/obj/item/I, var/mob/user)
+	if(I in typesof(/obj/item/reagent_containers/food/snacks))
+		insert
+
+	if(I in typesof(/obj/item/reagent_containers))
+		switch(accepts_reagents)
+			if(TRUE)
+				for(var/datum/reagent/R in I.reagents)
+					R.trans_to_holder(src, R.volume)
+					to_chat(user, SPAN_NOTICE("You add [R] to \the[src]."))
+					return
+				
+			if(FALSE)	//This is the remove reagents stage, not the "can't put things in" stage
+				var/reagentoptions = list()
+				var/reagentslisted
+				for(var/datum/reagent/R in src.reagents)
+					if(R.volume)
+						reagentslisted[R.name] += R	//Removal reference later.
+						reagentoptions += R.name
+				var/datum/reagent/toremove = input(user, "Which reagent would you like to remove?", "Reagent Removal") as null| anything in reagentoptions
+				switch(toremove)
+					if(null)	//They canceled the action
+						return
+					if(!null)
+						var/transferredreagent = reagentslisted[toremove]
+						transferredreagent.trans_to_holder(I, transferredreagent.volume)
+						to_chat(user, SPAN_NOTICE("You remove [toremove] from \the [src]."))
+						return
+	else
+		. = ..()
+
+
+
+/obj/machinery/appliance/mixer/trans_reagents()
+*/

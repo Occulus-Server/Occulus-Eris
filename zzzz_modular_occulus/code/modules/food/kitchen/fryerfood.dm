@@ -83,8 +83,8 @@
 	slices_num = 6
 	center_of_mass = list("x"=16, "y"=11)
 	nutriment_amt = 24
-	nutriment_desc = list("grease" = 10, "pizza" = 5, "your arteries clogging" = 1)
-	preloaded_reagents = list("batter" = 6, "triglyceride" = 6)
+	nutriment_desc = list("grease" = 10, "pizza" = 5, "your arteries clogging" = 5)
+	preloaded_reagents = list("batter" = 6)
 	bitesize = 2
 	taste_tag = list(SALTY_FOOD, CHEESE_FOOD, MEAT_FOOD, UMAMI_FOOD)   //there's no MISTAKE_FOOD tag or it'd be here.
 	cooked = TRUE
@@ -98,8 +98,8 @@
 	bitesize = 2
 	center_of_mass = list("x"=18, "y"=13)
 	nutriment_amt = 24
-	nutriment_desc = list("grease" = 10, "pizza" = 5, "your arteries clogging" = 1)
-	preloaded_reagents = list("batter" = 1, "triglyceride" = 1)
+	nutriment_desc = list("grease" = 10, "pizza" = 5, "your arteries clogging" = 5)
+	preloaded_reagents = list("batter" = 1)
 	bitesize = 2
 	taste_tag = list(SALTY_FOOD, CHEESE_FOOD, MEAT_FOOD, UMAMI_FOOD)   //there's no MISTAKE_FOOD tag or it'd be here.
 	cooked = TRUE

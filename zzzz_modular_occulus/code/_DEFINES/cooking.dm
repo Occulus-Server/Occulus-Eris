@@ -26,4 +26,4 @@
 
 // This tells us how much of a thing to transfer for cooking, taken from Aurora.
 #define REAGENT_VOLUME(REAGENT_HOLDER, REAGENT_TYPE) (REAGENT_HOLDER?.reagent_list && REAGENT_HOLDER.reagent_list[REAGENT_TYPE])
-#define REAGENT_DATA(REAGENT_HOLDER, REAGENT_TYPE)   (REAGENT_HOLDER?.reagent_list    && REAGENT_HOLDER.reagent_list[REAGENT_TYPE])
+#define REAGENT_DATA(REAGENT_HOLDER, REAGENT_TYPE)   (REAGENT_HOLDER?.reagent_list    && REAGENT_HOLDER.reagent_list[REAGENT_TYPE].volume)

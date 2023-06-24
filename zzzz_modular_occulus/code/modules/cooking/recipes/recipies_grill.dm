@@ -3,7 +3,7 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat
 	)
-	reagents = list(/datum/reagent/other/sodiumchloride = 1, /datum/reagent/organic/blackpepper = 1)
+	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
 	result = /obj/item/reagent_containers/food/snacks/meatsteak/grilled
 
 /datum/recipe/grilled_meat_spicy
@@ -11,7 +11,7 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat
 	)
-	reagents = list(/datum/reagent/other/sodiumchloride = 1, /datum/reagent/organic/blackpepper = 1, /datum/reagent/organic/nutriment/spacespice = 1)
+	reagents = list("sodiumchloride" = 1, "blackpepper" = 1, "spacespice" = 1)
 	result = /obj/item/reagent_containers/food/snacks/meatsteak/grilled/spicy
 
 /datum/recipe/grilled_roachmeat
@@ -38,10 +38,10 @@
 
 /datum/recipe/grilled_roachmeat/kraftwerk
 	items = list(/obj/item/reagent_containers/food/snacks/meat/roachmeat/kraftwerk)
-/*	REENABLE AFTER THE PR BECAUSE THIS DOESN'T EXIST ON THIS BRANCH
+
 /datum/recipe/grilled_roachmeat/benzin
 	items = list(/obj/item/reagent_containers/food/snacks/meat/roachmeat/benzin)
-*/
+
 /datum/recipe/grilled_spidermeat
 	appliance = GRILL
 	items = list(/obj/item/reagent_containers/food/snacks/meat/spider)

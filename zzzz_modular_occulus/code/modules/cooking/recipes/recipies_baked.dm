@@ -15,9 +15,9 @@
 	fruit = list("tomato" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/reagent_containers/food/snacks/meat,
-		/obj/item/reagent_containers/food/snacks/meat,
-		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meatsteak/grilled,
+		/obj/item/reagent_containers/food/snacks/meatsteak/grilled,
+		/obj/item/reagent_containers/food/snacks/meatsteak/grilled,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/meatpizza
@@ -81,7 +81,7 @@
 /datum/recipe/soywafers
 	appliance = OVEN
 	fruit = list("soybeans" = 1)
-	reagents = list(/datum/reagent/organic/nutriment/flour = 10)
+	reagents = list("flour" = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soywafers
 
@@ -101,7 +101,7 @@
 
 /datum/recipe/ribplate //Putting this here for not seeing a roast section.
 	appliance = OVEN
-	reagents = list(/datum/reagent/organic/nutriment/honey = 5, /datum/reagent/organic/nutriment/spacespice = 2, /datum/reagent/organic/blackpepper = 1)
+	reagents = list("honey" = 5, "spacespice" = 2, "blackpepper" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/ribplate
@@ -136,12 +136,12 @@
 /datum/recipe/plumphelmetbiscuit
 	appliance = OVEN
 	fruit = list("plumphelmet" = 1)
-	reagents = list(/datum/reagent/water = 5, /datum/reagent/organic/nutriment/flour = 5)
+	reagents = list("water" = 5, "flour" = 5)
 	result = /obj/item/reagent_containers/food/snacks/plumphelmetbiscuit
 
 /datum/recipe/spacylibertyduff
 	appliance = OVEN
-	reagents = list(/datum/reagent/water = 5, /datum/reagent/alcohol/vodka = 5, /datum/reagent/drug/psilocybin = 5)
+	reagents = list("water" = 5, "vodka" = 5, "psilocybin" = 5)
 	result = /obj/item/reagent_containers/food/snacks/spacylibertyduff
 
 /datum/recipe/hotdiggitydonk //heated donk, in lieu of a microwave
@@ -153,7 +153,7 @@
 
 /datum/recipe/rofflewaffles
 	appliance = OVEN
-	reagents = list(/datum/reagent/drug/psilocybin = 5, /datum/reagent/organic/sugar = 10)
+	reagents = list("psilocybin" = 5, "sugar" = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough
