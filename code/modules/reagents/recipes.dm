@@ -1304,28 +1304,30 @@
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel(location)
 
-/datum/chemical_reaction/meatball
-	result = null
-	required_reagents = list("protein" = 3, "flour" = 5)
-	result_amount = 3
-	blacklist_containers = list(/mob)
+// Occulus Edit: Cooking Rework - Already covered by existing recipes, dough will conflict
+// /datum/chemical_reaction/meatball
+// 	result = null
+// 	required_reagents = list("protein" = 3, "flour" = 5)
+// 	result_amount = 3
+// 	blacklist_containers = list(/mob)
 
-/datum/chemical_reaction/meatball/on_reaction(var/datum/reagents/holder, var/created_volume)
-	var/location = get_turf(holder.my_atom)
-	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/reagent_containers/food/snacks/meatball(location)
+// /datum/chemical_reaction/meatball/on_reaction(var/datum/reagents/holder, var/created_volume)
+// 	var/location = get_turf(holder.my_atom)
+// 	for(var/i = 1, i <= created_volume, i++)
+// 		new /obj/item/reagent_containers/food/snacks/meatball(location)
 
-/datum/chemical_reaction/dough
-	result = null
-	required_reagents = list("egg" = 3, "flour" = 10)
-	result_amount = 1
-	blacklist_containers = list(/mob)
 
-/datum/chemical_reaction/dough/on_reaction(var/datum/reagents/holder, var/created_volume)
-	var/location = get_turf(holder.my_atom)
-	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/reagent_containers/food/snacks/dough(location)
+// /datum/chemical_reaction/dough
+// 	result = null
+// 	required_reagents = list("egg" = 3, "flour" = 10)
+// 	result_amount = 1
+// 	blacklist_containers = list(/mob)
 
+// /datum/chemical_reaction/dough/on_reaction(var/datum/reagents/holder, var/created_volume)
+// 	var/location = get_turf(holder.my_atom)
+// 	for(var/i = 1, i <= created_volume, i++)
+// 		new /obj/item/reagent_containers/food/snacks/dough(location)
+// Occulus Edit End
 /datum/chemical_reaction/syntiflesh
 	result = null
 	required_reagents = list("blood" = 5, "clonexadone" = 1)

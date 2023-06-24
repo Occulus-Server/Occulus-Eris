@@ -211,7 +211,7 @@
 		return FALSE
 	else if(I.has_quality(QUALITY_SCREW_DRIVING) || I.has_quality(QUALITY_PRYING) || istype(I, /obj/item/storage/part_replacer)) //Needs a weapon but should be fine after PR
 		return
-	else if(!istype(check) && !istype(I, /obj/item/holder))
+	else if(!istype(check) && !istype(I, /obj/item))
 		to_chat(user, SPAN_WARNING("That's not edible."))
 		return FALSE
 	return TRUE
