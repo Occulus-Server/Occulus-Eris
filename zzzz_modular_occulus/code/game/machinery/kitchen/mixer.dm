@@ -48,7 +48,7 @@ fundamental differences
 
 /obj/machinery/appliance/mixer/examine(var/mob/user)
 	. = ..()
-	if(!src in typesof(/obj/machinery/appliance/mixer))
+	if(!(src) in typesof(/obj/machinery/appliance/mixer))
 		to_chat(user, SPAN_NOTICE("It is currently set to make a [selected_option]"))
 
 /obj/machinery/appliance/mixer/Initialize()
