@@ -123,7 +123,10 @@
 		var/obj/item/reagent_containers/food/snacks/grown/G = locate() in container
 		return G ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
 	. = COOK_CHECK_EXTRA
-	var/list/checklist = fruit.Copy()
+	var/list/checklist = fruit.len
+	if(checklist)	//Runtime killing
+		checklist = fruit.Copy()
+	//var/list/checklist = fruit.Copy()
 	for(var/obj/item/reagent_containers/food/snacks/S in container)
 		var/use_tag
 		if(istype(S, /obj/item/reagent_containers/food/snacks/grown))
@@ -154,7 +157,9 @@
 	if (!LAZYLEN(items))
 		return container?.contents.len ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
 	. = COOK_CHECK_EXACT
-	var/list/checklist = items.Copy()
+	var/list/checklist = items.len
+	if(checklist)	//Runtime killing
+		checklist = items.Copy()
 	for(var/obj/O in container)
 		if(istype(O,/obj/item/reagent_containers/food/snacks/grown))
 			continue // Fruit is handled in check_fruit().
@@ -191,8 +196,6 @@
 /datum/recipe/proc/cook_food(var/obj/container as obj)
 	if(!result)
 		return
-
-
 //We will subtract all the ingredients from the container, and transfer their reagents into a holder
 //We will not touch things which are not required for this recipe. They will be left behind for the caller
 //to decide what to do. They may be used again to make another recipe or discarded, or merged into the results,
@@ -332,3 +335,35 @@
 	return result
 	//testing block end
 	//return possible_recipes[1]
+
+//Please only ever call this inside a cooking proc as it relies on other checks such as if it can create a valid recipe.
+//This assumes that we already have all the required objects in the container because it comes after a select_recipe check
+//Use this proc where you would use make_food but want to have reagents left over afterwards.
+//The entire purpose of this proc is because base Eris make_food just deletes every reagent involved in the recipe at once and only outputs one thing. OK for microwaves, bad for literally anything else
+/datum/recipe/proc/batch_bake(var/obj/container as obj)
+	if(!result)
+		crash_with("Recipe tried to batch bake without a result.")
+		return
+		//note: basically check the container for appropriate reagents/items/fruit and then sequentially remove them
+	var/obj/result_obj = new result(container)	//we have enough for at least one result
+	if(LAZYLEN(reagents))						//First check and remove reagents
+		for(var/datum/reagent/R in reagents)
+			var/amt_to_remove = reagents[R.id]
+			container.reagents.remove_reagent(R.id, amt_to_remove)
+			message_admins("removed [amt_to_remove] of [R.id] from [container]")
+			container.reagents.update_total()
+	if(LAZYLEN(items))							//Then check and remove items
+		var/list/item_checklist = list()
+		item_checklist = items.Copy()
+		for(var/obj/item/reagent_containers/food/snacks/I in container.contents)	//Run though all items in the container and check them against the item checklist, removing them from the checklist if found
+			if(I in item_checklist && !(istype(I, /obj/item/reagent_containers/food/snacks/grown)) && item_checklist.len)
+				item_checklist -= I
+				qdel(I)
+	if(LAZYLEN(fruit))							//Do the same thing with fruits
+		var/list/fruit_checklist = list()
+		fruit_checklist = fruit.Copy()
+		for(var/obj/item/reagent_containers/food/snacks/grown/F in container.contents)
+			if(F.seed.kitchen_tag in fruit && fruit_checklist[F.seed.kitchen_tag] > 0)	//Once we hit zero in an item in fruit_checklist we have enough fruit of that kind
+				fruit_checklist[F.seed.kitchen_tag]--	//Fruits are stored as "kitchen_tag" = X, so subtract one
+				qdel(F)									//then kill it
+	return result_obj

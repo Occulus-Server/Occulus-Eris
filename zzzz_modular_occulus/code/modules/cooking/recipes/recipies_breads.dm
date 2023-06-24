@@ -10,10 +10,7 @@
 /datum/recipe/bread
 	appliance = OVEN
 	items = list(
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough
+		/obj/item/reagent_containers/food/snacks/unbakedloaf
 	)
 	reagents = list("sodiumchloride" = 1)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/bread
@@ -22,8 +19,7 @@
 	appliance = OVEN
 	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough
+		/obj/item/reagent_containers/food/snacks/unbakedloaf
 	)
 	result = /obj/item/reagent_containers/food/snacks/baguette
 
@@ -31,9 +27,7 @@
 /datum/recipe/tofubread
 	appliance = OVEN
 	items = list(
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/unbakedloaf,
 		/obj/item/reagent_containers/food/snacks/tofu,
 		/obj/item/reagent_containers/food/snacks/tofu,
 		/obj/item/reagent_containers/food/snacks/tofu,
@@ -47,8 +41,7 @@
 /datum/recipe/creamcheesebread
 	appliance = OVEN
 	items = list(
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/unbakedloaf,
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
@@ -64,9 +57,7 @@
 /datum/recipe/meatbread
 	appliance = OVEN
 	items = list(
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/unbakedloaf,
 		/obj/item/reagent_containers/food/snacks/meat,
 		/obj/item/reagent_containers/food/snacks/meat,
 		/obj/item/reagent_containers/food/snacks/meat,
@@ -79,9 +70,7 @@
 /datum/recipe/syntibread
 	appliance = OVEN
 	items = list(
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/unbakedloaf,
 		/obj/item/reagent_containers/food/snacks/meat/syntiflesh,
 		/obj/item/reagent_containers/food/snacks/meat/syntiflesh,
 		/obj/item/reagent_containers/food/snacks/meat/syntiflesh,
@@ -94,9 +83,7 @@
 /datum/recipe/xenomeatbread
 	appliance = OVEN
 	items = list(
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/unbakedloaf,
 		/obj/item/reagent_containers/food/snacks/meat/xenomeat,
 		/obj/item/reagent_containers/food/snacks/meat/xenomeat,
 		/obj/item/reagent_containers/food/snacks/meat/xenomeat,
@@ -111,9 +98,7 @@
 	fruit = list("banana" = 1)
 	reagents = list("milk" = 5, "sugar" = 15)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough
+		/obj/item/reagent_containers/food/snacks/unbakedloaf
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/bananabread
 
@@ -173,3 +158,4 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/grilledcheese
+

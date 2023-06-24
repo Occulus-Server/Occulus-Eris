@@ -30,6 +30,7 @@
 					<li>Stove</li>
 				</ul>
 				<h3>Cooking</h3>
+				<h3>Making Food By Hand</h3>
 				<h3>Combination Cooking</h3>
 				<h3>Tips and Tricks</h3>
 				<h3>Recipes</h3>
@@ -62,7 +63,8 @@
 
 				<h3>Fryer</h3>
 				This is a fryer, it fries things. Joking aside, this is where you make things like corn dogs, katsu, and arancini. Any sort of fried foods imaginable.
-				The fryer comes with two fryer baskets. It also needs oil, which is found in the freezer. IF you need more, ask botany to grow some corn. 
+				The fryer comes with two fryer baskets. It also needs oil, which is found in the freezer. IF you need more, ask botany to grow some corn.
+				Remember to fill the fryer on shift start with the corn oil jugs that spawn near it. It takes a while, but it's worth it! 
 
 				<h3>Grill</h3>
 				Propane. Well, not really, but in spirit. The grill is for meats, and can hold three peices on its container, the grill grate. Use this to grill foods or to make
@@ -123,6 +125,14 @@
 				Currently, only the oven has the capacity to combination cook, and it can make:
 				Pizza, Bread, Pie, Cake, Pockets, Kebabs, Waffles, Cookies, and Donuts.
 
+				<h1>Making Food By Hand</h3>
+				A good number of intermediate ingredients need to be made in a mixing bowl and a good number of foods that specify "by hand" need to be made on a serving plate. The difference between the two
+				is that a plate has a far smaller internal volume than a bowl, so it's easier to make large number of objects at once using a serving bowl. Also, the bowls and plates are made of shiny steel and 
+				are found in the kitchen, distinct from the snack bowls and plates used to make salads or plate food. To make food by hand, add the ingredients or reagents that you want to combine to the serving bowl or serving plate, 
+				drag the plate to yourself, and then (if you're finished making things in the bowl) Alt+Click the container to empty it out. This is best done on a table. 
+
+				Please note that you need to make dough by hand this way! Same with pasta. However, you should be able to make a ton of it at a time with this method. (The mixing bowl can hold 120 units of reagents! The plate can only hold 15.)
+
 				<h1>Tips and Tricks</h1>
 
 				<ul>
@@ -131,30 +141,38 @@
                         <li>You can't slice the custom foods.</li>
                         <li>Experiment with what you can put in foods! Things may still accept things like glass shards, knives, and other standard hazardous objects if you wish.</li>
                         <li>Anything that you could make before the kitchen revamp can still be made by hand.</li>
+						<li>To make breads of any kind you need to make a raw loaf. This is made with two dough in a mixing bowl. It's the base of bread, but don't forget to add salt before baking it.</li>
                     </ul>
 
 				<h1>Recipes</h1>
 				<h2>Basics:</h2>
 <pre>
-				Dough (by hand)
-				Dough is a basic ingredient for many breads and baked goods.
+				Dough (Spacer)
+				Dough is a basic ingredient for many breads and baked goods. This one is a spacer's enriched dough.
 				Ingredients: Egg
 				Reagents: 10 Flour
 
-				Dough (Mixer)
-				This recipe results in far more dough than doing it by hand.
-				Ingredients: NONE</li>
+				Dough (mixing bowl)
+				This dough can be made in a mixing bowl or other container using far less egg. 
+				Ingredients: NONE
 				Reagents: 10 Flour, 10 water, 1 salt
+				DEV NOTE: IF USING A MIXING BOWL, ONLY MAKE ENOUGH FOR ONE DOUGH AT A TIME UNTIL THIS TEXT IS GONE. EXTRANEOUS REAGENTS WILL BE DELETED.
 
+				Pasta (Spacer)
+				This is the classic way of making "pasta" in space. Please do not introduce this method to Sol, we had enough of a hassle last time
+				with the Pallella Burrito.
+				Ingredients: One dough slice
+				Reagents: NONE
+				Note: Slice the dough slice with a knife.
 
-				Dough (by hand)
-				Dough is a basic ingredient for many breads and baked goods.
-				Ingredients: Egg
-				Reagents: 10 Flour
-						
+				Pasta (Classic)
+				This is the proper way of making pasta. As far as Sol knows, this is the only method that exists and ever will exist.
+				Ingredients: NONE
+				Reagents: 10 flour, 3 egg (one whole egg per bundle of pasta)
+				Note: Mix by hand in a mixing bowl. Can create multiple pasta at a time this way.
 
 				Tortilla
-				Flat dough fried in a dry pan.
+				A dough of water and flour pressed into a flat disk.
 				Ingredients: NONE
 				Reagents: 5 flour, 5 water
 				Container: Skillet
@@ -165,9 +183,15 @@
 				Reagents: NONE
 				Note: In the oven.
 
+				Raw Loaf of Bread
+				The precursor to a loaf of bread. Do not eat.
+				Ingredients: 2 dough
+				Reagents: NONE
+				Note: Made in a mixing bowl.
+
 				Bread
 				A loaf of bread.
-				Ingredients: 4 Dough
+				Ingredients: 1 raw loaf of bread, 1 salt
 				Reagents: 1 salt
 				Note: In the oven.
 
@@ -475,7 +499,7 @@
 
 				Enchiladas
 				Spicy meat and masa in a corn husk, served wet.
-				Ingredients: 2 chilis, meat, tortilla
+				Ingredients: 2 chilis, 1 corn, meat
 				Reagents: NONE
 
 				Peanut Bowl
@@ -581,28 +605,28 @@
 
 				Baguette
 				A long, hard piece of bread. 
-				Ingredients: 2 Dough
+				Ingredients: 1 raw loaf of bread
 				Reagents: 1 salt, 1 pepper
 
 				Tofu Bread
 				Bread wrapped around tofu.
-				Ingredients: 3 dough, 3 tofu, 3 cheese wedge
+				Ingredients: 1 raw loaf of bread, 3 tofu, 3 cheese wedge
 				Reagents: NONE
 
 				Cream Cheese Bread
 				Bread wrapped around cream cheese.
-				Ingredients: 2 dough, 2 cheese wedge
+				Ingredients: 1 raw loaf of bread, 2 cheese wedge
 				Reagents: NONE
 
 				Meat Bread
 				Bread wrapped with meat.
-				Ingredients: 3 meat, 3 dough, 3 cheese wedges.
+				Ingredients: 3 meat, 1 raw loaf of bread, 3 cheese wedges.
 				Reagents: NONE
 				Note: Works with synthmeat and xenobiological meat. Not roach meat.
 
 				Banana Bread
 				Bread with banana in it.
-				Ingredients: Banana, 3 dough
+				Ingredients: Banana, 1 raw loaf of bread
 				Reagents: 5 milk, 15 sugar
 
 				Croissant

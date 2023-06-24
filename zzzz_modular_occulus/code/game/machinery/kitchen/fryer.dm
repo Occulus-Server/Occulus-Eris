@@ -10,8 +10,6 @@
 	heating_power = 12000
 	optimal_power = 1.35
 	idle_power_usage = 3.6 KILOWATTS
-	//Power used to maintain temperature once it's heated.
-	//Going with 25% of the active power. This is a somewhat arbitrary value
 	resistance = 10000	// Approx. 4 minutes.
 	max_contents = 2
 	stat = NOPOWER//Starts turned off
@@ -43,18 +41,21 @@
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
 	. = ..()
-	var/oilamount = src.optimal_oil * 1.25
-	var/newoil = new /datum/reagent/organic/nutriment/cornoil
-	var/variance = rand(0, 0.1)	//Fryer is always a little below full, but its usually negligible
-	if (prob(20))				//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
-		variance = rand(0, 0.5)
-	oil.add_reagent("cornoil", src.optimal_oil*(1 - variance))
-
+	/*	//Uncomment this when it's working, for now it just starts with some oil jugs near it.
+	//src.oil = new /datum/reagent/organic/nutriment/cornoil
+	var/variance = rand(0, 10)
+	if(prob(10))
+		variance = rand(0, 50)
+	var/deviation = variance/100
+	//src.oil.volume = src.optimal_oil*(1 - deviation)
+	src.oil.add_reagent("cornoil", src.optimal_oil*(1 - deviation))
+	//src.oil = src.reagents.total_volume
+*/
 /obj/machinery/appliance/cooker/fryer/Process()
 	. = ..()
-	//Set temperature of oil, used to be a set temperature proc
-	if(!oil.chem_temp == src.temperature)
-		oil.chem_temp = src.temperature
+	//Set temperature of oil, used to be a set temperature proc. Recomment when working again.
+	//if(!oil.chem_temp == src.temperature)
+	//	oil.chem_temp = src.temperature
 
 /obj/machinery/appliance/cooker/fryer/update_cooking_power()
 	..()//In addition to parent temperature calculation

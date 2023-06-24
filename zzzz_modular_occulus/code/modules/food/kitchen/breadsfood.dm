@@ -21,3 +21,16 @@
     bitesize = 2
     taste_tag = list(SALTY_FOOD, FLOURY_FOOD, VEGETARIAN_FOOD)
     cooked = TRUE
+
+/obj/item/reagent_containers/food/snacks/unbakedloaf
+    name = "raw loaf of bread"
+    desc = "An unbaked loaf of bread."
+    icon = 'zzzz_modular_occulus/icons/obj/kitchen_update/food.dmi'
+    icon_state = "unbakedloaf"
+    filling_color = "#f1dd9b"
+    nutriment_amt = 4 
+    nutriment_desc = list("raw dough" = 10, "salt" = 5)
+    preloaded_reagents = list("protein" = 1, "nutriment" = 4)
+    bitesize = 2
+    taste_tag = list(BLAND_FOOD, FLOURY_FOOD, VEGETARIAN_FOOD)
+    cooked = FALSE

@@ -195,7 +195,7 @@
 
 /datum/recipe/tortilla
 	appliance = SKILLET
-	reagents = list("flour" = 5,"water" = 5)
+	reagents = list("flour" = 5, "water" = 5)
 	result = /obj/item/reagent_containers/food/snacks/tortilla
 	reagent_mix = RECIPE_REAGENT_REPLACE //no gross flour or water
 
@@ -301,11 +301,8 @@
 //=========================
 /datum/recipe/enchiladas_new
 	appliance = OVEN
-	fruit = list("chili" = 2)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/cutlet,
-		/obj/item/reagent_containers/food/snacks/tortilla
-	)
+	fruit = list("chili" = 2, "corn" = 1)
+	items = list(/obj/item/reagent_containers/food/snacks/cutlet)
 	result = /obj/item/reagent_containers/food/snacks/enchiladas
 
 // Tacos

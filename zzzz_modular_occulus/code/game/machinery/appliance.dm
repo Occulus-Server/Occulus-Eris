@@ -93,14 +93,14 @@
 
 	if(!src.available_recipes)
 		available_recipes = new
-
+/*	//This looks like it's doing nothing but generating runtimes as recipes are checked against all of them in the recipe check proc. 
 	for(var/type in subtypesof(/datum/recipe))	//Assign the proper recipe datums
 		var/datum/recipe/test = type
 		if(!(test.appliance))					//Get rid of the recipes that do not have any appliances
 			continue
 		if(src.appliancetype == test.appliance)	//Each recipe intended to be made in the kitchen is gonna need a flag assigning it to a specific machine, no donuts in the grill
 			src.available_recipes += new type
-
+*/
 /obj/machinery/appliance/Destroy()
 	for(var/a in cooking_objs)
 		var/datum/cooking_item/CI = a
@@ -223,7 +223,7 @@
 
 /obj/machinery/appliance/proc/choose_output()
 	set src in view()
-	set name = "Choose output"
+	set name = "Custom Cooking Output"
 	set category = "Object"
 
 	if(isemptylist(output_options))

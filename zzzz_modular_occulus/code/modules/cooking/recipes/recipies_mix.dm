@@ -313,7 +313,16 @@
 	reagents = list ("sodiumchloride" = 1, "water" = 10, "flour" = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/dough
-	result_quantity = 4
+	//result_quantity = 4 //Doesn't appear to be working with the by hand, add when this is done in the mixer.
+
+/datum/recipe/unbakedloaf
+	appliance = MIX
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough
+	)
+	result = /obj/item/reagent_containers/food/snacks/unbakedloaf
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/spaghetti
 	appliance = MIX
