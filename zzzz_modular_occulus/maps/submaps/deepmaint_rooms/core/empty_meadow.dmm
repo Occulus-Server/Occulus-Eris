@@ -10,13 +10,6 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/white,
 /area/deepmaint)
-"bd" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white/brown_perforated,
-/area/deepmaint)
 "bl" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -25,7 +18,6 @@
 	opacity = 0
 	},
 /obj/structure/low_wall,
-/obj/item/weapon/material/shard,
 /turf/simulated/floor/reinforced,
 /area/deepmaint)
 "bm" = (
@@ -41,7 +33,7 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/deepmaint)
 "bu" = (
-/obj/structure/salvageable/implant_container,
+/obj/spawner/pack/rare,
 /turf/simulated/floor/tiled/steel,
 /area/deepmaint)
 "cb" = (
@@ -68,14 +60,8 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/deepmaint)
 "dE" = (
-/obj/item/weapon/material/shard/phoron,
-/obj/item/weapon/material/shard/phoron{
-	pixel_x = -8;
-	pixel_y = 8
-	},
 /obj/structure/disposalpipe/broken,
-/obj/effect/damagedfloor/rust,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/under,
 /area/deepmaint)
 "dJ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -111,10 +97,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/deepmaint)
-"eB" = (
-/obj/structure/salvageable/data,
-/turf/simulated/floor/tiled/steel,
-/area/deepmaint)
 "eN" = (
 /obj/effect/floor_decal/industrial/danger{
 	dir = 1
@@ -134,12 +116,8 @@
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/deepmaint)
 "fP" = (
-/obj/item/weapon/material/shard/phoron{
-	pixel_x = -11;
-	pixel_y = -6
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/reinforced,
 /area/deepmaint)
 "gB" = (
 /obj/structure/low_wall,
@@ -166,17 +144,8 @@
 /area/deepmaint)
 "hw" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/mechanical{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/weapon/storage/toolbox/mechanical{
-	pixel_x = -2;
-	pixel_y = -1
-	},
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/tool/crowbar,
 /obj/item/clothing/glasses/welding,
+/obj/item/gun/projectile/selfload/moebius,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/deepmaint)
 "im" = (
@@ -203,10 +172,17 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/steel,
 /area/deepmaint)
 "iP" = (
 /obj/effect/window_lwall_spawn/smartspawnphoron,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"jb" = (
+/obj/machinery/light_construct{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/steel,
 /area/deepmaint)
 "jg" = (
@@ -245,7 +221,6 @@
 /area/deepmaint)
 "jV" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/purple,
 /turf/simulated/floor/carpet/purcarpet,
 /area/deepmaint)
 "ka" = (
@@ -257,7 +232,7 @@
 /area/deepmaint)
 "kG" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/gun/projectile/automatic/whitenail/blacktalon,
+/obj/item/ammo_magazine/blacktalon,
 /obj/item/ammo_magazine/blacktalon,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/deepmaint)
@@ -275,6 +250,7 @@
 "kL" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/gun/projectile/automatic/whitenail/blacktalon,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/deepmaint)
 "lb" = (
@@ -299,11 +275,6 @@
 /area/deepmaint)
 "mJ" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/extinguisher{
-	pixel_x = 4;
-	pixel_y = 3
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/deepmaint)
@@ -324,7 +295,6 @@
 /area/deepmaint)
 "oK" = (
 /obj/structure/bed/chair,
-/obj/item/weapon/material/shard/phoron,
 /obj/item/remains/human,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/deepmaint)
@@ -335,11 +305,6 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	opacity = 0
-	},
-/obj/item/weapon/material/shard,
-/obj/item/weapon/material/shard{
-	pixel_x = 6;
-	pixel_y = -3
 	},
 /turf/simulated/floor/reinforced,
 /area/deepmaint)
@@ -362,14 +327,6 @@
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/deepmaint)
-"qY" = (
-/obj/item/weapon/material/shard{
-	pixel_x = -5;
-	pixel_y = -9
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/reinforced,
-/area/deepmaint)
 "rp" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -377,9 +334,8 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/deepmaint)
 "se" = (
-/obj/item/weapon/material/shard/shrapnel/scrap,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/obj/item/ammo_magazine/lrifle/scrap,
+/turf/simulated/floor/tiled/white/bluecorner,
 /area/deepmaint)
 "sw" = (
 /obj/structure/sign/department/xenolab{
@@ -442,33 +398,28 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/deepmaint)
 "wr" = (
-/obj/item/weapon/material/shard,
-/obj/item/weapon/material/shard{
-	pixel_x = 6;
-	pixel_y = -3
+/obj/effect/floor_decal/industrial/danger{
+	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/tiled/steel,
 /area/deepmaint)
 "ws" = (
-/obj/structure/low_wall,
-/obj/item/weapon/material/shard/phoron{
-	pixel_x = -8;
-	pixel_y = 8
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/item/weapon/material/shard/phoron{
-	pixel_x = -11;
-	pixel_y = -6
-	},
-/obj/item/weapon/material/shard/phoron,
-/turf/simulated/floor/tiled/white/cargo,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/reinforced,
 /area/deepmaint)
 "wI" = (
-/obj/item/weapon/gun/energy/stalwart,
 /obj/structure/table/rack,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
+/obj/item/gun/projectile/automatic/ak47/fs/ih,
+/obj/item/ammo_magazine/lrifle,
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/deepmaint)
 "wY" = (
@@ -571,7 +522,7 @@
 /turf/simulated/floor/tiled/white,
 /area/deepmaint)
 "DA" = (
-/obj/item/weapon/material/shard/phoron,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/deepmaint)
 "DM" = (
@@ -617,10 +568,11 @@
 /turf/simulated/floor/tiled/white/danger,
 /area/deepmaint)
 "FV" = (
-/obj/machinery/light{
+/obj/spawner/pack/junk_machine,
+/obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white/bluecorner,
+/turf/simulated/floor/tiled/steel,
 /area/deepmaint)
 "GA" = (
 /obj/machinery/light,
@@ -663,8 +615,10 @@
 /turf/simulated/floor/tiled/white,
 /area/deepmaint)
 "Lo" = (
-/obj/item/weapon/material/shard/shrapnel/scrap,
-/turf/simulated/floor/tiled/white,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/tiled/white/violetcorener,
 /area/deepmaint)
 "Lx" = (
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -686,8 +640,8 @@
 /turf/simulated/floor/reinforced,
 /area/deepmaint)
 "Ma" = (
-/obj/item/weapon/material/shard,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard/phoron,
 /turf/simulated/floor/reinforced,
 /area/deepmaint)
 "Ml" = (
@@ -709,11 +663,12 @@
 /turf/simulated/floor/tiled/steel,
 /area/deepmaint)
 "Or" = (
-/obj/structure/salvageable/server,
+/obj/spawner/pack/rare/low_chance,
 /turf/simulated/floor/tiled/steel,
 /area/deepmaint)
 "OL" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/lrifle/rubber,
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/deepmaint)
 "Px" = (
@@ -749,6 +704,7 @@
 /area/deepmaint)
 "QK" = (
 /obj/effect/decal/cleanable/rubble,
+/obj/item/material/shard/phoron,
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/deepmaint)
 "QZ" = (
@@ -878,7 +834,6 @@
 /area/deepmaint)
 "WT" = (
 /obj/structure/table/steel,
-/obj/item/weapon/storage/fancy/cigarettes/homeless,
 /turf/simulated/floor/tiled/white,
 /area/deepmaint)
 "Xd" = (
@@ -907,13 +862,11 @@
 /area/deepmaint)
 "XG" = (
 /obj/structure/table/rack/shelf,
-/obj/item/weapon/gun/energy/taser{
-	pixel_y = 10
-	},
-/obj/item/weapon/gun/energy/taser{
-	pixel_y = 5
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/gun/projectile/automatic/ak47/cursed,
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/deepmaint)
 "XQ" = (
@@ -958,12 +911,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/deepmaint)
 "Zo" = (
-/obj/item/weapon/material/shard,
-/obj/item/weapon/material/shard{
-	pixel_x = -5;
-	pixel_y = -9
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/deepmaint)
 "ZN" = (
@@ -999,7 +949,7 @@ Ns
 sO
 Ml
 Ml
-Ml
+fP
 Ml
 Ml
 Ml
@@ -1022,7 +972,7 @@ sO
 sO
 Ml
 XG
-FV
+oa
 wI
 Ml
 wY
@@ -1034,7 +984,7 @@ jm
 Sq
 Ml
 aX
-LT
+ws
 sG
 LT
 aX
@@ -1051,7 +1001,7 @@ kK
 EE
 Xs
 fu
-ws
+gB
 aB
 aB
 eo
@@ -1068,19 +1018,19 @@ sO
 sO
 Ml
 Fh
-oa
+se
 jg
 Ml
 UK
 EM
 oK
 dE
-Lo
+PI
 KT
 PI
 Ml
-qY
-wr
+Ma
+aX
 aX
 sG
 sG
@@ -1096,9 +1046,9 @@ Ml
 Ml
 ka
 lb
-DA
+Mn
 qm
-fP
+aB
 CX
 aB
 Ml
@@ -1122,11 +1072,11 @@ vp
 RJ
 Wk
 aB
-se
+aB
 cy
 Ml
-jj
-jj
+wr
+wr
 jj
 iN
 sY
@@ -1150,7 +1100,7 @@ Sq
 Ml
 LF
 fJ
-Ew
+Lo
 Xs
 kG
 Ml
@@ -1195,7 +1145,7 @@ Xs
 Rb
 nA
 Mn
-Mn
+DA
 Mn
 Xs
 kL
@@ -1221,7 +1171,7 @@ MP
 Mn
 ug
 Mn
-bd
+mJ
 Ml
 sO
 "}
@@ -1310,7 +1260,7 @@ ZN
 yN
 AP
 Ml
-Qv
+FV
 bm
 bm
 Rz
@@ -1356,7 +1306,7 @@ hw
 yN
 Zl
 Ml
-eB
+Or
 Sy
 bm
 Xy
@@ -1403,7 +1353,7 @@ Zg
 Ue
 Ml
 DM
-sO
+jb
 sO
 Ch
 Ml

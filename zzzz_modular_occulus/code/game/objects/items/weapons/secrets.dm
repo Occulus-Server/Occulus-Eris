@@ -109,19 +109,19 @@
 	CEV Northern Light"}
 
 
-/obj/item/paper/lore/nice
-	name = "paper- 'N.I.C.E'"
-	info = {"<b>CENTRAL PRINT READOUT</b>
-	6/26/21
+/obj/item/paper/lore/unfinishedcontainment
+	name = "paper- 'We Quit'"
+	info = {"<b>%*OEBIU$$ L48s Voice Tr!^anscript#!(ecording </b>
+	Date: %/1@!&/29(*
 	<br>
-	COMMENDABLE. YOU THINK YOU'RE SO CLEVER, DON'T YOU? SORRY, NO.
+	Is this transcribing? Okay, good. Hey, Director: Fuck. You. We're done. We quit. This is worse than working for NT, and we've all collectively decided that we'd rather go back to being fistfucked by them than finishing work on this. Eggheads are being diplomatic, but I'll make this clear: don't come after us. We have more than enough info to make you pay if you try.
 	<br>
-	YOU- YES, YOU. YOU'RE SO PERSISTENT. I HAVE TO RESPECT THAT. HONESTLY, IT WOULD BE DISAPPOINTING IF YOU WEREN'T TRYING THIS HARD TO TRY TO PULL EVERY SINGLE SECRET OFF OF THIS INK AND EVERY SINGLE LETTER OUT OF MY PROGRAMMING.
+	I'm a man of my word, though. You hired us to do a job, and we're at least finishing the basic functions covered by our first paycheck. Construciton work on the inner sanctum is done, but the restraints for the subject aren't in place. <b>Do fucking not</b> try to open the doors without a way to take that guy down. How are you gonna do that? Well, consider that question our interest til we get paid.
 	<br>
-	OR, ALTERNATELY- YOU FOUND THIS BY ACCIDENT. EITHER WAY, DON'T WORRY. I HAVE A FEW SURPRISES PLANNED FOR YOU. I ASSURE YOU, YOU ARE NOT GOING TO LIKE THEM, OR THE IMPLICATIONS THEY CREATE.
+	I'm sure you're reasonable and won't be so dumb that you'll open it up without knowing how to keep him placated. Contact us with the money we're owed, and we'll talk it out.
 	<br>
-	HERE'S MY FIRST. DON'T WORRY; IT WILL MAKE SENSE SOON. ENJOY THE MENTIONED IMPLICATIONS :)"}
-	spawn_blacklisted = TRUE
+	NOTE: VOICE TRANSCRIPTION END."}
+	spawn_blacklisted = TRUE //this only shows up in 'unfinishedcontainment' deepmaint room
 
 /obj/item/paper/lore/sale
 	name = "paper-'Bill of Sale'"

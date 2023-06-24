@@ -1,0 +1,480 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"br" = (
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"cr" = (
+/obj/item/organ/internal/lungs,
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"dH" = (
+/obj/structure/railing{
+	dir = 1;
+	icon_state = "railing0";
+	tag = "icon-railing0 (NORTH)"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"ec" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/organ/internal/bone/chest,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"eg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/core,
+/obj/spawner/techpart/low_chance,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"eG" = (
+/obj/spawner/scrap/low_chance,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"gB" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"gO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"iO" = (
+/obj/spawner/scrap/low_chance,
+/obj/spawner/techpart/low_chance,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/deepmaint)
+"jv" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"kA" = (
+/obj/spawner/mob/roaches/cluster,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/deepmaint)
+"kB" = (
+/obj/structure/table/standard,
+/obj/item/paper/lore/unfinishedcontainment,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/deepmaint)
+"lJ" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"lM" = (
+/obj/structure/table/standard,
+/obj/item/device/lighting/toggleable/lamp,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/deepmaint)
+"mI" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/deepmaint)
+"mK" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/spawner/scrap/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"mW" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"pa" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/body,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"pU" = (
+/obj/item/organ/internal/bone/r_foot,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"qb" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = -7
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"qW" = (
+/obj/structure/table/standard,
+/obj/item/modular_computer/laptop/preset/custom_loadout/cheap/elbrus4kk,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/deepmaint)
+"ry" = (
+/obj/spawner/scrap/low_chance,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/deepmaint)
+"rJ" = (
+/obj/effect/decal/cleanable/blood/gibs/up,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"rU" = (
+/obj/machinery/shower{
+	dir = 4;
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"sT" = (
+/obj/structure/railing,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"ts" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"ul" = (
+/obj/spawner/scrap/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"uD" = (
+/obj/effect/decal/cleanable/blood/gibs/up,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"yU" = (
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"zl" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/spawner/mob/roaches/cluster/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"zK" = (
+/obj/item/bedsheet,
+/obj/structure/bed,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"AP" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"Bl" = (
+/obj/spawner/traps/low_chance,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"BA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"Cn" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/spawner/tool/advanced/onestar/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"Dh" = (
+/obj/spawner/scrap/low_chance,
+/obj/spawner/tool_upgrade/low_chance,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/deepmaint)
+"Dp" = (
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/deepmaint)
+"Fe" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/gibs/down,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"FK" = (
+/obj/spawner/mob/roaches/cluster,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"GS" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"Hk" = (
+/turf/simulated/wall/r_wall,
+/area/deepmaint)
+"HC" = (
+/obj/structure/railing{
+	dir = 1;
+	icon_state = "railing0";
+	tag = "icon-railing0 (NORTH)"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"Io" = (
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"JN" = (
+/obj/item/modular_computer/console/preset{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/deepmaint)
+"KG" = (
+/obj/structure/table/standard,
+/obj/spawner/toolbox,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/deepmaint)
+"KI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/organ/internal/appendix,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib3"
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"Lo" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibarm"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibmid2_flesh"
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"LM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/core,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"Mk" = (
+/obj/structure/grille/broken,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"Nl" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibbear1"
+	},
+/obj/spawner/techpart/low_chance,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"PA" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib2"
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"PC" = (
+/obj/structure/railing,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"Qc" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"QS" = (
+/obj/structure/railing,
+/obj/spawner/traps/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"RR" = (
+/obj/spawner/tool_upgrade/low_chance,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/deepmaint)
+"Su" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"TV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/organ/internal/bone/groin,
+/obj/effect/decal/cleanable/blood/gibs,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib2"
+	},
+/obj/spawner/techpart/low_chance,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"Vm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"Vq" = (
+/obj/effect/decal/cleanable/blood/gibs/robot/down,
+/obj/spawner/techpart/low_chance,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"Vx" = (
+/obj/item/organ/internal/bone/groin,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"WL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib2"
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+"XF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/up,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/deepmaint)
+
+(1,1,1) = {"
+mW
+lJ
+Cn
+lJ
+ts
+ec
+Fe
+mK
+gB
+gB
+br
+"}
+(2,1,1) = {"
+PC
+ry
+ry
+ry
+ry
+cr
+Dh
+KG
+Dp
+JN
+dH
+"}
+(3,1,1) = {"
+sT
+ry
+Lo
+WL
+Vm
+TV
+KI
+pU
+BA
+mI
+dH
+"}
+(4,1,1) = {"
+PC
+ry
+PA
+Hk
+Hk
+Hk
+Hk
+Hk
+uD
+KG
+HC
+"}
+(5,1,1) = {"
+PC
+ry
+AP
+Hk
+zK
+br
+rU
+Hk
+Bl
+RR
+dH
+"}
+(6,1,1) = {"
+ul
+Vq
+pa
+Hk
+rJ
+FK
+br
+Mk
+BA
+eG
+br
+"}
+(7,1,1) = {"
+sT
+lM
+LM
+Hk
+GS
+qb
+jv
+Hk
+XF
+ry
+HC
+"}
+(8,1,1) = {"
+sT
+qW
+yU
+Hk
+Hk
+Hk
+Hk
+Hk
+Vx
+iO
+dH
+"}
+(9,1,1) = {"
+PC
+kB
+eg
+Io
+AP
+LM
+gO
+AP
+Nl
+ry
+HC
+"}
+(10,1,1) = {"
+QS
+Dp
+kA
+Dp
+ry
+uD
+ry
+ry
+ry
+ry
+dH
+"}
+(11,1,1) = {"
+mW
+Su
+Su
+Qc
+Su
+mW
+Su
+zl
+Su
+Su
+br
+"}
