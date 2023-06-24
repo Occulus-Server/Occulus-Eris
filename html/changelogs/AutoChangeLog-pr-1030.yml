@@ -1,0 +1,6 @@
+author: bearrrrrrrr
+delete-after: true
+changes:
+  - rscadd: new deepmaint room, 'unfinished containment'
+  - bugfix: fixed certain items not spawning in our modular deepmaint rooms (wrong
+      path!!!)
