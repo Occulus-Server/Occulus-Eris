@@ -655,9 +655,10 @@
 	color_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/wing/spider_legs //Not really /WINGS/ but they protrude from the back, kinda. Might as well have them here.
-	name = "spider legs"
+	name = "spider legs, colourable" 
 	desc = ""
 	icon_state = "spider-legs"
+	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/wing/moth
