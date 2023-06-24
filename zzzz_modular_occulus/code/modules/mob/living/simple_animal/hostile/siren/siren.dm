@@ -51,6 +51,13 @@
 
 /mob/living/simple_animal/hostile/siren/Life()	//This shall be our AI holy grail.
 	. = ..()
+	if(AI_inactive)
+		for(var/mob/living/L in (view(src, vision_range)-src)) //Sucks to put this here, but otherwise mobs will ignore others in practice
+			if(L.faction != "siren")
+				src.try_activate_ai()
+	if(!AI_inactive)
+		for(var/mob/living/simple_animal/hostile/siren/S in (view(7)-src)) // should re-activate all siren mobs if able in view.
+			S.try_activate_ai()
 	/* For Reference only. Exists in parent hostile mob.
 	if(!stasis && !AI_inactive)
 		if(!.)
@@ -89,7 +96,6 @@
 	var/list/new_targets = (ListTargets(vision_range)-src)	//get targets in vision range
 	for(var/atom/target in new_targets)
 		possible_targets |= target	//add targets in vision range-self to possible target list.
-
 
 	for(var/pos_targ in possible_targets)
 		var/atom/A = pos_targ
@@ -261,16 +267,16 @@
 		FindTarget()					//find new target
 		return
 
-	visible_message("\red <b>[src]</b> [fire_verb] at [A]!", 1)
-
 	if(rapid > 1)
 		shot_variance = 0
 		var/datum/callback/cb = CALLBACK(src, .proc/Shoot, A, loc, src)  //addtimer(CALLBACK(src, .proc/check_delete, animation), 15)
+		visible_message("\red <b>[src]</b> [fire_verb] at [A]!", 1)
 		for(var/i in 1 to rapid)
 			addtimer(cb, (i - 1)*rapid_fire_delay)
 	else
 		shot_variance = 0
 		Shoot(A, loc, src)
+		visible_message("\red <b>[src]</b> [fire_verb] at [A]!", 1)
 	stance = HOSTILE_STANCE_ATTACK
 	ranged_cooldown = world.time + ranged_cooldown_time
 
@@ -349,7 +355,7 @@
 
 /mob/living/simple_animal/hostile/siren/proc/FindHidden()
 	if(target_mob)
-		if(istype(target_mob.loc, /obj/structure/closet) || istype(target.loc, /obj/machinery/disposal) || istype(target.loc, /obj/machinery/sleeper))
+		if(istype(target_mob.loc, /obj/structure/closet) || istype(target_mob.loc, /obj/machinery/disposal) || istype(target_mob.loc, /obj/machinery/sleeper))
 			var/atom/A = target_mob.loc
 			walk_to(src, A, minimum_distance, move_to_delay)
 			if(A.Adjacent(src))
