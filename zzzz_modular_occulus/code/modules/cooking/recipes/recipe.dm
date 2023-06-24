@@ -99,7 +99,7 @@
 	return english_list(appliance_names, and_text = " or ")
 
 /datum/recipe/proc/cook_check_reagents(var/datum/reagents/avail_reagents)
-	if (isemptylist(reagents))	//If no reagents in the recipe
+	if (!LAZYLEN(reagents))	//If no reagents in the recipe
 		return avail_reagents?.total_volume ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT	//If there is a total volume of reagents, they're extra. Otherwise, exactly enough.
 
 	if (!avail_reagents)
@@ -119,7 +119,7 @@
 	return .
 
 /datum/recipe/proc/cook_check_fruit(var/obj/container)
-	if (isemptylist(fruit))
+	if (!LAZYLEN(fruit))
 		var/obj/item/reagent_containers/food/snacks/grown/G = locate() in container
 		return G ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
 	. = COOK_CHECK_EXTRA
@@ -151,7 +151,7 @@
 	return .
 
 /datum/recipe/proc/cook_check_items(var/obj/container as obj)
-	if (isemptylist(items))
+	if (!LAZYLEN(items))
 		return container?.contents.len ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
 	. = COOK_CHECK_EXACT
 	var/list/checklist = items.Copy()
@@ -169,7 +169,7 @@
 
 		if (!found)
 			. = COOK_CHECK_EXTRA
-		if (isemptylist(checklist) && . != COOK_CHECK_EXTRA)
+		if (!LAZYLEN(checklist) && . != COOK_CHECK_EXTRA)
 			return COOK_CHECK_EXTRA//No need to iterate through everything if we know theres at least one extraneous ingredient
 	if (length(checklist))
 		. = COOK_CHECK_FAIL
@@ -324,7 +324,7 @@
 			continue
 		//if(!(recipe in possible_recipes))
 		possible_recipes += recipe
-	if (isemptylist(possible_recipes))
+	if (!LAZYLEN(possible_recipes))
 		return null
 	sortTim(possible_recipes, cmp = /proc/cmp_recipe_complexity_dsc) // Select the most complex recipe
 	//testing block
