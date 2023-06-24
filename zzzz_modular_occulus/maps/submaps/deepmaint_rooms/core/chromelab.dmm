@@ -19,10 +19,6 @@
 /obj/item/modular_computer/console,
 /turf/simulated/floor/tiled/steel,
 /area/deepmaint)
-"bQ" = (
-/mob/living/carbon/superior_animal/stalker/dual,
-/turf/simulated/floor/tiled/steel,
-/area/deepmaint)
 "cq" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/cafe,
@@ -126,10 +122,6 @@
 	},
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/deepmaint)
-"kK" = (
-/mob/living/simple_animal/hostile/onestar_custodian,
-/turf/simulated/floor/tiled/white,
-/area/deepmaint)
 "kS" = (
 /obj/effect/window_lwall_spawn,
 /obj/machinery/door/firedoor,
@@ -155,15 +147,15 @@
 /mob/living/simple_animal/hostile/onestar_custodian,
 /turf/simulated/floor/tiled/white/techfloor,
 /area/deepmaint)
+"mR" = (
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/tiled/white/cargo,
+/area/deepmaint)
 "nv" = (
 /obj/machinery/door/airlock{
 	name = "Unisex Restrooms"
 	},
 /turf/simulated/floor/tiled/white/panels,
-/area/deepmaint)
-"nG" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/steel,
 /area/deepmaint)
 "nK" = (
 /obj/structure/toilet{
@@ -249,10 +241,6 @@
 	},
 /turf/simulated/floor/tiled/white/panels,
 /area/deepmaint)
-"ug" = (
-/mob/living/carbon/superior_animal/stalker,
-/turf/simulated/floor/tiled/white,
-/area/deepmaint)
 "ut" = (
 /obj/item/modular_computer/console,
 /obj/machinery/light{
@@ -261,7 +249,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/deepmaint)
 "uz" = (
-/mob/living/simple_animal/hostile/onestar_custodian/engineer,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/cafe,
 /area/deepmaint)
 "uG" = (
@@ -269,11 +257,9 @@
 /obj/spawner/gun,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/deepmaint)
-"vd" = (
-/obj/machinery/newscaster{
-	pixel_x = -28
-	},
-/turf/simulated/floor/tiled/steel,
+"vt" = (
+/obj/machinery/vending/Billomat,
+/turf/simulated/floor/carpet/bcarpet,
 /area/deepmaint)
 "vK" = (
 /obj/machinery/vending/cola,
@@ -324,6 +310,10 @@
 	},
 /turf/simulated/floor/carpet/bcarpet,
 /area/deepmaint)
+"yZ" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/bluecorner,
+/area/deepmaint)
 "zj" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -27
@@ -337,6 +327,10 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/machinery/light,
 /turf/simulated/floor/grass,
+/area/deepmaint)
+"AS" = (
+/mob/living/carbon/superior_animal/stalker,
+/turf/simulated/floor/tiled/white,
 /area/deepmaint)
 "AW" = (
 /obj/structure/toilet{
@@ -360,6 +354,10 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/cafe,
+/area/deepmaint)
+"CG" = (
+/mob/living/simple_animal/hostile/onestar_custodian,
+/turf/simulated/floor/tiled/white,
 /area/deepmaint)
 "Dm" = (
 /obj/effect/decal/cleanable/blood,
@@ -500,10 +498,6 @@
 	},
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/deepmaint)
-"KD" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white/bluecorner,
-/area/deepmaint)
 "KG" = (
 /obj/structure/table/onestar,
 /obj/spawner/tool/advanced/onestar,
@@ -526,8 +520,8 @@
 "Mw" = (
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/deepmaint)
-"MR" = (
-/obj/machinery/vending/Billomat,
+"MO" = (
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/bcarpet,
 /area/deepmaint)
 "Nz" = (
@@ -536,10 +530,6 @@
 	},
 /obj/item/oddity/common/old_newspaper,
 /turf/simulated/floor/tiled/steel,
-/area/deepmaint)
-"Ou" = (
-/obj/machinery/vending/coffee,
-/turf/simulated/floor/tiled/white/cargo,
 /area/deepmaint)
 "Pq" = (
 /obj/structure/table/standard{
@@ -553,6 +543,10 @@
 	},
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/grass,
+/area/deepmaint)
+"Qi" = (
+/mob/living/simple_animal/hostile/onestar_custodian/engineer,
+/turf/simulated/floor/tiled/cafe,
 /area/deepmaint)
 "Qu" = (
 /obj/machinery/door/airlock/glass,
@@ -571,12 +565,18 @@
 /mob/living/simple_animal/hostile/onestar_custodian/chef,
 /turf/simulated/floor/tiled/white,
 /area/deepmaint)
-"Sh" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/bcarpet,
-/area/deepmaint)
 "Si" = (
 /turf/simulated/floor/tiled/white,
+/area/deepmaint)
+"Sn" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
+"Su" = (
+/obj/machinery/newscaster{
+	pixel_x = -28
+	},
+/turf/simulated/floor/tiled/steel,
 /area/deepmaint)
 "SN" = (
 /turf/simulated/floor/tiled/steel/brown_perforated,
@@ -659,6 +659,10 @@
 /obj/machinery/door/airlock/security,
 /turf/simulated/floor/tiled/white/panels,
 /area/deepmaint)
+"Ya" = (
+/mob/living/carbon/superior_animal/stalker/dual,
+/turf/simulated/floor/tiled/steel,
+/area/deepmaint)
 "Yr" = (
 /obj/structure/bed/chair/comfy/black,
 /turf/simulated/floor/tiled/cafe,
@@ -677,6 +681,10 @@
 /area/deepmaint)
 "Zt" = (
 /turf/simulated/wall/r_wall,
+/area/deepmaint)
+"ZD" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
 /area/deepmaint)
 "ZX" = (
 /obj/structure/cyberplant,
@@ -745,7 +753,7 @@ bN
 TO
 ut
 TO
-vd
+Su
 Xj
 nK
 kz
@@ -765,9 +773,9 @@ Zt
 GD
 oy
 FR
-bQ
+Ya
 ev
-nG
+Sn
 kY
 Xj
 gX
@@ -805,16 +813,16 @@ gH
 Xj
 da
 cq
-uz
+Qi
 Ft
 Xj
 GQ
-nG
+Sn
 Cb
 rm
 Nz
 rm
-nG
+Sn
 Xj
 gX
 cE
@@ -827,7 +835,7 @@ Zt
 cM
 Xj
 vK
-pH
+uz
 pH
 Pq
 sp
@@ -854,13 +862,13 @@ CF
 pH
 wJ
 sp
-MR
+vt
 GP
-KD
+yZ
 bf
 GP
 GP
-Sh
+MO
 Xj
 uG
 bJ
@@ -874,14 +882,14 @@ wq
 Du
 Xj
 pH
-pH
+uz
 Pq
 sp
 JI
 gB
 DT
 bf
-Sh
+MO
 GP
 GP
 Xj
@@ -903,7 +911,7 @@ sp
 JU
 Wu
 bf
-KD
+yZ
 GP
 GP
 GP
@@ -920,7 +928,7 @@ IU
 zj
 IU
 ps
-kK
+CG
 Si
 Xj
 ZX
@@ -943,7 +951,7 @@ Wy
 mK
 IU
 sp
-Si
+ZD
 Si
 Xj
 sp
@@ -966,13 +974,13 @@ Lj
 IU
 IU
 Qu
+ZD
 Si
 Si
 Si
+AS
 Si
-ug
-Si
-Si
+ZD
 oY
 Si
 Xj
@@ -1042,7 +1050,7 @@ UK
 KG
 Zt
 Si
-Si
+ZD
 Si
 HB
 yx
@@ -1087,7 +1095,7 @@ HQ
 SN
 Dm
 Zt
-Ou
+mR
 Ii
 Ii
 Xj
