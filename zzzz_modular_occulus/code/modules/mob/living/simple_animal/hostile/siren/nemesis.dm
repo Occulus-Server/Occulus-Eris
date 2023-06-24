@@ -98,7 +98,7 @@
 			ranged = FALSE
 
 /mob/living/simple_animal/hostile/siren/nemesis/proc/callforbackup()
-	var/list/spawnLists = list(/mob/living/simple_animal/hostile/siren/conservator,/mob/living/simple_animal/hostile/siren/conservator, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/replicant)
+	var/list/spawnLists = list(/mob/living/simple_animal/hostile/siren/intruder,/mob/living/simple_animal/hostile/siren/intruder, /mob/living/simple_animal/hostile/siren/augmentor, /mob/living/simple_animal/hostile/siren/replicant)
 	var/reinforcement_count = 3
 	while(reinforcement_count > 0)
 		var/turf/picked = get_random_secure_turf_in_range(src, 1, 3)
