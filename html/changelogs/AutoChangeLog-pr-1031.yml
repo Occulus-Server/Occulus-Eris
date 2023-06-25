@@ -1,7 +1,0 @@
-author: RadiantFlash7
-delete-after: true
-changes:
-  - bugfix: fixed siren plasma projectiles
-  - bugfix: fixed oracle transcendance
-  - bugfix: fixed siren mobs sleeping 5ever
-  - bugfix: fixed runtimes being caused when trying to find a hidden target.
