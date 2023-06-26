@@ -105725,7 +105725,10 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section3deck4central)
 "mjp" = (
-/obj/machinery/appliance/mixer,
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
+/obj/item/book/manual/modern_cooking,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/kitchen)
 "mjD" = (
@@ -106124,6 +106127,10 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
+/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/plate/bowl,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/kitchen)
 "mCf" = (
@@ -106422,6 +106429,10 @@
 	pixel_y = -28
 	},
 /obj/structure/cable/green,
+/obj/item/reagent_containers/cooking_container/plate,
+/obj/item/reagent_containers/cooking_container/plate,
+/obj/item/reagent_containers/cooking_container/plate,
+/obj/item/reagent_containers/cooking_container/plate,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/kitchen)
 "mRK" = (
@@ -106542,6 +106553,11 @@
 	layer = 5
 	},
 /obj/item/packageWrap,
+/obj/item/reagent_containers/food/condiment/cornoil,
+/obj/item/reagent_containers/food/condiment/cornoil,
+/obj/item/reagent_containers/food/condiment/cornoil,
+/obj/item/reagent_containers/food/condiment/cornoil,
+/obj/item/reagent_containers/food/condiment/cornoil,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/kitchen)
 "mYX" = (
@@ -211402,7 +211418,7 @@ dXh
 iWs
 dYt
 dZS
-mjp
+dYs
 ewD
 ewD
 cBW
@@ -211604,7 +211620,7 @@ kkF
 efZ
 efZ
 efZ
-dYs
+mjp
 ewD
 egG
 cDH
