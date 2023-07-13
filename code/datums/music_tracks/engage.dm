@@ -17,7 +17,6 @@
 	album = "Engage!"
 	song = 'sound/music/snout.ogg'
 
-
 /music_track/starbase
 	artist = "Astrometrics"
 	title = "Take us to the Nearest Starbase"
