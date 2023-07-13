@@ -13,6 +13,7 @@
 "bJ" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/gun/energy_cheap,
+/obj/spawner/gun_parts/low_chance,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/deepmaint)
 "bN" = (
@@ -56,7 +57,12 @@
 /area/deepmaint)
 "dE" = (
 /obj/structure/table/glass,
+/obj/spawner/tool_upgrade/rare/low_chance,
 /turf/simulated/floor/tiled/cafe,
+/area/deepmaint)
+"dG" = (
+/obj/spawner/gun_parts/low_chance,
+/turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/deepmaint)
 "dN" = (
 /mob/living/simple_animal/hostile/onestar_custodian/chef,
@@ -81,6 +87,10 @@
 /area/deepmaint)
 "gH" = (
 /obj/machinery/light/small,
+/turf/simulated/floor/plating/under,
+/area/deepmaint)
+"gI" = (
+/obj/spawner/tool/advanced/onestar/low_chance,
 /turf/simulated/floor/plating/under,
 /area/deepmaint)
 "gX" = (
@@ -110,6 +120,7 @@
 	icon_state = "railing0";
 	tag = "icon-railing0 (NORTH)"
 	},
+/mob/living/simple_animal/hostile/roomba/gun_ba,
 /turf/simulated/floor/plating/under,
 /area/deepmaint)
 "kz" = (
@@ -255,6 +266,7 @@
 "uG" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/gun,
+/obj/spawner/gun_parts/low_chance,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/deepmaint)
 "vt" = (
@@ -277,6 +289,7 @@
 	name = "plastic table frame"
 	},
 /obj/machinery/light,
+/obj/spawner/tool/advanced/onestar,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/deepmaint)
 "wJ" = (
@@ -341,6 +354,7 @@
 /area/deepmaint)
 "BY" = (
 /obj/structure/table/onestar,
+/obj/spawner/pack/tech_loot/onestar,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/deepmaint)
 "Cb" = (
@@ -374,6 +388,10 @@
 	},
 /obj/spawner/tool_upgrade/rare,
 /turf/simulated/floor/plating/under,
+/area/deepmaint)
+"DC" = (
+/obj/spawner/science/low_chance,
+/turf/simulated/floor/tiled/white/techfloor,
 /area/deepmaint)
 "DR" = (
 /obj/structure/table/onestar,
@@ -473,7 +491,6 @@
 	icon_state = "railing0";
 	tag = "icon-railing0 (NORTH)"
 	},
-/obj/machinery/porta_turret/One_star,
 /turf/simulated/floor/plating/under,
 /area/deepmaint)
 "IU" = (
@@ -498,6 +515,13 @@
 	},
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/deepmaint)
+"Kr" = (
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
+/obj/spawner/tool_upgrade/rare/low_chance,
+/turf/simulated/floor/tiled/cafe,
+/area/deepmaint)
 "KG" = (
 /obj/structure/table/onestar,
 /obj/spawner/tool/advanced/onestar,
@@ -511,6 +535,7 @@
 /obj/structure/table/onestar,
 /obj/spawner/tool/advanced/low_chance,
 /obj/spawner/tool/advanced/low_chance,
+/obj/spawner/pack/tech_loot/onestar,
 /turf/simulated/floor/tiled/white/techfloor,
 /area/deepmaint)
 "Lu" = (
@@ -553,6 +578,7 @@
 /turf/simulated/floor/tiled/white/panels,
 /area/deepmaint)
 "Rd" = (
+/obj/spawner/tool/advanced/onestar/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/deepmaint)
 "Rr" = (
@@ -802,7 +828,7 @@ TO
 rm
 nv
 YL
-YL
+dG
 Zt
 rL
 "}
@@ -883,7 +909,7 @@ Du
 Xj
 pH
 uz
-Pq
+Kr
 sp
 JI
 gB
@@ -995,7 +1021,7 @@ rL
 Zt
 sg
 IU
-IU
+DC
 Xj
 Si
 xg
@@ -1101,7 +1127,7 @@ Ii
 Xj
 wq
 IM
-Yu
+gI
 Zt
 rL
 "}
