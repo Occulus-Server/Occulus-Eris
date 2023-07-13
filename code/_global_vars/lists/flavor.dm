@@ -29,10 +29,7 @@ GLOBAL_LIST_INIT(music_tracks, list(
 	"Hitchhiking" = /music_track/heardofaplace,
 	"Ram it" = /music_track/snout,
 	"Pirate Hunting" = /music_track/starbase,
-	"You will be Okay" = /music_track/youwillbeokay, //Occulus edit
-	"Yehat Annilihator" = /music_track/yehat,		//Occulus edit
-	"Transiting hyperspace" = /music_track/transit,	//Occulus edit
-	"Years to late" = /music_track/yearstoolate,	//Occulus edit
+	"You will be Okay" = /music_track/youwillbeokay //Occulus edit
 ))
 
 /proc/setup_music_tracks(var/list/tracks)

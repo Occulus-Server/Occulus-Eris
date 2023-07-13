@@ -358,7 +358,6 @@
 #include "code\datums\music_tracks\europa.dm"
 #include "code\datums\music_tracks\marhaba.dm"
 #include "code\datums\music_tracks\neotheology.dm"
-#include "code\datums\music_tracks\toys4bob.dm"
 #include "code\datums\objective\abduct.dm"
 #include "code\datums\objective\absorb.dm"
 #include "code\datums\objective\assassinate.dm"
