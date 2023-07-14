@@ -1,18 +1,21 @@
-// Star Control tracks. Surprise and Terror Hunam!"
+// Star Control made by toys4bob tracks. Surprise and Terror Hunam!"
+//Tracks were composed by Riku Nuottajärvi and remixed by Riku Nuottajärvi & Harri Hakala under  Creative Commons Attribution-NonCommercial-ShareAlike 2.5 license. (https://creativecommons.org/licenses/by-sa/2.5/)
+
 /music_track/yehat
-	artist = "Toys for Bob"
+	artist = "Riku Nuottajärvi"
 	title = "yehat annihilator"
 	album = "Star Control!"
-	song = 'sound/music/Yehat_theme_music.ogg'
+	song = 'zzzz_modular_occulus/sound/CCmusic/Yehat_theme_music.ogg'
 
 /music_track/yearstoolate	//remix of yehat
-	artist = "Toys for Bob"
+	artist = "The Precursors"
 	title = "Years too Late"
 	album = "Star Control!"
-	song = 'sound/music/YearsLate.ogg'
+	song = 'zzzz_modular_occulus/sound/CCmusic/YearsLate.ogg'
 
 /music_track/transit
-	artist = "Toys for Bob"
+	artist = "Riku Nuottajärvi"
 	title = "Transit Hyperspace"
 	album = "Star Control!"
-	song = 'sound/music/transit.ogg'
+	song = 'zzzz_modular_occulus/sound/CCmusic/transit.ogg'
+//
