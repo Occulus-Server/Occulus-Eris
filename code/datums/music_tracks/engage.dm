@@ -3,7 +3,7 @@
 	artist = "Astrometrics"
 	title = "Into Hyperspace"
 	album = "Hyperspace"
-	song = 'zzzz_modular_occulus/sound/music/hyperspace.ogg'
+	song = 'sound/music/hyperspace.ogg'
 
 /music_track/heardofaplace
 	artist = "Astrometrics"
