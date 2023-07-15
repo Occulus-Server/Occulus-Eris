@@ -509,8 +509,8 @@
 
 	if(href_list["flavor_more"])
 		var/do_show = FALSE
-		do_show |= src in view(usr)
-		do_show |= usr.eyeobj && (src in view(usr.eyeobj))
+		do_show |= (src in view(usr))
+		do_show |= (usr.eyeobj && (src in view(usr.eyeobj)))
 		if(do_show)
 			var/dat = {"
 				<html><meta charset=\"utf-8\"><head><title>[name]</title></head>
