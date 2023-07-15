@@ -88,11 +88,14 @@ var/datum/discord_bot/discord_bot = new
 /hook/startup/proc/update_status()
 	spawn(0)
 		discord_bot.update_bot()
+	return TRUE
 
 /hook/roundstart/proc/update_status()
 	spawn(0)
 		discord_bot.update_bot()
+	return TRUE
 
 /hook/roundend/proc/update_status()
 	spawn(0)
 		discord_bot.update_bot()
+	return TRUE
