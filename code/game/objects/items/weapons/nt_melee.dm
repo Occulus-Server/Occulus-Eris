@@ -133,6 +133,11 @@
 	container.master_item = src
 	..()
 
+/obj/item/shield/riot/nt/make_young()
+	. = ..()
+	if (. && container)
+		container.make_young()
+
 /obj/item/shield/riot/nt/proc/handle_attack_hand(mob/user as mob)
 	return container.handle_attack_hand(user)
 

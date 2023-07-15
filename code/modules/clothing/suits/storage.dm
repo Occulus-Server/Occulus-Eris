@@ -16,6 +16,11 @@
 	QDEL_NULL(pockets)
 	. = ..()
 
+/obj/item/clothing/suit/storage/make_young()
+	. = ..()
+	if(. && pockets)
+		pockets.make_young()
+
 /obj/item/clothing/suit/storage/attack_hand(mob/user)
 	if ((is_worn() || is_held()) && !pockets.handle_attack_hand(user))
 		return TRUE
