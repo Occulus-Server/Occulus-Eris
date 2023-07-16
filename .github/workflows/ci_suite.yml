@@ -73,9 +73,6 @@ jobs:
         with:
           path: $HOME/BYOND
           key: ${{ runner.os }}-byond
-      - name: Setup example config
-        run: |
-          cp config/example/* config/
       - name: Setup database
         run: |
           sudo systemctl start mysql
@@ -89,6 +86,7 @@ jobs:
           bash tools/ci/install_rust_g.sh
       - name: Compile and run tests
         run: |
+          cp config/example/* config/
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           tools/build/build -DCIBUILDING
