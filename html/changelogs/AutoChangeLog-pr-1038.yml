@@ -1,0 +1,4 @@
+author: bearrrrrrrr
+delete-after: true
+changes:
+  - rscdel: removes the turret from chromelab.dmm
