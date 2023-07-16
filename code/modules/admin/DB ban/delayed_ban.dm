@@ -31,3 +31,4 @@ GLOBAL_LIST_EMPTY(delayed_bans)
 	for(var/datum/delayed_ban/temp in GLOB.delayed_bans)
 		if(istype(temp))
 			temp.execute()
+	return TRUE
