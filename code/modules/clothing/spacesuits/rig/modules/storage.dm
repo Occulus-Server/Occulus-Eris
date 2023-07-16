@@ -28,6 +28,12 @@
 	container.storage_slots = storage_slots
 	container.master_item = src //If its installed immediately after creation this will get set to the rig in install proc
 	.=..()
+
+/obj/item/rig_module/storage/make_young()
+	. = ..()
+	if(. && container)
+		container.make_young()
+
 /*****************************
 	Installation
 *****************************/
