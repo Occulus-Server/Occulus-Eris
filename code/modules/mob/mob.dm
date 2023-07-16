@@ -508,7 +508,10 @@
 		src << browse(null, t1)
 
 	if(href_list["flavor_more"])
-		if(src in view(usr))
+		var/do_show = FALSE
+		do_show |= (src in view(usr))
+		do_show |= (usr.eyeobj && (src in view(usr.eyeobj)))
+		if(do_show)
 			var/dat = {"
 				<html><meta charset=\"utf-8\"><head><title>[name]</title></head>
 				<body><tt>[replacetext(flavor_text, "\n", "<br>")]</tt></body>
