@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed eye-visibility-related issue for AIs or anybody using cameras to
+      view peoples' flavor texts
