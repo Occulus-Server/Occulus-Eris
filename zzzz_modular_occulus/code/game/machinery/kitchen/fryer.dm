@@ -60,6 +60,10 @@
 /obj/machinery/appliance/cooker/fryer/update_cooking_power()
 	..()//In addition to parent temperature calculation
 	//Fryer efficiency also drops when oil levels arent optimal
+	if(!oil)
+		cooking_power *= 0
+		return
+	
 	var/oil_level = oil
 	var/datum/reagent/organic/nutriment/cornoil/OL = oil.get_master_reagent()
 	if (OL && istype(OL))
