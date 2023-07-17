@@ -1,4 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed restoring storage clothing not properly restoring their pocket space
