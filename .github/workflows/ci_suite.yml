@@ -73,6 +73,9 @@ jobs:
         with:
           path: $HOME/BYOND
           key: ${{ runner.os }}-byond
+      - name: Setup example config
+        run: |
+          cp config/example config
       - name: Setup database
         run: |
           sudo systemctl start mysql
