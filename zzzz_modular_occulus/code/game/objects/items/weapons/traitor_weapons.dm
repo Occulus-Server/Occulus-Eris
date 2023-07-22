@@ -186,7 +186,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_ILLEGAL = 1)
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut") //these wont show up if the pen is off
 	sharp = TRUE
-	var/on = TRUE
+	var/on = FALSE
 	var/brightness_on = 2
 	light_color = "#B40000"
 
