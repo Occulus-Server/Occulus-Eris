@@ -100,7 +100,7 @@
 
 /obj/item/mech_component/chassis/prebuild()
 	computer = new /obj/item/robot_parts/robot_component/exosuit_control(src)
-	armor = new /obj/item/robot_parts/robot_component/armour/exosuit(src)
+	armor_plate = new /obj/item/robot_parts/robot_component/armour/exosuit(src)
 	cell = new /obj/item/cell/large/high(src)
 
 /obj/item/mech_component/chassis/attackby(obj/item/I, mob/living/user)
