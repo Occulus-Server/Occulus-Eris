@@ -25,7 +25,7 @@
 
 /datum/chemical_reaction/spacespice
     result = "spacespice"
-    required_reagents = list("pepper" = 1, "cinnamonpowder" = 1, "sodiumchloride" = 1, "capsaicin" = 1)
+    required_reagents = list("blackpepper" = 1, "cinnamonpowder" = 1, "sodiumchloride" = 1, "capsaicin" = 1)
     result_amount = 4
 
 /datum/reagent/organic/nutriment/mayonnaise
@@ -63,7 +63,7 @@
 
 /datum/chemical_reaction/batter
 	result = "batter"
-	required_reagents = list("flour" = 5, "water" = 5, "salt" = 1, "pepper" = 1)
+	required_reagents = list("flour" = 5, "water" = 5, "sodiumchloride" = 1, "blackpepper" = 1)
 	result_amount = 10	//cheap and inexpensive.
 
 /datum/reagent/organic/nutriment/beerbatter
@@ -76,7 +76,7 @@
 
 /datum/chemical_reaction/beerbatter
 	result = "beerbatter"
-	required_reagents = list("flour" = 5, "beer" = 5, "salt" = 1, "pepper" = 1)
+	required_reagents = list("flour" = 5, "beer" = 5, "sodiumchloride" = 1, "blackpepper" = 1)
 	result_amount = 10	//Same as other batters.
 
 /obj/item/reagent_containers/food/snacks/brownies
