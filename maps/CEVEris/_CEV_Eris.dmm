@@ -34401,6 +34401,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -24
+	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/rnd/xenobiology)
 "bED" = (
@@ -63069,14 +63072,12 @@
 /area/eris/command/exultant)
 "cWn" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/beakers,
-/obj/item/storage/box/syringes{
-	pixel_x = 3;
-	pixel_y = 3
-	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27
 	},
+/obj/item/ammo_magazine/ammobox/pistol,
+/obj/item/gun/projectile/selfload/moebius,
+/obj/item/ammo_magazine/pistol/empty,
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/eris/rnd/xenobiology)
 "cWo" = (
@@ -69034,8 +69035,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/gun/projectile/handmade_pistol,
-/obj/item/ammo_magazine/ammobox/pistol/rubber,
+/obj/item/storage/box/beakers,
+/obj/item/storage/box/syringes{
+	pixel_x = 3;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/xenobiology)
 "dkf" = (
@@ -70096,6 +70100,9 @@
 "dmM" = (
 /obj/machinery/camera/network/research{
 	dir = 8
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/white/danger,
 /area/eris/rnd/xenobiology)
@@ -97930,14 +97937,6 @@
 /area/eris/quartermaster/misc)
 "eBL" = (
 /obj/structure/table/reinforced,
-/obj/item/extinguisher{
-	pixel_x = 4;
-	pixel_y = 3
-	},
-/obj/item/extinguisher{
-	pixel_x = 4;
-	pixel_y = 3
-	},
 /obj/item/storage/box/monkeycubes,
 /obj/item/storage/box/monkeycubes,
 /obj/structure/disposalpipe/segment{
