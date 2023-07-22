@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed pens' attack override making concealable energy dagger pens harmless
