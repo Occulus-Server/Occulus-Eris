@@ -50,10 +50,22 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 	// Points for special slime cores
 	var/static/list/core_points = list( //Occulus Edit Start
 		/obj/item/slime_extract/grey = 200,
+		/obj/item/slime_extract/darkblue = 3000,
+		/obj/item/slime_extract/darkpurple = 3000,
+		/obj/item/slime_extract/yellow = 3000,
+		/obj/item/slime_extract/silver = 3000,
+		/obj/item/slime_extract/pink = 4000,
+		/obj/item/slime_extract/red = 4000,
 		/obj/item/slime_extract/gold = 4000,
-		/obj/item/slime_extract/adamantine = 6000,
+		/obj/item/slime_extract/green = 4000,
+		/obj/item/slime_extract/adamantine = 10000,
 		/obj/item/slime_extract/bluespace = 10000,
-		/obj/item/slime_extract/rainbow = 20000
+		/obj/item/slime_extract/sepia = 10000,
+		/obj/item/slime_extract/rainbow = 10000,
+		/obj/item/slime_extract/pyrite = 10000,
+		/obj/item/slime_extract/oil = 10000,
+		/obj/item/slime_extract/black = 10000,
+		/obj/item/slime_extract/lightpink = 10000
 	) //Occulus Edit End
 
 /*

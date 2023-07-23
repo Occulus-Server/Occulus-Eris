@@ -1121,6 +1121,8 @@
 /datum/chemical_reaction/slime/cell/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/obj/item/cell/large/slime/P = new /obj/item/cell/large/slime
 	P.loc = get_turf(holder.my_atom)
+	var/obj/item/slime_extract/T = holder.my_atom //Occulus Edit: Deletes old yellow core
+	del(T) //Occulus Edit: Deletes old yellow core
 
 /datum/chemical_reaction/slime/glow
 	result = null
@@ -1133,6 +1135,8 @@
 	..()
 	var/obj/item/device/slimelight/F = new /obj/item/device/slimelight
 	F.loc = get_turf(holder.my_atom)
+	var/obj/item/slime_extract/T = holder.my_atom //Occulus Edit: Deletes old yellow core
+	del(T) //Occulus Edit: Deletes old yellow core
 
 //Purple
 /datum/chemical_reaction/slime/psteroid
