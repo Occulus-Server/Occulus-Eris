@@ -19,7 +19,7 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	rarity_value = 8
 	init_firemodes = list(
-		list(mode_name="stun", burst=1, projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg', fire_delay=5, charge_cost=40, icon="stun", projectile_color = "#00FFFF")
+		list(mode_name="stun", burst=1, projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg', fire_delay=5, charge_cost=40, icon="stun", projectile_color = "#00FFFF"),
 		list(mode_name="stun burst", burst=3, projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg', fire_delay=8, charge_cost=40, icon="burst", projectile_color = "#00FFFF"),
 		list(mode_name="kill", burst=3, projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg', fire_delay=8, charge_cost=60, icon="kill", projectile_color = "#8bbdd9"),
 		)
