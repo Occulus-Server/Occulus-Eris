@@ -1,4 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed improper mech armour assignment still leaving it highly exposed
