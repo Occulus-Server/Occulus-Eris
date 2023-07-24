@@ -1,8 +1,0 @@
-author: Jamini
-delete-after: true
-changes:
-  - bugfix: Yellow cores now are deleted when creating slimelights and slimecells
-  - bugfix: Removed MATERIAL_GOLD and MATERIAL_SILVER from slime mutation file. Why.
-  - tweak: increased point gain from slime cores
-  - tweak: slime cores now give points based on tier. Sadly spaghet coded
-  - tweak: adjusted loadout in xenobiology lab
