@@ -28,12 +28,15 @@
 	Keeping it here to be safe. %D"
 
 /datum/stash/junk/plush
-	contents_list_extra = list(/obj/item/toy/plushie/soygel = 1,
-	/obj/item/toy/plushie/lexi = 1,
-	/obj/item/toy/plushie/mouse = 1,
-	/obj/item/toy/plushie/kitten = 1,
-	/obj/item/toy/plushie/lizard =1,
-	/obj/item/toy/plushie/spider =1)
+	contents_list_extra = list(
+		/obj/item/toy/plushie/soygel = 1,
+		/obj/item/toy/plushie/lexi = 1,
+		/obj/item/toy/plushie/mouse = 1,
+		/obj/item/toy/plushie/kitten = 1,
+		/obj/item/toy/plushie/lizard = 1,
+		/obj/item/toy/plushie/spider = 1,
+		/obj/item/toy/plushie/shark = 1,
+	)
 	contents_list_external = list(/obj/item/remains/human = 1)
 	lore = "I am taking my friends and getting off this hulk! <br>\
  	We are doomed if we stay here, you should come too!<br>\

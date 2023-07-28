@@ -645,6 +645,17 @@
 	desc = "A plushie of a fuzzy spider! It has eight legs - all the better to hug you with."
 	icon_state = "spiderplushie"
 
+/obj/item/toy/plushie/shark
+	name = "shark plush"
+	desc = "A plushie depicting a somewhat cartoonish shark. The tag calls it a 'hákarl', noting that it was made by an obscure furniture manufacturer in old Scandinavia."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_plushes.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_plushes.dmi',
+	)
+	icon_state = "blahaj"
+	item_state = "blahaj"
+
+
 //Toy cult sword
 /obj/item/toy/cultsword
 	name = "foam sword"
