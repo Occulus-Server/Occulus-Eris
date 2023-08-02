@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - rscadd: Added Blåhaj plushie, available in junk stashes and from character customization
+      as one of the sub-options of the plushie item in 'General' category.
