@@ -1,6 +1,6 @@
 /obj/item/gun/energy/resolute
 	name = "DSS ECAR \"Resolute\""
-	desc = "\"DeepFlare Security System\" energy carbine. The byzantine internal capacitor design requires this gun to fire in bursts of three. It has notably become a go-to firearm for station security forces due to it's stun capabilities."
+	desc = "\"DeepFlare Security System\" energy carbine. The byzantine internal capacitor design limits this guns lasers to fire in bursts of three. It has notably become a go-to firearm for station security forces due to it's stun capabilities."
 	icon = 'zzzz_modular_occulus/icons/obj/guns/energy/resolute.dmi'
 	item_state = "vulprifle"
 	icon_state = "vulprifle"
@@ -19,7 +19,8 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	rarity_value = 8
 	init_firemodes = list(
-		list(mode_name="stun", burst=3, projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg', fire_delay=8, charge_cost=40, icon="stun", projectile_color = "#00FFFF"),
+		list(mode_name="stun", burst=1, projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg', fire_delay=5, charge_cost=40, icon="stun", projectile_color = "#00FFFF"),
+		list(mode_name="stun burst", burst=3, projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg', fire_delay=8, charge_cost=40, icon="burst", projectile_color = "#00FFFF"),
 		list(mode_name="kill", burst=3, projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg', fire_delay=8, charge_cost=60, icon="kill", projectile_color = "#8bbdd9"),
 		)
 
@@ -42,5 +43,5 @@
 	fire_sound = 'sound/weapons/guns/fire/energy_shotgun.ogg'
 	rarity_value = 8
 	init_firemodes = list(
-		list(mode_name="kill", projectile_type=/obj/item/projectile/bullet/pellet/energy, fire_sound='sound/weapons/guns/fire/energy_shotgun.ogg', fire_delay=6, charge_cost=180, icon="kill" ),
+		list(mode_name="kill", projectile_type=/obj/item/projectile/bullet/pellet/energy, fire_sound='sound/weapons/guns/fire/energy_shotgun.ogg', fire_delay=6, charge_cost=80, icon="kill" ),
 		)
