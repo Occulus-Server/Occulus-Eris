@@ -454,6 +454,14 @@ proc/TextPreview(var/string, var/len=40)
 	t = replacetext(t, "\[ironhammer\]", "<img src = ironhammer.png>")
 	t = replacetext(t, "\[guild\]", "<img src = guild.png>")
 	t = replacetext(t, "\[logo\]", "<img src = ntlogo.png>")
+	t = replacetext(t, "\[orion\]", "<img src = orionlogo.png>")//Occulus Edit - Special thanks to Toriate for these images
+	t = replacetext(t, "\[aegis\]", "<img src = aegislogo.png>")//Occulus Edit
+	t = replacetext(t, "\[union\]", "<img src = unionlogo.png>")//Occulus Edit
+	t = replacetext(t, "\[club\]", "<img src = clublogo.png>")//Occulus Edit
+	t = replacetext(t, "\[ntsci\]", "<img src = ntscilogo.png>")//Occulus Edit
+	t = replacetext(t, "\[ntmed\]", "<img src = netmedlogo.png>")//Occulus Edit
+	t = replacetext(t, "\[mekhane\]", "<img src = mekhanelogo.png>")//Occulus Edit
+	t = replacetext(t, "\[ees\]", "<img src = eeslogo.png>")//Occulus Edit
 	t = replacetext(t, "\[editorbr\]", "")
 	return t
 
