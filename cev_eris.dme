@@ -2891,6 +2891,7 @@
 #include "zzzz_modular_occulus\code\datums\outfits\jobs\command.dm"
 #include "zzzz_modular_occulus\code\datums\outfits\jobs\engineering.dm"
 #include "zzzz_modular_occulus\code\datums\outfits\jobs\medical.dm"
+#include "zzzz_modular_occulus\code\datums\perks\fate.dm"
 #include "zzzz_modular_occulus\code\datums\perks\oddity.dm"
 #include "zzzz_modular_occulus\code\datums\setup_option\core_implants.dm"
 #include "zzzz_modular_occulus\code\datums\setup_option\backgrounds\fate.dm"

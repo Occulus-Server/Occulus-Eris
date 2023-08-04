@@ -16,3 +16,14 @@
 		STAT_VIG = 5
 	)
 	perks = list(PERK_GUNSMITH)
+
+/datum/category_item/setup_option/background/fate/desensitized
+	name = "Desensitized"
+	desc = "You have seen the worst the galaxy has had to offer. You are largely unbothered by dirt, blood, and gore. \
+	In dangerous situations you are difficult to shake or unsettle. \
+	However the bizzare and strange has little allure for you, vastly reducing your insight."
+	stat_modifiers = list(
+		STAT_VIG = 5,
+		STAT_COG = -10
+	)
+	perks = list(PERK_DESENSITIZED)

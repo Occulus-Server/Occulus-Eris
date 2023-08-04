@@ -11,6 +11,7 @@
 #define PERK_REJECTED_GENIUS /datum/perk/fate/rejected_genius
 #define PERK_OBORIN_SYNDROME /datum/perk/fate/oborin_syndrome
 #define PERK_LOWBORN /datum/perk/fate/lowborn
+#define PERK_DESENSITIZED /datum/perk/fate/desensitized //Occulus Edit
 
 // oddity perks
 #define PERK_FAST_WALKER /datum/perk/oddity/fast_walker
