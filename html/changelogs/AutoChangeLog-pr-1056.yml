@@ -1,8 +1,0 @@
-author: Jamini
-delete-after: true
-changes:
-  - rscadd: logos for each department. Use [orion][club][aegis][ntmed][ntsci][union][mekhane][ees]
-      as tags to add them to paperwork!
-  - rscadd: Desensitized Fate, the sad army cousin of Rejected genius!
-  - tweak: Nanoword now had multiline support for the body
-  - tweak: Email now has multiline support for the body
