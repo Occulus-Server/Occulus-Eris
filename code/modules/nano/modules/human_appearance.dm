@@ -14,7 +14,7 @@
 
 
 /datum/nano_module/appearance_changer/New(var/location, var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list("human"), var/list/species_blacklist = list())
-	..()
+	..(location, null)
 	owner = H
 	src.check_whitelist = check_species_whitelist
 	src.whitelist = species_whitelist
