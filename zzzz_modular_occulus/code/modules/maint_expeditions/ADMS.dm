@@ -78,6 +78,10 @@
 		inserted_disk_file.size += 0.8 * harvest_speed//200 points per tick per tier of laser
 		if(prob(1))
 			src.spawn_monsters("Spiders",2)
+	if(istype(get_area(src), /area/mine/explored))//Spooders because no Nothern Light
+		inserted_disk_file.size += 0.2 * harvest_speed//50 points per tick per tier of laser
+		if(prob(1))
+			src.spawn_monsters("Space",2)//Fewer than deepmaint, since this area is not as dangerous. Need to make a new spacemob spawner!
 	else
 		if(prob(10))
 			src.spawn_monsters("Roaches",1)//On the station is just calls groups of roaches!
