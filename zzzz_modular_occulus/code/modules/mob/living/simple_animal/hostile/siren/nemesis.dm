@@ -14,8 +14,8 @@
 	projectiletype = /obj/item/projectile/beam/siren/rapidlaser
 	vision_range = 15
 	aggro_vision_range = 20
-	maxHealth = 6000
-	health = 6000
+	maxHealth = 5000
+	health = 5000
 	harm_intent_damage = 50
 	melee_damage_lower = 40
 	melee_damage_upper = 50
@@ -36,6 +36,8 @@
 	var/phase = 1
 	var/recovery_time = 0
 	var/recoverystate = 0
+	var/shield_charge_time
+	var/shield_change = 10 SECONDS
 	mob_inaccuracy = 15			//% chance for a shot to have some variance.
 	var/list/masterphases = list(1,2,3,4)	//phase 1 is lasers, phase 2 plasma, phase 3 melee, phase 4 heal
 	var/list/allowedphases = list(1,2,3,4)
@@ -111,6 +113,10 @@
 	stop_automated_movement = TRUE
 	if(!target_mob || SA_attackable(target_mob))
 		stance = HOSTILE_STANCE_IDLE
+	if(world.time >= shield_charge_time && shieldcharge <= 10)
+		shieldcharge = 10
+		shield_charge_time = world.time + shield_change
+		visible_message("<span class='userdanger'>[src] recycles as it's shield, The energetic barrier growing stronger!</span>", 1)
 	if(world.time >= phase_change_time)	//rotate phases ever 25 seconds
 		src.phasepick()
 		phase_change_time = world.time + phase_change
