@@ -14,8 +14,8 @@
 	projectiletype = /obj/item/projectile/beam/siren/rapidlaser
 	vision_range = 15
 	aggro_vision_range = 20
-	maxHealth = 2000
-	health = 2000
+	maxHealth = 6000
+	health = 6000
 	harm_intent_damage = 50
 	melee_damage_lower = 40
 	melee_damage_upper = 50
@@ -111,7 +111,7 @@
 	stop_automated_movement = TRUE
 	if(!target_mob || SA_attackable(target_mob))
 		stance = HOSTILE_STANCE_IDLE
-	if(world.time >= phase_change_time)	//rotate phases ever 10 seconds
+	if(world.time >= phase_change_time)	//rotate phases ever 25 seconds
 		src.phasepick()
 		phase_change_time = world.time + phase_change
 	if(phase == 4)	//Recovery phase
