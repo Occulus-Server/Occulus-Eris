@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed both handheld and stationary mirrors deleting their users when themselves
-      were deleted.
