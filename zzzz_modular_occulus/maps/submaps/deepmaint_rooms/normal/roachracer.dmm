@@ -1,0 +1,40 @@
+"a" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/space)
+"b" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced,/turf/simulated/floor/tiled/dark,/area/space)
+"c" = (/obj/machinery/door/window/southright{dir = 4; icon_state = "left"; name = "Containment Pen"},/obj/machinery/light/small{dir = 1; pixel_y = 19},/obj/item/reagent_containers/food/snacks/loadedbakedpotato,/turf/simulated/floor/tiled/dark/bluecorner,/area/space)
+"f" = (/obj/item/roach_egg,/obj/machinery/light/small{dir = 1; pixel_y = 19},/turf/simulated/floor/tiled/dark,/area/space)
+"g" = (/obj/machinery/door/window/southright{dir = 4; icon_state = "left"; name = "Containment Pen"},/turf/simulated/floor/tiled/dark,/area/space)
+"h" = (/obj/item/roach_egg,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/tiled/dark,/area/space)
+"p" = (/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled/techmaint,/area/space)
+"q" = (/obj/structure/window/reinforced,/turf/simulated/floor/tiled/cafe,/area/space)
+"s" = (/obj/structure/bed/chair{dir = 1},/turf/simulated/floor/tiled/cafe,/area/space)
+"t" = (/turf/simulated/floor/tiled/dark/bluecorner,/area/space)
+"u" = (/obj/machinery/portable_atmospherics/hydroponics/soil,/obj/item/seeds/potatoseed,/obj/item/seeds/potatoseed,/obj/structure/window/reinforced,/turf/simulated/floor/tiled/cafe,/area/space)
+"w" = (/obj/effect/decal/cleanable/dirt,/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled/techmaint,/area/space)
+"A" = (/obj/spawner/mob/roaches/cluster,/turf/simulated/floor/tiled/techmaint,/area/space)
+"C" = (/obj/machinery/light/small{dir = 1; pixel_y = 19},/obj/machinery/door/window/southright{dir = 4; icon_state = "left"; name = "Containment Pen"},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/cafe,/area/space)
+"D" = (/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/floor/tiled/techmaint,/area/space)
+"F" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced,/obj/structure/table/reinforced,/obj/item/reagent_containers/food/snacks/rawcutlet,/obj/item/reagent_containers/food/snacks/rawcutlet,/obj/item/reagent_containers/food/snacks/rawcutlet,/obj/item/reagent_containers/food/snacks/rawcutlet,/obj/item/reagent_containers/food/snacks/rawcutlet,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/cafe,/area/space)
+"G" = (/turf/simulated/floor/tiled/techmaint,/area/space)
+"I" = (/obj/structure/window/reinforced,/obj/structure/table/reinforced,/obj/item/tool/knife/butch,/turf/simulated/floor/tiled/cafe,/area/space)
+"J" = (/obj/machinery/door/airlock/glass,/turf/simulated/floor/tiled/dark,/area/space)
+"K" = (/obj/item/roach_egg,/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/tiled/dark,/area/space)
+"L" = (/obj/machinery/portable_atmospherics/hydroponics/soil,/obj/structure/window/reinforced,/turf/simulated/floor/tiled/cafe,/area/space)
+"N" = (/obj/structure/window/reinforced,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/cafe,/area/space)
+"P" = (/turf/simulated/wall/r_wall,/area/space)
+"R" = (/obj/item/roach_egg,/obj/structure/window/reinforced,/turf/simulated/floor/tiled/dark,/area/space)
+"T" = (/turf/simulated/floor/tiled/cafe,/area/space)
+"Y" = (/obj/structure/bed/chair{dir = 1},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/cafe,/area/space)
+
+(1,1,1) = {"
+aGGpGGGGGaG
+GPPPDDDDDPa
+GPAJtttttcG
+pPPPDDDDDPG
+GPAJtttttcG
+GPPPDDDDDPG
+GPAJtttttca
+GPPPDDDDDPa
+GKfgTYsssCa
+ahRbuLNqIFG
+aaGGGGpaawp
+"}

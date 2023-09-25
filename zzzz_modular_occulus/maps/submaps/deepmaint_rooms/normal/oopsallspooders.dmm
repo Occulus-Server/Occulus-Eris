@@ -1,0 +1,43 @@
+"a" = (/obj/effect/decal/cleanable/dirt,/obj/spawner/mob/spiders/cluster,/turf/simulated/floor/plating/under,/area/space)
+"c" = (/obj/structure/railing{dir = 8},/obj/structure/railing{dir = 1},/obj/effect/spider/stickyweb,/turf/simulated/floor/plating/under,/area/space)
+"e" = (/obj/structure/catwalk,/obj/effect/spider/stickyweb,/turf/simulated/floor/plating/under,/area/space)
+"f" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plating/under,/area/space)
+"g" = (/obj/structure/railing{dir = 4},/obj/structure/railing{dir = 1},/obj/effect/spider/stickyweb,/turf/simulated/floor/plating/under,/area/space)
+"h" = (/obj/structure/railing{dir = 1},/obj/structure/railing{dir = 4},/obj/effect/spider/stickyweb,/turf/simulated/floor/plating/under,/area/space)
+"i" = (/obj/structure/catwalk,/turf/simulated/floor/plating/under,/area/space)
+"l" = (/obj/structure/catwalk,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plating/under,/area/space)
+"p" = (/obj/structure/railing{dir = 8},/obj/structure/railing,/turf/simulated/floor/plating/under,/area/space)
+"q" = (/obj/effect/spider/stickyweb,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plating/under,/area/space)
+"t" = (/obj/effect/spider/stickyweb,/obj/effect/decal/cleanable/dirt,/obj/spawner/mob/spiders/cluster,/turf/simulated/floor/plating/under,/area/space)
+"u" = (/obj/effect/spider/stickyweb,/obj/structure/railing{dir = 4},/turf/simulated/floor/plating/under,/area/space)
+"v" = (/obj/structure/railing,/obj/structure/railing{dir = 8},/turf/simulated/floor/plating/under,/area/space)
+"x" = (/obj/structure/railing{dir = 4},/obj/structure/railing,/turf/simulated/floor/plating/under,/area/space)
+"y" = (/obj/structure/railing,/obj/structure/railing{dir = 4},/obj/effect/spider/stickyweb,/turf/simulated/floor/plating/under,/area/space)
+"G" = (/obj/spawner/mob/spiders/cluster,/turf/simulated/floor/plating/under,/area/space)
+"H" = (/obj/effect/spider/stickyweb,/obj/structure/railing{dir = 1},/turf/simulated/floor/plating/under,/area/space)
+"I" = (/obj/effect/spider/stickyweb,/obj/spawner/mob/spiders/cluster,/turf/simulated/floor/plating/under,/area/space)
+"K" = (/obj/effect/spider/stickyweb,/obj/structure/railing,/turf/simulated/floor/plating/under,/area/space)
+"L" = (/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating/under,/area/space)
+"N" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/effect/spider/stickyweb,/turf/simulated/floor/plating/under,/area/space)
+"O" = (/obj/effect/spider/stickyweb,/turf/simulated/floor/plating/under,/area/space)
+"P" = (/turf/simulated/wall/r_wall,/area/space)
+"Q" = (/obj/effect/spider/stickyweb,/obj/structure/railing{dir = 8},/turf/simulated/floor/plating/under,/area/space)
+"R" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/structure/spider_nest,/obj/item/storage/belt/holding,/turf/simulated/floor/plating/under,/area/space)
+"S" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/effect/spider/stickyweb,/obj/effect/spider/stickyweb,/turf/simulated/floor/plating/under,/area/space)
+"U" = (/turf/simulated/floor/plating/under,/area/space)
+"W" = (/obj/structure/railing{dir = 1},/obj/structure/railing{dir = 8},/obj/effect/spider/stickyweb,/turf/simulated/floor/plating/under,/area/space)
+"Y" = (/obj/effect/spider/stickyweb,/obj/effect/spider/stickyweb,/turf/simulated/floor/plating/under,/area/space)
+
+(1,1,1) = {"
+ttUOuiQOOIG
+aOPPPiPPPOI
+UPPOxipOPPf
+OPOIiLeIOPq
+KPyiNSNivPK
+llieNRNiiii
+HPhiNNNiWPH
+OPOIeliIOPO
+OPPOglcUPPO
+tqPPPiPPPYI
+atOOuiQOUta
+"}

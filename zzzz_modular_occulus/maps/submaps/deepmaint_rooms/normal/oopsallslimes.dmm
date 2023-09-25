@@ -1,0 +1,45 @@
+"a" = (/obj/spawner/mob/roaches/cluster,/turf/simulated/floor/tiled/techmaint,/area/space)
+"b" = (/turf/simulated/floor/tiled/white/brown_perforated,/area/space)
+"c" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/space)
+"f" = (/mob/living/carbon/slime,/turf/simulated/floor/reinforced,/area/space)
+"g" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white/danger,/area/space)
+"i" = (/obj/machinery/light{dir = 1},/obj/item/trash,/turf/simulated/floor/tiled/white/danger,/area/space)
+"j" = (/obj/structure/table/reinforced,/obj/machinery/light,/obj/item/stack/material/phoron{layer = 2.9},/obj/item/storage/box/beakers,/obj/item/storage/box/syringes{pixel_x = 3; pixel_y = 3},/turf/simulated/floor/tiled/steel,/area/space)
+"k" = (/turf/simulated/wall/r_wall,/area/space)
+"l" = (/turf/simulated/floor/tiled/steel,/area/space)
+"m" = (/obj/structure/table/reinforced,/obj/structure/extinguisher_cabinet{pixel_x = 24},/obj/item/device/scanner/xenobio,/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled/steel,/area/space)
+"n" = (/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled/steel,/area/space)
+"o" = (/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled/techmaint,/area/space)
+"p" = (/obj/structure/table/reinforced,/obj/machinery/reagentgrinder/portable,/turf/simulated/floor/tiled/steel,/area/space)
+"s" = (/obj/item/gun/projectile/selfload/moebius,/obj/item/ammo_magazine/pistol/highvelocity,/obj/landmark/corpse/doctor,/turf/simulated/floor/tiled/white/brown_perforated,/area/space)
+"v" = (/obj/item/trash,/turf/simulated/floor/tiled/white/danger,/area/space)
+"x" = (/mob/living/carbon/slime,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/reinforced,/area/space)
+"y" = (/obj/spawner/mob/roaches/cluster,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/space)
+"z" = (/turf/simulated/floor/tiled/white/danger,/area/space)
+"B" = (/obj/structure/sink/kitchen{pixel_y = 26},/turf/simulated/floor/tiled/white/danger,/area/space)
+"D" = (/obj/structure/table/reinforced,/obj/item/storage/box/monkeycubes,/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled/steel,/area/space)
+"F" = (/obj/machinery/door/window/southright{dir = 1; icon_state = "left"; name = "Containment Pen"},/obj/machinery/door/window/southright{icon_state = "left"; name = "Containment Pen"},/turf/simulated/floor/reinforced,/area/space)
+"G" = (/obj/effect/window_lwall_spawn/smartspawn,/turf/simulated/floor/tiled/techmaint,/area/space)
+"I" = (/obj/effect/decal/cleanable/dirt,/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled/techmaint,/area/space)
+"J" = (/turf/simulated/floor/tiled/techmaint,/area/space)
+"K" = (/turf/simulated/floor/reinforced,/area/space)
+"O" = (/obj/effect/decal/cleanable/dirt,/obj/item/trash,/turf/simulated/floor/tiled/white/danger,/area/space)
+"Q" = (/obj/machinery/light,/obj/machinery/computer/operating{dir = 1; name = "Xenobiology Operating Computer"},/turf/simulated/floor/tiled/steel,/area/space)
+"R" = (/obj/structure/bed/chair,/turf/simulated/floor/tiled/white/danger,/area/space)
+"S" = (/obj/machinery/optable{name = "Xenobiology Operating Table"},/turf/simulated/floor/tiled/steel,/area/space)
+"V" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/white/danger,/area/space)
+"W" = (/mob/living/carbon/human/monkey,/turf/simulated/floor/reinforced,/area/space)
+
+(1,1,1) = {"
+aJccJacccoa
+JkkkklkkkkI
+JkWWklkWWkc
+JkfKklkxKkJ
+JkGFknkGFkJ
+JVzgBzzzziJ
+JObbbsbbbzJ
+czzRRggzvzJ
+JkpjDmkQSkJ
+Jkkkkkkkkkc
+aJccJaJJJcy
+"}

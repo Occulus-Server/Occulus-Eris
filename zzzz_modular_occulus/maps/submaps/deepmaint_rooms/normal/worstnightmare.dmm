@@ -1,0 +1,22 @@
+"a" = (/turf/simulated/wall/r_wall,/area/space)
+"l" = (/obj/effect/decal/cleanable/dirt,/obj/item/trash,/turf/simulated/floor/tiled/techmaint,/area/space)
+"o" = (/obj/item/trash,/turf/simulated/floor/tiled/techmaint,/area/space)
+"A" = (/obj/item/bikehorn/rubberducky,/obj/effect/decal/cleanable/dirt,/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled/techmaint,/area/space)
+"I" = (/turf/simulated/floor/tiled/techmaint,/area/space)
+"L" = (/obj/machinery/door/airlock/hatch,/obj/machinery/door/airlock/hatch,/obj/machinery/door/airlock/hatch,/obj/machinery/door/airlock/hatch,/obj/machinery/door/airlock/hatch,/turf/simulated/floor/tiled/techmaint,/area/space)
+"Q" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/techmaint,/area/space)
+"Y" = (/obj/machinery/door/airlock/hatch,/obj/machinery/door/airlock/hatch,/obj/machinery/door/airlock/hatch,/turf/simulated/floor/tiled/techmaint,/area/space)
+
+(1,1,1) = {"
+aaoIQaQQIaa
+aaaQQaoQaaa
+QaaaYaYaaaI
+QQaaIQIaaQl
+IoYIaLaQYQI
+aaalLALQaaa
+QIYQaLaIYQo
+oIaaIQIaaQQ
+IaaaYaYaaaI
+aaaQQaIQaaa
+aaIoIaQQIaa
+"}
