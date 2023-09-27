@@ -1,0 +1,7 @@
+author: Jamini
+delete-after: true
+changes:
+  - rscadd: Four new lesser deepmaint rooms
+  - balance: added additional mob spawns in deepmaint corridors
+  - tweak: Adjustments to maint based on ongoing IRC events
+  - tweak: removed duplicate door in the cafe
