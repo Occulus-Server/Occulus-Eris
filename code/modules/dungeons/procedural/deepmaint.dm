@@ -176,6 +176,7 @@ var/global/list/big_deepmaint_room_templates = list()
 	var/niche_count = 20
 	var/try_count = niche_count * 7 //In case it somehow zig-zags all of the corridors and stucks in a loop
 	var/trap_count = 100
+	var/mob_count = 30 //Occulus Edit: Adding some spawners - MIght bump this up later
 	var/list/path_turfs_copy = path_turfs.Copy()
 	while(niche_count > 0 && try_count > 0)
 		try_count = try_count - 1
@@ -188,6 +189,22 @@ var/global/list/big_deepmaint_room_templates = list()
 		var/turf/N = pick(path_turfs_copy)
 		path_turfs_copy -= N
 		new /obj/spawner/traps(N)
+	while(mob_count > 0)//Occulus Edit Start
+		mob_count = mob_count -1
+		var/turf/N = pick(path_turfs_copy)
+		path_turfs_copy -= N
+		if(prob(60)) //60% chance of roaches
+			new /obj/spawner/mob/roaches/cluster(N)
+		else if(prob(50)) //20% chance of spiders
+			new /obj/spawner/mob/spiders/cluster(N)
+		else if(prob(50)) //10% chance of slimes
+			new /obj/spawner/mob/slime/cluster(N)
+		else if(prob(50)) //5% chance of SPUD
+			new /obj/spawner/mob/spud(N)
+		else if(prob(80)) //4% chance of roombas
+			new /obj/spawner/mob/cluster/roombattler(N)
+		else //1% chance of rainbow slime
+			new /obj/spawner/mob/slime/rainbow(N)//Occulus Edit End
 	for(var/turf/T in path_turfs)
 		if(prob(30))
 			new /obj/effect/decal/cleanable/dirt(T) //Wanted to put rust on the floors in deep maint, but by god, the overlay looks like ASS
